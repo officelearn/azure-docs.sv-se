@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 6d307111d8c19324cb6daf82a234ff9128103fd2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9108c52529319288fba48dbad3c6f8aa6cb5f725
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763443"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850759"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Aktivera avbildning av händelser som strömmas via Azure Event Hubs
 
@@ -47,8 +47,12 @@ Om du vill samla in data till Azure Data Lake Store skapar du ett Data Lake Stor
 
 ### <a name="create-an-azure-data-lake-store-account-and-folders"></a>Skapa ett Azure Data Lake Store-konto och mappar
 
-1. Skapa ett Data Lake Store-konto enligt anvisningarna i [Kom igång med Azure Data Lake Store med hjälp av Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md).
+> [!NOTE]
+> Funktionen Event Hubs Capture stöder för närvarande endast Gen 1 av Azure Data Lake Store, inte generation 2. 
+
+1. Skapa ett Data Lake Store Gen 1-konto, följa anvisningarna i [Kom igång med Azure Data Lake Store med Azure portal](../data-lake-store/data-lake-store-get-started-portal.md).
 2. Följ anvisningarna i avsnittet [Tilldela behörigheter till Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) om du vill skapa en mapp i det Data Lake Store-konto där du vill samla in data från Event Hubs och vill tilldela behörigheter till Event Hubs så att det kan skriva data till ditt Data Lake Store-konto.  
+
 
 ### <a name="create-an-event-hub"></a>Skapa en händelsehubb
 

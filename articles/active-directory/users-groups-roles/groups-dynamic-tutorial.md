@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3883ddcad1c41e131d52016e4fa94a3e668adcd1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f1110ef9383798ddeb8a04a0e19deb441e3d207c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209735"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081312"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Självstudier: Lägga till eller ta bort gruppmedlemmar automatiskt
 
@@ -34,9 +34,9 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Den här funktionen kräver en Azure AD Premium-licens för dig som global administratör för klientorganisationen. Om du inte har en väljer du **Licenser** > **Produkter** > **Testa/Köp** i Azure AD.
+Den här funktionen kräver en Azure AD Premium-licens för du som global administratör för klienten. Om du inte har en väljer du **Licenser** > **Produkter** > **Testa/Köp** i Azure AD.
 
 Du behöver inte tilldela licenser till användarna för att de ska bli medlemmar i dynamiska grupper. Du behöver bara det minsta antalet tillgängliga Azure AD Premium P1-licenser i klientorganisationen för att täcka alla sådana användare. 
 
@@ -44,15 +44,15 @@ Du behöver inte tilldela licenser till användarna för att de ska bli medlemma
 
 Först skapar du en grupp för dina gästanvändare som alla finns i samma partnerföretag. De behöver en speciallicens, så det är ofta effektivare att skapa en grupp för det här syftet.
 
-1. Logga in på Azure Portal https://portal.azure.com) med ett konto som är global administratör för klientorganisationen.
+1. Logga in på Azure-portalen (https://portal.azure.com) med ett konto som är global administratör för din klient.
 2. Välj **Azure Active Directory** > **Grupper** > **Ny grupp**.
-  ![välj kommandot för ny grupp](./media/groups-dynamic-tutorial/new-group.png)
+   ![välj kommandot för ny grupp](./media/groups-dynamic-tutorial/new-group.png)
 3. På bladet **Grupp**:
   
-  * Välj **Säkerhet** som grupptyp
-  * Ange `Guest users Contoso` som namn och beskrivning för gruppen
-  * Ändra **Medlemstyp** till **Dynamisk användare**
-  * Välj **Lägg till dynamisk fråga**
+   * Välj **Säkerhet** som grupptyp
+   * Ange `Guest users Contoso` som namn och beskrivning för gruppen
+   * Ändra **Medlemstyp** till **Dynamisk användare**
+   * Välj **Lägg till dynamisk fråga**
   
 4. Välj **Avancerad regel** och ange följande i rutan **Avancerad regel**: `(user.userType -eq "Guest") -and (user.companyName -eq "Contoso")`
 5. Välj **Lägg till fråga** för att stänga bladet.

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 875548b8277e50ccb813cf6b36541a053abdbb70
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: c91fa2c269b507988d2bdefcd2882b2ab55fec35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222073"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094873"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrera servrar som kör Windows Server 2008 till Azure
 
@@ -44,13 +44,15 @@ Avsnittet med begränsningar och kända problem listar några begränsningar och
 > - Se till att du har senaste service pack och Windows-uppdateringar installerade innan du migrerar.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar är det bra att granska Azure Site Recovery-arkitekturen för [migrering av VMware och fysisk server](vmware-azure-architecture.md) eller [migrering av virtuell Hyper-V-dator](hyper-v-azure-architecture.md) 
 
 Om du vill migrera virtuella Hyper-V-datorer som kör Windows Server 2008 eller Windows Server 2008 R2 följer du stegen i självstudiekursen om [migrering av lokala datorer till Azure](migrate-tutorial-on-premises-azure.md).
 
 Resten av den här självstudiekursen visar hur du kan migrera lokala virtuella VMware-datorer och fysiska servrar som kör Windows Server 2008 eller 2008 R2.
+> [!TIP]
+> Letar du efter en agentfri metod för att migrera virtuella VMware-datorer till Azure? [Klicka här](https://aka.ms/migrateVMs-signup)
 
 
 ## <a name="limitations-and-known-issues"></a>Begränsningar och kända problem

@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 0cda3c1ff25c6e97e481e39d60c1dc610594c6e5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8220fe4410684f17ea817cd718d9ef1f58312b4c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780974"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834728"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Kom igång med Java-klientens SDK för Azure Media Services  
 
@@ -318,7 +318,7 @@ Mer Media Services Javadoc-dokumentation finns i [Azure-bibliotek för Java-doku
 <!-- URLs. -->
 
 [Azure Media Services SDK Maven Package]: https://mvnrepository.com/artifact/com.microsoft.azure/azure-media/latest
-[Azure Java Developer Center]: http://azure.microsoft.com/develop/java/
+[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 [Azure for Java developers]: https://docs.microsoft.com/java/azure/
-[Media Services Client Development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
+[Media Services Client Development]: https://msdn.microsoft.com/library/windowsazure/dn223283.aspx
 

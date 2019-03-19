@@ -12,12 +12,12 @@ ms.date: 3/11/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: 787c436261635376ff82e8762cbc1469f4375e6b
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 58bdc0e698fc28929c2080b1737770275b1164ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729956"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848736"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Aktivera Azure Active Directory-autentisering för Azure-SSIS Integration Runtime
 
@@ -76,37 +76,55 @@ Du kan använda en befintlig Azure AD-grupp eller skapa en ny med hjälp av Azur
 
 Du kan [konfigurera och hantera Azure AD-autentisering med SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure) med följande steg:
 
-1.  I Azure-portalen väljer du **alla tjänster** -> **SQL-servrar** från det vänstra navigeringsfältet.
+1.  I Azure-portalen väljer du **alla tjänster** -> **SQL-servrar** från det vänstra navigeringsfältet.
 
 2.  Välj din Azure SQL Database-server konfigureras med Azure AD-autentisering.
 
-3.  I den **inställningar** på bladet, väljer **Active Directory-administratör**.
+3.  I den **inställningar** på bladet, väljer **Active Directory-administratör**.
 
-4.  I kommandofältet väljer **konfigurera administratör**.
+4.  I kommandofältet väljer **konfigurera administratör**.
 
-5.  Välj en Azure AD-användarkonto att göras administratör för servern och välj sedan **Välj.**
+5.  Välj en Azure AD-användarkonto att göras administratör för servern och välj sedan **Välj.**
 
-6.  I kommandofältet väljer **spara.**
+6.  I kommandofältet väljer **spara.**
 
 ### <a name="create-a-contained-user-in-azure-sql-database-server-representing-the-azure-ad-group"></a>Skapa en innesluten användare i Azure SQL Database-server som representerar Azure AD-grupp
 
 För den här nästa steg behöver du [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-1.  Starta SSMS.
+1. Starta SSMS.
 
-2.  I den **Anslut till Server** dialogrutan, ange namnet på Azure SQL Database-servern i den **servernamn** fält.
+2. I den **Anslut till Server** dialogrutan, ange namnet på Azure SQL Database-servern i den **servernamn** fält.
 
-3.  I den **autentisering** väljer **Active Directory - Universal med stöd för MFA** (du kan också använda de andra två typer av Active Directory-autentisering finns i [ Konfigurera och hantera Azure AD-autentisering med SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)).
+3. I den **autentisering** väljer **Active Directory - Universal med stöd för MFA** (du kan också använda de andra två typer av Active Directory-autentisering finns i [konfigurera och hantera Azure AD-autentisering med SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)).
 
-4.  I den **användarnamn** fältet, anger du namnet på Azure AD-konto som du anger som serveradministratör, t.ex. testuser@xxxonline.com.
+4. I den **användarnamn** fältet, anger du namnet på Azure AD-konto som du anger som serveradministratör, t.ex. testuser@xxxonline.com.
 
-5.  Välj **Connect** och slutföra inloggning.
+5. Välj **Connect** och slutföra inloggning.
 
-6.  I den **Object Explorer**, expandera den **databaser** -> **systemdatabaser** mapp.
+6. I den **Object Explorer**, expandera den **databaser** -> **systemdatabaser** mapp.
 
-7.  Högerklicka på **master** databasen och välj **ny fråga**.
+7. Högerklicka på **master** databasen och välj **ny fråga**.
 
-8.  Ange följande T-SQL-kommando i frågefönstret och välj **kör** i verktygsfältet.
+8. Ange följande T-SQL-kommando i frågefönstret och välj **kör** i verktygsfältet.
+
+   ```sql
+   CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
+   ```
+
+   Kommandot bör slutföras utan problem, skapa en innesluten användare för att representera gruppen.
+
+9. Rensa frågefönstret anger du följande T-SQL-kommando och markera **kör** i verktygsfältet.
+
+   ```sql
+   ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
+   ```
+
+   Kommandot bör slutföras utan problem, och ge innesluten användare behörighet att skapa en databas (SSISDB).
+
+10. Om din SSISDB har skapats med SQL-autentisering och vill du istället för att använda Azure AD-autentisering för din Azure-SSIS IR kan komma åt det, högerklickar du på **SSISDB** databasen och välj **ny fråga**.
+
+11. Ange följande T-SQL-kommando i frågefönstret och välj **kör** i verktygsfältet.
 
     ```sql
     CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
@@ -114,25 +132,7 @@ För den här nästa steg behöver du [Microsoft SQL Server Management Studio](
 
     Kommandot bör slutföras utan problem, skapa en innesluten användare för att representera gruppen.
 
-9.  Rensa frågefönstret anger du följande T-SQL-kommando och markera **kör** i verktygsfältet.
-
-    ```sql
-    ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
-    ```
-
-    Kommandot bör slutföras utan problem, och ge innesluten användare behörighet att skapa en databas (SSISDB).
-
-10.  Om din SSISDB har skapats med SQL-autentisering och vill du istället för att använda Azure AD-autentisering för din Azure-SSIS IR kan komma åt det, högerklickar du på **SSISDB** databasen och välj **ny fråga**.
-
-11.  Ange följande T-SQL-kommando i frågefönstret och välj **kör** i verktygsfältet.
-
-    ```sql
-    CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
-    ```
-
-    Kommandot bör slutföras utan problem, skapa en innesluten användare för att representera gruppen.
-
-12.  Rensa frågefönstret anger du följande T-SQL-kommando och markera **kör** i verktygsfältet.
+12. Rensa frågefönstret anger du följande T-SQL-kommando och markera **kör** i verktygsfältet.
 
     ```sql
     ALTER ROLE db_owner ADD MEMBER [SSISIrGroup]
@@ -191,9 +191,9 @@ För den här nästa steg behöver du [Microsoft SQL Server Management Studio](
     
     Kommandot bör slutföras utan problem, bevilja den hanterade identitet för din ADF möjligheten att skapa en databas (SSISDB).
 
-8.  Om din SSISDB har skapats med SQL-autentisering och vill du istället för att använda Azure AD-autentisering för din Azure-SSIS IR kan komma åt det, högerklickar du på **SSISDB** databasen och välj **ny fråga**.
+8.  Om din SSISDB har skapats med SQL-autentisering och vill du istället för att använda Azure AD-autentisering för din Azure-SSIS IR kan komma åt det, högerklickar du på **SSISDB** databasen och välj **ny fråga**.
 
-9.  Ange följande T-SQL-kommando i frågefönstret och välj **kör** i verktygsfältet.
+9.  Ange följande T-SQL-kommando i frågefönstret och välj **kör** i verktygsfältet.
 
     ```sql
     CREATE USER [{the managed identity name}] FOR LOGIN [{the managed identity name}] WITH DEFAULT_SCHEMA = dbo

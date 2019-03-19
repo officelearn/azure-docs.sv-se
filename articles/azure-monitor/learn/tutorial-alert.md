@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 300f0ddc8b738b5fd8578ed0b33cc15000c1098a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 70a11867dded3b7156f6b212ceb4756ee7c287f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101793"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079170"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Övervaka och skicka aviseringar om programmets hälsotillstånd med Azure Application Insights
 
@@ -27,7 +27,7 @@ Med Azure Application Insights kan du övervaka programmet och skicka aviseringa
 > * Använda en logikapp för att skicka sammanfattade telemetridata enligt ett schema.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 
@@ -69,18 +69,18 @@ Med tillgänglighetstester i Application Insights kan du automatiskt testa ditt 
 ## <a name="create-an-alert-from-metrics"></a>Skapa en avisering utifrån mått
 Utöver att skicka aviseringar från ett tillgänglighetstest kan du skapa en avisering utifrån valfritt prestandamått som samlas in för programmet.
 
-2. Välj **Aviseringar** på menyn **Konfigurera**.  Då öppnas panelen Azure-aviseringar.  Det kan finnas andra aviseringsregler här för andra tjänster.
-3. Klicka på **Lägg till måttavisering**.  Då öppnas panelen för att skapa en ny aviseringsregel.
+1. Välj **Aviseringar** på menyn **Konfigurera**.  Då öppnas panelen Azure-aviseringar.  Det kan finnas andra aviseringsregler här för andra tjänster.
+1. Klicka på **Lägg till måttavisering**.  Då öppnas panelen för att skapa en ny aviseringsregel.
 
     ![Lägga till måttavisering](media/tutorial-alert/add-metric-alert.png)
 
-4. Skriv ett **namn** på aviseringsregeln och välj ditt program i listrutan för **Resurs**.
-5. Välj det **mått** som ska användas.  En graf visas med värdet för denna begäran under de senaste 24 timmarna.  Detta hjälper dig att ange villkoren för måttet.
+1. Skriv ett **namn** på aviseringsregeln och välj ditt program i listrutan för **Resurs**.
+1. Välj det **mått** som ska användas.  En graf visas med värdet för denna begäran under de senaste 24 timmarna.  Detta hjälper dig att ange villkoren för måttet.
 
     ![Lägga till aviseringsregel](media/tutorial-alert/add-alert-01.png)
 
-6. Ange ett **villkor** och **tröskelvärde** för aviseringen. Detta är antalet gånger som måttet måste överskridas för att en avisering ska skapas. 
-6. Under **Meddela via** markerar du rutan **E-postägare, deltagare och läsare** för att skicka ett e-postmeddelande till dessa användare när aviseringsvillkoret uppfylls. Lägg till e-postadressen för eventuella ytterligare mottagare.  Du kan även ange en webhook eller en logikapp här som körs när villkoret uppfylls.  Dessa kan användas för att försöka åtgärda ett identifierat problem eller 
+1. Ange ett **villkor** och **tröskelvärde** för aviseringen. Detta är antalet gånger som måttet måste överskridas för att en avisering ska skapas. 
+1. Under **Meddela via** markerar du rutan **E-postägare, deltagare och läsare** för att skicka ett e-postmeddelande till dessa användare när aviseringsvillkoret uppfylls. Lägg till e-postadressen för eventuella ytterligare mottagare.  Du kan även ange en webhook eller en logikapp här som körs när villkoret uppfylls.  Dessa kan användas för att försöka åtgärda ett identifierat problem eller 
 
     ![Lägga till aviseringsregel](media/tutorial-alert/add-alert-02.png)
 

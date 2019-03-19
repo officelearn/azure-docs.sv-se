@@ -8,53 +8,67 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/22/2017
+ms.date: 03/14/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 6d111b1be310a345e23c440f1af9da4183efff43
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: f0ac5ee77bf4a479e48bbe048d2a558d78b18fe3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312603"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136418"
 ---
-# <a name="create-an-azure-search-index-using-the-net-sdk"></a>Skapa ett Azure Search-index med hjälp av .NET SDK
+# <a name="quickstart-create-load-and-query-an-azure-search-index-using-the-net-sdk"></a>Snabbstart: Skapa, läsa in och fråga en Azure Search-index med .NET SDK
 > [!div class="op_single_selector"]
-> * [Översikt](search-what-is-an-index.md)
-> * [Portalen](search-create-index-portal.md)
-> * [NET](search-create-index-dotnet.md)
-> * [REST](search-create-index-rest-api.md)
-> 
+> * [C#](search-create-index-dotnet.md)
+> * [PowerShell (REST)](search-create-index-rest-api.md)
+> * [Postman (REST)](search-fiddler.md)
+> * [Portal](search-create-index-portal.md)
 > 
 
-Den här artikeln beskriver steg för steg hur du skapar ett Azure Search-[index](https://docs.microsoft.com/rest/api/searchservice/Create-Index) med hjälp av [Azure Search .NET SDK](https://aka.ms/search-sdk).
-
-Innan du följer den här guiden och skapar ett index bör du redan ha [skapat en Azure Search-tjänst](search-create-service-portal.md).
+Den här artikeln vägleder dig genom processen att skapa, läsa in och fråga ett Azure Search [index](search-what-is-an-index.md) med hjälp av den [Azure Search .NET SDK](https://aka.ms/search-sdk).
 
 > [!NOTE]
 > All exempelkod i den här artikeln är skriven i C#. Du hittar den fullständiga källkoden [på GitHub](https://aka.ms/search-dotnet-howto). Du kan läsa om [Azure Search .NET SDK](search-howto-dotnet-sdk.md) och få en mer detaljerad genomgång av exempelkoden.
 
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="identify-your-azure-search-services-admin-api-key"></a>Identifiera Azure Search-tjänstens API-administratörsnyckel
-Nu när du har etablerat en Azure Search-tjänst är du nästan klar att skicka förfrågningar mot tjänstens slutpunkt med hjälp av .NET SDK. Först måste du skaffa en av API-administratörsnycklarna som genererades för söktjänsten som du etablerade. .NET SDK skickar den här API-nyckeln vid varje begäran till tjänsten. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
++ [Skapa en Azure Search-tjänst](search-create-service-portal.md). Du kan använda en kostnadsfri tjänst för den här snabbstarten.
 
-1. Om du vill hitta din tjänsts API-nycklar loggar du in på [Azure Portal](https://portal.azure.com/)
-2. Gå till Azure Search-tjänstens blad
-3. Klicka på nyckelikonen
++ [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), alla versioner. Exempelkod och instruktioner har testats på den kostnadsfria Community-versionen.
 
-Tjänsten har *administratörsnycklar* och *frågenycklar*.
++ URL-slutpunkt och admin api-nyckeln för Search-tjänsten. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
 
-* Dina primära och sekundära *administratörsnycklar* ger fullständig behörighet för alla åtgärder, inklusive möjligheten att hantera tjänsten, skapa och ta bort index, indexerare och datakällor. Det finns två nycklar så att du kan fortsätta att använda den sekundära nyckeln om du bestämmer dig för att återskapa den primära nyckeln och tvärtom.
-* Dina *frågenycklar* beviljar läsbehörighet till index och dokument och distribueras vanligen till klientprogram som skickar sökförfrågningar.
+    1. I Azure-portalen [hitta din tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) i tjänstelistan.
 
-Du kan använda antingen en primär eller sekundär administrationsnyckel när du skapar ett index.
+    2. I **översikt**, hämta URL: en. Här följer ett exempel på hur en slutpunkt kan se ut: `https://my-service-name.search.windows.net`.
+
+    3. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln på din begäran.
+
+    ![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-fiddler/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
+
+    Alla begäranden som kräver en api-nyckel för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
+
+## <a name="1---create-a-new-project"></a>1 – skapa ett nytt projekt
+
+Skapa en ny visualisering i Visual Studio C# projekt. En bra mall för den här snabbstarten är Visual C# > Kom igång > Web App. Den här mallen får du en fil i appsettings.json.  
+
+I appsettings.json, ersätter du standard innehåll med exemplet nedan och ange sedan namnet på tjänsten och admin api-nyckel för din tjänst. För tjänstnamnet behöver du bara namnet i sig. Exempel: om din URL är https://mydemo.search.windows.net, lägga till `mydemo` till JSON-fil.
+
+
+```json
+{
+    "SearchServiceName": "Put your search service name here",
+    "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
+}
+```
 
 <a name="CreateSearchServiceClient"></a>
 
-## <a name="create-an-instance-of-the-searchserviceclient-class"></a>Skapa en instans av SearchServiceClient-klassen
+## <a name="2---create-an-instance-of-the-searchserviceclient-class"></a>2 – Skapa en instans av SearchServiceClient-klassen
 Innan du kan börja använda .NET SDK Azure Search måste du skapa en instans av klassen `SearchServiceClient`. Den här klassen har flera konstruktorer. Den som du vill använda har namnet på din söktjänst och ett `SearchCredentials`-objekt som parametrar. `SearchCredentials` omsluter din API-nyckel.
 
-Koden nedan skapar en ny `SearchServiceClient` med värden för söktjänstens namn och API-nyckel som lagras i programmets konfigurationsfil (`appsettings.json` i fall med [provprogrammet](https://aka.ms/search-dotnet-howto)):
+Kopiera följande kod till filen Program.cs. Koden nedan skapar en ny `SearchServiceClient` med värdena för söktjänstens namn och api-nyckel som lagras i programmets konfigurationsfil (appsettings.json).
 
 ```csharp
 private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
@@ -76,10 +90,11 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 
 <a name="DefineIndex"></a>
 
-## <a name="define-your-azure-search-index"></a>Definiera ditt Azure Search-index
+## <a name="3---define-an-index-schema"></a>3 – definiera ett indexschema
 Ditt index skapas med ett enda anrop till `Indexes.Create`-metoden. Den här metoden tar som en parameter ett `Index`-objekt som definierar ditt Azure Search-index. Du måste skapa ett `Index`-objekt och initiera det så här:
 
 1. Ange `Name`-egenskapen för `Index`-objektet till namnet på ditt index.
+
 2. Ange `Fields`-egenskapen för `Index`-objektet till en matris med `Field`-objekt. Det enklaste sättet att skapa `Field`-objekten på är att anropa `FieldBuilder.BuildForType`-metoden och skicka en modellklass för typparametern. En modellklass har egenskaper som mappar till fält i ditt index. På så sätt kan du binda dokument från din sökindex till instanser av din modellklass.
 
 > [!NOTE]
@@ -166,7 +181,7 @@ var definition = new Index()
 };
 ```
 
-## <a name="create-the-index"></a>Skapa indexet
+## <a name="4---create-the-index-on-the-service"></a>4 – skapa indexet på tjänsten
 Nu när du har ett initierat `Index`-objekt kan du skapa indexet genom att bara anropa `Indexes.Create` för ditt `SearchServiceClient`-objekt:
 
 ```csharp
@@ -185,6 +200,7 @@ serviceClient.Indexes.Delete("hotels");
 > För enkelhetens skull används synkrona metoder för Azure Search .NET SDK i exempelkoden i den här artikeln. Vi rekommenderar att du använder asynkrona metoder i dina egna program så att de blir skalbara och responsiva. I exemplen ovan kan du till exempel använda `CreateAsync` och `DeleteAsync` i stället för `Create` och `Delete`.
 > 
 > 
+
 
 ## <a name="next-steps"></a>Nästa steg
 När du har skapat ett Azure Search-index är det dags att [ladda upp innehållet till indexet](search-what-is-data-import.md) så att du kan börja söka efter data.

@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: fd1e49a8bab3b6133a476bbafaa45e0e61fe1f1b
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 58117bce8de667c9750b2e0c19992b99716945cc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730556"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124209"
 ---
 # <a name="azure-stack-1809-update"></a>Uppdatering av Azure Stack 1809
 
@@ -63,12 +63,12 @@ Den här uppdateringen innehåller följande förbättringar för Azure Stack:
 - Följande problem för hanterad disk har korrigerats i 1809 och korrigeras också i 1808 [Azure Stack-snabbkorrigeringen 1.1808.9.117](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
-   - Åtgärdat problemet i vilka kopplar SSD datadiskar till premium-storlek som hanterad disk virtuella datorer (DS, DSv2, Fs, Fs_V2) misslyckades med ett fel:  *Det gick inte att uppdatera diskar för den virtuella datorn 'vmname' fel: Begärt inte kan utföra åtgärden eftersom lagringskontotypen ”Premium_LRS” inte stöds för VM-storleken ”Standard_DS/Ds_V2/FS/Fs_v2)*. 
+  - Åtgärdat problemet i vilka kopplar SSD datadiskar till premium-storlek som hanterad disk virtuella datorer (DS, DSv2, Fs, Fs_V2) misslyckades med ett fel:  *Det gick inte att uppdatera diskar för den virtuella datorn 'vmname' fel: Begärt inte kan utföra åtgärden eftersom lagringskontotypen ”Premium_LRS” inte stöds för VM-storleken ”Standard_DS/Ds_V2/FS/Fs_v2)*. 
    
-   - Skapa en hanterad disk VM med hjälp av **createOption**: **Bifoga** misslyckas med följande fel: *Tidskrävande åtgärden misslyckades med statusen ”misslyckades”. Ytterligare information: ”ett internt körningsfel inträffade”.*
-   Felkod: InternalExecutionError ErrorMessage: Ett internt körningsfel har inträffat.
+  - Skapa en hanterad disk VM med hjälp av **createOption**: **Bifoga** misslyckas med följande fel: *Tidskrävande åtgärden misslyckades med statusen ”misslyckades”. Ytterligare information: ”ett internt körningsfel inträffade”.*
+    Felkod: InternalExecutionError ErrorMessage: Ett internt körningsfel har inträffat.
    
-   Det här problemet har nu åtgärdats.
+    Det här problemet har nu åtgärdats.
 
 - <!-- 2702741 -  IS, ASDK --> Ett problem har åtgärdats i vilka offentliga IP-adresser som har distribuerats med hjälp av dynamisk allokering metoden inte har garanterat bevaras när en frigörandet har utfärdats. De finns kvar.
 
@@ -297,10 +297,10 @@ Här följer efter installation kända problem för den här build-versionen.
 <!-- TBD - IS ASDK --> 
 - Efter att ha tillämpat 1809 uppdatera, följande problem kan uppstå när du distribuerar virtuella datorer med hanterade diskar:
 
-   - Om prenumerationen har skapats innan uppdateringen gjordes 1808, distribution av virtuella datorer med Managed Disks kan misslyckas med felmeddelandet internt. Följ dessa steg för varje prenumeration för att lösa problemet:
-      1. I klient-portalen går du till **prenumerationer** och hitta prenumerationen. Klicka på **Resursprovidrar**, klicka sedan på **Microsoft.Compute**, och klicka sedan på **Omregistrera**.
-      2. Under samma prenumeration, gå till **åtkomstkontroll (IAM)**, och kontrollera att den **AzureStack-DiskRP-klient** roll visas.
-   2. Om du har konfigurerat en miljö med flera organisationer kan kan distribuera virtuella datorer i en prenumeration som är associerade med en gäst-katalog misslyckas med ett internt felmeddelande. Lös felet genom att följa stegen i [i den här artikeln](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) att konfigurera om var och en av dina gäst-kataloger.
+  - Om prenumerationen har skapats innan uppdateringen gjordes 1808, distribution av virtuella datorer med Managed Disks kan misslyckas med felmeddelandet internt. Följ dessa steg för varje prenumeration för att lösa problemet:
+     1. I klient-portalen går du till **prenumerationer** och hitta prenumerationen. Klicka på **Resursprovidrar**, klicka sedan på **Microsoft.Compute**, och klicka sedan på **Omregistrera**.
+     2. Under samma prenumeration, gå till **åtkomstkontroll (IAM)**, och kontrollera att den **AzureStack-DiskRP-klient** roll visas.
+  - Om du har konfigurerat en miljö med flera organisationer kan kan distribuera virtuella datorer i en prenumeration som är associerade med en gäst-katalog misslyckas med ett internt felmeddelande. Lös felet genom att följa stegen i [i den här artikeln](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) att konfigurera om var och en av dina gäst-kataloger.
 
 - En dator med Ubuntu 18.04 skapas med SSH-auktorisering aktiverat kan inte du använda SSH-nycklar för att logga in. Som en lösning kan du använda för åtkomst till virtuell dator för Linux-tillägget för att implementera SSH-nycklar när du har etablerat eller använder lösenordsbaserad autentisering.
 

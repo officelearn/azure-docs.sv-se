@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: f809644d4b94ea5facebba45b921485c739eb047
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6d35d5cdeafb80a36f910d71393802a3affb4df8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774905"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078827"
 ---
 # <a name="configure-storage"></a>Konfigurera lagring
 
@@ -149,7 +149,7 @@ Följ dessa steg för att lägga till Blob-lagring när du har skapat klustret.
    * Du kan också ange **krypteringstyp** till **ingen**.  Azure Storage krypteras som standard.
    * Klicka på **lägga till Filer**.
 
-  Mer detaljerad information kan du läsa [att lägga till en ny cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) i konfigurationsguiden för Avere kluster. 
+   Mer detaljerad information kan du läsa [att lägga till en ny cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) i konfigurationsguiden för Avere kluster. 
 
 Sidan uppdateras och du kan uppdatera sidan om du vill visa din nya core-filer.
 

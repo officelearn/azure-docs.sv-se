@@ -1,24 +1,24 @@
 ---
 title: Använda Ansible för att hantera dina dynamiska Azure-lager
 description: Lär dig hur du använder Ansible för att hantera dina dynamiska Azure-lager
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/09/2018
 ms.topic: tutorial
-ms.openlocfilehash: cf404b84377a37f9a97f7e7c9c9f86402fe999e0
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: 0ef754b792654281f2a12b8eee613434896d5476
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359671"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092216"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Använda Ansible för att hantera dina dynamiska Azure-lager
 Ansible kan användas för att hämta lagerinformation från olika källor (däribland molnkällor såsom Azure) till ett *dynamiskt lager*. I den här artikeln använder du [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) för att konfigurera ett dynamiskt Ansible Azure-lager där du skapar två virtuella datorer, taggar en av de virtuella datorerna samt installerar Nginx på den taggade virtuella datorn.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration** – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.
 
@@ -26,7 +26,7 @@ Ansible kan användas för att hämta lagerinformation från olika källor (där
 
 ## <a name="create-the-test-virtual-machines"></a>Skapa de virtuella testdatorerna
 
-1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Öppna [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
@@ -130,9 +130,9 @@ Syftet med taggar är att göra det möjligt att snabbt och enkelt arbeta med un
 
 1. Skapa en fil (som ska innehålla din spelbok) med namnet `nginx.yml` på följande sätt:
 
-  ```azurecli-interactive
-  vi nginx.yml
-  ```
+   ```azurecli-interactive
+   vi nginx.yml
+   ```
 
 1. Infoga följande kod i den nyligen skapade filen `nginx.yml`:
 

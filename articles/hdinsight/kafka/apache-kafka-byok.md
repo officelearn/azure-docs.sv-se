@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: a3b719f4b2a19f4ea399d6a0858719a1709adc93
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 26e4b921b4050efa5217e3b599b9dc942a003090
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109505"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173931"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Ta med din egen nyckel för Apache Kafka på Azure HDInsight (förhandsversion)
 
@@ -31,7 +31,7 @@ Du kan använda Azure portal eller Azure CLI för att på ett säkert sätt rote
 
 1. Skapa hanterade identiteter för Azure-resurser.
 
-   För att autentisera till Key Vault behöver du skapa en Användartilldelad hanterad identitet med hjälp av den [Azure-portalen](../../active-directory/managed-service-identity/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-service-identity/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-service-identity/how-to-manage-ua-identity-arm.md), eller [ Azure CLI](../../active-directory/managed-service-identity/how-to-manage-ua-identity-cli.md). Medan Azure Active directory krävs för hanterade identiteter och BYOK till Kafka, Enterprise Security Package (ESP) är inte ett krav. Glöm inte att spara resurs-ID för hanterad identitet för när du lägger till den åtkomstprincip för Nyckelvalvet.
+   För att autentisera till Key Vault behöver du skapa en Användartilldelad hanterad identitet med hjälp av den [Azure-portalen](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md), eller [ Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). Mer information om hur hanterade identiteter arbete i Azure HDInsight finns i [hanterade identiteter i Azure HDInsight](../hdinsight-managed-identities.md). Medan Azure Active directory krävs för hanterade identiteter och BYOK till Kafka, Enterprise Security Package (ESP) är inte ett krav. Glöm inte att spara resurs-ID för hanterad identitet för när du lägger till den åtkomstprincip för Nyckelvalvet.
 
    ![Skapa användartilldelade hanterad identitet i Azure portal](./media/apache-kafka-byok/user-managed-identity-portal.png)
 

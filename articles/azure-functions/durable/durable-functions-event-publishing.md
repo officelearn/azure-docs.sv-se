@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/14/2019
 ms.author: glenga
-ms.openlocfilehash: 78011e799fb4ddaf89fb1fd24c1f2a313ef49ba5
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c07a42349fbd81a46b1b7cd9bcad1978f891a6b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338115"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136369"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Functions-Durable publicering till Azure Event Grid (förhandsversion)
 
@@ -35,16 +35,16 @@ Nedan följer några scenarier där den här funktionen är användbar:
 * Installera [Azure Storage-emulatorn](https://docs.microsoft.com/azure/storage/common/storage-use-emulator).
 * Installera [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) eller Använd [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
 
-## <a name="create-a-custom-event-grid-topic"></a>Skapa ett anpassat Event Grid-ämne
+## <a name="create-a-custom-event-grid-topic"></a>Skapa ett anpassat event grid-ämne
 
-Skapa ett Event Grid-ämne för att skicka händelser från varaktiga funktioner. Följande instruktioner visar hur du skapar ett ämne med Azure CLI. Information om hur du gör det med hjälp av PowerShell eller Azure-portalen finns i följande artiklar:
+Skapa en event grid-ämne för att skicka händelser från varaktiga funktioner. Följande instruktioner visar hur du skapar ett ämne med Azure CLI. Information om hur du gör det med hjälp av PowerShell eller Azure-portalen finns i följande artiklar:
 
 * [EventGrid Snabbstarter: Skapa anpassad händelse – PowerShell](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
 * [EventGrid Snabbstarter: Skapa anpassad händelse – Azure-portalen](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot `az group create`. Event Grid stöder för närvarande inte alla regioner. Information om vilka regioner som stöds finns i den [översikt över Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
+Skapa en resursgrupp med kommandot `az group create`. Azure Event Grid stöder för närvarande inte alla regioner. Information om vilka regioner som stöds finns i den [översikt över Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -52,7 +52,7 @@ az group create --name eventResourceGroup --location westus2
 
 ### <a name="create-a-custom-topic"></a>Skapa en anpassat ämne
 
-Ett Event Grid-ämne tillhandahåller en användardefinierad slutpunkt där du publicerar din händelse till. Ersätt `<topic_name>` med ett unikt namn för ditt ämne. Ämnesnamnet måste vara unikt eftersom det blir en DNS-post.
+Ett event grid-ämne tillhandahåller en användardefinierad slutpunkt där du publicerar din händelse till. Ersätt `<topic_name>` med ett unikt namn för ditt ämne. Ämnesnamnet måste vara unikt eftersom det blir en DNS-post.
 
 ```bash
 az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup
@@ -78,25 +78,18 @@ Nu kan du skicka händelser till ämnet.
 
 I projektet varaktiga funktioner hitta den `host.json` fil.
 
-Lägg till `EventGridTopicEndpoint` och `EventGridKeySettingName` i en `durableTask` egenskapen.
+Lägg till `eventGridTopicEndpoint` och `eventGridKeySettingName` i en `durableTask` egenskapen.
 
 ```json
 {
     "durableTask": {
-        "EventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
-        "EventGridKeySettingName": "EventGridKey"
+        "eventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
+        "eventGridKeySettingName": "EventGridKey"
     }
 }
 ```
 
-Möjliga konfigurationsegenskaper för Azure Event Grid är följande:
-
-* **EventGridTopicEndpoint** -slutpunkten för Event Grid-ämne. Den *% AppSettingName %* syntax kan användas för att lösa det här värdet från programinställningar eller miljövariabler.
-* **EventGridKeySettingName** -nyckeln för inställningen på din Azure-funktion. Varaktiga funktioner ska hämta nyckel för Event Grid-ämne från värdet.
-* **EventGridPublishRetryCount** – [valfritt] hur många gånger att försöka igen om publicering till Event Grid-ämne misslyckas.
-* **EventGridPublishRetryInterval** -[valfritt] The Event Grid publicera återförsöksintervallet i den *: mm: ss* format. Om inte anges är standardvärdet intervallet 5 minuter.
-
-När du har konfigurerat den `host.json` fil, Your varaktiga funktioner projekt börjar skicka Livscykelhändelser till Event Grid-ämne. Detta fungerar när du kör i Funktionsappen och när du kör lokalt.
+Möjliga konfigurationsegenskaper för Azure Event Grid kan hittas i den [host.json dokumentation](../functions-host-json.md#durabletask). När du har konfigurerat den `host.json` filen funktionsappen skickar Livscykelhändelser till event grid-ämne. Det här fungerar när du kör din funktionsapp, både lokalt och i Azure ”.”
 
 Ange app-inställning för avsnittet nyckeln i Funktionsappen och `local.setting.json`. Följande JSON är ett exempel på den `local.settings.json` för lokal felsökning. Ersätt `<topic_key>` med avsnittet nyckel.  
 
@@ -115,9 +108,9 @@ Se till att [Lagringsemulatorn](https://docs.microsoft.com/azure/storage/common/
 
 ## <a name="create-functions-that-listen-for-events"></a>Skapa funktioner som lyssna efter händelser
 
-Skapa en Funktionsapp. Det är bäst att hitta den i samma region som Event Grid-ämne.
+Skapa en Funktionsapp. Det är bäst att hitta den i samma region som event grid-ämne.
 
-### <a name="create-an-event-grid-trigger-function"></a>Skapa en funktion för Event Grid-utlösare
+### <a name="create-an-event-grid-trigger-function"></a>Skapa en Utlösarfunktion för event grid
 
 Skapa en funktion för att ta emot Livscykelhändelser. Välj **anpassad funktion**.
 
@@ -145,11 +138,11 @@ public static void Run(JObject eventGridEvent, ILogger log)
 }
 ```
 
-Välj `Add Event Grid Subscription`. Den här åtgärden lägger till en Event Grid-prenumeration för Event Grid-ämne som du skapade. Mer information finns i [begrepp i Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts)
+Välj `Add Event Grid Subscription`. Den här åtgärden lägger till en event grid-prenumeration för event grid-ämne som du skapade. Mer information finns i [begrepp i Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts)
 
 ![Välj länken Event Grid-utlösare.](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
-Välj `Event Grid Topics` för **ämnestyp**. Välj den resursgrupp som du skapade för Event Grid-ämne. Välj sedan instansen av Event Grid-ämne. Tryck på `Create`.
+Välj `Event Grid Topics` för **ämnestyp**. Välj den resursgrupp som du skapade för event grid-ämne. Välj sedan instansen av event grid-ämne. Tryck på `Create`.
 
 ![Skapa en Event Grid-prenumeration.](./media/durable-functions-event-publishing/eventsubscription.png)
 
@@ -171,7 +164,6 @@ using Microsoft.Extensions.Logging;
 namespace LifeCycleEventSpike
 {
     public static class Sample
-    {
     {
         [FunctionName("Sample")]
         public static async Task<List<string>> RunOrchestrator(
@@ -258,19 +250,19 @@ Se loggar från den funktion som du skapade i Azure-portalen.
 
 I följande lista beskriver händelseschemat livscykel:
 
-* **ID**: Unik identifierare för Event Grid-händelse.
-* **Ämne**: Sökväg till ämne för händelsen. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` kommer att `Running`, `Completed`, `Failed`, och `Terminated`.  
-* **Data**: Varaktiga funktioner specifika parametrar.
-  * **hubName**: [TaskHub](durable-functions-task-hubs.md) namn.
-  * **functionName**: Orchestrator-funktionsnamn.
-  * **instanceId**: Varaktiga funktioner instanceId.
-  * **Orsak**: Ytterligare data som är associerade med spårningshändelsen. Mer information finns i [diagnostik i varaktiga funktioner (Azure Functions)](durable-functions-diagnostics.md)
-  * **runtimeStatus**: Körningsstatus för orkestrering. Körs, slutfört, misslyckades, har avbrutits.
-* **Händelsetyp**: ”orchestratorEvent”
-* **eventTime**: Händelsetid (UTC).
-* **dataVersion**: Version av händelseschemat livscykel.
-* **metadataVersion**:  Version av metadata.
-* **avsnittet**: EventGrid avsnittet resursen.
+* **`id`**: Unik identifierare för event grid-händelse.
+* **`subject`**: Sökväg till ämne för händelsen. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` kommer att `Running`, `Completed`, `Failed`, och `Terminated`.  
+* **`data`**: Varaktiga funktioner specifika parametrar.
+  * **`hubName`**: [TaskHub](durable-functions-task-hubs.md) namn.
+  * **`functionName`**: Orchestrator-funktionsnamn.
+  * **`instanceId`**: Varaktiga funktioner instanceId.
+  * **`reason`**: Ytterligare data som är associerade med spårningshändelsen. Mer information finns i [diagnostik i varaktiga funktioner (Azure Functions)](durable-functions-diagnostics.md)
+  * **`runtimeStatus`**: Körningsstatus för orkestrering. Körs, slutfört, misslyckades, har avbrutits.
+* **`eventType`**: ”orchestratorEvent”
+* **`eventTime`**: Händelsetid (UTC).
+* **`dataVersion`**: Version av händelseschemat livscykel.
+* **`metadataVersion`**:  Version av metadata.
+* **`topic`**: Event grid avsnittet resursen.
 
 ## <a name="how-to-test-locally"></a>Hur du testar lokalt
 

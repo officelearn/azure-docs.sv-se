@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 68c04ef893e5e0826f03bffa93fb7c79b4959fdc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d2df7388018c463ba58b57be46945915210b84b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889332"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125310"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Installera en uppdatering från Azure Portal
 
@@ -35,7 +35,7 @@ ms.locfileid: "55889332"
    * **Hälsokontroller för maskinvarukomponenter** för att verifiera att alla maskinvarukomponenter på StorSimple-enheten är felfria.
    * **DATA 0-kontroller** för att verifiera att DATA 0 är aktiverat på enheten. Om inte det här gränssnittet är aktiverat måste du aktivera det och sedan försöka igen.
 
-    Uppdateringen hämtas och installeras bara om alla kontroller har slutförts. Du får ett meddelande när kontrollerna pågår. Om föruppdateringskontrollen misslyckas, sedan visas med orsakerna till felet. Åtgärda problemen och försök sedan igen. Du kan behöva kontakta Microsofts support om du inte kan lösa dessa problem själv.
+     Uppdateringen hämtas och installeras bara om alla kontroller har slutförts. Du får ett meddelande när kontrollerna pågår. Om föruppdateringskontrollen misslyckas, sedan visas med orsakerna till felet. Åtgärda problemen och försök sedan igen. Du kan behöva kontakta Microsofts support om du inte kan lösa dessa problem själv.
 
 7. När föruppdateringskontrollen har slutförts, skapas ett uppdateringsjobb. Du får ett meddelande när uppdateringsjobbet har skapats.
    

@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: c1c81ba0f168759ab9cc05f3441e07ff03275e84
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 8ebf9826f156245381ce3503dc64275bca571cc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417388"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890799"
 ---
 # <a name="what-is-video-indexer"></a>Vad är Video Indexer?
 
@@ -24,7 +24,7 @@ Azure Video Indexer är ett molnprogram som bygger på Azure-medieanalys, Azure 
 
 - **Ansiktsspårning**: Identifierar och grupperar ansikten visas i videon.
 - **Kändisar identifiering**: Video Indexer identifierar automatiskt över 1 miljon kändisar – till exempel world ledare, aktörer och actresses, tävlande, forskare, företag och tekniska ledare i hela världen. Information om dessa kändisar kan också finnas på olika kända webbplatser, till exempel IMDB och Wikipedia.
-- **Baserade ansiktsidentifiering**: Video Indexer träna en modell för ett visst konto. Sedan kan det identifiera ansikten i videor baserat på modellen som tränats specifikt för videor i det kontot.
+- **Baserade ansiktsidentifiering**: Video Indexer träna en modell för ett visst konto. Sedan kan den identifiera ansikten i videon baserat på den tränade modellen. Mer information finns i [anpassa en Person modell från webbplatsen Video Indexer](customize-person-model-with-website.md) och [anpassa en Person modell med Video Indexer API](customize-person-model-with-api.md).
 - **Miniatyr extrahering för ansikten** (”bästa ansikte”): Automatiskt identifierar bäst avbildade ansikte i varje grupp med ansikten (baserat på kvalitet, storlek och främre placering) och extrahera den som en bild tillgång.
 - **Visual textigenkänning** (OCR): Extraherar text som visas visuellt i videon.
 - **Visual innehållsmoderering**: Identifierar vuxet/vågat eller visuella objekt.
@@ -40,7 +40,7 @@ Azure Video Indexer är ett molnprogram som bygger på Azure-medieanalys, Azure 
 - **Textning**: Skapar textning i tre format: VTT, TTML, SRT.
 - **Två channel bearbetning**: Automatiskt identifierar, avgränsa avskrift och slår ihop till en enda tidslinje.
 - **Buller minskning**: Rensar upp telefoni ljud- eller störningar inspelningar (baserat på Skype filter).
-- **Avskriften anpassning** (CRIS): Träna och kör utökade anpassad tal till text modeller för att skapa branschspecifika avskrifter.
+- **Avskriften anpassning** (CRIS): Träna anpassad tal till text modeller för att skapa branschspecifika avskrifter. Mer information finns i [anpassa en språkmodell från webbplatsen Video Indexer](customize-language-model-with-website.md) och [anpassa en språkmodell med API: er för Video Indexer](customize-language-model-with-api.md).
 - **Talare uppräkning**: Mappar och förstår vilka talare ekrar vilka ord och när.
 - **Talare statistik**: Innehåller statistik för talare tal förhållanden.
 - **Textbaserade innehållsmoderering**: Identifierar explicit text i ljudavskrifter.
@@ -58,8 +58,6 @@ När indexering av en kanal delresultat för dessa modeller kommer att vara till
 - **Artefakter**: Extraherar omfattande uppsättning ”nästa nivå med information om” artefakter för de olika modellerna.
 - **Attitydanalys**: Identifierar positivt, negativt och neutral sentiment från tal- och visual text.
  
-  
- 
 När Video Indexer är klar med bearbetning och analys kan du granska, moderera, söka och publicera videoinsikterna.
 
 Både innehållsansvariga och utvecklare kan ha nytta av Video Indexer-tjänsten. Innehållsansvariga kan använda Video Indexer-webbportalen för att använda tjänsten utan att behöva skriva en enda rad kod. Se [Komma igång med Video Indexer-webbplatsen](video-indexer-get-started.md). Utvecklare kan dra nytta av API:er för att bearbeta innehållet i stor skala. Se [Använda Video Indexer REST API](video-indexer-use-apis.md). Tjänsten gör det även möjligt för kunderna att använda widgetar för att publicera videoströmmar och extrahera insikter i sina egna program. Se [Bädda in visuella widgetar i ditt program](video-indexer-embed-widgets.md).
@@ -75,8 +73,6 @@ Nedan visas några scenarier där Video Indexer kan vara användbart
 - Intäkter – Video Indexer kan öka värdet för videofilmer. Till exempel kan branscher som är beroende av annonsintäkter (som nyhetsmedier, sociala medier osv.) leverera mer relevant reklam genom att använda de extraherade insikterna som ytterligare signaler till annonsservern (att presentera reklam för sportskor är mer relevant under en fotbollsmatch än under en simtävling).
 
 - Användarengagemang – Videoinsikter kan användas för att förbättra användarnas engagemang genom positionering av relevanta videor. Ett exempel är en utbildningsvideo där sfärer förklaras under de första 30 minuterna och pyramider under efterföljande 30 minuter. En student som läser om pyramiderna har mer nytta av videon om den positioneras med start från 30-minutersmarkeringen.
-
-Mer information finns i den här [bloggen](https://aka.ms/videoindexerblog).
 
 ## <a name="next-steps"></a>Nästa steg
 

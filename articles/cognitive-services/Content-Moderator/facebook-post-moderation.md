@@ -1,111 +1,115 @@
 ---
-title: 'Självstudier: Innehållsmoderering på Facebook – Azure Content Moderator'
+title: 'Självstudier: Moderate Facebook content - Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: I självstudien lär du dig att använda maskininlärningsbaserade Content Moderator till att moderera Facebook-inlägg och kommentarer.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 86c89164e3ccd5bf5df303b98cf6d336f3916e2b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 01/18/2019
+ms.author: pafarley
+ms.openlocfilehash: 662eca2a727f3112f169ab8d669bf18c81700275
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878077"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871036"
 ---
-# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Självstudier: Innehållsmoderering på Facebook – Azure Content Moderator
+# <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Självstudier: Måttlig Facebook-inlägg och kommandon med Azure Content Moderator
 
-I självstudien lär du dig att använda maskininlärningsbaserade Content Moderator till att moderera Facebook-inlägg och kommentarer.
+I den här självstudien får du lära dig hur du använder Azure Content Moderator för att ändra inlägg och kommentarer om en Facebook-sida. Facebook skickar det innehåll som publicerats av besökare Content Moderator-tjänsten. Sedan ska Content Moderator-arbetsflöden publicera innehållet eller skapa granskningar inom granskningsverktyget, beroende på innehållet poäng och tröskelvärden. Se den [Build 2017 demonstrationsvideon](https://channel9.msdn.com/Events/Build/2017/T6033) för ett exempel på det här scenariot.
 
-Den här självstudien vägleder dig genom följande steg:
+I den här självstudiekursen lär du dig att:
 
-1. Skapa ett Content Moderator-team.
-2. Skapa Azure Functions som lyssnar efter HTTP-händelser från Content Moderator och Facebook.
-3. Skapa en Facebook-sida och app, samt ansluta dem till Content Moderator.
+> [!div class="checklist"]
+> * Skapa ett Content Moderator-team.
+> * Skapa Azure Functions som lyssnar efter HTTP-händelser från Content Moderator och Facebook.
+> * Länka en Facebook-sida till Content Moderator med hjälp av en Facebook-programmet.
 
-När vi är klara skickar Facebook innehåll som publicerats av besökare till Content Moderator. Baserat på dina tröskelvärden för matchning publicerar Content Moderator antingen innehållet eller skapar granskningar inom granskningsverktyget. 
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Nedanstående bild visar komponenterna i lösningen.
+Det här diagrammet visar varje komponent i det här scenariot:
 
-![Moderering av Facebook-inlägg](images/tutorial-facebook-moderation.png)
+![Diagram över Content Moderator skicka information via ”CMListener” och ta emot information från Facebook via ”FBListener”](images/tutorial-facebook-moderation.png)
 
-## <a name="create-a-content-moderator-team"></a>Skapa ett Content Moderator-team
+## <a name="prerequisites"></a>Förutsättningar
 
-Gå till snabbstarten [Try Content Moderator on the web](quick-start.md) (Testa Content Moderator på webben) för att registrera dig för Content Moderator och skapa ett team.
+- En prenumerationsnyckeln för Content Moderator. Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Content Moderator-tjänsten och få din nyckel.
+- En [Facebook-konto](https://www.facebook.com/).
 
-## <a name="configure-image-moderation-workflow-threshold"></a>Konfigurera ett arbetsflöde för bildändring (tröskelvärde)
+## <a name="create-a-review-team"></a>Skapa ett granskningsteam
 
-På sidan [Arbetsflöden](review-tool-user-guide/workflows.md) kan du konfigurera ett anpassat bildarbetsflöde (tröskelvärde). Notera arbetsflödets **namn**.
+Referera till den [försök Content Moderator på webben](quick-start.md) Snabbstart för instruktioner om hur du registrerar dig för den [Content Moderator granskar verktyget](https://contentmoderator.cognitive.microsoft.com/) och skapa en granskningsteam. Anteckna värdet för **team-ID:t** på sidan **Autentiseringsuppgifter**.
 
-## <a name="3-configure-text-moderation-workflow-threshold"></a>3. Konfigurera ett arbetsflöde för textändring (tröskelvärde)
+## <a name="configure-image-moderation-workflow"></a>Konfigurera bildarbetsflöde för moderering
 
-Med liknande åtgärder som på sidan [Arbetsflöden](review-tool-user-guide/workflows.md) kan du konfigurera ett anpassat tröskelvärde och arbetsflöde för texten. Notera arbetsflödets **namn**.
+Referera till den [definiera, testa och använda arbetsflöden](review-tool-user-guide/workflows.md) guide om hur du skapar en anpassad avbildning-arbetsflöde. Detta gör att Content Moderator automatiskt kontrollera bilder på Facebook och skicka vissa till granskningsverktyget. Ta del av arbetsflödet **namn**.
+
+## <a name="configure-text-moderation-workflow"></a>Konfigurera arbetsflöde för moderering av text
+
+Igen, referera till den [definiera, testa och använda arbetsflöden](review-tool-user-guide/workflows.md) guide; nu skapa en anpassad text-arbetsflöde. Detta gör att Content Moderator att automatiskt kontrollera textinnehåll. Ta del av arbetsflödet **namn**.
 
 ![Konfigurera textarbetsflöden](images/text-workflow-configure.PNG)
 
-Testa ditt arbetsflöde med hjälp av knappen ”Kör arbetsflöde”.
+Testa ditt arbetsflöde med hjälp av den **köra arbetsflödet** knappen.
 
 ![Testa textarbetsflödet](images/text-workflow-test.PNG)
 
 ## <a name="create-azure-functions"></a>Skapa Azure Functions
 
-Logga in på [Azure-hanteringsportalen](https://portal.azure.com/) för att skapa dina Azure Functions. Följ de här stegen:
+Logga in på den [Azure-portalen](https://portal.azure.com/) och gör följande:
 
 1. Skapa en Azure-funktionsapp enligt beskrivningen på sidan [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal).
-2. Öppna den nya funktionsappen.
-3. I appen går du till **Plattformsfunktioner -> Programinställningar**
-4. Definiera följande [programinställningar](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings):
+2. Gå till den nya Funktionsappen.
+3. I appen, går du till den **plattformsfunktioner** fliken och markera **programinställningar**. I den **programinställningar** avsnittet på nästa sida, bläddra längst ned i listan och klicka på **Lägg till ny inställning**. Lägg till följande nyckel/värde-par
+    
+    | App inställningsnamn | värde   | 
+    | -------------------- |-------------|
+    | cm:TeamId   | Ditt team-ID för Content Moderator  | 
+    | cm:SubscriptionKey | Prenumerationsnyckeln för Content Moderator – Se [Autentiseringsuppgifter](review-tool-user-guide/credentials.md) | 
+    | cm:Region | Regionnamnet i Content Moderator utan blanksteg. Se föregående kommentar. |
+    | cm:ImageWorkflow | Namnet på arbetsflödet som ska köras på bilderna |
+    | cm:TextWorkflow | Namnet på arbetsflödet som ska köras på texten |
+    | cm:CallbackEndpoint | URL:en för den CMListener-funktionsapp som du skapar senare i den här guiden |
+    | fb:VerificationToken | Hemlig token, som även används till att prenumerera på händelser i Facebook-feeden |
+    | fb:PageAccessToken | Din åtkomsttoken för Facebooks Graph API upphör inte att gälla och kan dölja/ta bort inlägg åt dig. |
 
-> [!NOTE]
-> **cm: Region** är regionens namn (utan blanksteg).
-> Exempelvis **westeurope** i stället för Västeuropa och **westcentralus** i stället för västra centrala USA osv.
->
+    Klicka på den **spara** längst upp på sidan.
 
-| Programinställning | Beskrivning   | 
-| -------------------- |-------------|
-| cm:TeamId   | Ditt team-ID för Content Moderator  | 
-| cm:SubscriptionKey | Prenumerationsnyckeln för Content Moderator – Se [Autentiseringsuppgifter](review-tool-user-guide/credentials.md) | 
-| cm:Region | Regionnamnet i Content Moderator utan blanksteg. Se föregående kommentar. |
-| cm:ImageWorkflow | Namnet på arbetsflödet som ska köras på bilderna |
-| cm:TextWorkflow | Namnet på arbetsflödet som ska köras på texten |
-| cm:CallbackEndpoint | URL:en för den CMListener-funktionsapp som du skapar senare i den här guiden |
-| fb:VerificationToken | Hemlig token, som även används till att prenumerera på händelser i Facebook-feeden |
-| fb:PageAccessToken | Din åtkomsttoken för Facebooks Graph API upphör inte att gälla och kan dölja/ta bort inlägg åt dig. |
+1. Med hjälp av den **+** knappen i det vänstra fönstret, visas den nya funktion-rutan.
 
-5. Skapa en ny funktion för **HttpTrigger-CSharp** med namnet **FBListener**. Den här funktionen tar emot händelser från Facebook. Skapa funktionen genom att följa dessa steg:
+    ![Azure Functions-rutan med knappen Lägg till funktion är markerad.](images/new-function.png)
 
-    1. Behåll sidan [Azure Functions Creation](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) (Skapa Azure Functions) öppen som referens.
-    2. Klicka på **+** Lägg till för att skapa en ny funktion.
-    3. I stället för de inbyggda mallarna väljer du alternativet **Get started on your own/custom function** (Kom igång med en egen/anpassad funktion).
-    4. Klicka på panelen **HttpTrigger-CSharp**.
-    5. Ange namnet **FBListener**. Fältet **Auktorisationsnivå** ska vara inställt på **Funktion**.
-    6. Klicka på **Skapa**.
-    7. Ersätt innehållet i **run.csx** med innehållet från [**FbListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FbListener/run.csx).
+    Klicka sedan på **+ ny funktion** överst på sidan. Den här funktionen tar emot händelser från Facebook. Skapa funktionen genom att följa dessa steg:
 
-6. Skapa en ny funktion för **HttpTrigger-CSharp** med namnet **CMListener**. Den här funktionen tar emot händelser från Content Moderator. Skapa funktionen genom att följa de här stegen.
+    1. Klicka på panelen som säger **Http-utlösare**.
+    1. Ange namnet **FBListener**. Fältet **Auktorisationsnivå** ska vara inställt på **Funktion**.
+    1. Klicka på **Skapa**.
+    1. Ersätt innehållet i den **run.csx** med innehållet från **FbListener/run.csx**
 
-    1. Behåll sidan [Azure Functions Creation](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) (Skapa Azure Functions) öppen som referens.
-    2. Klicka på **+** Lägg till för att skapa en ny funktion.
-    3. I stället för de inbyggda mallarna väljer du alternativet **Get started on your own/custom function** (Kom igång med en egen/anpassad funktion).
-    4. Klicka på panelen **HttpTrigger-CSharp**
-    5. Ange namnet **CMListener**. Fältet **Auktorisationsnivå** ska vara inställt på **Funktion**.
-    6. Klicka på **Skapa**.
-    7. Ersätt innehållet i **run.csx** med innehållet från [**CMListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/CmListener/run.csx).
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-160)]
+
+1. Skapa en ny **Http-utlösare** funktion med namnet **CMListener**. Den här funktionen tar emot händelser från Content Moderator. Ersätt innehållet i den **run.csx** med innehållet från **CMListener/run.csx**
+
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-106)]
+
+---
 
 ## <a name="configure-the-facebook-page-and-app"></a>Konfigurera Facebook-sidan och appen
 1. Skapa en Facebook-app.
 
+    ![Facebook-sida för utvecklare](images/facebook-developer-app.png)
+
     1. Gå till [Facebooks webbplats för utvecklare](https://developers.facebook.com/)
     2. Klicka på **Mina appar**.
     3. Lägg till en ny app.
-    4. Välj **WebHooks -> Kom igång**
-    5. Välj **Sida -> Subscribe to this topic** (Prenumerera på det här ämnet)
-    6. Ange **FBListener Url** som motringnings-URL och den **verifieringstoken** som du konfigurerade i **Funktionsappinställningar**
-    7. När prenumerationen är klar bläddrar du i flödet och väljer **prenumerera**.
+    1. ger det något namn
+    1. Välj **Webhooks -> Set upp**
+    1. Välj **sidan** i den nedrullningsbara menyn och välj **prenumerera på det här objektet**
+    1. Ange **FBListener Url** som motringnings-URL och den **verifieringstoken** som du konfigurerade i **Funktionsappinställningar**
+    1. När prenumerationen är klar bläddrar du i flödet och väljer **prenumerera**.
 
 2. Skapa en Facebook-sida.
 
@@ -134,29 +138,22 @@ Logga in på [Azure-hanteringsportalen](https://portal.azure.com/) för att skap
         2. [Postman Environment](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FB%20Page%20Access%20Token%20Environment.postman_environment.json)       
     3. Uppdatera följande miljövariabler:
     
-    | Nyckel | Värde   | 
-    | -------------------- |-------------|
-    | appId   | Infoga din Facebook-appidentifierare här  | 
-    | appSecret | Infoga din Facebook-apphemlighet här | 
-    | short_lived_token | Infoga den kortlivade åtkomsttoken som du skapade i föregående steg |
+        | Nyckel | Värde   | 
+        | -------------------- |-------------|
+        | appId   | Infoga din Facebook-appidentifierare här  | 
+        | appSecret | Infoga din Facebook-apphemlighet här | 
+        | short_lived_token | Infoga den kortlivade åtkomsttoken som du skapade i föregående steg |
     4. Kör nu de 3 API:er som visas i samlingen: 
         1. Välj **Generate Long-Lived Access Token** (Generera långlivad åtkomsttoken) och klicka på **Skicka**.
         2. Välj **Hämta användar-ID** och klicka på **Skicka**.
         3. Välj **Get Permanent Page Access Token** (Hämta permanent åtkomsttoken för sida) och klicka på **Skicka**.
     5. Kopiera värdet **access_token** från svaret och tilldela det till appinställningen **fb:PageAccessToken**.
 
-Klart!
-
-Lösningen skickar alla bilder och texter som publiceras på din Facebook-sida till Content Moderator. De arbetsflöden som du konfigurerade tidigare anropas. Det innehåll som inte uppfyller de kriterier som definierats i arbetsflödena leder till granskningar i granskningsverktyget. Resten av innehållet publiceras.
-
-## <a name="license"></a>Licens
-
-Alla SDK:er i Microsoft Cognitive Services och exempel är licensierade med MIT-licensen. Mer information finns i [LICENS](https://microsoft.mit-license.org/).
+Lösningen skickar alla bilder och texter som publiceras på din Facebook-sida till Content Moderator. Sedan anropas de arbetsflöden som du konfigurerade tidigare. Hämtar innehållet som inte uppfyller dina kriterier som definierats i arbetsflöden som skickas till recensioner i granskningsverktyget. Resten av innehållet publiceras automatiskt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-1. [Titta på en demo (video)](https://channel9.msdn.com/Events/Build/2017/T6033) av den här lösningen från Microsoft Build 2017.
-1. [Facebook-exemplet på GitHub](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
-1. https://docs.microsoft.com/azure/azure-functions/functions-create-github-webhook-triggered-function
-2. http://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
-3. http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token
+I den här självstudien konfigurerar du ett program för att analysera produktbilder i syfte att tagga dem via produkttyp och låta ett granskningsteam fatta välgrundade beslut om innehållsmoderering. Härnäst får du mer information om bildmoderering.
+
+> [!div class="nextstepaction"]
+> [Bildmoderering](./image-moderation-api.md)

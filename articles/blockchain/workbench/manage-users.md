@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: a481f5b073b7e8db9135d7b10cf602168290738a
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 2df0fea4d1dbdfb532cff663ceabfef80d61fe45
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331375"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994403"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Hantera användare i Azure Blockchain Workbench
 
@@ -89,7 +89,7 @@ Använda Blockchain Workbench-programmet för att hantera användare och organis
 
     ![Lägg till medlemmar](./media/manage-users/application-add-members.png)
 
-3. Sök efter användarens namn.  Endast visas Azure AD-användare som finns i Blockchain Workbench-klient. Om användaren inte hittas, måste du [lägga till Azure AD-användare](#add-azure-ad-users).
+3. Sök efter användarens namn.  Endast Azure AD-användare som finns i Blockchain Workbench-klientorganisationen visas. Om användaren inte hittas, måste du [lägga till Azure AD-användare](#add-azure-ad-users).
 
     ![Lägg till medlemmar](./media/manage-users/find-user.png)
 
@@ -97,7 +97,7 @@ Använda Blockchain Workbench-programmet för att hantera användare och organis
 
     ![Välj rollmedlemmar](./media/manage-users/application-select-role.png)
 
-5. Välj **Lägg till** att lägga till medlemmen med tillhörande rolltjänster i programmet.
+5. Välj **Lägg till** för att lägga till medlemmen med den tillhörande rollen i programmet.
 
 #### <a name="remove-member-from-application"></a>Ta bort medlem från programmet
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46466ac85a8be1dec273440751489833f12c00db
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ade40287bd38580a1e3f6377e54017bfe92bf452
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166819"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863414"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Självstudier: Azure Active Directory-integrering med Replicon
 
@@ -196,7 +196,7 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
     ![Användarprofil](./media/replicon-tutorial/ic777808.png "användarprofil")
 
-    a. I den **inloggningsnamn** textrutan Ange Azure AD-e-postadress för Azure AD-användare som du vill etablera som **BrittaSimon@contoso.com**.
+    a. I den **inloggningsnamn** textrutan Ange Azure AD-e-postadress för Azure AD-användare som du vill etablera som **BrittaSimon\@contoso.com**.
 
     b. Som **autentiseringstyp**väljer **SSO**.
 
@@ -248,7 +248,7 @@ Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen]
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

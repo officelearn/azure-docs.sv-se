@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: b8600ed03140e302c730d44c6410d2020b7c48a3
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.openlocfilehash: 6abae32f5d8781735bc6a50dc888fddacbe8d0b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983191"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105309"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Självstudie: Balansera intern trafikbelastning med en grundläggande lastbalanserare på Azure-portalen
 
@@ -95,7 +95,7 @@ Skapa en grundläggande intern lastbalanserare med hjälp av portalen. Det namn 
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | Typ          | Välj **Offentligt**.                                        |
+    | Type          | Välj **Offentligt**.                                        |
     | SKU           | Välj **Grundläggande**.                          |
     | Virtuellt nätverk           | Välj *MyVNet*.                          |    
 | Offentlig IP-adress | Välj **Skapa ny**. |
@@ -185,7 +185,7 @@ Belastningsutjämningsregeln med namnet **MyLoadBalancerRule** avlyssnar port 80
    
 1. Välj **OK**.
    
-  ![Lägga till en belastningsutjämningsregel](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
+   ![Lägga till en belastningsutjämningsregel](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
 
 ## <a name="test-the-load-balancer"></a>Testa lastbalanseraren
 

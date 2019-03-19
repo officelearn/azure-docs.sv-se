@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3da54c4f7fae5a613d88f169d58a083f9273c0d3
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: f9c6faff10f68d720bc3c86a191e4cd1b1f9abdc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587896"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123614"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Konfigurera din säkerhetsinformation (förhandsversion) från uppmaningen på inloggningssidan
 Du kan följa de här stegen om du uppmanas att konfigurera säkerhetsinformation omedelbart efter att du har loggat in på ditt arbets- eller skolkonto.
@@ -39,10 +39,10 @@ Följ de här stegen för att konfigurera säkerhetsinformation för ditt arbets
 
 1. När du har valt **Nästa** från uppmaningen öppnas **guiden om att hålla ditt konto säkert**, som visar den första metod som din administratör eller organisation kräver att du konfigurerar. I det här exemplet är det Microsoft Authenticator-appen.
 
-    >[!Note]
-    >Om du vill använda en annan autentiseringsapp än Microsoft Authenticator-appen väljer du länken **Jag vill använda en annan autentiseringsapp**.
-    
-    >Om din organisation låter dig välja en annan metod än autentiseringsappen kan du välja länken **Jag vill konfigurera en annan metod**.
+   > [!Note]
+   > Om du vill använda en annan autentiseringsapp än Microsoft Authenticator-appen väljer du länken **Jag vill använda en annan autentiseringsapp**.
+   > 
+   > Om din organisation låter dig välja en annan metod än autentiseringsappen kan du välja länken **Jag vill konfigurera en annan metod**.
 
     ![Guiden för att hålla ditt konto säkert, som visar sidan för nedladdning av autentiseringsappen](media/security-info/securityinfo-prompt-get-auth-app.png)
 

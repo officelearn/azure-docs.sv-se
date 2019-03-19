@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
-ms.openlocfilehash: 138df4aa0a0e23bd97bca960573cc0971b66b869
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 3f19c442d0f5806147ee05b3f0d2d32740a8ecdd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041415"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121748"
 ---
 # <a name="_Toc395809351"></a>Självstudie om ASP.NET MVC: Utveckling av webbprogram med Azure Cosmos DB
 
@@ -27,7 +27,7 @@ ms.locfileid: "54041415"
 
 Den här artikeln innehåller en heltäckande beskrivning av hur du skapar en ”att göra”-app med Azure Cosmos DB och visar hur du effektivt kan lagra och skicka frågor mot JSON-dokument med Azure Cosmos DB. Uppgifterna lagras som JSON-dokument i Azure Cosmos DB.
 
-![Skärmdump som visar MVC-webbappen med ”att göra”-listan som skapas i denna självstudiekurs – stegvis självstudiekurs om ASP NET MVC](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
+![Skärmbild av MVC-webbprogram som skapats av den här självstudien – ASP NET MVC självstudier steg för steg för att göra-lista](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
 
 Den här genomgången beskriver hur du använder tjänsten Azure Cosmos DB för att lagra och komma åt data från ett ASP.NET MVC-webbprogram i Azure. Om du letar efter en självstudiekurs som bara fokuserar på Azure Cosmos DB och inte ASP.NET MVC-komponenterna läser du [Skapa ett Azure Cosmos DB C#-konsolprogram](sql-api-get-started.md).
 
@@ -46,7 +46,7 @@ Innan du följer anvisningarna i den här artikeln bör du se till att du har f�
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]  
 * Microsoft Azure SDK för .NET för Visual Studio 2017, som är tillgängligt via Visual Studio-installationsprogrammet.
 
-Alla skärmdumpar i den här artikeln kommer från Microsoft Visual Studio Community 2017. Om ditt system är konfigurerat med en annan version kan det hända att skärmbilder och alternativ inte ser riktigt likadana ut, men om ovanstående krav är uppfyllda ska lösningen fungera.
+Alla skärmdumpar i den här artikeln har tagits med hjälp av Microsoft Visual Studio Community 2017. Om ditt system är konfigurerat med en annan version kan det hända att skärmbilder och alternativ inte ser riktigt likadana ut, men om ovanstående krav är uppfyllda ska lösningen fungera.
 
 ## <a name="_Toc395637761"></a>Steg 1: Skapa ett Azure Cosmos DB-databaskonto
 Vi ska börja med att skapa ett Azure Cosmos DB-konto. Om du redan har ett SQL-konto för Azure Cosmos DB eller om du använder Azure Cosmos DB-emulatorn för den här kursen kan du gå vidare till [Skapa ett nytt ASP.NET MVC-program](#_Toc395637762).
@@ -64,14 +64,14 @@ Vi kommer att gå igenom hur du skapar en ny MVC-app från grunden i ASP.NET.
 
 2. I panelen **Projekttyper** expanderar du **Mallar**, **Visual C#**, **Webb** och väljer sedan **ASP.NET webbtillämpningsprogram**.
 
-      ![Skärmdump som visar dialogrutan Nytt projekt med projekttypen ASP.NET-webbtillämpningsprogram markerad](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
+      ![Skärmbild av dialogrutan Nytt projekt med projekttypen ASP.NET-Webbtillämpningsprogram markerad](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
 
 3. I rutan **Namn** skriver du namnet på projektet. I den här självstudiekursen används namnet ”todo”. Om du väljer att använda något annat än det måste du ändra de angivna kodexemplen så att de använder det namn du gav din app på alla ställen där namnområdet todo nämns. 
 4. Klicka på **Bläddra** och navigera till mappen där du vill skapa projektet och klicka sedan på **OK**.
    
       Dialogrutan **New ASP.NET Web Application** (Nytt ASP.NET-webbprogram) visas.
    
-    ![Skärmbild som visar dialogrutan New ASP.NET Web Application (Nytt ASP.NET-webbprogram) med MVC-programmallen markerad](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
+    ![Skärmbild av dialogrutan Nytt ASP.NET-webbprogram med MVC-appmallen markerad](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
 5. Välj **MVC** i mallpanelen.
 
 6. Klicka på **OK** och låt Visual Studio generera ett kodskelett för den tomma ASP.NET MVC-mallen. 
@@ -86,14 +86,14 @@ Nu har vi i princip de ASP.NET MVC-grunder som vi behöver för lösningen och d
 
 1. Azure Cosmos DB .NET SDK paketeras och distribueras som ett NuGet-paket. Hämta NuGet-paketet i Visual Studio med hjälp av NuGet-pakethanteraren i Visual Studio genom att högerklicka på projektet i **Solution Explorer** och sedan klicka på **Hantera NuGet-paket**.
    
-    ![Skärmdump som visar snabbemenyalternativen för webbprogramprojektet i Solution Explorer, med Hantera NuGet-paket markerat.](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
+    ![Skärmbild av snabbemenyalternativen för webbprogramprojektet i Solution Explorer, med hantera NuGet-paket markerat.](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
    
     Dialogrutan **Hantera NuGet-paket** öppnas.
 2. I NuGet-rutan **Bläddra** klickar du på ***Azure DocumentDB***. (Paketnamnet har inte uppdaterats till Azure Cosmos DB.)
    
     Installera paketet **Microsoft.Azure.DocumentDB från Microsoft** från listan med resultat. När du gör det hämtas och installeras Azure Cosmos DB-paketet och alla beroenden, t.ex. Newtonsoft.Json. Klicka på **OK** i fönstret **Förhandsgranskning** och **Jag godkänner** i fönstret **Godkännande av licens** för att slutföra installationen.
    
-    ![Skärmdump som visar fönstret Hantera NuGet-paket, med Microsoft Azure Cosmos DB-klientbiblioteket markerat](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
+    ![Sreenshot i fönstret hantera NuGet-paket med Microsoft Azure Cosmos DB-klientbiblioteket markerat](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
    
       Du kan också installera paketen med Pakethanterarkonsolen. Om du vill göra det klickar du på menyn **Verktyg**, **NuGet-pakethanteraren** och sedan på **Pakethanterarkonsolen**. Skriv följande i prompten:
    
@@ -101,7 +101,7 @@ Nu har vi i princip de ASP.NET MVC-grunder som vi behöver för lösningen och d
         
 3. När paketet har installerats bör din Visual Studio-lösning likna nedanstående, med två nya referenser: Microsoft.Azure.Documents.Client och Newtonsoft.Json.
    
-    ![Skärmdump av de två referenser som lagts till JSON-dataprojektet i Solution Explorer](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-added-references.png)
+    ![Skärmbild av de två referenser som lagts till i JSON-dataprojektet i Solution Explorer](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-added-references.png)
 
 ## <a name="_Toc395637763"></a>Steg 4: Konfigurera ASP.NET MVC-programmet
 Nu ska vi lägga till modeller, vyer och styrenheter till MVC-appen:
@@ -155,14 +155,14 @@ Nu har vi tagit hand om **M** och det är dags för vårt **C** i MVC, dvs. en s
     Dialogrutan **Lägg till kodskelett** visas.
 2. Välj **MVC 5 styrenhet – tom** och klicka sedan på **Lägg till**.
    
-    ![Skärmdump av dialogrutan Lägg till kodskelett med alternativet MVC 5 styrenhet – tom markerat](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
+    ![Skärmbild av dialogrutan Lägg till Kodskelett med MVC 5 styrenhet – tom alternativet markerat](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
 3. Ge din nya styrenhet namnet **Objektstyrning.**
    
-    ![Skärmdump av dialogrutan Lägg till styrenhet](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-controller.png)
+    ![Skärmbild av dialogrutan Lägg till styrenhet](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-controller.png)
    
     När filen har skapats bör din Visual Studio-lösning påminna om nedanstående, med den nya ItemController.cs-filen i **Solution Explorer**. Även den nya Item.cs-filen som du skapade tidigare visas.
    
-    ![Skärmdump av lösningen i Visual Studio – Solution Explorer med den nya ItemController.cs-filen och Item.cs-filen markerade](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-item-solution-explorer.png)
+    ![Skärmbild av Visual Studio-lösningen - Solution Explorer med den nya ItemController.cs-filen och Item.cs-filen markerade](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-item-solution-explorer.png)
    
     Du kan stänga ItemController.cs, vi återkommer till den senare. 
 
@@ -176,7 +176,7 @@ Nu skapar vi vårt **V** i MVC, dvs. vyerna:
 #### <a name="AddItemIndexView"></a>Lägg till en objektindexvy
 1. I **Solution Explorer** expanderar du mappen **Vyer** och högerklickar på den tomma **objektmappen** som Visual Studio skapade när du lade till **ItemController** tidigare. Klicka på **Lägg till** och sedan på **Vy**.
    
-    ![Skärmdump av Solution Explorer som visar den objektmapp som Visual Studio skapade med kommandot Lägg till vy markerat](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view.png)
+    ![Skärmbild av Solution Explorer som visar den objektmapp som Visual Studio skapade med kommandona Lägg till vy markerat](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view.png)
 2. Gör följande i dialogrutan **Lägg till vy**:
    
    * I rutan **Vynamn** skriver du ***Index***.
@@ -184,7 +184,7 @@ Nu skapar vi vårt **V** i MVC, dvs. vyerna:
    * I rutan **Modellklass** väljer du ***Objekt (todo.Models)***.
    * Skriv ***~/Views/Shared/_Layout.cshtml*** i rutan på layoutsidan.
      
-   ![Skärmdump som visar dialogrutan Lägg till vy](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
+   ![Skärmbild som visar dialogrutan Lägg till vy](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
 3. När du har angett samtliga dessa värden klickar du på **Lägg till**  och låter Visual Studio skapa en ny mallvy. När det är klart öppnas cshtml-filen som skapades. Du kan stänga filen i Visual Studio eftersom vi återkommer till den senare.
 
 #### <a name="AddNewIndexView"></a>Lägg till en nytt objektsvy
@@ -369,7 +369,7 @@ Om du kör appen nu anropar den **ItemController**, som anropar till centrallage
 
 Om du bygger och kör det här projektet nu bör det se ut ungefär så här.    
 
-![Skärmdump av den webbapp med att göra-lista som skapats i denna självstudie om databaser](./media/sql-api-dotnet-application/build-and-run-the-project-now.png)
+![Skärmbild av webbprogram för att göra lista skapades av självstudien databas](./media/sql-api-dotnet-application/build-and-run-the-project-now.png)
 
 ### <a name="_Toc395637771"></a>Lägg till objekt
 Vi lägger in några objekt i databasen så att vi kan titta på något mer än ett tomt rutnät.
@@ -496,21 +496,21 @@ Testa appen på din lokala dator enligt nedanstående:
 
 1. Tryck på F5 i Visual Studio för att bygga appen i felsökningsläge. Den ska bygga appen och starta en webbläsare med den tomma rutnätssidan vi såg tidigare:
    
-    ![Skärmdump av den webbapp med att göra-lista som skapats i denna självstudie om databaser](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
+    ![Skärmbild av webbprogram för att göra lista skapades av självstudien databas](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
    
      
 2. Klicka på länken **Skapa nytt** och lägg till värden i fälten **Namn** och **Beskrivning**. Markera inte kryssrutan **Slutförd**, annars kommer det nya **objektet** att läggas till i slutfört tillstånd och visas inte i den inledande listan.
    
-    ![Skärmdump av vyn Skapa](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-new-item.png)
+    ![Skärmbild av vyn skapa](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-new-item.png)
 3. Klicka på **Skapa**, så omdirigeras du tillbaka till vyn **Index** och **objektet** visas i listan.
    
-    ![Skärmdump av vyn Index](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
+    ![Skärmbild av vyn Index](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
    
     Passa på att lägga till några fler **objekt** i din att göra-lista.
     
 4. Klicka på **Redigera** bredvid ett **objekt** på listan så kommer du till vyn **Redigera**, där du kan uppdatera alla egenskaper för objektet, inklusive flaggan **Slutförd**. Om du markerar flaggan **Slutförd** och klickar på **Spara** tas **objektet** bort från listan över ofullständiga uppgifter.
    
-    ![Skärmdump av indexvyn med rutan Slutförd ikryssad](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
+    ![Skärmbild av indexvyn med rutan slutförd ikryssad](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
 5. När du har testat appen trycker du på Ctrl + F5 för att avsluta felsökningen. Nu är du redo att distribuera!
 
 ## <a name="_Toc395637774"></a>Steg 7: Distribuera programmet till Azure App Service 
@@ -518,7 +518,7 @@ När hela programmet fungerar som det ska med Azure Cosmos DB är det dags att d
 
 1. Allt du behöver göra för att publicera appen är högerklicka på projektet i **Solution Explorer** och klicka på **Publicera**.
    
-    ![Skärmdump av alternativet Publicera i Solution Explorer](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-publish.png)
+    ![Skärmbild av alternativet Publicera i Solution Explorer](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-publish.png)
 
 2. Klicka på **Microsoft Azure App Service** i dialogrutan **Publicera** och välj sedan **Skapa ny** om du vill skapa en ny App Service-profil eller klicka på **Välj befintlig** om du vill använda en befintlig profil.
 
@@ -541,7 +541,6 @@ Grattis! Du har precis skapat ditt första ASP.NET MVC-webbprogram med Azure Cos
 
 Om du vill lägga till ytterligare funktioner i appen tittar du igenom API:erna i [Azure Cosmos DB .NET-biblioteket](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet). Lägg gärna till egna bidrag i Azure Cosmos DB .NET-biblioteket på [GitHub][GitHub]. 
 
-[\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
 [Preventing Cross-Site Request Forgery]: https://go.microsoft.com/fwlink/?LinkID=517254

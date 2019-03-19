@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 6b3f3217f90c2c5a72ba9576b5e0cc89e6133cd8
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 6df49f9cd308f4bb9b1fef6e5860872526ce8bb7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913316"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079034"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualizing Nätverkssäkerhetsgrupp flödesloggar med Power BI
 
@@ -56,10 +56,10 @@ Du måste också ha Power BI Desktop klienten är installerad på din dator och 
 
 1. Ladda ned och öppna följande Power BI-mall i Power BI Desktop programmet [flödesloggarna i Network Watcher PowerBI mall](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
 1. Ange de obligatoriska parametrarna i frågan
-    1. **StorageAccountName** – anger namnet på lagringskontot som innehåller NSG-flödesloggar som du vill läsa in och visualisera.
-    1. **NumberOfLogFiles** – anger hur många loggfiler som du vill ladda ned och visualisera i Power BI. Om 50 anges, till exempel de 50 senaste loggfilerna. Om vi har 2 NSG: er aktiveras och konfigureras att skicka NSG-flödesloggar till det här kontot kan de senaste 25 timmarna av loggar ses.
+   1. **StorageAccountName** – anger namnet på lagringskontot som innehåller NSG-flödesloggar som du vill läsa in och visualisera.
+   1. **NumberOfLogFiles** – anger hur många loggfiler som du vill ladda ned och visualisera i Power BI. Om 50 anges, till exempel de 50 senaste loggfilerna. Om vi har 2 NSG: er aktiveras och konfigureras att skicka NSG-flödesloggar till det här kontot kan de senaste 25 timmarna av loggar ses.
 
-    ![Power BI main][2]
+      ![Power BI main][2]
 
 1. Ange åtkomstnyckel för lagringskontot. Du kan hitta giltiga åtkomstnycklar genom att gå till ditt lagringskonto i Azure-portalen och välja **åtkomstnycklar** från menyn Inställningar. Klicka på **Connect** tillämpa ändringarna.
 
@@ -67,7 +67,7 @@ Du måste också ha Power BI Desktop klienten är installerad på din dator och 
 
     ![få åtkomst till nyckel 2][4]
 
-4.  Loggarna är ladda ned och parsa och du kan nu använda de färdiga visuella objekt.
+4. Loggarna är ladda ned och parsa och du kan nu använda de färdiga visuella objekt.
 
 ## <a name="understanding-the-visuals"></a>Förstå de visuella objekten
 

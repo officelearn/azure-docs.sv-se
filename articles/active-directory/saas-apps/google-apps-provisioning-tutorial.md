@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ea80824588980fdd6c580b6d77c2a5566159547
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 99c6999e437abbef1920f6de771173e4e6e007f2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211095"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116919"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Självstudier: Konfigurera G Suite för automatisk användaretablering
 
@@ -53,7 +53,7 @@ Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vi
 
 > [!IMPORTANT]
 > Vi rekommenderar att en enda Azure AD-användare tilldelas till G Suite för att testa etablering konfigurationen. Du kan tilldela ytterligare användare och grupper senare.
-
+> 
 > När du tilldelar en användare till G Suite, väljer du den **användaren** eller **grupp** roll i dialogrutan tilldelning. Den **standard åtkomst** rollen fungerar inte för etablering.
 
 ## <a name="enable-automated-user-provisioning"></a>Aktivera automatisk användaretablering
@@ -80,8 +80,8 @@ Det här avsnittet vägleder dig genom processen för att ansluta din Azure AD t
    
     ![Välj API-referens.][16]
 
-    > [!IMPORTANT]
-    > För varje användare som du vill etablera till G Suite sina användarnamn i Azure Active Directory *måste* vara bundna till en anpassad domän. Exempelvis användarens namn som bob@contoso.onmicrosoft.com tillåts inte av G Suite. Å andra sidan bob@contoso.com accepteras. Du kan ändra en befintlig användares domän genom att redigera deras egenskaper i Azure AD. Innehåller instruktioner för hur du ställer in en anpassad domän för både Azure Active Directory och G Suite i följande steg.
+   > [!IMPORTANT]
+   > För varje användare som du vill etablera till G Suite sina användarnamn i Azure Active Directory *måste* vara bundna till en anpassad domän. Exempelvis användarens namn som bob@contoso.onmicrosoft.com tillåts inte av G Suite. Å andra sidan bob@contoso.com accepteras. Du kan ändra en befintlig användares domän genom att redigera deras egenskaper i Azure AD. Innehåller instruktioner för hur du ställer in en anpassad domän för både Azure Active Directory och G Suite i följande steg.
       
 1. Om du inte har lagt till ett anpassat domännamn till Azure Active Directory ännu, gör du följande:
   
@@ -105,8 +105,8 @@ Det här avsnittet vägleder dig genom processen för att ansluta din Azure AD t
 
     e. Upprepa föregående steg för alla domäner som du vill lägga till i din katalog.
 
-    > [!NOTE]
-    Den anpassade domänen måste matcha domännamnet för Azure AD-källan för etableringen av användare. Om de inte matchar kanske du kan lösa problemet genom att implementera attributet mappning anpassning.
+   > [!NOTE]
+   >  Den anpassade domänen måste matcha domännamnet för Azure AD-källan för etableringen av användare. Om de inte matchar kanske du kan lösa problemet genom att implementera attributet mappning anpassning.
 
 
 1. Nu när du har verifierat dina domäner med Azure AD, måste du kontrollera dem igen med Google Apps. För varje domän som inte redan har registrerats med Google, gör du följande:
@@ -149,13 +149,13 @@ Det här avsnittet vägleder dig genom processen för att ansluta din Azure AD t
 
 1. Ange den **Etableringsläge** till **automatisk**. 
 
-     ![Etablering](./media/google-apps-provisioning-tutorial/provisioning.png)
+      ![Etablering](./media/google-apps-provisioning-tutorial/provisioning.png)
 
 1. Under den **administratörsautentiseringsuppgifter** väljer **auktorisera**. Det öppnar en dialogruta för Google-auktorisering i ett nytt webbläsarfönster.
 
 1. Bekräfta att du vill ge Azure Active Directory-behörighet att göra ändringar i din G Suite-klient. Välj **Acceptera**.
     
-     ![Bekräfta behörigheter.][28]
+      ![Bekräfta behörigheter.][28]
 
 1. I Azure-portalen väljer du **Testanslutningen** så att Azure AD kan ansluta till din app. Om anslutningen misslyckas, kan du kontrollera att ditt G Suite-konto har administratörsbehörigheter för teamet. Försök sedan den **auktorisera** steg igen.
 

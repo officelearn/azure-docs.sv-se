@@ -10,20 +10,20 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/08/2019
 ms.author: erhopf
-ms.openlocfilehash: b444c535a3fceb7c7e84017d419a8e67f598d2f7
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 501adcf30fecfd365d7450f6ca8abed8b6014e9d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984417"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535985"
 ---
 # <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-php"></a>Snabbstart: Identifiera språk från text med Translator Text REST API (PHP)
 
 I den här snabbstarten ska du identifiera språket i källtexten med hjälp av Translator Text-API:et.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver [PHP 5.6.x](http://php.net/downloads.php) för att köra koden.
+Du behöver [PHP 5.6.x](https://php.net/downloads.php) för att köra koden.
 
 För att använda Translator Text-API:et behöver du också en prenumerationsnyckel. Mer information finns i [How to sign up for the Translator Text API](translator-text-how-to-signup.md) (Så här registrerar du dig för Translator Text-API:et).
 
@@ -74,7 +74,7 @@ function DictionaryLookup ($host, $path, $key, $params, $content) {
         "X-ClientTraceId: " . com_create_guid() . "\r\n";
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $options = array (
         'http' => array (
             'header' => $headers,
@@ -98,7 +98,7 @@ $result = DictionaryLookup ($host, $path, $key, "", $content);
 
 // Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
 // We want to avoid escaping any Unicode characters that result contains. See:
-// http://php.net/manual/en/function.json-encode.php
+// https://php.net/manual/en/function.json-encode.php
 $json = json_encode(json_decode($result), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 echo $json;
 ?>

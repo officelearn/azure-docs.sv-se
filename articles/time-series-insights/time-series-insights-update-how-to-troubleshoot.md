@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: e44a02e2126e7b25f69999de34fe5cf42499a90c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: eb1c302bf1954492ba2a7a78d16fc697fdf4b687
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556840"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080445"
 ---
 # <a name="diagnose-and-troubleshoot"></a>Diagnostisera och felsöka
 
@@ -35,7 +35,7 @@ Det finns flera vanliga orsaker varför du inte kanske se dina data i den [förh
 
     Kontrollera att din händelsekälla som är en event hub eller en IoT-hubb, tar emot data från din taggar eller instanser. Kontrollera, gå till översiktssidan för din resurs i Azure-portalen.
 
-    ![instrumentpanelen insikter][2]
+    ![Dashboard-insights][2]
 
 - Källdata händelse är inte i JSON-format.
 
@@ -43,16 +43,16 @@ Det finns flera vanliga orsaker varför du inte kanske se dina data i den [förh
 
 - Din nyckel för event källa saknas i en behörighet som krävs.
 
-    * För en IoT-hubb, måste du ange den nyckel som har **tjänsten ansluta** behörighet.
+  * För en IoT-hubb, måste du ange den nyckel som har **tjänsten ansluta** behörighet.
 
     ![Konfiguration][3]
 
-    * Som visas i den föregående bilden är båda principerna **iothubowner** och **service** fungerar eftersom de har **tjänsten ansluta** behörighet.
-    * För en händelsehubb, måste du ange den nyckel som har **lyssna** behörighet.
+  * Som visas i den föregående bilden är båda principerna **iothubowner** och **service** fungerar eftersom de har **tjänsten ansluta** behörighet.
+  * För en händelsehubb, måste du ange den nyckel som har **lyssna** behörighet.
   
     ![Behörigheter][4]
 
-    * Som visas i den föregående bilden är båda de **läsa** och **hantera** principer fungerar eftersom de har **lyssna** behörighet.
+  * Som visas i den föregående bilden är båda de **läsa** och **hantera** principer fungerar eftersom de har **lyssna** behörighet.
 
 - Din konsumentgrupp som angetts är inte exklusivt för Time Series Insights.
 

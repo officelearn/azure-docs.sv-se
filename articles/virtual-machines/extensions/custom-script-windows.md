@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2018
 ms.author: roiyz
-ms.openlocfilehash: f29c995c4fb4a1e87c95295779ff83dd133ac61c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 520ff1dfeefc8cca66710745012ee54b550a19a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984400"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097931"
 ---
 # <a name="custom-script-extension-for-windows"></a>Tillägget för anpassat skript för Windows
 
@@ -123,11 +123,11 @@ De här objekten ska behandlas som känsliga data och anges i den skyddade Konfi
 >Dessa egenskapsnamn är skiftlägeskänsliga. Undvik distributionsproblem genom att använda namnen som visas här.
 
 #### <a name="property-value-details"></a>Information om egenskapen
- * `commandToExecute`: (**krävs**, string) startpunktsskriptet att köra. Använd det här fältet i stället om kommandot innehåller hemligheter som lösenord, eller din fileUris är känsliga.
-* `fileUris`: (valfritt, Strängmatrisen) URL: er för filer som ska hämtas.
-* `timestamp` (valfritt, 32-bitars heltal) Använd det här fältet bara för att utlösa en kör av skriptet genom att ändra värdet för det här fältet.  Alla heltalsvärde är godtagbara. Det får endast vara skiljer sig från det tidigare värdet.
-* `storageAccountName`: (valfritt, string) namnet på lagringskontot. Om du anger autentiseringsuppgifter för lagringskontot, alla `fileUris` måste vara URL: er för Azure-BLOB.
-* `storageAccountKey`: (valfritt, string) åtkomstnyckeln för lagringskontot
+* `commandToExecute`: (**krävs**, string) startpunktsskriptet att köra. Använd det här fältet i stället om kommandot innehåller hemligheter som lösenord, eller din fileUris är känsliga.
+  * `fileUris`: (valfritt, Strängmatrisen) URL: er för filer som ska hämtas.
+  * `timestamp` (valfritt, 32-bitars heltal) Använd det här fältet bara för att utlösa en kör av skriptet genom att ändra värdet för det här fältet.  Alla heltalsvärde är godtagbara. Det får endast vara skiljer sig från det tidigare värdet.
+  * `storageAccountName`: (valfritt, string) namnet på lagringskontot. Om du anger autentiseringsuppgifter för lagringskontot, alla `fileUris` måste vara URL: er för Azure-BLOB.
+  * `storageAccountKey`: (valfritt, string) åtkomstnyckeln för lagringskontot
 
 Följande värden kan anges i antingen offentliga eller skyddade inställningar, tillägget kommer att avslå alla konfigurationer där värdena nedan anges i inställningarna för både offentliga och skyddade.
 * `commandToExecute`

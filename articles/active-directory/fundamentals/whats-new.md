@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c34cd59a5f4636eeca395fde49e45beb1a49752
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: ae0565bd51235f2d1b471adcc511786c204d175a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408895"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890526"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -516,11 +516,11 @@ Vi har ett problem har åtgärdats så att specifika administratörsroller kan n
 
 Rollerna är:
 
-- Global administratör eller företagets skrivare
+- Global administratör
 
-- Administratör för Intune-tjänsten
+- Intune-administratör
 
-- Användarkonto-administratör
+- Användaradministratör
 
 Mer information finns i [skapa en dynamisk grupp och kontrollera status](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)
 

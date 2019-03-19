@@ -10,21 +10,21 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: 3ad657fb695d88ffc75a37ee566ce59126906748
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1c60bd4dae6c279ccff637ff0aa798c48ebec6f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038440"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108077"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Skapa varaktiga funktioner med hjälp av Azure portal
 
 Den [varaktiga funktioner](durable-functions-overview.md) tillägget för Azure Functions finns i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). Det här tillägget måste installeras i din funktionsapp. Den här artikeln visar hur du installerar det här paketet så att du kan utveckla varaktiga funktioner i Azure-portalen.
 
->[!NOTE]
->
->* Om du utvecklar varaktiga funktioner i C#, i stället bör du [Visual Studio 2017 utveckling](durable-functions-create-first-csharp.md).
-* Om du utvecklar varaktiga funktioner i JavaScript, i stället bör du [Visual Studio Code utveckling](./quickstart-js-vscode.md).
+> [!NOTE]
+> 
+> * Om du utvecklar varaktiga funktioner i C#, i stället bör du [Visual Studio 2017 utveckling](durable-functions-create-first-csharp.md).
+> * Om du utvecklar varaktiga funktioner i JavaScript, i stället bör du [Visual Studio Code utveckling](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 

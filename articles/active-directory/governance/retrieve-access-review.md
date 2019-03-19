@@ -16,16 +16,16 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5a422f619c4ef63da59516ff2748683eb0f7f70
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 2516e61b6b86c3d2cee164cfcb80a1f938922908
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726697"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839652"
 ---
 # <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Hämta åtkomstgranskningsresultaten efter grupper eller program i Azure AD-Åtkomstgranskningar
 
-Administratörer kan använda Azure Active Directory (Azure AD) för att [skapa en åtkomstgranskning](create-access-review.md) för gruppmedlemmar eller användare som är tilldelade till ett program.  Användare med rollen **Global administratör**, **Användarkonto-administratör**, **Säkerhetsadministratör** eller **Säkerhetsläsare** kan också läsa resultatet av en åtkomstgranskning.  För att tilldela användare en av de här rollerna kan en privilegierad rolladministratör använda Azure AD PIM för att göra så att en användare kan aktivera rollen, eller så kan en global administratör permanent [tilldela användaren rollen](../fundamentals/active-directory-users-assign-role-azure-portal.md).
+Administratörer kan använda Azure Active Directory (Azure AD) för att [skapa en åtkomstgranskning](create-access-review.md) för gruppmedlemmar eller användare som är tilldelade till ett program.  En användare som tillhör den **Global administratör**, **Användaradministratör**, **säkerhetsadministratör** eller **säkerhetsläsare** rollen kan även läsa resultaten av en åtkomstgranskning.  Om du vill tilldela användare till någon av dessa roller, en privilegierad rolladministratör kan använda Azure AD PIM för att berättiga en användare att aktivera rollen eller en Global administratör kan permanent [tilldela en användare till rollen](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 

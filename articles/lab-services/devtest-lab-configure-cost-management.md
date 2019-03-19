@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: bc81f479305f39024b8d946e1ace3fc84ecb6253
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: 1f6887a403e03ac11bb080a1d9855daff66ca088
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588864"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096783"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Spåra kostnader i samband med ett labb i Azure DevTest Labs
 Den här artikeln innehåller information om hur du spårar kostnaden för ditt labb. Den visar hur du visar beräknade kostnad trent för den aktuella kalendermånaden för övningen. Artikeln beskriver också hur du visar månad hittills kostnad per resurs i laboratoriet.
@@ -41,19 +41,19 @@ Följ dessa steg om du vill visa månatliga uppskattade kostnaden Trend diagramm
 
     Kostnadsbelopp avrundas uppåt till närmaste heltal. Exempel: 
 
-    * 5.01 Avrundar upp till 6 
-    * 5.50 Avrundar upp till 6
-    * 5.99 Avrundar upp till 6
+   * 5.01 Avrundar upp till 6 
+   * 5.50 Avrundar upp till 6
+   * 5.99 Avrundar upp till 6
 
-    Kostnaderna som visas som standard i diagrammet är som det säger ovanför diagrammet *uppskattade* kostnader med hjälp av [användningsbaserad](https://azure.microsoft.com/offers/ms-azr-0003p/) erbjuder priser. Du kan också ange egna utgifter mål som visas i diagrammen av [hantera kostnaden mål för övningen.](#managing-cost-targets-for-your-lab)
+     Kostnaderna som visas som standard i diagrammet är som det säger ovanför diagrammet *uppskattade* kostnader med hjälp av [användningsbaserad](https://azure.microsoft.com/offers/ms-azr-0003p/) erbjuder priser. Du kan också ange egna utgifter mål som visas i diagrammen av [hantera kostnaden mål för övningen.](#managing-cost-targets-for-your-lab)
 
-    Följande kostnader är *inte* ingår i beräkningen:
+     Följande kostnader är *inte* ingår i beräkningen:
 
-    * CSP och Dreamspark-prenumerationer stöds inte för tillfället eftersom Azure DevTest Labs använder den [Azure fakturering API: er](../billing/billing-usage-rate-card-overview.md) att beräkna labbet kostnad, som inte stöder CSP eller Dreamspark-prenumerationer.
-    * Priserna för ditt erbjudande. För närvarande kan använda du inte erbjudandet priserna (visas i din prenumeration) att du har förhandlas med Microsoft eller Microsoft partner. Endast för användningsbaserad betalning används.
-    * Din skatter
-    * Slevy
-    * Faktureringsvalutan. För närvarande visas lab kostnaden endast i USD valuta.
+   * CSP och Dreamspark-prenumerationer stöds inte för tillfället eftersom Azure DevTest Labs använder den [Azure fakturering API: er](../billing/billing-usage-rate-card-overview.md) att beräkna labbet kostnad, som inte stöder CSP eller Dreamspark-prenumerationer.
+   * Priserna för ditt erbjudande. För närvarande kan använda du inte erbjudandet priserna (visas i din prenumeration) att du har förhandlas med Microsoft eller Microsoft partner. Endast för användningsbaserad betalning används.
+   * Din skatter
+   * Slevy
+   * Faktureringsvalutan. För närvarande visas lab kostnaden endast i USD valuta.
 
 ### <a name="managing-cost-targets-for-your-lab"></a>Hantera kostnaden mål för övningen
 DevTest Labs kan du bättre hantera kostnaderna i labbet genom att ange en utgiftsgräns mål som du kan visa i diagrammet månatliga uppskattade kostnaden Trend. DevTest Labs kan också skicka ett meddelande när den angivna målsökvägen utgifter eller tröskelvärdet har uppnåtts. 
@@ -76,11 +76,11 @@ DevTest Labs kan du bättre hantera kostnaderna i labbet genom att ange en utgif
 
        ![Konfigurera meddelandefönstret](./media/devtest-lab-configure-cost-management/configure-notification.png)
 
-      - Om du anger **meddela**, måste du definiera en webhook-URL.
-      - På samma sätt, om du definierar en webhook-URL måste du ange **meddelande** till **på** i fönstret kostnaden tröskelvärdet.
-      - Du måste skapa en webhook innan den här.  
+     - Om du anger **meddela**, måste du definiera en webhook-URL.
+     - På samma sätt, om du definierar en webhook-URL måste du ange **meddelande** till **på** i fönstret kostnaden tröskelvärdet.
+     - Du måste skapa en webhook innan den här.  
 
-      Läs mer om webhooks [skapa en webhook eller API Azure-funktion](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+       Läs mer om webhooks [skapa en webhook eller API Azure-funktion](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 ## <a name="view-cost-by-resource"></a>Visa kostnaden per resurs 
 Funktionen trend månatlig kostnad för i labb kan du se hur mycket du använt i den aktuella kalendermånaden. Den visar även projektion utgifter fram till slutet av månaden, baserat på dina utgifter under de senaste sju dagarna. För att förstå varför utgifter i labbet uppfyller tröskelvärden för tidigt på du kan använda den **kostnad per resurs** funktion som visar månad hittills kostnaden **per resurs** i en tabell.

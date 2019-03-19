@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 2f31809a0d80079730966e2ecdb017b68563949e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: cbbc710c9408c84c601d7b9eb9560641b5313a05
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825110"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090941"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Hantera resursgrupper i Azure Resource Manager med hjälp av Azure-portalen
 
@@ -46,11 +46,11 @@ Resursgruppen lagrar metadata om resurserna. När du anger en plats för resursg
 3. Välj **Lägg till**.
 4. Ange följande värden:
 
-    - **Prenumeration**: Välj din Azure-prenumeration. 
-    - **Resursgrupp**: Ange ett nytt resursgruppnamn. 
-    - **Region**: Välj en Azure-plats, till exempel **centrala USA**.
+   - **Prenumeration**: Välj din Azure-prenumeration. 
+   - **Resursgrupp**: Ange ett nytt resursgruppnamn. 
+   - **Region**: Välj en Azure-plats, till exempel **centrala USA**.
 
-    ![Skapa resursgrupp](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
+     ![Skapa resursgrupp](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
 5. Välj **granska + skapa**
 6. Välj **Skapa**. Det tar några sekunder att skapa en resursgrupp.
 7. Välj **uppdatera** på den översta menyn för att uppdatera resursen grupplistan och välj sedan resursgruppen du skapade att öppna den. Eller välj **meddelande**(klockikon) längst upp och välj sedan **går du till resursgruppen** att öppna resursgruppen du skapade
@@ -130,14 +130,14 @@ Den här metoden exporterar mallar för vissa distributioner. Om du har ändrat 
 3. Välj en av distributionerna i listan.
 4. I den vänstra rutan väljer **mallen**. Resource Manager hämtar följande sex filer åt dig:
 
-    - **Mall**– Mallen som definierar infrastrukturen för lösningen. När du skapade lagringskontot på portalen använde Resource Manager en mall för att distribuera det och sparade mallen för framtida bruk.
-    - **Parametrar** – En parameterfil som du kan använda för att skicka in värden under distributionen. Den innehåller de värden som du angav under den första distributionen. Du kan ändra dessa värden när du distribuerar om mallen.
-    - **CLI** – en Azure-CLI-skriptfil som du kan använda för att distribuera mallen.
-    - **PowerShell** – En Azure PowerShell-skriptfil som du kan använda för att distribuera mallen.
-    - **.NET** – En .NET-klass som du kan använda för att distribuera mallen.
-    - **Ruby**– En Ruby-klass som du kan använda för att distribuera mallen.
+   - **Mall**– Mallen som definierar infrastrukturen för lösningen. När du skapade lagringskontot på portalen använde Resource Manager en mall för att distribuera det och sparade mallen för framtida bruk.
+   - **Parametrar** – En parameterfil som du kan använda för att skicka in värden under distributionen. Den innehåller de värden som du angav under den första distributionen. Du kan ändra dessa värden när du distribuerar om mallen.
+   - **CLI** – en Azure-CLI-skriptfil som du kan använda för att distribuera mallen.
+   - **PowerShell** – En Azure PowerShell-skriptfil som du kan använda för att distribuera mallen.
+   - **.NET** – En .NET-klass som du kan använda för att distribuera mallen.
+   - **Ruby**– En Ruby-klass som du kan använda för att distribuera mallen.
 
-    Som standard visar portalen mallen.
+     Som standard visar portalen mallen.
 
 5. Välj **hämta** du exporterar en mall till den lokala datorn.
 
@@ -151,14 +151,14 @@ Om du har ändrat dina resurser från portalen eller lagts till/ta bort resurser
 1. Öppna resursgruppen som du vill ta bort.  Se [öppna resursgrupper](#open-resource-groups).
 2. I den vänstra rutan väljer **automationsskript**. Resource Manager hämtar följande sex filer åt dig:
 
-    - **Mall**– Mallen som definierar infrastrukturen för lösningen. När du skapade lagringskontot på portalen använde Resource Manager en mall för att distribuera det och sparade mallen för framtida bruk.
-    - **Parametrar** – En parameterfil som du kan använda för att skicka in värden under distributionen. Den innehåller de värden som du angav under den första distributionen. Du kan ändra dessa värden när du distribuerar om mallen.
-    - **CLI** – en Azure-CLI-skriptfil som du kan använda för att distribuera mallen.
-    - **PowerShell** – En Azure PowerShell-skriptfil som du kan använda för att distribuera mallen.
-    - **.NET** – En .NET-klass som du kan använda för att distribuera mallen.
-    - **Ruby**– En Ruby-klass som du kan använda för att distribuera mallen.
+   - **Mall**– Mallen som definierar infrastrukturen för lösningen. När du skapade lagringskontot på portalen använde Resource Manager en mall för att distribuera det och sparade mallen för framtida bruk.
+   - **Parametrar** – En parameterfil som du kan använda för att skicka in värden under distributionen. Den innehåller de värden som du angav under den första distributionen. Du kan ändra dessa värden när du distribuerar om mallen.
+   - **CLI** – en Azure-CLI-skriptfil som du kan använda för att distribuera mallen.
+   - **PowerShell** – En Azure PowerShell-skriptfil som du kan använda för att distribuera mallen.
+   - **.NET** – En .NET-klass som du kan använda för att distribuera mallen.
+   - **Ruby**– En Ruby-klass som du kan använda för att distribuera mallen.
 
-    Som standard visar portalen mallen.
+     Som standard visar portalen mallen.
 3. Välj **hämta** du exporterar en mall till den lokala datorn.
 
 Vissa exporterade mallar måste vissa ändringar innan de kan användas. Läs hur du utvecklar mallar i den [stegvisa självstudier](/azure/azure-resource-manager/).

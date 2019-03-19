@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ff0589b87ae031db5bda96dc238359bf9cfb3b11
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 03/11/2019
+ms.openlocfilehash: e5f400bb25fce58a4fb63ca1ad76ddf2b71fbd9c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751607"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835426"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Välja rätt SQL Server-alternativ i Azure
 
@@ -75,15 +75,15 @@ Följande tabell sammanfattar de huvudsakliga egenskaperna för SQL Database och
 | | SQL Database enskilda databaser och elastiska pooler | SQL Database-hanterade instanser |Azure-datorer med SQL Server |
 | --- | --- | --- |---|
 | **Bäst för:** |Nya molnbaserade program som vill använda de senaste stabila SQL Server-funktionerna och tidsbegränsningar på utveckling och marknadsföring. | Nya program eller befintliga lokala program som använder de senaste stabila SQL Server-funktionerna och att migreras till molnet med minimala ändringar.  | Befintliga program som kräver snabb migrering till molnet med minimala ändringar eller inga ändringar. Snabba utvecklings- och test-scenarier där du inte vill köpa lokal SQL Server-maskinvara som inte är för produktion. |
-|  | Team som behöver inbyggd hög tillgänglighet, haveriberedskap och uppgradering för databasen. | Samma som SQL Database enkel och delade databaser. | Team som kan konfigurera bra finjustera, anpassa och hantera hög tillgänglighet, haveriberedskap och korrigeringar för SQL Server. Vissa automatiserade funktioner kan avsevärt förenkla detta arbete. | |
-|  | Team som inte vill hantera de underliggande operativsystemen och konfigurationsinställningarna. | Samma som SQL Database enkel och delade databaser. | Du behöver en anpassad miljö med fullständiga administrativa rättigheter. | |
+|  | Team som behöver inbyggd hög tillgänglighet, haveriberedskap och uppgradering för databasen. | Samma som SQL Database enkel och delade databaser. | Team som kan konfigurera bra finjustera, anpassa och hantera hög tillgänglighet, haveriberedskap och korrigeringar för SQL Server. Vissa automatiserade funktioner kan avsevärt förenkla detta arbete. |
+|  | Team som inte vill hantera de underliggande operativsystemen och konfigurationsinställningarna. | Samma som SQL Database enkel och delade databaser. | Du behöver en anpassad miljö med fullständiga administrativa rättigheter. |
 |  | Databaser på upp till 100 TB. | Upp till 8 TB. | SQL Server-instanser med upp till 64 TB lagring. Instansen har stöd för så många databaser som behövs. |
 | **Kompatibilitet** | Stöder de flesta lokala på databasnivå funktioner. | Stöder nästan alla lokala funktioner på instansnivå och på databasnivå. | Har stöd för alla lokala funktioner. |
 | **Resurser:** | Du vill inte anställa IT-resurser för konfiguration och hantering av underliggande den infrastrukturen utan vill fokusera på programnivån. | Samma som SQL Database enkel och delade databaser. | Du har några IT-resurser som ansvarar för konfiguration och hantering. Vissa automatiserade funktioner kan avsevärt förenkla detta arbete. |
 | **Totalkostnad för ägarskap:** | Eliminerar kostnaderna för maskinvara och reducerar de administrativa kostnaderna. | Samma som SQL Database enkel och delade databaser. | Eliminerar maskinvarukostnaderna. |
 | **Verksamhetskontinuitet:** |Förutom [inbyggda infrastruktur för feltolerans](sql-database-high-availability.md), Azure SQL Database tillhandahåller funktioner, till exempel [automatiska säkerhetskopior](sql-database-automated-backups.md), [Point-In-Time-återställning](sql-database-recovery-using-backups.md#point-in-time-restore), [geo-återställning](sql-database-recovery-using-backups.md#geo-restore), [aktiv geo-replikering](sql-database-active-geo-replication.md), och [automatisk redundans grupper](sql-database-auto-failover-group.md) att öka verksamhetskontinuiteten. Mer information finns i [översikt över verksamhetskontinuitet i SQL Database](sql-database-business-continuity.md). | Samma som SQL Database enkel och delade databaser, plus användarinitierad, endast kopiering säkerhetskopieringar är tillgängliga. | Med SQL Server på Azure Virtual Machines kan du konfigurera en lösning med hög tillgänglighet och haveriberedskap för din databas specifika behov. Du kan därmed få ett system som är höggradigt optimerat för just ditt program. Du kan själv testa och köra felväxling vid behov. Mer information finns i [Hög tillgänglighet och haveriberedskap för SQL Server på Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
 | **Hybridmoln:** |Ditt lokala program har åtkomst till data i Azure SQL Database. | [Intern implementering](sql-database-managed-instance-vnet-configuration.md) och vara ansluten till din lokala miljö med hjälp av Azure Express Route eller VPN-Gateway. | Med SQL Server på virtuella Azure-datorer kan du ha program som kör delvis i molnet och delvis lokalt. Du kan till exempel utöka ditt lokala nätverk och Active Directory-domän till molnet via [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Läs mer på hybridmolnlösningar [utöka lokala datalösningar till molnet](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud). |
-|  | Har stöd för [SQL Server-transaktionsreplikering](https://msdn.microsoft.com/library/mt589530.aspx) som en prenumerant för att replikera data. | Replikering stöds för den hanterade instansen som en förhandsversion av funktionen. | Fullständigt stöd för [Transaktionsreplikering i SQL Server](https://msdn.microsoft.com/library/mt589530.aspx), [ständigt aktiverade Tillgänglighetsgrupper](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md), Integration Services och Loggöverföring för att replikera data. Dessutom finns fullständigt stöd för traditionella SQL Server-säkerhetskopieringar | |
+|  | Har stöd för [SQL Server-transaktionsreplikering](https://msdn.microsoft.com/library/mt589530.aspx) som en prenumerant för att replikera data. | Replikering stöds för den hanterade instansen som en förhandsversion av funktionen. | Fullständigt stöd för [Transaktionsreplikering i SQL Server](https://msdn.microsoft.com/library/mt589530.aspx), [ständigt aktiverade Tillgänglighetsgrupper](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md), Integration Services och Loggöverföring för att replikera data. Dessutom finns fullständigt stöd för traditionella SQL Server-säkerhetskopieringar |
 |  | | |
 
 ## <a name="business-motivations-for-choosing-azure-sql-database-or-sql-server-on-azure-vms"></a>Verksamhetsmotivering för att välja Azure SQL Database eller SQL Server på virtuella Azure-datorer
@@ -91,7 +91,7 @@ Följande tabell sammanfattar de huvudsakliga egenskaperna för SQL Database och
 Det finns flera faktorer som kan påverka ditt beslut att välja PaaS eller IaaS som värd för dina SQL-databaser:
 
 - [Kostnaden](#cost) -alternativet för både PaaS och IaaS innehålla base pris som omfattar underliggande infrastruktur och licensiering. Men med IaaS-alternativet måste du investera mer tid och resurser för att hantera din databas när du får dessa administrationsfunktioner som ingår i priset i PaaS. IaaS-alternativet kan du avställning dina resurser medan du inte använder dem för att minska kostnaden, medan PaaS-versionen körs alltid om inte om du ta bort och återskapa dina resurser när de behövs.
-- [Administration](#administration) -PaaS alternativ minska den tid som du behöver investera för att administrera databasen. Men den också att du kan utföra vissa anpassade administration som kunde förbättra prestandan för din arbetsbelastning.
+- [Administration](#administration) -PaaS alternativ minska den tid som du behöver investera för att administrera databasen. Det begränsar också en mängd anpassade administrationsuppgifter och skript som du kan utföra eller köra. Exempelvis CLR stöds inte med enkel eller grupperade databaser, men det finns stöd för en hanterad instans. Inga distributionsalternativ i PaaS stöder också användningen av spårningsflaggor.
 - [Servicenivåavtal](#service-level-agreement-sla) -både IaaS och PaaS serviceavtal hög, branschens standard. PaaS-alternativet garanterar 99,99% SLA, medan IaaS garanterar 99,95% SLA för infrastruktur, vilket innebär att du behöver implementera ytterligare metoder för att säkerställa tillgängligheten för dina databaser. I fallen, om du vill implementera hög tillgänglighet-lösning som matchar PaaS, kan du behöva skapa ytterligare SQL Server i virtuell dator och konfigurera AlwaysOn-Tillgänglighetsgrupper som kan double kostnaden för din databas.
 - [Dags att flytta till Azure](#market) – SQL Server i Azure VM är exakt matchning av din miljö, så migreringen från en lokal plats till Azure SQL-VM inte är lika flyttar databaser från en lokal server till en annan. Hanterad instans kan också mycket enkelt att migrera; Det kan dock finnas vissa ändringar som du måste tillämpa innan du migrerar till en hanterad instans.
 

@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 02/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 338907585ade0a33f74ca3e6337f1dd5cf8cc211
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: b40cd130039f7d55b69198b4be4af908dedbe8b7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820372"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076895"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Snabbstart: Använda Azure CLI för att skapa en Service Bus-kö
 
@@ -61,31 +61,31 @@ Efter att det sista kommandot körts, kopierar och klistrar du in anslutningsstr
 
 Efter att du skapat namnområdet och kön och du har de behörigheter som krävs, är du redo att skicka och ta emot meddelanden. Du kan granska koden i [den här GitHub-exempelmappen](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
-2. Klona [Service Bus GitHub-lagringsplatsen](https://github.com/Azure/azure-service-bus/) på datorn genom att utfärda följande kommando:
+1. Klona [Service Bus GitHub-lagringsplatsen](https://github.com/Azure/azure-service-bus/) på datorn genom att utfärda följande kommando:
 
    ```bash
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. Ändra din aktuella katalog till exempelmappen med snedstreck som sökvägsavgränsare:
+1. Ändra din aktuella katalog till exempelmappen med snedstreck som sökvägsavgränsare:
 
    ```bash
    cd azure-service-bus/samples/Java/azure-servicebus/QueuesGettingStarted
    ```
 
-3. Utfärda följande kommando för att skapa programmet:
+1. Utfärda följande kommando för att skapa programmet:
    
    ```bash
    mvn clean package -DskipTests
    ```
 
-4. Kör programmet genom att utfärda följande kommando när du har ersatt anslutningssträngen med det värde som du kopierade tidigare:
+1. Kör programmet genom att utfärda följande kommando när du har ersatt anslutningssträngen med det värde som du kopierade tidigare:
 
    ```bash
    java -jar ./target/queuesgettingstarted-1.0.0-jar-with-dependencies.jar -c "<SERVICE BUS NAMESPACE CONNECTION STRING>" 
    ```
 
-6. Observera hur 10 meddelanden skickas till kön. Sortering av meddelanden kan inte garanteras, men du kan se när meddelandena skickas och därefter bekräftas och mottas tillsammans med nyttolastdata:
+1. Observera hur 10 meddelanden skickas till kön. Sortering av meddelanden kan inte garanteras, men du kan se när meddelandena skickas och därefter bekräftas och mottas tillsammans med nyttolastdata:
 
     ```
     Message sending: Id = 0

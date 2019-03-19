@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: c98328342eec7fa59a56fbcc70da8cdd7a8fabf1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 157cbd9b05f7f2af58df732a1ca0329926a200da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880894"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123223"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Felsöka Azure Application Gateway problem med Sessionstillhörighet
 
@@ -40,11 +40,11 @@ De problem med sessionstillhörighet kan ibland uppstå när du glömmer att akt
 
 3. Välj **HTTP-inställningar** fliken **inställningar**.
 
-   ![Felsöka-session-tillhörighet-problem med-1](.\media\how-to-troubleshoot-application-gateway-session-affinity-issues\troubleshoot-session-affinity-issues-1.png)
+   ![Felsöka-session-tillhörighet-problem med-1](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-1.png)
 
 4. Klicka på **appGatewayBackendHttpSettings** till höger för att kontrollera om du har valt **aktiverad** för Cookie-baserad tillhörighet.
 
-   ![Felsöka-session-tillhörighet-problem – 2](.\media\how-to-troubleshoot-application-gateway-session-affinity-issues\troubleshoot-session-affinity-issues-2.jpg)
+   ![Felsöka-session-tillhörighet-problem – 2](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-2.jpg)
 
 
 
@@ -81,9 +81,9 @@ Följ anvisningarna för att identifiera det här problemet:
 2. Kontrollera och analysera sessionsloggarna, för att avgöra om de cookies som tillhandahålls av klienten har ARRAffinity information. Om du inte hittar ARRAffinity mer information, till exempel ”**ARRAffinity =** *ARRAffinityValue*” i uppsättningen cookie, som innebär att klienten inte svara med form-cookie som tillhandahålls av den Application Gateway.
     Exempel:
 
-    ![Felsöka-session-tillhörighet-problem-3](.\media\how-to-troubleshoot-application-gateway-session-affinity-issues\troubleshoot-session-affinity-issues-3.png)
+    ![Felsöka-session-tillhörighet-problem-3](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
 
-        ![troubleshoot-session-affinity-issues-4](.\media\how-to-troubleshoot-application-gateway-session-affinity-issues\troubleshoot-session-affinity-issues-4.png)
+        ![troubleshoot-session-affinity-issues-4](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-4.png)
 
 Programmet fortsätter att försök att ange cookien för varje begäran tills den får svar.
 
@@ -111,25 +111,25 @@ aktivera loggning via Azure Portal
 
 2. Om du vill börja samla in data, klickar du på **slå på diagnostik**.
 
-   ![Felsöka-session-tillhörighet-problem – 5](.\media\how-to-troubleshoot-application-gateway-session-affinity-issues\troubleshoot-session-affinity-issues-5.png)
+   ![Felsöka-session-tillhörighet-problem – 5](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-5.png)
 
 3. Den **diagnostikinställningar** bladet innehåller inställningarna för diagnostiska loggar. I det här exemplet lagras loggarna i Log Analytics. Klicka på **konfigurera** under **Log Analytics** att ställa in din arbetsyta. Du kan också använda händelsehubbar och ett lagringskonto till att spara dina diagnostiska loggar.
 
-   ![Felsöka-session-tillhörighet-problem – 6](.\media\how-to-troubleshoot-application-gateway-session-affinity-issues\troubleshoot-session-affinity-issues-6.png)
+   ![Felsöka-session-tillhörighet-problem – 6](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-6.png)
 
 4. Bekräfta inställningarna och klicka sedan på **spara**.
 
-   ![Felsöka-session-tillhörighet-problem – 7](.\media\how-to-troubleshoot-application-gateway-session-affinity-issues\troubleshoot-session-affinity-issues-7.png)
+   ![Felsöka-session-tillhörighet-problem – 7](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-7.png)
 
 #### <a name="view-and-analyze-the-application-gateway-access-logs"></a>Visa och analysera loggar för Application Gateway-åtkomst
 
 1. I Azure-portalen under resursvy Application Gateway, väljer **diagnostikloggar** i den **övervakning** avsnittet.
 
-   ![Felsöka-session-tillhörighet-problem – 8](.\media\how-to-troubleshoot-application-gateway-session-affinity-issues\troubleshoot-session-affinity-issues-8.png)
+   ![Felsöka-session-tillhörighet-problem – 8](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-8.png)
 
 2. Till höger, Välj ”**ApplicationGatewayAccessLog**” i listrutan under **logga kategorier.**  
 
-   ![Felsöka-session-tillhörighet-problem – 9](.\media\how-to-troubleshoot-application-gateway-session-affinity-issues\troubleshoot-session-affinity-issues-9.png)
+   ![Felsöka-session-tillhörighet-problem – 9](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-9.png)
 
 3. Klicka på den logg som du vill analysera och exportera i listan Åtkomstlogg för Application Gateway och sedan exportera JSON-filen.
 
@@ -145,7 +145,7 @@ aktivera loggning via Azure Portal
 
   - **SERVER-STATUS**: HTTP-svarskoden som Application Gateway har fått från backend-servern.
 
-  ![Felsöka-session-tillhörighet-problem – 11](.\media\how-to-troubleshoot-application-gateway-session-affinity-issues\troubleshoot-session-affinity-issues-11.png)
+  ![Felsöka-session-tillhörighet-problem – 11](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-11.png)
 
 Om du ser två objekt kommer från samma ClientIP och klientport och de skickas till samma backend-server, det innebär att Application-Gateway som konfigurerats korrekt.
 
@@ -164,23 +164,23 @@ Använda felsökaren web valfri. I det här exemplet använder vi Fiddler för a
 
 2. Högerklicka på den körbara Installationsprogramfilen och kör som administratör för att installera.
 
-            ![troubleshoot-session-affinity-issues-12](.\media\how-to-troubleshoot-application-gateway-session-affinity-issues\troubleshoot-session-affinity-issues-12.png)
+            ![troubleshoot-session-affinity-issues-12](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-12.png)
 
 3. När du öppnar Fiddler bör automatiskt börja samla in trafik (Observera hämtar i nedre vänstra hörnet). Tryck på F12 för att starta eller stoppa trafik avbildning.
 
-        ![troubleshoot-session-affinity-issues-13](.\media\how-to-troubleshoot-application-gateway-session-affinity-issues\troubleshoot-session-affinity-issues-13.png)
+        ![troubleshoot-session-affinity-issues-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
 
 4. Mest sannolikt du är intresserad av dekrypterade HTTPS-trafik, och du kan aktivera HTTPS-dekryptering genom att välja **verktyg** > **Fiddler alternativ**, och markera kryssrutan ” **dekryptera HTTPS-trafik**”.
 
-        ![troubleshoot-session-affinity-issues-14](.\media\how-to-troubleshoot-application-gateway-session-affinity-issues\troubleshoot-session-affinity-issues-14.png)
+        ![troubleshoot-session-affinity-issues-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
 
 5. Du kan ta bort tidigare orelaterade sessioner innan återge problemet genom att klicka på **X** (ikon) > **ta bort alla** följer skärmbild: 
 
-        ![troubleshoot-session-affinity-issues-15](.\media\how-to-troubleshoot-application-gateway-session-affinity-issues\troubleshoot-session-affinity-issues-15.png)
+        ![troubleshoot-session-affinity-issues-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
 
 6. När du har återskapat problemet, spara filen för granskning genom att välja **filen** > **spara** > **alla sessioner...** . 
 
-        ![troubleshoot-session-affinity-issues-16](.\media\how-to-troubleshoot-application-gateway-session-affinity-issues\troubleshoot-session-affinity-issues-16.png)
+        ![troubleshoot-session-affinity-issues-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
 
 7. Kontrollera och analysera sessionsloggar för att fastställa vad problemet är.
 
@@ -191,11 +191,11 @@ Använda felsökaren web valfri. I det här exemplet använder vi Fiddler för a
    > [!NOTE]
    > Den här ARRAffinity-värdet är cookie-id som Application Gateway anger för att klienten ska skickas till en viss backend-server.
 
-    ![Felsöka-session-tillhörighet-problem – 17](.\media\how-to-troubleshoot-application-gateway-session-affinity-issues\troubleshoot-session-affinity-issues-17.png)
+    ![Felsöka-session-tillhörighet-problem – 17](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-17.png)
 
 - **Exempel B:** Nästa sessionsloggen följt av den tidigare en är klienten svarar tillbaka till Application Gateway, som har angetts i ARRAAFFINITY. Om ARRAffinity cookie-id matchar ska paketet skickas till samma backend-server som har använts tidigare. Kontrollera nästa flera rader med http-kommunikation för att se om klientens ARRAffinity cookie ändras.
 
-    ![Felsöka-session-tillhörighet-problem – 18](.\media\how-to-troubleshoot-application-gateway-session-affinity-issues\troubleshoot-session-affinity-issues-18.png)
+    ![Felsöka-session-tillhörighet-problem – 18](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-18.png)
 
 > [!NOTE]
 > För kommunikationen samma session bör cookien inte om du vill ändra. Kontrollera den översta rutan till höger och välj ”Cookies” fliken för att se om klienten är med hjälp av cookien och skickas tillbaka till Application Gateway. Om inte, klientens webbläsare inte är att behålla och använda cookien för konversationer. Klienten kan ibland finns.

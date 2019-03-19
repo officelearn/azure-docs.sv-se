@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 90f9a13882e370d6d0c67826750b3edd27603ede
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 50ae4de8c9c1d10b0b17a9744ffa2340059fc298
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862300"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120524"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Använd Azure Cosmos DB-ändringsflödet att visualisera analyser av realtidsdata
 
@@ -105,7 +105,7 @@ Nu ska du skapa en samling för att lagra e-handel site-händelser. När en anv�
 
 3. Därefter skapar en annan samling som heter **lån** för ändringsfeed bearbetning. Lånsamlingen samordnar bearbetning ändringsflöden över flera arbetare. En separat samling används som omfattar lånen med ett lån per partition.  
 
-4.  Gå tillbaka till den **Datautforskaren** rutan och välj **ny samling** och Fyll i formuläret med följande uppgifter:
+4. Gå tillbaka till den **Datautforskaren** rutan och välj **ny samling** och Fyll i formuläret med följande uppgifter:
 
    * För den **databas-id** väljer **Använd befintlig**, ange sedan **changefeedlabdatabase**.  
    * För den **samlings-id** anger **lån**.  

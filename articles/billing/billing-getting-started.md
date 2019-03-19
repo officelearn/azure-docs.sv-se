@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: 56d392a7df2a659cf457631ec5693766fd674f91
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: d215e2ba5d650b532b9d7554ccca9ad5537cf4de
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727203"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842522"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Förhindra oväntade avgifter med Azure-fakturering och kostnadshantering
 
@@ -183,7 +183,7 @@ Om du vill se om du är kontoadministratören, gå till [prenumerationer i Azure
 
 Om du inte är kontoadministratören och sedan någon förmodligen gav dig delvis åtkomst med hjälp av [Azure Active Directory rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md) (RBAC). Hantera prenumerationer och fakturering info, ändra [hitta kontoadministratören](billing-subscription-transfer.md#whoisaa). Be kontoadministratören för att utföra uppgifter eller [överföra prenumerationen till dig](billing-subscription-transfer.md).
 
-Om din kontoadministratör inte längre med din organisation och du behöver hantera fakturering, [Kontakta oss](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Om din kontoadministratör inte längre med din organisation och du behöver hantera fakturering, [Kontakta oss](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 
 ### <a name="how-to-request-a-service-level-agreement-credit-for-a-service-incident"></a>Hur du begär en kredit på serviceavtal för en incident i tjänsten
@@ -207,4 +207,4 @@ Mer information finns i den [serviceavtal](https://azure.microsoft.com/en-us/sup
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).

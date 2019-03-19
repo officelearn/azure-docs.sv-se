@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: danlep
-ms.openlocfilehash: 3f058a68057d6b84cbbb2dfdb08ea8c2cb12b0b9
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 8fc364eac619c2f23ad2db1051a9b3ffa1bd38d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322105"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138090"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU: er
 
@@ -22,7 +22,7 @@ Azure Container Registry (ACR) är tillgänglig i flera tjänstnivåer, kallas S
 | --- | :-------: | ----------- |
 | **Basic** | Ja | En kostnadsoptimerad startpunkt för utvecklare som lär sig Azure Container Registry. Grundläggande register har samma programmässiga funktioner som Standard och Premium (integrering med Azure Active Directory-autentisering, bild borttagning och webhooks). Inkluderad lagring och dataflöde som bilden är dock bäst för lägre Användningsscenarier. |
 | **Standard** | Ja | Standardregister erbjuder samma funktioner som grundläggande med ökad inkluderade lagrings- och dataflöde. Standard-register bör uppfylla behoven för de flesta produktionsscenarier. |
-| **Premium** | Ja | Premium-register ger högsta mängden lagringsutrymme och samtidiga åtgärder som att aktivera scenarier med hög volym. Förutom högre bild dataflöde Premium lägger du till funktioner som [georeplikering] [ container-registry-geo-replication] för att hantera ett enda register i flera regioner och [innehåll förtroende (förhandsversion)](container-registry-content-trust.md)för signering av bild taggen. |
+| **Premium** | Ja | Premium-register ger högsta mängden lagringsutrymme och samtidiga åtgärder som att aktivera scenarier med hög volym. Förutom den högre bild dataflöde Premium lägger till funktioner inklusive [geo-replikering] [ container-registry-geo-replication] för att hantera ett enda register i flera regioner [innehåll förtroende (förhandsversion)](container-registry-content-trust.md) för avbildning taggen signering, och [brandväggar och virtuella nätverk (förhandsversion)](container-registry-vnet.md) att begränsa åtkomsten till registret. |
 | Klassiska<sup>1</sup> | Nej | Denna SKU aktiverat den första versionen av Azure Container Registry-tjänst i Azure. Klassiskt register backas upp av ett lagringskonto som skapas av Azure i din prenumeration, vilket begränsar möjligheten för ACR och programlivscykler på högre nivå, till exempel ökat genomflöde och geo-replikering. |
 
 <sup>1</sup> klassiska SKU blir **inaktuell** i **mars 2019**. Använd Basic, Standard eller Premium för alla nya behållarregister.

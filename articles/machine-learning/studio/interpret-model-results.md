@@ -1,21 +1,21 @@
 ---
-title: Tolka modellresultat i Machine Learning Studio
+title: Tolka modellresultat
 titleSuffix: Azure Machine Learning Studio
 description: Hur du väljer den optimala parameteruppsättning för en algoritm med och visualisera poängsätta modell utdata.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 778f713fb1046d3c1987b065c9dc25c4ad9825cb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c46f22fb5c906aaffa48f39a0c643ca2a48573f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822556"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877283"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Tolka modellresultat i Azure Machine Learning Studio
 Det här avsnittet förklarar hur du visualiserar och tolka förutsagda resultaten i Azure Machine Learning Studio. När du har tränats en modell och göra förutsägelser ovanpå det. (”poängsätts modellen”), måste du förstå och tolka resultatet förutsägelse.
@@ -52,7 +52,7 @@ Azure Machine Learning Studio har olika moduler behöver bry dig om de olika typ
 ### <a name="two-class-classification"></a>Två klassificering
 **Exempelexperiment**
 
-Ett exempel på en tvåklassförhöjt klassifikationsproblem är klassificeringen av iris blommor. Uppgiften är att klassificera iris blommor baserat på deras funktioner. Iris-datauppsättningen som anges i Azure Machine Learning Studio är en delmängd av de populära [Iris-datauppsättningen](http://en.wikipedia.org/wiki/Iris_flower_data_set) som innehåller instanser av endast två blomma species (klasser 0 och 1). Det finns fyra funktioner för varje blommor (sepal length, sepal width, petal längd och petal width).
+Ett exempel på en tvåklassförhöjt klassifikationsproblem är klassificeringen av iris blommor. Uppgiften är att klassificera iris blommor baserat på deras funktioner. Iris-datauppsättningen som anges i Azure Machine Learning Studio är en delmängd av de populära [Iris-datauppsättningen](https://en.wikipedia.org/wiki/Iris_flower_data_set) som innehåller instanser av endast två blomma species (klasser 0 och 1). Det finns fyra funktioner för varje blommor (sepal length, sepal width, petal längd och petal width).
 
 ![Skärmbild av iris experiment](./media/interpret-model-results/1.png)
 

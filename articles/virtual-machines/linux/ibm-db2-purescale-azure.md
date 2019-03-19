@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
-ms.openlocfilehash: 901afc8f28b617eb5bada2a0f58761ddb9f67607
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 1622de0cccdbc8fee0681e209e756b30da292d3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327423"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003503"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale på Azure
 
@@ -66,7 +66,7 @@ Den här metoden är en mall som du kan ändra storlek och skala för din organi
 
 ### <a name="compute-considerations"></a>Compute-överväganden
 
-Den här arkitekturen körs nivåerna program, lagring och data på virtuella Azure-datorer. Den [distribution installationsskripten](http://aka.ms/db2onazure) skapa följande:
+Den här arkitekturen körs nivåerna program, lagring och data på virtuella Azure-datorer. Den [distribution installationsskripten](https://aka.ms/db2onazure) skapa följande:
 
 -   Ett DB2 pureScale kluster. Vilken typ av beräkningsresurser som du behöver på Azure beror på din konfiguration. I allmänhet kan du använda två sätt:
 

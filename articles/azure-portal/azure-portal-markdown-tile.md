@@ -9,12 +9,12 @@ ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 29c6dc0f7e71508e7b4ecb4e0f1d5c849df7a68c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: ec8cbddda4137656a53fd4968c451cd413959274
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904849"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110791"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Använd en markdown-panel på Azure-instrumentpaneler för att visa anpassat innehåll
 
@@ -24,17 +24,17 @@ Du kan lägga till en markdown-panel till din Azure-instrumentpaneler anpassade,
 
 1. Välj **instrumentpanelen** på Azure portal sidopanelen. Om du har skapat några anpassade instrumentpaneler i instrumentpanelsvyn kan använda listrutan för att välja instrumentpanelen där anpassade markdown-panel ska visas. Välj redigeringsikonen för att öppna den **Panelgalleriet**.
 
-  ![Skärmbild som visar redigera instrumentpanelsvy](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
+   ![Skärmbild som visar redigera instrumentpanelsvy](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
 2. I den **Panelgalleriet**, leta upp panelen kallas **Markdown** och klicka på **Lägg till**. Panelen har lagts till i instrumentpanelen och **redigera Markdown** öppnas fönstret.
 
 1. Redigera den **rubrik**, **underrubrik**, och **innehåll** fält att anpassa panelen. I det här exemplet, har markdown-panel redigerats om du vill visa information för supportavdelningen för hjälp.
 
-  ![Skärmbild som visar redigeringsvyn för markdown-panel](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
+   ![Skärmbild som visar redigeringsvyn för markdown-panel](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
 
 4. Välj **klar** att stänga den **redigera Markdown** fönstret. Innehållet visas på panelen Markdown, som sedan kan ändras genom att dra i det nedre högra hörnet.
 
-  ![Skärmbild som visar anpassade markdown-panel](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
+   ![Skärmbild som visar anpassade markdown-panel](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
 
 ## <a name="markdown-content-capabilities-and-limitations"></a>Markdown innehåll funktioner och begränsningar
 

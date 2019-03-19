@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5639984c6eef7d1c081fd52061988d3535c00fa
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 6888a8787856ef23c459c7ffc18f8e2b4de17f6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576998"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901152"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösenordsprinciper och begränsningar i Azure Active Directory
 
@@ -36,19 +36,19 @@ Två gate-principen kräver två typer av autentiseringsdata, till exempel en **
   * Faktureringsadministratör
   * Partnersupport, nivå 1
   * Partnersupport, nivå 2
-  * Exchange-tjänstadministratör
-  * Lync-tjänstadministratör
-  * Användarkonto-administratör
+  * Exchange-administratör
+  * Skype for Business-administratör
+  * Användaradministratör
   * Katalogskrivare
   * Global administratör eller företagsadministratör
-  * SharePoint-tjänstadministratör
+  * SharePoint-administratör
   * Efterlevnadsadministratör
   * Programadministratör
   * Säkerhetsadministratör
   * Privilegierad rolladministratör
-  * Microsoft Intune-tjänstadministratör
+  * Intune-administratör
   * Administratör för tjänsten webbprogramproxy
-  * CRM-tjänstadministratör
+  * Dynamics 365-administratör
   * Power BI-tjänstadministratör
   * Autentiseringsadministratör
   * Administratören för privilegierade Authentication
@@ -81,7 +81,7 @@ I följande tabell beskrivs de lösenordsprincip som tillämpas på konton som s
 
 | Egenskap  | Krav |
 | --- | --- |
-| Tecken som tillåts |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
+| Tecken som tillåts |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> |
 | Tecken som tillåts inte |<ul><li>Unicode-tecken.</li><li>Blanksteg.</li><li> Får inte innehålla en punkttecknet ””. omedelbart före den ”\@ \" symbolen”.</li></ul> |
 | Begränsningar för lösenord |<ul><li>Minst 8 tecken och högst 16 tecken.</li><li>Kräver tre av fyra av följande:<ul><li>Gemener.</li><li>Versaler.</li><li>Numbers (0-9).</li><li>Symboler (se föregående begränsningar för lösenord).</li></ul></li></ul> |
 | Lösenordet upphör att gälla varaktighet |<ul><li>Standardvärde: **90** dagar.</li><li>Värdet kan konfigureras med hjälp av den `Set-MsolPasswordPolicy` cmdlet från Azure Active Directory-modulen för Windows PowerShell.</li></ul> |
@@ -110,7 +110,7 @@ Om du vill komma igång kan du behöva [ladda ned och installera Azure AD PowerS
 1. Ansluta till Windows PowerShell med hjälp av företagets administratörsautentiseringsuppgifter.
 1. Kör något av följande kommandon:
 
-   * Om du vill se om en användares lösenord har angetts att aldrig upphöra, kör du följande cmdlet med hjälp av UPN-namnet (till exempel *aprilr@contoso.onmicrosoft.com*) eller användar-ID för den användare som du vill kontrollera: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
+   * Om du vill se om en användares lösenord har angetts att aldrig upphöra, kör du följande cmdlet med hjälp av UPN-namnet (till exempel *aprilr\@contoso.onmicrosoft.com*) eller användar-ID för den användare som du vill kontrollera: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
    * Se den **lösenordet upphör aldrig att gälla** inställningen för alla användare kör du följande cmdlet: `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
 
 ### <a name="set-a-password-to-expire"></a>Ange ett lösenord att gälla

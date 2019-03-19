@@ -6,35 +6,39 @@ author: ggailey777
 manager: jeconnoc
 ms.service: functions
 ms.topic: include
-ms.date: 10/19/2018
+ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: a3af711503445000d9613feb2eec7967442fe538
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: d79d1bd5ec244ad4399a02c349e2504516d06ccd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55735956"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58137641"
 ---
 Konfigurationsinställningar för [varaktiga funktioner](../articles/azure-functions/durable-functions-overview.md).
 
 ```json
 {
   "durableTask": {
-    "HubName": "MyTaskHub",
-    "ControlQueueBatchSize": 32,
-    "PartitionCount": 4,
-    "ControlQueueVisibilityTimeout": "00:05:00",
-    "WorkItemQueueVisibilityTimeout": "00:05:00",
-    "MaxConcurrentActivityFunctions": 10,
-    "MaxConcurrentOrchestratorFunctions": 10,
-    "AzureStorageConnectionStringName": "AzureWebJobsStorage",
-    "TraceInputsAndOutputs": false,
-    "LogReplayEvents": false,
-    "EventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
-    "EventGridKeySettingName":  "EventGridKey",
-    "EventGridPublishRetryCount": 3,
-    "EventGridPublishRetryInterval": "00:00:30"
+    "hubName": "MyTaskHub",
+    "controlQueueBatchSize": 32,
+    "partitionCount": 4,
+    "controlQueueVisibilityTimeout": "00:05:00",
+    "workItemQueueVisibilityTimeout": "00:05:00",
+    "maxConcurrentActivityFunctions": 10,
+    "maxConcurrentOrchestratorFunctions": 10,
+    "maxQueuePollingInterval": "00:00:30",
+    "azureStorageConnectionStringName": "AzureWebJobsStorage",
+    "trackingStoreConnectionStringName": "TrackingStorage",
+    "trackingStoreNamePrefix": "DurableTask",
+    "traceInputsAndOutputs": false,
+    "logReplayEvents": false,
+    "eventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+    "eventGridKeySettingName":  "EventGridKey",
+    "eventGridPublishRetryCount": 3,
+    "eventGridPublishRetryInterval": "00:00:30",
+    "eventGridPublishEventTypes": ["Started", "Pending", "Failed", "Terminated"]
   }
 }
 ```
@@ -44,18 +48,22 @@ Namn på aktiviteten måste börja med en bokstav och bestå av endast bokstäve
 |Egenskap   |Standard | Beskrivning |
 |---------|---------|---------|
 |HubName|DurableFunctionsHub|Alternativa [uppgift hub](../articles/azure-functions/durable-functions-task-hubs.md) namn kan användas för att isolera program för flera varaktiga funktioner från varandra, även om de använder samma lagringserverdel.|
-|ControlQueueBatchSize|32|Antal meddelanden att hämta från kön kontroll i taget.|
-|PartitionCount |4|Antalet partitioner för kön kontroll. Kan vara ett positivt heltal mellan 1 och 16.|
-|ControlQueueVisibilityTimeout |5 minuter|Synlighetstimeout för tagits bort från kön kontroll Kömeddelanden.|
-|WorkItemQueueVisibilityTimeout |5 minuter|Synlighetstimeout för tagits bort från kön work item Kömeddelanden.|
-|MaxConcurrentActivityFunctions |10 gånger antalet processorer på den aktuella datorn|Det maximala antalet Aktivitetsfunktioner som kan bearbetas samtidigt på en enda värd-instans.|
-|MaxConcurrentOrchestratorFunctions |10 gånger antalet processorer på den aktuella datorn|Det maximala antalet orchestrator-funktioner som kan bearbetas samtidigt på en enda värd-instans.|
-|AzureStorageConnectionStringName |AzureWebJobsStorage|Namnet på den appinställning som har Azure Storage-anslutningssträng som används för att hantera de underliggande Azure-lagringsresurserna.|
-|TraceInputsAndOutputs |false|Ett värde som anger om du vill spåra indata och utdata av funktionsanrop. Standardbeteende när spårning av händelser för körning av funktionen är att inkludera antalet byte i serialiserade indata och utdata för funktionsanrop. Detta ger minimalt med information om hur indata och utdata ut utan svullen buk loggarna eller av misstag exponera känslig information till loggarna. Denna egenskap anges till true kommer funktionen Standardloggning logga hela innehållet i funktionen indata och utdata.|
-|LogReplayEvents|false|Ett värde som anger om du vill skriva orchestration repetitionsattacker händelser till Application Insights.|
-|EventGridTopicEndpoint ||URL till en slutpunkt för Azure Event Grid-anpassat ämne. När den här egenskapen anges publiceras orchestration livscykel meddelandehändelser till den här slutpunkten. Den här egenskapen stöder Appinställningar skärmupplösning.|
-|EventGridKeySettingName ||Namnet på den appinställning som innehåller den nyckel som används för att autentisera med det anpassade ämnet Azure Event Grid på `EventGridTopicEndpoint`.|
-|EventGridPublishRetryCount|0|Det går inte att antalet gånger att försöka igen om publicering till Event Grid-ämne.|
-|EventGridPublishRetryInterval|5 minuter|Event Grid publicerar återförsöksintervallet i den *: mm: ss* format.|
+|controlQueueBatchSize|32|Antal meddelanden att hämta från kön kontroll i taget.|
+|partitionCount |4|Antalet partitioner för kön kontroll. Kan vara ett positivt heltal mellan 1 och 16.|
+|controlQueueVisibilityTimeout |5 minuter|Synlighetstimeout för tagits bort från kön kontroll Kömeddelanden.|
+|workItemQueueVisibilityTimeout |5 minuter|Synlighetstimeout för tagits bort från kön work item Kömeddelanden.|
+|maxConcurrentActivityFunctions |10 gånger antalet processorer på den aktuella datorn|Det maximala antalet Aktivitetsfunktioner som kan bearbetas samtidigt på en enda värd-instans.|
+|maxConcurrentOrchestratorFunctions |10 gånger antalet processorer på den aktuella datorn|Det maximala antalet orchestrator-funktioner som kan bearbetas samtidigt på en enda värd-instans.|
+|maxQueuePollingInterval|30 sekunder|Kontroll och arbetsobjektet kö avsökningsintervall i den *: mm: ss* format. Högre värden kan resultera i högre svarstider för meddelandebehandling. Lägre värden kan resultera i högre kostnader för lagring på grund av ökad lagringstransaktioner.|
+|azureStorageConnectionStringName |AzureWebJobsStorage|Namnet på den appinställning som har Azure Storage-anslutningssträng som används för att hantera de underliggande Azure-lagringsresurserna.|
+|trackingStoreConnectionStringName||Namnet på en anslutningssträng att använda för tabellerna historik och instanser. Om inte anges den `azureStorageConnectionStringName` anslutningen används.|
+|trackingStoreNamePrefix||Prefixet som ska användas för historik och instanser tabeller när `trackingStoreConnectionStringName` har angetts. Om inte har angetts prefixvärdet standard blir `DurableTask`. Om `trackingStoreConnectionStringName` inte anges i tabellerna historik och instanser att använda den `hubName` värde som deras prefix och alla andra inställningar för `trackingStoreNamePrefix` kommer att ignoreras.|
+|traceInputsAndOutputs |false|Ett värde som anger om du vill spåra indata och utdata av funktionsanrop. Standardbeteende när spårning av händelser för körning av funktionen är att inkludera antalet byte i serialiserade indata och utdata för funktionsanrop. Det här beteendet ger minimalt med information om hur indata och utdata ut utan svullen buk loggarna eller av misstag exponera känslig information. Denna egenskap anges till true kommer funktionen Standardloggning logga hela innehållet i funktionen indata och utdata.|
+|logReplayEvents|false|Ett värde som anger om du vill skriva orchestration repetitionsattacker händelser till Application Insights.|
+|eventGridTopicEndpoint ||URL till en slutpunkt för Azure Event Grid-anpassat ämne. När den här egenskapen anges publiceras orchestration livscykeln meddelandehändelser till den här slutpunkten. Den här egenskapen stöder Appinställningar skärmupplösning.|
+|eventGridKeySettingName ||Namnet på den appinställning som innehåller den nyckel som används för att autentisera med det anpassade ämnet Azure Event Grid på `EventGridTopicEndpoint`.|
+|eventGridPublishRetryCount|0|Det går inte att antalet gånger att försöka igen om publicering till Event Grid-ämne.|
+|eventGridPublishRetryInterval|5 minuter|Event Grid publicerar återförsöksintervallet i den *: mm: ss* format.|
+|eventGridPublishEventTypes||En lista över typer av att publicera till Event Grid. Om inte anges kommer att publiceras alla händelsetyper. Tillåtna värden är `Started`, `Completed`, `Failed`, `Terminated`.|
 
-Många av dessa är för att optimera prestanda. Mer information finns i [prestanda och skalning](../articles/azure-functions/durable-functions-perf-and-scale.md).
+Många av de här inställningarna är för att optimera prestanda. Mer information finns i [prestanda och skalning](../articles/azure-functions/durable-functions-perf-and-scale.md).

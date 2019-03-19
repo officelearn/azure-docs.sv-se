@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51daf3b9553babb5fc627c02d79914c68c318145
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 941a02ef9ab3d623d34c8dc6996040f6d9e44859
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190831"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096851"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>Självstudier: Azure Active Directory-integrering med skärmbild-O – till
 
@@ -133,17 +133,17 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 9. På den **åtkomst installationssidan**, utför följande steg:
 
-    * Under **URL: en för** Skriv din instansnamn i den angivna textrutan.
+   * Under **URL: en för** Skriv din instansnamn i den angivna textrutan.
 
-    ![Åtkomst](./media/screencast-tutorial/tutorial_screencast_access.png)
+     ![Åtkomst](./media/screencast-tutorial/tutorial_screencast_access.png)
 
-    * Välj **kräver domänanvändare** under **begränsning för SAML-användare (valfritt)** avsnittet.
+   * Välj **kräver domänanvändare** under **begränsning för SAML-användare (valfritt)** avsnittet.
 
-    * Under **överför IDP XML-fil**, klickar du på **Välj fil** att ladda upp de metadata som du har hämtat från Azure-portalen.
+   * Under **överför IDP XML-fil**, klickar du på **Välj fil** att ladda upp de metadata som du har hämtat från Azure-portalen.
 
-    * Klicka på **OK**. 
+   * Klicka på **OK**. 
 
-    ![Åtkomst](./media/screencast-tutorial/tutorial_screencast_save.png)
+     ![Åtkomst](./media/screencast-tutorial/tutorial_screencast_save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -223,7 +223,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

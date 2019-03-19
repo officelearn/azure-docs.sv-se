@@ -9,19 +9,19 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 01aa3d45d3b168c67603861a0a947026d4f2e08c
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 0a3fd2cc66a066d2790d2e12822e3246dc3db382
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650894"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898881"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 Den här artikeln beskrivs de olika typerna av utdata som är tillgängliga för Azure Stream Analytics-jobb. Utdata kan du lagra och spara resultatet av Stream Analytics-jobb. Med utdata kan du göra ytterligare affärsanalys och datalager för dina data.
 
 När du utformar din Stream Analytics-fråga, referera till namnet på den utdata med hjälp av den [INTO-sats](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). Du kan använda ett enda utflöde per jobb eller flera utdata per direktuppspelningsjobbet om du behöver genom att tillhandahålla flera INTO-satser i fråga.
 
-Skapa, redigera och testa Stream Analytics-jobbet matar ut, du kan använda den [Azure-portalen](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), och [Visual Studio](stream-analytics-quick-create-vs.md).
+Skapa, redigera och testa Stream Analytics-jobbet matar ut, du kan använda den [Azure-portalen](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), och [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Vissa typer av stöd för utdata [partitionering](#partitioning), och [utdata batch storlekar](#output-batch-size) variera för att optimera genomflödet.
 
@@ -169,7 +169,7 @@ Azure Stream Analytics uppdaterar datamodellen dynamiskt vid körning om utdata-
 Den här tabellen beskriver datatypkonverteringar från [Stream Analytics-datatyper](https://msdn.microsoft.com/library/azure/dn835065.aspx) till Power BIs [Entity Data Model (EDM) typer](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) om en POWER BI-datauppsättning och en tabell inte finns.
 
 Från Stream Analytics | Power BI
------|-----|------------
+-----|-----
 bigint | Int64
 nvarchar(max) | Sträng
 datetime | DateTime
@@ -186,7 +186,7 @@ Föregående/aktuell | Int64 | Sträng | DateTime | Double-värde
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | Sträng | Sträng | Double-värde
 Double-värde | Double-värde | Sträng | Sträng | Double-värde
-Sträng | Sträng | Sträng | Sträng |  | Sträng |
+Sträng | Sträng | Sträng | Sträng | Sträng 
 DateTime | Sträng | Sträng |  DateTime | Sträng
 
 
@@ -261,6 +261,7 @@ Azure Cosmos DB-utdata från Stream Analytics är för närvarande inte tillgän
 > Andra Azure Cosmos DB API: er stöds inte ännu. Om du punkt Azure Stream Analytics till Azure Cosmos DB-konton som skapats med andra API: er, kanske data inte korrekt lagras.
 
 I följande tabell beskrivs egenskaperna för att skapa ett Azure Cosmos DB-utdata.
+
 | Egenskapsnamn | beskrivning |
 | --- | --- |
 | Utdataalias | Ett alias till se detta utdata i din Stream Analytics-fråga. |
@@ -331,7 +332,7 @@ I följande tabell beskrivs några av överväganden för att mata ut batchbearb
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-
+> 
 > [Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->

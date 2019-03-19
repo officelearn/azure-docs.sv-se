@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: a66584aa1cd3f335111774ef1df37cddc630f69d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 8de31479e55aca64a5412bb89765c9b6062c0358
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233378"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864889"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>Spara rapporter i Power BI-Arbetsytesamlingar
 
@@ -138,5 +138,5 @@ var embedConfiguration = {
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Inbäddat exempel med JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-Fler frågor? [Försök med Power BI Community](http://community.powerbi.com/)
+Fler frågor? [Försök med Power BI Community](https://community.powerbi.com/)
 

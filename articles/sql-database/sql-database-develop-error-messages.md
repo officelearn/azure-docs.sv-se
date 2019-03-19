@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/06/2019
-ms.openlocfilehash: 4c01402932e35297e4284c09a35a14c304b4bf7c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2682f98628f3c1cf22a2c3767f52bedbc148fa62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550251"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888578"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-felkoder för SQL Database-klientprogram: Anslutningsfel för databasen och andra problem
 
@@ -55,7 +55,7 @@ Följande fel är tillfälligt och ska göras i programlogiken:
 
 | Felkod | Severity | Beskrivning |
 | ---:| ---:|:--- |
-| 4060 |16 |Det går inte att öppna databasen ”%.&#x2a;ls” begärdes vid inloggningen. Inloggningen misslyckades. |Mer information finns i [fel 4000 4999](https://docs.microsoft.comsql/relational-databases/errors-events/database-engine-events-and-errors?view=sql-server-2017#errors-4000-to-4999)|
+| 4060 |16 |Det går inte att öppna databasen ”%.&#x2a;ls” begärdes vid inloggningen. Inloggningen misslyckades. Mer information finns i [fel 4000 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |Tjänsten har påträffat ett fel när begäran bearbetades. Försök igen. Felkod: %d.<br/><br/>Du får detta felmeddelande när tjänsten är igång på grund av programvara eller uppgraderingar av maskinvara, maskinvarufel eller några andra problem med redundans. Felkod: (%d) som är inbäddad i meddelandet av fel 40197 tillhandahåller ytterligare information om vilken typ av fel eller växling vid fel som inträffat. Några exempel på felet koder är inbäddade i meddelandet felets 40197 är 40020, 40143, 40166 och 40540.<br/><br/>Återansluter till SQL Database-servern automatiskt ansluter till en felfri kopia av databasen. Programmet måste fånga upp 40197, felloggen embedded felkoden (%d) i meddelandet för att felsöka och försöka ansluta till SQL Database tills resurserna som är tillgängliga och din anslutning har upprättats igen. Mer information finns i [tillfälliga fel](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
 | 40501 |20 |Tjänsten är upptagen. Försök begäran efter 10 sekunder. Incident-ID: %ls. Code: %d. Mer information finns i: <br/>&bull; &nbsp;[Resursgränser för databas-server](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[DTU-baserade gränser för enskilda databaser](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[DTU-baserade lagringsgränser för elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[vCore-baserade gränser för enskilda databaser](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[vCore-baserade lagringsgränser för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Hanterad instans resursbegränsningar](sql-database-managed-instance-resource-limits.md).|
 | 40613 |17 |Databasen '%.&#x2a;ls' på servern '%.&#x2a;ls' är inte tillgänglig. Försök med anslutningen senare. Om problemet kvarstår kontaktar du kundsupport och ger dem session spårnings-ID (%.&#x2a;ls).<br/><br/> Det här felet kan uppstå om det finns redan en befintlig DAC-anslutning (DAC) upprättats till databasen. Mer information finns i [tillfälliga fel](sql-database-connectivity-issues.md#transient-errors-transient-faults).|

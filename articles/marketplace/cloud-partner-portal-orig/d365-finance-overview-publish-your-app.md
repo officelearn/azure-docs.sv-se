@@ -12,19 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: d2093760dcc17041f8fece19e6f3165b19f7d678
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3bbcf5c2b6fb0939c47e24f25c1d5d834eb07dfb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811245"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004269"
 ---
-<a name="bring-your-microsoft-dynamics-365-business-central-app-into-microsoft-appsource"></a>Ta med din Microsoft Dynamics 365 Business Central-app i Microsoft AppSource
-===============================================================================
+# <a name="bring-your-microsoft-dynamics-365-business-central-app-into-microsoft-appsource"></a>Ta med din Microsoft Dynamics 365 Business Central-app i Microsoft AppSource
 
-Det finns många fördelar med att använda Dynamics 365 Business Central som en plattform för app builders:
+Det finns många fördelar med att använda Dynamics 365 Business Central som en plattform för programmet builders:
 
 -   Utöka Dynamics 365 Business Central, en beprövad Microsoft online-lösning med din expertis.
 -   Utnyttja varumärket Dynamics 365 – ett varumärke som miljontals användare känner och litar.
@@ -38,11 +37,18 @@ Att ta med din Business Central-app i Microsoft AppSource:
 2.  Interagera med oss om din app-idé.
     - Utveckla de tekniska aspekterna av din app
     - Utveckla marknadsföring aspekter av din app
-4.  **Publicera din app.**
+4.  *Publicera din app.*
 
-Vanliga programprocessen och tidslinje blir på följande sätt: 
+
+## <a name="application-process-and-timeline"></a>Programprocessen och tidslinje
+
+Vanliga programprocessen och tidslinje illustreras i följande diagram: 
 
 ![Publicera sekvens för en Dynamics 365 Business Central-app](./media/d365-financials/image001.png)
 
-Läs mer om den här typen i [meddelande om Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central/finance-and-operations-business-edition-to-business-central/).
 
+## <a name="next-steps"></a>Nästa steg
+
+Läs mer om den här typen i [meddelande om Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central/finance-and-operations-business-edition-to-business-central/).  Även om du inte redan har gjort det, granska de [Office 365, Dynamics 365, PowerApps och Power BI erbjuder publiceringsguide](../appsource-offer-publishing-guide.md)
+
+När dessa förberedelser, kan du skapa en ny [Microsoft Dynamics 365 Business Central erbjudandet](./d365-finance-create-new-offer.md).

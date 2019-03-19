@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03c45a19c8f6bbce2ffdfff0758eb3e57203b7cf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8fd7145be5f82a90acced0f02e35f6c8880dbcad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211214"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120405"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Cisco Spark för automatisk användaretablering
 
@@ -113,28 +113,28 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
     *   I den **hemlighet Token** fältet, Fyll hemlighet-Token enligt beskrivningen i steg 6.
 
 1. Den **klient-ID** och **hemlighet Token** för Cisco-Spark konto kan hittas genom att logga in på [Cisco Spark-utvecklarwebbplatsen](https://developer.webex.com/) med ditt administratörskonto. Efter att du loggat in –
-    * Gå till den [sidan komma igång](https://developer.webex.com/getting-started.html)
-    * Rulla ned till den [autentisering](https://developer.webex.com/getting-started.html#authentication)
-    ![Cisco Spark-autentiseringstoken](./media/cisco-spark-provisioning-tutorial/SecretToken.png)
-    * Alfanumerisk sträng i rutan är din **hemlighet Token**. Kopiera den här variabeln till Urklipp
-    * Gå till den [få min egen informationssida](https://developer.webex.com/endpoint-people-me-get.html)
-        * Se till att testa läge är Aktiverat
-        * Skriv ordet ”ägar” följt av ett blanksteg och sedan klistrar in hemligheten-Token i fältet auktorisering ![Cisco Spark-autentiseringstoken](./media/cisco-spark-provisioning-tutorial/GetMyDetails.png)
-        * Klicka på Kör
-    * I svarstext till höger, i **klient-ID** visas som ”orgId”:
+   * Gå till den [sidan komma igång](https://developer.webex.com/getting-started.html)
+   * Rulla ned till den [autentisering](https://developer.webex.com/getting-started.html#authentication)
+     ![Cisco Spark-autentiseringstoken](./media/cisco-spark-provisioning-tutorial/SecretToken.png)
+   * Alfanumerisk sträng i rutan är din **hemlighet Token**. Kopiera den här variabeln till Urklipp
+   * Gå till den [få min egen informationssida](https://developer.webex.com/endpoint-people-me-get.html)
+       * Se till att testa läge är Aktiverat
+       * Skriv ordet ”ägar” följt av ett blanksteg och sedan klistrar in hemligheten-Token i fältet auktorisering ![Cisco Spark-autentiseringstoken](./media/cisco-spark-provisioning-tutorial/GetMyDetails.png)
+       * Klicka på Kör
+   * I svarstext till höger, i **klient-ID** visas som ”orgId”:
 
-    ```json
-    {
-        "id": "(...)",
-        "emails": [
-            "admin.user@contoso.com"
-        ],
-        "displayName": "John Smith",
-        "nickName": "John",
-        "orgId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-        (...)
-    }
-    ```
+     ```json
+     {
+       "id": "(...)",
+       "emails": [
+           "admin.user@contoso.com"
+       ],
+       "displayName": "John Smith",
+       "nickName": "John",
+       "orgId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+       (...)
+     }
+     ```
 
 1. För att fylla i fälten som visas i steg 5, klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till Cisco Spark. Om anslutningen misslyckas, kontrollera Cisco Spark-kontot har administratörsbehörighet och försök igen.
 

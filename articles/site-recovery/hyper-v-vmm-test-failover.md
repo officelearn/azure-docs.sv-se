@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 5e6d155a3efebfc8289263ac703a87e9aa3287cd
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: dc8deb16f7d124c5fb11568f25050eee99a245b8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834765"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096766"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Köra en DR-test för Hyper-V-datorer till en sekundär plats
 
@@ -30,12 +30,12 @@ Du kan köra ett redundanstest från primärt till den sekundära platsen. Om du
     - Kör redundans med ett befintligt nätverk. Vi rekommenderar att du inte använder ett produktionsnätverk.
     - Köra redundans och låt Site Recovery automatiskt skapa ett testnätverk. I det här fallet kommer Site Recovery skapa nätverket automatiskt och rensa när testningen är klar.
 - Du måste välja en återställningspunkt för att testa redundans: 
-    - **Senaste bearbetade**: det här alternativet redundansväxlar en virtuell dator till den senaste återställningspunkten som bearbetats av Site Recovery. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstiden.
-    - **Senaste appkonsekventa**: det här alternativet redundansväxlas en virtuell dator till den senaste programkonsekventa återställningspunkten som bearbetats av Site Recovery. 
-    - **Senaste**: det här alternativet bearbetar först alla data som har skickats till Site Recovery-tjänsten för att skapa en återställningspunkt för varje virtuell dator innan växling till den. Det här alternativet ger den lägsta RPO (mål för återställningspunkt), eftersom den virtuella datorn skapas efter redundans har alla data som replikeras till Site Recovery när redundansen utlöstes.
-    - **Senaste multi-VM bearbetas**: tillgänglig för återställningsplaner som innehåller en eller flera virtuella datorer som har konsekvens aktiverat. Virtuella datorer med inställningen aktiverad växlar över till den senaste vanliga Konsekvens programkonsekvent återställningspunkten. Andra virtuella datorer som växlar över till den senaste bearbetade återställningspunkten.
-    - **Senaste multi-VM appkonsekvent**: det här alternativet är tillgängligt för återställningsplaner med en eller flera virtuella datorer som har konsekvens aktiverat. Virtuella datorer som ingår i en replikeringsgrupp växlar över till den senaste vanliga Konsekvens programkonsekventa återställningspunkten. Andra virtuella datorer som växlar över till sina senaste programkonsekventa återställningspunkten.
-    - **Anpassad**: Använd det här alternativet för att växla över en specifik virtuell dator till en specifik återställningspunkt.
+    - **Senaste bearbetade**: Det här alternativet redundansväxlar en virtuell dator till den senaste återställningspunkten som bearbetats av Site Recovery. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstiden.
+    - **Senaste appkonsekventa**: Det här alternativet redundansväxlar en virtuell dator till den senaste programkonsekventa återställningspunkten som bearbetats av Site Recovery. 
+    - **Senaste**: Det här alternativet bearbetar först alla data som har skickats till Site Recovery-tjänsten för att skapa en återställningspunkt för varje virtuell dator innan växling till den. Det här alternativet ger den lägsta RPO (mål för återställningspunkt), eftersom den virtuella datorn skapas efter redundans har alla data som replikeras till Site Recovery när redundansen utlöstes.
+    - **Senaste multi-VM bearbetas**: Tillgängligt för återställningsplaner som innehåller en eller flera virtuella datorer som har konsekvens aktiverat. Virtuella datorer med inställningen aktiverad växlar över till den senaste vanliga Konsekvens programkonsekvent återställningspunkten. Andra virtuella datorer som växlar över till den senaste bearbetade återställningspunkten.
+    - **Senaste multi-VM appkonsekvent**: Det här alternativet är tillgängligt för återställningsplaner med en eller flera virtuella datorer som har konsekvens aktiverat. Virtuella datorer som ingår i en replikeringsgrupp växlar över till den senaste vanliga Konsekvens programkonsekventa återställningspunkten. Andra virtuella datorer som växlar över till sina senaste programkonsekventa återställningspunkten.
+    - **Anpassat**: Använd det här alternativet om du vill redundansväxla en specifik virtuell dator till en specifik återställningspunkt.
 
 
 
@@ -43,11 +43,11 @@ Du kan köra ett redundanstest från primärt till den sekundära platsen. Om du
 
 När du kör ett redundanstest, är du uppmanas att välja nätverksinställningar för test replikerade datorer som sammanfattas i tabellen.
 
-**Alternativ** | **Detaljer** 
---- | --- 
-**Ingen** | Den Virtuella testdatorn har skapats på den värd där den Virtuella replikdatorn finns. Den har lagts till inte i molnet och är inte ansluten till något nätverk.<br/><br/> Du kan ansluta datorn till ett Virtuellt datornätverk när den har skapats.
-**Använd befintlig** | Den Virtuella testdatorn har skapats på den värd där den Virtuella replikdatorn finns. Inte läggs den till molnet.<br/><br/>Skapa ett Virtuellt datornätverk som är isolerat från produktionsnätverket.<br/><br/>Om du använder en VLAN-nätverk, rekommenderar vi att du skapar ett separat logiskt nätverk (används inte i produktion) i VMM för detta ändamål. Det här logiska nätverket används för att skapa VM-nätverk för redundanstestning.<br/><br/>Det logiska nätverket ska associeras med minst en av nätverkskort på alla Hyper-V-servrar som är värdar för virtuella datorer.<br/><br/>VLAN logiska nätverk, bör nätverksplatser som du lägger till det logiska nätverket vara isolerade.<br/><br/>Om du använder ett logiskt nätverk för Nätverksvirtualisering i Windows-baserade skapar Azure Site Recovery automatiskt isolerade Virtuella datornätverk. 
-**Skapa ett nätverk** | Ett tillfälligt testnätverk skapas automatiskt baserat på den inställning som du anger i **logiskt nätverk** och dess relaterade nätverksplatser.<br/><br/> Redundans kontrollerar att virtuella datorer skapas. |Du bör använda det här alternativet om en återställningsplan använder mer än ett Virtuellt datornätverk.<br/><br/> Om du använder Windows nätverksvirtualiseringsnätverk kan det här alternativet automatiskt skapa Virtuella datornätverk med samma inställningar (undernät och IP-adresspooler) i nätverket för den replikerade virtuella datorn. Dessa Virtuella datornätverk rensas automatiskt när du testar redundansen är klar.<br/><br/> Testet virtuella datorn skapas på värden där den replikerade virtuella datorn finns. Inte läggs den till molnet.
+| **Alternativ** | **Detaljer** | |
+| --- | --- | --- |
+| **Ingen** | Den Virtuella testdatorn har skapats på den värd där den Virtuella replikdatorn finns. Den har lagts till inte i molnet och är inte ansluten till något nätverk.<br/><br/> Du kan ansluta datorn till ett Virtuellt datornätverk när den har skapats.| |
+| **Använd befintlig** | Den Virtuella testdatorn har skapats på den värd där den Virtuella replikdatorn finns. Inte läggs den till molnet.<br/><br/>Skapa ett Virtuellt datornätverk som är isolerat från produktionsnätverket.<br/><br/>Om du använder en VLAN-nätverk, rekommenderar vi att du skapar ett separat logiskt nätverk (används inte i produktion) i VMM för detta ändamål. Det här logiska nätverket används för att skapa VM-nätverk för redundanstestning.<br/><br/>Det logiska nätverket ska associeras med minst en av nätverkskort på alla Hyper-V-servrar som är värdar för virtuella datorer.<br/><br/>VLAN logiska nätverk, bör nätverksplatser som du lägger till det logiska nätverket vara isolerade.<br/><br/>Om du använder ett logiskt nätverk för Nätverksvirtualisering i Windows-baserade skapar Azure Site Recovery automatiskt isolerade Virtuella datornätverk. | |
+| **Skapa ett nätverk** | Ett tillfälligt testnätverk skapas automatiskt baserat på den inställning som du anger i **logiskt nätverk** och dess relaterade nätverksplatser.<br/><br/> Redundans kontrollerar att virtuella datorer skapas.<br/><br/> Du bör använda det här alternativet om en återställningsplan använder mer än ett Virtuellt datornätverk.<br/><br/> Om du använder Windows nätverksvirtualiseringsnätverk kan det här alternativet automatiskt skapa Virtuella datornätverk med samma inställningar (undernät och IP-adresspooler) i nätverket för den replikerade virtuella datorn. Dessa Virtuella datornätverk rensas automatiskt när du testar redundansen är klar.<br/><br/> Testet virtuella datorn skapas på värden där den replikerade virtuella datorn finns. Inte läggs den till molnet.|
 
 ### <a name="best-practices"></a>Bästa praxis
 
@@ -100,8 +100,8 @@ Om du vill köra ett redundanstest för program som testar behöver du en kopia 
 ### <a name="prepare-dns"></a>Förbereda DNS
 Förbered en DNS-server för att testa redundans på följande sätt:
 
-* **DHCP**: om virtuella datorer använder DHCP IP-adressen för testet DNS ska uppdateras på test DHCP-servern. Om du använder en nätverkstyp för Windows-Nätverksvirtualisering, fungerar VMM-servern som DHCP-servern. IP-adressen för DNS-bör därför uppdateras i nätverket för redundanstestet. I det här fallet registrera de virtuella datorerna sig själva till relevanta DNS-servern.
-* **Statisk adress**: om virtuella datorer använder en statisk IP-adress, IP-adressen för DNS-server för test ska uppdateras i nätverket för redundanstestet. Du kan behöva uppdatera DNS med IP-adressen för virtuella datorer för testning. Du kan använda följande exempelskript för detta ändamål:
+* **DHCP**: Om virtuella datorer använder DHCP ska IP-adressen för testet DNS uppdateras på test DHCP-servern. Om du använder en nätverkstyp för Windows-Nätverksvirtualisering, fungerar VMM-servern som DHCP-servern. IP-adressen för DNS-bör därför uppdateras i nätverket för redundanstestet. I det här fallet registrera de virtuella datorerna sig själva till relevanta DNS-servern.
+* **Statisk adress**: Om virtuella datorer använder en statisk IP-adress, ska IP-adressen för DNS-server för test uppdateras i nätverket för redundanstestet. Du kan behöva uppdatera DNS med IP-adressen för virtuella datorer för testning. Du kan använda följande exempelskript för detta ändamål:
 
         Param(
         [string]$Zone,

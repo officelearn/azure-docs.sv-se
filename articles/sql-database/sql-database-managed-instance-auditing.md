@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 20c893aa0ff5bc1f20ecfd95d33038937f3af466
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: d283cfa18d31e360aed78ae5262c5416f94c0676
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576981"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086062"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Kom igång med Azure SQL Database managed instance granskning
 
@@ -50,7 +50,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
 
    1. Ange en behållare **namn**, anger offentlig åtkomst till **privata**, och klicka sedan på **OK**.
 
-     ![Skapa konfigurationen för blob-behållaren](./media/sql-managed-instance-auditing/3_create_container_config.png)
+      ![Skapa konfigurationen för blob-behållaren](./media/sql-managed-instance-auditing/3_create_container_config.png)
 
 1. När du har skapat behållaren för granskningen loggar det finns två sätt att konfigurera det som mål för granskningsloggarna: [med T-SQL](#blobtsql) eller [med hjälp av SQL Server Management Studio (SSMS) Användargränssnittet](#blobssms):
 
@@ -113,7 +113,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
         GO
         ```
 
-      1. Fortsätt genom [skapar en Server Audit Specification eller Databasgranskningsspecifikation](#createspec)
+        1. Fortsätt genom [skapar en Server Audit Specification eller Databasgranskningsspecifikation](#createspec)
 
    - <a id="blobssms"></a>Konfigurera blob-lagring för granskningsloggar med hjälp av SQL Server Management Studio (SSMS) 18 (förhandsversion):
 

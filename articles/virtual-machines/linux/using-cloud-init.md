@@ -15,18 +15,18 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: c0a5e8695b712ca95952ea839fa829dab2c48824
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6dd1dd0ce2395e2b06d80385ffd299835a280526
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700102"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002028"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-init-stöd för virtuella datorer i Azure
 Den här artikeln förklarar stödet finns för [cloud-init](https://cloudinit.readthedocs.io) för att konfigurera en virtuell dator (VM) eller en virtuell dator av skalningsuppsättningar (VMSS) etableringstid i Azure. Skripten cloud-init körs vid den första starten när resurserna har etablerats med Azure.  
 
 ## <a name="cloud-init-overview"></a>Översikt över Cloud-init
-[Cloud-init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en virtuell Linux-dator när den startas för första gången. Du kan använda cloud-init till att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom cloud-init anropas under den ursprungliga startprocessen, finns det inga fler steg eller obligatoriska agenter att tillämpa för konfigurationen.  Mer information om hur du formaterar korrekt din `#cloud-config` filer, finns i den [cloud-init dokumentationswebbplats](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` är i base64-kodade textfiler.
+[Cloud-init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en virtuell Linux-dator när den startas för första gången. Du kan använda cloud-init till att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom cloud-init anropas under den ursprungliga startprocessen, finns det inga fler steg eller obligatoriska agenter att tillämpa för konfigurationen.  Mer information om hur du formaterar korrekt din `#cloud-config` filer, finns i den [cloud-init dokumentationswebbplats](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` är i base64-kodade textfiler.
 
 Cloud-init fungerar med olika distributioner. Du använder till exempel inte **apt-get install** eller **yum install** när du vill installera ett paket. I stället definierar du en lista med paket att installera. Cloud-init använder automatiskt rätt pakethanteringsverktyg för den distribution du valt.
 
@@ -34,7 +34,7 @@ Cloud-init fungerar med olika distributioner. Du använder till exempel inte **a
 
 | Utgivare | Erbjudande | SKU | Version | cloud-init är klara |
 |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18.04 LTS |senaste |ja | 
+|Canonical |UbuntuServer |18.04-LTS |senaste |ja | 
 |Canonical |UbuntuServer |17.10 |senaste |ja | 
 |Canonical |UbuntuServer |16.04-LTS |senaste |ja | 
 |Canonical |UbuntuServer |14.04.5-LTS |senaste |ja |
@@ -92,7 +92,7 @@ När den virtuella datorn har etablerats, cloud-init körs via alla moduler och 
 > [!NOTE]
 > Inte alla modulfel resulterar i ett allvarligt cloud-init övergripande configuration-fel. Till exempel med hjälp av den `runcmd` modulen, om skriptet misslyckas cloud-init fortfarande rapporterar etableringen är klar eftersom modulen runcmd körs.
 
-Mer information om cloud-init loggning finns i den [cloud-init-dokumentation](http://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
+Mer information om cloud-init loggning finns i den [cloud-init-dokumentation](https://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
 ## <a name="next-steps"></a>Nästa steg
 Cloud-init-exempel på ändringar i konfigurationen, finns i följande dokument:

@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 137518aadaf2f1cd38dd18184992c8723a7da5c0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: c2bc4d4034d63ed190f6964caa2bccf1ad8590a9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435239"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57833823"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Min första PowerShell Workflow-runbook
 
@@ -33,7 +33,7 @@ För att kunna genomföra den här kursen behöver du följande:
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Ett [Automation-konto för Azure](automation-offering-get-started.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser.  Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
-* En virtuell dator i Azure. du stoppar och startar den här datorn bör det inte vara en virtuell dator i produktionsmiljön.
+* En virtuell dator i Azure. Du stoppar och startar den här datorn så att den inte får vara en virtuell dator i produktionsmiljön.
 
 ## <a name="step-1---create-new-runbook"></a>Steg 1 – Skapa en ny runbook
 
@@ -41,7 +41,7 @@ Börja med att skapa en enkel runbook som visar texten *Hello World*.
 
 1. Öppna ditt Automation-konto på Azure Portal.
 
-   Automation-kontosidan innehåller en snabb översikt över resurserna i det här kontot. Du bör redan ha vissa tillgångar. De flesta av dessa är de moduler som ingår automatiskt i ett nytt Automation-konto. Du behöver även autentiseringstillgången som nämns i [kravavsnittet](#prerequisites).
+   Automation-kontosidan innehåller en snabb översikt över resurserna i det här kontot. Du bör redan ha vissa tillgångar. De flesta av dessa tillgångar är de moduler som ingår automatiskt i ett nytt Automation-konto. Du behöver även autentiseringstillgången som nämns i [kravavsnittet](#prerequisites).
 
 1. Klicka på **Runbooks** under **Processautomatisering** att öppna listan med runbooks.
 1. Skapa en ny runbook genom att klicka på den **+ Lägg till en runbook** knappen och sedan **skapa en ny runbook**.
@@ -77,10 +77,10 @@ Du kan antingen skriva kod direkt i runbooken eller välja cmdlets, runbooks och
 Innan du publicerar runbook-jobbet så att den blir tillgänglig i produktionsmiljön testar du den och kontrollerar att den fungerar som den ska. När du testar en runbook kör du dess **utkastversion** och visar dess utdata interaktivt.
 
 1. Öppna testfönstret genom att klicka på **Testfönster**.
-1. Starta testet genom att klicka på **Starta**. Detta bör vara det enda aktiverade alternativet.
+1. Starta testet genom att klicka på **Starta**. Det här alternativet ska vara det enda aktiverade alternativet.
 1. Ett [runbook-jobb](automation-runbook-execution.md) skapas och dess status visas.
 
-   Jobbets första status är *I kö* vilket betyder att det väntar på att en Runbook Worker i molnet ska bli tillgänglig. Flyttas till *startar* när ett arbetsobjekt begär jobbet, och sedan *kör* när runbook-jobbet börjar köras.  
+   Jobbet har statusen startar som *i kö* som anger att det väntar på en runbook worker i molnet ska bli tillgänglig. Flyttas till *startar* när ett arbetsobjekt begär jobbet, och sedan *kör* när runbook-jobbet börjar köras.  
 
 1. När runbook-jobbet är klart visas dess utdata. I ditt fall bör du se *Hello World*.
 
@@ -110,20 +110,20 @@ Det runbook-jobb som du har skapat är fortfarande i utkastläge. Du måste publ
    ![Jobbsammanfattning](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)  
 
 1. Stäng utdatafönstret.
-1. Klicka på **Alla loggar** för att öppna fönstret Strömmar för runbook-jobbet. Du bör endast se *Hello World* i utdata, men kan även andra dataströmmar visas för en runbookflödesjobb, till exempel utförlig och fel om runbooken skriver till dem.
+1. Klicka på **Alla loggar** för att öppna fönstret Strömmar för runbook-jobbet. Du bör endast se *Hello World* i utdata stream, men den här vyn kan visa andra strömmar för runbook-jobb, till exempel utförlig och fel om runbooken skriver till dem.
 
    ![Jobbsammanfattning](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
 
-1. Stäng fönstret Strömmar och fönstret Jobb för att återgå till fönstret MyFirstRunbook.
-1. Öppna fönstret Jobb för runbooken genom att klicka på **Jobb**. Här visas alla jobb som skapats av den här runbooken. Du bör endast se ett jobb eftersom du bara körde jobbet en gång.
+1. Stäng sidan strömmar och jobbsidan att återgå till sidan MyFirstRunbook.
+1. Klicka på **jobb** att öppna sidan jobb för runbook. Den här sidan visas alla jobb som skapats av denna runbook. Du bör endast se ett jobb eftersom du bara körde jobbet en gång.
 
    ![Jobb](media/automation-first-runbook-textual/runbook-control-job-tile.png)
 
-1. Du kan klicka på det här jobbet för att öppna samma Jobbfönster som du visade när du startade runbooken. På så sätt kan du gå tillbaka i tiden och visa information om alla jobb som har skapats för en specifik runbook.
+1. Du kan klicka på det här jobbet för att öppna sidan för samma jobb som du visade när du startade runbooken. Denna åtgärd kan du gå tillbaka i tiden och visa information om alla jobb som har skapats för en specifik runbook.
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Steg 5 – Lägga till autentisering för att hantera Azure-resurser
 
-du har testat och publicerat din runbook, men hittills gör den egentligen inget användbart. du vill att den ska hantera Azure-resurser. Det kommer inte att kunna göra det, men om du inte har den autentisera med autentiseringsuppgifterna som avses den [krav](#prerequisites). du gör det med den **Connect-AzureRmAccount** cmdlet.
+Du har testat och publicerat din runbook, men hittills gör den egentligen inget användbart. Du vill att den ska hantera Azure-resurser. Det kan inte göra detta dock om du har autentiserats med autentiseringsuppgifterna som avses den [krav](#prerequisites). du gör det med den **Connect-AzureRmAccount** cmdlet.
 
 1. Öppna textredigeraren genom att klicka på **Redigera** i fönstret MyFirstRunbook-Workflow.
 2. Du behöver inte den **Write-Output** rad längre, så gå vidare och ta bort den.
@@ -131,6 +131,9 @@ du har testat och publicerat din runbook, men hittills gör den egentligen inget
 4. Skriv eller kopiera och klistra in följande kod som hanterar autentiseringen med ditt ”Kör som”-konto för Automation:
 
    ```powershell-interactive
+   # Ensures you do not inherit an AzureRMContext in your runbook
+   Disable-AzureRmContextAutosave –Scope Process
+
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
@@ -145,19 +148,22 @@ du har testat och publicerat din runbook, men hittills gör den egentligen inget
 > Du kan behöva [uppdatera dina moduler](automation-update-azure-modules.md) även om du just har skapat ett nytt automation-konto.
 
 1. Klicka på **Testfönster** så att du kan testa runbooken.
-1. Starta testet genom att klicka på **Starta**. När testet är klart visas utdata som liknar de nedan, med grundläggande information från ditt konto. Detta bekräftar att autentiseringsuppgifterna är giltiga.
+1. Starta testet genom att klicka på **Starta**. När testet är klart visas utdata som liknar de nedan, med grundläggande information från ditt konto. Den här åtgärden bekräftar att autentiseringsuppgifterna är giltiga.
 
    ![Autentisera](media/automation-first-runbook-textual/runbook-auth-output.png)
 
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>Steg 6 – Lägga till kod för att starta en virtuell dator
 
-Nu när din runbook autentiseras med din Azure-prenumeration, kan du hantera resurser. du lägger till ett kommando för att starta en virtuell dator. Du kan välja valfri virtuell dator i din Azure-prenumeration och nu är du hårdkoda namnet i runbooken. Om du hanterar resurser över flera prenumerationer måste du använda den **- AzureRmContext** parametern tillsammans med [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
+Nu när din runbook autentiseras med din Azure-prenumeration, kan du hantera resurser. du lägger till ett kommando för att starta en virtuell dator. Du kan välja valfri virtuell dator i din Azure-prenumeration och nu är du hårdkoda namnet i runbooken. Om du hanterar resurser över flera prenumerationer, måste du använda den **- AzureRmContext** parametern tillsammans med [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
 
 1. Efter *Connect-AzureRmAccount*, typ *Start-AzureRmVM-Name 'VMName' - ResourceGroupName 'NameofResourceGroup'* att ange namn och resursgruppsnamnet för den virtuella datorn ska starta.  
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
    {
+   # Ensures you do not inherit an AzureRMContext in your runbook
+   Disable-AzureRmContextAutosave –Scope Process
+
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
@@ -183,6 +189,9 @@ din runbook startar för närvarande den virtuella datorn som du hårdkodade i r
      [string]$VMName,
      [string]$ResourceGroupName
     )  
+   # Ensures you do not inherit an AzureRMContext in your runbook
+   Disable-AzureRmContextAutosave –Scope Process
+
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
@@ -205,4 +214,3 @@ din runbook startar för närvarande den virtuella datorn som du hårdkodade i r
 * Se hur du kommer igång med PowerShell-runbooks i [Min första PowerShell-runbook](automation-first-runbook-textual-powershell.md)
 * Mer information om typer av runbooks, och om deras fördelar och begränsningar, finns i [Typer av Azure Automation-runbooks](automation-runbook-types.md)
 * Mer information om PowerShell-skriptstöd finns i [Inbyggt PowerShell-skriptstöd i Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
-

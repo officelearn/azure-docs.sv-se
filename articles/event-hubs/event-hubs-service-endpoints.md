@@ -1,6 +1,6 @@
 ---
 title: Tjänstslutpunkter i virtuella nätverk – Azure Event Hubs | Microsoft Docs
-description: Den här artikeln innehåller information om hur du adda Microsoft.EventHub-tjänstslutpunkt till ett virtuellt nätverk.
+description: Den här artikeln innehåller information om hur du lägger till en slutpunkt för Microsoft.EventHub till ett virtuellt nätverk.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -9,25 +9,26 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 03/12/2019
 ms.author: shvija
-ms.openlocfilehash: 077202e65c9e63c8ca5ea1a555ccd70bf27028c6
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 7b5a62f81238d1ae2b627c395613066350b36efe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232611"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887603"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Använda virtuella nätverksslutpunkter med Azure Event Hubs
 
 Integreringen av Event Hubs med [tjänstslutpunkter i virtuella nätverk (VNet)] [ vnet-sep] möjliggör säker åtkomst till funktioner för meddelanden från arbetsbelastningar som till exempel virtuella datorer som är kopplade till virtuella nätverk med nätverkssökvägen för trafik som skyddas i bägge ändar.
 
-När konfigurerad att vara bunden till minst en tjänstslutpunkt för virtuellt nätverk undernät, de respektive Event Hubs-namnområdet inte längre tar emot trafik från var som helst utan behörighet undernät i virtuella nätverk. Ur virtuellt nätverk konfigurerar bindning ett namnområde för Event Hubs till en slutpunkt för ett isolerat nätverk tunnel från det virtuella undernätet till meddelandetjänsten.
+När du konfigurerat bundet till minst en tjänstslutpunkt för virtuellt nätverk undernät tar emot trafik från var som helst i respektive Event Hubs-namnområdet inte längre men behörighet undernät i virtuella nätverk. Ur virtuellt nätverk konfigurerar bindning ett namnområde för Event Hubs till en slutpunkt för ett isolerat nätverk tunnel från det virtuella undernätet till meddelandetjänsten. 
 
-Resultatet är en privata och isolerade relation mellan de arbetsbelastningar som är bundna till undernätet och respektive Event Hubs-namnområdet, trots synliga nätverksadressen för den asynkrona service slutpunkt i en offentlig IP-adressintervallet.
+Resultatet är en privata och isolerade relation mellan de arbetsbelastningar som är bundna till undernätet och respektive Event Hubs-namnområdet, trots synliga nätverksadressen för den asynkrona service slutpunkt i en offentlig IP-adressintervallet. Det finns ett undantag till detta beteende. Aktiverar en tjänstslutpunkt som standard kan denyall regeln i IP-brandväggen som är associerade med det virtuella nätverket. Du kan lägga till specifika IP-adresser i IP-brandväggen för att ge åtkomst till den offentliga slutpunkten för Event Hub. 
+
 
 >[!WARNING]
-> Implementera integrering av virtuella nätverk kan det förhindra att interagera med Händelsehubbar andra Azure-tjänster.
+> Genom att implementera integrering av virtuella nätverk kan du förhindra andra Azure-tjänster från att interagera med Event Hubs.
 >
 > Betrodda Microsoft-tjänster inte stöds när virtuella nätverk har implementerats.
 >
@@ -48,7 +49,7 @@ Resultatet är en privata och isolerade relation mellan de arbetsbelastningar so
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Avancerade scenarier som använder VNet-integrering 
 
-Lösningar som kräver nära och avdelningsvis säkerhet och där virtuella undernätverk ger segmentering mellan tjänsterna som compartmentalized behöver oftast fortfarande kommunikationsvägar mellan tjänster som finns i dessa avdelningar.
+Lösningar som kräver nära och avdelningsvis säkerhet och där virtuella undernätverk ger segmentering mellan tjänsterna som compartmentalized behöver fortfarande kommunikationsvägar mellan tjänster som finns i dessa avdelningar.
 
 Någon omedelbar IP-väg mellan avdelningar, inklusive de som HTTPS via TCP/IP, bär risken för problem från nätverket på upp. Meddelandetjänster ger helt isolerade kommunikationsvägar, där även meddelanden skrivs till disk när de överför mellan parterna. Arbetsbelastningar i två olika virtuella nätverk som är både bundna till samma Event Hubs-instans kan kommunicera på ett effektivt och tillförlitligt sätt via meddelanden, medan respektive nätverk isolering gräns integritet bevaras.
  

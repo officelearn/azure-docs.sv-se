@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: d50f25fbe10fc5ac4e834141fe7ac45fbed918ab
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 26144b7eb53f5c0d4ebecbc9e6eece741f466719
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309034"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997804"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Felsök Felaktig gateway-fel i Application Gateway
 
@@ -83,7 +83,7 @@ Kontrollera att DNS-servern kan matcha FQDN för backend-poolmedlem korrekt om d
 
 | Avsökningen egenskapen | Värde | Beskrivning |
 | --- | --- | --- |
-| Avsökningswebbadress |http://127.0.0.1/ |URL-sökväg |
+| Avsökningswebbadress |`http://127.0.0.1/` |URL-sökväg |
 | Intervall |30 |Avsökningsintervall i sekunder |
 | Time-out |30 |Avsökningen tidsgräns i sekunder |
 | Tröskelvärde för Ej felfri |3 |Avsökning för antal nya försök. Backend-server markeras när antalet upprepade fel når tröskelvärde för ej felfri. |
@@ -92,7 +92,7 @@ Kontrollera att DNS-servern kan matcha FQDN för backend-poolmedlem korrekt om d
 
 * Se till att en standardwebbplats har konfigurerats och lyssnar på 127.0.0.1.
 * Om BackendHttpSetting anger en annan port än 80, ska standardwebbplatsen konfigureras för att lyssna på porten.
-* Anropet till http://127.0.0.1:port ska returnera ett HTTP-Resultatkod 200. Detta ska returneras inom tidsgränsen som 30 sekunder.
+* Anropet till `http://127.0.0.1:port` ska returnera ett HTTP-Resultatkod 200. Detta ska returneras inom tidsgränsen som 30 sekunder.
 * Se till att konfigurerade porten är öppen och att det finns inga brandväggsregler eller Azure Nätverkssäkerhetsgrupperna, som blockerar inkommande eller utgående trafik på porten som konfigurerats.
 * Om du använder Azure klassiska virtuella datorer eller en molntjänst med FQDN eller offentlig IP-adress, se till att motsvarande [endpoint](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) öppnas.
 * Om den virtuella datorn är konfigurerad via Azure Resource Manager och ligger utanför det virtuella nätverket där Application Gateway distribueras [Nätverkssäkerhetsgrupp](../virtual-network/security-overview.md) måste konfigureras för att tillåta åtkomst på önskad port.
@@ -118,7 +118,7 @@ Anpassade hälsoavsökningar ger ytterligare flexibilitet till standard-avsökni
 Verifiera att anpassade Hälsoavsökning har konfigurerats korrekt som tabellen ovan. Utöver föregående felsökningsstegen också kontrollera följande:
 
 * Kontrollera att avsökningen har angetts korrekt enligt den [guide](application-gateway-create-probe-ps.md).
-* Om Application Gateway har konfigurerats för en enda plats, som standard värden anges namnet som 127.0.0.1, såvida inte annat har konfigurerats i anpassad avsökning.
+* Om Application Gateway har konfigurerats för en enda plats, som standard värden namnet anges som `127.0.0.1`, såvida inte annat har konfigurerats i anpassad avsökning.
 * Se till att ett anrop till http://\<värden\>:\<port\>\<sökväg\> returnerar ett HTTP-Resultatkod 200.
 * Kontrollera att intervallet, timeout och UnhealtyThreshold är inom det godkända intervallen.
 * Om du använder en HTTPS-avsökning, ska du se till att kräver inte backend-servern SNI genom att konfigurera en fallback-certifikatet på själva backend-servern.

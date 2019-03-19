@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 13ed2caa5ae547747707c368246ea23486dbed72
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1e9d039769e7fbcb9c2b7285aa727acd7322bcdf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469574"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103340"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Använda en Azure-filresurs med en Batch-pool
 
@@ -66,16 +66,16 @@ För att förenkla monteringen, sparar du kan också autentiseringsuppgifter på
 
 1. Kör den `cmdkey` kommandoradsverktyget med hjälp av en startaktivitet i poolkonfigurationen. Detta håller kvar autentiseringsuppgifter på varje Windows-nod. Starta aktivitetens kommandorad liknar:
 
-  ```
-  cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
+   ```
+   cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
 
-  ```
+   ```
 
 2. Montera filresursen på varje nod som en del av varje aktivitet med `net use`. Till exempel följande kommandorad för uppgift monterar filresursen som den *S:* enhet. Detta skulle följas av ett kommando eller skript som refererar till resursen. Cachelagrade autentiseringsuppgifter som ska användas i anropet till `net use`. Det här steget förutsätter att du använder samma användar-ID för de uppgifter som du använde i Startuppgiften för poolen, vilket inte är lämplig för alla scenarier.
 
-  ```
-  cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
-  ```
+   ```
+   cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
+   ```
 
 ### <a name="c-example"></a>C#-exempel
 Följande C# exempel visas hur du sparar autentiseringsuppgifter på en Windows-pool med hjälp av en startaktivitet. Storage service filnamnet och storage-autentiseringsuppgifter skickas som definierade konstanter. Här kan körs startaktiviteten under ett vanligt (inte administratör) automatiskt-användarkonto med pool omfattning.

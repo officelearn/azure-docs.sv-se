@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: c378043a9e10a0aed5344ac3182af6163d217c7b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 4c948668e355b87026240588c6fac11d86e355b2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140476"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006579"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>Konfigurera routningsmetod för prestanda-trafik
 
@@ -24,7 +24,7 @@ Routningsmetod för prestanda-trafik kan du dirigera trafik till slutpunkten med
 
 ##  <a name="to-configure-performance-routing-method"></a>Konfigurera routningsmetod för prestanda
 
-1. Logga in på [Azure Portal](http://portal.azure.com) från en webbläsare. Om du inte redan har ett konto kan du [registrera dig för en kostnadsfri utvärderingsmånad](https://azure.microsoft.com/free/). 
+1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare. Om du inte redan har ett konto kan du [registrera dig för en kostnadsfri utvärderingsmånad](https://azure.microsoft.com/free/). 
 2. I portalens sökfältet söker du efter den **Traffic Manager-profiler** och klicka sedan på namnet på profilen som du vill konfigurera routningsmetod för.
 3. I den **Traffic Manager-profil** bladet, kontrollera att både molntjänster och webbplatser som du vill ska ingå i din konfiguration finns.
 4. I den **inställningar** klickar du på **Configuration**, och i den **Configuration** bladet gör du följande:

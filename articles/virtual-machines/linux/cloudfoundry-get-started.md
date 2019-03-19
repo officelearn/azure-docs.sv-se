@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 18aa5ab16a1690fdcead46ebc15d72837f62612d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 68ae01b814de08098c0ba6b5713f420cfebc3d97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302477"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001255"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry på Azure
 
@@ -48,7 +48,7 @@ Microsoft tillhandahåller mån support för OSS CF via följande community-kana
 
 Pivotal Cloud Foundry innehåller samma core plattform som OSS-distribution, tillsammans med en uppsättning upphovsrättsskyddad hanteringsverktyg och företagssupport. Om du vill köra PCF på Azure, måste du skaffa en licens från Pivotal. PCF-erbjudande från Azure marketplace innehåller en 90-dagars utvärderingslicens.
 
-Verktygen innehåller [Pivotal Operations Manager](http://docs.pivotal.io/pivotalcf/customizing/), ett webbprogram som förenklar distribution och hantering av en Cloud Foundry foundation och [Pivotal appar Manager](https://docs.pivotal.io/pivotalcf/console/), ett webbprogram för att hantera användare och program.
+Verktygen innehåller [Pivotal Operations Manager](https://docs.pivotal.io/pivotalcf/customizing/), ett webbprogram som förenklar distribution och hantering av en Cloud Foundry foundation och [Pivotal appar Manager](https://docs.pivotal.io/pivotalcf/console/), ett webbprogram för att hantera användare och program.
 
 Förutom supportkanaler som visas för OSS CF ovan, kan en PCF-licens du kontakta Pivotal för support. Microsoft och Pivotal har också aktiverat stöd arbetsflöden så att du kan kontakta part för att få hjälp och har din förfrågan vidarebefordras på rätt sätt beroende på var problemet ligger.
 

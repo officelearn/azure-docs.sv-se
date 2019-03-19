@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: 9a9fe0a92f8a8eadbd72ae56303348413a9d10c3
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 1f90ce71084ba3acbf5a0aec5c7b8e9683323766
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42055829"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011615"
 ---
 # <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>Hur du kommer igång med Azure Table storage och Visual Studio-anslutna tjänster
 
@@ -27,7 +27,7 @@ Den här artikeln beskrivs hur du kommer igång med Azure Table storage i Visual
 
 Azure Table storage-tjänsten kan du lagra stora mängder strukturerade data. Tjänsten är en NoSQL-databas som tar emot autentiserade anrop inuti och utanför Azure-molnet. Azure-tabeller passar utmärkt för att lagra strukturerade, icke-relationella data. Mer allmän information om hur du använder Azure Table storage finns i [komma igång med Azure Table storage med hjälp av .NET](../storage/storage-dotnet-how-to-use-tables.md).
 
-Kom igång genom att först skapa en tabell i ditt lagringskonto. Den här artikeln visar sedan hur du skapar en tabell i C# och hur du utför grundläggande tabellåtgärder, till exempel att lägga till, ändra, läsa och ta bort poster.  Koden använder Azure Storage-klientbiblioteket för .NET. Läs mer om ASP.NET [ASP.NET](http://www.asp.net).
+Kom igång genom att först skapa en tabell i ditt lagringskonto. Den här artikeln visar sedan hur du skapar en tabell i C# och hur du utför grundläggande tabellåtgärder, till exempel att lägga till, ändra, läsa och ta bort poster.  Koden använder Azure Storage-klientbiblioteket för .NET. Läs mer om ASP.NET [ASP.NET](https://www.asp.net).
 
 Några av de API: erna för Azure Storage är asynkrona och koden i den här artikeln förutsätter att asynkrona metoder som används. Se [asynkron programmering](https://docs.microsoft.com/dotnet/csharp/async) för mer information.
 

@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: d0e62edd156e8fafbf16437af33941a99f4607fd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440615"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885444"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Teknisk guide till lösningsmallen Cortana Intelligence för förebyggande underhåll i flygindustrin
 
->[!Important]
-Den här artikeln är inaktuell. Diskussion om förebyggande underhåll av flygplansmotorer är fortfarande relevanta, men för aktuell information, se [översikt över lösning för Business målgrupper](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).
+> [!Important]
+> Den här artikeln är inaktuell. Diskussion om förebyggande underhåll av flygplansmotorer är fortfarande relevanta, men för aktuell information, se [översikt över lösning för Business målgrupper](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).
 
 
 Lösningsmallar är utformade att skynda på processen för att skapa en E2E-demo ovanpå Cortana Intelligence Suite. En mall för distribuerade etablerar din prenumeration med nödvändiga komponenter i Cortana Intelligence och bygger relationer mellan dem sedan. Det lägger även datapipeline med exempeldata från en data-generator programmet, vilket du hämta och installera på den lokala datorn när du har distribuerat lösningsmallen. Data från generatorn hydrates datapipeline och börja skapa machine learning-förutsägelser som sedan kan visualiseras i Power BI-instrumentpanelen.
@@ -51,7 +51,7 @@ I följande avsnitt beskrivs delarna av lösningen.
 ### <a name="synthetic-data-source"></a>Datakälla för syntetiskt
 I den här mallen skapas den använda datakällan från ett program som du hämtar och kör lokalt efter slutförd distribution.
 
-Välj den första noden och förutsägande Underhåll Datagenerator på diagrammet för mall för att hitta instruktionerna för att ladda ned och installera det här programmet. Anvisningarna finns i fältet egenskaper. Det här programmet feeds den [Azure Event Hub](#azure-event-hub) tjänst med datapunkter eller händelser som används i resten av lösningsflödet. Den här datakällan härleds från offentligt tillgängliga data från den [NASA datalager](https://c3.nasa.gov/dashlink/resources/139/) med hjälp av den [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
+Välj den första noden och förutsägande Underhåll Datagenerator på diagrammet för mall för att hitta instruktionerna för att ladda ned och installera det här programmet. Anvisningarna finns i fältet egenskaper. Det här programmet feeds den [Azure Event Hub](#azure-event-hub) tjänst med datapunkter eller händelser som används i resten av lösningsflödet. Den här datakällan härleds från offentligt tillgängliga data från den [NASA datalager](https://c3.nasa.gov/dashlink/resources/139/) med hjälp av den [Turbofan Engine Degradation Simulation Data Set](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
 
 Händelsen generation programmet fyller Azure Event Hub endast medan det körs på datorn.  
 
@@ -79,7 +79,7 @@ Använd [Power BI](https://powerbi.microsoft.com) att visa en instrumentpanel so
 ## <a name="how-to-bring-in-your-own-data"></a>Hur du hanterar dina egna data
 Det här avsnittet beskrivs hur du hanterar dina egna data till Azure och vilka områden kräver ändringar för de data du sätta i den här arkitekturen.
 
-Det är inte troligt att din datauppsättning matchar den datauppsättning som används av den [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan) används för den här lösningsmallen. Förstå dina data och kraven är avgörande i hur du ändrar den här mallen ska fungera med dina egna data. 
+Det är inte troligt att din datauppsättning matchar den datauppsättning som används av den [Turbofan Engine Degradation Simulation Data Set](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan) används för den här lösningsmallen. Förstå dina data och kraven är avgörande i hur du ändrar den här mallen ska fungera med dina egna data. 
 
 I följande avsnitt beskrivs de delar av mallen som kräver ändringar när en ny datauppsättning införs.
 
@@ -143,7 +143,7 @@ Detta [pipeline](../../data-factory/concepts-pipelines-activities.md) innehålle
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 Den [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentera används för den här lösningsmallen erbjuder den återstående driftstid (RUL) för en flygplansmotor. Experimentet är specifik för den datauppsättning som används och kräver ändring av eller ersättning som är specifika för data som finns.
 
-Information om hur Azure Machine Learning-experiment har skapats, finns i [förebyggande underhåll: Steg 1 av 3, förberedelse av data och funktionsframställning](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
+Information om hur Azure Machine Learning-experiment har skapats, finns i [förebyggande underhåll: Steg 1 av 3, förberedelse av data och funktionsframställning](https://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
 ## <a name="monitor-progress"></a>Övervaka förloppet
 När Datageneratorn startas pipelinen börjar dehydratisera och de olika komponenterna i din lösning starta starta i åtgärden följande kommandon som utfärdas av data factory. Det finns två sätt att övervaka pipelinen.
@@ -186,7 +186,7 @@ Följande steg hjälper dig om hur du ansluter pbix-filen till den SQL-databas s
    * I nästa frigörs fönstret, ser du två alternativ i det vänstra fönstret (**Windows** och **databasen**). Klicka på **”databas”**, Fyll i din **'Användarnamn'** och **'Password'** (detta är det användarnamn och lösenord som du angav när du först distribueras lösningen och skapat en Azure SQL-databas). I ***väljer vilken nivå dessa inställningar ska tillämpas***, kontrollera nivån databasalternativ. Klicka sedan på **”Anslut”**.
    * Klicka på den andra tabellen **PMResult** klickar ![ikonen Rapportnavigering](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) bredvid **'Source'** under **TILLÄMPADE steg** till höger **'Frågeinställningar'** panelen och uppdatera namnen på servern och databasen som i ovanstående steg och klicka på OK.
    * Stäng fönstret när du är interaktiva tillbaka till föregående sida. Ett meddelande visas – Klicka på **tillämpa**. Klicka slutligen på den **spara** för att spara ändringarna. Power BI-filen har nu upprätta anslutningen till servern. Om dina visualiseringar är tomma, kontrollera att du radera markeringarna på visualiseringar i visualisera alla data genom att klicka på raderingsikonen i det övre högra hörnet av seriemönstren. Använd uppdateringsknappen ska visa nya data på visualiseringar. Första gången se du bara seed-data på dina visualiseringar som data factory schemaläggs för uppdatering var tredje timme. När 3 timmar visas nya förutsägelser som visas i dina visualiseringar när du uppdaterar data.
-3. (Valfritt) Publicera instrumentpanelen kalla sökvägen till [Power BI online](http://www.powerbi.com/). Observera att det här steget en Power BI-konto (eller Office 365-konto).
+3. (Valfritt) Publicera instrumentpanelen kalla sökvägen till [Power BI online](https://www.powerbi.com/). Observera att det här steget en Power BI-konto (eller Office 365-konto).
    
    * Klicka på **”publicera”** och några sekunder senare ett fönster visas med ”publicering till Power BI lyckades”! med en grön bockmarkering. Klicka på länken nedan ”öppna PredictiveMaintenanceAerospace.pbix i Power BI”. Detaljerade anvisningar finns i [publicera från Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * Att skapa en ny instrumentpanel: Klicka på den **+** logga bredvid den **instrumentpaneler** avsnitt i det vänstra fönstret. Ange namnet ”förutsägande Underhåll Demo” för den här nya instrumentpanelen.
@@ -206,13 +206,13 @@ Följande steg hjälper dig om hur du ansluter pbix-filen till den SQL-databas s
    * Schemalägga en uppdatering efter dina behov. Mer information finns i [datauppdatering i Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
 
 ### <a name="setup-hot-path-dashboard"></a>Konfigurera heta sökvägen instrumentpanel
-Följande steg hjälper dig hur du visualisera data utdata från Stream Analytics-jobb som genererades vid tidpunkten för distribution. En [Power BI online](http://www.powerbi.com/) konto krävs för att utföra följande steg. Om du inte har ett konto, kan du [skapar ett](https://powerbi.microsoft.com/pricing).
+Följande steg hjälper dig hur du visualisera data utdata från Stream Analytics-jobb som genererades vid tidpunkten för distribution. En [Power BI online](https://www.powerbi.com/) konto krävs för att utföra följande steg. Om du inte har ett konto, kan du [skapar ett](https://powerbi.microsoft.com/pricing).
 
 1. Lägg till Power BI-utdata i Azure Stream Analytics (ASA).
    
    * Du måste följa anvisningarna i [Azure Stream Analytics och Power BI: En analysinstrumentpanel för realtidsinsyn för strömmande data](../../stream-analytics/stream-analytics-power-bi-dashboard.md) att ställa in utdata från ditt Azure Stream Analytics-jobb som Power BI-instrumentpanelen.
    * ASA-frågan har tre utdata som är **aircraftmonitor**, **aircraftalert**, och **flightsbyhour**. Du kan visa frågan genom att klicka på fliken fråga. Motsvarar var och en av dessa tabeller som du behöver lägga till utdata i ASA. När du lägger till den första utdatan (**aircraftmonitor**) se till att den **Utdataaliaset**, **Datamängdsnamn** och **tabellnamn** är samma (**aircraftmonitor**). Upprepa stegen för att lägga till utdata för **aircraftalert**, och **flightsbyhour**. När du har lagt till alla tre utdatatabellerna och igång ASA-jobbet, bör du få ett bekräftelsemeddelande (”starta Stream Analytics-jobbet maintenancesa02asapbi lyckades”).
-2. Logga in på [Power BI online](http://www.powerbi.com)
+2. Logga in på [Power BI online](https://www.powerbi.com)
    
    * På den vänstra panelen datauppsättningar avsnitt i Min arbetsyta i ***DATAUPPSÄTTNING*** namn **aircraftmonitor**, **aircraftalert**, och **flightsbyhour** bör visas. Det här är den strömmande data som du push-överfört från Azure Stream Analytics i föregående steg. Datauppsättningen **flightsbyhour** kanske inte visas på samma gång som de andra två datauppsättningarna på grund av SQL-frågan bakom den. Men bör den visas efter en timme.
    * Kontrollera att den ***visualiseringar*** fönstret är öppet och visas på höger sida av skärmen.

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b89c02aa0d30ec1928be2110fe6470da4f28080c
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: aac7ca7aa67143f89d9247da879a6fad2cfbb7b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889927"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992483"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server Azure virtuella datorer DBMS-distribution för SAP NetWeaver
 
@@ -158,7 +158,7 @@ ms.locfileid: "56889927"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "56889927"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -343,7 +343,7 @@ I enlighet med den allmänna beskrivningen SQLServer körbara filer finns eller 
 De här konfigurationerna aktivera tempdb förbruka mer utrymme än systemenheten är kan tillhandahålla. Den icke-beständiga D:\ enheten erbjuder även bättre i/o-svarstid och dataflöde (med undantag för virtuella datorer i A-serien). Du kan kontrollera tempdb storlek på befintliga system för att fastställa rätt tempdb-storlek. 
 
 >[!NOTE]
-> Om du placera tempdb-datafiler och loggfilen i en mapp på D:\ enhet som du skapade, måste du kontrollera att mappen finns efter en omstart av virtuell dator. Eftersom D:\ enheten nyligen har initierats när en virtuell dator startas om raderas alla fil- och strukturer. En möjlighet att återskapa eventuell katalogstrukturer på D:\ enhet innan början av SQL Server-tjänsten dokumenteras i [i den här artikeln](http://www.sqlserver.co.uk/index.php/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).
+> Om du placera tempdb-datafiler och loggfilen i en mapp på D:\ enhet som du skapade, måste du kontrollera att mappen finns efter en omstart av virtuell dator. Eftersom D:\ enheten nyligen har initierats när en virtuell dator startas om raderas alla fil- och strukturer. En möjlighet att återskapa eventuell katalogstrukturer på D:\ enhet innan början av SQL Server-tjänsten dokumenteras i [i den här artikeln](https://www.sqlserver.co.uk/index.php/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).
 
 En VM-konfiguration, som kör SQL Server med en SAP-databas och där tempdb-data och tempdb logfile placeras på enheten D:\ ser ut som:
 

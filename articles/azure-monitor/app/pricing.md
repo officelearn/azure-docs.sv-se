@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: ec0211c71b8be66262ef0f19dcd1f952051c97b8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: edf724d6fd659ad4e8887a9c68467d17a33f5ccc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332684"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110298"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -167,15 +167,15 @@ Eftersom den här planen är gäller endast för kunder med en Operations Manage
 ### <a name="how-the-enterprise-plan-works"></a>Så här fungerar företagsplanen
 
 * Du betalar för varje nod som skickar telemetri för alla appar i Enterprise-avtalet.
- * En *noden* är en fysisk eller virtuell server-dator eller en platform-as-a-service-rollinstans som är värd för din app.
- * Utveckling av datorer, klientwebbläsare och mobila enheter räknas inte som noder.
- * Om din app har flera komponenter som skickar telemetri, till exempel en webbtjänst och en serverarbetsroll räknas komponenterna separat.
- * [Live Metrics Stream](../../azure-monitor/app/live-stream.md) data inte räknas för prissättning. I en prenumeration är en av dina avgifter per nod, inte per app. Om du har fem noder som skickar telemetri för 12 appar, avgiften gäller för fem noder.
+  * En *noden* är en fysisk eller virtuell server-dator eller en platform-as-a-service-rollinstans som är värd för din app.
+  * Utveckling av datorer, klientwebbläsare och mobila enheter räknas inte som noder.
+  * Om din app har flera komponenter som skickar telemetri, till exempel en webbtjänst och en serverarbetsroll räknas komponenterna separat.
+  * [Live Metrics Stream](../../azure-monitor/app/live-stream.md) data inte räknas för prissättning. I en prenumeration är en av dina avgifter per nod, inte per app. Om du har fem noder som skickar telemetri för 12 appar, avgiften gäller för fem noder.
 * Även om avgifter anges per månad, debiteras du bara för en timme som en nod skickar telemetri från en app. Per timme avgiften gäller den citerade månadskostnaden divideras med 744 (antal timmar under en månad som 31 dagar).
 * En data-volymfördelning på 200 MB per dag får för varje nod som har identifierats (med per timme kornighet). Oanvända dataallokeringen är inte överföras mellan en dag till nästa.
- * Om du väljer Enterprise prisavtal får varje prenumeration en daglig datakvot baserat på antalet noder som skickar telemetri till Application Insights-resurser i prenumerationen. Så om du har fem noder som skickar data hela dagen, får du en datapool på 1 GB som tillämpas på alla Application Insights-resurser i prenumerationen. Det spelar ingen roll om vissa noder skickar mer data än andra noder eftersom inkluderade data delas mellan alla noder. Om en viss dag får Application Insights-resurser mer data än vad som ingår i allokeringen av dagliga data för den här prenumerationen, gäller priserna för per GB extra data. 
- * Den dagliga datakvoten beräknas som antalet timmar under dagen (med UTC) att varje nod skickar telemetri dividerat med 24 multiplicerat med 200 MB. Så om du har fyra noder som skickar telemetri under 15 i 24 timmar under dagen inkluderade data för den dagen skulle vara ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. Till samma pris 2,30 USD per GB för överförbrukning är avgiften 1,15 USD om noderna som skickar 1 GB data den dagen.
- * Enterprise-plan dagliga kvoten delas inte med program som du har valt Basic-avtal. Oanvända tilldelningen är inte överföras från dag till dag. 
+  * Om du väljer Enterprise prisavtal får varje prenumeration en daglig datakvot baserat på antalet noder som skickar telemetri till Application Insights-resurser i prenumerationen. Så om du har fem noder som skickar data hela dagen, får du en datapool på 1 GB som tillämpas på alla Application Insights-resurser i prenumerationen. Det spelar ingen roll om vissa noder skickar mer data än andra noder eftersom inkluderade data delas mellan alla noder. Om en viss dag får Application Insights-resurser mer data än vad som ingår i allokeringen av dagliga data för den här prenumerationen, gäller priserna för per GB extra data. 
+  * Den dagliga datakvoten beräknas som antalet timmar under dagen (med UTC) att varje nod skickar telemetri dividerat med 24 multiplicerat med 200 MB. Så om du har fyra noder som skickar telemetri under 15 i 24 timmar under dagen inkluderade data för den dagen skulle vara ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. Till samma pris 2,30 USD per GB för överförbrukning är avgiften 1,15 USD om noderna som skickar 1 GB data den dagen.
+  * Enterprise-plan dagliga kvoten delas inte med program som du har valt Basic-avtal. Oanvända tilldelningen är inte överföras från dag till dag. 
 
 ### <a name="examples-of-how-to-determine-distinct-node-count"></a>Exempel på hur du fastställer distinkta nodantal
 

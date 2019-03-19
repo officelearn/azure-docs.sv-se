@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: dcbf011d6e5f035a1934b69f94cf95b2318491f0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0559d89bd691323a95713d518df05e58283cef39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813848"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119351"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Felsöka problem med gateway för datahantering
 Den här artikeln innehåller information om hur du felsöker problem med Gateway för datahantering.
@@ -169,8 +169,8 @@ Gatewayen kan inte ansluta till Molntjänsten via Service Bus.
 Följ dessa steg om du vill hämta gatewayen online igen:
 
 1. Tillåt IP-adress utgående regler på gatewaydatorn och företagets brandvägg. Du hittar IP-adresser från händelseloggen i Windows (ID == 401): Ett försök gjordes att komma åt en socket på ett sätt som tillåts inte av åtkomstbehörigheterna XX. XX. XX. XX:9350.
-* Konfigurera proxyinställningar på gatewayen. Se avsnittet Proxy server överväganden för information.
-* Aktivera utgående portarna 5671 och 9350-9354 på båda Windows brandväggen på gatewaydatorn och företagets brandvägg. I avsnittet portar och brandväggen för information. Det här steget är valfritt men rekommenderas för prestanda.
+1. Konfigurera proxyinställningar på gatewayen. Se avsnittet Proxy server överväganden för information.
+1. Aktivera utgående portarna 5671 och 9350-9354 på båda Windows brandväggen på gatewaydatorn och företagets brandvägg. I avsnittet portar och brandväggen för information. Det här steget är valfritt men rekommenderas för prestanda.
 
 ### <a name="3-problem"></a>3. Problem
 Du ser följande fel.
@@ -184,7 +184,7 @@ Ett tillfälligt fel i nätverksanslutningen.
 Följ dessa steg om du vill hämta gatewayen online igen:
 
 1. Vänta några minuter, anslutningen återställs automatiskt när felet är borta.
-* Om felet kvarstår startar du om gateway-tjänsten.
+1. Om felet kvarstår startar du om gateway-tjänsten.
 
 ## <a name="failed-to-author-linked-service"></a>Det gick inte att skapa länkad tjänst
 ### <a name="problem"></a>Problem
@@ -282,6 +282,6 @@ Du hittar detaljerad gateway logginformation i Windows-händelseloggar.
 1. Starta Windows **Loggboken**.
 2. Leta reda på loggarna i den **program- och tjänstloggar** > **Data Management Gateway** mapp.
 
- När du felsöker gateway-relaterade problem, leta efter felnivåhändelser i Loggboken.
+   När du felsöker gateway-relaterade problem, leta efter felnivåhändelser i Loggboken.
 
 ![Data Management Gateway-loggarna i Loggboken](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)

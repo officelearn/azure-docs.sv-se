@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 9ca8e6876b67167429dbc0b5e6c3f5b454878c2a
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: c2f6a614524f0dfb242db11618fda94ce57e6e6a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382685"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111539"
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure Load Balancer?
 
@@ -94,8 +94,8 @@ Load Balancer har följande grundläggande funktioner för TCP- och UDP-program:
 
     Alla utgående flöden från privata IP-adresser i ditt virtuella nätverk till offentliga IP-adresser på Internet kan översättas till en klientdels-IP-adress för lastbalanseraren. När en offentlig klientdel är knuten till en virtuell serverdelsdator genom en belastningsutjämningsregel programmerar Azure utgående anslutningar så att de automatiskt översätts till den offentliga klientdels-IP-adressen.
 
-    * Aktivera enkel uppgradering och haveriberedskap för tjänster, eftersom klientdelen kan mappas dynamiskt till en annan instans av tjänsten.
-    * Enklare hantering av åtkomstkontrollistor (ACL). Åtkomstkontrollistor uttryckta som klientdels-IP-adresser ändras inte när tjänster skalas upp eller ned eller omdistribueras.  Översättning av utgående anslutningar till ett mindre antal IP-adresser än datorer kan minska belastningen på listan över tillåtna program.
+  * Aktivera enkel uppgradering och haveriberedskap för tjänster, eftersom klientdelen kan mappas dynamiskt till en annan instans av tjänsten.
+  * Enklare hantering av åtkomstkontrollistor (ACL). Åtkomstkontrollistor uttryckta som klientdels-IP-adresser ändras inte när tjänster skalas upp eller ned eller omdistribueras.  Översättning av utgående anslutningar till ett mindre antal IP-adresser än datorer kan minska belastningen på listan över tillåtna program.
 
     Mer information finns i [utgående anslutningar](load-balancer-outbound-connections.md).
 

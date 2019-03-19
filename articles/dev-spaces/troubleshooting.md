@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
-ms.openlocfilehash: 7a944b87192236ba7401fe62d52275bea8be5076
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1ccb96bc8682ad505bc4b21e90951ea25c4c9954
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769803"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898090"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -209,7 +209,7 @@ Starta VS Code-felsökare kan ibland resultera i det här felet.
 Köra felsökaren för VS Code rapporterar felet: `Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>Orsak
-Du har inte det VS Code-tillägget för C#-installerat på utvecklingsdatorn. C#-tillägget innehåller felsökning för .net Core (CoreCLR).
+Du har inte det VS Code-tillägget för C#-installerat på utvecklingsdatorn. Den C# tillägget innehåller felsökning för .NET Core (CoreCLR).
 
 ### <a name="try"></a>Prova:
 Installera den [VS Code-tillägg för C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).

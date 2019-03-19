@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 383f65ea925a3575afd988e07784be643201c6b8
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 891d9b7b34e3d30efb46b69ef1aa75566fe634c4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214511"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120762"
 ---
 # <a name="saas-application-technical-info-tab"></a>Tekniska informationsfliken för SaaS-program
 
@@ -44,7 +44,7 @@ Om du vill skapa den här upplevelsen måste du konfigurera följande delar:
 - Anslut din SaaS tjänsten webbplats med Microsofts SaaS APIs. Den [SaaS sälj via Azure – API: er](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis) artikeln förklarar hur du skapar den här anslutningen.
 - Aktivera sälj via Azure på partnerportalen i molnet i konfigurationsformuläret för teknisk och ange nödvändig information. Läs mer om detta faktureringsmodellen och hur den har implementerats [SaaS – sälj via Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions).
 
- ![Sälj via Microsoft-formulär](./media/saas-techinfo-sellthrough-ms.png)
+  ![Sälj via Microsoft-formulär](./media/saas-techinfo-sellthrough-ms.png)
 
 I följande tabell beskrivs de obligatoriska fälten för sälj via Microsoft.
 

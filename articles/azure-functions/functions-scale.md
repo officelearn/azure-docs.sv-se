@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5cd3f7f1f1f17d6dedea0157760b03c7e55e3d8a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 17df4415166c71f49c6b2534289b2c1f79cb6174
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410102"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117259"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skalar och som är värd för
 
@@ -71,7 +71,7 @@ När du kör JavaScript-funktioner i en App Service-plan, bör du välja en plan
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 
-###<a name="always-on"></a> Alltid på
+### <a name="always-on"></a> Alltid på
 
 Om du kör i en App Service-plan, bör du aktivera den **alltid på** så att din funktionsapp körs korrekt. I en App Service-plan går att funktionskörningen inaktiv efter ett par minuter av inaktivitet, så att endast HTTP-utlösare ska ”aktivera” dina funktioner. Alltid är på endast tillgänglig på en App Service plan. I en förbrukningsplan aktiverar plattformen funktionsappar automatiskt.
 

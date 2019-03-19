@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afe467d56d0247e17f73bb85a39246c4c04629cd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f6c313cc654461ea22c126fede317ed230408b82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173461"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079204"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problem med att konfigurera lösenord för enkel inloggning för ett Azure AD-galleriprogram
 
@@ -37,23 +37,23 @@ När Microsoft har tekniker för att identifiera automatiskt när integreringar 
 
 Lös problemet genom att först prova dessa saker:
 
--   Användaren försöker först **logga in till webbplatsen program direkt** med de autentiseringsuppgifter som lagras i dem.
+- Användaren försöker först **logga in till webbplatsen program direkt** med de autentiseringsuppgifter som lagras i dem.
 
   * Om inloggningen fungerar, så finns användaren klickar du på den **uppdatera autentiseringsuppgifterna** knappen på den **program sida vid sida** i den **appar** delen av den [programåtkomst Panelen](https://myapps.microsoft.com/) du uppdatera dem till det senaste kända fungerande användarnamn och lösenord.
 
-   * Om du eller en annan administratör har tilldelat autentiseringsuppgifterna för den här användaren kommer att hitta användaren eller gruppens programtilldelning genom att navigera till den **användare och grupper** fliken program, markerar tilldelningen och klickar på  **Uppdatera autentiseringsuppgifter** knappen.
+  * Om du eller en annan administratör har tilldelat autentiseringsuppgifterna för den här användaren kommer att hitta användaren eller gruppens programtilldelning genom att navigera till den **användare och grupper** fliken program, markerar tilldelningen och klickar på  **Uppdatera autentiseringsuppgifter** knappen.
 
--   Om du har tilldelat sina egna autentiseringsuppgifter, har användaren **kontroll för att se till att deras lösenord inte har gått ut i programmet** och i så fall, **uppdatera sina utgångna lösenord** genom att logga in till programmet direkt.
+- Om du har tilldelat sina egna autentiseringsuppgifter, har användaren **kontroll för att se till att deras lösenord inte har gått ut i programmet** och i så fall, **uppdatera sina utgångna lösenord** genom att logga in till programmet direkt.
 
-   * När lösenordet har uppdaterats i programmet, kan du begära att klicka på den **uppdatera autentiseringsuppgifterna** knappen på den **program sida vid sida** i den **appar** delen av den [Programåtkomstpanelen](https://myapps.microsoft.com/) du uppdatera dem till det senaste kända fungerande användarnamn och lösenord.
+  * När lösenordet har uppdaterats i programmet, kan du begära att klicka på den **uppdatera autentiseringsuppgifterna** knappen på den **program sida vid sida** i den **appar** delen av den [Programåtkomstpanelen](https://myapps.microsoft.com/) du uppdatera dem till det senaste kända fungerande användarnamn och lösenord.
 
-   * Om du eller en annan administratör har tilldelat autentiseringsuppgifterna för den här användaren kommer att hitta användaren eller gruppens programtilldelning genom att navigera till den **användare och grupper** fliken program, markerar tilldelningen och klickar på  **Uppdatera autentiseringsuppgifter** knappen.
+  * Om du eller en annan administratör har tilldelat autentiseringsuppgifterna för den här användaren kommer att hitta användaren eller gruppens programtilldelning genom att navigera till den **användare och grupper** fliken program, markerar tilldelningen och klickar på  **Uppdatera autentiseringsuppgifter** knappen.
 
--   Få användaren att uppdatera programåtkomstpanelens webbläsartillägg genom att följa stegen nedan i den [så här installerar du åtkomst till panelen webbläsartillägget](#how-to-install-the-access-panel-browser-extension) avsnittet.
+- Få användaren att uppdatera programåtkomstpanelens webbläsartillägg genom att följa stegen nedan i den [så här installerar du åtkomst till panelen webbläsartillägget](#how-to-install-the-access-panel-browser-extension) avsnittet.
 
--   Kontrollera att programåtkomstpanelens webbläsartillägg som körs och aktiverat i användarens webbläsare.
+- Kontrollera att programåtkomstpanelens webbläsartillägg som körs och aktiverat i användarens webbläsare.
 
--   Se till att användarna inte försöker logga in till programmet från åtkomstpanelen samtidigt i **inkognito, InPrivate- eller privata läge**. Access panel-tillägg stöds inte i dessa lägen.
+- Se till att användarna inte försöker logga in till programmet från åtkomstpanelen samtidigt i **inkognito, InPrivate- eller privata läge**. Access panel-tillägg stöds inte i dessa lägen.
 
 Om förslag som tidigare inte fungerar, kan det om en förändring har gjorts på programmet sida som har tillfälligt brytas programmets integrering med Azure AD. Exempel: Detta kan inträffa när programleverantören introducerar ett skript på webbsidan som fungerar annorlunda för manuell eller automatisk indata, som orsakar automatisk integrering som vår egen, dela. I många fall fungerar som tur är kan Microsoft med programleverantörer, för att snabbt lösa dessa problem.
 
@@ -65,13 +65,13 @@ Utöver detta är **om du är i kontakt med programleverantören,** **skicka dem
 
 Det finns två huvudsakliga orsaker till det här problemet:
 
--   Beroende på säkerhetsinställningarna som är aktiverad i Internet Explorer om webbplatsen inte är en del av en **zonen Betrodda**, ibland våra skript blockeras från att köra för programmet.
+- Beroende på säkerhetsinställningarna som är aktiverad i Internet Explorer om webbplatsen inte är en del av en **zonen Betrodda**, ibland våra skript blockeras från att köra för programmet.
 
   *  Lös detta genom att instruera användaren att **Lägg till programmets webbplats** till den **tillförlitliga platser** lista inom deras **säkerhetsinställningarna för Internet Explorer**. Du kan skicka användarna till den [hur du lägger till en plats i listan med betrodda platser](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) artikeln detaljerade anvisningar.
 
--   I sällsynta fall kan kan Säkerhetsverifieringen för Internet Explorer ibland orsaka sidan för att laddas långsammare än våra skript körs.
+- I sällsynta fall kan kan Säkerhetsverifieringen för Internet Explorer ibland orsaka sidan för att laddas långsammare än våra skript körs.
 
-   * Tyvärr kan den här situationen variera beroende på webbläsarversion, DATORHASTIGHET eller webbplats som besöks. I det här fallet rekommenderar vi att du kontaktar support kan vi lösa integreringen för den här specifika program.
+  * Tyvärr kan den här situationen variera beroende på webbläsarversion, DATORHASTIGHET eller webbplats som besöks. I det här fallet rekommenderar vi att du kontaktar support kan vi lösa integreringen för den här specifika program.
 
 Utöver detta är **om du är i kontakt med programleverantören,** **skicka dem till oss** så att vi kan arbeta med dem för att integrera internt sina program med Azure Active Directory. Du kan skicka leverantören som den [lista ditt program i Azure Active Directory-programgalleriet](../develop/howto-app-gallery-listing.md) få dem igång.
 

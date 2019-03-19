@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 66119ffab8c6117e223468834b59e6d6b19409a0
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: f9cbf5033d0ffb84959de94db052626dd1d131c8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54445070"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997944"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Dynamics 365 för Customer Engagement Storefront information fliken
 
@@ -56,7 +56,7 @@ I följande tabell beskrivs där fälten i den här fliken:
 |  Apptyp             | Välj typ av utvärderingsversion som är aktiverad för appen på AppSource. **Kostnadsfria** anger din app kan användas utan kostnad; **Utvärderingsversion** indikerar att kunder kan testa din app under en kort period utan kostnad; och **kontakta mig** indikerar att kunder kan begära en utvärderingsversion av appen på AppSource.  |
 | Hjälplänk för din app | URL för online-dokumentation eller annan hjälp-resurs för appen.  |
 | Länder/regioner | En popup-dialogruta gör valet av geografiska områden där appen är tillgängliga.  I hela världen distribution är standardinställningen. |
-| Språk som stöds   | Välj de språk som har stöd för din app. För närvarande endast några språk stöds.  (Om din app har stöd för fler språk som inte finns på den här listan, fortsätter att publicera ditt erbjudande och e-den här informationen till: appsource@microsoft.com.)  |
+| Språk som stöds   | Välj de språk som har stöd för din app. För närvarande endast några språk stöds.  (Om din app har stöd för fler språk som inte finns på den här listan, fortsätter att publicera ditt erbjudande och e-den här informationen till: appsource\@microsoft.com.)  |
 | Appversion           | Versionsnumret för appen    |
 | App lanseringsdatum      | Versionen/publicering datumet för appen |
 | Produkter som din app fungerar med | Produkter eller tjänster som din app fungerar mellan platser med. Du kan visa högst tre produkter. Om du vill visa en produkt, klickar du på **+ ny** och ange namnet på en produkt i textrutan visas.  |

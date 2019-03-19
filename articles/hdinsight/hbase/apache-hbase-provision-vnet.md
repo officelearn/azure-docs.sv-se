@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 31e4f4a8cfe9a82cf5320cd364905c7c91de0959
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: af5a261ba57c406335fb75260d6af797af70a1b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653806"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101456"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Skapa Apache HBase-kluster i HDInsight i Azure-nätverk
 Lär dig hur du skapar Azure HDInsight Apache HBase-kluster i en [Azure Virtual Network][1].
@@ -90,9 +90,9 @@ Om du vill börja arbeta med din nya HBase-kluster måste du använda de procedu
      2. Klicka på **värdar** på den översta menyn.
    * Använd Curl för att göra REST-anrop:
 
-    ```bash
+     ```bash
         curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
-    ```
+     ```
 
      Hitta posten ”värddatornamn” i de JavaScript Object Notation (JSON) data som returneras. Den innehåller det fullständiga Domännamnet för noder i klustret. Exempel:
 
@@ -105,7 +105,7 @@ Om du vill börja arbeta med din nya HBase-kluster måste du använda de procedu
 
      Använd följande Azure PowerShell-skript för att registrera den **Get-ClusterDetail** som kan användas för att returnera DNS-suffix:
 
-    ```powershell
+     ```powershell
         function Get-ClusterDetail(
             [String]
             [Parameter( Position=0, Mandatory=$true )]
@@ -195,13 +195,13 @@ Om du vill börja arbeta med din nya HBase-kluster måste du använda de procedu
                 Write-host $Suffix
             }
         }
-    ```
+     ```
 
      När Azure PowerShell-skriptet har körts, kan du använda kommandot för att returnera DNS-suffix genom att använda den **Get-ClusterDetail** funktion. Ange HDInsight HBase-klusternamnet, namn på serveradministratör och lösenordet för serveradministratören när du använder det här kommandot.
 
-    ```powershell
+     ```powershell
         Get-ClusterDetail -ClusterDnsName <yourclustername> -PropertyName FQDNSuffix -Username <clusteradmin> -Password <clusteradminpassword>
-    ```
+     ```
 
      Det här kommandot returnerar DNS-suffixet. Till exempel **yourclustername.b4.internal.cloudapp.net**.
 

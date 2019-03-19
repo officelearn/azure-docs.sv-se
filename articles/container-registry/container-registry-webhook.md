@@ -5,50 +5,50 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/20/2017
+ms.date: 03/14/2019
 ms.author: danlep
-ms.openlocfilehash: cbfbe5bf0df1b4f40752b5b233dff6416bcdd309
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 0a3d2d0e858dc052095c0a58287970d10c06f0ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770609"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099856"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Med Azure Container Registry-webhookar
 
-En Azure-behållarregister lagrar och hanterar privata Docker-behållaravbildningar, ungefär på samma sätt som Docker Hub lagrar offentliga Docker-avbildningar. Du kan använda webhooks för att utlösande händelser när vissa åtgärder ägde rum i någon av dina databaser i registret. Webhooks kan reagera på händelser på nivån registret eller de kan begränsas av en specifik lagringsplats-tagg.
+En Azure-behållarregister lagrar och hanterar privata Docker-behållaravbildningar, ungefär på samma sätt som Docker Hub lagrar offentliga Docker-avbildningar. Det kan också vara värd för databaser för [Helm diagram](container-registry-helm-repos.md) (förhandsversion), en paketering formatera för att distribuera program till Kubernetes. Du kan använda webhooks för att utlösande händelser när vissa åtgärder ägde rum i någon av dina databaser i registret. Webhooks kan reagera på händelser på nivån registret eller de kan begränsas av en specifik lagringsplats-tagg.
 
 Mer information om webhook-begäranden finns [Schemareferens i Azure Container Registry webhook](container-registry-webhook-reference.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Azure container registry – skapa ett behållarregister i Azure-prenumerationen. Till exempel använda den [Azure-portalen](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md).
+* Azure container registry – skapa ett behållarregister i Azure-prenumerationen. Till exempel använda den [Azure-portalen](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md). Den [Azure Container Registry SKU: er](container-registry-skus.md) har olika webhooks kvoter.
 * Docker CLI - att konfigurera din lokala dator som Docker-värd och komma åt Docker CLI-kommandona installera [Docker-motorn](https://docs.docker.com/engine/installation/).
 
-## <a name="create-webhook-azure-portal"></a>Skapa webhook Azure-portalen
+## <a name="create-webhook---azure-portal"></a>Skapa webhook - Azure-portalen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com)
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Gå till behållarregistret som du vill skapa en webhook.
-1. Under **SERVICES**väljer **Webhooks**.
+1. Under **Services**väljer **Webhooks**.
 1. Välj **Lägg till** i webhook-verktygsfältet.
 1. Slutför den *skapa webhook* formuläret med följande information:
 
 | Värde | Beskrivning |
 |---|---|
-| Namn | Namnet som du vill ge till webhooken. Det kan bara innehålla gemena bokstäver och siffror och måste vara 5 – 50 tecken långt. |
+| Namn | Namnet som du vill ge till webhooken. Det får innehålla endast bokstäver och siffror och måste vara 5 – 50 tecken långt. |
 | Tjänstens URI | URI: N där webhooken ska skicka POST-meddelanden. |
 | Anpassade huvuden | Rubriker som du vill skicka den tillsammans med POST-begäran. De bör vara i ”key: value” format. |
-| Utlösaråtgärder | Åtgärder som utlöser webhooken. Webhooks för närvarande kan utlösas av avbildningen push och/eller ta bort åtgärder. |
+| Utlösaråtgärder | Åtgärder som utlöser webhooken. Åtgärder omfattar bild push, image delete, Helm-diagram-push, ta bort Helm-diagrammet och bild i karantän. Du kan välja en eller flera åtgärder för att utlösa webhooken. |
 | Status | Status för webhook när den har skapats. Det är aktiverat som standard. |
-| Scope | Omfånget då webhooken fungerar. Som standard är omfånget för alla händelser i registret. Det kan anges för en databas eller en tagg i formatet ”-lagringsplatsen: tagg”. |
+| Scope | Omfånget då webhooken fungerar. Om inte anges är omfånget för alla händelser i registret. Det kan anges för en databas eller en tagg i formatet ”-lagringsplatsen: tagg” eller ”lagringsplats: *” för alla taggar i en databas. |
 
 Exempelformulär för webhook:
 
 ![ACR webhook-skapandet UI i Azure portal](./media/container-registry-webhook/webhook.png)
 
-## <a name="create-webhook-azure-cli"></a>Skapa webhook Azure CLI
+## <a name="create-webhook---azure-cli"></a>Skapa webhook – Azure CLI
 
-Skapa en webhook som använder Azure CLI för att använda den [az acr webhook skapa](/cli/azure/acr/webhook#az-acr-webhook-create) kommando.
+Skapa en webhook som använder Azure CLI för att använda den [az acr webhook skapa](/cli/azure/acr/webhook#az-acr-webhook-create) kommando. Följande kommando skapar en webhook för alla bild ta bort händelser i registret *mycontainerregistry*:
 
 ```azurecli-interactive
 az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --actions delete --uri http://webhookuri.com
@@ -58,7 +58,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Tidigare med hjälp av webhook behållaren bild push och ta bort åtgärder, du kan testa den med den **Ping** knappen. Ping skickar en allmän POST-begäran till den angivna slutpunkten och loggar svaret. Med hjälp av ping-funktionen kan hjälpa dig att kontrollera att du har korrekt konfigurerat webhooken.
+Innan du börjar använda webhooken, kan du testa den med den **Ping** knappen. Ping skickar en allmän POST-begäran till den angivna slutpunkten och loggar svaret. Med hjälp av ping-funktionen kan hjälpa dig att kontrollera att du har korrekt konfigurerat webhooken.
 
 1. Välj webhooken som du vill testa.
 2. I det översta verktygsfältet väljer **Ping**.

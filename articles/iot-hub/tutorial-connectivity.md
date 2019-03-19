@@ -2,19 +2,19 @@
 title: Kontrollera enhetens anslutning till Azure IoT-hubb
 description: Använd IoT-hubb-verktyg för att felsöka anslutningsproblem för enheten till din IoT-hubb under utvecklingen.
 services: iot-hub
-author: dominicbetts
-manager: timlt
-ms.author: dobett
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.custom: mvc
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: ebd206f6de031ea73d621568e091632e2e8123b9
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: cd60129e2da0b0c2130b300159953bd81c4aeb82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674525"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077572"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Självstudier: Använda en simulerad enhet för att testa anslutningen med din IoT-hubb
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 CLI-skript som du kör i den här självstudiekursen använder [Microsoft Azure IoT-tillägg för Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). Kör följande CLI-kommando om du vill installera tillägget:
 
@@ -135,7 +135,7 @@ az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubNam
 
 Anteckna den fullständiga texten i din genererade SAS-token. En SAS-token ser ut så här: `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
-Navigera till rotmappen för Node.js-exempelprojektet som du hämtade i ett terminalfönster på din utvecklingsdator. Gå sedan till mappen **iot hub\Tutorials\ConnectivityTests\simulated-device**.
+Navigera till rotmappen för Node.js-exempelprojektet som du hämtade i ett terminalfönster på din utvecklingsdator. Gå sedan till mappen **iot-hub\Tutorials\ConnectivityTests**.
 
 Installera de bibliotek som krävs för det simulerade enhetsprogrammet genom att köra följande kommandon i terminalfönstret:
 
@@ -176,7 +176,7 @@ Först måste du hämta den aktuella anslutningssträngen för den simulerade en
 az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
-Om du vill köra en simulerad enhet som skickar meddelanden, navigera till mappen **iot hub\Tutorials\ConnectivityTests\simulated-device** i koden som du hämtat.
+Om du vill köra en simulerad enhet som skickar meddelanden, navigera till den **iot hub\Tutorials\ConnectivityTests** mapp i koden som du laddade ned.
 
 Installera de bibliotek som krävs för det simulerade enhetsprogrammet genom att köra följande kommandon i terminalfönstret:
 

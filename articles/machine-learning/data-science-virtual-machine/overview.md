@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 44427183b6cc785af33daf92bda050336eec5284
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: f90e82fea9cbb3c3052738d15ff4a3838f1ad000
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245294"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863248"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introduktion till Azure Data Science Virtual Machine för Linux och Windows
 
@@ -38,7 +38,7 @@ Den virtuella datorn för datavetenskap har utformats och konfigurerats för att
 I det här avsnittet föreslås några viktiga scenarier som den virtuella datorn för datavetenskap kan distribueras för.
 
 ### <a name="preconfigured-analytics-desktop-in-the-cloud"></a>Förkonfigurerat analysskrivbord i molnet
-Den virtuella datorn för datavetenskap tillhandahåller en baslinjekonfiguration för datavetenskapsteam som vill ersätta sina lokala skrivbord med ett hanterat molnskrivbord. Den här baslinjen säkerställer att all datapersonal i ett team har en konsekvent konfiguration för att kontrollera experiment och underlätta samarbete. Det sänker även kostnaderna genom att minska systemadministratörens arbete och den tid som behövs för att utvärdera, installera och underhålla de olika programvarupaket som behövs för att göra avancerade analyser.  
+Den virtuella datorn för datavetenskap tillhandahåller en baslinjekonfiguration för datavetenskapsteam som vill ersätta sina lokala skrivbord med ett hanterat molnskrivbord. Den här baslinjen säkerställer att all datapersonal i ett team har en konsekvent konfiguration för att kontrollera experiment och underlätta samarbete. Det sänker även kostnaderna genom att minska systemadministratörens arbete och den tid som behövs för att utvärdera, installera och underhålla de olika programvarupaket som behövs för att göra avancerade analyser.
 
 ### <a name="data-science-training-and-education"></a>Kurser och utbildning om datavetenskap
 Företagsutbildare och lärare som undervisar i datavetenskap erbjuder normalt en avbildning av en virtuell dator för att säkerställa att eleverna har en konsekvent konfiguration och att exemplen fungerar förutsägbart. Den virtuella datorn för datavetenskap skapar en miljö på begäran med en konsekvent konfiguration som minskar problemen med support och inkompatibilitet. Det är mycket användbart i fall där de här miljöerna behöver skapas ofta, särskilt för kortare kurser.
@@ -50,7 +50,7 @@ Datavetenskapstävlingar/”hackathons” eller storskalig datamodellering och -
 Den virtuella datorn för datavetenskap kan användas för att utvärdera och lära sig verktyg, till exempel Microsoft ML Server, SQL Server, Visual Studio-verktyg, Jupyter, deep learning-/ML-verktyg och nya verktyg som är populära i communityn, med minimal konfiguration. Eftersom den virtuella datorn för datavetenskap kan konfigureras snabbt kan den användas i andra kortsiktiga användningsscenarier, till exempel för att replikera publicerade experiment, köra demonstrationer, följa genomgångar under onlinesessioner och konferenssjälvstudier.
 
 ### <a name="deep-learning"></a>Deep learning
-Den virtuella datorn för datavetenskap kan användas som utbildningsmodeller med hjälp av deep learning-algoritmer på GPU-baserad maskinvara (grafikprocessorer). Genom att utnyttja Azure-molnets VM-skalningsfunktioner hjälper DSVM dig att använda GPU-baserad maskinvara i molnet enligt behov. Det går att växla till en GPU-baserad virtuell dator vid utbildning av stora modeller eller behov av snabba beräkningar samtidigt som samma OS-disk behålls.  Windows Server 2016-versionen av DSVM levereras förinstallerad med GPU-drivrutiner, -ramverk och GPU-versioner av deep learning-ramverk. I Linux-utgåvan är deep learning på GPU aktiverat på DSVM för både CentOS och Ubuntu. Du kan distribuera Ubuntu-, CentOS- eller Windows 2016-versionen av den virtuella datorn för datavetenskap till en icke GPU-baserad virtuell Azure-dator. Då återställs alla deep learning-ramverk till CPU-läget. 
+Den virtuella datorn för datavetenskap kan användas som utbildningsmodeller med hjälp av deep learning-algoritmer på GPU-baserad maskinvara (grafikprocessorer). Genom att utnyttja Azure-molnets VM-skalningsfunktioner hjälper DSVM dig att använda GPU-baserad maskinvara i molnet enligt behov. Det går att växla till en GPU-baserad virtuell dator vid utbildning av stora modeller eller behov av snabba beräkningar samtidigt som samma OS-disk behålls.  Windows Server 2016-versionen av DSVM levereras förinstallerad med GPU-drivrutiner, -ramverk och GPU-versioner av deep learning-ramverk. I Linux-utgåvan är deep learning på GPU aktiverat på DSVM för både CentOS och Ubuntu. Du kan distribuera Ubuntu-, CentOS- eller Windows 2016-versionen av den virtuella datorn för datavetenskap till en icke GPU-baserad virtuell Azure-dator. Då återställs alla deep learning-ramverk till CPU-läget.
 
 ## <a name="whats-included-in-the-data-science-vm"></a>Vad ingår i den virtuella datorn för datavetenskap?
 Många populära datavetenskaps- och deep learning-verktyg har redan installerats och konfigurerats på den virtuella datorn för datavetenskap. Den innehåller också verktyg som gör det enkelt att arbeta med olika Azure-data och analys-produkter, till exempel Microsoft ML Server (R, Python) för att skapa prediktiva modeller eller SQL Server 2017 för utforskning av storskaliga datauppsättningar. En mängd andra verktyg från communityn för öppen källkod och från Microsoft ingår också, samt exempelkod och -anteckningsböcker. I följande tabell specificeras och jämförs huvudkomponenterna som ingår i Windows- och Linux-versionerna av den virtuella datorn för datavetenskap.
@@ -66,7 +66,7 @@ Många populära datavetenskaps- och deep learning-verktyg har redan installerat
 | Relationsdatabaser                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) (CentOS),<br/>[SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition (Ubuntu) |
 | Databasverktyg                                                       | * SQL Server Management Studio <br/>* SQL Server Integration Services<br/>* [bcp, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br /> * ODBC-/JDBC-drivrutiner| * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/) (frågeverktyg) <br /> * bcp, sqlcmd <br /> * ODBC-/JDBC-drivrutiner|
 | Skalbar databasanalys med SQL Server ML-tjänster (R, Python) | Y     |N              |
-| **[Jupyter Notebook Server](http://jupyter.org/) med följande kärnor**                                  | Y     | Y |
+| **[Jupyter Notebook Server](https://jupyter.org/) med följande kärnor**                                  | Y     | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* R | Y | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Python | Y | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Julia | Y | Y |
@@ -76,13 +76,13 @@ Många populära datavetenskaps- och deep learning-verktyg har redan installerat
 | JupyterHub (anteckningsboksserver för flera användare)| N | Y |
 | JupyterLab (anteckningsboksserver för flera användare) | N | J (endast Ubuntu) |
 | **Utvecklingsverktyg, IDE:er och kodredigerare**| | |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) med Git-plugin, Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](https://aka.ms/ptvs) och [R Tools for Visual Studio (RTVS)](http://microsoft.github.io/RTVS-docs/) | Y | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) med Git-plugin, Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](https://aka.ms/ptvs) och [R Tools for Visual Studio (RTVS)](https://microsoft.github.io/RTVS-docs/) | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio Code](https://code.visualstudio.com/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [PyCharm Community Edition](https://www.jetbrains.com/pycharm/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Atom](https://atom.io/) | N | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Juno (Julia-IDE)](http://junolab.org/)| Y | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Juno (Julia-IDE)](https://junolab.org/)| Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Vim och Emacs | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Git och GitBash | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | Y | Y |
@@ -99,12 +99,12 @@ Många populära datavetenskaps- och deep learning-verktyg har redan installerat
 | &nbsp;&nbsp;&nbsp;&nbsp;* [DocDB-datamigreringsverktyg](https://docs.microsoft.com/azure/documentdb/documentdb-import-data) | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Data Management Gateway](https://msdn.microsoft.com/library/dn879362.aspx): Flytta data mellan OnPrem och molnet | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Unix-/Linux-kommandoradsverktyg | Y | Y |
-| [Apache Drill](http://drill.apache.org) för datautforskning | Y | Y |
+| [Apache Drill](https://drill.apache.org) för datautforskning | Y | Y |
 | **Machine Learning-verktyg** |||
 | &nbsp;&nbsp;&nbsp;&nbsp;* Integrering med [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (R, Python) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Xgboost](https://github.com/dmlc/xgboost) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) | Y | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Weka](http://www.cs.waikato.ac.nz/ml/weka/) | Y | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Weka](https://www.cs.waikato.ac.nz/ml/weka/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Rattle](https://togaware.com/rattle/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | N | J (endast Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CatBoost](https://tech.yandex.com/catboost/) | N | J (endast Ubuntu) |
@@ -113,21 +113,21 @@ Många populära datavetenskaps- och deep learning-verktyg har redan installerat
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/) (Windows 2016) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | J (Windows 2016) | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Horovod](https://github.com/uber/horovod) | N | J (Ubuntu) |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](http://mxnet.io/) | J (Windows 2016) | Y|
+| &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](https://mxnet.io/) | J (Windows 2016) | Y|
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Caffe och Caffe2](https://github.com/caffe2/caffe2) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Chainer](https://chainer.org/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Torch](http://torch.ch/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Theano](https://github.com/Theano/Theano) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Keras](https://keras.io/)| N | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [PyTorch](http://pytorch.org/)| N | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [PyTorch](https://pytorch.org/)| N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [NVidia Digits](https://github.com/NVIDIA/DIGITS) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet Model Server](https://github.com/awslabs/mxnet-model-server) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow Serving](https://www.tensorflow.org/serving/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorRT](https://developer.nvidia.com/tensorrt) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA-, cuDNN-, NVIDIA-drivrutin](https://developer.nvidia.com/cuda-toolkit) | Y | Y |
 | **Stordataplattform (endast DevTest)**|||
-| &nbsp;&nbsp;&nbsp;&nbsp;* Lokal [Spark](http://spark.apache.org/) fristående | Y | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* Lokal [Hadoop](http://hadoop.apache.org/) (HDFS, YARN) | N | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* Lokal [Spark](https://spark.apache.org/) fristående | Y | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* Lokal [Hadoop](https://hadoop.apache.org/) (HDFS, YARN) | N | Y |
 
 ## <a name="get-started"></a>Kom igång
 

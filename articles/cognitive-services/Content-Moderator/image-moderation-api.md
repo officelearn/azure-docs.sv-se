@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 1dba848be0c24ef26dcefd23d4fc3f7201420449
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 17e4d576d4c524321fd19c589868a323f97c48a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873520"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079731"
 ---
 # <a name="learn-image-moderation-concepts"></a>Lär dig mer bildmoderering begrepp
 
@@ -35,12 +35,11 @@ Den **utvärdera** åtgärden returnerar ett förtroenderesultat mellan 0 och 1.
       ],
 
 > [!NOTE]
-
+> 
 > - `isImageAdultClassified` representerar den potentiella förekomsten av bilder som kan uppfattas som sexuellt explicita eller ämnade för vuxna.
 > - `isImageRacyClassified` representerar den potentiella förekomsten av bilder som kan uppfattas som sexuellt laddade eller ämnade för vuxna.
 > - Poängen är mellan 0 och 1. Ju högre poäng desto högre modellen är att förutsäga att kategorin kan användas. Den här förhandsversionen är beroende av en statistisk modell i stället för manuellt kodade resultat. Vi rekommenderar att du testar med ditt eget innehåll att avgöra hur varje kategori stämmer överens med dina behov.
 > - Booleska värden är true eller false beroende på den interna poängen tröskelvärden. Kunder bör utvärdera om du vill använda det här värdet eller välja anpassade tröskelvärden baserat på deras innehåll principer.
->
 
 ## <a name="detecting-text-with-optical-character-recognition-ocr"></a>Identifiera text med optisk teckenläsning (OCR)
 

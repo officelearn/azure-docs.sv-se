@@ -1,7 +1,7 @@
 ---
 title: Självstudier – Aktivera integrering av virtuella nätverk och brandväggar på Event Hubs | Microsoft Docs
 description: I den här självstudien får du lära dig hur du integrerar Event Hubs med virtuella nätverk och brandväggar för att möjliggöra säker åtkomst.
-services: event-hubs-messaging
+services: event-hubs
 author: axisc
 manager: darosa
 ms.author: aschhab
@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: tutorial
 ms.service: event-hubs-messaging
 ms.custom: mvc
-ms.openlocfilehash: e47c2af353a7f365534ba4cf9ce574c16a0ea4ca
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 9eea40a8ad2f08099b2662a0e7539c326d4d143e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233147"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779053"
 ---
 # <a name="tutorial-enable-virtual-networks-integration-and-firewalls-on-event-hubs-namespace"></a>Självstudier: Aktivera integrering av virtuella nätverk och brandväggar för Event Hubs-namnområdet
 
@@ -47,7 +47,7 @@ I den här självstudiekursen får du lära du dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi ska använda ett befintligt Event Hubs-namnområde, så se till att du har ett Event Hubs-namnområde tillgängligt. Om så inte är fallet, så läs [den här självstudien](./event-hubs-create.md)
 

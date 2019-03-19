@@ -8,30 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 08e2ef1b219ed66a39d38c08be80df89814afbaf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 871cca9fe2b3ff50202feb4925a267b93d432700
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180495"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842081"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Snabbstart: Söka på webben med hjälp av REST-API:et för webbsökning i Bing och C#
 
+Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få ett JSON-svar. Detta C# programmet skickar en sökbegäran-API: et och visas svaret. Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få ett JSON-svar. Det här enkla C#-programmet skickar en sökfråga till API:et och visar svaret. Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
 * Windows: [Visual Studio 2017](https://www.visualstudio.com/downloads/)
-* Linux/macOS: [Mono](http://www.mono-project.com/)  
+* Linux/macOS: [Mono](https://www.mono-project.com/)  
 * En prenumerationsnyckel
 
 I det här exempelprogrammet används endast .NET Core-klasser.
-
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
@@ -63,7 +62,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="define-variables"></a>Definiera variabler
 
-Några variabler måste anges innan vi kan fortsätta. Bekräfta att `uriBase` är giltigt och ersätt värdet `accessKey` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `searchTerm`.
+Några variabler måste anges innan vi kan fortsätta. Bekräfta att `uriBase` är giltigt och ersätt värdet `accessKey` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `searchTerm`. Kom ihåg att lägga till koden för den `Program` klassen som anges ovan.
 
 ```csharp
 // Enter a valid subscription key.
@@ -79,7 +78,7 @@ const string searchTerm = "Microsoft Cognitive Services";
 
 ## <a name="declare-the-main-method"></a>Deklarera Main-metoden
 
-`Main()` krävs och det är den första metoden som anropas när programmet startas. I det här programmet verifierar huvudmetoden `accessKey`, gör en begäran och skriver ut svaret.
+Den `Main()` metod krävs och det är den första metoden anropas när programmet startas. I det här programmet verifierar huvudmetoden `accessKey`, gör en begäran och skriver ut svaret.
 
 Tänk på att `main()` är beroende av metoder som skapas i de avsnitt som följer.
 
@@ -110,7 +109,7 @@ static void Main()
 
 ## <a name="create-a-struct-for-search-results"></a>Skapa en struct för sökresultat
 
-Den här structen returnerar sökresultat med relevanta rubriker. Den anropas när du gör en begäran till API för webbsökning i Bing för att skapa ett resultatobjekt.
+Den här structen returnerar sökresultat med relevanta rubriker. Den anropas när du gör en begäran till Bing Web Search API för att skapa ett resultatobjekt.
 
 ```csharp
 // Returns search results with headers.

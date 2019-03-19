@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba4f1d41497af8f57a343eacc92c5da7d2488d07
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e7264792a123a8f8ce6c4a08a6c502de578d374c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163707"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891968"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Självstudier: Azure Active Directory-integrering med Rally programvara
 
@@ -200,17 +200,17 @@ För Azure AD-användare för att kunna logga in, måste de etableras till progr
 
 1. Skriv namnet i den nya användaren textrutan och klicka sedan på **Lägg till med information om**.
 
-1. I den **Create User** avsnittet, utför följande steg:
+1. I avsnittet **Skapa användare** utför du följande steg:
    
     ![Skapa användare](./media/rally-software-tutorial/ic781040.png "Skapa användare")
 
     a. I den **användarnamn** textrutan skriver du namnet på användaren som **Brittsimon**.
    
-    b. I **e-postadress** textrutan Ange e-postadress för användaren som **brittasimon@contoso.com**.
+    b. I **e-postadress** textrutan Ange e-postadress för användaren som **brittasimon\@contoso.com**.
 
     c. I textrutan **Förnamn** anger du förnamnet på användaren som **Britta**.
 
-    d. I **efternamn** text anger efternamn för användaren som **Simon**.
+    d. I textrutan **Efternamn** anger du efternamnet på användaren som **Simon**.
 
     e. Klicka på **spara och Stäng**.
 
@@ -255,7 +255,7 @@ När du klickar på panelen Rally programvara i åtkomstpanelen du bör få auto
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

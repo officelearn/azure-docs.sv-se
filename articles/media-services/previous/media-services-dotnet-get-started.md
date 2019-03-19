@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 0df2d43af725261a30fa5f92d66df8e21ec4c51a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2d55af3e9ed3ad64f9ba7726799b31acb6b48580
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773171"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884480"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Kom igång med att leverera innehåll på begäran med hjälp av .NET SDK  
 
@@ -371,7 +371,7 @@ URL:er för progressiv nedladdning (ljud och video).
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-Strömma din video genom att klistra in URL:en i URL-textrutan i [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+Strömma din video genom att klistra in URL:en i URL-textrutan i [Azure Media Services Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 Testa den progressiva nedladdningen genom att klistra in en URL i en webbläsare (till exempel Internet Explorer, Chrome eller Safari).
 
@@ -397,5 +397,5 @@ Följande kodexempel innehåller koden som du skapade i den här kursen: [exempe
 
 
 <!-- URLs. -->
-[Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
-[Portal]: http://portal.azure.com/
+[Web Platform Installer]: https://go.microsoft.com/fwlink/?linkid=255386
+[Portal]: https://portal.azure.com/

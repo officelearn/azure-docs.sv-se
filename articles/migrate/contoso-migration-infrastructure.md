@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: 6ee05af0391311b4782211807f41ce099a6c24a2
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5dfe768ddb3509f896b90f913ffecdf33907357a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889944"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876688"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - distribuera en infrastruktur för migrering
 
@@ -101,10 +101,10 @@ Efter att betala för Azure, måste Contoso att ta reda på hur du hanterar Azur
 - En Azure Enterprise-registrering definierar hur ett företag former och använder Azure-tjänster och definierar en core styrning struktur.
 - Som ett första steg har Contoso fastställt att en struktur (kallas en enterprise-kodskelett för Företagsregistrering. Contoso används [i den här artikeln](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-governance) för att förstå och utforma en kodskelett.
 - Contoso har beslutat att använda en funktionsnivå metod för att hantera prenumerationer för tillfället.
-    - I företaget använder en enskild IT-avdelningen som styr Azure budgeten. Det här är den enda gruppen med prenumerationer.
-    - Contoso kommer att utöka den här modellen i framtiden, så att andra företagets grupper kan ansluta som avdelningar i Enterprise-registrering.
-    - I IT-avdelningen har Contoso strukturerade två prenumerationer, produktion och utveckling.
-    - Om Contoso kräver ytterligare prenumerationer i framtiden, måste det att hantera åtkomst, principer och efterlevnad för dessa prenumerationer. Contoso kommer att göra det genom att introducera [Azure hanteringsgrupper](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview), som ett extra lager över prenumerationer.
+  - I företaget använder en enskild IT-avdelningen som styr Azure budgeten. Det här är den enda gruppen med prenumerationer.
+  - Contoso kommer att utöka den här modellen i framtiden, så att andra företagets grupper kan ansluta som avdelningar i Enterprise-registrering.
+  - I IT-avdelningen har Contoso strukturerade två prenumerationer, produktion och utveckling.
+  - Om Contoso kräver ytterligare prenumerationer i framtiden, måste det att hantera åtkomst, principer och efterlevnad för dessa prenumerationer. Contoso kommer att göra det genom att introducera [Azure hanteringsgrupper](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview), som ett extra lager över prenumerationer.
 
     ![Enterprise-struktur](./media/contoso-migration-infrastructure/enterprise-structure.png) 
 
@@ -146,7 +146,7 @@ Ge och styra användarnas åtkomst till Azure-resurser med identitets- och åtko
 
 Contoso använder den kostnadsfria versionen av Azure AD som har inkluderat med en Azure-prenumeration. Contoso-administratörer konfigurera en AD-katalog på följande sätt:
 
-1. I den [Azure-portalen](http://portal.azure.com/), de navigerar till **skapa en resurs** > **identitet** > **Azure Active Directory**.
+1. I den [Azure-portalen](https://portal.azure.com/), de navigerar till **skapa en resurs** > **identitet** > **Azure Active Directory**.
 2. I **Skapa katalog**, de ange ett namn för katalogen, ett första domännamn och region där Azure AD-katalogen ska skapas.
 
     ![Skapa Azure AD](./media/contoso-migration-infrastructure/azure-ad-create.png) 
@@ -581,18 +581,18 @@ När du har uppdaterat nätverksinställningar Contoso-administratörer som är 
 
 1. I Azure-portalen kan distribuera de en ny Windows Server VM till lämplig VNet.
 2. De kan skapa tillgänglighetsuppsättningar för varje plats för den virtuella datorn. Tillgänglighetsuppsättningar gör du följande:
-    - Se till att Azure-strukturen separerar de virtuella datorerna till olika infrastrukturer i Azure-Region. 
-    -  Kan Contoso ska vara tillämplig för serviceavtal på 99,95% för virtuella datorer i Azure.  [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets).
+   - Se till att Azure-strukturen separerar de virtuella datorerna till olika infrastrukturer i Azure-Region. 
+   - Kan Contoso ska vara tillämplig för serviceavtal på 99,95% för virtuella datorer i Azure.  [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets).
 
-    ![Tillgänglighetsgrupp](./media/contoso-migration-infrastructure/availability-group.png) 
+     ![Tillgänglighetsgrupp](./media/contoso-migration-infrastructure/availability-group.png) 
 3. När den virtuella datorn har distribuerats kan öppna de nätverksgränssnittet för den virtuella datorn. De ange privata IP-adress till statisk och ange en giltig adress.
 
     ![VM NIC](./media/contoso-migration-infrastructure/vm-nic.png)
 
 4. Nu kan ansluta de en ny datadisk till den virtuella datorn. Den här disken innehåller Active Directory-databasen och sysvol-resursen. 
-    - Storleken på disken avgör antalet IOPS som stöds.
-    - Med tiden behöva diskens storlek ökar när miljön växer.
-    - Enheten får inte anges att läsa/skriva för värdcachelagring. Active Directory-databaser stöder inte detta.
+   - Storleken på disken avgör antalet IOPS som stöds.
+   - Med tiden behöva diskens storlek ökar när miljön växer.
+   - Enheten får inte anges att läsa/skriva för värdcachelagring. Active Directory-databaser stöder inte detta.
 
      ![Active Directory-disk](./media/contoso-migration-infrastructure/ad-disk.png)
 

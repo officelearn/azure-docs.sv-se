@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: ef55f25657d1decb09e438d443e7c289823f7d9d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: ed429d923cad2c715621990c146d4cf3a23e7bca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605916"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904765"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Vanliga frågor om ansluten fabrik lösningsaccelerator
 
@@ -105,9 +105,9 @@ Simuleringen själv registrerar följande enheter:
 * proxy.rio.corp.contoso
 * proxy.seattle.corp.contoso
 * publisher.beijing.corp.contoso
-* Publisher.capetown.corp.contoso
+* publisher.capetown.corp.contoso
 * publisher.mumbai.corp.contoso
-* Publisher.munich0.corp.contoso
+* publisher.munich0.corp.contoso
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
@@ -130,9 +130,9 @@ Med den [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/mast
 Granska de data som skickas av en av enheterna som utgivare:
 
 * publisher.beijing.corp.contoso
-* Publisher.capetown.corp.contoso
+* publisher.capetown.corp.contoso
 * publisher.mumbai.corp.contoso
-* Publisher.munich0.corp.contoso
+* publisher.munich0.corp.contoso
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
@@ -148,7 +148,7 @@ När du distribuerar med hjälp av den `build.ps1` skript i ansluten fabrik GitH
 
 Du kan också lägga till en Azure Maps-kontonyckel utvecklingsacceleratorn efter distributionen. Gå till Azure-portalen och åtkomst till App Service-resursen i distributionen ansluten fabrik. Gå till **programinställningar**, hittar du ett avsnitt **programinställningar**. Ange den **MapApiQueryKey** till den [nyckeln för ditt Azure Maps-konto](../azure-maps/how-to-manage-account-keys.md). Spara inställningarna och gå sedan till **översikt** och starta om App Service.
 
-### <a name="how-do-i-create-a-azure-maps-account"></a>Hur skapar jag en Azure Maps-konto?
+### <a name="how-do-i-create-an-azure-maps-account"></a>Hur skapar jag ett Azure Maps-konto?
 
 Se, [så här hanterar du ditt Azure Maps-konto och dina nycklar](../azure-maps/how-to-manage-account-keys.md).
 
@@ -174,15 +174,15 @@ Skicka telemetridata från icke OPC UA enheter till ansluten fabrik:
 
     ```json
     [
-      {
-        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
-        "DisplayName": "<name_of_the_datapoint>",
-        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
-        "Value": {
-          "Value": <datapoint_value>,
-          "SourceTimestamp": "<timestamp>"
-        }
-      }
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
     ]
     ```
 

@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 78381bd34bd7fe7a8941d7e3a567ec1282d6a8d9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 186bd272fdca20475686847dc4e86b8ad50e5e41
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261408"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080972"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad TPM-enhet med Python-enhets-SDK för IoT Hub Device Provisioning-tjänsten
 
@@ -26,8 +26,8 @@ Dessa steg visar hur du skapar en simulerad enhet på utvecklingsdatorn som kör
 Om du inte känner till processen för automatisk etablering, bör du även gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal) innan du fortsätter. 
 
 Azure IoT Device Provisioning Service stöder två typer av registreringar:
-- [Registreringsgrupper](concepts-service.md#enrollment-group): används för att registrera flera relaterade enheter.
-- [Enskilda registreringar](concepts-service.md#individual-enrollment): används för att registrera en enskild enhet.
+- [Registreringsgrupper](concepts-service.md#enrollment-group): Används för att registrera flera relaterade enheter.
+- [Enskilda registreringar](concepts-service.md#individual-enrollment): Används för att registrera en enskild enhet.
 
 Den här artikeln visar enskilda registreringar.
 
@@ -83,14 +83,14 @@ Den här artikeln visar enskilda registreringar.
 1. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Välj fliken **Enskilda registreringar** och klicka på knappen **Lägg till enskild registrering** längst upp. 
 
 1. Under **Lägg till registrering** anger du följande information:
-    - Välj **TPM** som identitet för bestyrkande *mekanism*.
-    - Ange *registrerings-ID* och *bekräftelsenyckel* för din TPM-enhet. 
-    - Välj en IoT hub som är länkad till din etableringstjänst.
-    - Ange ett unikt enhets-ID. Se till att undvika känsliga data när du namnger din enhet.
-    - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
-    - Klicka på knappen **Spara** när det är klart. 
+   - Välj **TPM** som identitet för bestyrkande *mekanism*.
+   - Ange *registrerings-ID* och *bekräftelsenyckel* för din TPM-enhet. 
+   - Välj en IoT hub som är länkad till din etableringstjänst.
+   - Ange ett unikt enhets-ID. Se till att undvika känsliga data när du namnger din enhet.
+   - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
+   - Klicka på knappen **Spara** när det är klart. 
 
-    ![Ange information för enhetsregistrering på portalbladet](./media/python-quick-create-simulated-device/enterdevice-enrollment.png)  
+     ![Ange information för enhetsregistrering på portalbladet](./media/python-quick-create-simulated-device/enterdevice-enrollment.png)  
 
    Vid lyckad registrering visas *Registrerings-ID* för enheten i listan under fliken *Individual Enrollments* (Enskilda registreringar). 
 
@@ -102,11 +102,11 @@ Den här artikeln visar enskilda registreringar.
 
 1. Skapa Python-paketen med hjälp av [de här instruktionerna](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md).
 
-    > [!NOTE]
-        > Om du kör `build_client.cmd` använder du `--use-tpm-simulator`-flagan.
-
-    > [!NOTE]
-        > Om du använder `pip` ska du även installera `azure-iot-provisioning-device-client`-paketet. Obs! De utgivna PIP-paketen använder verkliga TPM, inte simulatorn. Om du vill använda simulatorn måste du kompilera från källan med `--use-tpm-simulator`-flaggan.
+   > [!NOTE]
+   > Om du kör `build_client.cmd` använder du `--use-tpm-simulator`-flagan.
+   > 
+   > [!NOTE]
+   > Om du använder `pip` ska du även installera `azure-iot-provisioning-device-client`-paketet. Obs! De utgivna PIP-paketen använder verkliga TPM, inte simulatorn. Om du vill använda simulatorn måste du kompilera från källan med `--use-tpm-simulator`-flaggan.
 
 1. Navigera till exempelmappen.
 

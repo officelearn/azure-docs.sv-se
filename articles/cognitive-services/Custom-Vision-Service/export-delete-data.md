@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 01273ca241769c5e3bb7b7222355d32b29fd51b9
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 4c395a062b1132710f888cc5a315529db082a805
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308510"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850034"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>Exportera eller ta bort användardata i Custom Vision
 
-Custom Vision samlar in användardata för att driva tjänsten, men kunder har fullständig kontroll över visa, exportera och ta bort sina data med hjälp av Custom Vision Service [utbildning API](https://go.microsoft.com/fwlink/?linkid=865446).
+Custom Vision samlar in användardata för att driva tjänsten, men kunder har fullständig kontroll över visa, exportera och ta bort sina data med hjälp av Custom Vision [utbildning API: er](https://go.microsoft.com/fwlink/?linkid=865446).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-Mer information om hur du exporterar och ta bort användardata i anpassat visuellt innehåll finns i följande tabell.
+Om du vill lära dig mer om att exportera och ta bort användardata i Custom Vision, se tabellen nedan.
 
 | Data | Exportåtgärden | Borttagningsåtgärd |
 | ---- | ---------------- | ---------------- |
@@ -34,4 +34,4 @@ Mer information om hur du exporterar och ta bort användardata i anpassat visuel
 | Projekt och projektinformation | [GetProject](https://go.microsoft.com/fwlink/?linkid=865446) och [GetProjects](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteProject](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | Taggar | [GetTag](https://go.microsoft.com/fwlink/?linkid=865446) och [GetTags](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteTag](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | Avbildningar | [GetTaggedImages](https://go.microsoft.com/fwlink/?linkid=865446) (ger uri för hämtningen) och [GetUntaggedImages](https://go.microsoft.com/fwlink/?linkid=865446) (ger uri för avbildning nedladdning) | [DeleteImages](https://go.microsoft.com/fwlink/?linkid=865446) | 
-| Exporterade modeller | [GetExports](https://go.microsoft.com/fwlink/?linkid=865446) | Bort när du försöker ta bort | 
+| Exporterade modeller | [GetExports](https://go.microsoft.com/fwlink/?linkid=865446) | Bort när du försöker ta bort |

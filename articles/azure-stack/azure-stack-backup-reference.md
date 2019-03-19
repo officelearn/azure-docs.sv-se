@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: a7930ea86f7972a6e4abb939fb148d519ca924e9
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: b35b069f05f117b227a2edbf5595f2682b7f6e86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416725"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997270"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Referens för Backup-tjänsten för infrastruktur
 
@@ -89,17 +89,20 @@ Kraven är:
 Infrastruktur för säkerhetskopiering Controller säkerhetskopieras data på begäran. Rekommendationen är att säkerhetskopiera minst två gånger en dag och hålla högst sju dagar säkerhetskopieringar. 
 
 **1811 och senare**
+
 | Miljö-skala | Planerade storleken på säkerhetskopia | Totala mängden utrymme som krävs |
 |-------------------|--------------------------|--------------------------------|
 | 4 – 16 noder        | 20 GB                    | 280 GB                        |
 | ASDK              | 10 GB                    | 140 GB                        |
 
 **Pre-1811**
+
 | Miljö-skala | Planerade storleken på säkerhetskopia | Totala mängden utrymme som krävs |
 |-------------------|--------------------------|--------------------------------|
 | 4 – 16 noder, ASDK  | 10 GB                     | 140 GB                        |
 
 ### <a name="network-requirements"></a>Nätverkskrav
+
 | Lagringsplats                                                                 | Information                                                                                                                                                                                 |
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | SMB-filresurs som finns på en enhet i miljön betrott nätverk | Port 445 krävs om Azure Stack-instans finns i en brandväggsskyddad miljö. Infrastruktur för säkerhetskopiering Controller initierar en anslutning till SMB-filservern via port 445. |
@@ -131,6 +134,7 @@ Certifikatet som används under molnåterställning med den privata nyckeln (. P
 Överväg att dessa begränsningar när du planerar, distribuerar och driva dina Microsoft Azure Stack-instanser. I följande tabell beskrivs dessa gränser.
 
 ### <a name="infrastructure-backup-limits"></a>Begränsningar för säkerhetskopiering av infrastruktur
+
 | Gräns för identifierare                                                 | Gräns        | Kommentarer                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Typ av säkerhetskopiering                                                      | Endast fullständig    | Infrastruktur för säkerhetskopiering styrenhet stöder endast fullständiga säkerhetskopieringar. Inkrementell säkerhetskopiering stöds inte.                                          |

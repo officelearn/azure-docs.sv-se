@@ -1,7 +1,7 @@
 ---
 title: Hur du arbetar med SDK för .NET-serverdelen för Mobile Apps | Microsoft Docs
 description: Lär dig hur du arbetar med SDK för .NET-serverdelen för Azure App Service Mobile Apps.
-keywords: App service, azure apptjänst, mobilapp, mobiltjänsten, skala, skalbar distribution, azure app appdistribution
+keywords: app service, azure app service, mobile app, mobile service, scale, scalable, app deployment, azure app deployment
 services: app-service\mobile
 documentationcenter: ''
 author: conceptdev
@@ -15,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 33e968ac608c393d65f69bfd6abbc0d205fb9bd9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718885"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078796"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Arbeta med SDK för .NET-serverdelar för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -240,10 +240,10 @@ Du kan också använda den `UseDefaultConfiguration()` tilläggsmetod i stället
 ## <a name="how-to-work-with-authentication"></a>Anvisningar: Arbeta med autentisering
 Azure Mobile Apps använder App Service-autentisering / auktorisering för att skydda din mobila serverdelstjänst.  Det här avsnittet visar hur du utför följande uppgifter för autentiseringsrelaterade i serverprojektet .NET-serverdelen:
 
-* [Hur: Lägg till autentisering i ett serverprojekt](#add-auth)
-* [Hur: Använd anpassad autentisering för ditt program](#custom-auth)
-* [Hur: Hämta information om autentiserade användare](#user-info)
-* [Hur: Begränsa åtkomst till data för behöriga användare](#authorize)
+* [Anvisningar: Lägg till autentisering i ett serverprojekt](#add-auth)
+* [Anvisningar: Använd anpassad autentisering för ditt program](#custom-auth)
+* [Anvisningar: Hämta information om autentiserade användare](#user-info)
+* [Anvisningar: Begränsa åtkomst till data för behöriga användare](#authorize)
 
 ### <a name="add-auth"></a>Hur: Lägg till autentisering i ett serverprojekt
 Du kan lägga till autentisering i serverprojektet genom att utöka den **MobileAppConfiguration** objekt och konfigurera OWIN-mellanprogrammet. När du installerar den [Microsoft.Azure.Mobile.Server.Quickstart] paketet och anropa den **UseDefaultConfiguration** tilläggsmetod, du kan gå vidare till steg 3.
@@ -263,7 +263,7 @@ Läs mer om hur du autentiserar klienter till din Mobile Apps-serverdel, i [Läg
 > För att aktivera anpassad autentisering, måste du först aktivera App Service-autentisering utan att välja en provider för App Service i Azure-portalen. Detta aktiverar miljövariabeln WEBSITE_AUTH_SIGNING_KEY när de ligger.
 > 
 > 
-Om du inte vill använda en App Service autentisering/auktorisering provider kan du implementera inloggningen systemet. Installera den [Microsoft.Azure.Mobile.Server.Login] paket som hjälper till med generering av autentisering.  Ange din egen kod för att verifiera användarens autentiseringsuppgifter. Du kan exempelvis söka mot saltat och hashade lösenord i en databas. I exemplet nedan, den `isValidAssertion()` metod (definieras någon annanstans) ansvarar för dessa kontroller.
+> Om du inte vill använda en App Service autentisering/auktorisering provider kan du implementera inloggningen systemet. Installera den [Microsoft.Azure.Mobile.Server.Login] paket som hjälper till med generering av autentisering.  Ange din egen kod för att verifiera användarens autentiseringsuppgifter. Du kan exempelvis söka mot saltat och hashade lösenord i en databas. I exemplet nedan, den `isValidAssertion()` metod (definieras någon annanstans) ansvarar för dessa kontroller.
 
 Anpassad autentisering exponeras genom att skapa en ApiController och exponera `register` och `login` åtgärder. Klienten bör använda ett anpassat gränssnitt för att samla in information från användaren.  Informationen skickas sedan till API med en HTTP POST-standardanrop. När servern validerar kontrollen, ett token utfärdas med hjälp av den `AppServiceLoginHandler.CreateToken()` metoden.  ApiController **bör inte** använder den `[MobileAppController]` attribut.
 

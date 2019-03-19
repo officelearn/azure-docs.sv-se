@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: a243ac45ce29ae824c8f38036d4387da3b1cff8f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 165df03ec06081fe9b2e1ab84ffe7579ac457758
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453220"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855494"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Utforskning och visualisering Dataverktyg på den virtuella datorn för datavetenskap
 
@@ -43,7 +43,7 @@ Ett viktigt steg i datavetenskap är att förstå data. Visualisering och dataut
 | Stöds DSVM-versioner     | Windows, Linux     |
 | Vanliga användningsområden      | Allmänna ML-verktyget     |
 | Hur du använder / köra den?      | På Windows, söka efter Weka på Start-menyn. Logga in med X2Go på Linux, och gå till program -> utveckling Weka ->. |
-| Innehåller länkar till exempel      | [Weka-exempel](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| Innehåller länkar till exempel      | [Weka-exempel](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Relaterade verktyg på DSVM      |LightGBM spännen, Xgboost   |
 
 ## <a name="rattle"></a>Spännen

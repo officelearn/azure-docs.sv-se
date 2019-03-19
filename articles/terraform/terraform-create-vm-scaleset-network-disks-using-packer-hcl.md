@@ -2,19 +2,19 @@
 title: Använd Terraform för att skapa en VM-skalningsuppsättning för Azure från en anpassad Packer-avbildning
 description: Använd Terraform för att konfigurera och versionshantera en VM-skalningsuppsättning för Azure från en anpassad avbildning som skapats genom Packer (komplett med ett virtuellt nätverk och hanterade anslutna diskar).
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, skalningsuppsättning, virtuell dator, nätverk, lagring, moduler, anpassade avbildningar, packer
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/29/2017
-ms.openlocfilehash: 12c6ebc9b29c356ad169dbd921e71c7aa0c273b7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 5aff45b4a6b5da62569e0a39c13239a726e6b80b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077512"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001989"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Använd Terraform för att skapa en VM-skalningsuppsättning för Azure från en anpassad Packer-avbildning
 
@@ -180,7 +180,7 @@ I det här steget skapar du följande resurser i nätverket som distribuerades t
 - Tilldela adresspoolen för Azure-serverdelen till belastningsutjämnaren 
 - En avsökningsport för hälsotillstånd som används av programmet och konfigureras i belastningsutjämnaren 
 - En VM-skalningsuppsättning som finns bakom belastningsutjämnaren och körs på det virtuella nätverket som distribuerades tidigare
-- [Nginx](http://nginx.org/) på noderna i VM-skalningsuppsättningen som installerats från anpassad avbildning
+- [Nginx](https://nginx.org/) på noderna i VM-skalningsuppsättningen som installerats från anpassad avbildning
 
 
 Lägg till följande kod i slutet av filen `vmss.tf`.

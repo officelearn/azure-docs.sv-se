@@ -5,15 +5,15 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 03/07/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 9e192c736235fcf8b8b5374787ad94aaf87427bf
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 24682156cf0c50ccf69c39f83f59e9b867bbcf0f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727084"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901856"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
@@ -39,7 +39,7 @@ Du behöver en Azure-prenumeration, Recovery Services-valvet, ett cachelagringsk
 Om du är administratör för prenumerationen har Replikeringsbehörighet som du behöver. Om du inte behöver behörighet att skapa en Azure-dator i resursgruppen och virtuellt nätverk som du anger genom att konfigurera Site Recovery och behörighet att skriva till det valda lagringskontot eller hanterad disk baserat på din konfiguration. [Läs mer](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 ### <a name="can-i-use-guest-os-server-license-on-azure"></a>Kan jag använda gäst-OS server-licens i Azure?
-Ja, Microsoft Software Assurance-kunder kan använda [Azure Hybrid-förmånen](https://azure.microsoft.com/en-in/pricing/hybrid-benefit/) att spara på licenskostnaden för **datorer med Windows Server** som migreras till Azure, eller att använda Azure för haveriberedskap.
+Ja, Microsoft Software Assurance-kunder kan använda [Azure Hybrid-förmånen](https://azure.microsoft.com/pricing/hybrid-benefit/) att spara på licenskostnaden för **datorer med Windows Server** som migreras till Azure, eller att använda Azure för haveriberedskap.
 
 ## <a name="pricing"></a>Prissättning
 
@@ -50,6 +50,27 @@ Se vanliga frågor och svar om licensiering [här](https://aka.ms/asr_pricing_FA
 ### <a name="how-can-i-calculate-approximate-charges-during-the-use-of-site-recovery"></a>Hur kan jag för att beräkna ungefärliga avgifter vid användning av Site Recovery?
 
 Du kan använda [priskalkylator](https://aka.ms/asr_pricing_calculator) uppskatta kostnader när du använder Azure Site Recovery. För detaljerad uppskattning på kostnader och köra distributionskapacitetsplaneraren (https://aka.ms/siterecovery_deployment_planner) och analysera den [kostnad rapporten kostnadsuppskattning](https://aka.ms/asr_DP_costreport).
+
+### <a name="is-there-any-difference-in-cost-when-i-replicate-directly-to-managed-disk"></a>Finns det någon skillnad i kostnad när jag replikerar direkt till hanterade diskar?
+
+Hanterade diskar debiteras annorlunda ut än storage-konton. Se exemplet nedan för en källdisk av storlek på 100 GiB. I exemplet är specifik för differentiell kostnaden för lagring. Den här kostnaden omfattar inte kostnaden för ögonblicksbilder, cachelagring och transaktioner.
+
+* Standard storage-konto Vs. Standard HDD Managed Disk
+
+    - **Etablerade Lagringsdisken för ASR**: S10
+    - **Standard storage-konto debiteras förbrukas volym**: 5 USD per månad
+    - **Hanterade standarddiskar debiteras etablerade volymens**: $5.89 per månad
+
+* Premium storage-konto Vs. Premium SSD hanterad Disk 
+    - **Etablerade Lagringsdisken för ASR**: P10
+    - **Premium storage-konto debiteras etablerade volymens**: $17.92 per månad
+    - **Hanterade premiumdiskar debiteras etablerade volymens**: $17.92 per månad
+
+Läs mer på [detaljerade priser för hanterade diskar](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+### <a name="do-i-incur-additional-charges-for-cache-storage-account-with-managed-disks"></a>Debiteras ytterligare avgifter för Cachelagringskontot med hanterade diskar?
+
+Nej, du inga ytterligare avgifter för cache. Cache är alltid en del av VMware till Azure-arkitektur. När du replikerar till standard storage-konto är en del av samma mål-lagringskontot i den här cachelagring.
 
 ### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>Jag har använt Azure Site Recovery i över en månad. Får jag ändå de första 31 dagarna kostnadsfritt för varje skyddad instans?
 
@@ -125,6 +146,14 @@ Ja, ExpressRoute kan användas för att replikera datorer till Azure. Site Recov
 
 Du måste inaktivera och aktivera replikering att uppgradera eller nedgradera lagringskontotypen.
 
+### <a name="can-i-replicate-to-storage-accounts-for-new-machine"></a>Kan jag replikera till storage-konton för den nya datorn?
+
+Nej, från och mars-19, kan du replikera till hanterade diskar på Azure från portalen. Replikering till storage-konton för en ny dator är bara tillgängliga via REST-API och Powershell. Använd API-versionen 2016-08-10 eller 2018-01-10 för att replikera till storage-konton.
+
+### <a name="what-are-the-benefits-in-replicating-to-managed-disks"></a>Vilka är fördelarna i replikeras till hanterade diskar?
+
+Läs artikeln om hur [Azure Site Recovery förenklar haveriberedskapen med hanterade diskar](https://azure.microsoft.com/blog/simplify-disaster-recovery-with-managed-disks-for-vmware-and-physical-servers/).
+
 ### <a name="how-can-i-change-managed-disk-type-after-machine-is-protected"></a>Hur kan jag ändra typ av hanterad Disk när datorn är skyddad?
 
 Ja, du kan enkelt ändra typen av hanterade diskar. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). När du ändrar typ av hanterad disk, kontrollera att du väntar nya återställningspunkter som ska genereras om du behöver redundanstest eller redundans publicera den här aktiviteten.
@@ -135,7 +164,7 @@ Nej, byter från hanterad till ohanterad stöds inte.
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Varför kan inte replikera via VPN?
 
-När du replikerar till Azure replikeringstrafik når de offentliga slutpunkterna i ett Azure Storage och därför kan du bara replikera via det offentliga internet med ExpressRoute (offentlig peering) VPN fungerar inte.
+När du replikerar till Azure replikeringstrafik når de offentliga slutpunkterna av ett Azure Storage och därför kan du bara replikera via det offentliga internet med ExpressRoute (offentlig peering) VPN fungerar inte.
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>Vilka är kraven för replikerade virtuella datorer?
 
@@ -148,10 +177,10 @@ Replikeringen är kontinuerlig när du replikerar virtuella VMware-datorer till 
 Ja, kan du behålla IP-adress vid redundans. Se till att du nämner mål-IP ”beräkning och nätverk-bladet före redundans. Kontrollera också om du vill stänga av datorer vid tidpunkten för redundans för att undvika IP-konflikter vid tidpunkten för återställning efter fel.
 
 ### <a name="can-i-extend-replication"></a>Kan jag utöka replikeringen?
-Utökad eller länkad replikering stöds inte. Begär den här funktionen i [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+Utökad eller länkad replikering stöds inte. Begär den här funktionen i [Feedbackforum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Kan jag göra en offlinereplikering första?
-Det stöds inte. Begär den här funktionen i den [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+Det stöds inte. Begär den här funktionen i den [Feedbackforum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-disks"></a>Kan jag utesluta diskar?
 Ja, kan du undanta diskar från replikering.
@@ -208,9 +237,11 @@ Nej. Om du vill göra detta måste du ställa in en konfigurationsserver i varje
 Vi rekommenderar att utföra regelbundna schemalagda säkerhetskopieringar av konfigurationsservern. Den virtuella datorn att växlas tillbaka måste finnas i server-konfigurationsdatabasen för lyckad återställning efter fel och konfigurationsservern måste vara körs och är i anslutet tillstånd. Du kan lära dig mer om vanliga hanteringsaktiviteter för configuration server [här](vmware-azure-manage-configuration-server.md).
 
 ### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>När jag ställer in konfigurationsservern, kan jag hämta och installera MySQL manuellt?
+
 Ja. Hämta MySQL och placera den i den **C:\Temp\ASRSetup** mapp. Installera den manuellt. När du ställer in konfigurationsservern VM och accepterar villkoren MySQL listas som **redan installerat** i **ladda ned och installera**.
 
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Kan jag undvika att överföra MySQL men låta Site Recovery installerar den?
+
 Ja. Ladda ned MySQL-installationsprogrammet och placera den i den **C:\Temp\ASRSetup** mapp.  När du ställer in konfigurationsservern VM acceptera villkoren och klicka på **ladda ned och installera**, installationsprogram som du har lagt till för att installera MySQL används.
  
 ### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>Kan jag använda konfigurationsservern VM för något annat?

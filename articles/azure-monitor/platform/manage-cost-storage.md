@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 5c6cda735f946fc510129f688ebedf85dd054d0c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a1d8984b8c9d0859ff754e3d5bfb35bd98236b54
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734259"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098567"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Hantera användning och kostnader för Log Analytics
 
@@ -163,7 +163,7 @@ För att förstå hur många datorer (noder) och rapporterar data varje dag unde
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Hämta en lista över datorer som skickar **faktureras datatyper** (vissa datatyper är kostnadsfria), utnyttja den [_IsBillable](log-standard-properties.md#isbillable) egenskapen:
+Hämta en lista över datorer som skickar **faktureras datatyper** (vissa datatyper är kostnadsfria), utnyttja den [_IsBillable](log-standard-properties.md#_isbillable) egenskapen:
 
 `union withsource = tt * 
 | where _IsBillable == true 

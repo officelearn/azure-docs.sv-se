@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: kasinh
-ms.openlocfilehash: 0ebf1bae023115a268547e5c64e3a2681438092a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 22507a1b89c6a7d6867e9b669e1a2e70106a4e41
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340679"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880576"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Felsöka Azure Backup Server
 
@@ -104,4 +104,4 @@ Använd informationen i följande tabeller för att felsöka fel som uppstår n�
 
 | Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
-| Konfigurera e-postmeddelanden med en Office 365-konto |Fel-ID: 2013| **Orsak:**<br> Försök att använda Office 365-konto <br>**Rekommenderad åtgärd:**<ol><li> Det första du ska kontrollera är att ”tillåta anonym Relay på några få Connector” för DPM-server har ställts in på Exchange. Mer information om hur du konfigurerar detta finns i [Tillåt anonym Relay på en koppling som tar emot](https://technet.microsoft.com/library/bb232021.aspx) på TechNet.</li> <li> Om du inte använder ett internt SMTP-relä och ställa in med hjälp av Office 365-server, kan du konfigurera IIS att vara ett relä. Konfigurera DPM-servern ska [vidarebefordrar SMTP till O365 med hjälp av IIS](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx).<br><br> **VIKTIGT:** Se till att använda den user@domain.com format och *inte* domän\användare.<br><br><li>Kommer DPM att använda det lokala servernamnet som SMTP-servern port 587. Peka den till användarens e-postadressen som e-postmeddelanden ska hämtas från.<li> Användarnamn och lösenord på installationssidan DPM SMTP ska vara ett domänkonto i den domän som DPM finns på. </li><br> **Obs!** När du ändrar SMTP-serveradress kan göra ändringar i de nya inställningarna, stänga rutan inställningar och öppna den för att vara säker på att den återspeglar det nya värdet.  Bara ändra och testning kanske inte alltid orsakar de nya inställningarna ska börja gälla, så att testa det på så sätt är en bra idé.<br><br>När som helst under den här processen kan du rensa inställningarna genom att stänga DPM-konsolen och redigera följande registernycklar: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> ta bort SMTPPassword och SMTPUserName**. Du kan lägga till dem tillbaka till Användargränssnittet när du startar den igen.
+| Konfigurera e-postmeddelanden med en Office 365-konto |Fel-ID: 2013| **Orsak:**<br> Försök att använda Office 365-konto <br>**Rekommenderad åtgärd:**<ol><li> Det första du ska kontrollera är att ”tillåta anonym Relay på några få Connector” för DPM-server har ställts in på Exchange. Mer information om hur du konfigurerar detta finns i [Tillåt anonym Relay på en koppling som tar emot](https://technet.microsoft.com/library/bb232021.aspx) på TechNet.</li> <li> Om du inte använder ett internt SMTP-relä och ställa in med hjälp av Office 365-server, kan du konfigurera IIS att vara ett relä. Konfigurera DPM-servern ska [vidarebefordrar SMTP till O365 med hjälp av IIS](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx).<br><br> **VIKTIGT:** Se till att använda användaren\@domain.com format och *inte* domän\användare.<br><br><li>Kommer DPM att använda det lokala servernamnet som SMTP-servern port 587. Peka den till användarens e-postadressen som e-postmeddelanden ska hämtas från.<li> Användarnamn och lösenord på installationssidan DPM SMTP ska vara ett domänkonto i den domän som DPM finns på. </li><br> **Obs!** När du ändrar SMTP-serveradress kan göra ändringar i de nya inställningarna, stänga rutan inställningar och öppna den för att vara säker på att den återspeglar det nya värdet.  Bara ändra och testning kanske inte alltid orsakar de nya inställningarna ska börja gälla, så att testa det på så sätt är en bra idé.<br><br>När som helst under den här processen kan du rensa inställningarna genom att stänga DPM-konsolen och redigera följande registernycklar: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> ta bort SMTPPassword och SMTPUserName**. Du kan lägga till dem tillbaka till Användargränssnittet när du startar den igen.

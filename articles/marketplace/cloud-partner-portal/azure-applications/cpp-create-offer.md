@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 4f6dbb52778893de0468dbab82351b9020af2927
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: cae657736d78958259c04dee48034f97ac9d3d1c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53412817"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871236"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
@@ -27,7 +27,7 @@ Den här artikeln beskriver hur du skapar och publicerar något erbjudande för 
 
 ## <a name="new-offer-form"></a>Nytt erbjudande formulär
 
-Logga in på den [Cloud Partner Portal](http://cloudpartner.azure.com/), och välj sedan **+ nytt erbjudande** på den vänstra menyraden. På ikonen nytt erbjuda meny, Välj **Azure Applications** att visa den **nytt erbjudande** formar och starta processen med att definiera tillgångar för ett nytt erbjudande.
+Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com/), och välj sedan **+ nytt erbjudande** på den vänstra menyraden. På ikonen nytt erbjuda meny, Välj **Azure Applications** att visa den **nytt erbjudande** formar och starta processen med att definiera tillgångar för ett nytt erbjudande.
 
 ![Nytt erbjudande formulär](./media/azure-new-managedapp-offer.png)
 

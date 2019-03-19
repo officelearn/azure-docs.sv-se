@@ -16,12 +16,12 @@ ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f4eab44a55574f84f29488e78cd60522d7a52eb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6f2e5674413cb4057187b7573fde0bcd8899caab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171204"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905179"
 ---
 # <a name="email-notifications-in-pim"></a>E-postmeddelanden i PIM
 
@@ -31,7 +31,7 @@ Azure AD Privileged Identity Management (PIM) får du reda på när viktiga hän
 
 E-postmeddelanden skickas från PIM för både Azure AD och Azure-resursroller har följande e-postadress för avsändaren:
 
-- E-postadress:  **azure-noreply@microsoft.com**
+- E-postadress: **azure noreply\@microsoft.com**
 - Visningsnamn: Microsoft Azure
 
 Dessa e-postmeddelanden innehåller en **PIM** prefix i ämnesraden. Här är ett exempel:

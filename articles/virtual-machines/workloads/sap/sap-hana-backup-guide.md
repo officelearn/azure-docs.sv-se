@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 9d72bc885bdaaed521042df236dd722b80533186
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 89896fab7b1c359007ed23d4f9d9771e366ca68a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867009"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013340"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Säkerhetskopieringsguide för SAP HANA på Azure Virtual Machines
 
@@ -63,8 +63,8 @@ _Nej, för närvarande kan endast ta data och loggsäkerhetskopior på den prim�
 
 - [Introduktion till SAP HANA-Administration](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US)
 - [Planera säkerhetskopiering och strategi](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)
-- [Schemalägg HANA säkerhetskopiering via ABAP DBACOCKPIT](http://www.hanatutorials.com/p/schedule-hana-backup-using-abap.html)
-- [Schema för säkerhetskopiering av Data (SAP HANA Cockpit)](http://help.sap.com/saphelp_hanaplatform/helpdata/en/6d/385fa14ef64a6bab2c97a3d3e40292/frameset.htm)
+- [Schemalägg HANA säkerhetskopiering via ABAP DBACOCKPIT](https://www.hanatutorials.com/p/schedule-hana-backup-using-abap.html)
+- [Schema för säkerhetskopiering av Data (SAP HANA Cockpit)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/6d/385fa14ef64a6bab2c97a3d3e40292/frameset.htm)
 - Vanliga frågor och svar om SAP HANA-säkerhetskopiering på [SAP anteckning 1642148](https://launchpad.support.sap.com/#/notes/1642148)
 - Vanliga frågor och svar om SAP HANA-databas och lagring ögonblicksbilder i [SAP anteckning 2039883](https://launchpad.support.sap.com/#/notes/2039883)
 - Olämpliga nätverk filsystem för säkerhetskopiering och återställning i [SAP anteckning 1820529](https://launchpad.support.sap.com/#/notes/1820529)
@@ -80,7 +80,7 @@ När du använder storage-ögonblicksbilder, bör köra en test-återställning 
 
 Behåll i åtanke som gör en enkel återställning och kontrollerar om HANA är igång och körs är inte tillräckligt. Vi rekommenderar bör en köra en konsekvenskontroll för tabellen för att se till att den återställda databasen är bra. SAP HANA erbjuder flera olika typer av konsekvenskontroller som beskrivs i [SAP anteckning 1977584](https://launchpad.support.sap.com/#/notes/1977584).
 
-Information om konsekvenskontrollen tabellen finns också på SAP-webbplats på [tabell och Catalog konsekvenskontroller](http://help.sap.com/saphelp_hanaplatform/helpdata/en/25/84ec2e324d44529edc8221956359ea/content.htm#loio9357bf52c7324bee9567dca417ad9f8b).
+Information om konsekvenskontrollen tabellen finns också på SAP-webbplats på [tabell och Catalog konsekvenskontroller](https://help.sap.com/saphelp_hanaplatform/helpdata/en/25/84ec2e324d44529edc8221956359ea/content.htm#loio9357bf52c7324bee9567dca417ad9f8b).
 
 För vanliga filsäkerhetskopieringsverktyg behövs inte en test-återställning. Det finns två SAP HANA-verktyg som hjälper dig för att kontrollera vilka backup kan användas för återställning: hdbbackupdiag och hdbbackupcheck. Se [manuellt kontrollerar om en återställning är möjlig](https://help.sap.com/saphelp_hanaplatform/helpdata/en/77/522ef1e3cb4d799bab33e0aeb9c93b/content.htm) för mer information om dessa verktyg.
 
@@ -90,7 +90,7 @@ SAP&#39;t prioritera antingen HANA-säkerhetskopiering jämfört med storage-ög
 
 På Azure, Tänk på det faktum att Azure-blobben ögonblicksbild funktionen&#39;t garanti filsystemkonsekvens (se [med hjälp av blob-ögonblicksbilder med PowerShell](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). Nästa avsnitt, _SAP HANA-datakonsekvens när du tar ögonblicksbilder av lagring_, beskriver vissa överväganden om den här funktionen.
 
-Dessutom kan en är att förstå fakturering konsekvenserna när du ofta arbetar med blob-ögonblicksbilder som beskrivs i den här artikeln: [förstå hur ögonblicksbilder påförs avgifter](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)– det är&#39;t som är så uppenbar som med hjälp av Azure virtuella diskar.
+En har dessutom att förstå fakturering konsekvenserna när du arbetar ofta med blob-ögonblicksbilder som beskrivs i den här artikeln: [Förstå hur ögonblicksbilder påförs avgifter](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)– det är&#39;t som är så uppenbar som med hjälp av Azure virtuella diskar.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>SAP HANA-datakonsekvens när du tar ögonblicksbilder av lagring
 
@@ -137,7 +137,7 @@ I HANA Administration guide innehåller en exempel-lista. Det tyder på att en �
 Om en exakt schema om när och hur ofta en viss typ av säkerhetskopiering ska ske, det går inte att ge en generell riktlinje – det är för kundspecifika och beror på hur många dataändringar uppstå i systemet. En grundläggande rekommendation från SAP-sida, vilket kan ses som en allmän vägledning är att se en fullständig HANA-säkerhetskopia en gång i veckan.
 Angående loggsäkerhetskopior finns i dokumentationen för SAP HANA [Loggsäkerhetskopior](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/bb7e33bb571014a03eeabba4e37541/content.htm).
 
-SAP rekommenderar också göra vissa underhåll av säkerhetskopieringskatalogen att hålla den växer oändligt (se [Housekeeping för säkerhetskopieringskatalogen och lagring av säkerhetskopior](http://help.sap.com/saphelp_hanaplatform/helpdata/en/ca/c903c28b0e4301b39814ef41dbf568/content.htm)).
+SAP rekommenderar också göra vissa underhåll av säkerhetskopieringskatalogen att hålla den växer oändligt (se [Housekeeping för säkerhetskopieringskatalogen och lagring av säkerhetskopior](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ca/c903c28b0e4301b39814ef41dbf568/content.htm)).
 
 ### <a name="sap-hana-configuration-files"></a>SAP HANA-konfigurationsfiler
 

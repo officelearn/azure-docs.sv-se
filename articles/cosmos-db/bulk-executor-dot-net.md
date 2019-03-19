@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 7c47e6df1e8b92d122dcc6bed55506f2fccf9e89
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 969821c8b83b8ef554c67f99e3a16e827b53e647
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877515"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845128"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Använd bulk executor .NET-biblioteket för att utföra massåtgärder i Azure Cosmos DB
 
@@ -194,7 +194,7 @@ Tänk på följande för bättre prestanda när du använder bulk executor bibli
       </listeners>
     </trace>
   </system.diagnostics>
-```
+  ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om Nuget-Paketinformation och viktig information för bulk executor .net-biblioteket, se[bulk information om SDK-executor](sql-api-sdk-bulk-executor-dot-net.md). 
+* Mer information om Nuget-Paketinformation och viktig information för bulk executor .NET-biblioteket, se[bulk information om SDK-executor](sql-api-sdk-bulk-executor-dot-net.md). 

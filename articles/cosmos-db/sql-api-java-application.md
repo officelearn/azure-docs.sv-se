@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: 3add2b6800463cf9320d2fcfdd87897d2e38d32d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 4d6d26bd142a62d57b55caa290a2a94a3988737d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039817"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008701"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Skapa ett webbprogram i Java med Azure Cosmos DB och SQL API
 
@@ -42,7 +42,7 @@ I den här självstudien om Java visar vi hur du skapar en webbaserad aktivitets
 ## <a id="Prerequisites"></a>Förhandskrav för den här självstudien för Java-webbprogram
 Innan du påbörjar den här självstudien om apputveckling måste du ha följande:
 
-*  Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -722,7 +722,7 @@ Med Azure Web Sites är det enkelt att distribuera Java-appar. Allt du behöver 
 3. Nu när du har en WAR-fil laddar du bara upp den till katalogen **Webbappar** på Azure Web Sites. Anvisningar som beskriver hur du laddar upp filen finns i [Add a Java application to Azure App Service Web Apps](../app-service/web-sites-java-add-app.md) (Lägga till ett Java-program i Azure App Service Web Apps).
    
     När WAR-filen har laddats upp till katalogen Webbappar identifierar körningsmiljön att du har lagt till den och läser in den automatiskt.
-4. Du kan visa den färdiga produkten genom att gå till http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/ och börja lägga till aktiviteter!
+4. Du kan visa den färdiga produkten genom att gå till `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/` och börja lägga till aktiviteter!
 
 ## <a id="GetProject"></a>Hämta projektet från GitHub
 Alla exempel i den här självstudien finns i projektet [Todo](https://github.com/Azure-Samples/documentdb-java-todo-app) på GitHub. Om du vill importera Todo-projektet till Eclipse ska du se till att du har de program och resurser som anges i avsnittet [Förutsättningar](#Prerequisites) och sedan göra följande:
@@ -747,6 +747,6 @@ Alla exempel i den här självstudien finns i projektet [Todo](https://github.co
 18. På fliken **Servrar** längst ned på skärmen högerklickar du på **Tomcat v7.0-server på localhost** och klickar sedan på **Lägg till och ta bort**.
 19. I fönstret **Lägg till och ta bort** flyttar du **azure-documentdb-java-sample** till rutan **Konfigurerad** och klickar sedan på **Slutför**.
 20. Högerklicka på **Tomcat v7.0 Server at localhost** (Tomcat v7.0-server på localhost) på fliken **Server** och klicka sedan på **Starta om**.
-21. Gå till http://localhost:8080/azure-documentdb-java-sample/ i en webbläsare och börja lägga till aktiviteter. Om du har ändrat portarnas standardvärden ändrar du 8080 till värdet du har valt.
+21. Gå till `http://localhost:8080/azure-documentdb-java-sample/` i en webbläsare och börja lägga till aktiviteter. Om du har ändrat portarnas standardvärden ändrar du 8080 till värdet du har valt.
 22. [Steg 6 innehåller information om hur du distribuerar ditt projekt till en Azure-webbplats. Distribuera programmet till Azure Web Sites](#Deploy).
 

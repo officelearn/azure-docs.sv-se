@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/14/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 5ececb2d3c52a1da8c1a537e6223f17a9b83921f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1c21cc778ed398c28077ef1a20ebbb7b295c2baa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207542"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012395"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Överväganden för datacenter-integrering för integrerade Azure Stack-system
 Om du är intresserad av i ett integrerat Azure Stack-system, bör du förstå viktiga överväganden kring distribution och hur systemet passar in i ditt datacenter. Den här artikeln innehåller en översikt över dessa överväganden för att fatta viktiga infrastruktur för din Azure Stack-system med flera noder. Förstå dessa överväganden hjälper när du arbetar med maskinvaruleverantören OEM som de distribuerar Azure Stack till ditt datacenter.  
@@ -162,7 +162,7 @@ I följande tabell sammanfattas en lista över tillgängliga alternativ.
 | Område | Externa lösningen för fjärrövervakning |
 | -- | -- |
 | Azure Stack-programvara | [Azure Stack-hanteringspaket för Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios-plugin-programmet](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>REST-baserad API-anrop | 
-| Fysiska servrar (bmc via IPMI) | Maskinvara för OEM - hanteringspaket för Operations Manager-leverantör<br>OEM-tillverkarens maskinvarulösning<br>Maskinvaruleverantören Nagios plugin-program | OEM-partner stöds övervakningslösning (ingår) | 
+| Fysiska servrar (bmc via IPMI) | Maskinvara för OEM - hanteringspaket för Operations Manager-leverantör<br>OEM-tillverkarens maskinvarulösning<br>Maskinvaruleverantören Nagios plugin-program.<br>OEM-partner stöds övervakningslösning (ingår) | 
 | Nätverksenheter (SNMP) | Operations Manager identifiering av nätverksenheter<br>OEM-tillverkarens maskinvarulösning<br>Nagios växla plugin-programmet |
 | Hälsoövervakning för klient-prenumeration | [System Center Management Pack för Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 
@@ -171,7 +171,7 @@ Observera följande krav:
 - Lösningen som du använder måste vara utan Agent. Du kan inte installera agenter från tredje part i Azure Stack-komponenterna. 
 - Om du vill använda System Center Operations Manager krävs Operations Manager 2012 R2 eller Operations Manager 2016.
 
-## <a name="backup-and-disaster-recovery"></a>Säkerhetskopiering och haveriberedskap
+## <a name="backup-and-disaster-recovery"></a>Säkerhetskopiering och katastrofåterställning
 
 Planera för säkerhetskopiering och haveriberedskap innebär att planera för både den underliggande Azure Stack-infrastruktur som är värd för IaaS-datorer och PaaS-tjänster och för klient-program och data. Du måste planera för dessa separat.
 

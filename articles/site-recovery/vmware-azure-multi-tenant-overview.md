@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 2e68ad6d999a5ff003abe35a0cce75bc5f2cebef
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723934"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104462"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Översikt över stöd för flera klienter för VMware-haveriberedskap till Azure med CSP
 
@@ -75,17 +75,17 @@ Konfigurera konfigurationsservern med ett konto som har en särskild roll som ti
 1. Skapa en ny roll genom att klona den fördefinierade *skrivskyddad* roll, och ge den ett praktiskt namn (till exempel Azure_Site_Recovery som visas i det här exemplet).
 2. Tilldela följande behörigheter till den här rollen:
 
-    * **Datalager**: Allokera utrymme, bläddra datalagret, filåtgärder, ta bort filen, uppdateringsfiler för virtuell dator
-    * **Nätverk**: Tilldela nätverk
-    * **Resursen**: Tilldela VM till resurspool, migrera avstängd VM, migrera påslagen VM
-    * **Uppgifter**: Skapa uppgift, uppdatera uppgift
-    * **VM - konfiguration**: Alla
-    - **VM - interaktion** > besvara fråga, enhetsanslutning, konfigurera CD-skiva, konfigurera diskettstation, stänga av, starta, installera VMware-verktyg
-    - **VM - inventering** > Skapa från befintligt, skapa en ny, registrera, avregistrera
-    - **VM - etablering** > Tillåt nedladdning till virtuell dator, Tillåt VM filer uppladdning
-    - **VM - hantering av ögonblicksbilder** > Ta bort ögonblicksbilder
+   * **Datalager**: Allokera utrymme, bläddra datalagret, filåtgärder, ta bort filen, uppdateringsfiler för virtuell dator
+   * **Nätverk**: Tilldela nätverk
+   * **Resurs**: Tilldela VM till resurspool, migrera avstängd VM, migrera påslagen VM
+   * **Uppgifter**: Skapa uppgift, uppdatera uppgift
+   * **VM - konfiguration**: Alla
+   * **VM - interaktion** > besvara fråga, enhetsanslutning, konfigurera CD-skiva, konfigurera diskettstation, stänga av, starta, installera VMware-verktyg
+   * **VM - inventering** > Skapa från befintligt, skapa en ny, registrera, avregistrera
+   * **VM - etablering** > Tillåt nedladdning till virtuell dator, Tillåt VM filer uppladdning
+   * **VM - hantering av ögonblicksbilder** > Ta bort ögonblicksbilder
 
-        ![Dialogrutan Redigera roll](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
+       ![Dialogrutan Redigera roll](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
 
 3. Tilldela åtkomstnivåer till vCenter-konto (används på konfigurationsservern för klient) för olika objekt på följande sätt:
 
@@ -126,14 +126,14 @@ Att begränsa haveriberedskapsåtgärder fram till endast redundans (det vill s�
 
 I följande diagram visas arkitektoniska skillnaden i en värdlösning med en dedikerad är att varje klient infrastrukturen har ställts in för den klienten endast.
 
-![arkitektur för delade hsp](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
+![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
 **Dedikerade värdtjänster scenario med flera vCenters**
 
 ## <a name="managed-service-solution"></a>Hanterad tjänst-lösning
 
 I följande diagram visas arkitektoniska skillnaden i en hanterad tjänst-lösning är att varje klient infrastruktur är fysiskt åtskild från andra klienter infrastruktur. Det här scenariot finns vanligtvis när klienten äger infrastrukturen och vill ha en leverantör av lösningar att hantera katastrofåterställning.
 
-![arkitektur för delade hsp](./media/vmware-azure-multi-tenant-overview/managed-service-scenario.png)  
+![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/managed-service-scenario.png)  
 **Hanterad service scenario med flera vCenters**
 
 ## <a name="next-steps"></a>Nästa steg

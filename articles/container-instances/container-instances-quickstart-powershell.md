@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – Kör ett program i Azure Container Instances – PowerShell
-description: I den här snabbstarten använder du Azure PowerShell för att distribuera en dockercontainer i Azure Container Instances med Azure PowerShell
+title: Snabbstart – distribuera Docker-behållare till Azure Container Instances – PowerShell
+description: I den här snabbstarten använder du Azure PowerShell till att snabbt distribuera en behållarbaserad webbapp som körs i en isolerad Azure container-instans
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,16 +8,18 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b8cb84523288f45dfb719d69e4f7d227039598a9
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: HT
+ms.openlocfilehash: 00f5f8e045a2ec78751d115db3d9d75ec76189e8
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806920"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732304"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>Snabbstart: Kör ett containerprogram i Azure Container Instances med Azure PowerShell
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Snabbstart: Distribuera en behållarinstans i Azure med hjälp av Azure PowerShell
 
-Använd Azure Container Instances för att snabbt och enkelt köra dockercontainrar i Azure. Du behöver inte distribuera virtuella datorer eller använda en komplett plattform för containerorkestrering, som Kubernetes. I den här snabbstarten använder du Azure-portalen för att skapa en Windows-container i Azure och göra dess program tillgängligt med ett fullständigt kvalificerat domännamn (FQDN). Några sekunder efter du kört ett enskilt distributionskommando kan du bläddra till programmet som körs:
+Använd Azure Container Instances för att köra serverlös Docker-behållare i Azure med enkelhet och hastighet. Distribuera ett program till en container-instans på begäran när du inte behöver en fullständig behållarplattform orchestration som Azure Kubernetes Service.
+
+I den här snabbstarten använder du Azure PowerShell för att distribuera en isolerad Windows-behållare och tillgängliggöra dess program med ett fullständigt kvalificerat domännamn (FQDN). Några sekunder efter du kör en enkel distribution-kommando som du kan bläddra till det program som körs i behållaren:
 
 ![App som distribuerats via Azure Container Instances visas i webbläsaren][qs-powershell-01]
 
@@ -45,7 +47,7 @@ Nu när du har en resursgrupp kan du köra en container i Azure. Om du vill skap
 
 Du kan exponera dina containrar till internet genom att ange en eller flera portar som ska öppnas, en DNS-namnetikett eller båda. I den här snabbstarten distribuerar du en container med en DNS-namnetikett så att IIS kan nås offentligt.
 
-Kör följande kommando för att starta en instans av containern. Värdet `-DnsNameLabel` måste vara unikt inom den Azure-region som du skapar instansen i. Om du får felmeddelandet ”DNS name label not available” (DNS-namnetikett inte tillgänglig) kan du prova en annan DNS-namnetikett.
+Köra ett kommando som liknar följande att starta en behållarinstans. Ange en `-DnsNameLabel` värde som är unikt i Azure-regionen där du skapar instansen. Om du får felmeddelandet ”DNS name label not available” (DNS-namnetikett inte tillgänglig) kan du prova en annan DNS-namnetikett.
 
  ```azurepowershell-interactive
 New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win

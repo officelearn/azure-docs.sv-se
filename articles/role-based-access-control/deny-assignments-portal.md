@@ -11,24 +11,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 48098ba32a8eb1c2d7a7bafa246b8e850229b430
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804543"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005798"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Visa neka tilldelningar för Azure-resurser med Azure portal
 
-[Neka tilldelningar](deny-assignments.md) blockera användare från att utföra åtgärder för specifika Azure-resurs, även om en rolltilldelning ger dem åtkomst. Även om det går inte att skapa egna neka tilldelningar, du behöver för att kunna visa neka tilldelningar eftersom de kan påverka din övergripande behörigheter. Om du vill ha information om en neka-tilldelning måste du ha den `Microsoft.Authorization/denyAssignments/read` behörigheter, som ingår i de flesta [inbyggda roller för Azure-resurser](built-in-roles.md).
-
-Den här artikeln beskriver hur du använder Azure-portalen för att visa neka tilldelningar.
+[Neka tilldelningar](deny-assignments.md) blockera användare från att utföra åtgärder för specifika Azure-resurs, även om en rolltilldelning ger dem åtkomst. Den här artikeln beskriver hur du använder Azure-portalen för att visa neka tilldelningar.
 
 > [!NOTE]
-> Neka tilldelningar är skrivskyddade och kan bara ställas in av Microsoft för tillfället.
+> För närvarande det enda sättet som du kan lägga till egna neka tilldelningar är med hjälp av Azure skisser. Mer information finns i [skydda nya resurser med Azure skisser resurslås](../governance/blueprints/tutorials/protect-new-resources.md).
+
+## <a name="prerequisites"></a>Förutsättningar
+
+Om du vill ha information om en neka-tilldelning måste du ha:
+
+- `Microsoft.Authorization/denyAssignments/read` behörigheter, som ingår i de flesta [inbyggda roller för Azure-resurser](built-in-roles.md).
 
 ## <a name="view-deny-assignments"></a>Visa neka tilldelningar
 

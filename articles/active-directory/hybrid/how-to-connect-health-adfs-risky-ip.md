@@ -15,12 +15,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d1af8d7e10bd62819909c87c8e54fcbce6b7fe6
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: c68e937c1c4e77a5b24b48f8b73271bf8ec9da66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890451"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170810"
 ---
 # <a name="risky-ip-report-public-preview"></a>Riskfyllda IP-adresser (offentlig förhandsversion)
 AD FS-kunder kan göra slutpunkter tillgängliga för lösenordsautentisering på Internet för att tillhandahålla autentiseringstjänster till slutanvändare som ska få åtkomst till SaaS-program, till exempel Office 365. I det här fallet är det möjligt för någon obehörig att försöka logga in på ditt AD FS-system genom att gissa slutanvändarens lösenord och få åtkomst till programresurser. AD FS har innehållit en utelåsningsfunktion för extranätskonton som förhindrar dessa typer av angrepp sedan AD FS i Windows Server 2012 R2. Om du har en lägre version rekommenderar vi starkt att du uppgraderar ditt AD FS-system till Windows Server 2016. <br />
@@ -44,7 +44,7 @@ Varje objekt i rapporten för riskfyllda IP-adresser visar sammanställd informa
 | ------- | ----------- |
 | Tidsstämpel | Visar tidsstämpeln baserat på Azure-portalens lokala tid när tidsperioden för identifiering startar.<br /> Alla dagliga händelser genereras vid midnatt UTC-tid. <br />Varje timhändelse har en tidsstämpel som är avrundad till timmens början. Första aktivitetens starttid från ”firstAuditTimestamp” hittar du i den exporterade filen. |
 | Utlösartyp | Visar tidsperiod för identifieringstypen. De sammanställda utlösartyperna visas per timme eller per dag. Det här är användbart vid identifiering av en råstyrkeattack med hög frekvens, jämfört med en långsam attack där antalet försök är fördelade över hela dagen. |
-| IP-adress | En enskild riskfylld IP-adress som antingen har ett felaktigt lösenord eller en extranätsutelåsning vid inloggning. Detta kan vara en IPv4- eller IPv6-adress. |
+| IP-adress | En enskild riskfylld IP-adress som antingen har ett felaktigt lösenord eller en extranätsutelåsning vid inloggning. Detta kan vara en IPv4 eller IPv6-adress. |
 | Antal felaktiga lösenord | Antalet felaktiga lösenord från IP-adressen under tidsperioden för identifiering. Felaktiga lösenord kan inträffa flera gånger för vissa användare. Observera att detta inte inkluderar misslyckade försök på grund av utgångna lösenord. |
 | Antal extranätsutelåsningar | Antalet extranätsutelåsningar från IP-adressen under tidsperioden för identifiering. Extranätsutelåsningar kan inträffa flera gånger för vissa användare. Detta visas bara om extranätsutelåsningen har konfigurerats i AD FS (version 2012 R2 eller senare). <b>Obs!</b> Vi rekommenderar starkt att aktivera den här funktionen om du tillåter extranätsinloggningar med lösenord. |
 | Försök för unika användare | Antalet försök för unika användarkonton från IP-adressen under tidsperioden för identifiering. Detta är en mekanism för att särskilja ett mönster vid en enda användarattack jämfört med attackmönster mot flera användare.  |

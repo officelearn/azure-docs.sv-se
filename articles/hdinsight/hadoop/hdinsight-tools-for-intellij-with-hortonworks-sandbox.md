@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: aaebad004e5d426ca1c593941b15a2515c4476de
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 98f22f531ca15bf88cd7d0a9add2851651e2eec7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635671"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118331"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Använda HDInsight Tools för IntelliJ med begränsat Hortonworks-läge
 
@@ -53,20 +53,20 @@ I det här avsnittet skapar du en Scala exempelprojektet med hjälp av IntelliJ 
    1. Välj **HDInsight** > **Spark i HDInsight (Scala)**.
    2. I den **byggverktyg** listan, Välj något av följande, baserat på ditt scenario:
 
-    * **Maven**: För Scala skapa projekt guiden support.
-    * **SEGREGERADE BARLASTTANKAR**: För att hantera beroenden och utveckling för Scala-projektet.
+      * **Maven**: För Scala skapa projekt guiden support.
+      * **SBT**: För att hantera beroenden och utveckling för Scala-projektet.
 
    ![Dialogrutan Nytt projekt](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
 2. Välj **Nästa**.
 3. I nästa **nytt projekt** dialogrutan rutan, gör du följande:
 
-    1. I den **projektnamn** , ange ett projektnamn.
-    2. I den **projektet plats** anger en projektplats.
-    3. Bredvid den **projekt SDK** listrutan, väljer **New**väljer **JDK**, och sedan anger mappen för Java JDK version 1.7 eller senare. Välj **Java 1.8** för 2.x Spark-klustret. Välj **Java 1.7** för 1.x Spark-klustret. Standardplatsen är c:\Program\Microsoft Files\Java\jdk1.8.x_xxx.
-    4. I den **Spark-version** listrutan, Scala projektguiden är rätt version för Spark-SDK och Scala SDK. Om Sparks klusterversion är äldre än 2.0 väljer du **Spark 1.x**. Annars väljer du **Spark 2.x**. Det här exemplet använder Spark 1.6.2 (Scala 2.10.5). Kontrollera att du använder databasen som markerats **Scala 2.10.x**. Använd inte den lagringsplats som markerats Scala 2.11.x.
+   1. I den **projektnamn** , ange ett projektnamn.
+   2. I den **projektet plats** anger en projektplats.
+   3. Bredvid den **projekt SDK** listrutan, väljer **New**väljer **JDK**, och sedan anger mappen för Java JDK version 1.7 eller senare. Välj **Java 1.8** för 2.x Spark-klustret. Välj **Java 1.7** för 1.x Spark-klustret. Standardplatsen är c:\Program\Microsoft Files\Java\jdk1.8.x_xxx.
+   4. I den **Spark-version** listrutan, Scala projektguiden är rätt version för Spark-SDK och Scala SDK. Om Sparks klusterversion är äldre än 2.0 väljer du **Spark 1.x**. Annars väljer du **Spark 2.x**. Det här exemplet använder Spark 1.6.2 (Scala 2.10.5). Kontrollera att du använder databasen som markerats **Scala 2.10.x**. Använd inte den lagringsplats som markerats Scala 2.11.x.
     
-    ![Skapa IntelliJ Scala Projektegenskaper](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
+      ![Skapa IntelliJ Scala Projektegenskaper](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
 
 4. Välj **Slutför**.
@@ -145,7 +145,7 @@ Att skicka ett projekt till en emulator:
     1. I den **Spark-kluster (endast Linux)** listrutan väljer du din lokala begränsat Hortonworks-läge.
     2. I den **Main klassnamn** markerar eller ange namnet main-klass. Den här självstudien namnet är **GroupByTest**.
 
-3. Välj **skicka**. Jobbet skicka loggarna visas i fönstret Spark bidrag verktyget.
+3. Välj **Skicka**. Jobbet skicka loggarna visas i fönstret Spark bidrag verktyget.
 
 ## <a name="next-steps"></a>Nästa steg
 

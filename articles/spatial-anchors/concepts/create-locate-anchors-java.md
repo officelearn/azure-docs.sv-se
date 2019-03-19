@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d1f2e2319b662b7ff1661de9d9c3c8c007995d37
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 88a685d2999de1582c44c5aa84c49e8266ebb2db
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753263"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880151"
 ---
 # <a name="create-and-locate-anchors-using-azure-spatial-anchors-in-java"></a>Skapa och leta upp ankare som använder Azure Spatial ankare i Java
 
@@ -25,9 +25,11 @@ ms.locfileid: "56753263"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har aktiverat för att fungera bra med ditt val av utvecklingsmiljö. I den här artikeln ska vi fördjupar oss i hur du gör i Java.
+Med Azure Spatial Anchors kan du dela fästpunkter i världen mellan olika enheter. Den stöder flera utvecklingsmiljöer. I den här artikeln ska vi fördjupar oss i hur du gör i Java.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
+
+Läs mer om den [CloudSpatialAnchorSession](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession) klass.
 
 ```java
     private CloudSpatialAnchorSession mCloudSession;
@@ -36,6 +38,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
+
+Läs mer om den [SessionConfiguration](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.sessionconfiguration) klass.
 
 ```java
     mCloudSession.getConfiguration().setAccountKey("MyAccountKey");
@@ -48,6 +52,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
+
+Läs mer om den [TokenRequiredListener](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.tokenrequiredlistener) gränssnitt.
 
 ```java
     mCloudSession.addTokenRequiredListener(args -> {
@@ -95,6 +101,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
+Läs mer om den [starta](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.start) metod.
+
 ```java
     mCloudSession.setSession(mSession);
     mCloudSession.start();
@@ -102,11 +110,15 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
+Läs mer om den [processFrame](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.processframe) metod.
+
 ```java
     mCloudSession.processFrame(mSession.update());
 ```
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
+
+Läs mer om den [SessionUpdatedListener](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.sessionupdatedlistener) gränssnitt.
 
 ```java
     mCloudSession.addSessionUpdatedListener(args -> {
@@ -121,6 +133,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
+
+Läs mer om den [CloudSpatialAnchor](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchor) klass.
 
 ```java
     // Create a local anchor, perhaps by hit-testing and creating an ARAnchor
@@ -169,6 +183,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
+Läs mer om den [getSessionStatusAsync](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.getsessionstatusasync) metod.
+
 ```java
     Future<SessionStatus> sessionStatusFuture = mCloudSession.getSessionStatusAsync();
     CheckForCompletion(sessionStatusFuture);
@@ -199,6 +215,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
+Läs mer om den [getAppProperties](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchor.getappproperties) metod.
+
 ```java
     CloudSpatialAnchor cloudAnchor = new CloudSpatialAnchor();
     cloudAnchor.setLocalAnchor(localAnchor);
@@ -210,6 +228,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
+
+Läs mer om den [updateAnchorPropertiesAsync](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.updateanchorpropertiesasync) metod.
 
 ```java
     CloudSpatialAnchor anchor = /* locate your anchor */;
@@ -241,6 +261,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
 
+Läs mer om den [getAnchorPropertiesAsync](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.getanchorpropertiesasync) metod.
+
 ```java
     Future<CloudSpatialAnchor> getAnchorPropertiesFuture = mCloudSession.getAnchorPropertiesAsync("anchorId");
     CheckForCompletion(getAnchorPropertiesFuture);
@@ -271,6 +293,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
+Läs mer om den [setExpiration](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchor.setexpiration) metod.
+
 ```java
     Date now = new Date();
     Calendar cal = Calendar.getInstance();
@@ -282,6 +306,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
+Läs mer om den [createWatcher](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.createwatcher) metod.
+
 ```java
     AnchorLocateCriteria criteria = new AnchorLocateCriteria();
     criteria.setIdentifiers(new String[] { "id1", "id2", "id3" });
@@ -289,6 +315,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
+
+Läs mer om den [AnchorLocatedListener](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.anchorlocatedlistener) gränssnitt.
 
 ```java
     mCloudSession.addAnchorLocatedListener(args -> {
@@ -315,6 +343,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
+Läs mer om den [deleteAnchorAsync](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.deleteanchorasync) metod.
+
 ```java
     Future deleteAnchorFuture = mCloudSession.deleteAnchorAsync(cloudAnchor);
     // Perform any processing you may want when delete finishes (deleteAnchorFuture is done)
@@ -322,17 +352,23 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
+Läs mer om den [stoppa](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.stop) metod.
+
 ```java
     mCloudSession.stop();
 ```
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
 
+Läs mer om den [återställa](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.reset) metod.
+
 ```java
     mCloudSession.reset();
 ```
 
 [!INCLUDE [Cleanup](../../../includes/spatial-anchors-create-locate-anchors-cleanup-java.md)]
+
+Läs mer om den [Stäng](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.close) metod.
 
 ```java
     mCloudSession.close();

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9779885869666ffd1198afcda944823b99d52e5b
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: bf7d80bbbe63204cda47719a7d7c019013ad800b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417981"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099179"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Anslut virtuella nätverk från olika distributionsmodeller med hjälp av portalen
 
@@ -114,7 +114,7 @@ Om du redan har ett virtuellt nätverk med en VPN-gateway kan du kontrollera att
 1. På den **ny VPN-anslutning** väljer den **skapa gateway omedelbart** kryssrutan.
 2. Klicka på **Valfri gatewaykonfiguration** för att öppna sidan **Gatewaykonfiguration**.
 
-  ![Öppna gateway konfigurationssidan](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "öppna gateway konfigurationssidan")
+   ![Öppna gateway konfigurationssidan](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "öppna gateway konfigurationssidan")
 3. Klicka på **undernät - Konfigurera obligatoriska inställningar** att öppna den **Lägg till undernät** sidan. Den **namn** har redan konfigurerats med det obligatoriska värdet: **GatewaySubnet**.
 4. Den **adressintervall** refererar till området för gateway-undernätet. Men du kan skapa ett gateway-undernät med ett/29-adressintervall (3 adresser), rekommenderar vi att skapa ett gateway-undernät som innehåller fler IP-adresser. Detta kommer att hantera framtida konfigurationer som kan kräva mer tillgängliga IP-adresser. Använd om möjligt /27 eller/28. Om du använder de här stegen som en övning, ser du den [exempelvärden](#values). Det här exemplet använder vi '10.0.0.32/28'. Klicka på **OK** att skapa gateway-undernätet.
 5. På den **gatewaykonfiguration** sidan **storlek** refererar till gateway-SKU. Välj SKU-gatewayen för din VPN-gateway.
@@ -192,16 +192,16 @@ I det här avsnittet ska ersätta du platshållaren IP-adressen som du använde 
 2. På sidan för ditt virtuella nätverk, **översikt**.
 3. I den **VPN-anslutningar** klickar du på namnet på den lokala platsen i bilden.
 
-  ![VPN-anslutningar](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN-anslutningar")
+   ![VPN-anslutningar](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN-anslutningar")
 4. På den **plats-till-plats-VPN-anslutningar** klickar du på namnet på platsen.
 
-  ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "namn på lokal plats")
+   ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "namn på lokal plats")
 5. På sidan för den lokala platsen klickar du på namnet på den lokala platsen att öppna den **lokal plats** sidan.
 
-  ![Öppna lokal plats](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "öppna lokal plats")
+   ![Öppna lokal plats](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "öppna lokal plats")
 6. På den **lokal plats** sidan och Ersätt den **IP-adress för VPN-gateway** med IP-adressen för Resource Manager-gateway.
 
-  ![Gateway-ip-adress](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Gateway-IP-adress")
+   ![Gateway-ip-adress](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Gateway-IP-adress")
 7. Klicka på **OK** att uppdatera IP-adressen.
 
 ## <a name="RMtoclassic"></a>Avsnitt 4 – skapa Resource Manager till klassiska anslutning

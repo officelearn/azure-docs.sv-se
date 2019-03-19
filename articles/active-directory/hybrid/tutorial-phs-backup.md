@@ -12,18 +12,18 @@ ms.date: 01/30/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c68dba4a188e5acf88cc39b02e535d89a1c9e46
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2281bc451a5acf9e4e634a124161a3e8b0734deb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178829"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090516"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Självstudier:  Konfigurera PHS som säkerhetskopia för AD FS i Azure AD Connect
 
 Följande självstudie vägleder dig genom att ställa in synkronisering av lösenordshash som en säkerhetskopiering och redundans för AD FS.  Det här dokumentet visar också hur du aktiverar synkronisering av lösenordshash som primär autentiseringsmetod om AD FS har misslyckats eller är otillgängligt.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Den här självstudien bygger på [självstudien: Federera en enskild miljö för AD-skogar till molnet](tutorial-federation.md) och är en förutsättning innan du provar att utföra den här självstudien.  Om du inte har slutfört den här kursen kan du göra det innan du provar att utföra stegen i det här dokumentet.
 
 ## <a name="enable-phs-in-azure-ad-connect"></a>Aktivera PHS i Azure AD Connect
@@ -60,9 +60,9 @@ Nu ska vi visa hur du byter till synkronisering av lösenordshash. Innan du bör
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testa att logga in med någon av våra användare
 
-1.  Bläddra till [http://myapps.microsoft.com](http://myapps.microsoft.com)
+1. Bläddra till [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Logga in med ett användarkonto som har skapats i vår nya klient.  Du måste logga in med följande format: (user@domain.onmicrosoft.com). Använd samma lösenord som användaren använder för att logga in lokalt.</br>
-![Verifiera](media/tutorial-password-hash-sync/verify1.png)</br>
+   ![Verifiera](media/tutorial-password-hash-sync/verify1.png)</br>
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: a5131449b5aa66e3075cbf67cc055286dbc4ccb9
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 6d64a0779040fd2e473fbbf93e5d091cdc927bc8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957767"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088952"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Standardformat för Media Encoder och codec-rutiner
 
@@ -30,7 +30,7 @@ Det här dokumentet innehåller en lista med de vanligaste import- och exportfil
 
 ## <a name="input-containerfile-formats"></a>Ange inmatningsbehållare/filformat
 | Filformat (filnamnstillägg) | Stöds |
-| --- | --- | --- | --- |
+| --- | --- |
 | FLV (med H.264- och AAC-codec) (.flv) |Ja |
 | MXF    (.mxf) |Ja |
 | GXF (.gxf) |Ja |
@@ -59,7 +59,7 @@ eller
 
 ## <a name="input-video-codecs"></a>Codec för indatavideo
 | Codec för indatavideo | Stöds |
-| --- | --- | --- | --- |
+| --- | --- |
 | AVC 8-bitars/10-bitars, upp till 4:2:2, inklusive AVCIntra |8-bitars 4:2:0 och 4:2:2 |
 | Avid DNxHD (in MXF) |Ja |
 | DVCPro/DVCProHD (in MXF) |Ja |
@@ -82,7 +82,7 @@ eller
 
 ## <a name="input-audio-codecs"></a>Indataljud
 | Indataljud | Stöds |
-| --- | --- | --- | --- |
+| --- | --- |
 | AAC (AAC-LC, AAC-HE och AAC-HEv2, upp till 5.1) |Ja |
 | MPEG-nivå 2 |Ja |
 | MP3 (MPEG-1 ljud Layer 3) |Ja |

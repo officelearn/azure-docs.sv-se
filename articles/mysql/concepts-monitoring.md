@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: 05af196d115376d744df1976c6a3d9fe9cab74e0
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 9dcb79e7f4ebd43da3f6c6fd35fa0707898d7ec8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958909"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111012"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Övervakning i Azure Database for MySQL
 Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. Azure Database for MySQL tillhandahåller olika mått som ger inblick i beteendet för din server.
@@ -23,7 +23,7 @@ Alla Azure-mått har en frekvens på en minut. varje mått ger 30 dagars histori
 De här måtten är tillgängliga för Azure Database for MySQL:
 
 |Mått|Metrisk visningsnamn|Enhet|Beskrivning|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|CPU-procent|Procent|Procentandelen av Processorn som används.|
 |memory_percent|Minne|Procent|Procentandelen minne som används.|
 |io_consumption_percent|IO-procent|Procent|Procentandelen av i/o som används.|
@@ -36,8 +36,8 @@ De här måtten är tillgängliga för Azure Database for MySQL:
 |active_connections|Aktiva anslutningar|Antal|Antal aktiva anslutningar till servern.|
 |connections_failed|Misslyckade anslutningar|Antal|Antal misslyckade anslutningar till servern.|
 |seconds_behind_master|Replikeringsfördröjning i sekunder|Antal|Hur många sekunder som replikservern släpar mot huvudservern.|
-|network_bytes_egress|Nätverk ut|Byte|Nätverk ut över aktiva anslutningar.|
-|network_bytes_ingress|Nätverk in|Byte|Nätverk i över aktiva anslutningar.|
+|network_bytes_egress|Nätverk – utgående|Byte|Nätverk ut över aktiva anslutningar.|
+|network_bytes_ingress|Nätverk – inkommande|Byte|Nätverk i över aktiva anslutningar.|
 |backup_storage_used|Används för lagring av säkerhetskopior|Byte|Mängden lagring av säkerhetskopior används.|
 
 ## <a name="server-logs"></a>Serverloggar

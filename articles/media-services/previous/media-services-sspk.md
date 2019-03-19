@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/13/2019
 ms.author: xpouyat
-ms.openlocfilehash: 6aefa6b8745d14f59981520660b1f4c1323f8617
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 34aee7405ac7afb8646ec58c5cbb049e450a4987
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456167"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897443"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licensiering Microsoft® jämn direktuppspelning Klientportningskit 
 ## <a name="overview"></a>Översikt
@@ -127,6 +127,7 @@ Tiden och slutlig SSPK licenstagare kan skicka in tekniska frågor till [ smooth
 * Enseo, Inc.
 * FilmFlex Movies Limited
 * Fluendo S.A.
+* FUNAI ELECTRIC CO., LTD.
 * Gibson Innovations Limited
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
@@ -158,7 +159,6 @@ Tiden och slutlig SSPK licenstagare kan skicka in tekniska frågor till [ smooth
 * VIZIO, Inc.
 * Wistron Corporation
 * ZTE Corporation
-
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

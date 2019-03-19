@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: dd7351d2948526905c91f2eac52e48b25cf063ac
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 90b6798f7b7ab3acc552135c73bb1e491e4a0111
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191436"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835528"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfiguration och av hanteringsproblem för Azure Cloud Services: Vanliga frågor och svar (FAQ)
 
@@ -143,7 +143,7 @@ Mer information finns i följande dokument:
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Hur aktiverar jag WAD loggning för Cloud Services?
 Du kan aktivera loggning för Windows Azure Diagnostics SÄKERHETSSPECIFIKA med följande alternativ:
 1. [Aktivera från Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [Aktivera med hjälp av .net-kod](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+2. [Aktivera med hjälp av .NET-kod](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Aktivera via Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
 Du kan använda för att få de aktuella WAD inställningarna för din molntjänst [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd eller du kan visa den via portalen från bladet för ”molntjänster--> tillägg”.
@@ -226,7 +226,7 @@ Microsoft följer en strikt process som inte tillåter internt tekniker för fj�
 
 ### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>Jag kan inte fjärrskrivbord till Cloud Service VM med hjälp av RDP-filen. Jag får följande fel: Ett autentiseringsfel inträffade (kod: 0x80004005)
 
-Det här felet kan uppstå om du använder RDP-fil från en dator som är ansluten till Azure Active Directory. Följ dessa steg för att lösa problemet:
+Det här felet kan uppstå om du använder RDP-fil från en dator som är ansluten till Azure Active Directory. Följ dessa anvisningar för att lösa problemet:
 
 1. Högerklicka på RDP-filen som du hämtade och välj sedan **redigera**.
 2. Lägg till ”&#92;” som prefix innan användarnamnet. Till exempel använda **. \username** i stället för **användarnamn**.

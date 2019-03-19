@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e940d7593b6760a81a781fd72c0bb45347b00c2a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 912bc9fea7b721b9a74198572bbf916ee0ebe6cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168161"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007101"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Självstudier: Azure Active Directory-integrering med StatusPage
 
@@ -114,23 +114,25 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning](./media/statuspage-tutorial/tutorial_statuspage_url.png)
 
     a. I textrutan **Identifierare** anger du en URL med följande mönster:
+
     | |
     |--|
     | `https://<subdomain>.statuspagestaging.com/` |
     | `https://<subdomain>.statuspage.io/` |
 
     b. I textrutan **Svars-URL** anger du en URL med följande mönster: 
+    
     | |
     |--|
     | `https://<subdomain>.statuspagestaging.com/sso/saml/consume` |
     | `https://<subdomain>.statuspage.io/sso/saml/consume` |
 
-    > [!NOTE]
-    > Kontakta supporten StatusPage på [ SupportTeam@statuspage.io ](mailto:SupportTeam@statuspage.io)att begära metadata som behövs för att konfigurera enkel inloggning. 
-    >
-    >a. Kopiera utfärdarvärdet från metadata, och klistra in den i den **identifierare** textrutan.
-    >
-    >b. Från metadata, kopiera svars-URL och klistra in den i den **svars-URL** textrutan.
+   > [!NOTE]
+   > Kontakta supporten StatusPage på [ SupportTeam@statuspage.io ](mailto:SupportTeam@statuspage.io)att begära metadata som behövs för att konfigurera enkel inloggning. 
+   > 
+   > a. Kopiera utfärdarvärdet från metadata, och klistra in den i den **identifierare** textrutan.
+   > 
+   > b. Från metadata, kopiera svars-URL och klistra in den i den **svars-URL** textrutan.
 
 1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
@@ -156,15 +158,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. På konfigurationssidan för enkel inloggning utför du följande steg:
    
-    ![Konfigurera enkel inloggning](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
+     ![Konfigurera enkel inloggning](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
 
-    ![Konfigurera enkel inloggning](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
+     ![Konfigurera enkel inloggning](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
  
-    a. I den **mål-URL för enkel inloggning** textrutan klistra in värdet för **SAML enkel inloggning för tjänst-URL**, som du har kopierat från Azure-portalen.
+     a. I den **mål-URL för enkel inloggning** textrutan klistra in värdet för **SAML enkel inloggning för tjänst-URL**, som du har kopierat från Azure-portalen.
 
-    b. Öppna din nedladdade certifikatet i anteckningar, kopiera innehållet och klistra in den i den **certifikat** textrutan. 
+     b. Öppna din nedladdade certifikatet i anteckningar, kopiera innehållet och klistra in den i den **certifikat** textrutan. 
 
-    c. Klicka på **Spara konfiguration**.
+     c. Klicka på **Spara konfiguration**.
 
 > [!TIP]
 > Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -269,7 +271,7 @@ När du klickar på panelen StatusPage i åtkomstpanelen du bör få automatiskt
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

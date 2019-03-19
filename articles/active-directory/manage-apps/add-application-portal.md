@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27456f672e2fa67928b43e80bef384a14e9c1d62
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9f062596e2be93065b3c076787c2f5b3dfcedf9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166971"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110128"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Snabbstart: Lägga till ett program i din Azure Active Directory-klientorganisation
 
@@ -113,35 +113,35 @@ Så här redigerar du programegenskaperna
 
 4. Använd följande tabeller för att få hjälp med att välja de alternativ som är bäst för dina behov.
 
-    - Beteende för **tilldelade** användare:
+   - Beteende för **tilldelade** användare:
 
-        | Egenskapsinställningar för program | | | Upplevelse för tilldelad användare | |
-        |---|---|---|---|---|
-        | Aktiverad för användare att logga in? | Användartilldelning krävs? | Synlig för användare? | Kan tilldelade användare logga in? | Kan tilldelade användare se programmet?* |
-        | ja | ja | ja | ja | ja  |
-        | ja | ja | nej  | ja | nej   |
-        | ja | nej  | ja | ja | ja  |
-        | ja | nej  | nej  | ja | nej   |
-        | nej  | ja | ja | nej  | nej   |
-        | nej  | ja | nej  | nej  | nej   |
-        | nej  | nej  | ja | nej  | nej   |
-        | nej  | nej  | nej  | nej  | nej   |
+       | Egenskapsinställningar för program | | | Upplevelse för tilldelad användare | |
+       |---|---|---|---|---|
+       | Aktiverad för användare att logga in? | Användartilldelning krävs? | Synlig för användare? | Kan tilldelade användare logga in? | Kan tilldelade användare se programmet?* |
+       | ja | ja | ja | ja | ja  |
+       | ja | ja | nej  | ja | nej   |
+       | ja | nej  | ja | ja | ja  |
+       | ja | nej  | nej  | ja | nej   |
+       | nej  | ja | ja | nej  | nej   |
+       | nej  | ja | nej  | nej  | nej   |
+       | nej  | nej  | ja | nej  | nej   |
+       | nej  | nej  | nej  | nej  | nej   |
 
-    - Beteende för **ej tilldelade** användare:
+   - Beteende för **ej tilldelade** användare:
 
-        | Egenskapsinställningar för program | | | Upplevelse för ej tilldelade användare | |
-        |---|---|---|---|---|
-        | Aktiverad för användare att logga in? | Användartilldelning krävs? | Synlig för användare? | Kan ej tilldelade användare logga in? | Kan ej tilldelade användare se programmet?* |
-        | ja | ja | ja | nej  | nej   |
-        | ja | ja | nej  | nej  | nej   |
-        | ja | nej  | ja | ja | nej   |
-        | ja | nej  | nej  | ja | nej   |
-        | nej  | ja | ja | nej  | nej   |
-        | nej  | ja | nej  | nej  | nej   |
-        | nej  | nej  | ja | nej  | nej   |
-        | nej  | nej  | nej  | nej  | nej   |
+       | Egenskapsinställningar för program | | | Upplevelse för ej tilldelade användare | |
+       |---|---|---|---|---|
+       | Aktiverad för användare att logga in? | Användartilldelning krävs? | Synlig för användare? | Kan ej tilldelade användare logga in? | Kan ej tilldelade användare se programmet?* |
+       | ja | ja | ja | nej  | nej   |
+       | ja | ja | nej  | nej  | nej   |
+       | ja | nej  | ja | ja | nej   |
+       | ja | nej  | nej  | ja | nej   |
+       | nej  | ja | ja | nej  | nej   |
+       | nej  | ja | nej  | nej  | nej   |
+       | nej  | nej  | ja | nej  | nej   |
+       | nej  | nej  | nej  | nej  | nej   |
 
-    *Kan användaren se programmet i åtkomstpanelen och Office 365-appfönstret?
+     *Kan användaren se programmet i åtkomstpanelen och Office 365-appfönstret?
 
 ## <a name="use-a-custom-logo"></a>Använda en anpassad logotyp
 

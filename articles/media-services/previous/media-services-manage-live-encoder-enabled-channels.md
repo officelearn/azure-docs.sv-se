@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: ecdb6d7a225d3a2f2c5bbf90a36b91367faf04b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b65a5d0f9b0eb5eac5738169ebfeba5503471ebc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003354"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856166"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter
 
@@ -31,7 +31,7 @@ I Azure Media Services (AMS), en **kanal** representerar en pipeline för bearbe
 
 * En lokal livekodare skickar en dataström med enkel bithastighet till den kanal som är aktiverad för att utföra live encoding med Media Services i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4). Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
 * En lokal livekodare skickar flera bithastigheter **RTMP** eller **Smooth Streaming** (fragmenterad MP4) till den kanal som inte är aktiverad för att utföra direktsänd kodning med AMS. Infogade strömmarna passerar genom **kanal**utan vidare bearbetning. Den här metoden anropas **direkt**. Du kan använda följande livekodare som Smooth Streaming med flera bithastigheter: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco och Elemental. I följande livekodare RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek och Tricaster-kodare.  En livekodare kan även skicka en ström med en enda bithastighet till en kanal som inte har aktiverats för Live Encoding, men det rekommenderas inte. På begäran levererar Media Services strömmen till kunder.
-  
+
   > [!NOTE]
   > Genomströmningsmetoden är det mest ekonomiska sättet för liveuppspelning.
   > 
@@ -50,7 +50,7 @@ Från och med Media Services 2.10, när du skapar en kanal, kan du ange i vilken
 > 
 
 ## <a name="billing-implications"></a>Fakturering effekter
-En livekanal med kodning börjar fakturering som ändrar status till ”körs” är det via API: et.   Du kan också visa tillståndet i Azure portal eller i Azure Media Services Explorer-verktyget (http://aka.ms/amse).
+En livekanal med kodning börjar fakturering som ändrar status till ”körs” är det via API: et.   Du kan också visa tillståndet i Azure portal eller i Azure Media Services Explorer-verktyget (https://aka.ms/amse).
 
 I följande tabell visar hur kanaltillstånd mappas till fakturering tillstånd i API: et och Azure-portalen. Tillstånd kan variera mellan API och -portalen UX. När en kanal är i tillståndet ”körs” via API: et eller statusen ”klar” eller ”strömning” i Azure-portalen, aktiveras fakturering.
 Du måste stoppa kanalen via API: et eller i Azure portal om du vill stoppa kanalen från fakturering du ytterligare.
@@ -89,29 +89,27 @@ Följande steg är allmänna steg som ingår i att skapa vanliga program för di
 
 > [!NOTE]
 > Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived@microsoft.com om du behöver köra en kanal under en längre tidsperiod. Det finns en fakturering inverkan för live encoding och du bör komma ihåg att lämna en livekanal med kodning i tillståndet ”körs” debiteras per timme debiterade avgifterna.  Vi rekommenderar att du omedelbart stoppa dina kanaler som körs när din liveströmmat evenemang är klar att undvika extra debitering. 
-> 
-> 
 
 1. Anslut en videokamera till en dator. Starta och konfigurera en lokal livekodare som kan mata ut en **enda** bithastighet i något av följande protokoll: RTMP eller Smooth Streaming. 
-   
+
     Det här steget kan också utföras när du har skapat din kanal.
 2. Skapa och starta en kanal. 
 3. Hämta kanalens infognings-URL. 
-   
+
     Infognings-URL:en används av livekodaren för att skicka dataströmmen till kanalen.
 4. Hämta kanalens förhandsgransknings-URL. 
-   
+
     Använd denna URL för att kontrollera att din kanal tar emot den direktsända dataströmmen korrekt.
 5. Skapa ett program. 
-   
+
     När du använder Azure portal, skapar skapa ett program även en tillgång. 
-   
+
     När du använder .NET SDK eller REST måste du skapa en tillgång och ange om du vill använda den här tillgången när du skapar ett Program. 
 6. Publicera tillgången som är associerade med programmet.   
-   
+
     >[!NOTE]
     >När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Slutpunkten för direktuppspelning som du vill spela upp innehåll från måste ha tillståndet **Körs**. 
-    
+
 7. Starta programmet när du är redo att påbörja strömning och arkivering.
 8. Som alternativ kan livekodaren få signal om att starta en annons. Annonsen infogas i utdataströmmen.
 9. Stoppa programmet när du vill stoppa strömningen och arkiveringen av händelsen.
@@ -217,6 +215,7 @@ Observera att om du behöver anpassade förinställningar, bör du kontakta amsl
 **Default720p** kommer koda videon till följande 6 lagren.
 
 #### <a name="output-video-stream"></a>Utdata Video Stream
+
 | Bithastighet | Bredd | Höjd | MaxFPS | Profil | Utdatanamnet för Stream |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Hög |Video_1280x720_3500kbps |
@@ -357,7 +356,7 @@ Granska sökvägarna för Media Services-utbildning.
 [Skapa kanaler som utför live encoding från en enskilt bithastighet till ström med anpassningsbar bithastighet med .NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 [Hantera kanaler med REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
- 
+
 [Media Services-begrepp](media-services-concepts.md)
 
 [Specifikation för Azure Media Services fragmenterad MP4 Live-inmatning](media-services-fmp4-live-ingest-overview.md)

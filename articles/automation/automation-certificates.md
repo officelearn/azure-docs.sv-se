@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 372df0bc6ea540b4b2c030ec71acc6889e7c7d19
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 3a1fd81f890e304c6bda75fad609cc8c98cd634d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874094"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880389"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Certifikattillgångar i Azure Automation
 
@@ -28,11 +28,12 @@ För AzureRM används cmdletar i följande tabell för att skapa och hantera inl
 
 |Cmdlet: ar|Beskrivning|
 |:---|:---|
-|[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate)|Hämtar information om ett certifikat som ska användas i en runbook eller DSC-konfiguration. Du kan bara hämta själva certifikaten från Get-AutomationCertificate aktivitet.|
-|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Skapar ett nytt certifikat till Azure Automation.|
-[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Tar bort ett certifikat från Azure Automation.|Skapar ett nytt certifikat till Azure Automation.
+|[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate)|Hämtar information om ett certifikat som ska användas i en runbook eller DSC-konfiguration. Du kan bara hämta själva certifikaten från Get-AutomationCertificate aktivitet.| 
+|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Skapar ett nytt certifikat till Azure Automation.| 
+[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Tar bort ett certifikat från Azure Automation.|
 |[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate)|Anger egenskaperna för ett befintligt certifikat, inklusive överföring av certifikatfilen och inställning av lösenordet för PFX-fil.|
 |[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Överför ett tjänstcertifikat för den angivna Molntjänsten.|
+
 
 ## <a name="activities"></a>Aktiviteter
 Aktiviteterna i följande tabell används för att få åtkomst till certifikat i en runbook och DSC-konfigurationer.
@@ -62,11 +63,11 @@ När du skapar ett nytt certifikat kan överföra du en CER- eller PFX-fil till 
 ### <a name="to-create-a-new-certificate-with-the-azure-portal"></a>Skapa ett nytt certifikat med Azure portal
 
 1. Från ditt Automation-konto klickar du på den **tillgångar** panelen för att öppna den **tillgångar** bladet.
-1. Klicka på den **certifikat** panelen för att öppna den **certifikat** bladet.
-1. Klicka på **lägga till ett certifikat** överst på bladet.
-1. Skriv ett namn för certifikatet i den **namn** box.
-1. Om du vill bläddra till en CER- eller PFX-fil, klickar du på **Välj en fil** under **ladda upp en certifikatfil**. Om du väljer en .pfx-fil, ange ett lösenord och om det är tillåtet att exporteras.
-1. Klicka på **skapa** att spara den nya certifikattillgången.
+2. Klicka på den **certifikat** panelen för att öppna den **certifikat** bladet.
+3. Klicka på **lägga till ett certifikat** överst på bladet.
+4. Skriv ett namn för certifikatet i den **namn** box.
+5. Om du vill bläddra till en CER- eller PFX-fil, klickar du på **Välj en fil** under **ladda upp en certifikatfil**. Om du väljer en .pfx-fil, ange ett lösenord och om det är tillåtet att exporteras.
+6. Klicka på **skapa** att spara den nya certifikattillgången.
 
 ### <a name="to-create-a-new-certificate-with-windows-powershell"></a>Att skapa ett nytt certifikat med Windows PowerShell
 

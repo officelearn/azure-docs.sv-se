@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: c95f05127d62d366e1ad78b45df23d04ced0164a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: 15eded28e38279ea01bf019566d4fda5e7ac6c3e
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262801"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57588180"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Skapa en Azure SignalR Service-instans
 
@@ -38,3 +38,7 @@ Din app ansluter till en SignalR Service-instans i Azure.
     ![Skapa SignalR Service](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
 
 1. Välj **Skapa** för att börja distribuera SignalR Service-instansen.
+
+1. När instansen har distribuerats kan du öppna den i portalen och leta upp dess inställningssidan. Ändra inställningen Service till *Serverless*.
+
+    ![SignalR-tjänstläge](../media/signalr-concept-azure-functions/signalr-service-mode.png)

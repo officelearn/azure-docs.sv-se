@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: adigan
-ms.openlocfilehash: 00bdc5ff63e78b0f96b794ca907bc28158e62c62
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: dd4dad2cc3e541d3b6866c02341161dc1d9e1e6c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883648"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075278"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics-datamodell för Azure Backup-data
 
@@ -172,36 +172,36 @@ Den här tabellen innehåller information om projektspecifika fält.
 
 Den här tabellen innehåller information om principen-relaterade fält.
 
-| Fält | Datatyp | Beskrivning |
-| --- | --- | --- |
-| EventName_s |Text |Det här fältet representerar namnet på den här händelsen, är det alltid AzureBackupCentralReport |
-| SchemaVersion_s |Text |Det här fältet anger aktuella versionen av schemat, är det **V2** |
-| State_s |Text |Aktuell status för princip-objekt, till exempel aktiv, har tagits bort |
-| BackupManagementType_s |Text |Providertyp för server gör säkerhetskopieringsjobb, till exempel IaaSVM, FileFolder |
-| OperationName |Text |Det här fältet representerar namnet på den aktuella åtgärden - princip |
-| Kategori |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Azure Monitor-loggar, är det AzureBackupReport |
-| Resurs |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
-| PolicyUniqueId_g |Text |Unikt Id för att identifiera principen |
-| PolicyName_s |Text |Namnet på den princip som har definierats |
-| BackupFrequency_s |Text |Frekvens med vilken säkerhetskopieringar körs, till exempel, varje dag, varje vecka |
-| BackupTimes_s |Text |Datum och tid när säkerhetskopieringar är schemalagda |
-| BackupDaysOfTheWeek_s |Text |Dagar i veckan när säkerhetskopieringar har schemalagts |
-| RetentionDuration_s |Heltal |Kvarhållningsvaraktighetens för konfigurerade säkerhetskopieringar |
-| DailyRetentionDuration_s |Heltal |Totalt antal kvarhållning varaktighet i dagar för konfigurerade säkerhetskopieringar |
-| DailyRetentionTimes_s |Text |Datum och tid när bevarande varje dag har konfigurerats |
-| WeeklyRetentionDuration_s |Decimaltal |Total varaktighet för varje vecka kvarhållning i veckor för konfigurerade säkerhetskopieringar |
-| WeeklyRetentionTimes_s |Text |Datum och tid när kvarhållning av veckovis har konfigurerats |
-| WeeklyRetentionDaysOfTheWeek_s |Text |Dagar i veckan har valts för kvarhållning av veckovis |
-| MonthlyRetentionDuration_s |Decimaltal |Totalt antal kvarhållningsvaraktighetens i månader för konfigurerade säkerhetskopieringar |
-| MonthlyRetentionTimes_s |Text |Datum och tid när månatliga kvarhållning har konfigurerats |
-| MonthlyRetentionFormat_s |Text |Typen av konfiguration för månatliga kvarhållning, till exempel varje dag för dag-baserat, varje vecka för vecka baserat |
-| MonthlyRetentionDaysOfTheWeek_s |Text |Dagar i veckan har valts för kvarhållning av månatlig |
-| MonthlyRetentionWeeksOfTheMonth_s |Text |Veckor i månaden när månatliga kvarhållning har konfigurerats, till exempel första, sista osv. |
-| YearlyRetentionDuration_s |Decimaltal |Totalt antal kvarhållningsvaraktighetens i år för konfigurerade säkerhetskopior |
-| YearlyRetentionTimes_s |Text |Datum och tid när årliga kvarhållning har konfigurerats |
-| YearlyRetentionMonthsOfTheYear_s |Text |Månader som har valts för kvarhållning av årlig |
-| YearlyRetentionFormat_s |Text |Typen av konfiguration för årliga kvarhållning, till exempel varje dag för dag-baserat, varje vecka för vecka baserat |
-| YearlyRetentionDaysOfTheMonth_s |Text |Datum i månaden som valts för kvarhållning av årlig |
+| Fält | Datatyp | Versioner som är tillämpliga | Beskrivning |
+| --- | --- | --- | --- |
+| EventName_s |Text ||Det här fältet representerar namnet på den här händelsen, är det alltid AzureBackupCentralReport |
+| SchemaVersion_s |Text ||Det här fältet anger aktuella versionen av schemat, är det **V2** |
+| State_s |Text ||Aktuell status för princip-objekt, till exempel aktiv, har tagits bort |
+| BackupManagementType_s |Text ||Providertyp för server gör säkerhetskopieringsjobb, till exempel IaaSVM, FileFolder |
+| OperationName |Text ||Det här fältet representerar namnet på den aktuella åtgärden - princip |
+| Kategori |Text ||Det här fältet motsvarar kategori till diagnostikdata som skickas till Azure Monitor-loggar, är det AzureBackupReport |
+| Resurs |Text ||Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
+| PolicyUniqueId_g |Text ||Unikt Id för att identifiera principen |
+| PolicyName_s |Text ||Namnet på den princip som har definierats |
+| BackupFrequency_s |Text ||Frekvens med vilken säkerhetskopieringar körs, till exempel, varje dag, varje vecka |
+| BackupTimes_s |Text ||Datum och tid när säkerhetskopieringar är schemalagda |
+| BackupDaysOfTheWeek_s |Text ||Dagar i veckan när säkerhetskopieringar har schemalagts |
+| RetentionDuration_s |Heltal ||Kvarhållningsvaraktighetens för konfigurerade säkerhetskopieringar |
+| DailyRetentionDuration_s |Heltal ||Totalt antal kvarhållning varaktighet i dagar för konfigurerade säkerhetskopieringar |
+| DailyRetentionTimes_s |Text ||Datum och tid när bevarande varje dag har konfigurerats |
+| WeeklyRetentionDuration_s |Decimaltal ||Total varaktighet för varje vecka kvarhållning i veckor för konfigurerade säkerhetskopieringar |
+| WeeklyRetentionTimes_s |Text ||Datum och tid när kvarhållning av veckovis har konfigurerats |
+| WeeklyRetentionDaysOfTheWeek_s |Text ||Dagar i veckan har valts för kvarhållning av veckovis |
+| MonthlyRetentionDuration_s |Decimaltal ||Totalt antal kvarhållningsvaraktighetens i månader för konfigurerade säkerhetskopieringar |
+| MonthlyRetentionTimes_s |Text ||Datum och tid när månatliga kvarhållning har konfigurerats |
+| MonthlyRetentionFormat_s |Text ||Typen av konfiguration för månatliga kvarhållning, till exempel varje dag för dag-baserat, varje vecka för vecka baserat |
+| MonthlyRetentionDaysOfTheWeek_s |Text ||Dagar i veckan har valts för kvarhållning av månatlig |
+| MonthlyRetentionWeeksOfTheMonth_s |Text ||Veckor i månaden när månatliga kvarhållning har konfigurerats, till exempel första, sista osv. |
+| YearlyRetentionDuration_s |Decimaltal ||Totalt antal kvarhållningsvaraktighetens i år för konfigurerade säkerhetskopior |
+| YearlyRetentionTimes_s |Text ||Datum och tid när årliga kvarhållning har konfigurerats |
+| YearlyRetentionMonthsOfTheYear_s |Text ||Månader som har valts för kvarhållning av årlig |
+| YearlyRetentionFormat_s |Text ||Typen av konfiguration för årliga kvarhållning, till exempel varje dag för dag-baserat, varje vecka för vecka baserat | |
+| YearlyRetentionDaysOfTheMonth_s |Text ||Datum i månaden som valts för kvarhållning av årlig |
 | SynchronisationFrequencyPerDay_s |Heltal |v2|Antal gånger under en dag som en filsäkerhetskopia synkroniseras för SC DPM och MABS |
 | DiffBackupFormat_s |Text |v2|Format för differentiella säkerhetskopieringar för SQL i virtuell Azure-säkerhetskopiering |
 | DiffBackupTime_s |Tid |v2|Tid för differentiella säkerhetskopieringar för SQL i Azure VM Backup|
@@ -209,35 +209,35 @@ Den här tabellen innehåller information om principen-relaterade fält.
 | LogBackupFrequency_s |Decimaltal |v2|Frekvens för säkerhetskopieringar för SQL|
 | LogBackupRetentionDuration_s |Decimaltal |v2|Varaktighet för kvarhållning för säkerhetskopior för SQL i Azure VM Backup|
 | DiffBackupDaysofTheWeek_s |Text |v2|Dagar i veckan för differentiella säkerhetskopieringar för SQL i Azure VM Backup|
-| SourceSystem |Text |Källsystemet för det aktuella - Azure |
-| ResourceId |Text |Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id |
-| SubscriptionId |Text |Prenumerations-ID för resursen (t.ex. Recovery Services-valv) som data samlas in |
-| ResourceGroup |Text |Resursgruppen för resursen (t.ex. Recovery Services-valv) som data samlas in |
-| ResourceProvider |Text |Provider för nätverksresurser som data samlas in. Till exempel Microsoft.RecoveryServices |
-| ResourceType |Text |Resurstyp som data samlas in. Till exempel valv |
+| SourceSystem |Text ||Källsystemet för det aktuella - Azure |
+| ResourceId |Text ||Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id |
+| SubscriptionId |Text ||Prenumerations-ID för resursen (t.ex. Recovery Services-valv) som data samlas in |
+| ResourceGroup |Text ||Resursgruppen för resursen (t.ex. Recovery Services-valv) som data samlas in |
+| ResourceProvider |Text ||Provider för nätverksresurser som data samlas in. Till exempel Microsoft.RecoveryServices |
+| ResourceType |Text ||Resurstyp som data samlas in. Till exempel valv |
 
 ### <a name="policyassociation"></a>PolicyAssociation
 
 Den här tabellen innehåller information om principkopplingar med olika entiteter.
 
-| Fält | Datatyp | Beskrivning |
-| --- | --- | --- |
-| EventName_s |Text |Det här fältet representerar namnet på den här händelsen, är det alltid AzureBackupCentralReport |
-| SchemaVersion_s |Text |Det här fältet anger aktuella versionen av schemat, är det **V2** |
-| State_s |Text |Aktuell status för princip-objekt, till exempel aktiv, har tagits bort |
-| BackupManagementType_s |Text |Providertyp för server gör säkerhetskopieringsjobb, till exempel IaaSVM, FileFolder |
-| OperationName |Text |Det här fältet representerar namnet på den aktuella åtgärden - PolicyAssociation |
-| Kategori |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Azure Monitor-loggar, är det AzureBackupReport |
-| Resurs |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
-| PolicyUniqueId_g |Text |Unikt Id för att identifiera principen |
-| VaultUniqueId_s |Text |Unikt Id för det valv som tillhör den här principen till |
+| Fält | Datatyp | Versioner som är tillämpliga | Beskrivning |
+| --- | --- | --- | --- |
+| EventName_s |Text ||Det här fältet representerar namnet på den här händelsen, är det alltid AzureBackupCentralReport |
+| SchemaVersion_s |Text ||Det här fältet anger aktuella versionen av schemat, är det **V2** |
+| State_s |Text ||Aktuell status för princip-objekt, till exempel aktiv, har tagits bort |
+| BackupManagementType_s |Text ||Providertyp för server gör säkerhetskopieringsjobb, till exempel IaaSVM, FileFolder |
+| OperationName |Text ||Det här fältet representerar namnet på den aktuella åtgärden - PolicyAssociation |
+| Kategori |Text ||Det här fältet motsvarar kategori till diagnostikdata som skickas till Azure Monitor-loggar, är det AzureBackupReport |
+| Resurs |Text ||Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
+| PolicyUniqueId_g |Text ||Unikt Id för att identifiera principen |
+| VaultUniqueId_s |Text ||Unikt Id för det valv som tillhör den här principen till |
 | BackupManagementServerUniqueId_s |Text |v2 |Fält för att unikt identifiera hanteringsservern Säkerhetskopieringsobjekt för säkerhetskopiering skyddas via, om tillämpligt        |
-| SourceSystem |Text |Källsystemet för det aktuella - Azure |
-| ResourceId |Text |Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id |
-| SubscriptionId |Text |Prenumerations-ID för resursen (t.ex. Recovery Services-valv) som data samlas in |
-| ResourceGroup |Text |Resursgruppen för resursen (t.ex. Recovery Services-valv) som data samlas in |
-| ResourceProvider |Text |Provider för nätverksresurser som data samlas in. Till exempel Microsoft.RecoveryServices |
-| ResourceType |Text |Resurstyp som data samlas in. Till exempel valv |
+| SourceSystem |Text ||Källsystemet för det aktuella - Azure |
+| ResourceId |Text ||Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id |
+| SubscriptionId |Text ||Prenumerations-ID för resursen (t.ex. Recovery Services-valv) som data samlas in |
+| ResourceGroup |Text ||Resursgruppen för resursen (t.ex. Recovery Services-valv) som data samlas in |
+| ResourceProvider |Text ||Provider för nätverksresurser som data samlas in. Till exempel Microsoft.RecoveryServices |
+| ResourceType |Text ||Resurstyp som data samlas in. Till exempel valv |
 
 ### <a name="protected-container"></a>Skyddade behållare
 
@@ -355,7 +355,7 @@ Den här tabellen innehåller grundläggande skyddade instanser relaterade fält
 Den här tabellen innehåller grundläggande recovery peka relaterade fält.
 
 | Fält | Datatyp | Beskrivning |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | BackupItemUniqueId_s |Text |Unikt Id som används för att identifiera säkerhetskopieringsobjektet för virtuella datorer säkerhetskopieras med DPM, MABS|
 | OldestRecoveryPointTime_s |Text |Datum-tid då den äldsta återställningspunkten för säkerhetskopieringsobjektet|
 | OldestRecoveryPointLocation_s |Text |Platsen för den äldsta återställningspunkten för säkerhetskopieringsobjektet|

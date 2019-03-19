@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 914dcd02f2d35d56b50169967ca1f5c251a6e6f3
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 420c81f6206c777efc303924d81763f5984aba4c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408623"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993391"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – vanliga frågor och svar
 Den här artikeln innehåller vanliga frågor och svar om Azure Backup-tjänsten.
@@ -93,7 +93,7 @@ Ja.
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Vilka operativsystem som stöds för säkerhetskopiering?
 Azure Backup stöder dessa operativsystem för att säkerhetskopiera filer och mappar och appar som skyddas av Azure Backup Server och DPM.
 
-**OS**| **SKU** |**Detaljer**
+**OS** | **SKU** | **Detaljer**
 --- | --- | ---
 Arbetsstation | |
 Windows 10 64-bitars | Enterprise, Pro, Home | Datorer ska köra den senaste services Pack och uppdateringar.
@@ -118,7 +118,7 @@ Azure Backup stöder för Azure VM Linux säkerhetskopior [lista över distribut
 Storlekar gränser är följande:
 
 OS/dator | Storleksgräns för datakälla
---- | --- | ---
+--- | --- 
 Windows 8 eller senare | 54 400 GB
 Windows 7 |1 700 GB
 Windows Server 2012 eller senare | 54 400 GB

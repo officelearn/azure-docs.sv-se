@@ -3,16 +3,15 @@ title: Azure Data Factory mappning Dataomvandling Flow mottagare
 description: Azure Data Factory mappning Dataomvandling Flow mottagare
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: dba043721c2d81b7fe2c254f62328e54bb959cdc
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3829fb3c045b149552d3f022e31f30f9cfae8182
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729380"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852448"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Mappningen Dataomvandling Flow mottagare
 
@@ -35,27 +34,17 @@ För Azure Storage Blob eller Data Lake typer av mottagare kommer du sparar omva
 
 ![Alternativ för mottagare](media/data-flow/opt001.png "alternativ för mottagare")
 
-### <a name="output-settings"></a>Inställningar för utdata
-
-Skriv över trunkera tabellen om den finns, sedan återskapa den och läsa in data. Lägg till att infoga nya rader. Om tabellen från tabellnamnet datauppsättningen inte finns alls i mål-ADW, ska dataflöde skapa tabellen och sedan läsa in data.
-
-Om du avmarkerar ”Automatisk karta” kan mappa du fälten till din måltabell manuellt.
-
-![Mottagare ADW alternativ](media/data-flow/adw2.png "adw mottagare")
-
-#### <a name="field-mapping"></a>Fältmappning
+## <a name="field-mapping"></a>Fältmappning
 
 På fliken mappning för den mottagare omvandlingen kan du mappa kolumnerna inkommande (vänster sida) till målet (höger sida). När du mottagare dataflöden för filer skrivs ADF alltid nya filer till en mapp. När du ansluter till en databas-datauppsättning, du kan välja att antingen skapa en ny tabell med det här schemat (värdet spara principen ”Skriv över”) eller infoga nya rader i en befintlig tabell och mappa fälten till det befintliga schemat.
 
 Du kan använda flerval i mappningstabellen länka flera kolumner med ett enda klick, ta bort länk från flera kolumner eller mappa flera rader till samma kolumn.
 
+När du vill ta den inkommande uppsättningen fält och mappa den till ett mål som alltid-är, ställa in inställningen ”Tillåt schemat Drift”.
+
 ![Fältmappning](media/data-flow/multi1.png "flera alternativ")
 
 Om du vill återställa dina kolumnmappningar genom att trycka på knappen ”mappa om” att återställa mappningarna.
-
-![Anslutningar](media/data-flow/maxcon.png "Anslutningar")
-
-### <a name="updates-to-sink-transformation-for-adf-v2-ga-version"></a>Uppdateringar till mottagare omvandlingen av ADF V2 GA-versionen
 
 ![Alternativ för mottagare](media/data-flow/sink1.png "mottagare en")
 
@@ -65,7 +54,7 @@ Om du vill återställa dina kolumnmappningar genom att trycka på knappen ”ma
 
 * Ta bort mappen. ADF trunkerar mappinnehåll mottagare innan du skriver målfilerna i den målmappen.
 
-* Alternativ för namn
+## <a name="file-name-options"></a>Alternativ för namn
 
    * Standard: Gör att Spark kan namnge filer baserat på standardinställningarna för en del
    * Mönster: Ange ett namn för din utdatafiler
@@ -75,14 +64,19 @@ Om du vill återställa dina kolumnmappningar genom att trycka på knappen ”ma
 > [!NOTE]
 > Filåtgärder körs bara när du kör aktiviteten kör dataflöde inte i Data flöda felsökningsläge
 
-Du kan ange med SQL-typer för mottagare:
+## <a name="database-options"></a>Databasalternativ
 
-* Trunkera tabellen
-* Skapa tabellen (utför släpp/skapa)
-* Batchstorlek för stora mängder data läses in. Ange ett tal till bucketen skrivningar i segment.
+* Tillåt insert-, update-, delete-, upsertar. Standardvärdet är att tillåta infogningar. Om du vill uppdatera, upsert eller infoga rader måste du först lägga till en alter rad transformering taggen rader för dessa specifika åtgärder.
+* Trunkera tabellen (tar bort alla rader från din måltabellen innan du slutför dataflödet)
+* Skapa tabellen (utför släpp/skapa din måltabellen innan du slutför dataflödet)
+* Batchstorlek för stora mängder data läses in. Ange ett tal till bucketen skrivningar i segment
+* Aktivera mellanlagring: Detta instruerar ADF om du vill använda Polybase vid inläsning av Azure Data Warehouse som din datauppsättning för mottagare
 
-![Fältmappning](media/data-flow/sql001.png "SQL-alternativ")
+![Alternativ för SQL-mottagare](media/data-flow/alter-row2.png "SQL-alternativ")
+
+> [!NOTE]
+> När du uppdaterar eller tar bort rader i databasen-mottagaren, måste du ange nyckelkolumn. På så sätt kan Alter rad kan fastställa unik rad i DML.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har skapat ditt dataflöde, lägga till en [köra Data flödesaktivitet till din pipeline](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview).
+Nu när du har skapat ditt dataflöde, lägga till en [köra Data flödesaktivitet till din pipeline](concepts-data-flow-overview.md).

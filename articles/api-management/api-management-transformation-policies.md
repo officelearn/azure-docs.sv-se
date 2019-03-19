@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 3d5962ec097c5cd72693530328b710af915054d0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 72348085a69746306e40029bc7473df271b60221
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768920"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105292"
 ---
 # <a name="api-management-transformation-policies"></a>API Management-principer för anspråksomvandling
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -289,13 +289,13 @@ I det här exemplet dirigerar principen begäran till en service fabric-serverde
 
 > [!IMPORTANT]
 >  Observera att som standard när du har åtkomst till meddelandet body med `context.Request.Body` eller `context.Response.Body`, ursprungliga meddelandetexten går förlorad och måste anges genom att returnera innehållet i uttrycket. För att bevara brödtext, ange den `preserveContent` parameter `true` vid åtkomst till meddelandet. Om `preserveContent` är inställd på `true` och en annan text returnerades av uttrycket returnerade brödtext används.
->
+> 
 >  Observera följande när du använder den `set-body` principen.
->
->  -   Om du använder den `set-body` princip för att returnera en ny eller uppdaterad text som du inte behöver ange `preserveContent` till `true` eftersom tillhandahåller du uttryckligen de nya innehållet i meddelandetexten.
-> -   Behålla innehållet i ett svar i den inkommande pipelinen vara inte meningsfullt eftersom det finns inget svar ännu.
-> -   Behålla innehållet i en begäran i utgående pipelinen vara inte meningsfullt eftersom begäran har redan skickats till serverdelen i det här läget.
-> -   Om den här principen används när det finns inga meddelandetexten, till exempel i en inkommande GET, genereras ett undantagsfel.
+> 
+> - Om du använder den `set-body` princip för att returnera en ny eller uppdaterad text som du inte behöver ange `preserveContent` till `true` eftersom tillhandahåller du uttryckligen de nya innehållet i meddelandetexten.
+>   -   Behålla innehållet i ett svar i den inkommande pipelinen vara inte meningsfullt eftersom det finns inget svar ännu.
+>   -   Behålla innehållet i en begäran i utgående pipelinen vara inte meningsfullt eftersom begäran har redan skickats till serverdelen i det här läget.
+>   -   Om den här principen används när det finns inga meddelandetexten, till exempel i en inkommande GET, genereras ett undantagsfel.
 
  Mer information finns i den `context.Request.Body`, `context.Response.Body`, och `IMessage` avsnitten i den [sammanhangsvariabel](api-management-policy-expressions.md#ContextVariables) tabell.
 
@@ -586,11 +586,11 @@ OriginalUrl.
 ##  <a name="RewriteURL"></a> Omskrivningswebbadressen
  Den `rewrite-uri` princip konverterar en begärd URL från sin offentliga form i formuläret som förväntas av webbtjänsten som visas i följande exempel.
 
--   Offentlig URL- `http://api.example.com/storenumber/ordernumber`
+- Offentlig URL- `http://api.example.com/storenumber/ordernumber`
 
--   Fråge-URL- `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
+- Fråge-URL- `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
 
- Den här principen kan användas när en mänsklig och/eller webbläsare-vänlig URL ska omvandlas till URL-format som förväntas av webbtjänsten. Den här principen måste endast tillämpas när exponera ett annat URL-format, till exempel ren URL: er, RESTful URL: er, användarvänliga webbadresser eller SEO-vänlig URL: er som är helt och hållet strukturella URL: er som inte innehåller en frågesträng och i stället innehåller endast sökvägen till resursen ( efter schemat och behörighet). Detta sker ofta för dess estetiska egenskaper, användbarhet eller sökmotor optimeringssyfte (SEO).
+  Den här principen kan användas när en mänsklig och/eller webbläsare-vänlig URL ska omvandlas till URL-format som förväntas av webbtjänsten. Den här principen måste endast tillämpas när exponera ett annat URL-format, till exempel ren URL: er, RESTful URL: er, användarvänliga webbadresser eller SEO-vänlig URL: er som är helt och hållet strukturella URL: er som inte innehåller en frågesträng och i stället innehåller endast sökvägen till resursen ( efter schemat och behörighet). Detta sker ofta för dess estetiska egenskaper, användbarhet eller sökmotor optimeringssyfte (SEO).
 
 > [!NOTE]
 >  Du kan bara lägga till frågesträngparametrar som använder principen. Du kan inte lägga till extra sökväg mallparametrar i Skriv om URL-Adressen.

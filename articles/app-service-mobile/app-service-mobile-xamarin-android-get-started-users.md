@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: panarasi
-ms.openlocfilehash: d496801894560310a4225eae8a32fced52bcc428
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0a2d964d60d13f0e71de5776112a4edbe3cdcc45
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063548"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993913"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Lägg till autentisering i din Xamarin.Android-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -57,7 +57,7 @@ Appen har uppdaterats så för att användarna trycker du på den **logga in** k
 
 1. Lägg till följande kod till den **TodoActivity** klass:
    
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
         private async Task<bool> Authenticate()
         {
@@ -96,7 +96,7 @@ Appen har uppdaterats så för att användarna trycker du på den **logga in** k
     Detta skapar en ny metod för att autentisera en användare och en metod-hanterare för en ny **logga in** knappen. Användaren i exempelkoden ovan autentiseras med hjälp av en Facebook-inloggning. En dialogruta som används för att visa det användar-ID som autentiseras en gång.
    
    > [!NOTE]
-   > Om du använder en identitetsprovider än Facebook, ändrar du värdet som skickas till **LoginAsync** ovan till något av följande: *MicrosoftAccount*, *Twitter*,  *Google*, eller *WindowsAzureActiveDirectory*.
+   > Om du använder en identitetsprovider än Facebook, ändrar du värdet som skickas till **LoginAsync** ovan till något av följande: *MicrosoftAccount*, *Twitter*, *Google*, eller *WindowsAzureActiveDirectory*.
    > 
    > 
 2. I den **OnCreate** metod, ta bort eller kommentera följande rad med kod:
@@ -130,7 +130,7 @@ Appen har uppdaterats så för att användarna trycker du på den **logga in** k
 
 **Programmet kraschade med `Java.Lang.NoSuchMethodError: No static method startActivity`**
 
-I vissa fall är i konflikt i supportpaket visas som bara en varning i Visual studio, men programkrascher med det här undantaget vid körning. I det här fallet måste du se till att alla supportpaket som refereras till i ditt projekt har samma version. Den [Azure Mobile Apps NuGet-paket](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) har `Xamarin.Android.Support.CustomTabs` beroende för Android-plattformen, så om projektet använder nyare support paket du behöver installera det här paketet med version som krävs direkt för att undvika konflikter.
+I vissa fall är i konflikt i supportpaket visas som bara en varning i Visual studio, men programkrascher med det här undantaget vid körning. I det här fallet måste du se till att alla supportpaket som refereras till i ditt projekt har samma version. [Azure Mobile Apps NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) har ett `Xamarin.Android.Support.CustomTabs`-beroende för Android-plattformen, så om ditt projekt använder nyare supportpaket behöver du installera det här paketet i erfordrad version direkt för att undvika konflikter.
 
 <!-- URLs. -->
 [Skapa en Xamarin.Android-app]: app-service-mobile-xamarin-android-get-started.md

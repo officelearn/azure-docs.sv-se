@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9a819f94ae0cc90d86fdbdf4c9201f1d5a2df6ee
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e3a84bfa643ebe74983bcef0d0ea72c701ffa589
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213352"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170504"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Hur du loggar in dialogrutor i en Konversationsdeltagare-modell
 
@@ -55,6 +55,8 @@ Den här modellen innehåller en entitet med namnet ”stad” och åtgärder so
 9. Välj svar ”vädret i Austin är förmodligen vackert”.
 10. Klicka på knappen ”Spara som träna dialogrutan”.
     - Träning har startats omedelbart
+
+![](../media/T11_logdialog.png)
 
 Senaste en anteckning. Beroende på företagets behov, kan konversationsfunktion för loggning stängas av genom att gå till inställningar och avmarkera ”Log konversationer”.
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3488ac27-0417-4ad9-b9a3-08325fe8ea0d
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e86ede90a19d829e87b47d49fa4a12a17fe1d5c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 617a01fdce71e76cf4783ee6a274ee428b0b3b57
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867056"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903577"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Självstudier: Azure Active Directory-integrering med Snowflake
 
@@ -34,7 +34,7 @@ Genom att integrera Snowflake med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Snowflake behöver du följande objekt:
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Snowflake i Azure AD behöver du lägga till
 
 **Utför följande steg för att lägga till Snowflake från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -134,29 +134,29 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med hj�
 
 ### <a name="configure-snowflake-single-sign-on"></a>Konfigurera enkel inloggning för Snowflake
 
-8. Logga in på Snowflake som säkerhetsadministratör i ett annat webbläsarfönster.
+1. Logga in på Snowflake som säkerhetsadministratör i ett annat webbläsarfönster.
 
-9. **Växla roll** till **ACCOUNTADMIN** genom att klicka på **profil** högst upp till höger på sidan.
+1. **Växla roll** till **ACCOUNTADMIN** genom att klicka på **profil** högst upp till höger på sidan.
 
     > [!NOTE]
     > Det här är inte samma som den kontext du har valt i det övre högra hörnet under ditt användarnamn
     
     ![Snowflake-administratören](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
-10. Öppna det **nedladdade Base64-certifikatet** i anteckningar. Kopiera värdet mellan ”---BEGIN CERTIFICATE---” och ”---END CERTIFICATE---” och klistra in det i de dubbla citattecknen bredvid **certifikat** nedan. I **ssoUrl** klistrar du in värdet för **Inloggnings-URL** som du har kopierat från Azure-portalen. Välj **Alla frågor** och klicka på **Kör**.
+1. Öppna det **nedladdade Base64-certifikatet** i anteckningar. Kopiera värdet mellan ”---BEGIN CERTIFICATE---” och ”---END CERTIFICATE---” och klistra in det i de dubbla citattecknen bredvid **certifikat** nedan. I **ssoUrl** klistrar du in värdet för **Inloggnings-URL** som du har kopierat från Azure-portalen. Välj **Alla frågor** och klicka på **Kör**.
 
-    ![Snowflake-sql](./media/snowflake-tutorial/tutorial_snowflake_sql.png)
+   ![Snowflake-sql](./media/snowflake-tutorial/tutorial_snowflake_sql.png)
 
-    ```
-    use role accountadmin;
-    alter account set saml_identity_provider = '{
-    "certificate": "<Paste the content of downloaded certificate from Azure portal>",
-    "ssoUrl":"<Login URL value which you have copied from the Azure portal>",
-    "type":"custom",
-    "label":"AzureAD"
-    }';
-    alter account set sso_login_page = TRUE;
-    ```
+   ```
+   use role accountadmin;
+   alter account set saml_identity_provider = '{
+   "certificate": "<Paste the content of downloaded certificate from Azure portal>",
+   "ssoUrl":"<Login URL value which you have copied from the Azure portal>",
+   "type":"custom",
+   "label":"AzureAD"
+   }';
+   alter account set sso_login_page = TRUE;
+   ```
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -176,14 +176,14 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att bevilja åtkomst till Snowflake.
 
@@ -232,7 +232,7 @@ Om du vill ge Azure AD-användare möjlighet att logga in på Snowflake måste d
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
 När du klickar på Snowflake-panelen i åtkomstpanelen så borde du automatiskt loggas in på den Snowflake som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

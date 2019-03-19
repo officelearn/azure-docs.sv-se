@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bb84c7d5e483b0a2abc3b7d1a37de8760513d203
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: e525e5584e4835b0f2b73203c818c3f799b77cf5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063224"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075722"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Skapa variabler för att spara och hantera värden i Azure Logic Apps
 
@@ -74,9 +74,9 @@ Du kan skapa en variabel och deklarera dess datatyp och ursprungsvärdet – all
 
    | Egenskap  | Krävs | Value |  Beskrivning |
    |----------|----------|-------|--------------|
-   | Name | Ja | <*variabeln-name*> | Namnet på variabeln för att öka | 
+   | Name | Ja | <*variable-name*> | Namnet på variabeln för att öka | 
    | Type | Ja | <*typ av variabel*> | Datatypen för variabeln | 
-   | Value | Nej | <*Start-värde*> | Det inledande värdet för variabeln <p><p>**Tips!** Även om det är valfritt, ange ett värde som bästa praxis så att du alltid vet startvärdet för variabeln. | 
+   | Value | Nej | <*start-value*> | Det inledande värdet för variabeln <p><p>**Tips!** Även om det är valfritt, ange ett värde som bästa praxis så att du alltid vet startvärdet för variabeln. | 
    ||||| 
 
    ![Initiera variabel](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -210,8 +210,8 @@ Att öka eller *ökningen* en variabel med ett konstant värde, lägga till den 
 
    | Egenskap  | Krävs | Value |  Beskrivning |
    |----------|----------|-------|--------------|
-   | Name | Ja | <*variabeln-name*> | Namnet på variabeln för att öka | 
-   | Value | Nej | <*öka värdet*> | Det värde som används för att öka variabeln. Standardvärdet är en. <p><p>**Tips!** Även om det är valfritt, ange ett värde som bästa praxis så att du alltid vet det specifika värdet för variabeln som ökar. | 
+   | Name | Ja | <*variable-name*> | Namnet på variabeln för att öka | 
+   | Value | Nej | <*increment-value*> | Det värde som används för att öka variabeln. Standardvärdet är en. <p><p>**Tips!** Även om det är valfritt, ange ett värde som bästa praxis så att du alltid vet det specifika värdet för variabeln som ökar. | 
    |||| 
 
    Exempel: 
@@ -330,8 +330,8 @@ Här följer egenskaperna för den **minska variabel** åtgärd:
 
 | Egenskap  | Krävs | Value |  Beskrivning |
 |----------|----------|-------|--------------|
-| Name | Ja | <*variabeln-name*> | Namnet på variabeln för att minska | 
-| Value | Nej | <*öka värdet*> | Värdet för minska variabeln. Standardvärdet är en. <p><p>**Tips!** Även om det är valfritt, ange ett värde som bästa praxis så att du alltid vet det specifika värdet för minska variabeln. | 
+| Name | Ja | <*variable-name*> | Namnet på variabeln för att minska | 
+| Value | Nej | <*increment-value*> | Värdet för minska variabeln. Standardvärdet är en. <p><p>**Tips!** Även om det är valfritt, ange ett värde som bästa praxis så att du alltid vet det specifika värdet för minska variabeln. | 
 ||||| 
 
 Om du växlar från designer till vyn Kodredigeraren här är sätt den **minska variabel** åtgärden visas i dina logic app-definition som är i JSON-format.
@@ -365,8 +365,8 @@ Här följer egenskaperna för den **ange variabel** åtgärd:
 
 | Egenskap  | Krävs | Value |  Beskrivning | 
 |----------|----------|-------|--------------| 
-| Name | Ja | <*variabeln-name*> | Namnet på variabeln att ändra | 
-| Value | Ja | <*nytt värde*> | Det värde som du vill tilldela variabeln. Båda måste ha samma datatyp. | 
+| Name | Ja | <*variable-name*> | Namnet på variabeln att ändra | 
+| Value | Ja | <*new-value*> | Det värde som du vill tilldela variabeln. Båda måste ha samma datatyp. | 
 ||||| 
 
 > [!NOTE]
@@ -414,17 +414,18 @@ För variabler som lagrar strängar eller matriser, kan du infoga eller *lägga 
 
 1. Sök efter och välj någon av följande åtgärder baserat på om variabeln är en sträng eller en matris. 
 
-  * **Variabler – lägga till strängvariabeln**
-  * **Variabler – lägga till en matrisvariabel** 
+   * **Variabler – lägga till strängvariabeln**
+   * **Variabler – lägga till en matrisvariabel** 
 
-2. Ange värde att lägga till som det sista objektet i den sträng eller en matris. Det här värdet är obligatoriskt. 
+2. Ange värde att lägga till som det sista objektet i den sträng eller en matris. 
+   Det här värdet är obligatoriskt. 
 
 Här följer egenskaperna för den **läggas till...**  åtgärder:
 
 | Egenskap  | Krävs | Value |  Beskrivning | 
 |----------|----------|-------|--------------| 
-| Name | Ja | <*variabeln-name*> | Namnet på variabeln att ändra | 
-| Value | Ja | <*Lägg till värde*> | Det värde som du vill lägga till, vilket kan ha valfri typ | 
+| Name | Ja | <*variable-name*> | Namnet på variabeln att ändra | 
+| Value | Ja | <*append-value*> | Det värde som du vill lägga till, vilket kan ha valfri typ | 
 |||||  
 
 Om du växlar från designer till vyn Kodredigeraren här är sätt den **Lägg till matrisvariabel** åtgärden visas i dina logic app-definition som är i JSON-format.

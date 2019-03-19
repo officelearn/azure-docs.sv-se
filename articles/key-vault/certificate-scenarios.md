@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 73a09a99b1dd275b20bcd389e9cc391f638e8bdd
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 8b56151ae56de44cbab3003743ce6df33ec89612
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404271"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075637"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Kom igång med Key Vault-certifikat
 Följande scenarier beskriver flera av de primära användningarna av Key Vault-certifikat management-tjänsten, inklusive de ytterligare steg som krävs för att skapa din första certifikatet i ditt nyckelvalv.
@@ -50,12 +50,12 @@ Certifikat består av tre relaterade resurser som länkas samman som ett Key Vau
 
 **Steg 3** -A Contoso admin, tillsammans med Contoso-anställda (Key Vault-användare) som äger certifikat, beroende på ca: N, kan få ett certifikat från administratören eller direkt från kontot med CA: N.  
 
--   Starta en åtgärd med Lägg till autentiseringsuppgifter till ett nyckelvalv av [ställa in en certifikatutfärdare](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) resurs. En certifikatutfärdare är en entitet som representeras i Azure Key Vault (KV) som en CertificateIssuer resurs. Används för att ange information om källan för ett certifikat för KV; Utfärdarens namn, leverantör, autentiseringsuppgifter och andra administrativa uppgifter.
-    -   t.ex. MyDigiCertIssuer  
-        -   Leverantör  
-        -   Autentiseringsuppgifter – autentiseringsuppgifter för CA: N. Varje Certifikatutfärdare har sina egna specifika data.  
+- Starta en åtgärd med Lägg till autentiseringsuppgifter till ett nyckelvalv av [ställa in en certifikatutfärdare](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) resurs. En certifikatutfärdare är en entitet som representeras i Azure Key Vault (KV) som en CertificateIssuer resurs. Används för att ange information om källan för ett certifikat för KV; Utfärdarens namn, leverantör, autentiseringsuppgifter och andra administrativa uppgifter.
+  - t.ex. MyDigiCertIssuer  
+    -   Leverantör  
+    -   Autentiseringsuppgifter – autentiseringsuppgifter för CA: N. Varje Certifikatutfärdare har sina egna specifika data.  
 
-     Mer information om hur du skapar konton med CA-providrar finns i relaterade inlägg på den [Key Vault-bloggen](https://aka.ms/kvcertsblog).  
+    Mer information om hur du skapar konton med CA-providrar finns i relaterade inlägg på den [Key Vault-bloggen](https://aka.ms/kvcertsblog).  
 
 **Steg 3.1** -konfigurera [certifikat kontakter](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) för meddelanden. Det här är kontakten för Key Vault-användaren. Key Vault påtvingar inte det här steget.  
 

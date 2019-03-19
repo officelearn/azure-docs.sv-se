@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 35b4b06a09b8ef7b27e8d105d7f2336668c49f8f
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 1a5b883a8c9688d4545c0e98c00f78a2e982a611
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570869"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079729"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Hur du skickar faktisk Slutanvändarmätning till Traffic Manager med Visual Studio Mobile Center
 
@@ -33,22 +33,22 @@ Om du vill konfigurera Real User Measurements måste du hämta en nyckel och ins
 Mätningar du ta och skickas till Traffic Manager från klientprogrammet identifieras av tjänsten med hjälp av en unik sträng som kallas nyckeln Real User Measurements (ROM). Du kan få en köra nyckel med hjälp av Azure portal, REST-API eller med hjälp av PowerShell / CLI-gränssnitt.
 
 Du kan hämta den ROM-nyckeln med hjälp av Azure portal på följande sätt:
-   1. Logga in på Azure portal från en webbläsare. Om du inte redan har ett konto kan registrera du dig för en kostnadsfri utvärderingsversion för en månad.
-   2. I portalens sökfältet söker du efter namnet på Traffic Manager-profilen som du vill ändra och klicka sedan på Traffic Manager-profilen i resultaten som visas.
-   3. På profilsidan Traffic Manager-klickar du på **Real User Measurements** under **inställningar**.
-   4. Klicka på **Generera nyckel** att skapa en ny ROM-nyckel.
+1. Logga in på Azure portal från en webbläsare. Om du inte redan har ett konto kan registrera du dig för en kostnadsfri utvärderingsversion för en månad.
+2. I portalens sökfältet söker du efter namnet på Traffic Manager-profilen som du vill ändra och klicka sedan på Traffic Manager-profilen i resultaten som visas.
+3. På profilsidan Traffic Manager-klickar du på **Real User Measurements** under **inställningar**.
+4. Klicka på **Generera nyckel** att skapa en ny ROM-nyckel.
         
    ![Generera Real User Measurements nyckel](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
    **Bild 1: Real User Measurements nyckelgenerering**
 
-   5.   Sidan visar ROM-nyckeln som genereras och ett JavaScript-kodfragment som krävs för att bädda in HTML-sidan.
+5. Sidan visar ROM-nyckeln som genereras och ett JavaScript-kodfragment som krävs för att bädda in HTML-sidan.
  
    ![JavaScript-kod för Real User Measurements nyckel](./media/traffic-manager-create-rum-visual-studio/rum-key.png)
 
    **Bild 2: Real User Measurements nyckel och JavaScript-mått**
  
-   6. Klicka på den **kopiera** för att kopiera nyckeln ROM. 
+6. Klicka på den **kopiera** för att kopiera nyckeln ROM. 
 
 ## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>Steg 2: Instrumentera din app i köra Mobile Center SDK-paketet
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: bbfa5ce0e277df3648e98be29fe91a44b15a52b7
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fcea5e4e6bb108f1a8d8036e51a5dae8a9e6431b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262293"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839754"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Azure VM OS gästbrandvägg är felkonfigurerad
 
@@ -98,7 +98,7 @@ Du kan fråga den aktuella statusen för brandväggsregeln i seriell konsolåtko
 
 ### <a name="offline-mitigations"></a>Offline-åtgärder
 
-1.  Om du vill aktivera eller inaktivera brandväggsregler, som avser [aktivera eller inaktivera en brandväggsregel på ett Gästoperativsystem för Azure VM](enable-disable-firewall-rule-guest-os.md).
+1.  Om du vill aktivera eller inaktivera brandväggsregler, som avser [aktivera eller inaktivera en brandväggsregel på Azure VM gäst-OS](enable-disable-firewall-rule-guest-os.md).
 
 2.  Kontrollera om du är i den [gäst-OS i brandväggen blockerar inkommande trafik scenariot](guest-os-firewall-blocking-inbound-traffic.md).
 

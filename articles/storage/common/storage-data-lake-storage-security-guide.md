@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/07/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: fce7beeda352b9add3603fb74c558ad1b64fac2a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 22b070e6d70208057c85ad6a2322cc440d12a0fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895524"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008207"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Säkerhetsguiden för Azure Data Lake Storage Gen2
 
@@ -88,7 +88,7 @@ Här är de viktigaste aspekterna som du behöver veta om hur du använder RBAC 
 
 Lagringskontonycklar är 512 bitar strängar som skapats av Azure som tillsammans med lagringskontonamn, kan användas för att få åtkomst till dataobjekt som lagras i lagringskontot, till exempel, blobbar, entiteter i en tabell, Kömeddelanden och filer på en Azure-filresurs. Kontrollera åtkomst till de storage-konto nycklar kontrollerar åtkomsten till dataplanet för det lagringskontot.
 
-Varje lagringskonto har två nycklar som kallas ”nyckel 1” och ”nyckel 2” i den [Azure-portalen](http://portal.azure.com/) och i PowerShell-cmdlets. Dessa kan återskapas manuellt med hjälp av en eller flera metoder, inklusive men inte begränsat till med hjälp av den [Azure-portalen](https://portal.azure.com/), PowerShell, Azure CLI, eller programmässigt med .NET Storage Client Library eller Azure Storage-tjänster REST-API.
+Varje lagringskonto har två nycklar som kallas ”nyckel 1” och ”nyckel 2” i den [Azure-portalen](https://portal.azure.com/) och i PowerShell-cmdlets. Dessa kan återskapas manuellt med hjälp av en eller flera metoder, inklusive men inte begränsat till med hjälp av den [Azure-portalen](https://portal.azure.com/), PowerShell, Azure CLI, eller programmässigt med .NET Storage Client Library eller Azure Storage-tjänster REST-API.
 
 Det finns många anledningar till att återskapa nycklar för ditt lagringskonto.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5ade3ac7587d4ac5c5a6d8e174e76e76088e4e57
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bc2e41fd5da4737ea1efe329b70964535daff54a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157949"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105972"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som verifiering av indata från användaren
 
@@ -249,10 +249,10 @@ En anspråksprovider kan ha flera tekniska profiler för olika anledningar. Fler
 Följande XML-kodstycke innehåller en anspråk providern nod med två tekniska profiler:
 
 * **TechnicalProfile Id="REST-API-SignUp"**: Definierar RESTful-tjänst.
-   * `Proprietary` beskrivs som protokoll för en RESTful-baserade provider.
-   * `InputClaims` definierar vilka anspråk som skickas från Azure AD B2C till REST-tjänst.
+  * `Proprietary` beskrivs som protokoll för en RESTful-baserade provider.
+  * `InputClaims` definierar vilka anspråk som skickas från Azure AD B2C till REST-tjänst.
 
-   I det här exemplet innehållet i anspråket `givenName` skickar till REST-tjänst som `firstName`, innehållet i anspråket `surname` skickar till REST-tjänst som `lastName`, och `email` skickar skick. Den `OutputClaims` elementet definierar vilka anspråk som hämtas från RESTful-tjänst tillbaka till Azure AD B2C.
+    I det här exemplet innehållet i anspråket `givenName` skickar till REST-tjänst som `firstName`, innehållet i anspråket `surname` skickar till REST-tjänst som `lastName`, och `email` skickar skick. Den `OutputClaims` elementet definierar vilka anspråk som hämtas från RESTful-tjänst tillbaka till Azure AD B2C.
 
 * **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Lägger till en profil för tekniska i en befintlig tekniska profil (definieras i basprincipen). Under registreringen vägen anropar den tekniska profilen verifiering föregående tekniska profil. Om tjänsten RESTful returnerar ett HTTP-fel 409 (en konflikt fel), visas ett felmeddelande för användaren.
 

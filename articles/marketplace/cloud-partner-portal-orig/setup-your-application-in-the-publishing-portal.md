@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7b5bb0bf8ff5fac10c47cf5bdf9564903f4d6b94
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 58be8a222f649abe4be6de272a1ef2b686336262
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448491"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847135"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Konfigurera programmet i Publiceringsportalen
 
@@ -27,16 +27,16 @@ Du är nu redo att konfigurera ditt program i publiceringsportalen.
 
 ## <a name="login-and-create-a-new-offer"></a>Logga in och skapa ett nytt erbjudande
 
-1. Logga in på den [Cloud Partner Portal](http://cloudpartner.azure.com/).
+1. Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com/).
 2. I det vänstra navigeringsfältet, klicka på ”+ New erbjuder” och Välj ”Dynamics 365 för kundengagemang”.
 
 ![Att välja ett nytt erbjudande](./media/CRMScreenShot14.png)
 
-3. Ett nytt erbjudande ”Editor” Visa nu öppnas för dig och vi är redo att börja redigera.
+1. Ett nytt erbjudande ”Editor” Visa nu öppnas för dig och vi är redo att börja redigera.
 
 ![Ny erbjudandet skärm](./media/CRMScreenShot15.png)
 
-4. ”Formulären” som måste fyllas i visas till vänster i vyn ”Editor”. Varje ”form” består av en uppsättning fält som ska fyllas i. Obligatoriskt fält är markerade med en röd asterisk (\*).
+1. ”Formulären” som måste fyllas i visas till vänster i vyn ”Editor”. Varje ”form” består av en uppsättning fält som ska fyllas i. Obligatoriskt fält är markerade med en röd asterisk (\*).
 
 Det finns fyra huvudsakliga formulär för att skapa en Dynamics 365 för kundengagemang erbjudande
 
@@ -88,7 +88,7 @@ Här är en förklaring till dessa fält:
 
 ### <a name="crm-package-availability"></a>Tillgänglighet för CRM-paket
 
-Välj vilka regioner av CRM ditt paket kommer att göras tillgänglig för det här avsnittet. Information som regioner för att hantera vilka länder finns i länken: [http://o365datacentermap.azurewebsites.net/](http://o365datacentermap.azurewebsites.net/)
+Välj vilka regioner av CRM ditt paket kommer att göras tillgänglig för det här avsnittet. Information som regioner för att hantera vilka länder finns i länken: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 Obs! Distribuera till Tyskland ”suveräna och molnet för amerikanska myndigheter” suveräna kräver särskild behörighet och verifiering under CERTIFIKATUTFÄRDARE
 

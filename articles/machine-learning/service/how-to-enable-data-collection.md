@@ -11,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: fa1076fb523c3634cf8e4f4832d36aa7ee715797
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a127a211157edb0b26d0495bc2ed05dd79323111
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816359"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842642"
 ---
 # <a name="collect-data-for-models-in-production"></a>Samla in data för modeller i produktion
 
@@ -50,7 +50,7 @@ Sökvägen till utdata i blob följande följande syntax:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) i dag.
+- Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
 - En Azure Machine Learning-tjänsten arbetsyta, en lokal katalog som innehåller dina skript och Azure Machine Learning-SDK för Python installerat. Lär dig hur du hämtar dessa krav med hjälp av den [så här konfigurerar du en utvecklingsmiljö](how-to-configure-environment.md) dokumentet.
 
@@ -136,15 +136,15 @@ Du kan stoppa insamling av data som helst. Använda Python-kod eller Azure-porta
 
   1. Gå till **distributioner** -> **Välj tjänst** -> **redigera**.
 
-    [![Redigera alternativ](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
+     [![Redigera alternativ](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. I **avancerade inställningar**, avmarkera **aktivera modelldatasamling**. 
 
-    [![Avmarkera datainsamling](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+     [![Avmarkera datainsamling](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
   1. Välj **uppdatering** tillämpa ändringen.
 
-* Alternativ 2 – använda Python för att inaktivera datainsamling:
++ Alternativ 2 – använda Python för att inaktivera datainsamling:
 
   ```python 
   ## replace <service_name> with the name of the web service

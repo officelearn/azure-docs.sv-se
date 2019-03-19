@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/10/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 47a4b3bc1e71c9dacc53ca3ff507768d4a0f20e9
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: efe24f5203c0479c71b565b8cf2c272dc107a96b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510586"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088119"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Självstudie: Skapa en Node.js-webbapp med JavaScript SDK för att hantera ett SQL API-konto i Azure Cosmos DB 
 
@@ -87,7 +87,7 @@ Nu ska vi skapa ett grundläggande Hello World Node.js-projekt med Express-ramve
    
    ![Lär dig använda Node.js – Skärmdump av programmet Hello World i ett webbläsarfönster](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
- Stoppa programmet genom att trycka på CTRL+C i terminalfönstret. Välj sedan **y** för att avbryta batchjobbet.
+   Stoppa programmet genom att trycka på CTRL+C i terminalfönstret. Välj sedan **y** för att avbryta batchjobbet.
 
 ## <a name="_Toc395783179"></a>Installera de moduler som krävs
 
@@ -99,7 +99,7 @@ Filen **package.json** är en av filerna som skapas i projektets rot. Den här f
    npm install async --save
    ```
 
-2. Installera modulen **@azure/cosmos** via npm. 
+2. Installera den  **\@azure/cosmos** modulen via npm. 
 
    ```bash
    npm install @azure/cosmos
@@ -183,7 +183,7 @@ Nu när du har slutfört den första installationen och konfigurationen kommer d
       const { body } = await this.container.item(itemId).read();
       return body;
     }
-  }
+   }
 
    module.exports = TaskDao;
    ```
@@ -243,9 +243,9 @@ Nu när du har slutfört den första installationen och konfigurationen kommer d
 
       res.redirect("/");
     }
-  }
+   }
 
-  module.exports = TaskList;
+   module.exports = TaskList;
    ```
 
 3. Spara och stäng filen **tasklist.js**.

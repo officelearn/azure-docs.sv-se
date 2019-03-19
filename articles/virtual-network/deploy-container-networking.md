@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 62d19432cba431bce4485aaa2af3e0a23ad8b5f6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 657c23ad410d7aade17b3153f02ba0138edf4250
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970982"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104105"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Distribuera plugin-programmet Azure Virtual Network CNI
 
@@ -95,10 +95,10 @@ Utför följande steg för att installera plugin-programmet på varje virtuell A
 1. [Ladda ned och installera plugin-programmet](#download-and-install-the-plug-in).
 2. Förallokera en IP-adresspool för virtuellt nätverk på alla virtuella datorer från vilka IP-adresser ska tilldelas till poddar. Varje virtuell Azure-dator har en primär privat IP-adress i varje nätverksgränssnitt. Adresserna i IP-adresspoolen för poddar läggs till som sekundära adresser (*ipconfigs*) i nätverksgränssnittet med ett av följande alternativ:
 
-   - **CLI**: [Tilldela flera IP-adresser med Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
-   - **PowerShell**: [Tilldela flera IP-adresser med PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-   - **CLI**: [Tilldela flera IP-adresser med Azure-portalen](virtual-network-multiple-ip-addresses-portal.md)
-   - **Azure Resource Manager-mall**: [Tilldela flera IP-adresser med mallar](virtual-network-multiple-ip-addresses-template.md)
+   - **CLI**: [tilldela flera IP-adresser med hjälp av Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
+   - **PowerShell**: [tilldela flera IP-adresser med hjälp av PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+   - **Portalen**: [tilldela flera IP-adresser med hjälp av Azure portal](virtual-network-multiple-ip-addresses-portal.md)
+   - **Azure Resource Manager-mall**: [tilldela flera IP-adresser med hjälp av mallar](virtual-network-multiple-ip-addresses-template.md)
 
    Se till att du lägger till tillräckligt med IP-adresser för alla poddar som du tänker ha på den virtuella datorn.
 
@@ -106,13 +106,13 @@ Utför följande steg för att installera plugin-programmet på varje virtuell A
 4. Om du vill att poddarna ska ha åtkomst till Internet lägger du till följande *iptables*-regel i din Internettrafik från virtuella Linux-datorer till käll-NAT. I följande exempel är det angivna IP-intervallet 10.0.0.0/8.
 
    ```bash
-   iptables -t nat -A POSTROUTING -m iprange ! --dst-range 168.63.129.16 -m
+   iptables -t nat -A POSTROUTING -m iprange ! --dst-range 168.63.129.16 -m
    addrtype ! --dst-type local ! -d 10.0.0.0/8 -j MASQUERADE
    ```
 
    Reglerna för NAT-trafik som inte är avsedd för de angivna IP-intervallen. Här antas att all trafik utanför de föregående intervallen är Internettrafik. Du kan välja att ange IP-intervall för den virtuella datorns virtuella nätverk, för peerkopplade virtuella nätverk och lokala nätverk.
 
-  Virtuella Windows-datorer identifierar automatiskt källan för NAT-trafik som har ett mål som är utanför det undernät som den virtuell datorn tillhör. Det går inte att ange anpassade IP-intervall.
+   Virtuella Windows-datorer identifierar automatiskt källan för NAT-trafik som har ett mål som är utanför det undernät som den virtuell datorn tillhör. Det går inte att ange anpassade IP-intervall.
 
 När du har slutfört föregående steg tilldelas de poddar som visas på virtuella Kubernetes Agent-datorer automatiskt privata IP-adresser från det virtuella nätverket.
 
@@ -157,12 +157,12 @@ CNI-nätverkskonfigurationsfilen beskrivs i JSON-format. Den finns som standard 
 
 #### <a name="settings-explanation"></a>Förklaring till inställningar
 
-- **cniVersion**: Azure Virtual Network CNI-plugin-program stöder version 0.3.0 och 0.3.1 av [CNI spec](https://github.com/containernetworking/cni/blob/master/SPEC.md).
+- **cniVersion**: Azure virtuellt nätverk CNI plugin-program har stöd för versioner 0.3.0-betaversionen och 0.3.1 av den [CNI spec](https://github.com/containernetworking/cni/blob/master/SPEC.md).
 - **name**: Namnet på nätverket. Den här egenskapen kan anges till ett unikt värde.
-- **type**: Namnet på nätverksplugin-programmet. Ange *azure-vnet*.
-- **mode**: Funktionsläge. Det här fältet är valfritt. Det enda läge som stöds är ”bridge”. Mer information finns i [funktionslägen](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md).
-- **bridge**: Namnet på bryggan som ska användas för att ansluta containrar till ett virtuellt nätverk. Det här fältet är valfritt. Om fältet utelämnas väljer plugin-programmet automatiskt ett unikt namn, baserat på huvudgränssnittsindex.
-- **ipam type**: Namnet på IPAM-plugin-programmet. Ange alltid *azure-vnet-ipam*.
+- **Typ**: Namnet på nätverket som plugin-programmet. Ange *azure-vnet*.
+- **mode**: Arbetsläge. Det här fältet är valfritt. Det enda läge som stöds är ”bridge”. Mer information finns i [arbetslägen](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md).
+- **bridge**: Namnet på bryggan som ska användas för att ansluta behållare till ett virtuellt nätverk. Det här fältet är valfritt. Om fältet utelämnas väljer plugin-programmet automatiskt ett unikt namn, baserat på huvudgränssnittsindex.
+- **typ av IPAM**: Namnet på IPAM plugin-programmet. Alltid inställt *azure-vnet-ipam*.
 
 ## <a name="download-and-install-the-plug-in"></a>Ladda ned och installera plugin-programmet
 

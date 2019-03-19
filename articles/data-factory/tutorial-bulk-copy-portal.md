@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 37aa248af30c4beae3f9d170174842c908933339
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 16741461df2431cbf4433899dd375741e944ce0f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020021"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112576"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Kopiera flera tabeller i grupp med Azure Data Factory
 I den här självstudien visas hur du **kopierar ett antal tabeller från Azure SQL Database till Azure SQL Data Warehouse**. Du kan även använda samma mönster i andra kopieringssituationer. Till exempel kan du kopiera tabeller från SQL Server/Oracle till Azure SQL Database/Data Warehouse/Azure Blob eller kopiera olika sökvägar från Blob till Azure SQL Database-tabeller.
@@ -47,7 +47,7 @@ I det här scenariot har du ett antal tabeller i Azure SQL Database som du vill 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * **Azure Storage-konto**. Azure Storage-kontot används för mellanlagring för Blob Storage i masskopieringsåtgärden. 
 * **Azure SQL Database**. Den här databasen innehåller källdata. 
 * **Azure SQL Data Warehouse**. Det här datalagret innehåller de data som kopieras från SQL Database. 
@@ -87,24 +87,24 @@ Ge Azure-tjänster åtkomst till SQL-servern för både SQL Database och SQL Dat
 1. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i. 
 1. För **resursgruppen** utför du något av följande steg:
      
-      - Välj **Använd befintlig** och välj en befintlig resursgrupp i listrutan. 
-      - Välj **Skapa ny** och ange namnet på en resursgrupp.   
+   - Välj **Använd befintlig** och välj en befintlig resursgrupp i listrutan. 
+   - Välj **Skapa ny** och ange namnet på en resursgrupp.   
          
-      Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
+     Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
 1. Välj **V2** för **versionen**.
 1. Välj **plats** för datafabriken. Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 1. Välj **fäst till instrumentpanelen**.     
 1. Klicka på **Skapa**.
 1. På instrumentpanelen visas följande panel med statusen: **Distribuerar datafabrik**. 
 
-    ![panelen distribuerar datafabrik](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
+     ![panelen distribuerar datafabrik](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
 1. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
    
-    ![Datafabrikens startsida](./media/tutorial-bulk-copy-portal/data-factory-home-page.png)
+     ![Datafabrikens startsida](./media/tutorial-bulk-copy-portal/data-factory-home-page.png)
 1. Klicka på panelen **Författare och övervakare** för att starta användargränssnittet för Data Factory på en separat flik.
 1. På sidan **kom igång** växlar du till fliken **Redigera** på den vänstra panelen som på följande bild:  
 
-    ![Sidan Kom igång](./media/tutorial-bulk-copy-portal/get-started-page.png)
+     ![Sidan Kom igång](./media/tutorial-bulk-copy-portal/get-started-page.png)
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 Du kan skapa länkade tjänster för att länka dina datalager och beräkna till en datafabrik. En länkad tjänst har anslutningsinformationen som Data Factory-tjänsten använder för att ansluta till datalagret i körningsfasen. 
@@ -179,10 +179,10 @@ I den här självstudien är käll- och måltabellerna i SQL inte hårdkodade i 
 
 1. Växla till fliken **Anslutning** och gör följande: 
 
-    1. Välj **AzureSqlDatabaseLinkedService** som **länkad tjänst**.
-    1. Välj valfri tabell för **Tabell**. Den här tabellen är en dummytabell. Du anger en fråga för källdatauppsättningen när du skapar en pipeline. Frågan används för att extrahera data från Azure SQL-databasen. Du kan även klicka i kryssrutan **Redigera** och ange **dummyName** som tabellnamn. 
+   1. Välj **AzureSqlDatabaseLinkedService** som **länkad tjänst**.
+   1. Välj valfri tabell för **Tabell**. Den här tabellen är en dummytabell. Du anger en fråga för källdatauppsättningen när du skapar en pipeline. Frågan används för att extrahera data från Azure SQL-databasen. Du kan även klicka i kryssrutan **Redigera** och ange **dummyName** som tabellnamn. 
 
-    ![Sida för källdatauppsättningsanslutning](./media/tutorial-bulk-copy-portal/source-dataset-connection-page.png)
+      ![Sida för källdatauppsättningsanslutning](./media/tutorial-bulk-copy-portal/source-dataset-connection-page.png)
  
 
 ### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>Skapa en datauppsättning för SQL Data Warehouse-mottagaren

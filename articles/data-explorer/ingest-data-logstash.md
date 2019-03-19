@@ -8,18 +8,18 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/14/2019
-ms.openlocfilehash: 4b5934123f5bb7fa9eaa2c67c212bcef2a5de0aa
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 01115524ae3890c1d6a0220bcf89e86090d148cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54479278"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078881"
 ---
 # <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Snabbstart: Mata in data från Logstash i Azure Data Explorer
 
 [Logstash](https://www.elastic.co/products/logstash) är en databearbetningspipeline för serversidan med öppen källkod som matar in data från många källor samtidigt, transformerar data och sedan skickar data till din favoritlagring. I den här snabbstarten skickar du dessa data till Azure Data Explorer, som är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Först skapar du en tabell och datamappning i ett testkluster, och sedan instruerar du Logstash att skicka data till tabellen och verifiera resultatet.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * Ett Azure Data Explorer-[testkluster och en databas](create-cluster-database-portal.md)
@@ -108,7 +108,7 @@ output {
 ```
 
 | Parameternamn | Beskrivning |
-| --- | --- | --- |
+| --- | --- |
 | **path** | Logstash-plugin-programmet skriver händelser till tillfälliga filer innan de skickas till Azure Data Explorer. Den här parametern innehåller en sökväg dit filerna ska skrivas och ett tidsuttryck för filrotation för att utlösa en uppladdning till Azure Data Explorer-tjänsten.|
 | **ingest_url** | Kusto-slutpunkten för inmatningsrelaterad kommunikation.|
 | **app_id**, **app_key** och **app_tenant**| Autentiseringsuppgifter som krävs för att ansluta till Azure Data Explorer. Se till att använda ett program med inmatningsbehörighet. |

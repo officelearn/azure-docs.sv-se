@@ -1,6 +1,6 @@
 ---
 title: Lägg till övervakning och diagnostik i Azure-datorer | Microsoft Docs
-description: Använd en Azure Resource Manager-mall för att skapa en ny Windows virtuell dator med Azure diagnostics-tillägg.
+description: Använda en Azure Resource Manager-mall för att skapa en ny Windows-dator med Azure diagnostics-tillägg.
 services: virtual-machines-windows
 documentationcenter: ''
 author: sbtron
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 85e9b49cb8be1a3f53ca0f3b4816e6165b68bde0
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 00b4a145da9104cab410c5a07f6d7ec5ded5c45d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993118"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893551"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Använda övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager-mallar
 Azure Diagnostics-tillägget innehåller funktioner för övervakning och diagnostik på en Windows-baserade Azure--dator. Du kan aktivera de här funktionerna på den virtuella datorn genom att inkludera tillägget som en del av Azure Resource Manager-mallen. Se [redigera Azure Resource Manager-mallar med VM-tillägg](../windows/template-description.md#extensions) för mer information om bland annat alla tillägg som en del av en mall för virtuella datorer. Den här artikeln beskrivs hur du kan lägga till Azure-diagnostiktillägget i en windows-mall för virtuella datorer.  
@@ -162,7 +162,7 @@ Mått konfigurationen ovan skapar tabeller i ditt lagringskonto för diagnostik 
 * **PT1H** eller **PT1M**: Innebär det att tabellen innehåller aggregerade data över en timme eller minut
 * **P10D**: Innebär det att tabellen innehåller data för 10 dagar från när tabellen startade insamling av data
 * **V2S**: Strängkonstant
-* **ÅÅÅÅMMDD**: Det datum då tabellen igång insamling av data
+* **yyyymmdd**: Det datum då tabellen igång insamling av data
 
 Exempel: *WADMetricsPT1HP10DV2S20151108* innehåller mätvärden samman under en timme för 10 dagar från och med 11 november 2015    
 
@@ -172,7 +172,7 @@ Varje WADMetrics tabell innehåller följande kolumner:
 * **RowKey**: Följer formatet `<Descending time tick>:<Performance Counter Name>`. Fallande tid skalstreck beräkningen är max tid ticken minus tidpunkten för början av sammanställningsperioden. Till exempel om exemplet period igång på 10 november 2015 och 00:00Hrs UTC sedan beräkningen är: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`. Prestandaräknaren Radnyckeln ser ut för minne tillgängliga byte: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
 * **CounterName**: Är namnet på prestandaräknaren. Detta matchar den *counterSpecifier* definieras i xml-konfigurationen.
 * **Maximal**: Det högsta värdet för prestandaräknaren för över sammanställningsperioden.
-* **Minsta**: Minimivärdet för prestandaräknare över sammanställningsperioden.
+* **Minimum**: Minimivärdet för prestandaräknare över sammanställningsperioden.
 * **Totalt antal**: Summan av alla värden i prestandaräknaren rapporterat under sammanställningsperioden.
 * **Antal**: Det totala antalet värden som rapporterats för prestandaräknaren.
 * **Genomsnittlig**: Värdet för prestandaräknaren över sammanställningsperioden medelvärde (totalt/antal).

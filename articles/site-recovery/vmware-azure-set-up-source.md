@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 5282f2e153ec2f1304bec9aadaf8fab88961edd9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 536b7ed21e7dd54fcbea97951330b08925961713
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443633"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884973"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Konfigurera källmiljön för VMware till Azure replikering
 
@@ -24,7 +24,7 @@ Den här artikeln beskriver hur du ställer in din lokala miljö källa för att
 Artikeln förutsätter att du redan har:
 
 - Planerat distributionen med hjälp av [Azure Site Recovery Deployment Planner](site-recovery-deployment-planner.md). Detta hjälper dig att allokera tillräckligt mycket bandbredd, baserat på din dagliga dataändringshastighet, att uppfylla dina önskade mål för återställningspunkt (RPO).
-- [Konfigurera resurser](tutorial-prepare-azure.md) i den [Azure-portalen](http://portal.azure.com).
+- [Konfigurera resurser](tutorial-prepare-azure.md) i den [Azure-portalen](https://portal.azure.com).
 - [Konfigurera en lokal VMware](vmware-azure-tutorial-prepare-on-premises.md), inklusive ett särskilt konto för automatisk identifiering.
 
 ## <a name="choose-your-protection-goals"></a>Välja skyddsmål
@@ -58,18 +58,18 @@ Undanta följande mappar från antivirusprogrammet för smooth replikering och f
 - C:\Program Files\Microsoft Azure Site Recovery-providern
 - C:\Program Files\Microsoft Azure Site Recovery Configuration Manager 
 - C:\Program Files\Microsoft Azure Site Recovery fel samling verktyg 
- - C:\thirdparty
- - C:\Temp
- - C:\strawberry
- - C:\ProgramData\MySQL
- - C:\Program filer (x86) \MySQL
- - C:\ProgramData\ASR
- - C:\ProgramData\Microsoft Azure Site Recovery
- - C:\ProgramData\ASRLogs
- - C:\ProgramData\ASRSetupLogs
- - C:\ProgramData\LogUploadServiceLogs
- - C:\inetpub
- - ASR installationskatalog. Exempel: E:\Program filer (x86) \Microsoft Azure Site Recovery
+  - C:\thirdparty
+  - C:\Temp
+  - C:\strawberry
+  - C:\ProgramData\MySQL
+  - C:\Program filer (x86) \MySQL
+  - C:\ProgramData\ASR
+  - C:\ProgramData\Microsoft Azure Site Recovery
+  - C:\ProgramData\ASRLogs
+  - C:\ProgramData\ASRSetupLogs
+  - C:\ProgramData\LogUploadServiceLogs
+  - C:\inetpub
+  - ASR installationskatalog. Exempel: E:\Program filer (x86) \Microsoft Azure Site Recovery
 
 ### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>Om Antivirus Software är aktiv i skalbar bearbeta/Huvudmålservern mål
 

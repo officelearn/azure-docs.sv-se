@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 4c9f92f80275d04cd1bab408213fd02abf5c9139
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 5e0ef8287b7ce257cd551a1ace043ccbed72b50b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279406"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087099"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Skapa en funktion som kan integreras med Azure Logic Apps
 
@@ -36,7 +36,7 @@ I den här guiden får du lära dig att:
 > * Anslut logikappen till funktionen.
 > * Skicka ett e-postmeddelande baserat på svar från funktionen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 + Ett aktivt [Twitter](https://twitter.com/)-konto. 
 + Ett [Outlook.com](https://outlook.com/)-konto (för att skicka meddelanden).
@@ -47,7 +47,7 @@ Om du inte redan har gjort detta måste du slutföra stegen för att skapa din f
 
 API:erna för Cognitive Services är tillgängliga i Azure som enskilda resurser. Använd API för textanalys för att identifiera tweetsentimenten som övervakas.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 2. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
 
@@ -242,7 +242,7 @@ Den sista delen av arbetsflödet är att utlösa ett e-postmeddelande när senti
 | **Ämne** | Negativt tweetsentiment identifierat  | E-postmeddelandets ämnesrad.  |
 | **Brödtext** | Tweet-text, plats | Klicka på parametrarna **Tweet-text** och **Plats**. |
 
-5.  Klicka på **Spara**.
+1. Klicka på **Spara**.
 
 Nu när arbetsflödet är klart kan du aktivera logikappen och se när funktionen är igång.
 

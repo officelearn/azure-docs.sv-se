@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: d6d898b93af6c03b313ec2340eb076de85877155
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 205a8dae55394a82a60f54ed32bad95324a59517
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531002"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996937"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN regelmotor – funktioner
 Den här artikeln innehåller detaljerade beskrivningar av tillgängliga funktioner för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).
@@ -76,7 +76,7 @@ Den här funktionen är utformad att ge ytterligare information i en regel.
 Namn | Syfte
 -----|--------
 [Kommentar](#comment) | Gör en anteckning som ska läggas till i en regel.
- 
+ 
 ## <a name="header-features"></a>Huvud-funktioner
 
 De här funktionerna är utformade för att lägga till, ändra eller ta bort rubriker från på begäran eller ett svar.
@@ -126,7 +126,7 @@ Enabled|Indicates that the request is eligible for Edge Optimizer processing.
 Disabled|Restores the default behavior. The default behavior is to deliver content over the ADN platform without any additional processing.
 
 **Default Behavior:** Disabled
- 
+ 
 
 ### Edge Optimizer - Instantiate Configuration
 **Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
@@ -164,7 +164,7 @@ Namn | Syfte
 [Textstorleken för komma begäran](#cacheable-request-body-size) | Definierar tröskelvärdet för att fastställa om ett INLÄGG svar kan cachelagras.
 [Användarvariabeln](#user-variable) | Endast för internt bruk.
 
- 
+ 
 ## <a name="url-features"></a>URL-funktioner
 
 Dessa funktioner kan en begäran om att omdirigeras eller har skrivits till en annan URL.
@@ -182,6 +182,7 @@ Namn | Syfte
 ---
 ### <a name="age-response-header"></a>Ålder-svarshuvud
 **Syfte**: Anger om en ålder svarshuvud ska tas med i svaret skickas till den som begär.
+
 Värde|Resultat
 --|--
 Enabled | Rubriken ålder ingår i svar som skickas till den som begär.
@@ -191,7 +192,7 @@ Disabled | Rubriken ålder är undantagen från de svar som skickas till den som
 
 [Överst på sidan](#azure-cdn-rules-engine-features)
 
-</br>
+<br>
 
 ---
 ### <a name="bandwidth-parameters"></a>Parametrar för bandbredd
@@ -394,6 +395,7 @@ Alternativ|Beskrivning
 --|--
 Ursprungliga sökväg| Definiera den relativa sökvägen till typerna av begäranden vars cachenyckel skrivs om. En relativ sökväg kan definieras genom att välja en grundläggande originalsökväg och sedan definiera ett mönster för reguljärt uttryck.
 Ny sökväg|Definiera den relativa sökvägen för den nya cache-nyckeln. En relativ sökväg kan definieras genom att välja en grundläggande originalsökväg och sedan definiera ett mönster för reguljärt uttryck. Den här relativa sökvägen kan skapas dynamiskt med [HTTP variabler](cdn-http-variables.md).
+
 **Standardbeteendet:** en begäran cachenyckel bestäms av begärande-URI.
 
 [Överst på sidan](#azure-cdn-rules-engine-features)
@@ -473,6 +475,7 @@ text/html| HTML-filer
 text/css|Cascading Style ark (CSS)
 application/x-javascript|Javascript
 application/javascript|Javascript
+
 Viktig information:
 
 - Ange flera Internet-medietyper genom att avgränsa dem med ett enda blanksteg. 
@@ -1024,6 +1027,7 @@ Värde|Resultat
 --|--
 Enabled|Gör POP återigen hämta tillgången från den ursprungliga servern.
 Disabled|Återställer standardbeteendet. Standardinställningen är att leverera innehåll giltig cache tillgångar på begäran.
+
 Den här funktionen krävs inte för rätt cachelagring och leverans av innehåll, men kan användas som en tillfällig lösning. Dynamiskt innehåll generatorer på ursprungsservrar kan exempelvis oavsiktligt resultera i 0 byte-svar som skickas till POP: erna. Dessa typer av svar cachelagras vanligtvis av POP-servrar. Om du vet att ett svar på 0 byte aldrig är ett giltigt svar 
 
 för sådana innehåll, sedan den här funktionen kan förhindra att dessa typer av resurser som hanteras till dina klienter.
@@ -1279,6 +1283,7 @@ Alternativ|Beskrivning
 -|-
  Käll & mönster | De här inställningarna definierar ett mönster för begäran-URI som identifierar typ av begäranden som kan skrivas. Endast begäranden vars URL: en som uppfyller båda av följande kriterier ska skrivas: <br/><br/>  - **Källa (eller innehåll åtkomstpunkt):** väljer en relativ sökväg som identifierar en ursprungsservern. Den här sökvägen är den _/XXXX/_ avsnittet och namnet på slutpunkten. <br/><br/> - **Källa (mönster):** ett mönster som identifierar begäranden av relativ sökväg måste anges. Mönster för reguljärt uttryck måste ange en sökväg som börjar direkt efter den tidigare valda innehållsåtkomst peka (se ovan). <br/> Kontrollera att begäran URI villkoren (det vill säga käll & mönster) tidigare inte står i konflikt med någon av matchningsvillkor som definierats för den här funktionen. Ange ett mönster; Om du använder ett tomt värde som mönstret matchar alla strängar. 
  Mål  |Definiera relativ URL som ovan begäranden ska skrivas med: <br/>    1. Att välja en plats för åtkomst till innehåll som identifierar en ursprungsservern. <br/>    2. Definiera en relativ sökväg med hjälp av: <br/>        – Ett mönster för reguljärt uttryck <br/>        - [HTTP-variabler](cdn-http-variables.md) <br/> <br/> Byt ut värdena som hämtats i mönstret för källa till mål-mönster genom att använda $_n_ där _n_ identifierar ett värde i den ordning som den hade hämtats. Till exempel representerar $1 det första värdet som avbildas i mönstret för källan, medan $2 representerar det andra värdet. 
+
  Den här funktionen kan POP: erna att skriva om URL: en utan att utföra en traditionell omdirigering. Det vill säga den som begär tar emot samma svarskoden som om URL: en ny hade begärts.
 
 **Sample Scenario 1**

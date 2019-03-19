@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 2970ef58e177d10eac80d46825f3fb985b98af61
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8973558e0841bfd0d6651a08d39da96b544156c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734973"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842465"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bli en Cloud Marketplace-utgivare
 
@@ -49,14 +49,14 @@ Efter registreringen kan du registrera Microsoft Partner Network-ID för din org
 
 ## <a name="2-create-a-microsoft-account"></a>2. Skapa ett Microsoft-konto  
 | 15 min |  
-En Microsoft-konto, t.ex. *@outlook.com eller @live.com*, används för att få åtkomst till många Microsoft-enheter och tjänster. Det krävs för Azure Marketplace transact erbjudanden och dess användning rekommenderar vi att alla moln-utgivare. Mer information om förmåner och användning av ett Microsoft-konto [besöker den här sidan](https://account.microsoft.com/account/). Du ska använda ett personligt microsoftkonto för att få åtkomst till partnerportalen i molnet måste erbjuder publicera plattform som du använder för att skapa och hantera dina marketplace. 
+En Microsoft-konto, t.ex.  *\@outlook.com eller \@live.com*, används för att få åtkomst till många Microsoft-enheter och tjänster. Det krävs för Azure Marketplace transact erbjudanden och dess användning rekommenderar vi att alla moln-utgivare. Mer information om förmåner och användning av ett Microsoft-konto [besöker den här sidan](https://account.microsoft.com/account/). Du ska använda ett personligt microsoftkonto för att få åtkomst till partnerportalen i molnet måste erbjuder publicera plattform som du använder för att skapa och hantera dina marketplace. 
 
 [! [Viktigt] Tänk på att ett Microsoft-konto som är associerade med din e-postadress inte tillåter att du kan få åtkomst till portalen.
 
->[!Note]
->Om du redan har ett Microsoft-konto kan du läsa den [riktlinjer för att skapa ett Microsoft-ID för att hantera en marketplace](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) att avgöra om den kan användas för marketplace-publicering. 
-
->Användare med en Azure Active Directory federated företagskonto bör läsa [i den här artikeln](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) innan du försöker skapa eller använda din befintliga Account.
+> [!Note]
+> Om du redan har ett Microsoft-konto kan du läsa den [riktlinjer för att skapa ett Microsoft-ID för att hantera en marketplace](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) att avgöra om den kan användas för marketplace-publicering. 
+> 
+> Användare med en Azure Active Directory federated företagskonto bör läsa [i den här artikeln](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) innan du försöker skapa eller använda din befintliga Account.
 
 *   Hjälp med att skapa eller hantera ditt Microsoft-konto, finns det [hjälpsidor för support på Microsoft-konto](https://support.microsoft.com/products/microsoft-account?category=manage-account).
 

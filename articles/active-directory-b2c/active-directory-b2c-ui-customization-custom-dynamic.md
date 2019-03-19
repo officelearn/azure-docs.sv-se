@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 54d98c02ee9e5202c09e333843f8c16955f4e2d4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: bf7391ea83adf852be0f989a82e89d7f316f2f85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819255"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090550"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Konfigurera Användargränssnittet med dynamiskt innehåll med hjälp av anpassade principer
 
@@ -196,7 +196,7 @@ HTML5 mallen är redo att använda. Det är dock inte tillgängliga i den `Conte
     >Kontrollera att platsen där du är värd för ditt innehåll har aktiverat CORS och testa CORS-förfrågningar, gå till den [test cors.org](https://test-cors.org/) webbplats. 
 
 * Hanteras innehållet är säkert över **HTTPS**.
-* Du använder *absoluta URL: er*, till exempel *https://yourdomain/content*, för alla länkar, CSS-innehåll och bilder.
+* Du använder *absoluta URL: er*, till exempel `https://yourdomain/content`, för alla länkar, CSS-innehåll och bilder.
 
 ## <a name="step-5-configure-your-content-definition"></a>Steg 5: Konfigurera din innehållsdefinition
 Konfigurera `ContentDefinition`, gör du följande:

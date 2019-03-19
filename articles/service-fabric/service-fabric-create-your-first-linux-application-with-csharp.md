@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: aeea0a0b00ceaa936352d549a86040c2cc460167
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f044aa006727fafb52c2c5e6c015c3e4cc70edf7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153870"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57882021"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Skapa ditt första Azure Service Fabric-program
 > [!div class="op_single_selector"]
@@ -44,19 +44,19 @@ Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa Service Fa
    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
    nvm install node 
    ```
-2. Installera [Yeoman](http://yeoman.io/)-mallgeneratorn på datorn från NPM
+2. Installera [Yeoman](https://yeoman.io/)-mallgeneratorn på datorn från NPM
 
-  ```bash
-  npm install -g yo
-  ```
+   ```bash
+   npm install -g yo
+   ```
 3. Installera Service Fabric Yeoman C#-appgenerator från NPM
 
-  ```bash
-  npm install -g generator-azuresfcsharp
-  ```
+   ```bash
+   npm install -g generator-azuresfcsharp
+   ```
 
 ## <a name="create-the-application"></a>Skapa programmet
-Ett Service Fabric-program kan innehålla en eller flera tjänster, som var och en ansvarar för att leverera programmets funktioner. Service Fabric [Yeoman](http://yeoman.io/)-generatorn för C#, som du installerade i förra steget, gör det enkelt att skapa din första tjänst och lägga till fler senare. Använd Yeoman för att skapa ett program med en enskild tjänst.
+Ett Service Fabric-program kan innehålla en eller flera tjänster, som var och en ansvarar för att leverera programmets funktioner. Service Fabric [Yeoman](https://yeoman.io/)-generatorn för C#, som du installerade i förra steget, gör det enkelt att skapa din första tjänst och lägga till fler senare. Använd Yeoman för att skapa ett program med en enskild tjänst.
 
 1. Skriv följande kommando i en terminal, för att börja bygga ställningarna: `yo azuresfcsharp`
 2. Namnge ditt program.

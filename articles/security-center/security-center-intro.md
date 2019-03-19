@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 16473b7814763d80f7e850acf44839f5ef640a18
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 13526268480c69798ee52078f7448605fc1afa9a
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109052"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242045"
 ---
 # <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
 
@@ -128,7 +128,7 @@ Security Center innehåller funktioner som hjälper dig att utföra automatisk k
 
 ## <a name="get-secure-faster"></a>Bli skyddad snabbare
 
-Inbyggd integrering med Azure (inklusive Azure Policy och Log Analytics) i kombination med sömlös integrering med andra Microsoft-lösningar för nätverkssäkerhet, t.ex. Microsoft Cloud App Security och Windows Defender Advanced Threat Protection garanterar att din säkerhetslösning är såväl omfattande som enkel att publicera och distribuera.
+Inbyggd integrering med Azure (inklusive Azure Policy och Azure Monitor-loggar) tillsammans med sömlös integrering med andra Microsoft-säkerhetslösningarna som Microsoft Cloud App Security och Windows Defender Avancerat skydd att se att din Security-lösningen är omfattande samt enkelt att publicera och distribuera.
 
 Dessutom kan du utöka den fullständiga lösningen utöver Azure till arbetsbelastningar som körs i andra moln och i lokala datacentra.
 

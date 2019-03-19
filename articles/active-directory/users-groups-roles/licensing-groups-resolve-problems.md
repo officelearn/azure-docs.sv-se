@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c09df2a15fbd0bdfdd1478fad587e6a18695002c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2c40a25cd2baebaaeedc012e8e9faff91b297f57
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207508"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082508"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identifiera och lösa licensproblem för tilldelning för en grupp i Azure Active Directory
 
@@ -33,19 +33,19 @@ När du använder gruppbaserad licensiering, samma fel inträffar, men de sker i
 ## <a name="how-to-find-license-assignment-errors"></a>Så här hittar du licens Tilldelningsfel
 **Att hitta licensen Tilldelningsfel**
 
-   1. Öppna fönstret för gruppen för att hitta användare i ett feltillstånd i en specifik grupp. Under **licenser**, visas ett meddelande om det finns några användare i ett feltillstånd.
+1. Öppna fönstret för gruppen för att hitta användare i ett feltillstånd i en specifik grupp. Under **licenser**, visas ett meddelande om det finns några användare i ett feltillstånd.
 
    ![Gruppen felmeddelandet](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
-   2. Välj meddelandet för att öppna en lista över alla användare som påverkas. Du kan välja varje användare separat om du vill ha mer information.
+2. Välj meddelandet för att öppna en lista över alla användare som påverkas. Du kan välja varje användare separat om du vill ha mer information.
 
    ![Gruppen, lista över användare med feltillstånd](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
-   3. Du hittar alla grupper som innehåller minst ett fel på den **Azure Active Directory** bladet välj **licenser**, och välj sedan **översikt**. Dialogrutan visas när grupper kräver din uppmärksamhet.
+3. Du hittar alla grupper som innehåller minst ett fel på den **Azure Active Directory** bladet välj **licenser**, och välj sedan **översikt**. Dialogrutan visas när grupper kräver din uppmärksamhet.
 
    ![Översikt över, information om grupper i feltillstånd](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
-   4. Markera kryssrutan om du vill se en lista över alla grupper med fel. Du kan välja varje grupp för mer information.
+4. Markera kryssrutan om du vill se en lista över alla grupper med fel. Du kan välja varje grupp för mer information.
 
    ![Översikt över grupper med fel](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
@@ -104,9 +104,9 @@ Om du använder Exchange Online kanske vissa användare i din klient konfigurera
 
 > [!TIP]
 > Om du vill se om det finns en dubblett proxyadress kör du följande PowerShell-cmdlet mot Exchange Online:
-```
-Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
-```
+> ```
+> Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+> ```
 > Mer information om det här problemet finns i [”Proxyadressen används redan” visas i Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). Artikeln innehåller även information på [hur du ansluter till Exchange Online med fjärr-PowerShell](https://technet.microsoft.com/library/jj984289.aspx). Se den här artikeln för mer information [på så här fylls attributet proxyAddresses i Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
 När du har löst problemen proxy-adress för de berörda användarna se till att tvinga licens bearbetning på gruppen för att se till att licenser nu kan användas.

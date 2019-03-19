@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9967893e855770b693f0d581a07fe2910df4a3cb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 117d58f6f56fe1b24539c7bfe950f1a23d6de51a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186951"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003595"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Åtkomst till Azure AD B2C-granskningsloggar
 
@@ -26,6 +26,7 @@ Azure Active Directory B2C (Azure AD B2C) genererar granskningsloggar som inneh�
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Översikt över aktiviteter som är tillgängliga i kategorin B2C på granskningsloggar
 Den **B2C** kategori i granskningsloggarna innehåller följande typer av aktiviteter:
+
 |Aktivitetstyp |Beskrivning  |
 |---------|---------|
 |Auktorisering |Aktiviteter om tillståndet för en användare att komma åt B2C resurser (exempelvis kan en administratör åtkomst till en lista med B2C-principer)         |
@@ -33,7 +34,7 @@ Den **B2C** kategori i granskningsloggarna innehåller följande typer av aktivi
 |Program | CRUD-åtgärder på B2C-program |
 |Nyckel |CRUD-åtgärder på nycklar som lagras i B2C-nyckelbehållare |
 |Resurs |CRUD-åtgärder på B2C-resurser (till exempel principer och Identitetsproviders)
-|Autentisering |Verifiering av autentiseringsuppgifter för användare och utfärdande|
+|Authentication |Verifiering av autentiseringsuppgifter för användare och utfärdande|
 
 > [!NOTE]
 > Objektet CRUD användaraktiviteter, finns det **Kärnkatalog** kategori.

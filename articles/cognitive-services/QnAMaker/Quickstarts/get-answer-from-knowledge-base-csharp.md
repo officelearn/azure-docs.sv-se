@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 11/19/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: f2b5089f1ec334f80ccb4ce80ba9b512f3305859
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2d011dffa4db68a0cdf6ac3415ff1316906a4e87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861127"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884009"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Få svar på en fråga med hjälp av en kunskapsbas med C#
 
-Den här snabbstarten vägleder dig genom att programmatiskt hämta ett svar från en publicerad QnA Maker-kunskapsbas. QnA Maker extraherar automatiskt frågor och svar för delvis strukturerat innehåll, som vanliga frågor från [datakällor](../Concepts/data-sources-supported.md). Frågan i JSON-format skickas i brödtexten i API-begäran. 
+Den här snabbstarten vägleder dig genom att programmatiskt hämta ett svar från en publicerad QnA Maker-kunskapsbas. Kunskapsbasen innehåller frågor och svar från [datakällor](../Concepts/data-sources-supported.md) , till exempel vanliga frågor och svar. Den [fråga](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) skickas till QnA Maker-tjänsten. Den [svar](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) innehåller top-förutse svaret. 
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Senaste [**Visual Studio Community-versionen**](https://www.visualstudio.com/downloads/).
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Hämta nyckeln genom att välja **Nycklar** under **Resurshantering** på Azure-instrumentpanelen för din QnA Maker-resurs. 
@@ -37,7 +37,7 @@ Koden för den här snabbstarten finns i lagringsplatsen [https://github.com/Azu
 ## <a name="create-a-knowledge-base-project"></a>Skapa ett kunskapsbasprojekt
 
 1. Öppna Visual Studio 2017 Community Edition.
-1. Skapa ett nytt konsolapprojekt (.Net Core) och ge projektet namnet QnaMakerQuickstart. Godkänn standardinställningarna för de återstående inställningarna.
+1. Skapa en ny Konsolapp (.NET Core) projekt och namn på projektet QnaMakerQuickstart. Godkänn standardinställningarna för de återstående inställningarna.
 
 ## <a name="add-the-required-dependencies"></a>Lägga till nödvändiga beroenden
 
@@ -58,6 +58,8 @@ Följande kod gör en HTTPS-begäran för API:et för QnA Maker för att skicka 
 [!code-csharp[Add a POST request to send question to knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=32-57 "Add a POST request to send question to knowledge base")]
 
 Värdet för `Authorization`-huvudet innehåller strängen `EndpointKey `. 
+
+Läs mer om den [begäran](../how-to/metadata-generateanswer-usage.md#generateanswer-request) och [svar](../how-to/metadata-generateanswer-usage.md#generateanswer-response). 
 
 ## <a name="build-and-run-the-program"></a>Skapa och köra programmet
 

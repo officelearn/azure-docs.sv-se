@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f1a5f54e520cdabd49e1ca69626e1c693bc1ee19
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 253f73cc58292778d88417b693c157fcbd7d92bd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470033"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853043"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Skapa och optimera tabeller för snabb parallella import av data till en SQL Server på en Azure VM
 
@@ -95,7 +95,7 @@ Mer information finns i [skapa partitionerade tabeller och index](https://msdn.m
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>Massimportera data för varje enskild partitionstabell
 
-* Du kan använda BCP, BULK INSERT eller andra metoder som [SQL Server Migration Wizard](http://sqlazuremw.codeplex.com/). Följande exempel används metoden BCP.
+* Du kan använda BCP, BULK INSERT eller andra metoder som [SQL Server Migration Wizard](https://sqlazuremw.codeplex.com/). Följande exempel används metoden BCP.
 * [Ändra databasen](https://msdn.microsoft.com/library/bb522682.aspx) att ändra schemat för loggning av transaktionen till bulkloggad att minimera arbetet med att loggning, till exempel:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED

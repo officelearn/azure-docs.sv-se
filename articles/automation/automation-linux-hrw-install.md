@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 29ca8c4114d48fa0d3756930354660712b1b35b3
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 3bdf642c37fe5f64b7d853da6a050ec8c2a7d44d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820424"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834667"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuera en Linux Hybrid Runbook Worker
 
@@ -71,7 +71,7 @@ Observera Log Analytics-arbetsytan och Automation-kontot är länkat till innan 
 
 1. Installera Log Analytics-agenten för Linux genom att köra följande kommando. Ersätt \<WorkspaceID\> och \<WorkspaceKey\> med lämpliga värden från din arbetsyta.
 
-  [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
+   [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
 
    ```bash
    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -111,12 +111,8 @@ Följande typer av runbooks fungerar inte på en Linux Hybrid Worker:
 * Grafiska
 * Grafiskt PowerShell-arbetsflöde
 
-## <a name="troubleshoot"></a>Felsöka
-
-Läs hur du felsöker Hybrid Runbook Worker-arbeten i [felsökning Linux Hybrid Runbook Worker](troubleshoot/hybrid-runbook-worker.md#linux)
-
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs hur du konfigurerar dina runbooks för att automatisera processer i ditt lokala datacenter eller andra moln i [köra runbooks på en Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
 * Instruktioner om hur du tar bort Hybrid Runbook Worker finns [ta bort Azure Automation Hybrid Runbook Worker](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
-
+* Läs hur du felsöker Hybrid Runbook Worker-arbeten i [felsökning Linux Hybrid Runbook Worker](troubleshoot/hybrid-runbook-worker.md#linux)

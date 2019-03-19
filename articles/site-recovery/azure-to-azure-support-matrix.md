@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: f1a8646502a11f9c17023587302d7f2f7a4e4234
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: dbee223e6c8e878d017026531dd06301fe6aaf84
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673266"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093879"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
@@ -33,7 +33,7 @@ Den här artikeln sammanfattas konfigurationer som stöds och komponenter när d
 ## <a name="resource-support"></a>Resursstöd för
 
 **Resursåtgärden** | **Detaljer**
---- | --- | ---
+--- | --- 
 **Flytta valv mellan resursgrupper** | Stöds inte
 **Flytta resurser för beräkning/lagringsnätverk mellan resursgrupper** | Stöds ej.<br/><br/> Om du flyttar en virtuell dator eller tillhörande komponenter, till exempel lagringsnätverk/när Virtuellt datorn replikeras, måste du inaktivera och återaktivera replikering för den virtuella datorn.
 **Replikera virtuella Azure-datorer från en prenumeration till en annan för katastrofåterställning** | Stöd för inom samma Azure Active Directory-klientorganisation.

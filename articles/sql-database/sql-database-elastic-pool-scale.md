@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 3/06/2019
-ms.openlocfilehash: b2ad701115a69520658c2aa9cea53dbda90cf868
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.date: 3/14/2019
+ms.openlocfilehash: d8aaf51c836a8e88c4e9b92798067167cd044e72
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726762"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015363"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Skala resurser för elastisk pool i Azure SQL Database
 
@@ -26,7 +26,6 @@ Den här artikeln beskriver hur du skalar beräknings- och lagringsresurser som 
 ## <a name="change-compute-resources-vcores-or-dtus"></a>Ändra beräkningsresurser (virtuella kärnor eller dtu: er)
 
 När du har valt antalet virtuella kärnor eller edtu: er, du kan skala en elastisk pool upp eller ned dynamiskt utifrån det faktiska resultatet med hjälp av den [Azure-portalen](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [Azure CLI ](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), eller [REST-API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
-
 
 ### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Effekten av att ändra tjänst-nivå eller skalas om beräkningsstorleken
 
@@ -71,6 +70,9 @@ Fördröjning för att ändra tjänstnivå eller skala om beräkningsstorleken f
 Du debiteras för varje timme som det finns en databas med hjälp av den högsta tjänstenivå + compute storlek som gällde under den timmen, oavsett användning eller om databasen var aktiv under mindre än en timme. Om du skapar en enkel databas och raderar den fem minuter senare visar din faktura en avgift för en databastimme.
 
 ## <a name="change-elastic-pool-storage-size"></a>Ändra lagringsstorleken för elastisk pool
+
+> [!IMPORTANT]
+> Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
 
 ### <a name="vcore-based-purchasing-model"></a>Virtuell kärna-baserad inköpsmodell
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 89b18d71e864c198b7efafcff09777da21930b6c
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 8a2ea64d32194ff06378e3227b260c4f10d53175
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733645"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116681"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Upptäck och utvärdera en stor VMware-miljö
 
@@ -38,7 +38,7 @@ Azure Migrate måste ha åtkomst till VMware-servrar för att automatiskt kunna 
 
 Om du distribuerar i en miljö organisationer, är här ett sätt att konfigurera detta:
 
-1.  Skapa en användare per klient och använder [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), tilldela läsbehörighet till alla de virtuella datorerna tillhör en viss klient. Sedan Använd dessa autentiseringsuppgifter för identifiering. RBAC säkerställer att motsvarande vCenter-användaren har åtkomst till endast klientspecifik virtuella datorer.
+1. Skapa en användare per klient och använder [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), tilldela läsbehörighet till alla de virtuella datorerna tillhör en viss klient. Sedan Använd dessa autentiseringsuppgifter för identifiering. RBAC säkerställer att motsvarande vCenter-användaren har åtkomst till endast klientspecifik virtuella datorer.
 2. Du konfigurerar RBAC för olika klientanvändare enligt beskrivningen i följande exempel för användaren nr 1 och 2 för användaren:
 
     - I **användarnamn** och **lösenord**, anger du de skrivskyddade kontoautentiseringsuppgifter som insamlaren använder för att identifiera virtuella datorer i

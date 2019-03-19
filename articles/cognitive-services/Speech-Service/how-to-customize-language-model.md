@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 57d112cfce00839f1381dc41d24bfb697179b5a4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 8276b86df2dc1bc90fc07da262aa0979f7562619
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878688"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548497"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Självstudier: Skapa en anpassad språkmodell
 
@@ -30,7 +30,7 @@ Dokumentet beskriver följande:
 
 Om du inte har ett Cognitive Services-konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/try/cognitive-services/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att ditt Cognitive Services-konto är anslutet till en prenumeration genom att öppna sidan [Cognitive Services Subscriptions](https://customspeech.ai/Subscriptions) (Cognitive Services-prenumerationer).
 
@@ -59,7 +59,7 @@ De grundläggande kraven för språkdata sammanfattas i följande tabell.
 | antal yttrande per rad | 1 |
 | Maximal filstorlek | 1,5 GB |
 | Kommentarer | Undvik att upprepa tecken mer än fyra gånger, till exempel ”aaaaa”|
-| Kommentarer | Använd inga specialtecken såsom ”\t” eller andra UTF-8 tecken ovanför U+00A1 i [Unicode-teckentabellen](http://www.utf8-chartable.de/)|
+| Kommentarer | Använd inga specialtecken såsom ”\t” eller andra UTF-8 tecken ovanför U+00A1 i [Unicode-teckentabellen](https://www.utf8-chartable.de/)|
 | Kommentarer | URI:er avvisas också eftersom det inte finns något unikt sätt att uttala en URI|
 
 När texten importeras textnormaliseras den så att den kan bearbetas av systemet. Det finns dock vissa viktiga normaliseringar som måste utföras av användaren _innan_ data överförs. Se [Riktlinjer för transkription](prepare-transcription.md) för att avgöra tillämpligt språk för användning när du förbereder dina språkdata.

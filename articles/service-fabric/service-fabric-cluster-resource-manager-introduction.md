@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f41027b5455aa3b1835a0d4fd0c1be11cddccd0d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 75aa960ff060d74d0a579b475e4334402992b3c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872003"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903376"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Introduktion till Service Fabric cluster resource manager
 Traditionellt hanterar IT-system eller onlinetjänster avsedda tilldela specifika fysiska eller virtuella datorer till de specifika tjänster eller system. Tjänster har byggts som nivåer. Det skulle vara en ”web” och en ”data” eller ”storage” nivå. Program behöver messaging-nivån där förfrågningar federationssida in och ut, samt en uppsättning datorer som är dedikerad till cachelagring. Varje nivå eller typ av arbetsbelastning hade specifika datorer som är dedikerad till den: databasen har några datorer som är dedikerad till den, webbservrar ett fåtal. Om en viss typ av arbetsbelastning orsakade de datorer som den var på att köra för varmt och sedan du har lagt till fler datorer med samma konfigurationen till den nivån. Men inte alla arbetsbelastningar kan skaländras ut så enkelt – särskilt med datanivå skulle du normalt ersätta datorer med större datorer. Enkelt. Om en dator inte kördes som en del av det övergripande programmet vid lägre kapacitet tills datorn kunde återställas. Fortfarande ganska enkelt (om det är inte nödvändigtvis roliga).
 
 Nu men en värld av arkitekturen för tjänsten och har ändrats. Det är vanligare att program har valt en design för skalbarhet. Det är vanligt att bygga program med behållare eller mikrotjänster (eller båda). Nu när du kanske endast några få datorer, körs de inte bara en enda instans av en arbetsbelastning. De kan även köra flera olika arbetsbelastningar på samma gång. Nu har du flera olika typer av tjänster (ingen förbrukar resurser tillhandahåller en fullständig dator) kanske hundratals olika instanser av dessa tjänster. Varje namngiven instans har en eller flera instanser eller repliker för hög tillgänglighet (HA). Beroende på storleken på dessa arbetsbelastningar och hur upptagen som de är, kan du hitta själv med hundratals eller tusentals datorer. 
 
-Plötsligt hantera miljön är inte så enkelt som att hantera några datorer som är dedikerad för enkla typer av arbetsbelastningar. Dina servrar är virtuella och inte längre har namn (du har växlat mindsets från [husdjur till boskap](http://www.slideshare.net/randybias/architectures-for-open-and-scalable-clouds/20) när alla). Konfigurationen är mindre på datorerna och tjänster som sig själva. Maskinvara som är dedikerad till en enda instans av en arbetsbelastning är i stort sett en sak i tjänsten tidigare. Tjänsterna har blivit små distribuerade system som sträcker sig över flera mindre delar av vanlig maskinvara.
+Plötsligt hantera miljön är inte så enkelt som att hantera några datorer som är dedikerad för enkla typer av arbetsbelastningar. Dina servrar är virtuella och inte längre har namn (du har växlat mindsets från [husdjur till boskap](https://www.slideshare.net/randybias/architectures-for-open-and-scalable-clouds/20) när alla). Konfigurationen är mindre på datorerna och tjänster som sig själva. Maskinvara som är dedikerad till en enda instans av en arbetsbelastning är i stort sett en sak i tjänsten tidigare. Tjänsterna har blivit små distribuerade system som sträcker sig över flera mindre delar av vanlig maskinvara.
 
 Eftersom din app inte längre är en serie monoliter bryts fördelade på flera nivåer, nu har du många flera kombinationer för att hantera. Som avgör vilka typer av arbetsbelastningar kan köras på vilken maskinvara, eller hur många? Vilka arbetsbelastningar fungera på samma maskinvara och som står i konflikt? När en dator går ned gör vet du vad det var körs på den datorn? Vem är ansvarig för att se till att arbetsbelastningar börjar köras igen? Vänta för den (virtuella?) datorn ska komma tillbaka eller dina arbetsbelastningar automatiskt växla över till andra datorer och hålla kör? Är mänsklig inblandning krävs? Vad gäller uppgraderingar i den här miljön?
 

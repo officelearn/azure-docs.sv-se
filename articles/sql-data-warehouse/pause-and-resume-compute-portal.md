@@ -5,19 +5,20 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
-ms.topic: conceptual
+ms.topic: quickstart
 ms.subservice: manage
-ms.date: 04/17/2018
+ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b21c982a7f390855ccb7b9212ea92db8c26d303c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9c3ed6dd79d6225b38751c910253cfa1f0720d1c
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460292"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731979"
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Snabbstart: Pausa och återuppta beräkning för ett Azure SQL Data Warehouse i Azure portal
+
 Använd Azure portal för att pausa databearbetning i Azure SQL Data Warehouse för att sänka kostnaderna. [Återuppta beräkningarna](sql-data-warehouse-manage-compute-overview.md) när du är redo att använda datalagret.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
@@ -31,6 +32,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 Använd [skapa och ansluta – portal](create-data-warehouse-portal.md) att skapa ett informationslager med namnet **mySampleDataWarehouse**. 
 
 ## <a name="pause-compute"></a>Pausa databearbetning
+
 Du kan pausa och återuppta beräkning resurser på begäran för att spara kostnader. Till exempel om du inte använda databasen på kvällen och helger, kan du pausa under dessa tider och återuppta den under dagen. Du debiteras för beräkningsresurser när databasen har pausats. Du kommer dock fortsätta att betala för lagring. 
 
 Följ dessa steg om du vill pausa ett SQL data warehouse.
@@ -54,6 +56,7 @@ Följ dessa steg om du vill pausa ett SQL data warehouse.
 
 
 ## <a name="resume-compute"></a>Återuppta beräkning
+
 Följ dessa steg om du vill återuppta ett SQL data warehouse.
 
 1. Klicka på **SQL-databaser** på den vänstra sidan i Azure-portalen.
@@ -96,7 +99,8 @@ Följ dessa steg för att rensa resurser enligt dina önskemål.
 
 
 ## <a name="next-steps"></a>Nästa steg
+
 Du har nu pausas och återupptas beräkning för informationslagret. Om du vill veta mer om Azure SQL Data Warehouse kan fortsätta med självstudiekursen om att läsa in data.
 
 > [!div class="nextstepaction"]
->[Läsa in data i ett SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+> [Läsa in data i ett SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

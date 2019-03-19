@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a50d65940ec12f9883f8991307c3cc5692d96f06
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6c15526169a984ffdaee826fec6ac21fc42647e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738087"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086793"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Defragmentering av mått och belastningen i Service Fabric
 Den Service Fabric Cluster Resource Manager standardstrategi för att hantera inläsningsmåtten i klustret är att fördela belastningen. Se till att noder används jämnt undviker heta och kalla vinklar som leder till både konkurrens och oanvänt resurser. Distribuera arbetsbelastningar i klustret är också den säkraste när det gäller kvarvarande fel eftersom det garanterar att ett fel inte ta ut en stor del av en viss arbetsbelastning. 
@@ -41,6 +41,7 @@ Defragmentering kan öka impactfulness fel, eftersom flera tjänster som körs p
 Följande diagram ger en visuell representation av två kluster, ett som är defragmenteras och som inte är. 
 
 <center>
+
 ![Jämföra balanserade och defragmenteras kluster][Image1]
 </center>
 

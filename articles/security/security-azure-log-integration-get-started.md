@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 7e43af7d749719c2f69df9b53766c5452931884b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 244b2d1764f30f790c3e51e23cd2fa0af6375960
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542921"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894384"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Log Integration med Azure Diagnostisk loggning och vidarebefordran av Windows-händelser
 
@@ -113,37 +113,37 @@ När du har slutfört grundinställning är du redo att utföra efter installati
 1. Öppna PowerShell som administratör. Gå sedan till C:\Program Files\Microsoft Azure Log Integration.
 2. Importera Azure Log Integration-cmdletar. Om du vill importera cmdletarna, kör du skriptet `LoadAzlogModule.ps1`. Ange `.\LoadAzlogModule.ps1`, och tryck sedan på RETUR (Observera användningen av **.\\**  i det här kommandot). Du bör se något som liknar det som visas i följande bild:
 
-  ![Skärmbild av utdata från kommandot LoadAzlogModule.ps1](./media/security-azure-log-integration-get-started/loaded-modules.png)
+   ![Skärmbild av utdata från kommandot LoadAzlogModule.ps1](./media/security-azure-log-integration-get-started/loaded-modules.png)
 3. Konfigurera Azure Log Integration för att använda en specifik Azure-miljön. En *Azure-miljön* är den typ av Azure-molndatacenter som du vill arbeta med. Även om det finns flera Azure-miljöer, för närvarande, relevanta alternativ är antingen **AzureCloud** eller **azureusgovernment eller**. Kör PowerShell som administratör, se till att du är i C:\Program Files\Microsoft Azure Log Integration\. Kör det här kommandot:
 
-  `Set-AzlogAzureEnvironment -Name AzureCloud` (for **AzureCloud**)
+   `Set-AzlogAzureEnvironment -Name AzureCloud` (for **AzureCloud**)
   
-  Om du vill använda US Government Azure-molnet använder **azureusgovernment eller** för den **-namnet** variabeln. För närvarande stöds andra Azure-moln inte.  
+   Om du vill använda US Government Azure-molnet använder **azureusgovernment eller** för den **-namnet** variabeln. För närvarande stöds andra Azure-moln inte.  
 
-  > [!NOTE]
-  > Du får inte feedback när kommandot lyckas. 
+   > [!NOTE]
+   > Du får inte feedback när kommandot lyckas. 
 
 4. Innan du kan övervaka ett system, behöver du namnet på det lagringskonto som används för Azure-diagnostik. I Azure-portalen går du till **virtuella datorer**. Leta efter en Windows-dator som ska övervakas. I den **egenskaper** väljer **diagnostikinställningar**.  Välj **agenten**. Anteckna namnet på lagringskontot som har angetts. Du behöver det här kontonamnet för ett senare steg.
 
-  ![Skärmbild av fönstret Azure Diagnostics-inställningar](./media/security-azure-log-integration-get-started/storage-account-large.png) 
+   ![Skärmbild av fönstret Azure Diagnostics-inställningar](./media/security-azure-log-integration-get-started/storage-account-large.png) 
 
-  ![Skärmbild av aktivera övervakning på gästnivå-knappen](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
+   ![Skärmbild av aktivera övervakning på gästnivå-knappen](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
 
-  > [!NOTE]
-  > Om övervakning inte aktiverad när den virtuella datorn skapades, kan du aktivera den som visas i föregående bild.
+   > [!NOTE]
+   > Om övervakning inte aktiverad när den virtuella datorn skapades, kan du aktivera den som visas i föregående bild.
 
 5. Gå nu tillbaka till Azure Log Integration-datorn. Kontrollera att du har anslutning till lagringskontot från systemet där du installerade Azure Log Integration. Den dator som kör tjänsten Azure Log Integration behöver åtkomst till lagringskontot för att hämta information som loggas av Azure Diagnostics på alla övervakade system. För att verifiera anslutningen: 
-  1. [Hämta Azure Storage Explorer](http://storageexplorer.com/).
-  2. Slutföra installationen.
-  3. När installationen är klar, väljer **nästa**. Lämna den **starta Microsoft Azure Storage Explorer** kryssrutan är markerad.  
-  4. Logga in i Azure.
-  5. Kontrollera att du kan se det lagringskonto som du har konfigurerat för Azure-diagnostik: 
+   1. [Hämta Azure Storage Explorer](https://storageexplorer.com/).
+   2. Slutföra installationen.
+   3. När installationen är klar, väljer **nästa**. Lämna den **starta Microsoft Azure Storage Explorer** kryssrutan är markerad.  
+   4. Logga in i Azure.
+   5. Kontrollera att du kan se det lagringskonto som du har konfigurerat för Azure-diagnostik: 
 
    ![Skärmbild av storage-konton i Storage Explorer](./media/security-azure-log-integration-get-started/storage-explorer.png)
 
-  6. Ett par alternativ visas under storage-konton. Under **tabeller**, bör du se en tabell med namnet **WADWindowsEventLogsTable**.
+   1. Ett par alternativ visas under storage-konton. Under **tabeller**, bör du se en tabell med namnet **WADWindowsEventLogsTable**.
 
-  Om övervakning inte aktiverad när den virtuella datorn skapades, kan du aktivera den, enligt beskrivningen ovan.
+   Om övervakning inte aktiverad när den virtuella datorn skapades, kan du aktivera den, enligt beskrivningen ovan.
 
 
 ## <a name="integrate-windows-vm-logs"></a>Integrera Windows VM-loggar
@@ -156,36 +156,36 @@ För att slutföra det här steget behöver du några saker:
 * **StorageKey**: Lagringskontots åtkomstnyckel för lagringskontot där Azure Diagnostics-information lagras för den virtuella datorn.  
 
 Utför följande steg för att hämta lagringsnyckeln:
-1. Gå till [Azure-portalen](http://portal.azure.com).
+1. Gå till [Azure-portalen](https://portal.azure.com).
 2. I navigeringsfönstret väljer **alla tjänster**.
 3. I den **Filter** anger **Storage**. Välj **lagringskonton**.
 
-  ![Skärmbild som visar lagringskonton i alla tjänster](./media/security-azure-log-integration-get-started/filter.png)
+   ![Skärmbild som visar lagringskonton i alla tjänster](./media/security-azure-log-integration-get-started/filter.png)
 
 4. En lista över storage-konton visas. Dubbelklicka på det konto som du tilldelats logga lagring.
 
-  ![Skärmbild som visar en lista över storage-konton](./media/security-azure-log-integration-get-started/storage-accounts.png)
+   ![Skärmbild som visar en lista över storage-konton](./media/security-azure-log-integration-get-started/storage-accounts.png)
 
 5. Under **Inställningar** klickar du på **Åtkomstnycklar**.
 
-  ![Skärmbild som visar alternativet åtkomst nycklar i menyn](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
+   ![Skärmbild som visar alternativet åtkomst nycklar i menyn](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
 
 6. Kopiera **key1**, och spara den på en säker plats som du kan komma åt för följande steg.
 7. Öppna ett kommandotolksfönster som administratör på den server där du installerade Azure Log Integration. (Glöm inte att öppna ett kommandotolksfönster som administratör och inte PowerShell).
 8. Gå till C:\Program Files\Microsoft Azure Log Integration.
 9. Kör det här kommandot: `Azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey>`.
  
-  Exempel:
+   Exempel:
   
-  `Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
+   `Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
-  Lägg till prenumerations-ID till det egna namnet om du vill att prenumerations-ID visas i XML:
+   Lägg till prenumerations-ID till det egna namnet om du vill att prenumerations-ID visas i XML:
 
-  `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
+   `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
   
-  Exempel:
+   Exempel:
   
-  `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
+   `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
 > [!NOTE]
 > Vänta upp till 60 minuter och sedan visa de händelser som hämtas från lagringskontot. Om du vill visa händelser, i Azure Log Integration, Välj **Loggboken** > **Windows loggar** > **vidarebefordrade händelser**.
@@ -200,11 +200,11 @@ Om data inte visas i mappen vidarebefordrade händelser efter en timme, kan du u
 
 1. Kontrollera den dator som kör tjänsten Azure Log Integration. Bekräfta att den har åtkomst till Azure. Om du vill testa anslutningen, i en webbläsare, försök att gå till den [Azure-portalen](https://portal.azure.com).
 2. Kontrollera att användarkontot Azlog har skrivbehörighet för mappen users\Azlog.
-  1. Öppna Utforskaren.
-  2. Gå till C:\users.
-  3. Högerklicka på C:\users\Azlog.
-  4. Välj **Security**.
-  5. Välj **NT Service\Azlog**. Kontrollera behörigheter för kontot. Om kontot saknas från den här fliken, eller om de behörigheter som krävs inte visas, kan du bevilja behörigheterna på den här fliken.
+   1. Öppna Utforskaren.
+   2. Gå till C:\users.
+   3. Högerklicka på C:\users\Azlog.
+   4. Välj **Security**.
+   5. Välj **NT Service\Azlog**. Kontrollera behörigheter för kontot. Om kontot saknas från den här fliken, eller om de behörigheter som krävs inte visas, kan du bevilja behörigheterna på den här fliken.
 3. När du kör kommandot `Azlog source list`, se till att lagringskontot som har lagts till i kommandot `Azlog source add` är listad i utdata.
 4. Om du vill se om några fel har rapporterats från tjänsten Azure Log Integration, gå till **Loggboken** > **Windows loggar** > **program**.
 
@@ -224,15 +224,15 @@ Azure-aktivitetsloggen är en prenumerationslogg som ger insikt i händelser på
 2. Kör följande kommando:  ```azlog createazureid```
 
     Det här kommandot uppmanas du att Azure-autentiseringsuppgifter. Sedan skapar kommandot en Azure Active Directory-tjänstens huvudnamn i Azure AD-klienter som är värdar för de Azure-prenumerationer som den inloggade användaren är administratör, en delad administratör eller en ägare. Kommandot misslyckas om den inloggade användaren är bara en gästanvändare i Azure AD-klient. Autentisering till Azure görs via Azure AD. Skapa ett huvudnamn för tjänsten för Azure Log Integration skapar Azure AD-identitet som har behörighet att läsa från Azure-prenumerationer.
-3.  Kör följande kommando för att ge Azure Log Integration-tjänstens huvudnamn som skapades i föregående steg-åtkomst till Läs aktivitetsloggen för prenumerationen. Du måste vara ägare för prenumerationen för att köra kommandot.
+3. Kör följande kommando för att ge Azure Log Integration-tjänstens huvudnamn som skapades i föregående steg-åtkomst till Läs aktivitetsloggen för prenumerationen. Du måste vara ägare för prenumerationen för att köra kommandot.
 
-    ```Azlog.exe authorize subscriptionId``` Exempel:
+   ```Azlog.exe authorize subscriptionId``` Exempel:
 
    ```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
 
-4.  Kontrollera följande mappar för att bekräfta att Azure Active Directory granskningsloggfilerna JSON skapas i dem:
-    - C:\Users\azlog\AzureResourceManagerJson
-    - C:\Users\azlog\AzureResourceManagerJsonLD
+4. Kontrollera följande mappar för att bekräfta att Azure Active Directory granskningsloggfilerna JSON skapas i dem:
+   - C:\Users\azlog\AzureResourceManagerJson
+   - C:\Users\azlog\AzureResourceManagerJsonLD
 
 > [!NOTE]
 > Kontakta leverantören av SIEM specifika anvisningar för att hämta informationen i JSON-filerna till din säkerhetsinformation och Händelsehanteringssystem (SIEM).

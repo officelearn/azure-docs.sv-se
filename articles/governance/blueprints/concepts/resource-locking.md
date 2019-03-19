@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2e281896d45ada8010f24a1f18265a8cdd523d31
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 799e496fd9dd8a405e5fc356e13cf6c05883e1ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697001"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855420"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resource låsning i Azure skisser
 
-Skapandet av enhetliga testmiljöer i stor skala är endast verkligen användbart om det finns en mekanism för att underhålla den konsekvensen. Den här artikeln förklarar hur du låser resurs i Azure skisser.
+Skapandet av enhetliga testmiljöer i stor skala är endast verkligen användbart om det finns en mekanism för att underhålla den konsekvensen. Den här artikeln förklarar hur du låser resurs i Azure skisser. Se ett exempel på resurslåsning och tillämpning av _neka tilldelningar_, finns i den [skydda nya resurser](../tutorials/protect-new-resources.md) självstudien.
 
 ## <a name="locking-modes-and-states"></a>Låsning lägen och tillstånd
 
@@ -58,8 +58,9 @@ En RBAC [neka tilldelningar](../../../role-based-access-control/deny-assignments
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [livscykeln för en skiss](lifecycle.md)
-- Förstå hur du använder [statiska och dynamiska parametrar](parameters.md)
-- Lär dig hur du anpassar [sekvensordningen för en skiss](sequencing-order.md)
-- Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md)
-- Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md)
+- Följ den [skydda nya resurser](../tutorials/protect-new-resources.md) självstudien.
+- Lär dig mer om den [skiss livscykeln](lifecycle.md).
+- Förstå hur du använder [Statiska och dynamiska parametrar](parameters.md).
+- Lär dig att anpassa den [skiss ordningsföljd](sequencing-order.md).
+- Lär dig hur du [uppdatera befintliga tilldelningar](../how-to/update-existing-assignments.md).
+- Lös problem vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md).

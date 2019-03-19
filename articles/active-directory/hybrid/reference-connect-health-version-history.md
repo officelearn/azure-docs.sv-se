@@ -15,32 +15,51 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45983a4aecd61babf4e4262d708ac323f9773546
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0a53522a029129c097734a805c11c339135b4a81
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443961"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895209"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Versionshistorik
-Azure Active Directory-teamet uppdaterar regelbundet Azure AD Connect Health med nya funktioner. Den här artikeln visas de versioner och funktioner som har frisläppts.
+Azure Active Directory-teamet uppdaterar regelbundet Azure AD Connect Health med nya funktioner. Den här artikeln visas de versioner och funktioner som har frisläppts.  
+
+> [!NOTE]
+> Connect Health-agenter uppdateras automatiskt när en ny version släpps. Kontrollera att inställningarna för automatisk uppgradering är aktiverat från Azure-portalen. 
+>
+
 Azure AD Connect Health för synkronisering är integrerat med Azure AD Connect-installationen. Läs mer om [historik för Azure AD Connect-versionen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history) för feedback om funktioner, rösta på [Connect Health User Voice-kanal](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
+
+## <a name="march-2019"></a>Mars 2019
+**Agentuppdatering:** 
+* Azure AD Connect Health agent för AD DS (version 3.1.41.0) 
+* .NET version samling.
+* Förbättring av samling med prestandaräknare när särskilda kategorier som saknas.
+* Felkorrigering på det gick inte att skapa flera instanser av Monitoring Agent.
+
+* Azure AD Connect Health agent för AD FS (version 3.1.41.0) 
+* Integrera och uppgradera AD FS test-skript med hjälp av ADFSToolBox.
+* .NET version samling.
+* Förbättring av samling med prestandaräknare när särskilda kategorier som saknas.
+* Felkorrigering på det gick inte att skapa flera instanser av Monitoring Agent.
+
 
 ## <a name="november-2018"></a>November 2018
 **Nya funktioner för allmän tillgänglighet:** 
 * Azure AD Connect Health för synkronisering – diagnostisera och åtgärda Duplicerat attribut synkroniseringsfel från portalen
 
 **Agentuppdatering:** 
-*  Azure AD Connect Health agent för AD DS (version 3.1.24.0) 
-1. Transport Layer Security (TLS) protokoll version 1.2 efterlevnad och tvingande
-2. Minska aviseringsbruset för Global katalog
-3. Felkorrigeringar för Health agent-registrering
+* Azure AD Connect Health agent för AD DS (version 3.1.24.0) 
+* Transport Layer Security (TLS) protokoll version 1.2 efterlevnad och tvingande
+* Minska aviseringsbruset för Global katalog
+* Felkorrigeringar för Health agent-registrering
 
-*   Azure AD Connect Health agent för AD FS (version 3.1.24.0)
-1. Transport Layer Security (TLS) protokoll version 1.2 efterlevnad och tvingande
-2. Stöd för Test-ADFSRequestToken för lokaliserat operativsystem
-3. Lösta diagnostikagenten EventHandler låsningsproblem
-4. Felkorrigeringar för Health agent-registrering
+* Azure AD Connect Health agent för AD FS (version 3.1.24.0)
+* Transport Layer Security (TLS) protokoll version 1.2 efterlevnad och tvingande
+* Stöd för Test-ADFSRequestToken för lokaliserat operativsystem
+* Lösta diagnostikagenten EventHandler låsningsproblem
+* Felkorrigeringar för Health agent-registrering
 
 ## <a name="august-2018"></a>Augusti 2018 
 *  Azure AD Connect Health-agenten för synkronisering (version 3.1.7.0) som lanseras med Azure AD Connect version 1.1.880.0    
@@ -51,31 +70,31 @@ Azure AD Connect Health för synkronisering är integrerat med Azure AD Connect-
 * Azure AD Connect Health för synkronisering – diagnostisera och åtgärda Duplicerat attribut synkroniseringsfel från portalen 
 
 **Agentuppdatering:** 
-*  Azure AD Connect Health agent för AD DS (version 3.1.7.0)    
-   1. Snabbkorrigering för [hög CPU-problemet av övervakningsagent med .NET Framework KB versioner](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
+* Azure AD Connect Health agent för AD DS (version 3.1.7.0)    
+  1. Snabbkorrigering för [hög CPU-problemet av övervakningsagent med .NET Framework KB versioner](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
    
-*   Azure AD Connect Health agent för AD FS (version 3.1.7.0)  
-   1. Snabbkorrigering för [hög CPU-problemet av övervakningsagent med .NET Framework KB versioner](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
-   2. Testa resultaten korrigeringar på sekundär server för AD FS Server 2016
+* Azure AD Connect Health agent för AD FS (version 3.1.7.0)  
+  1. Snabbkorrigering för [hög CPU-problemet av övervakningsagent med .NET Framework KB versioner](https://support.microsoft.com/help/4346822/high-cpu-issue-in-azure-active-directory-connect-health-for-sync)
+  2. Testa resultaten korrigeringar på sekundär server för AD FS Server 2016
    
-*   Azure AD Connect Health agent för AD FS (version 3.1.2.0)  
-   1. Snabbkorrigering för minneshantering för agenten och relaterade aviseringar specifikt för version 3.0.244.0
+* Azure AD Connect Health agent för AD FS (version 3.1.2.0)  
+  1. Snabbkorrigering för minneshantering för agenten och relaterade aviseringar specifikt för version 3.0.244.0
 
 
 ## <a name="may-2018"></a>Maj 2018
 **Agentuppdatering:**
-*   Azure AD Connect Health agent för AD DS (version 3.0.244.0)
- 1. Agenten sekretess förbättring  
- 2. Felkorrigeringar och allmänna förbättringar
+* Azure AD Connect Health agent för AD DS (version 3.0.244.0)
+  1. Agenten sekretess förbättring  
+  2. Felkorrigeringar och allmänna förbättringar
 
-*   Azure AD Connect Health agent för AD FS (version 3.0.244.0)
- 1. Diagnostik-agenttjänsten och relaterade PowerShell-modulen förbättringar
- 2. Agenten sekretess förbättring  
- 3. Felkorrigeringar och allmänna förbättringar
+* Azure AD Connect Health agent för AD FS (version 3.0.244.0)
+  1. Diagnostik-agenttjänsten och relaterade PowerShell-modulen förbättringar
+  2. Agenten sekretess förbättring  
+  3. Felkorrigeringar och allmänna förbättringar
 
 * Azure AD Connect Health-agenten för synkronisering (version 3.0.164.0) som lanseras med Azure AD Connect version 1.1.819.0 
- 1. Agenten sekretess förbättring  
- 2. Felkorrigeringar och allmänna förbättringar
+  1. Agenten sekretess förbättring  
+  2. Felkorrigeringar och allmänna förbättringar
 
 
 ## <a name="march-2018"></a>Mars 2018
@@ -84,10 +103,10 @@ Azure AD Connect Health för synkronisering är integrerat med Azure AD Connect-
 
 **Agentuppdatering:**
 
-*   Azure AD Connect Health agent för AD DS (version 3.0.176.0)
+* Azure AD Connect Health agent för AD DS (version 3.0.176.0)
   1. Agenten tillgänglighetsförbättringar 
   2. Felkorrigeringar och allmänna förbättringar
-*   Azure AD Connect Health agent för AD FS (version 3.0.176.0)
+* Azure AD Connect Health agent för AD FS (version 3.0.176.0)
   1. Agenten tillgänglighetsförbättringar 
   2. Felkorrigeringar och allmänna förbättringar
 * Azure AD Connect Health-agenten för synkronisering (version 3.0.129.0) som lanseras med Azure AD Connect version 1.1.750.0  
@@ -97,11 +116,11 @@ Azure AD Connect Health för synkronisering är integrerat med Azure AD Connect-
 ## <a name="december-2017"></a>December 2017
 **Agentuppdatering:**
 
-*   Azure AD Connect Health agent för AD DS (version 3.0.145.0)
+* Azure AD Connect Health agent för AD DS (version 3.0.145.0)
   1. Agenten tillgänglighetsförbättringar 
   2. Kommandon har lagts till nya agenten felsökning
   3. Felkorrigeringar och allmänna förbättringar
-*   Azure AD Connect Health agent för AD FS (version 3.0.145.0)
+* Azure AD Connect Health agent för AD FS (version 3.0.145.0)
   1. Kommandon har lagts till nya agenten felsökning
   2. Agenten tillgänglighetsförbättringar 
   3. Felkorrigeringar och allmänna förbättringar
@@ -115,10 +134,10 @@ Azure AD Connect Health för synkronisering är integrerat med Azure AD Connect-
 ## <a name="july-2017"></a>Juli 2017
 **Agentuppdatering:**
 
-*   Azure AD Connect Health agent för AD DS (version 3.0.68.0)
+* Azure AD Connect Health agent för AD DS (version 3.0.68.0)
   1. Felkorrigeringar och allmänna förbättringar
   2. Molnstöd för nationella
-*   Azure AD Connect Health agent för AD FS (version 3.0.68.0)
+* Azure AD Connect Health agent för AD FS (version 3.0.68.0)
   1. Felkorrigeringar och allmänna förbättringar
   2. Molnstöd för nationella
 * Azure AD Connect Health-agenten för synkronisering (version 3.0.68.0) som lanseras med Azure AD Connect version 1.1.614.0
@@ -127,9 +146,9 @@ Azure AD Connect Health för synkronisering är integrerat med Azure AD Connect-
 ## <a name="april-2017"></a>April 2017      
 **Agentuppdatering:**
 
-*   Azure AD Connect Health agent för AD FS (version 3.0.12.0)
+* Azure AD Connect Health agent för AD FS (version 3.0.12.0)
   1. Felkorrigeringar och allmänna förbättringar
-*   Azure AD Connect Health agent för AD DS (version 3.0.12.0)
+* Azure AD Connect Health agent för AD DS (version 3.0.12.0)
   1. Prestandaräknare överför förbättringar
   2. Felkorrigeringar och allmänna förbättringar
 
@@ -137,13 +156,13 @@ Azure AD Connect Health för synkronisering är integrerat med Azure AD Connect-
 **Agentuppdatering:**
 
 * Azure AD Connect Health agent för AD FS (version 2.6.408.0)
-1. Förbättringar för identifiering av klienternas IP-adresser i autentiseringsbegäranden
-2. Felkorrigeringar som rör aviseringar
+* Förbättringar för identifiering av klienternas IP-adresser i autentiseringsbegäranden
+* Felkorrigeringar som rör aviseringar
 * Azure AD Connect Health agent för AD DS (version 2.6.408.0)
-1. Felkorrigeringar relateras till aviseringar.
+* Felkorrigeringar relateras till aviseringar.
 * Azure AD Connect Health-agenten för synkronisering (version 2.6.353.0) som lanseras med Azure AD Connect version 1.1.281.0
-1. Ange nödvändiga data för synkronisering av felrapporter
-2. Felkorrigeringar som rör aviseringar
+* Ange nödvändiga data för synkronisering av felrapporter
+* Felkorrigeringar som rör aviseringar
 
 **Nya funktioner i förhandsversion:**
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 24792a0099d4e45e100fa6cf0b211c62fc8630de
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: adedc8bc1f574ae089f2a11033fab4f390c57a9a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242334"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087033"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Hitta hot med Azure Sentinel-förhandsversion
 
@@ -128,19 +128,19 @@ Skapa en ny jakt-fråga:
 1. Klicka på **ny fråga** och välj **spara**.
 2. Fyll i alla tomma fält och välj **spara**.
 
- ![Ny fråga](./media/tutorial-hunting/new-query.png)
+   ![Ny fråga](./media/tutorial-hunting/new-query.png)
 
 Klona och ändra en befintlig jakt-fråga:
 
 1. Välj frågan som jakt i tabellen som du vill ändra.
 2. Välj ellipsen (...) i raden för den fråga du vill ändra och välj **klona frågan**.
 
- ![Klona frågan](./media/tutorial-hunting/clone-query.png)
+   ![Klona frågan](./media/tutorial-hunting/clone-query.png)
  
 
-3.  Ändra frågan och välj **skapa**.
+3. Ändra frågan och välj **skapa**.
 
- ![anpassad fråga](./media/tutorial-hunting/custom-query.png)
+   ![anpassad fråga](./media/tutorial-hunting/custom-query.png)
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig hur du kör en jakt undersökning med Sentinel-Azure. Mer information om Azure Sentinel finns i följande artiklar:

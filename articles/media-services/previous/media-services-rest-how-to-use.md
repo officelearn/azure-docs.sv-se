@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako;johndeu
-ms.openlocfilehash: e0011d36ccff7b9d621679f15776bbdb15d0cbe4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1e8d21c39a428049594237900aa76f783a3ed0ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005462"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860365"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services operations REST API-översikt 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -35,7 +35,7 @@ Autentisering till Media Services REST API görs via Azure Active Directory-aute
 Följande gäller när du använder REST.
 
 * Vid frågor till entiteter, finns det en gräns på 1000 enheter som returneras i taget eftersom offentlig REST-v2 begränsar frågeresultaten till 1000 resultat. Du måste använda **hoppa över** och **ta** (.NET) / **upp** (REST) enligt beskrivningen i [.NET-exempel](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) och [detta REST-API exempel](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
-* När använder JSON och ange om du vill använda den **__metadata** nyckelord i begäran (till exempel till ett länkat-referens) måste du ställa in den **acceptera** sidhuvud till [JSON utförlig format](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)(se exemplet nedan). OData förstår inte den **__metadata** -egenskapen i begäran, såvida inte du ange den till utförlig.  
+* När använder JSON och ange om du vill använda den **__metadata** nyckelord i begäran (till exempel till ett länkat-referens) måste du ställa in den **acceptera** sidhuvud till [JSON utförlig format](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)(se exemplet nedan). OData förstår inte den **__metadata** -egenskapen i begäran, såvida inte du ange den till utförlig.  
   
         POST https://media.windows.net/API/Jobs HTTP/1.1
         Content-Type: application/json;odata=verbose

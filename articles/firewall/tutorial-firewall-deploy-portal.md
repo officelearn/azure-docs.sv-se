@@ -1,21 +1,21 @@
 ---
-title: 'Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal'
+title: 'Självstudier: Distribuera och konfigurera Azure Firewall via Azure Portal'
 description: I den här självstudien får du lära dig att distribuera och konfigurera Azure Firewall via Azure Portal.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 3/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be4cbc7e955e56853809378f98e9733ffe4a20c3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
-ms.translationtype: HT
+ms.openlocfilehash: 288a6e1b1d88fcef6fbd5554ba811acc1dab776e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633732"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994259"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal
+# <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudier: Distribuera och konfigurera Azure Firewall via Azure Portal
 
 En viktig del av en övergripande säkerhetsplan för nätverket är att kontrollera utgående nätverksåtkomst. Du kanske till exempel vill begränsa åtkomst till webbplatser eller de utgående IP-adresser och portar som kan nås.
 
@@ -54,7 +54,7 @@ Skapa först en resursgrupp som ska innehålla de resurser som behövs till att 
 
 Resursgruppen innehåller alla resurser för den här självstudien.
 
-1. Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com).
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. På startsidan för Azure-portalen klickar du på **Resursgrupper** > **Lägg till**.
 3. I fältet **Resursgruppsnamn** skriver du **Test-FW-RG**.
 4. I fältet **Prenumeration** väljer du din prenumeration.
@@ -109,12 +109,12 @@ Skapa nu de virtuella hopp- och arbetsbelastningsdatorerna och placera dem i res
 4. Under **Regler för inkommande portar**, i fältet **Offentliga inkommande portar** klickar du på **Tillåt valda portar**.
 5. I fältet **Välj inkommande portar** väljer du **RDP (3389)**.
 
-6. Acceptera de andra standardvärdena och klicka på **Nästa: Diskar**.
-7. Acceptera diskstandardvärdet och klicka på **Nästa: Nätverk**.
+6. Acceptera övriga standardvärden och klicka på **Nästa: Diskar**.
+7. Acceptera standardvärdena för diskar och klicka på **Nästa: Nätverk**.
 8. Kontrollera att **Test-FW-VN** har valts som virtuellt nätverk och att undernätet är **Jump-SN**.
 9. I fältet **Offentlig IP-adress** klickar du på **Skapa ny**.
 10. Skriv **Srv-Jump-PIP** som namn på den offentliga IP-adressen och klicka på **OK**.
-11. Acceptera de andra standardvärdena och klicka på **Nästa: Hantering**.
+11. Acceptera övriga standardvärden och klicka på **Nästa: Hantering**.
 12. Klicka på **Av** för att inaktivera startdiagnostik. Acceptera de andra standardvärdena och klicka på **Granska + skapa**.
 13. Granska inställningarna på sammanfattningssidan och klicka sedan på **Skapa**.
 
@@ -143,7 +143,7 @@ Distribuera brandväggen till det virtuella nätverket.
    |Prenumeration     |\<din prenumeration\>|
    |Resursgrupp     |**Använd befintlig**: Test-FW-RG |
    |Plats     |Välj samma plats som tidigare|
-   |Välj ett virtuellt nätverk     |**Använd befintligt**: Test-FW-VN|
+   |Välj ett virtuellt nätverk     |**Använd befintlig**: Test-FW-VN|
    |Offentlig IP-adress     |**Skapa ny**. Den offentliga IP-adressen måste vara Standard SKU-typen.|
 
 5. Klicka på **Granska + skapa**.
@@ -168,7 +168,7 @@ För undernätet **Workload-SN** ställer du in att den utgående standardvägen
 9. Klicka på **Uppdatera** och klicka sedan på routningstabellen **Firewall-route**.
 10. Klicka på **Undernät** > **Associera**.
 11. Klicka på **Virtuellt nätverk** > **Test-FW-VN**.
-12. I fältet **Undernät** klickar du på **Workload-SN**. Se till att du bara väljer **Workload-SN**-undernätet för den här vägen, annars fungerar inte brandväggen som den ska.
+12. I fältet **Undernät** klickar du på **Workload-SN**. Kontrollera att du väljer bara den **arbetsbelastning-SN** undernät för den här vägen, annars brandväggen fungerar inte korrekt.
 
 13. Klicka på **OK**.
 14. Klicka på **Vägar** > **Lägg till**.
@@ -218,7 +218,7 @@ Det här är nätverksregel som tillåter utgående åtkomst till två IP-adress
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Ändra den primära och sekundära DNS-adressen för nätverksgränssnittet **Srv-Work**
 
-För testningen i den här självstudien konfigurerar du en primär och sekundär DNS-adress. Detta är inte ett allmänt krav i Azure Firewall.
+För testningen i den här självstudien konfigurerar du en primär och sekundär DNS-adress. Det är inte ett allmänt Azure-brandvägg krav.
 
 1. Gå till Azure Portal och öppna resursgruppen **Test-FW-RG**.
 2. Klicka på nätverksgränssnittet för den virtuella datorn **Srv-Work**.
@@ -235,16 +235,16 @@ Nu ska du testa brandväggen för att bekräfta att den fungerar som förväntat
 1. Öppna Azure Portal, granska nätverksinställningarna för den virtuella datorn **Srv-Work** och anteckna den privata IP-adressen.
 2. Anslut ett fjärrskrivbord till den virtuella datorn **Srv-Jump** och öppna därifrån en anslutning via Fjärrskrivbord till den privata IP-adressen för **Srv-Work**.
 
-3. Öppna Internet Explorer och navigera till http://msn.com.
+3. Öppna Internet Explorer och navigera till https://msn.com.
 4. Klicka på **OK** > **Stäng** i säkerhetsvarningarna.
 
    Du bör se startsidan för MSN.
 
-5. Bläddra till http://www.msn.com.
+5. Bläddra till https://www.msn.com.
 
    Du bör blockeras av brandväggen.
 
-Nu har du verifierat att brandväggsreglerna fungerar:
+Nu har du kontrollera att brandväggsreglerna fungerar:
 
 - Du kan bläddra till en tillåten FQDN, men inte till andra.
 - Du kan omvandla DNS-namn med hjälp av den konfigurerade externa DNS-servern.
@@ -256,4 +256,4 @@ Du kan behålla dina brandväggsresurser för nästa självstudie eller, om de i
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: Övervaka Azure Firewall-loggar](./tutorial-diagnostics.md)
+> [Självstudier: Monitor Azure Firewall-loggar](./tutorial-diagnostics.md)

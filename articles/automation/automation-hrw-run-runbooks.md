@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 35367a9ebc9ff09f40defd444f6ceb8ff54efe07
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: fab886de55cc524390093f7e7913c79f7af3fe78
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430292"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858155"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks som körs på en Hybrid Runbook Worker
 
@@ -307,12 +307,8 @@ Signerade runbook har namn `<runbook name>.asc`.
 
 Signerade runbook kan nu överföras till Azure Automation och kan köras som en vanlig runbook.
 
-## <a name="troubleshoot"></a>Felsöka
-
-Om dina runbooks inte slutförs, granska felsökningsguiden på [fel vid körning av runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
-
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om olika metoder som kan användas för att starta en runbook i [starta en Runbook i Azure Automation](automation-starting-a-runbook.md).
 * Information om olika sätt att arbeta med PowerShell-runbooks i Azure Automation med textredigeraren finns i [redigera en Runbook i Azure Automation](automation-edit-textual-runbook.md)
-
+* Om dina runbooks inte slutförs, granska felsökningsguiden på [fel vid körning av runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).

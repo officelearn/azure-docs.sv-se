@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 4392dc0ab53304c172bbf4c29a50a64757ec9b77
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 34159d059b976043fac415470421970056320acc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760451"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996489"
 ---
 # <a name="provider-resource-usage-api"></a>API för providerresursanvändning
 
@@ -39,6 +39,7 @@ Den här användningen API är en leverantör API, så att anroparen måste till
 | HÄMTA |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity} & subscriberId = {sub1.1} & api-version = 2015-06-01-preview & continuationToken = {token-value} |
 
 ### <a name="arguments"></a>Argument
+
 | **Argument** | **Beskrivning** |
 | --- | --- |
 | *armendpoint* |Azure Resource Manager-slutpunkten för Azure Stack-miljön. Azure Stack-konventionen är att namnet på Azure Resource Manager-slutpunkten är i formatet `https://adminmanagement.{domain-name}`. Till exempel för development kit om domännamnet är *local.azurestack.external*, Resource Manager-slutpunkten är `https://adminmanagement.local.azurestack.external`. |
@@ -80,6 +81,7 @@ meterID1",
 ```
 
 ### <a name="response-details"></a>Svarsinformation
+
 | **Argument** | **Beskrivning** |
 | --- | --- |
 | *ID* |Unikt ID för användning aggregering. |
@@ -102,9 +104,10 @@ För att generera användningsdata, bör du ha resurser som körs och som aktivt
 1. [Installera PowerShell för Azure Stack.](azure-stack-powershell-install.md)
 2. [Konfigurera Azure Stack-användare](user/azure-stack-powershell-configure-user.md) eller [Azure Stack-operatör](azure-stack-powershell-configure-admin.md) PowerShell-miljö 
 3. Använd för att hämta användningsdata i [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) PowerShell-cmdlet:
-```powershell
-Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
-```
+   ```powershell
+   Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+   ```
+
 ### <a name="rest-api"></a>REST-API
 
 Du kan samla in användningsinformation för borttagna prenumerationer genom att anropa tjänsten Microsoft.Commerce.Admin. 

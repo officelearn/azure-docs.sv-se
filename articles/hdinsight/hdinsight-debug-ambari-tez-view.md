@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9b8b92b7a672a4d344b17d4ade497749766f8a91
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7d8a654b6b2f429119323fa5d18eb0596f63e6f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719701"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105275"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>Använd Apache Ambari-vyer för att felsöka Apache Tez-jobb på HDInsight
 
@@ -90,14 +90,14 @@ Använd följande steg för att köra en Hive-fråga som använder Tez:
 
 5. Flikarna på den här sidan kan du se följande information:
 
-    * **Frågedetaljer**: Information om Hive-frågan.
-    * **Tidslinje**: Information om hur lång tid varje steg i processen tog.
-    * **Konfigurationer**: Konfigurationen används för den här frågan.
+   * **Frågedetaljer**: Information om Hive-frågan.
+   * **Timeline**: Information om hur lång tid varje steg i processen tog.
+   * **Konfigurationer**: Konfigurationen används för den här frågan.
 
-    Från __Frågedetaljer__ du kan använda länkar för att hitta information om den __programmet__ eller __DAG__ för den här frågan.
+     Från __Frågedetaljer__ du kan använda länkar för att hitta information om den __programmet__ eller __DAG__ för den här frågan.
     
-    * Den __program__ länken visar information om YARN-programmet för den här frågan. Härifrån kan du komma åt YARN-programloggar.
-    * Den __DAG__ länken visar information om riktad Acyklisk graf för den här frågan. Härifrån kan du visa en grafisk representation av gruppen för Databastillgänglighet. Du kan också hitta information om hörn i gruppen för Databastillgänglighet.
+   * Den __program__ länken visar information om YARN-programmet för den här frågan. Härifrån kan du komma åt YARN-programloggar.
+   * Den __DAG__ länken visar information om riktad Acyklisk graf för den här frågan. Härifrån kan du visa en grafisk representation av gruppen för Databastillgänglighet. Du kan också hitta information om hörn i gruppen för Databastillgänglighet.
 
 ## <a name="next-steps"></a>Nästa steg
 

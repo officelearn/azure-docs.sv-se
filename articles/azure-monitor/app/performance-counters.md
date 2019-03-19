@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: d5c7e1815fe27d9b851407a8e6f17d04d7bc1cad
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d38a575af54f044d64efc67b5483a67ffcd2fcd6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54003783"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837617"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Systemprestandaräknare i Application Insights
 
-Windows innehåller en mängd olika [prestandaräknare](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters) , till exempel processor användandet, minne, disk och nätverksanvändning. Du kan även definiera dina egna prestandaräknare. Så länge ditt program körs under IIS på en lokal värd eller virtuell dator som du har administrativ åtkomst.
+Windows har en mängd olika [prestandaräknare](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters) för exempelvis användning av processorer, minne, diskar och nätverk. Du kan även definiera dina egna prestandaräknare. Så länge ditt program körs under IIS på en lokal värd eller virtuell dator som du har administrativ åtkomst.
 
 ## <a name="view-counters"></a>Visa räknare
 
@@ -122,8 +122,8 @@ Som andra telemetri **performanceCounters** också har en kolumn `cloud_RoleInst
 
 * *Undantag* antal TrackException rapporterna tas emot av portalen i insamlingsintervall för diagrammet. Den innehåller endast hanterade undantag där du har skrivit TrackException anropar i din kod och inte innehåller alla [ohanterade undantag](../../azure-monitor/app/asp-net-exceptions.md). 
 
-## <a name="performance-counters-in-aspnet-core-applications"></a>Prestandaräknare i ASP.Net Core-program
-Prestandaräknare stöds bara om programmet är inställd på fullständiga .NET Framework. Det finns ingen möjlighet att samla in prestandaräknare för .net Core program.
+## <a name="performance-counters-in-aspnet-core-applications"></a>Prestandaräknare i ASP.NET Core-program
+Prestandaräknare stöds bara om programmet är inställd på fullständiga .NET Framework. Det finns ingen möjlighet att samla in prestandaräknare för .NET Core-program.
 
 ## <a name="alerts"></a>Aviseringar
 Till exempel andra mått, kan du [ställa in en avisering](../../azure-monitor/app/alerts.md) att varna dig om en prestandaräknare går utanför en gräns som du anger. Öppna fönstret aviseringar och klicka på Lägg till avisering.

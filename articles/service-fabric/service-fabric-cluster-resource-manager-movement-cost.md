@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 58147f5c0c3c7203aa6978e284cf5bdc90fa6971
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a4431f1d2e9a63ee7797100cc1092244d9a8b880
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737789"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101524"
 ---
 # <a name="service-movement-cost"></a>Kostnader för tjänsteflytt
 En faktor som Service Fabric Cluster Resource Manager tar hänsyn till när försök att fastställa vad ändras till att göra en klustret är kostnaden för dessa ändringar. Begreppet ”cost” säljs av mot hur mycket klustret kan förbättras. Kostnaden är inberäknade när du flyttar tjänster för belastningsutjämning, defragmentering och andra krav. Målet är att uppfylla kraven på minst störande och dyr sätt. 
@@ -79,6 +79,7 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 MoveCost har fyra nivåer: Noll, låg, Medium och hög. MoveCosts är i förhållande till varandra, förutom noll. Utan kostnad för flytten innebär att flytt är gratis och bör inte räknas av mot poängen för lösningen. Ange flytten kostnad för hög har *inte* garanti för att repliken håller sig kvar på samma ställe.
 
 <center>
+
 ![Flytta kostnad som en faktor för att välja repliker för flytt][Image1]
 </center>
 

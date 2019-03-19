@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 2858628874dc9955db5084ef5732d85acd6e7fc1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 985d41d3a00974e25c9abc4709c5bf5e662f7a50
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729803"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086045"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Placeringsprinciper för service fabric-tjänster
 Placeringsprinciper är ytterligare regler som kan användas för att styra tjänsteplacering i vissa specifika, mindre vanliga scenarier. Några exempel på dessa scenarier är:
@@ -44,6 +44,7 @@ De flesta av följande kontroller kan konfigureras via nodegenskaper och placeri
 Den **InvalidDomain** placering principen kan du ange att en viss Feldomän är ogiltig för en specifik tjänst. Den här principen säkerställer att en viss tjänst aldrig körs i ett visst område, till exempel för orsaker i geopolitisk eller företagets policy. Flera ogiltig domäner kan anges via separata principer.
 
 <center>
+
 ![Ogiltig domän-exempel][Image1]
 </center>
 
@@ -64,6 +65,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 Domän placering principen kräver att tjänsten finns bara i den angivna domänen. Du kan ange flera nödvändiga domäner via separata principer.
 
 <center>
+
 ![Domän-exempel][Image2]
 </center>
 
@@ -85,6 +87,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 Den primära domänen med önskad anger feldomänen för att placera primärt i. Primärt som identisk i den här domänen när allt är felfri. Om domänen eller den primära repliken misslyckas eller stängs av, flyttar den primära servern till en annan plats, helst i samma domän. Om den här nya platsen finns inte i den primära domänen, flyttar Cluster Resource Manager den tillbaka till den primära domänen så snart som möjligt. Den här inställningen är naturligt bara meningsfullt för tillståndskänsliga tjänster. Den här principen används ofta i kluster som omfattas i Azure-regioner eller flera datacenter, men har tjänster som föredrar placering i en viss plats. Att hålla USA: s presidentval nära användarna eller andra tjänster och ger kortare svarstider, särskilt för läsningar som hanteras av USA: s presidentval som standard.
 
 <center>
+
 ![Prioriterade primära domäner och redundans][Image3]
 </center>
 

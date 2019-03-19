@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6ffed81390419898847ce1b1b9e6b2b48a749cdf
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f78275af5faaf19a4993a5ae4414b0163f9a4d9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548480"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124158"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Bearbeta datauppsättningar i stor skala med hjälp av Data Factory och Batch
 > [!NOTE]
@@ -802,8 +802,8 @@ I det här steget skapar du en pipeline med en aktivitet, den anpassade aktivite
    * Den **linkedServiceName** egenskapen för den anpassade aktiviteten pekar **AzureBatchLinkedService**, som anger att Data Factory, som den anpassade aktiviteten ska köras på Batch.
    * Den **samtidighet** inställningen är viktig. Om du använder standardvärdet, vilket är 1, även om du har två eller flera beräkningsnoder i Batch-pool, segment bearbetas efter varandra. Därför inte du dra nytta av parallell bearbetningskapacitet i Batch. Om du ställer in **samtidighet** till ett högre värde, exempelvis 2 innebär det att två skär (motsvarar två aktiviteter i Batch) kan bearbetas samtidigt. I det här fallet används båda de virtuella datorerna i Batch-pool. Ange egenskapen samtidighet på rätt sätt.
    * Endast en aktivitet (segment) körs på en virtuell dator när som helst som standard. Som standard **maximalt uppgifter per virtuell dator** har angetts till 1 för en Batch-pool. Som en del av förutsättningarna skapade du en pool med den här egenskapen angiven till 2. Därför kan två data factory sektorer köras på en virtuell dator på samma gång.
-    - Den **isPaused** egenskap är inställd på false som standard. Pipelinen körs direkt i det här exemplet eftersom sektorer starta tidigare. Du kan ange egenskapen **SANT** att pausa pipeline och set tillbaka till **FALSKT** startas om.
-    -   Den **starta** och **slutet** tiderna är fem timmar från varandra. Sektorer produceras per timme, så att fem sektorer som produceras av pipelinen.
+     - Den **isPaused** egenskap är inställd på false som standard. Pipelinen körs direkt i det här exemplet eftersom sektorer starta tidigare. Du kan ange egenskapen **SANT** att pausa pipeline och set tillbaka till **FALSKT** startas om.
+     -   Den **starta** och **slutet** tiderna är fem timmar från varandra. Sektorer produceras per timme, så att fem sektorer som produceras av pipelinen.
 
 1. Välj **Distribuera** i kommandofältet för att distribuera pipelinen.
 

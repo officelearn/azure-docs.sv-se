@@ -15,12 +15,12 @@ ms.date: 03/04/2018
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 1115e11d6bf830afad3746eb41d6368cb89bdbf3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c3ea877e3271dcb5bea527d661e12827eb64fa0c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534386"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997414"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Självstudier: Skapa en lösning för dataanalys av mellanlagrade data med Azure och Azure Stack 
 
@@ -175,25 +175,25 @@ Skapa en ny Azure Stack-funktion för att flytta rensa data från Azure Stack ti
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Skapa en funktion som utlöses av Blob Storage
 
-1.  Expandera funktionsappen och välj den **+** bredvid knappen **Functions**.
+1. Expandera funktionsappen och välj den **+** bredvid knappen **Functions**.
 
-2.  I sökfältet skriver `blob` och välj sedan önskat språk för den **Blob-utlösare** mall.
+2. I sökfältet skriver `blob` och välj sedan önskat språk för den **Blob-utlösare** mall.
 
-  ![Välj utlösarmallen för Blob Storage.](media/azure-stack-solution-staged-data-analytics/image10.png)
+   ![Välj utlösarmallen för Blob Storage.](media/azure-stack-solution-staged-data-analytics/image10.png)
 
-3.  Använd inställningarna som anges i tabellen nedan:
+3. Använd inställningarna som anges i tabellen nedan:
 
-    | Inställning | Föreslaget värde | Beskrivning |
-    | ------- | ------- | ------- |
-    | Namn | Ett unikt namn i funktionsappen | Namnge funktionen som utlöses av blobben. |
-    | Sökväg | \<sökväg från lagringsplatsen ovan > | Platsen i Blob Storage som övervakas. Filnamnet för bloben skickas i bindningen som Namnparametern. |
-    | Anslutning till lagringskonto | Funktionen App-anslutning | Du kan använda den lagringskontoanslutning som redan används av funktionsappen eller skapa en ny. |
+   | Inställning | Föreslaget värde | Beskrivning |
+   | ------- | ------- | ------- |
+   | Namn | Ett unikt namn i funktionsappen | Namnge funktionen som utlöses av blobben. |
+   | Sökväg | \<sökväg från lagringsplatsen ovan > | Platsen i Blob Storage som övervakas. Filnamnet för bloben skickas i bindningen som Namnparametern. |
+   | Anslutning till lagringskonto | Funktionen App-anslutning | Du kan använda den lagringskontoanslutning som redan används av funktionsappen eller skapa en ny. |
 
-    **Exempel:**
+   **Exempel:**
 
-    ![Skapa funktionen som utlöses av Blob Storage.](media/azure-stack-solution-staged-data-analytics/image11.png)
+   ![Skapa funktionen som utlöses av Blob Storage.](media/azure-stack-solution-staged-data-analytics/image11.png)
 
-4.  Välj **skapa** skapa funktionen.
+4. Välj **skapa** skapa funktionen.
 
 ### <a name="test-the-function"></a>Testa funktionen
 
@@ -253,21 +253,21 @@ Använd stegen och inställningar som beskrivs ovan för att skapa ett annat kon
 
 ## <a name="test-the-queue-triggered-function"></a>Funktion som utlöses av test kön
 
-1.  I Azure Stack-portalen bläddrar du till funktionen. Expandera den **loggar** längst ned på sidan och se till att loggströmningen inte är pausad.
+1. I Azure Stack-portalen bläddrar du till funktionen. Expandera den **loggar** längst ned på sidan och se till att loggströmningen inte är pausad.
 
-2.  Öppna Storage Explorer och Anslut till det lagringskonto som skapats i början av det här avsnittet.
+2. Öppna Storage Explorer och Anslut till det lagringskonto som skapats i början av det här avsnittet.
 
-3.  Expandera lagringskontot **Blobbehållare**, och blobben som du skapade tidigare. Välj **överför** och sedan **ladda upp filer.**
+3. Expandera lagringskontot **Blobbehållare**, och blobben som du skapade tidigare. Välj **överför** och sedan **ladda upp filer.**
 
-    ![Ladda upp en fil till blobcontainern.](media/azure-stack-solution-staged-data-analytics/image12.png)
+   ![Ladda upp en fil till blobcontainern.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
-4.  I dialogrutan ladda upp filer väljer du fältet filer. Bläddra till en fil på en lokal dator, till exempel en bildfil, markera den och välj **öppna** och sedan **överför**.
+4. I dialogrutan ladda upp filer väljer du fältet filer. Bläddra till en fil på en lokal dator, till exempel en bildfil, markera den och välj **öppna** och sedan **överför**.
 
-5.  Gå tillbaka till funktionsloggarna och kontrollera bloben har lästs.
+5. Gå tillbaka till funktionsloggarna och kontrollera bloben har lästs.
 
-  **Exempel:**
+   **Exempel:**
 
-    ![Visa meddelande i loggarna.](media/azure-stack-solution-staged-data-analytics/image13.png)
+   ![Visa meddelande i loggarna.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>Säkert lagrade och används kompatibla data
 

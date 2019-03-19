@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 492afcdd5143aa5a6597ba8c296d15059f9c7d64
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 82b95080a9c93d8c02d4129ef93b1a6c9deba7aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453277"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852774"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionera Service Fabric reliable services
 Den här artikeln innehåller en introduktion till de grundläggande principerna för Azure Service Fabric tillförlitliga tjänster partitioneras. Källkoden som används i artikeln finns också på [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -113,7 +113,7 @@ En viktig del av hashing är att välja hash-algoritm. Ersättning är om målet
 
 Egenskaperna för en bra distribution hashalgoritm är att det är enkelt att beräkna, den har några kollisioner och den distribuerar nycklarna jämnt. Ett bra exempel på en effektiv hash-algoritm är den [FNV-1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function) hash-algoritm.
 
-En bra resurs för allmän hash kod algoritmen val är den [Wikipedia-sida på hash-funktioner](http://en.wikipedia.org/wiki/Hash_function).
+En bra resurs för allmän hash kod algoritmen val är den [Wikipedia-sida på hash-funktioner](https://en.wikipedia.org/wiki/Hash_function).
 
 ## <a name="build-a-stateful-service-with-multiple-partitions"></a>Skapa en tillståndskänslig tjänst med flera partitioner
 Nu ska vi skapa din första tillförlitlig tillståndskänslig tjänst med flera partitioner. I det här exemplet skapar du ett väldigt enkelt program där du vill lagra alla efternamn som börjar på samma i samma partition.

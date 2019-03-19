@@ -1,26 +1,22 @@
 ---
 title: 'Självstudie: Användardefinierade funktioner i Azure Stream Analytics JavaScript | Microsoft Docs '
 description: I den här självstudien får utföra avancerade frågor med användardefinierade JavaScript-funktioner
-keywords: javascript, user defined functions, udf
 services: stream-analytics
 author: rodrigoamicrosoft
-manager: kfile
-ms.assetid: ''
+ms.author: rodrigoa
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.workload: data-services
-ms.author: rodrigoa
-ms.openlocfilehash: e33b90d6f70bb1b765f5170ac37880d31e87f3a5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ff8e61c53774429087ffe1a9137d40b155eb3f68
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088885"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192283"
 ---
-# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Självstudie: Användardefinierade funktioner i Azure Stream Analytics JavaScript
+# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Självstudier: Användardefinierade funktioner i Azure Stream Analytics JavaScript
  
 Azure Stream Analytics stödjer användardefinierade JavaScript-funktioner. Med den omfattande uppsättningen av **String**-, **RegExp**-, **Math**-, **Array**- och **Date**-metoder som JavaScript erbjuder blir det enklare att skapa komplexa datatransformationer med Stream Analytics-jobb.
 
@@ -50,12 +46,19 @@ Här följer några saker som du inte kan göra med användardefinierade JavaScr
 Även om funktioner som **Date.GetDate()** eller **Math.random()** inte blockeras i definitionen av funktioner du bör undvika att använda dem. Dessa funktioner returnerar **inte** samma resultat varje gång du anropar dem, och Azure Stream Analytics-tjänsten sparar inte funktionsanrop och returnerade resultat. Om en funktion returnerar olika resultat för samma händelser, kan inte repeterbarhet garanteras när du eller Stream Analytics-tjänsten startar ett jobb.
 
 ## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>Lägga till en användardefinierad JavaScript-funktion i Azure Portal
-För att skapa en enkel användardefinierad JavaScript-funktion under ett befintligt Stream Analytics-jobb, gör du följande:
+Följ dessa steg om du vill skapa en enkel JavaScript-användardefinierade funktion under ett befintligt Stream Analytics-jobb:
+
+> [!NOTE]
+> De här stegen fungerar Stream Analytics-jobb som körs i molnet. Om ditt Stream Analytics-jobb är konfigurerad för att köras på Azure IoT Edge, i stället använda Visual Studio och [skriva den användardefinierade funktionen med hjälp av C# ](stream-analytics-edge-csharp-udf.md).
 
 1.  Öppna ditt Stream Analytics-jobb på Azure Portal.
-2.  Välj din funktion under **JOBBTOPOLOGI**. En tom lista över funktioner visas.
-3.  Välj **Lägg till** för att skapa en ny användardefinierad funktion.
+
+2. Under den **jobbtopologi** väljer **Functions**. En tom lista över funktioner visas.
+
+3.  Om du vill skapa en ny användardefinierad funktion, Välj **+ Lägg till**.
+
 4.  På bladet **Ny funktion** för **funktionstypen** väljer du **JavaScript**. En standardmall för funktionen visas i redigeraren.
+
 5.  För **UDF-alias** anger du **hex2Int** och ändrar funktionsimplementeringen på följande sätt:
 
     ```javascript
@@ -70,7 +73,7 @@ För att skapa en enkel användardefinierad JavaScript-funktion under ett befint
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Anropa en användardefinierad JavaScript-funktion i en fråga
 
-1. I frågeredigeraren under **JOBBTOPOLOGI** väljer du **Fråga**.
+1. I frågeredigeraren under den **jobbtopologi** väljer **fråga**.
 2.  Redigera frågan och anropa sedan den användardefinierade funktionen så här:
 
     ```SQL
@@ -99,7 +102,7 @@ Stream Analytics | JavaScript
 bigint | Siffra (JavaScript kan bara representera heltal upp till exakt 2^53)
 DateTime | Datum (JavaScript stöder endast millisekunder)
 double | Tal
-nvarchar(MAX) | Sträng
+nvarchar(MAX) | String
 Spela in | Objekt
 Matris | Matris
 NULL | Null
@@ -112,7 +115,7 @@ JavaScript | Stream Analytics
 --- | ---
 Tal | Bigint (om talet är avrundat och mellan long.MinValue och long.MaxValue, i annat fall stöds det inte)
 Date | DateTime
-Sträng | nvarchar(MAX)
+String | nvarchar(MAX)
 Objekt | Spela in
 Matris | Matris
 Null, odefinierad | NULL

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: 94931546f3b8ddb18a5381de3baa31d66376badb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810728"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107465"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Arbetsflöde för säkerhetskopiering offline i Azure Backup
 Azure Backup har flera inbyggda effektiviteten som sparar kostnader för lagring och nätverk under en första fullständig säkerhetskopiering av data till Azure. Inledande fullständiga säkerhetskopieringar vanligtvis överföra stora mängder data och kräver mer bandbredd i nätverket jämfört med efterföljande säkerhetskopieringar som överför bara deltan/varje. Genom processen för att ange startvärden offline, kan Azure Backup använda diskar för att överföra offline säkerhetskopierade data till Azure.
@@ -73,7 +73,7 @@ Det här avsnittet beskrivs arbetsflödet för säkerhetskopiering offline så a
 
     ![Importskärmen](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
 
-  Beskrivning av indata är följande:
+   Beskrivning av indata är följande:
 
     * **Mellanlagringsplatsen**: Den tillfälliga lagringsplats som den första säkerhetskopian skrivs. Mellanlagringsplatsen kan vara på en nätverksresurs eller en lokal dator. Om kopiera dator och källdatorn skiljer sig, rekommenderar vi att du anger den fullständiga nätverkssökvägen på mellanlagringsplatsen.
     * **Azure Resource Manager-Lagringskonto**: Namnet på lagringskontot för Resource Manager typ i alla Azure-prenumerationer.
@@ -81,7 +81,7 @@ Det här avsnittet beskrivs arbetsflödet för säkerhetskopiering offline så a
     * **Azure-prenumerations-ID**: ID för Azure-prenumerationen där Azure Storage-kontot skapas.
     * **Namnet på Azure-importjobbet**: Det unika namnet genom vilka Azure-Import-tjänsten och Azure Backup spåra överföringen av data som skickas på diskar till Azure. 
   
-  Ange indata på skärmen och klicka på **nästa**. Spara de angivna *mellanlagringsplatsen* och *Azure Importjobbets namn*, enligt den här informationen krävs för att förbereda diskarna.
+   Ange indata på skärmen och klicka på **nästa**. Spara de angivna *mellanlagringsplatsen* och *Azure Importjobbets namn*, enligt den här informationen krävs för att förbereda diskarna.
 
 2. När du uppmanas logga in på din Azure-prenumeration. Du måste logga in så att Azure Backup kan skapa Azure Active Directory-program och ange behörigheterna som krävs för att få åtkomst till tjänsten Azure Import.
 
@@ -106,14 +106,14 @@ Den *AzureOfflineBackupDiskPrep* förbereder du SATA-enheter som skickas till n�
 
 1. Gå till katalogen och kopiera den **AzureOfflineBackupDiskPrep** katalogen till en annan dator där SATA-enheter är anslutna. På datorn med anslutna SATA-enheter, kontrollerar du att:
 
-    * Kopiera-datorn kan komma åt mellanlagringsplatsen för offline-seeding-arbetsflödet med hjälp av samma nätverkssökväg som angavs i den **påbörja offlinesäkerhetskopiering** arbetsflöde.
-    * BitLocker har aktiverats på datorn kopia.
-    * Azure PowerShell 3.7.0 har installerats.
-    * De senaste kompatibla webbläsarna (Microsoft Edge eller Internet Explorer 11) har installerats och JavaScript är aktiverat. 
-    * Kopiera-datorn kan komma åt Azure-portalen. Om det behövs, kan kopiera-datorn vara samma som källdatorn.
+   * Kopiera-datorn kan komma åt mellanlagringsplatsen för offline-seeding-arbetsflödet med hjälp av samma nätverkssökväg som angavs i den **påbörja offlinesäkerhetskopiering** arbetsflöde.
+   * BitLocker har aktiverats på datorn kopia.
+   * Azure PowerShell 3.7.0 har installerats.
+   * De senaste kompatibla webbläsarna (Microsoft Edge eller Internet Explorer 11) har installerats och JavaScript är aktiverat. 
+   * Kopiera-datorn kan komma åt Azure-portalen. Om det behövs, kan kopiera-datorn vara samma som källdatorn.
     
-    > [!IMPORTANT] 
-    > Om källdatorn är en virtuell dator, måste kopiera datorn vara en annan fysisk server eller klientdator från källdatorn.
+     > [!IMPORTANT] 
+     > Om källdatorn är en virtuell dator, måste kopiera datorn vara en annan fysisk server eller klientdator från källdatorn.
 
 2. Öppna en upphöjd kommandotolk på Kopiera-dator med den *AzureOfflineBackupDiskPrep* verktyget katalog som den aktuella katalogen och kör sedan följande kommando:
 
@@ -137,11 +137,11 @@ Den *AzureOfflineBackupDiskPrep* förbereder du SATA-enheter som skickas till n�
     Verktyget börjar sedan att förbereda disken och kopiering av säkerhetskopierade data. Du kan behöva lägga till ytterligare diskar när du uppmanas av verktyget om den angivna disken inte har tillräckligt med utrymme för säkerhetskopierade data. <br/>
 
     I slutet av lyckad körning av verktyget innehåller tre typer av information i Kommandotolken:
-    1. En eller flera diskar som du angav förbereds för leverans till Azure. 
-    2. Du fått en bekräftelse att din importjobb har skapats. Importjobbet använder det namn du angett.
-    3. Verktyget visar leveransadressen för Azure-datacentret.
+   1. En eller flera diskar som du angav förbereds för leverans till Azure. 
+   2. Du fått en bekräftelse att din importjobb har skapats. Importjobbet använder det namn du angett.
+   3. Verktyget visar leveransadressen för Azure-datacentret.
 
-    ![Azure disk förberedelse klar](./media/backup-azure-backup-import-export/console2.png)<br/>
+      ![Azure disk förberedelse klar](./media/backup-azure-backup-import-export/console2.png)<br/>
 
 6. I slutet av Kommandokörningen, kan du uppdatera leveransadressen.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 6254a32349a0f7c743c3fb4993080ca3437c8276
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 9112d50384aba288038343ff9a14ed55542fb722
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810278"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121357"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Vägledning för personliga data som lagras i Log Analytics och Application Insights
 
@@ -53,7 +53,7 @@ Log Analytics är en flexibel store, som vid datavetenskapsmetod som fastställe
     ```
     search "[username goes here]"
     ```
-Kom ihåg att se ut för läsbara användarnamn men GUID som kan spåras tillbaka direkt till en viss användare!
+  Kom ihåg att se ut för läsbara användarnamn men GUID som kan spåras tillbaka direkt till en viss användare!
 * *Enhets-ID*: Som användar-ID anses ibland enhets-ID ”privat”. Använd samma metod som anges ovan för användar-ID för att identifiera tabeller där det kan vara ett problem. 
 * *Anpassade data*: Log Analytics möjliggör insamling i flera olika sätt: anpassade loggar och anpassade fält, de [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) , och anpassade data som samlas in som en del av systemets händelseloggar. Alla dessa kan vara utsatta för som innehåller privata data och bör undersökas för att kontrollera om några sådana data finns.
 * *Lösningen insamlade data*: Eftersom mekanismen för lösningen är en kunskapsuppsättning, rekommenderar vi att granska alla tabeller som genererats av lösningar för att säkerställa att.

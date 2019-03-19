@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 57bd65006058ab91dcacd4749c1677036f134ff3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: eeda1ed3181b8cc8f641ed731b7f00fac2d3fad6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443376"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005841"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -244,6 +244,7 @@ Om du vill se de här felen, kör den **FileSyncErrorsReport.ps1** PowerShell-sk
 
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>Felsöka per synkroniseringsfel för filen eller katalogen
 **ItemResults log - per-item synkroniseringsfel**  
+
 | HRESULT | HRESULT (decimal) | Felsträng | Problem | Åtgärd |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Fil- eller katalogändring kan inte synkroniseras än eftersom en beroende mapp inte har synkroniserats ännu. Det här objektet synkroniseras när de beroende ändringarna har synkroniserats. | Ingen åtgärd krävs. |
@@ -271,6 +272,7 @@ Tabellen nedan innehåller alla Azure File Sync inte har stöd för Unicode-teck
 
 ### <a name="common-sync-errors"></a>Vanliga synkroniseringsfel
 <a id="-2147023673"></a>**Synkroniseringssessionen avbröts.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x800704c7 |
@@ -281,6 +283,7 @@ Tabellen nedan innehåller alla Azure File Sync inte har stöd för Unicode-teck
 Synkroniseringssessioner kan misslyckas av olika anledningar, inklusive den servern att startas om eller uppdateras, VSS-ögonblicksbilder och så vidare. Även om det här felet verkar det kräver uppföljning, är det säkert att ignorera det här felet, såvida inte den finns kvar under en period på flera timmar.
 
 <a id="-2147012889"></a>**Det gick inte att upprätta en anslutning till tjänsten.**    
+
 | | |
 |-|-|
 | **HRESULT** | 0x80072ee7 |
@@ -291,6 +294,7 @@ Synkroniseringssessioner kan misslyckas av olika anledningar, inklusive den serv
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
 <a id="-2134376372"></a>**Användarbegäran begränsades av tjänsten.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8004c |
@@ -301,6 +305,7 @@ Synkroniseringssessioner kan misslyckas av olika anledningar, inklusive den serv
 Ingen åtgärd krävs. servern kommer att försöka igen. Om felet kvarstår under längre tid än ett par timmar, skapa en supportbegäran.
 
 <a id="-2134364065"></a>**Synkronisering kan inte komma åt Azure-filresursen som anges i molnslutpunkten.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8305f |
@@ -316,6 +321,7 @@ Det här felet beror på att Azure File Sync-agenten inte kan komma åt Azure-fi
 4. [Kontrollera Azure File Sync har åtkomst till lagringskontot.](#troubleshoot-rbac)
 
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**Det gick inte att matcha namnet på lagringskontot används.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80C83060 |
@@ -332,6 +338,7 @@ Det här felet beror på att Azure File Sync-agenten inte kan komma åt Azure-fi
 3. [Kontrollera att lagringskontot inte innehåller några Nätverksregler.](#troubleshoot-network-rules)
 
 <a id="-1906441138"></a>**Synkroniseringen misslyckades på grund av ett problem med sync-databasen.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x8e5e044e |
@@ -342,6 +349,7 @@ Det här felet beror på att Azure File Sync-agenten inte kan komma åt Azure-fi
 Det här felet uppstår när det finns ett problem med den interna databasen som används av Azure File Sync. När det här problemet uppstår, skapa en supportbegäran så kontaktar vi dig för att hjälpa dig att lösa problemet.
 
 <a id="-2134364053"></a>**Azure File Sync-agent-version som installerats på servern stöds inte.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80C8306B |
@@ -352,6 +360,7 @@ Det här felet uppstår när det finns ett problem med den interna databasen som
 Det här felet uppstår om Azure File Sync-agent-version som installerats på servern inte stöds. Lös problemet, [uppgradera]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths) till en [agentversion som stöds]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions).
 
 <a id="-2134351810"></a>**Du har nått lagringsgränsen för Azure file-resursen.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8603e |
@@ -377,6 +386,7 @@ Det här felet uppstår när lagringsgränsen för Azure file-resursen har nått
 Om resursen är full och en kvot har inte angetts, är ett sätt för att åtgärda det här problemet att göra sin egen serverslutpunkt i sina egna separata synkroniseringsgrupper varje undermapp i den aktuella server-slutpunkten. Det här sättet synkroniseras varje undermapp till enskilda Azure-filresurser.
 
 <a id="-2134351824"></a>**Det går inte att hitta Azure-filresursen.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c86030 |
@@ -392,6 +402,7 @@ Det här felet uppstår när Azure-filresursen inte är tillgänglig. Felsöknin
 Om Azure-filresursen har tagits bort, måste du skapa en ny filresurs och sedan återskapa synkroniseringsgruppen. 
 
 <a id="-2134364042"></a>**Synkroniseringen har pausats medan Azure-prenumerationen har inaktiverats.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80C83076 |
@@ -402,6 +413,7 @@ Om Azure-filresursen har tagits bort, måste du skapa en ny filresurs och sedan 
 Det här felet uppstår när Azure-prenumerationen har inaktiverats. Synkronisering kommer vara reenabled när Azure-prenumerationen har återställts. Se [Varför är min Azure-prenumeration inaktiverad och hur jag återaktivera den?](../../billing/billing-subscription-become-disable.md) för mer information.
 
 <a id="-2134364052"></a>**Lagringskontot har en brandvägg eller virtuella datornätverk som har konfigurerats.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8306c |
@@ -417,6 +429,7 @@ Det här felet uppstår när Azure-filresursen är otillgänglig på grund av en
 Ta bort dessa regler för att åtgärda problemet. 
 
 <a id="-2134375911"></a>**Synkroniseringen misslyckades på grund av ett problem med sync-databasen.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c80219 |
@@ -432,6 +445,7 @@ Det här felet som vanligtvis löser sig själv och som kan inträffa om det fin
 Om felet kvarstår under längre tid än några få timmar, skapa en supportbegäran så kontaktar vi dig för att hjälpa dig att lösa problemet.
 
 <a id="-2146762487"></a>**Det gick inte att upprätta en säker anslutning på servern. Molntjänsten tog emot ett oväntat certifikat.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x800b0109 |
@@ -456,6 +470,7 @@ Det här felet kan inträffa om organisationen använder en avslutande SSL-proxy
 När det här registervärdet har angetts godkänner Azure File Sync-agenten alla lokalt betrodda SSL-certifikat vid överföring av data mellan servern och molntjänsten.
 
 <a id="-2147012894"></a>**Det gick inte att upprätta en anslutning till tjänsten.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80072ee2 |
@@ -466,6 +481,7 @@ När det här registervärdet har angetts godkänner Azure File Sync-agenten all
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
 <a id="-2134375680"></a>**Synkroniseringen misslyckades på grund av ett problem med autentisering.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c80300 |
@@ -494,6 +510,7 @@ Utför följande steg för att lösa problemet om servertiden stämmer:
     ```
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**Den volym som Serverslutpunkten har för lite ledigt diskutrymme.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x8e5e0211 |
@@ -509,6 +526,7 @@ Utför följande steg för att lösa problemet om servertiden stämmer:
 Det här felet beror på att volymen har blivit full. Det här felet uppstår ofta eftersom filer utanför Serverslutpunkten använder upp utrymme på volymen. Frigör utrymme på volymen genom att lägga till ytterligare serverslutpunkter, flytta filer till en annan volym, eller öka storleken på volymen Serverslutpunkten är på.
 
 <a id="-2134364145"></a><a id="replica-not-ready"></a>**Tjänsten är ännu inte redo att synkronisera med den här Serverslutpunkten.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8300f |
@@ -521,6 +539,7 @@ Det här felet beror på att det finns ändringar på Azure-filresursen direkt o
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
 <a id="-2134375877"></a><a id="-2134375908"></a><a id="-2134375853"></a>**Synkroniseringen misslyckades på grund av problem med många enskilda filer.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8023b |
@@ -544,6 +563,7 @@ I fall där det finns många per fil synkroniseringsfel, synkroniseringssessione
 > Azure File Sync skapas en tillfällig VSS-ögonblicksbild en gång om dagen på servern för att synkronisera filer som har öppna referenser.
 
 <a id="-2134376423"></a>**Synkroniseringen misslyckades på grund av ett problem med sökvägen till serverns slutpunkt.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c80019 |
@@ -554,6 +574,7 @@ I fall där det finns många per fil synkroniseringsfel, synkroniseringssessione
 Se till att sökvägen finns, är på en lokal NTFS-volym och att den inte är en referenspunkt eller befintlig serverslutpunkt.
 
 <a id="-2134375817"></a>**Synkroniseringen misslyckades eftersom versionen av filter-drivrutinen inte är kompatibel med agentversionen**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80C80277 |
@@ -564,6 +585,7 @@ Se till att sökvägen finns, är på en lokal NTFS-volym och att den inte är e
 Det här felet beror på att Molnlagringsnivå filter (StorageSync.sys) drivrutinsversionen lästs in inte är kompatibel med tjänsten Storage Sync-agenten (FileSyncSvc). Starta om servern för att slutföra installationen om Azure File Sync-agenten har uppgraderats. Om felet kvarstår kan du avinstallera agenten, starta om servern och installera om Azure File Sync-agenten.
 
 <a id="-2134376373"></a>**Tjänsten är inte tillgänglig för tillfället.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8004b |
@@ -574,6 +596,7 @@ Det här felet beror på att Molnlagringsnivå filter (StorageSync.sys) drivruti
 Det här felet beror på att Azure File Sync-tjänsten är inte tillgänglig. Det här felet kommer Lös automatiskt när Azure File Sync-tjänsten eftersom tillgänglig igen.
 
 <a id="-2134375922"></a>**Synkroniseringen misslyckades på grund av ett tillfälligt problem med av synkroniseringsdatabasen.**  
+
 | | |
 |-|-|
 | **HRESULT** | 0x80c8020e |
@@ -793,13 +816,13 @@ Det finns två huvudsakliga typer av fel som kan ske via antingen fel väg:
     - *Otillgängligt Azure-filresurs*. Det här felet inträffar vanligtvis när du tar bort Azure-filresursen när det är fortfarande en slutpunkt i en synkroniseringsgrupp.
     - *Otillgängligt lagringskonto*. Det här felet inträffar vanligtvis när du tar bort lagringskontot medan det fortfarande har en Azure-filresurs som är en slutpunkt i en synkroniseringsgrupp. 
 - Serverfel 
-    - *Azure File Sync system filfilter (StorageSync.sys) har inte lästs in*. Azure File Sync-filsystemsfilter måste läsas in för att kunna svara för att lagringsnivåer/återkallande begäranden. Filtret inte hämtas kan bero på flera orsaker, men den vanligaste orsaken är att en administratör tas bort från minnet det manuellt. Azure File Sync-filsystemsfilter måste läsas in på hela tiden för Azure File Sync ska fungera korrekt.
-    - *Saknas, skadad eller på annat sätt bruten referenspunkt*. En referenspunkt är en särskild datastruktur för en fil som består av två delar:
-        1. En tagg för referenspunkter som anger att operativsystemet filsystemsfilter (StorageSync.sys) för Azure File Sync kan behöva utföra en åtgärd på i/o i filen. 
-        2. Referensdata som anger att filsystemet filtrera URI för filen på associerade molnslutpunkten (Azure-filresurs). 
+  - *Azure File Sync system filfilter (StorageSync.sys) har inte lästs in*. Azure File Sync-filsystemsfilter måste läsas in för att kunna svara för att lagringsnivåer/återkallande begäranden. Filtret inte hämtas kan bero på flera orsaker, men den vanligaste orsaken är att en administratör tas bort från minnet det manuellt. Azure File Sync-filsystemsfilter måste läsas in på hela tiden för Azure File Sync ska fungera korrekt.
+  - *Saknas, skadad eller på annat sätt bruten referenspunkt*. En referenspunkt är en särskild datastruktur för en fil som består av två delar:
+    1. En tagg för referenspunkter som anger att operativsystemet filsystemsfilter (StorageSync.sys) för Azure File Sync kan behöva utföra en åtgärd på i/o i filen. 
+    2. Referensdata som anger att filsystemet filtrera URI för filen på associerade molnslutpunkten (Azure-filresurs). 
         
-        Det vanligaste sättet som kan vara skadade en referenspunkt är om en administratör försöker ändra taggen eller dess data. 
-    - *Problem med nätverksanslutningen*. För att kunna nivå eller återställa en fil, måste servern ha Internetanslutning.
+       Det vanligaste sättet som kan vara skadade en referenspunkt är om en administratör försöker ändra taggen eller dess data. 
+  - *Problem med nätverksanslutningen*. För att kunna nivå eller återställa en fil, måste servern ha Internetanslutning.
 
 I följande avsnitt visar hur du felsöker problem med lagringsnivåer-molnet och avgöra om ett problem är ett problem för lagring av molnet eller ett serverfel.
 
@@ -822,14 +845,14 @@ Du övervakar återställningar på en server med händelse-ID 9005 9006, 9009 o
 Om filerna inte nivå till Azure Files:
 
 1. Granska telemetri, drift- och diagnostikdata händelseloggar, finns under program och Services\Microsoft\FileSync\Agent i Loggboken. 
-    1. Kontrollera att filerna finns i Azure-filresursen.
+   1. Kontrollera att filerna finns i Azure-filresursen.
 
-    > [!NOTE]
-    > En fil måste synkroniseras till en Azure-filresurs innan den kan vara nivåindelad.
+      > [!NOTE]
+      > En fil måste synkroniseras till en Azure-filresurs innan den kan vara nivåindelad.
 
-    2. Kontrollera att servern är ansluten till internet. 
-    3. Kontrollera Azure File Sync-filterdrivrutiner (StorageSync.sys och StorageSyncGuard.sys) körs:
-        - Vid en upphöjd kommandotolk kör `fltmc`. Kontrollera att de StorageSync.sys och StorageSyncGuard.sys filterdrivrutinerna för filsystemet visas.
+   2. Kontrollera att servern är ansluten till internet. 
+   3. Kontrollera Azure File Sync-filterdrivrutiner (StorageSync.sys och StorageSyncGuard.sys) körs:
+       - Vid en upphöjd kommandotolk kör `fltmc`. Kontrollera att de StorageSync.sys och StorageSyncGuard.sys filterdrivrutinerna för filsystemet visas.
 
 > [!NOTE]
 > En händelse-ID 9003 loggas en gång i timmen i händelseloggen telemetri om en fil inte kan nivå (en händelse loggas per felkod). Drift- och diagnostikloggar till event ska användas om ytterligare information behövs för att diagnostisera problem.

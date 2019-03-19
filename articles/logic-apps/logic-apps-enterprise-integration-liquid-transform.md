@@ -5,17 +5,16 @@ services: logic-apps
 ms.service: logic-apps
 author: divyaswarnkar
 ms.author: divswa
-manager: jeconnoc
 ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: d607c75bc451774e6bf269eb658236d93a85021f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 3441350a07047676ac43de23262be6c54912162c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854385"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104173"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Utföra avancerade JSON-transformationer med en flytande mallar i Azure Logic Apps
 
@@ -35,8 +34,7 @@ Därför innan du kan utföra en flytande omvandling i din logikapp måste defin
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Skapa en flytande mall eller karta för ditt integrationskonto
 
-1. I det här exemplet skapar du en flytande exempelmallen som beskrivs i det här steget.
-Om du vill använda några filter i en flytande mallen kontrollera dessa filter versaler. Läs mer om [flytande filtrerar](https://shopify.github.io/liquid/basics/introduction/#filters), som använder [DotLiquid](https://dotliquidmarkup.org/) och C# namngivningskonventioner.
+1. I det här exemplet skapar du en flytande exempelmallen som beskrivs i det här steget. Du kan använda i din mall för flytande [flytande filtrerar](https://shopify.github.io/liquid/basics/introduction/#filters), som använder [DotLiquid](https://dotliquidmarkup.org/) och C# namngivningskonventioner. Dock se till att du *börja Filternamn med versaler*, inte gemener. 
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -82,7 +80,8 @@ Om du vill använda några filter i en flytande mallen kontrollera dessa filter 
 
 2. I Logic App Designer, lägger du till den [begäransutlösare](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) i logikappen.
 
-3. Under utlösaren väljer **nytt steg**. Ange ”flytande” som filter i sökrutan och välj den här åtgärden: **Transformera JSON till JSON - Liquid**
+3. Under utlösaren väljer **nytt steg**. 
+   Ange ”flytande” som filter i sökrutan och välj den här åtgärden: **Transformera JSON till JSON - Liquid**
 
    ![Hitta och välja en flytande åtgärd](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
@@ -101,7 +100,7 @@ Om du vill använda några filter i en flytande mallen kontrollera dessa filter 
 
    2. Från den **Välj ett integrationskonto** väljer du ditt integrationskonto, och välj **spara**.
 
-     ![Länka logic app till integrationskontot](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
+      ![Länka logic app till integrationskontot](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
 ## <a name="test-your-logic-app"></a>Testa din logikapp
 

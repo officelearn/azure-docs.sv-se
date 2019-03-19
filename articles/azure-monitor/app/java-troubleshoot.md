@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 01/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4e9e9b76469554f5519626eed37a5b64586f5eb4
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: eaade5f9ec9db7e8d224305147dafc264916d9c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265404"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995597"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Felsökning och vanliga frågor och svar för Application Insights för Java
 Frågor eller problem med [Azure Application Insights i Java][java]? Här följer några tips.
@@ -105,18 +105,39 @@ Med XML-metoden kan behöva du starta om programmet när du ändrar värdet.
 
 Om du vill ha mer information om vad som händer i API: et kan du lägga till `<SDKLogger/>` under rotnoden i filen ApplicationInsights.xml konfiguration.
 
+### <a name="applicationinsightsxml"></a>ApplicationInsights.xml
+
 Du kan också instruera loggaren att spara till en fil:
 
 ```XML
-
-    <SDKLogger type="FILE">
-      <enabled>True</enabled>
-      <UniquePrefix>JavaSDKLog</UniquePrefix>
-    </SDKLogger>
+  <SDKLogger type="FILE">
+    <Level>TRACE</Level>
+    <UniquePrefix>AI</UniquePrefix>
+    <BaseFolderPath>C:/agent/AISDK</BaseFolderPath>
+</SDKLogger>
 ```
 
-Filer kan hittas `%temp%\javasdklogs` eller `java.io.tmpdir` vid Tomcat-servern.
+### <a name="spring-boot-starter"></a>Spring Boot Starter
 
+Om du vill aktivera loggning för SDK med Spring Boot-appar som använder Application Insights Spring Boot Starter, lägger du till följande till den `application.properties` filen.:
+
+```yaml
+azure.application-insights.logger.type=file
+azure.application-insights.logger.base-folder-path=C:/agent/AISDK
+azure.application-insights.logger.level=trace
+```
+
+### <a name="java-agent"></a>Java-agenten
+
+Att aktivera loggning av JVM-agenten update den [AI-Agent.xml filen](java-agent.md).
+
+```xml
+<AgentLogger type="FILE">
+    <Level>TRACE</Level>
+    <UniquePrefix>AI</UniquePrefix>
+    <BaseFolderPath>C:/agent/AIAGENT</BaseFolderPath>
+</AgentLogger>
+```
 
 ## <a name="the-azure-start-screen"></a>Azure startskärmen
 **Jag tittar på [Azure-portalen](https://portal.azure.com). Kartan berätta något om mitt program?**

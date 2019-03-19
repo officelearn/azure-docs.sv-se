@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 0df548d6b3639ce2ce3c7c72695bb96cc6d0dc3d
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 0c37ad6de867c4abe4ebf0e6c7a40b5cf27c4541
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581036"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079647"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Använd MirrorMaker för att replikera Apache Kafka-ämnen med Kafka på HDInsight
 
@@ -254,11 +254,11 @@ Du kan skapa ett Azure-nätverk och Kafka-kluster manuellt, men det är enklare 
 
     * **--producer.config**: Anger den fil som innehåller egenskaper för producenten. Dessa egenskaper används för att skapa en producent som skriver till den *mål* Kafka-kluster.
 
-    * **lista över tillåtna--**: En lista över ämnen som MirrorMaker som replikerar från källklustret till målet.
+    * **--whitelist**: En lista över ämnen som MirrorMaker som replikerar från källklustret till målet.
 
     * **--num.streams**: Antal trådar som konsument ska skapa.
 
- Vid start, kan MirrorMaker returnerar information liknande följande text:
+   Vid start, kan MirrorMaker returnerar information liknande följande text:
 
     ```json
     {metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-3, security.protocol=PLAINTEXT}{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-0, security.protocol=PLAINTEXT}

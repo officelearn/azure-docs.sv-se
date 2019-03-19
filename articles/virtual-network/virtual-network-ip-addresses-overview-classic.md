@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: f96ac14d68d98937cf230b04b45503e21c5e0187
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3a295a5c8a202b2f3186e696bb281002090fcad4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024577"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112610"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>IP-adresstyper och allokeringsmetoder i Azure (klassisk) i Azure
 Du kan tilldela IP-adresser till Azure-resurser för att kommunicera med andra Azure-resurser, det lokala nätverket och Internet. Det finns två typer av IP-adresser som du kan använda i Azure: offentliga och privata.
@@ -27,7 +27,7 @@ Offentliga IP-adresser som används för kommunikation med Internet, inklusive A
 Privata IP-adresser används för kommunikation inom ett Azure-nätverk (VNet), en tjänst i molnet och ditt lokala nätverk när du använder en VPN-gateway eller ExpressRoute-krets för att utöka ditt nätverk till Azure.
 
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser:  [Resource Manager och klassisk](../resource-manager-deployment-model.md).  Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager. Lär dig mer om IP-adresser i Resource Manager genom att läsa den [IP-adresser](virtual-network-ip-addresses-overview-arm.md) artikeln.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser:  [Resource Manager och klassisk](../resource-manager-deployment-model.md).  Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager. Lär dig mer om IP-adresser i Resource Manager genom att läsa den [IP-adresser](virtual-network-ip-addresses-overview-arm.md) artikeln.
 
 ## <a name="public-ip-addresses"></a>Offentliga IP-adresser
 Offentliga IP-adresser gör Azure-resurser kan kommunicera med Internet och Azure offentliga tjänster som [Azure Cache för Redis](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL-databaser](../sql-database/sql-database-technical-overview.md), och [Azure storage](../storage/common/storage-introduction.md).
@@ -164,14 +164,14 @@ Nedan visas en jämförelse av IP-adressering funktioner i Resource Manager och 
 
 |  | Resurs | Klassisk | Resource Manager |
 | --- | --- | --- | --- |
-| **Offentlig IP-adress** |***VIRTUELL DATOR*** |Kallas en ILPIP (dynamisk) |Kallas en offentlig IP-adress (dynamisk eller statisk) |
-|  ||Tilldelad till en IaaS-VM eller en PaaS-rollinstans |Som är kopplad till den Virtuella datorns nätverkskort | |
-|  |***Internetuppkopplad belastningsutjämnare*** |Kallas VIP (dynamisk) eller reserverad IP-adress (statisk) |Kallas en offentlig IP-adress (dynamisk eller statisk) | |
-|  ||Tilldelad till en molntjänst |Som är kopplad till belastningsutjämnarens klientdel config | |
+| **Offentlig IP-adress** |***VM*** |Kallas en ILPIP (dynamisk) |Kallas en offentlig IP-adress (dynamisk eller statisk) |
+|  ||Tilldelad till en IaaS-VM eller en PaaS-rollinstans |Som är kopplad till den Virtuella datorns nätverkskort |
+|  |***Internetuppkopplad belastningsutjämnare*** |Kallas VIP (dynamisk) eller reserverad IP-adress (statisk) |Kallas en offentlig IP-adress (dynamisk eller statisk) |
+|  ||Tilldelad till en molntjänst |Som är kopplad till belastningsutjämnarens klientdel config |
 |  | | | |
-| **Privata IP-adress** |***VIRTUELL DATOR*** |Kallas en DIP |Kallas en privat IP-adress |
-|  ||Tilldelad till en IaaS-VM eller en PaaS-rollinstans |Tilldelad till den Virtuella datorns nätverkskort | |
-|  |***Intern belastningsutjämnare (ILB)*** |Tilldelad till den interna Belastningsutjämnaren (dynamisk eller statisk) |Tilldelad till den interna belastningsutjämnarens konfiguration på klientsidan (dynamisk eller statisk) | |
+| **Privata IP-adress** |***VM*** |Kallas en DIP |Kallas en privat IP-adress |
+|  ||Tilldelad till en IaaS-VM eller en PaaS-rollinstans |Tilldelad till den Virtuella datorns nätverkskort |
+|  |***Intern belastningsutjämnare (ILB)*** |Tilldelad till den interna Belastningsutjämnaren (dynamisk eller statisk) |Tilldelad till den interna belastningsutjämnarens konfiguration på klientsidan (dynamisk eller statisk) |
 
 ## <a name="next-steps"></a>Nästa steg
 * [Distribuera en virtuell dator med en statisk privat IP-adress](virtual-networks-static-private-ip-classic-pportal.md) med Azure portal.

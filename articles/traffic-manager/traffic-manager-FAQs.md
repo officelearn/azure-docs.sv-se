@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 4d47192ea69047b0b12deffc41776a87c16ca6ab
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c26117bf298d5fe7fd8a14e0aa2b14834e412328
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959756"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009926"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Traffic Manager
 
@@ -340,6 +340,7 @@ Nej, Traffic Manager kan du inte blanda adressering slutpunktstyper inom en prof
 När en fråga tas emot mot en profil, hittar Traffic Manager först den slutpunkt som ska returneras enligt vilken routningsmetod som angetts och hälsotillståndet för slutpunkterna. Den tittar sedan på posttypen har begärt i den inkommande frågan och den typ som är associerade med slutpunkten innan det returneras ett svar baserat på tabellen nedan.
 
 För profiler med routningmetod än Flervärden är:
+
 |Inkommande query-fråga|    Typ av slutpunkt|  Svar som tillhandahålls|
 |--|--|--|
 |ANY |  A / AAAA / CNAME |  Mål-slutpunkt| 
@@ -350,6 +351,7 @@ För profiler med routningmetod än Flervärden är:
 |CNAME |    CNAME | Mål-slutpunkt|
 |CNAME  |A / AAAA | INGA DATA |
 |
+
 För profiler med routningsmetod inställd på Flervärden är:
 
 |Inkommande query-fråga|    Typ av slutpunkt | Svar som tillhandahålls|

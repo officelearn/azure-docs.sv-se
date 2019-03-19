@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d28a88efc1a9f980d74737936bb960ba13573fa3
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675100"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58166760"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Självstudier: Identifiera avvikelser vid gränsen med lösningsacceleratorn för fjärrövervakning
 
@@ -245,7 +245,7 @@ Därefter skapar du ett IoT Edge-distributionsmanifest som definierar vilka modu
 
 1. Klicka på distributionen **oil-pump-device** och klicka sedan på **Ladda ned IoT Edge-manifest**. Spara filen som **oil-pump-device.json** på en lämplig plats på din lokala datorn. Du behöver den här filen i nästa avsnitt i den här självstudien.
 
-Nu har du skapat ett IoT Edge-manifest för att importera till lösningen för fjärrövervakning som ett paket. Vanligtvis skapar en utvecklare IoT Edge-modulerna och manifestfilen.
+Nu har du skapat en IoT Edge-manifestet för att importera till lösningen för fjärrövervakning som ett paket. Vanligtvis skapar en utvecklare IoT Edge-modulerna och manifestfilen.
 
 ## <a name="import-a-package"></a>Importera ett paket
 

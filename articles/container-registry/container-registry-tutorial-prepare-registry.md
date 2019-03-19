@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 07e328c022e8e81782902445fd8fc6e320625a51
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 7aec257335e3380fa99669c1191ee89857ec975d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978957"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533672"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Självstudie: Förbereda ett georeplikerat Azure Container Registry
 
@@ -41,7 +41,7 @@ Azure Cloud Shell inkluderar inte de Docker-komponenter som krävs för att slut
 
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
 
-Logga in på [Azure-portalen](http://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 Välj **Skapa en resurs** > **Behållare** > **Azure Container Registry**.
 
@@ -152,7 +152,7 @@ Hämta först registrets inloggningsserver med kommandot `az acr show`. Ersätt 
 az acr show --name <acrName> --query "{acrLoginServer:loginServer}" --output table
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 AcrLoginServer
@@ -244,7 +244,7 @@ Fortsätt till nästa självstudie för att distribuera behållaren till flera W
 
 <!-- LINKS - External -->
 [acr-helloworld-zip]: https://github.com/Azure-Samples/acr-helloworld/archive/master.zip
-[aspnet-core]: http://dot.net
+[aspnet-core]: https://dot.net
 [dockerhub-aspnetcore]: https://hub.docker.com/r/microsoft/aspnetcore/
 [dockerhub-aspnetcore-build]: https://store.docker.com/community/images/microsoft/aspnetcore-build
 [dockerfile]: https://github.com/Azure-Samples/acr-helloworld/blob/master/AcrHelloworld/Dockerfile

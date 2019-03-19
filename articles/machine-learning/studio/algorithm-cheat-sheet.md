@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
-ms.openlocfilehash: 4adcef601ca84b94d88ed65278310a94c7273353
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 51a743e7578ea5bbc2acb9094bbf704a09f3cd6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433331"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858813"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning-algoritmfacit för Azure Machine Learning Studio
 
@@ -38,7 +38,7 @@ Ladda ned och skriva Machine Learning Studio algoritmen facit ut i tabloidformat
 
 * Förslag erbjuds i den här algoritmfacit är ungefärliga regler för USB. Vissa kan böjda och vissa kan ha brutits flagrantly. Detta är avsett att föreslå en startpunkt. Inte rädd för att köra en jämförelse konkurrensen mellan flera algoritmer för dina data. Det är bara ingen ersättning för att förstå principerna för varje algoritm och systemet som genereras av dina data.
 
-* Varje maskininlärningsalgoritmen har sin egen style eller *induktiv bias*. Flera algoritmer kan vara lämpligt för ett specifikt program och en algoritm kan vara ett bättre alternativ än andra. Men det går inte alltid på förhand känna till som passar bäst. I sådana fall visas flera algoritmer tillsammans i facit. En lämplig strategi är att prova en algoritm och om resultatet inte är ännu tillfredsställande, kan du prova de andra. Här är ett exempel från den [Azure AI-galleriet](http://gallery.azure.ai/) av ett experiment som försöker flera algoritmer mot samma data och jämför resultaten: [Jämför flera klassificerare: Enhetsbokstaven för](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
+* Varje maskininlärningsalgoritmen har sin egen style eller *induktiv bias*. Flera algoritmer kan vara lämpligt för ett specifikt program och en algoritm kan vara ett bättre alternativ än andra. Men det går inte alltid på förhand känna till som passar bäst. I sådana fall visas flera algoritmer tillsammans i facit. En lämplig strategi är att prova en algoritm och om resultatet inte är ännu tillfredsställande, kan du prova de andra. Här är ett exempel från den [Azure AI-galleriet](https://gallery.azure.ai/) av ett experiment som försöker flera algoritmer mot samma data och jämför resultaten: [Jämför flera klassificerare: Enhetsbokstaven för](https://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 * Det finns tre huvudkategorier av machine learning: **övervakad inlärning**, **oövervakad inlärning**, och **förstärkande inlärning**.
 

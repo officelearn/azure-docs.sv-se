@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: f5d75e817da843e0b6a8e86fb055cc723e45a2bb
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: e46dae199f4d45c325e41fa5432e98cba9a2f4ae
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54108900"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449605"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Använda Azure Application Insights till att förstå hur kunderna använder din app
 
@@ -31,7 +31,7 @@ Azure Application Insights samlar in användningsinformation för att hjälpa di
 > * Inspekterar hur användarna navigerar genom appen
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 
@@ -86,7 +86,7 @@ Panelen **Sessioner** liknar panelen **Användare**.  **Användare** hjälper di
     ![Sessionstidslinje](media/tutorial-users/SessionsTimeline.png)
 
 ## <a name="group-together-similar-users"></a>Gruppera liknande användare
-En **Kohort** är en uppsättning användare med liknande egenskaper.  Du kan använda kohorter för att filtrera data i andra panelen, så att du kan analysera olika grupper av användare.  Till exempel kanske du bara vill analysera användare som har slutfört ett köp.
+En **kohort** är en uppsättning användare som är grupperade efter liknande egenskaper.  Du kan använda kohorter för att filtrera data i andra panelen, så att du kan analysera olika grupper av användare.  Till exempel kanske du bara vill analysera användare som har slutfört ett köp.
 
 1.  Välj **Kohorter** på menyn.
 2.  Klicka på **Nytt** om du vill skapa en kohort.

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/16/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 611a2deccffeb142dc9a76bd260c9a8a080eb8bb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5159388996c562fac59a9ec1127f7d52ba0b30f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816342"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58083087"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Skapa, visa och ta bort en Användartilldelad hanterad identitet med Azure Resource Manager
 
@@ -34,7 +34,7 @@ Det går inte att lista och ta bort en Användartilldelad hanterad identitet med
 
 - [Lista användartilldelade hanterad identitet](how-to-manage-ua-identity-cli.md#list-user-assigned-managed-identities)
 - [Ta bort Användartilldelad hanterad identitet](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
-## <a name="prerequisites"></a>Förutsättningar
+  ## <a name="prerequisites"></a>Förutsättningar
 
 - Om du är bekant med hanterade identiteter för Azure-resurser kan du kolla den [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en hanterad identitet systemtilldelade och användartilldelade](overview.md#how-does-it-work)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.

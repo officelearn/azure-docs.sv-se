@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 6d86d4c03a41834322c98438958c0b9e87e6025c
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 9faa38a23b2039902366e5b885ab73c68a2a3d80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213533"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076028"
 ---
 # <a name="azure-application-offer"></a>Erbjudandet för Azure-program
 
@@ -58,15 +58,15 @@ Följande diagram visar den övergripande processen för att publicera ett erbju
 
 Anvisningar för att publicera ett erbjudande för Azure-program är:
 
-0. Uppfyller den [krav](./cpp-prerequisites.md) – (visas inte) kontrollera att du har uppfyllt affärsmässiga och tekniska krav för att publicera en Azure-app på Azure Marketplace. 
+1. Uppfyller den [krav](./cpp-prerequisites.md) – (visas inte) kontrollera att du har uppfyllt affärsmässiga och tekniska krav för att publicera en Azure-app på Azure Marketplace. 
 
 1. [Skapa erbjudandet](./cpp-create-offer.md) -ger detaljerad information om erbjudandet. Informationen omfattar: erbjudandet beskrivning, marknadsföringsmaterial, supportinformation och tillgångsspecifikationer.
 
-2. [Skapa eller samla in befintliga företags- och tekniska resurser](./cpp-create-technical-assets.md) -skapa företagstillgångar (juridiska dokument och marknadsföringsmaterial) och tekniska resurser för den associerade lösningen.
+1. [Skapa eller samla in befintliga företags- och tekniska resurser](./cpp-create-technical-assets.md) -skapa företagstillgångar (juridiska dokument och marknadsföringsmaterial) och tekniska resurser för den associerade lösningen.
 
-3. [Skapa SKU: N](./cpp-skus-tab.md) -skapa den SKU: er som är kopplad till erbjudandet. En unik SKU måste anges för varje bild som du planerar att publicera.
+1. [Skapa SKU: N](./cpp-skus-tab.md) -skapa den SKU: er som är kopplad till erbjudandet. En unik SKU måste anges för varje bild som du planerar att publicera.
 
-4. Certifiera och [publicera erbjudandet](./cpp-publish-offer.md) -när erbjudandet och tekniska resurser har slutförts, kan du skicka erbjudandet. Den här publiceringen börjar publiceringsprocessen. Under den här processen testas lösningen verifierats, certifierade, sedan ”lanseras” på Azure Marketplace.
+1. Certifiera och [publicera erbjudandet](./cpp-publish-offer.md) -när erbjudandet och tekniska resurser har slutförts, kan du skicka erbjudandet. Den här publiceringen börjar publiceringsprocessen. Under den här processen testas lösningen verifierats, certifierade, sedan ”lanseras” på Azure Marketplace.
 
 ## <a name="next-steps"></a>Nästa steg
 

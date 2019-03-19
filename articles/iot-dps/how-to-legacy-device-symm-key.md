@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: cf4ee8b1b9d96ad4d32a0ac8b1682968b90653f9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c43d3b236a305f1e6d2bd392527a5206b6a5c974
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541498"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074904"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Hur du etablerar äldre enheter med symmetriska nycklar
 
@@ -120,17 +120,17 @@ SDK innehåller exempelkod för den simulerade enheten. Den här simulerade enhe
 
 3. På **lägga till Registreringsgruppen**, anger du följande information och klicka på den **spara** knappen.
 
-    - **Gruppnamn**: Ange **mylegacydevices**.
+   - **Gruppnamn**: Ange **mylegacydevices**.
 
-    - **Typ av attestering**: Välj **symmetrisk nyckel**.
+   - **Typ av attestering**: Välj **symmetrisk nyckel**.
 
-    - **Generera nycklar automatiskt**: Markera den här kryssrutan.
+   - **Generera nycklar automatiskt**: Markera den här kryssrutan.
 
-    - **Välj hur du vill tilldela enheter till hubs**: Välj **statisk konfiguration** så att du kan tilldela till en specifik hubb.
+   - **Välj hur du vill tilldela enheter till hubs**: Välj **statisk konfiguration** så att du kan tilldela till en specifik hubb.
 
-    - **Välj IoT-hubbar som den här gruppen kan tilldelas till**: Välj en av dina hubs.
+   - **Välj IoT-hubbar som den här gruppen kan tilldelas till**: Välj en av dina hubs.
 
-    ![Lägg till grupp för registrering för symmetrisk nyckelattestering](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
+     ![Lägg till grupp för registrering för symmetrisk nyckelattestering](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
 4. När du har sparat din registrering genereras **primärnyckeln** och **sekundärnyckel** och läggs till registreringsposten. Symmetrisk nyckel registreringsgruppen visas som **mylegacydevices** under den *gruppnamn* kolumnen i den *Registreringsgrupper* fliken. 
 

@@ -1,102 +1,133 @@
 ---
-title: Kör Azure CLI eller PowerShell-kommandon under en Azure AD-identitet till Azure Storage (förhandsversion) | Microsoft Docs
+title: Kör Azure CLI eller PowerShell-kommandon under en Azure AD-identitet till Azure Storage | Microsoft Docs
 description: Azure CLI och PowerShell stöder loggat in med en Azure AD-identitet köra kommandon i Azure Storage-behållare och köer och deras data. En åtkomsttoken för sessionen och används för att auktorisera anropande åtgärder. Behörigheter beror på vilken roll som tilldelats Azure AD-identitet.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6369c9c2c3c517012018063883b04487f86ddfd9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f8fd3cdcf73749d787fc6f1c2222946961091f80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460496"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849847"
 ---
-# <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Använda en Azure AD-identitet för åtkomst till Azure Storage med CLI eller PowerShell (förhandsversion)
+# <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell"></a>Använda en Azure AD-identitet för åtkomst till Azure Storage med CLI eller PowerShell
 
-Azure Storage tillhandahåller förhandsversion tillägg för Azure CLI och PowerShell som gör det möjligt att logga in och kör skriptkommandon under en Azure Active Directory (Azure AD)-identitet. Azure AD-identitet kan vara en användare, grupp eller tjänstens huvudnamn för programmet eller det kan vara en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md). Du kan tilldela behörigheter för att få åtkomst till lagringsresurser till Azure AD-identitet via rollbaserad åtkomstkontroll (RBAC). Mer information om RBAC-roller i Azure Storage finns i [hantera åtkomsträttigheter till Azure Storage-data med RBAC (förhandsversion)](storage-auth-aad-rbac.md).
+Azure Storage tillhandahåller tillägg för Azure CLI och PowerShell som gör det möjligt att logga in och kör skriptkommandon under en Azure Active Directory (Azure AD)-identitet. Azure AD-identitet kan vara en användare, grupp eller tjänstens huvudnamn för programmet eller det kan vara en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md). Du kan tilldela behörigheter för att få åtkomst till lagringsresurser till Azure AD-identitet via rollbaserad åtkomstkontroll (RBAC). Mer information om RBAC-roller i Azure Storage finns i [hantera åtkomsträttigheter till Azure Storage-data med RBAC (förhandsversion)](storage-auth-aad-rbac.md).
 
 När du loggar in till Azure CLI eller PowerShell med Azure AD-identitet, returneras en åtkomsttoken för att komma åt Azure Storage under den identiteten. Den token används sedan automatiskt av CLI eller PowerShell för att auktorisera åtgärder mot Azure Storage. För åtgärder som stöds behöver du inte längre att skicka en nyckel eller en SAS-token med kommandot.
 
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
-
 ## <a name="supported-operations"></a>Åtgärder som stöds
 
-Tillägg för förhandsversionen har stöd för åtgärder på behållare och köer. Vilka åtgärder som du kan anropa beror på behörigheter till Azure AD-identitet som du loggar in på Azure CLI eller PowerShell. Behörigheter till Azure Storage-behållare eller de köer som har tilldelats via rollbaserad åtkomstkontroll (RBAC). Till exempel om en dataläsare roll tilldelas till identitet som kan du köra skriptkommandon som läser data från en behållare eller en kö. Om en Data-deltagare roll tilldelas till identiteten, kan du köra skriptkommandon som läsa, skriva eller ta bort en behållare eller kön eller den data de innehåller. 
+Tillägg som stöds för åtgärder på behållare och köer. Vilka åtgärder som du kan anropa beror på behörigheter till Azure AD-identitet som du loggar in på Azure CLI eller PowerShell. Behörigheter till Azure Storage-behållare eller de köer som har tilldelats via rollbaserad åtkomstkontroll (RBAC). Till exempel om en dataläsare roll tilldelas till identitet som kan du köra skriptkommandon som läser data från en behållare eller en kö. Om en Data-deltagare roll tilldelas till identiteten, kan du köra skriptkommandon som läsa, skriva eller ta bort en behållare eller kön eller den data de innehåller. 
 
 Mer information om de behörigheter som krävs för varje Azure Storage-åtgärd på en behållare eller kön finns [behörigheter för att anropa REST-åtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).  
 
-## <a name="call-cli-commands-with-an-azure-ad-identity"></a>Anropa CLI-kommandon med en Azure AD-identitet
+## <a name="call-cli-commands-using-azure-ad-credentials"></a>Anropa CLI-kommandon med hjälp av Azure AD-autentiseringsuppgifter
 
-Installera tillägget förhandsversion för Azure CLI:
+Azure CLI har stöd för den `--auth-mode` parametern åtgärder mot Azure Storage för:
 
-1. Kontrollera att du har installerat Azure CLI version 2.0.32 eller senare. Kör `az --version` att kontrollera den installerade versionen.
-2. Kör följande kommando för att installera tillägget förhandsversion: 
-
-    ```azurecli
-    az extension add -n storage-preview
-    ```
-
-Tillägget förhandsversion lägger till en ny `--auth-mode` parameter kommandon som stöds:
-
-- Ange den `--auth-mode` parameter `login` att logga in med en Azure AD-identitet.
+- Ange den `--auth-mode` parameter `login` att logga in med en Azure AD-säkerhetsobjekt.
 - Ange den `--auth-mode` parametern till äldre `key` värde att fråga efter en konto-nyckel om inga autentiseringsparametrar för kontot har angetts. 
 
-Till exempel för att ladda ned en blob i Azure CLI med hjälp av en Azure AD-identitet, kör först `az login`, sedan anropa kommandot med `--auth-mode` inställd `login`:
+I följande exempel visar hur du skapar en behållare i ett nytt lagringskonto från Azure CLI med hjälp av Azure AD-autentiseringsuppgifter. Kom ihåg att ersätta platshållarvärdena i vinkelparenteser med dina egna värden: 
 
-```azurecli
-az login
-az storage blob download --account-name storagesamples --container sample-container --name myblob.txt --file myfile.txt --auth-mode login 
-```
+1. Kontrollera att du har installerat Azure CLI version 2.0.46 eller senare. Kör `az --version` att kontrollera den installerade versionen.
 
-Miljövariabeln som är associerade med den `--auth-mode` parametern är `AZURE_STORAGE_AUTH_MODE`.
+1. Kör `az login` och autentisera i webbläsarfönstret: 
 
-## <a name="call-powershell-commands-with-an-azure-ad-identity"></a>Anropa PowerShell-kommandon med en Azure AD-identitet
+    ```azurecli
+    az login
+    ```
+    
+1. Ange den önskade prenumerationen. Skapa en resursgrupp med [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create). Skapa ett lagringskonto i den resurs med [az storage-konto skapar](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create): 
+
+    ```azurecli
+    az account set --subscription <subscription-id>
+
+    az group create \
+        --name sample-resource-group-cli \
+        --location eastus
+
+    az storage account create \
+        --name <storage-account> \
+        --resource-group sample-resource-group-cli \
+        --location eastus \
+        --sku Standard_LRS \
+        --encryption-services blob
+    ```
+    
+1. Innan du skapar behållaren, tilldela den [Storage Blob Data-deltagare (förhandsgranskning)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) rollen till dig själv. Även om du är ägare, måste du explicit behörighet att utföra åtgärder mot lagringskontot. Mer information om att tilldela RBAC-roller finns i [bevilja åtkomst till Azure-behållare och köer med RBAC i Azure portal (förhandsversion)](storage-auth-aad-rbac.md).
+
+    > [!IMPORTANT]
+    > RBAC-rolltilldelningar kan ta upp till 5 minuter att sprida i förhandsversionen av Azure AD-stöd för blobbar och köer.
+    
+1. Anropa den [az storage container skapa](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) med den `--auth-mode` parameteruppsättning till `login` att skapa behållaren med hjälp av Azure AD-autentiseringsuppgifter:
+
+    ```azurecli
+    az storage container create \ 
+        --account-name <storage-account> \ 
+        --name sample-container \
+        --auth-mode login
+    ```
+
+Miljövariabeln som är associerade med den `--auth-mode` parametern är `AZURE_STORAGE_AUTH_MODE`. Du kan ange lämpligt värde i miljövariabeln för att undvika att inkludera det vid varje anrop till en åtgärd för Azure Storage-data.
+
+## <a name="call-powershell-commands-using-azure-ad-credentials"></a>Anropa PowerShell-kommandon med hjälp av Azure AD-autentiseringsuppgifter
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Använda Azure PowerShell för att logga in med en Azure AD-identitet:
+Skapa en storage-kontext för att referera till storage-konto för att använda Azure PowerShell för att logga in och köra efterföljande åtgärder mot Azure Storage med Azure AD-autentiseringsuppgifter, och, inklusive den `-UseConnectedAccount` parametern.
 
-1. Avinstallera alla tidigare installationer av Azure PowerShell:
+I följande exempel visar hur du skapar en behållare i ett nytt lagringskonto från Azure PowerShell med hjälp av Azure AD-autentiseringsuppgifter. Kom ihåg att ersätta platshållarvärdena i vinkelparenteser med dina egna värden:
 
-    - Ta bort alla tidigare installationer av Azure PowerShell från Windows med hjälp av den **appar och funktioner** inställningen **inställningar**.
-    - Ta bort alla **Azure*** moduler från `%Program Files%\WindowsPowerShell\Modules`.
-
-1. Se till att du har den senaste versionen av installerat PowerShellGet. Öppna ett Windows PowerShell-fönster och kör följande kommando för att installera den senaste versionen:
- 
-    ```powershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
-    ```
-1. Stäng och öppna PowerShell-fönstret när du har installerat PowerShellGet. 
-
-1. Installera den senaste versionen av Azure PowerShell:
+1. Logga in på Azure-prenumerationen med den `Connect-AzAccount` och följer den på skärmen anvisningar för att ange dina autentiseringsuppgifter för Azure AD: 
 
     ```powershell
-    Install-Module Az –Repository PSGallery –AllowClobber
+    Connect-AzAccount
+    ```
+    
+1. Skapa en Azure-resursgrupp genom att anropa [New AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
+
+    ```powershell
+    $resourceGroup = "sample-resource-group-ps"
+    $location = "eastus"
+    New-AzResourceGroup -Name $resourceGroup -Location $location
     ```
 
-1. Installera ett Azure Storage-förhandsversionsmodulen som har stöd för Azure AD:
-   
-   ```powershell
-   Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
-   ```
-1. Stäng och öppna PowerShell-fönstret.
-1. Anropa den [New-AzStorageContext](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontext) cmdlet för att skapa en kontext och inkludera den `-UseConnectedAccount` parametern. 
-1. Skicka nya kontexten till cmdlet för att anropa en cmdlet med ett Azure AD-identitet.
+1. Skapa ett lagringskonto genom att anropa [New AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount).
 
-I följande exempel visar hur du listar blobarna i en behållare från Azure PowerShell med hjälp av en Azure AD-identitet. Tänk på att ersätta platshållaren konto och en behållare namnen med dina egna värden: 
+    ```powershell
+    $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
+      -Name "<storage-account>" `
+      -SkuName Standard_LRS `
+      -Location $location `
+    ```
 
-```powershell
-$ctx = New-AzStorageContext -StorageAccountName storagesamples -UseConnectedAccount 
-Get-AzStorageBlob -Container sample-container -Context $ctx 
-```
+1. Hämta lagringskontokontexten som anger det nya lagringskontot genom att anropa [New AzStorageContext](/powershell/module/az.storage/new-azstoragecontext). När du arbetar med ett storage-konto, refererar du till kontexten i stället för att skicka flera gånger i autentiseringsuppgifterna. Inkludera den `-UseConnectedAccount` parametern för att anropa alla efterföljande åtgärder med hjälp av Azure AD-autentiseringsuppgifter:
+
+    ```powershell
+    $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
+    ```
+
+1. Innan du skapar behållaren, tilldela den [Storage Blob Data-deltagare (förhandsgranskning)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) rollen till dig själv. Även om du är ägare, måste du explicit behörighet att utföra åtgärder mot lagringskontot. Mer information om att tilldela RBAC-roller finns i [bevilja åtkomst till Azure-behållare och köer med RBAC i Azure portal (förhandsversion)](storage-auth-aad-rbac.md).
+
+    > [!IMPORTANT]
+    > RBAC-rolltilldelningar kan ta upp till 5 minuter att sprida i förhandsversionen av Azure AD-stöd för blobbar och köer.
+
+1. Skapa en behållare genom att anropa [New AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). Eftersom det här anropet använder kontexten som skapades i föregående steg, skapas behållaren med hjälp av Azure AD-autentiseringsuppgifter. 
+
+    ```powershell
+    $containerName = "sample-container"
+    New-AzStorageContainer -Name $containerName -Context $ctx
+    ```
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om RBAC-roller för Azure storage finns [hantera åtkomsträttigheter till storage-data med RBAC (förhandsversion)](storage-auth-aad-rbac.md).
 - Läs om hur du använder hanterade identiteter för Azure-resurser med Azure Storage i [autentisera åtkomst till blobbar och köer med Azure hanterade identiteter för Azure-resurser (förhandsgranskning)](storage-auth-aad-msi.md).
 - Läs hur du tillåter åtkomst till behållare och köer från i ditt storage-program i [använda Azure AD med lagring program](storage-auth-aad-app.md).
-- Ytterligare information om Azure AD-integrering för Azure-Blobbar och köer finns i Azure Storage-teamets blogg publicerar, [meddelande om förhandsversionen av Azure AD-autentisering för Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: gregman
-ms.openlocfilehash: 456f7607786bd674cb6ede78d1164db033605799
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5b3dcb3abad071cb5d079d6c740cc09e2577a363
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57528838"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116426"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Kör Azure IoT Edge på Ubuntu-datorer
 
@@ -45,48 +45,48 @@ Vid den första starten förinstalleras Azure IoT Edge på Ubuntu VM den senaste
 Sök efter ”Azure IoT Edge” från Azure-portalen och välj **Ubuntu Server 16.04 LTS + Azure IoT Edge-körningen** att börja skapa arbetsflöde för virtuell dator. Därifrån kan du slutföra steg 3 och 4 i ”Distribuera från the Azure Marketplace” anvisningarna ovan.
 
 ## <a name="deploy-from-azure-cli"></a>Distribuera från Azure CLI
-1.  Om det här är första gången du distribuerar en virtuell dator från CLI behöver du aktivera programdistribution för din Azure-prenumeration:
-    1. Öppna den [Azure IoT Edge på Ubuntu](https://aka.ms/azure-iot-edge-ubuntuvm) Marketplace-erbjudande
-    1. Välj **hämta IT nu** och **Fortsätt** i efterföljande dialogrutan
-    1. Välj **vill distribuera via programmering? Kom igång** längst ned i dialogrutan i portalen
-    1. Klicka på den **aktivera** knappen i den **konfigurera programdistribution** sidan och klicka sedan på **spara**
-1.  Om du använder Azure CLI på skrivbordet, starta genom att logga in:
+1. Om det här är första gången du distribuerar en virtuell dator från CLI behöver du aktivera programdistribution för din Azure-prenumeration:
+   1. Öppna den [Azure IoT Edge på Ubuntu](https://aka.ms/azure-iot-edge-ubuntuvm) Marketplace-erbjudande
+   1. Välj **hämta IT nu** och **Fortsätt** i efterföljande dialogrutan
+   1. Välj **vill distribuera via programmering? Kom igång** längst ned i dialogrutan i portalen
+   1. Klicka på den **aktivera** knappen i den **konfigurera programdistribution** sidan och klicka sedan på **spara**
+1. Om du använder Azure CLI på skrivbordet, starta genom att logga in:
 
-    ```azurecli-interactive
-    az login
-    ```
+   ```azurecli-interactive
+   az login
+   ```
     
-1.  Om du har flera prenumerationer väljer du den prenumeration som du vill använda:
-    1.  Lista över dina prenumerationer:
+1. Om du har flera prenumerationer väljer du den prenumeration som du vill använda:
+   1. Lista över dina prenumerationer:
     
-       ```azurecli-interactive
-       az account list --output table
-       ```
+      ```azurecli-interactive
+      az account list --output table
+      ```
     
-    1.  Kopiera prenumerations-ID-fält för den prenumeration som du vill använda
-    1.  Kör det här kommandot med det ID som du nyss kopierade:
+   1. Kopiera prenumerations-ID-fält för den prenumeration som du vill använda
+   1. Kör det här kommandot med det ID som du nyss kopierade:
     
-       ```azurecli-interactive 
-       az account set -s {SubscriptionId}
-       ```
+      ```azurecli-interactive 
+      az account set -s {SubscriptionId}
+      ```
     
-1.  Skapa en ny resursgrupp (eller ange ett befintligt namn i nästa steg):
+1. Skapa en ny resursgrupp (eller ange ett befintligt namn i nästa steg):
 
-    ```azurecli-interactive
-    az group create --name IoTEdgeResources --location westus2
-    ```
+   ```azurecli-interactive
+   az group create --name IoTEdgeResources --location westus2
+   ```
     
-1.  Skapa en ny virtuell dator:
+1. Skapa en ny virtuell dator:
 
-    ```azurecli-interactive
-    az vm create --resource-group IoTEdgeResources --name EdgeVM –-image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
-    ```
+   ```azurecli-interactive
+   az vm create --resource-group IoTEdgeResources --name EdgeVM –-image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+   ```
 
-1.  Ange anslutningssträngen för enheten (du kan följa den [registrera en ny Azure IoT Edge-enhet med Azure CLI](how-to-register-device-cli.md) här guiden om du inte är bekant med den här processen):
+1. Ange anslutningssträngen för enheten (du kan följa den [registrera en ny Azure IoT Edge-enhet med Azure CLI](how-to-register-device-cli.md) här guiden om du inte är bekant med den här processen):
 
-    ```azurecli-interactive
-    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
-    ```
+   ```azurecli-interactive
+   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
+   ```
 
 Om du vill att SSH till den här virtuella datorn efter installationen, använder du publicIpAddress med kommandot: `ssh azureuser@{publicIpAddress}`
 

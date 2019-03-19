@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 2b37d77e00595be125490431694f4549f61fced6
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.openlocfilehash: 912307e6509ea66be887838e875076b7a895ca94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56982801"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888167"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Självstudie: Lastbalansera virtuella datorer i flera tillgänglighetszoner med Standard Load Balancer med hjälp av Azure Portal
 
@@ -43,7 +43,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-standard-load-balancer"></a>Skapa en Standard Load Balancer
 
@@ -58,7 +58,7 @@ En Standard Load Balancer stöder endast offentliga IP-standardadresser. När du
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLBAZ* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | Typ          | Välj **Offentligt**.                                        |
+    | Type          | Välj **Offentligt**.                                        |
     | SKU           | Välj **standard**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
@@ -108,7 +108,7 @@ I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att
     - *Tillåt HTTP* – för beskrivning av lastbalanseringsregeln.
 4. Klicka på **OK**.
  
- ![Skapa ett virtuellt nätverk](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![Skapa ett virtuellt nätverk](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Skapa, genom att upprepa steg 2 till 4, en annan regel med namnet *myRDPRule* som tillåter att en inkommande RDP-anslutning använder port 3389 med följande värden:
     - *Tjänstetagg* – för **Källa**.
     - *Internet* – för **Källtjänsttagg**
@@ -137,7 +137,7 @@ Skapa virtuella datorer i olika zoner (zon 1, zon 2 och zon 3) för den region s
 5. Inaktivera startdiagnostikinställningar genom att klicka på **Inaktiverad**.
 6. Klicka på **OK**, granska inställningarna på sammanfattningssidan och klicka sedan på **Skapa**.
   
- ![Skapa en virtuell dator](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
+   ![Skapa en virtuell dator](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
 
 7. Skapa en andra virtuell dator med namnet *VM2* i Zon 2 och en tredje virtuell dator i Zon 3, och med *myVnet* som virtuellt nätverk, *myBackendSubnet* som undernät och **myNetworkSecurityGroup* som nätverkssäkerhetsgrupp med steg 1–6.
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fb6108855cf3237af230f3356f0afb68e2b1ec4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: f2e05e5e430760d16d5d494a6f27ef985aafc487
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445550"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097999"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Zendesk för automatisk användaretablering
 
@@ -111,12 +111,12 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 5. Under den **administratörsautentiseringsuppgifter** avsnittet, ange den **Admin Username**, **hemlighet Token**, och **domän** av dina Zendesk-konto. Exempel på dessa värden är:
 
-    *   I den **Admin Username** fältet, fylla i användarnamnet för administratörskontot på din Zendesk-klient. Exempel: admin@contoso.com.
+   * I den **Admin Username** fältet, fylla i användarnamnet för administratörskontot på din Zendesk-klient. Exempel: admin@contoso.com.
 
-    *   I den **hemlighet Token** fältet, Fyll hemlig token enligt beskrivningen i steg 6.
+   * I den **hemlighet Token** fältet, Fyll hemlig token enligt beskrivningen i steg 6.
 
-    *   I den **domän** fältet, fylla i underdomänen för din Zendesk-klient.
-    Exempel: Ett konto med ett klient-URL för https://my-tenant.zendesk.com, din underdomän skulle vara **min klient**.
+   * I den **domän** fältet, fylla i underdomänen för din Zendesk-klient.
+     Exempel: Ett konto med ett klient-URL för https://my-tenant.zendesk.com, din underdomän skulle vara **min klient**.
 
 6. Den **hemlighet Token** för ditt Zendesk-konto är baserat i **Admin > API > Inställningar**.
    Se till att **Tokenåtkomst** är inställd på **aktiverad**.

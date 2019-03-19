@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
-ms.openlocfilehash: 5412fd2357a6848dae0cd5230546ff13cd1a6054
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b1bcaa3a6246a97f15cbd249040844602f03a7b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316752"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107567"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Azure-nätverk övervakningslösningar i Log Analytics
 
@@ -217,18 +217,18 @@ Att använda de uppdaterade lösningarna:
 2. [Konfigurera diagnostik skickas direkt till Log Analytics från Azure-Nätverkssäkerhetsgrupper](#enable-azure-network-security-group-diagnostics-in-the-portal)
 2. Aktivera den *Azure Application Gateway Analytics* och *Azure Network Security Group Analytics* lösning med hjälp av metoden som beskrivs i [lägga till Log Analytics-lösningar från den Lösningsgalleriet](../../azure-monitor/insights/solutions.md)
 3. Uppdatera alla sparade frågor, instrumentpaneler eller aviseringar att använda den nya datatypen
-  + Typen är att AzureDiagnostics. Du kan använda resurstypens för att filtrera till Azures nätverksloggar.
+   + Typen är att AzureDiagnostics. Du kan använda resurstypens för att filtrera till Azures nätverksloggar.
 
-    | Istället för: | Användning: |
-    | --- | --- |
-    | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; där ResourceType = ”APPLICATIONGATEWAYS” och OperationName == ”ApplicationGatewayAccess” |
-    | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; där ResourceType == ”APPLICATIONGATEWAYS” och OperationName = ApplicationGatewayPerformance |
-    | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
+     | Istället för: | Användning: |
+     | --- | --- |
+     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; där ResourceType = ”APPLICATIONGATEWAYS” och OperationName == ”ApplicationGatewayAccess” |
+     | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; där ResourceType == ”APPLICATIONGATEWAYS” och OperationName = ApplicationGatewayPerformance |
+     | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
 
    + För alla fält som har suffixet \_s, \_d, eller \_g i namnet, ändra det första tecknet till gemener
    + För alla fält som har suffixet \_o i namn data delas upp i enskilda fält baserat på de kapslade fältnamn.
 4. Ta bort den *Azure Networking Analytics (inaktuell)* lösning.
-  + Om du använder PowerShell använder du `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
+   + Om du använder PowerShell använder du `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
 
 Data som samlas in innan ändringen inte visas i den nya lösningen. Du kan fortsätta att fråga efter dessa data med hjälp av äldre typ och fältnamn.
 

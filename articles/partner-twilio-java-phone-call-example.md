@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
-ms.openlocfilehash: 71ffcc420372215a393f560d01d6c08dee03dfbd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0d055b1a78622665137a6abad18681a728ae2b30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433679"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010562"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Hur du ringa ett telefonsamtal med Twilio i ett Java-program på Azure
 I följande exempel visas hur du kan använda Twilio för att göra ett anrop från en webbsida i Azure. Exempelprogrammet uppmanas användaren via telefonsamtal-värden som visas i följande skärmbild.
@@ -173,7 +173,7 @@ Följande är de övergripande stegen för att köra ditt program; information f
 2. Ändra **startup.cmd** att packa upp din TwilioCloud WAR.
 3. Kompilera programmet för compute-emulatorn.
 4. Starta din distribution i compute-emulatorn.
-5. Öppna en webbläsare och kör **http://localhost:8080/TwilioCloud/callform.jsp**.
+5. Öppna en webbläsare och kör `http://localhost:8080/TwilioCloud/callform.jsp`.
 6. Ange värden i formuläret, klickar du på **göra följande anrop**, och sedan visar resultatet i makecall.jsp.
 
 När du är redo att distribuera till Azure, recompile för distribution till molnet och distribuera till Azure och kör http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp i webbläsaren (ersätta din värdet för  *your_hosted_name*).

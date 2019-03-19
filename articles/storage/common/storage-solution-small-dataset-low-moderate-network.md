@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 7cdaebe62c7071b26c29e599bb0614dbe7631085
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3e6f4f3eb312f0d4d96a008c0944a9608d0bf4a7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778033"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124311"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Dataöverföringen för små datauppsättningar med låg till måttlig nätverksbandbredd
  
@@ -49,16 +49,16 @@ De alternativ som rekommenderas i det här scenariot är:
 
 I följande tabell sammanfattas skillnaderna mellan de viktigaste funktionerna.
 
-| Funktion                                                            | Azure Lagringsutforskaren                    | Azure Portal  | AzCopy<br>Azure PowerShell<br>Azure CLI            | Azure Storage REST API: er eller SDK: er |
-|----------------------------------------------|-------------------------------------------|--------------------------------------|-------------------|---------------------------------------|
-| Tillgänglighet                                                       | Hämta och installera <br>Fristående verktyg | Verktyg för Webbaserad utforskning i Azure-portalen           | Kommandoradsverktyg |Programmerbara gränssnitt i .NET, Java, Python, JavaScript, C++, Go, Ruby och PHP                                                         |
-| Grafiskt gränssnitt                                              | Ja                                       | Ja                                                     | Nej                | Nej                                                      |
-| Plattformar som stöds                                              | Windows, Mac, Linux                       | Webbaserad     |Windows, Mac, Linux     |Alla plattformar                                                         |
-| Tillåtna åtgärder för Blob storage<br>för blobbar och mappar            | Ladda upp<br>Ladda ned<br>Hantera    | Ladda upp<br>Ladda ned<br>Hantera  |Ladda upp<br>Ladda ned<br>Hantera             | Ja, anpassningsbara                                                        |
-| Tillåtna Gen1 för Data Lake-lagring<br>åtgärder för filer och mappar  | Ladda upp<br>Ladda ned<br>Hantera                | Nej |Ladda upp<br>Ladda ned<br>Hantera                   |      Nej                                                   |
-| Tillåtna filåtgärder för lagring<br>för filer och kataloger        | Ladda upp<br>Ladda ned<br>Hantera       | Ladda upp<br>Ladda ned<br>Hantera   |Ladda upp<br>Ladda ned<br>Hantera |                                                         |Ja, anpassningsbara
-| Tillåtna åtgärder för tabeller med lagring<br>för tabeller                      |Hantera                            | Nej            |Stöd för tabellen i AzCopy v7 |Ja, anpassningsbara|
-| Tillåtna kölagring                                              | Hantera                                    | Nej  |Nej | Ja, kan anpassas|
+| Funktion | Azure Lagringsutforskaren | Azure Portal | AzCopy<br>Azure PowerShell<br>Azure CLI | Azure Storage REST API: er eller SDK: er |
+|---------|------------------------|--------------|-----------------------------------------|---------------------------------|
+| Tillgänglighet | Hämta och installera <br>Fristående verktyg | Verktyg för Webbaserad utforskning i Azure-portalen | Kommandoradsverktyg |Programmerbara gränssnitt i .NET, Java, Python, JavaScript, C++, Go, Ruby och PHP |
+| Grafiskt gränssnitt | Ja | Ja | Nej | Nej |
+| Plattformar som stöds | Windows, Mac, Linux | Webbaserad |Windows, Mac, Linux |Alla plattformar |
+| Tillåtna åtgärder för Blob storage<br>för blobbar och mappar | Ladda upp<br>Ladda ned<br>Hantera | Ladda upp<br>Ladda ned<br>Hantera |Ladda upp<br>Ladda ned<br>Hantera | Ja, anpassningsbara |
+| Tillåtna Gen1 för Data Lake-lagring<br>åtgärder för filer och mappar | Ladda upp<br>Ladda ned<br>Hantera | Nej |Ladda upp<br>Ladda ned<br>Hantera                   | Nej |
+| Tillåtna filåtgärder för lagring<br>för filer och kataloger | Ladda upp<br>Ladda ned<br>Hantera | Ladda upp<br>Ladda ned<br>Hantera   |Ladda upp<br>Ladda ned<br>Hantera | Ja, anpassningsbara |
+| Tillåtna åtgärder för tabeller med lagring<br>för tabeller |Hantera | Nej |Stöd för tabellen i AzCopy v7 |Ja, anpassningsbara|
+| Tillåtna kölagring | Hantera | Nej  |Nej | Ja, kan anpassas|
 
 
 ## <a name="next-steps"></a>Nästa steg

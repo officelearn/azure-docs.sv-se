@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 845227ea5e32d10eaed555cee80c8fc520a1771a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6f8fadc42d1c725002f2552a3fc1fc98e8564437
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105560"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098788"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Övervaka identitet och åtkomst i Azure Security Center (förhandsversion)
 Den här artikeln hjälper dig att använda Azure Security Center för att övervaka användarnas identitets- och åtkomstrelaterade aktiviteter.
@@ -68,11 +68,11 @@ Under **översikt**, det finns en lista över rekommendationer. Den första kolu
 
 1. Välj en rekommendation. Den rekommendationen fönster öppnas och visar:
 
-  - Beskrivning av rekommendationen
-  - Lista över prenumerationer feltillstånd och felfri
-  - Lista över resurser som är ej genomsökta på grund av en misslyckad utvärdering eller resursen är under en prenumeration som körs på den kostnadsfria nivån och utvärderat ej
+   - Beskrivning av rekommendationen
+   - Lista över prenumerationer feltillstånd och felfri
+   - Lista över resurser som är ej genomsökta på grund av en misslyckad utvärdering eller resursen är under en prenumeration som körs på den kostnadsfria nivån och utvärderat ej
 
-  ![Rekommendationens fönster][3]
+   ![Rekommendationens fönster][3]
 
 1. Välj en prenumeration i listan för ytterligare information.
 
@@ -81,27 +81,27 @@ Under **prenumerationer**, det finns en lista över prenumerationer. Den första
 
 ![Prenumerationens fliken][4]
 
-1.  Välj en prenumeration. En sammanfattningsvy öppnas med tre flikar:
+1. Välj en prenumeration. En sammanfattningsvy öppnas med tre flikar:
 
-  - **Rekommendationer**: baserat på har utförts av Security Center som misslyckades.
-  - **Skickas utvärderingar**: lista över har utförts av Security Center som skickas.
-  - **Ej tillgängliga utvärderingar**: lista över utvärderingar som inte kunde köras på grund av ett fel eller eftersom prenumerationen har mer än 600 konton.
+   - **Rekommendationer**: baserat på har utförts av Security Center som misslyckades.
+   - **Skickas utvärderingar**: lista över har utförts av Security Center som skickas.
+   - **Ej tillgängliga utvärderingar**: lista över utvärderingar som inte kunde köras på grund av ett fel eller eftersom prenumerationen har mer än 600 konton.
 
-  Under **rekommendationer** är en lista över rekommendationer för den valda prenumerationen och allvarlighetsgraden för varje rekommendation.
+   Under **rekommendationer** är en lista över rekommendationer för den valda prenumerationen och allvarlighetsgraden för varje rekommendation.
 
-  ![Rekommendationer för Välj en prenumeration][5]
+   ![Rekommendationer för Välj en prenumeration][5]
 
 1. Välj en rekommendation för en beskrivning av rekommendationen, en lista över feltillstånd och felfri prenumerationer och en lista över ej genomsökta resurser.
 
-  ![Beskrivning av rekommendation][6]
+   ![Beskrivning av rekommendation][6]
 
-  Under **skickas utvärderingar** är en lista över skickade utvärderingar.  Allvarlighetsgraden för de här utvärderingar är alltid grönt.
+   Under **skickas utvärderingar** är en lista över skickade utvärderingar.  Allvarlighetsgraden för de här utvärderingar är alltid grönt.
 
-  ![Skickade utvärderingar][7]
+   ![Skickade utvärderingar][7]
 
 1. Välj en skickade utvärdering från listan för en beskrivning av utvärderingen och en lista över felfri prenumerationer. Det finns en flik för ohälsosamt prenumerationer som visar en lista över alla prenumerationer som misslyckades.
 
-  ![Skickade utvärderingar][8]
+   ![Skickade utvärderingar][8]
 
 ## <a name="recommendations"></a>Rekommendationer
 Använd tabellen nedan som referens för att förstå de tillgängliga rekommendationerna för identitet och åtkomst och vad var och en gör om du använder den.

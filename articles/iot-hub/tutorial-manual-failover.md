@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: bd9cb76557c65832de5d249cdccdc36101edf646
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: ff8ef576a0dae0f03cc0c80f83ce0c24cf3945a2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821294"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093743"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Självstudier: Utför en manuell redundans för en IoT-hubb (offentlig förhandsversion)
 
@@ -29,7 +29,7 @@ I den här självstudien utför du följande åtgärder:
 > * Utför en återställning efter fel för att återställa IoT-hubbens åtgärder till den primära platsen. 
 > * Bekräfta att hubben körs korrekt på rätt plats.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -138,4 +138,4 @@ I den här självstudien har du lärt dig hur du konfigurerar och utför en manu
 Gå vidare till nästa självstudie där du får lära dig hur du hanterar tillstånd för en IoT-enhet. 
 
 > [!div class="nextstepaction"]
-[Hantera tillståndet för en IoT-enhet](tutorial-device-twins.md)
+> [Hantera tillståndet för en IoT-enhet](tutorial-device-twins.md)

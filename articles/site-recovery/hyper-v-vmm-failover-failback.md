@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: ef360fd56c3530a49c2f36846db34b29ca1cf444
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 3890283f70bfd922d0c436f76b38d7f81d7b8c6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788026"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107026"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Redundansväxla och återställa Hyper-V-datorer som replikeras till din sekundära lokala platsen
 
@@ -49,7 +49,7 @@ Du kan köra en vanlig eller planerad redundans för Hyper-V-datorer.
 - Använda en vanlig växling vid fel för oväntade avbrott. När du kör den här redundansen, Site Recovery skapar en virtuell dator på den sekundära platsen och aktiverar den upp. Dataförlust kan inträffa beroende på väntar på data som inte har synkroniserats.
 - En planerad redundans kan användas för underhåll, eller under förväntade avbrott. Det här alternativet ger ingen dataförlust. När en planerad redundans utlöses, Stäng virtuella källdatorn av. Osynkroniserade data synkroniseras och redundansen utlöses. 
 - 
-Den här proceduren beskriver hur du kör en vanlig växling vid fel.
+  Den här proceduren beskriver hur du kör en vanlig växling vid fel.
 
 
 1. I **Inställningar** > **Replikerade objekt** klickar du på VM > **+Redundans**.
@@ -58,7 +58,7 @@ Den här proceduren beskriver hur du kör en vanlig växling vid fel.
 3. När du har kontrollerat den virtuella datorn, **genomför** växling vid fel. Detta tar bort alla tillgängliga återställningspunkter.
 
 > [!WARNING]
-> **Avbryt inte en pågående redundansväxling**: Innan redundans startas stoppas den virtuella datorreplikeringen. Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikeras igen.  
+> **Avbryt inte en redundansväxling som pågår**: Innan redundans startas stoppas den virtuella datorreplikeringen. Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikeras igen.  
 
 
 ## <a name="reverse-replicate-and-failover"></a>Omvänd replikering och redundans

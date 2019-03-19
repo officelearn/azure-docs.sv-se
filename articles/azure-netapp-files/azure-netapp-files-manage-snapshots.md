@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
-ms.openlocfilehash: 8bc2d655f7c6b20cabfadbf9dffca8622a24674f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9154add96084142ca1f93ad61c6418e3b487fb83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778678"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090924"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Hantera ögonblicksbilder med hjälp av Azure NetApp filer
 
@@ -77,9 +77,9 @@ För närvarande kan återställa du en ögonblicksbild endast till en ny volym.
     * **Undernät**  
         Ange det undernät som du vill använda för volymen.  
         Det undernät som du anger måste delegeras till Azure NetApp Files-tjänsten. Du kan skapa ett nytt undernät genom att välja **Skapa nytt** under fältet undernät.  
-<!--
+   <!--
     ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
--->
+   -->
 
 5. Klicka på **OK**.   
     Den nya volymen som ögonblicksbilden återställs visas i bladet volymer.

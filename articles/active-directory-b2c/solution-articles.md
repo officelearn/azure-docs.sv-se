@@ -8,12 +8,12 @@ ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: dbb4789773ae9f1cd29f4a8e3ae415d450707a17
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 08a5e288d58d86cdad18561cb8a08a31f44ae498
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771335"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009723"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Lösningar och träning för Azure Active Directory B2C
 
@@ -28,3 +28,4 @@ Azure Active Directory (Azure AD) B2C kan organisationer att implementera affär
 | [Migrera program autentisering till Azure AD B2C i en Hybridmiljö](https://aka.ms/MigratetoAADB2C) | I dagens moderna organisationer sker digitala omvandling och flytta till molnet i faser för att kräva att de flesta organisationer att åtminstone temporärt fungera i en hybridmiljö identitet.<br><br>Den här guiden fokuserar på att skapa migreringsplan för att flytta ditt första program till Azure AD B2C och täcker överväganden för att göra det i en hybridmiljö identitet. |
 | [Dataskydd för allmänna Dataskyddsförordning (GDPR) överväganden för som riktas mot kundprogram](https://aka.ms/AADB2CandGDPR) | För alla kunder som program som riktas mot måste GDPR beaktas av alla organisationer som sätta igång med projekt som innehåller personliga data och hantera EU medborgare.<br><br>Den här lösningsguiden fokuserar på hur Azure AD B2C kan användas som en flexibel del av din övergripande GDPR efterlevnad metoden, inklusive hur Azure AD B2C-komponenter stöder var och en av de viktiga GDPR-rättigheterna för enskilda användare. |
 | Arbeta med anpassade principer:<br><ul><li>[Anpassade principer introduktion](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Introduction.pdf)</li><li>[Använda anpassade principer i din klient](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Leveraging%20Custom%20Policies%20for%20your%20Tenant.pdf)</li><li>[Strukturera principer och hantera nycklar](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Structuring%20Policies%20and%20Managing%20Keys.pdf)</li><li>[Ta med din egen identitet och migrera användare](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Bring-your-own-identity%20and%20Migrating%20Users.pdf)</li><li>[Felsöka principer och granska åtkomst](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Troubleshooting%20Policies%20and%20Auditing.pdf)</li><li>[Djupgående om schemat för anpassad princip](https://download.microsoft.com/download/3/6/1/36187D50-A693-4547-848A-176F17AE1213/Deep%20Dive%20on%20Azure%20AD%20B2C%20Custom%20Policies/Azure%20AD%20B2C%20Custom%20Policies%20-%20Deep%20Dive%20on%20Custom%20Policy%20Schema.pdf)</li><br>| Den här serien med dokument innehåller en slutpunkt till slutpunkt-resan med anpassade principer i Azure AD B2C som presenterar djupgående de vanligaste avancerade scenarier för identitet.<br><br> Det omfattar att implementera och hantera anpassade principer för dessa scenarier och hur du diagnostiserar dem med tillgängliga verktyg. Det ger också en djup förståelse av hur anpassade principer fungerar och information om hur du finjustera dem för att tillgodose dina behov. |
+

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 14cc87e8691c859274495a13cc0b73fa29ad22df
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 228ed5c54a382db7b47d19adacf9e5db398c53ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726897"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123699"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Serverdelar och backend-pooler i Azure ytterdörren Service
 Den här artikeln beskrivs de olika begreppen om hur du kan mappa programdistributionen med åtkomsten. Vi kommer också att förklara vad de olika framför dörren konfiguration runt om serverdelen för programmet betyder.
@@ -62,7 +62,7 @@ När du lägger till en serverdel i en serverdelspool ytterdörren behöver du f
 Begäranden som vidarebefordras av åtkomsten till en serverdel har ett fält för värd rubrik som serverdelen använder för att hämta resurs. Värdet för det här fältet normalt kommer från serverdelen URI och har värd och port. Till exempel en begäran `www.contoso.com` har värdhuvudet `www.contoso.com`. Om du konfigurerar serverdelen med hjälp av Azure portal är det standardvärde som fylls i det här fältet namnet på serverdelen. Exempel: om din serverdel är `contoso-westus.azurewebsites.net`, så i Azure-portalen kommer att vara fylls värdet för serverdelen värdhuvud `contoso-westus.azurewebsites.net`. 
 </br>Men om du använder Resource Manager-mallar eller annan kontrollmekanism och du inte anger det här fältet uttryckligen skickar ytterdörren sedan inkommande värdnamnet som värde för värdhuvud. Exempel: om en begäran har gjorts `www.contoso.com`, och serverdelen är `contoso-westus.azurewebsites.net` med backend-värd huvud anger som tom sedan ytterdörren anger du värdhuvudet som `www.contoso.com`.
 
-De flesta serverdelar (t.ex Web Apps, Blob Storage och Cloud Services) kräver att värdhuvudet matchar domänen för serverdelen. Frontend-värden som dirigerar till din serverdel har dock ett annat värdnamn som www.contoso.azurefd.net. Om du ställer in serverdelen kräver värdhuvudet matchar värdnamnet för serverdelen, bör du kontrollera att ”serverdel host header” också har värdnamnet för serverdelen.
+De flesta serverdelar (t.ex Web Apps, Blob Storage och Cloud Services) kräver att värdhuvudet matchar domänen för serverdelen. Men den frontend-värd som dirigerar till serverdelen har ett annat värdnamn som www\.contoso.azurefd.net. Om du ställer in serverdelen kräver värdhuvudet matchar värdnamnet för serverdelen, bör du kontrollera att ”serverdel host header” också har värdnamnet för serverdelen.
 
 #### <a name="configuring-the-backend-host-header-for-the-backend"></a>Konfigurera backend-värdhuvud för serverdelen
 Fältet ”Backend-Värdrubriken” kan konfigureras för en serverdel i avsnittet backend-poolen.

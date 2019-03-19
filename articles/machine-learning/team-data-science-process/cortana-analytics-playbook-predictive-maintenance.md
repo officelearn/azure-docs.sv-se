@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 046d00eec9fd5a406a1e8bf78e48d4dd913b83fd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0785d0805027dd0bd621203ade7287e5a1840a9a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437576"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57870154"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-guide för lösningar för förebyggande underhåll
 
@@ -401,13 +401,13 @@ Ovanstående procedur anges på många sätt i akademiska och industri-dokumenta
 
 Som tidigare nämnts skiljer modellen driftsättning för kontaktar sig från dess peer-datorer. Implementera scenarier som rör identifiering av avvikelser och felidentifiering vanligtvis _online bedömning_ (kallas även _realtid bedömning_). Här, modellen _poäng_ posterna inkommande, och returnerar en förutsägelse. För identifiering av avvikelser, förutsägelsen är en indikation om att ett fel uppstod (exempel: One-class SVM). Det vore för felidentifiering, typ eller klass av fel.
 
-Däremot kontaktar omfattar _batchbedömning_. För att uppfylla modellen signaturen, vara funktionerna i den nya informationen utformat på samma sätt som träningsdata. För den stora datamängder som är typiskt för nya data kan aggregeras över tidsfönster funktioner och poängsättas i batch. Batchbedömning görs normalt i distribuerade system som [Spark](http://spark.apache.org/) eller [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics). Det finns ett par alternativ - både icke-optimal:
+Däremot kontaktar omfattar _batchbedömning_. För att uppfylla modellen signaturen, vara funktionerna i den nya informationen utformat på samma sätt som träningsdata. För den stora datamängder som är typiskt för nya data kan aggregeras över tidsfönster funktioner och poängsättas i batch. Batchbedömning görs normalt i distribuerade system som [Spark](https://spark.apache.org/) eller [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics). Det finns ett par alternativ - både icke-optimal:
 - Strömmande datamotorer hantera aggregering i windows i minnet. Så det kan vara gällande att de stöder online bedömning. Men dessa system är lämpliga för kompakta data i smal windows tid eller null-optimerade element över bredare windows. De kan inte skalas bra för kompakta data över bredare tidsfönster som visas i kontaktar scenarier.
 - Om batchbedömning inte är tillgänglig är lösningen att anpassa online bedömning för att hantera nya data i små batchar i taget.
 
 ## <a name="solution-templates-for-predictive-maintenance"></a>Mallar för lösningar för förutsägande Underhåll
 
-Den sista delen av den här guiden innehåller en lista över kontaktar lösningsmallar, självstudier och experiment som implementeras i Azure. Dessa PdM-program kan distribueras till en Azure-prenumeration inom några minuter i vissa fall. De kan användas som proof of concept demonstrationer, sandbox-miljöer att experimentera med alternativ eller acceleratorer för implementeringar av faktiska produktionen. Dessa mallar finns i den [Azure AI-galleriet](http://gallery.azure.ai) eller [Azure GitHub](https://github.com/Azure). Dessa olika exempel kommer att finnas i den här lösningsmallen över tid.
+Den sista delen av den här guiden innehåller en lista över kontaktar lösningsmallar, självstudier och experiment som implementeras i Azure. Dessa PdM-program kan distribueras till en Azure-prenumeration inom några minuter i vissa fall. De kan användas som proof of concept demonstrationer, sandbox-miljöer att experimentera med alternativ eller acceleratorer för implementeringar av faktiska produktionen. Dessa mallar finns i den [Azure AI-galleriet](https://gallery.azure.ai) eller [Azure GitHub](https://github.com/Azure). Dessa olika exempel kommer att finnas i den här lösningsmallen över tid.
 
 | # | Titel | Beskrivning |
 |--:|:------|-------------|
@@ -431,9 +431,9 @@ Microsoft Azure erbjuder utbildningsvägar för grundläggande koncepten bakom P
 | [AI Developer för Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Offentligt |
 | [Microsofts AI-skola](https://aischool.microsoft.com/learning-paths) | Offentligt |
 | [Azure AI-utbildning från GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Offentligt |
-| [LinkedIn Learning](http://www.linkedin.com/learning) | Offentligt |
+| [LinkedIn Learning](https://www.linkedin.com/learning) | Offentligt |
 | [Microsoft AI YouTube Webbseminarier](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Offentligt |
-| [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | Offentligt |
+| [Microsoft AI Show](https://channel9.msdn.com/Shows/AI-Show) | Offentligt |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Partner |
 | [Microsoft Partner Network](https://learningportal.microsoft.com) | Partner |
 

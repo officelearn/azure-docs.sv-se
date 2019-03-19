@@ -1,23 +1,23 @@
 ---
-title: Utforska REST API:er i Postmans eller Fiddlers HTTP-testverktyg för webben – Azure Search
-description: Så här använder du Fiddler eller Postman för att skicka HTTP-begäranden och REST API-anrop till Azure Search.
+title: 'Utforska REST API: er i Postman eller Fiddler - Azure Search'
+description: Hur du använder Postman eller Fiddler för att skicka HTTP-begäranden och REST API-anrop till Azure Search.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 04/20/2018
+ms.date: 03/12/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 06e2667b59b27039ad3c62379f654dd693999f99
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 946d8196fbe49e452dab8fa36e4c746a1bcaf490
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756083"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58137631"
 ---
-# <a name="explore-azure-search-rest-apis-using-postman-or-fiddler"></a>Utforska REST-API:er för Azure Search med hjälp av Postman eller Fiddler
+# <a name="quickstart-explore-azure-search-rest-apis-using-postman-or-fiddler"></a>Snabbstart: Utforska REST-API:er för Azure Search med hjälp av Postman eller Fiddler
 
 Ett av de enklaste sätten att utforska [REST-API:er för Azure Search](https://docs.microsoft.com/rest/api/searchservice) på, är att använda Postman eller Fiddler för att formulera HTTP-begäranden och granska svaren. Med hjälp av rätt verktyg och de här instruktionerna kan du skicka begäranden och visa svar innan du skriver någon kod.
 
@@ -31,7 +31,7 @@ Ett av de enklaste sätten att utforska [REST-API:er för Azure Search](https://
 
 Om du inte har en Azure-prenumeration kan du innan du börjar först skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) och sedan [registrera dig för Azure Search](search-create-service-portal.md).
 
-## <a name="download-and-install-tools"></a>Ladda ned och installera verktyg
+## <a name="download-tools"></a>Ladda ned verktyg
 
 Följande verktyg är vanligt förekommande i webbutvecklingsarbete, men om du föredrar att använda något annat verktyg borde du ändå kunna utgå från anvisningarna i den här artikeln.
 
@@ -42,11 +42,16 @@ Följande verktyg är vanligt förekommande i webbutvecklingsarbete, men om du f
 
 För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkomstnyckel för varje begäran. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
 
-1. Gå till Azure-portalen och öppna söktjänstsidan från instrumentpanelen eller [leta reda på tjänsten](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) i tjänstelistan.
-2. Du hittar slutpunkten via **Översikt** > **Essentials** > **URL**. Här följer ett exempel på hur en slutpunkt kan se ut: `https://my-service-name.search.windows.net`.
-3. API-nyckeln hittar du under **Inställningar** > **Nycklar**. Det finns två administratörsnycklar (för redundans) om du vill förnya nycklar. Med administratörsnycklarna kan du bevilja de skrivrättigheter för tjänsten som krävs för att kunna skapa och läsa in index. Du kan använda antingen den primära eller sen sekundära nyckeln för skrivåtgärder.
+1. Azure-portalen i din söktjänst **översikt** sidan, hämta URL: en. Här följer ett exempel på hur en slutpunkt kan se ut: `https://my-service-name.search.windows.net`.
 
-## <a name="configure-request-headers"></a>Konfigurera begärandehuvuden
+2. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln för förfrågningar för att lägga till, ändra och ta bort objekt.
+
+![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-fiddler/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
+
+Alla begäranden som kräver en api-nyckel för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
+
+
+## <a name="configure-headers"></a>Konfigurera rubriker
 
 Varje verktyg håller kvar begärandehuvuden för sessionen, vilket innebär att du bara behöver ange URL-slutpunkt, API-version, API-nyckel och innehållstyp en enda gång.
 
@@ -56,13 +61,20 @@ Webbadressen för tjänsten består av följande element:
 
 + HTTPS-prefix.
 + Tjänstens webbadress, hämtad från portalen.
-+ Resursen, en åtgärd som skapar ett objekt i tjänsten. I det här steget är det ett index med namnet hotels (hotell).
++ Resursen, en åtgärd som skapar ett objekt i tjänsten. I det här steget är det ett index med namnet *hotels*.
 + api-version, en obligatorisk sträng i gemener anges som ”?api-version=2017-11-11” för den aktuella versionen. [API-versionerna](search-api-versions.md) uppdateras regelbundet. När du inkluderar API-versionen för varje begäran får du fullständig kontroll över vilken version som används.  
 
 Begärandehuvudet består av två element, den innehållstyp och den API-nyckel som beskrevs i föregående avsnitt:
 
-         content-type: application/json
-         api-key: <placeholder>
+    api-key: <placeholder>
+    Content-Type: application/json
+
+
+### <a name="postman"></a>Postman
+
+Formulera en begäran som ser ut som i följande skärmbild. Använd **PUT** som verb. 
+
+![Begärandehuvud i Postman][6]
 
 ### <a name="fiddler"></a>Fiddler
 
@@ -71,15 +83,9 @@ Formulera en begäran som ser ut som i följande skärmbild. Använd **PUT** som
 ![Begärandehuvud i Fiddler][1]
 
 > [!Tip]
-> Du kan stänga av webbtrafiken för att dölja HTTP-aktivitet som är irrelevant för de uppgifter som du utför. Gå till menyn **File** (Arkiv) och stäng av **Capture Traffic** (Fånga in trafik). 
+> Stänga av Webbtrafiken att dölja drabbas av onödiga och orelaterade HTTP-aktivitet. I Fiddler's **filen** menyn inaktivera **Capture Traffic**. 
 
-### <a name="postman"></a>Postman
-
-Formulera en begäran som ser ut som i följande skärmbild. Använd **PUT** som verb. 
-
-![Begärandehuvud i Postman][6]
-
-## <a name="create-the-index"></a>Skapa indexet
+## <a name="1---create-an-index"></a>1 – skapa ett index
 
 Begärandetexten innehåller en indexdefinition. När du lägger till begärandetexten slutförs den begäran som genererar ett index.
 
@@ -109,11 +115,6 @@ När du skickar denna begäran får du ett HTTP 201-svar som anger att indexet h
 
 Om HTTP 504 returneras kontrollerar du att HTTPS används i URL:en. Om HTTP 400 eller 404 returneras kontrollerar du att alla fält har kopierats och klistrats in korrekt i begärandetexten. HTTP 403 tyder vanligen på problem med API-nyckeln (antingen en ogiltig nyckel eller ett syntaxproblem när API-nyckeln angavs).
 
-### <a name="fiddler"></a>Fiddler
-
-Kopiera indexdefinitionen till begärandetexten, ungefär som på skärmbilden nedan, och klicka sedan på **Kör** överst till höger för att skicka din färdiga begäran.
-
-![Begärandetext i Fiddler][7]
 
 ### <a name="postman"></a>Postman
 
@@ -121,7 +122,13 @@ Kopiera indexdefinitionen till begärandetexten, ungefär som på skärmbilden n
 
 ![Begärandetext i Postman][8]
 
-## <a name="load-documents"></a>Läsa in dokument
+### <a name="fiddler"></a>Fiddler
+
+Kopiera indexdefinitionen till begärandetexten, ungefär som på skärmbilden nedan, och klicka sedan på **Kör** överst till höger för att skicka din färdiga begäran.
+
+![Begärandetext i Fiddler][7]
+
+## <a name="2---load-documents"></a>2 – läsa in dokument
 
 Att skapa ett index och att fylla det, är två separata steg. I Azure Search innehåller indexet alla sökbara data som kan användas som JSON-dokument. Om du vill granska API:t kan du läsa mer i [Add, update, or delete documents (REST)](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (Lägg till, uppdatera eller ta bort dokument (REST)).
 
@@ -199,11 +206,6 @@ Om ett 207-svar returneras misslyckades uppladdningen av minst ett dokument. Om 
 > [!Tip]
 > För vissa utvalda datakällor kan du välja en alternativ *indexerare* för att förenkla och minska mängden kod som krävs för indexering. Mer information finns i [Indexer operations](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) (Indexeringsåtgärder).
 
-### <a name="fiddler"></a>Fiddler
-
-Byt till verbet **POST**. Ändra webbadressen så att den även inkluderar `/docs/index`. Kopiera dokumenten till begärandetexten, ungefär som på skärmbilden nedan, och kör sedan begäran.
-
-![Nyttolast för begäran i Fiddler][9]
 
 ### <a name="postman"></a>Postman
 
@@ -211,8 +213,14 @@ Byt till verbet **POST**. Ändra webbadressen så att den även inkluderar `/doc
 
 ![Nyttolast för begäran i Postman][10]
 
-## <a name="query-the-index"></a>Skicka frågor mot indexet
-Nu när ett index och dokument har lästs in kan du skicka frågor mot dem. Mer information om det här API:t finns i [Search Documents (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) (Sök igenom dokument (REST)).  
+### <a name="fiddler"></a>Fiddler
+
+Byt till verbet **POST**. Ändra webbadressen så att den även inkluderar `/docs/index`. Kopiera dokumenten till begärandetexten, ungefär som på skärmbilden nedan, och kör sedan begäran.
+
+![Nyttolast för begäran i Fiddler][9]
+
+## <a name="3---search-an-index"></a>3 – söka i ett index
+Nu när ett index och dokument har lästs in kan du skicka frågor mot dem med hjälp av [söka efter dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents) REST API.
 
 + Byt till verbet **GET** enbart för detta steg.
 + Ändra slutpunkten och lägg till frågeparametrar, inklusive söksträngar. En fråge-URL kan se ut så här: `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`.
@@ -234,7 +242,7 @@ Följande exempelfråga kommer från artikeln om [sökindexåtgärder (Azure Sea
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
 
-## <a name="query-index-properties"></a>Egenskaper för frågeindex
+## <a name="get-index-properties"></a>Hämta egenskaper för frågeindex
 Du kan också avfråga systeminformationen för att visa antalet dokument och lagringsanvändningen: `https://my-app.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
 
 Din begäran i Postman borde se ut som på bilden nedan. Svaret innehåller ett dokumentantal och det diskutrymme som används uttryckt i byte.
@@ -254,9 +262,8 @@ Klicka på fliken **Inspectors** (Inspektörer) i Fiddler, klicka på fliken **H
 
 REST-klienterna är ovärderliga vid improviserade undersökningar, men nu när du vet hur REST-API:er fungerar kan du fortsätta med kod. Nästföljande steg finns i följande länkar:
 
-+ [Skapa ett index (REST)](search-create-index-rest-api.md)
-+ [Importera data (REST)](search-import-data-rest-api.md)
-+ [Söka i ett index (REST)](search-query-rest-api.md)
++ [Snabbstart: Skapa ett index med .NET SDK](search-create-index-dotnet.md)
++ [Snabbstart: Skapa ett index (REST) med hjälp av PowerShell](search-create-index-rest-api.md)
 
 <!--Image References-->
 [1]: ./media/search-fiddler/fiddler-url.png

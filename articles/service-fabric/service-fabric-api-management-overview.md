@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 01b67cc0c20710fcf7c9a072e0ba3baaf286852a
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 60466f0c3c0e674dcbfa287a0368462fd5a1d18f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423651"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120320"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric med Azure API Management-översikt
 
@@ -83,9 +83,9 @@ För att uppnå innehåller en API Management-åtgärd en princip för inkommand
 
 I det här exemplet skapas en ny tillståndslös tjänst-instans för varje användare i ett program med ett dynamiskt genererat namn med hjälp av följande formel:
  
- - `fabric:/app/users/<username>`
+- `fabric:/app/users/<username>`
 
- Varje tjänst har ett unikt namn, men de är inte känt direkta eftersom tjänsterna skapas som svar på användaren eller administratören indata och därför kan inte vara hårdkodade i APIM-principer eller regler för routning. I stället namnet på tjänsten som du vill skicka en begäran skapas i backend-principdefinitionen från den `name` värdet som angetts i URL-sökvägen för begäran. Exempel:
+  Varje tjänst har ett unikt namn, men de är inte känt direkta eftersom tjänsterna skapas som svar på användaren eller administratören indata och därför kan inte vara hårdkodade i APIM-principer eller regler för routning. I stället namnet på tjänsten som du vill skicka en begäran skapas i backend-principdefinitionen från den `name` värdet som angetts i URL-sökvägen för begäran. Exempel:
 
   - En begäran om att `/api/users/foo` dirigeras till tjänstinstans `fabric:/app/users/foo`
   - En begäran om att `/api/users/bar` dirigeras till tjänstinstans `fabric:/app/users/bar`
@@ -102,9 +102,9 @@ För att uppnå innehåller en API Management-åtgärd en princip för inkommand
 
 I det här exemplet skapas en ny tillståndskänslig tjänst-instans för varje användare av programmet med ett dynamiskt genererat namn med hjälp av följande formel:
  
- - `fabric:/app/users/<username>`
+- `fabric:/app/users/<username>`
 
- Varje tjänst har ett unikt namn, men de är inte känt direkta eftersom tjänsterna skapas som svar på användaren eller administratören indata och därför kan inte vara hårdkodade i APIM-principer eller regler för routning. I stället namnet på tjänsten som du vill skicka en begäran skapas i backend-principdefinitionen från den `name` tillhandahålla värde URL-sökvägen för begäran. Exempel:
+  Varje tjänst har ett unikt namn, men de är inte känt direkta eftersom tjänsterna skapas som svar på användaren eller administratören indata och därför kan inte vara hårdkodade i APIM-principer eller regler för routning. I stället namnet på tjänsten som du vill skicka en begäran skapas i backend-principdefinitionen från den `name` tillhandahålla värde URL-sökvägen för begäran. Exempel:
 
   - En begäran om att `/api/users/foo` dirigeras till tjänstinstans `fabric:/app/users/foo`
   - En begäran om att `/api/users/bar` dirigeras till tjänstinstans `fabric:/app/users/bar`

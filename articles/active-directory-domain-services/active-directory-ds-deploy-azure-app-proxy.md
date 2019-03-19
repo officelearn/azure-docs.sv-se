@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: e787d946aa62f0bcb6615d89192e7d9e4d91ffe4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 867d061e46494e5ef65340ce325a71638acc8dfa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197056"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099635"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Distribuera Azure AD Application Proxy på en Azure AD Domain Services-hanterad domän
 Azure Active Directory (AD) Application Proxy kan du stödja fjärranvändare genom att publicera lokala program som kan nås via internet. Med Azure AD Domain Services kan du nu – flytta äldre program som körs lokalt till Azure Infrastructure Services. Du kan sedan publicera dessa program med hjälp av Azure AD Application Proxy för att tillhandahålla säker fjärråtkomst till användare i din organisation.
@@ -75,12 +75,12 @@ Tidigare etablerat en virtuell dator i Windows Server och anslutit till den hant
 
     ![Acceptera villkoren för installation](./media/app-proxy/app-proxy-install-connector-terms.png)
 3. Under installationen uppmanas du att registrera anslutningsverktyget med programproxyn för Azure AD-katalogen.
-    * Ange din **autentiseringsuppgifter som global Azure AD**. Autentiseringsuppgifterna för klienten som du är global administratör för kan skilja sig från dina Microsoft Azure-autentiseringsuppgifter.
-    * Administratörskonto som används för att registrera anslutningsverktyget måste tillhöra samma katalog där du har aktiverat tjänsten Application Proxy. Till exempel om klient-domänen är contoso.com ska administratören vara admin@contoso.com eller något annat giltigt alias på den domänen.
-    * Om Förbättrad säkerhetskonfiguration är aktiverad för servern där du installerar anslutningstjänsten, kan registreringsskärmen blockeras. Följ instruktionerna i felmeddelandet för att tillåta åtkomst. Kontrollera att Förbättrad säkerhetskonfiguration i Internet Explorer är inaktiverat.
-    * Om registreringen av anslutningsappen inte lyckas så gå till [Felsöka programproxyn](../active-directory/manage-apps/application-proxy-troubleshoot.md).
+   * Ange din **autentiseringsuppgifter som global Azure AD**. Autentiseringsuppgifterna för klienten som du är global administratör för kan skilja sig från dina Microsoft Azure-autentiseringsuppgifter.
+   * Administratörskonto som används för att registrera anslutningsverktyget måste tillhöra samma katalog där du har aktiverat tjänsten Application Proxy. Till exempel om klient-domänen är contoso.com ska administratören vara admin@contoso.com eller något annat giltigt alias på den domänen.
+   * Om Förbättrad säkerhetskonfiguration är aktiverad för servern där du installerar anslutningstjänsten, kan registreringsskärmen blockeras. Följ instruktionerna i felmeddelandet för att tillåta åtkomst. Kontrollera att Förbättrad säkerhetskonfiguration i Internet Explorer är inaktiverat.
+   * Om registreringen av anslutningsappen inte lyckas så gå till [Felsöka programproxyn](../active-directory/manage-apps/application-proxy-troubleshoot.md).
 
-    ![Anslutningstjänsten installerad](./media/app-proxy/app-proxy-connector-installed.png)
+     ![Anslutningstjänsten installerad](./media/app-proxy/app-proxy-connector-installed.png)
 4. För att säkerställa att anslutningen kör fungerar korrekt, du Azure AD Application Proxy Connector felsökaren. Du bör se en lyckad rapport när du har kört felsökaren.
 
     ![Felsökare lyckades](./media/app-proxy/app-proxy-connector-troubleshooter.png)

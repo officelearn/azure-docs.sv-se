@@ -10,19 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/16/2019
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5f8dffa01b2d7dd7fa966d2b417019f1d2afb1bc
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 25dda12ca33165cfc64ffd949a2068acb5150b84
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867022"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097157"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Självstudie: Skapa länkade Azure Resource Manager-mallar
 
 Lär dig att skapa länkade Azure Resource Manager-mallar. Med hjälp av länkade mallar kan du få en mall att anropa en annan. Det är perfekt för modularisering av mallar. I den här självstudien använder du samma mall som används i [Självstudie: Skapa Azure Resource Manager-mallar med beroende resurser](./resource-manager-tutorial-create-templates-with-dependent-resources.md), vilket skapar en virtuell dator, ett virtuellt nätverk och andra beroende resurser, inklusive ett lagringskonto. Du separerar skapandet av lagringskontoresursen till en länkad mall.
+
+Anropa en länkad mall är som att göra ett funktionsanrop.  Du också lära dig att ange parametervärden för länkade mallen, och hur du hämtar ”returvärden” från länkad mall.
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -34,6 +36,8 @@ Den här självstudien omfattar följande uppgifter:
 > * Konfigurera beroende
 > * Distribuera mallen
 > * Ytterligare metoder
+
+Mer information finns i [använda länkade och kapslade mallar när du distribuerar Azure-resurser](./resource-group-linked-templates.md).
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -67,95 +71,97 @@ Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I st�
 3. Välj **Öppna** för att öppna filen.
 4. Det finns fem resurser som definieras av mallen:
 
-    * `Microsoft.Storage/storageAccounts`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). 
-    * `Microsoft.Network/publicIPAddresses`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses). 
-    * `Microsoft.Network/virtualNetworks`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks). 
-    * `Microsoft.Network/networkInterfaces`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces). 
-    * `Microsoft.Compute/virtualMachines`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * [`Microsoft.Storage/storageAccounts`](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)
+   * [`Microsoft.Network/publicIPAddresses`](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)
+   * [`Microsoft.Network/virtualNetworks`](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)
+   * [`Microsoft.Network/networkInterfaces`](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)
+   * [`Microsoft.Compute/virtualMachines`](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)
 
-    Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
+     Är det bra att hämta viss grundläggande förståelse för mallsschemat innan du börjar anpassa mallen.
 5. Välj **Arkiv**>**Spara som** för att spara en kopia av filen till den lokala datorn med namnet **azuredeploy.json**.
 6. Välj **Fil**>**Spara som** för att skapa en annan kopia av filen med namnet **linkedTemplate.json**.
 
 ## <a name="create-the-linked-template"></a>Skapa den länkade mallen
 
-Den länkade mallen skapar ett lagringskonto. Den länkade mallen är nästan identisk med den fristående mallen som skapar ett lagringskonto. I den här självstudien behöver den länkade mallen skicka ett värde tillbaka till huvudmallen. Det här värdet definieras i elementet `outputs`.
+Den länkade mallen skapar ett lagringskonto. Länkad mall kan användas som en fristående-mall för att skapa ett lagringskonto. I de här självstudierna länkad mall tar två parametrar och skickar ett värde till den huvudsakliga mallen. Den här ”return” värde har angetts i den `outputs` element.
 
-1. Öppna linkedTemplate.json i Visual Studio Code om filen inte är öppen.
+1. Öppna **linkedTemplate.json** i Visual Studio Code om filen inte öppnas.
 2. Gör följande ändringar:
 
-    * Ta bort alla resurser förutom lagringskontot. Du tar bort totalt fyra resurser.
+    * Ta bort alla parametrar än **plats**.
+    * Lägg till en parameter med namnet **storageAccountName**. 
+        ```json
+        "storageAccountName":{
+          "type": "string",
+          "metadata": {
+              "description": "Azure Storage account name."
+          }
+        },
+        ```
+        Lagringskontonamn och plats skickas från den huvudsakliga mallen till den länkade mallen som parametrar.
+        
+    * Ta bort elementet **variabler** och alla definitioner för variabeln.
+    * Ta bort alla resurser än lagringskontot. Du tar bort totalt fyra resurser.
     * Uppdatera värdet för elementet **namn** för lagringskontoresursen till:
 
         ```json
           "name": "[parameters('storageAccountName')]",
         ```
-    * Ta bort elementet **variabler** och alla definitioner för variabeln.
-    * Ta bort alla parametrar utom **plats**.
-    * Lägg till en parameter med namnet **storageAccountName**. Lagringskontonamnet skickas från huvudmallen till den länkade mallen som en parameter.
 
-        ```json
-        "storageAccountName":{
-        "type": "string",
-        "metadata": {
-            "description": "Azure Storage account name."
-        }
-        },
-        ```
     * Uppdatera elementet **outputs**, så det ser ut så här:
-
+    
         ```json
         "outputs": {
-            "storageUri": {
-                "type": "string",
-                "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
-              }
+          "storageUri": {
+              "type": "string",
+              "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
+            }
         }
         ```
-        **storageUri** krävs av VM-resursdefinitionen i huvudmallen.  Du skickar tillbaka värdet till huvudmallen som ett utdatavärde.
+       **storageUri** krävs av VM-resursdefinitionen i huvudmallen.  Du skickar tillbaka värdet till huvudmallen som ett utdatavärde.
 
-    När du är klar ska mallen se ut så här:
+        När du är klar ska mallen se ut så här:
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-          "storageAccountName":{
-            "type": "string",
-            "metadata": {
-              "description": "Azure Storage account name."
+        ```json
+        {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "storageAccountName": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure Storage account name."
+              }
+            },
+            "location": {
+              "type": "string",
+              "defaultValue": "[resourceGroup().location]",
+              "metadata": {
+                "description": "Location for all resources."
+              }
             }
           },
-          "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-              "description": "Location for all resources."
+          "resources": [
+            {
+              "type": "Microsoft.Storage/storageAccounts",
+              "name": "[parameters('storageAccountName')]",
+              "location": "[parameters('location')]",
+              "apiVersion": "2018-07-01",
+              "sku": {
+                "name": "Standard_LRS"
+              },
+              "kind": "Storage",
+              "properties": {}
+            }
+          ],
+          "outputs": {
+            "storageUri": {
+              "type": "string",
+              "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
             }
           }
-        },
-        "resources": [
-          {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('storageAccountName')]",
-            "apiVersion": "2016-01-01",
-            "location": "[parameters('location')]",
-            "sku": {
-              "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {}
-          }
-        ],
-        "outputs": {
-            "storageUri": {
-                "type": "string",
-                "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
-              }
         }
-    }
-    ```
+        ```
 3. Spara ändringarna.
 
 ## <a name="upload-the-linked-template"></a>Ladda upp den länkade mallen
@@ -227,7 +233,7 @@ I praktiken genererar du en SAS-token när du distribuerar huvudmallen och ger f
 
 Huvudmallen heter azuredeploy.json.
 
-1. Öppna azuredeploy.json i Visual Studio Code om den inte är öppen.
+1. Öppna **azuredeploy.json** i Visual Studio Code om den inte är öppen.
 2. Ta bort lagringskontots resursdefinition från mallen:
 
     ```json
@@ -302,8 +308,6 @@ Eftersom lagringskontot är definierat i den länkade mallen nu, måste du uppda
     *linkedTemplate* är namnet på distributionsresursen.  
 3. Uppdatera **properties/diagnosticsProfile/bootDiagnostics/storageUri** som visas på föregående skärmbild.
 4. Spara den redigerade mallen.
-
-Mer information finns i [Använda länkade och nästlade mallar vid distribution av Azure-resurser](./resource-group-linked-templates.md).
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 

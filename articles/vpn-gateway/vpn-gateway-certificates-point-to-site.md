@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: e574759ff8af172841db9fc94ee860a19dd14200
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 74639dee6fb548e1c9067cae6fc22f6e3cc872c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415373"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096239"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Skapa och exportera certifikat för punkt-till-plats med hjälp av PowerShell
 
@@ -30,12 +30,12 @@ Använd cmdleten New-SelfSignedCertificate för att skapa ett självsignerat rot
 1. Öppna en Windows PowerShell-konsol med utökade privilegier från en dator som kör Windows 10 eller Windows Server 2016. De här exemplen fungerar inte i Azure Cloud Shell ”prova”. Du måste köra dessa exempel lokalt.
 2. Använd följande exempel för att skapa det självsignerade rotcertifikatet. I följande exempel skapas ett självsignerat rotcertifikat med namnet ”P2SRootCert” som installeras automatiskt i ”certifikat – aktuell användare\personligt\certifikat”. Du kan visa certifikatet genom att öppna *certmgr.msc*, eller *Hantera användarcertifikat*.
 
-  ```powershell
-  $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
-  -Subject "CN=P2SRootCert" -KeyExportPolicy Exportable `
-  -HashAlgorithm sha256 -KeyLength 2048 `
-  -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
-  ```
+   ```powershell
+   $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+   -Subject "CN=P2SRootCert" -KeyExportPolicy Exportable `
+   -HashAlgorithm sha256 -KeyLength 2048 `
+   -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
+   ```
 
 ## <a name="clientcert"></a>2. Generera ett klientcertifikat
 
@@ -65,37 +65,37 @@ Om du skapar ytterligare klientcertifikat eller inte använder samma PowerShell-
 
 1. Identifiera det självsignerade rotcertifikat som är installerad på datorn. Denna cmdlet returnerar en lista över certifikat som är installerade på datorn.
 
-  ```powershell
-  Get-ChildItem -Path “Cert:\CurrentUser\My”
-  ```
+   ```powershell
+   Get-ChildItem -Path “Cert:\CurrentUser\My”
+   ```
 2. Leta upp ämnesnamnet från den returnerade listan och kopiera tumavtrycket som finns bredvid den till en textfil. I följande exempel finns två certifikat. CN-namn är namnet på det självsignerade rotcertifikatet som du vill att generera ett underordnat certifikat. I det här fallet ”P2SRootCert”.
 
-  ```
-  Thumbprint                                Subject
+   ```
+   Thumbprint                                Subject
   
-  AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
-  7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
-  ```
+   AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
+   7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
+   ```
 3. Deklarera en variabel för rot-certifikatet med tumavtrycket från föregående steg. Ersätt TUMAVTRYCK med tumavtrycket för rotcertifikatet som du vill att generera ett underordnat certifikat.
 
-  ```powershell
-  $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
-  ```
+   ```powershell
+   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
+   ```
 
-  Till exempel använder tumavtrycket för P2SRootCert i föregående steg, variabeln ser ut så här:
+   Till exempel använder tumavtrycket för P2SRootCert i föregående steg, variabeln ser ut så här:
 
-  ```powershell
-  $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
-  ```
-4.  Ändra och köra exemplet för att generera ett klientcertifikat. Om du kör följande exempel utan att ändra den är resultatet ett klientcertifikat med namnet ”P2SChildCert”. Om du vill namnge certifikatet underordnade något annat ändra CN-värde. Ändra inte TextExtension när du kör det här exemplet. Klientcertifikatet som du genererar installeras automatiskt under ”certifikat – aktuell användare\personligt\certifikat” på datorn.
+   ```powershell
+   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
+   ```
+4. Ändra och köra exemplet för att generera ett klientcertifikat. Om du kör följande exempel utan att ändra den är resultatet ett klientcertifikat med namnet ”P2SChildCert”. Om du vill namnge certifikatet underordnade något annat ändra CN-värde. Ändra inte TextExtension när du kör det här exemplet. Klientcertifikatet som du genererar installeras automatiskt under ”certifikat – aktuell användare\personligt\certifikat” på datorn.
 
-  ```powershell
-  New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
-  -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
-  -HashAlgorithm sha256 -KeyLength 2048 `
-  -CertStoreLocation "Cert:\CurrentUser\My" `
-  -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
-  ```
+   ```powershell
+   New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
+   -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
+   -HashAlgorithm sha256 -KeyLength 2048 `
+   -CertStoreLocation "Cert:\CurrentUser\My" `
+   -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
+   ```
 
 ## <a name="cer"></a>3. Exportera rot certifikatets offentliga nyckel (.cer)
 

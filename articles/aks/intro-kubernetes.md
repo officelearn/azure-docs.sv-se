@@ -5,21 +5,23 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: overview
-ms.date: 09/26/2018
+ms.date: 03/05/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: db6a02db3a154193a9326e2957038e5daa2faae7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 46d667bc32c5c5f3ccb14cf4a43a3441efe94c31
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992364"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552222"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
 Azure Kubernetes Service (AKS) gör det enkelt att distribuera ett hanterat Kubernetes-kluster i Azure. AKS minskar komplexiteten och arbetet med att hantera Kubernetes genom att avlasta en stor del av det ansvaret till Azure. Som Kubernetes-värdtjänst hanterar Azure viktiga uppgifter som övervakning av hälsotillstånd och underhåll åt dig. Kubernetes-huvudservrar hanteras av Azure. Du kan endast hantera och underhålla agentnoderna. Som hanterade Kubernetes tjänst är AKS kostnadsfri, du betalar bara för agentnoder i dina kluster, inte för de överordnade noder.
 
 Du kan skapa ett AKS-kluster i Azure-portalen med Azure CLI eller ett malldrivet distributionsalternativ, till exempel Resource Manager-mallar och Terraform. När du distribuerar ett AKS-kluster styr Kubernetes och alla noder distribueras och konfigureras för dig. Ytterligare funktioner, till exempel avancerade nätverk, Azure Active Directory-integrering och övervakning kan också konfigureras under distributionsprocessen.
+
+Mer information om grundläggande om Kubernetes finns i [Kubernetes viktiga begrepp för AKS][concepts-clusters-workloads].
 
 Kom igång genom att slutföra snabbstarten om AKS [i Azure-portalen][aks-portal] eller [med Azure CLI][aks-cli].
 
@@ -30,6 +32,8 @@ För ökad säkerhet och hantering kan AKS integreras med Azure Active Directory
 ### <a name="identity-and-security-management"></a>Identitets- och säkerhetshantering
 
 Om du vill begränsa åtkomsten till klusterresurser har AKS stöd för [Kubernetes rollbaserad åtkomstkontroll (RBAC)][kubernetes-rbac]. Du kan använda RBAC för att kontrollera åtkomst till Kubernetes-resurser och -namnområden samt behörigheter till dessa resurser. Ett AKS-kluster kan också konfigureras för att integrera med Azure Active Directory (AD). Med Azure AD-integrering kan du konfigurera Kubernetes-åtkomst baserat på din befintliga identitet och gruppmedlemskap. Dina befintliga Azure AD-användare och -grupper kan ges åtkomst till AKS resurser och integrerad inloggning.
+
+Läs mer om identitet, [alternativen för åtkomst och identitet för AKS][concepts-identity].
 
 Mer information om att säkra AKS-kluster finns i [integrera Azure Active Directory med AKS][aks-aad].
 
@@ -65,13 +69,17 @@ Mer information finns i [Använda GPU-kort på AKS][aks-gpu].
 
 Du kan montera lagringsvolymer för beständiga data för att stödja arbetsbelastningar för program. Du kan använda både statiska och dynamiska volymer. Beroende på hur många anslutna poddar ska dela lagringen kan du använda lagring med Azure Disk för enkel poddåtkomst eller Azure Files för åtkomst till flera poddar samtidigt.
 
-Kom igång med dynamiska beständiga volymer med [Azure Disks] [azure-disk] eller [Azure Files][azure-files].
+Mer information finns i [lagringsalternativ för program i AKS][concepts-storage].
+
+Kom igång med dynamisk beständiga volymer med [Azure Disks] [ azure-disk] eller [Azure Files][azure-files].
 
 ## <a name="virtual-networks-and-ingress"></a>Virtuella nätverk och ingress
 
 Ett AKS-kluster kan distribueras till ett befintligt virtuellt nätverk. I den här konfigurationen tilldelas varje pod i klustret en IP-adress i det virtuella nätverket och kan kommunicera direkt med andra poddar i klustret och andra noder i det virtuella nätverket. Poddar kan också ansluta till andra tjänster i en peer-kopplad virtuell dator och lokala nätverk via ExpressRoute och plats-till-plats (S2S) VPN-anslutningar.
 
-Mer information finns i [AKS-nätverk – översikt][aks-networking].
+Mer information finns i den [Network begrepp för program i AKS][aks-networking].
+
+Kom igång med ingående trafik, se [HTTP-programroutning][aks-http-routing].
 
 ### <a name="ingress-with-http-application-routing"></a>Ingress with HTTP-programroutning
 
@@ -112,10 +120,7 @@ Läs mer om att distribuera och hantera AKS med snabbstarten om Azure CLI.
 
 <!-- LINKS - external -->
 [aks-engine]: https://github.com/Azure/aks-engine
-[draft]: https://github.com/Azure/draft
-[helm]: https://helm.sh/
 [kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
-[kubernetes-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 
 <!-- LINKS - internal -->
 [acr-docs]: ../container-registry/container-registry-intro.md
@@ -134,3 +139,7 @@ Läs mer om att distribuera och hantera AKS med snabbstarten om Azure CLI.
 [container-health]: ../monitoring/monitoring-container-health.md
 [aks-master-logs]: view-master-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
+[concepts-clusters-workloads]: concepts-clusters-workloads.md
+[kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
+[concepts-identity]: concepts-identity.md
+[concepts-storage]: concepts-storage.md

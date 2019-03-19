@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 73a88ec0280728b4a485bd095096e90bbc43ef40
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: dd7dad51f29b4b5034c72085cd789077747faa0b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990959"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106567"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Skydda dina datorer och program i Azure Security Center
 Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera kontrollfunktioner som behövs. Rekommendationer gäller för Azure-resurstyper: virtuella datorer (VM) och datorer, program, nätverk, SQL, och identitet och åtkomst.
@@ -144,21 +144,21 @@ Det finns tre typer av ikoner i den här listan:
 
 1. Välj ett webbprogram. En sammanfattningsvy öppnas med tre flikar:
 
-  - **Rekommendationer**: baserat på har utförts av Security Center som misslyckades.
-  - **Skickas utvärderingar**: lista över har utförts av Security Center som skickas.
-  - **Ej tillgängliga utvärderingar**: lista över utvärderingar som inte kunde köras på grund av ett fel eller rekommendationen gäller inte för den specifika App service
+   - **Rekommendationer**: baserat på har utförts av Security Center som misslyckades.
+   - **Skickas utvärderingar**: lista över har utförts av Security Center som skickas.
+   - **Ej tillgängliga utvärderingar**: lista över utvärderingar som inte kunde köras på grund av ett fel eller rekommendationen gäller inte för den specifika App service
 
-  Under **rekommendationer** är en lista över rekommendationer för det valda webbprogrammet och allvarlighetsgraden för varje rekommendation.
+   Under **rekommendationer** är en lista över rekommendationer för det valda webbprogrammet och allvarlighetsgraden för varje rekommendation.
 
-  ![Rekommendationer för App Services](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
+   ![Rekommendationer för App Services](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
 
 2. Välj en rekommendation att se en beskrivning av rekommendationen och en lista över skadade resurser, felfria resurser och ej genomsökta resurser.
 
- - Under den **skickas utvärderingar** kolumnen är en lista med skickade utvärderingar.  Allvarlighetsgraden för de här utvärderingar är alltid grönt.
+   - Under den **skickas utvärderingar** kolumnen är en lista med skickade utvärderingar.  Allvarlighetsgraden för de här utvärderingar är alltid grönt.
 
- -  Välj en skickade utvärdering från listan för en beskrivning av utvärderingen, en lista över feltillstånd och felfria resurser och en lista över ej genomsökta resurser. Det finns en flik för skadade resurser men listan är alltid tomt eftersom utvärderingen skickades.
+   - Välj en skickade utvärdering från listan för en beskrivning av utvärderingen, en lista över feltillstånd och felfria resurser och en lista över ej genomsökta resurser. Det finns en flik för skadade resurser men listan är alltid tomt eftersom utvärderingen skickades.
 
-    ![App Service-reparation](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
+     ![App Service-reparation](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
 ## <a name="virtual-machine-scale-sets"></a>Skalningsuppsättningar för virtuella datorer
 Security Center identifierar automatiskt om du har skalor uppsättningar och rekommenderar att du installerar Microsoft Monitoring Agent på de här skalningsuppsättningar. 
@@ -168,7 +168,7 @@ Installera Microsoft Monitoring Agent:
 1. Välj rekommendationen **installera övervakningsagenten på virtual machine scale Sets**. Du får en lista över oövervakade skalningsuppsättningar.
 2. Välj en defekt skalningsuppsättning. Följ anvisningarna för att installera övervakningsagenten med hjälp av en befintlig fylls i automatiskt arbetsyta eller skapa en ny. Se till att ange arbetsytan [prisnivån](security-center-pricing.md) om den inte har angetts.
 
- ![Installera MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
+   ![Installera MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
 Om du vill ange skalningsuppsättningar nya för att automatiskt installera Microsoft Monitoring Agent:
 1. Gå till Azure Policy och klicka **definitioner**.

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4c50ba76cf1e9b8103bd006c9f97c18a3e92d0c2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d9d26ced30f718f06d6d0ba9eb7c2a78682305ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550287"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102374"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory – vanliga frågor och svar
 > [!NOTE]
@@ -178,7 +178,7 @@ Du kan köra en sektor i ett av följande sätt:
     ```PowerShell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-Se [Set-AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] mer information om cmdlet: en.
+  Se [Set-AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] mer information om cmdlet: en.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>Hur lång tid tog den för att bearbeta en sektor?
 Använd aktiviteten fönstret Explorer i övervaknings- och Hanteringsappen veta hur lång tid det tog för att bearbeta en datasektor. Se [aktivitet fönstret Explorer](data-factory-monitor-manage-app.md#activity-window-explorer) mer information.

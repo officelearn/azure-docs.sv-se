@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 23bf70cd60639aec3ea7e8504dc3f6ebccd4923f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 937346bf6927efe11e43b64b7c9a2111f00c0e0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883597"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890839"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Inställningar för Azure File Sync-proxy och brandväggar
 Azure File Sync ansluter dina lokala servrar till Azure Files, aktivering av multisite synkronisering och molnlagringsnivåer funktioner. Därför måste måste en lokal server vara ansluten till internet. IT-administratör måste avgöra den bästa vägen för att servern ska få åtkomst till Azure-molntjänster.
@@ -59,28 +59,28 @@ Följ stegen nedan om du vill konfigurera datoromfattande proxy-inställningar:
 
 1. Konfigurera proxyinställningar för .NET-program 
 
-  - Redigera dessa två filer:  
-    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
-    C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+   - Redigera dessa två filer:  
+     C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
+     C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
 
-  - Lägg till avsnittet < system.net > i machine.config-filer (under avsnittet < system.serviceModel >).  Ändra 127.0.01:8888 till IP-adressen och porten för proxyservern. 
-  ```
+   - Lägg till avsnittet < system.net > i machine.config-filer (under avsnittet < system.serviceModel >).  Ändra 127.0.01:8888 till IP-adressen och porten för proxyservern. 
+     ```
       <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
           <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
         </defaultProxy>
       </system.net>
-  ```
+     ```
 
 2. Ange WinHTTP-proxyinställningar 
 
-  - Kör följande kommando från en upphöjd kommandotolk eller PowerShell för att visa befintliga Proxyinställningen:   
+   - Kör följande kommando från en upphöjd kommandotolk eller PowerShell för att visa befintliga Proxyinställningen:   
 
-    Netsh winhttp show proxy
+     Netsh winhttp show proxy
 
-  - Kör följande kommando från en upphöjd kommandotolk eller PowerShell för att ange Proxyinställningen (ändra 127.0.01:8888 till IP-adressen och porten för proxyservern):  
+   - Kör följande kommando från en upphöjd kommandotolk eller PowerShell för att ange Proxyinställningen (ändra 127.0.01:8888 till IP-adressen och porten för proxyservern):  
 
-    Netsh winhttp ange proxy 127.0.0.1:8888
+     Netsh winhttp ange proxy 127.0.0.1:8888
 
 3. Starta om tjänsten Storage Sync-agenten genom att köra följande kommando från en upphöjd kommandotolk eller PowerShell: 
 
@@ -100,7 +100,7 @@ I följande tabell beskrivs domänerna som krävs för kommunikation:
 | **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | Som en del av att distribuera Azure File Sync, skapas ett huvudnamn för tjänsten i prenumerationens Azure Active Directory. Den här URL: en används för detta. Den här huvudnamn används för att delegera en minimal uppsättning rättigheter till Azure File Sync-tjänsten. Användaren som utför installationen av Azure File Sync måste vara en autentiserad användare med behörighet för ägare av prenumerationen. |
 | **Azure Storage** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | När servern hämtar en fil, utför servern sedan den dataförflyttning mer effektivt när man talar direkt till Azure-filresursen i Lagringskontot. Servern har en SAS-nyckel som endast tillåter för åtkomst till resursen för filen. |
 | **Azure File Sync** | &ast;.one.microsoft.com | &ast;.afs.azure.us | Efter den inledande serverregistrering servern tar emot en regional URL för Azure File Sync-tjänstinstansen i den regionen. Servern kan använda URL: en för att kommunicera direkt och effektivt med hantering av dess sync-instans. |
-| **Microsoft PKI** | `https://www.microsoft.com/pki/mscorp`<br />http://ocsp.msocsp.com | `https://www.microsoft.com/pki/mscorp`<br />http://ocsp.msocsp.com | När Azure File Sync-agenten har installerats, används PKI-URL: en för att ladda ned mellanliggande certifikat som krävs för att kommunicera med Azure File Sync-tjänsten och Azure-filresurs. OCSP-URL: en används för att kontrollera status för ett certifikat. |
+| **Microsoft PKI** | `https://www.microsoft.com/pki/mscorp`<br /><http://ocsp.msocsp.com> | `https://www.microsoft.com/pki/mscorp`<br /><http://ocsp.msocsp.com> | När Azure File Sync-agenten har installerats, används PKI-URL: en för att ladda ned mellanliggande certifikat som krävs för att kommunicera med Azure File Sync-tjänsten och Azure-filresurs. OCSP-URL: en används för att kontrollera status för ett certifikat. |
 
 > [!Important]
 > När så att trafik kan &ast;. one.microsoft.com, trafik till mer än bara synkroniseringstjänsten går från servern. Det finns många fler Microsoft-tjänster som är tillgängliga under underdomäner.

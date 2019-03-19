@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cf39639c6b9e20337412b7b071f6d6840904ba6c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: 32e92cb8cd6cd5d16ea8d38d178bb440420e6784
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738223"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546372"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Självstudier: Övervaka och uppdatera en virtuell Windows-dator i Azure
 
@@ -68,7 +68,7 @@ Det tar några minuter att skapa resurserna och den virtuella datorn.
 
 ## <a name="view-boot-diagnostics"></a>Visa startdiagnostik
 
-När virtuella Windows-datorer startar samlar startdiagnostikagenten in skärmutdata som kan användas i felsökningssyfte. Den här funktionen är aktiverad som standard. De insamlade skärmdumparna lagras på ett Azure-lagringskonto, som också skapas som standard.
+När virtuella Windows-datorer startar samlar startdiagnostikagenten in skärmutdata som kan användas i felsökningssyfte. Den här funktionen är aktiverad som standard. Hämtade skärmbilderna lagras i ett Azure storage-konto, som dessutom skapas som standard.
 
 Du kan hämta startdiagnostikdata med kommandot [Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/az.compute/get-azvmbootdiagnosticsdata). I följande exempel laddas startdiagnostik ned till roten på enhet *c:\*.
 
@@ -142,7 +142,7 @@ Om du vill utföra ytterligare åtgärder på virtuella datorer som kräver uppd
 Verifieringsprocessen kontrollerar också om den virtuella datorn har etablerats med MMA och Automation Hybrid Runbook Worker.
 Den här agenten används för att kommunicera med den virtuella datorn och hämta information om uppdateringsstatus.
 
-Välj Log Analytics-arbetsytan och Automation-kontot och klicka på **Aktivera** för att aktivera lösningen. Det tar upp till 15 minuter att aktivera lösningen.
+Välj det Log Analytics-arbetsytan och automation-kontot och klicka på **aktivera** att aktivera lösningen. Det tar upp till 15 minuter att aktivera lösningen.
 
 Om några av följande krav saknades under publiceringen läggs de till automatiskt:
 
@@ -150,11 +150,11 @@ Om några av följande krav saknades under publiceringen läggs de till automati
 * [Automation](../../automation/automation-offering-get-started.md)
 * En [Hybrid runbook worker](../../automation/automation-hybrid-runbook-worker.md) aktiveras på den virtuella datorn
 
-Skärmen **Uppdateringshantering** öppnas. Konfigurera platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas och klicka på **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas.
+Skärmen **Uppdateringshantering** öppnas. Konfigurera platsen, Log Analytics-arbetsytan och Automation-konto för att använda och klicka på **aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas.
 
 ![Aktivera lösningen för hantering av uppdateringar](./media/tutorial-monitoring/manageupdates-update-enable.png)
 
-Det kan ta upp till 15 minuter att aktivera lösningen. Under tiden ska du inte stänga webbläsaren. När lösningen har aktiverats flödar information om saknade uppdateringar på den virtuella datorn till Log Analytics. Det kan ta mellan 30 minuter och 6 timmar innan data blir tillgängliga för analys.
+Det kan ta upp till 15 minuter att aktivera lösningen. Under tiden ska du inte stänga webbläsaren. När lösningen har aktiverats flödar information om saknade uppdateringar på den virtuella datorn till Azure Monitor-loggar. Det kan ta mellan 30 minuter och 6 timmar innan data blir tillgängliga för analys.
 
 ### <a name="view-update-assessment"></a>Visa kontroll av uppdateringar
 
@@ -226,7 +226,7 @@ Så här aktiverar du ändringsspårning och inventering för din virtuella dato
 2. Välj en virtuell dator i listan.
 3. Gå till avsnittet **Åtgärder** och klicka på **Inventering** eller **Ändringsspårning**. Skärmen **Aktivera ändringsspårning och inventering** öppnas.
 
-Konfigurera platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas och klicka på **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas. Även om lösningarna är uppdelade på menyn, ingår de i samma lösning. När du aktiverar den ena aktiveras båda för den virtuella datorn.
+Konfigurera platsen, Log Analytics-arbetsytan och Automation-konto för att använda och klicka på **aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas. Även om lösningarna är uppdelade på menyn, ingår de i samma lösning. När du aktiverar den ena aktiveras båda för den virtuella datorn.
 
 ![Aktivera Ändringsspårning och lager](./media/tutorial-monitoring/manage-inventory-enable.png)
 
@@ -282,7 +282,7 @@ Set-AzVMExtension -ResourceGroupName "myResourceGroupMonitor" `
 
 Du bör se den nya virtuella datorn på Log Analytics-arbetsytan efter några minuter.
 
-![Log Analytics-bladet](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Log Analytics-arbetsytebladet](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

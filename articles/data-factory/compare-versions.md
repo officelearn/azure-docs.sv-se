@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: f898b21e84cc57327991c97d2694e9e44e608417
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 976724a40b604bcdc3c83ef1b3d2e95268f75304
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014904"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432710"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Jämför Azure Data Factory med Data Factory version 1
 Den här artikeln jämför Data Factory med Data Factory version 1. En introduktion till Data Factory finns i [Introduktion till Data Factory](introduction.md). En introduktion till Data Factory version 1 finns i [Introduktion till Azure Data Factory](v1/data-factory-introduction.md). 
@@ -118,7 +118,7 @@ Mer information finns i [Difference between custom activity in Data Factory and 
 
 - **.NET SDK**: .NET SDK har uppdaterats för den aktuella versionen.
 
-- **PowerShell**: PowerShell-cmdletarna har uppdaterats för den aktuella versionen. Namnet på cmdletarna för den aktuella versionen innehåller **DataFactoryV2**, t.ex.: Get-AzureRmDataFactoryV2. 
+- **PowerShell**: PowerShell-cmdletarna har uppdaterats för den aktuella versionen. Namnet på cmdletarna för den aktuella versionen innehåller **DataFactoryV2**, t.ex.: Get-AzDataFactoryV2. 
 
 - **Python SDK**: Denna SDK är ny i den aktuella versionen.
 

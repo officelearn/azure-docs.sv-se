@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
-ms.openlocfilehash: d75048cb53dd1a5ebaba6322228af6137d0f3b96
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3bb88f2f9546ec25433061a0704bd144730bd34c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456184"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894639"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Så här väljer du algoritmer för Azure Machine Learning Studio
 
@@ -45,7 +45,7 @@ Läsa sökvägen och algoritmen etiketterna i diagrammet som ”för  *&lt;sökv
 Ibland är ingen av dem en perfekt passning. De är avsedda att vara regeln av USB-rekommendationer, så oroa dig inte om den är exakt.
 Flera dataexperter vi talade med dessa som det enda säkra sättet att hitta den allra bästa algoritmen är att försöka dem alla.
 
-Här är ett exempel från den [Azure AI-galleriet](http://gallery.azure.ai/) av ett experiment som försöker flera algoritmer mot samma data och jämför resultaten: [Jämför flera klassificerare: Enhetsbokstaven för](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
+Här är ett exempel från den [Azure AI-galleriet](https://gallery.azure.ai/) av ett experiment som försöker flera algoritmer mot samma data och jämför resultaten: [Jämför flera klassificerare: Enhetsbokstaven för](https://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > För att ladda ned en enkel att förstå informationsgrafiken översikt över grunderna i machine learning att lära dig om populära algoritmer som används för att besvara vanliga frågor för machine learning, [Machine learning-grunder med algoritmexempel](basics-infographic-with-algorithm-examples.md).
@@ -180,7 +180,7 @@ Beslut skogar ([regression](/azure/machine-learning/studio-module-reference/deci
 
 Eftersom funktionen kan kan delas in i godtyckligt små regioner, är det enkelt att föreställa sig dividera tillräckligt noggrant för att skapa en datapunkt per region. Det här är ett extrem exempel på overfitting. För att undvika detta skapas ett stort antal träd med särskilda matematiska försiktighet som vidtagits för att säkerställa träd inte kopplas ihop. Genomsnittet för det här ”beslutsskog” är ett träd som undviker overfitting. Beslutet skogar kan använda mycket minne. Beslutsdjungler är en variant som förbrukar mindre minne på bekostnad av en något längre utbildningstid.
 
-Förbättrat beslutsträd undvika overfitting genom att begränsa hur många gånger som de kan du dela upp och hur datapunkter är tillåtna i varje region. Algoritmen skapar en sekvens av träd, som lär sig att kompensera för fel i trädet innan du har lämnat. Resultatet är en mycket noggrann learner som ofta använder mycket minne. Fullständig teknisk beskrivning finns i [Friedmans ursprungliga dokumentet](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
+Förbättrat beslutsträd undvika overfitting genom att begränsa hur många gånger som de kan du dela upp och hur datapunkter är tillåtna i varje region. Algoritmen skapar en sekvens av träd, som lär sig att kompensera för fel i trädet innan du har lämnat. Resultatet är en mycket noggrann learner som ofta använder mycket minne. Fullständig teknisk beskrivning finns i [Friedmans ursprungliga dokumentet](https://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
 
 [Snabb skog quantile regression](/azure/machine-learning/studio-module-reference/fast-forest-quantile-regression) är en variant av beslutsträd för särskilda fall där du vill veta det vanliga (median) värdet av data inom en region, utan även dess distribution i form av quantiles.
 
@@ -215,7 +215,7 @@ Med hjälp av en smarta förlängning av icke-linjära SVMs den [en klass SVM](/
 Bayesian metoderna har en mycket önskvärt kvalitet: de undvika overfitting. De kan göra detta genom att göra några antaganden i förväg om sannolikt fördelningen av svaret. En annan byproduct med den här metoden är att de har mycket få parametrar. Azure Machine Learning Studio har Bayesian algoritmer för båda klassificering ([tvåklassförhöjt Bayes datorn](/azure/machine-learning/studio-module-reference/two-class-bayes-point-machine)) och regression ([Bayesian linjär regression](/azure/machine-learning/studio-module-reference/bayesian-linear-regression)).
 Observera att dessa förutsätts att data kan dela eller ryms inom en rak linje.
 
-På en historisk anteckning utvecklades 'Bayes point datorer på Microsoft Research. De har vissa presterar exceptionellt bra teoretisk work bakom dem. Intresserad av elevens dirigeras till den [ursprungliga artikeln i JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) och en [insiktsfulla blogg av Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
+På en historisk anteckning utvecklades 'Bayes point datorer på Microsoft Research. De har vissa presterar exceptionellt bra teoretisk work bakom dem. Intresserad av elevens dirigeras till den [ursprungliga artikeln i JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) och en [insiktsfulla blogg av Chris Bishop](https://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
 
 ### <a name="specialized-algorithms"></a>Specialiserade algoritmer
 Om du har ett mycket specifik mål du i så fall. Det finns algoritmer som specialiserar sig på i Azure Machine Learning Studio-samling:

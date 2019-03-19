@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 892ea129a57e77c59f37b305b96b42aa85dba32b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 689ab38f2fc2d7643fb61c7137a4d88c297615db
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232715"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834191"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Växla mellan att visa och redigera läge för rapporter i Power BI-Arbetsytesamlingar
 
@@ -122,4 +122,4 @@ report.switchMode("edit");
 [PowerBI-CSharp Git Repo](https://github.com/Microsoft/PowerBI-CSharp)  
 [Power BI-noden Git-lagringsplats](https://github.com/Microsoft/PowerBI-Node)  
 
-Fler frågor? [Försök med Power BI Community](http://community.powerbi.com/)
+Fler frågor? [Försök med Power BI Community](https://community.powerbi.com/)

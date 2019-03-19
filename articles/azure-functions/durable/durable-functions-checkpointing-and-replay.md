@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 5d2cf4d76ce6f44cb31f05d45f2ccbceccbe9c10
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9edcc313a9e88b657337ba631218388f70d4b41f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339373"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086759"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Kontrollpunkter och återuppspelning i varaktiga funktioner (Azure Functions)
 
@@ -79,22 +79,22 @@ När kontrollpunkten har slutförts, kostar orchestrator-funktion som ska tas bo
 När åtgärden har slutförts ut ungefär så här i Azure Table Storage (förkortat för tydlighetens skull) i historiken för funktionen som visades tidigare:
 
 | PartitionKey (InstanceId)                     | Händelsetyp             | Tidsstämpel               | Indata | Namn             | Resultat                                                    | Status |
-|----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------|
+|----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     |
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.201Z |       |                  | ”” ”Hello Tokyo”! ””                                        |                     |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.201Z |       |                  | """Hello Tokyo!"""                                        |                     |
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:34.435Z |       | E1_SayHello      |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.435Z |       |                  |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.763Z |       |                  | ”” ”Hello Seattle”! ””                                      |                     |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.763Z |       |                  | """Hello Seattle!"""                                      |                     |
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:34.857Z |       | E1_SayHello      |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     |
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | ”” ”Hello London”! ””                                       |                     |
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | ”[” ”Hello Tokyo”! ”,” ”Hello Seattle”! ”,” ”Hello London”! ”]” | Slutfört           |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | """Hello London!"""                                       |                     |
+| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Hello Tokyo!"",""Hello Seattle!"",""Hello London!""]" | Slutfört           |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     |
 
 Några anmärkningar om kolumnvärdena:
@@ -112,7 +112,7 @@ Några anmärkningar om kolumnvärdena:
   * **ContinueAsNew**: Orchestrator-funktion har slutförts och startas om sig själv med nya tillstånd. Den `Result` kolumnen innehåller värdet som används som indata i den startats om-instansen.
   * **ExecutionCompleted**: Orchestrator-funktion körde slutförandet (eller misslyckade). Utdata för funktionen eller felinformationen lagras i den `Result` kolumn.
 * **Tidsstämpel**: UTC-tidsstämpel för historikhändelsen.
-* **Namn på**: Namnet på den funktion som anropas.
+* **Namn**: Namnet på den funktion som anropas.
 * **Indata**: JSON-formaterade indata för funktionen.
 * **Resultatet**: Resultatet av funktionen. det vill säga dess returvärde.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: e02c99edcc1774510f9d10a5d19f49c4fc0530a9
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: HT
+ms.openlocfilehash: e8e2bd34ebb5b789bb3e9ba4a419ab424d3fdf5a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594091"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550696"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Välj en enhet för ljudinspelning med Speech SDK
 
@@ -223,7 +223,7 @@ Ett exempel på ett enhets-ID är `\\\\?\\SWD#MMDEVAPI#{0.0.1.00000000}.{5f23ab6
 
 Enhetens ID:n har valts med hjälp av standard-ID:n för ALSA enheter.
 ID:n för de indata som är anslutna till datorn finns i `arecord -L`-kommandots utdata.
-De kan också hämtas med hjälp av [ALSA C-biblioteket](http://www.alsa-project.org/alsa-doc/alsa-lib/).
+De kan också hämtas med hjälp av [ALSA C-biblioteket](https://www.alsa-project.org/alsa-doc/alsa-lib/).
 Exempel på ID:n är `hw:1,0` och `hw:CARD=CC,DEV=0`.
 
 ## <a name="audio-device-ids-on-macos"></a>Ljudenhets-ID:n i macOS
@@ -373,7 +373,7 @@ innebär att ett Bluetooth-headset kan användas för en talaktiverad app.
 > [!div class="nextstepaction"]
 > [Utforska våra exempel på GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
 - [Anpassa språkmodeller](how-to-customize-language-model.md)

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: e4bba685ed49e72d00255f386061a0a8f9ec9078
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 565e1bf7a4972e230b3cf56232ebd24519fcab5c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535523"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007897"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Server begrepp i Azure Database for MySQL
 
@@ -37,6 +37,7 @@ Du kan skapa en eller flera databaser på en Azure Database för MySQL-server. D
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>Hur jag för att ansluta och autentisera till en Azure Database for MySQL-server?
 
 Följande element säkerställer säker åtkomst till databasen.
+
 |     |     |
 | :-- | :-- |
 | **Autentisering och auktorisering** | Azure Database for MySQL-server har stöd för inbyggda MySQL-autentisering. Du kan ansluta och autentisera till en server med den serveradministratör. |

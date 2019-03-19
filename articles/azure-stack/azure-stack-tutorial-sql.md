@@ -16,12 +16,12 @@ ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: ed149398a1244ad0cb09c3e0fe128973c6caa00d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: b61bf4f05f52b9d28ee09bb6c0de30544396e815
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408011"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091604"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Självstudier: Erbjud högtillgänglig SQL-databaser
 
@@ -65,7 +65,7 @@ Använd steg i det här avsnittet för att distribuera SQL Server AlwaysOn-tillg
 - En tillgänglighetsuppsättning som innehåller SQL- och dela vittne virtuella datorer  
 
 1. 
-[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Välj **\+** **skapa en resurs** > **anpassade**, och sedan **malldistributionen**.
 
@@ -156,7 +156,7 @@ När SQL AlwaysOn-tillgänglighetsgrupp som har skapats, konfigurerats och lägg
 > Kör de här stegen från användarportalen för Azure Stack som en klientanvändare med en prenumeration som ger SQL Server-funktioner (Microsoft.SQLAdapter service).
 
 1. 
-[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
+   [!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Välj **\+** **skapa en resurs** > **Data \+ Storage**, och sedan **SQL Database**.<br><br>Ange den egenskapen databasinformation som krävs, inklusive namn, sortering, maximal storlek och prenumeration, resursgrupp och plats för distributionen. 
 

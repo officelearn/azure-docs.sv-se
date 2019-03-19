@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: f537ccfd18685cd5aa8ee06910fc80ac3d2056c9
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 286bc73cb7226d95c1e46fc51ae5999ea27d44ad
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750417"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535694"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Självstudier: Köra en parallell arbetsbelastning med Azure Batch med hjälp av Python API
 
@@ -29,7 +29,7 @@ Använd Azure Batch för att effektivt köra storskaliga parallella program och 
 > * övervaka körningen av uppgiften
 > * hämta utdatafilerna.
 
-I den här självstudien konverterar du MP4-mediefiler parallellt till MP3-format med verktyget [ffmpeg](http://ffmpeg.org/) som har öppen källkod. 
+I den här självstudien konverterar du MP4-mediefiler parallellt till MP3-format med verktyget [ffmpeg](https://ffmpeg.org/) som har öppen källkod. 
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 

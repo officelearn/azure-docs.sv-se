@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 894fc42954182171588d81e2f7f1e37141af9add
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 70d9957ae5f0ec43269d371c96e3722e52edb26d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821259"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837770"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Publicera lösningar från Azure-datorer som uppdateringshantering, ändringsspårning och inventering
 
@@ -26,7 +26,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="enable-the-solutions"></a>Aktivera lösningar
 
-Gå till en befintlig virtuell dator. Under **OPERATIONS**väljer **uppdateringshantering**, **inventering**, eller **ändringsspårning**.
+Gå till en befintlig virtuell dator. Under **OPERATIONS**väljer **uppdateringshantering**, **inventering**, eller **ändringsspårning**. Den virtuella datorn kan finnas i valfri region oavsett platsen för ditt Automation-konto.
 
 Se till att aktivera lösningen för den virtuella datorn endast **aktivera för den här virtuella datorn** har valts. Att publicera flera datorer i lösningen, Välj **aktivera för virtuella datorer i den här prenumerationen**, och välj sedan **klickar du på datorer för att aktivera**. Mer information hur du publicera flera datorer på samma gång finns [publicera uppdateringshantering, ändringsspårning och inventering lösningar](automation-onboard-solutions-from-automation-account.md).
 

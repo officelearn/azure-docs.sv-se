@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5cb3a029795dd69c80cfa580aa1bd135c67e609e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ac627907e3f595ef59edc606f34fd27353e4c577
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451960"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850051"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team Data Science Process fungerar – med hjälp av ett Azure HDInsight Hadoop-kluster på en datauppsättning som 1 TB
 
-Den här genomgången visar hur du använder Team Data Science Process i ett scenario för slutpunkt till slutpunkt med ett [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) för att lagra, utforska, funktionen tekniker och ned exempeldata från en offentligt tillgänglig [ Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) datauppsättningar. Azure Machine Learning används för att skapa en binär klassificeringsmodell för dessa data. Den visar också hur du publicerar en av dessa modeller som en webbtjänst.
+Den här genomgången visar hur du använder Team Data Science Process i ett scenario för slutpunkt till slutpunkt med ett [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) för att lagra, utforska, funktionen tekniker och ned exempeldata från en offentligt tillgänglig [ Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) datauppsättningar. Azure Machine Learning används för att skapa en binär klassificeringsmodell för dessa data. Den visar också hur du publicerar en av dessa modeller som en webbtjänst.
 
 Det är också möjligt att använda en IPython notebook för att utföra uppgifter som visas i den här genomgången. Användare som vill testa den här metoden bör kontakta de [Criteo genomgång med en Hive ODBC-anslutning](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) avsnittet.
 
 ## <a name="dataset"></a>Criteo datauppsättning beskrivning
-Criteo data är en Klicka förutsägelse datauppsättning som är cirka 370GB gzip-komprimerade TSV-filer (~1.3TB okomprimerade), som består av mer än 4.3 miljarder poster. Det hämtas från 24 dagars klickar du på data som har gjorts tillgängliga av [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/). För att underlätta för datatekniker har data som är tillgängliga för oss att experimentera med uppzippade.
+Criteo data är en Klicka förutsägelse datauppsättning som är cirka 370GB gzip-komprimerade TSV-filer (~1.3TB okomprimerade), som består av mer än 4.3 miljarder poster. Det hämtas från 24 dagars klickar du på data som har gjorts tillgängliga av [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/). För att underlätta för datatekniker har data som är tillgängliga för oss att experimentera med uppzippade.
 
 Varje post i den här datauppsättningen innehåller 40 kolumner:
 
@@ -68,7 +68,7 @@ Konfigurera din Azure Data Science-miljö för att skapa lösningar för föruts
 3. [Skapa en Azure Machine Learning studio-arbetsyta](../studio/create-workspace.md): Den här Azure Machine Learning-arbetsyta används för att skapa machine learning-modeller efter en inledande datagranskning och ned sampling på HDInsight-kluster.
 
 ## <a name="getdata"></a>Hämta och använda data från en offentlig källa
-Den [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) datauppsättning kan nås genom att klicka på länken, godkänna användningsvillkoren och att ange ett namn. En ögonblicksbild av det här ser det ut visas här:
+Den [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) datauppsättning kan nås genom att klicka på länken, godkänna användningsvillkoren och att ange ett namn. En ögonblicksbild av det här ser det ut visas här:
 
 ![Acceptera villkoren för Criteo](./media/hive-criteo-walkthrough/hLxfI2E.png)
 
@@ -306,7 +306,7 @@ Detta ger:
         19011825
         Time taken: 448.116 seconds, Fetched: 1 row(s)
 
-Observera att Col15 har unika värden för 19M! Med hjälp av teknik för naïve som ”en-hot kodning” är för att koda sådan hög-dimensionell kategoriska variabler inte är möjligt. Framför allt, en kraftfull, robust teknik kallas [Learning med räknar](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) för stöter på problemet effektivt är beskrivs och visas.
+Observera att Col15 har unika värden för 19M! Med hjälp av teknik för naïve som ”en-hot kodning” är för att koda sådan hög-dimensionell kategoriska variabler inte är möjligt. Framför allt, en kraftfull, robust teknik kallas [Learning med räknar](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) för stöter på problemet effektivt är beskrivs och visas.
 
 Slutligen ska du titta på antalet unika värden för vissa andra kategoriska kolumner samt. Innehållet i [exempel&#95;hive&#95;criteo&#95;unika&#95;värden&#95;flera&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) är:
 
@@ -405,10 +405,10 @@ Det här gör är du redo att använda vår på provade träna och testa dataupp
 Det finns en sista viktig komponent innan du fortsätter till Azure Machine Learning, som gäller tabellen count. I nästa underavsnitt beskrivs antal tabellen i detalj.
 
 ## <a name="count"></a> En kort beskrivning i tabellen count
-Som du såg kan ha flera kategoriska variabler en mycket hög dimensionalitet. I den här genomgången, en kraftfull teknik som heter [Learning med räknar](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) för att koda dessa variabler i en effektiv, robust sätt visas. Mer information om den här tekniken är i länken.
+Som du såg kan ha flera kategoriska variabler en mycket hög dimensionalitet. I den här genomgången, en kraftfull teknik som heter [Learning med räknar](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) för att koda dessa variabler i en effektiv, robust sätt visas. Mer information om den här tekniken är i länken.
 
 [!NOTE]
->I den här genomgången ligger fokus på att använda antal tabeller för att producera compact framställningar av hög-dimensionell kategoriska funktioner. Detta är inte det enda sättet att koda kategoriska funktioner Mer information om andra metoder berörda användare kan ta en titt [en-hot encoding](http://en.wikipedia.org/wiki/One-hot) och [funktions-hashning](http://en.wikipedia.org/wiki/Feature_hashing).
+>I den här genomgången ligger fokus på att använda antal tabeller för att producera compact framställningar av hög-dimensionell kategoriska funktioner. Detta är inte det enda sättet att koda kategoriska funktioner Mer information om andra metoder berörda användare kan ta en titt [en-hot encoding](https://en.wikipedia.org/wiki/One-hot) och [funktions-hashning](https://en.wikipedia.org/wiki/Feature_hashing).
 >
 
 Använda data för att skapa antal tabeller på antal data, i mappen raw/antal. I avsnittet modellering användare visas hur du skapar dessa antal tabeller för kategoriska funktioner från grunden, eller du kan också använda en tabell med färdiga antal för sina explorations. I vilka följer, när ”färdiga antal tabeller” avses till, menar vi med antalet tabeller som har angetts. Detaljerade anvisningar om hur du kommer åt dessa tabeller finns i nästa avsnitt.

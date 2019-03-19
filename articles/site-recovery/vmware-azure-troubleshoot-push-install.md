@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 02/27/2019
-ms.openlocfilehash: 3b46ffe49aeb31aaf9040be038e8a9e83641ae51
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 65b8253a307693d00f5eaefe7660d500dce49be4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984397"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078660"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Felsöka installationsproblem med Mobilitetstjänsten push
 
@@ -171,11 +171,11 @@ GRUB-konfigurationsfilerna (”/ boot/grub/menu.lst” ”, / boot/grub/grub.cfg
 
 
 - Följande rad är GRUB-fil **/boot/grub2/grub.cfg**. <br>
-*linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+  *linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
 
 
 - Följande rad är GRUB-fil **/boot/grub/menu.lst**
-*kernel /boot/vmlinuz-3.0.101-63-default **rot = / dev/sda2** **återuppta = / dev/sda1 ** stänker = tyst crashkernel = 256M-:128M showopts vga = 0x314*
+  *kernel /boot/vmlinuz-3.0.101-63-default **rot = / dev/sda2** **återuppta = / dev/sda1 ** stänker = tyst crashkernel = 256M-:128M showopts vga = 0x314*
 
 Om du upptäcker fetstil strängen ovan, innehåller GRUB faktiska enhetsnamn för parametrar ”rot” och ”återuppta” istället för UUID.
  
@@ -184,15 +184,15 @@ Enhetsnamn ska ersättas med motsvarande UUID.<br>
 
 
 1. Hitta UUID för enheten genom att köra kommandot ”blkid <device name>”. Exempel:<br>
-```
-blkid /dev/sda1
-/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
-blkid /dev/sda2 
-/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
-```
+   ```
+   blkid /dev/sda1
+   /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
+   blkid /dev/sda2 
+   /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+   ```
 
 2. Ersätt namnet på enheten med dess UUID i format som ”rot = UUID =<UUID>”. Om vi ersätta enhetsnamn med UUID för roten och återuppta parameter som nämns ovan i filerna till exempel ”/ boot/grub2/grub.cfg” ”, / boot/grub2/grub.cfg” eller ”/ etc/standard/grub: sedan raderna i filerna ska se ut. <br>
-*Kernel /boot/vmlinuz-3.0.101-63-default **rot = UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4** **återuppta = UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b** stänker = tyst crashkernel = 256M-:128M showopts vga = 0x314*
+   *Kernel /boot/vmlinuz-3.0.101-63-default **rot = UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4** **återuppta = UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b** stänker = tyst crashkernel = 256M-:128M showopts vga = 0x314*
 3. Starta om skyddet igen
 
 ## <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>Installera Mobilitetstjänsten slutfördes med varning ska startas om (samtalsstatus: 95265 & 95266)
@@ -284,20 +284,20 @@ Om programkonsekvens inte är kritiska för Disaster Recovery-krav, kan du kring
 Kringgå Azure Site Recovery VSS Provider-installationen och installera Azure Site Recovery VSS Provider efter installationen manuellt:
 
 1. Installera mobilitetstjänsten. 
-> [!Note]
-> 
-> Installationen misslyckas vid ”Post installera configuration” steg. 
+   > [!Note]
+   > 
+   > Installationen misslyckas vid ”Post installera configuration” steg. 
 2. Kringgå VSS-installationen:
    1. Öppna Azure Site Recovery-Mobilitetstjänsten installationskatalogen finns på:
    
-    C:\Program filer (x86) \Microsoft Azure Site Recovery\agent
-   2.  Ändra installationsskript för Azure Site Recovery VSS Provider **nMageVSSProvider_Install** och **InMageVSSProvider_Uninstall.cmd** ska alltid lyckas genom att lägga till följande rader:
+      C:\Program filer (x86) \Microsoft Azure Site Recovery\agent
+   2. Ändra installationsskript för Azure Site Recovery VSS Provider **nMageVSSProvider_Install** och **InMageVSSProvider_Uninstall.cmd** ska alltid lyckas genom att lägga till följande rader:
     
-    ```     
-    rem @echo off
-    setlocal
-    exit /B 0
-    ```
+      ```     
+      rem @echo off
+      setlocal
+      exit /B 0
+      ```
 
 3. Kör Mobilitetsagenten installationen manuellt. 
 4. När installationen lyckas och flyttar till nästa steg, **konfigurera**, ta bort rader som du har lagt till.
@@ -305,7 +305,7 @@ Kringgå Azure Site Recovery VSS Provider-installationen och installera Azure Si
    
     **C:\Program filer (x86) \Microsoft Azure Site Recovery\agent >.\InMageVSSProvider_Install.cmd**
 
-9.  Kontrollera att ASR VSS-providern är installerad som en tjänst i Windows-tjänster och öppna komponenten Service MMC för att kontrollera att ASR VSS-providern finns.
+9. Kontrollera att ASR VSS-providern är installerad som en tjänst i Windows-tjänster och öppna komponenten Service MMC för att kontrollera att ASR VSS-providern finns.
 10. Om VSS-leverantören installerar fortsätter att misslyckas, arbeta med CX att åtgärda felen i CAPI2 behörigheter.
 
 ## <a name="vss-provider-installation-fails-due-to-the-cluster-service-being-enabled-on-non-cluster-machine"></a>Installera VSS-providern misslyckas på grund av klustertjänsten håller på att aktiveras på datorn för icke-kluster

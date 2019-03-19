@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 904598573b79640bf6547bb172702b3a1b200a49
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 1d7c8d8a02358b4eb9f52f1a9bd04b797fcd934f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531773"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110808"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>Kom igång med IoT Hub identitets- och modulen modultvilling med hjälp av Python-serverdel och Python-enhets-
 
@@ -87,7 +87,7 @@ I det här avsnittet skapar du en Python-appen på din simulerade enhet som uppd
 
 1. **Hämta modulens anslutningssträng** – nu om du loggar in på [Azure-portalen][lnk-portal]. Gå till din IoT Hub och klicka på IoT-enheter. Hitta myFirstDevice, öppna den och du ser myFirstModule har skapats. Kopiera modulens anslutningssträng. Den behövs i nästa steg.
 
-  ![Information om Azure-portalmodulen][15]
+   ![Information om Azure-portalmodulen][15]
 
 1. **Skapa UpdateModuleTwinReportedProperties app** Lägg till följande `using` uttryck överst i den **Program.cs** fil:
 

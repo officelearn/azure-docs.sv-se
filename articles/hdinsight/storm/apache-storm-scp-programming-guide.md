@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 848663c509fd3635b33b8e7735feb940da215bfa
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1ad9661d85c7ec91f361cdc4d126e0a91e376b66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441822"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853298"
 ---
 # <a name="scp-programming-guide"></a>Programmeringsguide för SCP
 SCP är en plattform för att skapa realtid, tillförlitliga och konsekventa, och bearbetning av högpresterande program. Det är byggt ovanpå [Apache Storm](https://storm.incubator.apache.org/) – ett system som utformats av OSS-communities för strömbearbetning. Storm är utformad av Nathan Marz och har öppen källkod med Twitter. Den använder [Apache ZooKeeper](https://zookeeper.apache.org/), en annan Apache-projektet för att möjliggöra tillförlitliga distribuerade samordning och tillstånd. 
@@ -32,7 +32,7 @@ I Storm definierar en programtopologin ett diagram över beräkning. Varje nod i
 
 SCP stöder bästa för att på minst en gång och exakt – en gång databearbetning. I ett distribuerat strömmande bearbetning-program kan olika fel inträffa under databearbetning, till exempel nätverksavbrott, maskinvarufel eller användarfel kod osv. På minst en gång garanterar alla data bearbetas minst en gång genom att spela upp automatiskt samma data när fel inträffar. Bearbetning på minst en gång är enkel och tillförlitlig och passar bra många program. När ett program kräver exakt inventering, är bearbetning på minst en gång dock inte tillräckligt med eftersom samma data kan potentiellt spelas upp i programtopologin. I så fall, exakt-när bearbetningen är utformad för att kontrollera att resultatet är korrekt även när data kan vara återupprepas och bearbeta flera gånger.
 
-SCP gör det möjligt för .NET-utvecklare att utveckla tillämpningar och realtid data samtidigt som du använder på Java Virtual Machine (JVM) med Storm under försättsbladen. .NET och JVM kommunicerar via TCP lokala sockets. I praktiken är varje Spout/bult paret .net/Java-processen där användaren logik körs i .net-process som ett plugin-program.
+SCP gör det möjligt för .NET-utvecklare att utveckla tillämpningar och realtid data samtidigt som du använder på Java Virtual Machine (JVM) med Storm under försättsbladen. .NET och JVM kommunicerar via TCP lokala sockets. I praktiken är varje Spout/bult paret .NET/Java-processen där användaren logik körs i .NET-process som ett plugin-program.
 
 Om du vill skapa ett program för bearbetning av ovanpå SCP måste behövs flera steg:
 
@@ -355,12 +355,12 @@ SCP.NET har lagt till följande funktioner för att definiera transaktionella to
 | **Nya funktioner** | **Parametrar** | **Beskrivning** |
 | --- | --- | --- |
 | **tx-topolopy** |topology-name<br />kanal-karta<br />bult karta |Definiera en transaktionell topologi med namnet topologi &nbsp;spouts definition kartan och kartan bultar definition |
-| **scp-tx-spout** |exec-name<br />args<br />fält |Definiera en transaktionell kanal. Den körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är de fält som utdata för kanal |
-| **scp-tx-batch-bolt** |exec-name<br />args<br />fält |Definiera en transaktionell Batch bult. Den körs programmet med ***exec-name*** med ***argument.***<br /><br />Fälten är de fält som utdata för bulten. |
-| **scp-tx-commit-bolt** |exec-name<br />args<br />fält |Definiera en transaktionell commit bult. Den körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är de fält som utdata för bult |
+| **scp-tx-spout** |exec-name<br />args<br />Fält |Definiera en transaktionell kanal. Den körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är de fält som utdata för kanal |
+| **scp-tx-batch-bolt** |exec-name<br />args<br />Fält |Definiera en transaktionell Batch bult. Den körs programmet med ***exec-name*** med ***argument.***<br /><br />Fälten är de fält som utdata för bulten. |
+| **scp-tx-commit-bolt** |exec-name<br />args<br />Fält |Definiera en transaktionell commit bult. Den körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är de fält som utdata för bult |
 | **nontx-topolopy** |topology-name<br />kanal-karta<br />bult karta |Definiera en icke-transaktionell topologi med namnet topologi&nbsp; spouts definition kartan och kartan bultar definition |
-| **scp-spout** |exec-name<br />args<br />fält<br />parameters |Definiera en icke-transaktionell-kanal. Den körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är de fält som utdata för kanal<br /><br />Den ***parametrar*** är valfria, använder det för att ange vissa parametrar, till exempel ”nontransactional.ack.enabled”. |
-| **scp-bolt** |exec-name<br />args<br />fält<br />parameters |Definiera en icke-transaktionell bulten. Den körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är de fält som utdata för bult<br /><br />Den ***parametrar*** är valfria, använder det för att ange vissa parametrar, till exempel ”nontransactional.ack.enabled”. |
+| **scp-spout** |exec-name<br />args<br />Fält<br />parameters |Definiera en icke-transaktionell-kanal. Den körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är de fält som utdata för kanal<br /><br />Den ***parametrar*** är valfria, använder det för att ange vissa parametrar, till exempel ”nontransactional.ack.enabled”. |
+| **scp-bolt** |exec-name<br />args<br />Fält<br />parameters |Definiera en icke-transaktionell bulten. Den körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är de fält som utdata för bult<br /><br />Den ***parametrar*** är valfria, använder det för att ange vissa parametrar, till exempel ”nontransactional.ack.enabled”. |
 
 SCP.NET har följande nyckelord definierats:
 
@@ -450,7 +450,7 @@ Här
 3. [0,1] innebär en hash uppsättning fältet ID, från och med 0.
 
 ### <a name="hybrid-topology"></a>Hybridtopologi
-Den interna Storm är skriven i Java. Och SCP.Net har förbättrad den för att aktivera C\# utvecklare att skriva C\# koden för att hantera sina affärslogik. Men det stöder också hybridtopologier, som innehåller inte bara C\# kanaler/bultar, utan även Java Spout/bultar.
+Den interna Storm är skriven i Java. Och SCP.NET har förbättrad den för att aktivera C\# utvecklare att skriva C\# koden för att hantera sina affärslogik. Men det stöder också hybridtopologier, som innehåller inte bara C\# kanaler/bultar, utan även Java Spout/bultar.
 
 ### <a name="specify-java-spoutbolt-in-spec-file"></a>Ange Java Spout/bult i klientfilsspecifik fil
 ”Scp-kanal” och ”scp-bulten” kan också användas för att ange Java Spouts och Bolts i klientfilsspecifik fil, här är ett exempel:
@@ -562,7 +562,7 @@ I läget för värden, användarkod kompileras som DLL-filen och anropas av SCP-
 
 ## <a name="scp-programming-examples"></a>SCP programmering exempel
 ### <a name="helloworld"></a>HelloWorld
-**HelloWorld** är ett enkelt exempel för att visa en känsla för SCP.Net. Den använder en icke-transaktionell topologi med en kanal som kallas **generator**, och två bultar kallas **delare** och **räknaren**. Spout **generator** genererar meningar slumpmässigt och för att generera dessa meningar till **delare**. Bulten **delare** delar upp meningar till ord och genererar dessa ord att **räknaren** bulten. Bult ”räknaren” använder en ordlista för att registrera vilket förekomsten av varje ord.
+**HelloWorld** är ett enkelt exempel för att visa en känsla för SCP.NET. Den använder en icke-transaktionell topologi med en kanal som kallas **generator**, och två bultar kallas **delare** och **räknaren**. Spout **generator** genererar meningar slumpmässigt och för att generera dessa meningar till **delare**. Bulten **delare** delar upp meningar till ord och genererar dessa ord att **räknaren** bulten. Bult ”räknaren” använder en ordlista för att registrera vilket förekomsten av varje ord.
 
 Det finns två klientfilsspecifik filer, **HelloWorld.spec** och **HelloWorld\_EnableAck.spec** i det här exemplet. I C\# kod, det kan ta reda på om ack är aktiverat genom att hämta pluginConf från Java-sida.
 

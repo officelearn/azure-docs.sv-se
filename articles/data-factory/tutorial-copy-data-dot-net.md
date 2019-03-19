@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 3cbfb29542f2c71f4308b63319e77b37093529d4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 630b17a3467f372190004172b31b481dcb5af3ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445908"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863142"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Kopiera data från en Azure-blob till Azure SQL Database med Data Factory
 I de här självstudierna skapar du en datafabrikpipeline som kopierar Azure Blob Storage till Azure SQL Database. Konfigurationsmönstret i den här självstudien gäller kopiering av ett filbaserat datalager till ett relationsdatalager. En lista över datakällor som stöds som källor och mottagare finns i tabellen över [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -36,7 +36,7 @@ I den här självstudiekursen används .NET SDK. Du kan använda andra metoder f
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) .
 * **Azure SQL Database**. Du använder databasen som **mottagare** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL Database](../sql-database/sql-database-get-started-portal.md).
@@ -57,7 +57,7 @@ Förbered nu Azure-blobblagringen och Azure SQL-databasen för den här självst
     Jane|Doe
     ```
 
-2. Använd verktyg som t.ex. [Azure Lagringsutforskaren](http://storageexplorer.com/) till att skapa containern **adfv2tutorial** och för att ladda upp filen **inputEmp.txt** till containern.
+2. Använd verktyg som t.ex. [Azure Lagringsutforskaren](https://storageexplorer.com/) till att skapa containern **adfv2tutorial** och för att ladda upp filen **inputEmp.txt** till containern.
 
 #### <a name="create-a-sink-sql-table"></a>Skapa en SQL-mottagartabell
 
@@ -95,7 +95,7 @@ Skapa ett C# .NET-konsolprogram med hjälp av Visual Studio 2015/2017.
 ## <a name="install-nuget-packages"></a>Installera NuGet-paket
 
 1. Klicka på **Verktyg** -> **NuGet Package Manager** -> **Package Manager Console**.
-2. Kör följande kommandon i **Package Manager Console** för att installera paket. Se [Microsoft.Azure.Management.DataFactory-nuget-paketet](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) för information.
+2. Kör följande kommandon i **Package Manager Console** för att installera paket. Referera till [Microsoft.Azure.Management.DataFactory-nuget-paketet](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) med information.
 
     ```
     Install-Package Microsoft.Azure.Management.DataFactory
@@ -236,7 +236,7 @@ Du definierar en datauppsättning som representerar källdata i Azure Blob. Denn
 - Datastrukturen, inklusive kolumnnamn och datatyper som i det här fallet mappar till mottagar-SQL-tabellen.
 
 ```csharp
-// Create a Azure Blob dataset
+// Create an Azure Blob dataset
 Console.WriteLine("Creating dataset " + blobDatasetName + "...");
 DatasetResource blobDataset = new DatasetResource(
     new AzureBlobDataset
@@ -274,7 +274,7 @@ Lägg till följande kod i **Main**-metoden som skapar en **Azure SQL Database-d
 Du definierar en datauppsättning som representerar mottagardata i Azure SQL Database. Denna datauppsättning refererar till den Azure SQL Database-länkade tjänst som du skapar i föregående steg. Den anger också vilken SQL-tabell som innehåller de kopierade data. 
 
 ```csharp
-// Create a Azure SQL Database dataset
+// Create an Azure SQL Database dataset
 Console.WriteLine("Creating dataset " + sqlDatasetName + "...");
 DatasetResource sqlDataset = new DatasetResource(
     new AzureSqlTableDataset

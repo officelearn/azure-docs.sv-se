@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.date: 01/25/2019
+ms.date: 03/12/2019
 manager: craigg
-ms.openlocfilehash: cb892ddf6414b270d891042c9849137f1e2fdb35
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 5f089148bafbab21721c83c0d4b6977a7db86320
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307776"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834626"
 ---
 # <a name="connect-to-azure-sql-database-with-active-directory-mfa"></a>Ansluta till Azure SQL Database med Active Directory MFA
 
@@ -99,7 +99,7 @@ Mer information om Azure AD-administratörer och användare för Azure SQL Datab
 
 En Azure AD-administratör för en SQL Database-server kan köra den C# exempelprogrammet. Azure AD-användare kan köra programmet om de finns i databasen. En Azure AD-SQL-administratör eller Azure AD-användare som redan finns i databasen och har den `ALTER ANY USER` behörighet på databasen kan lägga till en användare.
 
-Du kan lägga till en användare till databasen med SQL [ `Create User` ](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=sql-server-2017) kommando. Till exempel `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
+Du kan lägga till en användare till databasen med SQL [ `Create User` ](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) kommando. Till exempel `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
 
 Mer information finns i [Använd Azure Active Directory-autentisering för autentisering med SQL Database Managed Instance eller SQL Data Warehouse](sql-database-aad-authentication.md).
 
@@ -126,7 +126,7 @@ För den C# program för att köra, måste du tilldela statiska fält rätt vär
 | Statisk fältnamn | Exempelvärde | Var i Azure-portalen |
 | :---------------- | :------------ | :-------------------- |
 | Az_SQLDB_svrName | "my-sqldb-svr.database.windows.net" | **SQL-servrar** > **filtrera efter namn** |
-| AzureAD_UserID | "auser@abc.onmicrosoft.com" | **Azure Active Directory** > **användaren** > **ny gästanvändare** |
+| AzureAD_UserID | "auser\@abc.onmicrosoft.com" | **Azure Active Directory** > **användaren** > **ny gästanvändare** |
 | Initial_DatabaseName | "myDatabase" | **SQL-servrar** > **SQL-databaser** |
 | ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** > **appregistreringar** > **Sök efter namn** > **program-ID** |
 | RedirectUri | ny Uri (”https://mywebserver.com/”) | **Azure Active Directory** > **appregistreringar** > **Sök efter namn** > *[Your-App-regis]*  >  **Inställningar** > **RedirectURIs**<br /><br />I den här artikeln är ett giltigt värde bra för RedirectUri, eftersom den inte användas här. |
@@ -342,5 +342,7 @@ In method 'AcquireTokenAsync', case_0 == '.ActiveDirectoryInteractive'.
 ## <a name="next-steps"></a>Nästa steg
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
 
 - [Get-AzSqlServerActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator)

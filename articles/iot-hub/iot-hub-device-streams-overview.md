@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: b5e42585178505ee4c23ca4054e83f61ee1254b8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 024bb29f9d7276021888e949073f6d45aed0a249
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436144"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076283"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub Device dataströmmar (förhandsversion)
 
@@ -123,7 +123,7 @@ Följ stegen nedan för att konfigurera Azure Monitor-loggar för din IoT-hubb e
 
 1. Navigera till den *diagnostikinställningar* i din IoT-hubb och klicka på *slå på diagnostik* länk.
 
-  ![Alternativ text](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "aktiverar disgnostics loggar")
+   ![Alternativ text](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "aktiverar disgnostics loggar")
 
 
 2. Ange ett namn för diagnostikinställningar och välj *skicka till Log Analytics* alternativet. Vägleds du vill välja en befintlig resurs i Log Analytics-arbetsyta eller skapa en ny. Dessutom bör du läsa den *DeviceStreams* i listan.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: jdial
-ms.openlocfilehash: 827a3c2f831c8e8fb459e494dcad58e3661e78bd
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 22bdd50f129a48ade97db323f904f7e652a00d39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348165"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889989"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Hantera infångade paket med Azure Network Watcher med hjälp av portalen
 
@@ -41,29 +41,29 @@ Om en nätverkssäkerhetsgrupp är kopplad till nätverksgränssnitt eller under
 1. I din webbläsare, navigerar du till den [Azure-portalen](https://portal.azure.com) och välj **alla tjänster**, och välj sedan **Network Watcher** i den **nätverksavsnittet**.
 2. Välj **paketfångsten** under **diagnostiska verktyg**. Alla befintliga infångade visas, oavsett deras status.
 3. Välj **Lägg till** att skapa ett infångat paket. Du kan välja värden för följande egenskaper:
-   - **Prenumeration**: den prenumeration som den virtuella datorn som du vill skapa paketfångsten för.
-   - **Resursgrupp**: resursgruppen för den virtuella datorn.
-   - **Rikta VM**: den virtuella dator som du vill skapa paketfångsten för.
-   - **Namn på paketfångst**: ett namn för paketfångsten.
+   - **Prenumeration**: Den prenumeration som den virtuella datorn som du vill skapa paketet avbilda för finns i.
+   - **Resursgrupp**: Resursgruppen för den virtuella datorn.
+   - **Virtuell måldator**: Den virtuella dator som du vill skapa paketfångsten för.
+   - **Namn på paketfångst**: Ett namn för paketfångsten.
    - **Storage-konto eller filen**: Välj **lagringskonto**, **filen**, eller båda. Om du väljer **filen**, insamlingen skrivs till en sökväg i den virtuella datorn.
-   - **Lokal filsökväg**: den lokala sökvägen på den virtuella datorn där paketfångsten sparas (endast giltigt när *filen* har valts). Sökvägen måste vara en giltig sökväg. Om du använder en Linux-dator, sökvägen måste börja med */var/samlar in*.
-   - **Lagringskonton**: Välj ett befintligt lagringskonto om du har valt *lagringskonto*. Det här alternativet är bara tillgängligt om du har valt **Storage**.
+   - **Lokal filsökväg**: Den lokala sökvägen på den virtuella datorn där paketfångsten sparas (endast giltigt när *filen* har valts). Sökvägen måste vara en giltig sökväg. Om du använder en Linux-dator, sökvägen måste börja med */var/samlar in*.
+   - **Storage-konton**: Välj ett befintligt lagringskonto om du har valt *lagringskonto*. Det här alternativet är bara tillgängligt om du har valt **Storage**.
    
      > [!NOTE]
      > Premium storage-konton stöds för närvarande inte för lagring av paket samlar in.
 
-   - **Maximalt antal byte per paket**: antal byte från varje paket som har hämtats. Om inget anges används som alla byte avbildas.
-   - **Maximalt antal byte per session**: det totala antalet byte som har hämtats. När värdet har nåtts packet capture stoppas.
-   - **Tidsgräns (sekunder)**: tidsgränsen innan paketfångsten har stoppats. Standardvärdet är 18 000 sekunder.
+   - **Maximalt antal byte per paket**: Antal byte från varje paket som har hämtats. Om inget anges används som alla byte avbildas.
+   - **Maximalt antal byte per session**: Det totala antalet byte som har hämtats. När värdet har nåtts packet capture stoppas.
+   - **Tidsgräns (sekunder)**: Tidsgränsen innan paketfångsten har stoppats. Standardvärdet är 18 000 sekunder.
    - Filtrering (valfritt). Välj **+ Lägg till filter**
-     - **Protokollet**: protokollet för att filtrera för paketfångsten. Tillgängliga värden är TCP, UDP och alla.
-     - **Lokal IP-adress**: filtrerar infångade för paket där den lokala IP-adressen matchar det här värdet.
-     - **Lokal port**: filtrerar infångade för paket där den lokala porten matchar det här värdet.
-     - **IP-Fjärradress**: filtrerar infångade för paket där IP-Fjärradress matchar det här värdet.
-     - **Fjärrport**: filtrerar infångade för paket där fjärrporten matchar det här värdet.
+     - **Protokoll**: Protokollet som används för att filtrera för paketfångsten. Tillgängliga värden är TCP, UDP och alla.
+     - **Lokal IP-adress**: Filtrerar infångade för paket där den lokala IP-adressen matchar det här värdet.
+     - **Lokal port**: Filtrerar infångade för paket där den lokala porten matchar det här värdet.
+     - **IP-Fjärradress**: Filtrerar infångade för paket där IP-Fjärradress matchar det här värdet.
+     - **Fjärrport**: Filtrerar infångade för paket där fjärrporten matchar det här värdet.
     
-    > [!NOTE]
-    > Värden för port och IP-adress kan vara ett enda värde, intervallet för värden eller ett intervall, till exempel 80 – 1024 för port. Du kan definiera så många filter som du behöver.
+     > [!NOTE]
+     > Värden för port och IP-adress kan vara ett enda värde, intervallet för värden eller ett intervall, till exempel 80 – 1024 för port. Du kan definiera så många filter som du behöver.
 
 4. Välj **OK**.
 
@@ -88,7 +88,7 @@ Välj i vyn packet capture **...**  på höger sida av paketet samla in, eller h
 
 ## <a name="download-a-packet-capture"></a>Ladda ned ett infångat paket
 
-När packet capture sessionen är klar, har avbilda filen överförts till blob-lagring eller till en lokal fil på den virtuella datorn. Lagringsplatsen för paketfångsten har definierats under skapandet av paketfångsten. Ett praktiskt verktyg för att komma åt avbilda filer som sparats i ett lagringskonto är Microsoft Azure Storage Explorer, som du kan [hämta](http://storageexplorer.com/).
+När packet capture sessionen är klar, har avbilda filen överförts till blob-lagring eller till en lokal fil på den virtuella datorn. Lagringsplatsen för paketfångsten har definierats under skapandet av paketfångsten. Ett praktiskt verktyg för att komma åt avbilda filer som sparats i ett lagringskonto är Microsoft Azure Storage Explorer, som du kan [hämta](https://storageexplorer.com/).
 
 Om ett lagringskonto anges sparas packet capture filer till ett lagringskonto på följande plats:
 

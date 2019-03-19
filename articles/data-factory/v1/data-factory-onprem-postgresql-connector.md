@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e86180a643b27056edc9901d590760cedcbf259
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331885"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081839"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Flytta data från PostgreSQL med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,12 +50,12 @@ Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från ett d
 
 - Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
 - Du kan också använda följande verktyg för att skapa en pipeline:
-    - Azure Portal
-    - Visual Studio
-    - Azure PowerShell
-    - Azure Resource Manager-mall
-    - .NET-API
-    - REST-API
+  - Azure Portal
+  - Visual Studio
+  - Azure PowerShell
+  - Azure Resource Manager-mall
+  - .NET-API
+  - REST-API
 
     Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
@@ -306,46 +306,46 @@ När data flyttas till PostgreSQL, används följande mappningar från PostgreSQ
 
 | Typ av PostgreSQL-databas | PostgresSQL alias | .NET framework-typ |
 | --- | --- | --- |
-| abstime | |DateTime | &nbsp;
+| abstime | |DateTime |
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| bitars [(n)] | |Byte[], String | &nbsp;
+| bitars [(n)] | |Byte[], String |
 | bit varierande [(n)] |varbit |Byte[], String |
-| boolesk |Bool |Boolesk |
-| Box | |Byte[], String |&nbsp;
-| bytea | |Byte[], String |&nbsp;
-| tecknet [(n)] |char [(n)] |Sträng |
-| tecknet varierande [(n)] |varchar [(n)] |Sträng |
-| CID | |Sträng |&nbsp;
-| CIDR | |Sträng |&nbsp;
-| Cirkel | |Byte[], String |&nbsp;
-| datum | |DateTime |&nbsp;
-| DateRange | |Sträng |&nbsp;
-| dubbel precision |FLOAT8 |Double-värde |
-| inet | |Byte[], String |&nbsp;
-| intarry | |Sträng |&nbsp;
-| int4range | |Sträng |&nbsp;
-| int8range | |Sträng |&nbsp;
+| boolesk |bool |Boolesk |
+| Box | |Byte[], String |
+| bytea | |Byte[], String |
+| tecknet [(n)] |char [(n)] |String |
+| tecknet varierande [(n)] |varchar [(n)] |String |
+| CID | |String |
+| cidr | |String |
+| Cirkel | |Byte[], String |
+| datum | |DateTime |
+| DateRange | |String |
+| dubbel precision |FLOAT8 |Double |
+| inet | |Byte[], String |
+| intarry | |String |
+| int4range | |String |
+| int8range | |String |
 | heltal |int, int4 |Int32 |
-| intervallet [fält] [(p)] | |Tidsintervall |&nbsp;
-| JSON | |Sträng |&nbsp;
-| jsonb | |Byte] |&nbsp;
-| Rad | |Byte[], String |&nbsp;
-| lseg | |Byte[], String |&nbsp;
-| macaddr | |Byte[], String |&nbsp;
-| pengar | |Decimal |&nbsp;
+| intervallet [fält] [(p)] | |Tidsintervall |
+| JSON | |String |
+| jsonb | |Byte[] |
+| linje | |Byte[], String |
+| lseg | |Byte[], String |
+| macaddr | |Byte[], String |
+| pengar | |Decimal |
 | numeriska [(p, s)] |decimal [(p, s)] |Decimal |
-| numrange | |Sträng |&nbsp;
-| oid | |Int32 |&nbsp;
-| sökväg | |Byte[], String |&nbsp;
-| pg_lsn | |Int64 |&nbsp;
-| Återställningspunkt | |Byte[], String |&nbsp;
-| polygon | |Byte[], String |&nbsp;
-| verkliga |FLOAT4 |Enkel |
+| numrange | |String |
+| oid | |Int32 |
+| sökväg | |Byte[], String |
+| pg_lsn | |Int64 |
+| punkt | |Byte[], String |
+| polygon | |Byte[], String |
+| verkliga |FLOAT4 |Single |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serie |serial4 |Int32 |
-| text | |Sträng |&nbsp;
+| text | |String |
 
 ## <a name="map-source-to-sink-columns"></a>Kartkälla till kolumner för mottagare
 Mer information om mappning av kolumner i datauppsättningen för källan till kolumner i datauppsättning för mottagare, se [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).

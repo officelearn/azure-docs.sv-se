@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 1a15600889a3c5a3c0ca587c78499f32be0ab8ed
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 9a7d83070caad86d7d66b62a9592dbb1e0017f97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456715"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884247"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka moduler för Azure IoT Edge
 
@@ -154,7 +154,7 @@ Om du vill konfigurera och starta simulatorn, kör du kommandot **Azure IoT Edge
 
 1. Förbereda miljön för felsökning enligt kraven för programmeringsspråk, konfigurera en brytpunkt i din modul och välj debug-konfiguration som ska användas:
    - **C#**
-     - I den integrerade Visual Studio Code-terminalen ändra katalogen till den ***&lt;din Modulnamn&gt;*** mappen och kör sedan följande kommando för att skapa .net Core program.
+     - I den integrerade Visual Studio Code-terminalen ändra katalogen till den ***&lt;din Modulnamn&gt;*** mappen och kör sedan följande kommando för att skapa .NET Core-App.
 
        ```cmd
        dotnet build
@@ -165,7 +165,7 @@ Om du vill konfigurera och starta simulatorn, kör du kommandot **Azure IoT Edge
      - Gå till vyn Visual Studio-koden och felsöka genom att välja **Visa > Felsöka**. Välj debug konfigurationen  ***&lt;din Modulnamn&gt;* lokala felsöka (.NET Core)** i listrutan.
 
         > [!NOTE]
-        > Om din .net Core `TargetFramework` stämmer inte överens med din sökväg till programmet i `launch.json`, måste du manuellt uppdatera sökvägen till programmet i `launch.json` så att den matchar den `TargetFramework` i filen .csproj så att Visual Studio Code kan starta detta program.
+        > Om .NET Core `TargetFramework` stämmer inte överens med din sökväg till programmet i `launch.json`, måste du manuellt uppdatera sökvägen till programmet i `launch.json` så att den matchar den `TargetFramework` i filen .csproj så att Visual Studio Code kan starta detta program.
 
    - **Node.js**
      - I den integrerade Visual Studio Code-terminalen ändra katalogen till den ***&lt;din Modulnamn&gt;*** mappen och kör sedan följande kommando för att installera paket i noden

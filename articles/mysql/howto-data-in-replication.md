@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/31/2018
-ms.openlocfilehash: 18ef70d64523bc4001fa7d9a35a7f803b8050613
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 7d56d7f8fcbd53d4f69863d260591ef80f3d7188
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539627"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102949"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Så här konfigurerar du Azure Database för MySQL-Data i replikering
 
@@ -23,7 +23,7 @@ Den här artikeln förutsätter att du har minst tidigare erfarenhet med MySQL-s
 
 1. Skapa en ny Azure Database for MySQL-server
 
-   Skapa en ny MySQL-server (t.ex. ”replica.mysql.database.azure.com”). Referera till [skapa en Azure Database for MySQL-server med hjälp av Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) för servern har skapats. Den här servern är ”replikservern” i Data i replikeringen.
+   Skapa en ny MySQL-server (t.ex. "replica.mysql.database.azure.com"). Referera till [skapa en Azure Database for MySQL-server med hjälp av Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) för servern har skapats. Den här servern är ”replikservern” i Data i replikeringen.
 
    > [!IMPORTANT]
    > Azure Database for MySQL-server måste skapas i generell användning eller Minnesoptimerade prisnivåer.
@@ -184,7 +184,7 @@ Följande steg förbereder och konfigurera MySQL-servern körs lokalt, i en virt
    CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
    ```
 
-2. Starta replikering
+1. Starta replikering
 
    Anropa den `mysql.az_replication_start` lagrade proceduren för att initiera replikering.
 
@@ -192,7 +192,7 @@ Följande steg förbereder och konfigurera MySQL-servern körs lokalt, i en virt
    CALL mysql.az_replication_start;
    ```
 
-3. Kontrollera replikeringsstatus
+1. Kontrollera replikeringsstatus
 
    Anropa den [ `show slave status` ](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html) på replikservern för att visa replikeringsstatus.
     

@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 0bbf76e16334ae4847ec6f7fbf3aa88fb508e84d
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 682ff9b139d7315604da70fbba47b5e81a290921
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731143"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886379"
 ---
 # <a name="azure-stack-1901-update"></a>Uppdatering av Azure Stack 1901
 
@@ -63,7 +63,7 @@ Azure Stack-snabbkorrigeringar gäller endast för integrerade Azure Stack-syste
 ## <a name="prerequisites"></a>Förutsättningar
 
 > [!IMPORTANT]
-- Installera den [senaste Azure Stack-snabbkorrigeringen](#azure-stack-hotfixes) för 1811 (i förekommande fall) innan du uppdaterar till 1901.
+> - Installera den [senaste Azure Stack-snabbkorrigeringen](#azure-stack-hotfixes) för 1811 (i förekommande fall) innan du uppdaterar till 1901.
 
 - Innan du påbörjar installationen av uppdateringen kör [Test AzureStack](azure-stack-diagnostic-test.md) med följande parametrar för att verifiera statusen för din Azure Stack och lösa alla operativa problem som hittades, inklusive alla varningar och fel. Även granska aktiva aviseringar och lösningar som kräver åtgärd:
 
@@ -89,7 +89,7 @@ Den här uppdateringen innehåller följande nya funktioner och förbättringar 
    * **AzureRm.Storage**  
          Insamling av AzureRm-modulen innehåller nu stöd för redan publicerade versionen 5.0.4 den **api-versionen 2017-10-01**.  
    * **AzureRm.Compute**  
-         Enkel parameter har lagts till som anger i `New-AzureRMVM` och `NewAzureRMVMSS`, `-ImageName` parametern har stöd för att ange användare avbildningar.  
+         Enkel parameter har lagts till som anger i `New-AzureRmVM` och `New-AzureRmVmss`, `-Image` parametern har stöd för att ange användare avbildningar.  
    * **AzureRm.Insights**  
          Insamling av AzureRm-modulen innehåller nu stöd för redan publicerade versionen 5.1.5 den **api-versionen 2018-01-01** för mått, definitioner av mätvärden för resurstyper.
 
@@ -115,7 +115,8 @@ Referens för de uppdaterade modulerna finns [Azure Stack-modulreferens](https:/
 <!-- 16523695 – IS, ASDK -->
 - Ett problem har åtgärdats där när du har uppdaterat din DNS-inställningarna för det virtuella nätverket från **Använd Azure Stack DNS** till **anpassad DNS**, instanser har inte uppdaterats med de nya inställningarna.
 
-- <!-- 3235634 – IS, ASDK --> Ett problem har åtgärdats där distribuera de virtuella datorerna med storlekar som innehåller en **v2** suffix, till exempel **Standard_A2_v2**, obligatoriskt att ange suffixet som **Standard_A2_v2** () gemener v). Som med globala Azure kan du nu använda **Standard_A2_V2** (versaler V).
+- <!-- 3235634 – IS, ASDK -->
+  Ett problem har åtgärdats där distribuera de virtuella datorerna med storlekar som innehåller en **v2** suffix, till exempel **Standard_A2_v2**, obligatoriskt att ange suffixet som **Standard_A2_v2** () gemener v). Som med globala Azure kan du nu använda **Standard_A2_V2** (versaler V).
 
 <!-- 2869209 – IS, ASDK --> 
 - Ett problem har åtgärdats när du använder den [cmdlet Add-AzsPlatformImage](/powershell/module/azs.compute.admin/add-azsplatformimage), i vilket du var tvungen att använda den **- OsUri** parameter som lagringskontot URI där disken har laddats upp. Du kan nu också använda den lokala sökvägen till disken.
@@ -291,9 +292,9 @@ Här följer efter installation kända problem för den här build-versionen.
 <!-- 3632798 - IS, ASDK -->
 - I portalen om du lägger till en inkommande säkerhetsregel och välj **Tjänsttagg** som källa, flera alternativ visas i den **Källtagg** listan som inte är tillgängliga för Azure Stack. De enda alternativ som är giltiga i Azure Stack är följande:
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     De andra alternativen stöds inte som källkod i Azure Stack. På samma sätt, om du lägger till en utgående säkerhetsregel och välj **Tjänsttagg** som mål, samma lista över alternativ för **Källtagg** visas. De enda giltiga alternativ är desamma som för **Källtagg**, enligt beskrivningen i föregående lista.
 

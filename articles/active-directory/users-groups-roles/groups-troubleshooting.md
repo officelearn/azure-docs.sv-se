@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a1210360690384b07e6d88007ccd118731ecce0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0594d99874ea9bb83673013a9a03272edcd8ce0b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405444"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897681"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Felsöka och lösa problem
 
@@ -28,15 +28,15 @@ ms.locfileid: "57405444"
 Inaktivera skapande av en grupp för icke-administratörer i Powershell:
 1. Kontrollera att icke-administratörer har behörighet att skapa grupper:
    
-  ```
-  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-  ```
+   ```
+   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+   ```
   
 2. Om den returnerar `UsersPermissionToCreateGroupsEnabled : True`, icke-administratörer kan skapa grupper. Inaktivera den här funktionen:
   
-  ``` 
-  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
-  ```
+   ``` 
+   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+   ```
 
 <br/>**Jag har fått en max grupper tillåtna fel vid försök att skapa en dynamisk grupp i Powershell**<br/>
 Om du får ett meddelande i Powershell som anger _dynamiska grupprinciper max tillåtna grupper antalet har nåtts_, det innebär att du har nått maxgränsen för dynamiska grupper i din klient. Max antal dynamiska grupper per klient är 5 000.
@@ -47,7 +47,7 @@ För att skapa några nya dynamiska grupper, behöver du först ta bort några b
 
 **Jag har konfigurerat en regel för en grupp, men inget medlemskap uppdateras i gruppen**<br/>
 1. Kontrollera värdena för användaren eller enhetens egenskaper i regeln. Se till att det finns användare som uppfyller regeln. Kontrollera egenskaperna för enheten för att säkerställa att alla synkroniserade attributen innehåller de förväntade värdena för enheter.<br/>
-2. Kontrollera medlemskapet för Bearbetningsstatus för att bekräfta om den är klar. Du kan kontrollera den [medlemskap Bearbetningsstatus](\groups-create-rule.md#check-processing-status-for-a-rule) och senaste uppdaterade datum på den **översikt** för gruppen.
+2. Kontrollera medlemskapet för Bearbetningsstatus för att bekräfta om den är klar. Du kan kontrollera den [medlemskap Bearbetningsstatus](groups-create-rule.md#check-processing-status-for-a-rule) och senaste uppdaterade datum på den **översikt** för gruppen.
 
 Om allt ser bra ut, det kan ta lite tid att fylla i gruppen. Beroende på klientens storlek så kan det ta upp till 24 timmar att fylla gruppen första gången eller efter en regeländring.
 

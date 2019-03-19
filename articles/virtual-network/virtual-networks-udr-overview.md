@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.openlocfilehash: a09d880a1a17e429692dcb8e542657f416de7b30
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 90ca35ec899d71578a7da4061ca7842d13769072
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823543"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123580"
 ---
 # <a name="virtual-network-traffic-routing"></a>Trafikdirigering i virtuella nätverk
 
@@ -48,8 +48,8 @@ Nästa hopptyper som anges i föregående tabell representerar hur Azure diriger
 - **Internet**: Dirigerar trafik som anges av adressprefixet till Internet. Systemstandardvägen anger adressprefixet 0.0.0.0/0. Om du inte åsidosätter Azures standardvägar dirigerar Azure trafik för alla adresser som inte har angetts av ett adressintervall inom ett virtuellt nätverk till Internet, med ett undantag. Om måladressen är någon av Azures tjänster dirigerar Azure trafiken direkt till tjänsten via Azures stamnätverk i stället för att dirigera trafiken till Internet. Trafik mellan Azure-tjänster sker inte via Internet, oavsett vilken Azure-region det virtuella nätverket finns i eller vilken Azure-region en instans av Azure-tjänsten har distribuerats i. Du kan åsidosätta Azures standardsystemväg för adressprefixet 0.0.0.0/0 med en [anpassad väg](#custom-routes).
 
 - **Ingen**: Trafik som dirigeras till den nästa hopptypen **None** (Ingen) tas bort istället för att dirigeras utanför undernätet. Azure skapar automatiskt standardvägar för följande adressprefix:
-    - **10.0.0.0/8, 172.16.0.0/12 och 192.168.0.0/16**: Reserverat för privat användning i RFC 1918.
-    - **100.64.0.0/10**: Reserverad i RFC 6598.
+  - **10.0.0.0/8, 172.16.0.0/12 och 192.168.0.0/16**: Reserverat för privat användning i RFC 1918.
+  - **100.64.0.0/10**: Reserverad i RFC 6598.
 
     Om du tilldelar några av de föregående adressintervallerna inom adressutrymmet för ett virtuellt nätverk ändrar Azure automatiskt nästa hopptyp för vägen från **None** (Ingen) till **Virtuellt nätverk**. Om du tilldelar ett adressintervall till ett virtuellt nätverks adressområde som inkluderar, men inte är detsamma som, något av de fyra reserverade adressprefixen, tar Azure bort prefixets väg och lägger till vägen för adressprefixet du la till, med **Virtuellt nätverk** som nästa hopptyp.
 
@@ -82,12 +82,12 @@ Du kan ange följande nästa hopptyper när du skapar en användardefinierad vä
 
 - **Virtuell installation**: En virtuell installation är en virtuell dator som vanligtvis kör ett nätverksprogram som en brandvägg. Mer information om olika förkonfigurerade virtuella nätverksinstallationer du kan distribuera i ett virtuellt nätverk finns i [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). När du skapar en väg med hopptypen **virtuell installation** anger du även en nästa hopp-IP-adress. IP-adressen kan vara:
 
-    - Ett nätverksgränssnitts [privata IP-adress](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) som är kopplad till en virtuell dator. Ett nätverksgränssnitt som är kopplat till en virtuell dator som vidarebefordrar nätverkstrafik till en annan adress än sin egen måste ha Azure-alternativet *Enable IP forwarding* (Aktivera IP-vidarebefordring) aktiverat. Inställningen inaktiverar Azures kontroll av källa och mål för ett nätverksgränssnitt. Läs mer om att [aktivera IP-vidarekoppling för ett nätverksgränssnitt](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Även om *Enable IP forwarding* (Aktivera IP-vidarebefordring) är en Azure-inställning kanske du också måste aktivera IP-vidarebefordring i den virtuella datorns operativsystem för att vidarebefordra trafik mellan privata IP-adresser som är tilldelade till Azure-nätverksgränssnitt. Om apparaten måste dirigera trafik till en offentlig IP-adress måste den antingen vidarebefordra trafiken eller nätadressöversätta den privata IP-adressen för källans privata IP-adress till sin egen privata IP-adress, som Azure sedan nätadressöversätter till en offentlig IP-adress innan trafiken skickas till Internet. Information om att fastställa nödvändiga inställningar på den virtuella datorn finns i dokumentationen för operativsystemet eller nätverksprogrammet. Läs mer om utgående anslutningar i Azure i [Förstå utgående anslutningar](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+  - Ett nätverksgränssnitts [privata IP-adress](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) som är kopplad till en virtuell dator. Ett nätverksgränssnitt som är kopplat till en virtuell dator som vidarebefordrar nätverkstrafik till en annan adress än sin egen måste ha Azure-alternativet *Enable IP forwarding* (Aktivera IP-vidarebefordring) aktiverat. Inställningen inaktiverar Azures kontroll av källa och mål för ett nätverksgränssnitt. Läs mer om att [aktivera IP-vidarekoppling för ett nätverksgränssnitt](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Även om *Enable IP forwarding* (Aktivera IP-vidarebefordring) är en Azure-inställning kanske du också måste aktivera IP-vidarebefordring i den virtuella datorns operativsystem för att vidarebefordra trafik mellan privata IP-adresser som är tilldelade till Azure-nätverksgränssnitt. Om apparaten måste dirigera trafik till en offentlig IP-adress måste den antingen vidarebefordra trafiken eller nätadressöversätta den privata IP-adressen för källans privata IP-adress till sin egen privata IP-adress, som Azure sedan nätadressöversätter till en offentlig IP-adress innan trafiken skickas till Internet. Information om att fastställa nödvändiga inställningar på den virtuella datorn finns i dokumentationen för operativsystemet eller nätverksprogrammet. Läs mer om utgående anslutningar i Azure i [Förstå utgående anslutningar](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-      > [!NOTE]
-      > Distribuera en virtuell installation till ett annat undernät än det resurserna som dirigeras genom den virtuella installationen har distribuerats i. Om du distribuerar den virtuella installationen till samma undernät och sedan applicerar en routningstabell till undernätet som dirigerar trafik via den virtuella installationen kan det leda till vägloopar, så att trafiken aldrig lämnar undernätet.
+    > [!NOTE]
+    > Distribuera en virtuell installation till ett annat undernät än det resurserna som dirigeras genom den virtuella installationen har distribuerats i. Om du distribuerar den virtuella installationen till samma undernät och sedan applicerar en routningstabell till undernätet som dirigerar trafik via den virtuella installationen kan det leda till vägloopar, så att trafiken aldrig lämnar undernätet.
 
-    - Den privata IP-adressen till en [intern lastbalanserare](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i Azure. En lastbalanserare används ofta som en del av en [strategi med hög tillgänglighet för virtuella nätverksinstallationer](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
+  - Den privata IP-adressen till en [intern lastbalanserare](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i Azure. En lastbalanserare används ofta som en del av en [strategi med hög tillgänglighet för virtuella nätverksinstallationer](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     Du kan definiera en väg med 0.0.0.0/0 som adressprefix och en nästa hopptyp som virtuell installation. Det gör att enheten kan inspektera trafiken och avgöra om den ska vidarebefordras eller tas bort. Om du vill skapa en användardefinierad väg som innehåller adressprefixet 0.0.0.0/0 läser du först [adressprefixet 0.0.0.0/0](#default-route).
 
@@ -217,7 +217,7 @@ Routningstabellen för *Subnet1* på bilden innehåller följande vägar:
 |8   |Standard|Ogiltig|10.10.0.0/16        |Virtuell nätverksgateway|[X.X.X.X]          |              |
 |9   |Användare   |Active |10.10.0.0/16        |Virtuell installation      |10.0.100.4         |Till lokalt    |
 |10  |Standard|Active |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
-|11  |Standard|Ogiltig|0.0.0.0/0           |Internet|              |                   |              |
+|11  |Standard|Ogiltig|0.0.0.0/0           |Internet               |                   |              |
 |12  |Användare   |Active |0.0.0.0/0           |Virtuell installation      |10.0.100.4         |Standard-NVA   |
 
 En förklaring av varje väg-ID följer:

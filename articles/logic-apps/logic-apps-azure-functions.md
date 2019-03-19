@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bb00ef0f76b71d0a4748a319c9f2a5d64dffa251
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2bec33a4a8540f9599cf1d479f1f59c4cde39bd2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233318"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861595"
 ---
 # <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Lägga till och köra egna i Azure Logic Apps med Azure Functions
 
-När du vill köra tillräckligt med kod som utför ett specifikt jobb i dina logic apps kan du skapa egna funktioner med [Azure Functions](../azure-functions/functions-overview.md). Den här tjänsten hjälper dig att skapa Node.js, C# och F #-kodavsnitt så att du inte behöver skapa en fullständig app eller infrastrukturen för att köra din kod. Azure Functions tillhandahåller serverlös databehandling i molnet och är användbart för att utföra uppgifter som till exempel:
+När du vill köra tillräckligt med kod som utför ett specifikt jobb i dina logic apps kan du skapa egna funktioner med [Azure Functions](../azure-functions/functions-overview.md). Den här tjänsten hjälper dig att skapa Node.js, C#, och F# kodfragment så att du inte behöver skapa en fullständig app eller infrastrukturen för att köra din kod. Azure Functions tillhandahåller serverlös databehandling i molnet och är användbart för att utföra uppgifter som till exempel:
 
 * Utöka din logikapp beteende med funktioner i Node.js- eller C#.
 * Utföra beräkningar i logikappens arbetsflöde.
@@ -44,7 +44,7 @@ Om du vill följa den här artikeln behöver du följande objekt:
     HTTP-utlösarmallen kan acceptera innehåll som har `application/json` typen från din logikapp. 
     När du lägger till en Azure-funktion i din logikapp visar Logic App Designer anpassade funktioner som skapas från den här mallen i Azure-prenumerationen. 
 
-  * Din funktion använder inte anpassade vägar om du inte har definierat en [OpenAPI-definition](../azure-functions/functions-openapi-definition.md), tidigare känt som en [Swagger-filen](http://swagger.io/). 
+  * Din funktion använder inte anpassade vägar om du inte har definierat en [OpenAPI-definition](../azure-functions/functions-openapi-definition.md), tidigare känt som en [Swagger-filen](https://swagger.io/). 
   
   * Om du har definierat en OpenAPI-definition för din funktion, dig Logic Apps Designer en rikare upplevelse för att arbeta med funktionsparametrar. Innan din logikapp kan hitta och få tillgång till funktioner som har OpenAPI-definitioner [konfigurera funktionsappen genom att följa dessa steg](#function-swagger).
 
@@ -52,7 +52,7 @@ Om du vill följa den här artikeln behöver du följande objekt:
 
   Innan du kan lägga till åtgärder som kan köra functions, måste din logikapp börja med en utlösare.
 
-  Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Snabbstart: skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabbstarten: Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="create-function-external"></a>
 
@@ -67,7 +67,7 @@ Om du inte har använt till att skapa Azure functions kan du lära dig hur du [s
 
 <a name="function-swagger"></a>
 
-* Du kan också om du [Generera en API-definition](../azure-functions/functions-openapi-definition.md), tidigare känt som en [Swagger-fil](http://swagger.io/), för funktionen du får en rikare upplevelse när du arbetar med parametrarna i Logic Apps Designer. Följ dessa steg om du vill konfigurera funktionsappen så att logikappen kan hitta och använda funktioner som har Swagger beskrivningar:
+* Du kan också om du [Generera en API-definition](../azure-functions/functions-openapi-definition.md), tidigare känt som en [Swagger-fil](https://swagger.io/), för funktionen du får en rikare upplevelse när du arbetar med parametrarna i Logic Apps Designer. Följ dessa steg om du vill konfigurera funktionsappen så att logikappen kan hitta och använda funktioner som har Swagger beskrivningar:
 
   1. Kontrollera att din funktionsapp körs aktivt.
 
@@ -125,11 +125,11 @@ Innan du kan skapa en Azure-funktion från och med i din logikapp i Logic App De
    * Mellan befintliga steg i logikappens arbetsflöde musen över pilen, klicka på plustecknet (+), och sedan markera **Lägg till en åtgärd**.
 
 3. I sökrutan anger du ”azure functions” som filter.
-Välj den här åtgärden från åtgärdslistan över: **och välj en Azure-funktion - Azure Functions** 
+Välj den här åtgärden från åtgärdslistan över: **Välja en Azure-funktion – Azure Functions** 
 
    ![Hitta ”Azure functions”](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
-4. Markera din funktionsapp från applistan funktion. När åtgärderna lista öppnas, Välj den här åtgärden: **Azure Functions – Skapa ny funktion**
+4. Markera din funktionsapp från applistan funktion. När åtgärdslistan öppnas väljer du den här åtgärden: **Azure Functions – Skapa ny funktion**
 
    ![Markera din funktionsapp](./media/logic-apps-azure-functions/select-function-app-create-function.png)
 
@@ -181,7 +181,7 @@ Om du vill anropa befintliga Azure-funktioner från logikappar måste du lägga 
 2. Under steget där du vill lägga till funktionen, Välj **nytt steg** > **Lägg till en åtgärd**. 
 
 3. I sökrutan anger du ”azure functions” som filter.
-Välj den här åtgärden från åtgärdslistan över: **och välj en Azure-funktion - Azure Functions** 
+Välj den här åtgärden från åtgärdslistan över: **Välja en Azure-funktion – Azure Functions** 
 
    ![Hitta ”Azure functions”](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 

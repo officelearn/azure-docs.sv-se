@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 974ea5803b6e31ad8f940265071f41440d5355da
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6f6440e12840538614b4092b173ab25ae37a68a6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700646"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110293"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Metodtips för tar och storlek arbetsbelastningar migreras till Azure
 
@@ -40,17 +40,18 @@ Det finns ett antal verktyg som du kan använda för att beräkna din månatliga
 
 - **Azures priskalkylator**: Du kan välja de produkter som du vill beräkna måste till exempel virtuella datorer och lagring. Du kan ange kostnader till priskalkylatorn att skapa en beräkning.
 
- ![Azures priskalkylator](./media/migrate-best-practices-costs/pricing.png) *Azures priskalkylator*
+  ![Azures priskalkylator](./media/migrate-best-practices-costs/pricing.png) *Azures priskalkylator*
 
 - **Azure Migrate**: Om du vill beräkna kostnaderna för måste måste du granska och ta hänsyn till alla resurser som krävs för att köra dina arbetsbelastningar i Azure. Om du vill hämta dessa data, skapa inventering av dina tillgångar, inklusive servrar, virtuella datorer, databaser och lagring. Du kan använda Azure Migrate för att samla in den här informationen.
 
- - Azure Migrate identifierar och utvärderar din lokala miljö för att visa en förteckning.
- - Azure Migrate kan mappa och visa beroenden mellan virtuella datorer så att du har en bild.
- - Ett Azure Migrate-utvärdering innehåller uppskattade kostnaden.
+  - Azure Migrate identifierar och utvärderar din lokala miljö för att visa en förteckning.
+  - Azure Migrate kan mappa och visa beroenden mellan virtuella datorer så att du har en bild.
+  - Ett Azure Migrate-utvärdering innehåller uppskattade kostnaden.
     - Beräkna kostnader: Med Virtuella Azure-datorstorlek som rekommenderas när du skapar en utvärdering använder Azure Migrate Billing-API för att beräkna uppskattade månatliga kostnader för virtuell dator. Uppskattningen tar hänsyn till de operativsystem, software assurance, reserverade instanser, VM drifttid, plats och valutainställningar. Den sammanställer kostnaden för samtliga virtuella datorer i utvärderingen och beräknar en totala månadskostnaden för beräkning.
     - Kostnaden för lagring: Azure Migrate beräknar totala månatliga kostnader för lagring genom att sammanställa lagringskostnaderna för alla virtuella datorer i en utvärdering. Du kan beräkna månatliga lagringskostnaden för en specifik dator genom att sammanställa månadskostnaden för alla diskar som är anslutna till den. 
 
-    ![Azure Migrate](./media/migrate-best-practices-costs/assess.png) *Azure Migrate-utvärdering*
+    ![Azure Migrate](./media/migrate-best-practices-costs/assess.png)
+    *Azure Migrate-utvärdering*
 
 **Lära sig mer:**
 - [Använd](https://azure.microsoft.com/pricing/calculator/) Azures priskalkylator.
@@ -92,13 +93,13 @@ Justera och underhålla en lokal lagring (SAN- eller NAS) och nätverk som stöd
 
 Azure tillhandahåller olika typer av lagringsdata.
 
-**Datatyp** | **Detaljer** | **Användning** 
---- | --- |  ---
-**Blobbar** | Optimerad för att lagra stora mängder Ostrukturerade objekt, till exempel text eller binära data<br/><br/> | Åtkomst till data överallt via HTTP/HTTPS. | Använd för scenarier med strömmande och slumpmässig åtkomst. Till exempel för att tillhandahålla bilder och dokument direkt till en webbläsare, strömma video och ljud och lagra återställningsdata för säkerhetskopiering och haveriberedskap.
-**Filer** | Hanterade filresurser som nås via SMB 3.0 | Använda när du migrerar lokala filresurser, och för att ge flera nätverksanslutningar till fildata.
-**Diskar** | Baserat på sidblobar.<br/><br/> Disktyp (hastighet): Standard (Hårddisk eller SSD) eller Premium (SSD).<br/><br/>Diskhantering: Ohanterade (du hantera Diskinställningar och lagring) eller hanterad (du väljer typ av disk och Azure hanterar disken åt dig). | Använd Premium-diskar för virtuella datorer. Använda hanterade diskar för enkel hantering och skalning.
-**köer** | Store och hämta stora mängder meddelanden som kan nås via autentiserade anrop (HTTP eller HTTPS) | Anslut appkomponenter med asynkrona meddelandeköer.
-**Tabeller** | Store tabeller. | Nu en del av Azure Cosmos DB Table API.
+| **Datatyp** | **Detaljer** | **Användning** |
+|--- | --- |  --- |
+|**Blobbar** | Optimerad för att lagra stora mängder Ostrukturerade objekt, till exempel text eller binära data<br/>Åtkomst till data överallt via HTTP/HTTPS. | Använd för scenarier med strömmande och slumpmässig åtkomst. Till exempel för att tillhandahålla bilder och dokument direkt till en webbläsare, strömma video och ljud och lagra återställningsdata för säkerhetskopiering och haveriberedskap.|
+|**Filer** | Hanterade filresurser som nås via SMB 3.0 | Använda när du migrerar lokala filresurser, och för att ge flera nätverksanslutningar till fildata.|
+|**Diskar** | Baserat på sidblobar.<br/><br/> Disktyp (hastighet): Standard (Hårddisk eller SSD) eller Premium (SSD).<br/><br/>Diskhantering: Ohanterade (du hantera Diskinställningar och lagring) eller hanterad (du väljer typ av disk och Azure hanterar disken åt dig). | Använd Premium-diskar för virtuella datorer. Använda hanterade diskar för enkel hantering och skalning.|
+|**köer** | Store och hämta stora mängder meddelanden som kan nås via autentiserade anrop (HTTP eller HTTPS) | Anslut appkomponenter med asynkrona meddelandeköer.|
+|**Tabeller** | Store tabeller. | Nu en del av Azure Cosmos DB Table API.|
 
 
 
@@ -211,19 +212,21 @@ I Cost Management kan du:
 
 
 - **Skapa en budget**: Skapa en budget för finansiella ansvarstagande.
-    - Du kan ta hänsyn till de tjänster du förbrukar eller prenumererar för en viss tidsperiod (månadsvis, kvartalsvis, per år) och ett omfång (prenumerationerna/resursgrupperna). Du kan till exempel skapa en Azure-prenumeration budget för under en månadsvis, Kvartalsvis eller årligen.
-    - När du har skapat en budget, visas den i kostnadsanalys. Visa din budget mot aktuell kostnad är en av de första stegen som behövs när du analyserar dina kostnader och utgifter.
-    - E-postmeddelanden kan skickas när budgetgränser nås.
-    - Du kan exportera kostnaderna för hantering av data till Azure storage för analys.
+  - Du kan ta hänsyn till de tjänster du förbrukar eller prenumererar för en viss tidsperiod (månadsvis, kvartalsvis, per år) och ett omfång (prenumerationerna/resursgrupperna). Du kan till exempel skapa en Azure-prenumeration budget för under en månadsvis, Kvartalsvis eller årligen.
+  - När du har skapat en budget, visas den i kostnadsanalys. Visa din budget mot aktuell kostnad är en av de första stegen som behövs när du analyserar dina kostnader och utgifter.
+  - E-postmeddelanden kan skickas när budgetgränser nås.
+  - Du kan exportera kostnaderna för hantering av data till Azure storage för analys.
 
-    ![Hantering av kostnadsbudget](./media/migrate-best-practices-costs/budget.png) *Azure Cost Management budget*
+    ![Hantering av kostnadsbudget](./media/migrate-best-practices-costs/budget.png)
+    *Azure Cost Management budget*
 
 - **Gör en kostnadsanalys**: Hämta en kostnadsanalys att utforska och analysera dina organisationens kostnader för att hjälpa dig att förstå hur kostnader påförs och identifiera utgiftstrender.
-    - Kostnadsanalys är tillgänglig för EA-användare.
-    - Du kan visa cost analysis-data för ett antal scope, inklusive efter avdelning, konto, prenumeration eller resursgrupp.
-    - Du kan få en kostnadsanalys som visar totala kostnader för den aktuella månaden och ackumulerade dagliga kostnaderna. 
+  - Kostnadsanalys är tillgänglig för EA-användare.
+  - Du kan visa cost analysis-data för ett antal scope, inklusive efter avdelning, konto, prenumeration eller resursgrupp.
+  - Du kan få en kostnadsanalys som visar totala kostnader för den aktuella månaden och ackumulerade dagliga kostnaderna. 
 
-    ![Hantering av analys av kostnader](./media/migrate-best-practices-costs/analysis.png) *Azure Cost Management-analys*
+    ![Hantering av analys av kostnader](./media/migrate-best-practices-costs/analysis.png)
+    *Azure Cost Management-analys*
 - **Få rekommendationer**: Få Advisor-rekommendationer som visar hur du kan optimera och förbättra effektiviteten.
 
 

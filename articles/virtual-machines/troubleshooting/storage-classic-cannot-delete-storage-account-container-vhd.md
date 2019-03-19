@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 5d4d74d4c3b5ec6779458e84da07c03033c37935
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 673101ad7f55969c216adf7e970402a2109f8254
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330621"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078167"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Felsöka fel vid borttagning av klassisk lagring resurs
 Den här artikeln innehåller felsökningsinformation när något av följande fel inträffar försöker ta bort klassiska lagringskontot, behållaren eller *.vhd sidan blob-fil. 
@@ -59,10 +59,10 @@ Med diskar som är ”frånkopplad” till en virtuell dator
 #### <a name="azure-powershell"></a>Azure PowerShell
 Användaren försöker ta bort ett lagringskonto som inte längre används, med klassiska PowerShell-cmdlets. Användaren visas följande meddelande:
 
-><span style="color:cyan">**Remove-AzureStorageAccount -StorageAccountName myclassicaccount**</span>
-
-><span style="color:red">Remove-AzureStorageAccount : BadRequest: Storage-konto myclassicaccount har några aktiva avbildningar och/eller diskar, t.ex.  
-myclassicaccount. Se till att dessa avbildningar och/eller diskar avlägsnas innan lagringskontot tas bort.</span>
+> <span style="color:cyan">**Remove-AzureStorageAccount -StorageAccountName myclassicaccount**</span>
+> 
+> <span style="color:red">Remove-AzureStorageAccount : BadRequest: Storage-konto myclassicaccount har några aktiva avbildningar och/eller diskar, t.ex.  
+> myclassicaccount. Se till att dessa avbildningar och/eller diskar avlägsnas innan lagringskontot tas bort.</span>
 
 ## <a name="unable-to-delete-storage-container"></a>Det går inte att ta bort lagringsbehållare
 
@@ -77,9 +77,9 @@ Azure-portalen Tillåt inte användare att ta bort en behållare om ett ”diska
 #### <a name="azure-powershell"></a>Azure PowerShell
 Om användaren väljer att ta bort med hjälp av PowerShell, resulterar det i följande fel. 
 
-><span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
-
-><span style="color:red">Remove-AzureStorageContainer : Fjärrservern returnerade ett fel: (412) det finns för närvarande ett lån för behållaren och inga lån-ID har angetts i begäran... HTTP-statuskod: 412 - HTTP-felmeddelande: Det finns för närvarande ett lån för behållaren och inga lån-ID har angetts i begäran.</span>
+> <span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
+> 
+> <span style="color:red">Remove-AzureStorageContainer : Fjärrservern returnerade ett fel: (412) det finns för närvarande ett lån för behållaren och inga lån-ID har angetts i begäran... HTTP-statuskod: 412 - HTTP-felmeddelande: Det finns för närvarande ett lån för behållaren och inga lån-ID har angetts i begäran.</span>
 
 ## <a name="unable-to-delete-a-vhd"></a>Det går inte att ta bort en virtuell hårddisk 
 
@@ -99,9 +99,9 @@ På portalen kan det finnas två upplevelser beroende på listan över blobar so
 #### <a name="azure-powershell"></a>Azure PowerShell 
 Om användaren väljer att ta bort med hjälp av PowerShell, resulterar det i följande fel. 
 
-><span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
-
-><span style="color:red">Remove-AzureStorageBlob : Fjärrservern returnerade ett fel: (412) det finns för närvarande ett lån på blobben och inga lån-ID har angetts i begäran... HTTP-statuskod: 412 - HTTP-felmeddelande: Det finns för närvarande ett lån på blobben och inga lån-ID har angetts i begäran.</span>
+> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
+> 
+> <span style="color:red">Remove-AzureStorageBlob : Fjärrservern returnerade ett fel: (412) det finns för närvarande ett lån på blobben och inga lån-ID har angetts i begäran... HTTP-statuskod: 412 - HTTP-felmeddelande: Det finns för närvarande ett lån på blobben och inga lån-ID har angetts i begäran.</span>
 
 
 ## <a name="resolution-steps"></a>Lösningsanvisningar

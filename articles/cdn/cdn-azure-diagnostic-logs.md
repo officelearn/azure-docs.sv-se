@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 5b80dcfa5cef116bb2558f154a54d343e467ae83
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a5fab3e2bf9908fa35cf5f5485df3116b7718d8c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546661"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881137"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure diagnostikloggar
 
@@ -229,7 +229,7 @@ Du kan visa data i en mängd olika sätt med hjälp av lösningar för hantering
 
 Du kan installera övervakningslösningar från Azure marketplace genom att välja den **Hämta nu** länken längst ned i varje lösning.
 
-### <a name="add-a-azure-monitor-cdn-monitoring-solution"></a>Lägg till en Azure CDN för övervakaren övervakningslösning
+### <a name="add-an-azure-monitor-cdn-monitoring-solution"></a>Lägg till en Azure CDN för övervakaren övervakningslösning
 
 Följ dessa steg för att lägga till en Azure Monitor övervakningslösning:
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: e0f4506afee134f2f6453ea1b1298925ff00084c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: ee0a57ae1ece63964c7873a471ca7ee615c06978
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004614"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898807"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Avancerade självstudier för Media Encoder Premium Workflow
 ## <a name="overview"></a>Översikt
@@ -297,7 +297,7 @@ Att arbeta i kombination med både MP4-filer (och endast ljud MP4) i vår tillg�
 
 ```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-    <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
+    <smil xmlns="https://www.w3.org/2001/SMIL20/Language">
       <head>
         <meta name="formats" content="mp4" />
       </head>
@@ -947,7 +947,7 @@ Med den nedan enkla guard-satsen, kan vi kontrollera om trimning krävs och best
 
 [Arbetsflödesformat och codecs för Media Encoder Premium](media-services-premium-workflow-encoder-formats.md)
 
-[Exempelfilerna för arbetsflöde](http://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
+[Exempelfilerna för arbetsflöde](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
 [Azure Media Services Explorer-verktyget](https://aka.ms/amse)
 

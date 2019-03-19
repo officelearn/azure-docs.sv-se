@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00cde6f9d17eb44fefae10d8694a89abf51540a5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9e822906a072ec8244c7108e98289482adebb5a7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182074"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098686"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Stöd för flera domäner för federering med Azure AD
 Följande dokumentation innehåller råd om hur du använder flera översta domäner och underdomäner när federera med Office 365 eller Azure AD-domäner.
@@ -69,7 +69,7 @@ En annan sak som `-SupportMultipleDomain` gör är att det säkerställer att AD
 
 Därför under autentiseringen till Azure AD eller Office 365, IssuerUri-elementet i användarens token används för att leta upp domänen i Azure AD.  Om en matchning hittas, misslyckas autentiseringen.
 
-Till exempel om en användares UPN är bsimon@bmcontoso.com, IssuerUri-elementet i problem med AD FS-token upphör att http://bmcontoso.com/adfs/services/trust. Det här elementet matchar Azure AD-konfigurationen och autentiseringen lyckas.
+Till exempel om en användares UPN är bsimon@bmcontoso.com, IssuerUri-elementet i problem med AD FS-token upphör att <http://bmcontoso.com/adfs/services/trust>. Det här elementet matchar Azure AD-konfigurationen och autentiseringen lyckas.
 
 Följande är det anpassade anspråksregeln som implementerar den här logiken:
 

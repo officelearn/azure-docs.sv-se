@@ -1,82 +1,89 @@
+items:
 - name: Power BI Embedded-dokumentation
   href: index.md
 - name: Översikt
   items:
-    - name: Vad är Power BI Embedded?
-      href: 'https://docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded'
+  - name: Vad är Power BI Embedded?
+    href: https://docs.microsoft.com/power-bi/developer/azure-pbie-what-is-power-bi-embedded
 - name: Självstudier
   items:
-    - name: Exempel på att bädda in innehåll för kunder
-      href: 'https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers'
+  - name: Exempel på att bädda in innehåll för kunder
+    href: https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers
 - name: Begrepp
   items:
-    - name: Säkerhet på radnivå (RLS)
-      href: 'https://docs.microsoft.com/power-bi/developer/embedded-row-level-security'
-    - name: VANLIGA FRÅGOR OCH SVAR
-      href: 'https://docs.microsoft.com/power-bi/developer/embedded-faq'
-    - name: Power BI-behörigheter
-      href: 'https://docs.microsoft.com/power-bi/developer/power-bi-permissions'
+  - name: Säkerhet på radnivå (RLS)
+    href: https://docs.microsoft.com/power-bi/developer/embedded-row-level-security
+  - name: VANLIGA FRÅGOR OCH SVAR
+    href: https://docs.microsoft.com/power-bi/developer/embedded-faq
+  - name: Power BI-behörigheter
+    href: https://docs.microsoft.com/power-bi/developer/power-bi-permissions
 - name: Gör så här för att
   items:
-    - name: Registrera ett program
-      href: 'https://docs.microsoft.com/power-bi/developer/register-app'
-    - name: Autentisera till Power BI-tjänst
-      href: 'https://docs.microsoft.com/power-bi/developer/get-azuread-access-token'
-    - name: Bädda in frågor och svar
-      href: 'https://docs.microsoft.com/power-bi/developer/qanda'
-    - name: Felsöka inbäddade program
-      href: 'https://docs.microsoft.com/power-bi/developer/embedded-troubleshoot'
-    - name: Hantera kapaciteter i Azure
-      items:
-        - name: Skapa en kapacitet i Azure
-          href: 'https://docs.microsoft.com/power-bi/developer/azure-pbie-create-capacity'
-        - name: Skala en kapacitet i Azure
-          href: 'https://docs.microsoft.com/power-bi/developer/azure-pbie-scale-capacity'
-        - name: Pausa och starta en kapacitet i Azure
-          href: 'https://docs.microsoft.com/power-bi/developer/azure-pbie-pause-start'
-    - name: Migrera från arbetsytesamlingar
-      items:
-        - name: Så här migrerar du från Power BI-arbetsytesamlingar
-          href: 'https://docs.microsoft.com/power-bi/developer/migrate-from-powerbi-embedded'
-        - name: Migreringsverktyg
-          href: 'https://docs.microsoft.com/power-bi/developer/migrate-tool'
-        - name: Kodfragment för migrering
-          href: 'https://docs.microsoft.com/power-bi/developer/migrate-code-snippetsd'
+  - name: Registrera ett program
+    href: https://docs.microsoft.com/power-bi/developer/register-app
+  - name: Autentisera till Power BI-tjänst
+    href: https://docs.microsoft.com/power-bi/developer/get-azuread-access-token
+  - name: Bädda in frågor och svar
+    href: https://docs.microsoft.com/power-bi/developer/qanda
+  - name: Felsöka inbäddade program
+    href: https://docs.microsoft.com/power-bi/developer/embedded-troubleshoot
+  - name: Hantera kapaciteter i Azure
+    items:
+    - name: Skapa en kapacitet i Azure
+      href: https://docs.microsoft.com/power-bi/developer/azure-pbie-create-capacity
+    - name: Skala en kapacitet i Azure
+      href: https://docs.microsoft.com/power-bi/developer/azure-pbie-scale-capacity
+    - name: Pausa och starta en kapacitet i Azure
+      href: https://docs.microsoft.com/power-bi/developer/azure-pbie-pause-start
+  - name: Migrera från arbetsytesamlingar
+    items:
+    - name: Så här migrerar du från Power BI-arbetsytesamlingar
+      href: https://docs.microsoft.com/power-bi/developer/migrate-from-powerbi-embedded
+    - name: Migreringsverktyg
+      href: https://docs.microsoft.com/power-bi/developer/migrate-tool
+    - name: Kodfragment för migrering
+      href: https://docs.microsoft.com/power-bi/developer/migrate-code-snippetsd
 - name: Referens
   items:
-    - name: 'API:er'
-      items:
-        - name: 'REST API:er i Azure Resource Management'
-          href: 'https://docs.microsoft.com/rest/api/power-bi-embedded/'
-        - name: 'Power BI REST-API:er'
-          href: 'https://msdn.microsoft.com/library/mt147898.aspx'
+  - name: API:er
+    items:
+    - name: REST API:er i Azure Resource Management
+      href: https://docs.microsoft.com/rest/api/power-bi-embedded/
+    - name: Power BI REST-API:er
+      href: https://msdn.microsoft.com/library/mt147898.aspx
 - name: Resurser
   items:
-    - name: Dev Center
-      href: 'https://powerbi.microsoft.com/developers/'
-    - name: Registreringsupplevelseverktyg för inbäddning
-      href: 'https://aka.ms/embedsetup'
-    - name: Kodexempel
-      href: 'https://github.com/Microsoft/PowerBI-Developer-Samples'
-    - name: Hämta .NET SDK
-      href: 'https://www.nuget.org/packages/Microsoft.PowerBI.Api/'
-    - name: Nedladdning av JavaScript SDK
-      href: 'https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/'
-    - name: .NET för Power BI
-      href: 'https://github.com/Microsoft/PowerBI-CSharp'
-    - name: JavaScript för Power BI
-      href: 'https://github.com/Microsoft/PowerBI-JavaScript'
-    - name: Testplatsexempel för Javascript
-      href: 'https://go.microsoft.com/fwlink/?linkid=848279'
-    - name: Power BI JavaScript-wiki
-      href: 'https://github.com/Microsoft/powerbi-javascript/wiki'
-    - name: JavaScript Git-lagringsplats
-      href: 'https://go.microsoft.com/fwlink/?linkid=848276'
-    - name: 'Power BI C# Git-lagringsplats'
-      href: 'https://go.microsoft.com/fwlink/?linkid=848273'
-    - name: Priskalkylator
-      href: 'https://azure.microsoft.com/pricing/calculator/#power-bi-embedded88e5eed8-6a98-4891-a739-15b602b4fb34'
-    - name: Power BI Community
-      href: 'http://community.powerbi.com/t5/Developer/bd-p/Developer'
-    - name: Stack Overflow
-      href: 'https://go.microsoft.com/fwlink/?linkid=848281'
+  - name: Dev Center
+    href: https://powerbi.microsoft.com/developers/
+  - name: Registreringsupplevelseverktyg för inbäddning
+    href: https://aka.ms/embedsetup
+  - name: Kodexempel
+    href: https://github.com/Microsoft/PowerBI-Developer-Samples
+  - name: Hämta .NET SDK
+    href: https://www.nuget.org/packages/Microsoft.PowerBI.Api/
+  - name: Nedladdning av JavaScript SDK
+    href: https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/
+  - name: .NET för Power BI
+    href: https://github.com/Microsoft/PowerBI-CSharp
+  - name: JavaScript för Power BI
+    href: https://github.com/Microsoft/PowerBI-JavaScript
+  - name: Testplatsexempel för Javascript
+    href: https://go.microsoft.com/fwlink/?linkid=848279
+  - name: Power BI JavaScript-wiki
+    href: https://github.com/Microsoft/powerbi-javascript/wiki
+  - name: JavaScript Git-lagringsplats
+    href: https://go.microsoft.com/fwlink/?linkid=848276
+  - name: Power BI C# Git-lagringsplats
+    href: https://go.microsoft.com/fwlink/?linkid=848273
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/#power-bi-embedded88e5eed8-6a98-4891-a739-15b602b4fb34
+  - name: Power BI Community
+    href: https://community.powerbi.com/t5/Developer/bd-p/Developer
+  - name: Stack Overflow
+    href: https://go.microsoft.com/fwlink/?linkid=848281
+ms.openlocfilehash: 40d190de6a417a72488619f4d55c825466bc026f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876841"

@@ -1,6 +1,6 @@
 ---
 title: Dokumentation om Azure Data Box
-description: Azure Data Box-serien erbjuder produkter med olika lagringskapacitet för att skicka terabyte med data till Azure på ett snabbt, kostnadseffektivt och tillförlitligt sätt. Microsoft påskyndar säker dataöverföring genom att skicka skyddade lagringsenheter till dig som möjliggör dataöverföring offline eller över nätverket.
+description: 'Azure Data Box-serien erbjuder produkter med olika lagringskapacitet för att skicka terabyte med data till Azure på ett snabbt, kostnadseffektivt och tillförlitligt sätt. Microsoft påskyndar säker dataöverföring genom att skicka skyddade lagringsenheter till dig som möjliggör dataöverföring offline eller över nätverket.'
 services: databox
 author: alkohli
 manager: twooley
@@ -11,16 +11,10 @@ ms.devlang: na
 ms.topic: hub-page
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 09e0debba88ed87ab84b567e797d3ae63ec32a81
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157113"
 ---
+<div id="main" class="v2">
 <h1>Azure Data Box</h1>
 <p>Azure Data Box-serien erbjuder produkter med olika lagringskapacitet för att skicka terabyte (TB) med data till Azure på ett snabbt, kostnadseffektivt och tillförlitligt sätt. Microsoft påskyndar säker dataöverföring genom att skicka skyddade lagringsenheter till dig som möjliggör dataöverföring offline eller över nätverket.</p>
-
 <h2>Dataöverföring offline</h2>
 <p>För begränsad till ingen nätverksbandbredd</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
@@ -79,7 +73,6 @@ ms.locfileid: "54157113"
         </a>
     </li>
 </ul>
-
 <h2>Dataöverföring online</h2>
 <p>Överföring över nätverket</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
@@ -120,3 +113,4 @@ ms.locfileid: "54157113"
         </a>
     </li>
 </ul>
+</div>

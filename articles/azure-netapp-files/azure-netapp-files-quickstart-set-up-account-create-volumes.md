@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstarts
 ms.date: 2/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 76c1543f5d9979d46b303f12c495dcaa403cef1d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 363589116cc7b936358ce0b16cbaba9a42c66234
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56589124"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078082"
 ---
 # <a name="set-up-azure-netapp-files-and-create-a-volume"></a>Konfigurera Azure NetApp Files och skapa en volym 
 
@@ -56,14 +56,14 @@ Du behöver delta i programmet för allmänt tillgängliga förhandsversioner oc
      ![Skapa nytt NetApp-konto](../media/azure-netapp-files/azure-netapp-files-create-new-netapp-account.png)
 
 3. Ange följande information i fönstret Nytt NetApp-konto: 
-    1. Ange **myaccount1** för namnet på kontot. 
-    2. Välj din prenumeration.
-    3. Välj **Skapa nytt** att skapa en ny resursgrupp. Ange **myRG1** för resursgruppens namn. Klicka på **OK**. 
-    4. Välj din kontoplats.  
+   1. Ange **myaccount1** för namnet på kontot. 
+   2. Välj din prenumeration.
+   3. Välj **Skapa nytt** att skapa en ny resursgrupp. Ange **myRG1** för resursgruppens namn. Klicka på **OK**. 
+   4. Välj din kontoplats.  
 
-    ![Nytt konto NetApp-fönster](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)  
+      ![Nytt konto NetApp-fönster](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)  
 
-    ![Fönstret för resurs-grupp](../media/azure-netapp-files/azure-netapp-files-resource-group-window.png)
+      ![Fönstret för resurs-grupp](../media/azure-netapp-files/azure-netapp-files-resource-group-window.png)
 
 4. Klicka på **skapa** att skapa ditt nya NetApp-konto.
 
@@ -99,22 +99,22 @@ Du behöver delta i programmet för allmänt tillgängliga förhandsversioner oc
     ![Klicka på Lägg till volymer](../media/azure-netapp-files/azure-netapp-files-click-add-volumes.png)  
 
 3. Ange information för volymen i avsnittet Skapa en volym-fönstret: 
-    1. Ange **myvol1** som volymens namn. 
-    2. Ange **myfilepath1** som sökvägen till filen som ska användas för att skapa exportsökvägen för volymen.
-    3. Välj din kapacitet pool (**mypool1**).
-    4. Använd standardvärdet för kvoten. 
-    5. I det virtuella nätverket, klickar du på **Skapa nytt** att skapa ett nytt Azure virtuellt nätverk (Vnet).  Fyll sedan i följande information:
-        * Ange **myvnet1** som virtuella nätverkets namn.
-        * Ange ett adressutrymme, till exempel 10.7.0.0/16.
-        * Ange **myANFsubnet** som namnet på undernätet.
-        * Ange adressintervallet i undernätet, till exempel 10.7.0.0/24.
-        * Välj **Microsoft.NetApp/volumes** för undernätet delegering.
-        * Klicka på **OK** att skapa det virtuella nätverket.
-    6. Välj det nyligen skapade virtuella nätverket i undernätet, (**myvnet1**) som ombud undernätet.
+   1. Ange **myvol1** som volymens namn. 
+   2. Ange **myfilepath1** som sökvägen till filen som ska användas för att skapa exportsökvägen för volymen.
+   3. Välj din kapacitet pool (**mypool1**).
+   4. Använd standardvärdet för kvoten. 
+   5. I det virtuella nätverket, klickar du på **Skapa nytt** att skapa ett nytt Azure virtuellt nätverk (Vnet).  Fyll sedan i följande information:
+       * Ange **myvnet1** som virtuella nätverkets namn.
+       * Ange ett adressutrymme, till exempel 10.7.0.0/16.
+       * Ange **myANFsubnet** som namnet på undernätet.
+       * Ange adressintervallet i undernätet, till exempel 10.7.0.0/24.
+       * Välj **Microsoft.NetApp/volumes** för undernätet delegering.
+       * Klicka på **OK** att skapa det virtuella nätverket.
+   6. Välj det nyligen skapade virtuella nätverket i undernätet, (**myvnet1**) som ombud undernätet.
 
-    ![Skapa en volym-fönster](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)  
+      ![Skapa en volym-fönster](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)  
 
-    ![Skapa virtuella nätverk](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
+      ![Skapa virtuella nätverk](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
 4. Klicka på **Granska + skapa**.
 
@@ -127,5 +127,5 @@ Du behöver delta i programmet för allmänt tillgängliga förhandsversioner oc
 
 ## <a name="next-steps"></a>Nästa steg  
 
-* [Förstå Azure NetApp Files storage hierarki](azure-netapp-files-understand-storage-hierarchy.md)
+* [Förstå lagringshierarkin för Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 * [Hantera volymer med hjälp av Azure NetApp filer](azure-netapp-files-manage-volumes.md) 

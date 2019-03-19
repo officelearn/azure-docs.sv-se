@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/27/2018
-ms.openlocfilehash: 914933e4e0489d68640edb58ceb91dc73a963eb3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cbe7b0e243f34d9b48e837c1211b5a186946f69f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034972"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903716"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Konsekvensnivåer i Azure Cosmos DB
 
@@ -68,8 +68,8 @@ En Azure Cosmos DB-behållare innehåller besökarna och home team som kör summ
 | **Konsekvensnivå** | **Poäng** |
 | - | - |
 | **Stark** | 2 – 5 |
-| **Begränsad föråldring** | Resultat som innehåller högst en inning inaktuell: 2 – 3, 2 – 4, 2 – 5 |
-| **Sessionen** | <ul><li>För writer: 2 – 5</li><li> För alla förutom skrivar: 0-0, 0 – 1, 0-2, 0-3, 0-4, 0 och 5, 1 – 0, 1-1, 1 – 2, 1 – 3, 1 – 4, 1-5, 2-0, 2-1, 2-2, 2-3, 2 – 4, 2 – 5</li><li>När du har läst 1-3: 1 – 3, 1 – 4, 1-5, 2-3, 2-4, 2 – 5</li> |
+| **Begränsad föråldring** | Resultat som innehåller högst en inning inaktuell: 2-3, 2-4, 2-5 |
+| **Sessionen** | <ul><li>För writer: 2 – 5</li><li> För alla förutom skrivar: 0-0, 0 – 1, 0-2, 0-3, 0-4, 0 och 5, 1 – 0, 1-1, 1 – 2, 1 – 3, 1 – 4, 1-5, 2-0, 2-1, 2-2, 2-3, 2 – 4, 2 – 5</li><li>När du har läst 1-3: 1-3, 1-4, 1-5, 2-3, 2-4, 2-5</li> |
 | **Konsekvent prefix** | 0-0, 0-1, 1-1, 1 – 2, 1 – 3, 2-3, 2 – 4, 2 – 5 |
 | **Slutlig** | 0-0, 0 – 1, 0-2, 0-3, 0-4, 0 och 5, 1 – 0, 1-1, 1 – 2, 1 – 3, 1 – 4, 1-5, 2-0, 2-1, 2-2, 2-3, 2 – 4, 2 – 5 |
 
@@ -81,7 +81,7 @@ Mer information om konsekvens begrepp att läsa följande artiklar:
 - [Replikerade Data konsekvens förklaras via basket (video) av Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
 - [Replikerade Data konsekvens förklaras via basket (White Paper) av Doug Terry](https://www.microsoft.com/en-us/research/publication/replicated-data-consistency-explained-through-baseball/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F157411%2Fconsistencyandbaseballreport.pdf)
 - [Sessionen garantier för svagt konsekvent replikerade data](https://dl.acm.org/citation.cfm?id=383631)
-- [Konsekvens kompromisser i Modern distribuerade system databasdesign: Fästpunkten är bara en del av artikeln](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
+- [Konsekvens kompromisser i Modern distribuerade system databasdesign: Fästpunkten är bara en del av artikeln](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [Avsnittet om sannolikhetsbunden begränsad föråldring (PBS) för praktiska partiella beslutsförhet](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 - [Så småningom konsekvent – Revisited](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 

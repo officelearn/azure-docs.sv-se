@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 12ccb4978a8cfbaa7dede8d0093c78da05295fec
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 622a3ce0f80bd09bd09fa7ff097f68155318142d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410017"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080364"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Konfigurera gruppanspråk för program med Azure Active Directory (förhandsversion)
 
@@ -111,60 +111,60 @@ Vissa program kräver information ska visas i rollanspråk gruppmedlemskap. Du k
 
 Gruppanspråk kan också konfigureras i den [valfria anspråk](../../active-directory/develop/active-directory-optional-claims.md) delen av den [applikationsmanifestet](../../active-directory/develop/reference-app-manifest.md).
 
- 1. I portalen Azure Active Directory -> program -> registreringar -> Välj program -> Manifest
+1. I portalen Azure Active Directory -> program -> registreringar -> Välj program -> Manifest
 
- 2. Aktivera medlemskap gruppanspråk genom att ändra groupMembershipClaim
+2. Aktivera medlemskap gruppanspråk genom att ändra groupMembershipClaim
 
-    Giltiga värden är:
+   Giltiga värden är:
 
-    - ”Alla”
-    - "SecurityGroup"
-    - "DistributionList"
-    - "DirectoryRole"
+   - ”Alla”
+   - "SecurityGroup"
+   - "DistributionList"
+   - "DirectoryRole"
 
-    Exempel:
+   Exempel:
 
-    ```json
-    "groupMembershipClaims": "SecurityGroup"
-    ```
+   ```json
+   "groupMembershipClaims": "SecurityGroup"
+   ```
 
-    Som standard grupp ObjectIDs ska genereras i gruppen anspråksvärde.  Om du vill ändra anspråkets värde ska innehålla på attributen för plats eller ändra Anspråkstypen roll, använder du OptionalClaims konfigurationen på följande sätt:
+   Som standard grupp ObjectIDs ska genereras i gruppen anspråksvärde.  Om du vill ändra anspråkets värde ska innehålla på attributen för plats eller ändra Anspråkstypen roll, använder du OptionalClaims konfigurationen på följande sätt:
 
- 3. Ange grupp configuration valfria anspråk.
+3. Ange grupp configuration valfria anspråk.
 
-    Om du vill grupper i token som innehåller den lokala AD-Gruppattribut i avsnittet valfria anspråk anger vilken typ tokenu valfria anspråk ska tillämpas på, namnet på valfria anspråk som begärs och eventuella ytterligare egenskaper som önskade.  Flera typer av token kan visas:
+   Om du vill grupper i token som innehåller den lokala AD-Gruppattribut i avsnittet valfria anspråk anger vilken typ tokenu valfria anspråk ska tillämpas på, namnet på valfria anspråk som begärs och eventuella ytterligare egenskaper som önskade.  Flera typer av token kan visas:
 
-    - idToken för OIDC-ID-token
-    - accessToken för den OAuth/OIDC åtkomst-token
-    - Saml2Token för SAML-token.
+   - idToken för OIDC-ID-token
+   - accessToken för den OAuth/OIDC åtkomst-token
+   - Saml2Token för SAML-token.
 
-    > [!NOTE]
-    > Typen Saml2Token gäller både SAML1.1 och SAML2.0 format-token
+   > [!NOTE]
+   > Typen Saml2Token gäller både SAML1.1 och SAML2.0 format-token
 
-    För varje relevant tokentypen ändra grupper anspråk att använda OptionalClaims-avsnitt i manifestet. OptionalClaims schemat är följande:
+   För varje relevant tokentypen ändra grupper anspråk att använda OptionalClaims-avsnitt i manifestet. OptionalClaims schemat är följande:
 
- ```json
- {
-    "name": "groups",
-    "source": null,
-    "essential": false,
-    "additionalProperties": []
- }
- ```
+   ```json
+   {
+   "name": "groups",
+   "source": null,
+   "essential": false,
+   "additionalProperties": []
+   }
+   ```
 
- | Valfria anspråk Schema | Värde |
- |----------|-------------|
- | **Namn:** | Måste vara ”grupper” |
- | **Källa:** | Används inte. Utelämna eller ange null |
- | **essential:** | Används inte. Utelämna eller ange false |
- | **additionalProperties:** | Lista över ytterligare egenskaper.  Valid options are "sam_account_name", “dns_domain_and_sam_account_name”, “netbios_domain_and_sam_account_name”, "emit_as_roles" |
+   | Valfria anspråk Schema | Värde |
+   |----------|-------------|
+   | **Namn:** | Måste vara ”grupper” |
+   | **Källa:** | Används inte. Utelämna eller ange null |
+   | **essential:** | Används inte. Utelämna eller ange false |
+   | **additionalProperties:** | Lista över ytterligare egenskaper.  Valid options are "sam_account_name", “dns_domain_and_sam_account_name”, “netbios_domain_and_sam_account_name”, "emit_as_roles" |
 
- In additionalProperties only one of "sam_account_name", “dns_domain_and_sam_account_name”, “netbios_domain_and_sam_account_name” are required.  Om mer än en sådan finns, används först och andra ignoreras.
+   In additionalProperties only one of "sam_account_name", “dns_domain_and_sam_account_name”, “netbios_domain_and_sam_account_name” are required.  Om mer än en sådan finns, används först och andra ignoreras.
 
- Vissa program kräver gruppinformation om användaren i rollen anspråket.  Om du vill ändra typ av anspråk till anspråk till en rollanspråk från en grupp att lägga till ”emit_as_roles” till ytterligare egenskaper.  Gruppvärden ska genereras i rollen anspråket.
+   Vissa program kräver gruppinformation om användaren i rollen anspråket.  Om du vill ändra typ av anspråk till anspråk till en rollanspråk från en grupp att lägga till ”emit_as_roles” till ytterligare egenskaper.  Gruppvärden ska genereras i rollen anspråket.
 
- > [!NOTE]
- > Om du använder ”emit_as_roles” alla roller för program som konfigurerats att användaren har tilldelats kommer visas inte i rollanspråk
+   > [!NOTE]
+   > Om du använder ”emit_as_roles” alla roller för program som konfigurerats att användaren har tilldelats kommer visas inte i rollanspråk
 
 ### <a name="examples"></a>Exempel
 

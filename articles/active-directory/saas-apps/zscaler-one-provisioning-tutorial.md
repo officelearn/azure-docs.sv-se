@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2019
 ms.author: v-ant-msft
-ms.openlocfilehash: 16ba73b37db86b897f21002408cdf8723ff0952a
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: d5eab2d22656b0ff322712ff7dc36f78d6078ed5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57572678"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085396"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Självstudier: Konfigurera en Zscaler för automatisk användaretablering
 
@@ -27,7 +27,7 @@ Målet med den här självstudien är att ange vilka åtgärder som ska utföras
 
 > [!NOTE]
 > Den här självstudien beskrivs en koppling som bygger på Azure AD-användare Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../active-directory-saas-app-provisioning.md).
-
+> 
 > Den här anslutningsappen är för närvarande i offentlig förhandsversion. Läs mer på allmänna Microsoft Azure-villkor för användning av förhandsversionsfunktioner [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Förutsättningar

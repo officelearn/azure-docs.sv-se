@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3aba118354c51285d714bb127e6f5984f8a50057
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: aeb97d661d330ed6afb3ca5e5e1eb924dacc4024
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329760"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096307"
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Automatiserad säkerhetskopiering för SQLServer i Azure Virtual Machines (klassisk)
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "54329760"
 Automatisk säkerhetskopiering konfigureras automatiskt [hanterad säkerhetskopiering till Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) för alla befintliga och nya databaser på en Azure-dator som kör SQL Server 2014 Standard eller Enterprise. På så sätt kan du konfigurera regelbundna databassäkerhetskopieringar som använder varaktiga Azure blob-lagring. Automatisk säkerhetskopiering beror på den [SQL Server IaaS Agent-tillägget](../classic/sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 > [!IMPORTANT] 
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Resource Manager-versionen av den här artikeln finns [automatisk säkerhetskopiering för SQL Server i Azure Virtual Machines Resource Manager](../sql/virtual-machines-windows-sql-automated-backup.md).
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Resource Manager-versionen av den här artikeln finns [automatisk säkerhetskopiering för SQL Server i Azure Virtual Machines Resource Manager](../sql/virtual-machines-windows-sql-automated-backup.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 Överväg följande krav för att använda automatisk säkerhetskopiering:
@@ -73,7 +73,8 @@ I följande tabell beskrivs de alternativ som kan konfigureras för automatisk s
 | **Kvarhållningsperiod** |1 – 30 dagar (30 dagar) |Antal dagar att behålla en säkerhetskopia. |
 | **Lagringskonto** |Azure storage-konto (det storage-konto som är skapade för den angivna virtuella datorn) |Ett Azure storage-konto som ska användas för att lagra filer för automatisk säkerhetskopiering i blob storage. En behållare skapas på den här platsen för att lagra säkerhetskopior. Namngivningskonventionen för säkerhetskopian innehåller datum, tid och namnet på datorn. |
 | **Kryptering** |Aktivera/inaktivera (inaktiverad) |Aktiverar eller inaktiverar kryptering. När kryptering har aktiverats, finns de certifikat som används för att återställa säkerhetskopian i det angivna lagringskontot i samma automaticbackup behållare med hjälp av samma namngivningskonvention. Om lösenordet ändras, skapas ett nytt certifikat med lösenordet, men det gamla certifikatet förblir för att återställa tidigare säkerhetskopior. |
-| **Lösenord** |Lösenord text (ingen) |Ett lösenord för krypteringsnycklar. Detta är endast krävs om kryptering är aktiverat. Om du vill återställa en krypterad säkerhetskopiering måste du ha rätt lösenord och relaterade certifikatet som användes när säkerhetskopian skapades. | **Säkerhetskopiera systemdatabaser** | Aktivera/inaktivera (inaktiverad) | Ta fullständiga säkerhetskopior av Master, Model och MSDB |
+| **Lösenord** |Lösenord text (ingen) |Ett lösenord för krypteringsnycklar. Detta är endast krävs om kryptering är aktiverat. Om du vill återställa en krypterad säkerhetskopiering måste du ha rätt lösenord och relaterade certifikatet som användes när säkerhetskopian skapades. |
+| **Säkerhetskopiera systemdatabaser** | Aktivera/inaktivera (inaktiverad) | Ta fullständiga säkerhetskopior av Master, Model och MSDB |
 | **Konfigurera schema för säkerhetskopiering** | Manuell/automatisk (automatisk) | Välj **automatisk** automatiskt fullständiga och loggsäkerhetskopior baserat på log tillväxt. Välj **manuell** att ange schemat för fullständiga säkerhetskopior och loggsäkerhetskopior. |
 
 ## <a name="configuration-with-powershell"></a>Med PowerShell

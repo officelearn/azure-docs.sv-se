@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 23a676c64ec2788ec4a9b3d61f86529fa437079f
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: 556fc1f04cc6a1d1b594bdd3787ed43d30f607c6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580390"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091179"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Självstudie: Använda Apache Kafka-producent- och konsument-API:er
 
@@ -134,6 +134,8 @@ I den här koden är konsumenten konfigurerad att läsa från början av ämnet 
 
 ## <a name="build-and-deploy-the-example"></a>Skapa och distribuera exemplet
 
+Du kan hoppa över steg 1 och 2 för version och hämta den färdiga jars(kafka-producer-consumer.jar) från [ https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars ](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars). Du kan sedan kopiera den här JAR-filen till ditt HDInsight-kluster.
+
 1. Hämta exempel från [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
 2. Ändra kataloger till platsen för katalogen `Producer-Consumer` och använd följande kommando:
@@ -216,7 +218,7 @@ tmux new-session 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROK
 indow -h 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup' \; attach
 ```
 
-Detta kommando använder `tmux` till att dela terminalen i två kolumner. En konsument startas i varje kolumn med samma ID-värde för gruppen. När konsumenterna har läst färdigt kan du se att de bara läst en del av posterna. Använd __Ctrl + C __ två gånger för att avsluta `tmux`.
+Detta kommando använder `tmux` till att dela terminalen i två kolumner. En konsument startas i varje kolumn med samma ID-värde för gruppen. När konsumenterna har läst färdigt kan du se att de bara läst en del av posterna. Använd __Ctrl + C__ två gånger för att avsluta `tmux`.
 
 Förbrukning av klienter i samma grupp hanteras via partitionerna för ämnet. I det här kodexemplet har `test`-ämnet som skapades tidigare åtta partitioner. Om du startar åtta konsumenter läser varje konsument poster från en enda partition i ämnet.
 

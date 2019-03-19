@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/9/2017
 ms.author: rajraj
-ms.openlocfilehash: 1ec1ec0fab6947f7f07b3c387f4c8af4a0f666cb
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 98032291d9b9d1b0885e7442b882a7f62f9ccd59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776350"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123444"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Arbeta med stora skalningsuppsättningar för virtuella datorer
 Du kan nu skapa [skalningsuppsättningar för virtuella Azure-datorer](/azure/virtual-machine-scale-sets/) med en kapacitet på upp till 1 000 virtuella datorer. I detta dokument definieras en _stor VM-skalningsuppsättning_ som en skalningsuppsättning som kan skalas för över 100 virtuella datorer. Den här funktionen ställs in med skalningsuppsättningsegenskapen (_singlePlacementGroup=False_). 
@@ -83,7 +83,7 @@ För ett fullständigt exempel på en mall i stor skala, se [ https://github.com
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>Konvertera en befintlig skalningsuppsättning som sträcker sig över flera placeringsgrupper
 Om du vill göra det möjligt för en befintlig skalningsuppsättning för virtuella datorer att skalas till mer än 100 virtuella datorer så måste du ändra egenskapen _singplePlacementGroup_ till _falskt_ i skalningsuppsättningsmodellen. Du kan ändra den här egenskapen med [Resursutforskaren i Azure](https://resources.azure.com/). Hitta en befintlig skalningsuppsättning, välj _Redigera_ och ändra egenskapen _singlePlacementGroup_. Om du inte ser den här egenskapen kanske du tittar på en skalningsuppsättning med en äldre version av Microsoft.Compute-API.
 
->[!NOTE] 
-Du kan ändra så att en skalningsuppsättning går från att endast stödja en enda placeringsgrupp (standardinställningen) till att stödja flera placeringsgrupper, men du kan inte konvertera åt det andra hållet. Se därför till att du förstår egenskaperna för stora skalningsuppsättningar innan du konverterar.
+> [!NOTE]
+> Du kan ändra så att en skalningsuppsättning går från att endast stödja en enda placeringsgrupp (standardinställningen) till att stödja flera placeringsgrupper, men du kan inte konvertera åt det andra hållet. Se därför till att du förstår egenskaperna för stora skalningsuppsättningar innan du konverterar.
 
 

@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: da23d8037f37174826a2b9662c39bb507367a6ae
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537821"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104717"
 ---
 # <a name="project-url-preview-v7-reference"></a>Project URL-förhandsgranskning v7-referens
 
@@ -56,7 +56,7 @@ Information om tillåtna användning och visning av resultat finns i [använder 
 > Vissa begärandehuvuden som är viktiga för andra search API: er påverkar inte URL-förhandsgranskning
 > - Pragma – anroparen har ingen kontroll över om URL-förhandsgranskning använder cache
 > - Användaragent – för tillfället URL: en förhandsversion av API: et tillhandahåller inte olika svar för anrop som härrör från datorn, bärbar dator eller mobil.
-
+> 
 > Dessutom vissa parametrar är inte för närvarande beskrivande för URL: en förhandsversion API, men kan användas i framtiden för förbättrad globalisering.
 
 ## <a name="headers"></a>Rubriker

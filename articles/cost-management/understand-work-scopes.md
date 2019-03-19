@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: c7eb490bdf484651613c5c7a72d2a31be5306634
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4e7956e8873b552fcd73c51a51f51d99f21af324
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773800"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002930"
 ---
 # <a name="understand-and-work-with-scopes"></a>Förstå och arbeta med omfång
 
@@ -146,9 +146,9 @@ Fakturering användare har inte åtkomst till hanteringsgrupper eftersom de inte
 
 Partner för cloud Solution Provider (CSP) stöds inte i Cost Management idag. Använd i stället [Partnercenter](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
 
-## <a name="how-to-switch-between-scopes-within-cost-management"></a>Hur man byter mellan scope i Cost Management
+## <a name="switch-between-scopes-in-cost-management"></a>Växla mellan scope i Cost Management
 
-Alla Cost Management-upplevelser i Azure-portalen innehåller en **omfång** pill längst upp till vänster i bladet där ger möjlighet att snabbt ändra omfång. Klicka på den **omfång** pill öppnas en omfattningsväljaren som visar fakturering konton, rot-hanteringsgruppen och alla prenumerationer som inte är kapslat under rot-hanteringsgruppen. För att välja ett omfång, klickar du på bakgrunden för att markera den och klicka sedan på den **Välj** längst ned. Om du vill öka detaljnivån till kapslade omfång (t.ex. resursgrupper inom en prenumeration), klickar du på länken omfång namn. Klicka för att välja den överordnade omfattningen på vilken kapslad nivå den **Välj det här <scope>**  längst upp på omfattningsväljaren.
+Alla Cost Management-vyer i Azure-portalen innehåller en **omfång** pill längst upp till vänster i vyn. Du kan använda den för att snabbt ändra omfång. Klicka på den **omfång** pill att öppna omfattningsväljaren. Den visar fakturering konton, rot-hanteringsgruppen och prenumerationer som inte är kapslat under rot-hanteringsgruppen. För att välja ett omfång, klickar du på bakgrunden för att markera den och klicka sedan på **Välj** längst ned på sidan. Om du vill gå in på kapslade omfång som resursgrupper i en prenumeration, klickar du på länken omfång namn. Klicka för att välja den överordnade omfattningen när som helst kapslade **Välj det här &lt;omfång&gt;**  överst i omfattningsväljaren.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>Identifiera resurs-ID för ett omfång
 
@@ -218,7 +218,7 @@ Att veta omfånget är viktigt när du arbetar med Cost Management API: er. Anv�
 4. Kopiera värdet i resurs-ID: T.
 5. Din omfattning är: `"/subscriptions/{id}/resourceGroups/{name}"`
 
-Kostnadshantering stöds för närvarande i Azure Global (https://management.azure.com) och Azure Government (https://management.usgovcloudapi.net). Läs mer om Azure Government, [Azure Global och Government API-slutpunkter](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)_._
+Kostnadshantering stöds för närvarande i [Azure Global](https://management.azure.com) och [Azure Government](https://management.usgovcloudapi.net). Läs mer om Azure Government, [Azure Global och Government API-slutpunkter](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)_._
 
 ## <a name="next-steps"></a>Nästa steg
 

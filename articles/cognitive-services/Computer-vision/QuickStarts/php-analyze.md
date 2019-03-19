@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 83225ef3991ba7f3714ec6e18d6fd1eee3029f41
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c4c5c53f19831946675aca74a631c3e582690308
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878858"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897698"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-php-in-computer-vision"></a>Snabbstart: Analysera en fjärrbild med hjälp av REST-API:et och PHP i Visuellt innehåll
 
@@ -24,7 +24,7 @@ I den här snabbstarten analyserar du en fjärrlagrad bild för att extrahera vi
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha [PHP](https://secure.php.net/downloads.php) installerat.
 - Du måste ha [Pear](https://pear.php.net) installerat.
@@ -69,7 +69,7 @@ $ocpApimSubscriptionKey = '<Subscription Key>';
 // from westus, replace "westcentralus" in the URL below with "westus".
 $uriBase = 'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/';
 
-$imageUrl = 'http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';
+$imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';
 
 require_once 'HTTP/Request2.php';
 

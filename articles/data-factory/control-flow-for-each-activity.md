@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: shlo
-ms.openlocfilehash: 68cdabd8d6e5921eabaa200169c0523352461733
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: c5c12a66e8f66195a096588d779648d7486ab47b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856952"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092012"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach-aktiviteten i Azure Data Factory
 ForEach-aktiviteten definierar ett upprepat Kontrollflöde i din pipeline. Den här aktiviteten används till att iterera över en samling och kör angivna aktiviteter i en loop. Implementeringen av loopen för den här aktiviteten liknar Foreach-loopstrukturen i programmeringsspråk.
@@ -71,8 +71,8 @@ Egenskaperna beskrivs senare i den här artikeln. Items-egenskapen är en samlin
 
 Egenskap  | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Namnet på den för varje aktiviteten. | Sträng | Ja
-typ | Måste vara inställt på **ForEach** | Sträng | Ja
+namn | Namnet på den för varje aktiviteten. | String | Ja
+typ | Måste vara inställt på **ForEach** | String | Ja
 isSequential | Anger om loopen att köras sekventiellt eller parallellt.  Högst 20 iterationer av loopen kan köras på samma gång parallellt). Exempel: Om du har en ForEach-aktivitet som iterera över en Kopieringsaktivitet med 10 olika källa och mottagare datauppsättningar med **isSequential** inställt på FALSKT, alla kopior körs på samma gång. Standardvärdet är FALSKT. <br/><br/> Om ”isSequential” är inställt på FALSKT, måste du kontrollera att det finns en korrekt konfiguration för att köra flera körbara filer. I annat fall bör du använda den här egenskapen med försiktighet för att undvika konflikter för skrivning. Mer information finns i [parallell körning](#parallel-execution) avsnittet. | Boolesk | Nej. Standardvärdet är FALSKT.
 batchCount | Batchantal som ska användas för att styra antalet parallell körning (när isSequential är inställd på false). | Heltal (maximalt 50) | Nej. Standardvärdet är 20.
 Objekt | Ett uttryck som returnerar en JSON-matris att upprepas. | Uttryck (som returnerar en JSON-matris) | Ja
@@ -474,7 +474,7 @@ Det är möjligt att iterera över flera aktiviteter (till exempel: kopiera och 
 
 ## <a name="aggregating-outputs"></a>Sammanställning av utdata
 
-Att sammanställd utdata för __foreach__ aktivitet,. Använd _Variable_s och _lägga till variabeln_ aktivitet.
+Att sammanställd utdata för __foreach__ aktivitet,. Använd _variabler_ och _lägga till variabeln_ aktivitet.
 
 Först måste deklarera en `array` _variabeln_ i pipelinen. Anropa sedan _lägga till variabeln_ aktivitet i var och en __foreach__ loop. Därefter kan du hämta aggregeringen från din matris.
 

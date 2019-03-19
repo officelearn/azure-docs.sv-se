@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 4eb4db9a4057d072f348de48bee2f746f77cbb84
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6001d291581dc317da89cadbf3891e334362062b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715349"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897596"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Lägga till anpassade Apache Hive-bibliotek när du skapar HDInsight-kluster
 
@@ -51,7 +51,7 @@ För **Windows-baserade kluster**: [https://hdiconfigactions.blob.core.windows.n
 
 * Lagringskontot som innehåller bibliotek med jar-filerna **måste** länkas till HDInsight-klustret när du skapar. Det måste antingen vara standardkontot för lagring eller ett konto har lagts till via __valfri konfiguration__.
 
-* WASB-sökväg till behållaren måste anges som en parameter för att skriptåtgärd. Exempel: om de JAR-filer som lagras i en behållare med namnet **libs** i ett lagringskonto med namnet **mystorage**, parametern skulle vara **wasb://libs@mystorage.blob.core.windows.net/**.
+* WASB-sökväg till behållaren måste anges som en parameter för att skriptåtgärd. Exempel: om de JAR-filer som lagras i en behållare med namnet **libs** i ett lagringskonto med namnet **mystorage**, parametern skulle vara **wasb://libs\@ mystorage.BLOB.Core.Windows.NET/**.
 
   > [!NOTE]  
   > Det här dokumentet förutsätter att du har redan skapat ett lagringskonto, blob-behållare och överfört filerna till den.
@@ -69,7 +69,7 @@ För **Windows-baserade kluster**: [https://hdiconfigactions.blob.core.windows.n
 
 2. På den **valfri konfiguration** väljer **skriptåtgärder**, och ange följande information:
 
-   * **NAMN PÅ**: Ange ett eget namn för skriptåtgärden.
+   * **NAMN**: Ange ett eget namn för skriptåtgärden.
 
    * **SKRIPT-URI**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh.
 
@@ -79,7 +79,7 @@ För **Windows-baserade kluster**: [https://hdiconfigactions.blob.core.windows.n
 
    * **ZOOKEEPER**: Låt den vara tom.
 
-   * **PARAMETRAR**: Ange WASB-adressen till behållaren och storage-kontot som innehåller de JAR-filer. Till exempel **wasb://libs@mystorage.blob.core.windows.net/**.
+   * **PARAMETRAR**: Ange WASB-adressen till behållaren och storage-kontot som innehåller de JAR-filer. Till exempel **wasb://libs\@mystorage.blob.core.windows.net/**.
 
 3. Längst ned på den **skriptåtgärder**, använda den **Välj** för att spara konfigurationen.
 

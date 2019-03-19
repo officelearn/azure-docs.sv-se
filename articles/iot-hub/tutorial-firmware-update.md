@@ -2,22 +2,22 @@
 title: Uppdatera enhetens inbyggda programvara via Azure IoT Hub | Microsoft Docs
 description: Implementera en uppdateringsprocess för enhetens inbyggda programvara med jobb och enhetstvillingar.
 services: iot-hub
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2019
-ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: c387a7c10b962cfd27a7563c00ce58f58e97b9d5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: faccebbd00b4ee9c8ecc257722ab87f0494d9466
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671836"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116698"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Självstudier: Implementera en uppdateringsprocess för enhetens inbyggda programvara
 
@@ -39,7 +39,7 @@ I den här självstudien slutför du följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver ha Node.js v4.x.x eller senare installerat på utvecklingsdatorn.
 
@@ -73,7 +73,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later
-az iot hub show-connection-string --hub-name $hubname -o table
+az iot hub show-connection-string --name $hubname -o table
 
 ```
 
@@ -209,4 +209,4 @@ az group delete --name tutorial-iot-hub-rg
 I den här självstudien har du lärt dig att implementera en uppdateringsprocess för den inbyggda programvaran för dina anslutna enheter. Fortsätt med nästa självstudie för att lära dig att använda Azure IoT Hub-portalverktyg och Azure CLI-kommandon för att testa anslutningen för enheten.
 
 > [!div class="nextstepaction"]
-[Använda en simulerad enhet för att testa anslutningen till din IoT-hubb](tutorial-connectivity.md)
+> [Använda en simulerad enhet för att testa anslutningen till din IoT-hubb](tutorial-connectivity.md)

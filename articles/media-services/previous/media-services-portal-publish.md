@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 884f9025f4152c391b4b59384bc94b2136daa916
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 1f7e108b4410ba62060dd4411e4b28b896e93d58
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240753"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834429"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publicera innehåll i Azure portal  
 > [!div class="op_single_selector"]
@@ -89,7 +89,7 @@ Välj videon och välj sedan knappen **Spela upp**.
 Vissa förutsättningar gäller:
 
 * Kontrollera att videon har publicerats.
-* Azure-portalens mediaspelare spelar upp från den slutpunkt för direktuppspelning som är standard. Klicka för att kopiera URL:en och klistra in den i en annan spelare om du vill spela upp från en slutpunkt för direktuppspelning som inte är standard. Du kan till exempel testa videon i [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* Azure-portalens mediaspelare spelar upp från den slutpunkt för direktuppspelning som är standard. Klicka för att kopiera URL:en och klistra in den i en annan spelare om du vill spela upp från en slutpunkt för direktuppspelning som inte är standard. Du kan till exempel testa videon i [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 * Slutpunkten för direktuppspelning som du streaming måste köras.  
 
 ## <a name="provide-feedback"></a>Ge feedback

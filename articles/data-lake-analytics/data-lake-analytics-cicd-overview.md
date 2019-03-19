@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: 937e261405634e88ab234d2fe43ee660a3acc417
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: b6c5df1ef0c93508595e27cbda315281aa3461b5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233667"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124294"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Hur du ställer in en CI/CD-pipeline för Azure Data Lake Analytics  
 
@@ -328,17 +328,17 @@ Förutom kommandoraden, kan du använda Visual Studio-versionen eller en MSBuild
    ![CI/CD MSBuild-aktiviteten för ett U-SQL-projekt](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
 
-1.  Lägg till en aktivitet för återställning av NuGet för att hämta lösningen refererar till NuGet-paketet, vilket innefattar `Azure.DataLake.USQL.SDK`, så att MSBuild hittar mål för U-SQL-språk. Ange **Avancerat** > **målkatalogen** till `$(Build.SourcesDirectory)/packages` om du vill använda exemplet för MSBuild-argument direkt i steg 2.
+1. Lägg till en aktivitet för återställning av NuGet för att hämta lösningen refererar till NuGet-paketet, vilket innefattar `Azure.DataLake.USQL.SDK`, så att MSBuild hittar mål för U-SQL-språk. Ange **Avancerat** > **målkatalogen** till `$(Build.SourcesDirectory)/packages` om du vill använda exemplet för MSBuild-argument direkt i steg 2.
 
-    ![CI/CD-NuGet-uppgift för ett U-SQL-projekt](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
+   ![CI/CD-NuGet-uppgift för ett U-SQL-projekt](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
-2.  Ange MSBuild-argument i Visual Studio-genereringsverktyg eller i en MSBuild-uppgift som du ser i följande exempel. Eller du kan definiera variabler för de här argumenten i Azure Pipelines build-pipeline.
+2. Ange MSBuild-argument i Visual Studio-genereringsverktyg eller i en MSBuild-uppgift som du ser i följande exempel. Eller du kan definiera variabler för de här argumenten i Azure Pipelines build-pipeline.
 
    ![Definiera variabler för CI/CD MSBuild för ett projekt för U-SQL-databas](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
 
-    ```
-    /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
-    ```
+   ```
+   /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
+   ```
  
 ### <a name="u-sql-database-project-build-output"></a>Resultatet för U-SQL-databas-projekt
 

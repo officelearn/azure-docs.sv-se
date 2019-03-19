@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: f9abc6d79bd821ef612e9e7648b1b5af98bb5cf6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 27c1481314ba1dd77cdcf229842aeec7de3e4444
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456239"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117463"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Replikera Azure disk encryption (ADE) aktiverade virtuella datorer till en annan Azure-region
 
@@ -123,8 +123,8 @@ Du kan ändra standardinställningarna för målet som används av Site Recovery
 
 
 2. Klicka på **anpassa:** bredvid inställningar för datakryptering att ändra den nedan standardinställningar:
-    - I **Target disk encryption-nyckelvalv**, Välj mål disk encryption key vault i listan med alla nyckelvalv på målplatsen för prenumerationen.
-  - I **Target nyckelkryptering nyckelvalv**, Välj nyckelvalvet för nyckelkryptering som mål i listan med alla nyckelvalv på målplatsen för prenumerationen.
+   - I **Target disk encryption-nyckelvalv**, Välj mål disk encryption key vault i listan med alla nyckelvalv på målplatsen för prenumerationen.
+     - I **Target nyckelkryptering nyckelvalv**, Välj nyckelvalvet för nyckelkryptering som mål i listan med alla nyckelvalv på målplatsen för prenumerationen.
 
 3. Klicka på **skapa målresursen** > **Aktivera replikering**.
 4. När de virtuella datorerna har aktiverats för replikering, du kan kontrollera status för VM-hälsa under **replikerade objekt**

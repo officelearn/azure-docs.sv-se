@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 40e7f257df41fa4836b9df692be48a4b6c57fc80
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ef695d913c73f0a4266b20f21f1008108b85b4d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813006"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57893024"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Designen av ett system med multi-DRM innehållsskydd med åtkomstkontroll 
 
@@ -29,7 +29,7 @@ Utforma och skapa en Digital Rights Management (DRM)-undersystem för en over-th
 
 Riktade läsare för det här dokumentet är tekniker som arbetar i DRM delsystem av OTT eller strömning flera/skärmar onlinelösningar eller läsare som är intresserade av DRM-undersystem. Antas att läsaren känner till minst en av DRM-tekniker på marknaden, till exempel PlayReady, Widevine, FairPlay eller Adobe åtkomst.
 
-I den här diskussionen av multi-DRM tar vi de 3 DRM: er som stöds av Azure Media Services: Gemensam kryptering (CENC) för PlayReady och Widevine, FairPlay samt AES-128 Rensa nyckelkryptering. En större trend i online strömning och OTT-branschen är att använda interna DRM: er på olika klientplattformar. Denna trend är en förändring från det föregående objekt som används av en enda DRM och dess klient-SDK för olika klientplattformar. När du använder CENC med flera interna DRM både PlayReady och Widevine krypteras enligt den [gemensam kryptering (ISO/IEC 23001 7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specifikationen.
+I den här diskussionen av multi-DRM tar vi de 3 DRM: er som stöds av Azure Media Services: Gemensam kryptering (CENC) för PlayReady och Widevine, FairPlay samt AES-128 Rensa nyckelkryptering. En större trend i online strömning och OTT-branschen är att använda interna DRM: er på olika klientplattformar. Denna trend är en förändring från det föregående objekt som används av en enda DRM och dess klient-SDK för olika klientplattformar. När du använder CENC med flera interna DRM både PlayReady och Widevine krypteras enligt den [gemensam kryptering (ISO/IEC 23001 7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specifikationen.
 
 Fördelarna med att använda interna multi-DRM för innehållsskydd är att den:
 
@@ -49,7 +49,7 @@ Målen för den här artikeln är att:
 I följande tabell sammanfattas inbyggt DRM-stöd på olika plattformar och EME stöd i olika webbläsare.
 
 | **Klientplattform** | **Interna DRM** | **EME** |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Smart TV, digitalboxar** | PlayReady, Widevine och/eller andra | Inbäddade webbläsaren/EME för PlayReady och/eller Widevine|
 | **Windows 10** | PlayReady | Microsoft Edge/IE11 för PlayReady|
 | **Android-enheter (telefon, surfplatta, TV)** |Widevine |Chrome för Widevine |
@@ -145,7 +145,7 @@ I följande tabell visar mappningen.
 | **Nyckelhantering** |Inte behövs för referensimplementering |
 | **Innehållshantering** |En C#-konsolprogram |
 
-Med andra ord tillhandahålls både IDP och STS av Azure AD. Den [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/) används för spelaren. Både Azure Media Services och Azure Media Player stöder CENC över DASH, FairPlay med HLS, PlayReady med smooth streaming och AES-128-kryptering för DASH, HLS och smooth.
+Med andra ord tillhandahålls både IDP och STS av Azure AD. Den [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/) används för spelaren. Både Azure Media Services och Azure Media Player stöder CENC över DASH, FairPlay med HLS, PlayReady med smooth streaming och AES-128-kryptering för DASH, HLS och smooth.
 
 Följande diagram visar övergripande struktur och flödet med föregående teknik mappningen:
 
@@ -199,7 +199,7 @@ Implementering omfattar följande steg:
    * Install-Package Microsoft.Owin.Host.SystemWeb
    * Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
-8. Skapa en spelare med hjälp av den [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/). Använd den [Azure Media Player ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/) att ange vilka DRM-teknik för att använda på olika DRM-plattformar.
+8. Skapa en spelare med hjälp av den [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/). Använd den [Azure Media Player ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/) att ange vilka DRM-teknik för att använda på olika DRM-plattformar.
 
 9. I följande tabell visas test-matrisen.
 
@@ -365,7 +365,7 @@ Det finns två typer av säkerhetsnycklar:
 
 > [!NOTE]
 > Om du använder .NET Framework / C# som din utvecklingsplattform, X509 certifikatet som används för en asymmetrisk säkerhetsnyckel måste ha en nyckellängd på minst 2 048. Det här är ett krav för System.IdentityModel.Tokens.X509AsymmetricSecurityKey i .NET Framework-klassen. Annars genereras följande undantag:
-
+> 
 > IDX10630: System.IdentityModel.Tokens.X509AsymmetricSecurityKey för signering får inte vara mindre än '2048-bitar.
 
 ## <a name="the-completed-system-and-test"></a>Slutförda system och testning

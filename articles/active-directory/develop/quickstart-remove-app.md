@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d71489194422a785ee98ec70a07c765c3d686808
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 20d7218b9b1d53b3cfb72a12ee34a77956327ce2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182620"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093202"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Snabbstart: Ta bort ett program som registrerats med Microsoft Identity Platform (förhandsversion)
 
@@ -33,7 +33,7 @@ I den här snabbstarten lär du dig att:
 * Ta bort ett program som skapats av dig eller din organisation
 * Ta bort ett program som skapats av en annan organisation
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
@@ -52,8 +52,8 @@ Program som du eller din organisation har registrerat representeras av både ett
 4. På sidan **Översikt** väljer du **Ta bort**.
 5. Välj **Ja** för att bekräfta att du vill ta bort appen.
 
-  > [!NOTE]
-  > Om du vill ta bort ett program måste vara angiven som ägare av programmet eller ha administratörsbehörighet.
+   > [!NOTE]
+   > Om du vill ta bort ett program måste vara angiven som ägare av programmet eller ha administratörsbehörighet.
 
 ## <a name="remove-an-application-authored-by-another-organization"></a>Ta bort ett program som skapats av en annan organisation
 

@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 16beaadae36dfc7445a88875d36786bd97889599
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 2a959c9d131c6aa0bdc99450cf2b6f09a5d8bfa7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445088"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102357"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Konfigurera meddelanden och e-postmallar i Azure API Management
 API Management gör möjligheten att konfigurera meddelanden för specifika händelser och för att konfigurera e-postmallar som används för att kommunicera med administratörer och utvecklare av en API Management-instans. Den här artikeln visar hur du konfigurerar aviseringar för de tillgängliga händelserna och ger en översikt över hur du konfigurerar e-mallarna som används för dessa händelser.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har en API Management-tjänstinstans, Slutför följande Snabbstart: [skapa en Azure API Management-instans](get-started-create-service-instance.md).
+Om du inte har en API Management-tjänstinstans, Slutför följande Snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -38,15 +38,15 @@ Om du inte har en API Management-tjänstinstans, Slutför följande Snabbstart: 
 
     Följande lista över händelser kan konfigureras för meddelanden.
 
-    * **Prenumerationsbegäranden (kräva godkännande)** -den angivna e-postmottagare och användarna får ett e-postaviseringar om prenumerationsbegäranden för API-produkter som kräver godkännande.
-    * **Nya prenumerationer** -den angivna e-postmottagare och användare får ett e-postmeddelanden om nya prenumerationer för API-produkt.
-    * **Galleriet programförfrågningar** -angivna e-postmottagare och användarna får ett e-postmeddelanden när nya program skickas till programgalleriet.
-    * **Hemlig kopia** -den angivna e-postmottagare och användare får ett e-hemliga kopior av alla e-postmeddelanden skickas till utvecklare.
-    * **Nytt ärende eller kommentar** – den angivna e-postmottagare och användarna får ett e-postmeddelanden när ett nytt ärende eller kommentar har skickats i developer-portalen.
-    * **Stäng konto meddelande** -angivna e-postmottagare och användarna får ett e-postmeddelanden när ett konto har avslutats.
-    * **Närmar sig kvotgränsen för prenumerationen** -följande e-postmottagare och användarna får ett e-postmeddelanden när prenumerationsanvändning hämtar nära kvot för användning.
+   * **Prenumerationsbegäranden (kräva godkännande)** -den angivna e-postmottagare och användarna får ett e-postaviseringar om prenumerationsbegäranden för API-produkter som kräver godkännande.
+   * **Nya prenumerationer** -den angivna e-postmottagare och användare får ett e-postmeddelanden om nya prenumerationer för API-produkt.
+   * **Galleriet programförfrågningar** -angivna e-postmottagare och användarna får ett e-postmeddelanden när nya program skickas till programgalleriet.
+   * **Hemlig kopia** -den angivna e-postmottagare och användare får ett e-hemliga kopior av alla e-postmeddelanden skickas till utvecklare.
+   * **Nytt ärende eller kommentar** – den angivna e-postmottagare och användarna får ett e-postmeddelanden när ett nytt ärende eller kommentar har skickats i developer-portalen.
+   * **Stäng konto meddelande** -angivna e-postmottagare och användarna får ett e-postmeddelanden när ett konto har avslutats.
+   * **Närmar sig kvotgränsen för prenumerationen** -följande e-postmottagare och användarna får ett e-postmeddelanden när prenumerationsanvändning hämtar nära kvot för användning.
 
-    Du kan ange e-postmottagare med textrutan för e-postadress för varje händelse eller du kan välja användare från en lista.
+     Du kan ange e-postmottagare med textrutan för e-postadress för varje händelse eller du kan välja användare från en lista.
 
 3. Om du vill meddelas e-postadresser, anger du dem i textrutan för e-postadress. Om du har flera e-postadresser kan du avgränsa dem med kommatecken.
 

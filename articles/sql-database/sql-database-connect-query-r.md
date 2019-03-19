@@ -11,13 +11,13 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 02/12/2019
-ms.openlocfilehash: 61c4edc5ec9c690944047ce67f619f0f69f62f6c
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.date: 03/01/2019
+ms.openlocfilehash: e15cf93514f921223fea37aa480730bba46dd195
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236744"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864957"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Snabbstart: Använda Machine Learning Services (med R) i Azure SQL Database (förhandsversion)
 
@@ -29,10 +29,14 @@ Machine Learning Services innehåller en grundläggande distribution av R med ö
 
 Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/) innan du börjar.
 
-> [!NOTE]
-> Machine Learning Services (med R) i Azure SQL Database är för närvarande i offentlig förhandsversion. [Registrera dig för förhandsversionen](sql-database-machine-learning-services-overview.md#signup).
+> [!IMPORTANT]
+> Azure SQL Database Machine Learning Services är för närvarande i offentlig förhandsversion.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> [Registrera dig för förhandsversionen](sql-database-machine-learning-services-overview.md#signup).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att köra exempelkoden i de här övningarna behöver du först ha en SQL-databas med Machine Learning Services (med R) aktiverat. Under den offentliga förhandsversionen introducerar Microsoft dig och aktiverar maskininlärning för din befintliga eller nya databas. Följ stegen i [Registrera dig för förhandsversionen](sql-database-machine-learning-services-overview.md#signup).
 
@@ -154,7 +158,7 @@ Just nu tittar vi bara på standardvariablerna för indata och utdata i sp_execu
 
     ![Utdata från R-skript som returnerar data från en tabell](./media/sql-database-connect-query-r/r-output-rtestdata.png)
 
-3. Nu ändrar vi namnet på indata- eller utdatavariablerna. Skriptet ovan använder standardvariabelnamnen för indata och utdata, _InputDataSet_ och _OutputDataSet_. För att definiera indata som är associerade med _InputDatSet_ använder du variabeln *@input_data_1*.
+3. Nu ändrar vi namnet på indata- eller utdatavariablerna. Skriptet ovan använder standardvariabelnamnen för indata och utdata, _InputDataSet_ och _OutputDataSet_. Att definiera indata som är associerade med _InputDatSet_, du använder den  *\@input_data_1* variabeln.
 
     I det här skriptet har namnen på utdata- och indatavariablerna för den lagrade proceduren ändrats till *SQL_out* och *SQL_in*:
 
@@ -170,7 +174,7 @@ Just nu tittar vi bara på standardvariablerna för indata och utdata i sp_execu
 
     Observera att R är skiftlägeskänsligt, så skiftläget för indata- och utdatavariablerna i `@input_data_1_name` och `@output_data_1_name` måste stämma överens med dem som finns i R-koden i `@script`. 
 
-    Dessutom är ordningen på parametrarna viktig. Du måste ange de obligatoriska parametrarna *@input_data_1* och *@output_data_1* först för att kunna använda de valfria parametrarna *@input_data_1_name* och *@output_data_1_name*.
+    Dessutom är ordningen på parametrarna viktig. Du måste ange de obligatoriska parametrarna  *\@input_data_1* och  *\@output_data_1* först för att kunna använda följande valfria parametrar  *\@ input_data_1_name* och  *\@output_data_1_name*.
 
     Endast en indatamängd kan skickas som parameter, och du kan returnera endast en datamängd. Dock kan du anropa andra datamängder i R-koden och returnera utdata för andra typer utöver datamängden. Du kan även lägga till nyckelordet OUTPUT till valfri parameter så att den returneras med resultatet. 
 
@@ -271,34 +275,34 @@ Du kan träna en modell med hjälp av R och spara modellen till en tabell i SQL-
 
     Kraven i en linjär modell är enkla:
 
-    - Definiera en formel som beskriver relationen mellan den beroende variabeln `speed` och den oberoende variabeln `distance`.
+   - Definiera en formel som beskriver relationen mellan den beroende variabeln `speed` och den oberoende variabeln `distance`.
 
-    - Ange indata som ska användas för att träna modellen.
+   - Ange indata som ska användas för att träna modellen.
 
-    > [!TIP]
-    > Om du behöver uppdatera dig om linjära modeller rekommenderar vi den här självstudien, som beskriver processen för att passa en modell med hjälp av rxLinMod: [Anpassa linjära modeller](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
+     > [!TIP]
+     > Om du behöver uppdatera dig om linjära modeller rekommenderar vi den här självstudien, som beskriver processen för att passa en modell med hjälp av rxLinMod: [Anpassa linjära modeller](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
-    För att skapa modellen definierar du formeln i R-koden och skickar data som en indataparameter.
+     För att skapa modellen definierar du formeln i R-koden och skickar data som en indataparameter.
 
-    ```sql
-    DROP PROCEDURE IF EXISTS generate_linear_model;
-    GO
-    CREATE PROCEDURE generate_linear_model
-    AS
-    BEGIN
-        EXEC sp_execute_external_script
-        @language = N'R'
-        , @script = N'lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
-            trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));'
-        , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
-        , @input_data_1_name = N'CarsData'
-        , @output_data_1_name = N'trained_model'
-        WITH RESULT SETS ((model VARBINARY(max)));
-    END;
-    GO
-    ```
+     ```sql
+     DROP PROCEDURE IF EXISTS generate_linear_model;
+     GO
+     CREATE PROCEDURE generate_linear_model
+     AS
+     BEGIN
+       EXEC sp_execute_external_script
+       @language = N'R'
+       , @script = N'lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
+           trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));'
+       , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
+       , @input_data_1_name = N'CarsData'
+       , @output_data_1_name = N'trained_model'
+       WITH RESULT SETS ((model VARBINARY(max)));
+     END;
+     GO
+     ```
 
-    Det första argumentet till rxLinMod är parametern *formula*, som definierar avståndet som beroende på hastigheten. Indata lagras i variabeln `CarsData`, som fylls av SQL-frågan. Om du inte anger ett specifikt namn för dina indata blir standardvariabelnamnet _InputDataSet_.
+     Det första argumentet till rxLinMod är parametern *formula*, som definierar avståndet som beroende på hastigheten. Indata lagras i variabeln `CarsData`, som fylls av SQL-frågan. Om du inte anger ett specifikt namn för dina indata blir standardvariabelnamnet _InputDataSet_.
 
 2. Sedan skapar du en tabell där du lagrar modellen så att du kan träna om eller använda den för förutsägelse. Utdata från ett R-paket som skapar en modell är vanligtvis ett **binärt objekt**. Därför tabellen måste ange en kolumn med typen **VARBINARY(max)**.
 
@@ -397,23 +401,23 @@ Använd den modell som du skapade i föregående avsnitt för att bedöma förut
 
     Skriptet ovan utför följande steg:
 
-    + Använd en SELECT-instruktion för att hämta en enda modell från tabellen och skicka den som en indataparameter.
+   + Använd en SELECT-instruktion för att hämta en enda modell från tabellen och skicka den som en indataparameter.
 
-    + När du har hämtat modellen från tabellen anropar du funktionen `unserialize` på modellen.
+   + När du har hämtat modellen från tabellen anropar du funktionen `unserialize` på modellen.
 
-        > [!TIP] 
-        > Se även de nya [serialiseringsfunktionerna](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) som tillhandahålls av RevoScaleR, som stöder bedömning i realtid.
-    + Tillämpa funktionen `rxPredict` med lämpliga argument på modellen och ange nya indata.
+       > [!TIP] 
+       > Se även de nya [serialiseringsfunktionerna](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) som tillhandahålls av RevoScaleR, som stöder bedömning i realtid.
+   + Tillämpa funktionen `rxPredict` med lämpliga argument på modellen och ange nya indata.
 
-    + I det här exemplet läggs funktionen `str` till under testfasen för att kontrollera schemat för data som returneras från R. Du kan ta bort instruktionen senare.
+   + I det här exemplet läggs funktionen `str` till under testfasen för att kontrollera schemat för data som returneras från R. Du kan ta bort instruktionen senare.
 
-    + De kolumnnamn som använs i R-skriptet skickas inte nödvändigtvis till utdata för den lagrade proceduren. Här har vi använt satsen WITH RESULTS för att definiera några nya kolumnnamn.
+   + De kolumnnamn som använs i R-skriptet skickas inte nödvändigtvis till utdata för den lagrade proceduren. Här har vi använt satsen WITH RESULTS för att definiera några nya kolumnnamn.
 
-    **Results**
+     **Results**
 
-    ![Resultatmängd för att förutsäga bromssträcka](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
+     ![Resultatmängd för att förutsäga bromssträcka](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
 
-    Det är även möjligt att använda [PREDICT i Transact-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql) för att generera ett förutsagt värde eller poäng baserat på en lagrad modell.
+     Det är även möjligt att använda [PREDICT i Transact-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql) för att generera ett förutsagt värde eller poäng baserat på en lagrad modell.
 
 <a name="add-package"></a>
 

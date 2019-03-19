@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 506e36f72237f776c3969d945156c3edd6a64ffb
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: c39931ab5d391020e0e7b5ad26ebfa41806fc4ba
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319978"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404679"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Vad är Azure Data Box Disk?
 
@@ -84,7 +84,7 @@ Mer information finns i [Säkerhet och dataskydd i Azure Data Box Disk](data-box
 | Datagränssnitt                                          | USB   |
 | Säkerhet                                                | Förkrypterat med BitLocker och säker uppdatering <br> Nyckelskyddade diskar <br> Data hålls alltid krypterade  |
 | Dataöverföringshastighet                                      | upp till 430 MB/s beroende på filstorlek      |
-|Hantering                                               | Azure-portalen |
+|Hantering                                               | Azure Portal |
 
 
 ## <a name="region-availability"></a>Regional tillgänglighet
@@ -102,6 +102,7 @@ Data Box Disk kan för närvarande överföra data till följande Azure-regioner
 |Norra centrala USA  |Sydöstra Australien   |
 |Östra USA      |Australien, centrala |
 |USA, östra 2     |Australien, centrala 2|
+|Östra Japan     |Sydkorea, centrala |
 
 
 ## <a name="pricing"></a>Prissättning

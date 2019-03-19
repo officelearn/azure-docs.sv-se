@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 3/1/2019
 ms.author: mjbrown
-ms.openlocfilehash: 2b46638a7e0fa3dc80fa4d2fa23d49b37b8885ec
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 0ba5cdd4f92390634d6d2bea8add8309cb1f4d3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193166"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014485"
 ---
 # <a name="index-policy-in-azure-cosmos-db"></a>Index principen i Azure Cosmos DB
 
@@ -37,9 +37,6 @@ Azure Cosmos DB stöder två indexering lägen som du kan konfigurera ett Azure 
   > Konfigurera indexering läge som en ingen har att släppa alla befintliga index. Du bör använda det här alternativet om din åtkomstmönster kräver ID eller självlänken endast.
 
 Fråga konsekvensnivåer bevaras liknar regelbundna läsåtgärder. Azure Cosmos-databasen returnerar ett fel om du frågar behållaren som innehåller en ingen indexering läge. Du kan köra frågor som genomsökningar via den explicita **x-ms-documentdb-enable-genomsökning** huvud i REST API eller **EnableScanInQuery** begära alternativet med hjälp av .NET SDK. Vissa fråga funktioner, som ORDER BY inte stöds för närvarande med **EnableScanInQuery**, eftersom de utförda ett motsvarande index.
-
-> [!NOTE]
-> Azure Cosmos DB har en tredje Lazy indexering läge. Men detta håller på att ta bort framhävd eftersom frågeprestanda och kostnad kan vara oförutsägbart. Vi rekommenderar att du använder konsekvent indexering läge.
 
 ## <a name="modifying-the-indexing-policy"></a>Ändra indexprincip
 

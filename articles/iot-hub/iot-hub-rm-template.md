@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: fb3456f399e9fa8bbe35336a3b8933c39a0d03d9
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 4acf7a8bbc02a10468004092152b1d7c5c4d621f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008966"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075926"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Skapa en IoT hub med Azure Resource Manager-mall (.NET)
 
@@ -125,7 +125,7 @@ Använd en JSON-fil i mallen och parameterfilerna för att skapa en IoT-hubb i r
       }
     }
     ```
-  [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 5. I **Server Explorer**, ansluta till din Azure-prenumeration och i ditt Azure Storage-konto skapar du en behållare som kallas **mallar**. I den **egenskaper** panelen genom att ange den **offentlig läsbehörighet** behörigheter för den **mallar** behållaren **Blob**.
 

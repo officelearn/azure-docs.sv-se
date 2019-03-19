@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 02/22/2019
 ms.author: diberry
-ms.openlocfilehash: 3fe549a63f0fb4662ba5beb2e28f1ca72fcc1ee4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 33541d2a61c52476f6e314f6981a623390de8fa9
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55855892"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193746"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Självstudier: Lägga till format för mallyttrande med vanliga mönster
 
@@ -221,22 +221,7 @@ För att ett mönster ska kunna matchas till ett yttrande måste entiteterna i y
 
 **Med mönster kan du ge färre exempelyttranden, men om entiteterna inte identifieras matchar inte mönstret.**
 
-I den här kursen lägger du till två nya avsikter: `OrgChart-Manager` och `OrgChart-Reports`. 
-
-|Avsikt|Yttrande|
-|--|--|
-|OrgChart-Manager (Organisationsschema-Chef)|Who does Jill Jones report to? (Vem rapporterar Jill Jones till?)|
-|OrgChart-Reports (Organisationsschema-Rapporterar)|Who reports to Jill Jones? (Vilka rapporterar till Jill Jones?|
-
-När LUIS returnerar en förutsägelse till klientappen kan avsiktsnamnet användas som ett funktionsnamn i klientappen och att entiteten Employee (Medarbetare) kan användas som en parameter till den funktionen.
-
-```javascript
-OrgChartManager(employee){
-    ///
-}
-```
-
-Kom ihåg att medarbetare skapades i [självstudiekursen om listentiteter](luis-quickstart-intent-and-list-entity.md).
+## <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Lägg till mönster för organisationsschema Manager avsikten
 
 1. Välj **Build** (Skapa) i huvudmenyn.
 
@@ -259,7 +244,7 @@ Kom ihåg att medarbetare skapades i [självstudiekursen om listentiteter](luis-
 
     [![Skärmbild av att ange mallyttranden för avsikt](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. Välj avsikten **OrgChart-Reports** och ange sedan följande mallyttranden:
+4. När du fortfarande på sidan mönster, Välj den **Organisationsschema rapporter** avsikt, ange sedan följande mall-uttryck:
 
     |Mallyttranden|
     |:--|
@@ -272,11 +257,13 @@ Kom ihåg att medarbetare skapades i [självstudiekursen om listentiteter](luis-
 
 ## <a name="query-endpoint-when-patterns-are-used"></a>Frågeslutpunkt där mönster används
 
+Nu när mönster som läggs till i appen, träna, publicera och fråga appen vid förutsägelse runtime-slutpunkten.
+
 1. Träna och publicera appen igen.
 
-2. Byt webbläsarflik tillbaka till fliken med slutpunkts-URL:en.
+1. Byt webbläsarflik tillbaka till fliken med slutpunkts-URL:en.
 
-3. Gå till slutet av URL:en i adressen och ange `Who is the boss of Jill Jones?` som yttrande. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
+1. Gå till slutet av URL:en i adressen och ange `Who is the boss of Jill Jones?` som yttrande. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
 
     ```json
     {
@@ -362,11 +349,11 @@ Kom ihåg att medarbetare skapades i [självstudiekursen om listentiteter](luis-
     }
     ```
 
-Avsiktsförutsägelsen är ny betydligt högre.
+Avsiktshantering förutsägelse är nu avsevärt tryggare.
 
 ## <a name="working-with-optional-text-and-prebuilt-entities"></a>Arbeta med valfri text och fördefinierade entiteter
 
-Föregående mallyttranden för mönster i den här kursen hade några exempel på valfri text, som possessiv användning av bokstaven s `'s` (se exemplen på engelska) och användningen av frågetecken, `?`. Anta att slutpunktsyttranden visar att chefer och HR-personal söker efter historiska data och planerade personalflyttningar i företaget som ska ske på ett framtida datum.
+Föregående mallyttranden för mönster i den här kursen hade några exempel på valfri text, som possessiv användning av bokstaven s `'s` (se exemplen på engelska) och användningen av frågetecken, `?`. Anta att du måste tillåta för aktuella och framtida datum i textrutan uttryck.
 
 Exempelyttranden är:
 
@@ -379,23 +366,22 @@ Exempelyttranden är:
 
 Alla dessa exempel använder ett verbtempus, `was`, `is`, `will be` samt ett datum, `March 3`, `now` och `in a month`, som LUIS behöver för att förutsäga korrekt. Observera att de senaste två exemplen använder nästan samma text för `in` och `on`.
 
-Exempel på mallyttranden:
+Exempel mallen yttranden som tillåter att den här valfria informationen: 
+
 |Avsikt|Exempelyttranden med valfri text och fördefinierade entiteter|
 |:--|:--|
 |OrgChart-Manager (Organisationsschema-Chef)|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
 |OrgChart-Manager (Organisationsschema-Chef)|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
-|OrgChart-Manager (Organisationsschema-Chef)|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-|OrgChart-Manager (Organisationsschema-Chef)|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
 
 Användningen av valfri syntax inom hakparentes, `[]`, gör den här valfria texten enkel att lägga till i mallyttrandet och kan kapslas upp till en andra nivå, `[[]]`, och innehåller entiteter eller text.
 
-**Fråga: Varför kan inte de två sista exempelyttrandena kombineras till ett mallyttrande?** Mönstermallen stöder inte OR-syntax. För att kunna fånga både `in`-versionen och `on`-versionen måste båda vara ett separat mallyttrande.
 
 **Fråga: Varför är alla `w`-bokstäver, den första bokstaven i varje mallyttrande, gemener? Borde det inte vara valfritt versaler eller gemener?** Yttrandet som skickas till frågeslutpunkten, av frågeslutpunkten, konverteras till gemener. Mallyttrandet kan vara versaler eller gemener och slutpunktsyttrandet kan också vara antingen eller. Jämförelsen görs alltid efter konverteringen till gemener.
 
 **Fråga: Varför är inte fördefinierat tal ett mallyttrande om 3 mars förutsägs både som talet `3` och datumet `March 3`?** Mallyttrandet använder kontextuellt ett datum, antingen bokstavligen som i `March 3` eller abstraheras som `in a month`. Ett datum innehåller ett tal men ett tal kanske inte nödvändigtvis ses som ett datum. Använd alltid entiteten som bäst representerar den typ du vill ska returneras i resultatet för förutsägelse-JSON.  
 
-**Fråga: Hur är det med dåligt uttryckta yttranden som `Who will {Employee}['s] manager be on March 3?`?** Grammatiskt olika verbtempus som det här där `will` och `be` är åtskilda måste vara ett nytt mallyttrande. Det befintliga mallyttrandet kommer inte att matcha det. Avsikten för yttrandet har inte ändrats men ordets placering i yttrandet har ändrats. Den här ändringen påverkar förutsägelsen i LUIS.
+**Fråga: Hur är det med dåligt uttryckta yttranden som `Who will {Employee}['s] manager be on March 3?`?** Grammatiskt olika verbtempus som det här där `will` och `be` är åtskilda måste vara ett nytt mallyttrande. Det befintliga mallyttrandet kommer inte att matcha det. Avsikten för yttrandet har inte ändrats men ordets placering i yttrandet har ändrats. Den här ändringen påverkar förutsägelsen i LUIS. Du kan [grupp och eller](#use-the-or-operator-and-groups) verbtempus att kombinera dessa yttranden. 
 
 **Kom ihåg: entiteter hittas först, sedan matchas mönstret.**
 
@@ -403,11 +389,9 @@ Användningen av valfri syntax inom hakparentes, `[]`, gör den här valfria tex
 
 1. På LUIS-webbplatsen väljer du **Build** (Skapa) i huvudmenyn och välj sedan **Patterns** (Mönster) i den vänstra menyn. 
 
-2. Hitta det befintliga yttrandet, `Who is {Employee}['s] manager[?]`, och välj ellipsen (***...***) till höger. 
+1. Sök efter den befintliga mallen uttryck `Who is {Employee}['s] manager[?]`, och välj ellipsen (***...*** ) till höger, Välj **redigera** på snabbmenyn. 
 
-3. Välj **Edit** (Redigera) i popup-menyn. 
-
-4. Ändra mallyttrandet till: `who is {Employee}['s] manager [[on]{datetimeV2}?]]`
+1. Ändra mallyttrandet till: `who is {Employee}['s] manager [[on]{datetimeV2}?]`
 
 ## <a name="add-new-pattern-template-utterances"></a>Lägga till nya mallyttranden för mönster
 
@@ -416,7 +400,6 @@ Användningen av valfri syntax inom hakparentes, `[]`, gör den här valfria tex
     |Avsikt|Exempelyttranden med valfri text och fördefinierade entiteter|
     |--|--|
     |OrgChart-Manager (Organisationsschema-Chef)|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-    |OrgChart-Manager (Organisationsschema-Chef)|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
     |OrgChart-Manager (Organisationsschema-Chef)|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
     |OrgChart-Manager (Organisationsschema-Chef)|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
@@ -426,7 +409,7 @@ Användningen av valfri syntax inom hakparentes, `[]`, gör den här valfria tex
 
 4. Ange flera testyttranden för att verifiera att mönstret matchas och avsiktspoängen är mycket höga. 
 
-    När du har angett det första yttrandet väljer du **Inspect** (Granska) under resultatet så att du kan se alla förutsägelseresultat.
+    När du har angett det första yttrandet väljer du **Inspect** (Granska) under resultatet så att du kan se alla förutsägelseresultat. Varje uttryck ska ha den **Organisationsschema Manager** avsikten och bör extrahera värden för enheterna som anställda och datetimeV2.
 
     |Yttrande|
     |--|
@@ -438,6 +421,51 @@ Användningen av valfri syntax inom hakparentes, `[]`, gör den här valfria tex
     |Who will be Jill Jones manager in a month? (Vem blir Jill Jones chef om en månad?)|
 
 Alla dessa yttranden hittade entiteterna inuti, och därför matchar de samma mönster, och har höga förutsägelsepoäng.
+
+## <a name="use-the-or-operator-and-groups"></a>Använd OR-operator och grupper
+
+Flera av de föregående mall-uttryck är mycket nära. Använd den **grupp** `()` och **eller** `|` syntaxen för att minska mall yttranden. 
+
+Kombinera följande 2 mönster i ett enda mönster med hjälp av gruppen `()` och eller `|` syntax.
+
+|Avsikt|Exempelyttranden med valfri text och fördefinierade entiteter|
+|--|--|
+|OrgChart-Manager (Organisationsschema-Chef)|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
+|OrgChart-Manager (Organisationsschema-Chef)|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
+Uttryck för den nya mallen kommer att: 
+
+`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`. 
+
+Här används en **grupp** runt krävs verb Tempus och den valfria `in` och `on` med en **eller** pipe mellan dem. 
+
+1. På den **mönster** väljer den **Organisationsschema Manager** filter. Begränsa listan genom att söka efter `manager`. 
+
+    ![Sök i Organisationsschema Manager avsikt mönster efter termen ”manager”](./media/luis-tutorial-pattern/search-patterns.png)
+
+1. Håll en version av mall-uttryck (för att redigera i nästa steg) och ta bort andra varianter. 
+
+1. Ändra mall-uttryck till: 
+
+    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
+
+1. Träna appen.
+
+1. Använd rutan för att testa versioner av uttryck:
+
+    |Yttranden ange i Testfönster|
+    |--|
+    |`Who is Jill Jones manager this month`|
+    |`Who is Jill Jones manager on July 5th`|
+    |`Who was Jill Jones manager last month`|
+    |`Who was Jill Jones manager on July 5th`|    
+    |`Who will be Jill Jones manager in a month`|
+    |`Who will be Jill Jones manager on July 5th`|
+
+
+## <a name="use-the-utterance-beginning-and-ending-anchors"></a>Använda uttryck inledande och avslutande ankare
+
+Mönstret syntaxen innehåller inledande och avslutande uttryck ankare syntaxen för en hatt `^`. Första och sista uttryck ankare kan användas tillsammans att målet specificerad och möjligen literal uttryck eller brukade separat target avsikter. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -1,6 +1,6 @@
 ---
-title: Hur du uppdaterar en befintlig tilldelning
-description: Läs mer om mekanism för att uppdatera en befintlig tilldelning i Azure skisser.
+title: Hur du uppdaterar en befintlig tilldelning från portalen
+description: Läs mer om mekanism för att uppdatera en befintlig tilldelning från portalen i Azure skisser.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: edfc14e837c92cac5bab589e33069bb771a53cb7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 572a962e98332fc70c276346f497ed2e67e3c329
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818263"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999841"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Hur du uppdaterar en befintlig tilldelning av skiss
 
@@ -26,9 +26,9 @@ När en skiss tilldelas kan tilldelningen uppdateras. Det finns flera orsaker ti
 
 ## <a name="updating-assignments"></a>Uppdatering av tilldelningar
 
-1. Välj **alla tjänster** i den vänstra rutan. Sök efter och välj **skisser**.
+1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Välj **tilldelade skisser** från sidan till vänster.
+1. Välj **Tilldelade skisser** på sidan till vänster.
 
 1. I listan över skisser, klickar du på skisstilldelningen. Klicka sedan på den **uppdatera tilldelning** eller högerklicka på skisstilldelningen och välj **uppdatera tilldelning**.
 
@@ -69,8 +69,8 @@ Det finns ingen gräns för hur många gånger en tilldelning kan uppdateras. Om
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [livscykeln för en skiss](../concepts/lifecycle.md)
-- Förstå hur du använder [statiska och dynamiska parametrar](../concepts/parameters.md)
-- Lär dig hur du anpassar [sekvensordningen för en skiss](../concepts/sequencing-order.md)
-- Lär dig hur du använder [resurslåsning för en skiss](../concepts/resource-locking.md)
-- Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md)
+- Lär dig mer om den [skiss livscykeln](../concepts/lifecycle.md).
+- Förstå hur du använder [Statiska och dynamiska parametrar](../concepts/parameters.md).
+- Lär dig att anpassa den [skiss ordningsföljd](../concepts/sequencing-order.md).
+- Ta reda på hur du får använda [skiss resource låsning](../concepts/resource-locking.md).
+- Lös problem vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md).

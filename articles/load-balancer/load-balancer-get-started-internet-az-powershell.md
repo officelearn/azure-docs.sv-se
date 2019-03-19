@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
-ms.openlocfilehash: aa042237eaf3afb219a7ac3260d6e16a77cc8719
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a48ce5319616e86bf4ad6f9bfa24fda5b98d62f4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671768"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080887"
 ---
 #  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-powershell"></a>Skapa en Standardbelastningsutjämnare med zonredundant klientdel med Azure PowerShell
 
@@ -28,7 +28,7 @@ Den här artikeln visar hur du skapar en offentlig [Standardbelastningsutjämnar
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 > [!NOTE]
- Stöd för Tillgänglighetszoner är tillgänglig för väljer Azure-resurser och regioner och VM-storlekar. Mer information om hur du kommer igång och vilka Azure-resurser, regioner, och VM-storlekar som du kan prova tillgänglighetszoner med finns i [översikt över Tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview). Du kan få support via [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) eller genom att [öppna ett Azure-supportärende](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+>  Stöd för Tillgänglighetszoner är tillgänglig för väljer Azure-resurser och regioner och VM-storlekar. Mer information om hur du kommer igång och vilka Azure-resurser, regioner, och VM-storlekar som du kan prova tillgänglighetszoner med finns i [översikt över Tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview). Du kan få support via [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) eller genom att [öppna ett Azure-supportärende](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -53,7 +53,7 @@ Skapa en offentlig IP-Standard med följande kommando:
 
 ```azurepowershell-interactive
 $publicIp = New-AzPublicIpAddress -ResourceGroupName myResourceGroup -Name 'myPublicIP' `
-  -Location westeurope -AllocationMethod Static -Sku Standard
+  -Location westeurope -AllocationMethod Static -Sku Standard
 ```
 
 ## <a name="create-a-front-end-ip-configuration-for-the-website"></a>Skapa en frontend IP-konfiguration för webbplatsen
@@ -93,8 +93,8 @@ Skapa en Standardbelastningsutjämnare med följande kommando:
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer -ResourceGroupName myResourceGroup -Name 'MyLoadBalancer' -Location westeurope `
-  -FrontendIpConfiguration $feip -BackendAddressPool $bepool `
-  -Probe $probe -LoadBalancingRule $rule -Sku Standard
+  -FrontendIpConfiguration $feip -BackendAddressPool $bepool `
+  -Probe $probe -LoadBalancingRule $rule -Sku Standard
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 534a9584427efd15b8119f8421fb041199b97fbf
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9a124bd9a52e22c359fb771e4d4c8714bd1dbe2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731590"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123240"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Belastningsutjämning service fabric-kluster
 Service Fabric Cluster Resource Manager har stöd för dynamisk ändringar, reagera på tillägg eller borttagning av noder eller tjänster. Den korrigerar också automatiskt begränsningen överträdelser och balanserar proaktivt klustret. Men hur ofta tas de här åtgärderna och vad utlöser dem?
@@ -122,6 +122,7 @@ via ClusterConfig.json för distribution av fristående eller Template.json för
 ```
 
 <center>
+
 ![Belastningsutjämning tröskelvärde-exempel][Image1]
 </center>
 
@@ -130,6 +131,7 @@ I det här exemplet förbrukar en enhet av vissa mått för varje tjänst. Den m
 I exemplet längst ned är den maximala belastningen på en nod 10, medan minimivärdet är två, vilket resulterar i ett förhållande på fem. Fem är större än tröskelvärdet för avsedda belastningsutjämning på tre för det måttet. Därför kan blir en ombalansering kör schemalagda nästa gång belastningsutjämning utlöses. I den här situationen är vanligtvis vissa belastningen distribueras till Nod3. Eftersom Service Fabric Cluster Resource Manager inte använder en girig metod, kan även vissa belastningen distribueras till nod2. 
 
 <center>
+
 ![Belastningsutjämning tröskelvärdet exempel åtgärder][Image2]
 </center>
 
@@ -145,6 +147,7 @@ Ibland, men noderna är relativt imbalanced den *totala* belastningen i klustret
 Anta att vi behåller vår tröskelvärdet för belastningsutjämning av tre för det här måttet. Anta också att vi har ett tröskelvärde för aktivitet på 1536. I det första fallet när klustret är imbalanced per belastningsutjämning tröskelvärdet som det finns uppfyller någon nod aktivitet gränsen, så händer ingenting. I exemplet längst ned är Nod1 över tröskelvärdet för aktiviteten. Eftersom både tröskelvärdet för belastningsutjämning och aktivitet tröskelvärdet för måttet överskrids, har belastningsutjämning schemalagts. Exempelvis kan du ska vi titta på diagrammet nedan: 
 
 <center>
+
 ![Aktivitet tröskelvärdet exempel][Image3]
 </center>
 
@@ -194,6 +197,7 @@ Ibland om en tjänst som inte är själva imbalanced flyttas (Kom ihåg diskussi
 Du ser sitta där vi här: Det finns en kedja! Vi har inte riktigt fyra oberoende tjänster, har vi tre tjänster som är relaterade och en som är inaktiverad på egen hand.
 
 <center>
+
 ![Balancing Services tillsammans][Image4]
 </center>
 
@@ -202,6 +206,7 @@ På grund av kedjan är det möjligt att en obalans i metrics 1-4 kan orsaka rep
 Klusterresurshanteraren räknat automatiskt ut vilka tjänster som är relaterade. Att lägga till, ta bort eller ändra måtten för tjänster som kan påverka deras relationer. Till exempel kan mellan två körningar av belastningsutjämning plats2 ha uppdaterats för att ta bort Metric2. Detta bryter kedjan mellan Service1 och plats2. Nu i stället för två grupper av relaterade tjänster finns det tre:
 
 <center>
+
 ![Balancing Services tillsammans][Image5]
 </center>
 

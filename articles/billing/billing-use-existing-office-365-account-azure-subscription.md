@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
-ms.openlocfilehash: 202739e9898b871af8ae478192d015671b807b7b
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 44ff08c84b3e95a5b598ebf4279fc2ffc46313e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904479"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863448"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Registrera dig för en Azure-prenumeration med ditt Office 365-konto
 Om du har en Office 365-prenumeration kan använda du ditt Office 365-konto för att skapa en Azure-prenumeration. Logga in på den [Azure-portalen](https://portal.azure.com/) med ditt Office 365-användarnamn och lösenord. Om du vill konfigurera virtuella datorer eller använda andra Azure-tjänster måste du registrera dig för en Azure-prenumeration. Du kan dela din Azure-prenumeration med andra och [använda rollbaserad åtkomstkontroll för att hantera åtkomst till din Azure-prenumeration och resurser](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
@@ -57,4 +57,4 @@ Mer information finns i [hur Azure-prenumerationer är associerade med Azure Act
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).

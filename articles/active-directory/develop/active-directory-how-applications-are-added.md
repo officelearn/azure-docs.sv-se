@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82ccfe6a8d77926d2b908f84db600b0665565d51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 257f7b66163b72141ceb6405768e912a263fb14b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173899"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124226"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hur och varför program läggs till Azure AD
 
@@ -133,8 +133,9 @@ Om du vill förhindra att användare i din katalog från att registrera program 
 * Att hindra användare från principer för program på egen hand:
   1. I Azure-portalen går du till den [användarinställningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) avsnittet under företagsprogram.
   2. Ändra **användare kan godkänna att appar får åtkomst till företagets data å deras vägnar** till **nr**. 
-      > [!NOTE]
-      > Om du vill stänga av användarens medgivande kan en administratör krävas samtycker till att alla nya program som en användare behöver använda.    
+     
+     > [!NOTE]
+     > Om du vill stänga av användarens medgivande kan en administratör krävas samtycker till att alla nya program som en användare behöver använda.    
 * Att hindra användare från att registrera sina egna program:
   1. I Azure-portalen går du till den [användarinställningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) avsnittet under Azure Active Directory
   2. Ändra **användare kan registrera program** till **nr**.

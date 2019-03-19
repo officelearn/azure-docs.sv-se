@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 882c2f7d9abfa40ddafbba4f98292c3f8f44c459
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e7e8d12af92a566753d8f3d7baf5019bae44de2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548719"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58163525"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Skicka meddelanden från moln till enhet med IoT Hub (iOS)
 
@@ -128,7 +128,7 @@ Förutom att installera de poddar som krävs för projektet så skapar även ins
 1. Hämta tjänstanslutningssträngen för din IoT hub. Du kan kopiera den här strängen från den [Azure-portalen](https://portal.azure.com) från den **iothubowner** principen i den **principer för delad åtkomst** bladet eller hämta den med följande CLI-kommando:  
 
     ```azurecli-interactive
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
+    az iot hub show-connection-string --name {YourIoTHubName} --output table
     ```
 
 2. Öppna exempelarbetsytan i XCode.

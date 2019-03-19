@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e705bbbd08882f56020192a3b42c311e05bfa399
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bee16ed8205453546702946628c98c73b0f34b15
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191743"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103816"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Snabbstart: Uppdatera ett program i Azure Active Directory
 
@@ -30,7 +30,7 @@ Företagsutvecklare och SaaS-leverantörer (Software as a Service) som har regis
 
 I den här snabbstarten lär du dig de olika sätt som finns för att konfigurera och uppdatera programmet så att det uppfyller dina och andra organisationers krav eller behov.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång kontrollerar du att du har slutfört följande steg:
 
@@ -53,31 +53,31 @@ Innan en klient kan komma åt ett webb-API som görs tillgängligt av ett resurs
 
 ### <a name="add-application-credentials-or-permissions-to-access-web-apis"></a>Lägga till autentiseringsuppgifter för program eller behörighet att komma åt webb-API:er
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Om ditt konto ger dig tillgång till fler än en väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 3. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten, väljer **Appregistreringar** och letar upp och väljer det program som du vill konfigurera.
 
    ![Uppdatera registreringen för ett program](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
 4. Du kommer till programmets huvudsakliga registreringssida, som innehåller sidan **Inställningar** för programmet. Så här lägger du till en autentiseringsuppgift för webbprogrammet:
-  1. Välj avsnittet **Nycklar** på sidan **Inställningar**.
-  2. Så här lägger du till ett certifikat:
-    - Välj **Ladda upp offentlig nyckel**.
-    - Välj den fil som du vill ladda upp. Den måste vara någon av följande filtyper: .cer, .pem eller .crt.
-  - Så här lägger du till ett lösenord:
-    - Lägg till en beskrivning för nyckeln.
-    - Välj en varaktighet.
-    - Välj **Spara**. Kolumnen längst till höger innehåller nyckelvärdet när du har sparat konfigurationsändringarna. **Se till att kopiera nyckeln** för användning i din klientprogramkod eftersom den inte är tillgänglig när du har lämnat den här sidan.
+   1. Välj avsnittet **Nycklar** på sidan **Inställningar**.
+   1. Så här lägger du till ett certifikat:
+      - Välj **Ladda upp offentlig nyckel**.
+      - Välj den fil som du vill ladda upp. Den måste vara någon av följande filtyper: .cer, .pem eller .crt.
+   1. Så här lägger du till ett lösenord:
+      - Lägg till en beskrivning för nyckeln.
+      - Välj en varaktighet.
+      - Välj **Spara**. Kolumnen längst till höger innehåller nyckelvärdet när du har sparat konfigurationsändringarna. **Se till att kopiera nyckeln** för användning i din klientprogramkod eftersom den inte är tillgänglig när du har lämnat den här sidan.
 
 5. Så lägger du till behörigheter för att komma åt resurs-API:er från klienten
-  1. Välj avsnittet **Nödvändiga behörigheter** på sidan **Inställningar** och välj sedan **Lägg till**.
-  1. Välj **Välj ett API** för att välja vilken typ av resurser som du vill välja bland.
-  1. Bläddra igenom listan med tillgängliga API:er eller använd sökrutan för att välja bland de tillgängliga resursprogrammen i din katalog som gör ett webb-API tillgängligt. Välj den resurs som du är intresserad av och klicka sedan på **Välj**.
-  1. På sidan **Aktivera åtkomst** väljer du programbehörigheter och/eller delegerade behörigheter som programmet behöver vid åtkomst till API:et.
+   1. Välj avsnittet **Nödvändiga behörigheter** på sidan **Inställningar** och välj sedan **Lägg till**.
+   1. Välj **Välj ett API** för att välja vilken typ av resurser som du vill välja bland.
+   1. Bläddra igenom listan med tillgängliga API:er eller använd sökrutan för att välja bland de tillgängliga resursprogrammen i din katalog som gör ett webb-API tillgängligt. Välj den resurs som du är intresserad av och klicka sedan på **Välj**.
+   1. På sidan **Aktivera åtkomst** väljer du programbehörigheter och/eller delegerade behörigheter som programmet behöver vid åtkomst till API:et.
    
-  ![Uppdatera registreringen för ett program – behörighets-API](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
+   ![Uppdatera registreringen för ett program – behörighets-API](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
 
-  ![Uppdatera registreringen för ett program – behörigheter](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
+   ![Uppdatera registreringen för ett program – behörigheter](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. När du är klar väljer du knappen **Välj** på sidan **Aktivera åtkomst** och sedan knappen **Klar** på sidan **Lägg till API-åtkomst**. Du kommer tillbaka till sidan **Nödvändiga behörigheter**, där den nya resursen har lagts till i listan över API:er.
 
@@ -89,7 +89,7 @@ Följande avsnitt visar hur du gör åtkomstomfång tillgängliga genom att änd
 
 ### <a name="add-access-scopes-to-your-resource-application"></a>Lägga till åtkomstomfång i ditt resursprogram
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Om ditt konto ger dig tillgång till fler än en väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 3. I det vänstra navigeringsfönstret väljer du **Azure Active Directory > Appregistreringar** och letar upp och väljer det program som du vill konfigurera.
 
@@ -98,8 +98,8 @@ Följande avsnitt visar hur du gör åtkomstomfång tillgängliga genom att änd
 4. Du kommer till programmets huvudsakliga registreringssida, vilket öppnar sidan **Inställningar** för programmet. Växla till sidan **Redigera manifest** genom att klicka på **Manifest** från programmets registreringssida. En webbaserad manifestredigerare öppnas så att du kan **Redigera** manifestet i portalen. Alternativt kan du klicka på **Ladda ned** och redigera lokalt och sedan använda **Ladda upp** för att tillämpa det på ditt program på nytt.
 5. I det här exemplet gör vi ett nytt omfång som kallas `Employees.Read.All` tillgängligt på resursen/API:et genom att lägga till följande JSON-elementet till så samlingen `oauth2Permissions`. Den omfånget `user_impersonation` tillhandahålls som standard under registreringen. `user_impersonation` gör att ett klientprogram kan begära behörighet att komma åt resursen under identiteten för den inloggade användaren. Se till att lägga till kommatecknet efter det befintliga `user_impersonation`-omfångselementet och ändra egenskapsvärdena så att de passar behoven för din resurs. 
 
-  ```json
-  {
+   ```json
+   {
     "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
     "adminConsentDisplayName": "Read-only access to Employee records",
     "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
@@ -108,17 +108,17 @@ Följande avsnitt visar hur du gör åtkomstomfång tillgängliga genom att änd
     "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
     "userConsentDisplayName": "Read-only access to your Employee records",
     "value": "Employees.Read.All"
-  }
-  ```
+   }
+   ```
 
-  > [!NOTE]
-  > Värdet `id` måste genereras programmatiskt eller med hjälp av ett GUID-genereringsverktyg såsom [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). `id` representerar en unik identifierare för omfånget såsom det görs tillgängligt av webb-API:et. När en klient är korrekt konfigurerad med behörigheter att komma åt ditt webb-API utfärdas en OAuth2.0-åtkomsttoken till klienten av Azure AD. När klienten anropar webb-API:et presenterar den den åtkomsttoken som har omfångsanspråket (scp) till de behörigheter som begärs i dess programregistrering.
-  >
-  > Du kan göra ytterligare omfång tillgängliga senare, vid behov. Tänk på att ditt webb-API kanske gör flera omfång tillgängliga som är associerade med en mängd olika funktioner. Din resurs kan styra åtkomsten till webb-API:et vid körning genom att utvärdera omfångsanspråken (`scp`) i den mottagna OAuth 2.0-åtkomsttoken.
+   > [!NOTE]
+   > Värdet `id` måste genereras programmatiskt eller med hjälp av ett GUID-genereringsverktyg såsom [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). `id` representerar en unik identifierare för omfånget såsom det görs tillgängligt av webb-API:et. När en klient är korrekt konfigurerad med behörigheter att komma åt ditt webb-API utfärdas en OAuth2.0-åtkomsttoken till klienten av Azure AD. När klienten anropar webb-API:et presenterar den den åtkomsttoken som har omfångsanspråket (scp) till de behörigheter som begärs i dess programregistrering.
+   >
+   > Du kan göra ytterligare omfång tillgängliga senare, vid behov. Tänk på att ditt webb-API kanske gör flera omfång tillgängliga som är associerade med en mängd olika funktioner. Din resurs kan styra åtkomsten till webb-API:et vid körning genom att utvärdera omfångsanspråken (`scp`) i den mottagna OAuth 2.0-åtkomsttoken.
 
 6. När det är klart klickar du på **Spara**. Nu är ditt webb-API konfigurerat för användning av andra program i din katalog.
 
-  ![Uppdatera registreringen för ett program](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-manifest.png)
+   ![Uppdatera registreringen för ett program](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-manifest.png)
 
 ### <a name="verify-the-web-api-is-exposed-to-other-applications-in-your-tenant"></a>Verifiera att webb-API:et görs tillgängligt för andra program i din klientorganisation
 
@@ -130,7 +130,7 @@ Följande avsnitt visar hur du gör åtkomstomfång tillgängliga genom att änd
 
 3. På sidan **Aktivera åtkomst** bör du se det nya omfånget, som är tillgängligt för begäranden om klientbehörighet.
 
-  ![Nya behörigheter visas](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms-newscopes.png)
+   ![Nya behörigheter visas](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms-newscopes.png)
 
 ### <a name="more-on-the-application-manifest"></a>Mer information om programmanifestet
 
@@ -171,7 +171,7 @@ Om du skriver ett program som du vill göra tillgängliga för dina kunder eller
 
 Så här ger du externa användare möjlighet att komma åt ditt program:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Om ditt konto ger dig tillgång till fler än en klickar du på ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 3. I det vänstra navigeringsfönstret klickar du på **Azure Active Directory**-tjänsten, klickar på **Appregistreringar** och letar upp och klickar på det program som du vill konfigurera. Du kommer till programmets huvudsakliga registreringssida, vilket öppnar sidan **Inställningar** för programmet.
 4. På sidan **Inställningar** klickar du på **Egenskaper** och ändrar växeln **Multi-tenanted** (Med flera klientorganisationer) till **Ja**.
@@ -206,14 +206,14 @@ Som standard är implicit OAuth 2.0-beviljande inaktiverat för program. Du kan 
 > [!NOTE]
 > Det rekommenderas att du först läser informationen om hur du redigerar programmanifestet i föregående avsnitt, [Konfigurera resursprogram för att göra webb API:er tillgängliga](#configuring-a-resource-application-to-expose-web-apis).
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Om ditt konto ger dig tillgång till fler än en klickar du på ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 3. I det vänstra navigeringsfönstret klickar du på **Azure Active Directory**-tjänsten, klickar på **Appregistreringar** och letar upp och klickar på det program som du vill konfigurera. Du kommer till programmets huvudsakliga registreringssida, vilket öppnar sidan **Inställningar** för programmet.
 4. Växla till sidan **Redigera manifest** genom att klicka på **Manifest** från programmets registreringssida. En webbaserad manifestredigerare öppnas så att du kan **Redigera** manifestet i portalen. Leta upp och ställ in värdet ”oauth2AllowImplicitFlow” till ”true” (sant). Som standard är det inställt på ”false” (falskt).
    
-  ```json
-  "oauth2AllowImplicitFlow": true,
-  ```
+   ```json
+   "oauth2AllowImplicitFlow": true,
+   ```
 5. Sparade det uppdaterade manifestet. När det har sparats är ditt webb-API nu konfigurerat att använda implicit OAuth 2.0-beviljande för att autentisera användare.
 
 ## <a name="next-steps"></a>Nästa steg

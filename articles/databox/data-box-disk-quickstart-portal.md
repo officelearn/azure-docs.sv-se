@@ -6,25 +6,25 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 3b158e0743a811f0d8f478c15b64c2b8b99a748a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: a01da3218b07307faa8e94acab1473c82bd86c41
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156008"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546933"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>Snabbstart: Distribuera Azure Data Box Disk med hjälp av Azure-portalen
 
-Den här snabbstarten beskriver hur du distribuerar Azure Data Box Disk med hjälp av Azure Portal. Stegen beskriver bland annat hur du snabbt skapar en order, tar emot diskar, packar upp och ansluter diskar samt kopierar data till diskarna så att de laddas upp till Azure. 
+Den här snabbstarten beskriver hur du distribuerar Azure Data Box Disk med hjälp av Azure Portal. Stegen beskriver bland annat hur du snabbt skapar en order, tar emot diskar, packar upp och ansluter diskar samt kopierar data till diskarna så att de laddas upp till Azure.
 
 Detaljerade stegvisa instruktioner för distribution och spårning finns i [Självstudie: Beställa Azure Data Box Disk](data-box-disk-deploy-ordered.md). 
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
@@ -32,7 +32,7 @@ Innan du börjar:
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på [http://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
+Logga in på Azure Portal på [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
 
 ## <a name="order"></a>Beställa
 
@@ -41,9 +41,9 @@ Det här steget tar ungefär 5 minuter.
 1. Skapa en ny Azure Data Box-resurs på Azure Portal. 
 2. Välj en prenumeration som har aktiverats för den här tjänsten och välj överföringstypen **Importera**. Ange **ursprungslandet** där dina data finns och **Azure-målregionen** för dataöverföringen.
 3. Välj **Data Box Disk**. Den högsta lösningskapaciteten är 35 TB och du kan skapa flera diskorder för större datastorlekar.  
-4. Ange order- och leveransinformationen. Om tjänsten är tillgänglig i din region anger du e-postadresser för aviseringsmeddelanden, läser sammanfattningen och skapar sedan ordern. 
+4. Ange order- och leveransinformationen. Om tjänsten är tillgänglig i din region anger du e-postadresser för aviseringsmeddelanden, läser sammanfattningen och skapar sedan ordern.
 
-När ordern har skapats förbereds diskarna för leverans. 
+När ordern har skapats förbereds diskarna för leverans.
 
 ## <a name="unpack"></a>Uppackning
 
@@ -52,7 +52,7 @@ Det här steget tar ungefär 5 minuter.
 Data Box-disken skickas i en UPS Express-box. Öppna boxen och kontrollera att den innehåller:
 
 - 1 till 5 USB-diskar inlindade i bubbelplast.
-- En anslutningskabel per disk. 
+- En anslutningskabel per disk.
 - En fraktsedel för returförsändelse.
 
 ## <a name="connect-and-unlock"></a>Ansluta och låsa upp
@@ -69,18 +69,20 @@ Det här steget tar ungefär 5 minuter.
 
 ## <a name="copy-data-and-validate"></a>Kopiera data och verifiera
 
-Hur lång tid det tar att slutföra den här åtgärden beror på datastorleken. 
+Hur lång tid det tar att slutföra den här åtgärden beror på datastorleken.
 
-1. Enheten innehåller mapparna *PageBlob*, *BlockBlob*, *DataBoxDiskImport*. Dra och släpp för att kopiera de data som ska importeras som blockblobar till mappen *BlockBlob*. På samma sätt drar du och släpper data som exempelvis VHD/VHDX till mappen *PageBlob*.
+1. Enheten innehåller *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk*, och *DataBoxDiskImport* mappar. Dra och släpp för att kopiera de data som ska importeras som blockblobar till mappen *BlockBlob*. På samma sätt kan dra och släpp data, till exempel VHD-/ VHDX till *PageBlob* mappen och lämpliga data till *AzureFile*. Kopiera de virtuella hårddiskar som du vill ladda upp som hanterade diskar till en mapp under *ManagedDisk*.
 
-    En container skapas i Azure Storage-kontot för varje undermapp under mapparna *BlockBlob* och *PageBlob*. Alla filer under mapparna *BlockBlob* och *PageBlob* kopieras till standardcontainern `$root` under Azure Storage-kontot.
+    En container skapas i Azure Storage-kontot för varje undermapp under mapparna *BlockBlob* och *PageBlob*. En filresurs har skapats för en underordnad mapp under *AzureFile*.
 
-    > [!NOTE] 
-    > - Alla containrar och blobar måste följa [Azures namngivningskonventioner](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Om dessa regler inte uppfylls misslyckas datauppladdningen till Azure.
-    > - Kontrollera att filerna inte överskrider ~4,75 TiB för blockblobar och ~ 8 TiB för sidblobar.
+    Alla filer under mapparna *BlockBlob* och *PageBlob* kopieras till standardcontainern `$root` under Azure Storage-kontot. Kopiera filer till en mapp i *AzureFile*. Alla filer som kopierats direkt till den *AzureFile* mappen misslyckas och kan laddas upp som blockblobar.
 
-2. (Valfritt) När kopieringen är klar rekommenderar vi att du kör `DataBoxDiskValidation.cmd` i mappen *DataBoxDiskImport* för att generera kontrollsummor för verifiering. Beroende på datastorleken kan det här steget ta en stund. 
-3. Koppla från enheten. 
+    > [!NOTE]
+    > - Alla behållare, blobar och filer ska följa [namngivningskonventionerna Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Om dessa regler inte uppfylls misslyckas datauppladdningen till Azure.
+    > - Se till att filerna inte överskrider ~4.75 TiB för blockblobar och ~ 8 TiB för sidblobar ~ 1 TiB för Azure Files.
+
+2. **(Valfritt men rekommenderas)**  När kopieringen är klar, rekommenderar vi att minst du kör den `DataBoxDiskValidation.cmd` i den *DataBoxDiskImport* mapp och välj alternativ 1 för att verifiera filerna. Vi rekommenderar också att tid tillåter det, du kan använda alternativ 2 att också generera kontrollsummor för verifiering (kan ta tid beroende på storleken på data). De här stegen minimera risken för fel när du överför data till Azure.
+3. Ta bort enheten på ett säkert sätt.
 
 ## <a name="ship-to-azure"></a>Skicka till Azure
 
@@ -95,8 +97,8 @@ Data Box Disk-tjänsten skickar ett e-postmeddelande och uppdaterar orderstatuse
 
 Hur lång tid det tar att slutföra den här åtgärden beror på datastorleken.
 
-1. När Data Box-disken har anslutits till nätverket på Azures datacenter startar datauppladdningen till Azure automatiskt. 
-2. Azure Data Box-tjänsten meddelar dig via Azure Portal när datakopieringen är klar. 
+1. När Data Box-disken har anslutits till nätverket på Azures datacenter startar datauppladdningen till Azure automatiskt.
+2. Azure Data Box-tjänsten meddelar dig via Azure Portal när datakopieringen är klar.
     
     1. Kontrollera felloggarna för eventuella fel och vidta lämpliga åtgärder.
     2. Kontrollera att alla data finns på lagringskontot innan du tar bort dem från källan.
@@ -107,17 +109,17 @@ Det här steget tar 2–3 minuter att slutföra.
 
 Om du vill rensa resurser kan du avbryta Data Box-beställningen och ta bort ordern.
 
-- Du kan annullera Data Box-beställningen på Azure Portal innan orderbehandlingen har påbörjats. När orderbehandlingen har påbörjats kan du inte avbryta ordern. Ordern behandlas tills den når slutskedet i processen. 
+- Du kan annullera Data Box-beställningen på Azure Portal innan orderbehandlingen har påbörjats. När orderbehandlingen har påbörjats kan du inte avbryta ordern. Ordern behandlas tills den når slutskedet i processen.
 
     Om du vill avbryta beställningen går du till **Översikt** och klickar på **Avbryt** i kommandofältet.  
 
-- Du kan ta bort ordern när statusen visas som **slutförd** eller **avbruten** på Azure Portal. 
+- Du kan ta bort ordern när statusen visas som **slutförd** eller **avbruten** på Azure Portal.
 
     Om du vill ta bort ordern går du till **Översikt** och klickar på **Ta bort** i kommandofältet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du distribuerat Azure Data Box Disk för att importera dina data till Azure. Gå vidare till nästa självstudie om du vill veta mer om Azure Data Box Disk-hantering: 
+I den här snabbstarten har du distribuerat Azure Data Box Disk för att importera dina data till Azure. Gå vidare till nästa självstudie om du vill veta mer om Azure Data Box Disk-hantering:
 
 > [!div class="nextstepaction"]
 > [Administrera Data Box Disk via Azure Portal](data-box-portal-ui-admin.md)

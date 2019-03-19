@@ -10,18 +10,18 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 09/14/2018
 tags: connectors
-ms.openlocfilehash: 27da87c11ca35be72690965a2359ff6ff6b9f999
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 468e73c64037a76da612cba8d6c2e9507dd3ac87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391284"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887093"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ansluta till SAP-system från Azure Logic Apps
 
-Den här artikeln visar hur du kan komma åt dina lokala SAP-resurser från i en logikapp genom att använda anslutningstjänsten SAP ERP Central komponent (ECC). SAP ECC-anslutningsappen stöder meddelande eller data integration till och från SAP Netweaver-baserade system via mellanliggande dokumentet (IDoc) eller Business Application Programming Interface (BAPI) eller fjärransluten funktionen anropa (RFC).
+Den här artikeln visar hur du kan komma åt dina lokala SAP-resurser från i en logikapp genom att använda anslutningstjänsten SAP ERP Central komponent (ECC). Anslutningen fungerar med både ECC och s/4 HANA system på plats. SAP ECC-anslutningsappen stöder meddelande eller data integration till och från SAP Netweaver-baserade system via mellanliggande dokumentet (IDoc) eller Business Application Programming Interface (BAPI) eller fjärransluten funktionen anropa (RFC).
 
-SAP ECC-anslutningsappen använder den <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .net Connector (NCo)-biblioteket</a> och ger dessa åtgärder eller åtgärder:
+SAP ECC-anslutningsappen använder den <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .NET Connector (NCo)-biblioteket</a> och ger dessa åtgärder eller åtgärder:
 
 - **Skicka till SAP**: Skicka IDoc eller anropa BAPI funktioner över tRFC i SAP-system.
 - **Ta emot från SAP**: Ta emot IDoc eller BAPI funktionsanrop över tRFC från SAP-system.

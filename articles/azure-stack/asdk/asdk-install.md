@@ -16,12 +16,12 @@ ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: a58f5a3794d352fa8671321f5a30d74d2598df75
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 509dafb02d456e3f612e1de8a5bc1cf4b010a05a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977736"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113864"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Installera Azure Stack Development Kit (ASDK)
 Efter [förbereda värddatorn ASDK](asdk-prepare-host.md), ASDK kan distribueras till CloudBuilder.vhdx avbildningen med hjälp av följande steg i den här artikeln.
@@ -44,8 +44,8 @@ Stegen i den här artikeln visar hur du distribuerar ASDK med ett grafiskt anvä
   
    Om du väljer en identitetsprovider i Azure-prenumeration kan du måste ha en Internetanslutning, det fullständiga namnet på en Azure AD directory-klient i form av *domainname*. onmicrosoft.com eller en Azure AD verifierad anpassad domän namn och global administratörsautentiseringsuppgifter för den angivna katalogen.<br><br>Efter distributionen krävs inte behörighet för Azure Active Directory global administratör. Vissa åtgärder kan dock kräva autentiseringsuppgifter för global administratör. Till exempel ett resource provider installer skript eller en ny funktion som kräver en behörighet som ska beviljas. Du kan tillfälligt återställa kontots behörigheter som global administratör eller använda ett separat globalt administratörskonto som äger den *standard providerprenumeration*.<br><br>När du använder AD FS som identitetsleverantör används standard-stämpel katalogtjänsten. Logga in med standardkontot är azurestackadmin@azurestack.local, och lösenordet är det som du angav som en del av installationen.
 
-  > [!NOTE]
-  > För bästa resultat även om du vill använda en frånkopplad Azure Stack-miljö med hjälp av AD FS som identitetsleverantör, är det bäst att installera ASDK medan du är ansluten till internet. På så sätt kan kan Windows Server 2016 utvärderingsversionen ingår development kit installationen aktiveras vid tidpunkten för distribution.
+   > [!NOTE]
+   > För bästa resultat även om du vill använda en frånkopplad Azure Stack-miljö med hjälp av AD FS som identitetsleverantör, är det bäst att installera ASDK medan du är ansluten till internet. På så sätt kan kan Windows Server 2016 utvärderingsversionen ingår development kit installationen aktiveras vid tidpunkten för distribution.
 
 4. Välj ett nätverkskort som ska användas för i development kit och klicka sedan på **nästa**.
 

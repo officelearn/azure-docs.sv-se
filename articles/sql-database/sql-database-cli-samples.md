@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/03/2019
-ms.openlocfilehash: 3b98214da259e9e429c938f8ca7963c9f525e862
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 74d322c9e7d45a26f9e095bd7ae9f2bbe506ba49
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560829"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306943"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Azure CLI-exempel för Azure SQL Database
 
@@ -51,9 +51,9 @@ Följande tabell innehåller länkar till Azure CLI-exempelskript för Azure SQL
 
 | |  |
 |---|---|
-| [Skapa en hanterad instans](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/) | Det här CLI-skriptet visar hur du skapar en hanterad instans. |
-| [Uppdatera en hanterad instans](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/modify-azure-sql-database-managed-instance-using-azure-cli/) | Det här CLI-skriptet visar hur du uppdaterar en hanterad instans. |
-| [Flytta en databas till en annan hanterad instans](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | Det här CLI-skriptet visar hur du återställer en säkerhetskopia av en databas från en instans till en annan. |
+| [Skapa en hanterad instans](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/) | Det här CLI-skriptet visar hur du skapar en hanterad instans. |
+| [Uppdatera en hanterad instans](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/) | Det här CLI-skriptet visar hur du uppdaterar en hanterad instans. |
+| [Flytta en databas till en annan hanterad instans](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | Det här CLI-skriptet visar hur du återställer en säkerhetskopia av en databas från en instans till en annan. |
 |||
 
 Läs mer om [Azure CLI API för hanterad instans](sql-database-managed-instance-create-manage.md#azure-cli-create-and-manage-managed-instances) och hitta [ytterligare exempel här](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).

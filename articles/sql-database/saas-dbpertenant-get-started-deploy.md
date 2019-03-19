@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 957652a63768d25e6b180feb826551ec340b9bf0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 97570a16c7d87a3c8182909b61c04fde30b3fe9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453679"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000198"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Distribuera och utforska en multitenant SaaS-app som använder mönstret databas-per-klient med SQL Database
 
@@ -56,7 +56,7 @@ Välj ditt namn nu och Skriv ned dem.
 
 1. För att öppna Distributionsmall Wingtip biljetter SaaS databas-per-klient i Azure portal, Välj **distribuera till Azure**.
 
-   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. Ange värden i mallen för de obligatoriska parametrarna.
 
@@ -186,9 +186,9 @@ Om du vill kontrollera och övervaka bakgrundsjobb använder du följande cmdlet
 
 4. Om `$OneTime = $false`, belastningsgeneratorn startar bakgrundsjobb och sedan fortsätter att köras. Var tionde sekund som den övervakar för alla nya klienter som har etablerats. Om du ställer in `$OneTime = $true`, LoadGenerator startar bakgrundsjobb och sedan slutar att köras i förgrunden. Den här självstudien lämna `$OneTime = $false`.
 
-  Använd Ctrl-C eller stoppa åtgärden Ctrl-Break om du vill stoppa eller starta om belastningsgeneratorn.
+   Använd Ctrl-C eller stoppa åtgärden Ctrl-Break om du vill stoppa eller starta om belastningsgeneratorn.
 
-  Om du lämnar belastningsgeneratorn körs i förgrunden, kan du använda en annan PowerShell ISE-instans för att köra andra PowerShell-skript.
+   Om du lämnar belastningsgeneratorn körs i förgrunden, kan du använda en annan PowerShell ISE-instans för att köra andra PowerShell-skript.
 
 &nbsp;
 
@@ -221,7 +221,7 @@ Uppdatera Evenemangshubben för att göra den nya klienten som visas i listan.
 
 Nu när du har börjat köra en belastning mot klientsamlingen, nu ska vi titta på några av de resurser som har distribuerats.
 
-1. I den [Azure-portalen](http://portal.azure.com), bläddra till din lista över SQL-servrar. Öppna sedan den **catalog-dpt -&lt;användaren&gt;** server.
+1. I den [Azure-portalen](https://portal.azure.com), bläddra till din lista över SQL-servrar. Öppna sedan den **catalog-dpt -&lt;användaren&gt;** server.
     - Katalogservern innehåller två databaser **tenantcatalog** och **basetenantdb** (en mall för databas som kopieras för att skapa nya klienter).
 
    ![Databaser](./media/saas-dbpertenant-get-started-deploy/databases.png)

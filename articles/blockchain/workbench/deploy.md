@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: fcba3aef29e1566f9dfb2b151c15fe683be94fdb
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 7fead05e7404e042d923631f4ba745553085943a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266595"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098118"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuera Azure Blockchain Workbench
 
@@ -108,20 +108,20 @@ När nödvändiga steg har slutförts, är du redo att distribuera Blockchain Wo
 
     Den *Använd befintlig* gör det möjligt att ange en Ethereum Proof-of-Authority (PoA) blockchain-nätverk. Slutpunkter har följande krav.
 
-    * Slutpunkten måste vara ett Ethereum Proof-of-Authority (PoA) blockchain-nätverk.
-    * Slutpunkten måste vara offentligt tillgänglig över nätverket.
-    * PoA blockchain nätverket ska konfigureras så att den har gas pris som har angetts till noll.
+   * Slutpunkten måste vara ett Ethereum Proof-of-Authority (PoA) blockchain-nätverk.
+   * Slutpunkten måste vara offentligt tillgänglig över nätverket.
+   * PoA blockchain nätverket ska konfigureras så att den har gas pris som har angetts till noll.
 
-    > [!NOTE]
-    > Blockchain Workbench konton är inte finansieras. Om pengar krävs inte transaktioner.
+     > [!NOTE]
+     > Blockchain Workbench konton är inte finansieras. Om pengar krävs inte transaktioner.
 
-    ![Avancerade inställningar för befintliga blockchain-nätverk](media/deploy/advanced-blockchain-settings-existing.png)
+     ![Avancerade inställningar för befintliga blockchain-nätverk](media/deploy/advanced-blockchain-settings-existing.png)
 
-    | Inställning | Beskrivning  |
-    |---------|--------------|
-    | Ethereum RPC-slutpunkt | Ange RPC-slutpunkten för ett befintligt PoA blockchain nätverk. Slutpunkten som börjar med https:// eller http:// och slutar med ett portnummer. Till exempel, `http<s>://<network-url>:<port>` |
-    | Azure Active Directory-inställningar | Välj **lägga till senare**.</br>Obs! Om du har valt att [förkonfigurera Azure AD](#azure-ad-configuration) eller omdistribuera, välja att *Lägg till nu*. |
-    | Val av virtuell dator | Välj önskad storlek för nätverket blockchain. |
+     | Inställning | Beskrivning  |
+     |---------|--------------|
+     | Ethereum RPC-slutpunkt | Ange RPC-slutpunkten för ett befintligt PoA blockchain nätverk. Slutpunkten som börjar med https:// eller http:// och slutar med ett portnummer. Till exempel, `http<s>://<network-url>:<port>` |
+     | Azure Active Directory-inställningar | Välj **lägga till senare**.</br>Obs! Om du har valt att [förkonfigurera Azure AD](#azure-ad-configuration) eller omdistribuera, välja att *Lägg till nu*. |
+     | Val av virtuell dator | Välj önskad storlek för nätverket blockchain. |
 
 9. Välj **OK** Slutför avancerade inställningar.
 
@@ -223,18 +223,18 @@ Därefter måste du ändra manifest för att använda programroller i Azure AD f
 
     ``` json
     "appRoles": [
-         {
-           "allowedMemberTypes": [
-             "User",
-             "Application"
-           ],
-           "displayName": "Administrator",
-           "id": "<A unique GUID>",
-           "isEnabled": true,
-           "description": "Blockchain Workbench administrator role allows creation of applications, user to role assignments, etc.",
-           "value": "Administrator"
-         }
-       ],
+         {
+           "allowedMemberTypes": [
+             "User",
+             "Application"
+           ],
+           "displayName": "Administrator",
+           "id": "<A unique GUID>",
+           "isEnabled": true,
+           "description": "Blockchain Workbench administrator role allows creation of applications, user to role assignments, etc.",
+           "value": "Administrator"
+         }
+       ],
     ```
 
     > [!IMPORTANT]

@@ -8,38 +8,38 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: ec1727926f6dbfeead9932004715a8bb1dfbb0cd
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 7679bbc450e5fa0761860aedbb37ed02b27ec828
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36964543"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124618"
 ---
 ## <a name="os-config"></a>Lägg till IP-adresser till ett VM-operativsystem
 
-Anslut och logga in på en virtuell dator som du skapat med flera privata IP-adresser. Du måste manuellt lägga till alla de privata IP-adresser (inklusive det primära) som du lade till den virtuella datorn. Slutför steg att följande för ditt VM-operativsystem.
+Anslut och logga in på en virtuell dator som du skapade med flera privata IP-adresser. Du måste manuellt lägga till alla de privata IP-adresser (inklusive det primära) som du lade till den virtuella datorn. Slutför steg att följande för ditt VM-operativsystem.
 
 ### <a name="windows"></a>Windows
 
 1. Från en kommandotolk skriver du *ipconfig /all*.  Du ser bara den *primära* privata IP-adressen (via DHCP).
 2. Skriv *ncpa.cpl* i kommandotolken för att öppna fönstret **Nätverksanslutningar**.
-3. Öppna egenskaperna för det passande nätverkskortet: **Anslutning till lokalt nätverk**.
+3. Öppna egenskaperna för det passande nätverkskortet: **Lokal anslutning**.
 4. Dubbelklicka på Internet Protocol version 4 (IPv4).
 5. Välj **Använd följande IP-adress** och ange följande värden:
 
-    * **IP-adress**: Ange den *primära* privata IP-adressen
-    * **Nätmask**: Ställ in beroende på ditt undernät. Om undernätet till exempel är ett /24-undernät så är nätmasken 255.255.255.0.
+    * **IP-adress**: Ange den *primära* privat IP-adress
+    * **Nätmask**: In baserat på ditt undernät. Om undernätet till exempel är ett /24-undernät så är nätmasken 255.255.255.0.
     * **Standard-gateway**: Den första IP-adressen i undernätet. Om undernätet är 10.0.0.0/24 så är gateway-IP-adressen 10.0.0.1.
     * Välj **Använd följande DNS-serveradresser** och ange följande värden:
-        * **Önskad DNS-server**: Ange 168.63.129.16 om du inte använder en egen DNS-server.  Om du använder en egen DNS-server måste du ange dess IP-adress.
-    * Välj den **Avancerat** knappen och lägga till ytterligare IP-adresser. Lägg till var och en av de sekundära privata IP-adresser, som du lagt till Azure nätverksgränssnittet i föregående steg, Windows-nätverksgränssnitt som är tilldelade den primära IP-adress som tilldelats Azure nätverksgränssnittet.
+        * **Primär DNS-server**: Om du inte använder en egen DNS-server, ange 168.63.129.16.  Om du använder en egen DNS-server måste du ange dess IP-adress.
+    * Välj den **Avancerat** knappen och lägga till ytterligare IP-adresser. Lägg till var och en av de sekundära privata IP-adresser som du lade till Azure nätverksgränssnitt i ett föregående steg, med Windows-nätverksgränssnittet som tilldelats den primära IP-adress som tilldelats Azure nätverksgränssnittet.
 
-        Du bör aldrig manuellt tilldela den offentliga IP-adress som tilldelats en virtuell Azure-dator i den virtuella datorns operativsystem. När du ställer in IP-adress inom operativsystemet manuellt, kontrollera att det är samma adress som den privata IP-adress som tilldelats i Azure [nätverksgränssnittet](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings), eller du kan förlora anslutningen till den virtuella datorn. Lär dig mer om [privata IP-adressen](../articles/virtual-network/virtual-network-network-interface-addresses.md#private) inställningar. Du bör aldrig tilldela en Azure offentliga IP-adress i operativsystemet.
+        Du bör aldrig manuellt tilldela offentliga IP-adress som tilldelats till en Azure virtuell dator i den virtuella datorns operativsystem. När du manuellt anger IP-adress inom operativsystemet kan du kontrollera att det är samma adress som den privata IP-adress som tilldelats Azure [nätverksgränssnittet](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings), eller du kan förlora anslutningen till den virtuella datorn. Läs mer om [privata IP-adressen](../articles/virtual-network/virtual-network-network-interface-addresses.md#private) inställningar. Du bör aldrig tilldela en Azure offentlig IP-adress i operativsystemet.
 
     * Klicka på **OK** för att stänga TCP/IP-inställningarna och sedan på **OK** igen för att stänga inställningarna för nätverkskortet. RDP-anslutningen återupprättats.
 
 6. Från en kommandotolk skriver du *ipconfig /all*. Alla IP-adresser som du lade till visas och DHCP är avstängt.
-7. Konfigurera Windows för att använda privata IP-adressen för primär IP-konfigurationen i Azure som den primära IP-adressen för Windows. Se [Nej Internetåtkomst från Windows Azure VM som har flera IP-adresser](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) mer information. 
+7. Konfigurera Windows för att använda privata IP-adressen för den primära IP-konfigurationen i Azure som primär IP-adress för Windows. Se [utan Internetåtkomst från virtuella Azure Windows-datorer som har flera IP-adresser](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) mer information. 
 
 ### <a name="validation-windows"></a>Validering (Windows)
 
@@ -49,7 +49,7 @@ Om du vill kontrollera att du kan ansluta till internet från den sekundära IP-
 ping -S 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->För sekundära IP-konfigurationer, kan du endast pinga till Internet om konfigurationen har en offentlig IP-adress som är kopplade till den. För den primära IP-konfigurationer krävs inte en offentlig IP-adress för att pinga till Internet.
+>För sekundära IP-konfigurationer kan du bara pinga till Internet om konfigurationen har en offentlig IP-adress som är kopplade till den. För den primära IP-konfigurationer krävs en offentlig IP-adress inte pinga till Internet.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
@@ -62,15 +62,15 @@ ping -S 10.0.0.5 hotmail.com
 
 3. Uppdatera konfigurationsfilen för nätverksgränssnittet (förutsätter 'eth0').
 
-    * Behåll det befintliga radobjektet för dhcp. Den primära IP-adressen är fortfarande konfigurerad som den var tidigare.
-    * Lägg till en konfiguration för ytterligare en statisk IP-adress med följande kommandon:
+   * Behåll det befintliga radobjektet för dhcp. Den primära IP-adressen är fortfarande konfigurerad som den var tidigare.
+   * Lägg till en konfiguration för ytterligare en statisk IP-adress med följande kommandon:
 
-        ```bash
-        cd /etc/network/interfaces.d/
-        ls
-        ```
+       ```bash
+       cd /etc/network/interfaces.d/
+       ls
+       ```
 
-    Du bör se en .cfg-fil.
+     Du bör se en .cfg-fil.
 4. Öppna filen. Du bör se följande rader i slutet av filen:
 
     ```bash
@@ -178,7 +178,7 @@ Om du vill kontrollera att du kan ansluta till Internet från en sekundär IP-ko
 ping -I 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->För sekundära IP-konfigurationer, kan du endast pinga till Internet om konfigurationen har en offentlig IP-adress som är kopplade till den. För den primära IP-konfigurationer krävs inte en offentlig IP-adress för att pinga till Internet.
+>För sekundära IP-konfigurationer kan du bara pinga till Internet om konfigurationen har en offentlig IP-adress som är kopplade till den. För den primära IP-konfigurationer krävs en offentlig IP-adress inte pinga till Internet.
 
 För virtuella Linux-datorer kan du behöva lägga till lämpliga vägar när du försöker verifiera utgående anslutningar från ett sekundärt nätverkskort. Det finns flera sätt att göra detta på. Se motsvarande dokumentation för din distribution av Linux. Detta går exempelvis att åstadkomma med hjälp av följande metod:
 

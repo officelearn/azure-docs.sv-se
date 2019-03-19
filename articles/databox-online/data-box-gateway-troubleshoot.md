@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 02/26/2019
 ms.author: alkohli
-ms.openlocfilehash: e6042d9a1d6dc0e737fb4cf7e55d2c6938f9b0f4
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: c07293971c4cadd8b7bccc608f69faa3baa19ba7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961060"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100861"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Felsöka problem med din Azure Data Box Gateway 
 
@@ -67,16 +67,16 @@ Eventuella fel som uppstod under uppladdnings- och uppdateringsprocesserna ingå
 
 2. Klicka på _mappen Microsoft Data Box Gateway_. Den här mappen innehåller två undermappar:
 
-    - Ladda upp mappen som innehåller loggfiler för uppladdningsfelen.
-    - Uppdatera mappen för fel som uppstått under uppdateringen.
+   - Ladda upp mappen som innehåller loggfiler för uppladdningsfelen.
+   - Uppdatera mappen för fel som uppstått under uppdateringen.
 
-    Här är en exempelloggfil för uppdatering.
+     Här är en exempelloggfil för uppdatering.
 
-    ```
-    <root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
-    <file item="test.txt" local="False" remote="True" error="16001" />
-    <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
-    ``` 
+     ```
+     <root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
+     <file item="test.txt" local="False" remote="True" error="16001" />
+     <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
+     ``` 
 
 3. När du ser ett fel i den här filen (markerat i exemplet), noterar du felkoden, vilken i det här fallet är 16001. Leta upp beskrivningen av den här felkoden mot följande felkodsreferens.
 

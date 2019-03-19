@@ -1,26 +1,26 @@
 ---
 title: Skapa, ändra eller ta bort en Azure-routningstabell med Ansible
 description: Lär dig hur du använder Ansible för att skapa, ändra eller ta bort en routningstabell med Ansible
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, nätverk, väg, routningstabell
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/17/2018
-ms.openlocfilehash: 29672a75408e42fb9239e5d826784b46e7280805
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 025a8182d32a7d0d00a48795c848d356eb1c3d4e
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332276"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792454"
 ---
 # <a name="create-change-or-delete-an-azure-route-table-using-ansible"></a>Skapa, ändra eller ta bort en Azure-routningstabell med Ansible
 Azure dirigerar automatiskt trafik mellan Azure-undernät, virtuella nätverk och lokala nätverk. Om du vill ändra någon standardroutning i Azure kan du göra det genom att skapa en [routningstabell](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
 
 Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Den här artikeln visar hur du skapar, ändrar eller tar bort Azure routningstabeller och även hur du kopplar routningstabeller till undernät. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 - **Azure-prenumeration** – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 

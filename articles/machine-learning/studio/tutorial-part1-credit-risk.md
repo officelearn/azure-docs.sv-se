@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: c067b0e6a85e0b5c4bd4cbb582de13bb1bc87774
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: f69b3f2c8de4cf137583ad7a33e8edfe31373096
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453621"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904515"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>Självstudie 1: Förutsäga kreditrisk – Azure Machine Learning Studio
 
@@ -23,7 +23,7 @@ I den här självstudien tittar vi närmare på hur du utvecklar en lösning fö
 
 Anta att du behöver förutsäga kreditrisken för en person baserat på den information som han eller hon fyller i på en kreditansökan.  
 
-Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Använd den som ett exempel på hur du kan skapa en lösning för förutsägelseanalys i Microsoft Azure Machine Learning Studio. Du använder Azure Machine Learning Studio och en Machine Learning-webbtjänst i den här lösningen.  
+Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Du använder det som ett exempel på hur du kan skapa en lösning för förutsägelseanalys med hjälp av Microsoft Azure Machine Learning Studio. Du använder Azure Machine Learning Studio och en Machine Learning-webbtjänst i den här lösningen.  
 
 I den här självstudien i tre delar börjar du med offentligt tillgängliga kreditriskdata.  Därefter utvecklar du och tränar en förutsägelsemodell.  Slutligen distribuerar du modellen som en webbtjänst.
 
@@ -39,7 +39,7 @@ Du kan sedan använda det här experimentet till att [träna modeller i del 2](t
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här självstudien förutsätter vi att du har använt Machine Learning Studio åtminstone någon gång och att du är någorlunda insatt i vad maskininlärning är. Men vi förväntar oss inte att du är en expert.
 
@@ -70,7 +70,7 @@ När arbetsytan har skapats öppnar du Machine Learning Studio ([https://studio.
 ## <a name="upload"></a>Ladda upp befintliga data
 
 För att utveckla en förutsägande modell för kreditrisk, behöver du data som du kan använda för att träna och sedan testa modellen. I den här självstudien använder du ”UCI Statlog (German Credit Data) Data Set” (kreditdata från Tyskland) från UC Irvine Machine Learning-databasen. Den finns här:  
-<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
+<a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
 
 Du använder filen med namnet **german.data**. Ladda ned den här filen till den lokala hårddisken.  
 
@@ -212,18 +212,18 @@ Du använder [Edit Metadata][edit-metadata] (Redigera metadata) genom att först
 
 1. I fönstret **Properties** (Egenskaper) letar du upp parametern **New column names** (Nya kolumnnamn). I det här fältet anger du en lista med namn för de 21 kolumnerna i datamängden, avgränsade med kommatecken och i kolumnordning. Du kan hämta kolumnnamnen från datamängdens dokumentation på UCI-webbplatsen eller kopiera och klistra in följande lista:  
 
-  ```   
-  Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
-  ```
+   ```   
+   Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
+   ```
 
-  Fönstret Properties (Egenskaper) ser ut så här:
+   Fönstret Properties (Egenskaper) ser ut så här:
 
-  ![Egenskaper för Redigera metadata](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
+   ![Egenskaper för Redigera metadata](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
 
-  > [!TIP]
-  > Om du vill kontrollera kolumnrubrikerna kör du experimentet (klicka på **RUN** (Kör) nedanför arbetsytan för experimentet). När det har körts klart (en grön markering visas i [Edit Metadata][edit-metadata] (Redigera metadata)) klickar du på utdataporten för modulen [Edit Metadata][edit-metadata] (Redigera metadata) och väljer **Visualize** (Visualisera). Du kan visa utdata från valfri modul på samma sätt för att visa förloppet för data genom experimentet.
-  > 
-  > 
+   > [!TIP]
+   > Om du vill kontrollera kolumnrubrikerna kör du experimentet (klicka på **RUN** (Kör) nedanför arbetsytan för experimentet). När det har körts klart (en grön markering visas i [Edit Metadata][edit-metadata] (Redigera metadata)) klickar du på utdataporten för modulen [Edit Metadata][edit-metadata] (Redigera metadata) och väljer **Visualize** (Visualisera). Du kan visa utdata från valfri modul på samma sätt för att visa förloppet för data genom experimentet.
+   > 
+   > 
 
 ### <a name="create-training-and-test-datasets"></a>Skapa datamängder för träning och testning
 

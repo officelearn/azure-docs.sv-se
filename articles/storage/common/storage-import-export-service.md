@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e2c770625cf92e0db269d14d2f63dc0c896cbe9c
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 4850dd82ca52a060c921569433035256f5b74cce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267520"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58164934"
 ---
 # <a name="what-is-azure-importexport-service"></a>Vad är tjänsten Azure Import/Export?
 
@@ -29,7 +29,7 @@ Om du vill överföra data med hjälp av diskenheter som tillhandahålls av Micr
 
 * **Migrering av data till molnet**: Flytta stora mängder data till Azure snabbt och kostnadseffektivt sätt.
 * **Distribution av innehåll**: Skicka snabbt data till dina kundplatser.
-* **säkerhetskopiering**: Ta säkerhetskopior av dina lokala data och lagra dem i Azure Storage.
+* **Backup**: Ta säkerhetskopior av dina lokala data och lagra dem i Azure Storage.
 * **Dataåterställning**: Återställa stora mängder data som lagras i storage och levereras till din lokala plats.
 
 ## <a name="importexport-components"></a>Import/Export-komponenter

@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 0e14e7eb20e87f5555fa6b494c0d09ccde08d2dd
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: ddcf3428f32698c9825f13975929bc4677139acf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731652"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081057"
 ---
 # <a name="azure-stack-1811-update"></a>Uppdatering av Azure Stack 1811
 
@@ -122,13 +122,13 @@ Den här uppdateringen innehåller följande nya funktioner och förbättringar 
 - Den här versionen innehåller aviseringen **reparera** åtgärder för Azure Stack-operatör. Vissa aviseringar i 1811 tillhandahåller en **reparera** knappen i aviseringen som du kan välja för att lösa problemet. Mer information finns i [övervaka hälsotillstånd och aviseringar i Azure Stack](azure-stack-monitor-health.md).
 
 - Uppdateringar av uppdateringar i Azure Stack. Update-förbättringarna omfattar: 
-    - Flikarna som delar uppdateringar från uppdateringshistorik för bättre spårning uppdateringar pågår och slutfört uppdateringar.
-    - Förbättrad tillstånd visualiseringar i informationsavsnittet med nya ikoner och layout för aktuella och OEM-versioner som senast uppdaterad datum.
-    - **Visa** länka för kolumnen Release notes tar användaren direkt till dokumentationen specifika till att update i stället för sidan Allmänt.
-    - Den **uppdateringshistorik** fliken används för att fastställa körtider för var och en av uppdateringarna samt förbättrad filtreringsfunktioner.  
-    - Azure Stack-skalningsenheter som är anslutna får fortfarande automatiskt **uppdatering** när de blir tillgängliga.
-    - Azure Stack-skalningsenheter som inte är ansluten kan importera uppdateringarna precis som innan. 
-    - Det finns inga ändringar i processen för att ladda ned JSON-loggar från portalen. Azure Stack-operatörer kommer att se Expandera steg uttrycka pågår.
+  - Flikarna som delar uppdateringar från uppdateringshistorik för bättre spårning uppdateringar pågår och slutfört uppdateringar.
+  - Förbättrad tillstånd visualiseringar i informationsavsnittet med nya ikoner och layout för aktuella och OEM-versioner som senast uppdaterad datum.
+  - **Visa** länka för kolumnen Release notes tar användaren direkt till dokumentationen specifika till att update i stället för sidan Allmänt.
+  - Den **uppdateringshistorik** fliken används för att fastställa körtider för var och en av uppdateringarna samt förbättrad filtreringsfunktioner.  
+  - Azure Stack-skalningsenheter som är anslutna får fortfarande automatiskt **uppdatering** när de blir tillgängliga.
+  - Azure Stack-skalningsenheter som inte är ansluten kan importera uppdateringarna precis som innan. 
+  - Det finns inga ändringar i processen för att ladda ned JSON-loggar från portalen. Azure Stack-operatörer kommer att se Expandera steg uttrycka pågår.
 
     Mer information finns i [tillämpa uppdateringar i Azure Stack](azure-stack-apply-updates.md).
 
@@ -256,17 +256,17 @@ Här följer efter installation kända problem för den här build-versionen.
 <!-- 1264761 - IS ASDK -->  
 - Du kan se aviseringar för den **hälsotillstånd controller** komponent som har följande information:  
 
-    - Avisera #1:
-       - NAMN:  Infrastrukturrollen defekt
-       - ALLVARLIGHETSGRAD: Varning
-       - KOMPONENT: Hälsotillstånd controller
-       - DESCRIPTION (BESKRIVNING): Kontrollanten hälsotillstånd pulsslag skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.  
+  - Avisera #1:
+     - NAMN:  Infrastrukturrollen defekt
+     - ALLVARLIGHETSGRAD: Varning
+     - KOMPONENT: Hälsotillstånd controller
+     - DESCRIPTION (BESKRIVNING): Kontrollanten hälsotillstånd pulsslag skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.  
 
-    - Avisera #2:
-       - NAMN:  Infrastrukturrollen defekt
-       - ALLVARLIGHETSGRAD: Varning
-       - KOMPONENT: Hälsotillstånd controller
-       - DESCRIPTION (BESKRIVNING): Kontrollanten hälsotillstånd fel skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.
+  - Avisera #2:
+     - NAMN:  Infrastrukturrollen defekt
+     - ALLVARLIGHETSGRAD: Varning
+     - KOMPONENT: Hälsotillstånd controller
+     - DESCRIPTION (BESKRIVNING): Kontrollanten hälsotillstånd fel skannern är inte tillgänglig. Detta kan påverka rapporter om hälsotillstånd och mått.
 
     Båda aviseringarna kan ignoreras. De stängs automatiskt över tid.  
 
@@ -346,7 +346,7 @@ Här följer efter installation kända problem för den här build-versionen.
 - Under Azure Stack *hemlighet Rotation*, där offentliga IP-adresser inte kan nås i två till fem minuter på en stund.
 
 <!-- 2664148 - IS ASDK --> 
--   De kan stöta på ett scenario där anslutningsförsök misslyckas om det lokala undernätet har lagts till i den lokala nätverksgatewayen när gatewayen har redan skapats i scenarier där klienten har åtkomst till virtuella datorer med hjälp av en S2S VPN-tunnel. 
+- De kan stöta på ett scenario där anslutningsförsök misslyckas om det lokala undernätet har lagts till i den lokala nätverksgatewayen när gatewayen har redan skapats i scenarier där klienten har åtkomst till virtuella datorer med hjälp av en S2S VPN-tunnel. 
 
 - I Azure Stack-portalen när du ändrar en statisk IP-adress för en IP-konfiguration som är bunden till ett nätverkskort som är anslutet till en VM-instans visas ett varningsmeddelande som säger 
 
@@ -358,9 +358,9 @@ Här följer efter installation kända problem för den här build-versionen.
 
 - I portalen om du lägger till en inkommande säkerhetsregel och välj **Tjänsttagg** som källa, flera alternativ visas i den **Källtagg** listan som inte är tillgängliga för Azure Stack. De enda alternativ som är giltiga i Azure Stack är följande:
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     De andra alternativen stöds inte som källkod i Azure Stack. På samma sätt, om du lägger till en utgående säkerhetsregel och välj **Tjänsttagg** som mål, samma lista över alternativ för **Källtagg** visas. De enda giltiga alternativ är desamma som för **Källtagg**, enligt beskrivningen i föregående lista.
 

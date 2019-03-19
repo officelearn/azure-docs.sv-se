@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c29cf0604e651902474d85dbd6edd3208e6b5944
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 55a829f2ed32152d14ef637c8079f7af8c487bea
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811306"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097652"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Flytta data från en SFTP-server med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,7 @@ Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från en SF
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för FTP-länkad tjänst.
 
 | Egenskap  | Beskrivning | Krävs |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | typ | Type-egenskapen måste anges till `Sftp`. |Ja |
 | värd | Namn eller IP-adressen för SFTP-servern. |Ja |
 | port |Porten som SFTP-servern lyssnar. Standardvärdet är: 21 |Nej |
@@ -65,7 +65,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 Om du vill använda grundläggande autentisering, ange `authenticationType` som `Basic`, och ange följande egenskaper förutom SFTP-anslutningsappen Allmänt som introducerades i det sista avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | användarnamn | Användare som har åtkomst till SFTP-servern. |Ja |
 | lösenord | Lösenordet för användaren (användarnamn). | Ja |
 
@@ -115,7 +115,7 @@ Om du vill använda grundläggande autentisering, ange `authenticationType` som 
 Om du vill använda autentisering med SSH offentlig nyckel, ange `authenticationType` som `SshPublicKey`, och ange följande egenskaper förutom SFTP-anslutningsappen Allmänt som introducerades i det sista avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | användarnamn |Användare som har åtkomst till SFTP-server |Ja |
 | privateKeyPath | Ange absolut sökväg till filen för privat nyckel som gatewayen kan komma åt. | Ange antingen den `privateKeyPath` eller `privateKeyContent`. <br><br> Gäller endast när du kopierar data från en lokal SFTP-server. |
 | privateKeyContent | En serialiserade sträng med privat nyckel innehållet. Kopieringsguiden kan läsa filen för privat nyckel och extrahera det privata nyckeln innehållet automatiskt. Om du använder några andra verktyg/SDK kan du använda egenskapen privateKeyPath i stället. | Ange antingen den `privateKeyPath` eller `privateKeyContent`. |

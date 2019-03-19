@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3109c4e6190cd8e485ae9b28117c4688836dfc26
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cdc37ace4687fe978030f528dcd5cbc87da596f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470322"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855945"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Datavetenskap med Scala och Spark på Azure
 Den här artikeln visar hur du använder Scala för övervakade machine learning-aktiviteter med Spark skalbar MLlib och Spark ML paketen på ett Azure HDInsight Spark-kluster. Vi går igenom de aktiviteter som utgör den [Data Science process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): datainmatning och utforskning, visualisering, funktionsframställning, modellering och förbrukning av modellen. Modeller i artikeln är logistic och linjär regression, slumpmässiga skogar och gradient-förstärkta träd (GBTs), utöver de två vanliga övervakade machine learning-aktiviteter:
@@ -26,9 +26,9 @@ Den här artikeln visar hur du använder Scala för övervakade machine learning
 
 Modelleringsprocessen kräver träning och utvärdering av på en datauppsättning för testning och relevanta Precision mått. I den här artikeln får du lära dig hur du lagrar dessa modeller i Azure Blob storage och hur du bedöma och utvärdera deras förutsägande prestanda. Den här artikeln beskriver också mer avancerade avsnitt om hur du optimerar modeller med hjälp av oinskränkt korsvalidering och hyper-parametern. De data som används är ett exempel på 2013 NYC taxi resa och avgiften datauppsättningen finns på GitHub.
 
-[Scala](http://www.scala-lang.org/), ett språk baserat på Java virtual machine, integrerar objektorienterad och funktionella språkkoncept. Det är ett skalbart språk som är lämplig för distribuerad databehandling i molnet och körs på Azure Spark-kluster.
+[Scala](https://www.scala-lang.org/), ett språk baserat på Java virtual machine, integrerar objektorienterad och funktionella språkkoncept. Det är ett skalbart språk som är lämplig för distribuerad databehandling i molnet och körs på Azure Spark-kluster.
 
-[Spark](http://spark.apache.org/) är ett ramverk för parallellbearbetning av öppen källkod som stöder intern bearbetning för att höja prestandan hos program för stordata-analys. Bearbetningsmotorn i Spark är byggd för hastighet, enkel användning och avancerade analyser. Sparks InMemory-distribuerad beräkning funktioner blir det ett bra alternativ för iterativa algoritmer i machine learning och grafberäkningar. Den [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) paketet tillhandahåller en enhetlig uppsättning avancerade API: er som bygger på data ramar som kan hjälpa dig att skapa och finjustera praktiska machine learning-pipelines. [MLlib](http://spark.apache.org/mllib/) är Sparks skalbar machine learning-biblioteket, som hämtar modelleringsfunktioner till den här distribuerad miljö.
+[Spark](https://spark.apache.org/) är ett ramverk för parallellbearbetning av öppen källkod som stöder intern bearbetning för att höja prestandan hos program för stordata-analys. Bearbetningsmotorn i Spark är byggd för hastighet, enkel användning och avancerade analyser. Sparks InMemory-distribuerad beräkning funktioner blir det ett bra alternativ för iterativa algoritmer i machine learning och grafberäkningar. Den [spark.ml](https://spark.apache.org/docs/latest/ml-guide.html) paketet tillhandahåller en enhetlig uppsättning avancerade API: er som bygger på data ramar som kan hjälpa dig att skapa och finjustera praktiska machine learning-pipelines. [MLlib](https://spark.apache.org/mllib/) är Sparks skalbar machine learning-biblioteket, som hämtar modelleringsfunktioner till den här distribuerad miljö.
 
 [HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) är i Azure som värd-versionen av öppen källkod Spark. Den också har stöd för Jupyter Scala-anteckningsböcker i Spark-klustret och köra interaktiva Spark SQL-frågor för att omvandla, filtrera och visualisera data som lagras i Azure Blob storage. Scala kodfragmenten i den här artikeln som tillhandahåller lösningar och visa relevanta områden att visualisera data körs i Jupyter-anteckningsböcker som installerats på Spark-kluster. Modellering stegen i följande avsnitt har kod som visar hur du tränar, utvärdera, spara och använda varje typ av modellen.
 
@@ -368,7 +368,7 @@ Den här koden visar hur du skapar en ny funktion med datagrupperingen timmar ti
 ### <a name="indexing-and-one-hot-encoding-of-categorical-features"></a>Indexering och hot som kodning av kategoriska funktioner
 Modellering och förutsäga funktioner för MLlib kräver funktioner med kategoriska indata till indexerade eller kodade före användning. Det här avsnittet visar hur du indexera eller koda kategoriska funktioner för mata in modelleringsfunktioner.
 
-Du behöver index eller koda dina modeller på olika sätt, beroende på modellen. Till exempel kräva logistic och linjära regressionsmodeller en frekvent kodning. Till exempel kan en funktion med tre kategorier expanderas till tre kolumner i funktionen. Varje kolumn innehåller 0 eller 1 beroende på en uppmaning i kategorin. MLlib ger den [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) funktionen för en frekvent encoding. Den här encoder mappar en kolumn med etiketten index till en kolumn med binära vektorer med högst ett ett-värde. Med den här kodningen kan algoritmer som förväntar sig numeriska värden funktioner, till exempel logistic regression tillämpas på kategoriska funktioner.
+Du behöver index eller koda dina modeller på olika sätt, beroende på modellen. Till exempel kräva logistic och linjära regressionsmodeller en frekvent kodning. Till exempel kan en funktion med tre kategorier expanderas till tre kolumner i funktionen. Varje kolumn innehåller 0 eller 1 beroende på en uppmaning i kategorin. MLlib ger den [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) funktionen för en frekvent encoding. Den här encoder mappar en kolumn med etiketten index till en kolumn med binära vektorer med högst ett ett-värde. Med den här kodningen kan algoritmer som förväntar sig numeriska värden funktioner, till exempel logistic regression tillämpas på kategoriska funktioner.
 
 Här kan du omvandla bara fyra variabler för att visa exempel som är teckensträngar. Du kan också indexera andra variabler, till exempel veckodag och representeras av numeriska värden som kategoriska variabler.
 
@@ -853,7 +853,7 @@ Skapa områden med hjälp av Python matplotlib.
 ### <a name="create-a-gbt-regression-model"></a>Skapa en regressionsmodell för GBT
 Skapa en GBT regressionsmodell med hjälp av Spark ML `GBTRegressor()` fungera, och sedan utvärdera modellen på testdata.
 
-[Toning förstärkta träd](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) är ensembler för beslutsträd. GBTs träna beslutsträd upprepade gånger för att minimera en förlust-funktion. Du kan använda GBTs för regression och klassificering. De kan hantera kategoriska funktioner kräver funktionen skalning och kan avbilda nonlinearities och funktionen interaktioner. Du kan också använda dem i en inställning för multiclass-klassificering.
+[Toning förstärkta träd](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) är ensembler för beslutsträd. GBTs träna beslutsträd upprepade gånger för att minimera en förlust-funktion. Du kan använda GBTs för regression och klassificering. De kan hantera kategoriska funktioner kräver funktionen skalning och kan avbilda nonlinearities och funktionen interaktioner. Du kan också använda dem i en inställning för multiclass-klassificering.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()

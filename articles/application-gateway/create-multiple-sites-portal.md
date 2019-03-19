@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: 58f448646efc4cac9298d5dc4ec7a99e0e39bddc
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 86be94404e7ab492beeebd6a467d23e68e7bce6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309102"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080175"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Skapa och konfigurera en Programgateway som värd för flera webbplatser med hjälp av Azure portal
 
@@ -44,20 +44,20 @@ Det krävs ett virtuellt nätverk för kommunikation mellan de resurser som du s
 2. Välj **Nätverk** och sedan **Application Gateway** i listan Aktuella.
 3. Ange följande värden för programgatewayen:
 
-    - *myAppGateway* – Namnet på programgatewayen.
-    - *myResourceGroupAG* – Den nya resursgruppen.
+   - *myAppGateway* – Namnet på programgatewayen.
+   - *myResourceGroupAG* – Den nya resursgruppen.
 
-    ![Skapa en ny programgateway](./media/create-multiple-sites-portal/application-gateway-create.png)
+     ![Skapa en ny programgateway](./media/create-multiple-sites-portal/application-gateway-create.png)
 
 4. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
 5. Klicka på **Välj ett virtuellt nätverk**, klicka på **Skapa nytt** och ange sedan följande värden för det virtuella nätverket:
 
-    - *myVnet* – Det virtuella nätverkets namn.
-    - *10.0.0.0/16* – Det virtuella nätverkets adressutrymme.
-    - *myBackendSubnet* – Undernätsnamnet.
-    - *10.0.0.0/24* – Undernätets adressutrymme.
+   - *myVnet* – Det virtuella nätverkets namn.
+   - *10.0.0.0/16* – Det virtuella nätverkets adressutrymme.
+   - *myBackendSubnet* – Undernätsnamnet.
+   - *10.0.0.0/24* – Undernätets adressutrymme.
 
-    ![Skapa det virtuella nätverket](./media/create-multiple-sites-portal/application-gateway-vnet.png)
+     ![Skapa det virtuella nätverket](./media/create-multiple-sites-portal/application-gateway-vnet.png)
 
 6. Klicka på **OK** för att skapa det virtuella nätverket och undernätet.
 7. Klicka på **välja en offentlig IP-adress**, klickar du på **Skapa nytt**, och ange sedan namnet på den offentliga IP-adressen. I det här exemplet heter den offentliga IP-adressen *myAGPublicIPAddress*. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
@@ -134,8 +134,8 @@ I det här exemplet skapar du två virtuella datorer som ska användas som serve
 1. Klicka på **lyssnare** och klicka sedan på **multisite**.
 2. Ange följande värden för lyssnaren:
     
-    - *contosoListener* – för namnet på lyssnaren.
-    - *www.contoso.com* -Ersätt exemplet värden namnet med ditt domännamn.
+   - *contosoListener* – för namnet på lyssnaren.
+   - *www.contoso.com* -Ersätt exemplet värden namnet med ditt domännamn.
 
 3. Klicka på **OK**.
 4. Skapa en andra lyssnare med namnet på *fabrikamListener* och använda dina andra domännamn. I det här exemplet *www.fabrikam.com* används.

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 1/10/2019
 ms.author: victorh
-ms.openlocfilehash: 7006d7ed56c58858e4b7c053af3ba1101455928c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 3da9982d1af886a4329ddc77a7b297e9e285453e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312519"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101558"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Konfigurera SSL från slutpunkt till slutpunkt med hjälp av Application Gateway med PowerShell
 
@@ -53,21 +53,21 @@ Konfigurationsprocessen beskrivs i följande avsnitt.
 Det här avsnittet beskriver hur du skapar en resursgrupp som innehåller application gateway.
 
 
-   1. Logga in på ditt Azure-konto.
+1. Logga in på ditt Azure-konto.
 
    ```powershell
    Connect-AzAccount
    ```
 
 
-   2. Välj prenumerationen som ska användas för det här scenariot.
+2. Välj prenumerationen som ska användas för det här scenariot.
 
    ```powershell
    Select-Azsubscription -SubscriptionName "<Subscription name>"
    ```
 
 
-   3. Skapa en resursgrupp. (Hoppa över det här steget om du använder en befintlig resursgrupp.)
+3. Skapa en resursgrupp. (Hoppa över det här steget om du använder en befintlig resursgrupp.)
 
    ```powershell
    New-AzResourceGroup -Name appgw-rg -Location "West US"
@@ -78,7 +78,7 @@ Det här avsnittet beskriver hur du skapar en resursgrupp som innehåller applic
 I följande exempel skapas ett virtuellt nätverk och två undernät. Ett undernät används för application gateway. Andra undernätet används för de servrar som är värdar för webbprogrammet.
 
 
-   1. Tilldela ett adressintervall för undernätet som ska användas för application gateway.
+1. Tilldela ett adressintervall för undernätet som ska användas för application gateway.
 
    ```powershell
    $gwSubnet = New-AzVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
@@ -89,19 +89,19 @@ I följande exempel skapas ett virtuellt nätverk och två undernät. Ett undern
    > 
    > 
 
-   2. Tilldela ett adressintervall som ska användas för backend-adresspoolen.
+2. Tilldela ett adressintervall som ska användas för backend-adresspoolen.
 
    ```powershell
    $nicSubnet = New-AzVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
    ```
 
-   3. Skapa ett virtuellt nätverk med undernät som definierats i föregående steg.
+3. Skapa ett virtuellt nätverk med undernät som definierats i föregående steg.
 
    ```powershell
    $vnet = New-AzvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
    ```
 
-   4. Hämta resurs för virtuella nätverk och undernätverksresurser som ska användas i stegen nedan.
+4. Hämta resurs för virtuella nätverk och undernätverksresurser som ska användas i stegen nedan.
 
    ```powershell
    $vnet = Get-AzvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg
@@ -173,7 +173,7 @@ Alla konfigurationsobjekt anges innan du skapar programgatewayen. Följande steg
 
    > [!NOTE]
    > Standard-avsökningen hämtar den offentliga nyckeln från den *standard* SSL-bindning på backend-server IP-adress och jämför offentliga nyckelvärde som den tar emot till värdet för offentliga nyckeln du anger här. 
-   
+   > 
    > Om du använder värdhuvuden och (Servernamnindikator) på serverdelen, kanske inte platsen till vilken trafikflöden i den offentliga nyckeln hämtades. Om du är osäker, besök https://127.0.0.1/ på backend-servrarna och bekräfta vilket certifikat som används för den *standard* SSL-bindning. Använd den offentliga nyckeln från denna förfrågan i det här avsnittet. Om du använder värdhuvuden och SNI på HTTPS-bindningar och du inte får ett svar och certifikat från en manuell webbläsarbegäran till https://127.0.0.1/ på backend-servrar, måste du ställa in en standard-SSL-bindning med aktiviteterna. Om du inte gör det, avsökningar misslyckas och backend-servern är inte vitlistat.
 
    ```powershell
@@ -218,17 +218,17 @@ Alla konfigurationsobjekt anges innan du skapar programgatewayen. Följande steg
 
 11. Konfigurera SSL-princip som ska användas på application gateway. Application Gateway stöder möjligheten att ange en lägsta version för SSL-protokollsversioner.
 
-   Följande värden är en lista över protokollversioner som kan definieras:
+    Följande värden är en lista över protokollversioner som kan definieras:
 
     - **TLSV1_0**
     - **TLSV1_1**
     - **TLSV1_2**
     
-   I följande exempel anger den minsta Protokollversionen till **TLSv1_2** och möjliggör **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, och **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** endast.
+    I följande exempel anger den minsta Protokollversionen till **TLSv1_2** och möjliggör **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, och **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** endast.
 
-   ```powershell
-   $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
-   ```
+    ```powershell
+    $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
+    ```
 
 ## <a name="create-the-application-gateway"></a>Skapa programgatewayen
 
@@ -242,20 +242,20 @@ $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -Resou
 
 Föregående steg tog du skapar ett program med slutpunkt-till-slutpunkt SSL och inaktiverar vissa SSL-protokollsversioner. I följande exempel inaktiverar vissa SSL-principer på en befintlig application gateway.
 
-   1. Hämta application-gateway för att uppdatera.
+1. Hämta application-gateway för att uppdatera.
 
    ```powershell
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-   2. Definiera en SSL-princip. I följande exempel **TLSv1.0** och **TLSv1.1** är inaktiverad och de krypteringssviter som **TLS\_ECDHE\_ECDSA\_WITH\_ AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, och **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** är den enda de som tillåts.
+2. Definiera en SSL-princip. I följande exempel **TLSv1.0** och **TLSv1.1** är inaktiverad och de krypteringssviter som **TLS\_ECDHE\_ECDSA\_WITH\_ AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, och **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** är den enda de som tillåts.
 
    ```powershell
    Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
 
    ```
 
-   3. Slutligen uppdaterar du gatewayen. Det sista steget är en tidskrävande uppgift. När den är klar konfigureras slutpunkt till slutpunkt SSL på application gateway.
+3. Slutligen uppdaterar du gatewayen. Det sista steget är en tidskrävande uppgift. När den är klar konfigureras slutpunkt till slutpunkt SSL på application gateway.
 
    ```powershell
    $gw | Set-AzApplicationGateway

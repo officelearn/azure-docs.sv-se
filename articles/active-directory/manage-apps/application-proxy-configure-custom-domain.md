@@ -16,16 +16,16 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3918030925022ac20144f9adac6e7683bac64aa4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 05c537b061619aa458663a9dcfcc97155d8a6614
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181770"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106805"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Arbeta med anpassade domäner i Azure AD Application Proxy
 
-När du publicerar ett program via Azure Active Directory Application Proxy kan skapa du en extern URL för användarna att vända sig när de arbetar via fjärranslutning. Den här URL: en hämtar standarddomän *yourtenant.msappproxy.net*. Till exempel om du har publicerat en app med namnet utgifter och din klient heter Contoso och den externa URL: en är https://expenses-contoso.msappproxy.net. Om du vill använda ditt eget domännamn, konfigurera ett anpassat domännamn för ditt program. 
+När du publicerar ett program via Azure Active Directory Application Proxy kan skapa du en extern URL för användarna att vända sig när de arbetar via fjärranslutning. Den här URL: en hämtar standarddomän *yourtenant.msappproxy.net*. Till exempel om du har publicerat en app med namnet utgifter och din klient heter Contoso och den externa URL: en är `https://expenses-contoso.msappproxy.net`. Om du vill använda ditt eget domännamn, konfigurera ett anpassat domännamn för ditt program. 
 
 Vi rekommenderar att du konfigurerar anpassade domäner för dina program när det är möjligt. Några av fördelarna med anpassade domäner är:
 

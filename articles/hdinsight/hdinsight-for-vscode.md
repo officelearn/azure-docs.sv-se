@@ -1,7 +1,7 @@
 ---
 title: Azure HDInsight Tools - använder Visual Studio Code för Hive, LLAP eller PySpark | Microsoft Docs
 description: Lär dig hur du använder Azure HDInsight Tools för Visual Studio Code för att skapa och skicka frågor och skript.
-Keywords: Visual Studio Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
+Keywords: Visual Studio Code, Azure HDInsight-verktyg, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, Interactive Hive, interaktiv fråga
 services: HDInsight
 documentationcenter: ''
 author: hrasheed-msft
@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/04/2019
-ms.openlocfilehash: 3301f3cdea1795db3b17bc2fa7da05bf362c744d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 71e12e661c704af028ac4dc48f255bdee980619c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895083"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100334"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Använd Azure HDInsight Tools för Visual Studio Code
 
@@ -81,7 +81,7 @@ Innan du kan skicka skript till HDInsight-kluster från Visual Studio Code, mås
 
         ![Inloggningsinstruktioner för andra miljöer](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
- När du är ansluten, visas namnet på ditt Azure i statusfältet längst ned till vänster i Visual Studio Code-fönstret.  
+   När du är ansluten, visas namnet på ditt Azure i statusfältet längst ned till vänster i Visual Studio Code-fönstret.  
   
 
 <h2 id="linkcluster">Skapa länk: Azure HDInsight</h2>

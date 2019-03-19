@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7f67b7363719f544c485503e0f8207bb1f1078ce
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 7ac210d9b30a05fd5dbfd46c41c3e62a1d610357
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244714"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891111"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Blueprint för säkerhet och efterlevnad: PaaS-webbprogram som är värd för Storbritannien officiella arbetsbelastningar
 
@@ -219,7 +219,7 @@ Dessutom publicerade Cloud Security Alliance (CSA) Cloud Control matrisen stöd 
 
 Den här skissen har granskats av den Storbritannien nationella Cyberhot Security Center (NCSC) och stämmer överens med Molnsäkerhetsprinciper för NCSC 14
 
-Automation-mallar har testats av Storbritannien kundernas framgång enhet Azure Cloud Solution Architect-teamet och av våra Microsoft-partner [Ampliphae](http://www.ampliphae.com/).
+Automation-mallar har testats av Storbritannien kundernas framgång enhet Azure Cloud Solution Architect-teamet och av våra Microsoft-partner [Ampliphae](https://www.ampliphae.com/).
 
 
 ## <a name="deploy-the-solution"></a>Distribuera lösningen

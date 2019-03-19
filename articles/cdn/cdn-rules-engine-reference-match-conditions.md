@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 3ebc4d94e0bbf24895be0aeba9fef1cc7aacd6b9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 1e17ec48c35a7e01ca87016406fb416a05544b41
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736720"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087201"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN-regelmotor matchar de villkor 
 Den här artikeln innehåller detaljerade beskrivningar av tillgängliga matchningsvillkor för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).
@@ -532,16 +532,16 @@ Viktig information:
 - En kant CNAME URL: en skrivs om till en CDN-URL innan du URL: en jämförelse.
 
     Exempelvis kan båda av följande webbadresser peka på samma tillgång och därför har samma URL-sökvägen.
-    - CDN-URL: http:\//wpc.0001.&lt; domän&gt;/800001/CustomerOrigin/path/asset.htm
+  - CDN-URL: http:\//wpc.0001.&lt; domän&gt;/800001/CustomerOrigin/path/asset.htm
     
-    - Edge CNAME-URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
+  - Edge CNAME-URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     Ytterligare information:
-    - Anpassad domän: https:\//my.domain.com/path/asset.htm
+  - Anpassad domän: https:\//my.domain.com/path/asset.htm
     
-    - URL-sökväg (i förhållande till rot): / 800001/CustomerOrigin/path /
+  - URL-sökväg (i förhållande till rot): / 800001/CustomerOrigin/path /
     
-    - URL-sökväg (i förhållande till ursprunget): /path/
+  - URL-sökväg (i förhållande till ursprunget): /path/
 
 - Del av URL: en som används för URL: en jämförelse av ends precis före filnamnet för den begärda tillgången. Ett avslutande snedstreck är det sista tecknet i den här typen av sökvägen.
     
@@ -639,27 +639,27 @@ Viktig information:
 - Använd den **relativt** alternativet för att ange om den URL: en jämförelse inleder före eller efter punkten för åtkomst till innehåll. 
 
     Följande värden är tillgängliga för den **relativt** alternativet:
-     - **Rot**: Anger att den URL: en jämförelse punkten börjar direkt efter CDN-värdnamn.
+  - **Rot**: Anger att den URL: en jämförelse punkten börjar direkt efter CDN-värdnamn.
 
-       Till exempel: http:\//wpc.0001.&lt; domän&gt;/**800001/myorigin/myfolder/index.htm**
+    Till exempel: http:\//wpc.0001.&lt; domän&gt;/**800001/myorigin/myfolder/index.htm**
 
-     - **Origin**: Anger att den URL: en jämförelse punkten börjar när du har åtkomst till innehåll punkten (till exempel /000001 eller/800001/myorigin). Eftersom den \*. azureedge.net CNAME har skapats i förhållande till den ursprungliga katalogen på Verizon CDN-värdnamn som standard, Azure CDN-användare bör använda den **ursprung** värde. 
+  - **Origin**: Anger att den URL: en jämförelse punkten börjar när du har åtkomst till innehåll punkten (till exempel /000001 eller/800001/myorigin). Eftersom den \*. azureedge.net CNAME har skapats i förhållande till den ursprungliga katalogen på Verizon CDN-värdnamn som standard, Azure CDN-användare bör använda den **ursprung** värde. 
 
-       Till exempel: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
+    Till exempel: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
-     Den här URL: en pekar till följande Verizon CDN-värdnamn: http:\//wpc.0001.&lt; domän&gt;/800001/myorigin/**myfolder/index.htm**
+    Den här URL: en pekar till följande Verizon CDN-värdnamn: http:\//wpc.0001.&lt; domän&gt;/800001/myorigin/**myfolder/index.htm**
 
 - En kant CNAME URL: en skrivs om till en CDN-URL innan en jämförelse av en URL.
 
     Exempelvis kan båda av följande webbadresser pekar på samma tillgång och därför har samma URL-sökväg:
-    - CDN-URL: http:\//wpc.0001.&lt; domän&gt;/800001/CustomerOrigin/path/asset.htm
-    - Edge CNAME-URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
+  - CDN-URL: http:\//wpc.0001.&lt; domän&gt;/800001/CustomerOrigin/path/asset.htm
+  - Edge CNAME-URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     Ytterligare information:
     
-    - URL-sökväg (i förhållande till rot): /800001/CustomerOrigin/path/asset.htm
+  - URL-sökväg (i förhållande till rot): /800001/CustomerOrigin/path/asset.htm
    
-    - URL-sökväg (i förhållande till ursprunget): /path/asset.htm
+  - URL-sökväg (i förhållande till ursprunget): /path/asset.htm
 
 - Frågesträngar i URL: en ignoreras.
 - Använd den **Ignorera skiftläge** alternativet att kontrollera om en skiftlägeskänslig jämförelse.
@@ -684,13 +684,13 @@ Viktig information:
  
     Båda URL: er om du vill peka på samma tillgång och därför har samma URL-sökvägen.
 
-     - CDN-URL: http:\//wpc.0001.&lt; domän&gt;/800001/CustomerOrigin/path/asset.htm
+  - CDN-URL: http:\//wpc.0001.&lt; domän&gt;/800001/CustomerOrigin/path/asset.htm
 
-     - Edge CNAME URL: http:\//my.domain.com/path/asset.htm
+  - Edge CNAME URL: http:\//my.domain.com/path/asset.htm
     
     Ytterligare information:
     
-     - URL-sökväg: /800001/CustomerOrigin/path/asset.htm
+  - URL-sökväg: /800001/CustomerOrigin/path/asset.htm
 
 - Frågesträngar i URL: en ignoreras.
     
@@ -714,27 +714,27 @@ Viktig information:
 - **Relativt** alternativet: Det här alternativet avgör om den URL: en jämförelse punkten börjar före eller efter punkten för åtkomst till innehåll.
 
    Det här alternativet kan ha följande värden:
-     - **Rot**: Anger att den URL: en jämförelse punkten börjar direkt efter CDN-värdnamn.
+  - **Rot**: Anger att den URL: en jämförelse punkten börjar direkt efter CDN-värdnamn.
 
-       Till exempel: http:\//wpc.0001.&lt; domän&gt;/**800001/myorigin/myfolder/index.htm**
+    Till exempel: http:\//wpc.0001.&lt; domän&gt;/**800001/myorigin/myfolder/index.htm**
 
-     - **Origin**: Anger att den URL: en jämförelse punkten börjar när du har åtkomst till innehåll punkten (till exempel /000001 eller/800001/myorigin). Eftersom den \*. azureedge.net CNAME har skapats i förhållande till den ursprungliga katalogen på Verizon CDN-värdnamn som standard, Azure CDN-användare bör använda den **ursprung** värde. 
+  - **Origin**: Anger att den URL: en jämförelse punkten börjar när du har åtkomst till innehåll punkten (till exempel /000001 eller/800001/myorigin). Eftersom den \*. azureedge.net CNAME har skapats i förhållande till den ursprungliga katalogen på Verizon CDN-värdnamn som standard, Azure CDN-användare bör använda den **ursprung** värde. 
 
-       Till exempel: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
+    Till exempel: https:\//&lt;endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
-     Den här URL: en pekar till följande Verizon CDN-värdnamn: http:\//wpc.0001.&lt; domän&gt;/800001/myorigin/**myfolder/index.htm**
+    Den här URL: en pekar till följande Verizon CDN-värdnamn: http:\//wpc.0001.&lt; domän&gt;/800001/myorigin/**myfolder/index.htm**
 
 - En kant CNAME URL: en skrivs om till en CDN-URL innan du URL: en jämförelse.
 
     Exempelvis kan båda av följande webbadresser pekar på samma tillgång och därför har samma URL-sökväg:
-     - CDN URL: http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
-     - Edge CNAME-URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
+  - CDN URL: http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
+  - Edge CNAME-URL: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     Ytterligare information:
     
-     - URL-sökväg (i förhållande till rot): /800001/CustomerOrigin/path/asset.htm
+  - URL-sökväg (i förhållande till rot): /800001/CustomerOrigin/path/asset.htm
     
-     - URL-sökväg (i förhållande till ursprunget): /path/asset.htm
+  - URL-sökväg (i förhållande till ursprunget): /path/asset.htm
     
 - Ange flera URL-sökvägar genom att avgränsa dem med ett enda blanksteg.
 

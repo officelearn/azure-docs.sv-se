@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b134482e571b235b462c027a6d4ae8967fc77413
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: aedbc625bedcbe66b43b66ce96e1b17746b9a47c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175480"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531297"
 ---
 # <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Självstudier: Ladda ned och använda ett skript för åtkomst till inloggningsloggar
 
@@ -30,13 +30,12 @@ Du kan ladda ned informationen om inloggningsaktivitet om du vill arbete med den
 
 I den här självstudien lär du dig hur du genererar ett skript för att ladda ned alla inloggningsloggar från de senaste 24 timmarna och schemalägger den för körning varje dag. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver
 
 * En Azure Active Directory-klientorganisation med en premiumlicens (P1/P2). Observera att om du inte har några aktivitetsdata före uppgraderingen tar det ett par dagar innan data visas i rapporterna när du har uppgraderat till en premiumlicens. 
 * En användare som har rollen **global administratör**, **säkerhetsadministratör**, **säkerhetsläsare**, eller **rapportläsare** för klienten. Dessutom kan alla användare komma åt sina egna inloggningar. 
-* Om du vill köra nedladdningsskriptet på en Windows 10-dator [konfigurerar du Azure PowerShell-modulen och anger körningsprincipen](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
 
 ## <a name="tutorial"></a>Självstudier
 

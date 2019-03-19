@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 1966a0f360a1b214f8fc7b3d3c94ec817e5a4232
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: e2e6b6c22f94a35b50ff51f19b1959135b3c4c34
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753239"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875506"
 ---
 # <a name="create-and-locate-anchors-using-azure-spatial-anchors-in-cwinrt"></a>Skapa och leta upp ankare som använder Azure Spatial ankare i C + +/ WinRT
 
@@ -25,9 +25,11 @@ ms.locfileid: "56753239"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har aktiverat för att fungera bra med ditt val av utvecklingsmiljö. I den här artikeln har vi kommer fördjupa dig i hur du gör i C + +/ WinRT.
+Med Azure Spatial Anchors kan du dela fästpunkter i världen mellan olika enheter. Den stöder flera utvecklingsmiljöer. I den här artikeln har vi kommer fördjupa dig i hur du gör i C + +/ WinRT.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
+
+Läs mer om den [CloudSpatialAnchorSession](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession) klass.
 
 ```cpp
     SpatialAnchorsFactory m_asafactory{ nullptr };
@@ -39,6 +41,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
+
+Läs mer om den [SessionConfiguration](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/sessionconfiguration) klass.
 
 ```cpp
     auto configuration = m_cloudSession.Configuration();
@@ -53,6 +57,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
+
+Läs mer om den [TokenRequiredDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/tokenrequireddelegate) delegera.
 
 ```cpp
     m_accessTokenRequiredToken = m_cloudSession.TokenRequired(winrt::auto_revoke, [](auto&&, auto&& args) {
@@ -101,11 +107,23 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
+Läs mer om den [starta](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#start) metod.
+
 ```cpp
     m_cloudSession.Start();
 ```
 
+[!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
+
+Läs mer om den [ProcessFrame](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#processframe) metod.
+
+```cpp
+    m_cloudSession->ProcessFrame(ar_frame_);
+```
+
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
+
+Läs mer om den [SessionUpdatedDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/sessionupdateddelegate) delegera.
 
 ```cpp
     m_sessionUpdatedToken = m_cloudSession.SessionUpdated(winrt::auto_revoke, [this](auto&&, auto&& args)
@@ -118,6 +136,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
+
+Läs mer om den [CloudSpatialAnchor](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchor) klass.
 
 ```cpp
     // Initialization
@@ -153,6 +173,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
+Läs mer om den [GetSessionStatusAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#getsessionstatusasync) metod.
+
 ```cpp
     SessionStatus status = co_await m_cloudSession.GetSessionStatusAsync();
     if (value.RecommendedForCreateProgress() < 1.0f) return;
@@ -160,6 +182,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
+
+Läs mer om den [AppProperties](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchor#appproperties) metod.
 
 ```cpp
     CloudSpatialAnchor cloudAnchor = m_asafactory.CreateCloudSpatialAnchor();
@@ -172,6 +196,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
+Läs mer om den [UpdateAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#updateanchorpropertiesasync) metod.
+
 ```cpp
     CloudSpatialAnchor anchor = /* locate your anchor */;
     anchor.AppProperties().Insert(LR"(last-user-access)", LR"(just now)");
@@ -179,6 +205,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
+
+Läs mer om den [GetAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#getanchorpropertiesasync) metod.
 
 ```cpp
     CloudSpatialAnchor anchor = co_await m_cloudSession.GetAnchorPropertiesAsync(LR"(anchorId)");
@@ -191,6 +219,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
+Läs mer om den [upphör att gälla](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchor#expiration) metod.
+
 ```cpp
     const int64_t oneWeekFromNowInHours = 7 * 24;
     const DateTime oneWeekFromNow = DateTime::clock::now() + std::chrono::hours(oneWeekFromNowInHours);
@@ -199,6 +229,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
+Läs mer om den [CreateWatcher](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#createwatcher) metod.
+
 ```cpp
     AnchorLocateCriteria criteria = m_asafactory.CreateAnchorLocateCriteria();
     criteria.Identifiers({ LR"(id1)", LR"(id2)", LR"(id3)" });
@@ -206,6 +238,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
+
+Läs mer om den [AnchorLocatedDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/anchorlocateddelegate) delegera.
 
 ```cpp
     m_anchorLocatedToken = m_cloudSession.AnchorLocated(winrt::auto_revoke, [this](auto&&, auto&& args)
@@ -235,6 +269,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
+Läs mer om den [DeleteAnchorAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#deleteanchorasync) metod.
+
 ```cpp
     co_await m_cloudSession.DeleteAnchorAsync(cloudAnchor);
     // Perform any processing you may want when delete finishes
@@ -242,11 +278,15 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
+Läs mer om den [stoppa](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#stop) metod.
+
 ```cpp
     m_cloudSession.Stop();
 ```
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
+
+Läs mer om den [återställa](https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/cloudspatialanchorsession#reset) metod.
 
 ```cpp
     m_cloudSession.Reset();

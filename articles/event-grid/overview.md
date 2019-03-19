@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/06/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 01c88b9bc64bc1541e97aff26e41c360acfaf6bd
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 1fa9eaa5f4ba399622e0b8889ab722e4a4e130a0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809980"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770484"
 ---
 # <a name="what-is-azure-event-grid"></a>Vad är Azure Event Grid?
 
@@ -44,6 +44,7 @@ Fullständig information om funktionerna för varje källa samt relaterade artik
 * Service Bus
 * Storage Blob
 * Allmän lagring v2 (GPv2)
+* Azure Maps
 
 ## <a name="event-handlers"></a>Händelsehanterare
 
@@ -87,7 +88,7 @@ En jämförelse av Event Grid, Event Hubs och Service Bus finns i [Välj mellan 
 
 ## <a name="what-can-i-do-with-event-grid"></a>Vad kan jag göra med Event Grid?
 
-Azure Event Grid innehåller flera funktioner som avsevärt förbättrar åtgärdsautomatisering och [integreringsarbete](http://azure.com/integration) utan server: 
+Azure Event Grid innehåller flera funktioner som avsevärt förbättrar åtgärdsautomatisering och [integreringsarbete](https://azure.com/integration) utan server: 
 
 ### <a name="serverless-application-architectures"></a>Arkitekturer för program utan server
 

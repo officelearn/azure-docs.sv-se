@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8e20d617da12aea857308f4020fbd0cfe711430
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 687f99fb6447eddb4ce10ce81bc349181ec5c48c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651319"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094760"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Konfigurationer för SAP-arbetsbelastning med Tillgänglighetszoner i Azure
 [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview) är en av de funktioner för hög tillgänglighet som Azure tillhandahåller. Med hjälp av Tillgänglighetszoner förbättrar den övergripande tillgängligheten för SAP-arbetsbelastningar på Azure. Den här funktionen finns redan i vissa [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/). I framtiden kommer blir den tillgänglig i fler regioner.
@@ -109,8 +109,8 @@ Följande gäller för den här konfigurationen:
 - För alla virtuella datorer som du distribuerar, måste du använda [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). Ohanterade diskar stöds inte för zonindelade distributioner.
 - Azure Premium Storage och [Ultra SSD-lagring](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) stöder inte någon typ av storage-replikering i flera zoner. Programmet (DBMS eller SAP Central Services) måste replikera viktiga data.
 - Detsamma gäller för den dela sapmnt-katalogen, vilket är en delad disk (Windows), en CIFS-resurs (Windows) eller en NFS-resurs (Linux). Du måste använda en teknik som replikerar dessa delade diskar eller resurser mellan zonerna. Dessa tekniker stöds:
-    - För Windows, en lösning som använder SIOS DataKeeper, enligt beskrivningen i [kluster ett SAP ASCS/SCS-instans på en Windows-redundanskluster med hjälp av en delad klusterdisk i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
-    - För SUSE Linux, en NFS-resursens som skapats enligt beskrivningen i [hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
+  - För Windows, en lösning som använder SIOS DataKeeper, enligt beskrivningen i [kluster ett SAP ASCS/SCS-instans på en Windows-redundanskluster med hjälp av en delad klusterdisk i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
+  - För SUSE Linux, en NFS-resursens som skapats enligt beskrivningen i [hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
     
     För närvarande den lösning som använder Microsoft Scale-Out File Server, enligt beskrivningen i [förbereda Azure-infrastrukturen för SAP hög tillgänglighet med hjälp av en Windows failover-kluster och filresursen för SAP ASCS/SCS instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), är inte stöds i olika zoner.
 - Den tredje zonen används som värd för enheten uppstår om du skapar en [SUSE Linux Pacemaker kluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) eller ytterligare programinstanser.

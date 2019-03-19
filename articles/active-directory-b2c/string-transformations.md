@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9504a710711ba10d72c3f87045f498b652cfea44
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 32acee78b1aadbe5a461de6ea4475cf28503c325
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193445"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113035"
 ---
 # <a name="string-claims-transformations"></a>Sträng anspråk omvandlingar
 
@@ -78,10 +78,10 @@ Den tekniska profilen självkontrollerad anropar verifieringen **inloggning utan
 ### <a name="example"></a>Exempel
 
 - Inkommande anspråk:
-    - **inputClaim1**: someone@contoso.com
-    - **inputClaim2**: someone@outlook.com
- - Indataparametrar:
-    - **stringComparison**: ordinalIgnoreCase
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
+    - Indataparametrar:
+  - **stringComparison**: ordinalIgnoreCase
 - Resultat: Fel uppstod
 
 ## <a name="changecase"></a>ChangeCase 
@@ -113,11 +113,11 @@ Använd den här anspråksomvandling för att ändra en sträng ClaimType till l
 ### <a name="example"></a>Exempel
 
 - Inkommande anspråk:
-    - **e-post**: SomeOne@contoso.com
+  - **e-post**: SomeOne@contoso.com
 - Indataparametrar:
     - **toCase**: LOWER
 - Utgående anspråk:
-    - **e-post**: someone@contoso.com
+  - **e-post**: someone@contoso.com
 
 ## <a name="createstringclaim"></a>CreateStringClaim 
 
@@ -181,8 +181,8 @@ Använd detta omvandling och kontrollera om ett anspråk är lika med en annan a
 ### <a name="example"></a>Exempel
 
 - Inkommande anspråk:
-    - **inputClaim1**: someone@contoso.com
-    - **inputClaim2**: someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - Indataparametrar:
     - **Operatorn**:  INTE LIKA MED
     - **ignoreCase**: true
@@ -321,7 +321,7 @@ Använd detta omvandling till format som alla strängar med en parameter av ansp
 - Indataparametrar:
     - **stringFormat**:  cpim_{0}@{RelyingPartyTenantId}
 - Utgående anspråk:
-    - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
+  - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
@@ -494,7 +494,7 @@ Använd detta anspråk omvandling för att analysera domännamnet efter det @-te
 ### <a name="example"></a>Exempel
 
 - Inkommande anspråk:
-    - **e-postadress**: joe@outlook.com
+  - **e-postadress**: joe@outlook.com
 - Utgående anspråk:
     - **domän**: outlook.com
 

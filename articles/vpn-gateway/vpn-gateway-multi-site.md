@@ -1,5 +1,5 @@
 ---
-title: 'Ansluta ett virtuellt nätverk till flera platser med hjälp av VPN-Gateway och PowerShell: klassisk | Microsoft Docs'
+title: 'Anslut ett virtuellt nätverk till flera platser med hjälp av VPN-Gateway och PowerShell: Klassiska | Microsoft Docs'
 description: Anslut flera lokala platser till ett klassiskt virtuellt nätverk med hjälp av en VPN-Gateway.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 768f06c9d007e716f89ca61ccd9f8a2ccd575efd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 77f8b7094c96e507eef1d360a26240627bc0e350
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160876"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994014"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Lägg till en plats-till-plats-anslutning till ett virtuellt nätverk med en befintlig VPN-gateway-anslutning (klassisk)
 
@@ -75,8 +75,8 @@ Om du redan har en plats-till-plats VPN med en dynamisk routningsgateway bra! Du
 2. Konfigurera din nya gatewayen och skapa din VPN-tunnel. Instruktioner för mer information finns i [ange SKU- och VPN-typ](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Kontrollera att du anger typen av routning som ”dynamiska”.
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Om du inte har ett virtuellt nätverk för plats-till-plats:
-1. Skapa ditt virtuella nätverk för plats-till-plats med hjälp av anvisningarna: [skapa ett virtuellt nätverk med en plats-till-plats VPN-anslutning](vpn-gateway-site-to-site-create.md).  
-2. Konfigurera en dynamisk routningsgateway som använder dessa instruktioner: [konfigurera en VPN-Gateway](vpn-gateway-configure-vpn-gateway-mp.md). Se till att välja **dynamisk routning** för gatewaytypen.
+1. Skapa ditt virtuella nätverk för plats-till-plats med hjälp av anvisningarna: [Skapa ett virtuellt nätverk med en plats-till-plats-VPN-anslutning](vpn-gateway-site-to-site-create.md).  
+2. Konfigurera en dynamisk routningsgateway som använder dessa instruktioner: [Konfigurera en VPN-Gateway](vpn-gateway-configure-vpn-gateway-mp.md). Se till att välja **dynamisk routning** för gatewaytypen.
 
 ## <a name="export"></a>2. Exportera nätverkskonfigurationsfilen
 Exportera konfigurationsfilen Azure-nätverk genom att köra följande kommando. Du kan ändra platsen för den fil som ska exporteras till en annan plats om det behövs.
@@ -88,7 +88,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ## <a name="3-open-the-network-configuration-file"></a>3. Öppna nätverkskonfigurationsfilen
 Öppna nätverkskonfigurationsfilen som du hämtade i föregående steg. Använda en xml-redigerare som helst. Filen bör se ut ungefär så här:
 
-        <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+        <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
             <LocalNetworkSites>
               <LocalNetworkSite name="Site1">

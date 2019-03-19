@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: 0f63896239615699db63c9f48be6b291208408db
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 67876532496aa0a295bf32692534b16d38599492
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247179"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839516"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Liveuppspelning med Azure Media Services v3
 
@@ -28,7 +28,7 @@ Azure Media Services kan du leverera händelser till dina kunder på Azure-molne
 - En live-videokodare som konverterar signaler från en kamera (eller en annan enhet, till exempel en bärbar dator) till ett bidrag feed som skickas till Media Services. Bidrag feed kan innehålla signaler som rör reklam, till exempel SCTE 35 markörer.<br/>En lista över rekommenderade livekodare för direktuppspelning finns i [liveuppspelning kodare](recommended-on-premises-live-encoders.md). Kolla dessutom in den här bloggen: [Live direktuppspelning produktion med OBS](https://link.medium.com/ttuwHpaJeT).
 - Komponenterna i Media Services, som gör det möjligt att mata in, förhandsgranska, paket, registrera, kryptera och sända live-händelse till dina kunder eller till ett nätverk för Innehållsleverans för vidare distribution.
 
-Med medietjänster kan du dra nytta av **dynamisk paketering**, där du kan förhandsgranska och sända direktsändningar i [format som MPEG DASH, HLS och Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) från bidraget feed att skicka till tjänsten. Användarna kan spela upp den direktsända dataströmmen med valfri kompatibel spelare HLS, DASH eller Smooth Streaming. Du kan använda [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) i dina webb- och mobilprogram att leverera din dataström i någon av de här protokollen.
+Med medietjänster kan du dra nytta av **dynamisk paketering**, där du kan förhandsgranska och sända direktsändningar i [format som MPEG DASH, HLS och Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) från bidraget feed att skicka till tjänsten. Användarna kan spela upp den direktsända dataströmmen med valfri kompatibel spelare HLS, DASH eller Smooth Streaming. Du kan använda [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) i dina webb- och mobilprogram att leverera din dataström i någon av de här protokollen.
 
 Media Services kan du leverera ditt innehåll dynamiskt krypterad (**dynamisk kryptering**) med Advanced Encryption Standard (AES-128) eller någon av de tre största digital rights management (DRM) system: Microsoft PlayReady, Google Widevine och FairPlay för Apple. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM-licenser till auktoriserade klienter. Mer information om hur du kryptera ditt innehåll med Media Services finns i [skyddar innehåll – översikt](content-protection-overview.md)
 

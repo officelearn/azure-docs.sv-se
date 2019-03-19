@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 42c0f44408a6df62b87ba0fc378bf229d1493215
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e77c7ea6036e92c33c975f8180053a8880db55a0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860260"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090533"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Snabbstart: Utföra en nyhetssökning med hjälp av PHP och REST-API:et för nyhetssökning i Bing
 
@@ -24,7 +24,7 @@ Använd den här snabbstarten för att skicka ditt första anrop till API:et fö
 
 Även om det här programmet är skrivet i PHP, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * PHP 5.6 eller senare
 
@@ -66,7 +66,7 @@ $term = 'Microsoft';
 function BingNewsSearch ($url, $key, $query) {
     // Prepare HTTP request
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
     $options = array ('http' => array (
                           'header' => $headers,
@@ -200,4 +200,4 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-[Skapa en enkelsidig webbapp](tutorial-bing-news-search-single-page-app.md)
+> [Skapa en enkelsidig webbapp](tutorial-bing-news-search-single-page-app.md)

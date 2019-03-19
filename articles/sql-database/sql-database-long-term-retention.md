@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 68bcddeee2cec1a77f20f8f470669f170fa50743
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 85757ace20501bea1db22ecfdd2fdb63284038d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992491"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108754"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Store Azure SQL Database-säkerhetskopior i upp till 10 år
 
@@ -56,22 +56,20 @@ W = 12 veckor (84 dagar), M = 12 månader (365 dagar), Y = 10 år (3650 dagar), 
    ![LTR-exempel](./media/sql-database-long-term-retention/ltr-example.png)
 
 
- 
+
 Om du skulle ändra principen ovan och W = 0 (ingen veckovisa säkerhetskopior), intervall som uppsättning säkerhetskopior skulle ändras som visas i tabellen ovan efter de markerade datum. Lagringsutrymmet som krävs för att dessa säkerhetskopior skulle minska därefter. 
 
 > [!NOTE]
-1. LTR-kopior skapas av Azure storage-tjänsten så att kopieringen inte påverkar prestanda på den befintliga databasen.
-2. Principen gäller för framtida säkerhetskopieringar. T.ex. Om den angivna WeekOfYear har passerat när principen är konfigurerad, skapas den första säkerhetskopian för LTR nästa år. 
-3. Om du vill återställa en databas från LTR-lagring, kan du välja en specifik säkerhetskopia baserat på dess tidsstämpel.   Databasen kan återställas till en befintlig server i samma prenumeration som den ursprungliga databasen. 
-> 
+> 1. LTR-kopior skapas av Azure storage-tjänsten så att kopieringen inte påverkar prestanda på den befintliga databasen.
+> 2. Principen gäller för framtida säkerhetskopieringar. T.ex. Om den angivna WeekOfYear har passerat när principen är konfigurerad, skapas den första säkerhetskopian för LTR nästa år. 
+> 3. Om du vill återställa en databas från LTR-lagring, kan du välja en specifik säkerhetskopia baserat på dess tidsstämpel.   Databasen kan återställas till en befintlig server i samma prenumeration som den ursprungliga databasen. 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>GEO-replikering och långsiktig kvarhållning av säkerhetskopior
 
 Om du använder aktiv geo-replikering eller växla över grupper som din lösning på kontinuitet för företag du förbereder för slutlig redundansväxlingar och konfigurera samma LTR-princip för geo-secondary-databas. Det här ökar inte dina kostnader för LTR-lagring som säkerhetskopieringar inte genereras från de sekundära databaser. Först när sekundärt primära kommer säkerhetskopieringar att skapas. Det här sättet som garanterar du icke avbryts generering av LTR-säkerhetskopior när redundansen utlöses och primärt flyttas till den sekundära regionen. 
 
 > [!NOTE]
-När den ursprungliga primära databasen återställs från avbrott som orsakar till redundans, blir det en ny sekundär. Därför kommer inte att återuppta säkerhetskopian skapades och den befintliga principen för LTR börjar inte gälla förrän den blir primärt igen. 
-> 
+> När den ursprungliga primära databasen återställs från avbrott som orsakar till redundans, blir det en ny sekundär. Därför kommer inte att återuppta säkerhetskopian skapades och den befintliga principen för LTR börjar inte gälla förrän den blir primärt igen. 
 
 ## <a name="configure-long-term-backup-retention"></a>Konfigurera långsiktig kvarhållning av säkerhetskopior
 

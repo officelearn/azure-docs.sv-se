@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: 4c533921b0c88a4f61cd96896b72306adb9a23cf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 637ad62744affa37630df9c841f3c7529674e788
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175714"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122917"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Aktivera Azure Active Directory Domain Services med Azure portal
 Den här artikeln visar hur du aktiverar Azure Active Directory Domain Services (Azure AD DS) med Azure portal.
@@ -62,14 +62,13 @@ I den **grunderna** sidan i guiden anger du DNS-domännamnet för den hanterade 
    > [!NOTE]
    > **Riktlinjer för att välja ett DNS-domännamn**
    > * **Inbyggda domännamn:** Som standard i guiden anger standard/inbyggda-i domännamnet för katalogen (med en **. onmicrosoft.com** suffix) åt dig. Om du väljer att aktivera åtkomst med säkert LDAP till den hanterade domänen via internet, räkna med problem med att skapa en offentlig DNS-post eller skaffa en säker LDAP-certifikat från en offentlig Certifikatutfärdare för det här domännamnet. Microsoft äger den *. onmicrosoft.com* domän och certifikatutfärdare utfärdar inte certifikat som ansvarar för den här domänen.
-   * **Anpassade domännamn:** Du kan också skriva i ett anpassat domännamn. I det här exemplet är det anpassade domännamnet *contoso100.com*.
-   * **Icke-dirigerbara domänsuffix:** I allmänhet rekommenderar vi att undvika ett icke-dirigerbara domän namnsuffix. Exempelvis är det bättre att undvika att skapa en domän med DNS-domän namn ”contoso.local”. DNS-suffixet ”Local” är inte dirigerbart och kan orsaka problem med DNS-matchning.
-   * **Domänbegränsningar för prefix:** Prefixet för det angivna domännamnet (till exempel contoso100 i domännamnet *contoso100.com*) kan innehålla upp till 15 tecken. Du kan inte skapa en hanterad domän med ett prefix som är längre än 15 tecken.
-   * **Nätverket namnet står i konflikt:** Kontrollera att DNS-domännamnet som du har valt för den hanterade domänen inte redan finns i det virtuella nätverket. Kontrollera särskilt om:
-       * Du har redan en Active Directory-domän med samma DNS-domännamnet i det virtuella nätverket.
-       * Det virtuella nätverket där du planerar att aktivera den hanterade domänen har en VPN-anslutning med det lokala nätverket. I det här scenariot, se till att du inte har en domän med samma DNS-domännamnet i ditt lokala nätverk.
-       * Du har en befintlig molntjänst med det namnet i det virtuella nätverket.
-    >
+   > * **Anpassade domännamn:** Du kan också skriva i ett anpassat domännamn. I det här exemplet är det anpassade domännamnet *contoso100.com*.
+   > * **Icke-dirigerbara domänsuffix:** I allmänhet rekommenderar vi att undvika ett icke-dirigerbara domän namnsuffix. Exempelvis är det bättre att undvika att skapa en domän med DNS-domän namn ”contoso.local”. DNS-suffixet ”Local” är inte dirigerbart och kan orsaka problem med DNS-matchning.
+   > * **Domänbegränsningar för prefix:** Prefixet för det angivna domännamnet (till exempel *contoso100* i domännamnet *contoso100.com*) kan innehålla upp till 15 tecken. Du kan inte skapa en hanterad domän med ett prefix som är längre än 15 tecken.
+   > * **Nätverket namnet står i konflikt:** Kontrollera att DNS-domännamnet som du har valt för den hanterade domänen inte redan finns i det virtuella nätverket. Kontrollera särskilt om:
+   >     * Du har redan en Active Directory-domän med samma DNS-domännamnet i det virtuella nätverket.
+   >     * Det virtuella nätverket där du planerar att aktivera den hanterade domänen har en VPN-anslutning med det lokala nätverket. I det här scenariot, se till att du inte har en domän med samma DNS-domännamnet i ditt lokala nätverk.
+   >     * Du har en befintlig molntjänst med det namnet i det virtuella nätverket.
 
 2. Välj Azure **prenumeration** i som du vill skapa den hanterade domänen.
 

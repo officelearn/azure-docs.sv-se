@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f2c9385e55559e53c9118e047bdddbe178a10770
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: 73f810072fce9345208593342df597b72c522a73
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359569"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894520"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Skapa en Node.js- and MongoDB-app i Azure App Service på Linux
 
@@ -336,7 +336,7 @@ I din lokala MEAN.js-katalog öppnar du _modules/articles/server/models/article.
 I `ArticleSchema` lägger du till `String` en typ som heter `comment`. När du är klar bör schemakoden se ut så här:
 
 ```javascript
-var ArticleSchema = new Schema({
+let ArticleSchema = new Schema({
   ...,
   user: {
     type: Schema.ObjectId,
@@ -362,7 +362,7 @@ I funktionen `update` lägger du till en uppgift för `article.comment`. Följan
 
 ```javascript
 exports.update = function (req, res) {
-  var article = req.article;
+  let article = req.article;
 
   article.title = req.body.title;
   article.content = req.body.content;
@@ -461,7 +461,7 @@ Klicka på **App Services** på menyn till vänster och klicka sedan på din Azu
 
 Portalen visar som standard dina webbappar på sidan **Översikt**. På den här sidan får du en översikt över hur det går för appen. Här kan du också utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. På flikarna till vänster på sidan kan du se olika konfigurationssidor som du kan öppna.
 
-![App Service-sidan på Azure-portalen](./media/tutorial-nodejs-mongodb-app/web-app-blade.png)
+![App Service-sidan på Azure Portal](./media/tutorial-nodejs-mongodb-app/web-app-blade.png)
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 

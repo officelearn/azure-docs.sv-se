@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 70a0463094f98612169e78e4bcdd4eac9c8ebf24
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 34829482e570354c1ab1e1fd6cec0c96b993cd83
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844712"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167039"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Stöd för AMQP 1.0 i Service Bus
 Både Azure Service Bus-Molntjänsten och lokala [Service Bus för Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) stöd för AMQP Advanced Message Queueing Protocol () 1.0. AMQP gör det möjligt för dig att skapa plattformsöverskridande hybridprogram med ett öppet standardprotokoll. Du kan skapa program med hjälp av komponenter som är byggda med olika språk och ramverk och som körs på olika operativsystem. Alla dessa komponenter kan ansluta till Service Bus och sömlöst utbyter strukturerade meddelanden effektivt och fullständig återgivning.
@@ -77,7 +77,7 @@ Just nu är följande klientbibliotek kända för att arbeta med Service Bus:
 | C |Apache Qpid Proton-C |
 | PHP |Apache Qpid Proton – PHP |
 | Python |Apache Qpid Proton – Python |
-| C# |AMQP .Net Lite |
+| C# |AMQP .NET Lite |
 
 **Bild 2: Tabell med AMQP 1.0-klientbibliotek**
 

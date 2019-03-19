@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: cb6ccf87cc14424801a06cc2e9749e2fc2f6ee4a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 87770a12ca7e489b11b2d176903f976fdcc256a0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339914"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551339"
 ---
 # <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>Exempel – Tillåtna SKU:er för lagringskonton och virtuella datorer
 
@@ -29,7 +29,7 @@ Du kan distribuera den här mallen med hjälp av [Azure Portal](#deploy-with-the
 
 ## <a name="deploy-with-the-portal"></a>Distribuera med portalen
 
-[![Distribuera till Azure](http://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![Distribuera till Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## <a name="deploy-with-powershell"></a>Distribuera med PowerShell
 

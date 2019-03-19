@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: fa433f55839db66bcf8245fe058ac56702af3d6e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888983"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125218"
 ---
 #### <a name="to-create-a-volume"></a>Skapa en volym
 1. Välj din enhet i tabellistan med enheter på bladet **Enheter**. Klicka på **+ Lägg till volymen**.
@@ -22,7 +22,7 @@ ms.locfileid: "55888983"
 
    2. I listrutan väljer du den volymcontainer som du vill lägga till en volym i. 
 
-   3.  Anger du ett **namn** för volymen. Du kan byta namn på en volym när den har skapats.
+   3. Anger du ett **namn** för volymen. Du kan byta namn på en volym när den har skapats.
 
    4. Välj **Typ** för volymen i listrutan. För arbetsbelastningar som kräver lokala garantier, låg latens och hög prestanda, väljer du en **lokalt fäst** volym. För all övrig data, väljer du en **nivåindelad** volym. Om du använder volymen för arkiveringsdata, markerar du **Använd volymen för arkiveringsdata med låg åtkomstfrekvens**.
       
@@ -36,19 +36,19 @@ ms.locfileid: "55888983"
       
        Om du etablerar en lokalt fäst volym på 8,5 TB (största tillåtna storleken) på din 8100-enhet har du använt upp allt lokalt tillgängligt utrymme för enheten. I så fall kan du inte skapa fler nivåindelade volymer eftersom det inte finns något lokalt utrymme ledigt på enheten för att lagra arbetsuppsättningen för den nivåindelade volymen. Befintliga nivåindelade volymer påverkar också tillgängligt utrymme. Om du exempelvis har en 8100-enhet som redan har nivåindelade volymer på 106 TB finns det bara 4 TB utrymme tillgängligt för lokalt fästa volymer.
 
-    6. Klicka på pilen i fältet **Anslutna värdar**. 
+      1. Klicka på pilen i fältet **Anslutna värdar**. 
 
-        ![Anslutna värdar](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
+         ![Anslutna värdar](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
 
-    7. På bladet **Anslutna värdar** väljer du en befintlig ACR eller lägger till en ny ACR genom att utföra följande steg:
+      1. På bladet **Anslutna värdar** väljer du en befintlig ACR eller lägger till en ny ACR genom att utföra följande steg:
 
-       1. Ange ett **namn** för din ACR.
-       2. Som **iSCSI-initierarnamn**, anger du det iSCSI-kvalificerade namnet (IQN) för din Windows-värd. Om du inte har en IQN, går du till [Hämta IQN för en Windows Server-värd](#get-the-iqn-of-a-windows-server-host).
+         1. Ange ett **namn** för din ACR.
+         2. Som **iSCSI-initierarnamn**, anger du det iSCSI-kvalificerade namnet (IQN) för din Windows-värd. Om du inte har en IQN, går du till [Hämta IQN för en Windows Server-värd](#get-the-iqn-of-a-windows-server-host).
 
-    9. Klicka på **Skapa**. En volym skapas med de angivna inställningarna.
+      1. Klicka på **Skapa**. En volym skapas med de angivna inställningarna.
 
-        ![Klicka på Skapa](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
+         ![Klicka på Skapa](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
 
-        > [!NOTE]
-        > Tänk på att volymen som du har skapat här inte är skyddad. Du måste skapa och associera principer för säkerhetskopiering med den här volymen för att skapa schemalagda säkerhetskopieringar. 
+         > [!NOTE]
+         > Tänk på att volymen som du har skapat här inte är skyddad. Du måste skapa och associera principer för säkerhetskopiering med den här volymen för att skapa schemalagda säkerhetskopieringar. 
 

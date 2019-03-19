@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/17/2019
+ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: 0fa221721471772b066990ec2d33f0cedb960239
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 01c3e8072db81620764ccdd3ea99258de4649807
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453549"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858948"
 ---
 # <a name="manage-azure-vm-backups"></a>Hantera säkerhetskopior av virtuella Azure-datorer
 
@@ -33,7 +33,7 @@ Du kan hantera säkerhetskopior med hjälp av instrumentpanelen och genom att g�
 
 ## <a name="view-vms-on-the-dashboard"></a>Visa virtuella datorer på instrumentpanelen
 
-Visa virtuella datorer på instrumentpanelen för valvet: 
+Visa virtuella datorer på instrumentpanelen för valvet:
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. På navmenyn väljer **Bläddra**. I listan över resurser skriver du **Recovery Services**. När du skriver filtreras listan baserat på dina indata. Välj **Recovery Services-valv**.
@@ -42,39 +42,43 @@ Visa virtuella datorer på instrumentpanelen för valvet:
 
 3. För enkel användning, högerklickar du på valvet och välj **fäst på instrumentpanelen**.
 4. Öppna instrumentpanelen för valvet.
+
     ![Öppna instrumentpanelen för valvet och bladet inställningar](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
-4. På den **Säkerhetskopieringsobjekt** panelen, väljer **Azure Virtual Machines**.
+5. På den **Säkerhetskopieringsobjekt** panelen, väljer **Azure Virtual Machines**.
 
     ![Öppna panelen Säkerhetskopieringsobjekt](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-5. På den **Säkerhetskopieringsobjekt** bladet du se senaste säkerhetskopieringsjobbet för varje objekt. I det här exemplet valvet skyddar en virtuell dator: demovm markgal.  
+6. På den **Säkerhetskopieringsobjekt** bladet, du kan visa listan över skyddade virtuella datorer. I det här exemplet valvet skyddar en virtuell dator: demobackup.  
 
     ![Visa bladet Säkerhetskopieringsobjekt](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
-
-6. Från instrumentpanelen för valvet objektets kan du skapa eller ändra principer för säkerhetskopiering, visa återställningspunkter, kör en på begäran-säkerhetskopiering, stoppa eller återuppta skyddet av virtuella datorer, ta bort återställningspunkter och köra en återställning.
+7. Från instrumentpanelen för valvet objektets att ändra principer för säkerhetskopiering, kör en på begäran-säkerhetskopiering, stoppa eller återuppta skyddet av virtuella datorer, ta bort säkerhetskopierade data, visa återställningspunkter och köra en återställning.
 
     ![Instrumentpanelen Säkerhetskopieringsobjekt och bladet inställningar](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-## <a name="manage-backup-policies"></a>Hantera säkerhetskopieringsprinciper
+## <a name="manage-backup-policy-for-a-vm"></a>Hantera principer för säkerhetskopiering för en virtuell dator
 
 Hantera en princip för säkerhetskopiering:
 
-1. På den [instrumentpanelen för valvet objekt](#view-vms-in-the-dashboard)väljer **alla inställningar**.
+1. Logga in på [Azure Portal](https://portal.azure.com/). Öppna instrumentpanelen för valvet.
+2. På den **Säkerhetskopieringsobjekt** panelen, väljer **Azure Virtual Machines**.
 
-    ![Alla inställningsalternativ](./media/backup-azure-manage-vms/all-settings-button.png)
-2. I **inställningar**väljer **säkerhetskopieringspolicy**.
-3. På den **Välj säkerhetskopieringspolicy** menyn:
+    ![Öppna panelen Säkerhetskopieringsobjekt](./media/backup-azure-manage-vms/contoso-vault-1606.png)
+
+3. På den **Säkerhetskopieringsobjekt** bladet som du kan visa listan över skyddade virtuella datorer och status för senaste säkerhetskopiering med senaste återställningstid punkter.
+
+    ![Visa bladet Säkerhetskopieringsobjekt](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
+
+4. Du kan välja en princip för säkerhetskopiering från instrumentpanelen för valvet-objektet.
 
    * Att byta principer, Välj en annan princip och välj sedan **spara**. Den nya principen tillämpas omedelbart på valvet.
-   * Skapa en princip för att välja **Skapa ny**. Mer information finns i [konfigurerat en säkerhetskopieringsprincip](backup-azure-arm-vms-prepare.md#configure-a-backup-policy).
 
      ![Välj en princip för säkerhetskopiering](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
-
 ## <a name="run-an-on-demand-backup"></a>Köra en säkerhetskopiering på begäran
-Du kan köra en säkerhetskopiering på begäran för en virtuell dator när du ställer in dess skydd. Tänk på följande information: 
+Du kan köra en säkerhetskopiering på begäran för en virtuell dator när du ställer in dess skydd. Tänk på följande information:
+
 - Om den första säkerhetskopieringen väntar skapar på begäran-säkerhetskopiering en fullständig kopia av den virtuella datorn i Recovery Services-valvet.
 - Om den första säkerhetskopieringen har slutförts, skickas en säkerhetskopiering på begäran endast ändringar från tidigare ögonblicksbild till Recovery Services-valvet. Det vill säga är senare säkerhetskopior alltid inkrementell.
 - Kvarhållningsintervallet för en säkerhetskopiering på begäran är kvarhållningsvärdet som du anger när du utlösa säkerhetskopieringen.
@@ -138,7 +142,7 @@ Du kan ta bort en virtuell dators säkerhetskopierade data under den **stoppa s�
 När du stoppa eller inaktivera säkerhetskopiering för den virtuella datorn, kan du ta bort säkerhetskopierade data:
 
 
-1. På den [instrumentpanelen för valvet objekt](#view-vms-in-the-dashboard)väljer **ta bort backup**.
+1. På den [instrumentpanelen för valvet objekt](#view-vms-in-the-dashboard)väljer **ta bort säkerhetskopieringsdata**.
 
     ![Välj Ta bort säkerhetskopia](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 

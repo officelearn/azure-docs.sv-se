@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 39877e01eb8b9690dc1ac7b1dbb79bab450814c4
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 59971454af4fa2b43d24df1d5876b30524d65d4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456936"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904003"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Självstudier: Säkerhet för hanterad instans i Azure SQL Database med hjälp av Azure AD-serverhuvudkonton (inloggningar)
 
@@ -42,7 +42,7 @@ I den här guiden får du lära dig att:
 
 Mer information finns i artiklarna [Azure SQL Database Managed Instance overview](sql-database-managed-instance-index.yml) (Översikt över Azure SQL Database Managed Instance) och [Funktioner](sql-database-managed-instance.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här självstudien behöver du följande:
 
@@ -148,13 +148,13 @@ När Azure AD-serverhuvudkontot (inloggning) har skapats och har getts `sysadmin
 
 1. Anslut till den hanterade instansen med Azure AD-serverhuvudkontot (inloggning) med hjälp av SQL Server Management Studio. Ange den hanterade instansens värdnamn. Det finns tre alternativ att välja mellan när du loggar in med ett Azure AD-konto för autentisering i SSMS:
 
-    - Active Directory – Universell med stöd för MFA
-    - Active Directory – lösenord
-    - Active Directory – integrerad </br>
+   - Active Directory – Universell med stöd för MFA
+   - Active Directory – lösenord
+   - Active Directory – integrerad </br>
 
-    ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
+     ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
 
-    Mer information finns i följande artikel: [Universell autentisering med SQL Database och SQL Data Warehouse (SSMS-stöd för MFA)](sql-database-ssms-mfa-authentication.md)
+     Mer information finns i följande artikel: [Universell autentisering med SQL Database och SQL Data Warehouse (SSMS-stöd för MFA)](sql-database-ssms-mfa-authentication.md)
 
 1. Välj **Active Directory – Universell med stöd för MFA**. Sedan öppnas ett inloggningsfönster för Multi-Factor Authentication (MFA). Logga in med ditt Azure AD-lösenord.
 
@@ -207,10 +207,10 @@ När Azure AD-serverhuvudkontot (inloggning) har skapats och har getts `sysadmin
 1. I **Object Explorer** högerklickar du på servern och väljer **Ny fråga** för den nya anslutningen.
 1. Kontrollera serverbehörigheter för det nyligen skapade Azure AD-serverhuvudkontot (inloggning) genom att köra följande kommando:
 
-    ```sql
-    SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
-    GO
-    ```
+     ```sql
+     SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
+     GO
+     ```
 
 > [!NOTE]
 > Azure AD-gästanvändare kan bara ges inloggningar till hanterade instanser när de läggs till som en del av en Azure AD-grupp. En Azure AD-gästanvändare är ett konto som bjudits in till den Azure AD som den hanterade instansen tillhör, från en annan Azure AD. Till exempel kan joe@contoso.com (Azure AD-konto) eller steve@outlook.com (MSA-konto) läggas till en grupp i Azure AD aadsqlmi. När användare läggs till i en grupp kan du skapa en inloggning för gruppen i den hanterade instansens **huvuddatabas** med syntaxen **CREATE LOGIN**. Gästanvändare som är medlemmar i gruppen kan ansluta till den hanterade instansen med sin aktuella inloggning (som joe@contoso.com eller steve@outlook.com).
@@ -360,7 +360,7 @@ Hanterade instanser har stöd för personifiering av Azure AD-huvudkonton på se
     GO
     ```
 
-1. Använd följande kommando för att se att användaren du personifierar när du kör den lagrade proceduren är **bob@aadsqlmi.net**.
+1. Använd följande kommando för att se när användare som du personifiera när du kör den lagrade proceduren **bob\@aadsqlmi.net**.
 
     ```sql
     Exec dbo.usp_Demo

@@ -7,19 +7,21 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: e47817f70a727fe815e5d7e61ad7820121f26d97
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: a04dbd42e09ad8ec352af74950b6d71425a84a9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791417"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177678"
 ---
-# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Skapa och konfigurera en Azure Kubernetes Services kluster (AKS) för att använda virtuella noder med Azure CLI
+# <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Förhandsversion – skapa och konfigurera en Azure Kubernetes Services kluster (AKS) för att använda virtuella noder med Azure CLI
 
 Om du vill skala snabbt arbetsbelastningar för program i ett kluster i Azure Kubernetes Service (AKS), kan du använda virtuella noder. Med virtuella noder har snabb etablering av poddar och betala bara per sekund för sin Utförandetid. Du behöver inte vänta tills Kubernetes-kluster autoskalningen att distribuera VM-beräkningsnoder för att köra de nya poddarna. Den här artikeln visar hur du skapar och konfigurerar virtuella nätverksresurser och AKS-kluster och aktivera sedan virtuella noder.
 
 > [!IMPORTANT]
-> Virtuella noder för AKS är för närvarande i **förhandsversion**. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> AKS-förhandsversionsfunktioner är självbetjäning och delta i. Förhandsversioner tillhandahålls för att samla in feedback och buggar från vår community. De stöds dock inte av teknisk support för Azure. Om du skapar ett kluster eller lägga till dessa funktioner i befintliga kluster, stöds klustret inte förrän funktionen är inte längre i förhandsversion och uppgraderas till allmän tillgänglighet (GA).
+>
+> Om du stöter på problem med funktioner i förhandsversion [öppna ett ärende på AKS GitHub-lagringsplatsen] [ aks-github] med namnet på funktionen för förhandsgranskning i rubriken för bugg.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -335,6 +337,7 @@ Virtuella noder är ofta en komponent i en skalning lösning i AKS. Mer informat
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+[aks-github]: https://github.com/azure/aks/issues]
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli

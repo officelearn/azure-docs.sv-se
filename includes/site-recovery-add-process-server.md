@@ -4,24 +4,24 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
-ms.openlocfilehash: b6e3abb56ebd02131fac78c2a8f03ddcbf50958a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: c9a0d4387511bbfa033bcb90d9f83e1a7bb39719
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165888"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124679"
 ---
 1. Starta Azure Site Recovery UnifiedSetup.exe
 2. I **Before you begin** (Innan du börjar) väljer du **Add additional process servers to scale out deployment** (Lägg till ytterligare processervrar till utskalningsdistribution).
 
-  ![Lägga till processerver](./media/site-recovery-add-process-server/ps-page-1.png)
+   ![Lägga till processerver](./media/site-recovery-add-process-server/ps-page-1.png)
 
 3. I **Configuration Server Details** (Information om konfigurationsserver) anger du IP-adressen för konfigurationsservern samt lösenfrasen.
 
-  ![Lägga till processerver 2](./media/site-recovery-add-process-server/ps-page-2.png)
+   ![Lägga till processerver 2](./media/site-recovery-add-process-server/ps-page-2.png)
 4. I **Internet Settings** (Internetinställningar) anger du hur providern som körs på konfigurationsservern ska ansluta till Azure Site Recovery via internet.
 
-  ![Lägga till processerver 3](./media/site-recovery-add-process-server/ps-page-3.png)
+   ![Lägga till processerver 3](./media/site-recovery-add-process-server/ps-page-3.png)
 
    * Om du vill ansluta till den befintliga proxyservern som är konfigurerad på datorn väljer du **Anslut med befintliga proxyinställningar**.
    * Om du vill att providern ska ansluta direkt väljer du **Anslut direkt utan en proxy**.

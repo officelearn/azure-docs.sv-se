@@ -10,16 +10,16 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8fede6907b2b5fac475758b1bb8b1493b86ed408
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: a1f1b464b2ac6fc62ea23a80a3887961ebe2d87e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756554"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100732"
 ---
 # <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Självstudier: Skapa en programgateway som är värd för flera webbplatser med hjälp av Azure CLI
 
-Du kan använda Azure CLI till att [konfigurera ett värdskap för flera webbplatser](multiple-site-overview.md) när du skapar en [programgateway](overview.md). I den här självstudien definierar du adresspooler för serverdelen med hjälp av VM-skalningsuppsättningar. Du konfigurerar sedan lyssnare och regler baserat på de domäner du äger för att kontrollera att webbtrafiken anländer till rätt servrar i poolerna. I den här självstudien förutsätts att du äger flera domäner. Vi använder *www.contoso.com* och *www.fabrikam.com* som exempel.
+Du kan använda Azure CLI till att [konfigurera ett värdskap för flera webbplatser](multiple-site-overview.md) när du skapar en [programgateway](overview.md). I den här självstudien definierar du adresspooler för serverdelen med hjälp av VM-skalningsuppsättningar. Du konfigurerar sedan lyssnare och regler baserat på de domäner du äger för att kontrollera att webbtrafiken anländer till rätt servrar i poolerna. Den här självstudien förutsätter att du äger flera domäner och använder exempel på *www\.contoso.com* och *www\.fabrikam.com*.
 
 I den här guiden får du lära dig att:
 

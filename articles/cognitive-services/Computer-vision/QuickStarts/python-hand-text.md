@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: defe3bb47ad6e6d6f8a7095f7020ad11266cfa23
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: HT
+ms.openlocfilehash: 78dfb6a78bff8aaf4fe3cc316a6614c3c4af65d2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649109"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433543"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-python-in-computer-vision"></a>Snabbstart: Extrahera handskriven text med hjälp av REST-API och Python i Visuellt innehåll
 
-I den här snabbstarten extraherar du handskriven text från en bild med hjälp av REST API för visuellt innehåll. Med hjälp av metoderna [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) (Identifiera text) och [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (Hämta resultat för åtgärden Identifiera text) kan du identifiera handskriven text i en bild och sedan extrahera identifierade tecken till en teckenström som kan användas på en dator.
+I den här snabbstarten extraherar du handskriven text från en bild med hjälp av REST API för visuellt innehåll. Med den [Batch Läs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API och [Läs Åtgärdsresultat](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API, kan du identifiera handskriven text i en bild och sedan extrahera identifieras tecken till en teckenström som kan användas av datorn.
 
 > [!IMPORTANT]
-> Till skillnad från metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) så körs metoden [Identifiera text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar metoden Identifiera text en URI i värdet i svarsrubrikfältet `Operation-Content`. Du kan sedan anropa denna URI, som representerar metoden [Hämta resultat för åtgärden Identifiera text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201), så att du både kan kontrollera status och returnera resultaten för metodanropet Identifiera text.
+> Till skillnad från den [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) metoden den [Batch Läs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) metoden körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället till Batch-Read-metoden returnerar en URI i värdet för den `Operation-Content` svarsfältet för rubriken. Du kan sedan anropa denna URI som representerar den [Läs Åtgärdsresultat](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API för att både kontrollera status och returnerar resultatet av Batch-Läs-metodanrop.
 
 Du kan köra den här snabbstarten steg för steg med hjälp av en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Starta Binder med den här knappen:
 
@@ -31,7 +31,7 @@ Du kan köra den här snabbstarten steg för steg med hjälp av en Jupyter-antec
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/try/cognitive-services/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha [Python](https://www.python.org/downloads/) installerat om du vill köra exemplet lokalt.
 - Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan skaffa en prenumerationsnyckel genom att följa anvisningarna i [Skaffa prenumerationsnycklar](../Vision-API-How-to-Topics/HowToSubscribe.md).
@@ -72,7 +72,7 @@ assert subscription_key
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
 
-text_recognition_url = vision_base_url + "recognizeText"
+text_recognition_url = vision_base_url + "read/core/asyncBatchAnalyze"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" + \

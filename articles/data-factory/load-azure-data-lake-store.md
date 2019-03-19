@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 56f1769d601df6292decc46c9470768eac29102c
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: d9bce32e87984193938099b96a358cc4495fd0c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249085"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119755"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Läs in data till Azure Data Lake Storage Gen1 med hjälp av Azure Data Factory
 
@@ -26,10 +26,10 @@ Azure Data Factory är en fullständigt hanterad molnbaserad dataintegreringstj�
 
 Azure Data Factory erbjuder följande fördelar vid inläsning av data i Data Lake Storage Gen1:
 
-* **Enkelt att konfigurera**: en intuitiv 5-steg-guide med inga skript som krävs.
-* **Utforska data store har stöd för**: inbyggt stöd för ett stort utbud av lokala och molnbaserade datalager. En detaljerad lista finns i tabellen med [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+* **Enkelt att konfigurera**: En intuitiv 5-steg-guide med inga skript som krävs.
+* **Omfattande stöd för datalager**: Inbyggt stöd för ett stort utbud av lokala och molnbaserade datalager. En detaljerad lista finns i tabellen med [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 * **Säker och kompatibel**: Data överförs via HTTPS- eller ExpressRoute. Tjänsten för global närvaro säkerställer att dina data aldrig lämnar geografisk gräns.
-* **Högpresterande**: upp till 1 GB/s för datainläsning hastighet i Data Lake Storage Gen1. Mer information finns i [kopiera aktivitet prestanda](copy-activity-performance.md).
+* **Högpresterande**: Upp till 1 GB/s data läses in hastighet i Data Lake Storage Gen1. Mer information finns i [kopiera aktivitet prestanda](copy-activity-performance.md).
 
 Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory för att _läser in data från Amazon S3 i Data Lake Storage Gen1_. Du kan följa liknande steg för att kopiera data från andra typer av datalager.
 
@@ -38,7 +38,7 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Azure-prenumeration: Om du inte har en Azure-prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* Azure-prenumeration: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Data Lake Storage Gen1 konto: Om du inte har ett Data Lake Storage Gen1-konto, se anvisningarna i [skapa ett Data Lake Storage Gen1 konto](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account).
 * Amazon S3: Den här artikeln visar hur du kopierar data från Amazon S3. Du kan använda andra datalager genom att följa liknande steg.
 
@@ -51,11 +51,11 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
       
    ![Sida för ny datafabrik](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)
  
-    * **Namn på**: Ange ett globalt unikt namn för din Azure data factory. Om du får felet ”datafabriksnamnet \"LoadADLSG1Demo\" är inte tillgänglig”, ange ett annat namn för data factory. Du kan till exempel använda namnet  _**dittnamn**_**ADFTutorialDataFactory**. Försök att skapa datafabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
+    * **Namn**: Ange ett globalt unikt namn för din Azure data factory. Om du får felet ”datafabriksnamnet \"LoadADLSG1Demo\" är inte tillgänglig”, ange ett annat namn för data factory. Du kan till exempel använda namnet  _**dittnamn**_**ADFTutorialDataFactory**. Försök att skapa datafabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
     * **Prenumeration**: Välj din Azure-prenumeration där du vill skapa data factory. 
     * **Resursgrupp**: Välj en befintlig resursgrupp från den nedrullningsbara listan eller Välj den **Skapa nytt** och ange namnet på en resursgrupp. Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
     * **Version**: Välj **V2**.
-    * **Plats**: Välj en plats för datafabriken. Endast platser som stöds visas i listrutan. De datalager som används av data factory kan finnas på andra platser och regioner. Dessa datalager omfattar Azure Data Lake Storage Gen1, Azure Storage, Azure SQL Database och så vidare.
+    * **Plats**: Välj plats för datafabriken. Endast platser som stöds visas i listrutan. De datalager som används av data factory kan finnas på andra platser och regioner. Dessa datalager omfattar Azure Data Lake Storage Gen1, Azure Storage, Azure SQL Database och så vidare.
 
 3. Välj **Skapa**.
 4. När datafabriken har skapats går du till din datafabrik. Du ser den **Data Factory** startsida, enligt följande bild: 
@@ -85,7 +85,7 @@ Den här artikeln visar hur du använder verktyget kopieringsdata i Data Factory
    2. Ange den **hemliga åtkomstnyckel** värde.
    3. Välj **Slutför**.
    
-     ![Ange Amazon S3-konto](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+      ![Ange Amazon S3-konto](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
    
    4. Du ser en ny anslutning. Välj **Nästa**.
    

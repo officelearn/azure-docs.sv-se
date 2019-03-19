@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8db11759ce501929e5cfd7b721c5e9dc80f9e01a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d3c3278a058162632a6ba7ea9731e5f233190700
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473195"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843716"
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Använda Hive på Azure HDInsight Hadoop data science genomgångar 
 
@@ -36,7 +36,7 @@ Scenariot implementeras med hjälp av Hive med en [Azure HDInsight Hadoop-kluste
 
 ## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>Förutsäga annons klick med Hive med HDInsight Hadoop
 
-Den [Använd Azure HDInsight Hadoop-kluster i en datauppsättning som 1 TB](hive-criteo-walkthrough.md) genomgången använder en offentligt tillgänglig [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) klickar du på datauppsättningen för att förutsäga om ett tips är betalas ut och intervallet för belopp som förväntat. Scenariot implementeras med hjälp av Hive med en [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) för att lagra, utforska, funktionen tekniker och ned exempeldata. Azure Machine Learning används för att skapa, träna och betygsätta en binär klassificeringsmodell att förutsäga om en användare klickar på en annons. Avslutar den här genomgången visar hur du publicerar en av dessa modeller som en webbtjänst.
+Den [Använd Azure HDInsight Hadoop-kluster i en datauppsättning som 1 TB](hive-criteo-walkthrough.md) genomgången använder en offentligt tillgänglig [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) klickar du på datauppsättningen för att förutsäga om ett tips är betalas ut och intervallet för belopp som förväntat. Scenariot implementeras med hjälp av Hive med en [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) för att lagra, utforska, funktionen tekniker och ned exempeldata. Azure Machine Learning används för att skapa, träna och betygsätta en binär klassificeringsmodell att förutsäga om en användare klickar på en annons. Avslutar den här genomgången visar hur du publicerar en av dessa modeller som en webbtjänst.
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,18 +8,18 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: 5de5f2f48504a711d4b7cff614abdd4214d0ba09
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: fa3bf2b513ce7c5a0ea0210c66a9123ceaf1de37
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739726"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015274"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Installera IBM zD & T dev/test-miljö på Azure
 
 Om du vill skapa en miljö för utveckling/testning för stordatorprogram arbetsbelastningar på IBM Z Systems, kan du distribuera IBM Z Development och testa miljö (zD & T) på Azure Virtual Machine (VM)-infrastruktur som en tjänst (IaaS).
 
-Med zD & T, kan du dra nytta av kostnadsbesparingar med x86 plattform för mindre kritiska miljöer för utveckling och testning och sedan push uppdateringarna tillbaka till en produktionsmiljö för Z-System. Mer information finns i den [IBM ZD & T Installationsinstruktioner](http://www-01.ibm.com/support/docview.wss?uid=swg24044565#INSTALL).
+Med zD & T, kan du dra nytta av kostnadsbesparingar med x86 plattform för mindre kritiska miljöer för utveckling och testning och sedan push uppdateringarna tillbaka till en produktionsmiljö för Z-System. Mer information finns i den [IBM ZD & T Installationsinstruktioner](https://www-01.ibm.com/support/docview.wss?uid=swg24044565#INSTALL).
 
 Azure och Azure Stack stöd för följande versioner:
 

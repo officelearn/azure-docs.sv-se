@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 1/29/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 8e9208981dd54fef1f56ee552d34bab78210b96d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 29db8c8b51082016d413c66c6abfdb1c518c9329
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316565"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117973"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure portal
 ## <a name="overview"></a>Översikt ##
@@ -72,9 +72,9 @@ När du har skapat en åtgärdsgrupp den syns i den **åtgärdsgrupper** delen a
 **Azure-app Push** – du kan ha ett begränsat antal åtgärder för Azure i en åtgärdsgrupp. För tillfället stöder Azure-app-åtgärden endast ServiceHealth aviseringar. Någon annan typ av avisering ignoreras. Se [konfigurera aviseringar när en avisering om tjänstens hälsa publiceras](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 **E-post** -e-postmeddelanden ska skickas från följande e-postadresser. Kontrollera att din e-filtrering har konfigurerats på rätt sätt
-   - azure-noreply@microsoft.com
-   - azureemail-noreply@microsoft.com
-   - alerts-noreply@mail.windowsazure.com
+- azure-noreply@microsoft.com
+- azureemail-noreply@microsoft.com
+- alerts-noreply@mail.windowsazure.com
 
 Du kan ha ett begränsat antal e poståtgärder i en åtgärdsgrupp. Se den [begränsar information frekvensbegränsningen](./../../azure-monitor/platform/alerts-rate-limiting.md) artikel
 

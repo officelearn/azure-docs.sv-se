@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: efca5c4155372456100126671e7d5cd1ccf0cbbc
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d8ada53082b0ccc95d472b43a0ae2ff63cd76a3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53027928"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125210"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Använd verktyg för automatisering av infrastruktur med virtuella datorer i Azure
 Om du vill skapa och hantera virtuella Azure-datorer (VM) på ett konsekvent sätt i stor skala, önskas vanligtvis någon form av automatisering. Det finns många verktyg och lösningar som gör det möjligt att automatisera distributionen av hela Azure-infrastrukturen och livscykeln för hantering. Den här artikeln presenteras några av de verktyg för automatisering av infrastruktur som du kan använda i Azure. Dessa verktyg anpassa ofta till någon av följande metoder:
@@ -60,7 +60,7 @@ Cloud-init fungerar med olika distributioner. Du använder till exempel inte **a
  Vi arbetar aktivt med våra godkända Linux-distribution partner för att få cloud-init aktiverat-avbildningarna i Azure marketplace. Dessa avbildningar gör dina cloud-init-distributioner och konfigurationer fungerar sömlöst med virtuella datorer och VM-skalningsuppsättningar. I följande tabell beskrivs de aktuella cloud-init aktiverat avbildningar tillgängligheten på Azure-plattformen:
 
 | Utgivare | Erbjudande | SKU | Version | cloud-init är klara
-|:--- |:--- |:--- |:--- |:--- |:--- |
+|:--- |:--- |:--- |:--- |:--- 
 |Canonical |UbuntuServer |16.04-LTS |senaste |ja | 
 |Canonical |UbuntuServer |14.04.5-LTS |senaste |ja |
 |CoreOS |CoreOS |Stable |senaste |ja |

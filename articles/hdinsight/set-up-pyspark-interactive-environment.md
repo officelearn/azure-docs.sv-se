@@ -9,12 +9,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.openlocfilehash: c5a8869b0619b7be506ead1b9d37053e9fa57bba
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8c0b40f0e6204d6cff59d3de3f20604d6913b9cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880299"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111641"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Ställ in interaktiv PySpark-miljö för Visual Studio Code
 
@@ -30,8 +30,8 @@ Vi använder **python-pip** kommando för att skapa virtuell miljö i din Home-s
  
         ![Python-pip-version](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-    > [!NOTE]
-    > Vi rekommenderar att manuellt installera Python istället för att använda standardversionen MacOS.
+     > [!NOTE]
+     > Vi rekommenderar att manuellt installera Python istället för att använda standardversionen MacOS.
 
 
 2. Installera **virtuell miljö** genom att köra kommandot nedan.

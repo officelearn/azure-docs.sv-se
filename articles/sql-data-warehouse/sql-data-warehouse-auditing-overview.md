@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: d9a911dccf3d59bf1159cf8576b95d86ef26657b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 85693ec6aa67dc69cd65aae8e66e66e2118672ef
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314253"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898490"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Granskning i Azure SQL Data Warehouse
 
@@ -135,7 +135,7 @@ Det finns flera metoder som du kan använda för att visa blob granskningsloggar
 
 * Använda Powerbi. Du kan visa och analysera granskningsloggdata i Power BI. Läs mer om [Power BI och åtkomst till en mall för nedladdningsbara](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
-* Ladda ned loggfiler från dina Azure Storage blob-behållare via portalen eller genom att använda ett verktyg som [Azure Storage Explorer](http://storageexplorer.com/).
+* Ladda ned loggfiler från dina Azure Storage blob-behållare via portalen eller genom att använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/).
     * När du har hämtat en loggfil lokalt, kan du dubbelklicka på filen för att öppna, visa och analysera loggar i SSMS.
     * Du kan också hämta flera filer samtidigt via Azure Storage Explorer. Högerklicka på en viss undermapp och välj **Spara som** att spara i en lokal mapp.
 
@@ -150,8 +150,9 @@ Det finns flera metoder som du kan använda för att visa blob granskningsloggar
 
 
 <br>
+
 ### <a name="database-level-policy-audit-logs"></a>Loggar för granskning på databasnivå
-Databasnivå granskningsloggar räknas samman i en samling med Store-tabeller med en **SQLDBAuditLogs** prefixet i Azure storage-kontot som du valde i installationsprogrammet. Du kan visa loggfiler med hjälp av ett verktyg som [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com).
+Databasnivå granskningsloggar räknas samman i en samling med Store-tabeller med en **SQLDBAuditLogs** prefixet i Azure storage-kontot som du valde i installationsprogrammet. Du kan visa loggfiler med hjälp av ett verktyg som [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com).
 
 En förkonfigurerad instrumentpanel rapportmall är tillgänglig som en [nedladdningsbara Excel-kalkylblad](https://go.microsoft.com/fwlink/?LinkId=403540) för att snabbt analysera loggdata. Om du vill använda mallen på dina granskningsloggar, behöver du Excel 2013 eller senare och Power Query, som du kan [ladda ned här](https://www.microsoft.com/download/details.aspx?id=39379).
 
@@ -176,14 +177,19 @@ Du kan också konfigurera granskning i Azure SQL Data Warehouse med hjälp av f�
 
 * **PowerShell-cmdletar**:
 
+<!-- None of the following links exist anymore 3-12-2019
    * [Get-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/get-azsqldatabaseauditingpolicy)
    * [Get-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Get-azSqlServerAuditingPolicy)
    * [Remove-AzSqlDatabaseAuditing](/powershell/module/az.sql/Remove-azSqlDatabaseAuditing)
    * [Remove-AzSqlServerAuditing](/powershell/module/az.sql/Remove-azSqlServerAuditing)
    * [Set-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/Set-azSqlDatabaseAuditingPolicy)
    * [Set-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Set-azSqlServerAuditingPolicy)
-   * [Använd AzSqlServerAuditingPolicy](/powershell/module/az.sql/Use-azSqlServerAuditingPolicy)
+   * [Use-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Use-azSqlServerAuditingPolicy) -->
 
+   * [Get-AzSqlDatabaseAuditing](/powershell/module/az.sql/get-azsqldatabaseauditing)
+   * [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing)
+   * [Get-AzSqlServerAuditing](/powershell/module/az.sql/get-azsqlserverauditing)
+   * [Set-AzSqlServerAuditing](/powershell/module/az.sql/set-azsqlserverauditing)
 
 ## <a name="downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Äldre klienter har stöd för granskning och dynamisk datamaskning
 Granskning fungerar med SQL-klienter som stöder TDS-omdirigering.

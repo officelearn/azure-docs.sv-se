@@ -16,12 +16,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d9855f107f9888fbfbcb10a3df849e78c87c0605
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7981df6aa1e08688bdbe3b18629450b996f7609e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246770"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123410"
 ---
 # <a name="optimize-sql-server-performance"></a>Optimera prestanda för SQL Server
 
@@ -104,20 +104,20 @@ Vi rekommenderar att du lagrar TempDB på en datadisk som innehåller högst upp
 
 - **Disk striping:** Du kan lägga till ytterligare datadiskar och använda disk striping mer dataflöde. Att fastställa antalet datadiskar som du behöver analysera antalet IOPS och bandbredd som krävs för loggfilerna och för dina data och TempDB-filer. Observera att IOPS-gränserna är per datadisk utifrån i serien för virtuella datorer och inte baserat på storleken på virtuella datorn. Nätverk bandbreddsgränser, men baseras på storleken på virtuella datorn. Se tabellerna på [VM-storlekar i Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) för mer information. Använd följande riktlinjer:
 
-    - För Windows Server 2012 eller senare, Använd [lagringsutrymmen](https://technet.microsoft.com/library/hh831739.aspx) med följande riktlinjer:
+  - För Windows Server 2012 eller senare, Använd [lagringsutrymmen](https://technet.microsoft.com/library/hh831739.aspx) med följande riktlinjer:
 
-        1.  Inställt interfoliering (stripe-storlek) på 64 KB (65 536 byte) för online transaktionsbearbetning (OLTP) arbetsbelastningar och 256 KB (262 144 byte) för Datalagerhantering att undvika att prestanda påverkas på grund av partitionen misspassning. Detta måste anges med PowerShell.
+    1. Inställt interfoliering (stripe-storlek) på 64 KB (65 536 byte) för online transaktionsbearbetning (OLTP) arbetsbelastningar och 256 KB (262 144 byte) för Datalagerhantering att undvika att prestanda påverkas på grund av partitionen misspassning. Detta måste anges med PowerShell.
 
-        2.  Ange kolumnantal = antal fysiska diskar. Använda PowerShell när du konfigurerar mer än åtta diskar (inte Server Manager UI).
+    2. Ange kolumnantal = antal fysiska diskar. Använda PowerShell när du konfigurerar mer än åtta diskar (inte Server Manager UI).
 
-            Exempelvis skapar en ny lagringspool med interfoliering storlek 64 KB och antalet kolumner till 2 med följande PowerShell:
+       Exempelvis skapar en ny lagringspool med interfoliering storlek 64 KB och antalet kolumner till 2 med följande PowerShell:
 
-          ```PowerShell  
-          $PoolCount = Get-PhysicalDisk -CanPool $True
-          $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
+       ```PowerShell  
+       $PoolCount = Get-PhysicalDisk -CanPool $True
+       $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 
-          New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
-          ```
+       New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
+       ```
 
 - Bestämma antalet diskar som är associerade med din lagringspool baserat på dina förväntningar för belastningen. Tänk på att olika virtuella datorstorlekar tillåter olika antal anslutna datadiskar. Mer information finns i [VM-storlekar som stöds i Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes).
 - För att få högsta möjliga IOPS för datadiskar rekommendationen är att lägga till det maximala antalet datadiskar som stöds av din [VM-storlek](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) och använda disk striping.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
-ms.openlocfilehash: 1f31189a83b6659371fcd0b34423f2fb681526c2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: ec382217bfa32da19c0b98e656f3782739b26cc6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55148069"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125251"
 ---
 ## <a name="download-the-source-code"></a>Ladda ned källkoden
 
@@ -53,16 +53,16 @@ Om du ännu inte har skapat de nödvändiga Azure-resurserna, gör du följande:
     ```
 
 1. Kör den **start.cmd** skript. Skriptet uppmanas du att följande information:
-    * Ett lösningsnamn på.
-    * Den Azure-prenumeration som ska användas.
-    * Platsen för Azure-datacenter att använda.
+   * Ett lösningsnamn på.
+   * Den Azure-prenumeration som ska användas.
+   * Platsen för Azure-datacenter att använda.
 
-    Skriptet skapar en resursgrupp i Azure med Lösningsnamnet på din. Den här resursgruppen innehåller Azure-resurserna solution accelerator använder. Du kan ta bort den här resursgruppen när du behöver inte längre på motsvarande resurser.
+     Skriptet skapar en resursgrupp i Azure med Lösningsnamnet på din. Den här resursgruppen innehåller Azure-resurserna solution accelerator använder. Du kan ta bort den här resursgruppen när du behöver inte längre på motsvarande resurser.
 
-    Skriptet lägger också till en uppsättning miljövariabler med prefixet **datorer** till den lokala datorn. När du startar Docker-behållare eller mikrotjänster projekt lokalt, kan de läsa sina konfigurationsvärden från dessa miljövariabler.
+     Skriptet lägger också till en uppsättning miljövariabler med prefixet **datorer** till den lokala datorn. När du startar Docker-behållare eller mikrotjänster projekt lokalt, kan de läsa sina konfigurationsvärden från dessa miljövariabler.
 
-    > [!TIP]
-    > När skriptet har körts också sparas miljövariablerna i en fil med namnet  **\<arbetsmappen\>\\.pcs\\\<lösningsnamn\>.env** . Du kan använda dem för framtida solution accelerator distributioner. Observera att alla miljövariabler som anges på den lokala datorn åsidosätta värden i den **services\\skript\\lokala\\.env** filen när du kör **docker-compose**.
+     > [!TIP]
+     > När skriptet har körts också sparas miljövariablerna i en fil med namnet  **\<arbetsmappen\>\\.pcs\\\<lösningsnamn\>.env** . Du kan använda dem för framtida solution accelerator distributioner. Observera att alla miljövariabler som anges på den lokala datorn åsidosätta värden i den **services\\skript\\lokala\\.env** filen när du kör **docker-compose**.
 
 1. Avsluta från kommandoraden-miljön.
 

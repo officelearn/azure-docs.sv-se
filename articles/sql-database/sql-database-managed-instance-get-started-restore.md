@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: 9459aa9df74efa500109d7c281daad28355bd0d0
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: e2aa9edcd53aa3881b07e31fcf2312d5173a3a6e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895745"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903525"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Snabbstart: Återställa en databas till en hanterad instans 
 
@@ -29,7 +29,7 @@ I den här snabbstarten ska du använda SQL Server Management Studio (SSMS) för
 > - Mer information om migrering med hjälp av Azure Database Migration Service (DMS) finns i avsnittet [Migrering av hanterade instanser med DMS](../dms/tutorial-sql-server-to-managed-instance.md). 
 > - Mer information om de olika migreringsmetoderna finns i [SQL Server-instansmigrering till Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här snabbstarten:
 
@@ -48,7 +48,7 @@ Den här snabbstarten:
 
 1. Öppna SMSS och anslut till din hanterade instans.
 2. Högerklicka på din hanterade instans på den vänstra menyn och välj **Ny fråga** så öppnas ett nytt frågefönster.
-3. Använd följande skript, som använder ett förkonfigurerat lagringskonto och SAS-nyckel, för att [skapa en autentiseringsuppgift](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017) i den hanterade instansen.
+3. Använd följande skript, som använder ett förkonfigurerat lagringskonto och SAS-nyckel, för att [skapa en autentiseringsuppgift](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) i den hanterade instansen.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases] 

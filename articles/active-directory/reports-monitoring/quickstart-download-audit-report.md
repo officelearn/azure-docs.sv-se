@@ -17,18 +17,18 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d702810ae7de03a14e50f56c2b8e819c31f3ea9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e7a45e85b35ab48f95ecff07043484b322f237a8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192718"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538059"
 ---
 # <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Snabbstart: Ladda ned en granskningsrapport med hjälp av Azure-portalen
 
-I den här snabbstarten får du lära dig hur du hämtar granskningsloggarna för din klient för de senaste 24 timmarna. Du kan ladda ned upp till 5 000 poster från Azure-portalen. Posterna är sorterade efter de senaste. Därför får du som standard de senaste 5 000 posterna. 
+I den här snabbstarten har du lära dig hur du hämtar en CSV-fil med granskningsloggarna för din klient för de senaste 24 timmarna. Du kan hämta upp till 250 000 poster från Azure-portalen. Poster är sorterade efter de senaste så att som standard, du får de senaste 250 000 posterna. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver:
 
@@ -41,7 +41,7 @@ Du behöver:
 2. Välj **Azure Active Directory** från det vänstra navigeringsfönstret och använd **Växla katalog** för att välja din active directory.
 3. Från instrumentpanelen väljer du **Azure Active Directory** och sedan **Granskningsloggar**. 
 4. Välj **senaste 24 timmarna** i filterlistrutan **datumintervall** och välj **Tillämpa** för att visa granskningsloggarna för de senaste 24 timmarna. 
-5. Välj knappen **Hämta** för att ladda ned en CSV-fil som innehåller de filtrerade posterna. 
+5. Välj den **hämta** knapp, väljer **CSV** som filen formatera och ange ett filnamn för att hämta en CSV-fil som innehåller de filtrerade posterna. 
 
 ![Rapportering](./media/quickstart-download-audit-report/download-audit-logs.png)
 

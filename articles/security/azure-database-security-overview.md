@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: f9297946b7e09bc8c516470515d0eee9885d5d38
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7e0e93c82279ec1a4fbecbbf27c7a1866286b2f8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116328"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860524"
 ---
 # <a name="azure-database-security-overview"></a>Översikt över Azure database-säkerhet
 
@@ -50,7 +50,7 @@ SQL Database skyddar dina data genom att tillhandahålla kryptering:
 För andra sätt att kryptera dina data, kan du överväga:
 
 -   [Kryptering på cellnivå](https://msdn.microsoft.com/library/ms179331.aspx) för att kryptera vissa kolumner eller även celler av data med olika krypteringsnycklar.
--   [Azure Key Vault med SQL Server i en Azure VM](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx)om du behöver en hardware security module eller central hantering av krypteringsnyckelns hierarki.
+-   [Azure Key Vault med SQL Server i en Azure VM](https://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx)om du behöver en hardware security module eller central hantering av krypteringsnyckelns hierarki.
 
 ### <a name="encryption-in-motion"></a>Kryptering i rörelse
 

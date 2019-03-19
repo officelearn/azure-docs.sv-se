@@ -8,23 +8,23 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 58d1d47b548569f7542e24bd09a41299f12e496e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 3e1738c3e5acbe63faf1d614e2435088efd8c4d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787893"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014785"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Överföra objekt till och från Azure Blob Storage med hjälp av PHP
 I den här snabbstarten får du lära dig att använda PHP för att ladda upp, ladda ned och lista blockblobar i en container i Azure Blob-lagring. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 Kontrollera att du har följande ytterligare krav installerade:
 
-* [PHP](http://php.net/downloads.php)
+* [PHP](https://php.net/downloads.php)
 * [Azure Storage SDK för PHP](https://github.com/Azure/azure-storage-php)
 
 ## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
@@ -74,7 +74,7 @@ This is the content of the blob uploaded: Hello Azure!
 ```
 När du trycker på tangenten som visas för att fortsätta tar exempelprogrammet bort containern och filerna. Kontrollera att de två filerna finns i serverns mapp innan du fortsätter. Du kan öppna dem och se att de är identiska.
 
-Du kan också använda ett verktyg som [Azure Storage Explorer](http://storageexplorer.com) för att visa filerna i Blob Storage. Azure Storage Explorer är ett kostnadsfritt verktyg för flera plattformar som gör det möjligt att komma åt information på lagringskontot. 
+Du kan också använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com) för att visa filerna i Blob Storage. Azure Storage Explorer är ett kostnadsfritt verktyg för flera plattformar som gör det möjligt att komma åt information på lagringskontot. 
 
 När du har kontrollerat filerna trycker du på valfri tangent för att avsluta demonstrationen och ta bort testfilerna. Nu när du vet vad exemplet gör kan du öppna filen example.rb och titta på koden. 
 

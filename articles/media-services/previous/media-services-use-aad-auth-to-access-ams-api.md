@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: b846e1fe4552c6cec356a7e7828135b0e1fdf315
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fa13ffe450b60bd8c896636911268a98b49bbc0f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994109"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104139"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Åtkomst till Azure Media Services-API med Azure AD-autentisering  
  
@@ -71,20 +71,20 @@ I det föregående diagrammet representerar talen flödet av begäranden i krono
 1. Uppmana användaren att ange autentiseringsuppgifter.
 2. Begär en åtkomsttoken för Azure AD med följande parametrar:  
 
-    * Azure AD tenant-slutpunkten.
+   * Azure AD tenant-slutpunkten.
 
-        Klient-informationen kan hämtas från Azure-portalen. Placera markören över namnet på den inloggade användaren i övre högra hörnet.
-    * Media Services resurs-URI. 
+       Klient-informationen kan hämtas från Azure-portalen. Placera markören över namnet på den inloggade användaren i övre högra hörnet.
+   * Media Services resurs-URI. 
 
-        Den här URI: N är detsamma för Media Services-konton som tillhör samma Azure-miljön (till exempel https://rest.media.azure.net).
+       Den här URI: N är detsamma för Media Services-konton som tillhör samma Azure-miljön (till exempel https://rest.media.azure.net).
 
-    * Media Services (ursprunglig) program klient-ID.
-    * Media Services (ursprunglig) program omdirigerings-URI.
-    * Resurs-URI för REST Media Services.
+   * Media Services (ursprunglig) program klient-ID.
+   * Media Services (ursprunglig) program omdirigerings-URI.
+   * Resurs-URI för REST Media Services.
         
-        URI: N representerar REST API-slutpunkt (till exempel https://test03.restv2.westus.media.azure.net/api/).
+       URI: N representerar REST API-slutpunkt (till exempel https://test03.restv2.westus.media.azure.net/api/).
 
-    Värden för dessa parametrar finns [använder Azure portal för att få åtkomst till Azure AD-autentiseringsinställningar](media-services-portal-get-started-with-aad.md) med alternativet för autentisering av användare.
+     Värden för dessa parametrar finns [använder Azure portal för att få åtkomst till Azure AD-autentiseringsinställningar](media-services-portal-get-started-with-aad.md) med alternativet för autentisering av användare.
 
 3. Azure AD-åtkomsttoken skickas till klienten.
 4. Klienten skickar en begäran till Azure Media REST-API med Azure AD-åtkomsttoken.
@@ -113,20 +113,20 @@ I bilden ovan representerar talen flödet av begäranden i kronologisk ordning:
     
 1. En mellannivå-app (webb-API eller ett webbprogram) begär en åtkomsttoken för Azure AD som har följande parametrar:  
 
-    * Azure AD tenant-slutpunkten.
+   * Azure AD tenant-slutpunkten.
 
-        Klient-informationen kan hämtas från Azure-portalen. Placera markören över namnet på den inloggade användaren i övre högra hörnet.
-    * Media Services resurs-URI. 
+       Klient-informationen kan hämtas från Azure-portalen. Placera markören över namnet på den inloggade användaren i övre högra hörnet.
+   * Media Services resurs-URI. 
 
-        Den här URI: N är detsamma för Media Services-konton som finns i samma Azure-miljön (till exempel https://rest.media.azure.net).
+       Den här URI: N är detsamma för Media Services-konton som finns i samma Azure-miljön (till exempel https://rest.media.azure.net).
 
-    * Resurs-URI för REST Media Services.
+   * Resurs-URI för REST Media Services.
 
-        URI: N representerar REST API-slutpunkt (till exempel https://test03.restv2.westus.media.azure.net/api/).
+       URI: N representerar REST API-slutpunkt (till exempel https://test03.restv2.westus.media.azure.net/api/).
 
-    * Azure AD application värden: klient-ID och klienthemlighet.
+   * Azure AD application värden: klient-ID och klienthemlighet.
     
-    Värden för dessa parametrar finns [använder Azure portal för att få åtkomst till Azure AD-autentiseringsinställningar](media-services-portal-get-started-with-aad.md) med hjälp av alternativet service principal authentication.
+     Värden för dessa parametrar finns [använder Azure portal för att få åtkomst till Azure AD-autentiseringsinställningar](media-services-portal-get-started-with-aad.md) med hjälp av alternativet service principal authentication.
 
 2. Azure AD-åtkomsttoken skickas till mellannivån.
 4. På mellannivå skickar begäran till Azure Media REST-API med Azure AD-token.

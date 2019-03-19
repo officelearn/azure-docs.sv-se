@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 0832fbcacd8b58ffaf36ce2e55e3add151a881db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b94e4c6f178119d6205c302cf35a9effaf2aa885
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470203"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57870938"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Använd Azure Functions för att hantera beräkningsresurser i Azure SQL Data Warehouse
 
@@ -57,14 +57,14 @@ När du har distribuerat mallen bör du hitta tre nya resurser: en kostnadsfri A
 
 4. I schemaområdet kan du lägga till tid för det CRON-uttryck som du vill ska visa hur ofta du vill att SQL Data Warehouse ska skalas upp. 
 
-  ![Ändra funktionsschemat](media/manage-compute-with-azure-functions/change-schedule.png)
+   ![Ändra funktionsschemat](media/manage-compute-with-azure-functions/change-schedule.png)
 
-  Värdet för `schedule` är ett [CRON-uttryck](http://en.wikipedia.org/wiki/Cron#CRON_expression) som innehåller dessa sex fält: 
-  ```json
-  {second} {minute} {hour} {day} {month} {day-of-week}
-  ```
+   Värdet för `schedule` är ett [CRON-uttryck](https://en.wikipedia.org/wiki/Cron#CRON_expression) som innehåller dessa sex fält: 
+   ```json
+   {second} {minute} {hour} {day} {month} {day-of-week}
+   ```
 
-  Till exempel *”0 30 9 ** 1-5”* skulle återspeglar en utlösare för varje veckodag kl. 9:30. Mer information finns i Azure Functions [schemaexempel][schedule examples].
+   Till exempel *”0 30 9 ** 1-5”* skulle återspeglar en utlösare för varje veckodag kl. 9:30. Mer information finns i Azure Functions [schemaexempel][schedule examples].
 
 
 ## <a name="change-the-time-of-the-scale-operation"></a>Ändra tiden för åtgärden

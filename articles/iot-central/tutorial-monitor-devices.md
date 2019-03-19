@@ -3,18 +3,18 @@ title: Övervaka dina enheter i Azure IoT Central | Microsoft Docs
 description: Som operatör kan du övervaka dina enheter med hjälp av Azure IoT Central-programmet.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/12/2018
+ms.date: 02/01/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 941fbffaa7a0129de30d6fdf14d3d0559429309f
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 561477d8bf3a64397e9964499339c368dec5470d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200249"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760480"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Självstudier: Använda Azure IoT Central för att övervaka dina enheter
 
@@ -27,7 +27,7 @@ I den här guiden får du lära dig att:
 > * Undersöka ett problem
 > * Lösa ett problem
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör byggaren skapa Azure IoT Central-programmet genom att slutföra de tre självstudierna för byggare:
 
@@ -41,7 +41,7 @@ Azure IoT Central skickar meddelanden om enheter via e-post. Byggaren lade till 
 
 Öppna det e-postmeddelande som du fick i slutet av självstudien om att [konfigurera regler och åtgärder för din enhet](tutorial-configure-rules.md). I e-postmeddelandet väljer du **Klicka här för att öppna enheten**:
 
-![Regler för Application Builder (Programverktyg)](media/tutorial-monitor-devices/email.png)
+![E-postavisering](media/tutorial-monitor-devices/email.png)
 
 Sidan **Enhet** för den simulerade enheten **Ansluten luftkonditioneringsenhet-1** som du skapade i den föregående självstudien öppnas i webbläsaren:
 
@@ -55,13 +55,13 @@ Välj **Instrumentpanelen** om du vill se information om enheten.
 
 ![Instrumentpanel för enhet](media/tutorial-monitor-devices/initial_screen.png)
 
-Diagrammet på instrumentpanelen visar en kurva över enhetens temperatur. Du kan även se den aktuella måltemperaturen för enheten i panelen **Ange måltemperatur**. Du anser att måltemperaturen är för hög.
+Diagrammet på instrumentpanelen visar en kurva över enhetens temperatur. Du kan också se den aktuella temperaturen mål för enheten i den **enhetsegenskaper** panelen. Du anser att måltemperaturen är för hög.
 
 ## <a name="remediate-an-issue"></a>Lösa ett problem
 
 För att ändra enhetens måltemperatur använder du sidan **Inställningar**:
 
-1. Välj **Inställningar**. Ändra **Ange temperatur** till 75. Välj **Uppdatera** för att skicka den nya måltemperaturen till enheten. När enheten har bekräftat de ändrade inställningarna ändras status för inställningens värde till **synkroniserad**:
+1. Välj **Inställningar**. Ändra **Ange temperatur** till 75. Välj **Uppdatera** för att skicka den nya måltemperaturen till enheten. När enheten har bekräftat de ändrade inställningarna ändras status för inställningen till **synkroniserad**:
 
     ![Uppdatera inställningar](media/tutorial-monitor-devices/change_settings.png)
 

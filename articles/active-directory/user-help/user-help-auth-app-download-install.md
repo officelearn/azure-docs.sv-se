@@ -13,12 +13,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81d0590215f92f7b3d1c2ad0bbbc509da31c2fd1
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 67393e19a72777d105f1f35a16986c52f52133be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011632"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079817"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Ladda ned och installera Microsoft Authenticator-appen
 >[!Important]
@@ -34,13 +34,13 @@ Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följa
 
 - **Kodgenerering.** Som en kodgeneratorn för andra konton som har stöd för autentiserare.
 
->[!Important]
->Microsoft Authenticator-appen fungerar med alla konton som använder två faktorer verifiering och har stöd för tidsbaserade engångslösenord (TOTP)-standarder.
-
->Din organisation kräver att du använder en autentiseringsapp för att logga in och komma åt din organisations data och dokument. Även om ditt användarnamn kan visas i appen, kontot inte faktiskt har ställts in så att den fungerar som en verifieringsmetod förrän du har slutfört registreringsprocessen. Mer information finns i [Lägg till ditt arbets- eller skolkonto](user-help-auth-app-add-work-school-account.md).
-
->[!NOTE]
->Om du har problem med att logga in på ditt konto kan du läsa [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) (När du inte kan logga in på ditt Microsoft-konto) om du behöver hjälp.  Få mer information om vad du gör när du får meddelandet [”Det Microsoft-kontot finns inte”](https://support.microsoft.com/help/13811) när du försöker logga in på ditt Microsoft-konto.
+> [!Important]
+> Microsoft Authenticator-appen fungerar med alla konton som använder två faktorer verifiering och har stöd för tidsbaserade engångslösenord (TOTP)-standarder.
+> 
+> Din organisation kan kräva att du använder en autentiseringsapp för att logga in och komma åt organisationens data och dokument. Även om ditt användarnamn kanske visas i appen är kontot inte konfigurerat så för att fungera som verifieringsmetod förrän du har slutfört registreringsprocessen. Mer information finns i [Lägga till ditt arbets- eller skolkonto](user-help-auth-app-add-work-school-account.md).
+> 
+> [!NOTE]
+> Om du har problem med att logga in på ditt konto kan du läsa [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) (När du inte kan logga in på ditt Microsoft-konto) om du behöver hjälp.  Få mer information om vad du gör när du får meddelandet [”Det Microsoft-kontot finns inte”](https://support.microsoft.com/help/13811) när du försöker logga in på ditt Microsoft-konto.
 
 ## <a name="download-and-install-the-app"></a>Ladda ned och installera appen
 Installera den senaste versionen av Microsoft Authenticator-appen, baserat på ditt operativsystem:
@@ -49,7 +49,8 @@ Installera den senaste versionen av Microsoft Authenticator-appen, baserat på d
 
 - **Apple iOS.** På din Apple iOS-enhet går du till App Store till [ladda ned och installera Microsoft Authenticator-appen](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
->[Viktigt] Om du inte är för närvarande på din mobila enhet kan du fortfarande komma Microsoft Authenticator-appen genom att skicka dig själv en nedladdningslänk från den [Microsoft Authenticator sidan](https://www.microsoft.com/en-us/account/authenticator).
+>[!Important]
+>Om du inte är för närvarande på din mobila enhet kan du fortfarande komma Microsoft Authenticator-appen genom att skicka dig själv en nedladdningslänk från den [Microsoft Authenticator sidan](https://www.microsoft.com/en-us/account/authenticator).
 
 ## <a name="next-steps"></a>Nästa steg
 

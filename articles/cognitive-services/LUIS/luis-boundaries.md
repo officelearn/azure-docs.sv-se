@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: df69cb5cc2e369a5e1f372d49a821616bf624db9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 51f5355e365d0dcf7a103deab3356f015e75641e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237560"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897528"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Gränser för LUIS-modell och nycklar
 LUIS har flera gräns områden. Först är det [modellen gräns](#model-boundaries), som styr avsikter, entiteter och funktioner i LUIS. Det andra området är [kvotgränser](#key-limits) baserat på nyckeltyp. Ett tredje område av gränser är den [tangentbord kombination](#keyboard-controls) för att styra LUIS-webbplatsen. En fjärde området är den [världen regionsmappning](luis-reference-regions.md) mellan LUIS redigering av webbplatsen och LUIS [endpoint](luis-glossary.md#endpoint) API: er. 
@@ -27,7 +27,7 @@ LUIS har flera gräns områden. Först är det [modellen gräns](#model-boundari
 Om din app överskrider LUIS-modellen begränsningar och gränser, bör du använda en [LUIS dispatch](luis-concept-enterprise.md#dispatch-tool-and-model) app eller med hjälp av en [LUIS behållare](luis-container-howto.md). 
 
 |Område|Gräns|
-|--|:--|--|
+|--|:--|
 | [Appnamn][luis-get-started-create-app] | * Standardvärdet max |
 | [Batch-testning][batch-testing]| 10 datauppsättningar, 1000 yttranden per datauppsättning|
 | Explicit lista | 50 per program|
@@ -41,7 +41,7 @@ Om din app överskrider LUIS-modellen begränsningar och gränser, bör du anvä
 | [Reguljärt uttryck entiteter](./luis-concept-entity-types.md)|20 entiteter<br>max 500 tecken. per entitet mönster för reguljärt uttryck|
 | [roles](luis-concept-roles.md)|300 roller per program. 10 roller per enhet|
 | [Uttryck][utterances] | 500 tecken|
-| [Yttranden][utterances] | 15 000 per program|
+| [Yttranden][utterances] | 15 000 per program – det finns ingen gräns för antalet yttranden per avsikt|
 | [Versioner](luis-concept-version.md)| ingen gräns |
 | [Versionsnamn][luis-how-to-manage-versions] | begränsad till alfanumeriska tecken och period 10 tecken (.) |
 

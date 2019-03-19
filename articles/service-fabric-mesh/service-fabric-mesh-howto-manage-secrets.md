@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: f767dfdf96b89344fea18893f7030ea0fd1882ad
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 36d0b49f1b9fb1ca5d13283146d134137a5cb028
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764278"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900649"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Hantera Service Fabric Mesh-programhemligheter
 Service Fabric Mesh stöder hemligheter som Azure-resurser. En Service Fabric Mesh-hemlighet kan vara valfri känslig textinformation, till exempel lagringsanslutningssträngar, lösenord eller andra värden som bör lagras och överföras på ett säkert sätt. Den här artikeln visar hur du använder Säker lagringstjänst i Service Fabric för att distribuera och hantera hemligheter.
@@ -24,20 +24,20 @@ En Mesh-programhemlighet består av:
 * En eller flera **hemlighets-/värderesurser** som lagras i **hemlighetsresurscontainern**. Varje **hemlighets-/värderesurs** identifieras med ett versionsnummer. Du kan inte ändra en version av en **hemlighets-/värderesurs**, bara lägga till en ny version.
 
 Hantering av hemligheter består av följande steg:
-1. Deklarera en Mesh-**hemlighetsresurs** i en YAML- eller JSON-fil för Azure-resursmodell med definitioner av inlinedValue som kind och SecretsStoreRef som contentType.
-2. Deklarera Mesh-**hemlighets-/värderesurser** i en YAML- eller JSON-fil för Azure-resursmodell som lagras i **hemlighetsresursen** (från steg 1).
+1. Deklarera ett nät **hemligheter** resurs i en Azure Resource Model YAML eller JSON-fil med hjälp av inlinedValue typ och SecretsStoreRef contentType definitioner.
+2. Deklarera nät **hemligheter/värden** resurser i en Azure Resource Model YAML eller JSON-fil som lagras i den **hemligheter** resurs (från steg 1).
 3. Ändra Mesh-programmet så att det refererar till Mesh-hemlighetsvärden.
 4. Distribuera eller uppgradera löpande Mesh-programmet så att det använder hemlighetsvärden.
 5. Använd Azure ”az” CLI-kommandon för livscykelhantering i Säker lagringstjänst.
 
 ## <a name="declare-a-mesh-secrets-resource"></a>Deklarera en Mesh-hemlighetsresurs
-En Mesh-hemlighetsresurs deklareras i en YAML- eller JSON-fil för Azure-resursmodell med definitioner av inlinedValue som kind och SecretsStoreRef som contentType. Mesh-hemlighetsresursen stöder ursprungshemligheter i Säker lagringstjänst. 
+En nät hemligheter resurs har deklarerats i en Azure Resource Model JSON eller YAML-fil med hjälp av inlinedValue typ och SecretsStoreRef contentType definitioner. Mesh-hemlighetsresursen stöder ursprungshemligheter i Säker lagringstjänst. 
 >
 Följande är ett exempel på hur du deklarerar Mesh-hemlighetsresurser i en JSON-fil:
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -103,7 +103,7 @@ Följande är ett exempel på hur du deklarerar Mesh-hemlighets-/värderesurser 
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -215,9 +215,9 @@ az mesh secret show --Resource-group <myResourceGroup> --secret-name <mySecret>
 
 - En hemlighet kan inte tas bort medan den refereras av ett Mesh-program.
 - Om du tar bort en hemlighetsresurs tas alla versioner av hemligheter/resurser bort.
-```azurecli-interactive
-az mesh secret delete --Resource-group <myResourceGroup> --secret-name <mySecret>
-```
+  ```azurecli-interactive
+  az mesh secret delete --Resource-group <myResourceGroup> --secret-name <mySecret>
+  ```
 
 ### <a name="list-secrets-in-subscription"></a>Visa lista över hemligheter i prenumeration
 ```azurecli-interactive

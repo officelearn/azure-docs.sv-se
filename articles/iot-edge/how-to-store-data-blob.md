@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 6f82f50ebaa7ad4440078d1fd4658109cf0e19b6
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 0fc34c913453abd174009213233a54e30b9346d3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571294"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881392"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Store data på gränsen med Azure Blob Storage på IoT Edge (förhandsversion)
 
@@ -230,6 +230,7 @@ Använd önskade egenskaper för att ställa in automatisk lagringsnivåer och e
 
 ### <a name="auto-tiering-properties"></a>Egenskaper för automatisk lagringsnivåer 
 Namnet på den här inställningen är `tieringSettings`
+
 | Fält | Möjliga värden | Förklaring |
 | ----- | ----- | ---- |
 | tieringOn | SANT, FALSKT | Som standard anges till `false`, om du vill aktivera det på ställas `true`|
@@ -239,6 +240,7 @@ Namnet på den här inställningen är `tieringSettings`
 
 ### <a name="auto-expiration-properties"></a>Egenskaper för automatisk upphörande
 Namnet på den här inställningen är `ttlSettings`
+
 | Fält | Möjliga värden | Förklaring |
 | ----- | ----- | ---- |
 | ttlOn | SANT, FALSKT | Som standard anges till `false`, om du vill aktivera det på ställas `true`|
@@ -272,7 +274,7 @@ Ange önskade egenskaper för att aktivera automatisk lagringsnivåer och automa
 
    ```
 
- ![Ange egenskaper för automatisk lagringsnivåer och automatisk förfallodatum](./media/how-to-store-data-blob/iotedge_custom_module.png)
+  ![Ange egenskaper för automatisk lagringsnivåer och automatisk förfallodatum](./media/how-to-store-data-blob/iotedge_custom_module.png)
 
 - **När modulen har distribuerats via funktionen ”Modultvilling för identitet”**: Gå till ”identitet Modultvilling” för den här modulen, kopiera JSON under egenskaper som önskas, konfigurera varje egenskap med lämpligt värde och spara. I ”Modultvilling för identitet” Json se till att varje gång du lägger till eller uppdaterar någon önskad egenskap, den `reported configuration` avsnittet återspeglar ändringarna, och `configurationValidation` rapporteras slutförd för varje egenskap.
 
@@ -343,6 +345,9 @@ Här är ett exempel på önskade egenskaper för den här modulen: ![ange önsk
     }
 
    ```
+  ## <a name="logs"></a>Logs
+
+Följ anvisningarna för att [konfigurera ditt dockerloggar för IoT Edge-moduler](production-checklist.md#set-up-logs-and-diagnostics)
 
 ## <a name="connect-to-your-blob-storage-module"></a>Ansluta till ditt blob storage-modulen
 
@@ -378,7 +383,7 @@ Följande snabbstarter använder språk som stöds också av IoT Edge, så att d
 * [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md) 
 
 ### <a name="azure-storage-explorer"></a>Azure Lagringsutforskaren
-Du kan även försöka [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) att ansluta till ditt konto för lokal lagring. Vi har försökt med [tidigare version 1.5.0](https://go.microsoft.com/fwlink/?LinkId=809306&clcid=0x409) i Azure Explorer.
+Du kan även försöka [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) att ansluta till ditt konto för lokal lagring. Vi har försökt med [tidigare version 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0) i Azure Explorer.
 > [!NOTE]
 > Du kan stöta på fel när du utför stegen nedan, Ignorera och uppdatera. 
 
@@ -388,8 +393,8 @@ Du kan även försöka [Azure Storage Explorer](https://azure.microsoft.com/feat
 4. Gå igenom stegen för att ansluta.
 5. Skapa behållare i ditt konto för lokal lagring
 6. Starta överföring av filer som blockblobar.
-> [!NOTE]
-> Avmarkera kryssrutan för att ladda upp dem som sidblobar. Den här modulen stöder inte sidblobar. Du får detta meddelande vid överföring av filer som .iso, .vhd, .vhdx eller stora filer.
+   > [!NOTE]
+   > Avmarkera kryssrutan för att ladda upp dem som sidblobar. Den här modulen stöder inte sidblobar. Du får detta meddelande vid överföring av filer som .iso, .vhd, .vhdx eller stora filer.
 
 7. Du kan välja att ansluta dina Azure storage-konton där du laddar upp data. Det ger dig en enda vy för dina lokala storage-konto och ett Azure storage-konto
 
@@ -445,7 +450,7 @@ Stöds:
 Stöds inte:
 * Placera block från URL
 
-##<a name="feedback"></a>Feedback:
+## <a name="feedback"></a>Feedback:
 Din feedback är viktig för oss att göra den här modulen och dess funktioner praktiskt och enkelt att använda. Dela gärna din feedback och berätta för oss hur vi kan förbättra.
 
 Du kan nå ut till oss på absiotfeedback@microsoft.com 

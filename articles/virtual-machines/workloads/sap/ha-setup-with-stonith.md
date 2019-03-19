@@ -14,17 +14,17 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c6d4ec767b4c566e6a390f37b97266916819a40c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 66973ce78004d0f29d08264869f166202aaaf109
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015168"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011847"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Hög tillgänglighet i SUSE med hjälp av STONITH
 Det här dokumentet innehåller detaljerade steg för steg-instruktionerna för konfiguration av hög tillgänglighet på SUSE-operativsystem med STONITH enheten.
 
-**Ansvarsfriskrivning:** *handboken härleds genom att testa installationen i miljön Microsoft HANA stora instanser, vilket har fungerar. Som Microsoft Service Management-teamet för stora HANA-instanser inte stöder operativsystem, kan du behöva kontakta SUSE för vidare felsökning eller förtydliganden i lager för operativsystemet. Microsoft service management-teamet ställer in STONITH enhet och fullständigt stöder och kan ingå för felsökning av problem med STONITH-enheter.*
+**Ansvarsfriskrivning:** *Den här guiden härleds genom att testa installationen i miljön Microsoft HANA stora instanser, vilket har fungerar. Som Microsoft Service Management-teamet för stora HANA-instanser inte stöder operativsystem, kan du behöva kontakta SUSE för vidare felsökning eller förtydliganden i lager för operativsystemet. Microsoft service management-teamet ställer in STONITH enhet och fullständigt stöder och kan ingå för felsökning av problem med STONITH-enheter.*
 ## <a name="overview"></a>Översikt
 Om du vill konfigurera hög tillgänglighet med hjälp av SUSE klustring uppfylla följande krav.
 ### <a name="pre-requisites"></a>Förutsättningar
@@ -74,7 +74,7 @@ iqn.1996-04.de.suse:01:<Tenant><Location><SID><NodeNumber>
 
 Microsoft service management ger den här strängen. Ändra filen på **både** noder, men skiljer sig antal noder på varje nod.
 
-![initiatorname.PNG](media/HowToHLI/HASetupWithStonith/initiatorname.png)
+![initiatorname.png](media/HowToHLI/HASetupWithStonith/initiatorname.png)
 
 1.2 ändra */etc/iscsi/iscsid.conf*: Ange *node.session.timeo.replacement_timeout=5* och *node.startup = automatisk*. Ändra filen på **både** noderna.
 
@@ -98,7 +98,7 @@ iscsiadm -m node -l
 ```
 rescan-scsi-bus.sh
 ```
-![rescanscsibus.PNG](media/HowToHLI/HASetupWithStonith/rescanscsibus.png)
+![rescanscsibus.png](media/HowToHLI/HASetupWithStonith/rescanscsibus.png)
 
 1.6 används för att hämta namnet på enheten som kör kommandot *fdisk – l*. Kör det på båda noderna. Välj enheten med storleken på **178 MiB**.
 
@@ -106,7 +106,7 @@ rescan-scsi-bus.sh
   fdisk –l
 ```
 
-![Fdisk l.png](media/HowToHLI/HASetupWithStonith/fdisk-l.png)
+![fdisk-l.png](media/HowToHLI/HASetupWithStonith/fdisk-l.png)
 
 ## <a name="2---initialize-the-sbd-device"></a>2.   Initiera uppstår enheten
 
@@ -115,7 +115,7 @@ rescan-scsi-bus.sh
 ```
 sbd -d <SBD Device Name> create
 ```
-![sbdcreate.PNG](media/HowToHLI/HASetupWithStonith/sbdcreate.png)
+![sbdcreate.png](media/HowToHLI/HASetupWithStonith/sbdcreate.png)
 
 2.2 Kontrollera vad som har skrivits till enheten. Göra det på **både** noderna
 
@@ -131,8 +131,8 @@ Det här avsnittet beskriver stegen för att konfigurera SUSE HA klustret.
 zypper in -t pattern ha_sles
 zypper in SAPHanaSR SAPHanaSR-doc
 ```
-![zypperpatternha_sles.PNG](media/HowToHLI/HASetupWithStonith/zypperpatternha_sles.png)
-![zypperpatternSAPHANASR doc.png](media/HowToHLI/HASetupWithStonith/zypperpatternSAPHANASR-doc.png)
+![zypperpatternha_sles.png](media/HowToHLI/HASetupWithStonith/zypperpatternha_sles.png)
+![zypperpatternSAPHANASR-doc.png](media/HowToHLI/HASetupWithStonith/zypperpatternSAPHANASR-doc.png)
 
 ### <a name="32-setting-up-the-cluster"></a>3.2 skapa klustret
 3.2.1 du kan använda *ha-kluster-init* kommandot eller klustret med hjälp av guiden yast2. I det här fallet används guiden yast2. Du utför det här steget **endast på den primära noden**.
@@ -159,7 +159,7 @@ Klicka på **OK**
 
 Autentiseringen utförs med hjälp av IP-adresser och plap shared nycklar i Csync2. Nyckelfilen genereras med csync2 -k /etc/csync2/key_hagroup. Filen key_hagroup ska kopieras till alla medlemmar i klustret manuellt när den har skapats. **Se till att kopiera filen från nod 1 till nod2**.
 
-![yast-kluster-conntrackd.png](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
+![yast-cluster-conntrackd.png](media/HowToHLI/HASetupWithStonith/yast-cluster-conntrackd.png)
 
 Klicka på **nästa**
 ![yast-kluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
@@ -174,13 +174,13 @@ Det här avsnittet beskrivs konfigurationen av watchdog (softdog).
 ```
 modprobe softdog
 ```
-![modprobe softdog.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog.png)
+![modprobe-softdog.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog.png)
 
 4.2 uppdatera filen */etc/sysconfig/sbd* på **både** noderna på följande:
 ```
 SBD_DEVICE="<SBD Device Name>"
 ```
-![uppstår device.png](media/HowToHLI/HASetupWithStonith/sbd-device.png)
+![sbd-device.png](media/HowToHLI/HASetupWithStonith/sbd-device.png)
 
 4.3 belastningen kernel-modul på **både** noderna genom att köra följande kommando
 ```
@@ -198,25 +198,25 @@ lsmod | grep dog
 ```
 /usr/share/sbd/sbd.sh start
 ```
-![uppstår-sh-start.png](media/HowToHLI/HASetupWithStonith/sbd-sh-start.png)
+![sbd-sh-start.png](media/HowToHLI/HASetupWithStonith/sbd-sh-start.png)
 
 4.6 testa daemonen uppstår på **både** noderna. Du ser två poster när du har konfigurerat på **både** noderna
 ```
 sbd -d <SBD Device Name> list
 ```
-![uppstår list.png](media/HowToHLI/HASetupWithStonith/sbd-list.png)
+![sbd-list.png](media/HowToHLI/HASetupWithStonith/sbd-list.png)
 
 4.7 skicka ett testmeddelande till **en** noder
 ```
 sbd  -d <SBD Device Name> message <node2> <message>
 ```
-![uppstår list.png](media/HowToHLI/HASetupWithStonith/sbd-list.png)
+![sbd-list.png](media/HowToHLI/HASetupWithStonith/sbd-list.png)
 
 4.8 på den **andra** nod (nod2) du kan kontrollera meddelandestatus
 ```
 sbd  -d <SBD Device Name> list
 ```
-![uppstår-lista-message.png](media/HowToHLI/HASetupWithStonith/sbd-list-message.png)
+![sbd-list-message.png](media/HowToHLI/HASetupWithStonith/sbd-list-message.png)
 
 4.9 uppdatera filen om du vill använda uppstår config */etc/sysconfig/sbd* på följande. Uppdatera filen på **både** noderna
 ```
@@ -230,7 +230,7 @@ SBD_OPTS=""
 ```
 systemctl start pacemaker
 ```
-![Start-pacemaker.png](media/HowToHLI/HASetupWithStonith/start-pacemaker.png)
+![start-pacemaker.png](media/HowToHLI/HASetupWithStonith/start-pacemaker.png)
 
 Om tjänsten pacemaker *misslyckas*, referera till *Scenario 5: Pacemaker fungerar inte*
 
@@ -242,7 +242,7 @@ Kör följande kommando på **nod2** så att nod2 ansluta till klustret.
 ```
 ha-cluster-join
 ```
-Om du får en *fel* under ansluta till klustret finns *Scenario 6: nod 2 Det går inte att ansluta till klustret*.
+Om du får en *fel* under ansluta till klustret finns *Scenario 6: Nod 2 Det går inte att ansluta till klustret*.
 
 ## <a name="6---validating-the-cluster"></a>6.   Verifiera klustret
 
@@ -289,7 +289,7 @@ Lägga till konfigurationen i klustret.
 ```
 crm configure load update crm-bs.txt
 ```
-![CRM-konfigurera-crmbs.png](media/HowToHLI/HASetupWithStonith/crm-configure-crmbs.png)
+![crm-configure-crmbs.png](media/HowToHLI/HASetupWithStonith/crm-configure-crmbs.png)
 
 ### <a name="72-stonith-device"></a>7.2 STONITH enhet
 Lägg till resurs STONITH. Skapa filen och Lägg till text på följande.
@@ -321,7 +321,7 @@ crm configure load update crm-vip.txt
 ### <a name="74-validate-the-resources"></a>7.4 verifiera resurser
 
 När du kör kommandot *crm_mon*, du kan se de två resurserna.
-![crm_mon_command.PNG](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
+![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
 Dessutom kan du se statusen på *https://<node IP address>: 7630/cib/live/tillstånd*
 
@@ -387,7 +387,7 @@ Om du vill installera paket som använder yast > programvara > programvaruhanter
 >[!NOTE]
 >Du behöver utföra stegen på båda noderna, så att du kan komma åt yast2 grafisk vy från båda noderna.
 
-![yast sofwaremanagement.png](media/HowToHLI/HASetupWithStonith/yast-sofwaremanagement.png)
+![yast-sofwaremanagement.png](media/HowToHLI/HASetupWithStonith/yast-sofwaremanagement.png)
 
 Under beroenden, väljer du ”rekommenderar installationspaket” ![yast dependencies.png](media/HowToHLI/HASetupWithStonith/yast-dependencies.png)
 
@@ -433,22 +433,22 @@ Med hjälp av yast2 > programvara > programvaruhantering
 
 Välj mönster
 
-![yast pattern1.png](media/HowToHLI/HASetupWithStonith/yast-pattern1.png)
-![yast pattern2.png](media/HowToHLI/HASetupWithStonith/yast-pattern2.png)
+![yast-pattern1.png](media/HowToHLI/HASetupWithStonith/yast-pattern1.png)
+![yast-pattern2.png](media/HowToHLI/HASetupWithStonith/yast-pattern2.png)
 
 Klicka på **accepterar**
 
-![yast ändrats packages.png](media/HowToHLI/HASetupWithStonith/yast-changed-packages.png)
+![yast-changed-packages.png](media/HowToHLI/HASetupWithStonith/yast-changed-packages.png)
 
 Klicka på **fortsätta**
 
-![yast2 utför installation.png](media/HowToHLI/HASetupWithStonith/yast2-performing-installation.png)
+![yast2-performing-installation.png](media/HowToHLI/HASetupWithStonith/yast2-performing-installation.png)
 
 Klicka på **nästa** när installationen är klar
 
 ![yast2-installation-report.png](media/HowToHLI/HASetupWithStonith/yast2-installation-report.png)
 
-### <a name="scenario-4-hana-installation-fails-with-gcc-assemblies-error"></a>Scenario 4: HANA misslyckas med gcc sammansättningar fel
+### <a name="scenario-4-hana-installation-fails-with-gcc-assemblies-error"></a>Scenario 4: HANA misslyckas med fel för gcc-sammansättningar
 HANA-installationen misslyckas med följande fel.
 
 ![Hana-installation-error.png](media/HowToHLI/HASetupWithStonith/Hana-installation-error.png)
@@ -457,7 +457,7 @@ Om du vill åtgärda problemet kan du behöva installera bibliotek (libgcc_sl oc
 
 ![zypper-install-lib.png](media/HowToHLI/HASetupWithStonith/zypper-install-lib.png)
 
-### <a name="scenario-5-pacemaker-service-fails"></a>Scenario 5: Pacemaker tjänsten misslyckas
+### <a name="scenario-5-pacemaker-service-fails"></a>Scenario 5: Pacemaker fungerar inte
 
 Följande problem uppstod under den pacemaker starten.
 
@@ -480,7 +480,7 @@ Sep 28 21:48:27 sapprdhdb95 corosync[68812]: [MAIN  ] Corosync Cluster Engine ex
 Sep 28 21:48:27 sapprdhdb95 systemd[1]: Dependency failed for Pacemaker High Availability Cluster Manager
 -- Subject: Unit pacemaker.service has failed
 -- Defined-By: systemd
--- Support: http://lists.freedesktop.org/mailman/listinfo/systemd-devel
+-- Support: https://lists.freedesktop.org/mailman/listinfo/systemd-devel
 --
 -- Unit pacemaker.service has failed.
 --
@@ -516,7 +516,7 @@ När ansluter nod2 till det befintliga klustret med hjälp av *ha kluster-koppli
 ERROR: Can’t retrieve SSH keys from <Primary Node>
 ```
 
-![ha-kluster-join-error.png](media/HowToHLI/HASetupWithStonith/ha-cluster-join-error.png)
+![ha-cluster-join-error.png](media/HowToHLI/HASetupWithStonith/ha-cluster-join-error.png)
 
 Om du vill åtgärda, kör du följande på båda noderna
 
@@ -531,7 +531,7 @@ cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
 
 Efter den föregående korrigeringen bör nod2 läggs till i klustret
 
-![ha-kluster-join-fix.png](media/HowToHLI/HASetupWithStonith/ha-cluster-join-fix.png)
+![ha-cluster-join-fix.png](media/HowToHLI/HASetupWithStonith/ha-cluster-join-fix.png)
 
 ## <a name="10-general-documentation"></a>10. Allmän dokumentation
 Du hittar mer information om SUSE HA inställningar i följande artiklar: 

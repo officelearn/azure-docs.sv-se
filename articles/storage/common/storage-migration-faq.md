@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 77963377d322a1c70226ceb772273127bec380de
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 2272414c185388df0ccbc9e21b7d166432fc7a52
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506813"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110417"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Vanliga frågor och svar om Azure Storage-migrering
 
@@ -282,7 +282,7 @@ Att ge andra användare åtkomst till lagringsresurser:
 
     - **SAS-token**: Använda en SAS-token för att komma åt data från slutpunkten. Mer information finns i [använda signaturer för delad åtkomst](storage-dotnet-shared-access-signature-part-1.md).
 
-**Hur kan jag använda en anpassad domän HTTPS med mitt lagringskonto? Till exempel hur gör jag ”https://mystorageaccountname.blob.core.windows.net/images/image.gif” visas som ”https://www.contoso.com/images/image.gif”?**
+**Hur kan jag använda en anpassad domän HTTPS med mitt lagringskonto? Till exempel hur gör jag ”<https://mystorageaccountname.blob.core.windows.net/images/image.gif>” visas som ”<https://www.contoso.com/images/image.gif>”?**
 
 SSL stöds inte för närvarande på storage-konton med anpassade domäner.
 Men du kan använda anpassade domäner för icke-HTTPS. Mer information finns i [konfigurera ett anpassat domännamn för din Blob storage-slutpunkt](../blobs/storage-custom-domain-name.md).

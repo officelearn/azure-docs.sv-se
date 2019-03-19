@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 7ff04789a4ba5e5a689b3d3815852bc0fbcdc6a7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: MT
+ms.openlocfilehash: da4944cc95750505e0099b7a987b78e132910460
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988375"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58125322"
 ---
 ## <a name="register-your-application"></a>Registrera ditt program
 
@@ -32,7 +32,7 @@ Du kan registrera programmet i något av två sätt, enligt beskrivningen i föl
 3. Se till att den **interaktiva installation** kryssrutan är markerad och välj sedan **skapa**.
 4. Följ anvisningarna för att hämta program-ID, och klistra in den i din kod.
 
-### <a name="option-2-advanced"></a>Alternativ 2: avancerad
+### <a name="option-2-advanced"></a>Alternativ 2: Avancerat
 
 1. Gå till [Microsoft-portalen för appregistrering](https://apps.dev.microsoft.com/portal/register-app).
 2. I rutan **Programnamn** anger du namnet på programmet.
@@ -44,7 +44,7 @@ Du kan registrera programmet i något av två sätt, enligt beskrivningen i föl
     ```java
     final static String CLIENT_ID = "[Enter the application Id here]";
     ```
-<!-- Workaround for Docs conversion bug -->
+   <!-- Workaround for Docs conversion bug -->
 7. Under **app** > **manifest**öppnar den *AndroidManifest.xml* fil.
 8. I den `manifest\application`, Lägg till följande aktivitet. Den `BrowserTabActivity` aktivitet som tillåter Microsoft att ringa tillbaka till programmet efter att autentiseringen är klar:
 
@@ -64,5 +64,5 @@ Du kan registrera programmet i något av två sätt, enligt beskrivningen i föl
         </intent-filter>
     </activity>
     ```
-<!-- Workaround for Docs conversion bug -->
+   <!-- Workaround for Docs conversion bug -->
 9. I den `BrowserTabActivity`, Ersätt `[Enter the application Id here]` med programmet / klient-ID.

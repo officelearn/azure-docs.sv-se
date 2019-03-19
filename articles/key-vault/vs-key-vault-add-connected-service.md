@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: ghogen
-ms.openlocfilehash: 098958cd729f1c616a93bbb5264445cb6d877f8b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: de849ae290228826ee500ae1c7e623210e585d34
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441992"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113256"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Lägg till Key Vault i ditt webbprogram med hjälp av Visual Studio Connected Services
 
@@ -78,7 +78,7 @@ Du kan nu komma åt dina hemligheter i kod. Nästa steg är olika beroende på o
 1. Installera de här två nuget-paket [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) och [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet-bibliotek.
 
 2. Öppna filen Program.cs och uppdatera koden med följande kod: 
-```
+   ```
     public class Program
     {
         public static void Main(string[] args)
@@ -106,27 +106,27 @@ Du kan nu komma åt dina hemligheter i kod. Nästa steg är olika beroende på o
 
         private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
     }
-```
+   ```
 3. Nästa gång du öppnar About.cshtml.cs fil och skriva följande kod
-    1. Innehåller en referens till Microsoft.Extensions.Configuration av detta med hjälp av instruktionen    
-        ```
-        using Microsoft.Extensions.Configuration
-        ```
-    2. Lägg till den här konstruktorn
-        ```
-        public AboutModel(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-        ```
-    3. Uppdatera metoden OnGet. Uppdatera värdet för platshållaren som visas här med det hemliga namnet som du skapade i kommandona ovan
-        ```
-        public void OnGet()
-        {
-            //Message = "Your application description page.";
-            Message = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
-        }
-        ```
+   1. Innehåller en referens till Microsoft.Extensions.Configuration av detta med hjälp av instruktionen    
+       ```
+       using Microsoft.Extensions.Configuration
+       ```
+   2. Lägg till den här konstruktorn
+       ```
+       public AboutModel(IConfiguration configuration)
+       {
+           _configuration = configuration;
+       }
+       ```
+   3. Uppdatera metoden OnGet. Uppdatera värdet för platshållaren som visas här med det hemliga namnet som du skapade i kommandona ovan
+       ```
+       public void OnGet()
+       {
+           //Message = "Your application description page.";
+           Message = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
+       }
+       ```
 
 Kör appen lokalt genom att bläddra till om sida. Du bör din hemliga värdet som hämtas
 

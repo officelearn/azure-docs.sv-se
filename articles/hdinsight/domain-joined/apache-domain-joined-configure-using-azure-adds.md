@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 722a40dca0a64407a407ecad6d990d1651b0e998
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 96766a12d7e78dacd93432e30d12f313d52ad4c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415739"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176182"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Konfigurera ett HDInsight-kluster med Enterprise Security-paket med hjälp av Azure Active Directory Domain Services
 
@@ -56,7 +56,7 @@ Visa hälsotillståndet för din Azure Active Directory Domain Services genom at
 
 ## <a name="create-and-authorize-a-managed-identity"></a>Skapa och auktorisera en hanterad identitet
 
-En **användartilldelade hanterad identitet** används för att förenkla och säkra domain services-åtgärder. När du tilldelar rollen deltagare för HDInsight Domain Services till den hanterade identitet den läsa, skapa, ändra och ta bort domain services-åtgärder. Vissa åtgärder, till exempel skapa organisationsenheter för domäntjänster och tjänsten principer som krävs för HDInsight Enterprise Security Package. Hanterade identiteter kan skapas i alla prenumerationer. Mer information finns i [hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
+En **användartilldelade hanterad identitet** används för att förenkla och säkra domain services-åtgärder. När du tilldelar rollen deltagare för HDInsight Domain Services till den hanterade identitet den läsa, skapa, ändra och ta bort domain services-åtgärder. Vissa åtgärder, till exempel skapa organisationsenheter för domäntjänster och tjänsten principer som krävs för HDInsight Enterprise Security Package. Hanterade identiteter kan skapas i alla prenumerationer. Mer information om hanterade identiteter i allmänhet, finns i [hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md). Mer information om hur hanterade identiteter arbete i Azure HDInsight finns i [hanterade identiteter i Azure HDInsight](../hdinsight-managed-identities.md).
 
 Skapa en hanterad Användartilldelad identitet om du vill konfigurera ESP kluster om du inte redan har en. Se [skapa, lista, ta bort eller tilldela en roll till en Användartilldelad hanterad identitet med hjälp av Azure portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) anvisningar. Tilldela sedan den **HDInsight Domain Services deltagare** rollen till den hanterade identitet i Azure AD DS-åtkomstkontroll (admin-behörighet för AAD-DS krävs för att göra den här rolltilldelningen).
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d222e398653487cb87525ac13ebe682e9c8a26ee
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a51c2987781184539edfcc8be9b9f483a215a157
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195953"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122934"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Anpassa Användargränssnittet för en användarresa med anpassade principer
 
@@ -66,7 +66,7 @@ För att säkerställa att allt fungerar som förväntat, måste du:
 - Se till att ditt innehåll är HTML5 kompatibla och kan nås
 - Se till att innehållsservern har aktiverats för CORS.
 - Leverera innehåll över HTTPS.
-- Använda absoluta URL-adresser som https://yourdomain/content för alla länkar och CSS-innehåll.
+- Använda absoluta URL-adresser som `https://yourdomain/content` för alla länkar och CSS-innehåll.
 
 > [!TIP]
 > Du kan använda webbplatsen för att kontrollera att du är värd för ditt innehåll på platsen har CORS aktiverat och testa CORS-förfrågningar, https://test-cors.org/. Tack vare den här platsen kan antingen skicka CORS-begäran till en fjärransluten server (för att testa om det finns stöd för CORS) eller skicka CORS-begäran till en testserver (för att utforska vissa funktioner i CORS).
@@ -121,16 +121,16 @@ Om du vill kontrollera att den lagring som du är värd för ditt innehåll på 
 
 1. Öppna en webbläsarsession och gå till sidan *unified.html* med hjälp av den fullständiga URL: en för dess plats i ditt storage-konto `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Till exempel https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
 2. Navigera till https://test-cors.org. Den här platsen kan du kontrollera att den sidan som du använder har CORS aktiverat.  
-<!--
-![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
--->
+   <!--
+   ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
+   -->
 
 3. I **Remote URL**, ange den fullständiga URL: en för ditt unified.html innehåll och på **skicka förfrågan**.
 4. Kontrollera att utdata i den **resultat** innehåller *XHR status: 200*, vilket betyder att CORS är aktiverat.
-<!--
-![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
--->
-Lagringskontot ska nu innehålla en blobbehållare med namnet *b2c* bilden innehåller följande VingspetsLeksaker mallar från den *-startpaket*.
+   <!--
+   ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
+   -->
+   Lagringskontot ska nu innehålla en blobbehållare med namnet *b2c* bilden innehåller följande VingspetsLeksaker mallar från den *-startpaket*.
 
 <!--
 ![Correctly configured storage account](../../articles/active-directory-b2c/media/active-directory-b2c-reference-customize-ui-custom/storage-account-final.png)

@@ -1,14 +1,12 @@
 ---
-ms.openlocfilehash: 2690a01535365ba097e0c058858f24e8c9d80aac
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: 2b1d75b4b32ebfffbddfaddf45b0c08fb1132995
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588745"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168561"
 ---
 # <a name="microsoft-azure-documentation"></a>Microsoft Azure-dokumentation
-
-> Den 5–9 mars 2019 kommer lagringsplatsen för MicrosoftDocs/azure-docs att migreras från den nuvarande Markdown-motorn till markdown-motorn [Markdig](https://github.com/lunet-io/markdig). Under tiden som migreringen utförs inaktiverar vi funktionen för att slå samman offentliga pull-begäranden.
 
 Välkommen till [dokumentationen](https://docs.microsoft.com/azure) om öppen källkod i [Microsoft Azure](https://azure.microsoft.com). Granska README-filen för att förstå hur du kan hjälpa till att bidra till Microsoft Azure-dokumentationen.
 

@@ -3,23 +3,22 @@ title: Synkronisera enhetens tillstånd från Azure IoT Hub | Microsoft Docs
 description: Använd enhetspar för att synkronisera tillstånd mellan dina enheter och din IoT-hubb
 services: iot-hub
 documentationcenter: ''
-author: dominicbetts
-manager: timlt
-ms.assetid: ''
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/18/2019
-ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 63ef5a36dc5a9d770e3474e15b4733d4165b9937
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: b0e6e75f962383055d4f28356c3db57aac4a088b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421920"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088085"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -42,7 +41,7 @@ I den här självstudien utför du följande åtgärder:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver ha Node.js v4.x.x eller senare installerat på utvecklingsdatorn.
 
@@ -60,7 +59,7 @@ Ladda ned exempelprojektet för Node.js från https://github.com/Azure-Samples/a
 
 För att slutföra den här kursen måste din Azure-prenumeration innehålla en IoT-hubb med en enhet som har lagts till i enhetsidentitetsregistret. Posten i enhetsidentitetsregistret gör att den simulerade enheten som du kör i den här kursen kan ansluta till din hubb.
 
-Om du inte redan har en IoT-hubb i din prenumeration kan du konfigurera ett konto med följande CLI-skript. Det här skriptet använder namnet **tutorial-iot-hub** för IoT-hubben. Du bör ersätta det här namnet med ditt eget unika namn när du kör det. Skriptet skapar resursgruppen och hubben i regionen **centrala USA**, vilket du kan ändra till en region som ligger närmare till dig. Skriptet hämtar din anslutningssträng för IoT-hubbtjänsten, som du använder i serverdelexemplet för att ansluta till din IoT-hubb:
+Om du inte redan har en IoT-hubb som angetts i din prenumeration kan konfigurera du en med följande CLI-skript. Det här skriptet använder namnet **tutorial-iot-hub** för IoT-hubben. Du bör ersätta det här namnet med ditt eget unika namn när du kör det. Skriptet skapar resursgruppen och hubben i regionen **centrala USA**, vilket du kan ändra till en region som ligger närmare till dig. Skriptet hämtar din anslutningssträng för IoT-hubbtjänsten, som du använder i serverdelexemplet för att ansluta till din IoT-hubb:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -76,7 +75,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --hub-name $hubname -o table
+az iot hub show-connection-string --name $hubname -o table
 
 ```
 
@@ -241,7 +240,7 @@ Följande skärmbild visar utdata från det simulerade enhetsprogrammet och visa
 
 ![Simulerad enhet](./media/tutorial-device-twins/SimulatedDevice2.png)
 
-Följande skärmbild visar utdata från det serverdelsprogrammet och visar hur det tar emot och bearbetar en rapporterad egenskapsuppdatering från en enhet:
+Följande skärmbild visas utdata från backend-programmet och visar hur den tar emot och bearbetar en rapporterad Egenskapsuppdatering från en enhet:
 
 ![Serverdelsprogram](./media/tutorial-device-twins/BackEnd2.png)
 
@@ -263,4 +262,4 @@ az group delete --name tutorial-iot-hub-rg
 I den här självstudien beskrivs hur du synkroniserar statusinformation mellan dina enheter och din IoT Hub. Gå vidare till nästa kurs att lära dig mer att använda tvillingenheter för att implementera en process för uppdatering av fast programvara.
 
 > [!div class="nextstepaction"]
-[Implementera en uppdateringsprocess för enhetens inbyggda programvara](tutorial-firmware-update.md)
+> [Implementera en uppdateringsprocess för enhetens inbyggda programvara](tutorial-firmware-update.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: cd4871e3e4613973a50c8ee0994fe0440150eddf
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 8bfd6bd7e42d5978f6db2c2a6bdb634661c6bfed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044033"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886753"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Skapa ett Service Fabric-kluster Resource Manager-mall
 
@@ -138,7 +138,7 @@ Certifikatet för autentisering av klustret måste konfigureras i båda Service 
 }
 ```
 
-## <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Lägg till Azure AD-konfiguration för att använda Azure AD för klientåtkomst
+## <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Lägga till Azure AD-konfiguration för att använda Azure AD för klientåtkomst
 
 Du lägger till Azure AD-konfigurationen till ett kluster Resource Manager-mall genom att referera till nyckelvalvet som innehåller certifikatnycklarna som. Lägg till de Azure AD-parametrar och värden i en Resource Manager-mallparametrarfil (*azuredeploy.parameters.json*). 
 
@@ -202,7 +202,7 @@ RM-moduler har inte möjlighet att skapa Azure AD-konfiguration för dig, så om
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         ...

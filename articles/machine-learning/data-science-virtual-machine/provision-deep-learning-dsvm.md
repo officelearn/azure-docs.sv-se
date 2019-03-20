@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 53ddea5426d2adfa7b0ddfcbda3375efae8d0859
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 42430c847149f7eda2f0dbed1cff006a92f372ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250814"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845196"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Etablera en virtuell dator på Azure för Djupinlärning 
 
@@ -49,10 +49,10 @@ Här följer stegen för att skapa en instans av Deep Learning Virtual Machine:
 > [!NOTE]
 > DLVM stöder alla NC- och ND-serien GPU VM-instanser. När du etablerar DLVM, måste du välja någon av platser i Azure med GPU: er. Kontrollera den [Azure-produkter per Region sidan](https://azure.microsoft.com/regions/services/) för de tillgängliga platserna och leta efter **NC-serien**, **NCv2-serien**, **NCv3-serien** , eller **ND-serien** under **Compute**. 
 
-   2. **Inställningar för**: Välj en av NC-serien (NC, NCv2, NCv3) eller ND-serien GPU-storlekar för virtuella datorer som uppfyller dina funktionella krav och begränsningar för kostnad. Skapa ett lagringskonto för den virtuella datorn.  ![dlvm-inställningar](./media/dlvm-provision-step-2.PNG)
+1. **Inställningar för**: Välj en av NC-serien (NC, NCv2, NCv3) eller ND-serien GPU-storlekar för virtuella datorer som uppfyller dina funktionella krav och begränsningar för kostnad. Skapa ett lagringskonto för den virtuella datorn.  ![dlvm-inställningar](./media/dlvm-provision-step-2.PNG)
    
-   3. **Sammanfattning av**: Kontrollera att all information du angett är korrekt.
-   5. **Köpa**: Klicka på **köpa** att starta etableringen. Det finns en länk till villkoren för transaktionen. Den virtuella datorn har inte några ytterligare avgifter utöver beräkning för serverstorlek som du valde i den **storlek** steg. 
+1. **Sammanfattning**: Kontrollera att all information du angett är korrekt.
+1. **Köpa**: Klicka på **köpa** att starta etableringen. Det finns en länk till villkoren för transaktionen. Den virtuella datorn har inte några ytterligare avgifter utöver beräkning för serverstorlek som du valde i den **storlek** steg. 
 
 > [!NOTE]
 > Etableringen tar cirka 10-20 minuter. Status för etableringen visas på Azure portal.
@@ -66,7 +66,7 @@ När den virtuella datorn har skapats kan du fjärrskrivbord till den med hjälp
 
 ### <a name="linux-edition"></a>Linux-version
 
-När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH. Använda de autentiseringsuppgifter som du skapade i den **grunderna** avsnittet i steg 3 för text shell-gränssnittet. På en startdiskett inifrån Windows-klienten, kan du ladda ned ett SSH-klientverktyg som [Putty](http://www.putty.org). Du kan använda X11 vidarebefordran på Putty eller installera X2Go klienten om du föredrar en grafisk desktop (X Windows System).
+När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH. Använda de autentiseringsuppgifter som du skapade i den **grunderna** avsnittet i steg 3 för text shell-gränssnittet. På en startdiskett inifrån Windows-klienten, kan du ladda ned ett SSH-klientverktyg som [Putty](https://www.putty.org). Du kan använda X11 vidarebefordran på Putty eller installera X2Go klienten om du föredrar en grafisk desktop (X Windows System).
 
 > [!NOTE]
 > Klienten X2Go presterade bättre än X11 vidarebefordran i våra tester. Vi rekommenderar att du använder X2Go-klienten för ett grafiskt gränssnitt för fjärrskrivbord.
@@ -76,7 +76,7 @@ När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH
 #### <a name="installing-and-configuring-x2go-client"></a>Installera och konfigurera X2Go klienten
 Linux DLVM är redan upprättad med X2Go server och redo att ta emot klientanslutningar. Slutför följande procedur på klienten för att ansluta till Linux VM grafiska skrivbordet:
 
-1. Ladda ned och installera klienten för din klientplattform från X2Go [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Ladda ned och installera klienten för din klientplattform från X2Go [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. Kör X2Go-klienten och välj **ny Session**. Det öppnar en konfiguration med flera flikar. Ange följande konfigurationsparametrar:
    * **Sessionen fliken**:
      * **Värden**: Värdnamn eller IP-adressen för din Linux virtuell dator för datavetenskap.

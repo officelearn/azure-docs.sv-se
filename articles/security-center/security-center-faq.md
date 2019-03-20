@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2019
 ms.author: monhaber
-ms.openlocfilehash: e42deed992496cc28bdf92c01934d74361f2de6f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: ad676070bb684e459c0dae648443318199f77b6d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444029"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091536"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Security Center
 Den här vanliga frågor och svar innehåller frågor och svar om Azure Security Center, en tjänst som hjälper dig att förhindra, upptäcka och svara på hot med ökad insyn i och kontroll över säkerheten hos dina Microsoft Azure-resurser.
@@ -184,18 +184,18 @@ Du kan manuellt ta bort Microsoft Monitoring Agent. Detta rekommenderas inte eft
 
 Ta manuellt bort agenten:
 
-1.  Öppna i portalen, **Log Analytics**.
-2.  Välj en arbetsyta på Log Analytics-bladet:
-3.  Välj varje virtuell dator som du inte vill övervaka och välj **Disconnect**.
+1. Öppna i portalen, **Log Analytics**.
+2. Välj en arbetsyta på Log Analytics-bladet:
+3. Välj varje virtuell dator som du inte vill övervaka och välj **Disconnect**.
 
    ![Ta bort agenten][3]
 
 > [!NOTE]
 > Om en Linux VM redan har en icke-extension OMS-agenten, tar bort tillägget tar bort agenten samt och kunden har installera det på nytt.
->
->
-### <a name="how-do-i-disable-data-collection"></a>Hur jag för att inaktivera insamling av data?
-Automatisk etablering är inaktiverat som standard. Du kan inaktivera automatisk etablering från resurser när som helst genom att stänga av den här inställningen i säkerhetsprincipen. Automatisk försörjning rekommenderas starkt för att få säkerhetsaviseringar och rekommendationer om systemuppdateringar, OS-säkerhetsproblem och endpoint protection.
+> 
+> 
+> ### <a name="how-do-i-disable-data-collection"></a>Hur jag för att inaktivera insamling av data?
+> Automatisk etablering är inaktiverat som standard. Du kan inaktivera automatisk etablering från resurser när som helst genom att stänga av den här inställningen i säkerhetsprincipen. Automatisk försörjning rekommenderas starkt för att få säkerhetsaviseringar och rekommendationer om systemuppdateringar, OS-säkerhetsproblem och endpoint protection.
 
 Inaktivera datainsamling, [logga in på Azure-portalen](https://portal.azure.com)väljer **Bläddra**väljer **Security Center**, och välj **Välj princip**. Välj den prenumeration du vill avaktivera automatisk etablering för. När du väljer en prenumeration **säkerhetsprincip – datainsamling** öppnas. Under **Automatisk etablering**väljer **av**.
 

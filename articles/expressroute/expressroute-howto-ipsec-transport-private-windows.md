@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
-ms.openlocfilehash: 39bbe8a0ec11b90d506ce0d1c0bad37ddba46a5d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d728980517988e2dc39be4e4b64d20157a1aef54
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139128"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121187"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Konfigurera IPSec-transportläge för ExpressRoute privat peering
 
@@ -43,17 +43,17 @@ Det här diagrammet visar IPsec-tunnlar under överföring i ExpressRoute privat
 ### <a name="working-with-ipsec-policy"></a>Arbeta med IPsec-princip
 
 I Windows, kryptering som är associerade med IPsec-principen. IPsec-princip bestämmer vilken IP-trafik är skyddad och säkerhetsmekanism som tillämpas på IP-paket.
-**IPSec-principer** består av följande objekt: **Filter visar en lista över**, **filteråtgärder**, och **säkerhetsregler**.
+**IPSec-principer** består av följande objekt: **Filtrera listor**, **filteråtgärder**, och **säkerhetsregler**.
 
 När du konfigurerar IPsec-principen, är det viktigt att du förstår termer som följande IPSec-princip:
 
-* **IPsec-princip:** en samling regler. Endast en princip kan vara aktiva (”tilldelats”) vid given tidpunkt. Varje princip kan ha en eller flera regler som kan vara aktiva samtidigt. En dator kan tilldelas endast en aktiv IPsec-princip fått tid. I IPsec-princip kan du också definiera flera åtgärder som vidtas i olika situationer. Varje uppsättning med IPsec-regler är associerad med en filterlista som påverkar vilken typ av nätverkstrafik som regeln gäller.
+* **IPsec-princip:** En samling regler. Endast en princip kan vara aktiva (”tilldelats”) vid given tidpunkt. Varje princip kan ha en eller flera regler som kan vara aktiva samtidigt. En dator kan tilldelas endast en aktiv IPsec-princip fått tid. I IPsec-princip kan du också definiera flera åtgärder som vidtas i olika situationer. Varje uppsättning med IPsec-regler är associerad med en filterlista som påverkar vilken typ av nätverkstrafik som regeln gäller.
 
-* **Filtrera listor:** adressfilterlistor är paket med ett eller flera filter. En lista kan innehålla flera filter. Filter definierar om kommunikation tillåts, skyddad eller blockerad, enligt den IP-adressintervall, protokoll eller portar med specifika protocol. Varje filter som matchar en viss uppsättning villkor. till exempel paket som skickas från ett visst undernät till en viss dator på en specifik målport. När nätverksförhållanden matchar en eller flera av dessa filter, är filterlistan aktiverad. Varje filter har definierats i en specifik filterlista. Filter kan inte delas mellan adressfilterlistor. Dock kan en viss filterlista införlivas i flera IPsec-principer. 
+* **Filtrera listor:** Filtrera listor är paket med ett eller flera filter. En lista kan innehålla flera filter. Filter definierar om kommunikation tillåts, skyddad eller blockerad, enligt den IP-adressintervall, protokoll eller portar med specifika protocol. Varje filter som matchar en viss uppsättning villkor. till exempel paket som skickas från ett visst undernät till en viss dator på en specifik målport. När nätverksförhållanden matchar en eller flera av dessa filter, är filterlistan aktiverad. Varje filter har definierats i en specifik filterlista. Filter kan inte delas mellan adressfilterlistor. Dock kan en viss filterlista införlivas i flera IPsec-principer. 
 
-* **Filteråtgärder:** en säkerhetsmetod definierar en uppsättning säkerhetsalgoritmer, protokoll, och viktiga erbjuder under IKE-förhandlingar på en dator. Filteråtgärder är en lista över säkerhetsmetoder, rangordnas i prioritetsordning.  När en dator förhandlar en IPsec-session, godkänner eller skickar förslag baserat på säkerhetsinställningen som lagras i listan över åtgärder.
+* **Filteråtgärder:** En säkerhetsmetod definierar en uppsättning säkerhetsalgoritmer, protokoll, och viktiga erbjuder under IKE-förhandlingar på en dator. Filteråtgärder är en lista över säkerhetsmetoder, rangordnas i prioritetsordning.  När en dator förhandlar en IPsec-session, godkänner eller skickar förslag baserat på säkerhetsinställningen som lagras i listan över åtgärder.
 
-* **Säkerhetsregler:** reglerna styr hur och när en IPSec-princip skyddar kommunikationen. Den använder **filterlista** och **filteråtgärder** att skapa en IPsec-regel för att skapa IPsec-anslutning. Varje princip kan ha en eller flera regler som kan vara aktiva samtidigt. Varje regel innehåller en lista över IP-filter och en samling säkerhetsåtgärder som äger rum vid matchning med filterlistan:
+* **Säkerhetsregler:** Reglerna styr hur och när en IPSec-princip skyddar kommunikationen. Den använder **filterlista** och **filteråtgärder** att skapa en IPsec-regel för att skapa IPsec-anslutning. Varje princip kan ha en eller flera regler som kan vara aktiva samtidigt. Varje regel innehåller en lista över IP-filter och en samling säkerhetsåtgärder som äger rum vid matchning med filterlistan:
   * IP-filteråtgärder
   * Autentiseringsmetoder
   * Inställningar för IP-tunnel
@@ -103,13 +103,13 @@ Se till att du uppfyller följande krav:
 
 1. Öppna snapin-modulen Grupprinciphantering för att skapa ett nytt grupprincipobjekt som är länkade till en Organisationsenhet, och leta upp den Organisationsenhet som Grupprincipobjektet länkas. I det här exemplet heter Organisationsenheten **IPSecOU**. 
 
-  [![9]][9]
+   [![9]][9]
 2. Välj Organisationsenheten i snapin-modulen för hantering av Grupprincip och högerklicka. I listrutan klickar du på ”**skapa ett grupprincipobjekt i den här domänen och länka det här...** ".
 
-  [![10]][10]
+   [![10]][10]
 3. Namnge Grupprincipobjektet ett intuitivt namn så att du lätt kan hitta den. Klicka på **OK** skapa och länka Grupprincipobjektet.
 
-  [![11]][11]
+   [![11]][11]
 
 ## <a name="enablelink"></a>2. Aktivera GPO-länk
 
@@ -118,38 +118,38 @@ Om du vill tillämpa Grupprincipobjektet till Organisationsenheten Grupprincipob
 1. Leta upp det Grupprincipobjektet som du skapade, högerklicka och välj **redigera** i listrutan.
 2. Om du vill tillämpa Grupprincipobjektet till Organisationsenheten, Välj **länken är aktiverad**.
 
-  [![12]][12]
+   [![12]][12]
 
 ## <a name="filteraction"></a>3. Definiera IP-filteråtgärd
 
 1. I listrutan, högerklickar du på **IP-säkerhetsprincip på Active Directory**, och klicka sedan på **hantera IP-filtrera listor och filteråtgärder...** .
 
-  [![15]][15]
+   [![15]][15]
 2. På den ”**hantera filter åtgärder**” klickar du på **Lägg till**.
 
-  [![16]][16]
+   [![16]][16]
 
 3. På den **IP-säkerhet filteråtgärd guiden**, klickar du på **nästa**.
 
-  [![17]][17]
+   [![17]][17]
 4. Namnge Filtreringsåtgärden ett intuitivt namn så att du kan hitta den senare. I det här exemplet heter Filtreringsåtgärden **myEncryption**. Du kan också lägga till en beskrivning. Klicka sedan på **Nästa**.
 
-  [![18]][18]
+   [![18]][18]
 5. **Förhandla security** kan du definiera beteendet om IPsec kan upprättas med en annan dator. Välj **förhandla security**, klicka sedan på **nästa**.
 
-  [![19]][19]
+   [![19]][19]
 6. På den **Communicating med datorer som inte stöder IPsec** väljer **Tillåt inte oskyddade kommunikation**, klicka sedan på **nästa**.
 
-  [![20]][20]
+   [![20]][20]
 7. På den **IP-trafik och säkerhet** väljer **anpassade**, klicka sedan på **inställningar...** .
 
-  [![21]][21]
+   [![21]][21]
 8. På den **anpassade säkerhetsinställningar för metoden** väljer **dataintegritet och kryptering (ESP): SHA1, 3DES**. Klicka sedan på **OK**.
 
-  [![22]][22]
+   [![22]][22]
 9. På den **Hantera filteråtgärder** sidan visas som den **myEncryption** filter har lagts till. Klicka på **Stäng**.
 
-  [![23]][23]
+   [![23]][23]
 
 ## <a name="filterlist1"></a>4. Definiera en IP-filterlista
 
@@ -157,36 +157,36 @@ Skapa en filterlista som anger krypterade HTTP-trafik med målport 8080.
 
 1. För vilka typer av trafik måste krypteras, använda en **IP-filterlistan**. I den **hantera listor över IP-Filter** fliken **Lägg till** att lägga till en ny IP-filterlista.
 
-  [![24]][24]
+   [![24]][24]
 2. I den **namn:** skriver ett namn för din IP-filterlistan. Till exempel **azure – den lokala-HTTP8080**. Klicka sedan på **Lägg till**.
 
-  [![25]][25]
+   [![25]][25]
 3. På den **IP filterbeskrivning och spegling egenskapen** väljer **speglad**. Speglad inställning matchar paket i båda riktningarna, vilket gör att för dubbelriktad kommunikation. Klicka sedan på **Nästa**.
 
-  [![26]][26]
+   [![26]][26]
 4. På den **IP trafikkälla** sidan från den **källadress:** listrutan Välj **en specifik IP-adress eller undernät**. 
 
-  [![27]][27]
+   [![27]][27]
 5. Ange källadressen **IP-adressen eller undernätet:** IP-trafik, klicka sedan på **nästa**.
 
-  [![28]][28]
+   [![28]][28]
 6. Ange den **måladress:** IP-adress eller undernät. Klicka sedan på **Nästa**.
 
-  [![29]][29]
+   [![29]][29]
 7. På den **IP-protokolltyp** väljer **TCP**. Klicka sedan på **Nästa**.
 
-  [![30]][30]
+   [![30]][30]
 8. På den **IP-protokollet, porten** väljer **från alla portar** och **till den här porten:**. Typ **8080** i textrutan. Dessa inställningar anger HTTP-trafik på målport 8080 krypteras. Klicka sedan på **Nästa**.
 
-  [![31]][31]
+   [![31]][31]
 9. Visa IP-filterlistan.  Konfigurationen av IP-filterlistan **azure – den lokala-HTTP8080** utlöser kryptering för all trafik som matchar följande kriterier:
 
-  * Alla Källadress i 10.0.1.0/24 (Azure Subnet2)
-  * Alla måladresser i 10.2.27.0/25 (lokala undernät)
-  * TCP-protokoll
-  * Målport 8080
+   * Alla Källadress i 10.0.1.0/24 (Azure Subnet2)
+   * Alla måladresser i 10.2.27.0/25 (lokala undernät)
+   * TCP-protokoll
+   * Målport 8080
 
-  [![32]][32]
+   [![32]][32]
 
 ## <a name="filterlist2"></a>5. Redigera IP-filterlistan
 
@@ -194,16 +194,16 @@ Om du vill kryptera samma typ av trafik i motsatt riktning (från den lokala vä
 
 1. Om du vill lägga till ett nytt IP-filter i listan, Välj **redigera**.
 
-  [![33]][33]
+   [![33]][33]
 2. På den **IP-filterlistan** klickar du på **Lägg till**.
 
-  [![34]][34]
+   [![34]][34]
 3. Skapa ett andra IP-filter med inställningarna i följande exempel:
 
-  [![35]][35]
+   [![35]][35]
 4. När du har skapat den andra IP-adressfilter ser IP-filterlistan ut så här:
 
-  [![36]][36]
+   [![36]][36]
 
 Om kryptering krävs mellan en lokal plats och en Azure-undernätet att skydda ett program, i stället för att ändra befintliga IP-filterlistan, kan du lägga till en ny IP-filterlista i stället. Associera 2 IP adressfilterlistor IPSec-principen i samma ger bättre flexibilitet eftersom en specifik IP-filterlistan kan ändras eller tas bort när som helst utan att påverka de andra IP-filter-listorna.
 
@@ -213,16 +213,16 @@ Skapa en IPSec-princip med säkerhetsregler.
 
 1. Välj den **IPSecurity principer på Active directory** som är associerad med Organisationsenheten. Högerklicka och välj **skapa IP-säkerhetsprincip**.
 
-  [![37]][37]
+   [![37]][37]
 2. Namn på säkerhetsprincip. Till exempel **princip – azure – den lokala**. Klicka sedan på **Nästa**.
 
-  [![38]][38]
+   [![38]][38]
 3. Klicka på **nästa** utan att markera kryssrutan.
 
-  [![39]][39]
+   [![39]][39]
 4. Kontrollera att den **redigera egenskaper för** kryssrutan är markerad och klicka sedan på **Slutför**.
 
-  [![40]][40]
+   [![40]][40]
 
 ## <a name="editipsec"></a>7. Redigera IPsec-säkerhetsprincip
 
@@ -230,34 +230,34 @@ Lägg till IPSec-principen i den **IP-filterlistan** och **filteråtgärd** som 
 
 1. HTTP-principens egenskaper **regler** fliken **Lägg till**.
 
-  [![41]][41]
+   [![41]][41]
 2. På sidan Välkommen **nästa**.
 
-  [![42]][42]
+   [![42]][42]
 3. En regel ger dig möjlighet att definiera IPsec-läge: tunnelläge eller transportläge.
 
-  * Det ursprungliga paketet kapslas tunnelläge, av en uppsättning IP-rubriker. Tunnelläge skyddar interna routningsinformationen genom att kryptera det ursprungliga paketet IP-huvud. Tunnelläge implementeras mellan gateway-servrarna i scenarier med plats-till-plats-VPN. Tunnelläge är i de flesta fall används för slutpunkt till slutpunkt-kryptering mellan värdar.
+   * Det ursprungliga paketet kapslas tunnelläge, av en uppsättning IP-rubriker. Tunnelläge skyddar interna routningsinformationen genom att kryptera det ursprungliga paketet IP-huvud. Tunnelläge implementeras mellan gateway-servrarna i scenarier med plats-till-plats-VPN. Tunnelläge är i de flesta fall används för slutpunkt till slutpunkt-kryptering mellan värdar.
 
-  * Transportläge krypterar endast nyttolasten och ESP-trailer; IP-huvudet av det ursprungliga paketet inte är krypterad. I transportläge har IP-källan och IP-målet för paket inte ändrats.
+   * Transportläge krypterar endast nyttolasten och ESP-trailer; IP-huvudet av det ursprungliga paketet inte är krypterad. I transportläge har IP-källan och IP-målet för paket inte ändrats.
 
-  Välj **regeln specificerar inte en tunnel**, och klicka sedan på **nästa**.
+   Välj **regeln specificerar inte en tunnel**, och klicka sedan på **nästa**.
 
-  [![43]][43]
+   [![43]][43]
 4. **Nätverkstyp** definierar vilka nätverks-anslutning har associerats säkerhetsprincipen. Välj **alla nätverksanslutningar**, och klicka sedan på **nästa**.
 
-  [![44]][44]
+   [![44]][44]
 5. Välj IP-filterlistan som du skapade tidigare, **azure – den lokala-HTTP8080**, och klicka sedan på **nästa**.
 
-  [![45]][45]
+   [![45]][45]
 6. Markerar du den befintliga **myEncryption** som du skapade tidigare.
 
-  [![46]][46]
-7. Windows har stöd för fyra olika typer av autentiseringar: Kerberos, certifikat, NTLMv2, och i förväg delad nyckel. Eftersom vi arbetar med domänanslutna värdar, väljer **Active Directory-standard (Kerberos V5-protokollet)**, och klicka sedan på **nästa**.
+   [![46]][46]
+7. Windows stöder fyra olika typer av autentiseringar: Kerberos, certifikat, NTLMv2 och i förväg delad nyckel. Eftersom vi arbetar med domänanslutna värdar, väljer **Active Directory-standard (Kerberos V5-protokollet)**, och klicka sedan på **nästa**.
 
-  [![47]][47]
+   [![47]][47]
 8. Den nya principen skapar säkerhetsregeln: **azure – den lokala-HTTP8080**. Klicka på **OK**.
 
-  [![48]][48]
+   [![48]][48]
 
 IPsec-principen kräver att alla HTTP-anslutningar på målport 8080 att använda IPSec-transportläge. Eftersom HTTP är ett protokoll i klartext, säkerhetsprincip aktiverad försäkrar du dig data krypteras när de överförs via ExpressRoute privat peering. IP-säkerhetsprincip för Active Directory är mer komplicerad att konfigurera än Windows-brandväggen med avancerad säkerhet, men den tillåter flera anpassning av IPsec-anslutning.
 
@@ -265,11 +265,11 @@ IPsec-principen kräver att alla HTTP-anslutningar på målport 8080 att använd
 
 1. Visa principen. Säkerhetsprincip för gruppen är definierade, men har ännu inte tilldelats.
 
-  [![49]][49]
+   [![49]][49]
 2. Att tilldela grupprincipen säkerhet till Organisationsenheten **IPSecOU**, högerklicka på säkerhetsprincipen och valde **tilldela**.
-Varje dator här hör till Organisationsenheten har security grupprincipen.
+   Varje dator här hör till Organisationsenheten har security grupprincipen.
 
-  [![50]][50]
+   [![50]][50]
 
 ## <a name="checktraffic"></a>Kontrollera trafikkryptering
 

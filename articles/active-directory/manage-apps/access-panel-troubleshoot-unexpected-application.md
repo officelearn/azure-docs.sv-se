@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewr: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a488c30f5b9438a91d2eae429cf65689af992dcb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fccf671edbc121501a17975be303453a798837e4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167090"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122207"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Hur program visas på åtkomstpanelen
 
@@ -46,41 +46,41 @@ En användare kan se ett program på sina Åtkomstpaneler eftersom de tidigare h
 
 Följ dessa steg om du vill kontrollera om en användare har tilldelats till programmet:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
-5.  Klicka på **alla program** att visa en lista över alla dina program.
+5. Klicka på **alla program** att visa en lista över alla dina program.
 
-6.  **Sök** för namnet på programmet i fråga.
+6. **Sök** för namnet på programmet i fråga.
 
-7.  Klicka på **användare och grupper**.
+7. Klicka på **användare och grupper**.
 
-8.  Kontrollera om dina användare tilldelas till programmet.
+8. Kontrollera om dina användare tilldelas till programmet.
 
-  * Om du vill ta bort användaren från programmet, **klickar du på raden** av användare och välj **ta bort**.
+   * Om du vill ta bort användaren från programmet, **klickar du på raden** av användare och välj **ta bort**.
 
 ### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Kontrollera om en användare är under en licens som rör programmet
 
 Följ dessa steg om du vill kontrollera en användares tilldelade licenser:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **användare och grupper** på navigeringsmenyn.
+4. Klicka på **användare och grupper** på navigeringsmenyn.
 
-5.  Klicka på **alla användare**.
+5. Klicka på **alla användare**.
 
-6.  **Sök** för den användare som du är intresserad av och **klickar du på raden** att välja.
+6. **Sök** för den användare som du är intresserad av och **klickar du på raden** att välja.
 
-7.  Klicka på **licenser** att se vilka licenser du för närvarande har tilldelats.
+7. Klicka på **licenser** att se vilka licenser du för närvarande har tilldelats.
 
    * Om användaren har tilldelats en licens för Office, kan detta första part Office-program ska visas på användarens åtkomstpanelen.
 
@@ -96,45 +96,45 @@ En användare kan se ett program på sina Åtkomstpaneler eftersom de är en del
 
 Följ dessa steg om du vill kontrollera en grupps medlemskap:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **användare och grupper** på navigeringsmenyn.
+4. Klicka på **användare och grupper** på navigeringsmenyn.
 
-5.  Klicka på **alla användare**.
+5. Klicka på **alla användare**.
 
-6.  **Sök** för den användare som du är intresserad av och **klickar du på raden** att välja.
+6. **Sök** för den användare som du är intresserad av och **klickar du på raden** att välja.
 
-7.  Klicka på **grupper.**
+7. Klicka på **grupper.**
 
-8.  Kontrollera om dina användare är medlem i en grupp som tilldelats programmet.
+8. Kontrollera om dina användare är medlem i en grupp som tilldelats programmet.
 
    * Om du vill ta bort användaren från gruppen **klickar du på raden** av gruppen och välj Ta bort.
 
 ### <a name="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license"></a>Kontrollera om en användare är medlem i en grupp som har tilldelats en licens
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **användare och grupper** på navigeringsmenyn.
+4. Klicka på **användare och grupper** på navigeringsmenyn.
 
-5.  Klicka på **alla användare**.
+5. Klicka på **alla användare**.
 
-6.  **Sök** för den användare som du är intresserad av och **klickar du på raden** att välja.
+6. **Sök** för den användare som du är intresserad av och **klickar du på raden** att välja.
 
-7.  Klicka på **grupper.**
+7. Klicka på **grupper.**
 
-8.  Klicka på raden i en specifik grupp.
+8. Klicka på raden i en specifik grupp.
 
-9.  Klicka på **licenser** att se vilka licenser gruppen har tilldelats.
+9. Klicka på **licenser** att se vilka licenser gruppen har tilldelats.
 
-  * Om gruppen har tilldelats en licens för Office, kan detta vissa första part Office-program ska visas på användarens åtkomstpanelen.
+   * Om gruppen har tilldelats en licens för Office, kan detta vissa första part Office-program ska visas på användarens åtkomstpanelen.
 
 
 ## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Om de här felsökningsstegen gör inte lösa problemet

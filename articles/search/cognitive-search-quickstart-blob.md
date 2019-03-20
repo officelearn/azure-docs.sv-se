@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e11b158d6e3ce8f8ff4e5cdc3ff3b01722d1c105
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f00df841f81ea5c7aa1fd53309b00487602e5143
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094794"
+ms.locfileid: "58200639"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Snabbstart: Skapa en pipeline för kognitiv sökning med kunskaper och exempeldata
 
@@ -55,7 +55,7 @@ Endast Azure-tjänster används i det här scenariot. Som en del av förberedels
 
 Börja med att registrera dig för Azure Search-tjänsten. 
 
-1. Gå till [Azure-portalen](https://portal.azure.com) och logga in med ditt Azure-konto.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) med din Azure-konto.
 
 1. Klicka på **Skapa en resurs**, sök efter Azure Search och klicka på **Skapa**. Läs [Skapa en Azure Search-tjänst på portalen](search-create-service-portal.md) om det är första gången du konfigurerar en söktjänst och du behöver mer hjälp.
 

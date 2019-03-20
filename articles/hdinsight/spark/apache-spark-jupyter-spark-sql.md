@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 7ef45061207bed28c1b3c16b7cefbcc9bfc49959
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 16ec2f52a3272e774f4743ec730e0b1184d8fb53
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814980"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225645"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-template"></a>Snabbstart: Skapa ett Apache Spark-kluster i HDInsight med hjälp av en mall
 
 Lär dig hur du skapar ett [Apache Spark](https://spark.apache.org/)-kluster i Azure HDInsight och hur du kör Spark SQL-frågor mot [Apache Hive](https://hive.apache.org/)-tabeller. Apache Spark möjliggör snabb dataanalys och databehandling i kluster med hjälp av minnesintern bearbetning. Mer information om Spark på HDInsight finns i [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md).
 
-I den här snabbstarten använder du en Resource Manager-mall för att skapa ett HDInsight Spark-kluster. Liknande mallar kan visas på [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). Mallreferensen finns [här](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
+I den här snabbstarten använder du en Resource Manager-mall för att skapa ett HDInsight Spark-kluster. Liknande mallar kan läsas på [Azures snabbstartsmallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). Mallreferensen finns [här](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
 
 Klustret använder Azure Storage Blobar som klusterlagring. Mer information om hur du kan använda Data Lake Storage Gen2 finns i [Snabbstart: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
@@ -39,7 +39,7 @@ Skapa ett HDInsight Spark-kluster med hjälp av en Azure Resource Manager-mall. 
 
 2. Ange följande värden:
 
-    | Egenskap | Värde |
+    | Egenskap  | Värde |
     |---|---|
     |**Prenumeration**|Välj den Azure-prenumeration som ska användas för att skapa klustret. Prenumerationen som används för den här snabbstarten är **&lt;Azure-prenumerationsnamn**. |
     | **Resursgrupp**|Skapa en resursgrupp eller välj en befintlig. Resursgrupp används för att hantera Azure-resurser till dina projekt. Den nya resursgruppens namn som används för den här snabbstarten är **myspark20180403rg**.|

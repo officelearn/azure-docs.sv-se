@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/02/2019
 ms.author: hux
 ms.subservice: blobs
-ms.openlocfilehash: 76d2794d45e9cd73ae8faf203ba29c4dbba64eae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 86e28c3561968b1411a3baa9ec0daecfab6ac73f
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004622"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202894"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Store verksamhetskritiska data i Azure Blob storage
 
@@ -180,7 +180,7 @@ En behållare kan ha både ett bevarande av juridiska skäl och en tidsbaserad b
 
 **Bevarande av juridiska skäl principer är endast för talan eller finns det andra scenarier för användning?**
 
-Nej, juridiska håller är bara den allmänna termen som används för en icke tidsbaserad bevarandeprincip. Det måste inte bara att användas för tvister relaterade åtal. Juridiska skäl principer är användbara för att inaktivera överskrivning och tar bort för att skydda viktiga enterprise mask data om kvarhållningsperioden är okänd. Du kan använda den som en enterprise-princip för att skydda dina verksamhetskritiska mask arbetsbelastningar eller använda den som en mellanlagringsprincip innan en anpassad händelse-utlösare måste du använda en tidsbaserad bevarandeprincip. 
+Nej, juridiska håller är bara den allmänna termen som används för en icke tidsbaserad bevarandeprincip. Det måste inte bara att användas för tvister relaterade åtal. Juridiska skäl principer är användbara för att inaktivera överskrivning och tar bort för att skydda viktiga enterprise mask data om kvarhållningsperioden är okänd. Du kan använda den som en princip för att skydda dina verksamhetskritiska mask arbetsbelastningar eller använda den som en mellanlagringsprincip innan en anpassad händelse-utlösare måste du använda en tidsbaserad bevarandeprincip. 
 
 **Vad händer om jag försöker ta bort en container med en *låst* tidsbaserade bevarandeprincip eller bevarande av juridiska skäl?**
 

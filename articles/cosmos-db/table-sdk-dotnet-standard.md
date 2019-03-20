@@ -8,16 +8,16 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
-ms.openlocfilehash: 99371f0ae56046a328155aa2151ad8b89df93a04
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 38b283ed666b39b4e090bd95051a4454a9b47e62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551933"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57975669"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB-tabell .NET Standard-API: Ladda ned och viktig information
 > [!div class="op_single_selector"]
-
+> 
 > * [NET](table-sdk-dotnet.md)
 > * [.NET-standard](table-sdk-dotnet-standard.md)
 > * [Java](table-sdk-java.md)
@@ -27,9 +27,15 @@ ms.locfileid: "57551933"
 |   |   |
 |---|---|
 |**Hämta SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
+|**Exempel**|[Cosmos DB Table API .NET-exempel](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
+|**Snabbstart**|[Snabbstart](create-table-dotnet.md)|
+|**Självstudie**|[Självstudie](tutorial-develop-table-dotnet.md)|
 |**Aktuella framework som stöds**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+* Allmänt tillgänglig version
 
 ### <a name="a-name0110-preview0110-preview"></a><a name="0.11.0-preview"/>0.11.0-Preview
 * Ändringar har gjorts till hur CloudTableClient kan konfigureras. Det tar nu en ett TableClientConfiguration objekt under konstruktionen. TableClientConfiguration innehåller olika egenskaper för att konfigurera klientens funktionssätt beroende på om mål-slutpunkten är Cosmos DB Table API eller tabell-API för Azure Storage.
@@ -56,6 +62,7 @@ Microsoft meddelar minst **12 månader** förväg dra tillbaka en SDK för att u
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [1.0.0](#1.0.0) |Den 13 mars 2019 |--- |
 | [0.11.0-Preview](#0.11.0-preview) |5 mars 2019 |--- |
 | [0.10.1-Preview](#0.10.1-preview) |Den 22 januari 2019 |--- |
 | [0.10.0-Preview](#0.10.0-preview) |18 december 2018 |--- |

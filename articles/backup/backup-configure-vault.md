@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 4aff7c486762d9ea7bd38ae152d169968432307e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 7a1bd6da68b49481429709c7e4fd37dd5c07ae2c
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898966"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200794"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>Säkerhetskopiera Windows-datorer med Azure Backup MARS-agenten
 
@@ -51,13 +51,21 @@ Vad du kan säkerhetskopiera beror på där agenten är installerad.
 
 ### <a name="verify-internet-access"></a>Kontrollera åtkomst till internet
 
-Om din dator har begränsad tillgång till internet, kontrollerar du att brandväggsinställningarna på den datorn eller proxyservern tillåter dessa webbadresser:
+Om din dator har begränsad tillgång till internet måste du se till att brandväggsinställningarna på den datorn eller proxyservern tillåter dessa URL: er och IP-adress:
+
+**URL: er**
 
 - www\.msftncsi.com
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com
 - *.windows.net
+
+**IP-adress**
+
+- 20.190.128.0/18
+- 40.126.0.0/18
+
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 

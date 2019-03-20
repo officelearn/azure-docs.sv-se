@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tylerfox
-ms.openlocfilehash: 36d169a4220cb1baacdaee072ed01101ef2e9437
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b8e9ad31c2ce7b001297012bca2aa7dd526f732a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815191"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201287"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -106,7 +106,7 @@ Effekten av att ändra antalet datanoder som för varje typ av kluster som stöd
 
     Storm-webbgränssnittet finns på HDInsight-klustret:
 
-    ![HDInsight storm skala ombalansering](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
+    ![HDInsight storm skala ombalansering](./media/hdinsight-administer-use-powershell/hdinsight.portal.scale.cluster.png)
 
     Här är ett exempel hur du använder CLI-kommando för att balansera om Storm-topologi:
 
@@ -159,7 +159,7 @@ Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredenti
 > [!NOTE]  
 > Bevilja/återkalla åtkomst, återställs klusteranvändarnamn och lösenord.
 
-Bevilja och återkalla åtkomst kan även göras via portalen. Se [administrera HDInsight med hjälp av Azure portal][hdinsight-admin-portal].
+Bevilja och återkalla åtkomst kan även göras via portalen. Se [hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure portal](hdinsight-administer-use-portal-linux.md).
 
 ## <a name="update-http-user-credentials"></a>Uppdatera HTTP-autentiseringsuppgifterna
 Det är på samma sätt som Grant/revoke HTTP-åtkomst. Om klustret har beviljats HTTP-åtkomst, måste du först återkalla den.  Och sedan bevilja åtkomst med nya HTTP-autentiseringsuppgifterna.
@@ -228,7 +228,7 @@ Mer information finns i [Överföra data till HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Se även
 * [Referensdokumentation för HDInsight-cmdlet](https://msdn.microsoft.com/library/azure/dn479228.aspx)
-* [Administrera HDInsight med hjälp av Azure portal][hdinsight-admin-portal]
+* [Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure-portalen](hdinsight-administer-use-portal-linux.md)
 * [Administrera HDInsight med ett kommandoradsgränssnitt][hdinsight-admin-cli]
 * [Skapa HDInsight-kluster][hdinsight-provision]
 * [Överföra data till HDInsight][hdinsight-upload-data]
@@ -245,12 +245,10 @@ Mer information finns i [Överföra data till HDInsight][hdinsight-upload-data].
 [hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 

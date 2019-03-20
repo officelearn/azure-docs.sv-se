@@ -4,7 +4,7 @@ description: Lär dig hur en .NET Core-process kan hämta en åtkomsttoken och a
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 1/11/2019
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27cc0334e8332e3bc09ae4302e0b0efdda8067f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5c63269630d0ed74d1b17edbc5cb9e787499604e
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194452"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200532"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Snabbstart: Hämta en token och anropa Microsoft Graph API från en konsolapp med hjälp av appens identitet
 
@@ -30,9 +30,9 @@ ms.locfileid: "56194452"
 
 I den här snabbstarten lär dig hur du skriver en .NET Core-app som kan hämta en åtkomsttoken med hjälp av appens egen identitet och sedan anropa Microsoft Graph API för att visa en [lista över användare](https://docs.microsoft.com/graph/api/user-list) i katalogen. Det här scenariot är användbart för situationer där ett fjärradministrerat, obevakat jobb eller en Windows-tjänst måste köras med en programidentitet, istället för en användares identitet.
 
-![Så fungerar den exempelapp som genereras med den här snabbstarten](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.png)
+![Visar hur exempelapp som genererats av den här snabbstarten fungerar](media/quickstart-v2-netcore-daemon/netcore-daemon-intro-updated.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här snabbstarten kräver [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1).
 
@@ -198,7 +198,7 @@ var app = new ConfidentialClientApplication(
 > |---------|---------|
 > | `secret` | Är klienthemligheten som skapats för appen i Azure-portalen. |
 > | `clientId` | Är **Program-ID (klient)** för det program som registrerats på Azure-portalen. Du hittar det här värdet på appens **översiktssida** på Azure-portalen. |
-> | `Authority`    | (Valfritt) STS-slutpunkten för autentisering av användaren. Vanligtvis https://login.microsoftonline.com/{tenant} för offentligt moln, där {klient} är namnet på klientorganisationen eller klient-ID:t.|
+> | `Authority`    | (Valfritt) STS-slutpunkten för autentisering av användaren. Vanligtvis <https://login.microsoftonline.com/{tenant}> för offentligt moln, där {klient} är namnet på klientorganisationen eller klient-ID:t.|
 > | `redirectUri`  | URL dit användarna skickas efter autentisering. I det här fallet används inte den här parametern eftersom det är en konsolapp/icke interaktiv app |
 > | `clientCredentials`  | Objektet för klientautentiseringsuppgifter, som innehåller hemligheten eller certifikatet |
 > | `userTokenCache`  | Instans av en tokencache för användaren. I det här fallet är värdet null, eftersom appen körs i kontexten för appen och inte för användaren|

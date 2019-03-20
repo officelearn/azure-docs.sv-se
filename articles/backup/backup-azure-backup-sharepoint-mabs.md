@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: kasinh
-ms.openlocfilehash: 7669d713f9a96ef893f7ec2ac895c28f654385c8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7fa68e11ccac69db9335e589f5048264df9d0a47
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810975"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074989"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Säkerhetskopiera en SharePoint-servergrupp till Azure
 Du säkerhetskopiera en SharePoint-servergrupp till Microsoft Azure med hjälp av Microsoft Azure Backup Server (MABS) på samma sätt som du säkerhetskopiera andra datakällor. Azure Backup erbjuder flexibilitet i schemat för säkerhetskopiering så att dagligen, varje vecka, månad eller årlig säkerhetskopiering pekar och ger dig alternativ för kvarhållning för olika säkerhetskopieringspunkter. Den omfattar också möjligheten att lagra kopior av lokal disk för snabb återställning-återställningstiden (RTO) och för att lagra kopior till Azure för mer ekonomiskt, långsiktig kvarhållning.
@@ -22,7 +22,7 @@ Du säkerhetskopiera en SharePoint-servergrupp till Microsoft Azure med hjälp a
 Azure Backup för DPM har stöd för följande scenarier:
 
 | Arbetsbelastning | Version | SharePoint-distributionen | Skydd och återställning |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint som distribueras som fysisk server eller VMware-Hyper-V-dator <br> -------------- <br> SQL AlwaysOn | Skydda SharePoint-servergruppen återställningsalternativ: Återställningsgruppen, databas och fil- eller listobjekt från diskåterställningspunkter.  Servergruppen och återställning av databaser från återställningspunkter i Azure. |
 
 ## <a name="before-you-start"></a>Innan du börjar

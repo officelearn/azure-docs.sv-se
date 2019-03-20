@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14957a94dbe8330553a4090e22d80d6cc2ee06eb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 70513675d09a663c65c6f5b3e18059467a8ba388
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217334"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109332"
 ---
 # <a name="managing-access-to-apps"></a>Hantera åtkomst till appar
 Pågående hantering, användning utvärdering och rapportering fortsätta att vara en utmaning att när en app har integrerats i din organisations identitetssystem. I många fall kan måste IT-administratörer eller supportavdelningen vidta en pågående aktiv roll i hanteringen av åtkomst till dina appar. Ibland utförs tilldelning av en allmän eller avdelningar IT-team. Ofta tilldelning beslutet är avsedd att delegeras till beslutsfattare företag som kräver godkännande innan IT gör tilldelningen.  Andra organisationer investera i integrering med ett befintligt automatiserade identitets- och -system, som rollbaserad åtkomstkontroll (RBAC) eller attributbaserad åtkomstkontroll (ABAC). Både integrering och utveckling av regeln brukar vara särskilda och dyra. Övervakning eller rapporter på antingen hanteringsstrategi är en egen separat, kostsamma och komplexa investering.
@@ -29,7 +29,7 @@ Pågående hantering, användning utvärdering och rapportering fortsätta att v
 
 * [Lägger till nya eller befintliga program](configure-single-sign-on-portal.md)
 
- Azure Active Directorys programtilldelning fokuserar på två primära tilldelning lägen:
+  Azure Active Directorys programtilldelning fokuserar på två primära tilldelning lägen:
 
 * **Enskild tilldelning** en IT-administratören med directory behörigheter som Global administratör kan välja enskilda användarkonton och ge dem åtkomst till programmet.
 * **Gruppbaserad tilldelning (betalda Azure AD)** en IT-administratören med directory behörigheter som Global administratör kan tilldela en grupp till programmet. Specifika användare åtkomst bestäms av om de är medlemmar i gruppen när de försöker komma åt programmet. En administratör kan med andra ord ett effektivt sätt att skapa en tilldelningsregel om ”alla aktuella medlemmar i den tilldelade gruppen har åtkomst till programmet”. Med det här alternativet om tilldelning kan administratörer kan dra nytta av någon av Azure AD grupphanteringsalternativ, inklusive [attributbaserade dynamiska grupper](../fundamentals/active-directory-groups-create-azure-portal.md), externt systemgrupper (till exempel lokalt Active Directory eller Workday) eller hanteras av en administratör eller klientportal självservice-hanterade grupper. En grupp kan enkelt tilldelas till flera appar att se till att program med tilldelning tillhörighet kan dela tilldelningsreglerna, vilket minskar det övergripande komplexitet. Observera att kapslade gruppmedlemskap inte stöds för gruppbaserad tilldelning till program just nu.

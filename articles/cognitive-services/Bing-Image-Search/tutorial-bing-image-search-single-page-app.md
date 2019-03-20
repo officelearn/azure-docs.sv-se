@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 9/12/2018
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 1c8e08cdf6238064e6ec2468a00bbc65ec46b675
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 353641c514c9171e211221b84b13c5f09a413a48
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880757"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341230"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Självstudie: Skapa en ensidesapp med hjälp av API för bildsökning i Bing
 
@@ -31,7 +31,7 @@ I den här självstudieappen visas hur du:
 
 Den fullständiga källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den senaste versionen av [Node.js](https://nodejs.org/).
 * Ramverket [Express.js](https://expressjs.com/) för Node.js. Installationsinstruktioner för källkoden finns i GitHub-exemplets readme-fil.
@@ -407,6 +407,6 @@ Lämna kommandofönstret öppet medan du använder självstudieappen. Om du stä
 > [!div class="nextstepaction"]
 > [Extrahera avbildningsinformation med hjälp av API för bildsökning i Bing](tutorial-image-post.md)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * [API-referens för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

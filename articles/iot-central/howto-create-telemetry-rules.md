@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4668ffd30742f81552cd29f6cdba4c0f82549687
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5f6bc30c318e2f5511b352f1a52f0a5360e4b6f1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773511"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081567"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Skapa en regel för telemetri och konfigurera meddelanden med Azure IoT Central programmet
 
@@ -56,13 +56,13 @@ Villkoret definierar de kriterier som övervakas av regeln.
 1. Välj den telemetri som du vill övervaka den **mätning** listrutan.
 
 1. Välj sedan **aggregering**, **operatorn**, och ange en **tröskelvärdet** värde.
-    - Aggregering är valfritt. Utan aggregering, regeln utlöses för varje datapunkt för telemetri som uppfyller villkoret. Till exempel om regeln är konfigurerad att utlösaren när temperaturen är över 80 sedan regeln utlöses nästan omedelbart när enheten rapporterar temperatur > 80.
-    - Om en mängdfunktion som genomsnitt, Min, Max, Count väljs sedan användaren måste ange en **sammanställd tidsfönster** över som villkoret måste utvärderas. Till exempel om du ställer in söker perioden som ”5 minuter” och regeln efter medeltemperaturen ovan 80, regeln utlöses när medeltemperaturen är över 80 för minst 5 minuter. Utvärderingsfrekvensen regeln är samma som den **sammanställd tidsfönster**, vilket innebär att, i det här exemplet regeln utvärderas var femte minut.
+   - Aggregering är valfritt. Utan aggregering, regeln utlöses för varje datapunkt för telemetri som uppfyller villkoret. Till exempel om regeln är konfigurerad att utlösaren när temperaturen är över 80 sedan regeln utlöses nästan omedelbart när enheten rapporterar temperatur > 80.
+   - Om en mängdfunktion som genomsnitt, Min, Max, Count väljs sedan användaren måste ange en **sammanställd tidsfönster** över som villkoret måste utvärderas. Till exempel om du ställer in söker perioden som ”5 minuter” och regeln efter medeltemperaturen ovan 80, regeln utlöses när medeltemperaturen är över 80 för minst 5 minuter. Utvärderingsfrekvensen regeln är samma som den **sammanställd tidsfönster**, vilket innebär att, i det här exemplet regeln utvärderas var femte minut.
 
-    ![Tillstånd](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
+     ![Tillstånd](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
 
-    >[!NOTE]
-    >Mer än en telemetri-mätning kan läggas till under **villkor**. När flera villkor har angetts måste alla villkor vara uppfyllda för regeln för att utlösa. Varje villkor får sällskap av en 'Och'-sats implicit. När du använder aggregering, måste varje mätning aggregeras.
+     >[!NOTE]
+     >Mer än en telemetri-mätning kan läggas till under **villkor**. När flera villkor har angetts måste alla villkor vara uppfyllda för regeln för att utlösa. Varje villkor får sällskap av en 'Och'-sats implicit. När du använder aggregering, måste varje mätning aggregeras.
 
 ### <a name="configure-actions"></a>Konfigurera åtgärder
 

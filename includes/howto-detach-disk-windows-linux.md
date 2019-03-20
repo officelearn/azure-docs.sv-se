@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 343ffb8daf19711d6c2a61b819ece92448146446
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c97c94492417dcc87d34751908f1766393ad37ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735524"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102558"
 ---
 När du inte längre behöver en datadisk som är ansluten till en virtuell dator kan du enkelt koppla bort den. När du kopplar bort en disk tar du bort den från den virtuella datorn, men du tar inte bort den från Azure-lagringskontot.
 
@@ -28,7 +28,7 @@ Följ de här stegen om du inte känner till namnet på disken eller vill kontro
 
 3. Klicka på **Diskar** under **Inställningar** längs vänsterkanten på instrumentpanelen för den virtuella datorn.
 
- Instrumentpanelen för den virtuella datorn visar namn och typ för alla anslutna diskar. Den här skärmen visar till exempel en virtuell dator med en operativsystemdisk och en datadisk:
+   Instrumentpanelen för den virtuella datorn visar namn och typ för alla anslutna diskar. Den här skärmen visar till exempel en virtuell dator med en operativsystemdisk och en datadisk:
 
     ![Hitta datadisk](./media/howto-detach-disk-windows-linux/vmwithdisklist.png)
 
@@ -39,14 +39,14 @@ Följ de här stegen om du inte känner till namnet på disken eller vill kontro
 
 3. Klicka på den disk som du vill koppla från.
 
-  ![Identifiera disken du vill koppla från](./media/howto-detach-disk-windows-linux/disklist.png)
+   ![Identifiera disken du vill koppla från](./media/howto-detach-disk-windows-linux/disklist.png)
 
 4. Klicka på **Koppla från** i kommandofältet.
 
-  ![Leta upp kommandot för att koppla från](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
+   ![Leta upp kommandot för att koppla från](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
 
 5. Klicka på **Ja** i bekräftelsefönstret för att koppla från disken.
 
-  ![Bekräfta frånkoppling av disken](./media/howto-detach-disk-windows-linux/confirmdetach.png)
+   ![Bekräfta frånkoppling av disken](./media/howto-detach-disk-windows-linux/confirmdetach.png)
 
 Disken finns kvar i lagringsutrymmet men är inte längre kopplad till en virtuell dator.

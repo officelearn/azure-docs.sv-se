@@ -1,8 +1,8 @@
 ---
-title: 'Självstudier: Använda Azure Database Migration Service för att utföra en onlinemigrering av RDS SQL Server till Azure SQL Database eller Azure SQL Database Managed Instance | Microsoft Docs'
-description: Lär dig hur du gör en onlinemigrering från RDS SQL Server lokalt till Azure SQL Database eller Azure SQL Database Managed Instance genom att använda Azure Database Migration Service.
+title: 'Självstudier: Använda Azure Database Migration Service för att utföra en online-migrering av RDS SQL Server till Azure SQL Database eller en hanterad Azure SQL Database-instans | Microsoft Docs'
+description: Lär dig hur du utför en online-migrering från RDS SQL Server till Azure SQL Database eller en hanterad Azure SQL Database-instans med hjälp av Azure Database Migration Service.
 services: dms
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,20 +10,20 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/11/2019
-ms.openlocfilehash: 00291cbcb23a3bcff320d391e56ff210c0a24af0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/12/2019
+ms.openlocfilehash: 95ce91edcd1273f0fdf7c1e710d19d717eb34e80
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007276"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792165"
 ---
-# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-online-using-dms"></a>Självstudier: Migrera RDS SQL Server till Azure SQL Database online med DMS
-Du kan använda Azure Database Migration Service till att migrera databaserna från en lokal RDS SQL Server-instans till [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) eller en [hanterad Azure SQL Database-instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) med minimal avbrottstid. I den här självstudien migrerar du databasen **Adventureworks2012** återställt till en instans av RDS SQL Server 2012 (eller senare) till Azure SQL Database/hanterad instans genom att använda Azure Database Migration Service.
+# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Självstudier: Migrera Fjärrskrivbordstjänster SQL Server till Azure SQL Database eller en Azure SQL Database hanterad instans online med DMS
+Du kan använda Azure Database Migration Service för att migrera databaserna från en RDS SQL Server-instans till [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) eller en [Azure SQL Database-hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) med minimal avbrottstid. I den här självstudien får du migrera den **Adventureworks2012** databasen återställdes till en RDS SQL Server instans av SQL Server 2012 (eller senare) till Azure SQL Database eller en Azure SQL Database-hanterad instans med hjälp av Azure Database Migration Tjänsten.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
-> * Skapa en instans av Azure SQL Database eller databas på hanterad Azure SQL Database-instans. 
+> * Skapa en instans av Azure SQL Database eller en hanterad Azure SQL Database-instans. 
 > * Migrera exempelschemat med hjälp av Data Migration Assistant.
 > * Skapa en instans av Azure Database Migration Service.
 > * Skapa ett migreringsprojekt med hjälp av Azure Database Migration Service.
@@ -39,25 +39,34 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-I den artikeln beskrivs en onlinemigrering från RDS SQL Server till Azure SQL Database eller hanterad Azure SQL Database-instans.
+Den här artikeln beskrivs en online-migrering från RDS SQL Server till Azure SQL Database eller en hanterad Azure SQL Database-instans.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 För att slutföra den här kursen behöver du:
 
 - Skapa en [RDS SQL Server-databas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.SQLServer.html).
 - Skapa en Azure SQL Database-instans, vilket du kan göra genom att följa anvisningarna i artikeln [Skapa en Azure SQL-databas i Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 
     > [!NOTE]
-    > Om du migrerar till Azure SQL Database Managed Instance följer du informationen i artikeln [Skapa en hanterad Azure SQL Database-instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started), och skapa sedan en tom databas med namnet **AdventureWorks2012**. 
+    > Om du migrerar till en Azure SQL Database managed instance, följer du detaljerat i artikeln [skapa en hanterad Azure SQL Database-instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started), och sedan skapa en tom databas med namnet **AdventureWorks2012**. 
  
 - Ladda ned och installera [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) version 3.3 eller senare.
-- Skapa ett Azure Virtual Network (VNET) för Azure Database Migration Service med hjälp av Azure Resource Manager-distributionsmodellen. Om du migrerar till Azure SQL Database Managed Instance ska du se till att skapa DMS-instansen i samma virtuella nätverk som används för Azure SQL Database Managed Instance, men i ett annat undernät.  Om du använder ett annat virtuellt nätverk för DMS kan du behöva skapa en VNET-peering mellan två virtuella nätverk.
-- Kontrollera att dina Azure VNET NSG-regler inte blockerar kommunikationsportarna 443, 53, 9354, 445, 12000. Mer information om trafikfiltrering för Azure VNET NSG finns i artikeln om att [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Skapa ett Azure Virtual Network (VNET) för Azure Database Migration Service med hjälp av Azure Resource Manager-distributionsmodellen. Om du migrerar till en Azure SQL Database managed instance, se till att skapa DMS-instans i samma virtuella nätverk som används för den hanterade Azure SQL Database-instansen, men i ett annat undernät.  Om du använder ett annat virtuellt nätverk för DMS kan du behöva skapa en VNET-peering mellan två virtuella nätverk.
+ 
+    > [!NOTE]
+    > Under installationen av virtuellt nätverk, om du använder ExpressRoute med nätverks-peering till Microsoft, lägger du till följande tjänst [slutpunkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) till undernätet där tjänsten ska etableras:
+    > - Mål-database-slutpunkten (till exempel SQL-slutpunkten och Cosmos DB-slutpunkt)
+    > - Slutpunkt för lagring
+    > - Service bus-slutpunkt
+    >
+    > Den här konfigurationen är nödvändigt eftersom Azure Database Migration Service saknar Internetanslutning. 
+ 
+- Se till att dina regler för Nätverkssäkerhetsgrupp kopplad till virtuella nätverk inte blockerar följande kommunikationsportar 443, 53, 9354, 445, 12000. Mer information om trafikfiltrering för Azure VNET NSG finns i artikeln om att [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Konfigurera din [Windows-brandvägg för databasmotoråtkomst](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Öppna Windows-brandväggen så att Azure Database Migration Service kommer åt käll-SQL Server, som har standardinställningen TCP-port 1433.
 - Skapa en [brandväggsregel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) på servernivå för Azure SQL Database-servern för att tillåta åtkomst för Azure Database Migration Service till måldatabaserna. Ange undernätsintervallet för det virtuella nätverk som används för Azure Database Migration Service.
 - Se till att de autentiseringsuppgifter som används för att ansluta till RDS SQL Server-källinstansen är associerade med ett konto som är medlem i serverrollen för ”Processadmin” och medlem av databasrollerna ”db_owner” på alla databaser som ska migreras.
-- Kontrollera att autentiseringsuppgifterna som används för att ansluta Azure SQL Database-målinstansen har CONTROL DATABASE-behörighet i Azure SQL-måldatabaserna och är medlem av sysadmin-rollen vid migrering till hanterad Azure SQL Database-instans.
+- Kontrollera att de autentiseringsuppgifter som används för att ansluta till Azure SQL Database målinstansen har KONTROLLDATABAS-behörighet på target Azure SQL-databaser och en medlem i sysadmin-rollen om migreringen till en Azure SQL Database-hanterad instans.
 - Källversionen för RDS SQL Server måste vara SQL Server 2012 och senare. För att fastställa vilken version av SQL Server-instansen som körs kan du läsa artikeln [Hur man fastställer version, utgåva, och uppdateringsnivå för SQL Server och dess komponenter](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an).
 - Aktivera sammanställning av ändringsdata (CDC) på RDS SQL Server-databasen och alla användartabeller som valts för migrering.
     > [!NOTE]
@@ -227,8 +236,8 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
     | Inställning | Beskrivning |
     | ------------- | ------------- |
     | **Maximalt antal tabeller som kan läsas in parallellt** | Anger antalet tabeller som DMS kör parallellt under migreringen. Standardvärdet är 5, men det kan ställas in på ett optimalt värde för att uppfylla specifika migreringsbehov baserat på alla POC-migreringar. |
-    | **När en källtabell trunkeras** | Anger om DMS trunkerar måltabellen under migreringen. Detta kan vara användbart om en eller flera tabeller trunkeras som en del av migreringsprocessen. |
-    | **Konfigurera inställningar för data för stora objekt (LOB)** | Anger om DMS migrerar obegränsade LOB-data eller begränsar LOB-data som migrerats till en viss storlek.  Om det finns en gräns för migrerade LOB-data trunkeras LOB-data utöver den gränsen. För produktionsmigrering rekommenderar vi att du väljer **Tillåt obegränsad LOB-storlek** för att förhindra dataförlust. När du anger att du vill tillåta obegränsad LOB-storlek markerar du kryssrutan **Migrate LOB data in a single block when the LOB size is less than (KB)** (Migrera LOB-data i ett enda block när LOB-storleken är mindre än (KB)) för att förbättra prestanda. |
+    | **När en källtabell trunkeras** | Anger om DMS trunkerar måltabellen under migreringen. Den här inställningen kan vara användbart om en eller flera tabeller trunkeras som en del av migreringsprocessen. |
+    | **Konfigurera inställningar för data för stora objekt (LOB)** | Anger om DMS migrerar obegränsade LOB-data eller begränsar LOB-data som migrerats till en viss storlek.  När det finns en gräns LOB-data som har migrerats, alla LOB-data utöver denna gräns trunkeras. För produktionsmigrering rekommenderar vi att du väljer **Tillåt obegränsad LOB-storlek** för att förhindra dataförlust. När du anger att du vill tillåta obegränsad LOB-storlek markerar du kryssrutan **Migrate LOB data in a single block when the LOB size is less than (KB)** (Migrera LOB-data i ett enda block när LOB-storleken är mindre än (KB)) för att förbättra prestanda. |
     
     ![Ställa in avancerade inställningar för onlinemigrering](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-advanced-online-migration-settings.png)
 
@@ -267,4 +276,4 @@ När den fullständiga inläsningen är klar är databaserna märkta med **Klar 
 - Information om kända problem och begränsningar när du utför onlinemigreringar till Azure SQL DatabaseL finns i artikeln [Known issues and workarounds with Azure SQL Database online migrations](known-issues-azure-sql-online.md) (Kända problem och lösningar med Azure SQL Database-onlinemigreringar).
 - Mer information om Azure Database Migration Service finns i artikeln [What is the Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview) (Vad är Azure Database Migration Service?).
 - Information om Azure SQL Database finns i artikeln [Vad är tjänsten SQL Database?](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview).
-- Mer information om Azure SQL Database Managed Instance finns på sidan [Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index).
+- Information om Azure SQL Database hanterade instanser finns på sidan [Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index).

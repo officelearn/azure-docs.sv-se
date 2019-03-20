@@ -3,18 +3,18 @@ title: Interaktiv kartsökning med Azure Maps | Microsoft Docs
 description: Azure-snabbstart – Skapa en demonstration av en interaktiv kartsökning med Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/02/2018
+ms.date: 03/07/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 681a76de02d91b39ee74d1e4fa764c06d79ff3ab
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: be6d9ab0011e3d6b5d8ae1da489fc60c316e2867
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065145"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095474"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Skapa en interaktiv sökkarta med hjälp av Azure Maps
 
@@ -26,7 +26,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-account-and-get-your-key"></a>Skapa ett konto och hämta din nyckel
 
@@ -34,20 +34,20 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Ange **Maps** i rutan **Sök på Marketplace**.
 3. Bland **resultaten** väljer du **Maps**. Välj knappen **Skapa** som visas nedanför kartan.
 4. Ange följande värden på sidan **Skapa Azure Maps-konto**:
-    - **Namn** för ditt nya konto.
-    - Den **Prenumeration** som ska användas för det här kontot.
-    - **Resursgrupp** för kontot. Du kan välja att **skapa en ny** eller att **använda en befintlig** resursgrupp.
-    - Välj önskad **prisnivå**.
-    - Läs **licensinformationen** och **sekretesspolicyn**. Markera kryssrutan för att godkänna villkoren.
-    - Välj sedan knappen **Skapa**.
+   - **Namn** för ditt nya konto.
+   - Den **Prenumeration** som ska användas för det här kontot.
+   - **Resursgrupp** för kontot. Du kan välja att **skapa en ny** eller att **använda en befintlig** resursgrupp.
+   - Välj önskad **prisnivå**.
+   - Läs **licensinformationen** och **sekretesspolicyn**. Markera kryssrutan för att godkänna villkoren.
+   - Välj sedan knappen **Skapa**.
 
-    ![Skapa ett Azure Maps-konto på portalen](./media/quick-demo-map-app/create-account.png)
+     ![Skapa ett Azure Maps-konto på portalen](./media/quick-demo-map-app/create-account.png)
 
 5. När kontot har skapats öppnar du det och går till inställningarna på kontomenyn. Välj **Nycklar** för att granska de primära och sekundära prenumerationsnycklarna för ditt Azure Maps-konto. Kopiera värdet för **Primär nyckel** till din lokala Urklipp för användning i följande avsnitt.
 
 ## <a name="download-the-application"></a>Hämta programmet
 
-1. Ladda ned eller kopiera innehållet i filen [interactiveSearch.html](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/interactiveSearch.html).
+1. Ladda ned eller kopiera innehållet i filen [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html).
 2. Spara innehållet i den här filen lokalt som **AzureMapDemo.html**. Öppna den i en textredigerare.
 3. Sök efter strängen `<insert-key>`. Ersätt den med **primärnyckelvärdet** från föregående avsnitt.
 

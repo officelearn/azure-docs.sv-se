@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 03/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: d4f75a7bc552a7764a46865bf300b8fc5ffb350e
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 24956dd51ef4c2544ce28005fa3bff31113e5959
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750794"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848940"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Övergång till ett offentligt CA-gatewaycertifikat för P2S
 
@@ -20,7 +20,6 @@ Azure VPN-Gateway utfärdar inte längre självsignerade certifikat för Azure-n
 
 >[!NOTE]
 > * Självsignerat certifikat för klientautentisering för P2S påverkas inte av den här Azure-nivå certifikat ändringen. Du kan fortsätta att utfärda och använda självsignerade certifikat som vanligt.
-> * Web Apps påverkas inte av den här ändringen.
 >
 
 Certifikat i det här sammanhanget är ett certifikat för ytterligare Azure-nivå. De är inte certifikatkedjor som du använder när du genererar din egen självsignerade rotcertifikat och klientcertifikat för autentisering. Dessa certifikat påverkas och går ut på datumen du genererat dem för att göra detta.
@@ -39,7 +38,7 @@ Endast äldre gatewayer som påverkas av den här ändringen. Om din gateway-cer
 >
 > **Alla återstående gatewayer övergår mars 12 2019 kl. 18:00 UTC**.
 >
-> Gateway-processen övergången tar upp till 2 timmar att slutföra. Kunderna får ett e-postmeddelande när deras gateway Slutför övergången.
+> Kunderna får ett e-postmeddelande när deras gateway Slutför övergången.
 > 
 
 ## <a name="1-verify-your-certificate"></a>1. Kontrollera ditt certifikat
@@ -51,8 +50,8 @@ Endast äldre gatewayer som påverkas av den här ändringen. Om din gateway-cer
 2. Öppna eller extrahera zip-filen och bläddra till mappen ”Generic”. I den generiska mappen visas två filer, varav *VPNSettings.xml*.
 3. Öppna *VPNSettings.xml* i en xml-viewer /-redigerare. Sök efter följande fält i xml-fil:
 
-  * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
-  * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
+   * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
+   * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
 4. Om *ServerCertRotCn* och *ServerCertIssuerCn* är ”DigiCert globala Rotcertifikatutfärdare”, du påverkas inte av den här uppdateringen och du behöver inte fortsätta med stegen i den här artikeln. Men om de visar något annat gateway-certifikatet är en del av uppdateringen och kommer att överföras.
 
 ### <a name="classic"></a>Klassisk

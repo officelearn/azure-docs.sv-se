@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2019
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 536ca8895d130fd9273d556332830d020a485dc3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 812b3752bfffd16c09b466b036fb0ac91e77d5a4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958302"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104360"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Skapa en virtuell dator med en statisk privat IP-adress med hjälp av PowerShell
 
@@ -91,14 +91,12 @@ Du kan utföra följande steg från din lokala dator eller genom att använda Az
 
 > [!WARNING]
 > Även om du kan lägga till privata IP-adressinställningarna för operativsystemet, vi rekommenderar att du inte gör det tills när du har läst [lägga till en privat IP-adress till ett operativsystem](virtual-network-network-interface-addresses.md#private).
->
->
-<a name = "change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>
-
+> 
+> 
+> <a name = "change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>
+> 
 > [!IMPORTANT]
 > För att komma åt den virtuella datorn från internet, måste du tilldela en offentlig IP-adress till den virtuella datorn. Du kan också ändra en dynamisk privat IP-adresstilldelning till en statisk tilldelning. Mer information finns i [Lägg till eller ändra IP-adresser](virtual-network-network-interface-addresses.md). Dessutom rekommenderar vi att du begränsar nätverkstrafiken till den virtuella datorn genom att associera en nätverkssäkerhetsgrupp till nätverksgränssnittet, det undernät du skapade nätverksgränssnittet i eller båda. Mer information finns i [hantera nätverkssäkerhetsgrupper](manage-network-security-group.md).
->
->
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

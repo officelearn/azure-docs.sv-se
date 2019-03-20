@@ -7,20 +7,20 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/25/2018
+ms.date: 03/08/2019
 ms.author: troyhop
-ms.openlocfilehash: 268efa35f63ac8b9e0c6ea3f22a71242a2984726
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
-ms.translationtype: HT
+ms.openlocfilehash: 09a6920e0d3a50da1bdacbf2bc7a80396c885897
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50756847"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180712"
 ---
-# <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Självstudie: Skapa och köra en IoT-enhetssimulering
+# <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Självstudier: Skapa och köra en IoT-enhetssimulering
 
 I den här självstudien använder du enhetssimulering för att skapa och köra en ny IoT-simulering med hjälp av en eller flera simulerade enheter.
 
-I den här kursen får du göra följande:
+I den här kursen för du göra följande:
 
 >[!div class="checklist"]
 > * Visa alla aktiva och historiska simuleringar
@@ -30,7 +30,7 @@ I den här kursen får du göra följande:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att följa den här självstudien behöver du en distribuerad instans av enhetssimuleringen i din Azure-prenumeration.
 

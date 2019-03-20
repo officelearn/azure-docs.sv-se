@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 03/04/2019
-ms.openlocfilehash: e4ccb9be5d13ea72086fbaae2ffb2ec63ad55786
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/12/2019
+ms.openlocfilehash: f3c485659bc686efbb4101879e5cd24e7bb3db46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340328"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905111"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Konfigurera och hantera Azure Active Directory-autentisering med SQL
 
@@ -29,12 +29,14 @@ Den här artikeln visar hur du skapar och fylla i Azure AD och Använd sedan Azu
 > Ansluta till SQL Server som körs på en Azure virtuell dator stöds inte med ett Azure Active Directory-konto. Använd en domän Active Directory-konto i stället.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
 
 ## <a name="create-and-populate-an-azure-ad"></a>Skapa och fylla i en Azure AD
 
 Skapa en Azure AD och fyller den med användare och grupper. Azure AD kan vara den första Azure AD hanterade domänen. Azure AD kan också vara en lokal Active Directory Domain Services som är federerad med Azure AD.
 
-Mer information finns i [Integrera dina lokala identiteter med Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD](../active-directory/active-directory-domains-add-azure-portal.md) (Lägga till dina egna domännamn i Azure AD), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft stöder nu federation med Windows Server Active Directory), [Administering your Azure AD directory](../active-directory/fundamentals/active-directory-administer.md) (Administrera Azure Active Directory), [Manage Azure AD using Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) (Hantera Azure AD med Windows PowerShell) och [Hybrid Identity Required Ports and Protocols](../active-directory/hybrid/reference-connect-ports.md) (Portar och protokoll som krävs för hybrididentiet).
+Mer information finns i [Integrera dina lokala identiteter med Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD](../active-directory/active-directory-domains-add-azure-portal.md) (Lägga till dina egna domännamn i Azure AD), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft stöder nu federation med Windows Server Active Directory), [Administering your Azure AD directory](../active-directory/fundamentals/active-directory-administer.md) (Administrera Azure Active Directory), [Manage Azure AD using Windows PowerShell](/powershell/azure/overview) (Hantera Azure AD med Windows PowerShell) och [Hybrid Identity Required Ports and Protocols](../active-directory/hybrid/reference-connect-ports.md) (Portar och protokoll som krävs för hybrididentiet).
 
 ## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Koppla eller lägga till en Azure-prenumeration i Azure Active Directory
 
@@ -240,6 +242,7 @@ Du kan också etablera en Azure Active Directory-administratör med hjälp av RE
 ### <a name="cli"></a>CLI  
 
 Du kan också etablera en Azure AD-administratör genom att anropa följande CLI-kommandon:
+
 | Kommando | Beskrivning |
 | --- | --- |
 |[Skapa AZ sql server ad-administratör](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) |Etablerar en Azure Active Directory-administratör för Azure SQL-server eller Azure SQL Data Warehouse. (Måste vara från den aktuella prenumerationen.) |
@@ -349,7 +352,7 @@ Använd den här metoden när du ansluter med en Azure AD-huvudnamn med hjälp a
 Använd den här metoden för att autentisera till SQL DB/DW med Azure AD för intern eller med federerade Azure AD-användare. En intern användare är en explicit skapats i Azure AD och som autentiseras med hjälp av användarnamn och lösenord, medan en federerad användare är en Windows-användare vars domäner är federerad med Azure AD. Den andra metoden som (med användare och lösenord) kan användas när en användare vill använda sina windows-autentiseringsuppgifter, men en lokal dator inte är ansluten med domänen (till exempel använder en fjärråtkomst). I det här fallet en Windows-användare kan ange sitt konto och lösenord och kan autentisera till SQL DB/DW med federerad autentiseringsuppgifter.
 
 1. Starta Management Studio eller Dataverktyg och i den **Anslut till Server** (eller **Anslut till databasmotor**) i dialogrutan den **autentisering** väljer  **Active Directory - lösenord**.
-2. I den **användarnamn** skriver du ditt Azure Active Directory-användarnamn i formatet **username@domain.com**. Användarnamn måste vara ett konto från Azure Active Directory eller ett konto från en domän federera med Azure Active Directory.
+2. I den **användarnamn** skriver du ditt Azure Active Directory-användarnamn i formatet **användarnamn\@domain.com**. Användarnamn måste vara ett konto från Azure Active Directory eller ett konto från en domän federera med Azure Active Directory.
 3. I den **lösenord** skriver du ditt lösenord för Azure Active Directory-konto eller federerad domänkonto.
 
     ![Välj AD-lösenordsautentisering][12]

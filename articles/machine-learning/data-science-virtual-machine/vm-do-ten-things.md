@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: 725580a01c8dd60003cfc11910a3e5183624b1b1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 81646c979748b7a23762a25538ced447e382f72a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437551"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878439"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tio saker som du kan göra på den Windows virtuell dator för datavetenskap
 
@@ -233,7 +233,7 @@ New-AzureRmStorageAccount -Name <mydatadisk> -ResourceGroupName <dsvmdatarg> -Lo
 # Set your current working storage account
 Set-AzureRmCurrentStorageAccount –ResourceGroupName "<dsvmdatarg>" –StorageAccountName <mydatadisk>
 
-# Create a Azure File Service Share
+# Create an Azure File Service Share
 $s = New-AzureStorageShare <<teamsharename>>
 # Create a directory under the FIle share. You can give it any name
 New-AzureStorageDirectory -Share $s -Path <directory name>
@@ -279,7 +279,7 @@ Azure blob är en pålitlig, ekonomisk molnlagring för stora och små. Det här
 ![Skärmbild av Storage-konto skapas i Azure portal](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * Bekräfta att de förinstallerade kommandoradsverktyget AzCopy påträffades vid ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```. Den katalog som innehåller azcopy.exe finns redan i miljövariabeln PATH för att undvika att skriva den fullständiga kommandosökvägen när du kör det här verktyget. Mer information om AzCopy-verktyget finns i [AzCopy-dokumentationen](../../storage/common/storage-use-azcopy.md)
-* Starta verktyget Azure Storage Explorer. Den kan hämtas från [Microsoft Azure Lagringsutforskaren](http://storageexplorer.com/). 
+* Starta verktyget Azure Storage Explorer. Den kan hämtas från [Microsoft Azure Lagringsutforskaren](https://storageexplorer.com/). 
 
 ![Skärmbild av Azure Storage Explorer åtkomst till ett Lagringskonto](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
@@ -296,7 +296,7 @@ Ersätt **C:\myfolder** till den sökväg där filen lagras, **mystorageaccount*
 Kör AzCopy-kommandot i PowerShell eller från en kommandotolk. Här är några exempel på användning av AzCopy-kommandot:
 
 ```powershell
-# Copy *.sql from local machine to a Azure Blob
+# Copy *.sql from local machine to an Azure Blob
 "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:"c:\Aaqs\Data Science Scripts" /Dest:https://[ENTER STORAGE ACCOUNT].blob.core.windows.net/[ENTER CONTAINER] /DestKey:[ENTER STORAGE KEY] /S /Pattern:*.sql
 
 # Copy back all files from Azure Blob container to Local machine

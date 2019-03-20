@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d7943119ed29e03afb6b089a913d4ba2baddc166
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 69ee0c0add2895b30a60db577cc11c83a0e00bb8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431292"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854780"
 ---
 # <a name="create-a-new-iot-edge-module-offer-with-the-cloud-partner-portal"></a>Skapa ett nytt erbjudande för IoT Edge-modulen med partnerportalen i molnet
 
@@ -34,7 +34,7 @@ Den här artikeln beskriver hur du skapar och publicerar något erbjudande IoT E
 
 ## <a name="new-offer-form"></a>Nytt erbjudande formulär 
 
-Logga in på den [Cloud Partner Portal](http://cloudpartner.azure.com/), och välj sedan **+ nytt erbjudande** på den vänstra menyraden. Välj på menyn ny erbjuder **IoT Edge-moduler** att visa den **nytt erbjudande** formar och starta processen med att definiera tillgångar till en ny ioT Edge-modul. 
+Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com/), och välj sedan **+ nytt erbjudande** på den vänstra menyraden. Välj på menyn ny erbjuder **IoT Edge-moduler** att visa den **nytt erbjudande** formar och starta processen med att definiera tillgångar till en ny ioT Edge-modul. 
 
 ![Nya IoT Edge-modul erbjuder användarens gränssnittsval](./media/new-iot-edge-module-offer.png)
 
@@ -42,7 +42,7 @@ Logga in på den [Cloud Partner Portal](http://cloudpartner.azure.com/), och vä
 
 Den **nytt erbjudande** sidan för typ av erbjudande IoT Edge-modulen innehåller en uppsättning av flikar och formulärfält som du använder för att skapa ett nytt erbjudande. Var och en av följande artiklar beskriver hur du använder fliken Definiera tillgångar och stödtjänster till din nya erbjudandet för IoT Edge-modulen.
 
-- [Fliken Inställningar för erbjudandet](./cpp-offer-settings-tab.md)
-- [Fliken SKU: er](./cpp-skus-tab.md)
-- [Marketplace-fliken](./cpp-marketplace-tab.md)
-- [Fliken stöd](./cpp-support-tab.md)
+- [fliken Erbjudandeinställningar](./cpp-offer-settings-tab.md)
+- [fliken SKU:er](./cpp-skus-tab.md)
+- [fliken Marketplace](./cpp-marketplace-tab.md)
+- [fliken Stöd](./cpp-support-tab.md)

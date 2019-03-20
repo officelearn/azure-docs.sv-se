@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: cc3f7c72acc0723c522b595ea106f72947e9d014
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: 87d0339de117330bf6d586cd653b0d4d16a8cbca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728734"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087711"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Självstudie: Konfigurera meddelandedirigering med IoT Hub
 
@@ -35,7 +35,7 @@ I den här självstudien utför du följande åtgärder:
 > * ...i lagringskontot.
 > * ...i Power BI-visualiseringen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -144,7 +144,7 @@ echo "Service Bus namespace = " $sbNameSpace
 az servicebus namespace create --resource-group $resourceGroup \
     --name $sbNameSpace \
     --location $location
-    
+
 # The Service Bus queue name must be globally unique, so add a random number to the end.
 sbQueueName=ContosoSBQueue$RANDOM
 echo "Service Bus queue name = " $sbQueueName
@@ -276,7 +276,7 @@ Du kommer att dirigera meddelanden till olika resurser baserat på egenskaper so
 
 Konfigurera nu routning för lagringskontot. Du gå till fönstret meddelanderoutning och lägger till en väg. När du lägger till vägen, definierar du en ny slutpunkt för den. Meddelanden där egenskapen **nivå** är inställd på **lagring** skrivs automatiskt till ett lagringskonto. 
 
-Data skrivs till bloblagring i Avro-format.
+Data skrivs till blob storage i Avro-format som standard.
 
 1. I [Azure Portal](https://portal.azure.com) klickar du på **Resursgrupper** och väljer resursgruppen. I den här självstudien används **ContosoResources**. 
 
@@ -301,8 +301,9 @@ Data skrivs till bloblagring i Avro-format.
    > 
    > Exempel med standardinställt namnformat för blobfilen: om hubbnamnet är ContosoTestHub och datum/tid är 30 oktober 2018 kl. 10:56 ser blobnamnet ut så här: `ContosoTestHub/0/2018/10/30/10/56`.
    > 
-   > Blobarna är skrivna i Avro-format.
-   >
+   > Blobarna som är skrivna i Avro-format som standard. Du kan välja att skriva filer i JSON-format. Möjligheten att koda JSON-format finns i förhandsversion i alla regioner som IoT Hub inte är tillgängligt i östra USA, västra USA och Västeuropa. Se [vägledning för routning till blob storage](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+   > 
+   > När routning till blob storage, rekommenderar vi ta blobar och sedan iterera över dem, så läses alla behållare utan att göra några antaganden för partitionen. Partitionsintervall potentiellt kan ändra under en [Microsoft-initierad redundans](iot-hub-ha-dr.md#microsoft-initiated-failover) eller IoT-hubb [manuell redundans](iot-hub-ha-dr.md#manual-failover-preview). Lär dig hur du räkna upp listan över blobar Se [routning till blob storage](iot-hub-devguide-messages-d2c.md#azure-blob-storage)
 
 8. Klicka på **Skapa** för att skapa slutpunkten för lagring och lägga till den till vägen. Du kommer tillbaka till fönstret **Lägg till en väg**.
 
@@ -311,15 +312,15 @@ Data skrivs till bloblagring i Avro-format.
    **Namn**: Ange ett namn för din routningsfråga. I den här självstudien används **StorageRoute**.
 
    **Slutpunkt**: Visar den slutpunkt som du nyss skapade. 
-   
+
    **Datakälla**: Välj **Enhetstelemetrimeddelanden** från listrutan.
 
    **Aktivera rutt**: Se till att detta är aktiverat.
-   
+
    **Dirigeringsfråga**: Ange `level="storage"` som frågesträng. 
 
    ![Skärmbild som visar hur du skapar en hanteringsregel för lagringskontot.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
-   
+
    Klicka på **Spara**. När den är klar returneras den till fönstret meddelanderoutning där du kan se din nya routningsfråga för lagring. Stäng rutan Vägar så att du kommer tillbaka till sidan Resursgrupp.
 
 ### <a name="routing-to-a-service-bus-queue"></a>Dirigera till en Service Bus-kö 
@@ -337,14 +338,14 @@ Konfigurera nu routning för Service Bus-kön. Du gå till fönstret meddelander
 4. Fyll i fälten:
 
    **Slutpunktsnamn**: Ange ett namn på slutpunkten. Den här självstudien använder **CriticalQueue**.
-   
+
    **Service Bus-namnområde**: Klicka på fältet för att visa listmenyn, välj det service bus-namnområde som du skapade i förberedelsesteget. I den här självstudien används **ContosoSBNamespace**.
 
    **Service Bus-kö**: Klicka på fältet för att visa listmenyn, välj service bus-kö från listmenyn. I den här självstudien används **contososbqueue**.
 
 5. Klicka på **Skapa** för att lägga till slutpunkten för Service Bus-kön. Du kommer tillbaka till fönstret **Lägg till en väg**. 
 
-6.  Nu slutför du resten av routningsfrågeinformationen. Den här frågan anger kriterierna för att skicka meddelanden till den Service Bus-kö du just lade till som en slutpunkt. Fyll i fälten på skärmen. 
+6. Nu slutför du resten av routningsfrågeinformationen. Den här frågan anger kriterierna för att skicka meddelanden till den Service Bus-kö du just lade till som en slutpunkt. Fyll i fälten på skärmen. 
 
    **Namn**: Ange ett namn för din routningsfråga. Den här självstudien använder **SBQueueRoute**. 
 
@@ -401,7 +402,7 @@ Service Bus-kön ska användas för att ta emot meddelanden som har angetts som 
    ![Skärmbild som visar konfiguration av anslutningen för Service Bus-kön.](./media/tutorial-routing/logic-app-define-connection.png)
 
    Klicka på Service Bus-namnområdet. I den här självstudien används **ContosoSBNamespace**. När du väljer namnrymd ber portalen Service Bus-namnrymden att hämta nycklarna. Välj **RootManageSharedAccessKey** och klicka på **Skapa**. 
-   
+
    ![Skärmbild som visar slutförandet av konfigurationen av anslutningen.](./media/tutorial-routing/logic-app-finish-connection.png)
 
 6. På nästa skärm väljer du namnet på kön (den här självstudien använder **contososbqueue**) i listrutan. Du kan använda standardvärdena för resten av fälten. 
@@ -442,9 +443,9 @@ Om du vill se data i Power BI-visualiseringen konfigurerar du först ett Stream 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Lägga till indata till Stream Analytics-jobbet
 
-4. Under **Jobbtopologi** klickar du på **Indata**.
+1. Under **Jobbtopologi** klickar du på **Indata**.
 
-5. I rutan **Indata** klickar du på **Lägg till strömindata** och väljer IoT Hub. På skärmen som visas fyller du i följande fält:
+1. I rutan **Indata** klickar du på **Lägg till strömindata** och väljer IoT Hub. På skärmen som visas fyller du i följande fält:
 
    **Indataalias**: I självstudien används **contosoinputs**.
 
@@ -457,12 +458,12 @@ Om du vill se data i Power BI-visualiseringen konfigurerar du först ett Stream 
    **Namn på princip för delad åtkomst**: Välj **iothubowner**. Portalen fyller i Nyckel för princip för delad åtkomst åt dig.
 
    **Konsumentgrupp**: Välj konsumentgruppen du skapade tidigare. I den här självstudien används **contosoconsumers**.
-   
+
    För resten av fälten accepterar du standardvärdena. 
 
    ![Skärmbild som visar hur du konfigurerar indata för Stream Analytics-jobbet.](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-6. Klicka på **Spara**.
+1. Klicka på **Spara**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Lägga till utdata till Stream Analytics-jobbet
 
@@ -631,4 +632,4 @@ I den här självstudien har du lärt dig att använda meddelanderoutning för a
 Gå vidare till nästa självstudie där du får lära dig hur du hanterar tillstånd för en IoT-enhet. 
 
 > [!div class="nextstepaction"]
-[Konfigurera och använda mått och diagnostik med en IoT-hubb](tutorial-use-metrics-and-diags.md)
+> [Konfigurera och använda mått och diagnostik med en IoT-hubb](tutorial-use-metrics-and-diags.md)

@@ -15,12 +15,12 @@ ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: eb5d1ca55efed7e83739f21a432b61b6aad25f70
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 68e8bfa16c56b8c864ac99cdf6c19243bc7e881c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194018"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101898"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Lägg till värdservrar för MySQL-resursprovider
 
@@ -44,9 +44,9 @@ Kontrollera att du har autentiseringsuppgifter för ett konto med systemadminist
 4. Ange anslutningsinformation för din MySQL-Server-instans.
 
    * För **MySQL som är värd för servernamnet**, ange det fullständigt kvalificerade domännamnet (FQDN) eller en giltig IPv4-adress. Använd inte det korta namnet för virtuell dator.
-   - Standard-administratör **användarnamn** för Bitnami MySQL-avbildningar tillgängliga i Azure Stack marketplace är *rot*. 
-   - Om du inte känner till roten **lösenord**, finns i den [Bitnami dokumentation](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) att lära dig hur du hämtar den. 
-   - En standardinstans för MySQL är inte anges, så du måste ange den **storlek av som är värd för Server i GB**. Ange en storlek som ligger nära kapaciteten för databasservern.
+   * Standard-administratör **användarnamn** för Bitnami MySQL-avbildningar tillgängliga i Azure Stack marketplace är *rot*. 
+   * Om du inte känner till roten **lösenord**, finns i den [Bitnami dokumentation](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) att lära dig hur du hämtar den. 
+   * En standardinstans för MySQL är inte anges, så du måste ange den **storlek av som är värd för Server i GB**. Ange en storlek som ligger nära kapaciteten för databasservern.
    * Behålla standardinställningen för **prenumeration**.
    * För **resursgrupp**, skapa en ny eller använda en befintlig grupp.
 
@@ -60,8 +60,8 @@ Kontrollera att du har autentiseringsuppgifter för ett konto med systemadminist
    SKU: N **namn** bör återspegla egenskaperna för SKU: N så att användare kan distribuera sina databaser till lämplig SKU.
 
 6. Välj **OK** skapa SKU: N.
-> [!NOTE]
-> SKU: er kan ta upp till en timme att bli synliga i portalen. Du kan inte skapa en databas tills SKU: N har distribuerats och körs.
+   > [!NOTE]
+   > SKU: er kan ta upp till en timme att bli synliga i portalen. Du kan inte skapa en databas tills SKU: N har distribuerats och körs.
 
 7. Under **lägga till en värd för MySQL-Server**väljer **skapa**.
 

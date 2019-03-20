@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 7069114a8cb63b8b166bc29e92d8f355c49824bb
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: ce691ec0622749f1cb7252e237dae25b2657d115
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727152"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010523"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
@@ -130,11 +130,11 @@ Om du har valt att skriva granskningsloggar till Azure Monitor-loggar:
 Om du har valt att skriva granskningsloggar till Event Hub:
 
 - Om du vill använda granskning loggar data från Event Hub, behöver du ställer in en dataström som förbrukar händelser och skriva dem till ett mål. Mer information finns i [dokumentation om Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
-- Granskningsloggar i Event Hub samlas i brödtexten i [Apache Avro](http://avro.apache.org/) händelser och lagras med JSON formatering med UTF-8-kodning. Du kan använda för att läsa granskningsloggarna [Avro verktyg](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) eller liknande verktyg som bearbetar det här formatet.
+- Granskningsloggar i Event Hub samlas i brödtexten i [Apache Avro](https://avro.apache.org/) händelser och lagras med JSON formatering med UTF-8-kodning. Du kan använda för att läsa granskningsloggarna [Avro verktyg](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) eller liknande verktyg som bearbetar det här formatet.
 
 Om du väljer att skriva granskningsloggar till ett Azure storage-konto, finns det flera metoder som du kan använda för att visa loggfilerna:
 
-- Granskningsloggar räknas samman på kontot du valde i installationsprogrammet. Du kan utforska granskningsloggar genom att använda ett verktyg som [Azure Storage Explorer](http://storageexplorer.com/). I Azure storage granskningsloggarna sparas som en samling av blobfiler i en behållare med namnet **sqldbauditlogs**. Ytterligare information om hierarkin för mappen storage namngivningskonventioner och loggformat, finns det [referens till Blob granskningslogg Format](https://go.microsoft.com/fwlink/?linkid=829599).
+- Granskningsloggar räknas samman på kontot du valde i installationsprogrammet. Du kan utforska granskningsloggar genom att använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/). I Azure storage granskningsloggarna sparas som en samling av blobfiler i en behållare med namnet **sqldbauditlogs**. Ytterligare information om hierarkin för mappen storage namngivningskonventioner och loggformat, finns det [referens till Blob granskningslogg Format](https://go.microsoft.com/fwlink/?linkid=829599).
 
 - Använd den [Azure-portalen](https://portal.azure.com).  Öppna den aktuella databasen. Överst på databasens **granskning** klickar du på **visa granskningsloggar**.
 
@@ -161,7 +161,7 @@ Om du väljer att skriva granskningsloggar till ett Azure storage-konto, finns d
     4. Sammanfogade filen öppnas i SSMS, där du kan visa och analysera dem, samt exportera den till en XEL eller CSV-fil, eller till en tabell.
 
 - Använda Powerbi. Du kan visa och analysera granskningsloggdata i Power BI. Mer information och för att komma åt en nedladdningsbar mall finns i [analysera granskningsloggdata i Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/).
-- Ladda ned loggfiler från dina Azure Storage blob-behållare via portalen eller genom att använda ett verktyg som [Azure Storage Explorer](http://storageexplorer.com/).
+- Ladda ned loggfiler från dina Azure Storage blob-behållare via portalen eller genom att använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/).
   - När du har hämtat en loggfil lokalt, dubbelklicka på filen för att öppna, visa och analysera loggar i SSMS.
   - Du kan också hämta flera filer samtidigt via Azure Storage Explorer. Du gör detta genom att högerklicka på en viss undermapp och välj **Spara som** att spara i en lokal mapp.
 

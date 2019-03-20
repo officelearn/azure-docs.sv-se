@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 8e1f880c57b0db0a2f68fbe26e99679769fdee6c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 0a06293a648460694bbe222f36f81bea2d6acdac
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448049"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57841182"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Snabbstart: Taligenkänning i JavaScript i en webbläsare med hjälp av Speech SDK
 
@@ -24,9 +24,9 @@ ms.locfileid: "56448049"
 I den här artikeln lär du dig hur du skapar en webbplats med hjälp av JavaScript-bindningen i Cognitive Services Speech SDK för att transkribera tal till text.
 Programmet baseras på Microsoft Cognitive Services Speech SDK ([ladda ned version 1.3.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* En prenumerationsnyckel för taltjänsten. Se [Prova Speech Service kostnadsfritt](get-started.md).
+* En prenumerationsnyckel för taltjänsten. Se [testa Speech Services kostnadsfritt](get-started.md).
 * En PC eller Mac, med fungerande mikrofon.
 * En textredigerare.
 * En aktuell version av Chrome eller Microsoft Edge.
@@ -49,12 +49,12 @@ Skapa en ny fil i mappen, med namnet `index.html` och öppna filen med en textre
 
 1. Skapa följande HTML-stomme:
 
-  ```html
-  <html>
-  <head>
+   ```html
+   <html>
+   <head>
       <title>Microsoft Cognitive Service Speech SDK JavaScript Quickstart</title>
-  </head>
-  <body>
+   </head>
+   <body>
     <!-- UI code goes here -->
 
     <!-- SDK reference goes here -->
@@ -62,21 +62,21 @@ Skapa en ny fil i mappen, med namnet `index.html` och öppna filen med en textre
     <!-- Optional authorization token request goes here -->
 
     <!-- Sample code goes here -->
-  </body>
-  </html>
-  ```
+   </body>
+   </html>
+   ```
 
 1. Lägg till följande användargränssnittskod i filen, under den första kommentaren:
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#uidiv)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#uidiv)]
 
 1. Lägga till en referens till Speech SDK
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
 
 1. Koppla hanterare för igenkänningsknappen, igenkänningsresultatet och prenumerationsrelaterade fält som definieras av användargränssnittskoden:
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
 
 ## <a name="create-the-token-source-optional"></a>Skapa tokenkälla (valfritt)
 
@@ -85,11 +85,11 @@ På så sätt lämnar prenumerationen aldrig servern och tillåter att användar
 
 1. Skapa en ny fil med namnet `token.php`. I det här exemplet förutsätter vi att webbservern stöder PHP-skriptspråket. Ange följande kod:
 
-  [!code-php[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/token.php)]
+   [!code-php[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/token.php)]
 
 1. Redigera filen `index.html` och lägg till följande kod i filen:
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#authorizationfunction)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#authorizationfunction)]
 
 > [!NOTE]
 > Auktoriseringstoken har en begränsad livslängd.

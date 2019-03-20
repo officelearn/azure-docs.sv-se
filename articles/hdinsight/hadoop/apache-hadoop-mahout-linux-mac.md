@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: adc85514c0f4e2f7245a7db6dffbe6b9dc5e6d42
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6e27d00e4b12ade82cfde6b3a4927edc7d69798a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435199"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075824"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>Skapa filmrekommendationer med hjälp av Apache Mahout med Linux-baserade Apache Hadoop i HDInsight (SSH)
 
@@ -170,15 +170,15 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     Det här kommandot tittar på de rekommendationer som genererats för användaren ID 4.
 
-    * Den **användaren ratings.txt** används för att hämta filmer som har klassificerats.
+   * Den **användaren ratings.txt** används för att hämta filmer som har klassificerats.
 
-    * Den **moviedb.txt** används för att hämta namnen på filmerna.
+   * Den **moviedb.txt** används för att hämta namnen på filmerna.
 
-    * Den **recommendations.txt** används för att hämta filmrekommendationer för den här användaren.
+   * Den **recommendations.txt** används för att hämta filmrekommendationer för den här användaren.
 
      Utdata från det här kommandot liknar följande text:
 
-        Sju år i Tibet (1997), bedöma = 5.0 Indiana Jones och den senaste Crusade (1989), bedöma = 5.0 Jaws (1975), poäng = 5.0 förnuft och känseln (1995) poäng = 5.0 oberoende dag (ID4) (1996), poäng = 5.0 mitt bästa vän Wedding (1997) poäng = 5.0 Jerry Maguire (1996) poäng = 5.0 Scream 2 (1997), poäng = 5.0 tid att Kill, (1996), poäng = 5.0
+       Sju år i Tibet (1997), bedöma = 5.0 Indiana Jones och den senaste Crusade (1989), bedöma = 5.0 Jaws (1975), poäng = 5.0 förnuft och känseln (1995) poäng = 5.0 oberoende dag (ID4) (1996), poäng = 5.0 mitt bästa vän Wedding (1997) poäng = 5.0 Jerry Maguire (1996) poäng = 5.0 Scream 2 (1997), poäng = 5.0 tid att Kill, (1996), poäng = 5.0
 
 ## <a name="delete-temporary-data"></a>Ta bort tillfälliga data
 

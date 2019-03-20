@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/27/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df6675c8ed9bc600da5fc054698e6445f31abb1a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2dee7759dccf3093e9ba9f66bffcceaf603a11d4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203534"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226886"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Konfigurera hanterade identiteter för Azure-resurser på VM-skalningsuppsättningar med hjälp av PowerShell
 
@@ -54,24 +54,16 @@ I det här avsnittet får du lära dig hur du aktiverar och ta bort en automatis
 
 ### <a name="enable-system-assigned-managed-identity-during-the-creation-of-an-azure-virtual-machine-scale-set"></a>Aktivera systemtilldelade hanterad identitet när du skapar en Azure VM-skalningsuppsättning
 
-Skapa en VMSS med systemtilldelade hanterade identiteten aktiverat:
+Skapa en VM-skalningsuppsättning med systemtilldelade hanterade identiteten aktiverat:
 
-1. Referera till *exempel 1* i den [New AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) cmdlet referensartikeln för att skapa en VMSS med en automatiskt genererad hanterad identitet.  Lägg till parameter `-IdentityType SystemAssigned` till den `New-AzVmssConfig` cmdlet:
+1. Referera till *exempel 1* i den [New AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) cmdlet referensartikeln om du skapar en VM-skalningsuppsättning som anges med en automatiskt genererad hanterad identitet.  Lägg till parameter `-IdentityType SystemAssigned` till den `New-AzVmssConfig` cmdlet:
 
     ```powershell
     $VMSS = New-AzVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
+> [!NOTE]
+> Du kan etablera hanterade identiteter för Azure-resurser VM-skalningsuppsättningen tillägget, men snart upphör att gälla. Vi rekommenderar att du använder Azure Instance Metadata identitet slutpunkten för autentisering. Mer information finns i [sluta använda VM-tillägget och börja använda Azure IMDS slutpunkten för autentisering](howto-migrate-vm-extension.md).
 
-2. (Valfritt) Lägga till de hanterade identiteterna för Azure-resurser VM-skalningsuppsättningen tillägget med hjälp av den `-Name` och `-Type` parametern på den [Lägg till AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet. Du kan skicka antingen ”ManagedIdentityExtensionForWindows” eller ”ManagedIdentityExtensionForLinux”, beroende på vilken typ av virtual machine scale ställa in och använda den `-Name` parametern. Den `-Settings` parametern anger den port som används av OAuth-token-slutpunkten för tokenförvärv:
-
-    > [!NOTE]
-    > Det här steget är valfritt eftersom du kan använda Azure Instance Metadata Service (IMDS) identitet slutpunkten, för att hämta token samt.
-
-   ```powershell
-   $setting = @{ "port" = 50342 }
-   $vmss = Get-AzVmss
-   Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
-   ```
 
 ## <a name="enable-system-assigned-managed-identity-on-an-existing-azure-virtual-machine-scale-set"></a>Aktivera systemtilldelade hanterad identitet på en befintlig Azure VM-skalningsuppsättning
 
@@ -89,13 +81,8 @@ Om du vill aktivera en automatiskt genererad hanterad identitet på en befintlig
    Update-AzVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
    ```
 
-3. Lägg till hanterade identiteter för Azure-resurser VMSS en tillägget med hjälp av den `-Name` och `-Type` parametern på den [Lägg till AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet. Du kan skicka antingen ”ManagedIdentityExtensionForWindows” eller ”ManagedIdentityExtensionForLinux”, beroende på vilken typ av virtual machine scale ställa in och använda den `-Name` parametern. Den `-Settings` parametern anger den port som används av OAuth-token-slutpunkten för tokenförvärv:
-
-   ```powershell
-   $setting = @{ "port" = 50342 }
-   $vmss = Get-AzVmss
-   Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
-   ```
+> [!NOTE]
+> Du kan etablera hanterade identiteter för Azure-resurser VM-skalningsuppsättningen tillägget, men snart upphör att gälla. Vi rekommenderar att du använder Azure Instance Metadata identitet slutpunkten för autentisering. Mer information finns i [migrera från VM-tillägget till Azure IMDS slutpunkten för autentisering](howto-migrate-vm-extension.md).
 
 ### <a name="disable-the-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Inaktivera systemtilldelade hanterad identitet från en Azure VM-skalningsuppsättning
 
@@ -115,7 +102,7 @@ Om du har en skalningsuppsättning för virtuella datorer som inte längre behö
 Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
 ```
 
-## <a name="user-assigned-managed-identity"></a>Användartilldelade hanterad identitet
+## <a name="user-assigned-managed-identity"></a>Användartilldelad hanterad identitet
 
 Du lär dig hur du lägger till och ta bort en hanterad Användartilldelad identitet från en VM-skalningsuppsättning med Azure PowerShell i det här avsnittet.
 
@@ -143,7 +130,7 @@ Så här tilldelar du en hanterad Användartilldelad identitet till en befintlig
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Ta bort en hanterad Användartilldelad identitet från en Azure VM-skalningsuppsättning
 
-Om din skalningsuppsättning för virtuell dator har flera användartilldelade hanterade identiteter, kan du ta bort alla utom den sista som använder följande kommandon. Ersätt parametervärdena `<RESOURCE GROUP>` och `<VMSS NAME>` med dina egna värden. Den `<USER ASSIGNED IDENTITY NAME>` är användartilldelade hanterade identitetens namnegenskapen som fortfarande på virtuella datorns skalningsuppsättning. Den här informationen finns i identitetsavsnittet i VM-skaluppsättning som anges med `az vmss show`:
+Om din skalningsuppsättning för virtuell dator har flera användartilldelade hanterade identiteter, kan du ta bort alla utom den sista som använder följande kommandon. Ersätt parametervärdena `<RESOURCE GROUP>` och `<VIRTUAL MACHINE SCALE SET NAME>` med dina egna värden. Den `<USER ASSIGNED IDENTITY NAME>` är användartilldelade hanterade identitetens namnegenskapen som fortfarande på virtuella datorns skalningsuppsättning. Den här informationen finns i identitetsavsnittet i VM-skaluppsättning som anges med `az vmss show`:
 
 ```powershell
 Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType UserAssigned -IdentityID "<USER ASSIGNED IDENTITY NAME>"

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: e0e25a9a1e70575d862374da0fb3097408b002e7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: be6b50b5cb4ea7d32f47d6eb0e19ba43a3217cb6
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714635"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202698"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installera och använda Hue på HDInsight Hadoop-kluster
 
@@ -62,7 +62,7 @@ Det här avsnittet innehåller anvisningar om hur du använder skriptet när du 
 
     ![Ange skriptet åtgärdsparametrar för Hue](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "tillhandahålla skript åtgärdsparametrar för Hue")
 
-   * **NAMN PÅ**: Ange ett eget namn för skriptåtgärden.
+   * **NAMN**: Ange ett eget namn för skriptåtgärden.
    * **SKRIPT-URI**: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
    * **HEAD**: Markera det här alternativet.
    * **WORKER**: Låt den vara tom.
@@ -143,7 +143,6 @@ SSH-tunnlar är det enda sättet att komma åt Hue i klustret när den körs. Vi
 
 ## <a name="next-steps"></a>Nästa steg
 * [Installera Apache Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md). Använd kluster anpassning för att installera Giraph på HDInsight Hadoop-kluster. Giraph kan du utföra diagrambearbetning med Hadoop och den kan användas med Azure HDInsight.
-* [Installera Apache Solr på HDInsight-kluster](hdinsight-hadoop-solr-install-linux.md). Använd kluster anpassning för att installera Solr på HDInsight Hadoop-kluster. Solr kan du utföra kraftfulla sökningar på lagrade data.
 * [Installera R på HDInsight-kluster](hdinsight-hadoop-r-scripts-linux.md). Använd kluster anpassning för att installera R på HDInsight Hadoop-kluster. R är en öppen källkod och -miljö för statistisk databehandling. Den innehåller hundratals inbyggda statistiska funktioner och sin egen programmeringsspråk som kombinerar aspekter av funktions- och objektorienterad programmering. Det ger även omfattande grafiska funktioner.
 
 [powershell-install-configure]: install-configure-powershell-linux.md

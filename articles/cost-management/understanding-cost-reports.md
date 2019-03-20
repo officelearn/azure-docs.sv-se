@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 10a8d434df376749b76e2cf90212d872f705b209
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 92ce35e88cc73c16e3d3670e07ff8b996192b825
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103429"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109822"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Förstå Cloudyn kostnad rapporter
 
@@ -41,7 +41,7 @@ Varje numrerad område i den föregående bilden beskrivs i detalj i följande i
       - Tillgångshantering
       - Optimering
 
-  Skriv namnet på ett filter och klicka på **spara**.
+   Skriv namnet på ett filter och klicka på **spara**.
 
 3. **Taggar**
 
@@ -71,55 +71,55 @@ Varje numrerad område i den föregående bilden beskrivs i detalj i följande i
       - Cloudyn kostnad entitetstaggar
       - Prenumeration taggkategorier för cost allocation
 
-  Exempel kan vara:
-     - Kostnadsställe
-     - Avdelning
-     - Program
-     - Miljö
-     - Kostnad kod
+   Exempel kan vara:
+   - Kostnadsställe
+   - Avdelning
+   - Program
+   - Miljö
+   - Kostnad kod
 
-    Här är en lista över inbyggda grupper i rapporter:
+     Här är en lista över inbyggda grupper i rapporter:
 
-    - **Kostnadstyp**
-      - Välj en kostnadstyp eller flera kostnadstyper eller markera alla. Kostnadstyper är:
-        - Avgift
-        - Support
-        - Förbrukningskostnad
-    - **Kunden**
-        - Välj en viss kund, flera kunder, eller alla kunder.
-    - **Kontonamn**
-        - Namnet på konto eller prenumeration. I Azure är det namnet på den Azure-prenumerationen.
-    - **Konto Nej**
-        - Välj ett konto, flera konton eller alla konton. I Azure är det Azure-prenumerations-GUID.
-    - **Överordnat konto**
-        - Välj det överordnade kontot, flera konton eller välj.
-    - **Tjänst**
-        - Välj en tjänst, flera tjänster, eller alla tjänster.
-    - **Leverantör**
-        - Den molnleverantören där tillgångar och utgifter som är associerade.
-    - **Region**
-        - Regionen där resursen finns.
-    - **Tillgänglighetszon**
-        - AWS separat platser inom en region.
-    - **Resurstyp**
-        - Typ av resurs som används.
-    - **Undertyp**
-        - Välj undertyp.
-    - **Åtgärd**
-        - Markera åtgärden eller **visa alla**.
-    - **Prismodell**
-        - Alla förskott
-        - Ingen startavgift
-        - Partiellt förskott
-        - På begäran
-        - Reservation
-        - Plats
-    - **Tilläggstyp**
-        - Markera som är negativa eller positiva tilläggstyp eller båda.
-    - **Innehavare**
-        - Om en dator körs som en dedikerad dator.
-    -   **Användningstyp**
-          - Användningstyp kan vara engångsavgifter eller återkommande avgifter.
+     - **Kostnadstyp**
+     - Välj en kostnadstyp eller flera kostnadstyper eller markera alla. Kostnadstyper är:
+       - Avgift
+       - Support
+       - Förbrukningskostnad
+     - **Kunden**
+       - Välj en viss kund, flera kunder, eller alla kunder.
+     - **Kontonamn**
+       - Namnet på konto eller prenumeration. I Azure är det namnet på den Azure-prenumerationen.
+     - **Konto Nej**
+       - Välj ett konto, flera konton eller alla konton. I Azure är det Azure-prenumerations-GUID.
+     - **Överordnat konto**
+       - Välj det överordnade kontot, flera konton eller välj.
+     - **Tjänst**
+       - Välj en tjänst, flera tjänster, eller alla tjänster.
+     - **Leverantör**
+       - Den molnleverantören där tillgångar och utgifter som är associerade.
+     - **Region**
+       - Regionen där resursen finns.
+     - **Tillgänglighetszon**
+       - AWS separat platser inom en region.
+     - **Resurstyp**
+       - Typ av resurs som används.
+     - **Undertyp**
+       - Välj undertyp.
+     - **Åtgärd**
+       - Markera åtgärden eller **visa alla**.
+     - **Prismodell**
+       - Alla förskott
+       - Ingen startavgift
+       - Partiellt förskott
+       - På begäran
+       - Reservation
+       - Plats
+     - **Tilläggstyp**
+       - Markera som är negativa eller positiva tilläggstyp eller båda.
+     - **Innehavare**
+       - Om en dator körs som en dedikerad dator.
+     - **Användningstyp**
+       - Användningstyp kan vara engångsavgifter eller återkommande avgifter.
 
 5. **Filter**
 
@@ -139,7 +139,7 @@ Varje numrerad område i den föregående bilden beskrivs i detalj i följande i
     - Avgifter för köp av reserverade instanser
     - Vissa Azure Marketplace-objekt.
 
-  Välj under amortering, **Amorterad kostnad** eller **verklig kostnad**.
+   Välj under amortering, **Amorterad kostnad** eller **verklig kostnad**.
 
 8. **Lösning**
 
@@ -162,7 +162,7 @@ Varje numrerad område i den föregående bilden beskrivs i detalj i följande i
 
     Visa/Dölj-alternativet har inte någon effekt i rapporter.
 
-12.   **Visningsformat**
+12. **Visningsformat**
 
     Använd format för att välja olika vyer för diagrammet eller tabellen.
 

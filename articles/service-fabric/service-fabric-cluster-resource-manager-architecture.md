@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b39f7bc31ed286ef4a894e9d49166cd305d9e905
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 82183cefc11a1f3c39fadd639c988d8bf83fc109
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736761"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116611"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Översikt över kluster resource manager-arkitektur
 Service Fabric Cluster Resource Manager är en central tjänst som körs i klustret. Den hanterar önskat tillstånd för tjänster i klustret, särskilt med avseende på resursförbrukning och eventuella placeringsregler. 
@@ -51,6 +51,7 @@ Klusterresurshanteraren har att spåra kraven för varje tjänst och förbruknin
 Låt oss titta på diagrammet nedan:
 
 <center>
+
 ![För Resursutjämnare][Image1]
 </center>
 
@@ -59,6 +60,7 @@ Det finns många ändringar som kan inträffa under körning. Exempelvis kan än
 Nu ska vi titta på diagrammet nedan och se vad som händer härnäst. Anta att Cluster Resource Manager avgör att ändringar är nödvändiga. Den samordnar med andra systemtjänster (särskilt den Redundanshanteraren) för att göra nödvändiga ändringar. Nödvändiga kommandon skickas sedan till lämplig noderna (4). Anta exempelvis att Resource Manager har upptäckt att nod5 var överbelastad och valt så att flytta tjänsten B från nod5 till nod4. I slutet av omkonfiguration (5) i klustret som ser ut så här:
 
 <center>
+
 ![För Resursutjämnare][Image2]
 </center>
 

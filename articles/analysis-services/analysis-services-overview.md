@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 53ce82a6e1180d4493e2d4014bf6e26e9bde2466
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: a908b00022351b9a91f9381229c773d063390744
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731403"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444165"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
-Azure Analysis Services är en fullständigt hanterad plattform som tjänst (PaaS) som tillhandahåller datamodeller i företagsklass i molnet. Använd avancerade kombinations- och modelleringsfunktioner för att kombinera data från flera datakällor, definiera mätvärden och skydda dina data i en enda tillförlitlig tabellsemantisk datamodell. Datamodellen ger ett enklare och snabbare sätt för användare att bläddra igenom stora mängder data för ad hoc-dataanalys.
+Azure Analysis Services är en fullständigt hanterad plattform som tjänst (PaaS) som tillhandahåller datamodeller i företagsklass i molnet. Använd avancerade kombinations- och modelleringsfunktioner för att kombinera data från flera datakällor, definiera mätvärden och skydda dina data i en enda tillförlitlig tabellsemantisk datamodell. Datamodellen är ett enklare och snabbare sätt för användare att bläddra i stora datamängder för spontana dataanalyser.
 
 ![Datakällor](./media/analysis-services-overview/aas-overview-overall.png)
 
@@ -154,7 +154,7 @@ På servernivå har Analysis Services en brandvägg, Azure-autentisering, server
 
 Azure Analysis Services brandvägg blockerar alla klientanslutningar förutom IP-adresserna som anges i regler. Som standard aktiveras inte brandväggsskydd för nya servrar. Vi rekommenderar att brandväggsskyddet är aktiverat och att regler konfigureras som en del av serverns etableringsskript eller i portalen omedelbart efter att servern har skapats. Konfigurera regler för tillåtna IP-adresser av enskilda klient-IP-adresser eller av intervaller. Power BI (service)-anslutningar kan också tillåtas eller blockeras. Konfigurera brandväggen och regler i portalen eller med hjälp av PowerShell. Läs mer i [Konfigurera en serverbrandvägg](analysis-services-qs-firewall.md).
 
-### <a name="authentication"></a>Autentisering
+### <a name="authentication"></a>Authentication
 
 Användarautentisering hanteras av [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md). Vid inloggning använder användare en organisationskontoidentitet med rollbaserad åtkomst till databasen. Användaridentiteter måste vara medlemmar i standard-Azure Active Directory för den prenumeration som servern finns i. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md).
 

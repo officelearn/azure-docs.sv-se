@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec7b2de1ae56e554013d9a5c574bb231164b80f8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9ee58c2a3bed7544ff68e7d6ec756c35bee1d05b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207304"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103170"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Behörigheter och godkännande i Azure Active Directory v1.0 slutpunkten
 
@@ -102,11 +102,11 @@ Program i Azure AD förlitar sig på godkännanden för att få åtkomst till re
 - Resurserna ska tydligt definiera behörigheterna `Read` och `ReadWrite` separat.
 - Resurserna ska markera alla behörigheter som ger åtkomst till data över användarens gränser som `Admin`-behörigheter.
 - Resurser bör följa namngivningsmönstret `Subject.Permission[.Modifier]`, där:
-    - `Subject` motsvarar typ av data som är tillgänglig
-    - `Permission` motsvarar den åtgärd som en användare kan ta när dessa data
-    - `Modifier` Du kan också används för att beskriva specialiseringar av en annan behörighet
+  - `Subject` motsvarar typ av data som är tillgänglig
+  - `Permission` motsvarar den åtgärd som en användare kan ta när dessa data
+  - `Modifier` Du kan också används för att beskriva specialiseringar av en annan behörighet
     
     Exempel:
-    * Mail.Read – Tillåter att användarna läser e-post.
-    * Mail.ReadWrite – Tillåter att användarna läser eller skriver e-post.
-    * Mail.ReadWrite.All – Ger en administratör eller användare åtkomst till all e-post i organisationen.
+  - Mail.Read – Tillåter att användarna läser e-post.
+  - Mail.ReadWrite – Tillåter att användarna läser eller skriver e-post.
+  - Mail.ReadWrite.All – Ger en administratör eller användare åtkomst till all e-post i organisationen.

@@ -14,24 +14,24 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 5f28e213a5f824562df62a05b98f0f92f71bc591
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 22ec05660682f000d8bc3b9780732d5adf9b5c24
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957444"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226716"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Snabbstart: Skapa en Azure-funktion med App Configuration
 
-Azure App Configuration är en hanterad konfigurationstjänst i Azure. Med den kan du enkelt lagra och hantera alla programinställningar på ett ställe som är separat från din kod. Den här snabbstarten visar hur du införlivar tjänsten i en Azure-funktion. 
+Azure App Configuration är en hanterad konfigurationstjänst i Azure. Du kan använda den för att enkelt lagra och hantera alla programinställningarna på ett ställe som är avgränsade från din kod. Den här snabbstarten visar hur du införliva tjänsten i en Azure-funktion. 
 
-Du kan använda valfritt kodredigeringsprogram för att slutföra stegen i den här snabbstarten. [Visual Studio Code](https://code.visualstudio.com/) är dock ett utmärkt alternativ som är tillgängligt på Windows-, macOS- och Linux-plattformar.
+Du kan använda valfri Kodredigerare för att utföra stegen i den här snabbstarten. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ tillgängligt på Windows, macOS och Linux-plattformar.
 
-![Quickstart Complete local](./media/quickstarts/dotnet-core-function-launch-local.png)
+![Snabbstart för fullständig lokal](./media/quickstarts/dotnet-core-function-launch-local.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här snabbstarten installerar du [Visual Studio 2017](https://visualstudio.microsoft.com/vs) (och se till att arbetsbelastningen **Azure Development** (Azure-utveckling) också installeras) samt [de senaste Azure Functions-verktygen](../azure-functions/functions-develop-vs.md#check-your-tools-version).
+Om du vill göra den här snabbstarten, installera [Visual Studio 2017](https://visualstudio.microsoft.com/vs). Kontrollera att även arbetsbelastningen **Azure-utveckling** är installerad. Även installera den [senaste Azure Functions-verktygen](../azure-functions/functions-develop-vs.md#check-your-tools-version).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,9 +43,9 @@ För att slutföra den här snabbstarten installerar du [Visual Studio 2017](htt
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-## <a name="connect-to-app-configuration-store"></a>Ansluta till ett appkonfigurationsarkiv
+## <a name="connect-to-an-app-configuration-store"></a>Ansluta till en appbutik för konfiguration
 
-1. Öppna *Function1.cs* och lägg till en referens till App Configuration .NET Core-konfigurationsprovidern.
+1. Öppna *Function1.cs*, och Lägg till en referens till en App Configuration .NET Core-konfigurationsprovider.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -77,7 +77,7 @@ För att slutföra den här snabbstarten installerar du [Visual Studio 2017](htt
 
 ## <a name="test-the-function-locally"></a>Testa funktionen lokalt
 
-1. Ange en miljövariabel som heter **ConnectionString** till åtkomstnyckeln för ditt appkonfigurationsarkiv. Om du använder Windows-kommandotolken kör du följande kommando och startar om Kommandotolken så att ändringen börjar gälla:
+1. Ange en miljövariabel som heter **ConnectionString**, och ange att snabbtangent i din appbutik för konfiguration. Om du använder Windows-Kommandotolken kör du följande kommando och starta om Kommandotolken så att ändringen ska börja gälla:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -85,17 +85,17 @@ För att slutföra den här snabbstarten installerar du [Visual Studio 2017](htt
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-    Om du använder macOS eller Linux kör du följande kommando:
+    Om du använder macOS eller Linux, kör du följande kommando:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. Testa funktionen genom att trycka på **F5**. Om du får en uppmaning accepterar du begäran från Visual Studio för att ladda ned och installera **Azure Functions Core (CLI)**-verktyg. Du kan även behöva skapa ett brandväggsundantag så att verktygen kan hantera HTTP-förfrågningar.
+2. Tryck på F5 för att testa funktionen. Om du får en uppmaning accepterar du begäran från Visual Studio för att ladda ned och installera **Azure Functions Core (CLI)**-verktyg. Du kan även behöva skapa ett brandväggsundantag så att verktygen kan hantera HTTP-begäranden.
 
 3. Kopiera URL:en för funktionen från dina Azure Functions-utdata.
 
     ![Snabbstart för funktionsfelsökning i VS](./media/quickstarts/function-visual-studio-debugging.png)
 
-4. Klistra in webbadressen för HTTP-begäran i webbläsarens adressfält. Nedan visas svaret på den lokala GET-begäran som returnerades av funktionen i webbläsaren:
+4. Klistra in webbadressen för HTTP-begäran i webbläsarens adressfält. Följande bild visar svaret i webbläsaren för att den lokala GET-begäran som returnerades av funktionen.
 
     ![Snabbstart för lokal funktionsstart](./media/quickstarts/dotnet-core-function-launch-local.png)
 
@@ -105,7 +105,7 @@ För att slutföra den här snabbstarten installerar du [Visual Studio 2017](htt
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat ett nytt appkonfigurationsarkiv och använt det med en Azure-funktion. Om du vill lära dig mer om att använda App Configuration fortsätter du till nästa självstudie som visar hur autentisering går till.
+I den här snabbstarten har du skapade en ny konfiguration appbutik och använder den med en Azure-funktion. Om du vill veta mer om hur du använder Appkonfiguration kan du fortsätta till nästa självstudie som visar autentisering.
 
 > [!div class="nextstepaction"]
 > [Hanterade identiteter för integrering av Azure-resurser](./integrate-azure-managed-service-identity.md)

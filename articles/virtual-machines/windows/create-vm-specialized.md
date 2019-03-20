@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 662713a5ef350bd34f25558de69e3cbfd5fc80a3
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 364dca8d7cab3698e501e74d0c2817aac1a36f88
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982870"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58137985"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Skapa en virtuell Windows-dator från en särskild disk med hjälp av PowerShell
 
@@ -205,7 +205,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-Om du vill använda den här ögonblicksbilden för att skapa en virtuell dator som måste vara hög prestanda, lägger du till parametern `-AccountType Premium_LRS` till kommandot New-AzSnapshot. Den här parametern skapar ögonblicksbilden så att den lagras som en hanterad Disk i Premium. Premium Managed Disks är dyrare än Standard, så du behöver Premium innan du använder den här parametern.
+Om du vill använda den här ögonblicksbilden för att skapa en virtuell dator som måste vara hög prestanda, lägger du till parametern `-AccountType Premium_LRS` till kommandot New-AzSnapshotConfig. Den här parametern skapar ögonblicksbilden så att den lagras som en hanterad Disk i Premium. Premium Managed Disks är dyrare än Standard, så du behöver Premium innan du använder den här parametern.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Skapa en ny disk från ögonblicksbilden
 

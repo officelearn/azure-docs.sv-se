@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9e972ee64d60f0fc9703e766c3ab45c3057c32a2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1823c2ec28b342d41371eb6677e0330d7f885087
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019885"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893262"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Flytta data från SAP Business Warehouse med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -289,30 +289,30 @@ Som vi nämnde i den [dataförflyttningsaktiviteter](data-factory-data-movement-
 
 När du flyttar data från SAP BW, används följande mappningar från SAP BW-typer till .NET-typer.
 
-Datatypen i ABAP-ordlista | Datatypen för .net
+Datatypen i ABAP-ordlista | Datatypen för .NET
 -------------------------------- | --------------
 ACCP |  Int
-CHAR | Sträng
-CLNT | Sträng
-AKTUELLT DATUM | Decimal
-CUKY | Sträng
+CHAR | String
+CLNT | String
+CURR | Decimal
+CUKY | String
 DEC | Decimal
-FLTP | Double-värde
+FLTP | Double
 INT1 | Byte
 INT2 | Int16
 INT4 | Int
-LANG | Sträng
-LCHR | Sträng
-LRAW | Byte]
+LANG | String
+LCHR | String
+LRAW | Byte[]
 PREC | Int16
 QUAN | Decimal
-RÅDATA | Byte]
-RAWSTRING | Byte]
-STRÄNG | Sträng
-ENHET | Sträng
-DATS | Sträng
-NUMC | Sträng
-TIMS | Sträng
+RÅDATA | Byte[]
+RAWSTRING | Byte[]
+STRÄNG | String
+ENHET | String
+DATS | String
+NUMC | String
+TIMS | String
 
 > [!NOTE]
 > Om du vill mappa kolumner från datauppsättningen för källan till kolumner från en datauppsättning för mottagare, se [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).

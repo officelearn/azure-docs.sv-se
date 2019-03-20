@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
-ms.openlocfilehash: 7fa76a2c5b01e623e490edd0091f7fb372b7085f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 7ce845fb272cea1d621e8ccc18203e3a071e8c29
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093246"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992007"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Verizon-specifika HTTP-huvuden för Azure CDN regelmotor
 
@@ -27,7 +27,7 @@ För **Azure CDN Premium från Verizon** produkter, när en HTTP-begäran skicka
 
 Om du vill förhindra att en av dessa reserverade huvuden som läggs till i Azure CDN (Content Delivery Network) POP-begäran till den ursprungliga servern, måste du skapa en regel med den [Proxy särskilda rubriker funktionen](cdn-rules-engine-reference-features.md#proxy-special-headers) i regelmotorn. Undanta rubriken som du vill ta bort från listan över sidhuvuden i fältet huvuden i den här regeln. Om du har aktiverat den [felsöka Cache svarshuvuden funktionen](cdn-rules-engine-reference-features.md#debug-cache-response-headers), se till att lägga till nödvändiga `X-EC-Debug` rubriker. 
 
-Till exempel för att ta bort den `Via` rubrik som är fältet rubriker i regeln bör innehålla följande lista med rubriker: *X-vidarebefordrade-, X-vidarebefordrade-protokoll, X-värden, X-Midgress X-Gateway-listan, X-EG-Name, värd*. 
+Till exempel för att ta bort den `Via` rubrik som är fältet rubriker i regeln bör innehålla följande lista med rubriker: *X-vidarebefordrade-, X-vidarebefordrade-protokoll, X-värden, X-Midgress X Gatewaylista, X-EG-Name, vara värd för*. 
 
 ![Regel för proxy särskilda rubriker](./media/cdn-http-headers/cdn-proxy-special-header-rule.png)
 
@@ -35,14 +35,14 @@ I följande tabell beskrivs de rubriker som kan läggas till med Verizon CDN POP
 
 Begärandehuvud | Beskrivning | Exempel
 ---------------|-------------|--------
-[via](#via-request-header) | Identifierar POP-servern som körs via en proxy begäran till en ursprungsservern. | HTTP/1.1 ECS (dca/1A2B)
-X-vidarebefordrade-för | Anger den som begär IP-adress.| 10.10.10.10
-X-vidarebefordrade-protokoll | Anger den begäran-protokollet. | http
-X-värden | Anger den förfrågans värdnamn. | CDN.mydomain.com
+[Via](#via-request-header) | Identifierar POP-servern som körs via en proxy begäran till en ursprungsservern. | HTTP/1.1 ECS (dca/1A2B)
+X-Forwarded-For | Anger den som begär IP-adress.| 10.10.10.10
+X-Forwarded-Proto | Anger den begäran-protokollet. | http
+X-Host | Anger den förfrågans värdnamn. | cdn.mydomain.com
 X-Midgress | Anger om begäran har via proxy till en ytterligare CDN-server. Till exempel en server till ursprunget shield POP-server eller en POP-servern till ADN gateway-server. <br />Den här rubriken läggs till i begäran endast när midgress trafik äger rum. I det här fallet är huvudet inställd till 1 anger att begäran har via proxy till en ytterligare CDN-server.| 1
-[Värd](#host-request-header) | Identifierar värden och den port där du kan hitta det begärda innehållet. | Marketing.mydomain.com:80
-[X-Gateway-List](#x-gateway-list-request-header) | ADN: Identifierar listan redundans av ADN Gateway-servrar som tilldelats ett kund-ursprung. <br />Ursprung shield: Anger uppsättningen ursprungsservrar shield som tilldelats ett kund-ursprung. | `icn1,hhp1,hnd1`
-X-EG -_&lt;namn&gt;_ | Begärandehuvuden som börjar med *X-EG* (till exempel X-EG-tagg, [X-EG-Debug](cdn-http-debug-headers.md)) är reserverade för användning av CDN.| waf-produktion
+[Värd](#host-request-header) | Identifierar värden och den port där du kan hitta det begärda innehållet. | marketing.mydomain.com:80
+[X-Gateway-List](#x-gateway-list-request-header) | ADN: Identifierar redundans över ADN Gateway-servrar som tilldelats ett kund-ursprung. <br />Ursprung shield: Anger uppsättningen ursprungsservrar shield som tilldelats ett kund-ursprung. | `icn1,hhp1,hnd1`
+X-EC-_&lt;name&gt;_ | Begärandehuvuden som börjar med *X-EG* (till exempel X-EG-tagg, [X-EG-Debug](cdn-http-debug-headers.md)) är reserverade för användning av CDN.| waf-produktion
 
 ## <a name="via-request-header"></a>Via huvudet i begäran
 Format som den `Via` begäran rubrik identifierar en POP-server anges med följande syntax:
@@ -52,7 +52,8 @@ Format som den `Via` begäran rubrik identifierar en POP-server anges med följa
 De termer som används i syntax definieras enligt följande:
 - Protokoll: Anger versionen av protokollet (till exempel HTTP/1.1) används för att proxy begäran. 
 
-- Plattform: Anger den plattform som innehållet har begärts. Följande koder är giltiga för det här fältet: 
+- Plattform: Anger plattformen där innehållet begärdes. Följande koder är giltiga för det här fältet: 
+
     Kod | Plattform
     -----|---------
     ECAcc | HTTP-stor
@@ -61,7 +62,7 @@ De termer som används i syntax definieras enligt följande:
 
 - POP: Anger den [POP](cdn-pop-abbreviations.md) som hanteras begäran. 
 
-- ID: endast för internt bruk.
+- ID: Endast för internt bruk.
 
 ### <a name="example-via-request-header"></a>Exempel Via huvudet i begäran
 

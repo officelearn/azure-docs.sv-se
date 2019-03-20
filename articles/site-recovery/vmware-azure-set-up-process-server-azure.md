@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 099576b1a4c5c28aab7672aaeb9274bc0beb96bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 037f0ff64b114ce9341702564147825099695aa0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842330"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105649"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Konfigurera en processerver i Azure för återställning efter fel
 
@@ -33,7 +33,7 @@ Läs mer om den [återaktiveringen av skyddet](vmware-azure-reprotect.md) och [�
 3. I **Lägg till processervern** sidan och väljer att distribuera en processerver i Azure.
 4. Ange inställningarna för Azure, inklusive den prenumeration som används för växling vid fel, en resursgrupp, Azure-regionen används för växling vid fel och det virtuella nätverket som virtuella Azure-datorer finns. Om du använder flera Azure-nätverk, måste en processerver i var och en.
 
-  ![Lägg till galleriobjektet för processervern](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
+   ![Lägg till galleriobjektet för processervern](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
 
 4. I **servernamn**, **användarnamn**, och **lösenord**, ange ett namn för processervern och autentiseringsuppgifter som ska tilldelas administratörsbehörigheter på servern.
 5. Ange ett lagringskonto som ska användas för server VM-diskar och det undernät som processervern VM kommer att finnas serverns IP-adress som ska tilldelas när den virtuella datorn startar.

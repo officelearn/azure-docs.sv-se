@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: c2b1c85a59686433cbab152bae1d1105ff725818
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: ffae38f8c5ba3a8b66ec49deaef987762ab9c510
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753334"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863618"
 ---
 # <a name="create-and-locate-anchors-using-azure-spatial-anchors-in-swift"></a>Skapa och leta upp ankare som använder Azure Spatial ankare i Swift
 
@@ -25,9 +25,11 @@ ms.locfileid: "56753334"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har aktiverat för att fungera bra med ditt val av utvecklingsmiljö. I den här artikeln ska vi fördjupar oss i hur du gör i Swift.
+Med Azure Spatial Anchors kan du dela fästpunkter i världen mellan olika enheter. Den stöder flera utvecklingsmiljöer. I den här artikeln ska vi fördjupar oss i hur du gör i Swift.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
+
+Läs mer om den [ASACloudSpatialAnchorSession](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession) klass.
 
 ```swift
     var _cloudSession : ASACloudSpatialAnchorSession? = nil
@@ -36,6 +38,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
+
+Läs mer om den [ASASessionConfiguration](https://docs.microsoft.com/objectivec/api/spatial-anchors/asasessionconfiguration) klass.
 
 ```swift
     _cloudSession!.configuration.accountKey = "MyAccountKey"
@@ -48,6 +52,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
+
+Läs mer om den [tokenRequired](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsessiondelegate#tokenrequired) protokoll-metoden.
 
 ```swift
     internal func tokenRequired(_ cloudSession:ASACloudSpatialAnchorSession!, _ args:ASATokenRequiredEventArgs!) {
@@ -101,6 +107,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-ios.md)]
 
+Läs mer om den [starta](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#start) metod.
+
 ```swift
     _cloudSession!.session = self.sceneView.session;
     _cloudSession!.delegate = self;
@@ -109,11 +117,15 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
+Läs mer om den [processFrame](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#processframe) metod.
+
 ```swift
     _cloudSession?.processFrame(self.sceneView.session.currentFrame)
 ```
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
+
+Läs mer om den [sessionUpdated](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsessiondelegate#sessionupdated) protokoll-metoden.
 
 ```swift
     internal func sessionUpdated(_ cloudSession:ASACloudSpatialAnchorSession!, _ args:ASASessionUpdatedEventArgs!) {
@@ -126,6 +138,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
+
+Läs mer om den [ASACloudSpatialAnchor](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchor) klass.
 
 ```swift
     // Create a local anchor, perhaps by hit-testing and creating an ARAnchor
@@ -154,6 +168,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
+Läs mer om den [getStatusWithCompletionHandler](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#getsessionstatus) metod.
+
 ```swift
     _cloudSession?.getStatusWithCompletionHandler( { (value:ASASessionStatus, error:Error?) in
         if (error != nil) {
@@ -169,6 +185,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
+Läs mer om den [appProperties](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchor#appproperties) egenskapen.
+
 ```swift
     var cloudAnchor : ASACloudSpatialAnchor? = nil
     cloudAnchor = ASACloudSpatialAnchor()
@@ -181,6 +199,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
+Läs mer om den [updateAnchorProperties](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#updateanchorproperties) metod.
+
 ```swift
     var anchor : ASACloudSpatialAnchor? = /* locate your anchor */;
     anchor!.appProperties["last-user-access"] = "just now"
@@ -192,6 +212,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
+
+Läs mer om den [getAnchorProperties](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#getanchorproperties) metod.
 
 ```swift
     _cloudSession?.getAnchorProperties("anchorId", withCompletionHandler: { (anchor:SCCCloudSpatialAnchor?, error:Error?) in
@@ -210,6 +232,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
+Läs mer om den [upphör att gälla](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchor#expiration) egenskapen.
+
 ```swift
     let secondsInAWeek = 60.0 * 60.0 * 24.0 * 7.0
     let oneWeekFromNow = Date(timeIntervalSinceNow: secondsInAWeek)
@@ -218,6 +242,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
+Läs mer om den [createWatcher](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#createwatcher) metod.
+
 ```swift
     let criteria = ASAAnchorLocateCriteria()!
     criteria.identifiers = [ "id1", "id2", "id3" ]
@@ -225,6 +251,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
+
+Läs mer om den [anchorLocated](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsessiondelegate#anchorlocated) protokoll-metoden.
 
 ```swift
     internal func anchorLocated(_ cloudSession: ASACloudSpatialAnchorSession!, _ args: ASAAnchorLocatedEventArgs!) {
@@ -252,6 +280,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
+Läs mer om den [ta bort](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#deleteanchor) metod.
+
 ```swift
     _cloudSession?.delete(cloudAnchor!, withCompletionHandler: { (error: Error?) in
         // Perform any processing you may want when delete finishes
@@ -260,11 +290,15 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
+Läs mer om den [stoppa](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#stop) metod.
+
 ```swift
     _cloudSession!.stop()
 ```
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
+
+Läs mer om den [återställa](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#reset) metod.
 
 ```swift
     _cloudSession!.reset()

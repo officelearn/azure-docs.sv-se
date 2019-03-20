@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: fd4c1220d0652139c247ffed80e995a90a93c5b1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 469213ae67f1f2bcece6afa5d9b7873bfdfe8d6c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780854"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095746"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Azure Monitor på Azure Stack
 
@@ -33,8 +33,8 @@ En introduktion översikt och hur du kommer igång med Azure Monitor finns i glo
 
 Azure Monitor är plattformstjänst som tillhandahåller en enda källa för övervakning av Azure-resurser. Med Azure Monitor kan du visualisera, fråga, vidarebefordra, arkivera och annars vidta åtgärder för mått och loggar från resurser i Azure. Du kan arbeta med dessa data med hjälp av Azure Stack-administrationsportalen, Monitor PowerShell Cmdlets, plattformsoberoende CLI eller Azure Monitor REST API: er. För den specifika anslutning som stöds av Azure Stack, se [använda övervakningsdata från Azure Stack](azure-stack-metrics-monitor.md)
 
-> [!Note]  
-Mått och diagnostikloggar är inte tillgängliga för Azure Stack Development Kit.
+> [!Note]
+> Mått och diagnostikloggar är inte tillgängliga för Azure Stack Development Kit.
 
 ## <a name="prerequisites-for-azure-monitor-on-azure-stack"></a>Krav för Azure Monitor på Azure Stack
 

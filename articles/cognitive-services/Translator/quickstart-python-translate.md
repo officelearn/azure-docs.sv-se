@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 4518f5a6bd232bce3cf973c21944ef3aa722d1f7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: 573c45eb9c48d7b6663b518d4830577f951ec70d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727153"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899408"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Snabbstart: Använda Translator Text API för att översätta en sträng med hjälp av Python
 
@@ -23,7 +23,7 @@ I den här snabbstarten lär du dig att översätta en textsträng från engelsk
 
 För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
@@ -32,7 +32,7 @@ För den här snabbstarten krävs:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
-Skapa ett nytt Python-projekt med valfri IDE eller redigeringsprogram. Kopiera sedan det här kodavsnittet till projektet i en fil med namnet `translate-text.py`.
+Skapa ett nytt Python-projekt med valfri IDE eller redigeringsprogram. Kopiera sedan det här kodavsnittet till projektet i en fil med namnet `translate-text.py`. Var noga med att din IDE-tolk refererar till rätt version av Python för att undvika bibliotek som inte tolkats.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -159,7 +159,7 @@ Om du har hårdkodat din prenumerationsnyckel i programmet ser du till att ta bo
 > [!div class="nextstepaction"]
 > [Utforska Python-exempel på GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 Lär dig att använda Translator Text API till att:
 

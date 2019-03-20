@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 6ebf1abe6f3b115a254201184f47e6aad2febb2a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2f70a180afcc8eda5d43356c3f4f96b25292c6d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208184"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088935"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Stöd matrix för haveriberedskap för virtuella VMware-datorer och fysiska servrar till en sekundär plats
 
@@ -75,7 +75,7 @@ Gäst VM - med flera nätverkskort | Ja
 **Lagring (värd)** | **Stöds** 
 --- | --- 
 NFS | Ja 
-SMB 3.0 | Saknas 
+SMB 3.0 | Gäller inte 
 SAN (ISCSI) | Ja 
 Flera sökvägar (MPIO) | Ja 
 
@@ -84,8 +84,8 @@ Flera sökvägar (MPIO) | Ja
 **Konfiguration** | **Stöds** 
 --- | --- 
 VMDK | Ja 
-VHD/VHDX | Saknas 
-Gen 2 VM | Saknas 
+VHD/VHDX | Gäller inte 
+Gen 2 VM | Gäller inte 
 Delad klusterdisk | Ja 
 Krypterad disk | Nej 
 UEFI| Ja 
@@ -97,7 +97,7 @@ Volymen med stripe-disk > 1 TB<br/><br/> LVM | Ja
 Lagringsutrymmen | Nej 
 Frekvent Lägg till/ta bort disk | Ja 
 Uteslut disk | Ja 
-Flera sökvägar (MPIO) | Saknas 
+Flera sökvägar (MPIO) | Gäller inte 
 
 ## <a name="vaults"></a>Valv
 
@@ -110,10 +110,10 @@ Flytta lagring, nätverk, virtuella Azure-datorer mellan resursgrupper (inom ell
 
 Mobilitetstjänsten samordnar replikering mellan lokala VMware-servrar eller fysiska servrar och den sekundära platsen. När du konfigurerar replikering ska du kontrollera att du har den senaste versionen av mobilitetstjänsten och andra komponenter.
 
-**Uppdatering** | **Detaljer** 
---- | --- 
-Scout uppdateringar | [Lär dig och ladda ned](vmware-physical-secondary-disaster-recovery.md#updates) de senaste uppdateringarna för Scout | Scout uppdateringar är kumulativa.
-Komponentuppdateringar | Scout uppdateringar innehåller uppdateringar för alla komponenter, inklusive RX server, konfigurationsservern, process och huvudmålservrar, vContinuum servrar och källservrar som du vill skydda.<br/><br/> [Läs mer](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
+| **Uppdatering** | **Detaljer** |
+| --- | --- |
+|Scout uppdateringar | Scout uppdateringar är kumulativa. <br/><br/> [Lär dig och ladda ned](vmware-physical-secondary-disaster-recovery.md#updates) de senaste uppdateringarna för Scout |
+|Komponentuppdateringar | Scout uppdateringar innehåller uppdateringar för alla komponenter, inklusive RX server, konfigurationsservern, process och huvudmålservrar, vContinuum servrar och källservrar som du vill skydda.<br/><br/> [Läs mer](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
 
 
 ## <a name="next-steps"></a>Nästa steg

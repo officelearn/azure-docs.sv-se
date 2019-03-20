@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 62675df9f440df77d1098d5c89bd6810349fb3af
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: HT
+ms.openlocfilehash: 3474d4ee8751bcd472aa109e9e541d639344276d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750012"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118092"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Självstudier: Kopiera data till Azure Data Box via SMB
 
@@ -22,12 +22,12 @@ I den här självstudien beskrivs hur du ansluter till och kopierar data från v
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Nödvändiga komponenter
+> * Förutsättningar
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrollera att:
 
@@ -41,7 +41,8 @@ Innan du börjar ska du kontrollera att:
 
 Utifrån det lagringskontot som väljs skapar Data Box upp till:
 - Tre resurser för varje associerat lagringskonto för GPv1 och GPv2.
-- En resurs för premium- eller bloblagringskonto.
+- En resurs för premium storage. 
+- En resurs för blob storage-konto. 
 
 Under blockblob- och sidblobresurser är entiteter på första nivån containrar och entiteter på andra nivån är blobar. Under resurser för Azure Files är entiteter på första nivån resurser och entiteter på andra nivån är filer.
 
@@ -195,8 +196,8 @@ Följande exempel visar utdata från robocopy-kommandot för filkopiering till D
 Du kan optimera prestanda med hjälp av följande robocopy-parametrar när du kopierar data.
 
 |    Plattform    |    Främst små filer < 512 KB                           |    Främst medelstora filer 512 KB–1 MB                      |    Främst stora filer > 1 MB                             |   
-|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-|    Data Box         |    2 Robocopy-sessioner <br> 16 trådar per session    |    3 Robocopy-sessioner <br> 16 trådar per session    |    2 Robocopy-sessioner <br> 24 trådar per session    |  |
+|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+|    Data Box         |    2 Robocopy-sessioner <br> 16 trådar per session    |    3 Robocopy-sessioner <br> 16 trådar per session    |    2 Robocopy-sessioner <br> 24 trådar per session    |
 
 
 Mer information om Robocopy-kommandon finns i [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx) (Robocopy och några exempel).
@@ -214,7 +215,7 @@ För att säkerställa dataintegriteten beräknas kontrollsumman infogat när da
 I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
-> * Nödvändiga komponenter
+> * Förutsättningar
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
 

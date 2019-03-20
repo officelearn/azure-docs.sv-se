@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: asteen
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6df034264e54d7d421d9508fb3c08cc6675cb10d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 47c624a9f1d3989e9146f7c32745ca892f6467e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452002"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113812"
 ---
 # <a name="what-is-the-myapps-portal"></a>Vad är MyApps-portalen?
 
@@ -82,11 +82,11 @@ Om du vill logga in på lösenordsbaserad enkel inloggning, måste du använda t
 
 > [!NOTE]
 > Ytterligare funktioner är endast tillgängligt för Microsoft Edge, Chrome och Firefox.
->
-Du kan hämta tillägget direkt från följande platser:
-- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
-- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
+> 
+> Du kan hämta tillägget direkt från följande platser:
+> - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+> - [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+> - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Om du använder en Mina appar-URL än `https://myapps.microsoft.com`, konfigurera standard-URL genom att göra följande:
 1. När du arbetar *inte* inloggad på tillägget, högerklicka på tilläggsikonen.

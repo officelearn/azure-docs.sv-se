@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cb8e5074d0cd99f5c7cb2130e6f9181eb5382015
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5aa118815146287d00a3bb8ee7d5fce57a6ad9ca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811434"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120303"
 ---
 <a name="how-to-fill-out-the-technical-info-form"></a>Hur du fyller i formuläret teknisk information
 ===========================================
@@ -36,9 +36,9 @@ ms.locfileid: "48811434"
 
 -   **Testa Appautomatisering** --krävs – den VS kodade testpaket som du måste skapa för automatiska tester av tillägg.
 
-2.  I den **ytterligare Information för tillägget** avsnittet, ladda upp ytterligare information för ditt tillägg. Den här informationen används under verifieringen.
+1. I den **ytterligare Information för tillägget** avsnittet, ladda upp ytterligare information för ditt tillägg. Den här informationen används under verifieringen.
 
-    ![Ytterligare information för tillägget Programformulär](./media/d365-financials/image016.png)
+   ![Ytterligare information för tillägget Programformulär](./media/d365-financials/image016.png)
 
 
 -   **URL till dokumentation av produkten** --krävs - URL till dokumentation för tillägget.

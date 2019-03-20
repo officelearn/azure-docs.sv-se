@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 045a8fc3723c7bae176f0b99a83965bb2bef721d
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: a83661a63f784f62bf46ce75b8b4f47c57c87b19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242946"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840451"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Kör säkert experiment och inferensjobb i Azure-nätverk
 
@@ -60,15 +60,17 @@ Använd följande information om krav för att använda beräkning av Azure Mach
 
     - En belastningsutjämnare
 
-   Dessa resurser begränsas av prenumerationens [resurskvoter](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+  Dessa resurser begränsas av prenumerationens [resurskvoter](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
 ### <a id="mlcports"></a> Portar som krävs
 
 Beräkning av Machine Learning använder för närvarande Azure Batch-tjänsten kan etablera virtuella datorer på det angivna virtuella nätverket. Undernätet måste tillåta inkommande kommunikation från Batch-tjänsten. Den här kommunikationen används för att schemalägga körs på beräkning av Machine Learning-noder och för att kommunicera med Azure Storage och andra resurser. Batch lägger till Nätverkssäkerhetsgrupper på nivån för nätverksgränssnitt (NIC) som är kopplade till virtuella datorer. De här NSG:erna konfigurerar automatiskt regler för inkommande och utgående trafik för att tillåta följande trafik:
 
-- Inkommande TCP-trafik på portarna 29876 och 29877 från Batch-tjänstrollens IP-adresser.
+- Inkommande TCP-trafik på portarna 29876 och 29877 från en __Tjänsttagg__ av __BatchNodeManagement__.
+
+    ![Bild av Azure-portalen som visar en inkommande regel med hjälp av tjänsttaggen BatchNodeManagement](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
  
-- Inkommande TCP-trafik på port 22 för att tillåta fjärråtkomst.
+- (valfritt) Inkommande TCP-trafik på port 22 för att tillåta fjärråtkomst. Detta behövs bara om du vill ansluta med SSH på den offentliga IP-Adressen.
  
 - Utgående trafik på vilken port som helst till det virtuella nätverket.
 

@@ -2,18 +2,18 @@
 title: Använd Terraform för att skapa en VM-skalningsuppsättning för Azure
 description: Självstudie för att använda Terraform för att konfigurera och versionshantera en VM-skalningsuppsättning för Azure komplett med ett virtuellt nätverk och hanterade anslutna diskar
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, virtuell dator, Azure, skalningsuppsättning, nätverk, lagring, moduler
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2018
-ms.openlocfilehash: 7d23e9113b83970d0cfee8f96989faa2c2760421
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 21fea65ed7056afa57d9acbacb2457bb4d09cff5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745834"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002308"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Använd Terraform för att skapa en VM-skalningsuppsättning för Azure
 
@@ -31,7 +31,7 @@ I den här självstudien lär du dig använda [Azure Cloud Shell](/azure/cloud-s
 > [!NOTE]
 > Den senaste versionen av Terraform-konfigurationsfilerna som används i den här artikeln finns på [lagringsplatsen Awesome Terraform på GitHub](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
@@ -41,7 +41,7 @@ I den här självstudien lär du dig använda [Azure Cloud Shell](/azure/cloud-s
 
 ## <a name="create-the-directory-structure"></a>Skapa katalogstrukturen
 
-1. Bläddra till [Azure-portalen](http://portal.azure.com).
+1. Bläddra till [Azure-portalen](https://portal.azure.com).
 
 1. Öppna [Azure Cloud Shell](/azure/cloud-shell/overview). Om du inte har valt en miljö tidigare väljer du **Bash** som miljö.
 
@@ -80,25 +80,25 @@ I Azure Cloud Shell utför du följande steg:
 
 1. Klistra in följande kod i redigeringsprogrammet:
 
-  ```JSON
-  variable "location" {
+   ```JSON
+   variable "location" {
     description = "The location where resources will be created"
-  }
+   }
 
-  variable "tags" {
+   variable "tags" {
     description = "A map of the tags to use for the resources that are deployed"
     type        = "map"
 
     default = {
       environment = "codelab"
     }
-  }
+   }
 
-  variable "resource_group_name" {
+   variable "resource_group_name" {
     description = "The name of the resource group in which the resources will be created"
     default     = "myResourceGroup"
-  }
-  ```
+   }
+   ```
 
 1. Avsluta infogningsläget genom att trycka på tangenten Esc.
 
@@ -122,13 +122,13 @@ I Azure Cloud Shell utför du följande steg:
 1. Starta infogningsläget genom att trycka på tangenten I.
 
 1. Klistra in följande kod i redigeringsprogrammet för att göra det fullständigt kvalificerade domännamnet (FQDN) tillgängligt för de virtuella datorerna.
-:
+   :
 
-  ```JSON
+   ```JSON
     output "vmss_public_ip" {
         value = "${azurerm_public_ip.vmss.fqdn}"
     }
-  ```
+   ```
 
 1. Avsluta infogningsläget genom att trycka på tangenten Esc.
 
@@ -157,78 +157,78 @@ I Azure Cloud Shell utför du följande steg:
 
 1. Klistra in följande kod i slutet av filen för att göra det fullständigt kvalificerade domännamnet (FQDN) tillgängligt för de virtuella datorerna.
 
-  ```JSON
-  resource "azurerm_resource_group" "vmss" {
+   ```JSON
+   resource "azurerm_resource_group" "vmss" {
     name     = "${var.resource_group_name}"
     location = "${var.location}"
     tags     = "${var.tags}"
-  }
+   }
 
-  resource "random_string" "fqdn" {
+   resource "random_string" "fqdn" {
     length  = 6
     special = false
     upper   = false
     number  = false
-  }
+   }
 
-  resource "azurerm_virtual_network" "vmss" {
+   resource "azurerm_virtual_network" "vmss" {
     name                = "vmss-vnet"
     address_space       = ["10.0.0.0/16"]
     location            = "${var.location}"
     resource_group_name = "${azurerm_resource_group.vmss.name}"
     tags                = "${var.tags}"
-  }
+   }
 
-  resource "azurerm_subnet" "vmss" {
+   resource "azurerm_subnet" "vmss" {
     name                 = "vmss-subnet"
     resource_group_name  = "${azurerm_resource_group.vmss.name}"
     virtual_network_name = "${azurerm_virtual_network.vmss.name}"
     address_prefix       = "10.0.2.0/24"
-  }
+   }
 
-  resource "azurerm_public_ip" "vmss" {
+   resource "azurerm_public_ip" "vmss" {
     name                         = "vmss-public-ip"
     location                     = "${var.location}"
     resource_group_name          = "${azurerm_resource_group.vmss.name}"
     allocation_method = "Static"
     domain_name_label            = "${random_string.fqdn.result}"
     tags                         = "${var.tags}"
-  }
-  ```
+   }
+   ```
 
 1. Avsluta infogningsläget genom att trycka på tangenten Esc.
 
 1. Spara filen och avsluta VI-redigeringsprogrammet genom att ange följande kommando:
 
-  ```bash
-  :wq
-  ```
+   ```bash
+   :wq
+   ```
 
 ## <a name="provision-the-network-infrastructure"></a>Distribuera nätverksinfrastrukturen
 Använd Azure Cloud Shell i katalogen där du skapade konfigurationsfilerna (.tf) och utför följande steg:
 
 1. Initiera Terraform.
 
-  ```bash
-  terraform init
-  ```
+   ```bash
+   terraform init
+   ```
 
 1. Distribuera den definierade infrastrukturen till Azure genom att köra följande kommando.
 
-  ```bash
-  terraform apply
-  ```
+   ```bash
+   terraform apply
+   ```
 
-  Terraform uppmanar dig att ange ett värde för plats eftersom variabeln **location** (plats) har definierats i `variables.tf`, men den har aldrig angetts. Du kan ange valfri giltig plats – till exempel West US (västra USA) och väljer sedan Retur. (Använd parenteser kring ett värde med blanksteg).
+   Terraform uppmanar dig att ange ett värde för plats eftersom variabeln **location** (plats) har definierats i `variables.tf`, men den har aldrig angetts. Du kan ange valfri giltig plats – till exempel West US (västra USA) och väljer sedan Retur. (Använd parenteser kring ett värde med blanksteg).
 
 1. Terraform skriver utdata enligt definitionen i filen `output.tf`. I följande skärmbild visas det fullständigt kvalificerade domännamnet i formen &lt;id>.&lt;plats>.cloudapp.azure.com. Id-värdet är ett beräknat värde och plats är det värde som du anger när du kör Terraform.
 
-  ![Det fullständigt kvalificerade domännamnet för offentlig IP-adress för VM-skalningsuppsättningen](./media/terraform-create-vm-scaleset-network-disks-hcl/fqdn.png)
+   ![Det fullständigt kvalificerade domännamnet för offentlig IP-adress för VM-skalningsuppsättningen](./media/terraform-create-vm-scaleset-network-disks-hcl/fqdn.png)
 
 1. I Azure-portalen väljer du **Resursgrupper** i huvudmenyn.
 
 1. På fliken **Resursgrupper** väljer du **myResourceGroup** för att visa resurserna som skapades av Terraform.
-  ![Nätverksresurser för VM-skalningsuppsättningar](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-resources.png)
+   ![Nätverksresurser för VM-skalningsuppsättningar](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-resources.png)
 
 ## <a name="add-a-virtual-machine-scale-set"></a>Lägg till en VM-skalningsuppsättning
 
@@ -238,22 +238,22 @@ I det här avsnittet lär du dig hur du lägger till följande resurser i mallen
 - En adresspool för Azure-serverdelen och tilldela den till belastningsutjämnaren
 - En avsökningsport för hälsotillstånd som används av programmet och konfigureras i belastningsutjämnaren
 - En VM-skalningsuppsättning som finns bakom belastningsutjämnaren och körs på det virtuella nätverket som distribuerades tidigare i den här artikeln
-- [Nginx](http://nginx.org/) på noderna i VM-skalningsuppsättningen som installerats med [cloud-init](http://cloudinit.readthedocs.io/en/latest/).
+- [Nginx](https://nginx.org/) på noderna i VM-skalningsuppsättningen som installerats med [cloud-init](https://cloudinit.readthedocs.io/en/latest/).
 
 I Cloud Shell utför du följande steg:
 
 1. Öppna konfigurationsfilen `vmss.tf`.
 
-  ```bash
-  vi vmss.tf
-  ```
+   ```bash
+   vi vmss.tf
+   ```
 
 1. Gå till slutet av filen och använd läget för att lägga till genom att välja tangenten A.
 
 1. Klistra in följande kod i slutet av filen:
 
-  ```JSON
-  resource "azurerm_lb" "vmss" {
+   ```JSON
+   resource "azurerm_lb" "vmss" {
     name                = "vmss-lb"
     location            = "${var.location}"
     resource_group_name = "${azurerm_resource_group.vmss.name}"
@@ -264,22 +264,22 @@ I Cloud Shell utför du följande steg:
     }
 
     tags = "${var.tags}"
-  }
+   }
 
-  resource "azurerm_lb_backend_address_pool" "bpepool" {
+   resource "azurerm_lb_backend_address_pool" "bpepool" {
     resource_group_name = "${azurerm_resource_group.vmss.name}"
     loadbalancer_id     = "${azurerm_lb.vmss.id}"
     name                = "BackEndAddressPool"
-  }
+   }
 
-  resource "azurerm_lb_probe" "vmss" {
+   resource "azurerm_lb_probe" "vmss" {
     resource_group_name = "${azurerm_resource_group.vmss.name}"
     loadbalancer_id     = "${azurerm_lb.vmss.id}"
     name                = "ssh-running-probe"
     port                = "${var.application_port}"
-  }
+   }
 
-  resource "azurerm_lb_rule" "lbnatrule" {
+   resource "azurerm_lb_rule" "lbnatrule" {
       resource_group_name            = "${azurerm_resource_group.vmss.name}"
       loadbalancer_id                = "${azurerm_lb.vmss.id}"
       name                           = "http"
@@ -289,9 +289,9 @@ I Cloud Shell utför du följande steg:
       backend_address_pool_id        = "${azurerm_lb_backend_address_pool.bpepool.id}"
       frontend_ip_configuration_name = "PublicIPAddress"
       probe_id                       = "${azurerm_lb_probe.vmss.id}"
-  }
+   }
 
-  resource "azurerm_virtual_machine_scale_set" "vmss" {
+   resource "azurerm_virtual_machine_scale_set" "vmss" {
     name                = "vmscaleset"
     location            = "${var.location}"
     resource_group_name = "${azurerm_resource_group.vmss.name}"
@@ -348,8 +348,8 @@ I Cloud Shell utför du följande steg:
     }
 
     tags = "${var.tags}"
-}
-  ```
+   }
+   ```
 
 1. Avsluta infogningsläget genom att trycka på tangenten Esc.
 
@@ -369,77 +369,77 @@ I Cloud Shell utför du följande steg:
 
 1. Klistra in följande kod i redigeringsprogrammet:
 
-  ```JSON
-  #cloud-config
-  packages:
+   ```JSON
+   #cloud-config
+   packages:
     - nginx
-  ```
+   ```
 
 1. Avsluta infogningsläget genom att trycka på tangenten Esc.
 
 1. Spara filen och avsluta VI-redigeringsprogrammet genom att ange följande kommando:
 
-    ```bash
-    :wq
-    ```
+     ```bash
+     :wq
+     ```
 
 1. Öppna konfigurationsfilen `variables.tf`.
 
-  ```bash
-  vi variables.tf
-  ```
+    ```bash
+    vi variables.tf
+    ```
 
 1. Gå till slutet av filen och använd läget för att lägga till genom att välja tangenten A.
 
 1. Anpassa distributionen genom att klistra in följande kod i slutet av filen:
 
-  ```JSON
-  variable "application_port" {
-      description = "The port that you want to expose to the external load balancer"
-      default     = 80
-  }
+    ```JSON
+    variable "application_port" {
+       description = "The port that you want to expose to the external load balancer"
+       default     = 80
+    }
 
-  variable "admin_user" {
-      description = "User name to use as the admin account on the VMs that will be part of the VM Scale Set"
-      default     = "azureuser"
-  }
+    variable "admin_user" {
+       description = "User name to use as the admin account on the VMs that will be part of the VM Scale Set"
+       default     = "azureuser"
+    }
 
-  variable "admin_password" {
-      description = "Default password for admin account"
-  }
-  ```
+    variable "admin_password" {
+       description = "Default password for admin account"
+    }
+    ```
 
 1. Avsluta infogningsläget genom att trycka på tangenten Esc.
 
 1. Spara filen och avsluta VI-redigeringsprogrammet genom att ange följande kommando:
 
-    ```bash
-    :wq
-    ```
+     ```bash
+     :wq
+     ```
 
 1. Skapa en Terraform-plan för att visualisera distributionen av VM-skalningsuppsättningen. (Du måste ange ett lösenord som du väljer, samt platsen för dina resurser.)
 
-  ```bash
-  terraform plan
-  ```
+    ```bash
+    terraform plan
+    ```
 
-  Kommandots utdata ska se ut ungefär som följande skärmbild:
+    Kommandots utdata ska se ut ungefär som följande skärmbild:
 
-  ![Utdata från skapandet av VM-skalningsuppsättningen](./media/terraform-create-vm-scaleset-network-disks-hcl/add-mvss-plan.png)
+    ![Utdata från skapandet av VM-skalningsuppsättningen](./media/terraform-create-vm-scaleset-network-disks-hcl/add-mvss-plan.png)
 
 1. Distribuera de nya resurserna i Azure.
 
-  ```bash
-  terraform apply
-  ```
+    ```bash
+    terraform apply
+    ```
 
-  Kommandots utdata ska se ut ungefär som följande skärmbild:
+    Kommandots utdata ska se ut ungefär som följande skärmbild:
 
-  ![Resursgrupp för VM-skalningsuppsättning med Terraform](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents.png)
+    ![Resursgrupp för VM-skalningsuppsättning med Terraform](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents.png)
 
 1. Öppna en webbläsare och anslut till det fullständigt kvalificerade domännamnet som returnerades av kommandot.
 
-  ![Resultat av att bläddra till det fullständigt kvalificerade domännamnet](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
+    ![Resultat av att bläddra till det fullständigt kvalificerade domännamnet](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
 
 ## <a name="add-an-ssh-jumpbox"></a>Lägg till en SSH-jumpbox
 En *SSH-jumpbox* är en enskild server som du "hoppar" genom för att komma åt andra servrar i nätverket. I det här steget konfigurerar du följande resurser:
@@ -450,25 +450,25 @@ En *SSH-jumpbox* är en enskild server som du "hoppar" genom för att komma åt 
 
 1. Öppna konfigurationsfilen `vmss.tf`.
 
-  ```bash
-  vi vmss.tf
-  ```
+   ```bash
+   vi vmss.tf
+   ```
 
 1. Gå till slutet av filen och använd läget för att lägga till genom att välja tangenten A.
 
 1. Klistra in följande kod i slutet av filen:
 
-  ```JSON
-  resource "azurerm_public_ip" "jumpbox" {
+   ```JSON
+   resource "azurerm_public_ip" "jumpbox" {
     name                         = "jumpbox-public-ip"
     location                     = "${var.location}"
     resource_group_name          = "${azurerm_resource_group.vmss.name}"
     allocation_method = "Static"
     domain_name_label            = "${random_string.fqdn.result}-ssh"
     tags                         = "${var.tags}"
-  }
+   }
 
-  resource "azurerm_network_interface" "jumpbox" {
+   resource "azurerm_network_interface" "jumpbox" {
     name                = "jumpbox-nic"
     location            = "${var.location}"
     resource_group_name = "${azurerm_resource_group.vmss.name}"
@@ -481,9 +481,9 @@ En *SSH-jumpbox* är en enskild server som du "hoppar" genom för att komma åt 
     }
 
     tags = "${var.tags}"
-  }
+   }
 
-  resource "azurerm_virtual_machine" "jumpbox" {
+   resource "azurerm_virtual_machine" "jumpbox" {
     name                  = "jumpbox"
     location              = "${var.location}"
     resource_group_name   = "${azurerm_resource_group.vmss.name}"
@@ -515,24 +515,24 @@ En *SSH-jumpbox* är en enskild server som du "hoppar" genom för att komma åt 
     }
 
     tags = "${var.tags}"
-  }
-  ```
+   }
+   ```
 
 1. Öppna konfigurationsfilen `output.tf`.
 
-  ```bash
-  vi output.tf
-  ```
+   ```bash
+   vi output.tf
+   ```
 
 1. Gå till slutet av filen och använd läget för att lägga till genom att välja tangenten A.
 
 1. Klistra in följande kod i slutet av filen för att visa jumpboxens värdnamn när distributionen är klar:
 
-  ```
-  output "jumpbox_public_ip" {
+   ```
+   output "jumpbox_public_ip" {
       value = "${azurerm_public_ip.jumpbox.fqdn}"
-  }
-  ```
+   }
+   ```
 
 1. Avsluta infogningsläget genom att trycka på tangenten Esc.
 
@@ -544,9 +544,9 @@ En *SSH-jumpbox* är en enskild server som du "hoppar" genom för att komma åt 
 
 1. Distribuera jumpboxen.
 
-  ```bash
-  terraform apply
-  ```
+   ```bash
+   terraform apply
+   ```
 
 När distributionen är klar påminner innehållet i resursgruppen om följande skärmbild:
 

@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: da7556b909ec4eb544a6b4e4fab7af4a0919a158
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 2b069e55d98da824363dc480c211cde0fcc2518c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308184"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090822"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar för aktivitetsloggar med Azure Monitor  
 
@@ -27,13 +27,13 @@ Dessa aviseringar är för Azure-resurser kan skapas med hjälp av en Azure Reso
 ## <a name="azure-portal"></a>Azure Portal
 
 > [!NOTE]
-
+> 
 >  När du skapar varningsreglerna måste du kontrollera följande:
-
+> 
 > - Prenumerationen i omfånget är inte skiljer sig från prenumerationen där aviseringen har skapats.
-- Villkor måste vara nivå/status/anroparen / resursgrupp / resurs-id / resurstyp / händelsekategori som aviseringen konfigureras.
-- Det finns ingen ”anyOf” villkor eller kapslade villkor i varningskonfigurationen JSON (i princip bara en allOf tillåts med inga ytterligare allOf/anyOf).
-- När är kategorin ”administrativa”. Du måste ange minst en av de föregående kriterierna i aviseringen. Du kan inte skapa en avisering som aktiveras varje gång en händelse skapas i aktivitetsloggarna.
+> - Villkor måste vara nivå/status/anroparen / resursgrupp / resurs-id / resurstyp / händelsekategori som aviseringen konfigureras.
+> - Det finns ingen ”anyOf” villkor eller kapslade villkor i varningskonfigurationen JSON (i princip bara en allOf tillåts med inga ytterligare allOf/anyOf).
+> - När är kategorin ”administrativa”. Du måste ange minst en av de föregående kriterierna i aviseringen. Du kan inte skapa en avisering som aktiveras varje gång en händelse skapas i aktivitetsloggarna.
 
 ### <a name="create-with-azure-portal"></a>Skapa med Azure portal
 
@@ -50,35 +50,36 @@ Följ dessa steg:
 
 3. **Definiera avisering villkor** anger följande information och klickar på **klar**.
 
-    - **Aviseringsmål:** Om du vill visa och välja målet för den nya aviseringen, använda **filtrera efter prenumeration** / **filtrera efter resurstyp** och välj en resurs eller resursgrupp från listan som visas.
+   - **Aviseringsmål:** Om du vill visa och välja målet för den nya aviseringen, använda **filtrera efter prenumeration** / **filtrera efter resurstyp** och välj en resurs eller resursgrupp från listan som visas.
 
-    > [!NOTE]
+     > [!NOTE]
+     > 
+     > Du kan välja en resurs, resursgrupp eller en hel aktivitetsloggsignal-prenumeration.
 
-    > Du kan välja en resurs, resursgrupp eller en hel aktivitetsloggsignal-prenumeration.
+     **Avisera target exempelvy**
+     ![Välj mål](media/alerts-activity-log/select-target.png)
 
-    **Avisera target exempelvy** ![Välj mål](media/alerts-activity-log/select-target.png)
+   - Under **Target kriterier**, klickar du på **lägga till villkor** och alla tillgängliga signaler för målet visas även de från olika kategorier av **aktivitetsloggen**; Kategorinamn sist i **Monitor Service** namn.
 
-    - Under **Target kriterier**, klickar du på **lägga till villkor** och alla tillgängliga signaler för målet visas även de från olika kategorier av **aktivitetsloggen**; Kategorinamn sist i **Monitor Service** namn.
+   - Välj signalen från listan som visas på olika åtgärder som möjligt för typen **aktivitetsloggen**.
 
-    - Välj signalen från listan som visas på olika åtgärder som möjligt för typen **aktivitetsloggen**.
+     Du kan välja log historik tidslinje och motsvarande avisering logiken för signalen mål:
 
-    Du kan välja log historik tidslinje och motsvarande avisering logiken för signalen mål:
+     **Lägg till kriterier skärm**
 
-    **Lägg till kriterier skärm**
+     ![Lägg till villkor](media/alerts-activity-log/add-criteria.png)
 
-    ![Lägg till villkor](media/alerts-activity-log/add-criteria.png)
+     **Historik över tid**: Händelser som är tillgängliga för valda åtgärden är kan ritas över de senaste 6/12/24 timmar (eller) under den senaste veckan.
 
-    **Historik över tid**: Händelser som är tillgängliga för valda åtgärden är kan ritas över de senaste 6/12/24 timmar (eller) under den senaste veckan.
-
-    **Avisera logic**:
+     **Avisera logic**:
 
      - **Händelsenivå**-allvarlighetsgrad för händelsen. _Utförlig_, _endast i informationssyfte_, _varning_, _fel_, eller _kritiska_.
      - **Status**: Status för händelsen. _Igång_, _misslyckades_, eller _lyckades_.
      - **Händelsen initierad av**: Även känt som anroparen; E-postadress eller Azure Active Directory-ID för användaren som utförde åtgärden.
 
-        Exemplet signalen diagram med aviseringslogiken tillämpas:
+       Exemplet signalen diagram med aviseringslogiken tillämpas:
 
-        ![ kriterier som har valts](media/alerts-activity-log/criteria-selected.png)
+       ![ kriterier som har valts](media/alerts-activity-log/criteria-selected.png)
 
 4. Under **definiera Varningsregler information**, anger du följande information:
 
@@ -115,15 +116,15 @@ Du kan också en enkel liknelse för förstå villkor som Varningsregler kan ska
 
     Du kan använda de tillgängliga filtren - _prenumeration_, _resursgrupp_, _Resource_, _signaltyp_, eller _Status_  att hitta aktiviteten regeln som du vill redigera.
 
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   > Du kan bara redigera **beskrivning** , **rikta kriterier** och **åtgärdsgrupper**.
 
-    > Du kan bara redigera **beskrivning** , **rikta kriterier** och **åtgärdsgrupper**.
+3. Väljer du regeln och dubbelklicka för att redigera regelalternativ för. Gör nödvändiga ändringar och klicka sedan på **spara**.
 
-3.  Väljer du regeln och dubbelklicka för att redigera regelalternativ för. Gör nödvändiga ändringar och klicka sedan på **spara**.
+   ![ Hantera Varningsregler](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
-    ![ Hantera Varningsregler](media/alerts-activity-log/activity-log-rule-edit-page.png)
-
-4.  Du kan inaktivera, aktivera eller ta bort en regel. Välj lämpligt alternativ överst i fönstret när du har valt regeln som beskrivs i steg 2.
+4. Du kan inaktivera, aktivera eller ta bort en regel. Välj lämpligt alternativ överst i fönstret när du har valt regeln som beskrivs i steg 2.
 
 
 ## <a name="azure-resource-template"></a>Azure Resource Template

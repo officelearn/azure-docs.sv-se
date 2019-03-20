@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: d5ed8da4ea527e350b1ff73d0bd188cdad2caf71
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ad58b8f1034a0e2818d3aca53c023736da9370cb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189225"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119929"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Integrering med Azure Stack-datacenter
 
@@ -116,32 +116,32 @@ Flera steg måste utföras av partnern innan lösningen skickas till kunden i fa
 
 Åtgärder som vidtas av OEM-Partner är:
 
--   [Kör test-azurestack](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
+- [Kör test-azurestack](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
 
--   [Registrering med Azure](azure-stack-registration.md)
+- [Registrering med Azure](azure-stack-registration.md)
 
--   [Marketplace-syndikering](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
+- [Marketplace-syndikering](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
 
--   Säkerhetskopiering växelkonfiguration och HLH konfigurationsfiler
+- Säkerhetskopiering växelkonfiguration och HLH konfigurationsfiler
 
--   Ta bort DVM
+- Ta bort DVM
 
--   Förbereda en sammanfattning av kund för distribution
+- Förbereda en sammanfattning av kund för distribution
 
--   [Kontrollera uppdateringar att kontrollera att lösningen-klientprogramvara uppdateras till den senaste versionen](.\azure-stack-updates.md)
+- [Kontrollera uppdateringar att kontrollera att lösningen-klientprogramvara uppdateras till den senaste versionen](./azure-stack-updates.md)
 
 Det finns flera steg som är obligatoriska eller valfria beroende på installationstypen av.
 
--   Om distributionen slutfördes med [AD FS](azure-stack-integrate-identity.md), sedan Azure Stack stämpel måste integreras med kundens användarens egna AD FS.
+- Om distributionen slutfördes med [AD FS](azure-stack-integrate-identity.md), sedan Azure Stack stämpel måste integreras med kundens användarens egna AD FS.
 
   > [!NOTE]
   > Det här steget är ansvar för kunden, även om partnern kan välja att erbjuda tjänster för att göra detta.
 
--   Integrering med en befintlig övervakningssystemet från respektive partner.
+- Integrering med en befintlig övervakningssystemet från respektive partner.
 
-    -   [System Center Operations Manager Integration](azure-stack-integrate-monitor.md) stöder också funktioner för hantering av vagnpark.
+  -   [System Center Operations Manager Integration](azure-stack-integrate-monitor.md) stöder också funktioner för hantering av vagnpark.
 
-    -   [Nagios-integrering](azure-stack-integrate-monitor.md#integrate-with-nagios)
+  -   [Nagios-integrering](azure-stack-integrate-monitor.md#integrate-with-nagios)
 
 ## <a name="overall-timeline"></a>Övergripande tidslinje
 

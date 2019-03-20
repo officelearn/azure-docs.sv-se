@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff9d025980f80cb77246ea12dbf2e9bcedd73f86
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e5efe0516d1b2dd387532d31a0a6654e6651fe41
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38705892"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011734"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Konfigurera privata IP-adresser för en virtuell dator med Azure portal
 
@@ -49,7 +49,7 @@ Du kan inte ange en statisk privat IP-adress under genereringen av en virtuell d
 
 Skapa en virtuell dator med namnet *DNS01* i den *klientdel* undernät i ett virtuellt nätverk med namnet *TestVNet*, Följ dessa steg:
 
-1. Navigera till http://portal.azure.com från en webbläsare och logga in med ditt Azure-konto vid behov.
+1. Navigera till https://portal.azure.com från en webbläsare och logga in med ditt Azure-konto vid behov.
 2. Klicka på **skapa en resurs** > **Compute** > **Windows Server 2012 R2 Datacenter**, Observera att den **väljer du en distribution modellen** redan lista visas **Resource Manager**, och klicka sedan på **skapa**enligt följande bild.
    
     ![Skapa virtuell dator i Azure-portalen](./media/virtual-networks-static-ip-arm-pportal/figure01.png)
@@ -67,7 +67,7 @@ Skapa en virtuell dator med namnet *DNS01* i den *klientdel* undernät i ett vir
     -**Storage-konto**: *vnetstorage*
    
    * **Nätverk**: *TestVNet*
-   * **Undernät**: *klientdel*
+   * **Undernät**: *Klientdel*
      
      ![Välj en storlek-fönstret](./media/virtual-networks-static-ip-arm-pportal/figure05.png)     
 7. I den **sammanfattning** fönstret klickar du på **OK**. Observera följande panel visas på instrumentpanelen.

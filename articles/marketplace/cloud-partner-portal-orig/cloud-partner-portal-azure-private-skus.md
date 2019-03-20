@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 519f0354f2a19e106ca1072170721b27357d173e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: dcc8b9fef75ba13b607d7fdda5bd55cc710165b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849215"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837022"
 ---
 <a name="private-skus-and-plans"></a>Privat SKU: er och planer
 ============
 
-Privat SKU: er kan du begränsa tillgängligheten för SKU: er till specifika kunder. När en SKU har markerats som privat, det är inte tillgängligt i alla offentliga katalogen, inklusive på [Azure Marketplace](https://azuremarketplace.microsoft.com) och [Azure-portalen](http://portal.azure.com). På Azure-portalen Se bara kunder med åtkomst till SKU: N den. Dessutom kan ombeds de också att de har åtkomst till privata erbjudanden.
+Privat SKU: er kan du begränsa tillgängligheten för SKU: er till specifika kunder. När en SKU har markerats som privat, det är inte tillgängligt i alla offentliga katalogen, inklusive på [Azure Marketplace](https://azuremarketplace.microsoft.com) och [Azure-portalen](https://portal.azure.com). På Azure-portalen Se bara kunder med åtkomst till SKU: N den. Dessutom kan ombeds de också att de har åtkomst till privata erbjudanden.
 
 >[!NOTE]
 >Privat SKU: er måste ha nya unika SKU /-planen ID: N att undvika eventuella konflikter med dina offentliga SKU: er.

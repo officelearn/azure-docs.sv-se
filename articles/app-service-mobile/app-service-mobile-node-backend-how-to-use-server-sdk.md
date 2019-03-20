@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 4e478c2559ac534f595393fdc36b95ad8e9c989a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725039"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997543"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Hur du använder Mobile Apps Node.js-SDK
 
@@ -93,9 +93,9 @@ Det här programmet skapar en mobiloptimerad webb-API med en enda slutpunkt (`/t
 * [Snabbstart för Apache Cordova-klient]
 * [iOS klienten Snabbstart]
 * [Snabbstart för Windows Store-klienten]
-* [Snabbstart för Xamarin.iOS-klienten]
-* [Snabbstart för Xamarin.Android-klienten]
-* [Snabbstart för Xamarin.Forms-klienten]
+* [Xamarin.iOS Client quickstart]
+* [Xamarin.Android Client quickstart]
+* [Xamarin.Forms Client quickstart]
 
 Du hittar koden för det här grundläggande programmet i den [basicapp exemplet på GitHub].
 
@@ -135,7 +135,7 @@ Visual Studio 2015 kräver ett tillägg för att utveckla Node.js-program i din 
 
     Spara filen.
 
-1. Antingen köra programmet lokalt (API: et levereras på http://localhost:3000) eller publicera till Azure.
+1. Antingen köra programmet lokalt (API: et levereras på `http://localhost:3000`) eller publicera till Azure.
 
 ### <a name="create-node-backend-portal"></a>Skapa en Node.js-serverdel med hjälp av Azure portal
 
@@ -370,10 +370,10 @@ Vi rekommenderar att du lägger till **azureMobile.js** till din **.gitignore** 
 
 De flesta inställningarna i filen azureMobile.js har en motsvarande appinställning i den [Azure Portal]. Använd listan nedan för att konfigurera din app i **appinställningar**:
 
-| App-inställning | azureMobile.js inställningen | Beskrivning | Giltiga värden |
+| App-inställning | azureMobile.js setting | Beskrivning | Giltiga värden |
 |:--- |:--- |:--- |:--- |
 | **MS_MobileAppName** |namn |Namnet på appen |sträng |
-| **MS_MobileLoggingLevel** |Logging.level |Minimiloggnivå meddelanden att logga in |fel, varning, information, utförlig, felsökning, stökigt – |
+| **MS_MobileLoggingLevel** |logging.level |Minimiloggnivå meddelanden att logga in |fel, varning, information, utförlig, felsökning, stökigt – |
 | **MS_DebugMode** |felsök |Aktiverar eller inaktiverar felsökningsläge |SANT, FALSKT |
 | **MS_TableSchema** |data.schema |Standardnamnet för schemat för SQL-tabeller |String (standard: dbo) |
 | **MS_DynamicSchema** |data.dynamicSchema |Aktiverar eller inaktiverar felsökningsläge |SANT, FALSKT |
@@ -794,7 +794,7 @@ var api = {
 module.exports = api;
 ```
 
-Varje parameter är en av de RESTful standardverb: Hämta, publicera, uppdatera eller ta bort. Metoden är en standard [ExpressJS mellanprogram] funktion som skickar krävs utdata.
+Varje parameter är en av de RESTful standardverb: Hämta, publicera, uppdatera eller ta bort. Metoden är en standard [ExpressJS middleware] funktion som skickar krävs utdata.
 
 ### <a name="howto-customapi-auth"></a>Kräv autentisering för åtkomst till ett anpassat API
 
@@ -958,9 +958,9 @@ Du kan redigera dina Node.js-backend-skriptfiler i App Service Editor utan att b
 [Snabbstart för Android-klient]: app-service-mobile-android-get-started.md
 [Snabbstart för Apache Cordova-klient]: app-service-mobile-cordova-get-started.md
 [iOS klienten Snabbstart]: app-service-mobile-ios-get-started.md
-[Snabbstart för Xamarin.iOS-klienten]: app-service-mobile-xamarin-ios-get-started.md
-[Snabbstart för Xamarin.Android-klienten]: app-service-mobile-xamarin-android-get-started.md
-[Snabbstart för Xamarin.Forms-klienten]: app-service-mobile-xamarin-forms-get-started.md
+[Xamarin.iOS Client quickstart]: app-service-mobile-xamarin-ios-get-started.md
+[Xamarin.Android Client quickstart]: app-service-mobile-xamarin-android-get-started.md
+[Xamarin.Forms Client quickstart]: app-service-mobile-xamarin-forms-get-started.md
 [Snabbstart för Windows Store-klienten]: app-service-mobile-windows-store-dotnet-get-started.md
 [synkronisering av offlinedata]: app-service-mobile-offline-data-sync.md
 [Konfigurera Azure Active Directory-autentisering]: ../app-service/configure-authentication-provider-aad.md
@@ -990,5 +990,5 @@ Du kan redigera dina Node.js-backend-skriptfiler i App Service Editor utan att b
 [Node.js Tools 1.1 för Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [MSSQL Node.js-paket]: https://www.npmjs.com/package/mssql
 [Microsoft SQL Server 2014 Express]: https://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
-[ExpressJS mellanprogram]: https://expressjs.com/guide/using-middleware.html
+[ExpressJS middleware]: https://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

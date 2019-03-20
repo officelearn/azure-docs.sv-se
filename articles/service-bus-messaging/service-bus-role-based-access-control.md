@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: a4d1c143b7d3277715386b43511ac908a36f85f0
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7ef152b130e77e833e19c51ff97d0cea577216c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844865"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845009"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Aktiva Directory Role-Based Access Control (förhandsversion)
 
@@ -57,7 +57,7 @@ Användarkontot har nu tillgång till Service Bus-namnrymd och i kön du skapade
 
 Innan du kan köra exempelprogrammet måste registrera den i Azure AD och Godkänn medgivande som tillåter programmet att få åtkomst till Azure Service Bus för dess räkning.
 
-Eftersom exempelprogrammet som är ett konsolprogram, måste du registrera ett internt program och lägga till API-behörigheter för **Microsoft.ServiceBus** till uppsättningen med ”nödvändiga behörigheter”. Interna program behöver också en **omdirigerings-URI** i Azure AD som fungerar som en identifierare; URI: N behöver inte vara ett mål för nätverket. Använd `http://servicebus.microsoft.com` eftersom exemplet code redan det här exemplet använder du denna URI.
+Eftersom exempelprogrammet som är ett konsolprogram, måste du registrera ett internt program och lägga till API-behörigheter för **Microsoft.ServiceBus** till uppsättningen med ”nödvändiga behörigheter”. Interna program behöver också en **omdirigerings-URI** i Azure AD som fungerar som en identifierare; URI: N behöver inte vara ett mål för nätverket. Använd `https://servicebus.microsoft.com` eftersom exemplet code redan det här exemplet använder du denna URI.
 
 Detaljerad registrering stegen beskrivs i [den här självstudien](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Följ stegen för att registrera en **interna** appen, och följ sedan instruktionerna update att lägga till den **Microsoft.ServiceBus** API för att behörigheterna som krävs. Du följer stegen anteckna den **TenantId** och **ApplicationId**, eftersom du behöver dessa värden när du kör programmet.
 

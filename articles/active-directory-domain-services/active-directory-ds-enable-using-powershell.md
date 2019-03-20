@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: ergreenl
-ms.openlocfilehash: 758183efd6a6a2c2b8d172c52ad3bd5c5e12d969
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f2c4f73af00e0093ce98f2de37e9c3a0ba381eda
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169152"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119912"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Aktivera Azure Active Directory Domain Services med hjälp av PowerShell
 Den här artikeln visar hur du aktiverar Azure Active Directory (AD) Domain Services med hjälp av PowerShell.
@@ -141,8 +141,7 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > **Glöm inte de ytterligare konfigurationsstegen när du har etablerat din hanterade domän.**
 > När din hanterade domän har etablerats fortfarande måste du utföra följande åtgärder:
 > * **[Uppdatera DNS-inställningarna](active-directory-ds-getting-started-dns.md)**  för det virtuella nätverket så att virtuella datorer kan hitta den hanterade domänen för en domänanslutning och autentisering.
-* **[Aktivera Lösenordssynkronisering till Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md)**, så att slutanvändarna kan logga in på den hanterade domänen med sina företagsuppgifter.
->
+> * **[Aktivera Lösenordssynkronisering till Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md)**, så att slutanvändarna kan logga in på den hanterade domänen med sina företagsuppgifter.
 
 
 ## <a name="powershell-script"></a>PowerShell-skript
@@ -226,8 +225,7 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > **Glöm inte de ytterligare konfigurationsstegen när du har etablerat din hanterade domän.**
 > När din hanterade domän har etablerats fortfarande måste du utföra följande åtgärder:
 > * Uppdatera DNS-inställningarna för det virtuella nätverket så att virtuella datorer kan hitta den hanterade domänen för en domänanslutning och autentisering.
-* Aktivera Lösenordssynkronisering till Azure AD Domain Services så att slutanvändarna kan logga in på den hanterade domänen med sina företagsuppgifter.
->
+> * Aktivera Lösenordssynkronisering till Azure AD Domain Services så att slutanvändarna kan logga in på den hanterade domänen med sina företagsuppgifter.
 
 ## <a name="next-steps"></a>Nästa steg
 När din hanterade domän har skapats kan du utföra följande konfigurationsåtgärder så att du kan använda den hanterade domänen:

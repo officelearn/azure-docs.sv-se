@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: af5d8e4146b7cf7b0b9c474b25b3ad48c9cb3902
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d433a480165424e47d4d84e67e7fd02648ebe2d1
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890040"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223435"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ansluta Windows-datorer till Log Analytics-tjänsten i Azure
 
@@ -34,7 +34,7 @@ Agenten kan installeras med någon av följande metoder. De flesta installatione
 * Resource Manager-mall för virtuella datorer som kör Windows lokalt i Azure Stack.  
 
 >[!NOTE]
->Azure Security Center (ASC) ska är beroende av Microsoft Monitoring Agent (kallas även för Log Analytics-Windows-agent) och installera och konfigurera den för att rapportera till en Log Analytics-arbetsyta som en del av distributionen. ASC innehåller ett alternativ för automatisk etablering som aktiverar automatisk installation av Windows för Log Analytics-agenten på alla virtuella datorer i din prenumeration och konfigurerar den för att rapportera till en viss arbetsyta. Mer information om det här alternativet finns i [aktivera automatisk etablering av Log Analytics-agenten](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-log-analytics-agent-).
+>Azure Security Center (ASC) ska är beroende av Microsoft Monitoring Agent (kallas även för Log Analytics-Windows-agent) och installera och konfigurera den för att rapportera till en Log Analytics-arbetsyta som en del av distributionen. ASC innehåller ett alternativ för automatisk etablering som aktiverar automatisk installation av Windows för Log Analytics-agenten på alla virtuella datorer i din prenumeration och konfigurerar den för att rapportera till en viss arbetsyta. Mer information om det här alternativet finns i [aktivera automatisk etablering av Log Analytics-agenten](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-microsoft-monitoring-agent-).
 >
 
 Om du vill förstå konfigurationen som stöds, så granska [de Windows-operativsystem som stöds](log-analytics-agent.md#supported-windows-operating-systems) och [nätverkets brandväggskonfiguration](log-analytics-agent.md#network-firewall-requirements).

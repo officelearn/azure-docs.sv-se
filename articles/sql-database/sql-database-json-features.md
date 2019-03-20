@@ -12,15 +12,15 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 02cec7f3696a43e8effe9d551c1f3e3fddc25ec8
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 77f6125980c43817230b8a8d4beb32757f23e6c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317211"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995485"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Komma igång med JSON-funktioner i Azure SQL Database
-Azure SQL Database kan du parsa och skicka frågor till data som visas i JavaScript Object Notation [(JSON)](http://www.json.org/) formatera och exportera din relationsdata som JSON-texten. Följande JSON-scenarier är tillgängliga i Azure SQL Database:
+Azure SQL Database kan du parsa och skicka frågor till data som visas i JavaScript Object Notation [(JSON)](https://www.json.org/) formatera och exportera din relationsdata som JSON-texten. Följande JSON-scenarier är tillgängliga i Azure SQL Database:
 - [Formatering i relationsdata i JSON-format](#formatting-relational-data-in-json-format) med `FOR JSON` satsen.
 - [Arbeta med JSON-data](#working-with-json-data)
 - [Hämtar data från JSON](#querying-json-data) med hjälp av JSON skalära funktioner.

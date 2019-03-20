@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
-ms.openlocfilehash: 104730d94134d935f56fb95fd55d05b515e9f501
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: fba6b5308b380b374611c09747302dbf8305dd9b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245573"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014988"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Distribuera IBM DB2 pureScale på Azure
 
 Den här artikeln beskriver hur du distribuerar en [exempel arkitektur](ibm-db2-purescale-azure.md) som en företagskund nyligen används för att migrera från dess IBM DB2-miljö som körs på z/OS till IBM DB2 pureScale på Azure.
 
-Om du vill följa de steg som används för migreringen, se installationsskript i den [DB2onAzure](http://aka.ms/db2onazure) arkivet på GitHub. Dessa skript baseras på arkitekturen för en typisk, medelstora online transaction processing (OLTP) arbetsbelastning.
+Om du vill följa de steg som används för migreringen, se installationsskript i den [DB2onAzure](https://aka.ms/db2onazure) arkivet på GitHub. Dessa skript baseras på arkitekturen för en typisk, medelstora online transaction processing (OLTP) arbetsbelastning.
 
 ## <a name="get-started"></a>Kom igång
 
-Om du vill distribuera arkitekturen genom att ladda ned och kör skriptet deploy.sh finns i den [DB2onAzure](http://aka.ms/db2onazure) arkivet på GitHub.
+Om du vill distribuera arkitekturen genom att ladda ned och kör skriptet deploy.sh finns i den [DB2onAzure](https://aka.ms/db2onazure) arkivet på GitHub.
 
 Databasen har också skript för att konfigurera en Grafana-instrumentpanel. Du kan använda instrumentpanelen för att fråga Prometheus, öppen källkod övervaknings- och aviseringssystemet som ingår i DB2.
 
@@ -76,29 +76,29 @@ När skripten skapar iSCSI-enhet kan är det sista steget att installera DB2 pur
 GitHub-lagringsplatsen innehåller DB2server.rsp, en svarsfil (.rsp) där du kan generera ett automatiserat skript för DB2 pureScale installationen. I följande tabell visas de DB2 pureScale alternativ som svarsfilen används för installation. Du kan anpassa svarsfilen som behövs för din miljö.
 
 > [!NOTE]
-> En exempelfil för svar, DB2server.rsp, som ingår i den [DB2onAzure](http://aka.ms/db2onazure) arkivet på GitHub. Om du använder den här filen kan redigera du den innan de fungerar i din miljö.
+> En exempelfil för svar, DB2server.rsp, som ingår i den [DB2onAzure](https://aka.ms/db2onazure) arkivet på GitHub. Om du använder den här filen kan redigera du den innan de fungerar i din miljö.
 
 | Skärmnamn               | Fält                                        | Värde                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | Välkommen                   |                                              | Ny installation                                                                                           |
 | Välj en produkt          |                                              | DB2 Version 11.1.3.3. Serverversioner med DB2 pureScale                                              |
-| Konfiguration             | Katalog                                    | /Data1/OPT/IBM/DB2/v11.1                                                                              |
+| Konfiguration             | Katalog                                    | /data1/opt/ibm/db2/V11.1                                                                              |
 |                           | Välj installationstypen                 | Vanliga                                                                                               |
 |                           | Jag samtycker till villkoren IBM                     | Markerad                                                                                               |
 | Instans-ägare            | Befintliga For användarinstans, användarnamn        | DB2sdin1                                                                                              |
 | Inhägnade användare               | Befintliga användare, användarnamn                     | DB2sdfe1                                                                                              |
-| Kluster-filsystem       | Delad disk partition enhetens sökväg            | /dev/DM-2                                                                                             |
-|                           | Monteringspunkt                                  | / DB2sd\_1804a                                                                                         |
-|                           | Delad disk för data                         | /dev/DM-1                                                                                             |
+| Kluster-filsystem       | Delad disk partition enhetens sökväg            | /dev/dm-2                                                                                             |
+|                           | Monteringspunkt                                  | /DB2sd\_1804a                                                                                         |
+|                           | Delad disk för data                         | /dev/dm-1                                                                                             |
 |                           | Monteringspunkt (Data)                           | / DB2fs/datafs1                                                                                        |
-|                           | Delad disk för logg                          | /dev/DM-0                                                                                             |
+|                           | Delad disk för logg                          | /dev/dm-0                                                                                             |
 |                           | Monteringspunkt (loggning)                            | / DB2fs/logfs1                                                                                         |
-|                           | DB2 Kluster Services Tiebreaker. Enhetens sökväg | /dev/DM-3                                                                                             |
+|                           | DB2 Kluster Services Tiebreaker. Enhetens sökväg | /dev/dm-3                                                                                             |
 | Värdlistan                 | D1 [eth1] d2 [eth1] cf1 [eth1] cf2 [eth1] |                                                                                                       |
-|                           | Prioriterade primära CF                         | CF1                                                                                                   |
+|                           | Prioriterade primära CF                         | cf1                                                                                                   |
 |                           | Prioriterade sekundära CF                       | cf2                                                                                                   |
 | Svarsfilen och sammanfattning | första alternativet                                 | Installera DB2 Server Edition med funktionen pureScale IBM DB2 och spara mina inställningar i en svarsfil |
-|                           | Svaret filnamn                           | /Root/DB2server.rsp                                                                                   |
+|                           | Svaret filnamn                           | /root/DB2server.rsp                                                                                   |
 
 ### <a name="notes-about-this-deployment"></a>Information om den här distributionen
 
@@ -138,7 +138,7 @@ GitHub-lagringsplatsen innehåller en kunskapsbas som författarna underhållas.
 
 -   Du bort DB2 pureScale och IBM Spectrum skala.
 
-Mer information om dessa och andra kända problem finns i filen kb.md i den [DB2onAzure](http://aka.ms/DB2onAzure) lagringsplatsen.
+Mer information om dessa och andra kända problem finns i filen kb.md i den [DB2onAzure](https://aka.ms/DB2onAzure) lagringsplatsen.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -148,7 +148,7 @@ Mer information om dessa och andra kända problem finns i filen kb.md i den [DB2
 
 -   [DB2icrt - skapa instans-kommando](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
 
--   [DB2 pureScale lösning för kluster](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+-   [DB2 pureScale lösning för kluster](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 
 -   [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 

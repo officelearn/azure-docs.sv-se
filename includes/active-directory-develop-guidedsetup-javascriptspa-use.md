@@ -4,7 +4,7 @@ description: ta med fil
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 4502799f3125ea5207dde70704e00105c763e8ce
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 0f4f890afd8c698bec8dbd76e8bb8dca710f4d6c
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193488"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203376"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Använd Microsoft Authentication Library (MSAL) för att logga in användaren
 
@@ -140,7 +140,7 @@ Anropa den *acquireTokenPopup(scope)* resulterar i ett popup-fönster (eller *ac
 
 #### <a name="getting-a-user-token-silently"></a>Hämta en token obevakat
 
-Den ` acquireTokenSilent` metoden hanterar token anskaffning och förnyelse utan någon användarinteraktion. Efter `loginPopup` (eller `loginRedirect`) körs för första gången `acquireTokenSilent` är den metod som ofta används för att hämta token som används för att komma åt skyddade resurser för efterföljande anrop - eftersom anrop till begära eller förnya token görs tyst.
+Metoden ` acquireTokenSilent` hanterar hämtning och förnyelse av token utan någon användarinteraktion. Efter `loginPopup` (eller `loginRedirect`) körs för första gången `acquireTokenSilent` är den metod som ofta används för att hämta token som används för att komma åt skyddade resurser för efterföljande anrop - eftersom anrop till begära eller förnya token görs tyst.
 `acquireTokenSilent` kanske inte kan utföras i vissa fall – till exempel användarens lösenord har upphört att gälla. Programmet kan hantera det här undantaget på två sätt:
 
 1. Göra ett anrop till `acquireTokenPopup` direkt, vilket innebär att uppmanar användaren att logga in. Det här mönstret används ofta i online-program där det finns inget oautentiserade innehåll i programmet tillgängligt för användaren. I exemplet som genererats av den här guidade konfigurationen används det här mönstret.

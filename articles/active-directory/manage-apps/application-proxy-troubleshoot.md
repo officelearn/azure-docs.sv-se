@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5895325aa929e44128c331db847252835f563796
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 32d218e057fa040eded07f0adc813485ddaa52fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437559"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080107"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Felsöka problem med Application Proxy och felmeddelanden
 Om fel uppstår i komma åt ett publicerat program eller publicera program kontrollerar du följande alternativ för att se om Microsoft Azure AD-programproxyn fungerar korrekt:
@@ -36,7 +36,7 @@ Mer information om verktyget Azure AD-felsökning finns i [felsökningsverktyget
 ## <a name="the-page-is-not-rendered-correctly"></a>Sidan renderas inte korrekt
 Du kan ha problem med programmet återgivning eller felaktigt fungerar utan att du får felmeddelanden. Detta kan inträffa om du har publicerat den artikel sökvägen, men programmet kräver innehåll som finns utanför den sökvägen.
 
-Exempel: Om du publicerar sökvägen https://yourapp/app men programmet anropar bilder https://yourapp/media, de återges inte. Se till att du publicerar program med den högsta nivån sökvägen måste du inkludera alla relevant innehåll. I det här exemplet skulle det vara http://yourapp/.
+Exempel: Om du publicerar sökvägen `https://yourapp/app` men programmet anropar bilder `https://yourapp/media`, de återges inte. Se till att du publicerar program med den högsta nivån sökvägen måste du inkludera alla relevant innehåll. I det här exemplet skulle det vara `http://yourapp/`.
 
 Om du ändrar sökvägen för att inkludera refererat innehåll, men fortfarande behöver användare alltid landar på en djupare länk i sökvägen finns i bloggposten [inställningen länken rätt for Application Proxy-program i Azure AD åtkomst till panelen och Office 365-appstartaren](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/).
 

@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 8b37f86706e47e3998a4ba85e4416ce1a8a44c22
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: dd625dba0e125ccf993af524a0ab0c0cc66555fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567099"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834225"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Självstudier: Push-meddelanden till specifika iOS-enheter med Azure Notification Hubs
 
@@ -49,14 +49,14 @@ Det första steget är att lägga till de UI-element i din befintliga storyboard
 
 1. I din **MainStoryboard_iPhone.storyboard** Lägg till följande komponenter från objektbiblioteket:
 
-    * Etikett med texten ”större nyheter”,
-    * Etiketter med kategorin text ”World”, ”politik”, ”företag”, ”teknik”, ”Science”, ”sport”
-    * Sex växlar, en per kategori, ange varje växel **tillstånd** vara **av** som standard.
-    * En knapp med etiketten ”Subscribe”
+   * Etikett med texten ”större nyheter”,
+   * Etiketter med kategorin text ”World”, ”politik”, ”företag”, ”teknik”, ”Science”, ”sport”
+   * Sex växlar, en per kategori, ange varje växel **tillstånd** vara **av** som standard.
+   * En knapp med etiketten ”Subscribe”
 
-    Din storyboard bör se ut så här:
+     Din storyboard bör se ut så här:
 
-    ![Xcode-gränssnittet builder][3]
+     ![Xcode-gränssnittet builder][3]
 
 2. I redigeraren assistent, skapa kanaler för alla växlar och anropa dem ”WorldSwitch”, ”PoliticsSwitch”, ”BusinessSwitch”, ”TechnologySwitch”, ”ScienceSwitch”, ”SportsSwitch”
 3. Skapa en åtgärd för din knapp som kallas `subscribe`; din `ViewController.h` bör innehålla följande kod:
@@ -359,11 +359,11 @@ I den här självstudien får skickat du broadcast-meddelanden till specifika iO
 [3]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
 
 <!-- URLs. -->
-[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: https://msdn.microsoft.com/library/jj927168.aspx
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-ios-xplat-localized-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
-[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
+[Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
 [Azure Portal]: https://portal.azure.com

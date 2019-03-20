@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4f60db91a1fb667586287873245fd5face343713
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 9098e92c594a5a6043888042f143cd875b02833d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427742"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007771"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med en Amazon-konto med hjälp av Azure Active Directory B2C
 
 ## <a name="create-an-amazon-application"></a>Skapa ett Amazon-program
 
-Att använda ett Amazon-konto som ett [identitetsprovider](active-directory-b2c-reference-oauth-code.md) i Azure Active Directory (Azure AD) B2C måste du skapa ett program i din klient som representerar den. Om du inte redan har en Amazon-konto kan du hämta den på [ https://www.amazon.com/ ](https://www.amazon.com/).
+Att använda ett Amazon-konto som ett [identitetsprovider](active-directory-b2c-reference-oauth-code.md) i Azure Active Directory (Azure AD) B2C måste du skapa ett program i din klient som representerar den. Om du inte redan har ett Amazon-konto kan du hämta den på [ https://www.amazon.com/ ](https://www.amazon.com/).
 
 1. Logga in på den [Amazon Developer Center](https://login.amazon.com/) med autentiseringsuppgifterna för ditt Amazon.
 2. Om du inte redan har gjort det, klickar du på **registrera dig**, av utvecklare registrering anvisningarna och acceptera principen.

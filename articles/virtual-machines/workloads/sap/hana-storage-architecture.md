@@ -14,16 +14,16 @@ ms.workload: infrastructure
 ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5c5f1d8d7a9c84d807db53933f0cbb176f9fb7f2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 02272ee16cf3303890a8ba6d35d38676e98c788c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551976"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006108"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Storage-arkitektur för SAP HANA (stora instanser)
 
-Lagringslayout för SAP HANA på Azure (stora instanser) har konfigurerats av SAP HANA på den klassiska distributionsmodellen per SAP rekommenderade riktlinjer. Riktlinjerna finns dokumenterade i den [lagringskrav för SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper om.
+Lagringslayout för SAP HANA på Azure (stora instanser) har konfigurerats av SAP HANA på den klassiska distributionsmodellen per SAP rekommenderade riktlinjer. Riktlinjerna finns dokumenterade i den [lagringskrav för SAP HANA](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper om.
 
 Den stora HANA-instansen av typen jag klassen har fyra gånger minne volymen lagringsvolym. Lagringen inte fyra gånger mer för Type II-klassen för stora HANA-instansen enheter. Enheterna levereras med en volym som är avsedd för att lagra HANA säkerhetskopieringar av transaktionsloggen. Mer information finns i [installera och konfigurera SAP HANA (stora instanser) på Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -100,10 +100,10 @@ Lagring som används i stora HANA-instanser har en filstorleksbegränsningen. De
 > [!IMPORTANT]
 > För att förhindra HANA försöker öka datafiler utöver 16 TB gränsen för filstorlek för lagring av stora HANA-instansen, måste du ange följande parametrar i konfigurationsfilen global.ini Hana
 > 
-- datavolume_striping=true
-- datavolume_striping_size_gb = 15000
-- Se även SAP anteckning [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
-- Tänk på SAP-kommentar [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
+> - datavolume_striping=true
+> - datavolume_striping_size_gb = 15000
+> - Se även SAP anteckning [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+> - Tänk på SAP-kommentar [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
 

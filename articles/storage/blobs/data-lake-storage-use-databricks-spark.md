@@ -1,19 +1,19 @@
 ---
 title: 'Självstudier: Få åtkomst till Azure Data Lake Storage Gen2-data med Azure Databricks med hjälp av Spark | Microsoft Docs'
-description: I den här självstudien lär du dig att köra Spark-frågor i ett Azure Databricks-kluster för att komma åt data i ett Azure Data Lake Storage Gen2-lagringskonto.
+description: Den här självstudiekursen visar hur du kör Spark frågor på en Azure Databricks-kluster för att komma åt data i ett Azure Data Lake Storage Gen2 storage-konto.
 services: storage
 author: dineshmurthy
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/29/2019
+ms.date: 03/11/2019
 ms.author: dineshm
-ms.openlocfilehash: 14e8d54b7b9cf579bb5dcbce595e2591c158b841
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: cd851502f901302987f562976c3c2f5d324cdeb5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585442"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902951"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Självstudier: Få åtkomst till Data Lake Storage Gen2-data med Azure Databricks med hjälp av Spark
 
@@ -28,11 +28,11 @@ I den här kursen ska du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skapa ett Azure Data Lake Storage Gen2-konto.
 
-  Se [Skapa ett Azure Data Lake Storage Gen2-konto](data-lake-storage-quickstart-create-account.md).
+  Se [skapa ett konto för Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
 
 * Se till att ditt användarkonto har tilldelats rollen [Storage Blob Data-deltagare](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac).
 
@@ -71,7 +71,7 @@ I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
 
 2. Ange följande värden under **Azure Databricks-tjänst** för att skapa en Databricks-tjänst:
 
-    |Egenskap  |Beskrivning  |
+    |Egenskap   |Beskrivning  |
     |---------|---------|
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan.  |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
@@ -147,12 +147,12 @@ I det här avsnittet skapar du ett filsystem och en mapp i lagringskontot.
 
    * `storage-account-name` är namnet på ditt Azure Data Lake Storage Gen2-lagringskonto.
 
-    > [!NOTE]
-    > I en produktionsinställning bör du överväga att lagra din autentiseringsnyckel i Azure Databricks. Sedan lägger du till en lookup-nyckel i kodblocket i stället för autentiseringsnyckeln. När du har slutfört den här snabbstarten kan du läsa artikeln [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) på Azure Databricks-webbplatsen för att se exemplen för den här metoden.
+   > [!NOTE]
+   > I en produktionsinställning bör du överväga att lagra din autentiseringsnyckel i Azure Databricks. Sedan lägger du till en lookup-nyckel i kodblocket i stället för autentiseringsnyckeln. När du har slutfört den här snabbstarten kan du läsa artikeln [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) på Azure Databricks-webbplatsen för att se exemplen för den här metoden.
 
 19. Tryck på **SKIFT + RETUR** för att köra koden i det här blocket.
 
-    Lämna den här anteckningsboken öppen eftersom du ska lägga till kommandon i den senare.
+   Lämna den här anteckningsboken öppen eftersom du ska lägga till kommandon i den senare.
 
 ## <a name="ingest-data"></a>Mata in data
 
@@ -171,9 +171,10 @@ Använd AzCopy till att kopiera data från *.csv*-filen till Data Lake Storage G
 2. Kopiera data från *.csv*-filen med följande kommando.
 
    ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
    ```
-   * Ersätt platshållarvärdet `<csv-folder-path>` med katalogsökvägen till *.csv*-filen (filnamnet undantaget).
+
+   * Ersätt den `<csv-folder-path>` platshållarvärdet med sökvägen till den *.csv* fil.
 
    * Ersätt platshållarvärdet `storage-account-name` med namnet på ditt lagringskonto.
 
@@ -181,28 +182,28 @@ Använd AzCopy till att kopiera data från *.csv*-filen till Data Lake Storage G
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Använda Databricks-anteckningsboken för att konvertera CSV till Parquet
 
-Lägg till en ny cell i anteckningsboken du skapade tidigare och klistra in följande kod i cellen. Ersätt platshållarvärdet `storage-account-name` i det här kodfragmentet med namnet på mappen där du sparade csv-filen.
+Lägg till en ny cell i anteckningsboken du skapade tidigare och klistra in följande kod i cellen. 
 
 ```python
 # Use the previously established DBFS mount point to read the data.
 # create a data frame to read data.
 
-flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/*.csv")
+flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/*.csv")
 
 # read the airline csv file and write the output to parquet format for easy query.
- flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
- print("Done")
- ```
+flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
+print("Done")
+```
 
 ## <a name="explore-data"></a>Utforska data
 
-Klistra in följande kod i en ny cell för att få en lista med CSV-filer som laddats upp via AzCopy. Ersätt platshållarvärdet `<csv-folder-path>` med samma värde för platshållaren som du använde tidigare.
+Klistra in följande kod i en ny cell för att få en lista med CSV-filer som laddats upp via AzCopy.
 
 ```python
 import os.path
 import IPython
 from pyspark.sql import SQLContext
-display(dbutils.fs.ls("/mnt/flightdata/On_Time/<your-folder-name>"))
+display(dbutils.fs.ls("/mnt/flightdata"))
 ```
 
 Kör det här skriptet om du vill skapa en ny fil och visa en lista med filerna i mappen *parquet/flights*:
@@ -220,13 +221,11 @@ Därefter kan du börja fråga efter de data du har laddat upp till ditt lagring
 
 Skapa dataramar för dina datakällor med följande skript:
 
-* Ersätt platshållarvärdet `<csv-folder-path>` med katalogsökvägen till *.csv*-filen (filnamnet undantaget).
-
-* Ersätt platshållarvärdet `<your-csv-file-name` med namnet på *csv*-filen.
+* Ersätt den `<csv-folder-path>` platshållarvärdet med sökvägen till den *.csv* fil.
 
 ```python
 #Copy this into a Cmd cell in your notebook.
-acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/<your-csv-file-name>.csv")
+acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time.csv")
 acDF.write.parquet('/mnt/flightdata/parquet/airlinecodes')
 
 #read the existing parquet file for the flights database that was created earlier

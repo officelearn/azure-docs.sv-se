@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/14/2019
 ms.author: monhaber
-ms.openlocfilehash: 98fffbc7a3b287dd59cfc681beec2107a5fd4ed6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d99ef6026f3605f4081393811d840ba3fe2892ba
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085056"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226121"
 ---
 # <a name="working-with-security-policies"></a>Arbeta med säkerhetsprinciper
 
@@ -119,8 +119,8 @@ Mer information om rekommendationer finns [hantera säkerhetsrekommendationer](s
 
    ![Inaktivera princip](./media/tutorial-security-policy/disable-policy.png)
 1. Klicka på **Spara**.
-> [!Note]
-> Inaktivera principändringar kan ta upp till 12 timmar ska börja gälla.
+   > [!Note]
+   > Inaktivera principändringar kan ta upp till 12 timmar ska börja gälla.
 
 
 ### <a name="configure-a-security-policy-using-the-rest-api"></a>Konfigurera en säkerhetsprincip med hjälp av REST-API

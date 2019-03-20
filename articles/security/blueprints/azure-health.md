@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 92b7714e9f6635cf0b44a98a16ddb4616643ba81
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5f23435a43d139ecb9f20e5036124f175b1830c9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544570"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225373"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-säkerhet och efterlevnad skissen - HIPAA/hitrust – hälsodata och AI
 
@@ -359,7 +359,7 @@ Lösningen har stöd för Azure Event Grid, en enskild tjänst för att hantera 
 - [Application Insights](/azure/application-insights/app-insights-overview) är en utökningsbar tjänst Application Performance Management (APM) för webbutvecklare på flera plattformar. Du kan använda den för att övervaka ditt live-webbprogram. Den identifierar prestandaavvikelser. Den inkluderar kraftfulla analysverktyg för att hjälpa dig diagnosticera problem och förstå vad användare faktiskt gör med din app. Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet.
 
 ### <a name="azure-alerts"></a>Azure-aviseringar
-- [Aviseringar erbjuder en metod för att övervaka Azure-tjänster så att du kan konfigurera villkor för över data. Aviseringar tillhandahåller även meddelanden när en varningsvillkor matchar övervakningsdata.
+- [Aviseringar](/azure/azure-monitor/platform/alerts-metric) erbjuder en metod för att övervaka Azure-tjänster så att du kan konfigurera villkor för över data. Aviseringar tillhandahåller även meddelanden när en varningsvillkor matchar övervakningsdata.
 
 ### <a name="azure-monitor-logs"></a>Azure Monitor-loggar
 [Azure Monitor-loggar](/azure/operations-management-suite/operations-management-suite-overview) är en samling hanteringstjänster.

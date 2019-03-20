@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: d48a1a1c9e220690649bbf60e9909a38d575c156
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: c2c8522e796fa43f08bf8ad2d61e70a8205d77b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651968"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183534"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Metodtips för pod säkerhet i Azure Kubernetes Service (AKS)
 
@@ -74,6 +74,8 @@ Följande [associerade AKS projekt med öppen källkod] [ aks-associated-project
 
 * Hanterade identiteter för Azure-resurser, och
 * Azure Key Vault FlexVol-drivrutin
+
+Associerade projekt med öppen källkod AKS stöds inte av teknisk support för Azure. De tillhandahålls för att samla in feedback och buggar från vår community. Dessa projekt rekommenderas inte för användning i produktion.
 
 ### <a name="use-pod-managed-identities"></a>Använd pod hanterade identiteter
 

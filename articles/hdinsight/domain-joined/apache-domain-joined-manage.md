@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: b1fc52ac46a6cdb73b9210833e437765398781ef
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0fec9173eb94aa60c3689089e4eacd2d9d47724a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819135"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200029"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Hantera HDInsight-kluster med Enterprise Security Package
 Lär dig användarna och roller i HDInsight Enterprise Security Package (ESP) och hur du hanterar ESP-kluster.
@@ -143,7 +143,7 @@ Använd informationen i den hantera HDInsight med hjälp av Ambari REST API-doku
 ## <a name="users-of-hdinsight-clusters-with-esp"></a>Användare av HDInsight-kluster med hjälp av ESP
 Ett icke - ESP HDInsight-kluster har två konton som skapas när klustret skapas:
 
-* **Ambari admin**: Det här kontot kallas även *Hadoop-användare* eller *HTTP-användare*. Det här kontot kan användas för att logga in på Ambari på https://&lt;klusternamn >. azurehdinsight.net. Det kan också användas för att köra frågor på Ambari-vyer, köra jobb via externa verktyg (till exempel PowerShell, Templeton, Visual Studio) och autentisera med Hive ODBC-drivrutinen och BI-verktyg (till exempel Excel, PowerBI eller Tableau).
+* **Ambari admin**: Det här kontot kallas även *Hadoop-användare* eller *HTTP-användare*. Det här kontot kan användas för att logga in på Ambari på https://&lt;klusternamn >. azurehdinsight.net. Det kan också användas för att köra frågor på Ambari-vyer, köra jobb via externa verktyg (till exempel PowerShell, Templeton, Visual Studio) och autentisera med Hive ODBC-drivrutinen och BI-verktyg (till exempel Excel, Power BI och Tableau).
 
 Ett HDInsight-kluster med ESP har tre nya användare förutom Ambari Admin.
 
@@ -179,7 +179,7 @@ Enterprise-säkerhetspaketet för HDInsight har följande roller:
 ## <a name="open-the-ambari-management-ui"></a>Öppna hanteringsgränssnittet för Ambari
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Öppna ditt HDInsight-kluster. Se [lista och visa kluster](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
+2. Öppna ditt HDInsight-kluster.
 3. Klicka på **instrumentpanelen** på den översta menyn för att öppna Ambari.
 4. Logga in på Ambari med klustret domänanvändarnamn och lösenord.
 5. Klicka på den **Admin** nedrullningsbara menyn från övre högra hörnet och klicka sedan på **hantera Ambari**.

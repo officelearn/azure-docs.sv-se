@@ -12,12 +12,12 @@ ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: d9a17bdad0bfa4965d36fbe2a2cf3a7890060e98
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 39298d34a0d29eb1e5a4234ffe0e0fcca844226e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772576"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858192"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Snabbstart: skapa en Linux-server-dator med Azure Stack-portalen
 
@@ -43,7 +43,7 @@ Du kan skapa en Ubuntu Server 16.04 LTS-dator med hjälp av Azure Stack-portalen
 
    Om du använder Azure Stack Development Kit (ASDK), kanske du inte har åtkomst till en SSH-klient. Om du behöver en klient, finns det flera paket som innehåller en SSH-klient. PuTTY innehåller till exempel en SSH-klient och en SSH-nyckelgenerator (puttygen.exe). Mer information om tillgängliga paket finns i följande Azure artikel: [Så här använder du SSH-nycklar med Windows på Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
-   Den här snabbstarten använder PuTTY för att generera SSH-nycklar och att ansluta till den virtuella datorn på Linux. Om du vill hämta och installera PuTTY, gå till [ https://www.putty.org/ ](http://www.putty.org).
+   Den här snabbstarten använder PuTTY för att generera SSH-nycklar och att ansluta till den virtuella datorn på Linux. Om du vill hämta och installera PuTTY, gå till [ https://www.putty.org/ ](https://www.putty.org).
 
 ## <a name="create-an-ssh-key-pair"></a>Skapa ett SSH-nyckelpar
 
@@ -77,8 +77,8 @@ Logga in på Azure Stack-portalen. Adressen för Azure Stack portal beror på vi
 
 4. Ange informationen om virtuella datorn. Välj **Offentlig SSH-nyckel** som **Autentiseringstyp**. Klistra in den offentliga SSH-nyckeln som du sparade och klicka sedan på **OK**.
 
-   >[!NOTE]
- Kontrollera att du tar bort eventuella inledande eller avslutande blanksteg för de nyckeln.
+   > [!NOTE]
+   > Kontrollera att du tar bort eventuella inledande eller avslutande blanksteg för de nyckeln.
 
    ![Grunderna i panelen – konfigurera en virtuell dator](media/azure-stack-quick-linux-portal/linux-01.PNG)
 
@@ -88,10 +88,10 @@ Logga in på Azure Stack-portalen. Adressen för Azure Stack portal beror på vi
 
 6. På den **inställningar** sidan, gör ändringarna av standardinställningarna.
    
-    - Från och med Azure Stack-version 1808, kan du konfigurera **Storage** där du kan välja att använda *hanterade diskar*. Före version 1808 kan endast ohanterade diskar användas.    
-      ![Konfigurera lagring för hanterade diskar](media/azure-stack-quick-linux-portal/linux-03.PNG)
+   - Från och med Azure Stack-version 1808, kan du konfigurera **Storage** där du kan välja att använda *hanterade diskar*. Före version 1808 kan endast ohanterade diskar användas.    
+     ![Konfigurera lagring för hanterade diskar](media/azure-stack-quick-linux-portal/linux-03.PNG)
     
-    När dina konfigurationer är klar, Välj **OK** att fortsätta.
+     När dina konfigurationer är klar, Välj **OK** att fortsätta.
 
 7. På den **sammanfattning** klickar du på **OK** att starta distributionen av virtuella datorn.  
    ![Distribuera](media/azure-stack-quick-linux-portal/deploy.png)

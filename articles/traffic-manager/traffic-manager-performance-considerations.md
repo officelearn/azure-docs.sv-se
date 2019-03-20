@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 454d06912c34a07b0b2617936769888e92adaba1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 85dd3cca081d492bfeefa3e8ea0d143c9c37af8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453668"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007941"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Prestandaöverväganden för Traffic Manager
 
@@ -42,11 +42,11 @@ Verktygen på dessa platser mått DNS svarstider och visa löst IP-adresser för
 
 ## <a name="sample-tools-to-measure-dns-performance"></a>Exempel-verktyg för att mäta DNS-prestanda
 
-* [SolveDNS](http://www.solvedns.com/dns-comparison/)
+* [SolveDNS](https://www.solvedns.com/dns-comparison/)
 
     SolveDNS erbjuder många prestandaverktyg. Jämförelse av DNS-verktyget kan du se hur lång tid det tar för att matcha DNS-namnet och hur som jämför för andra DNS-tjänster.
 
-* [WebSitePulse](http://www.websitepulse.com/help/tools.php)
+* [WebSitePulse](https://www.websitepulse.com/help/tools.php)
 
     Ett av de enklaste verktygen är WebSitePulse. Ange URL: en om du vill se DNS-matchningstid, första byten, sista byten och andra prestandastatistik. Du kan välja mellan tre olika testplatser. I det här exemplet ser du att den första körningen visar att DNS-sökning tar 0.204 sek.
 
@@ -62,15 +62,15 @@ Verktygen på dessa platser mått DNS svarstider och visa löst IP-adresser för
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 
-* [Pingdom](http://tools.pingdom.com/)
+* [Pingdom](https://tools.pingdom.com/)
 
     Det här verktyget förser prestandastatistik för varje element i en webbsida. Fliken sidan analys visar procentuella andelen tid som krävs för DNS-sökning.
 
-* [Vad är min DNS?](http://www.whatsmydns.net/)
+* [Vad är min DNS?](https://www.whatsmydns.net/)
 
     Den här platsen har en DNS-sökning från 20 olika platser och visar resultat på en karta.
 
-* [Fördjupa webbgränssnitt](http://www.digwebinterface.com)
+* [Fördjupa webbgränssnitt](https://www.digwebinterface.com)
 
     Den här platsen visar mer detaljerad DNS-information, inklusive CNAME-poster och A-poster. Kontrollera att du kontrollerar du 'Färga utdata ”och” statistik ”under Alternativ och Välj” alla ”under namnservrar.
 

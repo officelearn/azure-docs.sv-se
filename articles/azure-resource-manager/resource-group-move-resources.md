@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: 579c23fc3092acb785e89ddfa390e9495fc004d3
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 80577b4585a6c9e4ec83a8f21b358b7609d85268
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194535"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081261"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -25,7 +25,7 @@ Den här artikeln visar hur du flyttar Azure-resurser till en annan Azure-prenum
 
 Både källgruppen och målgruppen är låsta vid flytt. Skriv- och borttagningsåtgärder blockeras för resursgrupperna tills flytten är klar. Låset innebär att du inte kan lägga till, uppdatera eller ta bort resurser i resursgrupper, men det innebär inte att resurserna är låsta. Om du till exempel flyttar en SQL Server och dess databas till en ny resursgrupp sker inga avbrott för programmet som använder databasen. Det kan fortfarande läsa och skriva till databasen.
 
-En resurs flyttas bara flyttar det till en ny resursgrupp. Flyttåtgärden kan inte ändra platsen för resursen. Den nya resursgruppen kan ha en annan plats, men som ändra inte platsen för resursen.
+Att flytta resurs innebär bara att den flyttas till en ny resursgrupp. Flyttåtgärden kan inte ändra resursens plats. Den nya resursgruppen kan ha en annan plats, men som ändra inte platsen för resursen.
 
 > [!NOTE]
 > Den här artikeln beskriver hur du flytta resurser mellan befintliga Azure-prenumerationer. Om du verkligen vill uppgradera din Azure-prenumeration (till exempel byta från kostnadsfritt till betala per användning) måste konvertera din prenumeration.
@@ -255,58 +255,58 @@ Flytta klassiska resurser till en ny prenumeration genom att använda REST-åtg�
 
 1. Kontrollera om käll-prenumeration kan delta i en flytt mellan prenumerationer. Använd följande åtgärd:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+   ```
 
      I begärandetexten, inkluderar du:
 
-  ```json
-  {
+   ```json
+   {
     "role": "source"
-  }
-  ```
+   }
+   ```
 
      Svaret för valideringen har följande format:
 
-  ```json
-  {
+   ```json
+   {
     "status": "{status}",
     "reasons": [
       "reason1",
       "reason2"
     ]
-  }
-  ```
+   }
+   ```
 
 2. Kontrollera om målprenumerationen kan delta i en flytt mellan prenumerationer. Använd följande åtgärd:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+   ```
 
      I begärandetexten, inkluderar du:
 
-  ```json
-  {
+   ```json
+   {
     "role": "target"
-  }
-  ```
+   }
+   ```
 
      Svaret är i samma format som datakälla prenumerationen verifieringen.
 3. Om båda prenumerationerna passerar valideringen flytta alla klassiska resurser från en prenumeration till en annan prenumeration med följande åtgärd:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
+   ```
 
     I begärandetexten, inkluderar du:
 
-  ```json
-  {
+   ```json
+   {
     "target": "/subscriptions/{target-subscription-id}"
-  }
-  ```
+   }
+   ```
 
 Åtgärden kan ta flera minuter.
 
@@ -345,52 +345,52 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
 
 1. Käll- och målprenumerationer måste finnas inom samma [Azure Active Directory-klient](../active-directory/develop/quickstart-create-new-tenant.md). Om du vill kontrollera att båda prenumerationerna har samma klient-ID, använder du Azure PowerShell eller Azure CLI.
 
-  Använd för Azure PowerShell:
+   Använd för Azure PowerShell:
 
-  ```azurepowershell-interactive
-  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
-  ```
+   ```azurepowershell-interactive
+   (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+   (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
+   ```
 
-  Om du använder Azure CLI använder du:
+   Om du använder Azure CLI använder du:
 
-  ```azurecli-interactive
-  az account show --subscription <your-source-subscription> --query tenantId
-  az account show --subscription <your-destination-subscription> --query tenantId
-  ```
+   ```azurecli-interactive
+   az account show --subscription <your-source-subscription> --query tenantId
+   az account show --subscription <your-destination-subscription> --query tenantId
+   ```
 
-  Om klient-ID: N för käll- och målprenumerationer inte är samma, kan du använda följande metoder för att stämma av klient-ID: N:
+   Om klient-ID: N för käll- och målprenumerationer inte är samma, kan du använda följande metoder för att stämma av klient-ID: N:
 
-  * [Överföra ägarskap för en Azure-prenumeration till ett annat konto](../billing/billing-subscription-transfer.md)
-  * [Så här associerar du eller lägger till en prenumeration i din Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+   * [Överföra ägarskap för en Azure-prenumeration till ett annat konto](../billing/billing-subscription-transfer.md)
+   * [Så här associerar du eller lägger till en prenumeration i din Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. Målprenumerationen måste vara registrerad för resursprovidern för den resurs som flyttas. Om inte, du får ett felmeddelande om att den **prenumerationen har inte registrerats för en resurstyp**. Du kan se det här felet när du flyttar en resurs till en ny prenumeration, men att prenumerationen aldrig har använts med den resurstypen.
 
-  Använd följande kommandon för att hämta registreringsstatus PowerShell:
+   Använd följande kommandon för att hämta registreringsstatus PowerShell:
 
-  ```azurepowershell-interactive
-  Set-AzContext -Subscription <destination-subscription-name-or-id>
-  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
-  ```
+   ```azurepowershell-interactive
+   Set-AzContext -Subscription <destination-subscription-name-or-id>
+   Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+   ```
 
-  Om du vill registrera en resursleverantör, använder du:
+   Om du vill registrera en resursleverantör, använder du:
 
-  ```azurepowershell-interactive
-  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
-  ```
+   ```azurepowershell-interactive
+   Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+   ```
 
-  För Azure CLI, använder du följande kommandon för att hämta registreringsstatus:
+   För Azure CLI, använder du följande kommandon för att hämta registreringsstatus:
 
-  ```azurecli-interactive
-  az account set -s <destination-subscription-name-or-id>
-  az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
-  ```
+   ```azurecli-interactive
+   az account set -s <destination-subscription-name-or-id>
+   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
+   ```
 
-  Om du vill registrera en resursleverantör, använder du:
+   Om du vill registrera en resursleverantör, använder du:
 
-  ```azurecli-interactive
-  az provider register --namespace Microsoft.Batch
-  ```
+   ```azurecli-interactive
+   az provider register --namespace Microsoft.Batch
+   ```
 
 1. Det konto som flyttar resurser måste ha minst följande behörigheter:
 

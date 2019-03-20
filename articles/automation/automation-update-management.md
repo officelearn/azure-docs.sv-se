@@ -6,19 +6,19 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/04/2019
+ms.date: 03/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c8b25c0caf71835ccb5a055956d73a713efa5da0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 77f18a80c094fbaf58cfb09df38e5fa1c924329a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541221"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856200"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
-Du kan använda lösningen för uppdateringshantering i Azure Automation för att hantera uppdateringar av operativsystemet för dina Windows- och Linux-datorer som distribueras i Azure, lokala miljöer eller andra molnleverantörer. Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och hantera installationsprocessen för nödvändiga uppdateringar för servrar.
+Du kan använda lösningen för uppdateringshantering i Azure Automation för att hantera uppdateringar av operativsystemet för dina Windows- och Linux-datorer i Azure, lokala miljöer eller andra molnleverantörer. Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och hantera installationsprocessen för nödvändiga uppdateringar för servrar.
 
 Du kan aktivera uppdateringshantering för virtuella datorer direkt från Azure Automation-kontot. Information om hur du aktiverar uppdateringshantering för virtuella datorer från ditt Automation-konto, se [hantera uppdateringar för flera virtuella datorer](manage-update-multi.md). Du kan också aktivera uppdateringshantering för en virtuell dator från sidan virtuell dator i Azure-portalen. Det här scenariot är tillgänglig för [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) och [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtuella datorer.
 
@@ -35,7 +35,7 @@ Datorer som hanteras av uppdateringshantering Använd följande konfigurationer 
 
 Följande diagram visar en konceptuell vy över beteende och dataflöde över hur lösningen utvärderar och tillämpar säkerhetsuppdateringar till alla anslutna Windows Server och Linux-datorer i en arbetsyta:
 
-![Uppdatera processflöde för hantering](media/automation-update-management/update-mgmt-updateworkflow.png)
+![Uppdatera processflöde för hantering](./media/automation-update-management/update-mgmt-updateworkflow.png)
 
 Hantering av uppdateringar kan användas för att internt registrera datorer i flera prenumerationer i samma klientorganisation.
 
@@ -295,7 +295,7 @@ sudo yum -q --security check-update
 
 Det finns för närvarande inga metoden stöds-metoden för att aktivera interna klassificering-data tillgängliga på CentOS. För närvarande tillhandahålls endast mån support till kunder som kanske har aktiverat det på egen hand.
 
-## <a name="firstparty-predownload"></a>Första parts korrigeringar och förhandsnedladda
+## <a name="firstparty-predownload"></a>Avancerade inställningar
 
 Hantering av uppdateringar är beroende av Windows Update för att hämta och installera Windows-uppdateringar. Därför kan respekterar vi många av inställningarna som används av Windows Update. Om du använder inställningar för att aktivera icke-Windows-uppdateringar, hanterar uppdateringshantering även dessa uppdateringar. Om du vill aktivera hämtar uppdateringar innan en uppdateringsdistribution sker distributioner gå snabbare och är mindre troligt att överskrida underhållsfönstret.
 
@@ -311,9 +311,18 @@ $WUSettings.NotificationLevel = 3
 $WUSettings.Save()
 ```
 
+### <a name="disable-automatic-installation"></a>Inaktivera automatisk installation
+
+Virtuella Azure-datorer har automatisk installation av uppdateringar som är aktiverad som standard. Detta kan orsaka uppdateringar installeras innan du schemalägger dem ska kunna installeras med hantering av uppdateringar. Du kan inaktivera det här beteendet genom att ange den `NoAutoUpdate` registernyckeln till `1`. Följande PowerShell-kodavsnitt visar ett sätt att göra detta.
+
+```powershell
+$AutoUpdatePath = "HKLM:SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
+Set-ItemProperty -Path $AutoUpdatePath -Name NoAutoUpdate -Value 1
+```
+
 ### <a name="enable-updates-for-other-microsoft-products"></a>Aktivera uppdateringar för andra Microsoft-produkter
 
-Som standard innehåller Windows Update endast uppdateringar för Windows. Om du aktiverar **hämta uppdateringar för andra Microsoft-produkter när jag uppdaterar Windows**, får du uppdateringar för andra produkter, inklusive sådana saker säkerhetsuppdateringar för SQL Server eller andra första tillverkare. Det här alternativet kan inte konfigureras av en Grupprincip. Kör följande PowerShell på de system som du vill aktivera andra första part korrigeringsfiler på och uppdateringshantering följer den här inställningen.
+Som standard innehåller Windows Update endast uppdateringar för Windows. Om du aktiverar **hämta uppdateringar för andra Microsoft-produkter när jag uppdaterar Windows**, får du uppdateringar för andra produkter, inklusive säkerhetskorrigeringar för SQL Server eller andra första tillverkare. Det här alternativet kan inte konfigureras av en Grupprincip. Kör följande PowerShell på de system som du vill aktivera andra första part korrigeringsfiler på och uppdateringshantering följer den här inställningen.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -614,10 +623,6 @@ Ta bort en virtuell dator från hantering av uppdateringar:
 * I Log Analytics-arbetsytan, ta bort den virtuella datorn från den sparade sökningen för Omfattningskonfigurationen `MicrosoftDefaultScopeConfig-Updates`. Sparade sökningar finns under **Allmänt** i din arbetsyta.
 * Ta bort den [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) eller [Log Analytics-agenten för Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
-## <a name="troubleshoot"></a>Felsöka
-
-Läs hur du felsöker din uppdateringshantering i [felsökning uppdateringshantering](troubleshoot/update-management.md)
-
 ## <a name="next-steps"></a>Nästa steg
 
 Vill du fortsätta till självstudien om hur du hanterar uppdateringar för din Windows-datorer.
@@ -629,4 +634,4 @@ Vill du fortsätta till självstudien om hur du hanterar uppdateringar för din 
 * [Skapa aviseringar](automation-tutorial-update-management.md#configure-alerts) för status för uppdateringsdistributionen.
 
 * Läs hur du interagerar med uppdateringshantering via REST API i [Update konfigurationer](/rest/api/automation/softwareupdateconfigurations)
-
+* Läs hur du felsöker din uppdateringshantering i [felsökning uppdateringshantering](troubleshoot/update-management.md)

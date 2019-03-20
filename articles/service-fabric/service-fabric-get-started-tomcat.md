@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 8cd50cab555755a137114bf871cad57ddf7a9db5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3e93e822c5764a23bba124152ef5dfabf2d3f94f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872988"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223877"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Skapa Service Fabric-behållare som kör Apache Tomcat-servern på Linux
 Apache Tomcat är en populär implementering med öppen källkod av Java Servlet och Server med Java-tekniker. Den här artikeln visar hur du skapar en behållare med Apache Tomcat och ett enkelt webbprogram, distribuerar du behållaren till Service Fabric-kluster som kör Linux och ansluta till webbprogrammet.  
@@ -153,12 +153,12 @@ Nu när du har push-överfört Tomcat-avbildningen till ett behållarregister, k
 
    ```xml
    <Resources>
-     <Endpoints>
-       <!-- This endpoint is used by the communication listener to obtain the port on which to 
-        listen. Please note that if your service is partitioned, this port is shared with 
-        replicas of different partitions that are placed in your code. -->
-       <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
-     </Endpoints>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+       listen. Please note that if your service is partitioned, this port is shared with 
+       replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
+    </Endpoints>
    </Resources>
    ```
 
@@ -166,10 +166,10 @@ Nu när du har push-överfört Tomcat-avbildningen till ett behållarregister, k
 
    ```xml
    <Policies>
-     <ContainerHostPolicies CodePackageRef="Code">
-       <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
-       <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-     </ContainerHostPolicies>
+    <ContainerHostPolicies CodePackageRef="Code">
+      <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
+      <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+    </ContainerHostPolicies>
    </Policies>
    ```
 
@@ -183,31 +183,31 @@ Nu när du har push-överfört Tomcat-avbildningen till ett behållarregister, k
 
    * Om du vill ansluta till det lokala Service Fabric-klustret kör du:
 
-      ```bash
-      sfctl cluster select --endpoint http://localhost:19080
-      ```
+     ```bash
+     sfctl cluster select --endpoint http://localhost:19080
+     ```
     
    * Om du vill ansluta till ett säkert kluster i Azure, kontrollera att klientcertifikatet finns som en PEM-fil i den *ServiceFabricTomcat* katalogen och kör: 
 
-      ```bash
-      sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
-      ```
-      I det föregående kommandot ersätter `your-certificate.pem` med namnet på din klientcertifikatfilen. I utvecklings- och testmiljöer används ofta klustercertifikatet som på klientcertifikatet. Om certifikatet inte självsignerade utelämna den `-no-verify` parametern. 
+     ```bash
+     sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
+     ```
+     I det föregående kommandot ersätter `your-certificate.pem` med namnet på din klientcertifikatfilen. I utvecklings- och testmiljöer används ofta klustercertifikatet som på klientcertifikatet. Om certifikatet inte självsignerade utelämna den `-no-verify` parametern. 
        
-      Klustercertifikat hämtas vanligtvis lokalt som PFX-filer. Om du inte redan har certifikatet i PEM-format, kan du köra följande kommando för att skapa en PEM-fil från en PFX-fil:
+     Klustercertifikat hämtas vanligtvis lokalt som PFX-filer. Om du inte redan har certifikatet i PEM-format, kan du köra följande kommando för att skapa en PEM-fil från en PFX-fil:
 
-      ```bash
-      openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
-      ```
+     ```bash
+     openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
+     ```
 
-      Om din .pfx-filen inte är lösenordsskyddad, använda `-passin pass:` för den sista parametern.
+     Om din .pfx-filen inte är lösenordsskyddad, använda `-passin pass:` för den sista parametern.
 
 
 13. Kör installationsskriptet som medföljer mallen för att distribuera programmet till klustret. Skriptet kopierar programpaketet till klustrets avbildningsarkiv, registrerar programtypen och skapa en instans av programmet.
 
-      ```bash
-      ./install.sh
-      ```
+     ```bash
+     ./install.sh
+     ```
 
    När du har kört installationsskriptet, öppna en webbläsare och gå till Service Fabric Explorer:
     

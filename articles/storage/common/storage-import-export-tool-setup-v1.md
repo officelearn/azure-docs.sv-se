@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 6d8cf874032449e362a35d106bba3b430a80ea48
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: aafff208b9de2ae485fb84be428cf77f237e022e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467619"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087456"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Konfigurera Azure Import/Export-verktyget
 Microsoft Azure Import/Export-verktyget är den enhet förberedelser och reparera verktyg som du kan använda med Microsoft Azure Import/Export-tjänsten. Du kan använda verktyget för följande funktioner:  
@@ -45,36 +45,36 @@ Om du förbereder enheter för ett importjobb måste uppfylla följande krav:
   
 Om du vill reparera en import misslyckades delvis, behöver du:  
   
--   Kopiera loggfiler  
+- Kopiera loggfiler  
   
--   Lagringskontonyckeln  
+- Lagringskontonyckeln  
   
   Om du vill reparera en export misslyckades delvis, behöver du:  
   
--   Kopiera loggfiler  
+- Kopiera loggfiler  
   
--   Manifestet filer (valfritt)  
+- Manifestet filer (valfritt)  
   
--   Lagringskontonyckeln  
+- Lagringskontonyckeln  
   
 ## <a name="installing-the-azure-importexport-tool"></a>Installera verktyget Azure Import/Export  
  Verktyget Azure Import/Export består av följande filer:  
   
--   WAImportExport.exe  
+- WAImportExport.exe  
   
--   WAImportExport.exe.config  
+- WAImportExport.exe.config  
   
--   WAImportExportCore.dll  
+- WAImportExportCore.dll  
   
--   WAImportExportRepair.dll  
+- WAImportExportRepair.dll  
   
--   Microsoft.WindowsAzure.Storage.dll  
+- Microsoft.WindowsAzure.Storage.dll  
   
--   Hddid.dll  
+- Hddid.dll  
   
- Kopiera filerna till arbetskatalogen, till exempel `c:\WAImportExport`. Sedan öppnar ett kommandotolksfönster i administratörsläge och ange ovan katalog som den aktuella katalogen.  
+  Kopiera filerna till arbetskatalogen, till exempel `c:\WAImportExport`. Sedan öppnar ett kommandotolksfönster i administratörsläge och ange ovan katalog som den aktuella katalogen.  
   
- Köra verktyget utan parametrar för att generera hjälp för kommandot:  
+  Köra verktyget utan parametrar för att generera hjälp för kommandot:  
   
 ```  
 WAImportExport, a client tool for Microsoft Azure Import/Export service. Microsoft (c) 2013, 2014  

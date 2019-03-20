@@ -11,26 +11,23 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2a88781e17313557438e64492ab84f59018f9914
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: f2d2ded849af5054935b6bec8f74e021078b7641
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730184"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860437"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
-Azure Machine Learning-tjänsten finns flera sätt du kan distribuera tränade modellen med hjälp av SDK. I det här dokumentet lär du dig hur du distribuerar din modell som en webbtjänst i Azure-molnet, eller IoT Edge-enheter.
-
-> [!IMPORTANT]
-> Cross-origin resource sharing (CORS) stöds inte för närvarande när du distribuerar en modell som en webbtjänst.
+Azure Machine Learning SDK finns flera sätt du kan distribuera den tränade modellen. I det här dokumentet lär du dig hur du distribuerar din modell som en webbtjänst i Azure-molnet, eller IoT Edge-enheter.
 
 Du kan distribuera modeller till följande beräkning:
 
 | Beräkningsmål | Distributionstyp | Beskrivning |
 | ----- | ----- | ----- |
 | [Azure Kubernetes Service (AKS)](#aks) | I realtid inferens | Bra för Produktionsdistribution av hög skalbarhet. Tillhandahåller automatisk skalning och snabba svarstider. |
-| [Azure ML Compute](#azuremlcompute) | Batch inferens | Kör batch-förutsägelse på beräkning utan server. Har stöd för normal och lågprioriterade virtuella datorer. |
+| [Azure ML Compute](#azuremlcompute) | Batch inferens | Kör batch-förutsägelse på beräkning utan server. Stöder normalt och lågprioriterade virtuella datorer. |
 | [Azure Container Instances (ACI)](#aci) | Testning | Bra för utveckling och testning. **Inte lämplig för produktionsarbetsbelastningar.** |
 | [Azure IoT Edge](#iotedge) | (Förhandsversion) IoT-modul | Distribuera modeller på IoT-enheter. Inferensjobb sker på enheten. |
 | [Fältet-programmable gate array FPGA)](#fpga) | (Förhandsversion) Webbtjänst | Extremt låg latens för i realtid inferensjobb. |
@@ -42,6 +39,8 @@ Processen för att distribuera en modell är liknande för alla beräkningsmål:
 1. Distribuera avbildningen till ett beräkningsmål.
 1. Testa distributionen
 
+Följande videoklipp visar hur du distribuerar till Azure Container Instances:
+
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Kwk3]
 
 
@@ -49,32 +48,34 @@ Mer information om begrepp som ingår i arbetsflödet finns i [hantera, distribu
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) i dag.
+- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
 - En arbetsyta för Azure Machine Learning-tjänsten och Azure Machine Learning-SDK för Python installerat. Lär dig hur du hämtar dessa krav med hjälp av den [Kom igång med Azure Machine Learning Snabbstart](quickstart-get-started.md).
 
 - En tränad modell. Om du inte har en tränad modell, Följ stegen i den [träna modeller](tutorial-train-models-with-aml.md) självstudie för att träna och registrera en med Azure Machine Learning-tjänsten.
 
     > [!NOTE]
-    > Medan Azure Machine Learning-tjänsten kan arbeta med valfri allmän modell som kan läsas in i Python 3, visar exemplen i det här dokumentet med hjälp av en modell som lagras i pickle-format.
+    > Medan Azure Machine Learning-tjänsten kan arbeta med valfri allmän modell som kan läsas in i Python 3, visar exemplen i det här dokumentet med hjälp av en modell som lagras i Python pickle-format.
     > 
     > Mer information om hur du använder ONNX-modeller finns i den [ONNX och Azure Machine Learning](how-to-build-deploy-onnx.md) dokumentet.
 
 ## <a id="registermodel"></a> Registrera en träningsmodell
 
-Modell-registret är ett sätt att lagra och organisera dina tränade modeller i Azure-molnet. Modeller är registrerade i din arbetsyta för Azure Machine Learning-tjänsten. Modellen tränas med hjälp av Azure Machine Learning eller en annan tjänst. Använd följande kod för att registrera en modell från filen:
+Modell-registret är ett sätt att lagra och organisera dina tränade modeller i Azure-molnet. Modeller är registrerade i din arbetsyta för Azure Machine Learning-tjänsten. Modellen tränas med hjälp av Azure Machine Learning eller en annan tjänst. Följande kod visar hur du registrerar en modell från filen genom att ange ett namn, taggar och en beskrivning:
 
 ```python
 from azureml.core.model import Model
 
-model = Model.register(model_path = "model.pkl",
-                       model_name = "Mymodel",
+model = Model.register(model_path = "outputs/sklearn_mnist_model.pkl",
+                       model_name = "sklearn_mnist",
                        tags = {"key": "0.1"},
                        description = "test",
                        workspace = ws)
 ```
 
 **Uppskattad tidsåtgång**: Cirka 10 sekunder.
+
+Ett exempel med att registrera en modell finns i [träna en bild-klassificerare](tutorial-train-models-with-aml.md).
 
 Mer information finns i referensdokumentationen för den [Modellklass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
@@ -92,9 +93,7 @@ from azureml.core.image import ContainerImage
 # Image configuration
 image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                  runtime = "python",
-                                                 conda_file = "myenv.yml",
-                                                 description = "Image with ridge regression model",
-                                                 tags = {"data": "diabetes", "type": "regression"}
+                                                 conda_file = "myenv.yml"}
                                                  )
 ```
 
@@ -108,15 +107,19 @@ Viktiga parametrar i det här exemplet som beskrivs i följande tabell:
 | `runtime` | Anger att avbildningen använder Python. Ett annat alternativ är `spark-py`, som använder Python med Apache Spark. |
 | `conda_file` | Används för att ange en fil för conda-miljö. Den här filen definierar conda-miljö för distribuerad modell. Mer information om hur du skapar den här filen finns i [skapar du en miljöfil (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file). |
 
+Ett exempel för att skapa en avbildning konfiguration finns i [distribuera en avbildning klassificerare](tutorial-deploy-models-with-aml.md).
+
 Mer information finns i referensdokumentationen för [ContainerImage-klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)
 
 ### <a id="script"></a> Körning av skript
 
-Körning av skriptet tar emot data som skickas till en distribuerade avbildningen och skickar dem till modellen. Sedan tar svaret som returnerades av modellen och returnerar som till klienten. Skriptet är specifik för din modell; Det måste förstå de data som modellen förväntas och returnerar. Skriptet innehåller vanligtvis två funktioner som att läsa in och kör modellen:
+Körning av skriptet tar emot data som skickas till en distribuerade avbildningen och skickar dem till modellen. Sedan tar svaret som returnerades av modellen och returnerar som till klienten. **Skriptet är specifik för din modell**; den måste förstå de data som modellen förväntas och returnerar. Ett exempelskript som fungerar med en modell för klassificering av bild, se [distribuera en avbildning klassificerare](tutorial-deploy-models-with-aml.md).
 
-* `init()`: Den här funktionen läses vanligtvis in modellen till ett globala objekt. Den här funktionen körs endast en gång när Docker-containern startas. 
+Skriptet innehåller två funktioner som att läsa in och kör modellen:
 
-* `run(input_data)`: Den här funktionen använder modellen för att förutsäga ett värde baserat på indata. Indata och utdata kör du vanligtvis använda JSON för serialisering och deserialisering. Du kan också arbeta med binära rådata. Du kan omvandla data innan du skickar till modellen eller innan det returneras till klienten. 
+* `init()`: Den här funktionen läses vanligtvis in modellen till ett globala objekt. Den här funktionen körs endast en gång när Docker-containern startas.
+
+* `run(input_data)`: Den här funktionen använder modellen för att förutsäga ett värde baserat på indata. Indata och utdata kör du vanligtvis använda JSON för serialisering och deserialisering. Du kan också arbeta med binära rådata. Du kan omvandla data innan du skickar till modellen eller innan det returneras till klienten.
 
 #### <a name="working-with-json-data"></a>Arbeta med JSON-data
 
@@ -210,21 +213,18 @@ Mer information finns i referensdokumentationen för [ContainerImage klass](http
 
 När du kommer till distribution, är processen variera beroende på beräkningsmål som du distribuerar till. Använd informationen i följande avsnitt för att lära dig hur du distribuerar till:
 
-* [Azure Container Instances](#aci)
-* [Azure Kubernetes-tjänster](#aks)
-* [Project Brainwave (fältet-programmable gate Array)](#fpga)
-* [Azure IoT Edge-enheter](#iotedge)
+| Beräkningsmål | Distributionstyp | Beskrivning |
+| ----- | ----- | ----- |
+| [Azure Kubernetes Service (AKS)](#aks) | Webbtjänst (i realtid inferens)| Bra för Produktionsdistribution av hög skalbarhet. Tillhandahåller automatisk skalning och snabba svarstider. |
+| [Azure ML Compute](#azuremlcompute) | Webbtjänsten (Batch inferens)| Kör batch-förutsägelse på beräkning utan server. Stöder normalt och lågprioriterade virtuella datorer. |
+| [Azure Container Instances (ACI)](#aci) | Webbtjänsten (utveckling/testning)| Bra för utveckling och testning. **Inte lämplig för produktionsarbetsbelastningar.** |
+| [Azure IoT Edge](#iotedge) | (Förhandsversion) IoT-modul | Distribuera modeller på IoT-enheter. Inferensjobb sker på enheten. |
+| [Fältet-programmable gate array FPGA)](#fpga) | (Förhandsversion) Webbtjänst | Extremt låg latens för i realtid inferensjobb. |
 
-> [!NOTE]
-> När **distribueras som en webbtjänst**, det finns tre metoder för distribution som du kan använda:
->
-> | Metod | Anteckningar |
-> | ----- | ----- |
-> | [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) | Du måste registrera modellen och skapa en avbildning innan du använder den här metoden. |
-> | [Distribuera](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) | När du använder den här metoden kan behöver du inte registrera modellen eller skapa avbildningen. Men du kan inte styra namnet på modellen eller avbildning eller associerade taggar och beskrivningar. |
-> | [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) | När du använder den här metoden kan behöver du inte skapa en avbildning. Men du har inte kontroll över namnet på den avbildning som har skapats. |
->
-> Exemplen i det här dokumentet används `deploy_from_image`.
+> [!IMPORTANT]
+> Cross-origin resource sharing (CORS) stöds inte för närvarande när du distribuerar en modell som en webbtjänst.
+
+I exemplen i det här avsnittet används [deploy_from_image](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-), vilket kräver att du att registrera modellen och avbildning innan du gör en distribution. Mer information om andra distributionsmetoder finns [distribuera](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) och [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-).
 
 ### <a id="aci"></a> Distribuera till Azure Container Instances (DEVTEST)
 
@@ -235,7 +235,7 @@ Använd Azure Container Instances för att distribuera dina modeller som en webb
 
 Om du vill distribuera till Azure Container Instances, använder du följande steg:
 
-1. Definiera distributionskonfigurationen. I följande exempel definierar en konfiguration som använder en processorkärna och 1 GB minne:
+1. Definiera distributionskonfigurationen. Den här konfigurationen är beroende av kraven i din modell. I följande exempel definierar en konfiguration som använder en processorkärna och 1 GB minne:
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=configAci)]
 
@@ -243,7 +243,7 @@ Om du vill distribuera till Azure Container Instances, använder du följande st
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option3Deploy)]
 
-    **Uppskattad tidsåtgång**: Ca 3 minuter.
+    **Uppskattad tidsåtgång**: Cirka 5 minuter.
 
 Mer information finns i referensdokumentationen för den [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) och [webbtjänsten](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) klasser.
 
@@ -251,7 +251,10 @@ Mer information finns i referensdokumentationen för den [AciWebservice](https:/
 
 Använd Azure Kubernetes Service (AKS) för att distribuera din modell som en webbtjänst i produktionsmiljön för hög skalbarhet. Du kan använda ett befintligt AKS-kluster eller skapa en ny med SDK: N för Azure Machine Learning, CLI eller Azure-portalen.
 
-Skapa ett AKS-kluster är en tid processen för arbetsytan. Du kan återanvända det här klustret för flera distributioner. Om du tar bort klustret, måste du skapa ett nytt kluster nästa gång du behöver distribuera.
+Skapa ett AKS-kluster är en tid processen för arbetsytan. Du kan återanvända det här klustret för flera distributioner. 
+
+> [!IMPORTANT]
+> Om du tar bort klustret, måste du skapa ett nytt kluster nästa gång du behöver distribuera.
 
 Azure Kubernetes Service innehåller följande funktioner:
 
@@ -275,7 +278,7 @@ aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True,
 
 Beslut genom att skala upp och ned baserat på användning av de aktuella behållaren replikerna. Antal repliker som är upptagna (bearbetar en begäran) dividerat med totalen antalet aktuella repliker är den aktuella användningen. Om det här värdet överskrider målanvändning, skapas fler repliker. Om den är lägre, minskas repliker. Som standard är målanvändning 70%.
 
-Beslut att lägga till repliker är angelägen och fast (cirka 1 sekund). Beslut att ta bort repliker är konservativ (cirka 1 minut).
+Beslut att lägga till repliker görs och implementeras snabbt (cirka 1 sekund). Beslut att ta bort replikerna tar längre tid (cirka 1 minut). Det här beteendet från inaktiva repliker runt för en minut om nya förfrågningarna kommer att de kan hantera.
 
 Du kan beräkna krävs replikerna med hjälp av följande kod:
 
@@ -296,7 +299,7 @@ concurrentRequests = targetRps * reqTime / targetUtilization
 replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
-Mer information om hur `autoscale_target_utilization`, `autoscale_max_replicas`, och `autoscale_min_replicas`, finns i den [AksWebservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) modulreferens.
+Mer information om hur `autoscale_target_utilization`, `autoscale_max_replicas`, och `autoscale_min_replicas`, finns i den [AksWebservice.deploy_configuration](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none-) referens.
 
 #### <a name="create-a-new-cluster"></a>Skapa ett nytt kluster
 
@@ -349,7 +352,7 @@ aks_target.wait_for_completion(True)
 
 Mer information om hur du skapar ett AKS-kluster utanför Azure Machine Learning SDK finns i följande artiklar:
 
-* [Skapa ett AKS-clsuter](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
+* [Skapa ett AKS-kluster](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
 * [Skapa ett AKS-kluster (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
 #### <a name="deploy-the-image"></a>Distribuera avbildningen
@@ -456,7 +459,7 @@ Du kan hämta autentiseringsuppgifterna på två sätt:
 
 #### <a name="prepare-the-iot-device"></a>Förbereda IoT-enhet
 
-Du måste registrera din enhet med Azure IoT Hub och sedan installera IoT Edge-körningen på enheten. Om du inte är bekant med den här processen finns i [snabbstarten: Distribuera din första IoT Edge-modul till en enhet med Linux x64](../../iot-edge/quickstart-linux.md).
+Registrera din enhet med Azure IoT Hub och sedan installera IoT Edge-körningen på enheten. Om du inte är bekant med den här processen finns i [snabbstarten: Distribuera din första IoT Edge-modul till en enhet med Linux x64](../../iot-edge/quickstart-linux.md).
 
 Andra metoder för att registrera en enhet är:
 

@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: cforbe
-ms.author: cforbe
+author: sihhu
+ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1d483d14a08f589fc8d014a13a47008b9fb59690
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.openlocfilehash: ca49cb65331373832b00b8489d731d51e8a8e004
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984959"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182922"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Självstudier: Förbereda data för regressionsmodellering
 
@@ -33,7 +33,7 @@ I den här kursen för du göra följande:
 > * Transformera data med hjälp av intelligent transformering för att skapa nya funktioner.
 > * Spara dataflödesobjektet som ska användas i en regressionsmodell.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Gå vidare till [Ställ in din utvecklingsmiljö](#start) och läs igenom stegen för notebook eller följ instruktionerna nedan för att hämta din notebook och kör den på Azure Notebooks eller din egen Notebook-server. För att köra anteckningsboken behöver du:
 
@@ -318,7 +318,7 @@ combined_df.keep_columns(columns=[
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Typ</th>
+      <th>Type</th>
       <th>Min</th>
       <th>Max</th>
       <th>Antal</th>
@@ -470,7 +470,7 @@ latlong_filtered_df.keep_columns(columns=[
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Typ</th>
+      <th>Type</th>
       <th>Min</th>
       <th>Max</th>
       <th>Antal</th>
@@ -604,7 +604,7 @@ latlong_filtered_df.keep_columns(columns='store_forward').get_profile()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Typ</th>
+      <th>Type</th>
       <th>Min</th>
       <th>Max</th>
       <th>Antal</th>

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: cd0493d4fd126175acafce050394e65a47e9bda9
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: c9247b37e1e475892a1561c5667dc25275f67327
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650027"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104122"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Skapa en virtuell nätverkspeering - olika distributionsmodeller och -prenumerationer
 
@@ -60,7 +60,7 @@ Den här självstudien använder olika konton för varje prenumeration. Om du an
 10. Logga ut från portalen som UserA och sedan logga in som användare b.
 11. Klicka på **+ ny**, typ *virtuellt nätverk* i den **Sök på Marketplace** rutan och klicka sedan på **virtuellt nätverk** i sökresultatet.
 12. I den **virtuellt nätverk** bladet som visas, Välj **klassiska** i den **Välj en distributionsmodell** rutan och klicka sedan på **skapa**.
-13.   I skapa virtuellt nätverk (klassisk) rutan som visas anger du följande värden:
+13. I skapa virtuellt nätverk (klassisk) rutan som visas anger du följande värden:
 
     - **Name**: *myVnetB*
     - **Adressutrymme**: *10.1.0.0/16*

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e6e25424981118363070d42b2fb057b18fdb91a9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 0d743d89c344ce9cb6eec116ed9c3e0cbe56f86e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48812093"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878655"
 ---
 <a name="api-prerequisites"></a>API-krav
 ================
@@ -55,7 +55,7 @@ Använd följande steg för att lägga till tjänstens huvudnamn:
 
      ![Lägga till en hanterad app på portalen](./media/cloud-partner-portal-api-prerequisites/managedapp.png)
 
-4. Klicka på **Lägg till** att lägga till tjänstens huvudnamn till ditt konto.
+1. Klicka på **Lägg till** att lägga till tjänstens huvudnamn till ditt konto.
 
    ![Lägg till ett huvudnamn för tjänsten](./media/cloud-partner-portal-api-prerequisites/add-service-principal.jpg)
 
@@ -66,7 +66,7 @@ Använd följande steg för att lägga till tjänstens huvudnamn:
 Cloud Partner Portal-API: er kan du använda följande tillgångar och protokoll under autentisering:
 
 - En ägartoken för JSON Web Token (JWT) för att begära åtkomst till resurser
-- Den [OpenID Connect](http://openid.net/connect/) (OIDC)-protokollet för att verifiera identitet
+- Den [OpenID Connect](https://openid.net/connect/) (OIDC)-protokollet för att verifiera identitet
 - [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) som utfärdare för identitet
 
 Det finns två princip metoder för att programmässigt skaffa en JWT-token:

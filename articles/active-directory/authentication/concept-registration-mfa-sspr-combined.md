@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 03/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa9872ef76264956430bb69856a197042c196dfd
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6399f5b208bc4d7182622f29bd522cfc9a088e9d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550198"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224557"
 ---
 # <a name="combined-security-information-registration-preview"></a>Kombinerade security information registrering (förhandsversion)
 
@@ -68,11 +68,11 @@ När vi fortsätter att lägga till flera autentiseringsmetoder som sådana i Az
 
 ## <a name="combined-registration-modes"></a>Kombinerade registrerings lägen
 
-Det finns två ”lägen” kombinerade registrerings: Avbryt och hantera. 
+Det finns två ”lägen” kombinerade registrerings: Avbryt och hantera.
 
-Avbryter läge, är en guiden-liknande upplevelse som visas för en användare när de registrera eller uppdatera deras säkerhetsinformation vid inloggning. 
+Avbryter läge, är en guiden-liknande upplevelse som visas för en användare när de registrera eller uppdatera deras säkerhetsinformation vid inloggning.
 
-Hantera läge är en del av användarens profil och låter dem att hantera deras säkerhetsinformation. 
+Hantera läge är en del av användarens profil och låter dem att hantera deras säkerhetsinformation.
 
 För båda lägena, om en användare har redan registrerat en metod som kan användas för MFA, behöver de utföra MFA innan de kan komma åt deras säkerhetsinformation.
 

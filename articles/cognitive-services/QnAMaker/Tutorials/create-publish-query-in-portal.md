@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: b78c19d4fa6b2e5b69e5d7f46cea51d943b808fa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5635e0f669cec64bdbbf947099f980066a4aebc1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882156"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121425"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Självstudier: Skapa en kunskapsbas och besvara sedan fråga via QnA Maker-portalen
 
@@ -25,15 +25,15 @@ Den här självstudien vägleder dig genom att skapa och publicera en kunskapsba
 I den här guiden får du lära dig att: 
 
 > [!div class="checklist"]
-* Skapa en kunskapsbas i QnA Maker-portalen
-* Granska, spara och träna kunskapsbasen
-* Publicera kunskapsbasen
-* Använda Curl för att köra frågor mot kunskapsbasen
-
-> [!NOTE] 
+> * Skapa en kunskapsbas i QnA Maker-portalen
+> * Granska, spara och träna kunskapsbasen
+> * Publicera kunskapsbasen
+> * Använda Curl för att köra frågor mot kunskapsbasen
+> 
+> [!NOTE]
 > Den programmässiga versionen av den här självstudien finns med en kompletta lösning från GitHub-lagringsplatsen [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien kräver en befintlig [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). 
 

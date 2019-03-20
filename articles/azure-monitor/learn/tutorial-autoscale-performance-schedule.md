@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 9c8803ff73b3e70c19a409ef6c1e072b5f7c8b53
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: 44fecf47ccd1ce07c7e51f7bcf51ef7823f2cf97
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734276"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088357"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Skapa en autoskalningsinställning för Azure-resurser baserat på prestanda eller ett schema
 
@@ -60,7 +60,7 @@ I följande steg får du hjälp att fylla autoskalningsskärmen så att den ser 
 2. Se till att **Skalningsläge** är inställt på ”Skala till ett specifikt antal instanser” i standardprofilen.
 3. Ange antalet instanser till **1**. Den här inställningen garanterar att när inga andra profiler är aktiva återställer standardprofilen instansantalet till 1.
 
-  ![Navigera till inställningarna för automatisk skalning](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+   ![Navigera till inställningarna för automatisk skalning](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## <a name="create-recurrence-profile"></a>Skapa profil för upprepning

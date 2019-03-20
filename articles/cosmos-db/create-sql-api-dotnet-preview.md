@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 11b89cd33346c2d6da2269bbc2a4b9550f3120b3
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: 1589c938e635ccff02f94a176b7fc886dbccb779
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587393"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455776"
 ---
 # <a name="quickstart-build-an-aspnet-web-app-using-azure-cosmos-db-sql-api-account"></a>Snabbstart: Skapa en ASP.NET-app med hjälp av Azure Cosmos DB SQL API-konto
 
@@ -145,7 +145,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 1. Leta upp **Microsoft.Azure.Cosmos** i resultatet och klicka på **Installera**.
    Paket-ID:t för Azure Cosmos DB-klientbiblioteket är [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
 
-   ![Skärmbild av NuGet-menyn, där du hittar Azure Cosmos DB-klient-SDK](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
+   ![Skärmbild av NuGet-menyn där du hittar Azure Cosmos DB Client SDK](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
     Om du får ett meddelande om att granska ändringar i lösningen klickar du på **OK**. Om du får ett meddelande om godkännande av licens klickar du på **Jag godkänner**.
 

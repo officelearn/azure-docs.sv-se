@@ -8,24 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
-ms.openlocfilehash: 3c64841656f81f2f78c02c54f08ca24cccd78586
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b7bf73c2948b302ec8294b7dc2ff2dc8f220c91b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186870"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843891"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Snabbstart: Söka på webben med hjälp av REST-API:et för webbsökning i Bing och Go
 
-Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få ett JSON-svar. Det här enkla Go-programmet skickar en sökfråga till API:et och visar svaret. Även om det här programmet är skrivet i Go så är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få ett JSON-svar. Den här Go-program skickar en sökbegäran-API: et och visas svaret. Även om det här programmet är skrivet i Go så är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
 * [Go-binärfiler](https://golang.org/dl/)
@@ -309,7 +309,7 @@ func main() {
 
 ## <a name="sample-response"></a>Exempelsvar  
 
-Svar från API för webbsökning i Bing returneras som JSON. Det här exempelsvaret har formaterats med hjälp av structen `BingAnswer` och visar `result.Name` och `result.URL`.
+Svar från API för webbsökning i Bing returneras som JSON. Det här exemplet svaret har formaterats med hjälp av den `BingAnswer` struct och visar den `result.Name` och `result.URL`.
 
 ```go
 Microsoft Cognitive Services || https://www.microsoft.com/cognitive-services

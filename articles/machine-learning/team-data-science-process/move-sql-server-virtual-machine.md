@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dcab8d1cfd076e57a25ee3d36fadd86f158c53b8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 47a77def43a9577e5a3506899da47db2f684b495
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880605"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835130"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Flytta data till SQL Server på en virtuell Azure-dator
 
@@ -58,7 +58,7 @@ BCP är ett kommandoradsverktyg som installerats med SQL Server och ett av de sn
 
 > [!NOTE]
 > **Var ska Mina data för BCP?**  
-> Det är inte obligatoriskt, kan med filer som innehåller källdata finns på samma dator som SQL Server-målservern snabbare överföring (network hastighet jämfört med lokala disk i/o-hastighet). Du kan flytta flata filer som innehåller data till datorn där SQL Server installeras med hjälp av olika filkopieringen verktyg som [AZCopy](../../storage/common/storage-use-azcopy.md), [Azure Storage Explorer](http://storageexplorer.com/) eller windows kopiera och klistra in via fjärrskrivbord Protokoll (RDP).
+> Det är inte obligatoriskt, kan med filer som innehåller källdata finns på samma dator som SQL Server-målservern snabbare överföring (network hastighet jämfört med lokala disk i/o-hastighet). Du kan flytta flata filer som innehåller data till datorn där SQL Server installeras med hjälp av olika filkopieringen verktyg som [AZCopy](../../storage/common/storage-use-azcopy.md), [Azure Storage Explorer](https://storageexplorer.com/) eller windows kopiera och klistra in via fjärrskrivbord Protokoll (RDP).
 >
 >
 
@@ -75,10 +75,10 @@ CREATE TABLE <tablename>
 )
 ```
 
-2. Generera-fil som beskriver schemat för tabellen genom att följande kommando från kommandoraden för datorn där bcp är installerad.
+1. Generera-fil som beskriver schemat för tabellen genom att följande kommando från kommandoraden för datorn där bcp är installerad.
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
-3. Infoga data i databasen med kommandot bcp på följande sätt. Detta bör fungera från kommandoraden, förutsatt att SQL Server är installerad på samma dator:
+1. Infoga data i databasen med kommandot bcp på följande sätt. Detta bör fungera från kommandoraden, förutsatt att SQL Server är installerad på samma dator:
 
     `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
@@ -142,7 +142,7 @@ Här följer några exempelkommandon för Bulk Insert är enligt nedan:
 ```sql
 SET DATEFORMAT ymd;
 ```
-2. Importera data med hjälp av bulk importuttryck:
+1. Importera data med hjälp av bulk importuttryck:
 
 ```sql
 BULK INSERT <tablename>
@@ -195,7 +195,7 @@ Olika-metoder kan användas för att massregistrera exportera data från en loka
 4. Använda någon av metoderna som beskrivs i avsnittet [flyttar Data från filkälla](#filesource_to_sqlonazurevm) att flytta data i flata filer till en SQL Server.
 
 ### <a name="sql-migration"></a>Migreringsguide för SQL-databas
-[Migreringsguide för SQL Server-databas](http://sqlazuremw.codeplex.com/) är ett användarvänligt sätt att flytta data mellan två SQL server-instanser. Det gör att användaren vill mappa dataschemat mellan källor och måltabellerna kolumntyper och olika funktioner. Masskopiering (BCP) under försättsbladen används. En skärmbild på välkomstskärmen för migrering av SQL Database-guiden visas nedan.  
+[Migreringsguide för SQL Server-databas](https://sqlazuremw.codeplex.com/) är ett användarvänligt sätt att flytta data mellan två SQL server-instanser. Det gör att användaren vill mappa dataschemat mellan källor och måltabellerna kolumntyper och olika funktioner. Masskopiering (BCP) under försättsbladen används. En skärmbild på välkomstskärmen för migrering av SQL Database-guiden visas nedan.  
 
 ![Guiden för SQL Server-migrering][2]
 

@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
-ms.openlocfilehash: 94362256dfb5b8deff233f7c575d0720f29eec5c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 569e90c7908ce435689a80f7917b20275703f537
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987863"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990409"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Skapa en Linux-VM med hjälp av den klassiska Azure CLI
 
 I den här artikeln lär du dig hur du snabbt distribuerar en virtuell Linux-dator (VM) i Azure med hjälp av kommandot `azure vm quick-create` i Azures kommandoradsgränssnitt (CLI). Kommandot `quick-create` distribuerar en virtuell dator inuti en grundläggande, säker infrastruktur som du kan använda som prototyp eller för att snabbt testa ett koncept.
 
 > [!NOTE]
-För att skapa en virtuell dator med Azure CLI, se [skapa en virtuell dator med Azure CLI](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> För att skapa en virtuell dator med Azure CLI, se [skapa en virtuell dator med Azure CLI](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Du kan också snabbt distribuera en virtuell Linux-dator med hjälp av [Azure Portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -184,7 +184,7 @@ Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 3.19.0-65-generic x86_64)
     https://landscape.canonical.com/
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+    https://www.ubuntu.com/business/services/cloud
 
 0 packages can be updated.
 0 updates are security updates.

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5a160ef767909814e363dbb692e58c30783aaf6f
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: ac30888c9f54c5dc88cb72aeec0f3db81d5a99dc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746320"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004945"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Slutpunkt till slutpunkt felsökning med hjälp av Azure Storage-mätvärden och loggning, AzCopy och Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -133,9 +133,9 @@ Klientsidan loggen innehåller detaljerad information om hur klienten förberede
 Storage-klientbiblioteket lagrar klientsidan loggdata i den plats som anges i programmets konfigurationsfil (web.config eller app.config).
 
 ### <a name="collect-a-network-trace"></a>Samla in en nätverksspårning
-Du kan använda Message Analyzer för att samla in en HTTP/HTTPS-nätverksspårning medan klientprogrammet är igång. Message Analyzer använder [Fiddler](http://www.telerik.com/fiddler) på serverdelen. Innan du samlar in nätverksspårningen, rekommenderar vi att du konfigurerar Fiddler för att registrera okrypterade HTTPS-trafik:
+Du kan använda Message Analyzer för att samla in en HTTP/HTTPS-nätverksspårning medan klientprogrammet är igång. Message Analyzer använder [Fiddler](https://www.telerik.com/fiddler) på serverdelen. Innan du samlar in nätverksspårningen, rekommenderar vi att du konfigurerar Fiddler för att registrera okrypterade HTTPS-trafik:
 
-1. Installera [Fiddler](http://www.telerik.com/download/fiddler).
+1. Installera [Fiddler](https://www.telerik.com/download/fiddler).
 2. Starta Fiddler.
 3. Välj **verktyg | Fiddler alternativ**.
 4. I dialogrutan Alternativ kontrollerar du att **avbilda HTTPS ansluter** och **dekryptera HTTPS-trafik** båda är valda, enligt nedan.

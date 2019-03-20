@@ -8,12 +8,12 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: 6a73ef058a76152678099eca3f1bd15590b0b03d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238802"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089972"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Kör och testa U-SQL med Azure Data Lake U-SQL SDK
 
@@ -32,11 +32,11 @@ Data Lake U-SQL SDK: N kräver följande beroenden:
 - [Microsoft .NET Framework 4.6 eller senare](https://www.microsoft.com/download/details.aspx?id=17851).
 - Microsoft Visual C++-14 och Windows SDK 10.0.10240.0 eller senare (som kallas CppSDK i den här artikeln). Det finns två sätt att hämta CppSDK:
 
-    - Installera [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Du har en \Windows Kits\10 mapp under mappen program – till exempel C:\Program Files (x86) \Windows Kits\10\. Du hittar också Windows 10 SDK-version under \Windows Kits\10\Lib. Om du inte ser dessa mappar, installera om Visual Studio och se till att välja Windows 10 SDK under installationen. Om du har det installerat med Visual Studio, ska lokal U-SQL-kompilatorn hitta den automatiskt.
+  - Installera [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Du har en \Windows Kits\10 mapp under mappen program – till exempel C:\Program Files (x86) \Windows Kits\10\. Du hittar också Windows 10 SDK-version under \Windows Kits\10\Lib. Om du inte ser dessa mappar, installera om Visual Studio och se till att välja Windows 10 SDK under installationen. Om du har det installerat med Visual Studio, ska lokal U-SQL-kompilatorn hitta den automatiskt.
 
     ![Data Lake Tools för Visual Studio körs lokalt SDK för Windows 10](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - Installera [Data Lake Tools för Visual Studio](https://aka.ms/adltoolsvs). Du kan hitta förpaketerade Visual C++ och Windows SDK filer i C:\Program Files (x86) \Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. I det här fallet hittar lokal U-SQL-kompilatorn beroenden automatiskt. Du måste ange CppSDK sökvägen för den. Du kan kopiera filer till en annan plats, eller så kan du använda det som det är.
+  - Installera [Data Lake Tools för Visual Studio](https://aka.ms/adltoolsvs). Du kan hitta förpaketerade Visual C++ och Windows SDK filer i C:\Program Files (x86) \Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. I det här fallet hittar lokal U-SQL-kompilatorn beroenden automatiskt. Du måste ange CppSDK sökvägen för den. Du kan kopiera filer till en annan plats, eller så kan du använda det som det är.
 
 ## <a name="understand-basic-concepts"></a>Förstå grundläggande begrepp
 
@@ -55,9 +55,9 @@ Du kan använda både en relativ sökväg och en lokal absolut sökväg i U-SQL-
 
 |Relativ sökväg|Absolut sökväg|
 |-------------|-------------|
-|/ABC/def/Input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
-|ABC/def/Input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
-|D:/ABC/def/Input.csv |D:\abc\def\input.csv|
+|/abc/def/input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
+|abc/def/input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
+|D:/abc/def/input.csv |D:\abc\def\input.csv|
 
 ### <a name="working-directory"></a>Arbetskatalog
 
@@ -68,11 +68,11 @@ När du kör U-SQL-skript lokalt, skapas en arbetskatalog under kompilering unde
 |C6A101DDCB470506| | |Hash-sträng med körningsversion|Skuggkopia av runtime-filer som behövs för lokal körning|
 | |Script_66AE4909AA0ED06C| |Skriptets namn + hash-sträng med skriptets sökväg|Utdata för kompilering och körning steg loggning|
 | | |\_skriptet\_.abr|Kompilatorutdata|Algebra fil|
-| | |\_ScopeCodeGen\_. *|Kompilatorutdata|Genererade förvaltad kod|
-| | |\_ScopeCodeGenEngine\_. *|Kompilatorutdata|Genererade intern kod|
+| | |\_ScopeCodeGen\_.*|Kompilatorutdata|Genererade förvaltad kod|
+| | |\_ScopeCodeGenEngine\_.*|Kompilatorutdata|Genererade intern kod|
 | | |Refererade sammansättningar|Sammansättningsreferensen|Refererade sammansättningsfiler|
 | | |deployed_resources|Resursdistributionen|Resursfiler för distribution|
-| | |xxxxxxxx.xxx[1..n]\_\*. *|Körningsloggen|Logg över utförande|
+| | |xxxxxxxx.xxx[1..n]\_\*.*|Körningsloggen|Logg över utförande|
 
 
 ## <a name="use-the-sdk-from-the-command-line"></a>Använd SDK: N från kommandoraden
@@ -139,7 +139,7 @@ Följande är valfria argument för **kör**:
 
 |Argument|Standardvärde|Beskrivning|
 |--------|-------------|-----------|
-|-Bakomliggande koden|False|Skriptet har .cs koden bakom|
+|-CodeBehind|False|Skriptet har .cs koden bakom|
 |-CppSDK| |CppSDK Directory|
 |-DataRoot| DataRoot miljövariabeln|DataRoot för lokal körning ”LOCALRUN_DATAROOT' miljövariabeln som standard|
 |-MessageOut| |Dumpa meddelanden i konsolen till en fil|
@@ -150,7 +150,7 @@ Följande är valfria argument för **kör**:
 |-Verbose|False|Visa detaljerade utdata från körningen|
 |-WorkDir|Aktuell katalog|Katalogen för kompilatorn användnings- och utdata|
 |-RunScopeCEP|0|ScopeCEP läge som ska användas|
-|-ScopeCEPTempPath|Temp|Tillfällig sökväg för strömmande data|
+|-ScopeCEPTempPath|temp|Tillfällig sökväg för strömmande data|
 |-OptFlags| |Kommaavgränsad lista över optimering flaggor|
 
 
@@ -212,7 +212,7 @@ Följande är valfria argument för **köra**:
 |-DataRoot | '' |Dataroten för körning av metadata. Den som standard den **LOCALRUN_DATAROOT** miljövariabeln.|
 |-MessageOut | '' |Dumpa meddelanden i konsolen till en fil.|
 |-Parallell | '1' |Indikatorn att köra genererade körs lokalt stegen med angivna parallellitet.|
-|-Verbose | ”FALSKT” |Indikator för att visa detaljerade utdata från körningen.|
+|-Verbose | 'False' |Indikator för att visa detaljerade utdata från körningen.|
 
 Här är ett användningsexempel på:
 
@@ -223,7 +223,7 @@ Här är ett användningsexempel på:
 
 Programmeringsgränssnitt finns i LocalRunHelper.exe. Du kan använda dem för att integrera funktionerna i SDK U-SQL och C#-Testramverk för att skala din lokala test för U-SQL-skript. I den här artikeln använder jag standard C# enhet test-projektet för att visa hur du använder dessa gränssnitt för att testa U-SQL-skript.
 
-### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Steg 1: Skapa testprojekt för C#-enhet och konfiguration
+### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Steg 1: Skapa C# enhetstestar projekt och konfiguration
 
 - Skapa ett C# enhet testprojekt fil > Nytt > Projekt > Visual C# > Testa > enhet Testa projektet.
 - Lägg till LocalRunHelper.exe som referens för projektet. LocalRunHelper.exe finns i \build\runtime\LocalRunHelper.exe i Nuget-paketet.
@@ -330,9 +330,9 @@ LocalRunHelper.exe innehåller programmeringsgränssnitt för U-SQL lokalt kompi
 
 **Konstruktor**
 
-offentliga LocalRunHelper ([System.IO.TextWriter messageOutput = null])
+public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Parameter|Typ|Beskrivning|
+|Parameter|Type|Beskrivning|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|Ange null för att använda konsolen för utgående meddelanden|
 
@@ -346,8 +346,8 @@ offentliga LocalRunHelper ([System.IO.TextWriter messageOutput = null])
 |CurrentDir|sträng|Aktuell katalog|
 |DataRoot|sträng|Rotsökvägen för data|
 |DebuggerMailPath|sträng|Sökvägen till felsökare brevlåda|
-|GenerateUdoRedirect|Bool|Om vi vill generera sammansättningen som läser in omdirigering åsidosätta config|
-|HasCodeBehind|Bool|Om skriptet har koden bakom|
+|GenerateUdoRedirect|bool|Om vi vill generera sammansättningen som läser in omdirigering åsidosätta config|
+|HasCodeBehind|bool|Om skriptet har koden bakom|
 |InputDir|sträng|Katalogen för indata|
 |MessagePath|sträng|Meddelandet dump-filsökväg|
 |OutputDir|sträng|Katalogen för utdata|
@@ -356,7 +356,7 @@ offentliga LocalRunHelper ([System.IO.TextWriter messageOutput = null])
 |ResultPath|sträng|Resultatet dump-filsökväg|
 |RuntimeDir|sträng|Runtime-katalog|
 |scriptPath|sträng|Var du hittar skriptet|
-|Ytlig|Bool|Ytlig kompilera eller inte|
+|Ytlig|bool|Ytlig kompilera eller inte|
 |TempDir|sträng|Temp-katalogen|
 |UseDataBase|sträng|Ange databasen som ska användas för koden bakom tillfälliga för registrering, master som standard|
 |WorkDir|sträng|Prioriterade arbetskatalog|
@@ -364,7 +364,7 @@ offentliga LocalRunHelper ([System.IO.TextWriter messageOutput = null])
 
 **Metod**
 
-|Metod|Beskrivning|Gå tillbaka|Parameter|
+|Metod|Beskrivning|Returnera|Parameter|
 |------|-----------|------|---------|
 |offentliga bool DoCompile()|Kompilera U-SQL-skript|SANT om åtgärden lyckades| |
 |offentliga bool DoExec()|Kör det kompilerade resultat|SANT om åtgärden lyckades| |
@@ -379,7 +379,7 @@ E_CSC_SYSTEM_INTERNAL: Internt fel! Det gick inte att läsa in filen eller samma
 
 Kontrollera följande:
 
-- Kontrollera att du har x64 miljö. Målplattform build- och testmiljön bör vara x64, referera till **steg 1: skapa C# enhetstestar projekt och konfiguration** ovan.
+- Kontrollera att du har x64 miljö. Målplattform build- och testmiljön bör vara x64, referera till **steg 1: Skapa C# enhetstestar projekt och konfiguration** ovan.
 - Kontrollera att du har kopierat alla beroendefiler under NugetPackage\build\runtime\ till projektet arbetskatalog.
 
 

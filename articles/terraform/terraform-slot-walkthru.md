@@ -2,19 +2,19 @@
 title: Distributionsfack för Terraform med Azure-provider
 description: Självstudier för hur du använder distributionsfack för Terraform med Azure-provider
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, virtuell dator, Azure, distributionsfack
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 4/05/2018
-ms.openlocfilehash: 1564991ecfe29b1977837c2fdff4be7b3a3e1797
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 08e90a69791b0555a6497166f6008e8619f40704
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074826"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992229"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Använd Terraform för att etablera infrastruktur med distributionsfack för Terraform
 
@@ -22,15 +22,15 @@ Du kan använda [distributionsfack för Terraform](/azure/app-service/deploy-sta
 
 I den här artikeln visas ett exempel på hur du kan använda distributionsfack genom att guida dig genom distributionen av två appar via GitHub och Azure. En app lagras på produktionsplatsen. Den andra appen lagras på en mellanlagringsplats. (Namnen "produktion" och "mellanlagring" är valfria och kan vara vilka namn som helst som du vill representerar ditt scenario.) När du har konfigurerat dina distributionsfack kan du använda Terraform för att växla mellan de två facken efter behov.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
-- **GitHub-konto**: Du behöver ett [GitHub-konto](http://www.github.com) för att förgrena och använda testlagringsplatsen på GitHub.
+- **GitHub-konto**: Du behöver ett [GitHub-konto](https://www.github.com) för att förgrena och använda testlagringsplatsen på GitHub.
 
 ## <a name="create-and-apply-the-terraform-plan"></a>Skapa och tillämpa Terraform-planen
 
-1. Bläddra till [Azure-portalen](http://portal.azure.com).
+1. Bläddra till [Azure-portalen](https://portal.azure.com).
 
 1. Öppna [Azure Cloud Shell](/azure/cloud-shell/overview). Om du inte har valt en miljö tidigare väljer du **Bash** som miljö.
 

@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 87573b74f34e0a503db8f543da1d78a3c5b170f6
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 74b1f854cfca6a280f1da5c6bdeeae4deb112f9c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753242"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857393"
 ---
 # <a name="create-and-locate-anchors-using-azure-spatial-anchors-in-cndk"></a>Skapa och leta upp ankare som använder Azure Spatial ankare i C + +/ NDK
 
@@ -25,9 +25,11 @@ ms.locfileid: "56753242"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har aktiverat för att fungera bra med ditt val av utvecklingsmiljö. I den här artikeln har vi kommer fördjupa dig i hur du gör i C + +/ NDK.
+Med Azure Spatial Anchors kan du dela fästpunkter i världen mellan olika enheter. Den stöder flera utvecklingsmiljöer. I den här artikeln har vi kommer fördjupa dig i hur du gör i C + +/ NDK.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
+
+Läs mer om den [CloudSpatialAnchorSession](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession) Struct-datatypen.
 
 ```cpp
     std::shared_ptr<CloudSpatialAnchorSession> cloudSession_;
@@ -36,6 +38,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
+
+Läs mer om den [SessionConfiguration](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/sessionconfiguration) Struct-datatypen.
 
 ```cpp
     auto configuration = cloudSession_->Configuration();
@@ -51,8 +55,10 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
 
+Läs mer om den [TokenRequiredDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/tokenrequireddelegate) delegera.
+
 ```cpp
-    auto accessTokenRequiredToken = cloudSession_->AccessTokenRequired([](auto&&, auto&& args) {
+    auto accessTokenRequiredToken = cloudSession_->TokenRequired([](auto&&, auto&& args) {
         args->AccessToken(R"(MyAccessToken)");
     });
 ```
@@ -98,6 +104,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
+Läs mer om den [starta](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#start) metod.
+
 ```cpp
     cloudSession_->Session(ar_session_);
     cloudSession_->Start();
@@ -105,11 +113,15 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
+Läs mer om den [ProcessFrame](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#processframe) metod.
+
 ```cpp
     cloudSession_->ProcessFrame(ar_frame_);
 ```
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
+
+Läs mer om den [SessionUpdatedDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/sessionupdateddelegate) delegera.
 
 ```cpp
     auto sessionUpdatedToken = cloudSession_->SessionUpdated([this](auto&&, auto&& args) {
@@ -124,6 +136,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
+
+Läs mer om den [CloudSpatialAnchor](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor) Struct-datatypen.
 
 ```cpp
     // Create a local anchor, perhaps by hit-testing and creating an ARAnchor
@@ -175,6 +189,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
+Läs mer om den [GetSessionStatusAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#getsessionstatusasync) metod.
+
 ```cpp
     cloudSession_->GetSessionStatusAsync([this](Status status, const std::shared_ptr<SessionStatus>& value) {
         if (status != Status::OK) {
@@ -190,6 +206,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
+Läs mer om den [AppProperties](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor#appproperties) metod.
+
 ```cpp
     std::shared_ptr<CloudSpatialAnchor> cloudAnchor = std::make_shared<CloudSpatialAnchor>();
     cloudAnchor->LocalAnchor(localAnchor);
@@ -202,6 +220,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
+
+Läs mer om den [UpdateAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#updateanchorpropertiesasync) metod.
 
 ```cpp
     std::shared_ptr<CloudSpatialAnchor> anchor = /* locate your anchor */;
@@ -217,6 +237,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
+
+Läs mer om den [GetAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#getanchorpropertiesasync) metod.
 
 ```cpp
     cloudSession_->GetAnchorPropertiesAsync(R"(anchorId)", [this](Status status, const std::shared_ptr<CloudSpatialAnchor>& anchor) {
@@ -238,6 +260,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
+Läs mer om den [upphör att gälla](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor#expiration) metod.
+
 ```cpp
     std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
     std::chrono::system_clock::time_point oneWeekFromNow = now + std::chrono::hours(7 * 24);
@@ -247,6 +271,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
+Läs mer om den [CreateWatcher](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#createwatcher) metod.
+
 ```cpp
     auto criteria = std::make_shared<AnchorLocateCriteria>();
     criteria->Identifiers({ R"(id1)", R"(id2)", R"(id3)" });
@@ -254,6 +280,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
+
+Läs mer om den [AnchorLocated](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/anchorlocateddelegate) delegera.
 
 ```cpp
     auto anchorLocatedToken = cloudSession_->AnchorLocated([this](auto&&, auto&& args) {
@@ -281,6 +309,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
+Läs mer om den [DeleteAnchorAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#deleteanchorasync) metod.
+
 ```cpp
     cloudSession_->DeleteAnchorAsync(cloudAnchor, [this](Status status) {
         // Perform any processing you may want when delete finishes
@@ -289,11 +319,15 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
+Läs mer om den [stoppa](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#stop) metod.
+
 ```cpp
     cloudSession_->Stop();
 ```
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
+
+Läs mer om den [återställa](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#reset) metod.
 
 ```cpp
     cloudSession_->Reset();

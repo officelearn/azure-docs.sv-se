@@ -9,12 +9,12 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 description: Lär dig hur du snabbt skapar ett Kubernetes-kluster som har aktiverats för Azure Dev blanksteg direkt från din webbläsare utan att installera något.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
-ms.openlocfilehash: 7d55261c3b5461e6986c1c194da7afd37587ff55
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: bfde055c99a1109a8f71c838b44ed1742e3f06aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781535"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895574"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>Skapa ett Kubernetes-kluster med Azure Cloud Shell
 
@@ -22,7 +22,7 @@ Du kan använda [Azure Cloud Shell](/azure/cloud-shell) att skapa ett kluster f�
 
 ## <a name="create-the-cluster"></a>Skapa klustret
 
-Först skapa resursgruppen. Använd någon av regionerna som stöds för närvarande (USA, östra; USA, östra 2; USA, centrala; USA, västra 2; Europa, västra; Asien, sydöstra; Kanada, centrala eller Kanada, östra).
+Börja med att skapa resursgruppen i ett [region som stöder Azure Dev blanksteg](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>
@@ -31,7 +31,7 @@ az group create --name MyResourceGroup --location <region>
 Skapa ett Kubernetes-kluster med följande kommando:
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.13
+az aks create -g MyResourceGroup -n MyAKS --location <region>
 ```
 
 Det tar några minuter att skapa klustret.  När du är klar visas utdata i JSON-format. Leta efter `provisioningState` och kontrollera att den har `Succeeded`.

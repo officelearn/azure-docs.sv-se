@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 03/19/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 5e6a44018cde84067a4c16c9d3d62227733f6658
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 617696c842ab90fc36c68e74831ffd1d79d14bc4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075586"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225713"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Hantera lagringskapacitet för Azure Stack 
 
@@ -89,7 +89,7 @@ Som en cloud-operatör kan du övervaka lagringskapaciteten för en resurs med P
 Du kan använda administrationsportalen visa lagringskapaciteten för alla resurser som en cloud-operator.
 
 1. Logga in på den [administrationsportalen](https://adminportal.local.azurestack.external).
-2. Välj **alla tjänster** > **Storage** att öppna fillistan för resurs där du kan visa information om syntax. 
+2. Välj **alla tjänster** > **Storage** > **filresurser** att öppna fillistan för resurs där du kan visa information om syntax. 
 
     ![Exempel: Lagringsfilresurser](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
@@ -170,20 +170,20 @@ Migrering konsoliderar alla en behållare blob på den nya resursen.
 
    ![Exempel: $destination resurser](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
 
-4. Starta migreringen för en behållare. Migreringen är asynkrona. Om du startar migreringen av ytterligare behållare innan den första migreringen är klar, kan du använda jobb-id för att spåra status för var och en.
+4. Starta migreringen för en behållare. Migreringen är asynkrona. Om du startar migreringen av ytterligare behållare innan den första migreringen är klar, kan du använda jobb-ID för att spåra status för var och en.
 
    ```PowerShell
    $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
    ```
 
-   Granska $jobId. I följande exempel ersätter *d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0* med jobb-id som du vill undersöka:
+   Granska $jobId. I följande exempel ersätter *d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0* med jobb-ID som du vill undersöka:
 
    ```PowerShell
    $jobId
    d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
    ```
 
-5. Du kan använda jobb-id för att kontrollera statusen för migreringsjobbet. När behållaren migreringen är klar, **MigrationStatus** är inställd på **Slutför**.
+5. Du kan använda jobb-ID för att kontrollera statusen för migreringsjobbet. När behållaren migreringen är klar, **MigrationStatus** är inställd på **Slutför**.
 
    ```PowerShell 
    Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name

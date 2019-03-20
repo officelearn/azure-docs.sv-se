@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/24/2018
 ms.author: rosh
 ms.custom: seodec2018
-ms.openlocfilehash: a18aaceb4840ffc7e3e3dca4eeb8f5fd8e88049c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e7b2c43e06c8fbc1f561defebf29fdd37bc8bfab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876410"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100912"
 ---
 # <a name="search-for-gif-images"></a>Sök efter GIF-bilder 
 
@@ -47,6 +47,7 @@ Mer information om frågeparametrar och alternativ finns i den [bild Search API-
 - *AnimatedGifHttps* endast returnerar animerade GIF-bilder från en https-adress. Många program kräver anslutning till externa länkar för säkerhet, över https. Till exempel kräver Apple App Store anslutning till webbtjänster via HTTPS, som krypterar användardata säker under överföringen.
 
 <a name="gifExample" />
+
 ## <a name="example-search-for-animated-gif-using-java"></a>Exempel Sök efter animerad gif med hjälp av Java
 
 Följande URL söker efter animerade GIF-bilder: `q=interesting`

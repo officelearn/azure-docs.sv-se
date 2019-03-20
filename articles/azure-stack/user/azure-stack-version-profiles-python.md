@@ -15,12 +15,12 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/05/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: c7c23352cea4f9e79b371f38112fb66ac31ac849
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b3bfc3072f819a92bdceb1721bb7737a3dc04cf8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242305"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078864"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Använd API-versionsprofiler med Python i Azure Stack
 
@@ -51,14 +51,65 @@ Python SDK har stöd för API-versionsprofiler för att rikta olika plattformar,
 
 För att kunna använda Azure-SDK för Python med Azure Stack, måste du ange följande värden och ange sedan värden med miljövariabler. Se anvisningarna efter tabellen för ditt operativsystem om hur du anger miljövariabler.
 
-| Value | Miljövariabler | Beskrivning |
+| Värde | Miljövariabler | Beskrivning |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
 | Klient-ID:t | AZURE_TENANT_ID | Värdet för Azure Stack [klient-ID](../azure-stack-identity-overview.md). |
 | Klientorganisations-ID | AZURE_CLIENT_ID | Tjänsten huvudnamn program-ID sparas när tjänstens huvudnamn skapades i föregående avsnitt i den här artikeln. |
 | Prenumerations-ID:t | AZURE_SUBSCRIPTION_ID | Den [prenumerations-ID](../azure-stack-plan-offer-quota-overview.md#subscriptions) är hur du kommer åt erbjudanden i Azure Stack. |
 | Klienthemlighet | AZURE_CLIENT_SECRET | Tjänstens huvudnamn programhemlighet sparas när tjänstens huvudnamn har skapats. |
-| Resource Manager-slutpunkten | ARM_ENDPOINT | Se den [Azure Stack resource manager-slutpunkten](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Resource Manager-slutpunkten | ARM_ENDPOINT | Se den [Azure Stack Resource Manager-slutpunkten](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Resursplats | AZURE_RESOURCE_LOCATION | Resursplatsen för din Azure Stack-miljön.
+
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Lita på Azure Stack Certifikatutfärdarens rotcertifikat
+
+Om du använder ASDK behöver ska lita på Certifikatutfärdarens rotcertifikat på din fjärrdatorn. Du behöver inte göra detta med integrerade system.
+
+#### <a name="windows"></a>Windows
+
+1. Hitta python plats för certifikatarkiv på din dator. Platsen kan variera beroende på var du har installerat Python. Öppna en kommandotolk eller en förhöjd PowerShell och Skriv följande kommando:
+
+    ```PowerShell  
+      python -c "import certifi; print(certifi.where())"
+    ```
+
+    Anteckna certifikaten du plats. Till exempel *~/lib/python3.5/site-packages/certifi/cacert.pem*. Viss sökvägen beror på ditt operativsystem och vilken version av Python som du har installerat.
+
+2. Lita på Azure Stack Certifikatutfärdarens rotcertifikat genom att den läggs till det befintliga certifikatet för Python.
+
+    ```powershell
+    $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
+
+    $root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
+    $root.Import($pemFile)
+
+    Write-Host "Extracting required information from the cert file"
+    $md5Hash    = (Get-FileHash -Path $pemFile -Algorithm MD5).Hash.ToLower()
+    $sha1Hash   = (Get-FileHash -Path $pemFile -Algorithm SHA1).Hash.ToLower()
+    $sha256Hash = (Get-FileHash -Path $pemFile -Algorithm SHA256).Hash.ToLower()
+
+    $issuerEntry  = [string]::Format("# Issuer: {0}", $root.Issuer)
+    $subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
+    $labelEntry   = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
+    $serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
+    $md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
+    $sha1Entry    = [string]::Format("# SHA1 Fingerprint: {0}", $sha1Hash)
+    $sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
+    $certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
+
+    $rootCertEntry = "`n" + $issuerEntry + "`n" + $subjectEntry + "`n" + $labelEntry + "`n" + `
+    $serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n" + $certText
+
+    Write-Host "Adding the certificate content to Python Cert store"
+    Add-Content "${env:ProgramFiles(x86)}\Python35\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
+
+    Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
+
+    ```
+
+> [!NOTE]  
+> Om du använder virtuell miljö för utveckling med SDK för Python enligt beskrivningen nedan, behöver du lägga till ovanstående cert samt certifikatarkiv för den virtuella miljön. Sökvägen kan se ut ”:... \mytestenv\Lib\site-packages\certifi\cacert.PEM ”
+
+
 
 ## <a name="python-samples-for-azure-stack"></a>Python-exempel för Azure Stack
 
@@ -133,7 +184,7 @@ Varje åtgärd är tydligt märkt med en kommentar och en utskriftsfunktionen. E
     export AZURE_RESOURCE_LOCATION={your AzureStack Resource location}
     ```
 
-8. För att kunna köra det här exemplet, måste Ubuntu 16.04-LTS och Windows Server 2012 R2 Datacenter-avbildningar finnas i Azure Stack marketplace. Det kan vara antingen [ned från Azure](../azure-stack-download-azure-marketplace-item.md), eller lagts till i den [plattformens Avbildningslagringsplats](../azure-stack-add-vm-image.md).
+8. För att kunna köra det här exemplet, måste Ubuntu 16.04-LTS och Windows Server 2012 R2 DataCenter-avbildningar finnas i Azure Stack marketplace. Det kan vara antingen [ned från Azure](../azure-stack-download-azure-marketplace-item.md), eller lagts till i den [plattformens Avbildningslagringsplats](../azure-stack-add-vm-image.md).
 
 9. Kör exemplet:
 

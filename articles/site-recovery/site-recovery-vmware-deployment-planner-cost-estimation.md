@@ -5,18 +5,26 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/14/2019
 ms.author: mayg
-ms.openlocfilehash: d1e406567b5f56f6ad08e4d276202ebf43d92534
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 8a36a80903a47bb4163666baf86ed8dac13a00de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321506"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093845"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Granska kostnadsuppskattningsrapporten i Distributionshanteraren för Site Recovery för VMware-haveriberedskap till Azure
 
 Rapporten i distributionshanteraren ger en översikt över kostnadsuppskattningen på bladet [Rekommendationer](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) och en detaljerad kostnadsanalys på bladet Kostnadsuppskattning. Där ges en detaljerad kostnadsanalys per virtuell dator. 
+
+>[!Note]
+>Den aktuella versionen av verktyget Distributionshanteraren ger inte kostnadsuppskattning för virtuella datorer replikeras till Managed Disks.
+>* DR-Drill kostnadsuppskattningar är desamma för storage-konton och hanterade diskar, när ”Använd hanterade diskar” parametern är inställd på ”Ja” på ”beräkning och nätverk”-bladet.
+>* För att få en ungefärlig kostnadsuppskattning som årlig för replikering, gör du följande inställningar för tillfälliga på **kostnadsuppskattning** blad:
+>    * Ange ”Kostnadsperiod”-parametern i **inställningar** tabell ”år”
+>    * I **detaljerad analys av kostnader** tabellen genom att ange kolumnen ”antal DR-tester under ett år” 12 och ”varaktighet för varje DR-test (dagar)” till 30 
+>    * Kostnaden för replikering ska vara detsamma som kostnaden ifylld i kolumnen ”R” d.v.s. DR-test-lagringskostnaden per år **DR-test kostnad per år** underdel.
 
 ### <a name="cost-estimation-summary"></a>Sammanfattning av kostnadsuppskattning 
 I diagrammet visas en sammanfattning av den uppskattade totala kostnaden för haveriberedskap (DR) till Azure i din valda målregion och i den valuta du har angett för rapporten.
@@ -106,9 +114,9 @@ Så här lägger du till virtuella datorer manuellt:
 * Dataredundans 
 * Azure Hybrid-förmån
 
-3.  Du kan använda samma värde för alla virtuella datorer i tabellen genom att klicka på knappen Använd för alla, för kolumnerna Antal DR-tester under ett år, Varaktighet för varje DR-test (dagar), Dataredundans och Azure Hybrid-förmånen.
+1. Du kan använda samma värde för alla virtuella datorer i tabellen genom att klicka på knappen Använd för alla, för kolumnerna Antal DR-tester under ett år, Varaktighet för varje DR-test (dagar), Dataredundans och Azure Hybrid-förmånen.
 
-4.  Klicka på alternativet för att beräkna kostnaden på nytt om du vill uppdatera kostnaden.
+1. Klicka på alternativet för att beräkna kostnaden på nytt om du vill uppdatera kostnaden.
 
 **Namn på virtuell dator**: Namnet på den virtuella datorn.
 

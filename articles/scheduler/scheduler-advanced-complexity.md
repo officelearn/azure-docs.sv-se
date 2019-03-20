@@ -10,12 +10,12 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: a13ce85124dc84362ec1ee2aa39a16c2c3f09f88
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a413261d251c8dfc1de9209168ee8137b85009f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701020"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860626"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Skapa avancerade scheman och upprepningar för jobb i Azure Scheduler
 
@@ -65,13 +65,13 @@ Den här tabellen innehåller en översikt för större JSON-element som du kan 
 
 | Element | Krävs | Beskrivning | 
 |---------|----------|-------------|
-| **startTime** | Nej | Ett DateTime-strängvärde i [ISO 8601-formatet](http://en.wikipedia.org/wiki/ISO_8601) som anger när jobbet startas första gången i ett grundläggande schema. <p>För komplexa scheman startar jobbet tidigast **startTime**. | 
+| **startTime** | Nej | Ett DateTime-strängvärde i [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601) som anger när jobbet startas första gången i ett grundläggande schema. <p>För komplexa scheman startar jobbet tidigast **startTime**. | 
 | **recurrence** | Nej | Upprepningen regler för när jobbet körs. Den **upprepning** objektet stöder dessa element: **frekvens**, **intervall**, **schema**, **antal**, och **endTime**. <p>Om du använder den **upprepning** element, måste du också använda den **frekvens** element, medan andra **upprepning** element är valfria. |
 | **frequency** | Ja, när du använder **upprepning** | Tidsenhet mellan förekomster och har stöd för dessa värden: ”Minute”, ”Hour”, ”Day”, ”Week”, ”Month” och ”år” | 
 | **interval** | Nej | Ett positivt heltal som anger antalet tidsenheter mellan förekomster utifrån **frekvens**. <p>Till exempel om **intervall** är 10 och **frekvens** är ”Week” jobbet återkommer var 10 vecka. <p>Här är de mest antalet intervall för varje frekvens: <p>– 18 månader <br>-78 veckor <br>-548 dagar <br>– Intervallet är 1 för många timmar och minuter, < = <*intervall*>< = 1000. | 
 | **schedule** | Nej | Definierar ändringar för upprepningen som baseras på de angivna minut-märkena, timme-märken, dagar i veckan och dagar i månaden | 
 | **antal** | Nej | Ett positivt heltal som anger antalet gånger som jobbet körs innan du avslutar. <p>Till exempel när dagliga jobb har **antal** inställd på 7 och startdatum är måndag, jobbet har slutförts körs på söndag. Om startdatum har redan passerat, beräknas den första körningen från tiden för skapandet. <p>Utan **endTime** eller **antal**, körs jobbet oändligt. Du kan inte använda båda **antal** och **endTime** i samma jobb, men regeln att slutförs först är hanteras. | 
-| **endTime** | Nej | Ett datum eller datum/tid-strängvärde i [ISO 8601-formatet](http://en.wikipedia.org/wiki/ISO_8601) som anger när jobbet avslutades som körs. Du kan ange ett värde för **endTime** som är i förflutna. <p>Utan **endTime** eller **antal**, körs jobbet oändligt. Du kan inte använda båda **antal** och **endTime** i samma jobb, men regeln att slutförs först är hanteras. |
+| **endTime** | Nej | Ett datum eller datum/tid-strängvärde i [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601) som anger när jobbet avslutades som körs. Du kan ange ett värde för **endTime** som är i förflutna. <p>Utan **endTime** eller **antal**, körs jobbet oändligt. Du kan inte använda båda **antal** och **endTime** i samma jobb, men regeln att slutförs först är hanteras. |
 |||| 
 
 Exempelvis beskriver det här JSON-schemat en grundläggande schema- och upprepningsinformation för ett jobb: 
@@ -94,9 +94,9 @@ Exempelvis beskriver det här JSON-schemat en grundläggande schema- och upprepn
 
 *Datum- och DateTime-värden*
 
-* Datum i Scheduler-jobb omfattar bara datumet och följ de [ISO 8601-specifikationen](http://en.wikipedia.org/wiki/ISO_8601).
+* Datum i Scheduler-jobb omfattar bara datumet och följ de [ISO 8601-specifikationen](https://en.wikipedia.org/wiki/ISO_8601).
 
-* Datum / tid i Scheduler-jobb som innehåller både datum och tid, följ den [ISO 8601-specifikationen](http://en.wikipedia.org/wiki/ISO_8601), och antas vara UTC när ingen UTC-förskjutning har angetts. 
+* Datum / tid i Scheduler-jobb som innehåller både datum och tid, följ den [ISO 8601-specifikationen](https://en.wikipedia.org/wiki/ISO_8601), och antas vara UTC när ingen UTC-förskjutning har angetts. 
 
 Mer information finns i [begrepp, terminologi och entiteter](../scheduler/scheduler-concepts-terms.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – Kör ett program i Azure Container Instances – portalen
-description: I den här snabbstarten använder du Azure-portalen till att distribuera ett Docker-containerprogram som körs i en isolerad container i Azure Container Instances
+title: Snabbstart – distribuera Docker-behållare till Azure Container Instances - Portal
+description: I den här snabbstarten använder du Azure portal att snabbt distribuera en behållarbaserad webbapp som körs i en isolerad Azure container-instans
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,16 +8,18 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d6a1d442eca0cf5e433a82fb52ed54b09b56c779
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 41313a8b140886247b830db7ca9b34a22257de96
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566127"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729158"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Snabbstart: Köra ett containerprogram i Azure Container Instances på Azure-portalen
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Snabbstart: Distribuera en behållarinstans i Azure med hjälp av Azure-portalen
 
-Använd Azure Container Instances för att snabbt och enkelt köra dockercontainrar i Azure. Du behöver inte distribuera virtuella datorer eller använda en komplett plattform för containerorkestrering, som Kubernetes. I den här snabbstarten använder du Azure-portalen för att skapa en container i Azure och göra programmet tillgängligt med ett fullständigt kvalificerat domännamn (FQDN). När du har konfigurerat några inställningar och distribuerat containern kan gå du till programmet som körs:
+Använd Azure Container Instances för att köra serverlös Docker-behållare i Azure med enkelhet och hastighet. Distribuera ett program till en container-instans på begäran när du inte behöver en fullständig behållarplattform orchestration som Azure Kubernetes Service.
+
+I den här snabbstarten använder du Azure-portalen för att distribuera en isolerad dockerbehållare och tillgängliggöra dess program med ett fullständigt kvalificerat domännamn (FQDN). När du har konfigurerat några inställningar och distribuerat containern kan gå du till programmet som körs:
 
 ![App som distribuerats via Azure Container Instances visas i webbläsaren][aci-portal-07]
 
@@ -41,9 +43,9 @@ Ange följande värden i textfälten **Containernamn**, **Containeravbildning** 
 
 ![Konfigurera grundläggande inställningar för en ny containerinstans i Azure Portal][aci-portal-03]
 
-För den här snabbstarten lämnar du standardinställningen **offentlig** för att distribuera `microsoft/aci-helloworld`-avbildningen från det offentliga Docker Hub-registret. Den här avbildningen paketerar en liten webbapp som skrivits i Node.js och som hanterar en statisk HTML-sida.
+Lämna standardinställningen för den här snabbstarten **offentliga** att distribuera offentligt `microsoft/aci-helloworld` bild. Den här avbildningen paketerar en liten webbapp som skrivits i Node.js och som hanterar en statisk HTML-sida.
 
-Under **Konfiguration** anger du en **DNS-namnetikett** för din container. Namnet måste vara unikt i den Azure-region där du skapar containerinstansen. Din container kan nås offentligt på `<dns-name-label>.<region>.azurecontainer.io`.
+Under **Konfiguration** anger du en **DNS-namnetikett** för din container. Namnet måste vara unikt inom Azure-region där du skapar behållarinstansen. Din container kan nås offentligt på `<dns-name-label>.<region>.azurecontainer.io`. Om du får felmeddelandet ”DNS name label not available” (DNS-namnetikett inte tillgänglig) kan du prova en annan DNS-namnetikett.
 
 Lämna de övriga standardinställningarna i **Konfiguration** oförändrade och klicka sedan på **OK** att bekräfta konfigurationen.
 

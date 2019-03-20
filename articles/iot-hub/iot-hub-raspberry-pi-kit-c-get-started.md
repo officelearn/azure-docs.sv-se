@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: rangv
-ms.openlocfilehash: 562dc32f6dd40e6b0103fcc255ceafe829e2265d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4f092f2d290138e48068141113b184d8e856bee7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529658"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103221"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Anslut Raspberry Pi till Azure IoT Hub (C)
 
@@ -156,8 +156,8 @@ Aktivera Pi med hjälp av micro USB-kabel och strömförsörjningen. Använd Eth
    **Mac- och Ubuntu-användare**
    
    Använd den inbyggda SSH-klienten på Ubuntu- eller macOS. Du kan behöva köra `ssh pi@<ip address of pi>` att ansluta Pi via SSH.
-   > [!NOTE] 
-   Standardanvändarnamnet är `pi` , och lösenordet är `raspberry`.
+   > [!NOTE]
+   > Standardanvändarnamnet är `pi` , och lösenordet är `raspberry`.
 
 
 ### <a name="configure-the-sample-application"></a>Konfigurera exempelprogrammet

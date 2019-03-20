@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cd3f506205a3ee4f4435b16fd2185eeb20aef3c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: bb6ef5a87c5610d90188471db961ef20dfb18835
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447232"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895472"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Använd StorSimple Device Manager för att hantera aviseringar för StorSimple Virtual Array
 
@@ -39,7 +39,7 @@ Du kan välja om du vill bli meddelad via e-post om aviseringsvillkoren för var
 > [!NOTE]
 > Du kan ange högst 20 e-postadresser per virtuell matris.
 
-När du aktiverar e-postmeddelande för en virtuell matris kan får medlemmar i meddelandelistan över ett e-postmeddelande varje gång en kritisk varning inträffar. Meddelanden skickas från *storsimple-alerts-noreply@mail.windowsazure.com* och beskriver aviseringstillståndet. Mottagare kan klicka på **Unsubscribe** att ta bort själva från listan över e-post-meddelande.
+När du aktiverar e-postmeddelande för en virtuell matris kan får medlemmar i meddelandelistan över ett e-postmeddelande varje gång en kritisk varning inträffar. Meddelanden skickas från *storsimple-aviseringar-noreply\@mail.windowsazure.com* och beskriver aviseringstillståndet. Mottagare kan klicka på **Unsubscribe** att ta bort själva från listan över e-post-meddelande.
 
 #### <a name="to-enable-email-notification-for-alerts"></a>Aktivera e-postmeddelande för aviseringar
 
@@ -53,7 +53,7 @@ När du aktiverar e-postmeddelande för en virtuell matris kan får medlemmar i 
    
    1. I den **Aktivera e-postmeddelanden** väljer **Ja**.
    2. I den **e-tjänstadministratörer** väljer **Ja** om du inte vill att tjänstadministratören och alla medadministratörer ska få aviseringar skickas.
-   3. I den **ytterligare e-postmottagare** fältet, anger du e-postadresserna för alla andra mottagare som ska ta emot aviseringar skickas. Ange namn i formatet *someone@somewhere.com*. Avgränsa e-postadresser med semikolon. Du kan konfigurera högst 20 e-postadresser per virtuell enhet.
+   3. I den **ytterligare e-postmottagare** fältet, anger du e-postadresserna för alla andra mottagare som ska ta emot aviseringar skickas. Ange namn i formatet *någon\@somewhere.com*. Avgränsa e-postadresser med semikolon. Du kan konfigurera högst 20 e-postadresser per virtuell enhet.
       
        ![meddelandekonfigurationen för aviseringar](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. Om du vill skicka ett testmeddelande för e-post, klickar du på **skicka e-posttestmeddelande**. StorSimple Device Manager-tjänsten visar statusmeddelanden som vidarebefordras av test-meddelande.
@@ -147,6 +147,7 @@ I tabellerna nedan listas några av de StorSimple-aviseringar som kan uppstå, s
 | Klon av <*enhetsnamn* \> gick inte att slutföra. |Klona jobbfel. |Det gick inte att skapa en klon. Överväg att något av följande:<ul><li>Säkerhetskopiera listan kanske inte är giltigt. Uppdatera listan för att kontrollera att den fortfarande är giltig.</li><li>Problem med nätverksanslutningen kan göra att klonåtgärden inte kan slutföras. Se till att det inte finns några anslutningsproblem.</li><li>Du har nått gränsen för tillgänglig lagring. Ta bort eventuella säkerhetskopior som inte längre behövs för att frigöra utrymme.</li></ul>Lös problemen, radera aviseringen och försök igen. |
 
 ### <a name="networking-alerts"></a>Aviseringar för nätverk
+
 | Aviseringstext | Händelse | Mer information / rekommenderade åtgärder |
 |:--- |:--- |:--- |
 | Det gick inte att ansluta till Autentiseringstjänsten. |DataPath fel |Den URL som används för att autentisera kan inte nås. Se till att brandväggsreglerna omfattar URL-mönster som angetts för StorSimple-enheten. Mer information om URL-mönster i Azure-portalen går du till [nätverkskraven för StorSimple Virtual Array](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|

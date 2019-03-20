@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.openlocfilehash: cac889b83bb0e7a7aab12ff4097556abf60663b6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b9c707dcc1628f685661f88aaed29612465a5469
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449129"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010067"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Hur du använder Blob Storage från Xamarin
 
@@ -168,7 +168,7 @@ namespace XamarinApp.iOS
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=391641
 
 namespace XamarinApp.WinPhone
 {
@@ -231,7 +231,7 @@ namespace XamarinApp.WinPhone
 ## <a name="run-the-application"></a>Köra programmet
 Du kan nu köra det här programmet i en Android eller Windows Phone-emulatorn. Du kan också köra det här programmet i en iOS-emulatorn, men detta kräver en Mac. För specifika anvisningar för hur du gör detta, Läs i dokumentationen för [ansluta Visual Studio till en Mac](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
 
-När du kör din app skapas behållaren `mycontainer` i ditt lagringskonto. Den ska innehålla blob, `myblob`, som har texten, `Hello, world!`. Du kan kontrollera detta genom att använda den [Microsoft Azure Lagringsutforskaren](http://storageexplorer.com/).
+När du kör din app skapas behållaren `mycontainer` i ditt lagringskonto. Den ska innehålla blob, `myblob`, som har texten, `Hello, world!`. Du kan kontrollera detta genom att använda den [Microsoft Azure Lagringsutforskaren](https://storageexplorer.com/).
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudien lärde du dig att skapa ett plattformsoberoende program i Xamarin som använder Azure Storage, särskilt fokuserad på ett scenario i Blob Storage. Men kan du göra mycket mer med inte bara Blob Storage, utan även med tabell-, fil- och Queue Storage. Kontrollera informationen i följande artiklar om du vill veta mer:

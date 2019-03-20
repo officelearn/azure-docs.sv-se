@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7f0af2c64d04d83cc3eb4043007979c17c75e051
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 4a2c90accaafea0c17456f8e6c5eae41199b17ed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877294"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105173"
 ---
 > [!NOTE]
 > Varje App Service-miljön har en virtuell IP (VIP), som kan användas för att kontakta App Service Environment.
->
-# <a name="create-an-external-app-service-environment"></a>Skapa extern App Service environment #
+> 
+> # <a name="create-an-external-app-service-environment"></a>Skapa extern App Service environment #
 
 Azure App Service Environment är en distribution av Azure App Service i ett undernät i ett virtuellt nätverk i Azure (VNet). Det går att distribuera en App Service-miljö (ASE) på två sätt:
 

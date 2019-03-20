@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 197d7529a52b400cd078ead79bbb6db5f5849ee6
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: cdffc339bee1f5456e4eeb619e566b1f9c34b143
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821378"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093185"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Skapa ett fristående Azure Automation-konto
 
@@ -62,12 +62,12 @@ Om du vill skapa ett Azure Automation-konto i Azure-portalen gör du följande:
 
 1. På nästa skärm väljer **skapa**.
 
-  ![Lägg till Automation-konto](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
+   ![Lägg till Automation-konto](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
-  > [!NOTE]
-  > Om du ser följande meddelande i den **Lägg till Automation-konto** fönstret ditt konto är inte medlem i rollen administratörer för prenumeration och en medadministratör för prenumerationen.
-  >
-  > ![Lägg till Automation-konto varning](media/automation-create-standalone-account/create-account-without-perms.png)
+   > [!NOTE]
+   > Om du ser följande meddelande i den **Lägg till Automation-konto** fönstret ditt konto är inte medlem i rollen administratörer för prenumeration och en medadministratör för prenumerationen.
+   >
+   > ![Lägg till Automation-konto varning](media/automation-create-standalone-account/create-account-without-perms.png)
 
 1. I den **Lägg till Automation-konto** fönstret i den **namn** anger du ett namn för ditt Automation-konto. Det här namnet kan inte ändras när det är valt. *Automation-kontonamn unika för varje region och resursgrupp. Namn på Automation-konton som har tagits bort är kanske inte tillgängliga omedelbart.*
 1. Om du har mer än en prenumeration i den **prenumeration** anger du den prenumeration som du vill använda för det nya kontot.
@@ -75,13 +75,13 @@ Om du vill skapa ett Azure Automation-konto i Azure-portalen gör du följande:
 1. För **plats**, Välj en plats i Azure-datacenter.
 1. För den **skapa kör som-konto** alternativet, se till att **Ja** är markerat och välj sedan **skapa**.
 
-  > [!NOTE]
-  > Om du inte väljer att skapa kör som-kontot genom att välja **nr** för **skapa kör som-konto**, visas ett meddelande i den **Lägg till Automation-konto** fönstret. Även om kontot har skapats i Azure-portalen, har den inte motsvarande autentiseringsidentitet i prenumerationen klassiska modellen eller i katalogtjänsten för Azure Resource Manager-prenumeration. Därför har Automation-kontot inte åtkomst till resurser i din prenumeration. Detta förhindrar att runbookflöden som refererar till det här kontot kan autentisera och utföra åtgärder mot resurser i dessa distributionsmodeller.
-  >
-  > ![Lägg till Automation-konto varning](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
-  >
-  > Om tjänstobjektnamnet inte skapas tilldelas inte rollen deltagare.
-  >
+   > [!NOTE]
+   > Om du inte väljer att skapa kör som-kontot genom att välja **nr** för **skapa kör som-konto**, visas ett meddelande i den **Lägg till Automation-konto** fönstret. Även om kontot har skapats i Azure-portalen, har den inte motsvarande autentiseringsidentitet i prenumerationen klassiska modellen eller i katalogtjänsten för Azure Resource Manager-prenumeration. Därför har Automation-kontot inte åtkomst till resurser i din prenumeration. Detta förhindrar att runbookflöden som refererar till det här kontot kan autentisera och utföra åtgärder mot resurser i dessa distributionsmodeller.
+   >
+   > ![Lägg till Automation-konto varning](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+   >
+   > Om tjänstobjektnamnet inte skapas tilldelas inte rollen deltagare.
+   >
 
 1. Om du vill spåra förloppet för Automation-kontot skapades, i menyn, Välj **meddelanden**.
 

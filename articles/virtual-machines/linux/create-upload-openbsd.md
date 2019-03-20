@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 332382282c2b55b52bb23f278a25868c09360619
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d8640881e83084dac7f4725115f48dcf7d29e787
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729361"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007603"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Skapa och ladda upp en diskavbildning i OpenBSD till Azure
 Den här artikeln visar hur du skapar och laddar upp en virtuell hårddisk (VHD) som innehåller OpenBSD-operativsystem. När du har överfört kan du använda den som en egen avbildning för att skapa en virtuell dator (VM) i Azure med Azure CLI.
@@ -56,7 +56,7 @@ På den virtuella datorn där du installerade OpenBSD operativsystemet 6.1, som 
     echo "https://ftp.openbsd.org/pub/OpenBSD" > /etc/installurl
     ```
    
-4. Som standard den `root` användaren är inaktiverad på virtuella datorer i Azure. Användare kan köra kommandon med utökade privilegier med hjälp av den `doas` på OpenBSD VM. Doas är aktiverat som standard. Mer information finns i [doas.conf](http://man.openbsd.org/doas.conf.5). 
+4. Som standard den `root` användaren är inaktiverad på virtuella datorer i Azure. Användare kan köra kommandon med utökade privilegier med hjälp av den `doas` på OpenBSD VM. Doas är aktiverat som standard. Mer information finns i [doas.conf](https://man.openbsd.org/doas.conf.5). 
 
 5. Installera och konfigurera krav för Azure-agenten på följande sätt:
 
@@ -175,6 +175,6 @@ ssh azureuser@<ip address>
 
 
 ## <a name="next-steps"></a>Nästa steg
-Om du vill veta mer om stöd för Hyper-V på OpenBSD6.1 läsa [OpenBSD 6.1](https://www.openbsd.org/61.html) och [hyperv.4](http://man.openbsd.org/hyperv.4).
+Om du vill veta mer om stöd för Hyper-V på OpenBSD6.1 läsa [OpenBSD 6.1](https://www.openbsd.org/61.html) och [hyperv.4](https://man.openbsd.org/hyperv.4).
 
 Om du vill skapa en virtuell dator från en hanterad disk kan du läsa [az disk](/cli/azure/disk). 

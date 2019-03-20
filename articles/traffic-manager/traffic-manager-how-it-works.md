@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 35abc43b60f31d94e8c4221137ad5437366b3489
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 52469cb2735b2270815191ec0815daee350882a4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547869"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108873"
 ---
 # <a name="how-traffic-manager-works"></a>Så här fungerar Traffic Manager
 
@@ -39,8 +39,8 @@ Contoso Corp har utvecklat en ny partner-portalen. URL: en för den här portale
 För att uppnå den här konfigurationen kan utföra de följande steg:
 
 1. Distribuera tre instanser av tjänsten. DNS-namn för dessa distributioner är ”contoso-us.cloudapp .net”, ”contoso-eu.cloudapp .net” och ”contoso-asia.cloudapp .net”.
-2. Skapa en Traffic Manager-profil med namnet contoso.trafficmanager.net, och konfigurera den att använda metoden ”Performance” routning av nätverkstrafik i tre slutpunkter.
-* Konfigurera sina anpassad domännamn, ”partners.contoso.com” så att den pekar till contoso.trafficmanager.net, med hjälp av en DNS CNAME-post.
+1. Skapa en Traffic Manager-profil med namnet contoso.trafficmanager.net, och konfigurera den att använda metoden ”Performance” routning av nätverkstrafik i tre slutpunkter.
+1. Konfigurera sina anpassad domännamn, ”partners.contoso.com” så att den pekar till contoso.trafficmanager.net, med hjälp av en DNS CNAME-post.
 
 ![Traffic Manager DNS-konfiguration][1]
 

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: bdfeb41c7881bfbd577cdf1a9190617e09979a7f
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 0d5508fe6b07bd5664bd0708960559537d8f6be1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961031"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098499"
 ---
 # <a name="monitor-and-tune"></a>Övervaka och finjustera
 Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. Azure Database för PostgreSQL innehåller olika övervakningsalternativ att ge insikter i beteendet för din server.
@@ -23,7 +23,7 @@ Azure Database för PostgreSQL innehåller olika mått som ger inblick i beteend
 De här måtten är tillgängliga för Azure Database för PostgreSQL:
 
 |Mått|Metrisk visningsnamn|Enhet|Beskrivning|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|CPU-procent|Procent|Procentandelen av Processorn som används.|
 |memory_percent|Minne|Procent|Procentandelen minne som används.|
 |io_consumption_percent|IO-procent|Procent|Procentandelen av i/o som används.|
@@ -35,8 +35,8 @@ De här måtten är tillgängliga för Azure Database för PostgreSQL:
 |serverlog_storage_limit|Log storage gränsen|Byte|Det maximala server log lagringsutrymmet för den här servern.|
 |active_connections|Aktiva anslutningar|Antal|Antal aktiva anslutningar till servern.|
 |connections_failed|Misslyckade anslutningar|Antal|Antal misslyckade anslutningar till servern.|
-|network_bytes_egress|Nätverk ut|Byte|Nätverk ut över aktiva anslutningar.|
-|network_bytes_ingress|Nätverk in|Byte|Nätverk i över aktiva anslutningar.|
+|network_bytes_egress|Nätverk – utgående|Byte|Nätverk ut över aktiva anslutningar.|
+|network_bytes_ingress|Nätverk – inkommande|Byte|Nätverk i över aktiva anslutningar.|
 |backup_storage_used|Används för lagring av säkerhetskopior|Byte|Mängden lagring av säkerhetskopior används.|
 
 ## <a name="server-logs"></a>Serverloggar

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: f5713fe3333f291d8d28a6ef3df48572507661be
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 96d84b2328ffb83d5c1ea7218b17314a537fa45b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853212"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904566"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Använda Service Bus från .NET med AMQP 1.0
 
@@ -63,7 +63,7 @@ Använd endast .NET-typer som kan serialiseras direkt till AMQP-typer för bröd
 
 | .NET body objekttyp | Mappade AMQP-typ | AMQP-avsnittet strängtypen |
 | --- | --- | --- |
-| Bool |boolesk |AMQP-värde |
+| bool |boolesk |AMQP-värde |
 | byte |ubyte |AMQP-värde |
 | ushort |ushort |AMQP-värde |
 | uint |uint |AMQP-värde |
@@ -77,7 +77,7 @@ Använd endast .NET-typer som kan serialiseras direkt till AMQP-typer för bröd
 | decimal |decimal128 |AMQP-värde |
 | Char |Char |AMQP-värde |
 | DateTime |tidsstämpel |AMQP-värde |
-| GUID |uuid |AMQP-värde |
+| Guid |uuid |AMQP-värde |
 | byte |binär |AMQP-värde |
 | sträng |sträng |AMQP-värde |
 | System.Collections.IList |lista |AMQP-värde: objekt som ingår i samlingen får bara vara de som definieras i den här tabellen. |
@@ -85,15 +85,15 @@ Använd endast .NET-typer som kan serialiseras direkt till AMQP-typer för bröd
 | System.Collections.IDictionary |map |AMQP-värde: objekt som ingår i samlingen får bara vara de som definieras i den här tabellen. Obs: endast strängnycklar stöds. |
 | URI |Beskrivningen sträng (se nedan) |AMQP-värde |
 | DateTimeOffset |Beskrivningen länge (se nedan) |AMQP-värde |
-| Tidsintervall |Beskrivningen länge (se följande) |AMQP-värde |
-| Stream |binär |AMQP-Data (kan vara flera). Data-avsnitt innehåller rå byte som läses från Stream-objektet. |
+| TimeSpan |Beskrivningen länge (se följande) |AMQP-värde |
+| Strömma |binär |AMQP-Data (kan vara flera). Data-avsnitt innehåller rå byte som läses från Stream-objektet. |
 | Andra objekt |binär |AMQP-Data (kan vara flera). Innehåller den serialiserade binära filen på det objekt som använder DataContractSerializer eller en serialiserare som tillhandahålls av programmet. |
 
 | .NET-typ | Mappade AMQP beskrivs typ | Anteckningar |
 | --- | --- | --- |
 | URI |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
-| Tidsintervall |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
+| TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
 
 ## <a name="behavioral-differences"></a>Beteendeanalys skillnader
 
@@ -124,7 +124,7 @@ Den [.NET API: er](/dotnet/api/) exponera flera inställningar för att styra be
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azureservicebus-4.0.0
 [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory.acceptmessagesession?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactory_AcceptMessageSession
 [OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
-[NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
+[NuGet]: https://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure portal]: https://portal.azure.com
 [Översikt över Service Bus AMQP]: service-bus-amqp-overview.md
 [AMQP 1.0-protokollguide]: service-bus-amqp-protocol-guide.md

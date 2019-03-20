@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 67cda814925c3e5b974e4580594724c890851f64
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 88d447f86dd54fc9479a6d7d2006b9a8639ad09e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176226"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089241"
 ---
 # <a name="json-claims-transformations"></a>JSON-anspråk omvandlingar
 
@@ -52,11 +52,11 @@ I följande exempel visas anspråkstransformering extraherade den `emailAddress`
 ### <a name="example"></a>Exempel
 
 - Inkommande anspråk:
-    - **inputJson**: {"emailAddress": "someone@example.com", "displayName": ”Någon”}
+  - **inputJson**: {"emailAddress": "someone@example.com", "displayName": ”Någon”}
 - Indataparametern:
     - **claimToExtract**: emailAddress
 - Utgående anspråk: 
-    - **extractedClaim**: someone@example.com
+  - **extractedClaim**: someone@example.com
 
 
 ## <a name="getclaimsfromjsonarray"></a>GetClaimsFromJsonArray
@@ -100,18 +100,18 @@ I följande exempel, extraherar anspråkstransformering följande anspråk: e-po
 ```    
 
 - Inkommande anspråk:
-    - **jsonSourceClaim**: [{”nyckeln”: ”e”, ”value” ”:someone@example.com”}, {”nyckeln”: ”displayName”, ”value”: ”någon”}, {”nyckeln”: ”membershipNum”, ”value”: 6353399}, {”nyckeln”: ”aktiv”, ”value”: true}, {”nyckeln”: ”födelsedatum”, ”value” ”: 1980-09-23T00:0 0:00Z ”}]
+  - **jsonSourceClaim**: [{”nyckeln”: ”e”, ”value” ”:someone@example.com”}, {”nyckeln”: ”displayName”, ”value”: ”någon”}, {”nyckeln”: ”membershipNum”, ”value”: 6353399}, {”nyckeln”: ”aktiv”, ”value”: true}, {”nyckeln”: ”födelsedatum”, ”value” ”: 1980-09-23T00:0 0:00Z ”}]
 - Indataparametrar:
     - **errorOnMissingClaims**: false
     - **includeEmptyClaims**: false
     - **jsonSourceKeyName**: key
     - **jsonSourceValueName**: value
 - Utgående anspråk:
-    - **e-post**”:someone@example.com”
-    - **displayName**: ”Någon”
-    - **membershipNum**: 6353399
-    - **aktiva**: true
-    - **födelsedatumet**: 1980-09-23T00:00:00Z
+  - **e-post**”:someone@example.com”
+  - **displayName**: ”Någon”
+  - **membershipNum**: 6353399
+  - **aktiva**: true
+  - **födelsedatumet**: 1980-09-23T00:00:00Z
 
 ## <a name="getnumericclaimfromjson"></a>GetNumericClaimFromJson
 
@@ -150,7 +150,7 @@ I följande exempel visas anspråkstransformering extraherar den `id` element fr
 ### <a name="example"></a>Exempel
 
 - Inkommande anspråk:
-    - **inputJson**: {"emailAddress": "someone@example.com", "displayName": ”Någon”, ”id”: 6353399}
+  - **inputJson**: {"emailAddress": "someone@example.com", "displayName": ”Någon”, ”id”: 6353399}
 - Indataparametrar
     - **claimToExtract**: id
 - Utgående anspråk: 
@@ -181,9 +181,9 @@ I följande exempel visas anspråkstransformering extraherar det första element
 ### <a name="example"></a>Exempel
 
 - Inkommande anspråk:
-    - **inputJsonClaim**: ["someone@example.com", "Someone", 6353399]
+  - **inputJsonClaim**: ["someone@example.com", "Someone", 6353399]
 - Utgående anspråk: 
-    - **extractedClaim**: someone@example.com
+  - **extractedClaim**: someone@example.com
 
 ## <a name="xmlstringtojsonstring"></a>XmlStringToJsonString
 

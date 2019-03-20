@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 7b73a0efbe20b43b3ba8e94fce3aabf12ea918e8
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: ca58059716ebebfaf663412b37014ae4f534d0e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986064"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081516"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Lägg till Kubernetes i Azure Stack Marketplace
 
@@ -220,12 +220,12 @@ Lägg till Kubernetes från Marketplace:
 1. Ange `Custom Script for Linux`.
 
 1. Väljer du skriptet med följande profil:
-    - **Erbjuder**: Anpassat skript för Linux 2.0
-    - **Version**: 2.0.6 (eller senaste versionen)
-    - **Publisher**: Microsoft Corp
+   - **Erbjuder**: Anpassat skript för Linux 2.0
+   - **Version**: 2.0.6 (eller senaste versionen)
+   - **Publisher**: Microsoft Corp
 
-    > [!Note]  
-    > Mer än en version av anpassat skript för Linux kan anges. Du behöver att lägga till den senaste versionen av objektet.
+     > [!Note]  
+     > Mer än en version av anpassat skript för Linux kan anges. Du behöver att lägga till den senaste versionen av objektet.
 
 1. Välj **ladda ned.**
 

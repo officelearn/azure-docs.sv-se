@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 686543a322d1c87760060a1f4db1b26abca75cb8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 105b8481486c088a05e3acb95081d3ee55b55f52
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539419"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897120"
 ---
 # <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>Skapa en ytterligare Azure-prenumeration för Microsoft kundavtal
 
@@ -82,7 +82,7 @@ Lägg till användare som skapare av Azure-prenumeration på en faktura avsnitt 
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d1d515786fde06f4622402f2c1d0c3add7cd8843
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: f3d9a2447bdbc2a1a5ce930ffa161d5a9e30069b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913165"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225067"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>En introduktion till Apache Hadoop-säkerhet med Enterprise Security Package
 
 Tidigare Azure HDInsight stöds endast en enskild användare: lokal administratör. Det har fungerat bra för mindre programteam eller avdelningar. Som Apache Hadoop-baserade arbetsbelastningar fått populärare inom företagssektorn behovet för stöd för funktioner i företagsklass som flera användare i Active Directory-baserad autentisering och rollbaserad åtkomstkontroll blev allt viktigare. 
 
-Du kan skapa ett HDInsight-kluster med Enterprise Security Package (ESP) och som är ansluten till en Active Directory-domän. Du kan sedan konfigurera en lista över anställda från företaget som kan autentisera via Azure Active Directory för att logga in på HDInsight-klustret. Ingen från utanför företaget kan logga in eller få åtkomst till HDInsight-klustret. 
+Du kan skapa ett HDInsight-kluster med Enterprise Security Package (ESP) och som är ansluten till en Active Directory-domän. Du kan sedan konfigurera en lista över anställda från företaget som kan autentisera via Azure Active Directory för att logga in på HDInsight-klustret. Ingen kan från utanför företaget logga in eller få åtkomst till HDInsight-klustret. 
 
 Enterprise-administratör kan konfigurera rollbaserad åtkomstkontroll (RBAC) för Apache Hive säkerhet med hjälp av [Apache Ranger](https://hortonworks.com/apache/ranger/). Konfigurera RBAC begränsar dataåtkomsten till bara vad som behövs. Slutligen kan administratören granska dataåtkomst för anställda och eventuella ändringar som görs till principer för åtkomstkontroll. Administratören kan sedan få en hög styrningsgrad över företagets resurser.
 
@@ -36,7 +36,7 @@ Perimetersäkerhet i HDInsight uppnås genom virtuella nätverk och Azure VPN Ga
 
 En annan nivå av perimetersäkerhet uppnås genom VPN-Gateway-tjänsten. Gatewayen fungerar som första försvarslinje för varje inkommande begäran till HDInsight-kluster. Den tar emot begäran, validerar den och först därefter vidare begäran skickas till de andra noderna i klustret. På så sätt kan tillhandahåller gatewayen andra namn- och datanoder i klustret perimetersäkerhet.
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 En företagsadministratör kan skapa ett HDInsight-kluster med ESP i ett [virtuellt nätverk](https://azure.microsoft.com/services/virtual-network/). Alla noder i HDInsight-klustret är anslutna till den domän som hanteras av företaget. Detta uppnås med [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
 
 Med den här konfigurationen kan kan företagets anställda logga in på noderna i klustret med hjälp av sina domänautentiseringsuppgifter. De kan också använda sina domänautentiseringsuppgifter för att autentisera med andra godkända slutpunkter som Apache Ambari Views, ODBC, JDBC, PowerShell och REST API: er att interagera med klustret. Administratören har full kontroll över begränsningen av antalet användare som interagerar med klustret via dessa slutpunkter.

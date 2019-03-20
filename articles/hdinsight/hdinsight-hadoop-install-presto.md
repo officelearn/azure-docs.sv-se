@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 60ff63a049f225886d69c1a89a2930671e533d78
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: MT
+ms.openlocfilehash: 6fdeab56523d05232dd4e6a720de0be9866a4801
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910921"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084835"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Installera och använda Presto på Hadoop-baserade HDInsight-kluster
 
@@ -42,11 +42,11 @@ Det här avsnittet beskrivs hur du använder exempelskriptet när du skapar ett 
 
 1. Börja etablera ett kluster genom att utföra stegen [skapa Linux-baserade kluster i HDInsight med hjälp av Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md). Se till att skapa klustret med hjälp av den **anpassad** kluster skapa flödet. Klustret måste uppfylla följande krav:
 
-    * Det måste vara ett Hadoop-kluster med HDInsight version 3.6.
+   * Det måste vara ett Hadoop-kluster med HDInsight version 3.6.
 
-    * Det måste använda Azure Storage som datalager. Med Presto på ett kluster som använder Azure Data Lake Storage som alternativet är inte ett alternativ för ännu.
+   * Det måste använda Azure Storage som datalager. Med Presto på ett kluster som använder Azure Data Lake Storage som alternativet är inte ett alternativ för ännu.
 
-    ![HDInsight, anpassad (storlek, inställningar, appar)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
+     ![HDInsight, anpassad (storlek, inställningar, appar)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
 2. I den **avancerade inställningar** Välj **skriptåtgärder**. Ange följande information. Du kan också välja den **installera Presto** alternativ för Skripttyp:
    
@@ -162,7 +162,6 @@ Om du vill anpassa installationen, gör du följande:
     `sudo slider create presto1 --template /var/lib/presto/presto-hdinsight-master/appConfig-default.json --resources /var/lib/presto/presto-hdinsight-master/resources-default.json`
 
 5. Vänta tills den nya instansen är klar. Observera Presto coordinator-adress:
-
 
     `sudo slider registry --name presto1 --getexp presto`
 

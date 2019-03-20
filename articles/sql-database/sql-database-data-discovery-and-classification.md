@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 8417b849ad7589ce6a770eb805c38a13e3c672dd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ac52d8fa03c3c3ad1d618d014381fadfa752b7d7
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448772"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202987"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL Database-dataidentifiering och klassificering
 
@@ -145,6 +145,13 @@ Du kan också använda REST API: er för att programmässigt hantera klassificer
 - [Hämta](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) -hämtar känsliga etiketten för en viss kolumn
 - [Lista över aktuella av databasen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) -hämtar aktuella känslighet etiketterna för en viss databas
 - [Listan rekommenderas av databasen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -hämtar rekommenderade känslighet etiketterna för en viss databas
+
+## <a name="permissions"></a>Behörigheter
+Följande inbyggda roller kan läsa dataklassificering av en Azure SQL database: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` och `User Access Administrator`.
+
+Följande inbyggda roller kan ändra dataklassificering av en Azure SQL database: `Owner`, `Contributor`, `SQL Security Manager`.
+
+Läs mer om [RBAC för Azure-resurser](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 ## <a id="subheading-5"></a>Nästa steg
 

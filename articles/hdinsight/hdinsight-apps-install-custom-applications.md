@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 39864b629d41f0921c80736042ca5f8938376297
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: c51cb797ff4465f4efcbc526444cddeb5b923262
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651002"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225271"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Installera anpassade Apache Hadoop-program i Azure HDInsight
 
@@ -36,10 +36,10 @@ HDInsight-program kan installeras när du skapar ett kluster eller i ett befintl
 
 Filer som behövs för att distribuera programmet (Hue):
 
-* [azuredeploy.JSON](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/azuredeploy.json): Resource Manager-mall för att installera programmet HDInsight. Se [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx) för att utveckla en egen Resource Manager-mall.
-* [Hue-install_v0.sh](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/scripts/Hue-install_v0.sh): Den skriptåtgärd som anropas av Resource Manager-mallen för konfiguration av kantnoden.
+* [azuredeploy.json](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/azuredeploy.json): Resource Manager-mall för att installera programmet HDInsight. Se [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx) för att utveckla en egen Resource Manager-mall.
+* [hue-install_v0.sh](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/scripts/Hue-install_v0.sh): Den skriptåtgärd som anropas av Resource Manager-mallen för konfiguration av kantnoden.
 * [Hue-binaries.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): Hue binära filen som anropas från hui-install_v0.sh.
-* [Hue-binärfiler-14-04.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): Hue binära filen som anropas från hui-install_v0.sh.
+* [hue-binaries-14-04.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): Hue binära filen som anropas från hui-install_v0.sh.
 * [webwasb-tomcat.tar.gz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/webwasb-tomcat.tar.gz): En exempelwebbapp (Tomcat) som anropas från hui-install_v0.sh.
 
 **Installera Hue i ett befintligt HDInsight-kluster**

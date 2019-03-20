@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/7/2019
+ms.date: 03/14/2019
 ms.author: mayg
-ms.openlocfilehash: 3417a6cb4c9af8c315cc84718330b4ab5255ee6c
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 1aaf13f01c7e7197001f3099fabd4b8be8545f0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569271"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094709"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Felsöka problem med replikering för virtuella VMware-datorer och fysiska servrar
 
@@ -63,13 +63,18 @@ Se till att följande tjänster körs på den PS-datorn. Starta eller starta om 
 
 Se till att StartType för alla tjänster har angetts till **automatisk eller automatiskt (förskjuten Start)**. Microsoft Azure Recovery Services-agenten (obengine) tjänsten behöver inte ha sin StartType som ovan.
 
-## <a name="initial-replication-issues"></a>Problem med inledande replikering
+## <a name="replication-issues"></a>Replikeringsproblem
 
-Inledande replikeringsfel orsakas ofta av problem med nätverksanslutningen mellan käll- och processervern eller mellan processervern och Azure. Du kan felsöka de här problemen genom att följa stegen i följande avsnitt i de flesta fall.
+Initiala lösenord och fortlöpande replikeringsfel orsakas ofta av problem med nätverksanslutningen mellan käll- och processervern eller mellan processervern och Azure. Du kan felsöka de här problemen genom att följa stegen i följande avsnitt i de flesta fall.
 
-### <a name="check-the-source-machine"></a>Kontrollera källdatorn
+>[!Note]
+>Se till att:
+>1. Systemet är datum-tid för det skyddade objektet synkroniserade.
+>2. Inga ett antivirusprogram hindrar Azure Site Recovery. Lär dig [mer](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) på mappundantag som krävs för Azure Site Recovery.
 
-I följande lista visas hur du kan kontrollera källdatorn:
+### <a name="check-the-source-machine-for-connectivity-issues"></a>Kontrollera källdatorn för problem med nätverksanslutningen
+
+I följande lista visas hur du kan kontrollera källdatorn.
 
 *  Använda Telnet pinga processervern via HTTPS-porten genom att köra följande kommando på kommandoraden på källservern. HTTPS-Port 9443 är standardinställningen som används av Processervern för att skicka och ta emot replikeringstrafik. Du kan ändra den här porten vid tidpunkten för registrering. Följande kommando kontrollerar för problem med nätverksanslutningen och problem som blockerar brandväggsporten.
 
@@ -94,7 +99,7 @@ I följande lista visas hur du kan kontrollera källdatorn:
 
        C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents*.log 
 
-### <a name="check-the-process-server"></a>Kontrollera processervern
+### <a name="check-the-process-server-for-connectivity-issues"></a>Kontrollera processervern för problem med nätverksanslutningen
 
 I följande lista visas hur du kan kontrollera processervern:
 
@@ -102,66 +107,66 @@ I följande lista visas hur du kan kontrollera processervern:
 > Processervern måste ha en statisk IPv4-adress och bör inte ha NAT IP konfigurerat på den.
 
 * **Kontrollera anslutningen mellan källdatorer och Processervern**
-1. Om du att telnet från källdatorn och ännu Processervern kan inte nås från källa, kan du kontrollera anslutningen för slutpunkt till slutpunkt med cxprocessserver från den Virtuella källdatorn genom att köra cxpsclient verktyget på den Virtuella källdatorn:
+* Om du att telnet från källdatorn och ännu Processervern kan inte nås från källa, kan du kontrollera anslutningen för slutpunkt till slutpunkt med cxprocessserver från den Virtuella källdatorn genom att köra cxpsclient verktyget på den Virtuella källdatorn:
 
-       <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
+      <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
 
-    Kontrollera de genererade loggarna på PS i följande kataloger för information om motsvarande fel:
+   Kontrollera de genererade loggarna på PS i följande kataloger för information om motsvarande fel:
 
-       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
-       and
-       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
-2. Kontrollera följande loggar på Processervern om det finns inget pulsslag från PS:
+      C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
+      and
+      C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
+* Kontrollera följande loggar på Processervern om det finns inget pulsslag från PS. Detta har identifierats av **felkoden 806** på portalen.
 
-       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
-       and
-       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
+      C:\ProgramData\ASR\home\svsystems\eventmanager*.log
+      and
+      C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
 
-*  **Kontrollera om processervern aktivt skicka data till Azure**.
+* **Kontrollera om processervern aktivt skicka data till Azure**.
 
-   1. Öppna Aktivitetshanteraren (tryck på Ctrl + Skift + Esc) på processervern.
-   2. Välj den **prestanda** fliken och välj sedan den **öppna Resursövervakaren** länk. 
-   3. På den **Resursövervakaren** väljer den **nätverk** fliken. Under **processer med nätverksaktivitet**, kontrollera om **cbengine.exe** aktivt skickar stora mängder data.
+  1. Öppna Aktivitetshanteraren (tryck på Ctrl + Skift + Esc) på processervern.
+  2. Välj den **prestanda** fliken och välj sedan den **öppna Resursövervakaren** länk. 
+  3. På den **Resursövervakaren** väljer den **nätverk** fliken. Under **processer med nätverksaktivitet**, kontrollera om **cbengine.exe** aktivt skickar stora mängder data.
 
-        ![Skärmbild som visar volymerna under processer med nätverksaktivitet](./media/vmware-azure-troubleshoot-replication/cbengine.png)
+       ![Skärmbild som visar volymerna under processer med nätverksaktivitet](./media/vmware-azure-troubleshoot-replication/cbengine.png)
 
-   Om cbengine.exe inte skickar stora mängder data kan du slutföra stegen i följande avsnitt.
+  Om cbengine.exe inte skickar stora mängder data kan du slutföra stegen i följande avsnitt.
 
-*  **Kontrollera om processervern kan ansluta till Azure Blob storage**.
+* **Kontrollera om processervern kan ansluta till Azure Blob storage**.
 
-   Välj **cbengine.exe**. Under **TCP-anslutningar**, kontrollera om det finns en anslutning från processervern till Azure-bloggen lagrings-URL.
+  Välj **cbengine.exe**. Under **TCP-anslutningar**, kontrollera om det finns en anslutning från processervern till Azure-bloggen lagrings-URL.
 
-   ![Skärmbild som visar anslutning mellan cbengine.exe och URL: en för Azure Blob storage](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
+  ![Skärmbild som visar anslutning mellan cbengine.exe och URL: en för Azure Blob storage](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
 
-   Om det finns ingen nätverksanslutning från processervern till Azure-bloggen storage URL på Kontrollpanelen, välja **Services**. Kontrollera om följande tjänster körs:
+  Om det finns ingen nätverksanslutning från processervern till Azure-bloggen storage URL på Kontrollpanelen, välja **Services**. Kontrollera om följande tjänster körs:
 
-   *  cxprocessserver
-   *  InMage Scout VX Agent – Sentinel/Outpost
-   *  Microsoft Azure Recovery Services-agent
-   *  Microsoft Azure Site Recovery-tjänsten
-   *  tmansvc
+  *  cxprocessserver
+  *  InMage Scout VX Agent – Sentinel/Outpost
+  *  Microsoft Azure Recovery Services-agent
+  *  Microsoft Azure Site Recovery-tjänsten
+  *  tmansvc
 
-   Starta eller starta om alla tjänster som inte körs. Kontrollera om problemet kvarstår.
+  Starta eller starta om alla tjänster som inte körs. Kontrollera om problemet kvarstår.
 
-*  **Kontrollera om processervern kan ansluta till Azure offentlig IP-adress via port 443**.
+* **Kontrollera om processervern kan ansluta till Azure offentlig IP-adress via port 443**.
 
-   Öppna filen senaste CBEngineCurr.errlog i %programfiles%\Microsoft Azure Recovery Services Agent\Temp. I filen, söka efter **443** eller efter strängen **anslutningsförsöket misslyckades**.
+  Öppna filen senaste CBEngineCurr.errlog i %programfiles%\Microsoft Azure Recovery Services Agent\Temp. I filen, söka efter **443** eller efter strängen **anslutningsförsöket misslyckades**.
 
-   ![Skärmbild som visar felet loggas i Temp-mappen](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
+  ![Skärmbild som visar felet loggas i Temp-mappen](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
 
-   Om problem visas på kommandoraden på processervern, kan du använda Telnet för att pinga din Azure offentlig IP-adress (IP-adressen maskeras i föregående bild). Du kan hitta din Azure offentlig IP-adress i filen CBEngineCurr.currLog via port 443:
+  Om problem visas på kommandoraden på processervern, kan du använda Telnet för att pinga din Azure offentlig IP-adress (IP-adressen maskeras i föregående bild). Du kan hitta din Azure offentlig IP-adress i filen CBEngineCurr.currLog via port 443:
 
-   `telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443`
+  `telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443`
 
-   Om du inte kan ansluta, kontrollera om Åtkomstproblemet på grund av brandväggen eller proxyservern inställningar enligt beskrivningen i nästa steg.
+  Om du inte kan ansluta, kontrollera om Åtkomstproblemet på grund av brandväggen eller proxyservern inställningar enligt beskrivningen i nästa steg.
 
-*  **Kontrollera om IP-adressbaserade brandväggsregler på processervern blockerar åtkomst**.
+* **Kontrollera om IP-adressbaserade brandväggsregler på processervern blockerar åtkomst**.
 
-   Om du använder IP-adressbaserade brandväggsregler på servern kan hämta den fullständiga listan med [Microsoft Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653). Lägg till IP-adressintervall i brandväggskonfigurationen av för att se till att brandväggen tillåter kommunikation till Azure (och HTTPS-standardporten, 443). Tillåt IP-adressintervall för Azure-regionen för din prenumeration och Azure regionen västra USA (används för access control och Identitetshantering).
+  Om du använder IP-adressbaserade brandväggsregler på servern kan hämta den fullständiga listan med [Microsoft Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653). Lägg till IP-adressintervall i brandväggskonfigurationen av för att se till att brandväggen tillåter kommunikation till Azure (och HTTPS-standardporten, 443). Tillåt IP-adressintervall för Azure-regionen för din prenumeration och Azure regionen västra USA (används för access control och Identitetshantering).
 
-*  **Kontrollera om en URL-baserad brandvägg på processervern blockerar åtkomst**.
+* **Kontrollera om en URL-baserad brandvägg på processervern blockerar åtkomst**.
 
-   Om du använder en URL-baserad brandväggsregel på servern, lägger du till URL: er i följande tabell för att brandväggskonfigurationen:
+  Om du använder en URL-baserad brandväggsregel på servern, lägger du till URL: er i följande tabell för att brandväggskonfigurationen:
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
@@ -178,6 +183,7 @@ I följande lista visas hur du kan kontrollera processervern:
 *  **Kontrollera om bandbredden som begränsning är begränsad på processervern**.
 
    Öka bandbredden och kontrollera om problemet kvarstår.
+
 
 ## <a name="source-machine-isnt-listed-in-the-azure-portal"></a>Källdatorn visas inte i Azure portal
 
@@ -196,6 +202,96 @@ När du försöker markera källdatorn för att aktivera replikering med Site Re
 ## <a name="protected-virtual-machines-are-greyed-out-in-the-portal"></a>Skyddade virtuella datorer är gråmarkerat ut i portalen
 
 Virtuella datorer som replikeras under Site Recovery är inte tillgängliga i Azure-portalen om det finns dubblettvärden i systemet. Om du vill lära dig mer om att ta bort inaktuella poster och lösa problemet, referera till [Azure Site Recovery VMware till Azure: Hur du rensar dubbletter eller inaktuella poster](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
+
+## <a name="common-errors-and-recommended-steps-for-resolution"></a>Vanliga fel och rekommenderat steg för att matcha
+
+### <a name="initial-replication-issues-error-78169"></a>Inledande replikeringsproblem [fel 78169]
+
+Över en ovan att säkerställa att det finns ingen anslutning, bandbredd eller tid synkronisera relaterad information, se till att:
+
+- Inga ett antivirusprogram hindrar Azure Site Recovery. Lär dig [mer](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) på mappundantag som krävs för Azure Site Recovery.
+
+### <a name="application-consistency-recovery-point-missing-error-78144"></a>Konsekvenspunkt för program som saknas [fel 78144]
+
+ Detta inträffar på grund av problem med Volume Shadow copy Service (VSS). För att lösa detta: 
+ 
+- Kontrollera att den installerade versionen av Azure Site Recovery-agenten är minst 9.22.2. 
+- Kontrollera att VSS-providern är installerad som en tjänst i Windows-tjänster och kontrollera komponenten Service MMC för att kontrollera att Azure Site Recovery VSS Provider visas också.
+- Om VSS-leverantören inte är installerat finns det [installationsfel felsökningsartikeln](vmware-azure-troubleshoot-push-install.md#vss-installation-failures).
+
+- Om VSS är inaktiverad
+    - Kontrollera att starttypen för tjänsten VSS-Provider har angetts till **automatisk**.
+    - Starta om följande tjänster:
+        - VSS-tjänsten
+        - Azure Site Recovery VSS Provider
+        - VDS-tjänsten
+
+### <a name="high-churn-on-source-machine-error-78188"></a>Hög omsättning på källdatorn [fel 78188]
+
+Möjliga orsaker:
+- Dataändringshastigheten (skrivna byte/sek) på de angivna diskarna för den virtuella datorn är mer än den [stöds gränser för Azure Site Recovery](site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) för kontot för replikeringsmållagring.
+- Det finns en plötslig insamling i omsättningsfrekvensen på grund av vilka hög mängden data som är i vänteläge för överföring.
+
+Att lösa problemet:
+- Se till att target lagringskontotypen (Standard eller Premium) är etablerad enligt kravet på omsättning vid källan.
+- Om den observerade omsättningen är tillfällig, Vänta några timmar innan data väntar överföringen komma ikapp och för att skapa återställningspunkter.
+- Om problemet kvarstår kan du använda ASR [Distributionshanteraren](site-recovery-deployment-planner.md#overview) för att planera replikering.
+
+### <a name="no-heartbeat-from-source-machine-error-78174"></a>Inget pulsslag från källdatorn [fel 78174]
+
+Detta händer när Azure Site Recovery-mobilitetsagenten på källdatorn inte kommunicerar med den konfigurationsserver (CS).
+
+Använd följande steg för att lösa problemet genom för att verifiera nätverksanslutningen från den Virtuella källdatorn till Config-Server:
+
+1. Kontrollera att källdatorn är igång.
+2. Logga in på källdatorn med ett konto som har administratörsbehörighet.
+3. Kontrollera att följande tjänster körs och om inte starta om tjänsterna:
+   - Svagents (InMage Scout VX Agent)
+   - InMage Scout Application Service
+4. På källdatorn, kontrollera loggarna på platsen för felinformation:
+
+       C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+    
+### <a name="no-heartbeat-from-process-server-error-806"></a>Inget pulsslag från Processervern [fel 806]
+Om det finns inget pulsslag från Process Server (PS), kontrollerar du att:
+1. PS VM är igång
+2. Kontrollera följande loggar på PS för felinformation:
+
+       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
+       and
+       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
+
+### <a name="no-heartbeat-from-master-target-error-78022"></a>Inget pulsslag från Huvudmålservern [fel 78022]
+
+Detta händer när Azure Site Recovery-mobilitetsagenten på Huvudmålet inte kommunicerar med konfigurationsservern.
+
+Lös problemet genom att använda följande steg för att kontrollera status för tjänsten:
+
+1. Kontrollera att Master Target Virtuella datorn körs.
+2. Logga in på Master Target-VM med ett konto som har administratörsbehörighet.
+    - Kontrollera att tjänsten svagents körs. Starta om tjänsten om den körs
+    - Titta på loggfilerna på plats för felinformation:
+        
+          C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+
+### <a name="process-server-is-not-reachable-from-the-source-machine-error-78186"></a>Processervern kan inte nås från källdatorn [fel 78186]
+
+Det här felet leder till appen och krascher konsekventa återställningspunkter som skapas om det inte åtgärdas. Lös problemet genom att följa den nedan felsökning länkar:
+1. Se till att [PS-tjänster som körs](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues)
+2. [Kontrollera anslutningsproblem för käll-dator](vmware-azure-troubleshoot-replication.md#check-the-source-machine-for-connectivity-issues)
+3. [Kontrollera problem med nätverksanslutningen process server](vmware-azure-troubleshoot-replication.md#check-the-process-server-for-connectivity-issues) och Följ riktlinjerna för:
+    - Kontrollerar anslutningen med källkod
+    - Problem med brandväggen och proxyservern
+
+### <a name="data-upload-blocked-from-source-machine-to-process-server-error-78028"></a>Dataöverföringen har blockerats från källdatorn till Processerver [fel 78028]
+
+Det här felet leder till appen och krascher konsekventa återställningspunkter som skapas om det inte åtgärdas. Lös problemet genom att följa den nedan felsökning länkar:
+
+1. Se till att [PS-tjänster som körs](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues)
+2. [Kontrollera anslutningsproblem för käll-dator](vmware-azure-troubleshoot-replication.md#check-the-source-machine-for-connectivity-issues)
+3. [Kontrollera problem med nätverksanslutningen process server](vmware-azure-troubleshoot-replication.md#check-the-process-server-for-connectivity-issues) och Följ riktlinjerna för:
+    - Kontrollerar anslutningen med källkod
+    - Problem med brandväggen och proxyservern
 
 ## <a name="next-steps"></a>Nästa steg
 

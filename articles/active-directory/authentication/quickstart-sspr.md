@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6cd463a728d8362221aaf7789258d7815566b23
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: eabc30b28ec6c32295c5eeff0f19b31fba622056
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176262"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095627"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Snabbstart: Återställning av lösenord för självbetjäning
 
 I den här snabbstarten går du igenom konfiguration av självåterställning av lösenord (SSPR) som ett enkelt sätt för IT-administratörer att göra så att användarna kan återställa sina lösenord eller låsa upp sina konton.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En aktiv Azure AD-klientorganisation med minst en aktiverad utvärderingslicens.
 * Ett konto med behörigheter som global administratör.
@@ -42,11 +42,11 @@ I den här snabbstarten går du igenom konfiguration av självåterställning av
 3. Från sidan **Autentiseringsmetoder** gör du följande val:
    * Antal metoder som krävs för återställning: **1**
    * Metoder som är tillgängliga för användare:
-      * **Mobiltelefon**
-      * **Arbetstelefon**
+      * **E-post**
+      * **Kod för mobilapp (förhandsversion)**
    * Klicka på **Spara**.
 
-    ![Autentisering][Authentication]
+     ![Autentisering][Authentication]
 
 4. Från sidan **Registrering** gör du följande val:
    * Kräv att användare registrerar sig vid inloggning: **Ja**

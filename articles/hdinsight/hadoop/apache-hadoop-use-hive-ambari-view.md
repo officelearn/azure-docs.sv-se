@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 16c9e1cb568533e8dcad046c4ee21bfeaf19d5b7
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: cb68e93553be66d0d0be0edf61e491217bfe4d48
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407855"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091315"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Använd Apache Ambari Hive-vyn med Apache Hadoop i HDInsight
 
@@ -73,7 +73,7 @@ Lär dig mer om att köra Hive-frågor med hjälp av Apache Ambari Hive-vy. Hive
    * `DROP TABLE`: Tar bort tabellen och datafilen, om tabellen redan finns.
 
    * `CREATE EXTERNAL TABLE`: Skapar en ny ”external” tabell i Hive.
-   Externa tabeller lagra endast tabelldefinitionen i Hive. Data finns kvar i den ursprungliga platsen.
+     Externa tabeller lagra endast tabelldefinitionen i Hive. Data finns kvar i den ursprungliga platsen.
 
    * `ROW FORMAT`: Visar hur data ska formateras. I det här fallet avgränsas fälten i varje logg med ett blanksteg.
 
@@ -81,8 +81,8 @@ Lär dig mer om att köra Hive-frågor med hjälp av Apache Ambari Hive-vy. Hive
 
    * `SELECT`: Väljer en uppräkning av alla rader där kolumnen t4 innehåller värdet [fel].
 
-    > [!IMPORTANT]  
-    > Lämna den __databasen__ valet __standard__. I exemplen i det här dokumentet används standarddatabasen som ingår i HDInsight.
+     > [!IMPORTANT]  
+     > Lämna den __databasen__ valet __standard__. I exemplen i det här dokumentet används standarddatabasen som ingår i HDInsight.
 
 5. Starta frågan med den **kör** knappen under kalkylbladet. Knappen blir orange och texten ändras till **stoppa**.
 
@@ -102,7 +102,7 @@ Om du vill visa en visualisering av frågeplanen, Välj den **Visual förklara**
 
 Den **Visual förklara** vy av frågan kan vara lättare att förstå flödet av komplexa frågor. Du kan se en textbaserade motsvarigheten till den här vyn genom att använda den **förklara** knappen i frågeredigeraren.
 
-### <a name="tez-ui"></a>Tez-Användargränssnittet
+### <a name="tez-ui"></a>Tez UI
 
 Om du vill visa Tez UI för frågan, Välj den **Tez** fliken under kalkylbladet.
 

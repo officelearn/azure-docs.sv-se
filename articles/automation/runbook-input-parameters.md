@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ef0dfafce33837a80ec00ba58e6be99784e652a2
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 969e0c2582ce8f72592059fbf1d58e3ebe9faa5d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418618"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117208"
 ---
 # <a name="runbook-input-parameters"></a>Indataparametrar för Runbook
 
@@ -338,10 +338,10 @@ Kör följande PowerShell-kommandon:
    Connect-AzureRmAccount
    ```
 
-  Du uppmanas att ange dina autentiseringsuppgifter för Azure.
+   Du uppmanas att ange dina autentiseringsuppgifter för Azure.
 
-  > [!IMPORTANT]
-  > **Add-AzureRmAccount** är nu ett alias för **Connect-AzureRMAccount**. När sökningen biblioteket objekt, om du inte ser **Connect-AzureRMAccount**, du kan använda **Add-AzureRmAccount**, eller så kan du uppdatera dina moduler i ditt Automation-konto.
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** är nu ett alias för **Connect-AzureRMAccount**. När sökningen biblioteket objekt, om du inte ser **Connect-AzureRMAccount**, du kan använda **Add-AzureRmAccount**, eller så kan du uppdatera dina moduler i ditt Automation-konto.
 
 1. Hämta innehållet i JSON-filen och konvertera den till en sträng:
 

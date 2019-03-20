@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/11/2018
+ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 13bb12c2c624bfd50933b624a28145172f521747
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e79f4b58582ab6643a7a13ffee25503060a2208c
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427686"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226750"
 ---
 # <a name="my-first-python-runbook"></a>Min första Python-runbook
 
@@ -25,6 +25,9 @@ ms.locfileid: "54427686"
 > - [Python](automation-first-runbook-textual-python2.md)
 
 Den här självstudien vägleder dig genom skapandet av en [Python-runbook](automation-runbook-types.md#python-runbooks) i Azure Automation. Du börjar med en enkel runbook som du testar och publicerar. Sedan ändrar du runbook-jobbet så att det hanterar Azure-resurser. I det här exemplet ska det starta en virtuell dator i Azure. Slutligen kan göra du runbooken mer robust genom att lägga till runbook-parametrar.
+
+> [!NOTE]
+> Med en webhook för att starta en Python-runbook stöds inte.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -78,16 +81,16 @@ I detta fall använder behöver du ingen publicerad version ännu eftersom du pr
 1. Klicka på **Publicera** för att publicera runbooken och sedan på **Ja** när du uppmanas att göra det.
 1. Om du rullar åt vänster för att visa runbooken på den **Runbooks** nu den visar en **Redigeringsstatusen** av **publicerad**.
 1. Bläddra tillbaka åt höger för att visa fönstret för **MyFirstRunbook-Python**.
-   Vi kan använda alternativen längs överkanten för att starta runbooken, visa runbooken, schemalägga den så att den startar senare eller skapa en [webhook](automation-webhooks.md) så att den kan startas via ett HTTP-anrop.
-1. Du vill starta runbooken, så klicka på **starta** och klicka sedan på **Ok** när bladet starta Runbook öppnas.
-1. Ett Jobbfönster öppnas för runbook-jobbet som du skapade. Du kan stänga det här fönstret, men i det här fallet du lämna det öppet så att du kan titta på jobbets status.
+   Alternativen längs överkanten kan vi starta runbooken, visa runbooken eller schemalägga den så att starta vid ett tillfälle i framtiden.
+2. Du vill starta runbooken, så klicka på **starta** och klicka sedan på **Ok** när bladet starta Runbook öppnas.
+3. Ett Jobbfönster öppnas för runbook-jobbet som du skapade. Du kan stänga det här fönstret, men i det här fallet du lämna det öppet så att du kan titta på jobbets status.
 1. Jobbets status visas i **jobbsammanfattning** och överensstämmer med de statusar som du såg när du testade runbooken.
-1. När runbookens status visas som *Slutförd* klickar du på **Utdata**. Fönstret utdata öppnas och du kan se din *Hello World*.
-1. Stäng utdatafönstret.
-1. Klicka på **Alla loggar** för att öppna fönstret Strömmar för runbook-jobbet. Du bör endast se *Hello World* i utdataströmmen, men även andra dataströmmar kan visas för ett runbook-jobb, till exempel Utförlig och Fel, om runbook-jobbet skriver till dem.
-1. Stäng fönstret strömmar och fönstret jobb för att återgå till fönstret MyFirstRunbook-Python.
-1. Öppna fönstret Jobb för runbooken genom att klicka på **Jobb**. Här visas alla jobb som skapats av den här runbooken. Nu bör du endast se ett jobb eftersom du bara körde jobbet en gång.
-1. Du kan klicka på det här jobbet för att öppna samma jobbfönster som du visade när du startade runbook-jobbet. På så sätt kan du gå tillbaka i tiden och visa information om alla jobb som har skapats för en specifik runbook.
+2. När runbookens status visas som *Slutförd* klickar du på **Utdata**. Fönstret utdata öppnas och du kan se din *Hello World*.
+3. Stäng utdatafönstret.
+4. Klicka på **Alla loggar** för att öppna fönstret Strömmar för runbook-jobbet. Du bör endast se *Hello World* i utdataströmmen, men även andra dataströmmar kan visas för ett runbook-jobb, till exempel Utförlig och Fel, om runbook-jobbet skriver till dem.
+5. Stäng fönstret strömmar och fönstret jobb för att återgå till fönstret MyFirstRunbook-Python.
+6. Öppna fönstret Jobb för runbooken genom att klicka på **Jobb**. Här visas alla jobb som skapats av den här runbooken. Nu bör du endast se ett jobb eftersom du bara körde jobbet en gång.
+7. Du kan klicka på det här jobbet för att öppna samma jobbfönster som du visade när du startade runbook-jobbet. På så sätt kan du gå tillbaka i tiden och visa information om alla jobb som har skapats för en specifik runbook.
 
 ## <a name="add-authentication-to-manage-azure-resources"></a>Lägg till autentisering för att hantera Azure-resurser
 

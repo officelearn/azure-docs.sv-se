@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 267919900fe68271365a73c3cbea7b1f0befc8a7
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 24a77561d08cc3db5356dd0e931f62bf2d16406d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766834"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014188"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Tilldela åtkomst till Cost Management-data
 
@@ -25,7 +25,7 @@ Omfattningen som en användare väljer används i hela kostnadshantering datakon
 
 ## <a name="cost-management-scopes"></a>Cost Management-scope
 
-Kostnadshantering stöder en mängd olika typer av Azure-konto. Om du vill visa en fullständig lista över typer av stöds, se [förstå kostnadshantering data](understand-cost-mgt-data.md). Typ av konto avgör tillgängliga scope.
+Kostnadshantering stöder en mängd olika typer av Azure-konto. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Typ av konto avgör tillgängliga scope.
 
 ### <a name="azure-ea-subscription-scopes"></a>Omfång för Azure EA-prenumeration
 

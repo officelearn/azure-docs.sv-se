@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: ad4270700712311d8bea2e2014701a99e44c735f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: e4550dde533044260c120b17c4f72758f90e8bff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992453"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102124"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Agent-datakällor i Azure Monitor
 De data som Azure Monitor samlar in från agenter definieras av datakällor som du konfigurerar.  Data från agenter lagras som [logga data över](data-collection.md) med en uppsättning poster.  Varje datakälla skapar poster i en viss typ med varje typ av att ha en egen uppsättning egenskaper.
@@ -30,7 +30,7 @@ I följande tabell visas de agent-datakällor som är tillgängliga i Azure Moni
 
 
 | Datakälla | Plattform | Microsoft övervakningsagent | Operations Manager-agent | Azure-lagring | Operations Manager som krävs? | Operations Manager agent-data skickas via hanteringsgruppen | Insamlingsfrekvens |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | [Anpassade loggar](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | anländer |
 | [Anpassade loggar](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | anländer |
 | [IIS-loggar](data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |beror på inställningen för loggfil |

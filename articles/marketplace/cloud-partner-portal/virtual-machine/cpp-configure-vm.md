@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 5ccfef8a6ad367e8fac100217713cd323341a535
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9cf363bc5f4230306c2fec99eb6287b23e598a4c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183479"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833509"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Konfigurera den virtuella Azure-baserade datorn
 
@@ -28,7 +28,8 @@ Den här artikeln beskriver hur du storlek, uppdatera och generalisera en virtue
 
 ## <a name="sizing-the-vhds"></a>Ändra storlek på de virtuella hårddiskarna
 
-<!--TD: Check if the following assertion is true. I didn't understand the original content. --> Om du har valt ett av de virtuella datorerna vara förkonfigurerad med ett operativsystem (och eventuellt ytterligare tjänster) och du redan har valt en standard Azure VM-storlek, enligt beskrivningen i [VM SKU: er fliken](./cpp-skus-tab.md).  Starta din lösning med en förkonfigurerad OS är den rekommenderade metoden.  Men om du installerar ett operativsystem manuellt, måste du storleken din primära VHD i din avbildning:
+<!--TD: Check if the following assertion is true. I didn't understand the original content. -->
+Om du har valt ett av de virtuella datorerna vara förkonfigurerad med ett operativsystem (och eventuellt ytterligare tjänster) och du redan har valt en standard Azure VM-storlek, enligt beskrivningen i [VM SKU: er fliken](./cpp-skus-tab.md).  Starta din lösning med en förkonfigurerad OS är den rekommenderade metoden.  Men om du installerar ett operativsystem manuellt, måste du storleken din primära VHD i din avbildning:
 
 - För Windows, operativsystemet VHD: N bör skapas som en 127-128 GB VHD i fast format. 
 - För Linux, den här virtuella Hårddisken ska skapas som en 30-50 GB VHD i fast format.
@@ -44,7 +45,7 @@ Källavbildningen operativsystemet virtuella datorer innehåller de senaste uppd
 
 Windows Server 2016, kör den **söka efter uppdateringar** kommando.  I annat fall äldre versioner av Windows finns i [så här hämtar du en uppdatering via Windows Update](https://support.microsoft.com/help/3067639/how-to-get-an-update-through-windows-update).  Windows update installerar automatiskt de senaste kritiska och viktiga säkerhetsuppdateringarna.
 
-För Linux-distributioner, uppdateringar ofta hämtas och installeras via ett kommandoradsverktyg eller ett grafiskt verktyg.  Till exempel Ubuntu Linux innehåller de [apt-get](http://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) kommandot och [Uppdateringshanterare](http://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) verktyget för att uppdatera Operativsystemet.
+För Linux-distributioner, uppdateringar ofta hämtas och installeras via ett kommandoradsverktyg eller ett grafiskt verktyg.  Till exempel Ubuntu Linux innehåller de [apt-get](https://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) kommandot och [Uppdateringshanterare](https://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) verktyget för att uppdatera Operativsystemet.
 
 
 ## <a name="perform-additional-security-checks"></a>Utföra ytterligare säkerhetskontroller
@@ -72,7 +73,7 @@ Windows OS-diskar är generaliserad med den [sysprep-verktyget](https://docs.mic
 > [!WARNING]
 >  Eftersom uppdateringar kan körs automatiskt när du har kört sysprep, bör du stänga av den virtuella datorn förrän den har distribuerats.  Denna avstängning undviker efterföljande uppdateringar gör instans-specifika ändringar i VHD-OS eller installerade tjänster.
 
-Mer information om hur du kör sysprep finns i [steg för att generalisera en virtuell Hårddisk] ()https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
+Mer information om hur du kör sysprep finns i [steg för att generalisera en virtuell Hårddisk](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
 
 ### <a name="linux"></a>Linux
 

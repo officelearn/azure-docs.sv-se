@@ -8,14 +8,14 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ec66066fe51af97f6355b78dd7af3480a39a5a03
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0bd9f5ed00193aa9f872287b6afaf9e2b28c24dc
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215097"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188347"
 ---
-# <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Felsök: Det gick inte att skapa eller ta bort en databas eller tabell i Azure Data Explorer
+# <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Felsökning: Det gick inte att skapa eller ta bort en databas eller tabell i Azure Data Explorer
 
 I Azure Data Explorer arbeta du regelbundet med databaser och tabeller. Den här artikeln innehåller felsökningssteg för problem som kan fungera.
 
@@ -37,7 +37,7 @@ Se till att du har tillräcklig behörighet. Om du vill ta bort eller byta namn 
 
     Mer information om behörigheter finns i [hantera databasbehörigheter](manage-database-permissions.md).
 
-1. Se till att en tabell med samma namn redan inte finns. Om den finns, kan du: skapa en tabell med ett annat namn. Byt namn på den befintliga tabellen (kräver *tabell admin* rollen); eller ta bort den befintliga tabellen (kräver *databasen admin* roll). Använd följande kommandon.
+1. Se till att en tabell med samma namn redan inte finns. Om den finns, kan du: Skapa en tabell med ett annat namn. Byt namn på den befintliga tabellen (kräver *tabell admin* rollen); eller ta bort den befintliga tabellen (kräver *databasen admin* roll). Använd följande kommandon.
 
     ```Kusto
     .drop table <TableName>
@@ -53,7 +53,7 @@ Mer information om behörigheter finns i [hantera databasbehörigheter](manage-d
 
 ## <a name="general-guidance"></a>Allmän vägledning
 
-1. Kontrollera den [hälsoinstrumentpanelen för Azure](https://azure.microsoft.com/status/>). Leta efter status för Azure Data Explorer i den region där du vill arbeta med en databas eller tabell.
+1. Kontrollera den [hälsoinstrumentpanelen för Azure](https://azure.microsoft.com/status/). Leta efter status för Azure Data Explorer i den region där du vill arbeta med en databas eller tabell.
 
     Om statusen inte är **bra** (grön bock), försök igen efter status förbättrar.
 

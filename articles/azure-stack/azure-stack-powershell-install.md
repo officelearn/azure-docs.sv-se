@@ -15,12 +15,12 @@ ms.date: 02/08/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 1f51aee41937c531a987482a6a367970305e6594
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 4e623c6a2423d2e61334932d0c40f05e548d3c38
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57218030"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109873"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installera PowerShell för Azure Stack
 
@@ -218,11 +218,11 @@ Installationen består av fyra steg:
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
     ```
 
-    > [!NOTE]  
-    >På datorer utan Internetanslutning rekommenderar vi att köra följande cmdlet för att inaktivera telemetridatainsamling. Det kan uppstå en försämring av cmldets utan att inaktivera telemetridatainsamling. Detta gäller endast för datorer utan internet-anslutningar
-    ```PowerShell
-    Disable-AzureRmDataCollection
-    ```
+    > [!NOTE]
+    > På datorer utan Internetanslutning rekommenderar vi att köra följande cmdlet för att inaktivera telemetridatainsamling. Det kan uppstå en försämring av cmldets utan att inaktivera telemetridatainsamling. Detta gäller endast för datorer utan internet-anslutningar
+    > ```PowerShell
+    > Disable-AzureRmDataCollection
+    > ```
 
 ### <a name="enable-additional-storage-features"></a>Aktivera ytterligare lagringsutrymme funktioner
 

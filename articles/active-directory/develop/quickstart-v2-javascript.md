@@ -4,7 +4,7 @@ description: Lär dig hur JavaScript-program kan anropa ett API som kräver åtk
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 694eb49244afb6761ce274572f15273ccef6cbb5
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: fe8c2287da7a7eabc26ff134d8bb44c5e45085f1
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195038"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203055"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Snabbstart: Logga in användare och hämta en åtkomsttoken från ett JavaScript-program
 
@@ -29,7 +29,7 @@ ms.locfileid: "57195038"
 
 I den här snabbstarten lär du dig att använda ett kodexempel som visar hur en JavaScript-ensidesapplikation (SPA) kan logga in personliga konton och arbets- och skolkonton samt hämta en åtkomsttoken för att anropa Microsoft Graph API eller valfritt webb-API.
 
-![Så här fungerar den exempelapp som skapas med den här snabbstarten](media/quickstart-v2-javascript/javascriptspa-intro.png)
+![Visar hur exempelapp som genererats av den här snabbstarten fungerar](media/quickstart-v2-javascript/javascriptspa-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>Registrera och ladda ned snabbstartsprogrammet

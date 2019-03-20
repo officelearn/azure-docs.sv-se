@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 62d17670a068304e0764c85d49da0aa9a736c477
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7776e0005facb57d223a1ba1e73d1efa30edec49
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444446"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004892"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Förbered en virtuell Ubuntu-dator för Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="official-ubuntu-cloud-images"></a>Officiella Ubuntu cloud-avbildningar
-Ubuntu nu publicerar officiella virtuella Azure-hårddiskar ned från [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/). Om du vill skapa en egen specialiserade Ubuntu-avbildning för Azure, snarare rekommenderas än manuell proceduren nedan att börja med dessa kända arbeta virtuella hårddiskar och anpassa efter behov. Den senaste versionen av avbildningen finns alltid på följande platser:
+Ubuntu nu publicerar officiella virtuella Azure-hårddiskar ned från [ https://cloud-images.ubuntu.com/ ](https://cloud-images.ubuntu.com/). Om du vill skapa en egen specialiserade Ubuntu-avbildning för Azure, snarare rekommenderas än manuell proceduren nedan att börja med dessa kända arbeta virtuella hårddiskar och anpassa efter behov. Den senaste versionen av avbildningen finns alltid på följande platser:
 
 * Ubuntu 12.04/exakt: [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
-* Ubuntu 14.04/sin: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
-* Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
-* Ubuntu 18.04/Bionic: [bionisk-server-cloudimg-amd64.vhd.zip](http://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vhd.zip)
-* Ubuntu 18.10/Cosmic: [kosmisk-server-cloudimg-amd64.vhd.zip](http://cloud-images.ubuntu.com/cosmic/current/cosmic-server-cloudimg-amd64.vhd.zip)
+* Ubuntu 14.04/sin: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
+* Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
+* Ubuntu 18.04/Bionic: [bionisk-server-cloudimg-amd64.vhd.zip](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vhd.zip)
+* Ubuntu 18.10/Cosmic: [kosmisk-server-cloudimg-amd64.vhd.zip](https://cloud-images.ubuntu.com/cosmic/current/cosmic-server-cloudimg-amd64.vhd.zip)
 
 ## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du redan har installerat ett Ubuntu Linux-operativsystem till en virtuell hårddisk. Det finns flera olika verktyg för att skapa VHD-filer, till exempel en virtualiseringslösning, till exempel Hyper-V. Anvisningar finns i [installera Hyper-V-rollen och konfigurera en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
@@ -47,7 +47,7 @@ Den här artikeln förutsätter att du redan har installerat ett Ubuntu Linux-op
 
 ## <a name="manual-steps"></a>Manuella steg
 > [!NOTE]
-> Innan du försöker skapa en egen anpassad Ubuntu-avbildning för Azure genom att använda fördefinierade och testade bilder från [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/) i stället.
+> Innan du försöker skapa en egen anpassad Ubuntu-avbildning för Azure genom att använda fördefinierade och testade bilder från [ https://cloud-images.ubuntu.com/ ](https://cloud-images.ubuntu.com/) i stället.
 > 
 > 
 
@@ -122,8 +122,8 @@ Den här artikeln förutsätter att du redan har installerat ett Ubuntu Linux-op
         # sudo apt-get update
         # sudo apt-get install walinuxagent
 
-    >[!Note]
-    Den `walinuxagent` paketet kan ta bort den `NetworkManager` och `NetworkManager-gnome` paket, om de är installerade.
+   > [!Note]
+   >  Den `walinuxagent` paketet kan ta bort den `NetworkManager` och `NetworkManager-gnome` paket, om de är installerade.
 
 För Ubuntu 18.04/18.10 Azure-datakälla, redigera detta: /etc/cloud/cloud.cfg.d/90-azure.cfg, lägga till den här koden i slutet av filen:
 
@@ -135,13 +135,13 @@ datasource:
      agent_command: [service, walinuxagent, start]
 ```
 
-8. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering i Azure:
+1. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering i Azure:
    
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-9. Klicka på **åtgärd -> Stäng ned** i Hyper-V Manager. VHD för Linux är nu redo att överföras till Azure.
+1. Klicka på **åtgärd -> Stäng ned** i Hyper-V Manager. VHD för Linux är nu redo att överföras till Azure.
 
 ## <a name="references"></a>Referenser
 [Ubuntu maskinvara aktivering (HWE) kernel](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)

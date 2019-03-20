@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: c3a5cb540843c5ec4ceaf8522e9148cc7171149c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9632bd339956aff7558461ed391cdd21c92f06ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456473"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995165"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Exempel 3 – skapa ett perimeternätverk för att skydda nätverk med en brandvägg, UDR och NSG
 [Gå tillbaka till gränsen bästa praxis sidan][HOME]
@@ -486,7 +486,7 @@ Kom också ihåg att Nätverkssäkerhetsgrupper är på plats för inkommande In
 11. AppVM01 frågar efter användarnamn lösenord
 
 #### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(Tillåts) Web Server DNS-sökning på DNS-server
-1. Web Server, IIS01, måste en data-feed på www.data.gov, men måste matcha adressen.
+1. Web Server, IIS01, måste en data-feed på www\.data.gov, men måste matcha adressen.
 2. Nätverkskonfigurationen för VNet-listor DNS01 (10.0.2.4 på Backend-undernät) som den primära DNS-servern, IIS01 skickar en DNS-begäran till DNS01
 3. UDR dirigerar trafik i brandväggen som nästa hopp
 4. Ingen utgående NSG-regler är bundna till undernätet på klientsidan, tillåts trafik
@@ -945,7 +945,7 @@ Det här PowerShell-skriptet ska köras lokalt på en internet-ansluten dator el
 Spara den här xml-filen med uppdaterade plats och lägga till länken till den här filen till variabeln $NetworkConfigFile i skriptet ovan.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9d7e6f7505b8af76ff6c42c040918a274d89c3c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2a6896e2b9633b8de679e8d14a7957dc0e3229e7
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407957"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226733"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Aktivera kombineras security information registrering (förhandsversion)
 
@@ -44,6 +44,12 @@ Utför följande steg för att aktivera registreringen av kombinerade:
 
 > [!NOTE]
 > När du aktiverar kombinerade registrerings användare registrera eller bekräfta sina telefonnummer eller mobilappar via den nya upplevelsen kan använda dem för MFA och SSPR, om dessa metoder är aktiverade i MFA och SSPR-principer. Om du inaktiverar sedan den här upplevelsen kan användare gå till föregående SSPR-registrering sidan på `https:/aka.ms/ssprsetup` kommer att behöva utföra multifaktorautentisering innan de kan komma åt sidan.
+
+Om du har konfigurerat platser till zoner tilldelning i Internet Explorer måste på följande webbplatser vara i samma zon:
+
+* [https://login.microsoftonline.com](https://login.microsoftonline.com)
+* [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
+* [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 
 ## <a name="next-steps"></a>Nästa steg
 

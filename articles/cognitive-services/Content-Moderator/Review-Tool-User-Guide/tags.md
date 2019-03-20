@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 942b30ab9949a28c42949913d90e7448c22b658f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fa3b7be6ac7cc398685bf5ad7d21173bcb072b69
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206290"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118416"
 ---
 # <a name="create-and-use-moderation-tags"></a>Skapa och använda taggar för moderering
 
@@ -23,15 +23,15 @@ Förutom de två standardtaggar **isadult** (**en**) och **isracy** (**r**), du 
 
 ## <a name="create-tags"></a>Skapa taggar
 
-1.  Välj taggar på fliken Inställningar.
+1. Välj taggar på fliken Inställningar.
 
-  ![Content Moderation Tags](images/tags-1.png)
+   ![Content Moderation Tags](images/tags-1.png)
 
-2.  Ange en kort kod för två bokstäver för taggen.
-3.  Ange ett namn för taggen. Behåll namnet korta och beskrivande. Till exempel **isbullying**.
-4.  Ange en beskrivning.
-5.  Klicka på Add (Lägg till).
-6.  Klicka på Spara när du är klar skapar taggar.
+2. Ange en kort kod för två bokstäver för taggen.
+3. Ange ett namn för taggen. Behåll namnet korta och beskrivande. Till exempel **isbullying**.
+4. Ange en beskrivning.
+5. Klicka på Add (Lägg till).
+6. Klicka på Spara när du är klar skapar taggar.
 
 ![Defining Content Moderation Tags](images/tags-2-define.png)
 

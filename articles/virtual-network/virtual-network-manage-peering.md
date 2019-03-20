@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial;anavin
-ms.openlocfilehash: e752c19dc74135c05b971f8eb296da61259d0c20
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 28783b61a9361d97c151294140819249c9a100c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217775"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875228"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort en virtuell nätverkspeering
 
@@ -114,9 +114,9 @@ Om du vill att virtuella nätverk kan kommunicera ibland, men inte alltid, i st�
 ## <a name="requirements-and-constraints"></a>Krav och begränsningar
 
 - <a name="cross-region"></a>Du kan peer-koppla virtuella nätverk i samma region eller olika regioner. Peering av virtuella nätverk i olika regioner också kallas *Global VNet-Peering*. 
-- När du skapar en global peering, kan peer-kopplade virtuella nätverk finnas i alla regioner för offentliga Azure-molnet eller Kina molnregioner, men inte i Government cloud regioner. Du kan endast peer virtuellt nätverk i samma region i Azure Government-molnregioner. Du kan inte peer-koppla mellan moln.
-- Resurser i ett virtuellt nätverk kan inte kommunicera med frontend IP-adressen för en intern belastningsutjämnare i ett globalt peer-kopplade virtuella nätverk. Det finns bara stöd för grundläggande belastningsutjämnare inom samma region. Det finns stöd för Standard Load Balancer för Global VNet-Peering.
-- Du kan inte Använd fjärrgateway eller Tillåt gatewayöverföring i globalt peer-kopplade virtuella nätverk. Du kan Använd fjärrgateway eller Tillåt gatewayöverföring genom måste peer-kopplade virtuella nätverk vara i samma region.
+- När du skapar en global peering kan kan de peer-kopplade virtuella nätverken finnas i alla offentliga Azure-molnet region eller Kina molnregioner eller Government cloud-regioner. Du kan inte peer-koppla mellan moln. Till exempel kan ett virtuellt nätverk i offentliga Azure-molnet inte peerkopplas till ett virtuellt nätverk i Azure Kina-molnet.
+- Resurser i ett virtuellt nätverk kan inte kommunicera med frontend IP-adressen för en intern belastningsutjämnare i ett globalt peer-kopplade virtuella nätverk. Det finns bara stöd för grundläggande belastningsutjämnare inom samma region. Det finns stöd för Standard Load Balancer för både, VNet-Peering och Global VNet-Peering.
+- Du kan Använd fjärrgateway eller Tillåt gatewayöverföring i globalt peer-kopplade virtuella nätverk i förhandsversion. Förhandsgranskningen är tillgänglig i alla Azure-regioner, Kina-molnområden och Government cloud-regioner. Det krävs ingen lista över tillåtna. Du kan testa förhandsversion via CLI, PowerShell, mallar eller API: et. Portal stöds inte i förhandsversionen.
 - De virtuella nätverken kan finnas i samma eller olika prenumerationer. När du peerkoppla virtuella nätverk i olika prenumerationer, kommer båda prenumerationerna kan vara kopplade till samma eller en annan Azure Active Directory-klient. Om du inte redan har en AD-klient, kan du [skapar ett](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Stöd för peering mellan virtuella nätverk från prenumerationer som är kopplad till olika Azure Active Directory-klienter är inte tillgängligt i portalen. Du kan använda CLI, PowerShell eller mallar.
 - Virtuella nätverk som peer-du måste ha icke-överlappande IP-adressutrymmen.
 - Du kan inte lägga till adressintervall till eller ta bort-adressintervall från adressutrymmet för ett virtuellt nätverk när ett virtuellt nätverk är peerkopplat med ett annat virtuellt nätverk. Om du vill lägga till eller ta bort adressintervall, ta bort peer-kopplingen, lägga till eller ta bort adressintervallen, sedan återskapa peeringen. Om du vill lägga till adressintervall till eller ta bort-adressintervall från virtuella nätverk, se [hantera virtuella nätverk](manage-virtual-network.md).

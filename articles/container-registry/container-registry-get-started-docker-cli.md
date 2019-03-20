@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: d2aa05d6648a76b02e09c660d7e6f6f30988db53
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 180cbb9c31d14c36679bb84f92b3c9892ee3602d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542173"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011149"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Skicka din första avbildning till ett privat Docker-containerregister med hjälp av Docker CLI
 
@@ -62,7 +62,7 @@ Kör följande [docker kör](https://docs.docker.com/engine/reference/run/) komm
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Bläddra till [ http://localhost:8080 ](http://localhost:8080) att visa standardwebbsidan som hanteras av Nginx i behållaren som körs. Du bör se en sida som liknar följande:
+Bläddra till `http://localhost:8080` att visa standardwebbsidan som hanteras av Nginx i behållaren som körs. Du bör se en sida som liknar följande:
 
 ![Nginx på lokal dator](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -104,7 +104,7 @@ Använd den [docker kör](https://docs.docker.com/engine/reference/run/) kommand
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-Bläddra till [ http://localhost:8080 ](http://localhost:8080) att visa behållaren som körs.
+Bläddra till `http://localhost:8080` att visa behållaren som körs.
 
 Stoppa och ta bort behållaren genom att trycka på `Control` + `C`.
 

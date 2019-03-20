@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
-ms.openlocfilehash: 7cb9cc6cc5ce98eb88e9b9cdf76f000c33f5509e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8f50b2ad34c705c8d3831d8243f136c41d750dc0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780719"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074445"
 ---
 # <a name="set-up-a-capacity-pool"></a>Konfigurera en kapacitetspool
 
@@ -41,19 +41,19 @@ Du måste redan ha skapat ett NetApp-konto.
     Fönstret Ny kapacitetspool visas.
 
 3. Ange följande information för den nya kapacitetspoolen:  
-  * **Namn**  
-    Ange ett namn för kapacitetspoolen.  
-    Namnet på kapacitetspoolen måste vara unikt för varje NetApp-konto.
+   * **Namn**  
+     Ange ett namn för kapacitetspoolen.  
+     Namnet på kapacitetspoolen måste vara unikt för varje NetApp-konto.
 
-  * **Servicenivå**   
-    Det här fältet visar målprestanda för kapacitetspoolen.  
-    Ange en tjänstnivå för kapacitetspoolen: [**Premium**](azure-netapp-files-service-levels.md#Premium) eller [**Standard**](azure-netapp-files-service-levels.md#Standard).
+   * **Servicenivå**   
+     Det här fältet visar målprestanda för kapacitetspoolen.  
+     Ange en tjänstnivå för kapacitetspoolen: [**Premium**](azure-netapp-files-service-levels.md#Premium) eller [**Standard**](azure-netapp-files-service-levels.md#Standard).
 
-  * **Storlek**     
-    Ange storleken på den kapacitetspool som du köper.        
-    Den minsta kapacitetspoolstorleken är 4 TiB. Du kan skapa poolstorlekar som är multiplar av 4 TiB.   
+   * **Storlek**     
+     Ange storleken på den kapacitetspool som du köper.        
+     Den minsta kapacitetspoolstorleken är 4 TiB. Du kan skapa poolstorlekar som är multiplar av 4 TiB.   
       
-    ![Ny kapacitetspool](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
+     ![Ny kapacitetspool](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
 4. Klicka på **OK**.
 

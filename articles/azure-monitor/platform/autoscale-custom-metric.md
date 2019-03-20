@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: c30ec060eca2bc0c2f5a85565ec6ed23bce6be4e
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e6423f2ce3659fd3dd738dcc8a990261bc7bf60c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464756"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088391"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Komma igång med automatisk skalning med anpassat mått i Azure
 Den här artikeln beskriver hur du skalar din resurs genom ett anpassat mått i Azure-portalen.
@@ -28,7 +28,7 @@ Den här artikeln förutsätter att du har en webbapp med application insights h
   ![Starta Azure Monitor][3]
 - Klicka på inställningen för automatisk skalning att visa alla resurser för vilka automatisk skalning är tillämpligt, tillsammans med dess aktuella status för autoskalning ![identifiera automatisk skalning i Azure monitor][4]
 - Öppna ”Autoskala'-bladet i Azure Monitor och välj en resurs som du vill skala
-> Obs! Stegen nedan använder en app service-plan som är associerade med en webbapp som har konfigurerats appinsikter.
+  > Obs! Stegen nedan använder en app service-plan som är associerade med en webbapp som har konfigurerats appinsikter.
 - Observera att det aktuella instansantalet är 1 i bladet skala inställningen för resursen. Klicka på Aktivera automatisk skalning.
   ![Skalinställningen för ny webbapp][5]
 - Ange ett namn för skalinställningen och klicka på ”Lägg till en regel”. Observera regeln skalningsalternativ som öppnas som en kontext-rutan på höger sida. Som standard anger alternativ för skalning din instansantalet med 1 om CPU-procent på resursen överskrider 70%. Ändra måttkälla längst upp till ”Application Insights”, Välj app insights-resurs i listrutan ”resurs” och välj sedan den anpassade mått baserat på vilket du vill skala.
@@ -36,7 +36,7 @@ Den här artikeln förutsätter att du har en webbapp med application insights h
 - Ett liknande sätt steget ovan, lägga till en skala-regel som ska skalas i och minska skalningsantalet med 1 om anpassat mått som ligger under ett tröskelvärde.
   ![Skala baserat på cpu][7]
 - Ange du instansgränser. Till exempel om du vill skala mellan 2 – 5 instanser beroende på de anpassade mått variationerna, ange lägsta till '2', maximalt '5' och 'default' till ' 2'
-> Obs! Om det finns ett problem med att läsa mätvärden för resurs och den aktuella kapaciteten är under standardkapacitet, sedan skalas för att säkerställa tillgängligheten för resursen, automatisk skalning ut till standardvärdet. Om den aktuella kapaciteten är högre än standardkapacitet, kommer autoskalning inte att skala in.
+  > Obs! Om det finns ett problem med att läsa mätvärden för resurs och den aktuella kapaciteten är under standardkapacitet, sedan skalas för att säkerställa tillgängligheten för resursen, automatisk skalning ut till standardvärdet. Om den aktuella kapaciteten är högre än standardkapacitet, kommer autoskalning inte att skala in.
 - Klicka på ”Spara”
 
 Grattis! Du nu skapat har din skalningsuppsättning att ställa in automatisk skalning webbappen baserat på ett anpassat mått.

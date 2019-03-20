@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: ea2f27069ca445a4d74ddc634f5c396ab13564a1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4d9dfbcfc1dd00209a90386bf75f0c2515a28060
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249004"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854474"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Distribuera flera körbara gäster
 Den här artikeln visar hur du paketera och distribuera flera körbara gäster till Azure Service Fabric. Läs om hur för att skapa och distribuera ett enda Service Fabric-paket till [distribuera en körbar Gäst till Service Fabric](service-fabric-deploy-existing-app.md).
 
 Den här genomgången visar hur du distribuerar ett program med en Node.js-klientdel som använder MongoDB som datalager, men du kan använda stegen för att alla program som har beroenden på ett annat program.   
 
-Du kan använda Visual Studio för att skapa det programpaket som innehåller flera körbara gäster. Se [med hjälp av Visual Studio för att paketera ett befintligt program](service-fabric-deploy-existing-app.md). När du har lagt till den första körbar Gäst, högerklicka på programprojektet och väljer den **Lägg till ny Service Fabric-tjänst ->** att lägga till det andra körbar gäst-projektet i lösningen. Obs: Om du vill länka källa i Visual Studio-projektet att skapa Visual Studio-lösning gör att programpaketet är uppdaterade med ändringar i källan. 
+Du kan använda Visual Studio för att skapa det programpaket som innehåller flera körbara gäster. Se [med hjälp av Visual Studio för att paketera ett befintligt program](service-fabric-deploy-existing-app.md). När du har lagt till den första körbar Gäst, högerklicka på programprojektet och väljer den **Lägg till ny Service Fabric-tjänst ->** att lägga till det andra körbar gäst-projektet i lösningen. Obs! Om du vill länka källa i Visual Studio-projektet gör att skapa Visual Studio-lösning att programpaketet är uppdaterade med ändringar i källan. 
 
 ## <a name="samples"></a>Exempel
 * [Exempel för att paketera och distribuera en körbar gäst](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
@@ -167,7 +167,7 @@ Nu ska vi Bläddra till mappen och granska vad verktyget har skapats.
 Som du kan se verktyget för att lägga till en ny mapp, MongoDB, till den katalog som innehåller MongoDB-binärfiler. Om du öppnar den `ApplicationManifest.xml` fil, kan du se att paketet innehåller nu både MongoDB och Node.js-program. Koden nedan visar innehållet i programmanifestet.
 
 ```xml
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyNodeApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyNodeApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="MongoDB" ServiceManifestVersion="1.0" />
    </ServiceManifestImport>

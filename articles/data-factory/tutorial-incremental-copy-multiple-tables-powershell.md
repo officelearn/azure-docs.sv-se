@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 3902e6ae93159266de9f9e9cc0f355a37976a8ed
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 18d293270c3af486a1ea3756048a504d9ae70fce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425670"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076385"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
 I den här självstudiekursen kommer du att skapa en Azure-datafabrik med en pipeline som läser in deltadata från flera tabeller på en lokal SQL-server till en Azure SQL-databas.    
@@ -63,7 +63,7 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * **SQL Server**. Du använder en lokal SQL Server-databas som källdatalager i den här självstudien. 
 * **Azure SQL Database**. Du använder en SQL-databas som måldatalager. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL Database](../sql-database/sql-database-get-started-portal.md). 
 
@@ -222,7 +222,10 @@ END
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/resource-group-overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Ett exempel är `"adfrg"`. 
@@ -241,7 +244,7 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
 1. Kör följande kommando för att skapa en Azure-resursgrupp: 
 
     ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
+    New-AzResourceGroup $resourceGroupName $location
     ``` 
     Om resursgruppen redan finns behöver du kanske inte skriva över den. Ge variabeln `$resourceGroupName` ett annat värde och kör kommandot igen.
 
@@ -253,10 +256,10 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
     ```powershell
     $dataFactoryName = "ADFIncMultiCopyTutorialFactory";
     ```
-1. Kör följande cmdlet av typen **Set-AzureRmDataFactoryV2** för att skapa en datafabrik: 
+1. Om du vill skapa data factory, kör du följande **Set-AzDataFactoryV2** cmdlet: 
     
     ```powershell       
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
     ```
 
 Observera följande punkter:
@@ -337,10 +340,10 @@ I det här steget länkar du din lokala SQL Serverdatabas till datafabriken.
 
 1. I PowerShell växlar du till mappen C:\ADFTutorials\IncCopyMultiTableTutorial.
 
-1. Kör cmdleten **Set-AzureRmDataFactoryV2LinkedService** för att skapa den länkade tjänsten AzureStorageLinkedService. I följande exempel skickar du värden för parametrarna *ResourceGroupName* och *DataFactoryName*: 
+1. Kör den **Set-AzDataFactoryV2LinkedService** cmdlet för att skapa den länkade tjänsten AzureStorageLinkedService. I följande exempel skickar du värden för parametrarna *ResourceGroupName* och *DataFactoryName*: 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
     ```
 
     Här är exempel på utdata:
@@ -369,10 +372,10 @@ I det här steget länkar du din lokala SQL Serverdatabas till datafabriken.
         }
     }
     ```
-1. I PowerShell kör du cmdleten **Set-AzureRmDataFactoryV2LinkedService** för att skapa den länkade tjänsten: AzureSQLDatabaseLinkedService. 
+1. I PowerShell kör den **Set-AzDataFactoryV2LinkedService** cmdlet för att skapa den länkade tjänsten AzureSQLDatabaseLinkedService. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
     ```
 
     Här är exempel på utdata:
@@ -410,10 +413,10 @@ I det här steget skapar du datauppsättningar som representerar datakällan, da
 
     Tabellnamnet är ett dummynamn. Kopieringsaktivitet i pipelinen använder en SQL-fråga till att läsa in data, snarare än att läsa in hela tabellen.
 
-1. Kör cmdleten **Set-AzureRmDataFactoryV2Dataset** för att skapa datauppsättningen SourceDataset.
+1. Kör den **Set-AzDataFactoryV2Dataset** cmdlet för att skapa datauppsättningen SourceDataset.
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
     ```
 
     Här är exempel på utdata från cmdleten:
@@ -454,10 +457,10 @@ I det här steget skapar du datauppsättningar som representerar datakällan, da
     }
     ```
 
-1. Kör cmdleten **Set-AzureRmDataFactoryV2Dataset** för att skapa datauppsättningen SinkDataset.
+1. Kör den **Set-AzDataFactoryV2Dataset** cmdlet för att skapa datauppsättningen SinkDataset.
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
     ```
 
     Här är exempel på utdata från cmdleten:
@@ -490,10 +493,10 @@ I det här steget skapar du en datauppsättning för att lagra ett värde för e
         }
     }    
     ```
-1. Kör cmdleten **Set-AzureRmDataFactoryV2Dataset** för att skapa datauppsättningen WatermarkDataset.
+1. Kör den **Set-AzDataFactoryV2Dataset** cmdlet för att skapa datauppsättningen WatermarkDataset.
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
     ```
 
     Här är exempel på utdata från cmdleten:
@@ -652,10 +655,10 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
         }
     }
     ```
-1. Kör cmdleten **Set-AzureRmDataFactoryV2Pipeline** för att skapa pipelinen IncrementalCopyPipeline.
+1. Kör den **Set-AzDataFactoryV2Pipeline** cmdlet för att skapa pipelinen IncrementalCopyPipeline.
     
    ```powershell
-   Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
+   Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
    ``` 
 
    Här är exempel på utdata: 
@@ -691,15 +694,15 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
         ]
     }
     ```
-1. Kör pipelinen IncrementalCopyPipeline med cmdleten **Invoke-AzureRmDataFactoryV2Pipeline**. Ersätt platshållarna med din egen grupp och datafabrikens namn.
+1. Kör pipelinen IncrementalCopyPipeline med hjälp av den **Invoke-AzDataFactoryV2Pipeline** cmdlet. Ersätt platshållarna med din egen grupp och datafabrikens namn.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
+    $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
     ``` 
 
 ## <a name="monitor-the-pipeline"></a>Övervaka pipeline
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Välj **Alla tjänster**, sök med nyckelordet *Datafabriker* och välj **Datafabriker**. 
 
@@ -796,7 +799,7 @@ VALUES
 1. Kör nu pipelinen igen genom att köra följande PowerShell-kommando:
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
+    $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
     ```
 1. Övervaka pipelinekörningarna genom att följa anvisningarna i avsnittet [Övervaka pipelinen](#monitor-the-pipeline). När pipelinens status är **Pågår** ser du en annan åtgärdslänk under **Åtgärder** för att avbryta pipelinekörningen. 
 

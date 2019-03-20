@@ -1,63 +1,94 @@
 ---
-title: Skapa ett index i kod med hjälp av REST-API – Azure Search
+title: Skapa ett index i kod med hjälp av PowerShell och REST-API – Azure Search
 description: Skapa ett sökbart fulltextindex i kod med hjälp av HTTP-begäranden och Azure Search REST API.
-ms.date: 03/01/2019
-author: mgottein
+ms.date: 03/15/2019
+author: heidisteen
 manager: cgronlun
-ms.author: magottei
+ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 98749e0900920d0d3541c78c79598123e4f987df
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: 6e3b1e3d501355994cd81c5eb9d712a684474524
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313981"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136198"
 ---
-# <a name="create-an-azure-search-index-using-the-rest-api"></a>Skapa ett Azure Search-index med hjälp av REST-API:et
+# <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Snabbstart: Skapa ett Azure Search-index med PowerShell och REST API
 > [!div class="op_single_selector"]
->
-> * [Översikt](search-what-is-an-index.md)
-> * [Portalen](search-create-index-portal.md)
-> * [NET](search-create-index-dotnet.md)
-> * [REST](search-create-index-rest-api.md)
->
->
+> * [PowerShell (REST)](search-create-index-rest-api.md)
+> * [C#](search-create-index-dotnet.md)
+> * [Postman (REST)](search-fiddler.md)
+> * [Portal](search-create-index-portal.md)
+> 
 
-Den här artikeln beskriver steg för steg hur du skapar ett Azure Search-[index](https://docs.microsoft.com/rest/api/searchservice/Create-Index) med hjälp av REST-API:et för Azure Search.
+Den här artikeln vägleder dig genom processen att skapa, läsa in och fråga ett Azure Search [index](search-what-is-an-index.md) med hjälp av PowerShell och [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/). Definition av index och innehåll finns i begärandetexten som välformulerad JSON-innehåll.
 
-Innan du följer den här guiden och skapar ett index bör du redan ha [skapat en Azure Search-tjänst](search-create-service-portal.md).
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill skapa ett Azure Search-index med hjälp av REST-API:et skickar du en enkel HTTP POST-begäran till slutpunkten i Azure Search-tjänstens URL. Din indexdefinition finns i begärandetexten i form av välstrukturerat JSON-innehåll.
+[Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här snabbstarten. Andra förutsättningar inkluderar följande.
 
-## <a name="identify-your-azure-search-services-admin-api-key"></a>Identifiera Azure Search-tjänstens API-administratörsnyckel
-Nu när du har etablerat en Azure Search-tjänst kan du skicka HTTP-förfrågningar mot din tjänsts URL-slutpunkt med hjälp av REST-API:et. *Alla* API-förfrågningar måste innehålla API-nyckeln som genererades för Search-tjänsten som du etablerade. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
+[PowerShell 5.1 eller senare](https://github.com/PowerShell/PowerShell)med hjälp av [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) sekventiella och interaktiva anvisningar.
 
-1. För att hitta din tjänsts API-nycklar måste du logga in på [Azure Portal](https://portal.azure.com/).
-2. Gå till Azure Search-tjänstens blad
-3. Klicka på nyckelikonen
+En URL-slutpunkt och admin api-nyckeln för search-tjänsten. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
 
-Tjänsten har *administratörsnycklar* och *frågenycklar*.
+  1. Azure-portalen i din söktjänst **översikt** sidan, hämta URL: en. Här följer ett exempel på hur en slutpunkt kan se ut: `https://my-service-name.search.windows.net`.
 
-* Dina primära och sekundära *administratörsnycklar* ger fullständig behörighet för alla åtgärder, inklusive möjligheten att hantera tjänsten, skapa och ta bort index, indexerare och datakällor. Det finns två nycklar så att du kan fortsätta att använda den sekundära nyckeln om du bestämmer dig för att återskapa den primära nyckeln och tvärtom.
-* Dina *frågenycklar* beviljar läsbehörighet till index och dokument och distribueras vanligen till klientprogram som skickar sökförfrågningar.
+  2. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln för förfrågningar för att lägga till, ändra och ta bort objekt.
 
-Du kan använda antingen en primär eller sekundär administrationsnyckel när du skapar ett index.
+  ![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-fiddler/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
 
-## <a name="define-your-azure-search-index-using-well-formed-json"></a>Definiera ditt Azure Search-index med välstrukturerad JSON
-Ditt index skapas med en enkel HTTP POST-begäran till din tjänst. Brödtexten i HTTP POST-begäran innehåller ett enda JSON-objekt som definierar ditt Azure Search-index.
+  Alla begäranden som kräver en api-nyckel för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
-1. Den första egenskapen för det här JSON-objektet är namnet på ditt index.
-2. Den andra egenskapen för JSON-objektet är en JSON-matris med namnet `fields` som innehåller ett separat JSON-objekt för varje fält i indexet. Varje JSON-objekt innehåller flera namn/värde-par för vart och ett av fältattributen, inklusive ”name”, ”type” osv.
+## <a name="connect-to-azure-search"></a>Anslut till Azure Search
 
-Det är viktigt att du har användarupplevelsen och dina affärsbehov i åtanke när du utformar ditt index eftersom varje fält måste tilldelas [rätt egenskaper](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Dessa attribut styr vilka sökfunktioner (filtrering, aspekter, sortering av textsökningar osv) som tillämpas på vilka fält. För attribut som du inte anger aktiveras motsvarande sökfunktion som standard såvida du inte uttryckligen inaktiverar den.
+I PowerShell, skapar en **$headers** objekt för att lagra innehållstyp och API-nyckel. Du behöver bara ange den här rubriken en gång för hela sessionen, men du ska lägga till varje begäran. 
 
-I vårt exempel har vi gett indexet namnet ”hotels” och definierat fälten så här:
+```powershell
+$headers = @{
+   'api-key' = '<your-admin-api-key>'
+   'Content-Type' = 'application/json' 
+   'Accept' = 'application/json' }
+```
 
-```JSON
+Skapa en **$url** objekt som anger tjänstens indexerar samling. Den `mydemo` tjänstnamnet är avsedd som en platshållare. Ersätt den med en giltig söktjänst i någon aktuell prenumeration under hela det här exemplet.
+
+```powershell
+$url = "https://mydemo.search.windows.net/indexes?api-version=2017-11-11"
+```
+
+Kör **Invoke-RestMethod** att skicka en GET-begäran till tjänsten och kontrollera anslutningen. Lägg till **ConvertTo-Json** så att du kan se de svar som skickas tillbaka från tjänsten.
+
+```powershell
+Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
+```
+
+Om tjänsten är tom och har inga index, liknar resultat följande exempel. Annars ser du en JSON-representation av indexet.
+
+```
+{
+    "@odata.context":  "https://mydemo.search.windows.net/$metadata#indexes",
+    "value":  [
+
+              ]
+}
+```
+
+## <a name="1---create-an-index"></a>1 – skapa ett index
+
+Om du inte använder portalen, måste ett index finnas på tjänsten innan du kan läsa in data. Det här steget definierar indexet och skickas till tjänsten. Den [Create Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) används för det här steget.
+
+Obligatoriska elementen för ett index är ett namn och en samling fält. Fältsamlingen definierar strukturen för en *dokumentet*. Varje fält har ett namn, typ och attribut som avgör hur den används (till exempel om det är fulltext sökbar, filtrerbar eller hämtningsbara i sökresultat). I ett index, ett fält av typen `Edm.String` måste anges som den *nyckel* för dokumentet identitet.
+
+Det här indexet har namnet ”hotels” och fältdefinitioner som du ser nedan. Indexdefinitionen anger en [språkanalysverktyg](index-add-language-analyzers.md) för den `description_fr` fältet eftersom det ska lagra fransk text som vi lägger till i ett senare exempel.
+
+Klistra in det här exemplet i PowerShell för att skapa en **$body** objekt som innehåller indexschemat.
+
+```powershell
+$body = @"
 {
     "name": "hotels",  
     "fields": [
@@ -75,32 +106,275 @@ I vårt exempel har vi gett indexet namnet ”hotels” och definierat fälten s
         {"name": "location", "type": "Edm.GeographyPoint"}
     ]
 }
+"@
 ```
 
-Vi har noga valt indexattributen för varje fält baserat på hur vi tror att de kommer att användas i ett program. `hotelId` är exempelvis en unik nyckel som personer som söker efter hotell antagligen inte känner till, så vi inaktiverar fulltextsökning för det fältet genom att ange `searchable` till `false`, vilket sparar utrymme i indexet.
+Ange URI: N till samlingen index på din tjänst och *hotels* index.
 
-Observera att exakt ett fält i indexet av typen `Edm.String` måste definieras som nyckelfältet.
+```powershell
+$url = "https://mydemo.search.windows.net/indexes/hotels?api-version=2017-11-11"
+```
 
-Indexdefinitionen ovan använder ett språkanalysverktyg för `description_fr`-fältet eftersom det ska lagra fransk text. Mer information om språkanalysverktyg finns i [avsnittet om språkstöd](https://docs.microsoft.com/rest/api/searchservice/Language-support) och i motsvarande [blogginlägg](https://azure.microsoft.com/blog/language-support-in-azure-search/).
+Kör kommandot med **$url**, **$headers**, och **$body** att skapa indexet på tjänsten. 
 
-## <a name="issue-the-http-request"></a>Skicka HTTP-begäran
-1. Använd indexdefinitionen som begärandetext och skicka en HTTP POST-begäran till URL:en för Azure Search-tjänstens slutpunkt. I URL:en använder du tjänstnamnet som värdnamn och placerar rätt `api-version` som en frågesträngsparameter (den aktuella API-versionen är `2017-11-11` vid tidpunkten för publiceringen av det här dokumentet).
-2. I huvudena för begäran anger du `Content-Type` som `application/json`. Du måste också ange tjänstens administratörsnyckel som du identifierade i steg I i `api-key`-huvudet.
+```powershell
+Invoke-RestMethod -Uri $url -Headers $headers -Method Put -Body $body | ConvertTo-Json
+```
+Resultatet bör se ut ungefär så här (trunkeras till de två första fälten kortfattat):
 
-Du måste ange ditt eget tjänstnamn och din egen API-nyckel för att skicka begäran nedan:
+```
+{
+    "@odata.context":  "https://mydemo.search.windows.net/$metadata#indexes/$entity",
+    "@odata.etag":  "\"0x8D6A99E2DED96B0\"",
+    "name":  "hotels",
+    "defaultScoringProfile":  null,
+    "fields":  [
+                   {
+                       "name":  "hotelId",
+                       "type":  "Edm.String",
+                       "searchable":  false,
+                       "filterable":  true,
+                       "retrievable":  true,
+                       "sortable":  false,
+                       "facetable":  false,
+                       "key":  true,
+                       "indexAnalyzer":  null,
+                       "searchAnalyzer":  null,
+                       "analyzer":  null,
+                       "synonymMaps":  ""
+                   },
+                   {
+                       "name":  "baseRate",
+                       "type":  "Edm.Double",
+                       "searchable":  false,
+                       "filterable":  true,
+                       "retrievable":  true,
+                       "sortable":  true,
+                       "facetable":  true,
+                       "key":  false,
+                       "indexAnalyzer":  null,
+                       "searchAnalyzer":  null,
+                       "analyzer":  null,
+                       "synonymMaps":  ""
+                   },
+. . .
+```
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
-    Content-Type: application/json
-    api-key: [api-key]
+> [!Tip]
+> För verifiering, du kan också kontrollera listan index i portalen eller kör kommandot används för att verifiera tjänstanslutning till för att se den *hotels* index som anges i index-samlingen.
 
+## <a name="2---load-documents"></a>2 – läsa in dokument
 
-Statuskoden 201 (har skapats) bör returneras om begäran lyckades. Mer information om hur du kan skapa ett index via REST-API:et finns i API-referensen i [API-referensen här](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Mer information om andra HTTP-statuskoder som kan returneras om det uppstår fel finns i [HTTP-statuskoder (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+Använd en HTTP POST-begäran till ditt index URL-slutpunkt för att skicka dokument. REST-API: et för den här uppgiften är [Lägg till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
-När du är klar med ett index och vill ta bort det skickar du bara en HTTP DELETE-begäran. Så här skulle vi till exempel göra om vi ville ta bort indexet ”hotels”:
+Klistra in det här exemplet i PowerShell för att skapa en **$body** objekt som innehåller de dokument som du vill ladda upp. 
 
-    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11
-    api-key: [api-key]
+Denna begäran innehåller två fullständig och en partiell post. Partiell posten visar att du kan ladda upp ofullständig dokument. Den `@search.action` parametern anger hur indexering görs. Giltiga värden är ladda upp, sammanfoga, mergeOrUpload och ta bort. Beteendet mergeOrUpload antingen skapar ett nytt dokument för hotelId = 3 eller uppdaterar innehållet om det redan finns.
 
+```powershell
+$body = @"
+{
+    "value": [
+        {
+            "@search.action": "upload",
+            "hotelId": "1",
+            "baseRate": 199.0,
+            "description": "Best hotel in town",
+            "hotelName": "Fancy Stay",
+            "category": "Luxury",
+            "tags": ["pool", "view", "wifi", "concierge"],
+            "parkingIncluded": false,
+            "smokingAllowed": false,
+            "lastRenovationDate": "2010-06-27T00:00:00Z",
+            "rating": 5,
+            "location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
+        },
+        {
+            "@search.action": "upload",
+            "hotelId": "2",
+            "baseRate": 79.99,
+            "description": "Cheapest hotel in town",
+            "hotelName": "Roach Motel",
+            "category": "Budget",
+            "tags": ["motel", "budget"],
+            "parkingIncluded": true,
+            "smokingAllowed": true,
+            "lastRenovationDate": "1982-04-28T00:00:00Z",
+            "rating": 1,
+            "location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
+        },
+        {
+            "@search.action": "mergeOrUpload",
+            "hotelId": "3",
+            "baseRate": 129.99,
+            "description": "Close to town hall and the river"
+        }
+    ]
+}
+"@
+```
+
+Ange slutpunkten den *hotels* docs-samling och inkludera indexåtgärden (index/hotels/docs/index).
+
+```powershell
+$url = "https://mydemo.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11"
+```
+
+Kör kommandot med **$url**, **$headers**, och **$body** att läsa in dokument till i hotellindexet.
+
+```powershell
+Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json
+```
+Resultatet bör likna följande exempel. Du bör se statuskod 201. En beskrivning av alla statuskoder finns i [HTTP-statuskoder (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+
+```
+{
+    "@odata.context":  "https://mydemo.search.windows.net/indexes(\u0027hotels\u0027)/$metadata#Collection(Microsoft.Azure.Search.V2017_11_11.IndexResult)",
+    "value":  [
+                  {
+                      "key":  "1",
+                      "status":  true,
+                      "errorMessage":  null,
+                      "statusCode":  201
+                  },
+                  {
+                      "key":  "2",
+                      "status":  true,
+                      "errorMessage":  null,
+                      "statusCode":  201
+                  },
+                  {
+                      "key":  "3",
+                      "status":  true,
+                      "errorMessage":  null,
+                      "statusCode":  201
+                  }
+              ]
+}
+```
+
+## <a name="3---search-an-index"></a>3 – söka i ett index
+
+Det här steget visar hur man frågar ett index med hjälp av den [API för webbsökning dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+
+In den *hotels* docs-samling och lägga till en **search** parametern att inkludera frågesträngar. Strängen är en tom sökning och den returnerar en unranked lista över alla dokument.
+
+```powershell
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*'
+```
+
+Kör kommando för att skicka den **$url** till tjänsten.
+
+```powershell
+Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
+```
+
+Resultatet bör likna följande utdata.
+
+```
+{
+    "@odata.context":  "https://mydemo.search.windows.net/indexes(\u0027hotels\u0027)/$metadata#docs(*)",
+    "value":  [
+                  {
+                      "@search.score":  1.0,
+                      "hotelId":  "1",
+                      "baseRate":  199.0,
+                      "description":  "Best hotel in town",
+                      "description_fr":  null,
+                      "hotelName":  "Fancy Stay",
+                      "category":  "Luxury",
+                      "tags":  "pool view wifi concierge",
+                      "parkingIncluded":  false,
+                      "smokingAllowed":  false,
+                      "lastRenovationDate":  "2010-06-27T00:00:00Z",
+                      "rating":  5,
+                      "location":  "@{type=Point; coordinates=System.Object[]; crs=}"
+                  },
+                  {
+                      "@search.score":  1.0,
+                      "hotelId":  "2",
+                      "baseRate":  79.99,
+                      "description":  "Cheapest hotel in town",
+                      "description_fr":  null,
+                      "hotelName":  "Roach Motel",
+                      "category":  "Budget",
+                      "tags":  "motel budget",
+                      "parkingIncluded":  true,
+                      "smokingAllowed":  true,
+                      "lastRenovationDate":  "1982-04-28T00:00:00Z",
+                      "rating":  1,
+                      "location":  "@{type=Point; coordinates=System.Object[]; crs=}"
+                  },
+                  {
+                      "@search.score":  1.0,
+                      "hotelId":  "3",
+                      "baseRate":  129.99,
+                      "description":  "Close to town hall and the river",
+                      "description_fr":  null,
+                      "hotelName":  null,
+                      "category":  null,
+                      "tags":  "",
+                      "parkingIncluded":  null,
+                      "smokingAllowed":  null,
+                      "lastRenovationDate":  null,
+                      "rating":  null,
+                      "location":  null
+                  }
+              ]
+}
+```
+
+Testa några andra fråga exempel för att få en bild av syntaxen. Du kan göra en sträng-sökning, ordagrant $filter frågor, begränsa resultatmängd, omfång sökningen till specifika fält och mycket mer.
+
+```powershell
+# Query example 1
+# Search the entire index for the term 'budget'
+# Return only the `hotelName` field, "Roach hotel"
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=budget&$select=hotelName'
+
+# Query example 2 
+# Apply a filter to the index to find hotels cheaper than $150 per night
+# Returns the `hotelId` and `description`. Two documents match.
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*&$filter=baseRate lt 150&$select=hotelId,description'
+
+# Query example 3
+# Search the entire index, order by a specific field (`lastRenovationDate`) in descending order
+# Take the top two results, and show only `hotelName` and `lastRenovationDate`
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate'
+```
+## <a name="clean-up"></a>Rensa 
+
+Du bör ta bort indexet om du inte längre behöver den. En kostnadsfri tjänst är begränsad till tre index. Du kanske vill ta bort alla index som du inte använder.
+
+```powershell
+# Set the URI to the hotel index
+$url = 'https://mydemo.search.windows.net/indexes/hotels?api-version=2017-11-11'
+
+# Delete the index
+Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
+```
 
 ## <a name="next-steps"></a>Nästa steg
-När du har skapat ett Azure Search-index är det dags att [ladda upp innehållet till indexet](search-what-is-data-import.md) så att du kan börja söka efter data.
+
+Försök att lägga till franska beskrivningar i indexet. I följande exempel innehåller franska strängar och visar ytterligare sökåtgärder. Använd mergeOrUpload för att skapa eller lägga till befintliga fält. Följande strängar måste vara UTF-8-kodat.
+
+```json
+{
+    "value": [
+        {
+            "@search.action": "mergeOrUpload",
+            "hotelId": "1",
+            "description_fr": "Meilleur hôtel en ville"
+        },
+        {
+            "@search.action": "merge",
+            "hotelId": "2",
+            "description_fr": "Hôtel le moins cher en ville",
+        },
+        {
+            "@search.action": "delete",
+            "hotelId": "6"
+        }
+    ]
+}
+```

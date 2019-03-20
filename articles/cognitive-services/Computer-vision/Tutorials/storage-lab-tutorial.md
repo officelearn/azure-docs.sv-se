@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 650696d1eb3979447bffa7312e91b4fe1a57652c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e5124b07a5aff67d53213149565ddae4ea6dda33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865020"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448007"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Självstudier: Använda Visuellt innehåll för att generera bildmetadata i Azure Storage
 
@@ -31,7 +31,7 @@ I den här självstudiekursen lär du dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Visual Studio 2017 Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) eller senare med arbetsbelastningarna ”ASP.NET and web development” (ASP.NET och webbutveckling) och ”Azure development” (Azure-utveckling) installerade.
 - Ett Azure Storage-konto med en blob-container som allokerats för bilder (följ [övningar 1 i Azure Storage-labbet](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) om du behöver hjälp med det här steget).
@@ -48,7 +48,7 @@ Du behöver skapa en resurs för Visuellt innehåll för ditt Azure-konto. Den h
 
 1. I dialogrutan anger du ”vision-api-key” i fältet **Namn** och väljer **F0** som **Prisnivå**. Välj samma **Plats** som du valde när du konfigurerade Azure Storage-kontot. Under **Resursgrupp** väljer du **Använd befintlig** och väljer samma resurs också. Markera rutan **I confirm** (Jag bekräftar) och klicka sedan på **Skapa**.
 
-    ![Prenumerera på API för visuellt innehåll](../Images/create-vision-api.png)
+    ![Prenumerera på API för visuellt](../Images/create-vision-api.png)
 
 1. Gå tillbaka till menyn för din resursgrupp och klicka på den prenumeration på API för visuellt innehåll som du nyss skapade. Kopiera URL:en under **Slutpunkt** till en plats där du enkelt kan hämta den om en stund. Klicka sedan på **Visa åtkomstnycklar**.
 

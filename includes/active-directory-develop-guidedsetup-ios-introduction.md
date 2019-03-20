@@ -3,23 +3,23 @@ title: ta med fil
 description: ta med fil
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: ios
 ms.workload: identity
-ms.date: 09/19/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: 8c7f11d74d0a0b81f9f0c40871b2eaa3eb25f51f
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: ace6c36f1bc4582b3210c049a4ff8cb1f770bf88
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988285"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203541"
 ---
 # <a name="call-the-microsoft-graph-api-from-an-ios-application"></a>Anropa Microsoft Graph API från ett iOS-program
 
@@ -34,7 +34,7 @@ När du har slutfört övningarna i den här guiden kan programmet anropa ett sk
 
 ## <a name="how-this-guide-works"></a>Så här fungerar den här guiden
 
-![Så här fungerar den här guiden](media/active-directory-develop-guidedsetup-ios-introduction/iosintro.png)
+![Visar hur exempelappen genereras av den här självstudier fungerar](media/active-directory-develop-guidedsetup-ios-introduction/iosintro-updated.png)
 
 I den här guiden kan exempelprogrammet ett iOS-program att fråga Microsoft Graph API eller ett webb-API som accepterar token från Azure AD v2.0-slutpunkten. Det här scenariot kan en token har lagts till HTTP-begäranden med hjälp av den **auktorisering** rubrik. Tokenförvärv och förnyelse hanteras av Microsoft Authentication Library (MSAL).
 

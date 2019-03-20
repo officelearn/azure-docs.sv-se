@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: e87a63a0dad5e1f93b1bea62039abee8ded78ab7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: MT
+ms.openlocfilehash: 0a2e5982832dcf1747389eb78c6a1b1cb5762b64
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988370"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57964297"
 ---
 ## <a name="test-your-app"></a>Testa din app
 

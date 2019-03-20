@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 927781c61a9ca2a1ef23db47294468dad7140dff
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3188b5acc00f7f0463ae1154346447bee463e09c
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885359"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225441"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Stöd för språk och din region för Speech Services
 
@@ -76,13 +76,18 @@ Neural röster kan användas för att göra interaktion med chattrobotar och vir
 En fullständig lista över neural röster och regional tillgänglighet finns i [regioner](regions.md#neural-voices).
 
 | Nationell inställning | Språk | Kön | Tjänsten Namnmappningen|
-|--------|----------|---------|--------------------|
+|--------|----------|--------|---------------------|
+| de-DE | Tyska (Tyskland) | Kvinna | ”Microsoft Server tal Text till tal-röst (de-DE, KatjaNeural)” |
 | en-US | English (US) | Man | ”Microsoft Server tal Text till tal-röst (en-US, GuyNeural)” |
 | en-US | English (US) | Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, JessaNeural)” |
+| IT-IT | Italienska (Italien) | Kvinna | ”Microsoft Server tal Text till tal-röst (it-IT, ElsaNeural)” |
 | zh-CN | Kinesiska | Kvinna | ”Microsoft Server tal Text till tal-röst (zh-CN, XiaoxiaoNeural)” |
 
 > [!IMPORTANT]
 > Microsoft Server tal Text till tal-röst (zh-CN, XiaoxiaoNeural) är endast tillgänglig via Sydostasien slutpunkt: https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1.
+
+> [!IMPORTANT]
+> Microsoft Server tal Text till tal-röst (de-DE, KatjaNeural) och Microsoft Server tal Text till tal-röst (it-IT, ElsaNeural) är endast tillgängliga via Västeuropa slutpunkt: https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1.
 
 ### <a name="standard-voices"></a>Standard röster
 

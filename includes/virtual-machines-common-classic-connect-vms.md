@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 2e72d669abcc784fe8159fd4c54bd074dc60299c
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 55e46e058bddca717929df61b2bc766b89e0f885
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735867"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122764"
 ---
 ![Virtuella datorer i en fristående molntjänst](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
 
@@ -25,19 +25,19 @@ Att ansluta virtuella datorer i ett virtuellt nätverk:
 1. Skapa det virtuella nätverket i den [Azure-portalen](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) och ange ”klassisk distribution”.
 2. Skapa uppsättning molntjänster för distributionen för att återspegla din design för tillgänglighet och belastningsutjämning. I Azure-portalen klickar du på **skapa en resurs > Compute > molntjänst** för varje tjänst i molnet.
 
-  När du fyller i molntjänstinformation Välj samma _resursgrupp_ används med det virtuella nätverket.
+   När du fyller i molntjänstinformation Välj samma _resursgrupp_ används med det virtuella nätverket.
 
 3. För att skapa varje ny virtuell dator, klickar du på **skapa en resurs > Compute**, Välj en lämplig VM-avbildning från den **aktuella appar**.
 
-  I den virtuella datorn **grunderna** bladet Välj samma _resursgrupp_ används med det virtuella nätverket.
+   I den virtuella datorn **grunderna** bladet Välj samma _resursgrupp_ används med det virtuella nätverket.
 
-  ![Grunderna i VM-bladet när du använder ett virtuellt nätverk](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_VN.png)
+   ![Grunderna i VM-bladet när du använder ett virtuellt nätverk](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_VN.png)
 
 4. När du fyller den virtuella datorn **inställningar**, Välj rätt _molntjänst_ eller _virtuellt nätverk_ för den virtuella datorn.
 
-  Azure väljer det andra objektet baserat på ditt val.
+   Azure väljer det andra objektet baserat på ditt val.
 
-  ![Bladet för VM-inställningar när du använder ett virtuellt nätverk](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_VN.png)
+   ![Bladet för VM-inställningar när du använder ett virtuellt nätverk](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_VN.png)
 
 
 ## <a name="connect-vms-in-a-standalone-cloud-service"></a>Ansluta virtuella datorer i en fristående molntjänst
@@ -46,8 +46,8 @@ Att ansluta virtuella datorer i en fristående molntjänst:
 1. Skapa molntjänst i den [Azure-portalen](http://portal.azure.com). Klicka på **New > Compute > molntjänst**. Du kan också skapa Molntjänsten för din distribution när du skapar din första virtuella dator.
 2. När du skapar virtuella datorer väljer du samma resursgrupp som används med Molntjänsten.
 
-  ![Lägg till en virtuell dator i en befintlig molntjänst](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_SA.png)
+   ![Lägg till en virtuell dator i en befintlig molntjänst](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_SA.png)
 
-3.  Välj namnet på Molntjänsten som skapats i det första steget när du fyller VM-information.
+3. Välj namnet på Molntjänsten som skapats i det första steget när du fyller VM-information.
 
-  ![Att välja en molnbaserad tjänst för en virtuell dator](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_SA.png)
+   ![Att välja en molnbaserad tjänst för en virtuell dator](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_SA.png)

@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b52e08485c5ce853f9c8eafaafd15f137aef10bb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b6f0d25f621768f79e8262f38617152e91692a23
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873464"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838858"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Haveriberedskap för en SaaS-program med hjälp av database geo-replikering
 
@@ -25,14 +25,14 @@ I den här självstudien får utforska du fullständig haveriberedskap för ett 
 
 Den här guiden utforskar arbetsflöden för både redundans och återställning efter fel. Du lär dig följande:
 > [!div class="checklist"]
-
->* Synkronisera databaser och elastiska konfigurationsinformation för lagringspool i klient-katalogen
->* Konfigurera en Återställningsmiljö i en annan region, som består av program, servrar och pooler
->* Använd _geo-replikering_ att replikera katalogen och klient-databaser till återställningsregionen
->* Växla över programmet och katalogen och klient-databaser till återställningsregionen 
->* Senare, växlar över programmet, katalog- och klienttrafik databaserna tillbaka till den ursprungliga regionen när driftstörningarna har åtgärdats
->* Uppdatera katalogen eftersom varje klientdatabas växlas över till att spåra den primära platsen för varje klientdatabas
->* Se till att program och primära klientdatabasen alltid samplaceras i samma Azure-region som minskar svarstiderna  
+> 
+> * Synkronisera databaser och elastiska konfigurationsinformation för lagringspool i klient-katalogen
+> * Konfigurera en Återställningsmiljö i en annan region, som består av program, servrar och pooler
+> * Använd _geo-replikering_ att replikera katalogen och klient-databaser till återställningsregionen
+> * Växla över programmet och katalogen och klient-databaser till återställningsregionen 
+> * Senare, växlar över programmet, katalog- och klienttrafik databaserna tillbaka till den ursprungliga regionen när driftstörningarna har åtgärdats
+> * Uppdatera katalogen eftersom varje klientdatabas växlas över till att spåra den primära platsen för varje klientdatabas
+> * Se till att program och primära klientdatabasen alltid samplaceras i samma Azure-region som minskar svarstiderna  
  
 
 Kontrollera att följande förutsättningar har slutförts innan du påbörjar den här självstudiekursen:
@@ -106,7 +106,7 @@ Granska det normala felfritt tillståndet innan du startar återställningsproce
 I den här uppgiften ska starta du en process som synkroniserar konfigurationen av servrar, elastiska pooler och databaser till klient-katalogen. Processen ser den här informationen aktuell i katalogen.  Processen fungerar med den aktiva katalogen, vare sig den ursprungliga regionen eller i återställningsregionen. Konfigurationsinformationen används som en del av återställningsprocessen för att se till att Återställningsmiljön är konsekvent med den ursprungliga miljön och sedan senare under hemtransport att se till att den ursprungliga regionen blir konsekvent igen med ändringar som görs i den Återställningsmiljö. Katalogen används också för att hålla reda på återställningstillstånd av klienternas resurser
 
 > [!IMPORTANT]
-> För enkelhetens skull implementeras synkroniseringen och andra tidskrävande återställning och hemtransport i de här självstudierna som lokala Powershell-jobb eller sessioner som körs under din klient användarinloggning. Autentiseringstoken som utfärdas när du har loggat in upphör att gälla efter flera timmar och sedan jobb som misslyckas. I ett produktionsscenario för bör tidskrävande processer implementeras som tillförlitlig Azure-tjänster av något slag, som körs under ett huvudnamn för tjänsten. Se [med Azure PowerShell för att skapa ett huvudnamn för tjänsten med ett certifikat](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> För enkelhetens skull implementeras synkroniseringen och andra tidskrävande återställning och hemtransport i de här självstudierna som lokala PowerShell-jobb eller sessioner som körs under din klient användarinloggning. Autentiseringstoken som utfärdas när du har loggat in upphör att gälla efter flera timmar och sedan jobb som misslyckas. I ett produktionsscenario för bör tidskrävande processer implementeras som tillförlitlig Azure-tjänster av något slag, som körs under ett huvudnamn för tjänsten. Se [med Azure PowerShell för att skapa ett huvudnamn för tjänsten med ett certifikat](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. I den _PowerShell ISE_, öppna filen ...\Learning Modules\UserConfig.psm1. Ersätt `<resourcegroup>` och `<user>` på raderna 10 och 11 med det värde som används när du distribuerade appen.  Spara filen!
 
@@ -199,15 +199,15 @@ Nu imagine det uppstår ett avbrott i regionen där programmet distribueras och 
 Programslutpunkten är inaktiverad i Traffic Manager, är programmet inte tillgänglig. När katalogen har redundansväxlats till återställningsregionen och alla klienter markeras offline, kan programmet tas online igen. Även om programmet är tillgängligt, visas varje klient som offline evenemangshubben förrän databasen har redundansväxlats. Det är viktigt att utforma ditt program hantera offline klientdatabaser.
 
 1. Omgående när katalogdatabasen har återställts, uppdatera Evenemangshubben Wingtip biljetter i webbläsaren.
-    * I sidfoten, Lägg märke till att namnet på katalogen har nu en _-recovery_ suffix och finns i återställningsregionen.
-    * Observera att klienter som ännu inte återställs kan markeras som offline och inte är valbara.  
+   * I sidfoten, Lägg märke till att namnet på katalogen har nu en _-recovery_ suffix och finns i återställningsregionen.
+   * Observera att klienter som ännu inte återställs kan markeras som offline och inte är valbara.  
 
-    > [!Note]
-    > Med bara några få databaser att återställa, kan du inte att kunna uppdatera webbläsaren innan återställningen har slutförts, så att du inte kan se innehavarna när de är offline. 
+     > [!Note]
+     > Med bara några få databaser att återställa, kan du inte att kunna uppdatera webbläsaren innan återställningen har slutförts, så att du inte kan se innehavarna när de är offline. 
  
-    ![Evenemangshubben offline](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
+     ![Evenemangshubben offline](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-    * Om du öppnar sidan för evenemang i en offline-klient direkt, visas ett meddelande om klient offline. Till exempel om Contosos Konserthall är offline försöker öppna http://events.wingtip-dpt.&lt; användare&gt;.trafficmanager.net/contosoconcerthall ![Contoso Offline sida](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
+   * Om du öppnar sidan för evenemang i en offline-klient direkt, visas ett meddelande om klient offline. Till exempel om Contosos Konserthall är offline försöker öppna http://events.wingtip-dpt.&lt; användare&gt;.trafficmanager.net/contosoconcerthall ![Contoso Offline sida](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png) 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Etablera en ny klient i återställningsregionen
 Du kan etablera nya klienter i återställningsregionen även innan alla befintliga klientdatabaser har redundansväxlats.  
@@ -236,12 +236,12 @@ När återställningen är klar, programmet och alla klienter är helt funktione
     * Lägg märke till den resursgrupp som du har distribuerat, plus resursgrupp recovery med den _-recovery_ suffix.  Recovery resursgruppen innehåller alla resurser som skapades under återställningen plus nya resurser som skapas under avbrottet.  
 
 3. Öppna resursgruppen återställning och Lägg märke till följande objekt:
-    * Recovery versioner av katalogen och tenants1-servrar, med _-recovery_ suffix.  De återställda katalog- och klienttrafik databaserna på dessa servrar som alla har de namn som används i den ursprungliga regionen.
+   * Recovery versioner av katalogen och tenants1-servrar, med _-recovery_ suffix.  De återställda katalog- och klienttrafik databaserna på dessa servrar som alla har de namn som används i den ursprungliga regionen.
 
-    * Den _tenants2-dpt -&lt;användaren&gt;-recovery_ SQLServer.  Den här servern används för att etablera nya klienter under avbrottet.
-    *   App Service med namnet _händelser-wingtip-dpt -&lt;recoveryregion&gt;-&lt;användare & gt_; vilket är evenemangsappen recovery-instansen. 
+   * Den _tenants2-dpt -&lt;användaren&gt;-recovery_ SQLServer.  Den här servern används för att etablera nya klienter under avbrottet.
+   * App Service med namnet _händelser-wingtip-dpt -&lt;recoveryregion&gt;-&lt;användare & gt_; vilket är evenemangsappen recovery-instansen. 
 
-    ![Azure recovery-resurser](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
+     ![Azure recovery-resurser](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
     
 4. Öppna den _tenants2-dpt -&lt;användaren&gt;-recovery_ SQLServer.  Observera att den innehåller databasen _hawthornhall_ och den elastiska poolen _Pool1_.  Den _hawthornhall_ databasen är konfigurerad som en elastisk databas i _Pool1_ elastisk pool.
 
@@ -305,12 +305,12 @@ Klientdatabaser kan spridas för återställning och ursprungliga regioner under
 
 I den här självstudiekursen lärde du dig att:
 > [!div class="checklist"]
-
->* Synkronisera databaser och elastiska konfigurationsinformation för lagringspool i klient-katalogen
->* Konfigurera en Återställningsmiljö i en annan region, som består av program, servrar och pooler
->* Använd _geo-replikering_ att replikera katalogen och klient-databaser till återställningsregionen
->* Växla över programmet och katalogen och klient-databaser till återställningsregionen 
->* Återställa programmet, katalogen och klient-databaser till den ursprungliga regionen när driftstörningarna har åtgärdats
+> 
+> * Synkronisera databaser och elastiska konfigurationsinformation för lagringspool i klient-katalogen
+> * Konfigurera en Återställningsmiljö i en annan region, som består av program, servrar och pooler
+> * Använd _geo-replikering_ att replikera katalogen och klient-databaser till återställningsregionen
+> * Växla över programmet och katalogen och klient-databaser till återställningsregionen 
+> * Återställa programmet, katalogen och klient-databaser till den ursprungliga regionen när driftstörningarna har åtgärdats
 
 Du kan läsa mer om de tekniker som Azure SQL-databas tillhandahåller för att aktivera verksamhetskontinuitet i den [översikt över affärskontinuitet](sql-database-business-continuity.md) dokumentation.
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 478034d1c9f99f40a4827515433357c76235e9ee
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7d846f28e78959b6962add51070f04857f6463d7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428944"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852823"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Metodtips för autentisering och auktorisering i Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ Den här bästa praxis-artikeln fokuserar på hur en kluster-operator kan hanter
 > * Kontrollera åtkomsten till resurser med rollbaserad åtkomstkontroll (RBAC)
 > * Använda en hanterad identitet för att autentisera sig med andra tjänster
 
-## <a name="use-azure-active-directory"></a>Använd Azure Active Directory
+## <a name="use-azure-active-directory"></a>Use Azure Active Directory
 
 **Bästa praxis riktlinjer** – distribuera AKS-kluster med Azure AD-integrering. Använda Azure AD centraliserar komponenten identity management. Ändringar i användarens konto eller grupp status uppdateras automatiskt i tillgång till AKS-klustret. Använd roller eller ClusterRoles och bindningar, enligt beskrivningen i nästa avsnitt, för att samla användare eller grupper till minsta möjliga behörigheter som krävs.
 
@@ -64,7 +64,7 @@ rules:
   verbs: ["*"]
 ```
 
-En RoleBinding skapas som binder Azure AD-användare *developer1@contoso.com* till RoleBinding, enligt följande YAML-manifest:
+En RoleBinding skapas som binder Azure AD-användare *developer1\@contoso.com* till RoleBinding, enligt följande YAML-manifest:
 
 ```yaml
 ind: RoleBinding
@@ -82,7 +82,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-När *developer1@contoso.com* autentiseras mot AKS-kluster som de har fullständiga behörigheter till resurser i den *ekonomi-app* namnområde. I det här sättet, du logiskt separat och styra åtkomsten till resurser. Kubernetes RBAC bör användas tillsammans med Azure AD-integrering, enligt beskrivningen i föregående avsnitt.
+När *developer1\@contoso.com* autentiseras mot AKS-kluster som de har fullständiga behörigheter till resurser i den *ekonomi-app* namnområde. I det här sättet, du logiskt separat och styra åtkomsten till resurser. Kubernetes RBAC bör användas tillsammans med Azure AD-integrering, enligt beskrivningen i föregående avsnitt.
 
 ## <a name="use-pod-identities"></a>Använda pod-identiteter
 

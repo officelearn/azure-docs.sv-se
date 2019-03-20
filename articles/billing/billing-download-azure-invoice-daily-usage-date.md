@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 59d63efbf261813c8519b03d3e1630cf24d868d0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 52e227b933533bf60a474d0417c57e4b75c7978f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835934"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224642"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Ladda ned eller visa din faktura för Azure och uppgifter om daglig användning
 
@@ -56,7 +56,7 @@ Läs mer om fakturan [förstå fakturan för Microsoft Azure](billing-understand
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Ladda ned fakturor för en Microsoft-kundavtal
 
-Fakturor genereras för varje [fakturering profil](billing-mca-overview.md#understand-billing-profiles) i Microsoft kundavtal. Du måste vara en fakturering profil ägare, deltagare, läsare, eller fakturera manager för att ladda ner fakturor från Azure-portalen. 
+Fakturor genereras för varje [fakturering profil](billing-mca-overview.md#understand-billing-profiles) i Microsoft kundavtal. Du måste vara en fakturering profil ägare, deltagare, läsare, eller fakturera manager för att ladda ner fakturor från Azure-portalen.
 
 1. Sök på **Cost Management + fakturering**.
 2. Välj en profil för fakturering.
@@ -91,7 +91,7 @@ Du kan välja och konfigurera ytterligare mottagare för att ta emot din Azure-f
 2. Klicka på **anmäla** och godkänner villkoren.
 
     ![Skärmbild som visar valbar flow steg 2](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
- 
+
 3. När du har accepterat avtalet, kan du konfigurera ytterligare mottagare. När en mottagare har tagits bort, lagras inte längre den e-postadressen. Om du ändrar dig kan behöva du lägga till dem igen.
 
     ![Skärmbild som visar valbar flow steg 3](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
@@ -106,7 +106,7 @@ Du kan välja bort komma fakturan via e-post genom att följa stegen ovan och kl
 
 ### <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Hämta dina Microsoft kundavtal fakturor via e-post
 
-Om du har ett Microsoft-kundavtal, kan du välja för att hämta din faktura i ett e-postmeddelande. Alla fakturering profil ägare, deltagare, läsare och faktura chefer får fakturan via e-post. Läsare kan inte uppdatera dina inställningar för e-faktura. 
+Om du har ett Microsoft-kundavtal, kan du välja för att hämta din faktura i ett e-postmeddelande. Alla fakturering profil ägare, deltagare, läsare och faktura chefer får fakturan via e-post. Läsare kan inte uppdatera dina inställningar för e-faktura.
 
 1. Sök på **Cost Management + fakturering**.
 1. Välj en profil för fakturering.
@@ -121,7 +121,7 @@ Du kan välja bort komma fakturan via e-post genom att följa stegen ovan och kl
 
 ## <a name="download-usage"></a>Ladda ned användning
 
- För de flesta prenumerationer hittar du din dagliga användningsfil i den [Azure Kontocenter](https://account.azure.com/Subscriptions). Om du är EA-kund eller har ett avtal för Microsoft-kund kan du ladda ned användning i den [Azure-portalen](https://portal.azure.com/). <!--genom att göra: uppdatera PayG-upplevelsen till Ibiza efter leveransen >
+ För de flesta prenumerationer hittar du din dagliga användningsfil i den [Azure Kontocenter](https://account.azure.com/Subscriptions). Om du är EA-kund eller har ett avtal för Microsoft-kund kan du ladda ned användning i den [Azure-portalen](https://portal.azure.com/). <!-- TO DO: update PayG experience to Ibiza once it ships-->
 
 ### <a name="download-usage-from-the-account-center-csv"></a>Ladda ned användning från Azure Kontocenter (.csv)
 

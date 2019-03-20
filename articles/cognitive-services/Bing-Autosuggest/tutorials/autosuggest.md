@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Hämta resultat för automatiska förslag med API:et för automatiska förslag i Bing'
+title: 'Självstudier: Få automatiska förslag resultat med hjälp av automatiska förslag i Bing'
 titlesuffix: Azure Cognitive Services
 description: Visar hur du använder Automatiska förslag i Bing.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: tutorial
-ms.date: 09/28/2017
+ms.date: 02/20/2019
 ms.author: v-jaswel
-ms.openlocfilehash: 47115159501195209257e4657f09ae1f93039c5e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 8a338eb6ea3dfeea2027d44487138f290f6c8803
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869916"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010386"
 ---
-# <a name="tutorial-build-a-web-page-autosuggest-client"></a>Självstudier: Skapa en klient för automatiska förslag för en webbsida
+# <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Självstudier: Få förslag på en webbsida
 
 I den här självstudien skapar vi en webbsida där användarna kan fråga API:et Automatiska förslag i Bing.
 
@@ -27,7 +27,7 @@ I den här självstudiekursen lär du dig att:
 > - Skicka en enkel fråga till API:et Automatiska förslag i Bing
 > - Visa frågeresultat
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa självstudiekursen behöver du en prenumerationsnyckel för API:et Automatiska förslag i Bing. Om du inte har någon nyckel kan du [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 

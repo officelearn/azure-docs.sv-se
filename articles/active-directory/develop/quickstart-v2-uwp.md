@@ -3,8 +3,8 @@ title: 'Snabbstart: Azure AD v2 Windows UWP | Microsoft Docs'
 description: Lär dig hur en app på universell Windows-plattform (XAML) kan hämta en åtkomsttoken och anropa ett API som skyddas av en Azure Active Directory v2.0-slutpunkt.
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/01/2018
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 890bef048fbb9bd8bb7d246e4f09dc4ec420a7a1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 97ad2c5a395eb22ec8f20d4bab3e12f1091dceb0
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197325"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200947"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Snabbstart: Anropa Microsoft Graph API från en UWP-app (universell Windows-plattform)
 
@@ -30,7 +30,7 @@ ms.locfileid: "56197325"
 
 Den här snabbstarten innehåller ett kodexempel som visar hur en UWP-app (Universell Windows-plattform) kan logga in användare med ett personligt konto eller arbets- och skolkonto, hämta en åtkomsttoken samt anropa Microsoft Graph API.
 
-![Så fungerar den exempelapp som genereras med den här snabbstarten](media/quickstart-v2-uwp/uwp-intro.png)
+![Visar hur exempelapp som genererats av den här snabbstarten fungerar](media/quickstart-v2-uwp/uwp-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registrera och ladda ned snabbstartsappen

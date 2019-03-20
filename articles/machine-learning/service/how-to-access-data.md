@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: a7c29d1bfcc0737f76afc43cb8997d6a1d16c82b
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
-ms.translationtype: MT
+ms.openlocfilehash: af36f38bf206da588d327dc319d2418460f79b13
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731355"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58165036"
 ---
 # <a name="access-data-from-your-datastores"></a>Komma åt data från ditt datalager
 
@@ -146,13 +146,16 @@ ds.download(target_path='your target path',
 
 <a name="train"></a>
 ## <a name="access-datastores-during-training"></a>Datalager för åtkomst vid träning
-Du kan komma åt ett datalager under ett utbildnings kör (till exempel för utbildning eller validering data) på en fjärransluten beräkningsmål via Python SDK med hjälp av den [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) klass.
 
-Det finns flera sätt att tillgängliggöra dina datalager i den fjärranslutna beräkningen.
+När du gör ditt datalager tillgängliga i den fjärranslutna beräkningen, kan du komma åt den under träningskörningar (exempelvis utbildning eller validering data) genom att helt enkelt ange sökvägen till den som en parameter i dina utbildningsskript.
+
+I följande tabell visas vanliga [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) metoder som gör datalager som är tillgängliga i den fjärranslutna beräkningen.
+
+##
 
 Sätt|Metod|Beskrivning
 ----|-----|--------
-Montera| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Använd för att montera ett datalager i den fjärranslutna beräkningen.
+Montera| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Använd för att montera ett datalager i den fjärranslutna beräkningen. Standardläget för datalager.
 Ladda ned|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Använd data från den plats som anges av `path_on_compute` på din datalagret till den fjärranslutna databearbetning.
 Ladda upp|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Använd för att ladda upp data till roten för ditt datalager från den plats som anges av `path_on_compute`.
 
@@ -165,20 +168,22 @@ ds.as_download(path_on_compute='your path on compute')
 ds.as_upload(path_on_compute='yourfilename')
 ```  
 
-### <a name="reference-filesfolders"></a>Referens för filer/mappar
 Om du vill referera till en viss mapp eller fil i ditt datalager, använder du datalagringen [ `path()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#path-path-none--data-reference-name-none-) funktion.
 
 ```Python
-#download the contents of the `./bar` directory from the datastore 
+#download the contents of the `./bar` directory from the datastore to the remote compute
 ds.path('./bar').as_download()
 ```
 
 
+
+> [!NOTE]
+> Alla `ds` eller `ds.path` objekt som motsvarar en Miljövariabelns namn i formatet `"$AZUREML_DATAREFERENCE_XXXX"` vars värde representerar montering/hämtningssökvägen i den fjärranslutna beräkningen. Datastore-sökväg i den fjärranslutna beräkningen kanske inte är samma som körningssökvägen för utbildning-skriptet.
+
 ### <a name="examples"></a>Exempel 
 
-Alla `ds` eller `ds.path` objekt som motsvarar en Miljövariabelns namn i formatet `"$AZUREML_DATAREFERENCE_XXXX"` vars värde representerar montering/hämtningssökvägen i den fjärranslutna beräkningen. Datastore-sökväg i den fjärranslutna beräkningen kanske inte är samma som sökväg för körningen för skriptet.
+Följande illustrera exempel som är specifika för den [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klassen för att komma åt ditt datalager under utbildningen.
 
-Om du vill få åtkomst till ditt datalager vid träning, skickar du det till dina utbildningsskript som ett argument på kommandoraden via `script_params` från den [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klass.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -192,12 +197,13 @@ est = Estimator(source_directory='your code directory',
                 compute_target=compute_target,
                 entry_script='train.py')
 ```
-`as_mount()` är standardläget för ett datalager, så du kan också direkt skicka `ds` till den `'--data_dir'` argumentet.
+
+Eftersom `as_mount()` är standardläget för ett datalager kan du också direkt skicka `ds` till den `'--data_dir'` argumentet.
 
 Eller skicka in en lista över datalager till konstruktorn kostnadsuppskattning `inputs` parameter för att montera eller kopiera till och från din datalagrets. Detta kodexempel:
 * Laddar ned allt innehåll i datalagret `ds1` till fjärranslutna beräkningarna innan dina utbildningsskript `train.py` körs
 * Hämtar mappen `'./foo'` i datalagret `ds2` till fjärranslutna beräkningarna innan `train.py` körs
-* Överför filen `'./bar.pkl'` från fjärranslutna beräkningarna som är upp till databasen `d3` när skriptet har körts
+* Överför filen `'./bar.pkl'` från fjärranslutna beräkningarna som är upp till databasen `ds3` när skriptet har körts
 
 ```Python
 est = Estimator(source_directory='your code directory',

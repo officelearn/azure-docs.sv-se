@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 32367559ba4ae6931804c1ea702dca6c2c5ee297
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 79de09631b33f838c1a2f12fdc58b2648548004b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870915"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998428"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services-begrepp 
 
@@ -156,7 +156,7 @@ Mer information finns i följande artiklar:
 - [Skydda med AES-128](media-services-protect-with-aes128.md)
 - [Skydda med PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
-## <a name="delivering"></a>Leverera
+## <a name="delivering"></a>Levererar
 ### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>Dynamisk paketering
 När du arbetar med Media Services, rekommenderar vi att koda ditt mezzanine-filer till en med anpassningsbar bithastighet MP4-uppsättningen och sedan konvertera uppsättningen till det önskade formatet med hjälp av den [dynamisk paketering](media-services-dynamic-packaging-overview.md).
 

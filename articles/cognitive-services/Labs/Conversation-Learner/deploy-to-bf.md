@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bc04afead8742c9f384287ecb8d33c54770456b6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ae984cc2e0f43b81b8aa2f08b3944886733c9054
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447395"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994645"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Så här distribuerar du en robot som Konversationsdeltagare
 
@@ -45,7 +45,7 @@ Här är hur du skaffar modell-ID:
     npm run ui
     ```
 
-2. Öppna webbläsaren till http://localhost:5050 
+2. Öppna webbläsaren till `http://localhost:5050` 
 
 3. Klicka på Konversationsdeltagare-modell som du vill hämta ID för
 
@@ -109,20 +109,20 @@ Nedan finns stegvisa instruktioner för att distribuera en konversation Learner 
 
 3. Redigera Web App-robot-resurs som du skapade i Azure-portalen.
 
-    1. Klicka på ”programinställningar” nav objekt till vänster
-    1. Rulla ned till avsnittet ”Appinställningar”
-    2. Lägg till de här inställningarna:
+   1. Klicka på ”programinställningar” nav objekt till vänster
+   1. Rulla ned till avsnittet ”Appinställningar”
+   2. Lägg till de här inställningarna:
 
-        Miljövariabel | värde
-        --- | --- 
-        CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
-        CONVERSATION_LEARNER_MODEL_ID      | Program-Id-GUID som hämtas från konversationen Learner Användargränssnittet under ”inställningar” för modellen >
-        LUIS_AUTHORING_KEY               | Redigera nyckel för den här modellen LUIS
-        LUIS_SUBSCRIPTION_KEY            | Inte obligatoriskt, men rekommenderas för publicerade robotar att undvika att använda din kvot för redigering.
+       Miljövariabel | värde
+       --- | --- 
+       CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
+       CONVERSATION_LEARNER_MODEL_ID      | Program-Id-GUID som hämtas från konversationen Learner Användargränssnittet under ”inställningar” för modellen >
+       LUIS_AUTHORING_KEY               | Redigera nyckel för den här modellen LUIS
+       LUIS_SUBSCRIPTION_KEY            | Inte obligatoriskt, men rekommenderas för publicerade robotar att undvika att använda din kvot för redigering.
     
-    4. Klicka på ”Spara” längst upp på sidan
-    5. Öppna ”Build” nav-objekt till vänster
-    6. Klicka på ”Konfigurera kontinuerlig distribution” 
-    7. Klicka på ikonen ”inställningar” under distributioner
-    8. Klicka på ”nödvändiga inställningar”
-    9. Välj källa där din bot-kod är tillgänglig och konfigurera källan.
+   4. Klicka på ”Spara” längst upp på sidan
+   5. Öppna ”Build” nav-objekt till vänster
+   6. Klicka på ”Konfigurera kontinuerlig distribution” 
+   7. Klicka på ikonen ”inställningar” under distributioner
+   8. Klicka på ”nödvändiga inställningar”
+   9. Välj källa där din bot-kod är tillgänglig och konfigurera källan.

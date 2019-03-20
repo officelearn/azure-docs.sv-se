@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: b45f48289eda9096c84537eaaa7bc2df74c9d05d
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 4784ca08366d833d02372393e0e12f0fefe8c5cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341431"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112457"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Träna modeller med automatiserade maskininlärning i molnet
 
@@ -107,7 +107,7 @@ Ger fjärresursen åtkomst till dina utbildningsdata. För automatiserade machin
 
 För att ge åtkomst måste du:
 + Skapa en fil som get_data.py innehåller en `get_data()` funktion 
-* Placera filen i en katalog som är tillgänglig som en absolut sökväg 
++ Placera filen i en katalog som är tillgänglig som en absolut sökväg 
 
 Du kan kapsla kod för att läsa data från blob storage- eller lokal disk i filen get_data.py. I följande kodexempel kommer data från sklearn-paketet.
 

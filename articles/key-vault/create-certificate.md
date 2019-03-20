@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 50306ab4dee13f772c2c34b3c3a8f13d07861fc0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 53b4d03ac8f5d22595d3a4e840a04583f7ec963d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410272"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995526"
 ---
 # <a name="certificate-creation-methods"></a>Metoder för att skapa certifikat
 
@@ -35,7 +35,7 @@ Med följande motsvarar grön bokstäver stegen i föregående diagram.
 1. I diagrammet ovan skapar programmet ett certifikat som internt börjar genom att skapa en nyckel i ditt nyckelvalv.
 2. Key Vault återgår till programmet en begäran om certifikatsignering (CSR)
 3. Ditt program skickar CSR till vald CA: N.
-4. Vald CA svarar med en en X509 certifikat.
+4. Vald CA svarar med en X509 certifikat.
 5. Programmet har nya certifikat skapat med en sammanslagning av X509 certifikat från Certifikatutfärdaren.
 
 -   **Skapa ett certifikat med en känd utfärdare-provider:** Den här metoden måste du göra en gång för att skapa en utfärdare-objektet. När ett utfärdare-objekt skapas i du nyckelvalv, kan referera till dess namn i principen för KV certifikatet. En begäran om att skapa sådana KV certifikat skapar ett nyckelpar i valvet och kommunicera med utfärdaren provider-tjänsten med hjälp av informationen i det refererade utfärdare-objektet för att hämta en x509 certifikat. X509 certifikatet hämtas från tjänsten utfärdare och sammanfogas med nyckelpar för att slutföra KV-certifikat.  

@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: 8e7e72236abdaeb77a6bfe3dd85c9ab0c8fbe40e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fa681198088cd4ae13668193939474d0d501b6f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442707"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098524"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Villkorlig åtkomst (MFA) med Azure SQL Database och Data Warehouse  
 
@@ -33,22 +33,22 @@ Följande steg visar hur du konfigurerar SQL-databas om du vill framtvinga princ
 - När multifaktorautentisering har aktiverats måste du ansluter till vid stöds verktyg, till exempel den senaste SSMS. Mer information finns i [konfigurera Azure SQL Database Multi-Factor authentication för SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
 
 ## <a name="configure-ca-for-azure-sql-dbdw"></a>Konfigurera Certifikatutfärdaren för Azure SQL DB/DW  
-1.  Logga in på portalen, väljer **Azure Active Directory**, och välj sedan **villkorlig åtkomst**. Mer information finns i [Teknisk referens för Azure Active Directory villkorsstyrd åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
-  ![bladet för villkorlig åtkomst](./media/sql-database-conditional-access/conditional-access-blade.png) 
+1. Logga in på portalen, väljer **Azure Active Directory**, och välj sedan **villkorlig åtkomst**. Mer information finns i [Teknisk referens för Azure Active Directory villkorsstyrd åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
+   ![bladet för villkorlig åtkomst](./media/sql-database-conditional-access/conditional-access-blade.png) 
      
-2.  I den **villkorliga åtkomstprinciper** bladet klickar du på **ny princip**, ange ett namn och klicka sedan på **konfigurera regler för**.  
-3.  Under **tilldelningar**väljer **användare och grupper**, kontrollera **Välj användare och grupper**, och välj sedan användare eller grupp för villkorlig åtkomst. Klicka på **Välj**, och klicka sedan på **klar** att godkänna ditt val.  
-  ![Välj användare och grupper](./media/sql-database-conditional-access/select-users-and-groups.png)  
+2. I den **villkorliga åtkomstprinciper** bladet klickar du på **ny princip**, ange ett namn och klicka sedan på **konfigurera regler för**.  
+3. Under **tilldelningar**väljer **användare och grupper**, kontrollera **Välj användare och grupper**, och välj sedan användare eller grupp för villkorlig åtkomst. Klicka på **Välj**, och klicka sedan på **klar** att godkänna ditt val.  
+   ![Välj användare och grupper](./media/sql-database-conditional-access/select-users-and-groups.png)  
 
-4.  Välj **Molnappar**, klickar du på **Välj appar**. Du kan se alla appar som är tillgängliga för villkorlig åtkomst. Välj **Azure SQL Database**, längst ned på sidan klickar du på **Välj**, och klicka sedan på **klar**.  
-  ![select SQL Database](./media/sql-database-conditional-access/select-sql-database.png)  
-  Om du inte hittar **Azure SQL Database** visas i skärmbilden tredje, gör du följande:   
-  - Logga in på din Azure SQL DB/DW-instans med hjälp av SSMS med en AAD-administratörskonto.  
-  - Köra `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
-  - Logga in på AAD och kontrollera att Azure SQL Database och Data Warehouse finns med i programmen i din AAD.  
+4. Välj **Molnappar**, klickar du på **Välj appar**. Du kan se alla appar som är tillgängliga för villkorlig åtkomst. Välj **Azure SQL Database**, längst ned på sidan klickar du på **Välj**, och klicka sedan på **klar**.  
+   ![select SQL Database](./media/sql-database-conditional-access/select-sql-database.png)  
+   Om du inte hittar **Azure SQL Database** visas i skärmbilden tredje, gör du följande:   
+   - Logga in på din Azure SQL DB/DW-instans med hjälp av SSMS med en AAD-administratörskonto.  
+   - Köra `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
+   - Logga in på AAD och kontrollera att Azure SQL Database och Data Warehouse finns med i programmen i din AAD.  
 
-5.  Välj **åtkomstkontroller**väljer **bevilja**, och markerar sedan den princip som du vill använda. I det här exemplet väljer vi **kräva multifaktorautentisering**.  
-  ![Välj för att bevilja åtkomst](./media/sql-database-conditional-access/grant-access.png)  
+5. Välj **åtkomstkontroller**väljer **bevilja**, och markerar sedan den princip som du vill använda. I det här exemplet väljer vi **kräva multifaktorautentisering**.  
+   ![Välj för att bevilja åtkomst](./media/sql-database-conditional-access/grant-access.png)  
 
 ## <a name="summary"></a>Sammanfattning  
 Det valda programmet (Azure SQL Database) så att du kan ansluta till Azure SQL DB/DW med hjälp av Azure AD Premium, tillämpar nu valda principen för villkorlig åtkomst, **krävs multifaktorautentisering.**  

@@ -15,12 +15,12 @@ ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 0c3f52c78bbfd3094324b74f3b66610fcebfa2f4
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 9eca22f5a594bf3d61b1d68882c4853f4bfc499d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099300"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100759"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Tillämpa uppdateringar i Azure Stack
 
@@ -30,7 +30,7 @@ Du kan använda den **uppdatera** panelen i administrationsportalen för att til
 
 Om du använder en integrerade system version 1807 eller tidigare, måste du ladda ned uppdateringspaketet, importera paketfilerna till Azure Stack och sedan installera uppdateringspaketet. Anvisningar finns i [Update Azure Stack genom att ladda ned paketet](#update-azure-stack-by-downloading-the-package)
 
-Dessa uppgradera instruktioner fungerar med integrerade Azure Stack-systemen. Om du använder Azure Stack Development System, måste du hämta installationspaketet för den aktuella versionen. Anvisningar finns i [installera Azure Stack Development Kit](.\asdk\asdk-install.md)
+Dessa uppgradera instruktioner fungerar med integrerade Azure Stack-systemen. Om du använder Azure Stack Development System, måste du hämta installationspaketet för den aktuella versionen. Anvisningar finns i [installera Azure Stack Development Kit](./asdk/asdk-install.md)
 
 ## <a name="update-azure-stack"></a>Uppdatera Azure Stack
 

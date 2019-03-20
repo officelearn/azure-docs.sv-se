@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: aa55dce4b06eb895ef0b8745978d644e4e2f52b5
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 4b1c829a417d050b4d931611d9f2952e01582f04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408861"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089479"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Utveckla Azure Resource Manager-mallar för att få konsekvens i molnet
 
@@ -63,13 +63,13 @@ Azure Resource Manager-funktioner kommer alltid att läggas till globala Azure f
 
 1. Importera modulen psm1 och kör cmdleten Test-AzureRmureRmTemplateFunctions:
 
-  ```powershell
-  # Import the module
-  Import-module <path to local clone>\AzTemplateFunctions.psm1
+   ```powershell
+   # Import the module
+   Import-module <path to local clone>\AzTemplateFunctions.psm1
 
-  # Execute the Test-AzureRmTemplateFunctions cmdlet
-  Test-AzureRmTemplateFunctions -path <path to local clone>
-  ```
+   # Execute the Test-AzureRmTemplateFunctions cmdlet
+   Test-AzureRmTemplateFunctions -path <path to local clone>
+   ```
 
 Skriptet etablerar flera minimeras mallar som innehåller endast unika Mallfunktioner. Utdata från skriptet rapporterar stöds och otillgängligt Mallfunktioner.
 

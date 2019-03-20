@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f86e2a5ac65274ecdb806c1cd894c89f1ca2efae
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 756a836ff276804e9c85675c1acd5cb18aaa1258
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982190"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008396"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Installera NVIDIA GPU-drivrutiner på N-serien virtuella datorer som kör Windows 
 
@@ -69,6 +69,6 @@ RDMA-nätverk stöder Message Passing Interface (MPI)-trafik för program som k�
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utvecklare som skapar GPU-accelererade program för NVIDIA Tesla GPU: er kan också hämta och installera senast [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads). Mer information finns i den [CUDA installationsguide](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
+* Utvecklare som skapar GPU-accelererade program för NVIDIA Tesla GPU: er kan också hämta och installera senast [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads). Mer information finns i den [CUDA installationsguide](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
 
 

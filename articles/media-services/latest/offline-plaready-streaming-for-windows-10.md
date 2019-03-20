@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 6960f6da2eb8c867d36ba4073d1a0fcafe8d75bf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9e29b08da35b9fd2f479f1d4e3b0d89ed881344b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443215"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902009"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>PlayReady offline Streaming för Windows 10
 
@@ -41,7 +41,7 @@ Den stora utmaningen vi möter implementera offline-läge är följande:
 * MP4 stöds av många spelare, encoder verktyg, men det finns inga bindningar mellan MP4-behållare och DRM;
 * CFF med CENC är bättre att på lång sikt. Idag, är verktyg/player support-ekosystem dock inte det ännu. Vi behöver en lösning i dag.
  
-Tanken är: smooth streaming ([PIFF](http://go.microsoft.com/?linkid=9682897))-format med H264/AAC har en bindning med PlayReady (AES-128 CTR). Jämn direktuppspelning .ismv fil (förutsatt att ljud är muxed i videon) är i sig en fMP4 och kan användas för uppspelning. Om en smidig strömningsinnehåll går igenom PlayReady-kryptering, filernas .ismv blir en PlayReady skyddade fragmenterad MP4. Vi kan välja en .ismv-fil med önskad bithastighet och Byt namn på den som .mp4 för hämtning.
+Tanken är: smooth streaming ([PIFF](https://go.microsoft.com/?linkid=9682897))-format med H264/AAC har en bindning med PlayReady (AES-128 CTR). Jämn direktuppspelning .ismv fil (förutsatt att ljud är muxed i videon) är i sig en fMP4 och kan användas för uppspelning. Om en smidig strömningsinnehåll går igenom PlayReady-kryptering, filernas .ismv blir en PlayReady skyddade fragmenterad MP4. Vi kan välja en .ismv-fil med önskad bithastighet och Byt namn på den som .mp4 för hämtning.
 
 Det finns två alternativ för den som är värd för PlayReady skyddade MP4 för progressiv nedladdning:
 
@@ -57,12 +57,12 @@ Nedan finns två typer av test-tillgångar, den första mallen med PlayReady-lic
 
 Plats #1:
 
-* URL för progressiv nedladdning: [http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
+* URL för progressiv nedladdning: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
 * PlayReady LA_URL (AMS): [https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
 
 Tillgången #2:
 
-* URL för progressiv nedladdning: [http://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* URL för progressiv nedladdning: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * PlayReady LA_URL (lokalt): [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
 
 För att spela upp testa använde vi ett universellt Windows-program på Windows 10. I [Windows 10 Universal-exempel](https://github.com/Microsoft/Windows-universal-samples), det är ett grundläggande player-exempel som kallas [anpassningsbar direktuppspelning exempel](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). Allt vi behöver göra är att lägga till kod att välja hämtade video och använda den som källan, i stället för anpassningsbar strömning källa. Ändringarna visas i knappen klickar du på händelsehanteraren:

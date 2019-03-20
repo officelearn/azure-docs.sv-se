@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 4df134c6644a9480460635cbe3565f030d4bf779
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0b6baec08470754c04aaa0bea2a3e6defe7fd91f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440955"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117871"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Visa relativ svarstid till Azure-regioner från specifika platser
 
@@ -119,8 +119,8 @@ Get-AzureRmNetworkWatcherReachabilityReport `
   -EndTime "2017-12-15"
 ```
 
->[!NOTE]
-Till skillnad från måste när du anger en enda plats, om du inte ange en plats eller ange flera platser, till exempel ”västra 2”, ”West US”, du ange en Internet-leverantör när du kör kommandot. 
+> [!NOTE]
+> Till skillnad från måste när du anger en enda plats, om du inte ange en plats eller ange flera platser, till exempel ”västra 2”, ”West US”, du ange en Internet-leverantör när du kör kommandot. 
 
 ## <a name="view-available"></a>Visa tillgängliga länder, stater, städer och providers
 

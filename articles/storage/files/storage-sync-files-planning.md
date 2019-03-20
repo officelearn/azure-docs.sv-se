@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 97508c05ea26df1aaae7f41738835380767c81d2
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: c032961bf89ba470a38ebccfd846659b080f9fab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312723"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013234"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -132,6 +132,7 @@ Så här visar resultatet i CSV:
 - En lokalt ansluten volym som formaterats med NTFS-filsystemet.
 
 ### <a name="file-system-features"></a>Filsystem: funktioner
+
 | Funktion | Supportstatus | Anteckningar |
 |---------|----------------|-------|
 | Åtkomstkontrollistor (ACL) | Stöds fullt ut | Windows-ACL: er bevaras av Azure File Sync och tillämpas av Windows Server på server-slutpunkter. Windows-ACL: er (ännu inte) stöds av Azure Files om filer används direkt i molnet. |
@@ -148,6 +149,7 @@ Så här visar resultatet i CSV:
 > NTFS-volymer stöds. ReFS, FAT, FAT32 och andra filsystem stöds inte.
 
 ### <a name="files-skipped"></a>Filer som hoppades över
+
 | Fil/mapp | Obs! |
 |-|-|
 | Desktop.ini | Filen som är specifika för system |

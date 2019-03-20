@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: aahi
-ms.openlocfilehash: b4778c87ca5da266858cd05c67e5f0a78af731bc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 11a8ef1974e8d930b0001ccfb445b0eee509356f
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330825"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188959"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av Go 
 <a name="HOLTop"></a>
@@ -24,7 +24,7 @@ Den här artikeln visar hur du [identifierar språk](#Detect), [analyserar attit
 
 Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk dokumentation för API:erna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -41,9 +41,9 @@ API:et för språkidentifiering identifierar språket i ett textdokument, med me
 1. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
 1. Ersätt platsen i `uriBase` (för närvarande `westcentralus`) till den region du har registrerat dig för.
 1. Spara filen med tillägget .go.
-1. Öppna en kommandotolk på en dator där Go är installerat.
-1. Skapa filen, till exempel ”go build quickstart.go”.
-1. Kör filen, till exempel: ”quickstart”.
+1. Öppna en kommandotolk på en dator med gå installerade från rotmappen.
+1. Skapa filen, till exempel: `go build detect.go`.
+1. Kör filen, till exempel: `go run detect.go`.
 
 ```golang
 package main
@@ -177,16 +177,16 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="analyze-sentiment-request"></a>Begäran om attitydanalys
 
-API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) (Attityd). I följande exempel poängsätts två dokument, ett på engelska och ett annat på spanska.
+API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) (Attityd). Attitydanalys kan användas för att ta reda på vad kunderna tycker om ditt märke eller ämne genom att analysera rå text efter ledtrådar om positiv eller negativ attityd. I följande exempel ger poäng för två dokument, en på engelska och en annan på spanska.
 
 1. Skapa ett nytt Go-projekt i valfri kodredigerare.
 1. Lägg till koden nedan.
 1. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
 1. Ersätt platsen i `uriBase` (för närvarande `westcentralus`) till den region du har registrerat dig för.
 1. Spara filen med tillägget .go.
-1. Öppna en kommandotolk på en dator där Go är installerat.
-1. Skapa filen, till exempel ”go build quickstart.go”.
-1. Kör filen, till exempel: ”quickstart”.
+1. Öppna en kommandotolk på en dator med gå installerade från rotmappen.
+1. Skapa filen, till exempel: `go build sentiment.go`.
+1. Kör filen, till exempel: `go run sentiment.go`.
 
 ```golang
 package main
@@ -272,7 +272,8 @@ func main() {
 
 ## <a name="analyze-sentiment-response"></a>Svar från attitydanalys
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
+Resultatet mäts som positivt om den får närmare 1.0 och negativt om det beräknas närmare 0,0.
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 
 ```json
 {
@@ -294,7 +295,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="extract-key-phrases-request"></a>Begäran om extrahering av diskussionsämnen
 
-API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
+API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). Extrahering av diskussionsämne används för att snabbt identifiera de viktigaste aspekterna av ett dokument eller text. I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
 
 1. Skapa ett nytt Go-projekt i valfri kodredigerare.
 1. Lägg till koden nedan.
@@ -302,8 +303,8 @@ API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från 
 1. Ersätt platsen i `uriBase` (för närvarande `westcentralus`) till den region du har registrerat dig för.
 1. Spara filen med tillägget .go.
 1. Öppna en kommandotolk på en dator där Go är installerat.
-1. Skapa filen, till exempel ”go build quickstart.go”.
-1. Kör filen, till exempel: ”quickstart”.
+1. Skapa filen, till exempel: `go build key-phrases.go`.
+1. Kör filen, till exempel: `go run key-phrases.go`.
 
 ```golang
 package main
@@ -390,7 +391,7 @@ func main() {
 
 ## <a name="extract-key-phrases-response"></a>Svar från extrahering av diskussionsämnen
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 
 ```json
 {
@@ -430,9 +431,9 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 <a name="Entities"></a>
 
-## <a name="identify-entities-request"></a>Begäran om identifiering av entiteter
+## <a name="identify-entities"></a>Identifiera entiteter
 
-API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). I följande exempel identifieras entiteter för engelska dokument.
+API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). [Entiteter](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extrahera ord i texten, som ”USA”, och sedan typ och/eller Wikipedia länk ger dig den här Ordfilter. Typen för ”USA” är `location`, medan en länk till Wikipedia är `https://en.wikipedia.org/wiki/United_States`.  I följande exempel identifieras entiteter för engelska dokument.
 
 1. Skapa ett nytt Go-projekt i valfri kodredigerare.
 1. Lägg till koden nedan.
@@ -440,8 +441,8 @@ API:et för entiteter identifierar välkända entiteter i ett textdokument med h
 1. Ersätt platsen i `uriBase` (för närvarande `westcentralus`) till den region du har registrerat dig för.
 1. Spara filen med tillägget .go.
 1. Öppna en kommandotolk på en dator där Go är installerat.
-1. Skapa filen, till exempel ”go build quickstart.go”.
-1. Kör filen, till exempel: ”quickstart”.
+1. Skapa filen, till exempel: `go build entities.go`.
+1. Kör filen, till exempel: `go run entities.go`.
 
 ```golang
 package main
@@ -690,7 +691,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Textanalys med Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
  [Översikt över Textanalys](../overview.md)  
  [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)

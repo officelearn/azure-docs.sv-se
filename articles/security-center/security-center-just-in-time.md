@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/18/2019
 ms.author: monhaber
-ms.openlocfilehash: 3239bd2d4c5b79f1ebd905fb3844f3e7874ff175
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: c7cc5784caf8a83a50536a8edc69ea76ea8589d8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110961"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199842"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera VM-åtkomst med hjälp av just-in-time
 
@@ -101,7 +101,7 @@ Så här väljer du de virtuella datorer som du vill aktivera:
 
 
 > [!NOTE]
->När JIT VM-åtkomst är aktiverat för en virtuell dator, Azure Security Center skapar neka alla regler för inkommande trafik för de markerade portarna i nätverkssäkerhetsgrupper som är kopplade till den. Reglerna ska antingen vara högsta prioritet för dina Nätverkssäkerhetsgrupper eller lägre prioritet än befintliga regler som redan finns där. Detta beror på en analys som utförs av Azure Security Center som avgör om en regel är säker eller inte.
+>När JIT VM-åtkomst är aktiverat för en virtuell dator, skapar Azure Security Center ”neka all inkommande trafik” regler för de markerade portarna i nätverkssäkerhetsgrupper som är kopplade till den. Om andra regler som hade skapats för de valda portarna, sedan åsidosätter de befintliga reglerna nya regler för ”neka all inkommande trafik”. Om det finns inga befintliga regler på de markerade portarna, ta nya regler för ”neka all inkommande trafik” högsta prioritet i Nätverkssäkerhetsgrupperna.
 >
 
 ### <a name="request-jit-access-to-a-vm"></a>Begär JIT-åtkomst till en virtuell dator

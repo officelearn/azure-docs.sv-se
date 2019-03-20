@@ -4,22 +4,20 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 5f1e0153b1f919bc9d7e921d2a1b3ae745b2b01f
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: HT
+ms.openlocfilehash: bfeb8bddf5fe3b4a76e662aed6c5a07439d2f1cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753524"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57908646"
 ---
-## <a name="open-the-sample-project-in-unity"></a>Öppna exempelprojektet i Unity
+## <a name="set-up-your-device"></a>Konfigurera enheten
 
-[!INCLUDE [Clone Sample Repo](spatial-anchors-clone-sample-repository.md)]
-
-## <a name="to-set-up-for-an-android-device"></a>Konfigurera för en Android-enhet
+### <a name="set-up-an-android-device"></a>Konfigurera en Android-enhet
 
 [!INCLUDE [Android Unity Build Settings](spatial-anchors-unity-android-build-settings.md)]
 
-## <a name="to-set-up-for-an-ios-device"></a>Konfigurera för en iOS-enhet
+### <a name="set-up-an-ios-device"></a>Konfigurera en iOS-enhet
 
 [!INCLUDE [iOS Unity Build Settings](spatial-anchors-unity-ios-build-settings.md)]
 
@@ -35,7 +33,7 @@ Spara scenen genom att välja **Arkiv** -> **Spara**.
 
 ## <a name="to-deploy-to-an-android-device"></a>Distribuera till en Android-enhet
 
-Slå på Android-enheten, logga in och anslut den till datorn via en USB-kabel.
+Logga in på din Android-enhet och ansluta den till datorn via en USB-kabel.
 
 Öppna **Build Settings** (Bygginställningar) genom att välja **Arkiv** -> **Build Settings** (Bygginställningar).
 

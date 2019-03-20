@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 44f2c24f1fe53b6fadabf23f03a6feda75c87883
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: 570f0a825f679ec5f0cc4c62b0608ec517148161
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738291"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894010"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Vad är Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio är ett drag-och-släpp-verktyg där flera användare kan samarbeta för att bygga, testa och distribuera prediktiva analyslösningar utifrån dina data. Tjänsten Machine Learning Studio publicerar modeller som webbtjänster som enkelt kan användas av anpassade appar eller BI-verktyg som Excel.
@@ -40,7 +40,7 @@ Ingen programmering krävs. Det enda du behöver göra är att koppla samman dat
 ## <a name="download-the-machine-learning-studio-overview-diagram"></a>Ladda ned översiktsdiagrammet över Machine Learning Studio
 Ladda ned diagrammet **Översikt över funktioner i Microsoft Azure Machine Learning Studio**, så får du en övergripande bild av funktionerna i Machine Learning Studio. Om du vill ha det nära tillhands kan du skriva ut det i tabloidformat (280 x 385 mm).
 
-**Ladda ned diagrammet här: [Översikt av funktioner i Microsoft Azure Machine Learning Studio](http://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+**Ladda ned diagrammet här: [Översikt av funktioner i Microsoft Azure Machine Learning Studio](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
 ![Översikt av funktioner i Microsoft Azure Machine Learning Studio](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## <a name="get-started-with-machine-learning-studio"></a>Kom igång med Machine Learning Studio
@@ -61,7 +61,7 @@ Klicka på **Studio**, så kommer du till **Azure Machine Learning Studio**. Fö
 * **INSTÄLLNINGAR** – En uppsättning av inställningar som du kan använda för att konfigurera ditt konto och resurserna.
 
 ### <a name="gallery"></a>Galleri
-Klicka på fliken **Galleri**, så kommer du till **[Azure AI-galleriet](http://gallery.azure.ai/)**. Galleriet är en plats där grupper med dataanalytiker och utvecklare kan dela lösningar som skapats med hjälp av komponenter i Cortana Intelligence Suite.
+Klicka på fliken **Galleri**, så kommer du till **[Azure AI-galleriet](https://gallery.azure.ai/)**. Galleriet är en plats där grupper med dataanalytiker och utvecklare kan dela lösningar som skapats med hjälp av komponenter i Cortana Intelligence Suite.
 
 Mer information om galleriet finns i informationen om att [dela och upptäcka lösningar i Azure AI-galleriet](gallery-how-to-use-contribute-publish.md).
 

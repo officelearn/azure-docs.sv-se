@@ -2,24 +2,24 @@
 title: Förbättra columnstore-index prestanda – Azure SQL Data Warehouse | Microsoft Docs
 description: Minska minneskrav eller öka det tillgängliga minnet för att maximera antalet rader som ett columnstore-index komprimeras till varje radgrupp.
 services: sql-data-warehouse
-author: ckarst
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 03/18/2019
+ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: d956322233cb6b4f8502775dcf2f89d96fd5cafe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 859f0d168dcf1cc999f79ef22b5ba6669da79593
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463369"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189572"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximera radgrupps kvalitet för columnstore
 
-Radgrupps kvalitet bestäms av antalet rader i en radgrupp. Minska minneskrav eller öka det tillgängliga minnet för att maximera antalet rader som ett columnstore-index komprimeras till varje radgrupp.  Du kan använda dessa metoder för att förbättra komprimeringsgrad och frågeprestanda för columnstore-index.
+Radgrupps kvalitet bestäms av antalet rader i en radgrupp. Öka det tillgängliga minnet kan maximera antalet rader som ett columnstore-index komprimeras till varje radgrupp.  Du kan använda dessa metoder för att förbättra komprimeringsgrad och frågeprestanda för columnstore-index.
 
 ## <a name="why-the-rowgroup-size-matters"></a>Radgrupps-storlek
 Eftersom ett columnstore-index söker igenom en tabell genom att skanna kolumnsegment med enskilda radgrupper, förbättrar ökar antalet rader i varje radgrupp frågeprestanda. När radgrupper har ett stort antal rader, förbättrar datakomprimering vilket innebär att det är mindre data som lästs från disk.
@@ -35,11 +35,11 @@ Under bulk belastning eller columnstore-indexet återskapas, ibland det finns in
 
 När det finns inte tillräckligt med minne för att komprimera minst 10 000 rader till varje radgrupp, genererar ett fel i SQL Data Warehouse.
 
-Läs mer på massinläsning [massinläsning till ett grupperat columnstore-index](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index).
+Läs mer på massinläsning [massinläsning till ett grupperat columnstore-index](https://msdn.microsoft.com/library/dn935008.aspx#Bulk ).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Så här övervakar du radgrupps kvalitet
 
-Det finns en DMV (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats) som exponerar användbar information, till exempel antalet rader i radgrupper och ta bort om det var trimmar orsaken. Du kan skapa följande vy som ett praktiskt sätt att fråga efter den här DMV för att få information om hur radgrupp.
+DMV-sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) innehåller vydefinitionen matchande SQL-databas till SQL Data Warehouse) som exponerar användbar information till exempel antalet rader i radgrupper och ta bort om det var trimmar orsaken. Du kan skapa följande vy som ett praktiskt sätt att fråga efter den här DMV för att få information om hur radgrupp.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -137,14 +137,6 @@ DWU-storleken och den användare resursklassen tillsammans avgör du hur mycket 
 
 - För att öka de dwu: er, se [hur skala prestanda?](quickstart-scale-compute-portal.md)
 - Om du vill ändra resursklass för en fråga, se [ändra en klass för användaren resursexempel](resource-classes-for-workload-management.md#change-a-users-resource-class).
-
-På 100 DWU använder en användare i smallrc resursklass till exempel 100 MB minne för varje distribution. Mer information finns i [samtidighet i SQL Data Warehouse](resource-classes-for-workload-management.md).
-
-Anta att du bestämma att du behöver 700 MB minne att få hög kvalitet radgrupps storlekar. De här exemplen visar hur du kan köra frågan belastning med tillräckligt med minne.
-
-- Använda DWU 1000 och mediumrc kan är din minnestilldelningen 800 MB
-- Använda DWU 600 och largerc kan är din minnestilldelningen 800 MB.
-
 
 ## <a name="next-steps"></a>Nästa steg
 

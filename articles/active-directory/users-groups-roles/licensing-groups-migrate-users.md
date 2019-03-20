@@ -1,5 +1,5 @@
 ---
-title: Migrera användare till gruppbaserad licensiering – Azure Active Directory | Microsoft Docs
+title: Migrera enskilda licensierade användare till gruppbaserad licensiering – Azure Active Directory | Microsoft Docs
 description: Växla från enskilda användarlicenser till gruppbaserad licensiering med Azure Active Directory
 services: active-directory
 keywords: Azure AD-licensiering
@@ -11,21 +11,21 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fd800097ca5107f7df1e67c91ff4c96b9cfcd74
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: b6fd2eb51c7178421b0656e3b1d0e0ea36176c16
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107754"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199980"
 ---
-# <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Hur du lägger till licensierade användare till en grupp för licensiering i Azure Active Directory
+# <a name="how-to-add-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Hur du lägger till Migrera användare med enskilda licenser till grupper för licensiering
 
-Du kan ha befintliga licenser som distribueras till användare i organisationer via ”direkttilldelning”; det vill säga med hjälp av PowerShell-skript eller andra verktyg för att tilldela användarlicenser för enskilda. Om du vill börja använda gruppbaserad licensiering för att hantera licenser i din organisation behöver en migreringsplan för att ersätta befintliga lösningar sömlöst med gruppbaserad licensiering.
+Du kan ha befintliga licenser som distribueras till användare i organisationer via ”direkttilldelning”; det vill säga med hjälp av PowerShell-skript eller andra verktyg för att tilldela användarlicenser för enskilda. Innan du börjar använda gruppbaserad licensiering för att hantera licenser i din organisation, kan du kan använda den här migreringsplan för att ersätta befintliga lösningar sömlöst med gruppbaserad licensiering.
 
 Det viktigaste att tänka på är att du bör undvika att en situation där migrera till gruppbaserad licensiering leder användare tillfälligt förlorar sin tilldelade licenser. En process som kan leda till borttagning av licenser bör undvikas för att ta bort risken för användare att förlora åtkomsten till tjänster och deras data.
 
@@ -69,18 +69,17 @@ Här är hur migreringsprocessen kan se ut:
 
    - Det här är det förväntade användartillståndet under migreringen:
 
-      ![förväntade användartillstånd](./media/licensing-groups-migrate-users/expected-user-state.png)
+      ![förväntade användartillståndet under migreringen](./media/licensing-groups-migrate-users/expected-user-state.png)
 
    Detta bekräftar att användaren har både direkt och ärvda licenser. Ser vi att båda **EMS** och **E3** tilldelas.
 
    - Välj varje licens att visa information om aktiverade tjänster. Detta kan användas för att kontrollera om direct och gruppen licenser aktiverar exakt de samma service-planerna för användaren.
 
-      ![Kontrollera service-planer](./media/licensing-groups-migrate-users/check-service-plans.png)
+      ![Kontrollera service-planer för användaren](./media/licensing-groups-migrate-users/check-service-plans.png)
 
 4. Du kan börja ta bort direkt licenser från användare när du har bekräftat att både direkt och gruppen licenser är likvärdiga. Du kan testa detta genom att ta bort dem för enskilda användare i portalen och sedan köra automatiserade skript om du vill ha dem bort gruppvis. Här är ett exempel på samma användare med direkt licenser tas bort via portalen. Observera att licensen förblir oförändrat, men vi inte längre visas direkt tilldelningar.
 
-   ![Direct licenser har tagits bort](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
-
+   ![Bekräfta att direkt licenser har tagits bort](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

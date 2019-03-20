@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: cd15e139b2bcd0046d2cfbd7603809936adf1cfc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 359d75f10f95b0e41ccd9a869d49247355f0d5d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548140"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123189"
 ---
 # <a name="troubleshoot-application-gateway-with-app-service--redirection-to-app-services-url"></a>Felsöka Application Gateway med App Service – omdirigering till App Service-URL:en
 
@@ -42,7 +42,7 @@ En App Service kan bara användas med den konfigurerade värdnamnen i inställni
 
 Om du vill göra detta med Application Gateway kan vi använda växeln ”Välj värdnamnet från Serverdelsadressen” i HTTP-inställningarna och för avsökningen ska fungera kan vi använda ”Välj värdnamnet från serverdelens HTTP-inställningar” i avsökningskonfigurationen.
 
-![appservice-1](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-1.png)
+![appservice-1](./media/troubleshoot-app-service-redirection-app-service-url/appservice-1.png)
 
 På grund av detta, när App Service har en omdirigering används värdnamnet ”example.azurewebsites.net” i Location-huvudet i stället för det ursprungliga värdnamnet, såvida inte konfigurerad på annat sätt. Du kan kontrollera de exempel begärande- och svarshuvuden nedan.
 ```
@@ -78,7 +78,7 @@ För att uppnå detta, måste du äga en anpassad domän och följ processen som
 
 - Registrera domänen i listan anpassad domän för App Service. Du måste ha en CNAME-post i din anpassade domän som pekar på App Service-FQDN till detta ändamål. Mer information finns i [mappa ett befintligt anpassat DNS-namn till Azure App Service](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
 
-![appservice-2](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-2.png)
+![appservice-2](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
 - När det är klart är din App Service kan acceptera värdnamnet ”www.contoso.com”. Ändra din CNAME-post i DNS så att den pekar tillbaka till Application Gateway FQDN. Till exempel ”appgw.eastus.cloudapp.azure.com”.
 
@@ -94,7 +94,7 @@ För att uppnå detta, måste du äga en anpassad domän och följ processen som
 - Koppla anpassad avsökning tillbaka till serverdelens HTTP-inställningar och kontrollera hälsotillstånd för serverdel om den är felfri.
 
 - När detta är gjort Application Gateway bör nu vidarebefordra samma värdnamnet ”www.contoso.com” till App Service och omdirigering sker på samma värdnamn. Du kan kontrollera de exempel begärande- och svarshuvuden nedan.
-```
+  ```
   ## Request headers to Application Gateway:
 
   Request URL: http://www.contoso.com/path
@@ -114,7 +114,7 @@ För att uppnå detta, måste du äga en anpassad domän och följ processen som
   Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=www.contoso.com
 
   X-Powered-By: ASP.NET
-```
-## <a name="next-steps"></a>Nästa steg
+  ```
+  ## <a name="next-steps"></a>Nästa steg
 
 Om föregående steg inte löser problemet kan du öppna en [supportärende](https://azure.microsoft.com/support/options/).

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 382a32d0ff9de0a7b372e3b7ff2de7170a791aab
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9c1620be30d8cdf3a592ab0fc118938783579689
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339257"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085090"
 ---
 # <a name="set-up-security-info-preview-to-use-phone-calls"></a>Konfigurera säkerhetsinformation (förhandsversion) för att använda telefonsamtal
 Du kan följa stegen nedan för att lägga till två faktorer verifieringen och metoder för återställning av lösenord. När du har konfigurerat detta första gången kan du gå tillbaka till den **säkerhetsinformation** sidan för att lägga till, uppdatera eller ta bort din säkerhetsinformation.
@@ -26,10 +26,10 @@ Om du uppmanas att konfigurera detta omedelbart efter att du loggar in på ditt 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
->[!Note]
->Säkerhetsinformation stöder inte med anknytningsnummer. Även om du lägger till rätt format, tas + 1 4255551234 X 12345 tilläggen bort innan de görs.
-
->Om du inte ser en Telefonalternativet, är det möjligt att din organisation tillåter inte att du använder ett telefonnummer för att bekräfta. I det här fallet måste du välja en annan metod eller kontakta administratören för mer hjälp.
+> [!Note]
+> Säkerhetsinformation stöder inte med anknytningsnummer. Även om du lägger till rätt format, tas + 1 4255551234 X 12345 tilläggen bort innan de görs.
+> 
+> Om du inte ser en Telefonalternativet, är det möjligt att din organisation tillåter inte att du använder ett telefonnummer för att bekräfta. I det här fallet måste du välja en annan metod eller kontakta administratören för mer hjälp.
 
 ## <a name="set-up-phone-calls-from-the-security-info-page"></a>Konfigurera telefonsamtal från sidan säkerhetsinformation
 Beroende på organisationens inställningar kan kanske du kan använda telefonsamtal som en av din information säkerhetsmetoder.

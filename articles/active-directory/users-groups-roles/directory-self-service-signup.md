@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 02/12/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7818d184cd74da43ceac008331b4436979152557
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 0cfc31705909710e6a60e0d2fd3963e74e9397ee
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233181"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201270"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Vad är självbetjäningsregistrering för Azure Active Directory?
 
-Den här artikeln förklarar självbetjäningsregistrering och ge stöd för den i Azure Active Directory (AD Azure). Om du vill ta över ett domännamn från en ohanterad Azure AD-klient, finns i [ta över en ohanterad katalog som administratör](domains-admin-takeover.md).
+Den här artikeln förklarar hur du använder självbetjäningsregistrering för att fylla i en organisation i Azure Active Directory (AD Azure). Om du vill ta över ett domännamn från en ohanterad Azure AD-organisation finns i [ta över en ohanterad katalog som administratör](domains-admin-takeover.md).
 
 ## <a name="why-use-self-service-signup"></a>Varför använda självbetjäningsregistrering?
 * Få kunder till tjänster snabbare resultat
@@ -71,7 +71,7 @@ Dessa två parametrar kan användas tillsammans för att definiera mer exakt kon
 
 I följande flödesschema beskriver olika kombinationer för dessa parametrar och de resulterande villkor katalog-och registrering av självbetjäning.
 
-![registrera dig kontroller för självbetjäningsportalen](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
+![Flödesdiagram för självbetjäningsportalen registrering kontroller](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
 Mer information och exempel på hur du använder dessa parametrar finns i [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 

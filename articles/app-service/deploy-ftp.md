@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin;dariac
 ms.custom: seodec18
-ms.openlocfilehash: f1d64170c3f9622169dd1218e4c63652c9f94b9b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: db8445ec2b3dd8bdefa661d7f186e720c6fada09
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820679"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858885"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuera din app till Azure App Service med FTP/S
 
@@ -44,6 +44,14 @@ I FTP-instrumentpanelen klickar du på **kopia** att kopiera FTPS slutpunkt och 
 
 Vi rekommenderar att du använder **App autentiseringsuppgifter** att distribuera till din app eftersom den är unik för varje app. Men om du klickar på **användarautentiseringsuppgifter**, du kan ange användarnivå autentiseringsuppgifter som du kan använda för FTP/S logga in på alla App Service-appar i din prenumeration.
 
+> [!NOTE]
+> Autentisering till en FTP/FTPS-slutpunkt som använder användarnivå autentiseringsuppgifter requirers ett användarnamn i formatet: 
+>
+>`<app-name>\<user-name>`
+>
+> Eftersom användarnivå autentiseringsuppgifter är länkade till användaren och inte en specifik resurs, måste användarnamnet vara i formatet att dirigera åtgärden logga in till rätt app-slutpunkten.
+>
+
 ## <a name="deploy-files-to-azure"></a>Distribuera filer till Azure
 
 1. Från FTP-klienten (till exempel [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/), eller [WinSCP](https://winscp.net/index.php)), Använd den information du samlade in för att ansluta till din app.
@@ -58,7 +66,6 @@ Vi rekommenderar att du använder **App autentiseringsuppgifter** att distribuer
 > - generering av web.config (här är en [Node.js-exempel](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
 > 
 > Skapa dessa nödvändiga filer manuellt på den lokala datorn och sedan distribuera dem tillsammans med din app.
->
 >
 
 ## <a name="enforce-ftps"></a>Enforce FTPS

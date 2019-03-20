@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8b2e42759ba2bffef28e1bf74e07bc149027ab7a
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 6ba21c6eacd5b72d13706c08f0cc9883ccc91388
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651781"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107482"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Undersöka incidenter och aviseringar i Azure Security Center (förhandsversion)
 Det här dokumentet hjälper dig att använda undersökningsfunktionen i Azure Security Center för att undersöka incidenter och aviseringar.
@@ -31,10 +31,8 @@ Avsikten är att underlätta undersökningsprocessen genom att länka alla entit
 
 
 > [!NOTE]
-    > * [Anpassade aviseringar](security-center-custom-alert.md) stöds inte i undersökningsfunktionen i Security Center.
-    > * Undersökning har endast stöd för aviseringar baserat på data som samlas in från Windows-servrar.
->
->
+> * [Anpassade aviseringar](security-center-custom-alert.md) stöds inte i undersökningsfunktionen i Security Center.
+> * Undersökning har endast stöd för aviseringar baserat på data som samlas in från Windows-servrar.
 
 
 ## <a name="how-investigation-works"></a>Hur fungerar undersökningen?
@@ -98,7 +96,7 @@ Följande objekt visas oavsett den valda tidsomfattningen:
 
 ## <a name="how-to-perform-an-investigation"></a>Hur utför du en undersökning?
 
-Du kan starta en undersökningen utifrån en säkerhetsincident eller från en avisering – alternativet du väljer varierar beroende på dina behov. Stegen som följer används för att starta en undersökning utifrån en avisering:
+Du kan starta en undersökningen utifrån en säkerhetsincident eller från en avisering – alternativet du väljer varierar beroende på dina behov. Stegen som följer används för att starta en undersökning från en avisering:
 
 1.  Öppna instrumentpanelen **Security Center**.
 2.  Klicka på **Säkerhetsaviseringar** och väljer incidenten som du vill undersöka.

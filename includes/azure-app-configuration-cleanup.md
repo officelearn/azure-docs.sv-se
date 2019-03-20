@@ -8,26 +8,26 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: yegu
 ms.custom: include file
-ms.openlocfilehash: 8683a2cc0aece99d3a30bfa978bff2f8c31e96eb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: a02144914e73ca1788976d8b01ccd95d1b9e9a1b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884212"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58227158"
 ---
-Om du ska fortsätta till nästa självstudie kan du behålla resurserna som du har skapat i den här självstudien och använda dem igen i nästa självstudie.
+Om du planerar att fortsätta till nästa självstudie om du bevara alla resurser som du skapade i den här snabbstarten. Du kan återanvända dem i nästa självstudie.
 
-Om du är klar med exempelappen för snabbstart kan du ta bort Azure-resurserna som du skapade i snabbstarten för att undvika kostnader.
+Om du är klar med snabbstarten exempelprogrammet bort Azure-resurserna du skapade i den här snabbstarten för att undvika avgifter.
 
 > [!IMPORTANT]
-> Det går inte att ångra borttagningen av en resursgrupp och resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
+> Att ta bort en resursgrupp kan inte ångras. Resursgruppen och alla resurser i den tas bort permanent. Var noga så att du inte tar bort fel resursgrupp eller resurser av misstag. Kanske du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla. Du kan ta bort varje resurs separat från deras respektive blad i stället för att ta bort resursgruppen.
 >
 >
 
-Logga in på [Azure Portal](https://aka.ms/azconfig/portal) och klicka på **Resursgrupper**.
+Logga in på den [Azure-portalen](https://aka.ms/azconfig/portal), och välj **resursgrupper**.
 
-Skriv namnet på din resursgrupp i textrutan **Filtrera efter namn...**. Anvisningarna för den här snabbstarten använde en resursgrupp med namnet *AppConfigTestResources*. På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
+I den **filtrera efter namn** anger du namnet på resursgruppen. Anvisningarna för den här snabbstarten använde en resursgrupp med namnet *AppConfigTestResources*. På din resursgrupp i resultatlistan väljer **...**  och välj sedan **ta bort resursgrupp**.
 
-Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp för att bekräfta och klicka på **Ta bort**.
+Du blir ombedd att bekräfta borttagningen av resursgruppen. Ange namnet på din resursgrupp för att bekräfta och välj **ta bort**.
 
 Efter en liten stund tas resursgruppen och resurser som finns i den bort.

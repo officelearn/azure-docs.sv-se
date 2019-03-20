@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 4911a872a4b5479abe84c2e06573256092185cf2
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 6a576f2817069d7095ea863198168be083d0c6b5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669709"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450954"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Använda Connected Services i Visual Studio för att ansluta till API för visuellt innehåll
 
@@ -24,7 +24,7 @@ Genom att använda Cognitive Services API för visuellt innehåll kan du extrahe
 
 Den här artikeln, och dess relaterade artiklar, innehåller information om hur man använder Visual Studios Connected Service-funktion för Cognitive Services API för visuellt innehåll. Funktionen är tillgänglig i Visual Studio 2017 15.7 och senare med Cognitive Services-tillägget installerat.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - **En Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual Studio 2017 version 15.7** med arbetsbelastningen **Webbutveckling** installerad. [Ladda ned det nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -92,7 +92,7 @@ Den här artikeln, och dess relaterade artiklar, innehåller information om hur 
       }
    ```
 
-1. Lägg till en bildfil i mappen wwwroot i projektet och lägg till en bildfil i din wwwroot-mapp. Som exempel kan du använda en av bilderna på den här [API för visuellt innehåll-sidan](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Högerklicka på en av bilderna, spara den på den lokala hårddisken och högerklicka sedan på bildmappen i Solution Explorer och välj **Lägg till** > **Befintligt objekt** för att lägga till den i projektet. Ditt projekt bör se ut ungefär så här i Solution Explorer: 
+1. Lägg till en bildfil i mappen wwwroot i projektet och lägg till en bildfil i din wwwroot-mapp. Som exempel kan du använda en av bilderna på den här [API för visuellt innehåll-sidan](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Högerklicka på en av avbildningarna, spara till den lokala hårddisken och sedan i Solution Explorer, högerklicka på bildmappen och välj **Lägg till** > **befintligt objekt** att lägga till den i projektet. Ditt projekt bör se ut ungefär så här i Solution Explorer: 
   
    ![En skärmbild av Solution Explorer-vyn med en vald avbildningsfil](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
 

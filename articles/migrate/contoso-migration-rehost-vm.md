@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 47b16966f9e72a43cf4fb934706f7b96becef59a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4a6ed900753747c1d5bf394aced54da11177320f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694507"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118399"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Contoso-migrering: Byt värd för en lokal app till virtuella Azure-datorer
 
@@ -168,10 +168,10 @@ De har konfigurerat dessa på följande sätt:
     - App-databasen VM (SQLVM) kommer att migrera till undernätet för databasen (PROD-DB-EUS2), i produktionsnätverket.
 
 2. Konfigurera en storage-konto-Contoso skapar ett Azure storage-konto (contosovmsacc20180528) i den primära regionen.
-    - Lagringskontot måste finnas i samma region som Recovery Services-valvet.
-    - De använder ett allmänt konto med standardlagring och LRS-replikering.
+   - Lagringskontot måste finnas i samma region som Recovery Services-valvet.
+   - De använder ett allmänt konto med standardlagring och LRS-replikering.
 
-    ![Site Recovery-lagring](./media/contoso-migration-rehost-vm/asr-storage.png)
+     ![Site Recovery-lagring](./media/contoso-migration-rehost-vm/asr-storage.png)
 
 3. Skapa ett valv med nätverks- och storage-konto på plats, Contoso nu skapar ett Recovery Services-valv (ContosoMigrationVault) och placerar den i ContosoFailoverRG resursgrupp i den primära regionen östra USA 2.
 
@@ -221,15 +221,15 @@ Contoso vill ansluta till virtuella Azure-datorer efter redundansväxling. Gör 
 
 1. För åtkomst via internet de:
 
- - Aktiverar du RDP på den lokala virtuella datorn före redundans.
- - Se till att TCP och UDP-regler lagts till för den **offentliga** profil.
- - Kontrollera att RDP tillåts i **Windows-brandväggen** > **tillåtna appar** för alla profiler.
+   - Aktiverar du RDP på den lokala virtuella datorn före redundans.
+   - Se till att TCP och UDP-regler lagts till för den **offentliga** profil.
+   - Kontrollera att RDP tillåts i **Windows-brandväggen** > **tillåtna appar** för alla profiler.
 
 2. För åtkomst via plats-till-plats-VPN, de:
 
- - Aktiverar du RDP på den lokala datorn.
- - Tillåt RDP i den **Windows-brandväggen** -> **tillåtna appar och funktioner**, för **domän och privat** nätverk.
- - Ange operativsystemets SAN-princip på den lokala virtuella datorn till **OnlineAll**.
+   - Aktiverar du RDP på den lokala datorn.
+   - Tillåt RDP i den **Windows-brandväggen** -> **tillåtna appar och funktioner**, för **domän och privat** nätverk.
+   - Ange operativsystemets SAN-princip på den lokala virtuella datorn till **OnlineAll**.
 
 Dessutom när de kör en redundans måste de du kontrollera följande:
 
@@ -341,10 +341,10 @@ Med allt på plats, kan Contoso-administratörer nu aktivera replikering för de
 
 4. De väljer **WebVM** Kontrollera replikeringsprinciper för replikering och aktivera replikering.
 
-    - I det här skedet de endast väljer WEBVM eftersom du måste välja VNet och undernät och virtuella datorerna för appen kommer att placeras i olika undernät.
-    - Site Recovery installerar automatiskt mobilitetstjänsten på den virtuella datorn när replikering har aktiverats.
+   - I det här skedet de endast väljer WEBVM eftersom du måste välja VNet och undernät och virtuella datorerna för appen kommer att placeras i olika undernät.
+   - Site Recovery installerar automatiskt mobilitetstjänsten på den virtuella datorn när replikering har aktiverats.
 
-    ![Aktivera replikering](./media/contoso-migration-rehost-vm/enable-replication3.png)
+     ![Aktivera replikering](./media/contoso-migration-rehost-vm/enable-replication3.png)
 
 5. De spåra Replikeringsförlopp på **jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
 6. I **Essentials** i Azure-portalen kan de se strukturen för de virtuella datorerna replikeras till Azure.

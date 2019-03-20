@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
-ms.openlocfilehash: 9e232c5a8f1c2e38c04ea2236691554952f443e8
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: HT
+ms.openlocfilehash: cee446e54a37ce47fc82d72724e831b8270f3769
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752949"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57908492"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Skapa en Spatial Anchors-resurs
 
@@ -21,7 +21,7 @@ ms.locfileid: "56752949"
 
    ![Söka efter Spatial Anchors](./media/spatial-anchors-get-started-create-resource/portal-search.png)
 
-4. Välj **Spatial Anchors (preview)** (förhandsversion) för att öppna en dialogruta, och välj **Skapa**.
+4. Välj **Spatial ankare** att öppna en dialogruta och välja **skapa**.
 
 5. I formuläret **Spatial Anchors Account** (Spatial Anchors-konto):
 
@@ -34,10 +34,10 @@ ms.locfileid: "56752949"
 
    ![Skapa en resurs](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
-6. När resursen har skapats kan resursegenskaperna visas. Anteckna värdet för resursens **konto-ID** eftersom det behövs senare.
+6. När resursen har skapats kan resursegenskaperna visas. Kopiera resursens **konto-ID** värde i en textredigerare, eftersom den nödvändiga senare.
 
    ![Visa resursegenskaper](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
 
-7. Under **Inställningar** väljer du **Nyckel** och antecknar värdet för **Primärnyckel**. Det här värdet är `Account Key` och kommer att användas senare.
+7. Under **inställningar**väljer **nyckel**, och kopierar till en textredigerare den **primärnyckel** värde. Det här värdet är `Account Key` och kommer att användas senare.
 
    ![Visa kontonyckel](./media/spatial-anchors-get-started-create-resource/view-account-key.png)

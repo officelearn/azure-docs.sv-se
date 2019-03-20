@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98126c6459c77ec4580665b0d157d532a1fe636c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 03652329acaeb737cb7cb4010ef48938caa17acc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672261"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096919"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Konfigurera SaaS-appar för B2B-samarbete
 
@@ -37,37 +37,37 @@ Om du vill att användarna ska logga in med deras organisation, måste du manuel
 
 1. Om du vill lägga till Dropbox Business-app till Azure AD, Välj **företagsprogram** i den vänstra rutan och klicka sedan på **Lägg till**.
 
-  ![Knappen ”Lägg till” på sidan för Enterprise-program](media/configure-saas-apps/add-dropbox.png)
+   ![Knappen ”Lägg till” på sidan för Enterprise-program](media/configure-saas-apps/add-dropbox.png)
 
 2. I den **lägga till ett program** fönstret, ange **dropbox** i sökrutan och välj sedan **Dropbox for Business** i resultatlistan.
 
-  ![Sök efter ”dropbox” på bladet Lägg till en sida för programmet](media/configure-saas-apps/add-app-dialog.png)
+   ![Sök efter ”dropbox” på bladet Lägg till en sida för programmet](media/configure-saas-apps/add-app-dialog.png)
 
 3. På den **enkel inloggning** väljer **enkel inloggning** i den vänstra rutan och sedan ange **user.mail** i den **användaridentifierare** box. (Den är inställd som UPN som standard.)
 
-  ![Konfigurera enkel inloggning för appen](media/configure-saas-apps/configure-app-sso.png)
+   ![Konfigurera enkel inloggning för appen](media/configure-saas-apps/configure-app-sso.png)
 
 4. För att hämta certifikatet som ska användas för konfiguration av Dropbox, Välj **konfigurera DropBox**, och välj sedan **SAML enkel inloggning på tjänstens URL** i listan.
 
-  ![Nedladdningen av certifikatet för Dropbox-konfiguration](media/configure-saas-apps/download-certificate.png)
+   ![Nedladdningen av certifikatet för Dropbox-konfiguration](media/configure-saas-apps/download-certificate.png)
 
 5. Logga in på Dropbox med inloggnings-URL: en från den **enkel inloggning** sidan.
 
-  ![Inloggningssidan för Dropbox](media/configure-saas-apps/sign-in-to-dropbox.png)
+   ![Inloggningssidan för Dropbox](media/configure-saas-apps/sign-in-to-dropbox.png)
 
 6. På menyn, Välj **administratörskonsolen**.
 
-  ![Länken ”administratörskonsolen” på menyn Dropbox](media/configure-saas-apps/dropbox-menu.png)
+   ![Länken ”administratörskonsolen” på menyn Dropbox](media/configure-saas-apps/dropbox-menu.png)
 
 7. I den **autentisering** dialogrutan **mer**, ladda upp certifikatet och klicka sedan på **loggar du in URL: en** anger SAML enkel inloggnings-URL: en.
 
-  ![”Mer”-länken i dialogrutan för komprimerad autentisering](media/configure-saas-apps/dropbox-auth-01.png)
+   ![”Mer”-länken i dialogrutan för komprimerad autentisering](media/configure-saas-apps/dropbox-auth-01.png)
 
-  ![Den ”logga in URL: en” i dialogrutan för utökade autentisering](media/configure-saas-apps/paste-single-sign-on-URL.png)
+   ![Den ”logga in URL: en” i dialogrutan för utökade autentisering](media/configure-saas-apps/paste-single-sign-on-URL.png)
 
 8. Om du vill konfigurera automatisk användarinställningar i Azure portal, Välj **etablering** i den vänstra rutan väljer **automatisk** i den **etablering läge** och sedan väljer  **Auktorisera**.
 
-  ![Konfigurera automatisk användaretablering i Azure portal](media/configure-saas-apps/set-up-automatic-provisioning.png)
+   ![Konfigurera automatisk användaretablering i Azure portal](media/configure-saas-apps/set-up-automatic-provisioning.png)
 
 När användare Gäst eller medlem har lagts upp i Dropbox-app, får de en separat inbjudan från Dropbox. Om du vill använda Dropbox enkel inloggning, tacka inbjudna Ja till inbjudan genom att klicka på en länk i den.
 
@@ -78,22 +78,22 @@ Du kan låta användare autentisera Box gästanvändare med sina Azure AD-konto 
 
 2. Konfigurera enkel inloggning i följande ordning:
 
-  ![Konfigurera Box enkel inloggning](media/configure-saas-apps/configure-box-sso.png)
+   ![Konfigurera Box enkel inloggning](media/configure-saas-apps/configure-box-sso.png)
 
- a. I den **inloggnings-URL** ser du till att inloggnings-URL: en har angetts på rätt sätt för Box i Azure-portalen. Denna URL är Webbadressen till din Box.com-klient. Den bör följa namngivningskonventionen *https://.box.com*.  
- Den **identifierare** gäller inte för den här appen, men den fortfarande visas som ett obligatoriskt fält.
+   a. I den **inloggnings-URL** ser du till att inloggnings-URL: en har angetts på rätt sätt för Box i Azure-portalen. Denna URL är Webbadressen till din Box.com-klient. Den bör följa namngivningskonventionen *https://.box.com*.  
+   Den **identifierare** gäller inte för den här appen, men den fortfarande visas som ett obligatoriskt fält.
 
- b. I den **användaridentifierare** anger **user.mail** (för enkel inloggning för gästkonton).
+   b. I den **användaridentifierare** anger **user.mail** (för enkel inloggning för gästkonton).
 
- c. Under **SAML-signeringscertifikat**, klickar du på **Skapa nytt certifikat**.
+   c. Under **SAML-signeringscertifikat**, klickar du på **Skapa nytt certifikat**.
 
- d. Om du vill börja konfigurera din Box.com-klient för att använda Azure AD som identitetsprovider och hämta för metadatafilen och spara den på den lokala enheten.
+   d. Om du vill börja konfigurera din Box.com-klient för att använda Azure AD som identitetsprovider och hämta för metadatafilen och spara den på den lokala enheten.
 
- e. Vidarebefordra metadatafilen rutan supportteam, som konfigurerar enkel inloggning för dig.
+   e. Vidarebefordra metadatafilen rutan supportteam, som konfigurerar enkel inloggning för dig.
 
 3. Azure AD automatisk användarinställningar, i den vänstra rutan, Välj **etablering**, och välj sedan **auktorisera**.
 
-  ![Auktorisera Azure AD för att ansluta till Box](media/configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
+   ![Auktorisera Azure AD för att ansluta till Box](media/configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
 
 T.ex. Dropbox inbjudna Box inbjudna måste lösa in sin inbjudan från Box-app.
 

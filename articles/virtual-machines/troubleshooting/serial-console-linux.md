@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 6c0207a68cea70951143c87f83f6b17bb0c7b1f3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 4fd96aedc658833493d6fddb704104a70c01df44
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098467"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010994"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Seriekonsol för virtuell dator för Linux
 
@@ -82,6 +82,7 @@ Anpassade Linux-avbildningar     | Aktivera seriekonsol för en anpassad Linux V
 > Om du inte ser något i seriekonsolen, se till att startdiagnostik har aktiverats på den virtuella datorn.
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>Vanliga scenarier för att komma åt seriekonsolen
+
 Scenario          | Åtgärder i seriekonsolen
 :------------------|:-----------------------------------------
 Bruten *FSTAB* fil | Tryck på den **RETUR** att fortsätta och använda en textredigerare för att åtgärda den *FSTAB* fil. Du kan behöva vara i enanvändarläge gör. Mer information finns i [hur du löser problem med fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) och [Använd seriekonsol för att komma åt GRUB och enanvändarläge](serial-console-grub-single-user-mode.md).
@@ -143,14 +144,14 @@ Alla data som skickas fram och tillbaka krypteras under överföringen.
 ### <a name="audit-logs"></a>Granskningsloggar
 All åtkomst till seriekonsol för tillfället är inloggad på [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) loggarna för den virtuella datorn. Åtkomst till de här loggarna ägs och kontrolleras av administratören för Azure virtuella datorer.
 
->[!CAUTION]
-Inga lösenord för åtkomst för konsolen loggas. Men om kommandon körs i konsolen innehåller eller utgående lösenord, hemligheter, användarnamn eller någon annan form av personligt identifierbar information (PII), skrivs de till diagnostikloggar för VM-start. De skrivs tillsammans med alla andra synlig text, som en del av implementeringen av Seriell konsol rullar tillbaka funktion. Dessa loggar är cirkulär och endast personer med läsbehörighet till lagringskontot för diagnostik ha åtkomst till dem. Vi rekommenderar dock följa bästa praxis för att använda Remote Desktop för allt som kan omfatta hemligheter och/eller personligt identifierbar information.
+> [!CAUTION]
+> Inga lösenord för åtkomst för konsolen loggas. Men om kommandon körs i konsolen innehåller eller utgående lösenord, hemligheter, användarnamn eller någon annan form av personligt identifierbar information (PII), skrivs de till diagnostikloggar för VM-start. De skrivs tillsammans med alla andra synlig text, som en del av implementeringen av Seriell konsol rullar tillbaka funktion. Dessa loggar är cirkulär och endast personer med läsbehörighet till lagringskontot för diagnostik ha åtkomst till dem. Vi rekommenderar dock följa bästa praxis för att använda Remote Desktop för allt som kan omfatta hemligheter och/eller personligt identifierbar information.
 
 ### <a name="concurrent-usage"></a>Samtidig användning
 Om en användare är ansluten till seriekonsol och en annan användare begär har åtkomst till den samma virtuella datorn, kommer att kopplas från den första användaren och den andra användaren som är anslutna till samma session.
 
->[!CAUTION]
-Det innebär att en användare som är frånkopplad inte kommer att loggas ut. Möjlighet att framtvinga en utloggning vid frånkoppling (med hjälp av SIGHUP eller liknande mekanism) är fortfarande i översikten. Det finns en automatisk tidsgräns har aktiverats i särskilda administrativa SAC (Console); för Windows Du kan dock konfigurera terminal timeout-inställningen för Linux. Du gör detta genom att lägga till `export TMOUT=600` i din *.bash_profile* eller *.profile* -filen för att användare kan du använda för att logga in på konsolen. Den här inställningen når tidsgränsen för sessionen efter 10 minuter.
+> [!CAUTION]
+> Det innebär att en användare som är frånkopplad inte kommer att loggas ut. Möjlighet att framtvinga en utloggning vid frånkoppling (med hjälp av SIGHUP eller liknande mekanism) är fortfarande i översikten. Det finns en automatisk tidsgräns har aktiverats i särskilda administrativa SAC (Console); för Windows Du kan dock konfigurera terminal timeout-inställningen för Linux. Du gör detta genom att lägga till `export TMOUT=600` i din *.bash_profile* eller *.profile* -filen för att användare kan du använda för att logga in på konsolen. Den här inställningen når tidsgränsen för sessionen efter 10 minuter.
 
 ## <a name="accessibility"></a>Hjälpmedel
 Hjälpmedel är viktiga fokus för Azure seriekonsol. Vi säkerställt att seriekonsolen är helt tillgängliga för detta ändamål.
@@ -188,7 +189,7 @@ Seriell konsol fungerar inte med en brandvägg för storage-konto. | Seriell kon
 
 **FRÅGOR OCH. Hur kan jag skicka feedback?**
 
-A. Ge feedback genom att skapa ett GitHub-ärende på https://aka.ms/serialconsolefeedback. Du kan också (mindre rekommenderas), kan du skicka feedback via azserialhelp@microsoft.com eller i kategorin virtuell dator för http://feedback.azure.com.
+A. Ge feedback genom att skapa ett GitHub-ärende på https://aka.ms/serialconsolefeedback. Du kan också (mindre rekommenderas), kan du skicka feedback via azserialhelp@microsoft.com eller i kategorin virtuell dator för https://feedback.azure.com.
 
 **FRÅGOR OCH. Stöder seriekonsolen kopiera och klistra in?**
 

@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 04653dcdf0fb64e8b935cda18c01198ec91c548d
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ed91425ca56278eccf21c10db6360b4f770b0660
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807481"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226546"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 
@@ -554,6 +554,16 @@ module.exports = myObj;
 ```
 
 I det här exemplet är det viktigt att Observera att även om ett objekt ska exporteras, det finns inga garantier om du vill bevara tillstånd mellan körningar.
+
+## <a name="local-debugging"></a>Lokal felsökning
+
+När startar med den `--inspect` parameter, en Node.js-process lyssnar efter en felsökning klient på den angivna porten. I Azure Functions 2.x kan du ange argument som ska skickas till Node.js-processen som kör koden genom att lägga till miljövariabeln eller Appinställningen `languageWorkers:node:arguments = <args>`. 
+
+Om du vill felsöka lokalt, lägger du till `"languageWorkers:node:arguments": "--inspect=5858"` under `Values` i din [local.settings.json](https://docs.microsoft.com/azure/azure-functions/functions-run-local#local-settings-file) filen och koppla en felsökare till port 5858.
+
+När du felsöker använder VS Code, den `--inspect` parameter läggs automatiskt med hjälp av den `port` värdet i projektets launch.json-filen.
+
+I version 1.x, ställa in `languageWorkers:node:arguments` fungerar inte. Felsökningsport kan väljas med den [ `--nodeDebugPort` ](https://docs.microsoft.com/azure/azure-functions/functions-run-local#start) parametern på Azure Functions Core Tools.
 
 ## <a name="typescript"></a>TypeScript
 

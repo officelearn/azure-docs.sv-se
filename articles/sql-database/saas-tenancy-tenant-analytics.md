@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: f7c482a0308d3c2b2583d99cf4079040065b80c0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 9f88314bbf507dc3b4e282532acfa079c2a63cce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561400"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890550"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Flera klienter analytics med hjälp av extraherade data - enda klient
  
@@ -93,7 +93,7 @@ I följande steg ska du distribuera analytics store, som kallas **tenantanalytic
     - Om du vill använda SQL-databas med kolumnen store **$DemoScenario** = **3**  
 3. Tryck på **F5** att köra demo-skriptet (som anropar den *distribuera TenantAnalytics<XX>.ps1* skript) som skapar klient analytics store. 
 
-Nu när du har distribuerat programmet och fyllt med intressanta klientdata, använda [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) att ansluta **tenants1-dpt -&lt;användaren&gt;**  och **catalog-dpt -&lt;användaren&gt;**  servrar med hjälp av inloggning = *developer*, lösenord = *P@ssword1*. Se den [inledande självstudien](saas-dbpertenant-wingtip-app-overview.md) för mer information.
+Nu när du har distribuerat programmet och fyllt med intressanta klientdata, använda [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) att ansluta **tenants1-dpt -&lt;användaren&gt;**  och **catalog-dpt -&lt;användaren&gt;**  servrar med hjälp av inloggning = *developer*, lösenord = *P\@ssword1*. Se den [inledande självstudien](saas-dbpertenant-wingtip-app-overview.md) för mer information.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -175,7 +175,7 @@ Använd följande steg för att ansluta till Power BI och för att importera de 
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Välj **databasen** i den vänstra rutan, ange användarnamn = *developer*, och ange lösenord = *P@ssword1*. Klicka på **Anslut**.  
+5. Välj **databasen** i den vänstra rutan, ange användarnamn = *developer*, och ange lösenord = *P\@ssword1*. Klicka på **Anslut**.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

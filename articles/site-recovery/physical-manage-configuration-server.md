@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 80fbc84c2284b7078b07040a74566cf1e8d57fb4
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 11b1b46e29ac9a4147c4dc319753edd0fadce8bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341093"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088918"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Hantera konfigurationsservern för fysisk server disaster recovery
 
@@ -50,7 +50,7 @@ Den senaste versionen av installationsfilen för configuration server är tillg�
 4. På den **Lägg till Server** klickar du på knappen ladda ned för att ladda ned Registreringsnyckeln. Du behöver den här nyckeln under installationen av Configuration Server för att registrera den med Azure Site Recovery-tjänsten.
 5. Klicka på den **ladda ned Microsoft Azure Site Recovery enhetliga installationsprogrammet** länken för att hämta den senaste versionen av konfigurationsservern.
 
-  ![Hämtningssidan](./media/physical-manage-configuration-server/downloadcs.png)
+   ![Hämtningssidan](./media/physical-manage-configuration-server/downloadcs.png)
 
 
 ## <a name="install-and-register-the-server"></a>Installera och registrera servern
@@ -153,40 +153,40 @@ Du kan ändra proxyinställningarna för configuration server-dator på följand
 3. Klicka på den **Vault registrering** fliken.
 4. Hämta en ny fil i valvet registrering från portalen och ange den som indata för verktyget.
 
-  ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+   ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Ange nya proxyinformationen och klicka på den **registrera** knappen.
 6. Öppna en Admin PowerShell-kommandofönster.
 7. Kör följande kommando:
 
-  ```PowerShell
-  $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
-  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
-  net stop obengine
-  net start obengine
-  ```
+   ```PowerShell
+   $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
+   net stop obengine
+   net start obengine
+   ```
 
-  >[!WARNING]
-  Om du har ytterligare processervrar som är anslutna till konfigurationsservern kan du behöva [åtgärda proxyinställningarna på alla processervrar som skalbara](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) i distributionen.
+   > [!WARNING]
+   > Om du har ytterligare processervrar som är anslutna till konfigurationsservern kan du behöva [åtgärda proxyinställningarna på alla processervrar som skalbara](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) i distributionen.
 
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>Registrera en konfigurationsserver med samma valv
-  1. Logga in på konfigurationsservern.
-  2. Starta cspsconfigtool.exe hjälp genvägen på skrivbordet.
-  3. Klicka på den **Vault registrering** fliken.
-  4. Hämta en ny registreringsfil från portalen och ange den som indata för verktyget.
-        ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
-  5. Ange proxyservern information och klicka på den **registrera** knappen.  
-  6. Öppna en Admin PowerShell-kommandofönster.
-  7. Kör följande kommando
+1. Logga in på konfigurationsservern.
+2. Starta cspsconfigtool.exe hjälp genvägen på skrivbordet.
+3. Klicka på den **Vault registrering** fliken.
+4. Hämta en ny registreringsfil från portalen och ange den som indata för verktyget.
+      ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+5. Ange proxyservern information och klicka på den **registrera** knappen.  
+6. Öppna en Admin PowerShell-kommandofönster.
+7. Kör följande kommando
 
-      ```PowerShell
-      $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
-      net stop obengine
-      net start obengine
-      ```
+    ```PowerShell
+    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
+    net stop obengine
+    net start obengine
+    ```
 
-  >[!WARNING]
-  Om du har flera processervern kan du behöva [registrera om dem](vmware-azure-manage-process-server.md#reregister-a-process-server).
+   > [!WARNING]
+   > Om du har flera processervern kan du behöva [registrera om dem](vmware-azure-manage-process-server.md#reregister-a-process-server).
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>Registrera en konfigurationsserver med ett annat valv
 
@@ -246,22 +246,22 @@ Uppgradera servern på följande sätt:
 4. Klicka på **Ja** att bekräfta borttagningen av servern.
 
 ### <a name="uninstall-the-configuration-server-and-its-dependencies"></a>Avinstallera configuration server och dess beroenden
-  > [!TIP]
-  Om du planerar att återanvända konfigurationsservern med Azure Site Recovery igen kan hoppa du till steg 4 direkt
+> [!TIP]
+>   Om du planerar att återanvända konfigurationsservern med Azure Site Recovery igen kan hoppa du till steg 4 direkt
 
 1. Logga in på konfigurationsservern som en administratör.
 2. Öppna Kontrollpanelen > Program > avinstallera program
 3. Avinstallera program i följande ordning:
-  * Microsoft Azure Recovery Services-agent
-  * Microsoft Azure Site Recovery Mobility Service/huvudmålservern
-  * Microsoft Azure Site Recovery Provider
-  * Microsoft Azure Site Recovery Configuration Server/Processerver
-  * Microsoft Azure Site Recovery Configuration Serverberoenden
-  * MySQL-Server 5.5
+   * Microsoft Azure Recovery Services-agent
+   * Microsoft Azure Site Recovery Mobility Service/huvudmålservern
+   * Microsoft Azure Site Recovery Provider
+   * Microsoft Azure Site Recovery Configuration Server/Processerver
+   * Microsoft Azure Site Recovery Configuration Serverberoenden
+   * MySQL-Server 5.5
 4. Kör följande kommando från och kommandotolk för administratör.
-  ```
-  reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-  ```
+   ```
+   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+   ```
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Ta bort eller Avregistrerar en konfigurationsserver (PowerShell)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: f8c99bd6bc9edb78a7af241f1eee2669c955a040
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ff73982b706fa2d353be818f5022de8fbfec42fb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767319"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58167447"
 ---
 # <a name="set-up-a-device-template-new-ui-design"></a>Konfigurera en mall för enheten (nytt användargränssnitt)
 
@@ -44,11 +44,13 @@ Från den här enheten mallen en operatör kan skapa och ansluta riktiga fläkt 
 
 1. Navigera till den **enheten mallar** sidan.
 
-2. Om du vill skapa en tom mall, Välj **+**, och ange sedan ett namn, till exempel **kylskåp** för den nya mallen för enheten. Välj sedan **skapa**:
+2. Om du vill skapa en mall, starta genom att välja **+ ny**.
 
-   ![Med ”kylskåp” som mallnamn på-enhetens informationssida](./media/howto-set-up-template/devicedetailspage.png)
+3. Kom igång snabbt genom att välja från befintliga färdiga mallar. Annars väljer **anpassade**, ange ett namn och klicka på **skapa** att skapa en egen mall från början.
 
-4. Nu kan du på den **enhetsinformation** för en ny mall för enheten. IoT Central skapar automatiskt en simulerad enhet när du skapar en mall för enheten. En simulerad enhet kan du testa hur ditt program innan du ansluter en riktig enhet.
+   ![Mallbibliotek för enhet](./media/howto-set-up-template/newtemplate.png)
+
+4. När du skapar en anpassad mall kan du se den **enhetsinformation** för den nya mallen för enheten. IoT Central skapar automatiskt en simulerad enhet när du skapar en mall för enheten. En simulerad enhet kan du testa hur ditt program innan du ansluter en riktig enhet.
 
 I följande avsnitt beskrivs var och en av flikarna på den **enheten mallen** sidan.
 

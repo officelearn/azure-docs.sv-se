@@ -3,20 +3,20 @@ title: 'Självstudier: Använd DMS för att migrera till en Azure SQL Database m
 description: Lär dig att migrera från SQL Server på en plats till en Azure SQL Database managed instance med Azure Database Migration Service.
 services: dms
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 243ffb4167060fb2b74d9b7ebf280fec6a540da5
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: HT
+ms.openlocfilehash: 450d47e4c20da1d9d9760ababf58c75eef2814b3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791774"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182378"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-offline-using-dms"></a>Självstudier: Migrera SQL Server till en Azure SQL Database managed instance med DMS
 

@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c40a25cd2baebaaeedc012e8e9faff91b297f57
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c92969015910cc5bd72e2d9339d5c15c1f7af48b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082508"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201542"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identifiera och lösa licensproblem för tilldelning för en grupp i Azure Active Directory
 
@@ -35,19 +35,19 @@ När du använder gruppbaserad licensiering, samma fel inträffar, men de sker i
 
 1. Öppna fönstret för gruppen för att hitta användare i ett feltillstånd i en specifik grupp. Under **licenser**, visas ett meddelande om det finns några användare i ett feltillstånd.
 
-   ![Gruppen felmeddelandet](./media/licensing-groups-resolve-problems/group-error-notification.png)
+   ![Gruppen och fel-meddelande](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
 2. Välj meddelandet för att öppna en lista över alla användare som påverkas. Du kan välja varje användare separat om du vill ha mer information.
 
-   ![Gruppen, lista över användare med feltillstånd](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![lista över användare i gruppen licensiering feltillstånd](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
 3. Du hittar alla grupper som innehåller minst ett fel på den **Azure Active Directory** bladet välj **licenser**, och välj sedan **översikt**. Dialogrutan visas när grupper kräver din uppmärksamhet.
 
-   ![Översikt över, information om grupper i feltillstånd](./media/licensing-groups-resolve-problems/group-errors-widget.png)
+   ![Översikt och information om grupper i feltillstånd](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
 4. Markera kryssrutan om du vill se en lista över alla grupper med fel. Du kan välja varje grupp för mer information.
 
-   ![Översikt över grupper med fel](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
+   ![Översikt och listan över grupper med fel](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
 
 I följande avsnitt ger en beskrivning av varje potentiella problem och sätt att lösa problemet.

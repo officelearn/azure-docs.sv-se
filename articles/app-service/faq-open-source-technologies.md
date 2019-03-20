@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 07912dab52cb0569428d070282551eebbdb1c7bc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7831e5e989835b2c9432dbd61a242584a7b6244d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191453"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082950"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Tekniker med öppen källkod frågor och svar om Web Apps i Azure
 
@@ -44,10 +44,10 @@ Aktivera loggning för PHP:
 9. Välj **Spara**.
 10. Välj pennikonen bredvid **wp-config.php**.
 11. Ändra texten till följande kod:
-   ```php
-   //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
-   ```
+    ```php
+    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
+    //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
+    ```
 12. Starta om din webbapp i Azure-portalen via menyn web app.
 
 Mer information finns i [felloggning i WordPress aktivera](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
@@ -59,31 +59,31 @@ Mer information finns i [felloggning i WordPress aktivera](https://blogs.msdn.mi
 
 Om du vill ändra versionen av Node.js-program, kan du använda något av följande alternativ:
 
-*   I Azure-portalen använder **appinställningar**.
-    1. Gå till din webbapp i Azure-portalen.
-    2. På den **inställningar** bladet väljer **programinställningar**.
-    3. I **appinställningar**, du kan inkludera WEBSITE_NODE_DEFAULT_VERSION som nyckeln och versionen av Node.js som du vill ha som värdet.
-    4. Gå till din [Kudu-konsolen](https://*yourwebsitename*.scm.azurewebsites.net).
-    5. Ange följande kommando för att kontrollera Node.js-version:  
-   ```
-   node -v
-   ```
-*   Ändra iisnode.yml-filen. Ändra Node.js-version i filen iisnode.yml endast anger runtime-miljö där iisnode använder. Kudu-cmd och andra fortfarande använda Node.js-version som anges i **appinställningar** i Azure-portalen.
+* I Azure-portalen använder **appinställningar**.
+  1. Gå till din webbapp i Azure-portalen.
+  2. På den **inställningar** bladet väljer **programinställningar**.
+  3. I **appinställningar**, du kan inkludera WEBSITE_NODE_DEFAULT_VERSION som nyckeln och versionen av Node.js som du vill ha som värdet.
+  4. Gå till din [Kudu-konsolen](https://*yourwebsitename*.scm.azurewebsites.net).
+  5. Ange följande kommando för att kontrollera Node.js-version:  
+     ```
+     node -v
+     ```
+* Ändra iisnode.yml-filen. Ändra Node.js-version i filen iisnode.yml endast anger runtime-miljö där iisnode använder. Kudu-cmd och andra fortfarande använda Node.js-version som anges i **appinställningar** i Azure-portalen.
 
-    Ange iisnode.yml manuellt genom att skapa en iisnode.yml-fil i rotmappen för din app. Skriver du följande i filen:
-   ```yml
-   nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-   ```
+  Ange iisnode.yml manuellt genom att skapa en iisnode.yml-fil i rotmappen för din app. Skriver du följande i filen:
+  ```yml
+  nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
+  ```
    
-*   Ange filen iisnode.yml package.json under distributionen av käll-kontroll.
-    Distributionsprocessen för Azure källa kontroll omfattar följande steg:
-    1. Flyttar innehåll till Azure-webbappen.
-    2. Skapar en standard-distributionsskriptet, om det inte finns något (deploy.cmd, .deployment filer) i rotmappen för web app.
-    3. Kör ett distributionsskript där den skapar en iisnode.yml-fil om du nämner Node.js-version i package.json-fil > motor `"engines": {"node": "5.9.1","npm": "3.7.3"}`
-    4. Iisnode.yml-filen har följande rad med kod:
-        ```yml
-        nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-        ```
+* Ange filen iisnode.yml package.json under distributionen av käll-kontroll.
+  Distributionsprocessen för Azure källa kontroll omfattar följande steg:
+  1. Flyttar innehåll till Azure-webbappen.
+  2. Skapar en standard-distributionsskriptet, om det inte finns något (deploy.cmd, .deployment filer) i rotmappen för web app.
+  3. Kör ett distributionsskript där den skapar en iisnode.yml-fil om du nämner Node.js-version i package.json-fil > motor `"engines": {"node": "5.9.1","npm": "3.7.3"}`
+  4. Iisnode.yml-filen har följande rad med kod:
+      ```yml
+      nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
+      ```
 
 ## <a name="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this"></a>Meddelandet ”Error upprätta en databasanslutning” visas i min WordPress-app som är värd för App Service. Hur felsöker jag?
 
@@ -114,24 +114,24 @@ Information om hur du installerar Django finns i [distribuera en Django-app till
 
 För Azure Marketplace och anpassade distributioner:
 
-* Plats för mappen: D:\home\site\wwwroot\bin\apache-Tomcat-8.0.33\logs
+* Plats för mappen: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
 * Filer av intresse:
-    * catalina. *åååå-mm-dd*.log
+    * catalina.*yyyy-mm-dd*.log
     * host-manager.*yyyy-mm-dd*.log
     * localhost.*yyyy-mm-dd*.log
-    * Manager. *åååå-mm-dd*.log
-    * site_access_log. *åååå-mm-dd*.log
+    * manager.*yyyy-mm-dd*.log
+    * site_access_log.*yyyy-mm-dd*.log
 
 
 För portalen **appinställningar** distributioner:
 
 * Plats för mappen: D:\home\LogFiles
 * Filer av intresse:
-    * catalina. *åååå-mm-dd*.log
+    * catalina.*yyyy-mm-dd*.log
     * host-manager.*yyyy-mm-dd*.log
     * localhost.*yyyy-mm-dd*.log
-    * Manager. *åååå-mm-dd*.log
-    * site_access_log. *åååå-mm-dd*.log
+    * manager.*yyyy-mm-dd*.log
+    * site_access_log.*yyyy-mm-dd*.log
 
 ## <a name="how-do-i-troubleshoot-jdbc-driver-connection-errors"></a>Hur felsöker jag fel med JDBC driver?
 

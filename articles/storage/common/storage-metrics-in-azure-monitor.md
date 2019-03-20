@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: aabd0ab55c061c9d2cdc27b4ab5a241ad9e9793c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a5ebd50b3a5fe3b611bae28db98979eee40f9490
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811777"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899034"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Storage-mått i Azure Monitor
 
@@ -23,7 +23,7 @@ Azure Monitor innehåller enhetligt användargränssnitt för övervakning över
 
 ## <a name="access-metrics"></a>Åtkomst-mått
 
-Azure Monitor innehåller flera sätt att åtkomst mått. Du kan komma åt dem från den [Azure-portalen](https://portal.azure.com), Azure Monitor-API: er (REST och .net) och lösningar för dataanalys, till exempel Händelsehubbar. Mer information finns i [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Monitor innehåller flera sätt att åtkomst mått. Du kan komma åt dem från den [Azure-portalen](https://portal.azure.com), Azure Monitor-API: er (REST och .NET) och lösningar för dataanalys, till exempel Händelsehubbar. Mer information finns i [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Mått är aktiverade som standard och du kan komma åt de senaste 93 dagarna data. Om du vill behålla data under en längre tid kan du arkivera måttdata till ett Azure Storage-konto. Detta är konfigurerat i [diagnostikinställningar](../../azure-monitor/platform/diagnostic-logs-overview.md) i Azure Monitor.
 
@@ -134,13 +134,13 @@ Följande svar innehåller måttvärden i JSON-format:
 
 ```
 
-### <a name="access-metrics-with-the-net-sdk"></a>Åtkomst till mått med .net SDK
+### <a name="access-metrics-with-the-net-sdk"></a>Åtkomst till mått med .NET SDK
 
-Azure Monitor innehåller [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) att läsa måttdefinition och värden. Den [exempelkoden](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) visar hur du använder SDK: N med olika parametrar. Du måste använda `0.18.0-preview` eller senare för storage-mått. Resurs-ID används i .net SDK. Mer information finns i Förstå resurs-ID för tjänster i lagring.
+Azure Monitor innehåller [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) att läsa måttdefinition och värden. Den [exempelkoden](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) visar hur du använder SDK: N med olika parametrar. Du måste använda `0.18.0-preview` eller senare för storage-mått. Resurs-ID används i .NET SDK. Mer information finns i Förstå resurs-ID för tjänster i lagring.
 
-I följande exempel visar hur du läser mätvärden i storage med Azure Monitor .net SDK.
+I följande exempel visar hur du använder Azure Monitor .NET SDK för att läsa mätvärden i storage.
 
-#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Lista konto på måttdefinition med .net SDK
+#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Lista konto på måttdefinition med .NET SDK
 
 I följande exempel visar hur du listar måttdefinition på kontonivå:
 
@@ -177,7 +177,7 @@ I följande exempel visar hur du listar måttdefinition på kontonivå:
 
 Om du vill visa en lista över måttdefinitioner för blob-, tabell-, fil- eller kön, måste du ange olika resurs-ID för varje tjänst med API: et.
 
-#### <a name="read-metric-values-with-the-net-sdk"></a>Läsa måttvärden med .net SDK
+#### <a name="read-metric-values-with-the-net-sdk"></a>Läsa måttvärden med .NET SDK
 
 I följande exempel visas hur du läser `UsedCapacity` data på kontonivå:
 
@@ -227,7 +227,7 @@ I följande exempel visas hur du läser `UsedCapacity` data på kontonivå:
 
 I ovan exempelvis måste om du vill läsa måttvärden för blob-, tabell-, fil- eller kö, du ange olika resurs-ID för varje tjänst med API: et.
 
-#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Läsa flerdimensionella måttvärden med .net SDK
+#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Läsa flerdimensionella måttvärden med .NET SDK
 
 För flerdimensionella mått som du behöver definiera filter för meta-data om du vill läsa måttdata på specifika dimensionsvärde.
 
@@ -380,7 +380,7 @@ Azure Storage tillhandahåller följande transaktionsmått i Azure Monitor.
 | Egress | Mängden utgående data. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data. <br/><br/> Enhet: Byte <br/> Mängdtyp: Totalt <br/> Tillämpliga mått: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 1024 |
 | SuccessServerLatency | Den genomsnittliga tiden det tar för Azure Storage att bearbeta en lyckad begäran. Det här värdet innefattar inte nätverksfördröjningen som anges i SuccessE2ELatency. <br/><br/> Enhet: Millisekunder <br/> Mängdtyp: Medel <br/> Tillämpliga mått: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 1024 |
 | SuccessE2ELatency | Den genomsnittliga svarstiden från slutpunkt till slutpunkt för lyckade begäranden som gjorts till en lagringstjänst eller för en angiven API-åtgärd. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret. <br/><br/> Enhet: Millisekunder <br/> Mängdtyp: Medel <br/> Tillämpliga mått: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 1024 |
-| Tillgänglighet | Procentandel tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgängligheten beräknas genom att använda värdet för totalt antal debiterbara begäranden och dividera det med antalet tillämpliga förfrågningar, inklusive de begäranden som genererat ett oväntat fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. <br/><br/> Enhet: Procent <br/> Mängdtyp: Medel <br/> Tillämpliga mått: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 99.99 |
+| Tillgänglighet | Procentandel tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgängligheten beräknas genom att använda värdet för totalt antal debiterbara begäranden och dividera det med antalet tillämpliga förfrågningar, inklusive de begäranden som genererat ett oväntat fel. Alla oväntade fel leder till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. <br/><br/> Enhet: Procent <br/> Mängdtyp: Medel <br/> Tillämpliga mått: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 99.99 |
 
 ## <a name="metrics-dimensions"></a>Mått dimensioner
 
@@ -389,7 +389,7 @@ Azure Storage stöder följande dimensioner för mått i Azure Monitor.
 | Dimensionsnamn | Beskrivning |
 | ------------------- | ----------------- |
 | BlobType | Typen av blobb endast Blob-mått. Godkända värden är **BlockBlob** och **PageBlob**. Lägg till Blob som ingår i BlockBlob. |
-| ResponseType | Transaktionstyp vid svar. Tillgängliga värden är: <br/><br/> <li>ServerOtherError: Alla andra serversidan fel förutom beskrivs de </li> <li> ServerBusyError: Autentiserad begäran som returnerade statuskoden HTTP 503-fel. </li> <li> ServerTimeoutError: Tidsgränsen nåddes för autentiserad begäran som returnerade ett HTTP 500-statuskoden. Timeout uppstod på grund av ett serverfel. </li> <li> AuthorizationError: Autentiserad begäran som misslyckades på grund av obehörig åtkomst av data eller ett autentiseringsfel. </li> <li> NetworkError: Autentiserad begäran som misslyckades på grund av nätverksfel. Inträffar vanligen när en klient stängs för tidigt en anslutning innan tidsgränsen upphör att gälla. </li> <li>    ClientThrottlingError: Klientsidan begränsning fel. </li> <li> ClientTimeoutError: Tidsgränsen nåddes för autentiserad begäran som returnerade ett HTTP 500-statuskoden. Om klientens tidsgränsen uppnåddes för nätverket eller timeout för begäran har angetts till ett lägre värde än förväntat genom att lagringstjänsten är det en förväntad timeout. Annars rapporteras den som en ServerTimeoutError. </li> <li> ClientOtherError: Alla andra klientsidan fel utom beskrivs de. </li> <li> Klart: Förfrågan klar|
+| ResponseType | Transaktionstyp vid svar. Tillgängliga värden är: <br/><br/> <li>ServerOtherError: Alla andra fel på serversidan förutom de beskrivna </li> <li> ServerBusyError: Autentiseringsbegäran som returnerat statuskoden HTTP 503. </li> <li> ServerTimeoutError: Autentiseringsbegäran som tagit för lång tid och returnerat statuskoden HTTP 500. Tidsgränsen överskreds på grund av ett serverfel. </li> <li> AuthorizationError: Autentiseringsbegäran som misslyckats på grund av obehörig åtkomst till data eller ett autentiseringsfel. </li> <li> NetworkError: Autentiseringsbegäran som misslyckats på grund av nätverksfel. Inträffar vanligen när klienten stänger en anslutning för tidigt innan tidsgränsen. </li> <li>    ClientThrottlingError: Nätverksbegränsningsfel på klientsidan. </li> <li> ClientTimeoutError: Autentiseringsbegäran som tagit för lång tid och returnerat statuskoden HTTP 500. Om klientens tidsgränser för nätverket eller förfrågningar är inställda på lägre värden än vad lagringstjänsten förväntar sig är det en förväntad timeout. Annars rapporteras den som ett ServerTimeoutError. </li> <li> ClientOtherError: Alla andra fel på klientsidan förutom de beskrivna. </li> <li> Klart: Förfrågan utfördes|
 | GeoType | Transaktionen från primär eller sekundär kluster. Tillgängliga värden är primär och sekundär. Den gäller Read Access Geo Redundant Storage(RA-GRS) vid läsning av objekt från sekundär klient. |
 | ApiName | Namnet på åtgärden. Exempel: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Namn på åtgärden, se [dokumentet](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | Authentication | Autentiseringstypen som används i transaktioner. Tillgängliga värden är: <br/> <li>AccountKey: Transaktionen har verifierats med din lagringskontonyckel.</li> <li>SAS: Transaktionen har verifierats med signaturer för delad åtkomst.</li> <li>OAuth: Transaktionen har verifierats med OAuth-åtkomsttoken.</li> <li>Anonym: Transaktionen har begärts anonymt. De omfattar inte preflight-begäranden.</li> <li>AnonymousPreflight: Transaktionen är preflight-begäran.</li> |

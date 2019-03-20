@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 25e70b3a685f3b777a74c4cc6bf0e56dd37741a7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: f290a7e16938c66d45fab9b78086f77bfdfe4839
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821522"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100419"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Felsöka en RDP-Allmänt fel i Azure VM
 
@@ -168,13 +168,13 @@ Om problemet inträffar fortfarande kan gå vidare till steg 2.
 
 Mer information finns i [Remote Desktop Services inte startar på en Azure VM](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>Steg 3: Återställa RDP-lyssnare
+#### <a name="step-3-reset-rdp-listener"></a>Steg 3: Återställ RDP-lyssnare
 
 Mer information finns i [fjärrskrivbord kopplar bort ofta i Azure VM](troubleshoot-rdp-intermittent-connectivity.md).
 
 ### <a name="offline-repair"></a>Offlinereparation
 
-#### <a name="step-1-turn-on-remote-desktop"></a>Steg 1: Aktivera Fjärrskrivbord
+#### <a name="step-1-turn-on-remote-desktop"></a>Steg 1: Aktivera Remote Desktop
 
 1. [Koppla OS-disk till virtuell återställningsdator](../windows/troubleshoot-recovery-disks-portal.md).
 2. Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn.
@@ -229,8 +229,8 @@ Mer information finns i [fjärrskrivbord kopplar bort ofta i Azure VM](troublesh
 
       Principen definitions\Windows komponenter\Fjärrskrivbordstjänster\Värdserver Desktop för Desktop Session Host\Connections\Allow användare för fjärranslutning med hjälp av Fjärrskrivbordstjänster
   
-7. Koppla bort disken från Räddade VM.
-8. [Skapa en ny virtuell dator från disken](../windows/create-vm-specialized.md).
+1. Koppla bort disken från Räddade VM.
+1. [Skapa en ny virtuell dator från disken](../windows/create-vm-specialized.md).
 
 Om problemet inträffar fortfarande kan gå vidare till steg 2.
 
@@ -238,7 +238,7 @@ Om problemet inträffar fortfarande kan gå vidare till steg 2.
 
 Mer information finns i [Remote Desktop Services inte startar på en Azure VM](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>Steg 3: Återställa RDP-lyssnare
+#### <a name="step-3-reset-rdp-listener"></a>Steg 3: Återställ RDP-lyssnare
 
 Mer information finns i [fjärrskrivbord kopplar bort ofta i Azure VM](troubleshoot-rdp-intermittent-connectivity.md).
 

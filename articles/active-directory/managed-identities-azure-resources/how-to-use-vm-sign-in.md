@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 761843aad24dc89131079eb59954bd17883e595d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2dfbb618bafd9ae3cbb0c691e63a243ab2c2c31e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178404"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996539"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Hur du använder hanterade identiteter för Azure-resurser på en Azure virtuell dator för inloggning 
 
@@ -87,7 +87,7 @@ Se [Azure-tjänster som stöder Azure AD-autentisering](services-support-msi.md#
 Svar som följande kan tyda på att den Virtuella datorns hanterad identitet för Azure-resurser inte har konfigurerats korrekt:
 
 - PowerShell: *Invoke-WebRequest: Det går inte att ansluta till fjärrservern*
-- CLI: *MSI: Det gick inte att hämta en token från ”http://localhost:50342/oauth2/token” med ett fel av ' HTTPConnectionPool (värd = localhost, port = 50342)* 
+- CLI: *MSI: Det gick inte att hämta en token från `http://localhost:50342/oauth2/token` med ett fel av ' HTTPConnectionPool (värd = localhost, port = 50342)* 
 
 Om du får något av dessa fel, gå tillbaka till den virtuella Azure-datorn i den [Azure-portalen](https://portal.azure.com) och:
 

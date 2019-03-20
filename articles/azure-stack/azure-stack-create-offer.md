@@ -15,12 +15,12 @@ ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 42336205726823dd04e0412f29c3e7a23d134d39
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 59c69477e120facec1fbf132ce7017ca21aa8748
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764001"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092624"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Skapa ett erbjudande i Azure Stack
 
@@ -54,12 +54,12 @@ ms.locfileid: "57764001"
 
 Du kan ändra tillståndet när du har skapat erbjudandet. Erbjudanden måste göras **offentliga** för användare att få en fullständig vy när de prenumererar. Erbjudanden kan vara:
 
-   - **Offentliga**: Synligt för användarna.
-   - **Privata**: Endast synliga för administratörer i molnet. Den här inställningen är användbar vid utformningen av planen eller erbjudandet, eller om molnadministratören vill [skapa varje prenumeration för användare](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
-   - **Ur**: Stängda för nya prenumeranter. Molnadministratören inaktivera erbjudanden för att förhindra framtida prenumerationer, men lämna befintliga prenumeranter påverkas inte.
+- **Offentliga**: Synligt för användarna.
+- **Privata**: Endast synliga för administratörer i molnet. Den här inställningen är användbar vid utformningen av planen eller erbjudandet, eller om molnadministratören vill [skapa varje prenumeration för användare](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
+- **Ur**: Stängda för nya prenumeranter. Molnadministratören inaktivera erbjudanden för att förhindra framtida prenumerationer, men lämna befintliga prenumeranter påverkas inte.
 
-   > [!TIP]  
-   > Ändringar i erbjudandet är inte omedelbart synliga för användaren. Om du vill se ändringarna måste behöva användare logga ut och logga in igen på användarportalen att se det nya erbjudandet.
+  > [!TIP]  
+  > Ändringar i erbjudandet är inte omedelbart synliga för användaren. Om du vill se ändringarna måste behöva användare logga ut och logga in igen på användarportalen att se det nya erbjudandet.
 
 Det finns två sätt att ändra tillståndet för ett erbjudande:
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 869bee8fcd0d1c2876ac7317fb239a1d5c61cb87
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: aed539484ac01d1b18b8374ffb57456364f9bd2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864557"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119277"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Självstudier: Utforma en Azure Database for PostgreSQL med hjälp av Azure-portalen
 
@@ -28,7 +28,7 @@ I den här självstudien använder du Azure-portalen till att:
 > * Uppdatera data
 > * Återställa data
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
@@ -39,33 +39,33 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 En Azure Database för PostgreSQL-server skapas med en definierad uppsättning [compute- och lagringsresurser](./concepts-compute-unit-and-storage.md). Servern skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md).
 
 Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
-1.  Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.
-2.  Välj **databaser** från sidan **Nytt** och välj **Azure Database för PostgreSQL** från sidan **databaser**.
-  ![Azure Database för PostgreSQL – Skapa databasen](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
+1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.
+2. Välj **databaser** från sidan **Nytt** och välj **Azure Database för PostgreSQL** från sidan **databaser**.
+   ![Azure Database för PostgreSQL – Skapa databasen](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
-3.  Fyll i formuläret om den nya servern och uppge följande information:
+3. Fyll i formuläret om den nya servern och uppge följande information:
 
-    ![Skapa en server](./media/tutorial-design-database-using-azure-portal/2-create.png)
+   ![Skapa en server](./media/tutorial-design-database-using-azure-portal/2-create.png)
 
-    - Servernamn: **mydemoserver** (namnet på en server mappar till DNS-namnet och behöver därför vara globalt unikt) 
-    - Prenumeration: Om du har flera prenumerationer väljer du en lämplig prenumerationen där resursen ligger eller faktureras.
-    - Resursgrupp: **myresourcegroup**
-    - Valfritt inloggningsnamn och lösenord för serveradministratören
-    - Plats
-    - PostgreSQL-version
+   - Servernamn: **mydemoserver** (namnet på en server mappar till DNS-namnet och behöver därför vara globalt unikt) 
+   - Prenumeration: Om du har flera prenumerationer väljer du en lämplig prenumerationen där resursen ligger eller faktureras.
+   - Resursgrupp: **myresourcegroup**
+   - Valfritt inloggningsnamn och lösenord för serveradministratören
+   - Plats
+   - PostgreSQL-version
 
    > [!IMPORTANT]
    > Det användarnamn och lösenord för serveradministration du anger här krävs för inloggning på servern och databaserna senare i den här självstudien. Kom ihåg eller skriv ned den här informationen så att du kan använda den senare.
 
-4.  Klicka på **Prisnivå** för att ange prisnivån för den nya servern. För den här självstudien väljer du **Generell användning**, **Gen 4** compute-generering, 2 **virtuella kärnor**, 5 GB **lagring** och 7 dagar **kvarhållningsperiod för säkerhetskopior**. Välj redundansalternativet för säkerhetskopiering som heter **Geografiskt redundant** för att göra så att dina automatiska serversäkerhetskopior lagras i geo-redundant lagring.
- ![Azure Database for PostgreSQL – välj prisnivå](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
+4. Klicka på **Prisnivå** för att ange prisnivån för den nya servern. I den här självstudien väljer **generella**, **Gen 5** compute-generering, 2 **vCores**, 5 GB **storage** och 7 dagar  **kvarhållningsperiod**. Välj redundansalternativet för säkerhetskopiering som heter **Geografiskt redundant** för att göra så att dina automatiska serversäkerhetskopior lagras i geo-redundant lagring.
+   ![Azure Database for PostgreSQL – välj prisnivå](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
 
-5.  Klicka på **OK**.
+5. Klicka på **OK**.
 
-6.  Klicka på **Skapa** för att etablera servern. Etableringen tar några minuter.
+6. Klicka på **Skapa** för att etablera servern. Etableringen tar några minuter.
 
-7.  Klicka på **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
- ![Azure Database för PostgreSQL – se meddelanden](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
+7. Klicka på **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
+   ![Azure Database för PostgreSQL – se meddelanden](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
 
    > [!TIP]
    > Markera alternativet **Fäst på instrumentpanelen** för att enkelt kunna spåra dina distributioner.
@@ -76,17 +76,17 @@ Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
 
 Azure Database for PostgreSQL-tjänsten använder en brandvägg på servernivå. Brandväggen förhindrar som standard att alla externa program och verktyg ansluter till servern eller databaser på servern, om inte en brandväggsregel skapas som öppnar brandväggen för specifika IP-adressintervall. 
 
-1.  När distributionen är färdig klickar du på **Alla resurser** på den vänstra menyn och anger namnet **mydemoserver** för att söka efter servern som du nyss skapade. Klicka på servernamnet som listas i sökresultatet. **Översikt**-sidan för din server öppnas och innehåller alternativ ytterligare konfiguration.
+1. När distributionen är färdig klickar du på **Alla resurser** på den vänstra menyn och anger namnet **mydemoserver** för att söka efter servern som du nyss skapade. Klicka på servernamnet som listas i sökresultatet. **Översikt**-sidan för din server öppnas och innehåller alternativ ytterligare konfiguration.
 
    ![Azure Database för PostgreSQL – sök efter server](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
-2.  På serversidan väljer du **Anslutningssäkerhet**. 
+2. På serversidan väljer du **Anslutningssäkerhet**. 
 
-3.  Klicka i textrutan under **regelnamn** och lägg till en ny brandväggsregel som vitlistar IP-adressintervallet för anslutningen. Ange IP-adressintervall. Klicka på **Spara**.
+3. Klicka i textrutan under **regelnamn** och lägg till en ny brandväggsregel som vitlistar IP-adressintervallet för anslutningen. Ange IP-adressintervall. Klicka på **Spara**.
 
    ![Azure Database för PostgreSQL – Skapa brandväggsregel](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 
-4.  Klicka på **Spara** och sedan på **X** för att stänga sidan om **anslutningssäkerhet**.
+4. Klicka på **Spara** och sedan på **X** för att stänga sidan om **anslutningssäkerhet**.
 
    > [!NOTE]
    > Azure PostgreSQL-servern kommunicerar via port 5432. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 5432 bli nekad av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 5432.
@@ -184,11 +184,11 @@ SELECT * FROM inventory;
 ## <a name="restore-data-to-a-previous-point-in-time"></a>Återställa data till en tidigare tidpunkt
 Anta att du har tagit bort den här tabellen av misstag. Det är inte så enkelt att återställa från den här situationen. Med Azure Database for PostgreSQL kan du gå tillbaka till valfri tidpunkt från vilken du har serversäkerhetskopior (bestäms utifrån kvarhållningsperioden för säkerhetskopior som du konfigurerar) och återställa tidpunkten på en ny server. Du kan använda den nya servern till att återställa dina data. Med följande steg återställs servern **mydemoserver** till en tidpunkt innan inventeringstabellen lades till.
 
-1.  I Azure Database for PostgreSQL på sidan **Översikt** för servern, klickar du på **Återställ** i verktygsfältet. Sidan **Återställ** öppnas.
+1. I Azure Database for PostgreSQL på sidan **Översikt** för servern, klickar du på **Återställ** i verktygsfältet. Sidan **Återställ** öppnas.
 
    ![Azure-portalen – Återställningsalternativ för formulär](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
 
-2.  Fyll i formuläret **Återställ** med den information som behövs:
+2. Fyll i formuläret **Återställ** med den information som behövs:
 
    ![Azure-portalen – Återställningsalternativ för formulär](./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png)
 
@@ -196,7 +196,7 @@ Anta att du har tagit bort den här tabellen av misstag. Det är inte så enkelt
    - **Målserver**: Ange ett nytt servernamn som du vill återställa till
    - **Plats**: Du kan inte välja region; som standard är det samma som källservern
    - **Prisnivå**: Du kan inte ändra det här värdet när du återställer en server. Det är samma som källservern. 
-3.  Klicka på **OK** om du vill [återställa servern till en tidpunkt](./howto-restore-server-portal.md) innan tabellen togs bort. Om du återställer en server till en annan tidpunkt skapas en dubblett av den ursprungliga servern vid den tidpunkt du angav, förutsatt att den infaller inom kvarhållningsperioden för din [prisnivå](./concepts-pricing-tiers.md).
+3. Klicka på **OK** om du vill [återställa servern till en tidpunkt](./howto-restore-server-portal.md) innan tabellen togs bort. Om du återställer en server till en annan tidpunkt skapas en dubblett av den ursprungliga servern vid den tidpunkt du angav, förutsatt att den infaller inom kvarhållningsperioden för din [prisnivå](./concepts-pricing-tiers.md).
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudien har du lärt dig hur du använder Azure-portalen och andra verktyg för att:

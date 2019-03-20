@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 85d8b531f19ac35f091f54c2627f7fe6d3a62a42
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c7288b112ce2fd062a67cb673a1efa6028ec7d57
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468146"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888527"
 ---
-# <a name="work-with-databases-containers-and-items"></a>Arbeta med databaser, behållare och objekt
+# <a name="work-with-databases-containers-and-items"></a>Arbeta med databaser, containrar och objekt
 
 När du har skapat en [Azure Cosmos DB-konto](account-overview.md) under din Azure-prenumeration kan du hantera data i ditt konto genom att skapa databaser, behållare och objekt. Den här artikeln beskrivs var och en av dessa entiteter: databaser, behållare och objekt. Följande bild visar hierarkin för olika enheter i ett Azure Cosmos-konto:
 
@@ -92,7 +92,7 @@ En Azure Cosmos-behållare har en uppsättning systemdefinierade egenskaper. Ber
 En Azure Cosmos-behållare har stöd för följande åtgärder med hjälp av någon av Azure Cosmos-API: er.
 
 | **Åtgärd** | **Azure CLI** | **SQL-API** | **API för Cassandra** | **Azure Cosmos DB: s API för MongoDB** | **Gremlin-API** | **Table API** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | Räkna upp behållare i en databas | Ja* | Ja | Ja | Ja | Ej tillämpligt | Ej tillämpligt |
 | Läsa en behållare | Ja | Ja | Ja | Ja | Ej tillämpligt | Ej tillämpligt |
 | Skapa ny behållare | Ja | Ja | Ja | Ja | Ej tillämpligt | Ej tillämpligt |
@@ -125,7 +125,7 @@ Varje Azure Cosmos-objekt har följande systemdefinierade egenskaper. Beroende p
 Azure Cosmos-objektet har stöd för följande åtgärder som kan utföras med hjälp av någon av Azure Cosmos-API: er.
 
 | **Åtgärd** | **Azure CLI** | **SQL-API** | **API för Cassandra** | **Azure Cosmos DB: s API för MongoDB** | **Gremlin-API** | **Table API** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | Infoga, Ersätt, ta bort, Upsert, Läs | Nej | Ja | Ja | Ja | Ja | Ja |
 
 ## <a name="next-steps"></a>Nästa steg

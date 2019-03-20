@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 9e485797dcc40c426b208971c04acffa168e528a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: d73a43aedde9a88e009ddca1f0363dbcd92e1379
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455912"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080462"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Kör åtgärder baserat på status för distributionsgrupp med omfång i Azure Logic Apps
 
@@ -89,7 +89,8 @@ Du kan spara din logikapp när som helst, så spara ditt arbete ofta.
       | **Överföring Datumtyp typ** | Ingen | Gäller endast överföring-läge. | 
       ||||  
 
-1. [Lägg till ett villkor](../logic-apps/logic-apps-control-flow-conditional-statement.md) som kontrollerar om den aktuella restiden med trafik överskrider en angiven tid. Följ anvisningarna i det här exemplet:
+1. [Lägg till ett villkor](../logic-apps/logic-apps-control-flow-conditional-statement.md) som kontrollerar om den aktuella restiden med trafik överskrider en angiven tid. 
+   Följ anvisningarna i det här exemplet:
 
    1. Byt namn på villkoret med den här beskrivningen: **Om tiden för trafik är mer än en angiven tid**
 
@@ -105,7 +106,8 @@ Du kan spara din logikapp när som helst, så spara ditt arbete ofta.
 
       ![Klar villkor](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
 
-1. I den **om värdet är true** grenen, lägga till en ”skicka e-post”-åtgärd för din e-postleverantör. Ställ in den här åtgärden genom att följa stegen under den här bilden:
+1. I den **om värdet är true** grenen, lägga till en ”skicka e-post”-åtgärd för din e-postleverantör. 
+   Ställ in den här åtgärden genom att följa stegen under den här bilden:
 
    ![Lägga till ”skicka ett e-postmeddelande” åtgärd i ”om det är SANT” gren](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
 
@@ -124,7 +126,7 @@ Du kan spara din logikapp när som helst, så spara ditt arbete ofta.
    1. Välj **Expression** (Uttryck) i listan med dynamiskt innehåll.
 
    1. Sök efter och välj den **div()** funktion. 
-   Placera markören i i funktionens parentes.
+      Placera markören i i funktionens parentes.
 
    1. Markören är i funktionens parenteser, Välj **dynamiskt innehåll** så att den dynamiska innehållslistan visas. 
    
@@ -144,11 +146,11 @@ Du kan spara din logikapp när som helst, så spara ditt arbete ofta.
 
    1. När du är klar väljer du **OK**.
 
-  1. När uttrycket matchar, lägger du till den här texten med ett inledande blanksteg: ``` minutes```
+   1. När uttrycket matchar, lägger du till den här texten med ett inledande blanksteg: ``` minutes```
   
-     Din **brödtext** fältet ser ut som i det här exemplet:
+       Din **brödtext** fältet ser ut som i det här exemplet:
 
-     ![Klar ”Body”-fält](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+       ![Klar ”Body”-fält](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
 
 1. Spara din logikapp.
 

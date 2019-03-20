@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dc56384d550854c05a813157b32ac36f5ebfb76
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: df2c4e447ff41e56c4d8b9862282b6fcb452a8c9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211928"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224302"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Vad är hanterade identiteter för Azure-resurser?
 
@@ -64,13 +64,12 @@ Följande diagram visar hur hanterade tjänstidentiteter fungerar med virtuella 
     1. Azure Instance Metadata Service-identitetens slutpunkt uppdateras med klient-ID och certifikat för tjänstens huvudnamn.
     1. Etablerar tillägget för virtuell dator (kommer att fasas ut i januari 2019) och lägger till klient-ID och certifikat för tjänstens huvudnamn. (Det här steget kommer att fasas ut.)
 4. När den virtuella datorn har fått en identitet använder du informationen om tjänstens huvudnamn för att ge den virtuella datorn åtkomst till Azure-resurser. Använd rollbaserad åtkomstkontroll (RBAC) i Azure AD när du anropar Azure Resource Manager för att tilldela lämplig roll till tjänstens huvudnamn för den virtuella datorn. Ge din kod åtkomst till den specifika hemligheten eller nyckeln i Key Vault när du anropar Key Vault.
-5. Din kod som körs på den virtuella datorn kan begära en token från två slutpunkter som endast är tillgängliga inifrån den virtuella datorn:
+5. Din kod som körs på den virtuella datorn kan begära en token från Azure Instance Metadata tjänstens slutpunkt, enbart tillgänglig från den virtuella datorn: `http://169.254.169.254/metadata/identity/oauth2/token`
+    - Resursparametern anger vilken tjänst som token ska skickas till. Använd `resource=https://management.azure.com/` för att autentisera mot Azure Resource Manager.
+    - API-versionsparametern anger IMDS-versionen, använd api-version=2018-02-01 eller högre.
 
-    - Azure Instance Metadata Service-identitetsslutpunkt (rekommenderas): `http://169.254.169.254/metadata/identity/oauth2/token`
-        - Resursparametern anger vilken tjänst som token ska skickas till. Använd `resource=https://management.azure.com/` för att autentisera mot Azure Resource Manager.
-        - API-versionsparametern anger IMDS-versionen, använd api-version=2018-02-01 eller högre.
-    - Slutpunkt för VM-tillägg (kommer att fasas ut i januari 2019): `http://localhost:50342/oauth2/token` 
-        - Resursparametern anger vilken tjänst som token ska skickas till. Använd `resource=https://management.azure.com/` för att autentisera mot Azure Resource Manager.
+> [!NOTE]
+> Din kod kan också begära en token från slutpunkten för VM-tillägget, men detta är planerat för utfasning snart. Mer information om VM-tillägget finns i [migrera från VM-tillägget till Azure IMDS för autentisering](howto-migrate-vm-extension.md).
 
 6. Ett anrop görs till Azure AD för att begära en åtkomsttoken (se steg 5) med klient-ID:t och certifikatet som konfigurerades i steg 3. Azure AD returnerar en åtkomsttoken för JSON Web Token (JWT).
 7. Koden skickar åtkomsttoken vid ett anrop till en tjänst som stöder Azure AD-autentisering.
@@ -87,16 +86,14 @@ Följande diagram visar hur hanterade tjänstidentiteter fungerar med virtuella 
    > [!Note]
    > Du kan även utföra det här steget före steg 3.
 
-5. Din kod som körs på den virtuella datorn kan begära en token från två slutpunkter som endast är tillgängliga inifrån den virtuella datorn:
+5. Din kod som körs på den virtuella datorn kan begära en token från Azure Instance Metadata Service identity slutpunkten, enbart tillgänglig från den virtuella datorn: `http://169.254.169.254/metadata/identity/oauth2/token`
+    - Resursparametern anger vilken tjänst som token ska skickas till. Använd `resource=https://management.azure.com/` för att autentisera mot Azure Resource Manager.
+    - Parametern för klient-ID anger den identitet som token har begärts för. Det här värdet krävs för att lösa tvetydigheter om mer än en användartilldelad identitet finns på samma virtuella dator.
+    - Parametern för API-version anger Azure Instance Metadata Service-versionen. Använd `api-version=2018-02-01` eller senare.
 
-    - Azure Instance Metadata Service-identitetsslutpunkt (rekommenderas): `http://169.254.169.254/metadata/identity/oauth2/token`
-        - Resursparametern anger vilken tjänst som token ska skickas till. Använd `resource=https://management.azure.com/` för att autentisera mot Azure Resource Manager.
-        - Parametern för klient-ID anger den identitet som token har begärts för. Det här värdet krävs för att lösa tvetydigheter om mer än en användartilldelad identitet finns på samma virtuella dator.
-        - Parametern för API-version anger Azure Instance Metadata Service-versionen. Använd `api-version=2018-02-01` eller senare.
+> [!NOTE]
+> Din kod kan också begära en token från slutpunkten för VM-tillägget, men detta är planerat för utfasning snart. Mer information om VM-tillägget finns i [migrera från VM-tillägget till Azure IMDS för autentisering](howto-migrate-vm-extension.md).
 
-    - Slutpunkt för VM-tillägg (kommer att fasas ut i januari 2019): `http://localhost:50342/oauth2/token`
-        - Resursparametern anger vilken tjänst som token ska skickas till. Använd `resource=https://management.azure.com/` för att autentisera mot Azure Resource Manager.
-        - Parametern för klient-ID anger den identitet som token har begärts för. Det här värdet krävs för att lösa tvetydigheter om mer än en användartilldelad identitet finns på samma virtuella dator.
 6. Ett anrop görs till Azure AD för att begära en åtkomsttoken (se steg 5) med klient-ID:t och certifikatet som konfigurerades i steg 3. Azure AD returnerar en åtkomsttoken för JSON Web Token (JWT).
 7. Koden skickar åtkomsttoken vid ett anrop till en tjänst som stöder Azure AD-autentisering.
 

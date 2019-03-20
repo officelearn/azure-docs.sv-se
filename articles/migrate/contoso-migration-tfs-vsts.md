@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 20c1e2a4394c249b410a1253356d0ef96c30e970
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 8098196abc415dedba392737fc17a4de5739339d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818905"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100248"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Contoso-migrering:  Omstrukturera en Team Foundation Server-distribution till Azure DevOps Services
 
@@ -225,11 +225,11 @@ Contoso-administratörer kan använda Migreringsverktyget TFS för att skapa mig
 
 6. De loggfilen i identitet karta som visar de konton som ska anslutas till Azure DevOps-tjänsterna under importen. 
 
-    - Aktiva identiteter avser identiteter som ska bli användare i Azure DevOps-tjänsterna efter importen.
-    - Azure DevOps-tjänsterna, dessa identiteter ska licensieras och visas som en användare i organisationen efter migreringen.
-    - Dessa identiteter är märkta **Active** i den **förväntat importstatus** kolumnen i filen.
+   - Aktiva identiteter avser identiteter som ska bli användare i Azure DevOps-tjänsterna efter importen.
+   - Azure DevOps-tjänsterna, dessa identiteter ska licensieras och visas som en användare i organisationen efter migreringen.
+   - Dessa identiteter är märkta **Active** i den **förväntat importstatus** kolumnen i filen.
 
-    ![Förbereda](./media/contoso-migration-tfs-vsts/prep6.png)
+     ![Förbereda](./media/contoso-migration-tfs-vsts/prep6.png)
 
 
 

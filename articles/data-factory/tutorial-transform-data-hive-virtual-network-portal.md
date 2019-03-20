@@ -3,20 +3,20 @@ title: Transformera data med Hive i Azure Virtual Network | Microsoft Docs
 description: Den här självstudiekursen innehåller stegvisa instruktioner för hur du transformerar data genom att använda en Hive-aktivitet i Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/04/2018
-ms.author: douglasl
-ms.openlocfilehash: b7d536a9dc411dfd6420278ed42116b546315f3e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 9cea3e7494ee81638923cbcaff9f1b82d08a1ad1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436713"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085039"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformera data i Azure Virtual Network med en Hive-aktivitet i Azure Data Factory
 I den här självstudien använder du Azure Portal för att skapa en Data Factory-pipeline som transformerar data med en Hive-aktivitet på ett HDInsight-kluster som finns i Azure Virtual Network (VNet). I den här självstudiekursen får du göra följande:
@@ -32,7 +32,10 @@ I den här självstudien använder du Azure Portal för att skapa en Data Factor
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - **Azure Storage-konto**. Du skapar ett hive-skript och överför det till Azure Storage. Hive-skriptets utdata lagras på det här lagringskontot. I det här exemplet använder HDInsight-klustret det här Azure Storage-kontot som primär lagring. 
 - **Azure Virtual Network.** Om du inte har något virtuellt Azure-nätverk skapar du det genom att följa [de här instruktionerna](../virtual-network/quick-create-portal.md). I det här exemplet är HDInsight i ett virtuellt Azure-nätverk. Här är en exempelkonfiguration av Azure Virtual Network. 
 
@@ -40,7 +43,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 - **HDInsight-kluster.** Skapa ett HDInsight-kluster och anslut det till det virtuella nätverk som du skapade i föregående steg genom att följa stegen i den här artikeln: [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-extend-hadoop-virtual-network.md) (Utöka HDInsight med ett Azure Virtual Network). Här är en exempelkonfiguration av HDInsight i ett virtuellt nätverk. 
 
     ![HDInsight i ett virtuellt nätverk](media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png)
-- **Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+- **Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-Az-ps).
 - **En virtuell dator**. Skapa en virtuell Azure-dator och koppla den till samma virtuella nätverk som innehåller ditt HDInsight-kluster. Läs mer i informationen om att [skapa virtuella datorer](../virtual-network/quick-create-portal.md#create-virtual-machines). 
 
 ### <a name="upload-hive-script-to-your-blob-storage-account"></a>Överföra Hive-skriptet till ditt Blob Storage-konto
@@ -82,24 +85,24 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 3. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i. 
 4. För **resursgruppen** utför du något av följande steg:
      
-      - Välj **Använd befintlig** och välj en befintlig resursgrupp i listrutan. 
-      - Välj **Skapa ny** och ange namnet på en resursgrupp.   
+   - Välj **Använd befintlig** och välj en befintlig resursgrupp i listrutan. 
+   - Välj **Skapa ny** och ange namnet på en resursgrupp.   
          
-      Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
+     Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
 4. Välj **V2** för **versionen**.
 5. Välj **plats** för datafabriken. Endast de platser som har stöd för att skapa datafabriker visas i listan.
 6. Välj **fäst till instrumentpanelen**.     
 7. Klicka på **Skapa**.
 8. På instrumentpanelen visas följande panel med statusen: **Distribuerar datafabrik**. 
 
-    ![panelen distribuerar datafabrik](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
+     ![panelen distribuerar datafabrik](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
 9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
    
-   ![Datafabrikens startsida](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
+    ![Datafabrikens startsida](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
 10. Klicka på **Författare och övervakare** för att starta användargränssnittet för Data Factory på en separat flik.
 11. På sidan **Kom igång** växlar du till fliken **Redigera** på den vänstra panelen, som på följande bild: 
 
-   ![Fliken Redigera](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
+    ![Fliken Redigera](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>Skapa en lokal Integration Runtime
 Eftersom Hadoop-klustret är inne i ett virtuellt nätverk måste du installera en lokal integreringskörning i samma virtuella nätverk. I det här avsnittet skapar du en ny virtuell dator, ansluter den till samma virtuella nätverk och installerar en lokal IR på den. Med en lokal IR kan Data Factory-tjänsten skicka bearbetningsbegäranden till en databearbetningstjänst som HDInsight inne i ett virtuellt nätverk. Den gör också så att du kan flytta data till och från datalager inne i ett virtuellt nätverk till Azure. Du använder också en lokal IR när datalagret eller databearbetningstjänsten finns i en lokal miljö. 

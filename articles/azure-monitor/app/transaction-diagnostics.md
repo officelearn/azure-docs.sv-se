@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: b7ad21bd3185e5e6ba4774cdc5780b0594033f14
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ba72f273724bb45418b104b1245648419ababbf0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028723"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903631"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Enhetlig komponentöverskridande transaktionsdiagnostik
 
@@ -50,7 +50,7 @@ Det här diagrammet innehåller en tidslinje med vågräta stapeldiagram för va
 * Välj rader att se dess [information till höger](#details-of-the-selected-telemetry). 
 
 > [!NOTE]
-Anrop till andra komponenter har två rader: en rad som representerar det utgående samtalet (beroenden) från komponenten anroparen och den andra raden motsvarar en inkommande begäran i komponenten som kallas. Ledande ikon och distinkta formatering av staplarna varaktighet hjälp för att skilja dem.
+> Anrop till andra komponenter har två rader: en rad som representerar det utgående samtalet (beroenden) från komponenten anroparen och den andra raden motsvarar en inkommande begäran i komponenten som kallas. Ledande ikon och distinkta formatering av staplarna varaktighet hjälp för att skilja dem.
 
 ## <a name="all-telemetry-with-this-operation-id"></a>All telemetri med detta åtgärds-Id
 
@@ -74,9 +74,9 @@ Det här komprimerbart fönstret visar de resultat som uppfyller filterkriterier
 
 [Application Insights profiler](../../azure-monitor/app/profiler.md) eller [felsökning av ögonblicksbild](snapshot-debugger.md) hjälp med kod på servernivå diagnostik av prestanda och fel. Med den här upplevelsen kan du se profiler-spårningar eller ögonblicksbilder från valfri komponent med en enda klickar du på.
 
-Om du inte kunde hämta Profiler fungerar, kontakta **serviceprofilerhelp@microsoft.com**
+Om du inte kunde hämta Profiler fungerar, kontakta **serviceprofilerhelp\@microsoft.com**
 
-Om du inte kunde hämta Snapshot Debugger fungerar, kontakta **snapshothelp@microsoft.com**
+Om du inte kunde hämta Snapshot Debugger fungerar, kontakta **snapshothelp\@microsoft.com**
 
 ![Profiler-integrering](media/transaction-diagnostics/profilerTraces.png)
 

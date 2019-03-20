@@ -1,25 +1,18 @@
 ---
 title: WebSocket-stöd i Azure Application Gateway | Microsoft Docs
 description: Den här sidan innehåller en översikt över Application Gateway WebSocket-stöd.
-documentationcenter: na
-services: application-gateway
 author: amsriva
-manager: rossort
-editor: amsriva
-ms.assetid: 8968dac1-e9bc-4fa1-8415-96decacab83f
-ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/08/2017
 ms.author: amsriva
-ms.openlocfilehash: cc6e2480ea117a288ae94c9cd66be6a354d8230f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.service: application-gateway
+ms.topic: conceptual
+ms.workload: infrastructure-services
+ms.date: 03/18/2019
+ms.openlocfilehash: bae4b3d955076679a5640717ac6f5446e3951fb9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993330"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168127"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Översikt över WebSocket-stöd i Application Gateway
 
@@ -29,7 +22,15 @@ WebSocket-protokoll är standardiserade i [RFC6455](https://tools.ietf.org/html/
 
 Du kan fortsätta med en standard HTTP-lyssnaren på port 80 eller 443 att ta emot WebSocket-trafik. WebSocket-trafik dirigeras sedan till WebSocket-aktiverade backend-servern med korrekta serverdels-pooler som anges i reglerna för application gateway. Backend-servern måste svara på application gateway-avsökningar som beskrivs i den [översikt över hälsotillståndet för avsökning](application-gateway-probe-overview.md) avsnittet. Hälsoavsökningar för Application gateway är endast HTTP/HTTPS. Varje backend-servern måste svara på HTTP-avsökningar för application gateway att dirigera WebSocket-trafik till servern.
 
-## <a name="listener-configuration-element"></a>Listener-konfigurationselementet
+Den används i appar som har nytta av snabba, i realtid kommunikation, till exempel chatt, instrumentpanel och spelappar.
+
+## <a name="how-does-websocket-work"></a>Hur fungerar WebSocket
+
+För att upprätta en WebSocket-anslutning, utväxlas en specifik HTTP-baserade handskakning mellan klienten och servern. Om detta lyckas uppgraderas application layer protocol ”” från HTTP till WebSockets, med hjälp av den tidigare etablerade TCP-anslutningen. När detta inträffar är HTTP helt utanför bild. data kan skickas eller tas emot med WebSocket-protokoll av båda slutpunkterna tills WebSocket-anslutningen är stängd. 
+
+![addcert](./media/application-gateway-websocket/websocket.png)
+
+### <a name="listener-configuration-element"></a>Listener-konfigurationselementet
 
 En HTTP-lyssnare kan användas för att stödja WebSocket-trafik. Följande är ett utdrag från httpListeners-elementet från en exempelfil i mallen. Du behöver både HTTP och HTTPS-lyssnare för att stödja WebSocket och säker WebSocket-trafik. På samma sätt du kan använda den [portal](application-gateway-create-gateway-portal.md) eller [PowerShell](application-gateway-create-gateway-arm.md) att skapa en Programgateway med lyssnare på port 80/443 för att stödja WebSocket-trafik.
 

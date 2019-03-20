@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 189e122e04d56d28c1e1e94d328569647614a124
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 019c4eca564c503913a488a1d1ee5e4046ff320a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542135"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089887"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Skapa användare i Azure Database for MariaDB 
 Den här artikeln beskrivs hur du kan skapa användare i Azure Database for MariaDB.
@@ -80,7 +80,7 @@ När Azure Database for MariaDB-server har skapats kan använda du första anvä
    ```bash
    mysql --host mydemoserver.mariadb.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
-Mer information om hantering av användarkonton, finns i MariaDB-dokumentationen för [Användarkontohantering](https://mariadb.com/kb/en/library/user-account-management/), [BEVILJA Syntax](https://mariadb.com/kb/en/library/grant/), och [privilegier](https://mariadb.com/kb/en/library/grant/#privilege-levels).
+   Mer information om hantering av användarkonton, finns i MariaDB-dokumentationen för [Användarkontohantering](https://mariadb.com/kb/en/library/user-account-management/), [BEVILJA Syntax](https://mariadb.com/kb/en/library/grant/), och [privilegier](https://mariadb.com/kb/en/library/grant/#privilege-levels).
 
 ## <a name="next-steps"></a>Nästa steg
 Öppna brandväggen för IP-adresserna för de nya användarna datorer så att de kan ansluta: [Skapa och hantera Azure-databas för MariaDB brandväggsregler med hjälp av Azure portal](howto-manage-firewall-portal.md)  

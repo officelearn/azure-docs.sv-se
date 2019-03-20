@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 655d65ebfbb0141acd829a64414d9ba20dd2c697
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 850d8bbb525763e0e7d0c0441173180b7c469dd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633750"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085158"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrera Azure Time Series Insights med fjärrövervakning
 
@@ -88,15 +88,16 @@ Skapa en ny händelsekälla att ansluta till din IoT-hubb. Se till att du använ
 
     | Inställning | Värde |
     | ------- | ----- |
-    | Händelsekällans namn | Följande skärmbild använder namnet **contosorm-iot-hub**. Använd ditt eget unika namn när du har slutfört det här steget. |
+    | Namn på händelsekälla | Följande skärmbild använder namnet **contosorm-iot-hub**. Använd ditt eget unika namn när du har slutfört det här steget. |
     | Källa | **IoT Hub** |
     | Importalternativ | **Använd IoT Hub från tillgängliga prenumerationer** |
     | Prenumerations-ID:t | I listrutan väljer du din Azure-prenumeration. |
-    | Namnet på IOT hub | **contosorma57a6**. Använd namnet på IoT-hubben från lösningen för fjärrövervakning. |
-    | Principnamn för IOT hub | **iothubowner** se till att den princip som används är en ägare. |
-    | Principnyckel för IOT hub | Det här fältet fylls i automatiskt. |
-    | IOT hub-konsumentgrupp | **timeseriesinsights** |
-    | Händelseserialiseringsformat | **JSON**     | Egenskapsnamnet för tidsstämpeln | Lämna tomt |
+    | IoT Hub-namn | **contosorma57a6**. Använd namnet på IoT-hubben från lösningen för fjärrövervakning. |
+    | IoT Hub-principnamn | **iothubowner** se till att den princip som används är en ägare. |
+    | IoT Hub-principnyckel | Det här fältet fylls i automatiskt. |
+    | IoT Hub-konsumentgrupp | **timeseriesinsights** |
+    | Händelseserialiseringsformat | **JSON**     | 
+    | Egenskapsnamn för tidsstämpel | Lämna tomt |
 
     ![Skapa händelsekälla](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 
@@ -127,7 +128,7 @@ Om du vill se till att kan alla användare som har åtkomst till lösningen för
 > [!NOTE]
 > Om du vill bevilja ytterligare användare åtkomst till Time Series Insights explorer kan du använda dessa steg för att [bevilja åtkomst till data](../time-series-insights/time-series-insights-data-access.md#grant-data-access).
 
-## <a name="configure-azure-stream-analytics"></a>Konfigurera Azure Stream Analytics 
+## <a name="configure-azure-stream-analytics"></a>Configure Azure Stream Analytics 
 
 Nästa steg är att konfigurera Azure Stream Analytics Manager mikrotjänster för att sluta skicka meddelanden till Cosmos DB och lagra dem i Time Series Insights. Hoppa över det här steget om du vill duplicera meddelandena i Cosmos DB.
 

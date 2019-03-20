@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: cfefa8a1bfee03959d0f3b077d9915a6badb1ffd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fd680b00feb8a75dfec952d7211554100fca00d8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988093"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075074"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Bädda in Video Indexer widgetar i dina program
 
@@ -45,7 +45,7 @@ Med en **spelar**widget kan du strömma videon med anpassningsbar bithastighet. 
 |t|Sekunder från början|Gör att spelaren börjar spela upp från angiven tidpunkt.<br/>Exempel: t=60|
 |captions|Språkkod|Hämtar textningen på det angivna språket under inläsning av widgeten så att den blir tillgänglig på textningsmenyn.<br/>Exempel: captions=sv-SE|
 |showCaptions|Ett booleskt värde|Gör att spelaren läses in med aktiverad textning.<br/>Exempel: showCaptions=true|
-|typ||Aktiverar ett ljudspelarskal (videodelen tas bort).<br/>Exempel: type=audio|"
+|typ||Aktiverar ett ljudspelarskal (videodelen tas bort).<br/>Exempel: type=audio|
 |autoplay|Ett booleskt värde|Anger om spelaren ska börja spela upp videon när den har lästs in (standard är true).<br/>Exempel: autoplay=false|
 |language|Språkkod|Styr spelarens språk (standard är en-US)<br/>Exempel: language=de-DE|
 

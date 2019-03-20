@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: fc2333b6bd41b9efdd1fcafd6168906525cb537a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b422074c33f52a6819d2a05144a85768a2e484a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440581"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011928"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Kör MapReduce-jobb med Apache Hadoop på HDInsight med hjälp av REST
 
@@ -107,10 +107,10 @@ Lär dig använda Apache Hive WebHCat REST API för att köra MapReduce-jobb på
     Slutet av URI: N (/ mapreduce/jar) meddelar WebHCat att denna begäran startar ett MapReduce-jobb från en klass i ett jar-filen. De parametrar som används i det här kommandot är följande:
 
    * **-d**: `-G` inte används, så att begäran som standard POST-metoden. `-d` Anger de datavärden som skickas med begäran.
-    * **User.name**: Den användare som kör kommandot
-    * **jar**: Platsen för den jar-fil som innehåller klassen för att köra
-    * **klassen**: Den klass som innehåller logiken som MapReduce
-    * **arg**: Argument som ska skickas till MapReduce-jobb. I det här fallet, indatafilen och den katalog som används för utdata
+     * **User.name**: Den användare som kör kommandot
+     * **jar**: Platsen för den jar-fil som innehåller klassen för att köra
+     * **klassen**: Den klass som innehåller logiken som MapReduce
+     * **arg**: Argument som ska skickas till MapReduce-jobb. I det här fallet, indatafilen och den katalog som används för utdata
 
    Det här kommandot ska returnera ett jobb-ID som kan användas för att kontrollera status för jobbet:
 

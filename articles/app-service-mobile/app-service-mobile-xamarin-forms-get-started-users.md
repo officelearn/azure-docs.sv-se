@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: panarasi
-ms.openlocfilehash: f7e500fb5856c7eec48a371042244b44dd944779
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 1bbd481218128c482769cd6a28910e135c1ce16d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063801"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001047"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Lägg till autentisering i din Xamarin Forms-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -132,7 +132,7 @@ Det här avsnittet visas hur du implementerar den **IAuthenticate** gränssnitte
         public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IAuthenticate
 5. Uppdatera den **MainActivity** klassen genom att lägga till en **MobileServiceUser** fält och en **autentisera** metoden, vilket krävs av den **IAuthenticate** gränssnitt på följande sätt:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()
@@ -192,7 +192,7 @@ Det här avsnittet visas hur du implementerar den **IAuthenticate** gränssnitte
 
 **Programmet kraschade med `Java.Lang.NoSuchMethodError: No static method startActivity`**
 
-I vissa fall är i konflikt i supportpaket visas som bara en varning i Visual studio, men programkrascher med det här undantaget vid körning. I det här fallet måste du se till att alla supportpaket som refereras till i ditt projekt har samma version. Den [Azure Mobile Apps NuGet-paket](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) har `Xamarin.Android.Support.CustomTabs` beroende för Android-plattformen, så om projektet använder nyare support paket du behöver installera det här paketet med version som krävs direkt för att undvika konflikter.
+I vissa fall är i konflikt i supportpaket visas som bara en varning i Visual studio, men programkrascher med det här undantaget vid körning. I det här fallet måste du se till att alla supportpaket som refereras till i ditt projekt har samma version. [Azure Mobile Apps NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) har ett `Xamarin.Android.Support.CustomTabs`-beroende för Android-plattformen, så om ditt projekt använder nyare supportpaket behöver du installera det här paketet i erfordrad version direkt för att undvika konflikter.
 
 ## <a name="add-authentication-to-the-ios-app"></a>Lägg till autentisering i appen för iOS
 Det här avsnittet visas hur du implementerar den **IAuthenticate** gränssnittet i iOS-app-projekt. Hoppa över det här avsnittet om du inte stöder iOS-enheter.
@@ -208,7 +208,7 @@ Det här avsnittet visas hur du implementerar den **IAuthenticate** gränssnitte
         public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IAuthenticate
 5. Uppdatera den **AppDelegate** klassen genom att lägga till en **MobileServiceUser** fält och en **autentisera** metoden, vilket krävs av den **IAuthenticate** gränssnitt på följande sätt:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()
@@ -279,7 +279,7 @@ Det här avsnittet visas hur du implementerar den **IAuthenticate** gränssnitte
         public sealed partial class MainPage : IAuthenticate
 5. Uppdatera den **MainPage** klassen genom att lägga till en **MobileServiceUser** fält och en **autentisera** metoden, vilket krävs av den **IAuthenticate**gränssnitt på följande sätt:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()

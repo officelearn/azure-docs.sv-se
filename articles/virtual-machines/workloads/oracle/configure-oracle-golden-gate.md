@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: b21d9fe7c92edef13e717399c1f7a2b0e704e583
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1d0905900b81a0c7775011774b55565217d13b71
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433492"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011554"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementera Oracle guld Gate på en virtuell Azure Linux-dator 
 
@@ -349,79 +349,79 @@ SQL> EXIT;
 ### <a name="download-golden-gate-software"></a>Ladda ned guld Gate-programvara
 Om du vill hämta och Förbered guld-Gate för Oracle-programvara, gör du följande:
 
-1. Ladda ned den **fbo_ggs_Linux_x64_shiphome.zip** fil från den [Oracle guld Gate hämtningssidan](http://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Under rubriken hämta **Oracle GoldenGate 12.x.x.x för Oracle Linux x86-64**, bör det finnas en uppsättning .zip-filer att ladda ned.
+1. Ladda ned den **fbo_ggs_Linux_x64_shiphome.zip** fil från den [Oracle guld Gate hämtningssidan](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Under rubriken hämta **Oracle GoldenGate 12.x.x.x för Oracle Linux x86-64**, bör det finnas en uppsättning .zip-filer att ladda ned.
 
 2. När du har hämtat .zip-filer till en klientdator kan du använda protokollet SCP (Secure Copy) för att kopiera filer till den virtuella datorn:
 
-  ```bash
-  $ scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
-  ```
+   ```bash
+   $ scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
+   ```
 
 3. Flytta .zip-filer till den **/ opt** mapp. Ändra ägaren till filerna på följande sätt:
 
-  ```bash
-  $ sudo su -
-  # mv <folder>/*.zip /opt
-  ```
+   ```bash
+   $ sudo su -
+   # mv <folder>/*.zip /opt
+   ```
 
 4. Packa upp filerna (installera Linux packa upp verktyget om den inte redan är installerat):
 
-  ```bash
-  # yum install unzip
-  # cd /opt
-  # unzip fbo_ggs_Linux_x64_shiphome.zip
-  ```
+   ```bash
+   # yum install unzip
+   # cd /opt
+   # unzip fbo_ggs_Linux_x64_shiphome.zip
+   ```
 
 5. Ändra behörigheter:
 
-  ```bash
-  # chown -R oracle:oinstall /opt/fbo_ggs_Linux_x64_shiphome
-  ```
+   ```bash
+   # chown -R oracle:oinstall /opt/fbo_ggs_Linux_x64_shiphome
+   ```
 
 ### <a name="prepare-the-client-and-vm-to-run-x11-for-windows-clients-only"></a>Förbered klient och virtuell dator för att köra x11 (för Windows-klienter)
 Det här är ett valfritt steg. Du kan hoppa över det här steget om du använder en Linux-klient eller redan har x11 installationen.
 
 1. Hämta PuTTY och Xming till din Windows-dator:
 
-  * [Ladda ned PuTTY](http://www.putty.org/)
-  * [Ladda ned Xming](https://xming.en.softonic.com/)
+   * [Ladda ned PuTTY](https://www.putty.org/)
+   * [Ladda ned Xming](https://xming.en.softonic.com/)
 
-2.  När du har installerat PuTTY, i mappen PuTTY (till exempel c:\Program\Microsoft Files\PuTTY) kör du puttygen.exe (PuTTY-Nyckelgenerator).
+2. När du har installerat PuTTY, i mappen PuTTY (till exempel c:\Program\Microsoft Files\PuTTY) kör du puttygen.exe (PuTTY-Nyckelgenerator).
 
-3.  I PuTTY-Nyckelgenerator:
+3. I PuTTY-Nyckelgenerator:
 
-  - Om du vill generera en nyckel, Välj den **generera** knappen.
-  - Kopiera innehållet i nyckeln (**Ctrl + C**).
-  - Välj den **Spara privat nyckel** knappen.
-  - Ignorera varningen som visas och välj sedan **OK**.
+   - Om du vill generera en nyckel, Välj den **generera** knappen.
+   - Kopiera innehållet i nyckeln (**Ctrl + C**).
+   - Välj den **Spara privat nyckel** knappen.
+   - Ignorera varningen som visas och välj sedan **OK**.
 
-    ![Skärmbild av sidan PuTTY-nyckelgenerator](./media/oracle-golden-gate/puttykeygen.png)
+   ![Skärmbild av sidan PuTTY-nyckelgenerator](./media/oracle-golden-gate/puttykeygen.png)
 
-4.  I den virtuella datorn kör du följande kommandon:
+4. I den virtuella datorn kör du följande kommandon:
 
-  ```bash
-  # sudo su - oracle
-  $ mkdir .ssh (if not already created)
-  $ cd .ssh
-  ```
+   ```bash
+   # sudo su - oracle
+   $ mkdir .ssh (if not already created)
+   $ cd .ssh
+   ```
 
 5. Skapa en fil med namnet **authorized_keys**. Klistra in innehållet i nyckeln i den här filen och spara filen.
 
-  > [!NOTE]
-  > Nyckeln måste innehålla strängen `ssh-rsa`. Innehållet i nyckeln måste dessutom vara en enskild rad med text.
-  >  
+   > [!NOTE]
+   > Nyckeln måste innehålla strängen `ssh-rsa`. Innehållet i nyckeln måste dessutom vara en enskild rad med text.
+   >  
 
 6. Starta PuTTY. I den **kategori** väljer **anslutning** > **SSH** > **Auth**. I den **fil för privat nyckel för autentisering** rutan, bläddra till den nyckel som du skapade tidigare.
 
-  ![Skärmbild av sidan Ange privat nyckel](./media/oracle-golden-gate/setprivatekey.png)
+   ![Skärmbild av sidan Ange privat nyckel](./media/oracle-golden-gate/setprivatekey.png)
 
 7. I den **kategori** väljer **anslutning** > **SSH** > **X11**. Välj sedan den **aktivera X11 vidarebefordran** box.
 
-  ![Skärmbild av sidan Aktivera X11](./media/oracle-golden-gate/enablex11.png)
+   ![Skärmbild av sidan Aktivera X11](./media/oracle-golden-gate/enablex11.png)
 
 8. I den **kategori** rutan, gå till **Session**. Ange värdinformationen som och välj sedan **öppna**.
 
-  ![Skärmbild av sidan](./media/oracle-golden-gate/puttysession.png)
+   ![Skärmbild av sidan](./media/oracle-golden-gate/puttysession.png)
 
 ### <a name="install-golden-gate-software"></a>Installera guld Gate-programvara
 
@@ -429,43 +429,43 @@ Om du vill installera Oracle guld Gate, gör du följande:
 
 1. Logga in som oracle. (Du bör kunna logga in utan att behöva ange ett lösenord.) Se till att Xming körs innan du påbörjar installationen.
  
-  ```bash
-  $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
-  $ ./runInstaller
-  ```
+   ```bash
+   $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
+   $ ./runInstaller
+   ```
 2. Välj ”Oracle GoldenGate för Oracle Database 12c”. Välj sedan **nästa** att fortsätta.
 
-  ![Skärmbild av sidan Välj Installation för installationsprogrammet](./media/oracle-golden-gate/golden_gate_install_01.png)
+   ![Skärmbild av sidan Välj Installation för installationsprogrammet](./media/oracle-golden-gate/golden_gate_install_01.png)
 
 3. Ändra placeringen i programvara. Välj sedan den **starta Manager** och anger databasens plats. Välj **Nästa** för att fortsätta.
 
-  ![Skärmbild av sidan Välj Installation](./media/oracle-golden-gate/golden_gate_install_02.png)
+   ![Skärmbild av sidan Välj Installation](./media/oracle-golden-gate/golden_gate_install_02.png)
 
 4. Ändra katalogen inventering och väljer sedan **nästa** att fortsätta.
 
-  ![Skärmbild av sidan Välj Installation](./media/oracle-golden-gate/golden_gate_install_03.png)
+   ![Skärmbild av sidan Välj Installation](./media/oracle-golden-gate/golden_gate_install_03.png)
 
 5. På den **sammanfattning** väljer **installera** att fortsätta.
 
-  ![Skärmbild av sidan Välj Installation för installationsprogrammet](./media/oracle-golden-gate/golden_gate_install_04.png)
+   ![Skärmbild av sidan Välj Installation för installationsprogrammet](./media/oracle-golden-gate/golden_gate_install_04.png)
 
 6. Du kan uppmanas att köra ett skript som 'root'. I så fall öppna en separat session ssh till den virtuella datorn sudo till rot, och sedan köra skriptet. Välj **OK** fortsätta.
 
-  ![Skärmbild av sidan Välj Installation](./media/oracle-golden-gate/golden_gate_install_05.png)
+   ![Skärmbild av sidan Välj Installation](./media/oracle-golden-gate/golden_gate_install_05.png)
 
 7. När installationen är klar väljer du **Stäng** att slutföra processen.
 
-  ![Skärmbild av sidan Välj Installation](./media/oracle-golden-gate/golden_gate_install_06.png)
+   ![Skärmbild av sidan Välj Installation](./media/oracle-golden-gate/golden_gate_install_06.png)
 
 ### <a name="set-up-service-on-myvm1-primary"></a>Konfigurera tjänsten på myVM1 (primär)
 
 1. Skapa eller uppdatera filen Tnsnames.ora:
 
-  ```bash
-  $ cd $ORACLE_HOME/network/admin
-  $ vi tnsnames.ora
+   ```bash
+   $ cd $ORACLE_HOME/network/admin
+   $ vi tnsnames.ora
 
-  cdb1=
+   cdb1=
     (DESCRIPTION=
       (ADDRESS=
         (PROTOCOL=TCP)
@@ -478,7 +478,7 @@ Om du vill installera Oracle guld Gate, gör du följande:
       )
     )
 
-  pdb1=
+   pdb1=
     (DESCRIPTION=
       (ADDRESS=
         (PROTOCOL=TCP)
@@ -490,13 +490,13 @@ Om du vill installera Oracle guld Gate, gör du följande:
         (SERVICE_NAME=pdb1)
       )
     )
-  ```
+   ```
 
 2. Skapa guld Gate ägar- och konton.
 
-  > [!NOTE]
-  > Ägare-kontot måste ha C ##-prefix.
-  >
+   > [!NOTE]
+   > Ägare-kontot måste ha C## prefix.
+   >
 
     ```bash
     $ sqlplus / as sysdba
@@ -510,124 +510,124 @@ Om du vill installera Oracle guld Gate, gör du följande:
 
 3. Skapa guld Gate test-användarkonto:
 
-  ```bash
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ sqlplus system/OraPasswd1@pdb1
-  SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
-  SQL> GRANT connect, resource, dba TO test;
-  SQL> ALTER USER test QUOTA 100M on USERS;
-  SQL> connect test/test@pdb1
-  SQL> @demo_ora_create
-  SQL> @demo_ora_insert
-  SQL> EXIT;
-  ```
+   ```bash
+   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+   $ sqlplus system/OraPasswd1@pdb1
+   SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
+   SQL> GRANT connect, resource, dba TO test;
+   SQL> ALTER USER test QUOTA 100M on USERS;
+   SQL> connect test/test@pdb1
+   SQL> @demo_ora_create
+   SQL> @demo_ora_insert
+   SQL> EXIT;
+   ```
 
 4. Konfigurera extrahera parameterfilen.
 
- Starta kommandoradsgränssnittet gyllene gate (ggsci):
+   Starta kommandoradsgränssnittet gyllene gate (ggsci):
 
-  ```bash
-  $ sudo su - oracle
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ ./ggsci
-  GGSCI> DBLOGIN USERID test@pdb1, PASSWORD test
-  Successfully logged into database  pdb1
-  GGSCI>  ADD SCHEMATRANDATA pdb1.test
-  2017-05-23 15:44:25  INFO    OGG-01788  SCHEMATRANDATA has been added on schema test.
-  2017-05-23 15:44:25  INFO    OGG-01976  SCHEMATRANDATA for scheduling columns has been added on schema test.
+   ```bash
+   $ sudo su - oracle
+   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+   $ ./ggsci
+   GGSCI> DBLOGIN USERID test@pdb1, PASSWORD test
+   Successfully logged into database  pdb1
+   GGSCI>  ADD SCHEMATRANDATA pdb1.test
+   2017-05-23 15:44:25  INFO    OGG-01788  SCHEMATRANDATA has been added on schema test.
+   2017-05-23 15:44:25  INFO    OGG-01976  SCHEMATRANDATA for scheduling columns has been added on schema test.
 
-  GGSCI> EDIT PARAMS EXTORA
-  ```
+   GGSCI> EDIT PARAMS EXTORA
+   ```
 5. Lägg till följande till parameterfilen EXTRAHERA (med hjälp av vi kommandon). Tryck på Esc-tangenten ': wq ”! för att spara filen. 
 
-  ```bash
-  EXTRACT EXTORA
-  USERID C##GGADMIN, PASSWORD ggadmin
-  RMTHOST 10.0.0.5, MGRPORT 7809
-  RMTTRAIL ./dirdat/rt  
-  DDL INCLUDE MAPPED
-  DDLOPTIONS REPORT 
-  LOGALLSUPCOLS
-  UPDATERECORDFORMAT COMPACT
-  TABLE pdb1.test.TCUSTMER;
-  TABLE pdb1.test.TCUSTORD;
-  ```
+   ```bash
+   EXTRACT EXTORA
+   USERID C##GGADMIN, PASSWORD ggadmin
+   RMTHOST 10.0.0.5, MGRPORT 7809
+   RMTTRAIL ./dirdat/rt  
+   DDL INCLUDE MAPPED
+   DDLOPTIONS REPORT 
+   LOGALLSUPCOLS
+   UPDATERECORDFORMAT COMPACT
+   TABLE pdb1.test.TCUSTMER;
+   TABLE pdb1.test.TCUSTORD;
+   ```
 6. Registrera dig extrahera – integrerad extrahera:
 
-  ```bash
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ ./ggsci
+   ```bash
+   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+   $ ./ggsci
 
-  GGSCI> dblogin userid C##GGADMIN, password ggadmin
-  Successfully logged into database CDB$ROOT.
+   GGSCI> dblogin userid C##GGADMIN, password ggadmin
+   Successfully logged into database CDB$ROOT.
 
-  GGSCI> REGISTER EXTRACT EXTORA DATABASE CONTAINER(pdb1)
+   GGSCI> REGISTER EXTRACT EXTORA DATABASE CONTAINER(pdb1)
 
-  2017-05-23 15:58:34  INFO    OGG-02003  Extract EXTORA successfully registered with database at SCN 1821260.
+   2017-05-23 15:58:34  INFO    OGG-02003  Extract EXTORA successfully registered with database at SCN 1821260.
 
-  GGSCI> exit
-  ```
+   GGSCI> exit
+   ```
 7. Konfigurera extrahera kontrollpunkter och börja i realtid extrahera:
 
-  ```bash
-  $ ./ggsci
-  GGSCI>  ADD EXTRACT EXTORA, INTEGRATED TRANLOG, BEGIN NOW
-  EXTRACT (Integrated) added.
+   ```bash
+   $ ./ggsci
+   GGSCI>  ADD EXTRACT EXTORA, INTEGRATED TRANLOG, BEGIN NOW
+   EXTRACT (Integrated) added.
 
-  GGSCI>  ADD RMTTRAIL ./dirdat/rt, EXTRACT EXTORA, MEGABYTES 10
-  RMTTRAIL added.
+   GGSCI>  ADD RMTTRAIL ./dirdat/rt, EXTRACT EXTORA, MEGABYTES 10
+   RMTTRAIL added.
 
-  GGSCI>  START EXTRACT EXTORA
+   GGSCI>  START EXTRACT EXTORA
 
-  Sending START request to MANAGER ...
-  EXTRACT EXTORA starting
+   Sending START request to MANAGER ...
+   EXTRACT EXTORA starting
 
-  GGSCI > info all
+   GGSCI > info all
 
-  Program     Status      Group       Lag at Chkpt  Time Since Chkpt
+   Program     Status      Group       Lag at Chkpt  Time Since Chkpt
 
-  MANAGER     RUNNING
-  EXTRACT     RUNNING     EXTORA      00:00:11      00:00:04
-  ```
-I det här steget kan hitta du från Tillståndsändringsavisering, som ska användas senare, i ett annat avsnitt:
+   MANAGER     RUNNING
+   EXTRACT     RUNNING     EXTORA      00:00:11      00:00:04
+   ```
+   I det här steget kan hitta du från Tillståndsändringsavisering, som ska användas senare, i ett annat avsnitt:
 
-  ```bash
-  $ sqlplus / as sysdba
-  SQL> alter session set container = pdb1;
-  SQL> SELECT current_scn from v$database;
-  CURRENT_SCN
-  -----------
+   ```bash
+   $ sqlplus / as sysdba
+   SQL> alter session set container = pdb1;
+   SQL> SELECT current_scn from v$database;
+   CURRENT_SCN
+   -----------
       1857887
-  SQL> EXIT;
-  ```
+   SQL> EXIT;
+   ```
 
-  ```bash
-  $ ./ggsci
-  GGSCI> EDIT PARAMS INITEXT
-  ```
+   ```bash
+   $ ./ggsci
+   GGSCI> EDIT PARAMS INITEXT
+   ```
 
-  ```bash
-  EXTRACT INITEXT
-  USERID C##GGADMIN, PASSWORD ggadmin
-  RMTHOST 10.0.0.5, MGRPORT 7809
-  RMTTASK REPLICAT, GROUP INITREP
-  TABLE pdb1.test.*, SQLPREDICATE 'AS OF SCN 1857887'; 
-  ```
+   ```bash
+   EXTRACT INITEXT
+   USERID C##GGADMIN, PASSWORD ggadmin
+   RMTHOST 10.0.0.5, MGRPORT 7809
+   RMTTASK REPLICAT, GROUP INITREP
+   TABLE pdb1.test.*, SQLPREDICATE 'AS OF SCN 1857887'; 
+   ```
 
-  ```bash
-  GGSCI> ADD EXTRACT INITEXT, SOURCEISTABLE
-  ```
+   ```bash
+   GGSCI> ADD EXTRACT INITEXT, SOURCEISTABLE
+   ```
 
 ### <a name="set-up-service-on-myvm2-replicate"></a>Konfigurera tjänsten på myVM2 (replikera)
 
 
 1. Skapa eller uppdatera filen Tnsnames.ora:
 
-  ```bash
-  $ cd $ORACLE_HOME/network/admin
-  $ vi tnsnames.ora
+   ```bash
+   $ cd $ORACLE_HOME/network/admin
+   $ vi tnsnames.ora
 
-  cdb1=
+   cdb1=
     (DESCRIPTION=
       (ADDRESS=
         (PROTOCOL=TCP)
@@ -640,7 +640,7 @@ I det här steget kan hitta du från Tillståndsändringsavisering, som ska anv�
       )
     )
 
-  pdb1=
+   pdb1=
     (DESCRIPTION=
       (ADDRESS=
         (PROTOCOL=TCP)
@@ -652,72 +652,72 @@ I det här steget kan hitta du från Tillståndsändringsavisering, som ska anv�
         (SERVICE_NAME=pdb1)
       )
     )
-  ```
+   ```
 
 2. Skapa ett replikera konto:
 
-  ```bash
-  $ sqlplus / as sysdba
-  SQL> alter session set container = pdb1;
-  SQL> create user repuser identified by rep_pass container=current;
-  SQL> grant dba to repuser;
-  SQL> exec dbms_goldengate_auth.grant_admin_privilege('REPUSER',container=>'PDB1');
-  SQL> connect repuser/rep_pass@pdb1 
-  SQL> EXIT;
-  ```
+   ```bash
+   $ sqlplus / as sysdba
+   SQL> alter session set container = pdb1;
+   SQL> create user repuser identified by rep_pass container=current;
+   SQL> grant dba to repuser;
+   SQL> exec dbms_goldengate_auth.grant_admin_privilege('REPUSER',container=>'PDB1');
+   SQL> connect repuser/rep_pass@pdb1 
+   SQL> EXIT;
+   ```
 
 3. Skapa ett användarkonto för Guld Gate test:
 
-  ```bash
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ sqlplus system/OraPasswd1@pdb1
-  SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
-  SQL> GRANT connect, resource, dba TO test;
-  SQL> ALTER USER test QUOTA 100M on USERS;
-  SQL> connect test/test@pdb1
-  SQL> @demo_ora_create
-  SQL> EXIT;
-  ```
+   ```bash
+   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+   $ sqlplus system/OraPasswd1@pdb1
+   SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
+   SQL> GRANT connect, resource, dba TO test;
+   SQL> ALTER USER test QUOTA 100M on USERS;
+   SQL> connect test/test@pdb1
+   SQL> @demo_ora_create
+   SQL> EXIT;
+   ```
 
 4. REPLICAT parameterfilen att replikera ändringar: 
 
-  ```bash
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ ./ggsci
-  GGSCI> EDIT PARAMS REPORA  
-  ```
-  Innehållet i REPORA parameterfilen:
+   ```bash
+   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+   $ ./ggsci
+   GGSCI> EDIT PARAMS REPORA  
+   ```
+   Innehållet i REPORA parameterfilen:
 
-  ```bash
-  REPLICAT REPORA
-  ASSUMETARGETDEFS
-  DISCARDFILE ./dirrpt/repora.dsc, PURGE, MEGABYTES 100
-  DDL INCLUDE MAPPED
-  DDLOPTIONS REPORT
-  DBOPTIONS INTEGRATEDPARAMS(parallelism 6)
-  USERID repuser@pdb1, PASSWORD rep_pass
-  MAP pdb1.test.*, TARGET pdb1.test.*;
-  ```
+   ```bash
+   REPLICAT REPORA
+   ASSUMETARGETDEFS
+   DISCARDFILE ./dirrpt/repora.dsc, PURGE, MEGABYTES 100
+   DDL INCLUDE MAPPED
+   DDLOPTIONS REPORT
+   DBOPTIONS INTEGRATEDPARAMS(parallelism 6)
+   USERID repuser@pdb1, PASSWORD rep_pass
+   MAP pdb1.test.*, TARGET pdb1.test.*;
+   ```
 
 5. Ställ in en replikera kontrollpunkt:
 
-  ```bash
-  GGSCI> ADD REPLICAT REPORA, INTEGRATED, EXTTRAIL ./dirdat/rt
-  GGSCI> EDIT PARAMS INITREP
+   ```bash
+   GGSCI> ADD REPLICAT REPORA, INTEGRATED, EXTTRAIL ./dirdat/rt
+   GGSCI> EDIT PARAMS INITREP
 
-  ```
+   ```
 
-  ```bash
-  REPLICAT INITREP
-  ASSUMETARGETDEFS
-  DISCARDFILE ./dirrpt/tcustmer.dsc, APPEND
-  USERID repuser@pdb1, PASSWORD rep_pass
-  MAP pdb1.test.*, TARGET pdb1.test.*;   
-  ```
+   ```bash
+   REPLICAT INITREP
+   ASSUMETARGETDEFS
+   DISCARDFILE ./dirrpt/tcustmer.dsc, APPEND
+   USERID repuser@pdb1, PASSWORD rep_pass
+   MAP pdb1.test.*, TARGET pdb1.test.*;   
+   ```
 
-  ```bash
-  GGSCI> ADD REPLICAT INITREP, SPECIALRUN
-  ```
+   ```bash
+   GGSCI> ADD REPLICAT INITREP, SPECIALRUN
+   ```
 
 ### <a name="set-up-the-replication-myvm1-and-myvm2"></a>Konfigurera replikering (myVM1 och myVM2)
 

@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/31/2019
+ms.date: 03/01/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3711f2b2901ddbe49b4d6a49cabef12ac5dab3e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b303841dffd09e2c2f8250e4a7885fda36ab4a38
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192480"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168613"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>Vad är enhetshantering i Azure Active Directory?
 
@@ -89,7 +89,7 @@ Azure AD Join kan distribueras på något av följande sätt:
 
 När du implementerar Azure AD-anslutna enheter får du följande fördelar:
 
-- **Enkel inloggning (SSO)** till dina Azure-hanterade SaaS-appar och tjänster. Användarna ser inte meddelanden för ytterligare autentisering vid åtkomst till arbetsresurser. SSO-funktionen fungerar även utan anslutning till tillgängliga domännätverk.
+- **Enkel inloggning (SSO)** till dina Azure-hanterade SaaS-appar och tjänster. Användarna ser inte meddelanden för ytterligare autentisering vid åtkomst till arbetsresurser. SSO-funktionen är tillgänglig, även om användarna inte är anslutna till domännätverk.
 
 - **Företagskompatibel roaming** för användarinställningar med anslutna enheter. Användare behöver inte ansluta något Microsoft-konto (till exempel Hotmail) för att se inställningar på flera enheter.
 

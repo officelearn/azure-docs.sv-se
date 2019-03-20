@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: arjmands
-ms.openlocfilehash: eb5eecaca65cc8394bcc12fc5a475cf5e762f1c9
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: dc8c29b1c7d4e5056cb6aeee6335e32687fd547f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729973"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123682"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Hur du använder verktyg som finns i SDK: erna för att förenkla utvecklingen för etablering
 IoT Hub Device Provisioning Service förenklar etableringen med zero-touch-in-time [Automatisk etablering](concepts-auto-provisioning.md) på ett säkert och skalbart sätt.  Security-attestering i form av X.509-certifikat eller Trusted Platform Module (TPM) krävs.  Microsoft även i samarbete med [andra security maskinvarupartners](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) att förbättra förtroende för säkra IoT-distributionen. Förstå säkerhet maskinvarukrav kan vara ganska svårt för utvecklare. En uppsättning Azure IoT Provisioning Service-SDK: er tillhandahålls så att utvecklare kan använda ett bekvämlighet lager för skrivning klienter som kommunicerar med etableringstjänsten. SDK: erna kan du även ange exempel för vanliga scenarier som en uppsättning verktyg för att förenkla security attestering under utveckling.
@@ -23,9 +23,9 @@ IoT Hub Device Provisioning Service förenklar etableringen med zero-touch-in-ti
 
 Steg för att använda TPM-simulatorn är:
 1. [Förbereda utvecklingsmiljön](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java) och klona GitHub-lagringsplatsen:
-```
-git clone https://github.com/Azure/azure-iot-sdk-java.git
-```
+   ```
+   git clone https://github.com/Azure/azure-iot-sdk-java.git
+   ```
 2. Navigera till TPM-simulatormappen under ```azure-iot-sdk-java/provisioning/provisioning-tool/tpm-simulator/```.
 3. Kör Simulator.exe innan du kör valfritt program för etablering av enheten.
 4. Kan köras i bakgrunden under etableringsprocessen att hämta registrerings-ID och bekräftelsenyckeln simulatorn.  Båda värdena är bara giltiga för en instans av körningen.
@@ -47,18 +47,18 @@ När du för närvarande DICE-Emulator matar ut ett rotcertifikat, ett mellanlig
 
 Så här genererar X.509-certifikat med hjälp av den här generator:
 1. [Förbereda utvecklingsmiljön](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java) och klona GitHub-lagringsplatsen:
-```
-git clone https://github.com/Azure/azure-iot-sdk-java.git
-```
+   ```
+   git clone https://github.com/Azure/azure-iot-sdk-java.git
+   ```
 2. Ändra roten till azure-iot-sdk-java.
 3. Kör ```mvn install -DskipTests=true``` att hämta alla nödvändiga paket och kompilera SDK
 4. Navigera till roten för X.509 Certificate Generator i ```azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator```.
 5. Skapa med ```mvn clean install```
 6. Kör verktyget med följande kommandon:
-```
-cd target
-java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
-```
+   ```
+   cd target
+   java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
+   ```
 7. Vid uppmaning kan du ange ett _eget namn_ för dina certifikat.
 8. Verktyget genererar lokalt en **Client Cert**, **privata Klientcertifikatnyckel**, **mellanliggande certifikat**, och **Root Cert**.
 

@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1110ef9383798ddeb8a04a0e19deb441e3d207c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 93b59a108d5d87479c12174e97713d4c12d84f2e
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081312"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200063"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Självstudier: Lägga till eller ta bort gruppmedlemmar automatiskt
 
@@ -28,7 +28,7 @@ I Azure Active Directory (Azure AD) kan du automatiskt lägga till eller ta bort
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
-> * Skapa en automatiskt ifylld grupp med gästanvändare från ett visst partnerföretag
+> * Skapa en automatiskt ifyllda gästanvändare-grupp från ett partnerföretag
 > * Tilldela licenser till gruppen för partnerspecifika funktioner för gästanvändare för åtkomst
 > * Bonus: skydda gruppen **Alla användare** genom att ta bort gästanvändare så att du, till exempel, kan ge medlemmarna användaråtkomst till webbplatser som är endast interna
 
@@ -46,7 +46,7 @@ Först skapar du en grupp för dina gästanvändare som alla finns i samma partn
 
 1. Logga in på Azure-portalen (https://portal.azure.com) med ett konto som är global administratör för din klient.
 2. Välj **Azure Active Directory** > **Grupper** > **Ny grupp**.
-   ![välj kommandot för ny grupp](./media/groups-dynamic-tutorial/new-group.png)
+   ![Välj kommando för att starta en ny grupp](./media/groups-dynamic-tutorial/new-group.png)
 3. På bladet **Grupp**:
   
    * Välj **Säkerhet** som grupptyp

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: c228821383a1bfedf380f97e3411fdacc322a6f9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: fead1cf639a379fc288122e39629909786aa3f14
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054486"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844808"
 ---
 # <a name="actor-events"></a>Aktören händelser
 Aktören händelser är ett sätt att skicka meddelanden för bästa prestanda från aktören till klienterna. Aktören händelser är utformade för aktören till klientkommunikation och bör inte användas för aktören till aktören kommunikation.
@@ -114,4 +114,4 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 * [Aktören API-referensdokumentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [C# exempelkod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [C# .NET Core exempelkod](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
-* [Java-exempelkoden](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java-exempelkoden](https://github.com/Azure-Samples/service-fabric-java-getting-started)

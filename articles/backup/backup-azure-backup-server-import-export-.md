@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 01b90d6bb18addd6a0235101f86b9d51953cc096
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 8d15eb03055aed32c8a99121b750ee5767a87b50
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818565"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094981"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Arbetsflöde för säkerhetskopiering offline för DPM och Azure Backup Server
 Azure Backup har flera inbyggda effektiviteten som sparar kostnader för lagring och nätverk under en första fullständig säkerhetskopiering av data till Azure. Inledande fullständiga säkerhetskopieringar vanligtvis överföra stora mängder data och kräver mer bandbredd i nätverket jämfört med efterföljande säkerhetskopieringar som överför bara deltan/varje. Azure Backup komprimerar första säkerhetskopieringarna. Genom processen för att ange startvärden offline, kan Azure Backup använda diskar för att ladda upp den komprimerade första säkerhetskopiera informationen offline till Azure.
@@ -55,7 +55,7 @@ Kontrollera att följande krav är uppfyllda innan du påbörjar arbetsflöde f�
 
 * Ett Azure Storage-konto med *klassiska* distributionsmodellen har skapats i den prenumeration som du har hämtat publiceringsinställningsfil som visas nedan: 
 
- ![Skapa ett klassiskt lagringskonto](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
+  ![Skapa ett klassiskt lagringskonto](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
 
 * En mellanlagringsplats som kan vara en nätverksresurs eller eventuella ytterligare en enhet på datorn, interna eller externa, med tillräckligt med diskutrymme för att rymma den inledande kopian har skapats. Om du vill se till att säkerhetskopiera en filserver med 500 GB är mellanlagringsområdet minst 500 GB. (Färre används på grund av komprimering.)
 * Kontrollera som endast 2,5 tums SSD eller 2,5 tum eller 3,5-tums SATA II/III interna hårddiskar som används för diskar som ska skickas till Azure. Du kan använda hårddiskar upp till 10 TB. Kontrollera den [dokumentation om Azure Import/Export service](../storage/common/storage-import-export-requirements.md#supported-hardware) för den senaste uppsättningen av enheter som har stöd för tjänsten.
@@ -74,12 +74,12 @@ Informationen i det här avsnittet hjälper dig att slutföra arbetsflöde för 
 
     Beskrivning av indata är följande:
 
-    * **Mellanlagringsplatsen**: Den tillfälliga lagringsplats som den första säkerhetskopian skrivs. Mellanlagringsplatsen kan vara på en nätverksresurs eller en lokal dator. Om kopiera dator och källdatorn skiljer sig, rekommenderar vi att du anger den fullständiga nätverkssökvägen på mellanlagringsplatsen.
-    * **Namnet på Azure-importjobbet**: Det unika namnet genom vilka Azure-Import-tjänsten och Azure Backup spåra överföringen av data som skickas på diskar till Azure.
-    * **Azure-Publiceringsinställningar**: Ange den lokala sökvägen till filen publicera.
-    * **Azure-prenumerations-ID**: Azure prenumerations-ID för prenumerationen från där du laddade ned filen publicera i Azure. 
-    * **Azure Storage-konto**: Namnet på storage-konto i Azure-prenumeration som är associerade med filen publicera i Azure.
-    * **Azure-lagringsbehållare**: Namnet på målblobben för lagring i Azure storage-konto där dina säkerhetskopierade data har importerats.
+   * **Mellanlagringsplatsen**: Den tillfälliga lagringsplats som den första säkerhetskopian skrivs. Mellanlagringsplatsen kan vara på en nätverksresurs eller en lokal dator. Om kopiera dator och källdatorn skiljer sig, rekommenderar vi att du anger den fullständiga nätverkssökvägen på mellanlagringsplatsen.
+   * **Namnet på Azure-importjobbet**: Det unika namnet genom vilka Azure-Import-tjänsten och Azure Backup spåra överföringen av data som skickas på diskar till Azure.
+   * **Azure-Publiceringsinställningar**: Ange den lokala sökvägen till filen publicera.
+   * **Azure-prenumerations-ID**: Azure prenumerations-ID för prenumerationen från där du laddade ned filen publicera i Azure. 
+   * **Azure Storage-konto**: Namnet på storage-konto i Azure-prenumeration som är associerade med filen publicera i Azure.
+   * **Azure-lagringsbehållare**: Namnet på målblobben för lagring i Azure storage-konto där dina säkerhetskopierade data har importerats.
 
      Spara den *mellanlagringsplatsen* och *Azure Importjobbets namn* du angav som det krävs för att förbereda diskarna.  
      
@@ -102,14 +102,14 @@ Den *AzureOfflineBackupDiskPrep* verktyget används för att förbereda SATA-enh
 
 1. Gå till katalogen och kopiera den **AzureOfflineBackupDiskPrep** katalogen till en kopia-dator där SATA-enheter att vara förberedd är ansluten. Så här för kopiera datorn:
 
-    * Kopiera-datorn kan komma åt mellanlagringsplatsen för offline-seeding-arbetsflödet med hjälp av samma nätverkssökväg som angavs i den **påbörja offlinesäkerhetskopiering** arbetsflöde.
-    * BitLocker har aktiverats på datorn kopia.
-    * Kopiera-datorn kan komma åt Azure-portalen.
+   * Kopiera-datorn kan komma åt mellanlagringsplatsen för offline-seeding-arbetsflödet med hjälp av samma nätverkssökväg som angavs i den **påbörja offlinesäkerhetskopiering** arbetsflöde.
+   * BitLocker har aktiverats på datorn kopia.
+   * Kopiera-datorn kan komma åt Azure-portalen.
 
-    Om det behövs, kan kopiera-datorn vara samma som källdatorn. 
+     Om det behövs, kan kopiera-datorn vara samma som källdatorn. 
     
-    > [!IMPORTANT] 
-    > Om källdatorn är en virtuell dator, är det obligatoriskt att använda en annan fysisk server eller klientdator som datorn du vill kopiera.
+     > [!IMPORTANT] 
+     > Om källdatorn är en virtuell dator, är det obligatoriskt att använda en annan fysisk server eller klientdator som datorn du vill kopiera.
     
     
 2. Öppna en upphöjd kommandotolk på Kopiera-dator med den *AzureOfflineBackupDiskPrep* verktyget katalog som den aktuella katalogen och kör sedan följande kommando:

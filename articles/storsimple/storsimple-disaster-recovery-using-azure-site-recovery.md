@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: f5b128306389a87c432b869b4756a6d232dc903c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f5eefd1d3fa26738729d98e60d8a56cd8d33d86c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566048"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084886"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatiserad Disaster Recovery-lösning med Azure Site Recovery för filresurser som finns på StorSimple
 ## <a name="overview"></a>Översikt
@@ -179,7 +179,7 @@ Du kan skapa en återställningsplan i ASR att automatisera redundansprocessen a
    - *RecoveryPlanName***-StorageAccountKey**: Åtkomstnyckeln för lagringskontot ovan.
    - *RecoveryPlanName***-VMGUIDS**: När du skyddar en virtuell dator, tilldelar Azure Site Recovery varje virtuell dator ett unikt ID som ger information om den misslyckade VM. Om du vill ha VMGUID, Välj den **återställningstjänster** fliken och klicka på **skyddade objektet** &gt; **Skyddsgrupper** &gt;  **Datorer** &gt; **egenskaper**. Om du har flera virtuella datorer kan sedan lägga till GUID som en kommaavgränsad sträng.
 
-    Om namnet på återställningsplanen är fileServerpredayRP, till exempel sedan din **variabler**, **anslutningar** och **certifikat** fliken bör visas på följande sätt när du lägger till alla tillgångar.
+     Om namnet på återställningsplanen är fileServerpredayRP, till exempel sedan din **variabler**, **anslutningar** och **certifikat** fliken bör visas på följande sätt när du lägger till alla tillgångar.
 
       ![Tillgångar](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
@@ -332,30 +332,30 @@ Kapacitetsplanering består av minst två viktiga processer:
    - Fastställa nödvändig Internet-bandbredd.
 
 ## <a name="limitations"></a>Begränsningar
-   - För närvarande kan endast 1 StorSimple-enhet redundansväxlas (för att en enda StorSimple Cloud Appliance). Scenario för en filserver som sträcker sig över flera StorSimple-enheter stöds inte ännu.
-   - Om du får ett fel medan skyddet aktiveras för en virtuell dator kan du kontrollera att du har kopplat från iSCSI-mål.
-   - Alla volymcontainrar som grupperas tillsammans på grund av säkerhetskopiering principer som täcker över volymbehållare redundansväxlas tillsammans.
-   - Alla volymer i de volymbehållare som du har valt kommer att redundansväxlas.
-   - Volymer som lägga till upp till fler än 64 TB redundansväxlas inte eftersom den maximala kapaciteten på ett enda StorSimple Cloud Appliance är 64 TB.
-   - Om planerad/oplanerad redundans misslyckas och de virtuella datorerna skapas i Azure, sedan du inte rensa upp de virtuella datorerna. I stället gör en återställning efter fel. Om du tar bort de virtuella datorerna kan sedan lokala virtuella datorer inte aktiveras igen.
-   - Efter en redundansväxling om du inte kan se volymerna, går du till de virtuella datorerna, öppnar du Diskhantering, skanna om diskarna och tar dem online.
-   - I vissa fall kan Enhetsbokstäverna i DR-plats vara annorlunda än de bokstäver lokalt. Om detta inträffar kommer du behöva korrigera problemet manuellt när redundansen är klar.
-   - Tidsgräns för redundans-jobb: StorSimple-skriptet når tidsgränsen om redundans för volymbehållare tar längre tid än Azure Site Recovery-gränsen per skript (för närvarande 120 minuter).
-   - Tidsgräns för säkerhetskopieringsjobbet: StorSimple-skriptet sin tidsgräns om säkerhetskopiering av volymer tar längre tid än Azure Site Recovery-gränsen per skript (för närvarande 120 minuter).
+- För närvarande kan endast 1 StorSimple-enhet redundansväxlas (för att en enda StorSimple Cloud Appliance). Scenario för en filserver som sträcker sig över flera StorSimple-enheter stöds inte ännu.
+- Om du får ett fel medan skyddet aktiveras för en virtuell dator kan du kontrollera att du har kopplat från iSCSI-mål.
+- Alla volymcontainrar som grupperas tillsammans på grund av säkerhetskopiering principer som täcker över volymbehållare redundansväxlas tillsammans.
+- Alla volymer i de volymbehållare som du har valt kommer att redundansväxlas.
+- Volymer som lägga till upp till fler än 64 TB redundansväxlas inte eftersom den maximala kapaciteten på ett enda StorSimple Cloud Appliance är 64 TB.
+- Om planerad/oplanerad redundans misslyckas och de virtuella datorerna skapas i Azure, sedan du inte rensa upp de virtuella datorerna. I stället gör en återställning efter fel. Om du tar bort de virtuella datorerna kan sedan lokala virtuella datorer inte aktiveras igen.
+- Efter en redundansväxling om du inte kan se volymerna, går du till de virtuella datorerna, öppnar du Diskhantering, skanna om diskarna och tar dem online.
+- I vissa fall kan Enhetsbokstäverna i DR-plats vara annorlunda än de bokstäver lokalt. Om detta inträffar kommer du behöva korrigera problemet manuellt när redundansen är klar.
+- Tidsgräns för redundans-jobb: StorSimple-skriptet når tidsgränsen om redundans för volymbehållare tar längre tid än Azure Site Recovery-gränsen per skript (för närvarande 120 minuter).
+- Tidsgräns för säkerhetskopieringsjobbet: StorSimple-skriptet sin tidsgräns om säkerhetskopiering av volymer tar längre tid än Azure Site Recovery-gränsen per skript (för närvarande 120 minuter).
    
-   > [!IMPORTANT]
-   > Köra säkerhetskopieringen manuellt från Azure-portalen och kör sedan återställningsplanen igen.
+  > [!IMPORTANT]
+  > Köra säkerhetskopieringen manuellt från Azure-portalen och kör sedan återställningsplanen igen.
    
-   - Klona jobb tidsgräns: StorSimple-skriptet sin tidsgräns om kloning av volymer tar längre tid än Azure Site Recovery-gränsen per skript (för närvarande 120 minuter).
-   - Tid synkroniseringsfel: StorSimple skript fel ut säger att säkerhetskopieringarna inte genomfördes trots att säkerhetskopieringen är klar i portalen. En möjlig orsak till detta kan vara att tiden för StorSimple-installation kan vara synkroniserad med den aktuella tiden i den aktuella tidszonen.
+- Klona jobb tidsgräns: StorSimple-skriptet sin tidsgräns om kloning av volymer tar längre tid än Azure Site Recovery-gränsen per skript (för närvarande 120 minuter).
+- Tid synkroniseringsfel: StorSimple skript fel ut säger att säkerhetskopieringarna inte genomfördes trots att säkerhetskopieringen är klar i portalen. En möjlig orsak till detta kan vara att tiden för StorSimple-installation kan vara synkroniserad med den aktuella tiden i den aktuella tidszonen.
    
-   > [!IMPORTANT]
-   > Synkronisera tiden för installationen med den aktuella tiden i den aktuella tidszonen.
+  > [!IMPORTANT]
+  > Synkronisera tiden för installationen med den aktuella tiden i den aktuella tidszonen.
    
-   - Installationen redundans-fel: StorSimple-skriptet kan misslyckas om det är en installation redundans när återställningsplanen körs.
+- Installationen redundans-fel: StorSimple-skriptet kan misslyckas om det är en installation redundans när återställningsplanen körs.
    
-   > [!IMPORTANT]
-   > Nytt återställningsplanen efter redundansväxlingen för installationen är klar.
+  > [!IMPORTANT]
+  > Nytt återställningsplanen efter redundansväxlingen för installationen är klar.
 
 
 ## <a name="summary"></a>Sammanfattning

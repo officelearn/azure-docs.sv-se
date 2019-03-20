@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 4518011fbeaefbb32403f5b37e434e7315beffa0
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 1982f974acd1e9d5e8cae91201f6503eb2ae678a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734932"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898813"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Använd en U-SQL database-projekt för att utveckla en U-SQL-databas för Azure Data Lake
 
@@ -57,7 +57,7 @@ Verktyget ger en användarvänliga UI-redigerare som hjälper dig att registrera
 
 Skapa utdata för ett projekt för U-SQL-databas är ett U-SQL-databas distributionspaket, med namnet med suffixet `.usqldbpack`. Den `.usqldbpack` paketet är en .zip-fil som innehåller alla DDL-instruktionerna i ett enda U-SQL-skript i den **DDL** mappen och alla DLL: er och ytterligare filer för sammansättningar i den **Temp** mapp.
 
-Läs mer om [hur du skapar ett projekt med U-SQL-databas med MSBuild kommandoraden och en Azure-tjänster för DevOps Skapa uppgift](data-lake-analytics-cicd-overview.md).
+Läs mer om [hur du skapar ett projekt med U-SQL-databas med MSBuild kommandoraden och en Azure DevOps-tjänsterna Skapa uppgift](data-lake-analytics-cicd-overview.md).
 
 ## <a name="deploy-a-u-sql-database"></a>Distribuera en U-SQL-databas
 
@@ -100,8 +100,8 @@ Du kan distribuera en U-SQL-databas via ett projekt för U-SQL-databas eller en 
 
 Ett U-SQL-projekt kan referera till ett projekt för U-SQL-databas. Referensen påverkar två arbetsbelastningar:
 
-- *Projektet build*: ställa in de refererade databasmiljöer innan du skapar U-SQL-skript. 
-- *Lokalt konto som kör mot (en lokal-projekt)*: de refererade databasmiljöer distribueras till (en lokal-projekt) konto innan U-SQL-skript kan köras. [Mer information om lokala körningar och skillnaden mellan (local-dator) och (en lokal-projekt) konto här](data-lake-analytics-data-lake-tools-local-run.md).
+- *Projektet build*: Ställa in de refererade databasmiljöer innan du skapar U-SQL-skript. 
+- *Lokalt konto som kör mot (en lokal-projekt)*: De refererade databasmiljöer distribueras till (en lokal-projekt) konto innan U-SQL-skript kan köras. [Mer information om lokala körningar och skillnaden mellan (local-dator) och (en lokal-projekt) konto här](data-lake-analytics-data-lake-tools-local-run.md).
 
 ### <a name="how-to-add-a-u-sql-database-reference"></a>Hur du lägger till en referens för U-SQL-databas
 

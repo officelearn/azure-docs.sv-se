@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: e8028bc9a4a6f3245dca61d6dd30db22dc295a7f
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d66254cdad596e3b10482b2c937326162e2e075d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992455"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886838"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Lägga till en App Service-resursprovider i Azure Stack
 
@@ -44,13 +44,13 @@ Du kan ge användarna möjlighet att skapa webbprogram och API: et. Om du vill l
 
 Installera App Service-resursprovider tar minst en timme. Hur lång tid som behövs beror på hur många rollen instanser du distribuerar. Under distributionen så, körs installationsprogrammet följande uppgifter:
 
- - Skapa en blobbehållare i det angivna Azure Stack-lagringskontot.
- - Skapa en DNS-zon och DNS-poster för App Service.
- - Registrera resursprovidern för App Service.
- - Registrera galleriobjekt App Service.
+- Skapa en blobbehållare i det angivna Azure Stack-lagringskontot.
+- Skapa en DNS-zon och DNS-poster för App Service.
+- Registrera resursprovidern för App Service.
+- Registrera galleriobjekt App Service.
 
- > [!IMPORTANT]
- > Innan du distribuerar resursprovidern, granska viktig information att lära dig om nya funktioner och korrigeringar kända problem som kan påverka din distribution.
+  > [!IMPORTANT]
+  > Innan du distribuerar resursprovidern, granska viktig information att lära dig om nya funktioner och korrigeringar kända problem som kan påverka din distribution.
 
 Distribuera App Service-resursprovider genom att följa dessa steg:
 
@@ -74,8 +74,8 @@ Distribuera App Service-resursprovider genom att följa dessa steg:
 
     a. Välj **Connect** bredvid den **Azure Stack-prenumerationer**.
 
-     - Om du använder Azure Active Directory (AD Azure), anger du det Azure AD-administratörskonto och lösenord som du angav när du har distribuerat Azure Stack. Välj **logga In**.
-     - Om du använder Active Directory Federation Services (AD FS), ange ditt administratörskonto. Till exempel cloudadmin@azurestack.local. Ange ditt lösenord och välj sedan **logga In**.
+   - Om du använder Azure Active Directory (AD Azure), anger du det Azure AD-administratörskonto och lösenord som du angav när du har distribuerat Azure Stack. Välj **logga In**.
+   - Om du använder Active Directory Federation Services (AD FS), ange ditt administratörskonto. Till exempel cloudadmin@azurestack.local. Ange ditt lösenord och välj sedan **logga In**.
 
    b. I **Azure Stack-prenumerationer**väljer den **standard Providerprenumeration**.
 
@@ -243,7 +243,7 @@ Följ dessa steg om du vill skapa en webbapp för test:
 
 1. I Azure Stack-klient-portalen väljer **+**, gå till Azure Marketplace, distribuera en Django-webbplats och sedan vänta tills distributionen är klar. Django web-plattformen använder en fil system-baserad databas. Det kräver inte några ytterligare resource-leverantörer, till exempel SQL eller MySQL.
 
-2. Om du har distribuerat en MySQL-resursprovider också kan du distribuera en WordPress-webbplats från Marketplace. När du uppmanas att ange Databasparametrar anger du användarnamnet som *User1@Server1*med användarnamn och servernamnet på ditt val.
+2. Om du har distribuerat en MySQL-resursprovider också kan du distribuera en WordPress-webbplats från Marketplace. När du uppmanas att ange Databasparametrar anger du användarnamnet som *User1\@Server1*med användarnamn och servernamnet på ditt val.
 
 3. Om du har distribuerat en SQL Server-resursleverantör också kan du distribuera en DNN-webbplats från Marketplace. Välj en databas i den dator som kör SQL Server som är ansluten till din resursprovider när du uppmanas att ange Databasparametrar.
 

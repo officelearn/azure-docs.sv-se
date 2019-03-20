@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 6fd25bbf6910140a338267c51955a817d0195939
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 2aabe3d1fa8a6034c2dab38c8d6fa6da4b00ac1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247196"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080347"
 ---
 # <a name="azure-network-security-overview"></a>Översikt över Azure network security
 
@@ -61,8 +61,8 @@ Azure har stöd för flera typer av åtkomstkontrollen för nätverk, till exemp
 
 En säker distribution kräver vissa mått på åtkomstkontroll för nätverk. Målet med åtkomstkontrollen för nätverk är att begränsa kommunikationen för virtuell dator till de nödvändiga system. Andra kommunikation tillåts.
 
->[!NOTE]
-Storage-brandväggar beskrivs i den [Säkerhetsöversikt för Azure storage](security-storage-overview.md) artikel
+> [!NOTE]
+> Storage-brandväggar beskrivs i den [Säkerhetsöversikt för Azure storage](security-storage-overview.md) artikel
 
 #### <a name="network-security-rules-nsgs"></a>Nätverkssäkerhetsregler (NSG)
 
@@ -365,8 +365,8 @@ Azure Network Watcher kan hjälpa dig att felsöka, och ger en helt ny uppsättn
 
 Läs mer om Network Watcher och hur du startar testerna några av funktionerna i dina labb [Azure network watcher Övervakningsöversikt](../network-watcher/network-watcher-monitoring-overview.md).
 
->[!NOTE]
-Aktuell information om tillgänglighet och status för den här tjänsten, kontrollera den [uppdateringar i Azure-sidan](https://azure.microsoft.com/updates/?product=network-watcher).
+> [!NOTE]
+> Aktuell information om tillgänglighet och status för den här tjänsten, kontrollera den [uppdateringar i Azure-sidan](https://azure.microsoft.com/updates/?product=network-watcher).
 
 ### <a name="azure-security-center"></a>Azure Security Center
 

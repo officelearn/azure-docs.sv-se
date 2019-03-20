@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/27/2018
 ms.author: ryanwi
-ms.openlocfilehash: 42a6430162f3bafd3ec3ce2a3c523f6f5755914a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0e5cfa42eba5a2110ebf8879c771f2fef048ae03
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001386"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835721"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Lägg till loggning i Service Fabric-programmet
 
@@ -132,7 +132,7 @@ ASP.NET Core loggning ([Microsoft.Extensions.Logging NuGet-paketet](https://www.
 
 ### <a name="using-other-logging-providers"></a>Med hjälp av andra leverantörer av loggning
 
-Vissa leverantörer Använd metoden som beskrivs i föregående avsnitt, inklusive [Serilog](https://serilog.net/), [NLog](http://nlog-project.org/), och [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging). Du kan ansluta var och en av dessa i ASP.NET Core loggning eller du kan använda dem separat. Serilog har en funktion som får alla meddelanden som skickas från en loggare. Den här funktionen kan vara användbart att mata ut namn, typ och partitionsinformation. Om du vill använda den här funktionen i ASP.NET Core-infrastrukturen, gör du följande:
+Vissa leverantörer Använd metoden som beskrivs i föregående avsnitt, inklusive [Serilog](https://serilog.net/), [NLog](https://nlog-project.org/), och [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging). Du kan ansluta var och en av dessa i ASP.NET Core loggning eller du kan använda dem separat. Serilog har en funktion som får alla meddelanden som skickas från en loggare. Den här funktionen kan vara användbart att mata ut namn, typ och partitionsinformation. Om du vill använda den här funktionen i ASP.NET Core-infrastrukturen, gör du följande:
 
 1. Lägg till den **Serilog**, **Serilog.Extensions.Logging**, **Serilog.Sinks.Literate**, och **Serilog.Sinks.Observable** NuGet-paket i projektet. 
 2. Skapa en `LoggerConfiguration` och logger-instans.

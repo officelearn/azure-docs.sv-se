@@ -2,19 +2,19 @@
 title: Installera och använda tillägget Azure Terraform i Visual Studio Code
 description: Lär dig hur du installerar och använder tillägget Azure Terraform i Visual Studio Code.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, azure, devops, visual studio code, extension
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: 137a57638207a05f797692b25a5d5a31bd66ce3d
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: b1102649e48af8cb36a64f1142c078bf9ebc0d99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074588"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006188"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Installera och använda tillägget Azure Terraform i Visual Studio Code
 
@@ -26,7 +26,7 @@ I den här artikeln kan du se hur du:
 > * installerar och använder tillägget Microsoft Terraform i Visual Studio Code för Azure-tjänster
 > * använder Visual Studio Code för att skriva, planera och köra Terraform-planer.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 - **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
 - **Terraform**: [Installera och konfigurera Terraform](/azure/virtual-machines/linux/terraform-install-configure).
@@ -59,7 +59,7 @@ För att använda Terraform i Cloud Shell måste du [installera Node.js](https:/
 
 ### <a name="install-graphviz"></a>Installera GraphViz
 
-För att använda Terraform-visualiseringsfunktionen måste du [installera GraphViz](http://graphviz.org/).
+För att använda Terraform-visualiseringsfunktionen måste du [installera GraphViz](https://graphviz.org/).
 
 >[!NOTE]
 >Kontrollera om GraphViz är installerat genom att öppna ett terminalfönster och ange `dot -V`.
@@ -128,7 +128,7 @@ I den här övningen ska du skapa och köra en grundläggande Terraform-konfigur
     ![Spara som main.tf](media/terraform-vscode-extension/tf-save-as-main.png)
 
 1. Välj **Spara**.
-- På menyraden väljer du **Fil > Öppna mapp**. Navigera till och välj den nya mappen som du skapade.
+1. På menyraden väljer du **Fil > Öppna mapp**. Navigera till och välj den nya mappen som du skapade.
 
 ### <a name="run-terraform-init-command"></a>Kör Terraform-kommandot *init*
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: ef81e0c4d04d57edbffa16b817b34af5f3bf8c26
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: dff6d07f4df1da3de083934e0d8240beb957292e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995637"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57883601"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Använda Azure AD-autentisering för att få åtkomst till Media Services-API med REST
 
@@ -60,8 +60,8 @@ Du behöver samla in följande datapunkter för att komma åt Media Services-API
 
 |Inställning|Exempel|Beskrivning|
 |---|-------|-----|
-|Azure Active Directory-klientorganisationsdomän|microsoft.onmicrosoft.com|Azure AD som en säker säkerhetstokentjänst (STS)-slutpunkt skapas med hjälp av följande format: https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD utfärdar en JWT för att komma åt resurser (en åtkomsttoken).|
-|REST API-slutpunkt|https://amshelloworld.restv2.westus.media.azure.net/api/|Detta är den slutpunkt mot vilken alla Media Services REST API-anrop i ditt program har utförts.|
+|Azure Active Directory-klientorganisationsdomän|microsoft.onmicrosoft.com|Azure AD som en säker säkerhetstokentjänst (STS)-slutpunkt skapas med hjälp av följande format: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token>. Azure AD utfärdar en JWT för att komma åt resurser (en åtkomsttoken).|
+|REST API-slutpunkt|<https://amshelloworld.restv2.westus.media.azure.net/api/>|Detta är den slutpunkt mot vilken alla Media Services REST API-anrop i ditt program har utförts.|
 |Klient-ID (program-ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD-program (klient)-ID. Klient-ID krävs för att hämta åtkomsttoken. |
 |Klienthemlighet|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD programnycklar (klienthemlighet). Klienthemlighet krävs för att hämta åtkomsttoken.|
 
@@ -69,7 +69,7 @@ Du behöver samla in följande datapunkter för att komma åt Media Services-API
 
 Följ dessa steg för att hämta information:
 
-1. Logga in på [Azure-portalen](http://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Gå till AMS-instans.
 3. Välj **API-åtkomst**.
 4. Klicka på **Anslut till Azure Media Services-API med tjänstens huvudnamn**.
@@ -83,33 +83,33 @@ Följ dessa steg för att hämta information:
 
     Följ dessa steg om du vill skapa en ny AD-app:
     
-    1. Tryck på **skapa en ny**.
-    2. Ange ett namn.
-    3. Tryck på **Skapa ny** igen.
-    4. Tryck på **Spara**.
+   1. Tryck på **skapa en ny**.
+   2. Ange ett namn.
+   3. Tryck på **Skapa ny** igen.
+   4. Tryck på **Spara**.
 
-    ![API-åtkomst](./media/connect-with-rest/new-app.png)
+      ![API-åtkomst](./media/connect-with-rest/new-app.png)
 
-    Den nya appen som visas på sidan.
+      Den nya appen som visas på sidan.
 
 6. Hämta den **klient-ID** (program-ID).
     
-    1. Välj ett program.
-    2. Hämta den **klient-ID** från fönstret till höger. 
+   1. Välj ett program.
+   2. Hämta den **klient-ID** från fönstret till höger. 
 
-    ![API-åtkomst](./media/connect-with-rest/existing-client-id.png)
+      ![API-åtkomst](./media/connect-with-rest/existing-client-id.png)
 
-7.  Hämta programmets **nyckel** (klienthemlighet). 
+7. Hämta programmets **nyckel** (klienthemlighet). 
 
-    1. Klicka på den **Hanteringsappen** knappen (Observera att den klient-ID-informationen är under **program-ID**). 
-    2. Tryck på **nycklar**.
+   1. Klicka på den **Hanteringsappen** knappen (Observera att den klient-ID-informationen är under **program-ID**). 
+   2. Tryck på **nycklar**.
     
-        ![API-åtkomst](./media/connect-with-rest/manage-app.png)
-    3. Generera appnyckel (klienthemlighet) genom att fylla i **beskrivning** och **FÖRFALLER** och trycka på **spara**.
+       ![API-åtkomst](./media/connect-with-rest/manage-app.png)
+   3. Generera appnyckel (klienthemlighet) genom att fylla i **beskrivning** och **FÖRFALLER** och trycka på **spara**.
     
-        När den **spara** knappen trycks, nyckelvärdet visas. Kopiera nyckelvärdet innan de lämnar bladet.
+       När den **spara** knappen trycks, nyckelvärdet visas. Kopiera nyckelvärdet innan de lämnar bladet.
 
-    ![API-åtkomst](./media/connect-with-rest/connect-with-rest03.png)
+   ![API-åtkomst](./media/connect-with-rest/connect-with-rest03.png)
 
 Du kan lägga till värden för parametrarna för AD-anslutningen i filen web.config eller app.config för senare användning i din kod.
 

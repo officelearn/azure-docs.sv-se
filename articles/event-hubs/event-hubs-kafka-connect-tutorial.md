@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: f405fe1c93ad17476ac47bc23951c65a5ea5db73
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2ed4432aec9b833efe6b521b4452177088d21d70
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091371"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119419"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integrera stöd för Apache Kafka Connect stöd i Azure Event Hubs (förhandsversion)
 När inmatning för företagsbehov ökar så ökas även kraven för inmatning av olika externa källor och kanalmottagare. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) innehåller sådana ramverk för att ansluta och importera/exportera data från/till externa system såsom MySQL, HDFS och filsystem via ett Kafka-kluster. Den här självstudien beskriver hur du använder Kafka Connect-ramverket med Kafka-aktiverade händelsehubbar.
@@ -23,7 +23,7 @@ När inmatning för företagsbehov ökar så ökas även kraven för inmatning a
 Den här självstudien vägleder dig genom integrering av Kafka Connect med en Kafka-aktiverade Azure-händelsehubb och distribution av grundläggande FileStreamSource- och FileStreamSink-anslutingsappar. Den här funktionen är för närvarande en förhandsversion. De här anslutningsapparna är inte avsedda för produktionsanvändning, men de demonstrerar ett Kafka Connect-scenario med slutpunkt till slutpunkt där Azure Event Hubs fungerar som asynkron Kafka-meddelandekö.
 
 > [!NOTE]
-Det här exemplet finns på [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect).
+> Det här exemplet finns på [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect).
 
 I den här självstudien gör du följande:
 
@@ -34,7 +34,7 @@ I den här självstudien gör du följande:
 > * Köra Kafka Connect
 > * Skapa anslutningsappar
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 För att kunna slutföra den här genomgången behöver du följande:
 
 - En Azure-prenumeration. Om du inte har en [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/).

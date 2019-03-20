@@ -3,16 +3,15 @@ title: Snabbstart – Azure SignalR Service REST API
 description: En snabbstart för att använda Azure SignalR Service REST API.
 author: sffamily
 ms.service: signalr
-ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/13/2018
+ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 1443508985c7c7fef313a7eea3f622e7759a71ef
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 88a5a1bcff8542ac500bbb5e0da790f77c90a825
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540104"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530802"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Snabbstart: Sända realtidsmeddelanden från konsolapp
 
@@ -20,7 +19,7 @@ Azure SignalR Service har [REST API](https://github.com/Azure/azure-signalr/blob
 
 I den här snabbstarten får du lära dig hur du sänder meddelanden från en kommandoradsapp till anslutna klientappar i C#.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här snabbstarten kan köras på macOS, Windows eller Linux.
 
@@ -176,3 +175,10 @@ Version | API HTTP-metod | URL för begäran
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+## <a name="next-steps"></a>Nästa steg
+
+I den här snabbstarten har du lärt dig hur du använder REST API för att skicka meddelande i realtid från SignalR Service till klienter. Därefter lär dig mer om hur du utvecklar och distribuerar Azure Functions med SignalR Service-bindningen, som bygger på REST API.
+
+> [!div class="nextstepaction"]
+> [Utveckla Azure-funktioner med hjälp av Azure SignalR Service-bindningar](signalr-quickstart-azure-functions-csharp.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: amanbha
-ms.openlocfilehash: d6ac5ea79ed1eb47bc71a520761050889fe6edd8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ab6f8740ec1955078c6acbd9cb362a25a89e4bda
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178179"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887399"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Ta bort tillförlitliga aktörer och deras tillstånd
 Skräpinsamling för inaktiverad aktörer rensar endast aktörobjekt, men tas inte bort data som lagras i en aktör State Manager. När en aktör återaktiveras få dess data igen tillgång till den via State Manager. I fall där aktörer lagra data i State Manager och är inaktiverad men aldrig återaktiverats, kan det vara nödvändigt att rensa sina data.
@@ -60,7 +60,7 @@ Mer information om Reliable Actors, läsa följande:
 * [Aktören diagnostik och övervakning av programprestanda](service-fabric-reliable-actors-diagnostics.md)
 * [Aktören API-referensdokumentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [C# exempelkod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java-exempelkoden](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java-exempelkoden](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

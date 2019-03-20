@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 46cf3b01a3c5e653d5588e463f26540fef15f4e1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0755c01fe8e13e8e39c0b453198f2b67c51a2bc4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888540"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125297"
 ---
 #### <a name="to-download-hotfixes"></a>Ladda ned snabbkorrigerar
 
@@ -99,12 +99,12 @@ Utför följande steg för att installera och verifiera snabbkorrigeringar i nor
     Du bör se följande versioner:
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 4.0`
-   *  `HcsSoftwareVersion: 6.3.9600.17820`
+   * `HcsSoftwareVersion: 6.3.9600.17820`
    
-    Om versionsnumret inte ändras efter att uppdateringen har tillämpats indikerar det att snabbkorrigeringen har misslyckats. Kontakta [Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) för ytterligare hjälp om du ser det här.
+     Om versionsnumret inte ändras efter att uppdateringen har tillämpats indikerar det att snabbkorrigeringen har misslyckats. Kontakta [Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) för ytterligare hjälp om du ser det här.
      
-    > [!IMPORTANT]
-    > Du måste starta om den aktiva kontrollenheten via den `Restart-HcsController` cmdlet innan du tillämpar nästa uppdatering.
+     > [!IMPORTANT]
+     > Du måste starta om den aktiva kontrollenheten via den `Restart-HcsController` cmdlet innan du tillämpar nästa uppdatering.
      
 7. Upprepa steg 3 – 5 för att installera Cis/MDS-agenten som hämtas till din _FirstOrderUpdate_ mapp. 
 8. Upprepa steg 3-5 för att installera andra orderns uppdateringar. **För andra orderuppdateringar flera uppdateringar installeras genom att köra den `Start-HcsHotfix cmdlet` och peka på den mapp där andra orderuppdateringar finns. Cmdleten kör alla tillgängliga uppdateringar i mappen.** Om en uppdatering redan är installerad identifierar uppdateringslogiken det och tillämpar inte uppdateringen. 

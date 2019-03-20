@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 486044656b1c288b1658d10a162e1f9fa071172a
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: eac9f80e4b57c725de3bc05f55e09d49fb8e2ee5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817124"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004602"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -48,7 +48,7 @@ ms.locfileid: "56817124"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -403,26 +403,31 @@ Högerklicka på den **saoglobal2** SOFS kluster gruppen och välj sedan **Lägg
 _**Bild 6:** Starta guiden ”Lägg till filresurs”_
 
 <br>
+
 ![Bild 7: ”Välj SMB-resurs – snabb”][sap-ha-guide-figure-8018]
 
 _**Bild 7:** Välj ”SMB-resurs – snabb”_
 
 <br>
+
 ![Bild 8: Välj ”sapglobalhost2” och ange sökvägen på Volume2][sap-ha-guide-figure-8019]
 
 _**Bild 8:** Välj ”sapglobalhost2” och ange sökvägen på Volume2_
 
 <br>
+
 ![Bild 9: Ange namn på filresurs till ”sapmnt”][sap-ha-guide-figure-8020]
 
 _**Bild 9:** Ange namn på filresurs till ”sapmnt”_
 
 <br>
+
 ![Bild 10: Inaktivera alla inställningar][sap-ha-guide-figure-8021]
 
 _**Bild 10:** Inaktivera alla inställningar_
 
 <br>
+
 Tilldela *fullständig behörighet* behörigheter till filer och sapmnt dela för:
 * Den **SAP_\<SID > _GlobalAdmin** domänanvändargrupp
 * Datorobjekt ASCS/SCS klusternoder **ascs-1$** och **ascs-2 $**
@@ -432,16 +437,19 @@ Tilldela *fullständig behörighet* behörigheter till filer och sapmnt dela fö
 _**Bild 11:** Tilldela ”fullständig behörighet” till grupp och användarkonton_
 
 <br>
+
 ![Bild 12: Välj ”Skapa”][sap-ha-guide-figure-8023]
 
 _**Bild 12:** Välj ”Skapa”_
 
 <br>
+
 ![Bild 13: Andra sapmnt bunden till sapglobal2 värd och Volume2 skapas][sap-ha-guide-figure-8024]
 
 _**Bild 13:** Andra sapmnt bunden till sapglobal2 värd och Volume2 skapas_
 
 <br>
+
 ## <a name="install-sap-netweaver-multi-sid"></a>Installera SAP NetWeaver multi-SID
 
 ### <a name="install-sap-sid2-ascsscs-and-ers-instances"></a>Installera SAP \<SID2 > ASCS/SCS och ÄNDARE instanser

@@ -16,12 +16,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: manayar
-ms.openlocfilehash: 5cd9593bba1e97f52bfa37467920959b1ef0f698
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 1ace0ddd3b29f844488eb7579934541fa8273fa0
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329624"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199910"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Vad är VM-skalningsuppsättningar?
 Med VM-skalningsuppsättningar i Azure kan du skapa och hantera grupper med identiska och belastningsutjämnade virtuella datorer. Antal VM-instanser kan automatiskt öka eller minska som svar på efterfrågan eller ett definierat schema. Skalningsuppsättningar tillhandahåller hög tillgänglighet för dina program, och låter dig centralt hantera, konfigurera och uppdatera ett stort antal virtuella datorer. Med VM-skalningsuppsättningar kan du skapa storskaliga tjänster för områden som beräkning, stordata och arbetsbelastningar i containrar.
@@ -46,7 +46,7 @@ VM-skalningsuppsättningar i Azure ger hanteringsmöjligheter för program som k
     - Autoskalning minskar också antalet onödiga VM-instanser som kör programmet när efterfrågan är låg, samtidigt som kunderna ändå kan åtnjuta en godtagbar prestandanivå när efterfrågan växer och ytterligare VM-instanser läggs till automatiskt. Den här möjligheten bidrar till att sänka kostnaderna och på ett effektivt sätt skapa de Azure-resurser som krävs.
 
 - **Fungerar i stor skala**
-    - En skalningsuppsättning har stöd för upp till 1 000 instanser av virtuella datorer. Om du skapar och överför dina egna anpassade VM-avbildningar är gränsen 300 VM-instanser.
+    - En skalningsuppsättning har stöd för upp till 1 000 instanser av virtuella datorer. Om du skapar och överför dina egna anpassade VM-avbildningar är är gränsen 600 VM-instanser.
     - För att få bästa prestanda med produktionsarbetsbelastningar använder du [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
 
 

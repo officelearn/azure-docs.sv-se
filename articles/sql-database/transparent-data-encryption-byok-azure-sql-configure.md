@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: 6669be82877ae5d9465e23dad3c8b310cf24af89
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: c42c6175512105de38a29be260c370851e152137
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576777"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871657"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell och CLI: Aktivera Transparent datakryptering med kundhanterad nyckel från Azure Key Vault
 
@@ -26,16 +26,18 @@ Den här artikeln beskriver hur du använder en nyckel från Azure Key Vault fö
 ## <a name="prerequisites-for-powershell"></a>Krav för PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
 
 - Du måste ha en Azure-prenumeration och vara administratör på den aktuella prenumerationen.
 - (Rekommenderas men valfria) Ha en maskinvarusäkerhetsmodul (HSM) eller lokal nyckel lagra för att skapa en lokal kopia av nyckelmaterial TDE-skydd.
 - Du måste ha Azure PowerShell installerad och igång. 
 - Skapa en Azure Key Vault och en nyckel som ska användas för TDE.
-   - [PowerShell-instruktioner från Key Vault](../key-vault/key-vault-overview.md)
-   - [Anvisningar för att använda en maskinvarusäkerhetsmodul (HSM) och Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
- - Nyckelvalvet måste ha följande egenskap som ska användas för transparent Datakryptering:
-   - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
-   - [Så här använder du Key Vault mjuk borttagning med PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
+  - [PowerShell-instruktioner från Key Vault](../key-vault/key-vault-overview.md)
+  - [Anvisningar för att använda en maskinvarusäkerhetsmodul (HSM) och Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
+    - Nyckelvalvet måste ha följande egenskap som ska användas för transparent Datakryptering:
+  - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
+  - [Så här använder du Key Vault mjuk borttagning med PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
 - Nyckeln måste ha följande attribut som ska användas för transparent Datakryptering:
    - Inga upphör att gälla
    - Inte inaktiverat
@@ -175,7 +177,7 @@ Använd den [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.s
 ## <a name="troubleshooting"></a>Felsökning
 
 Kontrollera följande om ett problem inträffar:
-- Om det inte går att hitta nyckelvalvet, se till att du befinner dig i rätt prenumeration med hjälp av den [Get-AzSubscription](/powershell/module/az.account/get-azsubscription) cmdlet.
+- Om det inte går att hitta nyckelvalvet, se till att du befinner dig i rätt prenumeration med hjälp av den [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet.
 
    ```powershell
    Get-AzSubscription `
@@ -195,13 +197,13 @@ Kontrollera följande om ett problem inträffar:
 
 - Du måste ha en Azure-prenumeration och vara administratör på den aktuella prenumerationen.
 - (Rekommenderas men valfria) Ha en maskinvarusäkerhetsmodul (HSM) eller lokal nyckel lagra för att skapa en lokal kopia av nyckelmaterial TDE-skydd.
-- Kommandoradsgränssnitt 2.0 eller senare. Om du vill installera den senaste versionen och ansluter till din Azure-prenumeration, se [installerar och konfigurerar Azure plattformsoberoende kommandoradsgränssnitt 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+- Kommandoradsgränssnitt 2.0 eller senare. Om du vill installera den senaste versionen och ansluter till din Azure-prenumeration, se [installerar och konfigurerar Azure plattformsoberoende kommandoradsgränssnitt 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 - Skapa en Azure Key Vault och en nyckel som ska användas för TDE.
-   - [Hantera Nyckelvalv med hjälp av CLI 2.0](../key-vault/key-vault-manage-with-cli2.md)
-   - [Anvisningar för att använda en maskinvarusäkerhetsmodul (HSM) och Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
- - Nyckelvalvet måste ha följande egenskap som ska användas för transparent Datakryptering:
-   - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
-   - [Så här använder du Key Vault mjuk borttagning med CLI](../key-vault/key-vault-soft-delete-cli.md) 
+  - [Hantera Nyckelvalv med hjälp av CLI 2.0](../key-vault/key-vault-manage-with-cli2.md)
+  - [Anvisningar för att använda en maskinvarusäkerhetsmodul (HSM) och Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
+    - Nyckelvalvet måste ha följande egenskap som ska användas för transparent Datakryptering:
+  - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
+  - [Så här använder du Key Vault mjuk borttagning med CLI](../key-vault/key-vault-soft-delete-cli.md) 
 - Nyckeln måste ha följande attribut som ska användas för transparent Datakryptering:
    - Inga upphör att gälla
    - Inte inaktiverat
@@ -263,11 +265,11 @@ Databasen eller datalagret har nu TDE aktiverat med en kundhanterad krypteringsn
 
 ## <a name="sql-cli-references"></a>SQL-CLI-referenser
 
-https://docs.microsoft.com/cli/azure/sql?view=azure-cli-latest 
+https://docs.microsoft.com/cli/azure/sql 
 
-https://docs.microsoft.com/cli/azure/sql/server/key?view=azure-cli-latest 
+https://docs.microsoft.com/cli/azure/sql/server/key 
 
-https://docs.microsoft.com/cli/azure/sql/server/tde-key?view=azure-cli-latest 
+https://docs.microsoft.com/cli/azure/sql/server/tde-key 
 
-https://docs.microsoft.com/cli/azure/sql/db/tde?view=azure-cli-latest 
+https://docs.microsoft.com/cli/azure/sql/db/tde 
 

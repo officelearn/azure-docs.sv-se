@@ -1,26 +1,26 @@
 ---
 title: Skapa och konfigurera en Azure Database for MySQL-server med hjälp av Ansible
 description: Lär dig hur du använder Ansible för att skapa och konfigurera en Azure Database for MySQL-server
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/23/2018
-ms.openlocfilehash: 85f3957af599c80c46871a126681d29dfa513431
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 63472cf9c4b6b16f74ececfb6c6e61cf5f89ff9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051024"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095406"
 ---
 # <a name="create-and-configure-an-azure-database-for-mysql-server-by-using-ansible"></a>Skapa och konfigurera en Azure Database for MySQL-server med hjälp av Ansible
 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) är en hanterad tjänst som du använder för att köra, hantera och skala högtillgängliga MySQL-databaser i molnet. Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. 
 
 Den här snabbstarten visar hur du använder Ansible för att skapa en Azure Database for MySQL-server och konfigurera dess brandväggsregeln. Du kan slutföra dessa uppgifter på ungefär fem minuter med hjälp av Azure-portalen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 - **Azure-prenumeration** – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
@@ -134,14 +134,14 @@ Du kan [ladda ned MySQL](https://dev.mysql.com/downloads/) och installera det p�
 Ange nästa kommandon: 
 
 1. Anslut till servern med hjälp av **mysql**-kommandoradsverktyget:
-```azurecli-interactive
- mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
-```
+   ```azurecli-interactive
+   mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
+   ```
 
 2. Visa serverstatusen:
-```sql
- mysql> status
-```
+   ```sql
+   mysql> status
+   ```
 
 Om allt går väl kommer kommandoradverktyget returnera följande text:
 

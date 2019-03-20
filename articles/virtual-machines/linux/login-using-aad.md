@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: cbe9e5c734708701828b2b70f062d88c960dc224
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a1743e677e1005e5b4479c1d431b6b8bdbe77c8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432693"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848702"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på en Linux-dator i Azure med Azure Active Directory-autentisering (förhandsversion)
 
@@ -186,7 +186,7 @@ Access denied
 
 Om du har slutfört autentiseringen steg i en webbläsare kan du omedelbart ombedd att logga in igen med en ny kod. Det här felet beror vanligtvis på ett matchningsfel mellan inloggning namn som du angav i SSH-Kommandotolken och det konto som du har loggat in på Azure AD med. Du åtgärdar problemet:
 
-- Kontrollera att du har angett prompten SSH-inloggning namn är korrekt. Ett skrivfel i inloggningsnamnet kan orsaka ett matchningsfel mellan inloggning namn som du angav i SSH-Kommandotolken och det konto som du har loggat in på Azure AD med. Exempel: du har angett *azuresuer@contoso.onmicrosoft.com* i stället för *azureuser@contoso.onmicrosoft.com*.
+- Kontrollera att du har angett prompten SSH-inloggning namn är korrekt. Ett skrivfel i inloggningsnamnet kan orsaka ett matchningsfel mellan inloggning namn som du angav i SSH-Kommandotolken och det konto som du har loggat in på Azure AD med. Exempel: du har angett *azuresuer\@contoso.onmicrosoft.com* i stället för *azureuser\@contoso.onmicrosoft.com*.
 - Om du har flera användarkonton kan du kontrollera att du inte anger ett annat användarkonto i webbläsarfönstret när du loggar in till Azure AD.
 - Linux är en skiftlägeskänslig operativsystem. Det är skillnad mellan ”Azureuser@contoso.onmicrosoft.com” och ”azureuser@contoso.onmicrosoft.com”, vilket kan orsaka ett matchningsfel. Se till att du anger UPN-namnet med rätt skiftlägeskänslighet i SSH-Kommandotolken.
 

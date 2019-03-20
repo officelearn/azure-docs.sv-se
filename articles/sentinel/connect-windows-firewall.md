@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: f1844073c36b1d996107e317ed32a8f0806a2b61
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 2356a7e5426037ffe9fc8b304ac113f4a3fe2a17
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241790"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103357"
 ---
 # <a name="connect-windows-firewall"></a>Ansluta till Windows-brandvägg
 
@@ -31,7 +31,7 @@ Connector för Windows-brandväggen kan du enkelt ansluta dina brandväggar logg
 
 
 > [!NOTE]
-
+> 
 > - Data lagras i den geografiska platsen för arbetsytan där du kör Azure Sentinel.
 
 ## <a name="enable-the-connector"></a>Aktivera anslutningsprogrammet 

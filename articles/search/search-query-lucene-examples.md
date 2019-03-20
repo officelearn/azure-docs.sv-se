@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 962c1cff91a5ac3f52dc67c30bd2c7a4e2e22b9d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 8ec6a6a24629f72199d5f5afa86200acf53aba01
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631846"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136554"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Exempel på Lucene-syntaxfråga för att skapa avancerade frågor i Azure Search
 När frågor för Azure Search, du kan ersätta standard [enklare frågeparsern](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) med mer omfattande [frågeparser (Lucene) i Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) formulera specialiserade och avancerad fråga definitioner. 
@@ -58,7 +58,7 @@ Webbadressen har följande element:
 
 ## <a name="send-your-first-query"></a>Skicka din första fråga
 
-Klistra in följande begäran i GET som ett verifieringssteg och klicka på **skicka**. Resultaten returneras som utförlig JSON-dokument. Du kan kopiera och klistra in URL: en i första exemplet nedan.
+Klistra in följande begäran i GET som ett verifieringssteg och klicka på **skicka**. Resultat returneras som utförliga JSON-dokument. Du kan kopiera och klistra in URL: en i första exemplet nedan.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
@@ -206,7 +206,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 Försök att ange den frågeparser (Lucene) i din kod. Följande länkar beskriver hur du ställer in sökfrågor för både .NET och REST-API. Länkarna använder standard enkel syntax så behöver du tillämpa det du lärt dig från den här artikeln för att ange den **queryType**.
 
 * [Fråga ditt Azure Search-Index med .NET SDK](search-query-dotnet.md)
-* [Fråga ditt Azure Search-Index med hjälp av REST-API](search-query-rest-api.md)
+* [Fråga ditt Azure Search-Index med hjälp av REST-API](search-create-index-rest-api.md)
 
 Ytterligare referens, fråga arkitektur och exempel finns i följande länkar:
 

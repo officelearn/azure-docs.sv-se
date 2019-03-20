@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf1dc33276c10a9b7fe7c7ebb6619b8c47d66bfb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ec88caafa9a6168860a8e9e2ff9e2abe0cfd0e77
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447837"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852985"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Vanliga frågor och svar om Azure AD Connect Health
 Den här artikeln innehåller svar på vanliga frågor och svar (FAQ) om Azure Active Directory (Azure AD) Connect Health. Avsnittet täcker frågor om hur du använder tjänsten, inklusive fakturering modellen, funktioner, begränsningar och support.
@@ -192,6 +192,9 @@ CheckForMS17-010
 **F: Varför är min ADFS granskningar skapas?**
 
 Använd PowerShell-cmdleten <i>Get-AdfsProperties - AuditLevel</i> att kontrollera granskningsloggar inte är i inaktiverat tillstånd. Läs mer om [AD FS-granskningsloggar](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Meddelande om det är avancerade granskningsinställningar som skickas till AD FS-servern, eventuella ändringar med auditpol.exe kommer att skrivas över (händelse om programmet genereras inte har konfigurerats). I det här fallet, ange den lokala säkerhetsprincipen logga programmet genererade fel och lyckades.
+
+**F: När kommer agentcertifikatet vara automatisk förnyade innan upphör att gälla?**
+Agent-certifieringen kommer att automatisk förnyas **6 månader** innan dess förfallodatum. Om den inte förnyas, kontrollera att nätverksanslutningen för agenten är stabil. Starta om agenten tjänsterna eller uppdatera till den senaste versionen kan också lösa problemet.
 
 
 ## <a name="related-links"></a>Relaterade länkar

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: c3148ebe11ba0e23cbded5965234ece9fb6082aa
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b2c43ff2ae45b4adccb8f19873070a4c3a9dbe99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317704"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078778"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Azure Key Vault Analytics-lösning i Log Analytics
 
@@ -138,13 +138,13 @@ Använda den uppdaterade lösningen:
 1. [Konfigurera diagnostik skickas direkt till Log Analytics från Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
 2. Aktivera Azure Key Vault-lösningen med hjälp av metoden som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../../azure-monitor/insights/solutions.md)
 3. Uppdatera alla sparade frågor, instrumentpaneler eller aviseringar att använda den nya datatypen
-  + Ändring från är: KeyVaults till AzureDiagnostics. Du kan använda resurstypens för att filtrera till Key Vault-loggar.
-  - I stället för: `KeyVaults`, använda `AzureDiagnostics | where ResourceType'=="VAULTS"`
-  + Fält: (Fältnamn är skiftlägeskänsliga)
-  - För alla fält som har suffixet \_s, \_d, eller \_g i namnet, ändra det första tecknet till gemener
-  - För alla fält som har suffixet \_o i namn data delas upp i enskilda fält baserat på de kapslade fältnamn. Till exempel är UPN-namnet för anroparen lagrad i ett fält `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
-   - Fältet CallerIpAddress ändras till CallerIPAddress
-   - Fältet RemoteIPCountry finns inte längre
+   + Ändring från är: KeyVaults till AzureDiagnostics. Du kan använda resurstypens för att filtrera till Key Vault-loggar.
+   + I stället för: `KeyVaults`, använda `AzureDiagnostics | where ResourceType'=="VAULTS"`
+   + Fält: (Fältnamn är skiftlägeskänsliga)
+   + För alla fält som har suffixet \_s, \_d, eller \_g i namnet, ändra det första tecknet till gemener
+   + För alla fält som har suffixet \_o i namn data delas upp i enskilda fält baserat på de kapslade fältnamn. Till exempel är UPN-namnet för anroparen lagrad i ett fält `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
+   + Fältet CallerIpAddress ändras till CallerIPAddress
+   + Fältet RemoteIPCountry finns inte längre
 4. Ta bort den *Key Vault Analytics (inaktuell)* lösning. Om du använder PowerShell använder du `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
 
 Data som samlas in innan ändringen inte visas i den nya lösningen. Du kan fortsätta att fråga efter dessa data med hjälp av äldre typ och fältnamn.

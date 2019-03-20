@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: cf40fd45114659bf1a5da4dbaa6bfa928f34088c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bb1f4861f3867c592ecab86e85d3a4dfbab6738e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473773"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002950"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Cross-Origin Resource Sharing (CORS) Support för Azure Storage-tjänster
-Från och med version 2013-08-15, stöder Azure storage-tjänster Cross-Origin Resource Sharing (CORS) för tjänsterna Blob, tabell, kö och filen. CORS är en HTTP-funktion som gör ett webbprogram som körs i en domän att komma åt resurser i en annan domän. Webbläsare implementerar en säkerhetsbegränsning som kallas [princip om samma ursprung](http://www.w3.org/Security/wiki/Same_Origin_Policy) som förhindrar att en webbsida från anropa API: er i en annan domän. CORS erbjuder ett säkert sätt att tillåta en domän (ursprungsdomänen) att anropa API: er i en annan domän. Se den [CORS-specifikationen](http://www.w3.org/TR/cors/) mer information om CORS.
+Från och med version 2013-08-15, stöder Azure storage-tjänster Cross-Origin Resource Sharing (CORS) för tjänsterna Blob, tabell, kö och filen. CORS är en HTTP-funktion som gör ett webbprogram som körs i en domän att komma åt resurser i en annan domän. Webbläsare implementerar en säkerhetsbegränsning som kallas [princip om samma ursprung](https://www.w3.org/Security/wiki/Same_Origin_Policy) som förhindrar att en webbsida från anropa API: er i en annan domän. CORS erbjuder ett säkert sätt att tillåta en domän (ursprungsdomänen) att anropa API: er i en annan domän. Se den [CORS-specifikationen](https://www.w3.org/TR/cors/) mer information om CORS.
 
 Du kan ange CORS-regler individuellt för var och en av storage-tjänster genom att anropa [ange egenskaper för Blob Service](https://msdn.microsoft.com/library/hh452235.aspx), [ange egenskaper för kötjänst](https://msdn.microsoft.com/library/hh452232.aspx), och [ange tabellen tjänstegenskaper](https://msdn.microsoft.com/library/hh452240.aspx). När du har angett CORS-regler för tjänsten kommer en korrekt auktoriserad begäran som görs mot tjänsten från en annan domän att utvärderas för att avgöra om den är tillåten enligt de regler som du har angett.
 
@@ -29,7 +29,7 @@ Du kan ange CORS-regler individuellt för var och en av storage-tjänster genom 
 ## <a name="understanding-cors-requests"></a>Förstå CORS-förfrågningar
 En CORS-förfrågan från en ursprungsdomän får bestå av två separata förfrågningar:
 
-* En preflight-begäran, som frågar CORS-begränsningar i tjänsten. Preliminära begäran behövs om metoden för begäran är en [enkel metod](http://www.w3.org/TR/cors/), vilket innebär att GET, HEAD eller POST.
+* En preflight-begäran, som frågar CORS-begränsningar i tjänsten. Preliminära begäran behövs om metoden för begäran är en [enkel metod](https://www.w3.org/TR/cors/), vilket innebär att GET, HEAD eller POST.
 * Den faktiska begäran som görs mot önskad resurs.
 
 ### <a name="preflight-request"></a>Preliminära begäran
@@ -129,7 +129,7 @@ Därefter ska du tänka på följande CORS-begäranden:
 
 | Förfrågan |  |  | Svar |  |
 | --- | --- | --- | --- | --- |
-| **Metod** |**Ursprung** |**Begärandehuvuden** |**Regeln matchar** |**Resultatet** |
+| **Metod** |**Ursprung** |**Rubriker för begäran** |**Regeln matchar** |**Resultatet** |
 | **PUT** |http://www.contoso.com |x-ms-blob-content-type |Första regeln |Lyckades |
 | **GET** |http://www.contoso.com |x-ms-blob-content-type |Andra regeln |Lyckades |
 | **GET** |http://www.contoso.com |x-ms-client-request-id |Andra regeln |Fel |
@@ -146,7 +146,7 @@ Tredje begäran matchar den andra regeln i sin ursprungliga domän och metod, s�
 > 
 
 ## <a name="understanding-how-the-vary-header-is-set"></a>Förstå hur rubriken kan variera har angetts
-Den *variera* rubriken är en standard HTTP/1.1-rubrik som består av en uppsättning begäran huvudfält som rekommenderar webbläsare eller användaren agent om de kriterier som valdes av servern för att bearbeta begäran. Den *variera* huvud används främst för cachelagring av proxyservrar, webbläsare och CDN, som använder den för att fastställa hur svaret ska cachelagras. Mer information finns i specifikationen för den [variera rubrik](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+Den *variera* rubriken är en standard HTTP/1.1-rubrik som består av en uppsättning begäran huvudfält som rekommenderar webbläsare eller användaren agent om de kriterier som valdes av servern för att bearbeta begäran. Den *variera* huvud används främst för cachelagring av proxyservrar, webbläsare och CDN, som använder den för att fastställa hur svaret ska cachelagras. Mer information finns i specifikationen för den [variera rubrik](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 När webbläsaren eller en annan användaragenten cachelagrar svaret från en CORS-förfrågan, cachelagras ursprungsdomänen som tillåtna ursprung. När en domän skickar samma begäran om en resurs för lagring när cachen är aktiv, hämtar användaragenten cachelagrade ursprungsdomänen. Den andra domänen matchar inte den cachelagra domänen, så misslyckas med begäran när det annars skulle lyckas. I vissa fall kan Azure Storage anger variera rubriken till **ursprung** att instruera användaragenten att skicka efterföljande CORS-begäran till tjänsten när du begär domänen skiljer sig från det cachelagrade ursprunget.
 
@@ -162,7 +162,7 @@ Observera att för begäranden med andra metoder än GET/HEAD, lagringstjänster
 Följande tabell visar hur Azure storage kommer att besvara GET/HEAD-begäranden baserat på de tidigare nämnda fall:
 
 | Förfrågan | Kontoinställningen och resultatet av utvärderingen av distributionsregeln |  |  | Svar |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | **Ursprung rubriken på begäran** |**CORS-regler som angetts för den här tjänsten** |**Det finns matchande regel som tillåter alla origins(*)** |**Matchande regel som finns för exakta ursprung matchning** |**Svaret innehåller variera rubrikuppsättning till ursprung** |**Svaret innehåller Access-Control-tillåts-ursprung ”: *”** |**Svaret innehåller Access-Control-exponeras-huvuden** |
 | Nej |Nej |Nej |Nej |Nej |Nej |Nej |
 | Nej |Ja |Nej |Nej |Ja |Nej |Nej |
@@ -184,5 +184,5 @@ Misslyckade preliminära förfrågningar faktureras inte.
 
 [Ange egenskaper för tabell](https://msdn.microsoft.com/library/hh452240.aspx)
 
-[W3C Cross-Origin Resource Sharing specifikation](http://www.w3.org/TR/cors/)
+[W3C Cross-Origin Resource Sharing specifikation](https://www.w3.org/TR/cors/)
 

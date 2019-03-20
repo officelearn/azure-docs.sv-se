@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6ad683af5597be746524a360d438a06b2e429b6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2bed701f8948b27d4a242c6bb0af8ecf939db409
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847271"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223486"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Konfigurera hanterade identiteter för Azure-resurser på en Azure VM-skalningsuppsättning med en mall
 
@@ -71,29 +71,9 @@ I det här avsnittet ska du aktivera och inaktivera systemtilldelade hanterade i
    }
    ```
 
-3. (Valfritt) Lägga till VM-skalningsuppsättningen hanterade identiteter för tillägget för Azure-resurser som en `extensionsProfile` element. Det här steget är valfritt eftersom du kan använda Azure Instance Metadata Service (IMDS)-identiteten för att hämta token samt.  Använd följande syntax:
+> [!NOTE]
+> Du kan etablera hanterade identiteter för Azure-resurser VM-skalningsuppsättningen tillägget genom att ange den i den `extensionProfile` elementet i mallen. Det här steget är valfritt eftersom du kan använda Azure Instance Metadata Service (IMDS) identitet slutpunkten, för att hämta token samt.  Mer information finns i [migrera från VM-tillägg till Azure IMDS för autentisering](howto-migrate-vm-extension.md).
 
-   >[!NOTE] 
-   > I följande exempel förutsätter att en Windows VM scale Sets tillägget (`ManagedIdentityExtensionForWindows`) som ska distribueras. Du kan också konfigurera för Linux med hjälp av `ManagedIdentityExtensionForLinux` i stället för den `"name"` och `"type"` element.
-   >
-
-   ```json
-   "extensionProfile": {
-        "extensions": [
-            {
-                "name": "ManagedIdentityWindowsExtension",
-                "properties": {
-                    "publisher": "Microsoft.ManagedIdentity",
-                    "type": "ManagedIdentityExtensionForWindows",
-                    "typeHandlerVersion": "1.0",
-                    "autoUpgradeMinorVersion": true,
-                    "settings": {
-                        "port": 50342
-                    },
-                    "protectedSettings": {}
-                }
-            }
-   ```
 
 4. När du är klar bör läggas till resurs i mallen i följande avsnitt och bör likna följande:
 
@@ -112,6 +92,7 @@ I det här avsnittet ska du aktivera och inaktivera systemtilldelade hanterade i
                 //other resource provider properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
+                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)
                     "extensionProfile": {
                         "extensions": [
                             {
@@ -214,26 +195,8 @@ I det här avsnittet tilldelar du en hanterad Användartilldelad identitet till 
 
    }
    ``` 
-
-2. (Valfritt) Lägg till följande post under den `extensionProfile` elementet ska tilldelas din VMSS hanterade identiteter för tillägget för Azure-resurser. Det här steget är valfritt eftersom du kan använda Azure Instance Metadata Service (IMDS) identitet slutpunkten, för att hämta token samt. Använd följande syntax:
-   
-    ```JSON
-       "extensionProfile": {
-            "extensions": [
-                {
-                    "name": "ManagedIdentityWindowsExtension",
-                    "properties": {
-                        "publisher": "Microsoft.ManagedIdentity",
-                        "type": "ManagedIdentityExtensionForWindows",
-                        "typeHandlerVersion": "1.0",
-                        "autoUpgradeMinorVersion": true,
-                        "settings": {
-                            "port": 50342
-                        },
-                        "protectedSettings": {}
-                    }
-                }
-    ```
+> [!NOTE]
+> Du kan etablera hanterade identiteter för Azure-resurser VM-skalningsuppsättningen tillägget genom att ange den i den `extensionProfile` elementet i mallen. Det här steget är valfritt eftersom du kan använda Azure Instance Metadata Service (IMDS) identitet slutpunkten, för att hämta token samt.  Mer information finns i [migrera från VM-tillägg till Azure IMDS för autentisering](howto-migrate-vm-extension.md).
 
 3. När du är klar bör se din mall ut ungefär så här:
    
@@ -257,6 +220,7 @@ I det här avsnittet tilldelar du en hanterad Användartilldelad identitet till 
                 //other virtual machine properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
+                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)
                     "extensionProfile": {
                         "extensions": [
                             {
@@ -299,6 +263,7 @@ I det här avsnittet tilldelar du en hanterad Användartilldelad identitet till 
                 //other virtual machine properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
+                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)    
                     "extensionProfile": {
                         "extensions": [
                             {

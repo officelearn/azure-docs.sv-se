@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 84cf7d485295ae1a102957ee1f94ab3e9b2ea954
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: b6c61b4116983f36cef0632f7bbec4d36d203d0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548259"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842987"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
@@ -112,6 +112,33 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 } else {
     # Insert Your code here
 }
+```
+
+### <a name="working-with-multiple-subscriptions"></a>Arbeta med flera prenumerationer
+
+När redigering av runbooks som hanterar flera prenumerationer din runbook behöver använda den [Disable-AzureRmContextAutosave](/powershell/module/azurerm.profile/disable-azurermcontextautosave) cmdlet för att se till att din autentiseringskontext inte har hämtats från en annan runbook som körs i samma sandbox-miljön. Sedan måste du använda den `-AzureRmContext` parametern på din `AzureRM` cmdletar och skickar den till din tillräcklig kontext.
+
+```powershell
+# Ensures you do not inherit an AzureRMContext in your runbook
+Disable-AzureRmContextAutosave –Scope Process
+
+$Conn = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzureRmAccount -ServicePrincipal `
+-Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID `
+-CertificateThumbprint $Conn.CertificateThumbprint
+
+$context = Get-AzureRmContext
+
+$ChildRunbookName = 'ChildRunbookDemo'
+$AutomationAccountName = 'myAutomationAccount'
+$ResourceGroupName = 'myResourceGroup'
+
+Start-AzureRmAutomationRunbook `
+    -ResourceGroupName $ResourceGroupName `
+    -AutomationAccountName $AutomationAccountName `
+    -Name $ChildRunbookName `
+    -DefaultProfile $context
 ```
 
 ### <a name="using-executables-or-calling-processes"></a>Med hjälp av körbara filer eller anropa processer

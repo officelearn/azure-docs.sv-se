@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: bb701a33d4ebb1ffca19896f3b4ac0419f27d54f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e21223bf3c50a98e039d0f19c51116c4a3cfbcc0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539045"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875147"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Filformat som stöds och komprimering codec-enheter i Azure Data Factory
 
@@ -573,6 +573,14 @@ Den **komprimering** avsnittet har två egenskaper:
 
 > [!NOTE]
 > Inställningarna för komprimering stöds inte för data i den **AvroFormat**, **OrcFormat**, eller **ParquetFormat**. Vid läsning av filer i formaten, Data Factory identifierar och använder komprimerings-codec i metadata. Vid skrivning till filer i formaten, väljer Data Factory standard komprimerings-codec för formatet. Till exempel ZLIB för OrcFormat och SNAPPY för ParquetFormat.
+
+## <a name="unsupported-file-types-and-compression-formats"></a>Filtyper som inte stöds och komprimeringsformat
+
+Du kan använda funktionerna för utökningsbarhet i Azure Data Factory för att omvandla filer som inte stöds. Två alternativ inkluderar Azure Functions och anpassade aktiviteter med hjälp av Azure Batch.
+
+Du kan se ett exempel som använder en Azure-funktion till [extrahera innehållet i tar-filen](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Mer information finns i [Azure Functions aktivitet](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
+
+Du kan också skapa den här funktionen med hjälp av en anpassad dotnet-aktivitet. Ytterligare information finns [här](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-dotnet-custom-activity)
 
 ## <a name="next-steps"></a>Nästa steg
 

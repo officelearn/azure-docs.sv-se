@@ -9,12 +9,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 5cf09753645d8238232e064af2ba1a301a2a7217
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
-ms.translationtype: HT
+ms.openlocfilehash: d247369647106cf1671a8770a6dce21f1a34a4b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41918700"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082202"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Publicera uppdateringar och spårning av ändringar i Azure Automation
 
@@ -27,7 +27,7 @@ I den här självstudien får du lära dig att automatiskt registrera lösningar
 > * Importera runbooken som ska publiceras
 > * Starta runbook
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att genomföra kursen:
 
@@ -81,7 +81,7 @@ Nu när lösningarna är aktiverade kan du lägga till en virtuell Azure-dator t
    ![Aktivera uppdateringslösning för virtuell dator](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> Om du inte väntar tills den andra lösningen slutförs och aktiverar nästa lösning ser du meddelandet: *Installation of another solution is in progress on this or a different virtual machine (Installation av en annan lösning pågår på den här eller någon annan virtuell dator). When that installation completes the Enable button is enabled, and you can request installation of the solution on this virtual machine (När installationen är klar aktiveras knappen Aktivera, och du kan begära installation av lösningen på den här virtuella datorn).*
+> Om du inte vänta tills den andra lösningen slutförs och aktiverar nästa lösning visas ett meddelande om: *En annan lösning pågår på den här eller en annan virtuell dator. When that installation completes the Enable button is enabled, and you can request installation of the solution on this virtual machine (När installationen är klar aktiveras knappen Aktivera, och du kan begära installation av lösningen på den här virtuella datorn).*
 
 ## <a name="install-and-update-modules"></a>Installera och uppdatera moduler
 
@@ -105,7 +105,7 @@ På sidan **Moduler** väljer du **Sök i galleri** för att öppna modulgalleri
 1. Välj **Sök i galleri**.
 1. Sök efter **uppdateringar och ändringsspårning**, klicka på runbooken och välj **Importera** på sidan **Visa källa**. Välj **OK** för att importera runbooken till Automation-kontot.
 
-  ![Importera runbook som ska publiceras](media/automation-onboard-solutions/import-from-gallery.png)
+   ![Importera runbook som ska publiceras](media/automation-onboard-solutions/import-from-gallery.png)
 
 1. På sidan **Runbook** väljer du **Redigera** och sedan **Publicera**. I dialogrutan **Publicera runbook** väljer du **Ja** för att publicera runbooken.
 

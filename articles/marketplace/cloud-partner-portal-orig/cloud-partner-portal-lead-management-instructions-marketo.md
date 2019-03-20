@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: abb0abb94d3b3e7abc4dce58cdb11fa0c2cedd34
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 482d7a9662a79503bb2b197d5a6c63c9fa3c1c96
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811282"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113120"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Konfigurera lead-hantering i Marketo
 
@@ -50,10 +50,10 @@ Den här artikeln beskriver hur du ställer in Marketo för att hantera Microsof
     <form id="mktoForm_1179"></form>
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
 
-8.  Kopiera värdena som visas i bädda in kod så att du kan konfigurera den **Server-Id**, **Munchkin Id**, och **formulär-Id** i Marketo-fälten på partnerportalen i molnet.
+1. Kopiera värdena som visas i bädda in kod så att du kan konfigurera den **Server-Id**, **Munchkin Id**, och **formulär-Id** i Marketo-fälten på partnerportalen i molnet.
 
 Använd nästa exempel som en vägledning för att hämta ID: N som du behöver från kodexemplet för att bädda in Marketo.
 
-- Server-Id = **ys12**
+- Server Id = **ys12**
 - Munchkin Id = **123-PQR-789**
 - Formuläret Id = **1179**\

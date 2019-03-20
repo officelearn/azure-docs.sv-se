@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: 2bced71a7211907e0e517e47c4f5d301d4a56f56
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e773fdcb031f0f8f896ea40d76231fd54a603dc4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457419"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089037"
 ---
 # <a name="configure-software-raid-on-linux"></a>Konfigurera programvaru-RAID på Linux
 Det är ett vanligt scenario du använder programvaru-RAID på Linux-datorer i Azure för att presentera flera anslutna datadiskar som en enkel RAID-enhet. Vanligtvis kan detta användas för att förbättra prestanda och tillåter bättre genomflöde jämfört med användningen av bara en enda disk.
@@ -31,20 +31,20 @@ Två eller flera tomma datadiskar behövs för att konfigurera en RAID-enhet.  D
 
 ## <a name="install-the-mdadm-utility"></a>Installera verktyget mdadm
 * **Ubuntu**
-```bash
-sudo apt-get update
-sudo apt-get install mdadm
-```
+  ```bash
+  sudo apt-get update
+  sudo apt-get install mdadm
+  ```
 
 * **CentOS & Oracle Linux**
-```bash
-sudo yum install mdadm
-```
+  ```bash
+  sudo yum install mdadm
+  ```
 
 * **SLES och openSUSE**
-```bash  
-zypper install mdadm
-```
+  ```bash  
+  zypper install mdadm
+  ```
 
 ## <a name="create-the-disk-partitions"></a>Skapa diskpartitioner
 I det här exemplet skapar vi en enskild disk-partition på /dev/sdc. Den nya diskpartitionen kallas /dev/sdc1.

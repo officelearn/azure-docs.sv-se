@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 85a2810e8ab8de5ad2967aaf17f421d871368063
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: MT
+ms.openlocfilehash: 2c3da9470668fa2987195c26e98eee51f14027f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958464"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58136352"
 ---
-# <a name="indexing-external-data-for-queries-in-azure-search"></a>Indexering externa data för frågor i Azure Search
+# <a name="data-import-overview---azure-search"></a>Importera data översikt – Azure Search
 
 I Azure Search körs frågorna innehåll som lästs in i och sparas i en [sökindex](search-what-is-an-index.md). Den här artikeln går igenom två grundläggande sätt för att fylla ett index: *push* dina data till indexet programmässigt, eller peka en [Azure Search-indexerare](search-indexer-overview.md) på en datakälla som stöds till  *pull* i data.
 
@@ -36,7 +36,31 @@ Du kan använda följande API:er för att läsa in ett eller flera dokument i et
 
 Det finns för närvarande inget verktygsstöd för att skicka data via portalen.
 
-En introduktion till varje metod finns i [Importera data med REST](search-import-data-rest-api.md) eller [Importera data med .NET](search-import-data-dotnet.md).
+En introduktion till varje metod finns i [snabbstarten: Skapa ett Azure Search-index med PowerShell och REST API](search-create-index-rest-api.md) eller [snabbstarten: Skapa ett Azure Search-index i C# ](search-import-data-dotnet.md).
+
+<a name="indexing-actions"></a>
+
+### <a name="indexing-actions-upload-merge-uploadormerge-delete"></a>Indexering åtgärder: ladda upp, sammanfoga, uploadOrMerge, ta bort
+
+När du använder REST-API:et skickar du HTTP POST-begäranden med JSON-begärandetext till URL:en för Azure Search-indexets slutpunkt. JSON-objektet i HTTP-begärandetexten innehåller en enstaka JSON-matris med namnet ”value” som innehåller JSON-objekt som representerar dokument som du vill lägga till i ditt index, uppdatera eller ta bort.
+
+Varje JSON-objekt i ”value”-matrisen representerar ett dokument som ska indexeras. Var och en av dessa objekt innehåller dokumentets nyckel och anger önskad indexeringsåtgärd (ladda upp, sammanfoga, ta bort). Beroende på vilken av åtgärderna nedan som du väljer måste endast vissa fält tas med för varje dokument:
+
+| @search.action | Beskrivning | Nödvändiga fält för varje dokument | Anteckningar |
+| -------------- | ----------- | ---------------------------------- | ----- |
+| `upload` |En `upload`-åtgärd liknar en ”upsert” där dokumentet infogas om det är nytt och uppdateras/ersätts om det finns. |nyckel plus eventuella andra fält som du vill definiera |När du uppdaterar och ersätter ett befintligt dokument tilldelas alla fält som inte angetts i begäran `null`. Detta sker även om fältet tidigare hade ett värde som inte var null. |
+| `merge` |Uppdaterar ett befintligt dokument med de angivna fälten. Sammanfogningen misslyckas om dokumentet inte finns i indexet. |nyckel plus eventuella andra fält som du vill definiera |Alla fält som du anger i en sammanfogning ersätter det befintliga fältet i dokumentet. Detta gäller även fält av typen `Collection(Edm.String)`. Om dokumentet till exempel innehåller ett `tags`-fält med värdet `["budget"]` och du utför en sammanfogning med värdet `["economy", "pool"]` för `tags` så blir det slutliga värdet för fältet `tags` `["economy", "pool"]`. Det blir inte `["budget", "economy", "pool"]`. |
+| `mergeOrUpload` |Den här åtgärden fungerar som `merge` om ett dokument med den angivna nyckeln redan finns i indexet. Om dokumentet inte finns fungerar den som `upload` med ett nytt dokument. |nyckel plus eventuella andra fält som du vill definiera |- |
+| `delete` |Tar bort det angivna dokumentet från indexet. |endast nyckel |Andra fält som du anger än nyckelfältet ignoreras. Om du vill ta bort ett enstaka fält från ett dokument använder du `merge` i stället och anger bara fältet till null. |
+
+### <a name="formulate-your-query"></a>Formulera frågan
+Du kan [söka i ditt index med hjälp av REST-API:et](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) på två sätt. Ett sätt är att skicka en HTTP POST-begäran där dina frågeparametrar definieras i ett JSON-objekt i begärandetexten. Det andra sättet är att skicka en HTTP GET-begäran där dina frågeparametrar definieras i URL:en för begäran. POST har mindre [restriktiva gränser](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) vad gäller frågeparametrarnas storlek än GET. Av den anledningen rekommenderar vi att du använder POST såvida det inte finns särskilda omständigheter som gör att GET är lämpligare.
+
+För både POST och GET måste du ange *tjänstnamnet*, *indexnamnet* och *API-versionen* (den aktuella API-versionen är `2017-11-11` vid tidpunkten för publiceringen av det här dokumentet) i URL:en för begäran. För GET anger du frågeparametrarna i *frågesträngen* i slutet av URL:en. Se URL-formatet nedan:
+
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2017-11-11
+
+Formatet för POST är samma, men med endast ”api-version” i frågesträngsparametrarna.
 
 
 ## <a name="pulling-data-into-an-index"></a>Hämta in data till ett index

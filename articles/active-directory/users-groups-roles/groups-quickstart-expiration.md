@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94e799c1728175431f94f720ec57b6332147741b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e0573448c753c763e818d641216033dbeacb9e9a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194486"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199315"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Snabbstart: Konfigurera Office 365-grupper att upphöra att gälla i Azure Active Directory
 
@@ -35,15 +35,15 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisite"></a>Krav
 
-Du måste vara global administratör eller användarkontoadministratör i klientorganisationen för att ange förfallotid för grupper.
+Du måste vara en Global administratör eller Användaradministratör i organisationen för att ställa in förfallodatum.
 
 ## <a name="turn-on-user-creation-for-groups"></a>Aktivera användarskapande för grupper
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett konto som är global administratör eller användarkontoadministratör för katalogen.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) med ett konto som är en Global administratör eller Användaradministratör för organisationen.
 
 2. Välj **Grupper** och välj sedan **Allmänt**.
   
-  ![Gruppinställningar för självbetjäning](./media/groups-quickstart-expiration/self-service-settings.png)
+   ![Inställningssidan för självbetjäning](./media/groups-quickstart-expiration/self-service-settings.png)
 
 3. Ställ in **Användare kan skapa Office 365-grupper** till **Ja**.
 
@@ -51,9 +51,9 @@ Du måste vara global administratör eller användarkontoadministratör i klient
 
 ## <a name="set-group-expiration"></a>Ange gruppförfallotid
 
-1. Logga in på [Azure-portalen](https://portal.azure.com), välj **Azure Active Directory** > **Grupper** > **Utgångsdatum** för att öppna förfalloinställningarna.
+1. Logga in på den [Azure-portalen](https://portal.azure.com)väljer **Azure Active Directory** > **grupper** > **upphör att gälla** till Öppna inställningar för giltighetstid.
   
-  ![Förfalloinställningar](./media/groups-quickstart-expiration/expiration-settings.png)
+   ![Upphör att gälla inställningssidan för grupp](./media/groups-quickstart-expiration/expiration-settings.png)
 
 2. Ange förfallointervallet. Välj ett förinställt värde eller ange ett anpassat värde över 31 dagar. 
 
@@ -67,13 +67,13 @@ Klart! I den här snabbstarten ställde du in en förfalloprincip för de valda 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-**Så här tar du bort förfalloprincipen**
+### <a name="to-remove-the-expiration-policy"></a>Ta bort en princip
 
 1. Se till att du är inloggad på [Azure-portalen](https://portal.azure.com) med ett konto som är global administratör för klientorganisationen.
 2. Välj **Azure Active Directory** > **Grupper** > **Utgångsdatum**.
 3. Ställ in **Aktivera förfallotid för de här Office 365-grupperna** på **Inga**.
 
-**Så här stänger du av användarskapande för grupper**
+### <a name="to-turn-off-user-creation-for-groups"></a>Inaktivera användare skapas för grupper
 
 1. Välj **Azure Active Directory** > **Grupper** > **Allmänt**. 
 2. Ställ in **Användare kan skapa Office 365-grupper i Azure-portaler** till **Nej**.

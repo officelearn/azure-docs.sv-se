@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.openlocfilehash: 019232308ec5fa6d735e4499c3fb5f3ac2727e2d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 18660b41f4413d3ae1cd820cd645ddb540397906
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766402"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095916"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Använda Apache Zeppelin-anteckningsböcker med Apache Spark-kluster i Azure HDInsight
 
@@ -106,12 +106,12 @@ HDInsight Spark-kluster innehåller [Apache Zeppelin](https://zeppelin.apache.or
 
 8. Välj den **stapeldiagram** ikon för att ändra visningen.  Välj sedan **inställningar** och gör följande ändringar:
 
-    * **Grupper:**  Lägg till **targettemp**.  
-    * **Värden:** 1. Ta bort **datum**.  2. Lägg till **temp_diff**.  3.  Ändra aggregator från **SUMMAN** till **Genomsnittlig**.  
+   * **Grupper:**  Lägg till **targettemp**.  
+   * **Värden:** 1. Ta bort **datum**.  2. Lägg till **temp_diff**.  3.  Ändra aggregator från **SUMMAN** till **Genomsnittlig**.  
 
-    I följande skärmbild visas utdata.
+     I följande skärmbild visas utdata.
 
-    ![Kör en Spark SQL-instruktion som använder anteckningsboken](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "kör en Spark SQL-instruktion som använder anteckningsboken")
+     ![Kör en Spark SQL-instruktion som använder anteckningsboken](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "kör en Spark SQL-instruktion som använder anteckningsboken")
 
 9. Starta om Livy-tolk om du vill avsluta programmet. Om du vill göra det, öppna tolk inställningar genom att välja den inloggade användarens namn i det övre högra hörnet och välj sedan **tolk**.  
 

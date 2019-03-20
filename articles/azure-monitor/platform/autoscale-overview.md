@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: ae1828210345eb35f9d22664285a0d348ea50d48
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478339"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085651"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Översikt över automatisk skalning i Microsoft Azure Virtual Machines, Cloud Services och Web Apps
 Den här artikeln beskriver vilka Microsoft Azure automatisk skalning är, dess fördelar, och hur du kommer igång med hjälp av den.  
@@ -66,15 +66,15 @@ Automatisk skalning använder följande termer och struktur.
 
 - En **autoskalningsinställning** läses av motorn för automatisk skalning att avgöra om du vill skala upp eller ned. Den innehåller en eller flera profiler, information om målresurs och Meddelandeinställningar.
 
-    - En **autoskalningsprofilen** är en kombination av a:
+  - En **autoskalningsprofilen** är en kombination av a:
 
-        - **kapacitet inställningen**, vilket anger lägsta och högsta och standardvärdena för antalet instanser.
-        - **uppsättning regler**, som innehåller en utlösare (tid eller mått) och en skalningsåtgärd (upp eller ned).
-        - **upprepning**, vilket betyder att när automatisk skalning bör vidta den här profilen.
+    - **kapacitet inställningen**, vilket anger lägsta och högsta och standardvärdena för antalet instanser.
+    - **uppsättning regler**, som innehåller en utlösare (tid eller mått) och en skalningsåtgärd (upp eller ned).
+    - **upprepning**, vilket betyder att när automatisk skalning bör vidta den här profilen.
 
-        Du kan ha flera profiler som gör att du kan ta hand om olika överlappande krav. Du kan ha olika autoskalningsprofiler för olika tidpunkter på dagen eller dagar i veckan, till exempel.
+      Du kan ha flera profiler som gör att du kan ta hand om olika överlappande krav. Du kan ha olika autoskalningsprofiler för olika tidpunkter på dagen eller dagar i veckan, till exempel.
 
-    - En **meddelandeinställningen** definierar vilka meddelanden som ska utföras när en händelse med automatisk skalning sker utifrån uppfyller kriterierna i någon av de autoskalningsinställning profilerna. Automatisk skalning kan meddela en eller flera e-postadresser eller göra anrop till en eller flera webhook.
+  - En **meddelandeinställningen** definierar vilka meddelanden som ska utföras när en händelse med automatisk skalning sker utifrån uppfyller kriterierna i någon av de autoskalningsinställning profilerna. Automatisk skalning kan meddela en eller flera e-postadresser eller göra anrop till en eller flera webhook.
 
 
 ![Inställningen för automatisk skalning i Azure, profilen och regelstruktur](./media/autoscale-overview/AzureResourceManagerRuleStructure3.png)
@@ -110,7 +110,7 @@ Du kan ställa in automatisk skalning via
 | Virtuella datorer: Windows-Skalningsuppsättningar |[Skala VM scale anger i Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Virtuella datorer: Linux-Skalningsuppsättningar |[Skala VM scale anger i Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Virtuella datorer: Windows-exempel |[Avancerad automatisk skalning med Resource Manager-mallar för VM Scale Sets](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
-| API Management-tjänst|[Skala automatiskt en Azure API Management-instans](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
+| API Management-tjänst|[Skala en Azure API Management-instans automatiskt](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om automatisk skalning, Använd Autoscale Walkthroughs som angavs tidigare eller finns i följande resurser:

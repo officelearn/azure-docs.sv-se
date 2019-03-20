@@ -8,14 +8,14 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d10d39a65acd3664c99e8b5aa5cc015a76d9d1aa
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 89ae8bd4139623cfafe811b7c82433cfb8400611
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209385"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189673"
 ---
-# <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>Felsök: Det gick inte att ansluta till ett kluster i Azure Data Explorer
+# <a name="troubleshoot-failure-to-connect-to-a-cluster-in-azure-data-explorer"></a>Felsökning: Det gick inte att ansluta till ett kluster i Azure Data Explorer
 
 Följ dessa steg om du inte kan ansluta till ett kluster i Azure Data Explorer.
 
@@ -27,7 +27,7 @@ Följ dessa steg om du inte kan ansluta till ett kluster i Azure Data Explorer.
 
 1. Kontrollera att klustret inte har tagits bort: granska aktivitetsloggen i din prenumeration.
 
-1. Kontrollera den [hälsoinstrumentpanelen för Azure](https://azure.microsoft.com/status/>). Leta efter status för Azure Data Explorer i den region där du försöker ansluta till ett kluster.
+1. Kontrollera den [hälsoinstrumentpanelen för Azure](https://azure.microsoft.com/status/). Leta efter status för Azure Data Explorer i den region där du försöker ansluta till ett kluster.
 
     Om statusen inte är **bra** (grön bock), försök att ansluta till klustret efter status förbättrar.
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: cd02930394fd4cd09808a808765e54ff9ea6b4ea
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e3757e94dcd8ccc39613b9a6fff8bf491812866a
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57434309"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224217"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Skapa Apache Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -36,7 +36,7 @@ En Resource Manager-mallen gör det enkelt att skapa följande resurser för dit
 
 I mallen definierar du de resurser som behövs för programmet. Du kan även ange distributionsparametrarna för att ange värden för olika miljöer. Mallen består av JSON och uttryck som används för att skapa värden för din distribution.
 
-Du kan hitta HDInsight-mallexempel på [Azure-Snabbstartsmallar](https://azure.microsoft.com/resources/templates/?term=hdinsight). Använd plattformsoberoende [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) med den [Resource Manager-tillägget](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) eller en textredigerare för att spara mallen till en fil på din arbetsstation. 
+Du kan hitta HDInsight-mallexempel på [Azures snabbstartsmallar](https://azure.microsoft.com/resources/templates/?term=hdinsight). Använd plattformsoberoende [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) med den [Resource Manager-tillägget](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) eller en textredigerare för att spara mallen till en fil på din arbetsstation. 
 
 Mer information om Resource Manager-mallar finns i följande artiklar och exempel:
 
@@ -76,7 +76,7 @@ Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkr
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig att skapa ett HDInsight-kluster på flera olika sätt. Mer information finns i följande artiklar:
 
-* Fler HDInsight relaterade mallar finns i [Azure-Snabbstartsmallar](https://azure.microsoft.com/resources/templates/?term=hdinsight).
+* Fler HDInsight relaterade mallar finns i [Azures snabbstartsmallar](https://azure.microsoft.com/resources/templates/?term=hdinsight).
 * Ett exempel för att distribuera resurser via .NET-klientbiblioteket finns i [distribuera resurser med hjälp av .NET-bibliotek och en mall](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Ett djupgående exempel för att distribuera ett program finns i [etablera och distribuera mikrotjänster förutsägbart i Azure](../app-service/deploy-complex-application-predictably.md).
 * Information om hur du distribuerar lösningen till olika miljöer finns i [Utvecklings- och testmiljöer i Microsoft Azure](../solution-dev-test-environments.md).

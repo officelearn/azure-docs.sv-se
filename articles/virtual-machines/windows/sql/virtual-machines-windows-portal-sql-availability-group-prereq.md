@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: abe211ad4745564cb2698aa1261a1aeb6dd63af7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781739"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995189"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Slutför stegen för att skapa Always On-Tillgänglighetsgrupper på virtuella Azure-datorer
 
@@ -42,7 +42,7 @@ Den här självstudien förutsätter att du har grundläggande kunskaper om SQL 
 Du behöver ett Azure-konto. Du kan [öppna ett kostnadsfritt konto](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https:%2F%2Fazure.microsoft.com%2Fget-started%2Fwelcome-to-azure%2F&correlationId=24f9d452-1909-40d7-b609-2245aa7351a6&l=en-US) eller [aktivera Visual Studio-prenumerantförmåner](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-1. Logga in på [Azure Portal](http://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på **+** att skapa ett nytt objekt i portalen.
 
    ![Nytt objekt](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
@@ -292,14 +292,14 @@ När den primära domänkontrollanten om kan du konfigurera den andra domänkont
 15. Klicka på den **mer** länk på det gula fältet i varningen.
 16. I den **åtgärd** kolumnen i den **alla Server-aktivitetsinformation** dialogrutan klickar du på **befordra servern till en domänkontrollant**.
 17. Under **distributionskonfiguration**väljer **lägger till en domänkontrollant i en befintlig domän**.
-   ![Distributionskonfiguration](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
+    ![Distributionskonfiguration](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
 18. Klicka på **Välj**.
 19. Ansluta med hjälp av administratörskontot (**CORP. Contoso.COM\domainadmin**) och lösenord (**Contoso! 0000**).
 20. I **Välj en domän i skogen**, klickar du på din domän och klicka sedan på **OK**.
 21. I **alternativ för domänkontrollant**, använda standardvärdena och ange DSRM-lösenordet.
 
-   >[!NOTE]
-   >Den **DNS-alternativ** sidan kan varna dig att det inte går att skapa en delegering för den här DNS-servern. Du kan ignorera den här varningen i icke-produktionsmiljöer.
+    >[!NOTE]
+    >Den **DNS-alternativ** sidan kan varna dig att det inte går att skapa en delegering för den här DNS-servern. Du kan ignorera den här varningen i icke-produktionsmiljöer.
 22. Klicka på **nästa** tills dialogrutan når den **krav** kontrollera. Klicka på **Installera**.
 
 Starta om servern när servern är klar konfigurationsändringarna.

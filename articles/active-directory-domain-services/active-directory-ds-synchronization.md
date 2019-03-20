@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
-ms.openlocfilehash: 23d30d3b881fbe5aab4e537073b2582eb01bfe7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b5544be37015368173f3f8eb39288b7a97ae11c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183432"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085005"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Synkronisering i en Azure AD Domain Services-hanterad domän
 Följande diagram illustrerar hur synkroniseringen fungerar i Azure AD Domain Services hanterade domäner.
@@ -70,8 +70,6 @@ I följande tabell visas några vanliga attribut och beskriver hur de ska synkro
 
 > [!NOTE]
 > **Logga in på den hanterade domänen med UPN-formatet:** Attributet SAMAccountName kanske autogenererade för vissa användarkonton i din hanterade domän. Om flera användare har samma mailNickname-attributet eller om användarna har alltför långa UPN-prefix, vara SAMAccountName för dessa användare automatiskt genererade. Därför är SAMAccountName-format (till exempel CONTOSO100\joeuser) inte alltid ett tillförlitligt sätt att logga in på domänen. Användarnas automatiskt genererade SAMAccountName kan skilja sig från sina UPN-prefix. Använda UPN-formatet (till exempel ”joeuser@contoso100.com”) att logga in på den hanterade domänen på ett tillförlitligt sätt.
->
->
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Attributmappning för användarkonton
 I följande tabell visas hur specifika attribut för användare som har objekt i din Azure AD-klient som synkroniseras till motsvarande attribut i den hanterade domänen.
@@ -98,7 +96,7 @@ I följande tabell visas hur specifika attribut för användare som har objekt i
 | preferredLanguage |preferredLanguage |
 | state |St |
 | streetAddress |streetAddress |
-| Efternamn |SN |
+| surname |SN |
 | telephoneNumber |telephoneNumber |
 | userPrincipalName |userPrincipalName |
 

@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 87afdd9e949ec866c6ee962c2b68af42590bee67
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 8007d576a6b896f12423087cfd4a483d9171abc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878722"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104377"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Snabbstart: Skicka en sökbegäran till REST API för entitetssökning i Bing med hjälp av Node.js
 
@@ -23,7 +23,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den senaste versionen av [Node.js](https://nodejs.org/en/download/).
 
@@ -74,7 +74,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
         });
         ```
 
-    3. När en **end**-flagga (slutflagga) parsar du JSON och skriver ut det.
+    3. När en **slutet** flaggan signaleras parsa JSON och skriva ut den.
 
         ```javascript
         response.on ('end', function () {
@@ -87,24 +87,24 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 1. Skapa en funktion som heter `Search` för att skicka en sökbegäran. I den utför du följande steg.
 
-    1. Skapa ett JSON-objekt som innehåller dina begärandeparametrar: använd `Get` för metoden och lägg till information om din värd och sökväg. Lägg till din prenumerationsnyckel i `Ocp-Apim-Subscription-Key`-huvudet. 
-    2. Använd `https.request()` för att skicka begäran med den svarshanterare som du skapade tidigare samt sökparametrarna.
+   1. Skapa ett JSON-objekt som innehåller dina begärandeparametrar: använd `Get` för metoden och lägg till information om din värd och sökväg. Lägg till din prenumerationsnyckel i `Ocp-Apim-Subscription-Key`-huvudet. 
+   2. Använd `https.request()` för att skicka begäran med den svarshanterare som du skapade tidigare samt sökparametrarna.
     
-    ```javascript
-    let Search = function () {
-        let request_params = {
-            method : 'GET',
-            hostname : host,
-            path : path + query,
-            headers : {
-                'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            }
-        };
+      ```javascript
+      let Search = function () {
+       let request_params = {
+           method : 'GET',
+           hostname : host,
+           path : path + query,
+           headers : {
+               'Ocp-Apim-Subscription-Key' : subscriptionKey,
+           }
+       };
     
-        let req = https.request (request_params, response_handler);
-        req.end ();
-    }
-    ```
+       let req = https.request (request_params, response_handler);
+       req.end ();
+      }
+      ```
 
 2. Anropa funktionen `Search()`.
 
@@ -148,7 +148,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [

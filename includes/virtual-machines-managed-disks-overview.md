@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 10afad7f782d1a98dfde5f7d708477375af54597
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 287ae3b8122dd2a1e43c31055ac0ea5b04dddb07
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330974"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190648"
 ---
 ## <a name="benefits-of-managed-disks"></a>Fördelarna med hanterade diskar
 
@@ -53,7 +53,7 @@ Den här disken har en maxkapacitet på 2 048 GiB.
 
 ### <a name="temporary-disk"></a>Temporär disk
 
-Varje virtuell dator innehåller en temporär disk, vilket inte är en hanterad disk. Den temporära disken tillhandahåller kortsiktig lagring för program och processer och är avsedd att endast lagra data, till exempel växlingsfiler. Data på den temporära disken kan gå förlorade under en [underhållshändelse](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) eller när du distribuerar om en virtuell dator. Data på den temporära enheten under en standard omstart av den virtuella datorn ska sparas. Men finns det fall där data inte kanske finns kvar, till exempel flyttar till en ny värd. Alla data på temp-enhet bör därför inte data som är nödvändiga i systemet.
+Varje virtuell dator innehåller en temporär disk, vilket inte är en hanterad disk. Den temporära disken tillhandahåller kortsiktig lagring för program och processer och är avsedd att endast lagra data, till exempel växlingsfiler. Data på den temporära disken kan gå förlorade under en [underhållshändelse](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) händelse eller när du [distribuera om en virtuell dator](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Data på den temporära enheten behålls under en lyckad standard omstart av den virtuella datorn. 
 
 ## <a name="managed-disk-snapshots"></a>Hanterade ögonblicksbilder
 

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 48255614291086fe85666bec407ea62f7a365410
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 15f4b8b6d4a27e721dfcaed8b9dd700e87e3a257
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237373"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872887"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Anpassa en varumärken modell i Video Indexer
 
@@ -28,7 +28,7 @@ I den [Microsoft Build 2017 dag 2](https://www.videoindexer.ai/media/ed6ede78ad/
 
 ![Översikt över varumärken](./media/content-model-customization/brands-overview.png)
 
-Tala om windows i samband med konstruktion identifierar inte ordet ”Windows” som ett varumärke och samma för Box, Apple, Fox, osv., baserat på avancerade maskininlärningsalgoritmer som vet hur man disambiguate från kontexten. Varumärke hotidentifieringen i vår språk som stöds. Klicka här för [fullständig Microsoft Build 2017 Day 2 grundtanke video och index](http://www.videoindexer.ai/media/ed6ede78ad/).
+Tala om windows i samband med konstruktion identifierar inte ordet ”Windows” som ett varumärke och samma för Box, Apple, Fox, osv., baserat på avancerade maskininlärningsalgoritmer som vet hur man disambiguate från kontexten. Varumärke hotidentifieringen i vår språk som stöds. Klicka här för [fullständig Microsoft Build 2017 Day 2 grundtanke video och index](https://www.videoindexer.ai/media/ed6ede78ad/).
 
 Kolla in nästa steg för att göra dina egna varumärken.
 

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 4cd7c61903bad5c0f1d6c41165e9bd7ff61a6d09
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 01edd378ee85a3e209892250788fd3a26c628648
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213440"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090839"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Självstudier: Ställ in SQL Data Sync mellan Azure SQL Database och SQL Server lokalt
 
@@ -45,21 +45,21 @@ PowerShell-exempel på hur du konfigurerar SQL Data Sync finns [synkronisera mel
 
 1. På den **synkronisera till andra databaser** väljer **ny Synkroniseringsgrupp**. Den **ny synkroniseringsgrupp** öppnas med **skapa synkroniseringsgruppen (steg 1)** markerade.
 
-  ![Steg 1-inställningar](media/sql-database-get-started-sql-data-sync/stepone.png)
+   ![Steg 1-inställningar](media/sql-database-get-started-sql-data-sync/stepone.png)
 
-  På den **skapa Datasynkroniseringsgrupp** ändrar du följande inställningar:
+   På den **skapa Datasynkroniseringsgrupp** ändrar du följande inställningar:
 
-  | Inställning                        | Beskrivning |
-  | ------------------------------ | ------------------------------------------------- |
-  | **Synkroniseringsgruppsnamn** | Ange ett namn för den nya sync-gruppen. Det här namnet skiljer sig från namnet på själva databasen. |
-  | **Metadatasynkroniserings-databasen** | Välja att skapa en databas (rekommenderas) eller Använd en befintlig databas.<br/><br/>Om du väljer **ny databas**väljer **Skapa ny databas.** På den **SQL Database** , namn och konfigurera den nya databasen och välj **OK**.<br/><br/>Om du väljer **Använd befintlig databas**, Välj databasen i listan. |
-  | **Automatisk synkronisering** | Välj **på** eller **av**.<br/><br/>Om du väljer **på**, ange ett tal och välj **sekunder**, **minuter**, **timmar**, eller **dagar** i den **Synkroniseringsfrekvensen** avsnittet. |
-  | **Konfliktlösning** | Välj **hubbvinst** eller **medlemsvinst**.<br/><br/>**Hubbvinst** innebär att när konflikter uppstår data i hubbdatabasen skriver över data som orsakar konflikter i medlemsdatabasen.<br/><br/>**Medlemsvinst** innebär att när konflikter uppstår data i medlemsdatabasen skriver över data som orsakar konflikter i hubbdatabasen. |
+   | Inställning                        | Beskrivning |
+   | ------------------------------ | ------------------------------------------------- |
+   | **Synkroniseringsgruppsnamn** | Ange ett namn för den nya sync-gruppen. Det här namnet skiljer sig från namnet på själva databasen. |
+   | **Metadatasynkroniserings-databasen** | Välja att skapa en databas (rekommenderas) eller Använd en befintlig databas.<br/><br/>Om du väljer **ny databas**väljer **Skapa ny databas.** På den **SQL Database** , namn och konfigurera den nya databasen och välj **OK**.<br/><br/>Om du väljer **Använd befintlig databas**, Välj databasen i listan. |
+   | **Automatisk synkronisering** | Välj **på** eller **av**.<br/><br/>Om du väljer **på**, ange ett tal och välj **sekunder**, **minuter**, **timmar**, eller **dagar** i den **Synkroniseringsfrekvensen** avsnittet. |
+   | **Konfliktlösning** | Välj **hubbvinst** eller **medlemsvinst**.<br/><br/>**Hubbvinst** innebär att när konflikter uppstår data i hubbdatabasen skriver över data som orsakar konflikter i medlemsdatabasen.<br/><br/>**Medlemsvinst** innebär att när konflikter uppstår data i medlemsdatabasen skriver över data som orsakar konflikter i hubbdatabasen. |
 
-  > [!NOTE]
-  > Microsoft rekommenderar att du skapar en ny, tom databas som den **Metadatasynkroniserings-databasen**. Datasynkronisering skapar tabeller i den här databasen och kör en återkommande arbetsbelastning. Den här databasen delas som den **Metadatasynkroniserings-databasen** för alla synkroniseringsgrupper i en vald region och du inte kan ändra databasen eller dess namn utan att ta bort alla synkroniseringsgrupper och Synkroniseringsagenter i regionen.
+   > [!NOTE]
+   > Microsoft rekommenderar att du skapar en ny, tom databas som den **Metadatasynkroniserings-databasen**. Datasynkronisering skapar tabeller i den här databasen och kör en återkommande arbetsbelastning. Den här databasen delas som den **Metadatasynkroniserings-databasen** för alla synkroniseringsgrupper i en vald region och du inte kan ändra databasen eller dess namn utan att ta bort alla synkroniseringsgrupper och Synkroniseringsagenter i regionen.
 
-  Välj **OK** och vänta tills synkroniseringsgruppen skapas och distribueras.
+   Välj **OK** och vänta tills synkroniseringsgruppen skapas och distribueras.
 
 ## <a name="add-sync-members"></a>Lägg till synkroniseringsmedlemmar
 
@@ -95,28 +95,28 @@ I den **medlemsdatabas** avsnittet om du vill lägga till en lokal SQL Server i 
 
 1. Välj **Välj Synkroniseringsagentsgatewayen**. Den **Välj Synkroniseringsagent** öppnas.
 
-  ![Skapa en sync-agenten](media/sql-database-get-started-sql-data-sync/steptwo-agent.png)
+   ![Skapa en sync-agenten](media/sql-database-get-started-sql-data-sync/steptwo-agent.png)
 
 1. På den **väljer Synkroniseringsagenten** väljer du om du vill använda en befintlig agent eller skapa en agent.
 
-  Om du väljer **befintliga agenter**, Välj den befintliga agenten i listan.
+   Om du väljer **befintliga agenter**, Välj den befintliga agenten i listan.
 
-  Om du väljer **skapa en ny agent**, gör du följande:
+   Om du väljer **skapa en ny agent**, gör du följande:
 
-    1. Ladda ned data sync-agenten från länken och installera den på den dator där SQL Server. Du kan också hämta agenten direkt från [SQL Azure Data Sync-agenten](https://www.microsoft.com/download/details.aspx?id=27693).
+   1. Ladda ned data sync-agenten från länken och installera den på den dator där SQL Server. Du kan också hämta agenten direkt från [SQL Azure Data Sync-agenten](https://www.microsoft.com/download/details.aspx?id=27693).
 
       > [!IMPORTANT]
       > Du måste öppna utgående TCP-port 1433 i brandväggen så att klientagenten kommunicera med servern.
 
-    1. Ange ett namn för agenten.
+   1. Ange ett namn för agenten.
 
-    1. Välj **skapa och generera nyckel** och kopiera agentnyckeln till Urklipp.
+   1. Välj **skapa och generera nyckel** och kopiera agentnyckeln till Urklipp.
 
-    1. Välj **OK** att Stäng den **Välj Synkroniseringsagent** sidan.
+   1. Välj **OK** att Stäng den **Välj Synkroniseringsagent** sidan.
 
 1. Hitta och kör appen Klientsynkroniseringsagenten på SQL Server-datorn.
 
-  ![Data synkroniseras agent-klientappen](media/sql-database-get-started-sql-data-sync/datasync-preview-clientagent.png)
+   ![Data synkroniseras agent-klientappen](media/sql-database-get-started-sql-data-sync/datasync-preview-clientagent.png)
 
     1. Välj i appen sync-agenten **skicka Agentnyckeln**. Den **synkronisera Metadata databaskonfiguration** öppnas dialogrutan.
 

@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: a8897288e19a7628dbd1cc2c022de4db2a111393
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d0d725a57c27fe30215d77a596f6fb3b8c8720d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248052"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098016"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Distribuera ett Service Fabric-kluster i Azure Stack
 
@@ -37,17 +37,17 @@ Följande krävs för att distribuera Service Fabric-klustret:
    Det här är X.509-servercertifikat som du lägger till i KeyVault vid distribution av Service Fabric. 
    - Den **CN** på det här certifikatet måste matcha det fullständigt kvalificerade domännamn (FQDN) för Service Fabric-klustret som du skapar. 
    - Certifikatformatet måste vara PFX, som krävs för både offentliga och privata nycklar. 
-   Se [krav](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) för att skapa det här certifikatet för serversidan.
+     Se [krav](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) för att skapa det här certifikatet för serversidan.
 
-    > [!NOTE]  
-    > Du kan använda ett självsignerat certifikat inplace för certifikatet för x.509 för testning. Självsignerade certifikat behöver inte matcha det fullständiga Domännamnet för klustret.
+     > [!NOTE]  
+     > Du kan använda ett självsignerat certifikat inplace för certifikatet för x.509 för testning. Självsignerade certifikat behöver inte matcha det fullständiga Domännamnet för klustret.
 
-1.  **Admin-klientcertifikatet** är detta certifikat som klienten använder för att autentisera till Service Fabric-kluster, vilket kan vara självsignerade. Se [krav](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) för att skapa det här klientcertifikatet.
+1. **Admin-klientcertifikatet** är detta certifikat som klienten använder för att autentisera till Service Fabric-kluster, vilket kan vara självsignerade. Se [krav](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) för att skapa det här klientcertifikatet.
 
-1.  **Följande objekt måste vara tillgängliga i Azure Stack Marketplace:**
-     - **Windows Server 2016** – mallen använder Windows Server 2016-avbildning för att skapa klustret.  
-     - **Kundskriptstillägget** -tillägg för virtuell dator från Microsoft.  
-     - **PowerShell Desired Configuration scenen** -tillägg för virtuell dator från Microsoft.
+1. **Följande objekt måste vara tillgängliga i Azure Stack Marketplace:**
+    - **Windows Server 2016** – mallen använder Windows Server 2016-avbildning för att skapa klustret.  
+    - **Kundskriptstillägget** -tillägg för virtuell dator från Microsoft.  
+    - **PowerShell Desired Configuration scenen** -tillägg för virtuell dator från Microsoft.
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Lägga till en hemlighet i Key Vault

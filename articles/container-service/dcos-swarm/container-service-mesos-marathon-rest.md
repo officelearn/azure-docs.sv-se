@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ec264eb31bd1243f683ab99bf19b871b08253ef7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 567890f3beec1eff30effeec0ce23284c5fee141
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532414"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109298"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(INAKTUELL) Hantering av DC/OS-behållare via Marathon REST API
 
@@ -124,8 +124,6 @@ Kör följande kommando för att skala ut programmet från din tunneltrafik ansl
 
 > [!NOTE]
 > URI: N är http://localhost/marathon/v2/apps/ följt av ID: T för programmet som ska skalas. Om du använder Nginx-exemplet som anges här blir URI: N http://localhost/marathon/v2/apps/nginx.
-> 
-> 
 
 ```bash
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -183,8 +181,6 @@ Kör följande kommando för att skala ut programmet:
 
 > [!NOTE]
 > URI: N är http://localhost/marathon/v2/apps/ följt av ID: T för programmet som ska skalas. Om du använder Nginx-exemplet som anges här blir URI: N blir http://localhost/marathon/v2/apps/nginx.
-> 
-> 
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'

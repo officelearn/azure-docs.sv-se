@@ -14,12 +14,12 @@ ms.topic: article
 ms.author: mabvrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 5436b562b4f9054e0e00e3cc6abb1724797437db
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 6a5efce2f50a25902b33f2cb85d470a280000305
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729645"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002059"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Felsöka ditt Kubernetes-distribution till Azure Stack
 
@@ -151,6 +151,7 @@ Om du vill hämta loggar, gör du följande:
     ```
 
 4. Granska parametrarna och ange värden baserat på din miljö.
+
     | Parameter           | Beskrivning                                                                                                      | Exempel                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -d, --vmd-host       | Den offentliga IP-Adressen eller det fullständiga Domännamnet för DVM. VM-namnet börjar med `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
@@ -174,7 +175,7 @@ Om du vill hämta loggar, gör du följande:
     ![Genererade loggar](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-generated-logs.png)
 
 
-4. Hämta loggarna i mappar som har skapats av kommandot. Kommandot skapar nya mappar och tidsstämpel för dem.
+1. Hämta loggarna i mappar som har skapats av kommandot. Kommandot skapar nya mappar och tidsstämpel för dem.
     - KubernetesLogs*YYYY-MM-DD-XX-XX-XX-XXX*
         - Dvmlogs
         - Acsengine-kubernetes-dvm.log

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: juliako
-ms.openlocfilehash: c0dc67ddf0f1de9ca72fd14a9113219209a6bda0
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 5b49db8d7e8360837dc209e98123eeccd5542769
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674218"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837753"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Media Services v3
 
@@ -53,8 +53,8 @@ Du kan använda en [livekodaren lokala](recommended-on-premises-live-encoders.md
 1. Du måste ha en säker Token tjänster (STS) (webbtjänst) som utfärdar JWT-token på en HTTPS-begäran för produktion. För testning kan du använda koden som visas i **GetTokenAsync** metod som definieras i [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 2. Player behöver du göra en begäran när en användare autentiseras till STS för sådana en token och tilldela den som värde för token. Du kan använda den [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/).
 
-* Ett exempel för att köra STS, med symmetriska och asymmetrisk nyckel finns i [ http://aka.ms/jwt ](https://aka.ms/jwt). 
-* Ett exempel på en spelare baserat på Azure Media Player med hjälp av sådana JWT-token finns i [ http://aka.ms/amtest ](https://aka.ms/amtest) (expandera ”player_settings”-länk om du vill se token indata).
+* Ett exempel för att köra STS, med symmetriska och asymmetrisk nyckel finns i [ https://aka.ms/jwt ](https://aka.ms/jwt). 
+* Ett exempel på en spelare baserat på Azure Media Player med hjälp av sådana JWT-token finns i [ https://aka.ms/amtest ](https://aka.ms/amtest) (expandera ”player_settings”-länk om du vill se token indata).
 
 ### <a name="how-do-you-authorize-requests-to-stream-videos-with-aes-encryption"></a>Hur du för att godkänna begäranden att strömma videor med AES-kryptering?
 

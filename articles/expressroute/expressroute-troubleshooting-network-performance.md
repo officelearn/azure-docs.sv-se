@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: 17f239dc3ba9714c01f55a88419df2d3416908fa
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539708"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995792"
 ---
 # <a name="troubleshooting-network-performance"></a>Felsökning av nätverksprestanda
 ## <a name="overview"></a>Översikt
@@ -180,20 +180,20 @@ Testa installationen:
 | | | | | | |
 |-|-|-|-|-|-|
 |ExpressRoute<br/>Plats|Azure<br/>Region|Beräknad<br/>Avståndet (km)|Svarstid|1-session<br/>Bandbredd|Maximal<br/>Bandbredd|
-| Seattle | Västra USA 2        |    191 km |   5 ms | 262.0 Mbit/s |  3.74 Gbit/s | 21
-| Seattle | Västra USA          |  1,094 km |  18 ms |  82.3 Mbit/s |  3.70 Gbit/s | 20
-| Seattle | Centrala USA       |  2,357 km |  40 ms |  38.8 Mbit/s |  2.55 Gbit/s | 17
-| Seattle | Södra centrala USA |  2,877 km |  51 ms |  30.6 Mbit/s |  2.49 Gbit/s | 19
-| Seattle | Norra centrala USA |  2,792 km |  55 ms |  27,7 Mbit/s |  2.19 Gbit/s | 18
-| Seattle | USA, östra 2        |  3,769 km |  73 ms |  21.3 Mbit/s |  1.79 Gbit/s | 16
-| Seattle | Östra USA          |  3,699 km |  74 ms |  21.1 Mbit/s |  1,78 Gbit/s | 15
-| Seattle | Östra Japan       |  7,705 km | 106 ms |  14.6 Mbit/s |  1.22 enligt Gbit/s | 28
-| Seattle | Storbritannien, södra         |  7,708 km | 146 ms |  10.6 Mbit/s |   896 Mbit/s | 24
-| Seattle | Västra Europa      |  7,834 km | 153 ms |  10.2 Mbit/s |   761 Mbit/s | 23
-| Seattle | Östra Australien   | 12,484 km | 165 ms |   9.4 Mbit/s |   794 Mbit/s | 26
-| Seattle | Sydostasien   | 12,989 km | 170 ms |   9.2 Mbit/s |   756 Mbit/s | 25
-| Seattle | Södra Brasilien *   | 10,930 km | 189 ms |   8.2 Mbit/s |   699 Mbit/s | 22
-| Seattle | Södra Indien      | 12,918 km | 202 ms |   7,7 Mbit/s |   634 Mbit/s | 27
+| Seattle | Västra USA 2        |    191 km |   5 ms | 262.0 Mbit/s |  3.74 Gbit/s |
+| Seattle | Västra USA          |  1,094 km |  18 ms |  82.3 Mbit/s |  3.70 Gbit/s |
+| Seattle | Centrala USA       |  2,357 km |  40 ms |  38.8 Mbit/s |  2.55 Gbit/s |
+| Seattle | Södra centrala USA |  2,877 km |  51 ms |  30.6 Mbit/s |  2.49 Gbit/s |
+| Seattle | Norra centrala USA |  2,792 km |  55 ms |  27,7 Mbit/s |  2.19 Gbit/s |
+| Seattle | USA, östra 2        |  3,769 km |  73 ms |  21.3 Mbit/s |  1.79 Gbit/s |
+| Seattle | Östra USA          |  3,699 km |  74 ms |  21.1 Mbit/s |  1,78 Gbit/s |
+| Seattle | Östra Japan       |  7,705 km | 106 ms |  14.6 Mbit/s |  1.22 enligt Gbit/s |
+| Seattle | Storbritannien, södra         |  7,708 km | 146 ms |  10.6 Mbit/s |   896 Mbit/s |
+| Seattle | Västra Europa      |  7,834 km | 153 ms |  10.2 Mbit/s |   761 Mbit/s |
+| Seattle | Östra Australien   | 12,484 km | 165 ms |   9.4 Mbit/s |   794 Mbit/s |
+| Seattle | Sydostasien   | 12,989 km | 170 ms |   9.2 Mbit/s |   756 Mbit/s |
+| Seattle | Södra Brasilien *   | 10,930 km | 189 ms |   8.2 Mbit/s |   699 Mbit/s |
+| Seattle | Södra Indien      | 12,918 km | 202 ms |   7,7 Mbit/s |   634 Mbit/s |
 
 \* Svarstiden för Brasilien är ett bra exempel där linjär avståndet skiljer sig markant från fiber kör avstånd. Jag kan förvänta dig att svarstiden i nätverket på 160 ms, men är faktiskt 189 ms. Denna skillnad mot Mina förväntningar kan tyda på ett nätverksproblem någonstans, men troligen att fiber kör inte går att Brasilien rakt och har en extra 1 000 km eller det resor att komma till Brasilien från Seattle.
 
@@ -213,14 +213,3 @@ Testa installationen:
 [Network Docs]: https://docs.microsoft.com/azure/index
 [Ticket Link]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview
 [ACT]: https://aka.ms/AzCT
-
-
-
-
-
-
-
-
-
-
-

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d627158744ae89e3c614d10a64886cee6879a3fb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 0c89cdc34c23c461e5cebf3026cb0774bf91b75d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116057"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998558"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-app-service"></a>Självstudier: Bind ett befintligt anpassat SSL-certifikat till Azure App Service
 
@@ -41,7 +41,7 @@ I den här guiden får du lära dig att:
 > [!NOTE]
 > Om du behöver ett anpassat SSL-certifikat kan du skaffa ett i Azure Portal direkt och binda det till din app. Följ [Självstudie för App Service Certificate](web-sites-purchase-ssl-web-site.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 
@@ -264,7 +264,7 @@ New-AzWebAppSSLBinding `
 ## <a name="public-certificates-optional"></a>Offentliga certifikat (valfritt)
 Om din app behöver åtkomst till fjärranslutna resurser som en klient och fjärresursen kräver certifikatautentisering så kan du överföra [offentliga certifikat](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) till din app. Offentliga certifikat krävs inte för SSL-bindningar för din app.
 
-Mer information om hur du läser in och använder ett offentligt certifikat i din app finns i [Använda ett SSL-certifikat i programkoden i Azure App Service](app-service-web-ssl-cert-load.md). Du kan även använda offentliga certifikat med appar i App Service Environment. Om du behöver lagra certifikatet i certifikatarkivet LocalMachine så måste du använda en app i App Service-miljön. Mer information finns i [Så här konfigurerar du offentliga certifikat till din App Service-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+Mer information om hur du läser in och använder ett offentligt certifikat i din app finns i [Använda ett SSL-certifikat i programkoden i Azure App Service](app-service-web-ssl-cert-load.md). Du kan även använda offentliga certifikat med appar i App Service Environment. Om du vill lagra certifikatet i certifikatarkivet LocalMachine kan behöva du använda en app på App Service Environment. Mer information finns i [Så här konfigurerar du offentliga certifikat till din App Service-app](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
 ![Ladda upp ett offentligt certifikat](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

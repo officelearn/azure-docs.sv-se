@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: raynew
-ms.openlocfilehash: 0eede0ae4623d68adf749dc528ac5cc1ce81e024
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 2b542cc8202b75c0007686e3f0e0d9fbd1ac28c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730412"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119181"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -53,28 +53,28 @@ Om det inte går att exportera utvärderingsrapporten från portalen kan du prov
 
 1. Installera *armclient* på datorn (om du inte har den redan installerats):
 
-  a. Kör följande kommando i Kommandotolkens fönster för en administratör: ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
+   a. Kör följande kommando i Kommandotolkens fönster för en administratör: ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
 
-  b. I en Windows PowerShell-kommandotolk för administratör, kör du följande kommando: ```choco install armclient```
+   b. I en Windows PowerShell-kommandotolk för administratör, kör du följande kommando: ```choco install armclient```
 
-2.  Hämta nedladdnings-URL för utvärderingsrapporten med hjälp av Azure Migrate REST API
+2. Hämta nedladdnings-URL för utvärderingsrapporten med hjälp av Azure Migrate REST API
 
-  a.    I en Windows PowerShell-kommandotolk för administratör, kör du följande kommando: ```armclient login```
+   a.    I en Windows PowerShell-kommandotolk för administratör, kör du följande kommando: ```armclient login```
 
-  Då öppnas Azure inloggningen popup där du måste logga in på Azure.
+   Då öppnas Azure inloggningen popup där du måste logga in på Azure.
 
-  b.    Kör följande kommando för att hämta nedladdnings-URL för utvärderingsrapporten (Ersätt URI-parametrar med relevanta värden, API-exemplet begär nedan) i samma PowerShell-fönstret
+   b.    Kör följande kommando för att hämta nedladdnings-URL för utvärderingsrapporten (Ersätt URI-parametrar med relevanta värden, API-exemplet begär nedan) i samma PowerShell-fönstret
 
-       ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+      ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
-       Exempel på begäran och utdata:
+      Exempel på begäran och utdata:
 
-       ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
-esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
-018_12_16_21/downloadUrl?api-version=2018-02-02
-{
-  "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
-  "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
+      ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
+   esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
+   018_12_16_21/downloadUrl?api-version=2018-02-02
+   {
+   "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
+   "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
 
 3. Kopiera URL: en från svaret och öppna den i en webbläsare för att hämta utvärderingsrapporten.
 
@@ -97,9 +97,9 @@ Du kan gå till den **Essentials** i avsnittet den **översikt** projektets att 
 1. Kontrollera om Azure Migrate Collector OVA-filen laddas ned korrekt genom att kontrollera hash-värdet. Se [artikeln](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) för att kontrollera hash-värdet. Om hash-värdet inte matchar, hämta OVA-filen igen och försöker distribuera igen.
 2. Om det fortfarande inte fungerar, och du använder VMware vSphere-klienten för att distribuera OVT, provar du att distribuera den via vSphere-webbklienten. Om det fortfarande inte, försök att använda olika webbläsare.
 3. Om du använder vSphere-webbklienten och försök att distribuera den på vCenter Server 6.5 eller 6.7, försöker distribuera ova-filen direkt på ESXi-värden genom att följa de stegen nedan:
-  - Ansluta till ESXi-värden direkt (i stället för vCenter-Server) med hjälp av webbklienten (https:// <*vara värd för IP-adress*> /ui)
-  - Gå till startsidan > inventering
-  - Klicka på fil > Distribuera OVF-mall > Gå till ova-filen och slutföra distributionen
+   - Ansluta till ESXi-värden direkt (i stället för vCenter-Server) med hjälp av webbklienten (https:// <*vara värd för IP-adress*> /ui)
+   - Gå till startsidan > inventering
+   - Klicka på fil > Distribuera OVF-mall > Gå till ova-filen och slutföra distributionen
 4. Om distributionen fortfarande misslyckas, kontakta supporten för Azure Migrate.
 
 
@@ -301,15 +301,15 @@ Om du vill samla in Event Tracing för Windows, gör du följande:
 1. Öppna webbläsaren och navigera och logga in [till portalen](https://portal.azure.com).
 2. Tryck på F12 för att starta Developer Tools. Om det behövs, avmarkerar du inställningen **raderar du i navigeringsfönstret**.
 3. Klicka på den **nätverk** fliken och börja samla in nätverkstrafik:
- - Välj i Chrome, **Preserve log**. Inspelningen ska starta automatiskt. En röd cirkel anger att trafik avbildning. Om den inte visas klickar du på den svarta cirkeln att starta
- - I Microsoft Edge/IE, ska inspelning starta automatiskt. Om det inte, klickar på gröna knappen Spela upp.
+   - Välj i Chrome, **Preserve log**. Inspelningen ska starta automatiskt. En röd cirkel anger att trafik avbildning. Om den inte visas klickar du på den svarta cirkeln att starta
+   - I Microsoft Edge/IE, ska inspelning starta automatiskt. Om det inte, klickar på gröna knappen Spela upp.
 4. Försök att återskapa felet.
 5. När det har inträffat ett fel uppstod när inspelning stoppa inspelningen och spara en kopia av registrerad aktivitet:
- - I Chrome, högerklicka och klicka på **Spara som HAR med innehåll**. Det här zips och exporterar loggarna som en .har-fil.
- - I Microsoft Edge/IE, klickar du på den **Export avbildas trafik** ikon. Det här zips och exporterar loggen.
+   - I Chrome, högerklicka och klicka på **Spara som HAR med innehåll**. Det här zips och exporterar loggarna som en .har-fil.
+   - I Microsoft Edge/IE, klickar du på den **Export avbildas trafik** ikon. Det här zips och exporterar loggen.
 6. Navigera till den **konsolen** fliken för att söka efter eventuella varningar och fel. Spara konsolloggen:
- - I Chrome, högerklickar du någonstans i konsolloggen för. Välj **Spara som**, för att exportera och zip-loggen.
- - I Microsoft Edge/IE, högerklicka på fel och välj **kopiera alla**.
+   - I Chrome, högerklickar du någonstans i konsolloggen för. Välj **Spara som**, för att exportera och zip-loggen.
+   - I Microsoft Edge/IE, högerklicka på fel och välj **kopiera alla**.
 7. Stäng Developer Tools.
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Insamlaren felkoder och rekommenderade åtgärder

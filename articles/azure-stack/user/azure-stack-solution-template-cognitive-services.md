@@ -15,12 +15,12 @@ ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 1ccbe8b268725cf3d0747486a20e0597d023662e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 8080355bebf00c9f37c28ae8ed54bba092f8dc17
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890611"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099941"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Distribuera Azure Cognitive Services till Azure Stack
 
@@ -67,12 +67,12 @@ Innan du börjar måste du:
 
 Skapa en resurs för Cognitive Service på Azure för att förhandsgranska ansikte, LUIS eller identifiera Text behållare, respektive. Du måste använda prenumerationen nyckel och slutpunkt Webbadressen från resursen för att skapa en instans av cognitive service-behållare.
 
-1.  Skapa en Azure-resurs i Azure-portalen. Om du vill förhandsgranska Ansikts-behållare, måste du först skapa en motsvarande Ansikts-resurs i Azure-portalen. Mer information finns i [ Snabbstart: Skapa ett Cognitive Services-konto i Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Skapa en Azure-resurs i Azure-portalen. Om du vill förhandsgranska Ansikts-behållare, måste du först skapa en motsvarande Ansikts-resurs i Azure-portalen. Mer information finns i [ Snabbstart: Skapa ett Cognitive Services-konto i Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
-    >  [!Note]  
-    >  Ansikts- eller visuellt resursen måste använda F0 prisnivån.
+   > [!Note]
+   >  Ansikts- eller visuellt resursen måste använda F0 prisnivån.
 
-2.  Hämta slutpunktsnyckeln för URL: en och -prenumeration för Azure-resursen. När Azure-resursen har skapats måste du använda prenumeration nyckel och slutpunkt URL: en från den här resursen för att skapa en instans av behållaren motsvarande ansikte, LUIS eller identifiera Text för förhandsversionen.
+2. Hämta slutpunktsnyckeln för URL: en och -prenumeration för Azure-resursen. När Azure-resursen har skapats måste du använda prenumeration nyckel och slutpunkt URL: en från den här resursen för att skapa en instans av behållaren motsvarande ansikte, LUIS eller identifiera Text för förhandsversionen.
 
 ## <a name="create-a-kubernetes-secret"></a>Skapa ett Kubernetes-hemlighet 
 

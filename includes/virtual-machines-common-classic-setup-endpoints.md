@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e7dfd7d2a0363a95acb76a5dc214dbd4036de11d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: ee5faedd4f59aa791424a1f178f0462922f21d28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735895"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094692"
 ---
 Varje slutpunkt har en *offentlig port* och en *privat port*:
 
@@ -76,7 +76,7 @@ Om den virtuella datorn är i ett Azure-nätverk, kan du använda nätverkssäke
 
 4. Använda rader i listan för att lägga till, ta bort, eller redigera regler för en Åtkomstkontrollista och ändra deras inbördes ordning. Den **FJÄRRUNDERNÄTET** värdet är ett IP-adressintervall för inkommande trafik från internet som använder Azure load balancer för att tillåta eller neka trafik baserat på dess IP-källadressen. Glöm inte att ange IP-adressintervall i (classless Inter-Domain routing CIDR)-format, även kallat prefix adressformat. Till exempel `10.1.0.0/8`.
 
- ![Ny ACL-post](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
+   ![Ny ACL-post](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
 
 
 Du kan använda regler som tillåter endast trafik från vissa datorer som motsvarar dina datorer på internet eller att neka trafik från specifika, kända adressintervallen.

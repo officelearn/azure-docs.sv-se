@@ -9,14 +9,18 @@ ms.topic: article
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
 ms.subservice: disks
-ms.openlocfilehash: f537e6d31950ce66b7b218ec449276108b80220e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 91318489e715fccd7c99b968c60509e4642afd5e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768731"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57975703"
 ---
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
+
+Om du vill börja använda ultra SSD: er finns i vår artikel om ämnet: [Aktivera Azure ultra SSD](disks-enable-ultra-ssd.md).
+
+[!INCLUDE [virtual-machines-managed-disks-types-ga](../../../includes/virtual-machines-managed-disks-types-ga.md)]
 
 Mer information om ögonblicksbilder finns i avsnittet på ögonblicksbilder för den [managed disk översikt](managed-disks-overview.md).
 

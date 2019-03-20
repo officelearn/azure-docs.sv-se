@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: e7230e9c4d97c1c3ba8f0cf20d32f5a59ea2219b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: c4622293f05be5f4595136a5bbf194116fb2887c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034530"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081108"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Stöd för Azure Cosmos DB Gremlin-diagram
 Azure Cosmos DB stöder [Apache Tinkerpops](https://tinkerpop.apache.org) diagrambläddringsspråk [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), vilket är en Gremlin-API för att skapa diagramentiteter och utföra diagramfrågeåtgärder. Du kan använda Gremlin-språket för att skapa diagramentiteter (brytpunkter och kanter), ändra egenskaper inom de entiteterna, utföra frågor och bläddringar samt ta bort entiteter. 
@@ -181,7 +181,7 @@ Nu ska vi titta på de Gremlin-steg som stöds av Azure Cosmos DB. En fullständ
 | `range` | Filtrerar till det angivna intervallet med värden| [range step](https://tinkerpop.apache.org/docs/current/reference/#range-step) |
 | `repeat` | Upprepar steget för det angivna antalet gånger. Används för upprepning | [repeat step](https://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
 | `sample` | Används för exempelresultat för bläddringen | [sample step](https://tinkerpop.apache.org/docs/current/reference/#sample-step) |
-| `select` | Används för att projicera resultat från bläddringen |  [select step](https://tinkerpop.apache.org/docs/current/reference/#select-step) | |
+| `select` | Används för att projicera resultat från bläddringen |  [select step](https://tinkerpop.apache.org/docs/current/reference/#select-step) |
 | `store` | Används för icke-blockerande sammanställningar från bläddringen | [store step](https://tinkerpop.apache.org/docs/current/reference/#store-step) |
 | `tree` | Sammanställ sökvägar från en brytpunkt i ett träd | [tree step](https://tinkerpop.apache.org/docs/current/reference/#tree-step) |
 | `unfold` | Rulla upp en iterator som ett steg| [unfold step](https://tinkerpop.apache.org/docs/current/reference/#unfold-step) |

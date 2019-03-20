@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: ae9a8873be3fbd3cead23e27e80931f78ea57eb4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6714beae690e23c686fc08b88e93044ae3901c89
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992546"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839499"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Använd Axinom för att leverera Widevine-licenser till Azure Media Services 
 > [!div class="op_single_selector"]
@@ -29,9 +29,9 @@ ms.locfileid: "55992546"
 > 
 
 ## <a name="overview"></a>Översikt
-Azure Media Services (AMS) har lagt till skydd för Google Widevine dynamisk (se [Mingfei's blog](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) information). Dessutom Azure Media Player (AMP) har också lagt till stöd för Widevine (se [AMP dokumentet](http://amp.azure.net/libs/amp/latest/docs/) information). Det här är en större fullgöra med strömmande DASH-innehåll som skyddas av CENC med flera-native-DRM (PlayReady och Widevine) på moderna webbläsare som är utrustade med MSE och EME.
+Azure Media Services (AMS) har lagt till skydd för Google Widevine dynamisk (se [Mingfei's blog](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) information). Dessutom Azure Media Player (AMP) har också lagt till stöd för Widevine (se [AMP dokumentet](https://amp.azure.net/libs/amp/latest/docs/) information). Det här är en större fullgöra med strömmande DASH-innehåll som skyddas av CENC med flera-native-DRM (PlayReady och Widevine) på moderna webbläsare som är utrustade med MSE och EME.
 
-Från och med Media Services .NET SDK version 3.5.2, kan Media Services du konfigurera Widevine-licensmall och få Widevine-licenser. Du kan också använda följande AMS-partner för att leverera Widevine-licenser: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+Från och med Media Services .NET SDK version 3.5.2, kan Media Services du konfigurera Widevine-licensmall och få Widevine-licenser. Du kan också använda följande AMS-partner för att leverera Widevine-licenser: [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/).
 
 Den här artikeln beskriver hur du integrerar och testa Widevine-licensserver som hanteras av Axinom. Till exempel:  
 
@@ -44,7 +44,7 @@ Hela systemet och flödet av innehållsnyckeln, nyckel-ID, viktiga seed, JTW tok
 ![DASH och CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
 ## <a name="content-protection"></a>Content Protection
-Konfigurera dynamisk skydd och viktiga leveransprincip finns Mingfei's blog: [Konfigurera Widevine-paketering med Azure Media Services](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
+Konfigurera dynamisk skydd och viktiga leveransprincip finns Mingfei's blog: [Konfigurera Widevine-paketering med Azure Media Services](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
 
 Du kan konfigurera dynamisk CENC skydd med multi-DRM för DASH-strömnings med båda av följande:
 
@@ -64,7 +64,7 @@ Widevine-licensservern som tillhandahålls av Axinom kräver autentisering för 
 
     <script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
 
-Resten av AMP kod är standard och API som i dokumentet och [här](http://amp.azure.net/libs/amp/latest/docs/).
+Resten av AMP kod är standard och API som i dokumentet och [här](https://amp.azure.net/libs/amp/latest/docs/).
 
 Ovanstående javascript för inställningen anpassade auktoriseringsrubriken är fortfarande en kortsiktig metod innan den officiella långsiktiga metoden i AMP släpps.
 
@@ -130,7 +130,7 @@ Nedan visas koden för generering JWT-token med de nödvändiga anspråk som kr�
 
 Axinom Widevine-licensserver
 
-    <add key="ax:laurl" value="http://drm-widevine-licensing.axtest.net/AcquireLicense" />
+    <add key="ax:laurl" value="https://drm-widevine-licensing.axtest.net/AcquireLicense" />
     <add key="ax:com_key_id" value="69e54088-e9e0-4530-8c1a-1eb6dcd0d14e" />
     <add key="ax:com_key" value="4861292d027e269791093327e62ceefdbea489a4c7e5a4974cc904b840fd7c0f" />
     <add key="ax:keyseed" value="8888000000000000000000000000000000000000" />
@@ -160,7 +160,7 @@ Naturligtvis finns flera sätt att hämta bevarande av nyckel-ID. Till exempel e
         objXmlNamespaceManager.AddNamespace("cenc", "urn:mpeg:cenc:2013");
         objXmlNamespaceManager.AddNamespace("ms",   "urn:microsoft");
         objXmlNamespaceManager.AddNamespace("mspr", "urn:microsoft:playready");
-        objXmlNamespaceManager.AddNamespace("xsi",  "http://www.w3.org/2001/XMLSchema-instance");
+        objXmlNamespaceManager.AddNamespace("xsi",  "https://www.w3.org/2001/XMLSchema-instance");
         objXmlNamespaceManager.PushScope();
 
         XPathNodeIterator objXPathNodeIterator;

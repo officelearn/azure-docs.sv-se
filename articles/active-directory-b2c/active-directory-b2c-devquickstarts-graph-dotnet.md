@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d1f1ec45e1d4fc2fc6091a2f946caf6bc59441a9
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: a516f99af05ba3f3bb7ab98d3def123a488e0d9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417065"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075909"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Använd Azure AD Graph API:n
 
 >[!NOTE]
 > Du måste använda den [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview?f=255&MSPPError=-2147217396) att hantera användare i en Azure AD B2C-katalog. Detta skiljer sig från Microsoft Graph API. Lär dig mer [här](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
 
-Azure Active Directory (Azure AD) B2C-klienter brukar vara mycket stor. Det innebär att många vanliga klient administrationsuppgifter måste utföras via programmering. En primär exempel är användarhantering. Du kan behöva migrera en befintlig användararkivet till en B2C-klient. Du kanske vill vara värd för användarregistrering på sidan och skapa användarkonton i Azure AD B2C-katalogen i bakgrunden. Dessa typer av uppgifter kräver möjligheten att skapa, läsa, uppdatera och ta bort användarkonton. Du kan utföra dessa uppgifter med hjälp av Azure AD Graph API.
+Azure Active Directory (Azure AD) B2C-klienter brukar vara mycket stor. Det innebär att många vanliga klient administrationsuppgifter måste utföras via programmering. En primärt exempel är användarhantering. Du kan behöva migrera en befintlig användararkivet till en B2C-klient. Du kanske vill vara värd för användarregistrering på sidan och skapa användarkonton i Azure AD B2C-katalogen i bakgrunden. Dessa typer av uppgifter kräver möjligheten att skapa, läsa, uppdatera och ta bort användarkonton. Du kan utföra dessa uppgifter med hjälp av Azure AD Graph API.
 
 Det finns två primära lägen för att kommunicera med Graph API för B2C-klienter.
 
@@ -45,7 +45,7 @@ När du har en B2C-klient kan du behöva registrera ditt program med hjälp av d
 3. I det vänstra navigeringsfönstret väljer **alla tjänster**, klickar du på **Appregistreringar**, och klicka på **Lägg till**.
 4. Följ anvisningarna och skapa ett nytt program. 
     1. Välj **Webbapp / API** som programtyp.    
-    2. Ange **alla inloggnings-URL: er** (t.ex. https://B2CGraphAPI) eftersom den inte är relevanta för det här exemplet.  
+    2. Ange **alla inloggnings-URL: er** (t.ex. `https://B2CGraphAPI`) eftersom den inte är relevanta för det här exemplet.  
 5. I programmet kommer visas nu i listan med program, klicka på den för att hämta den **program-ID** (även kallat klient-ID). Kopiera den som du behöver det i ett senare avsnitt.
 6. I menyn inställningar klickar du på **nycklar**.
 7. I den **lösenord** avsnittet, ange nyckelbeskrivningen och välj en varaktighet och klicka sedan på **spara**. Kopiera nyckelvärdet (även kallat Klienthemlighet) för användning i ett senare avsnitt.

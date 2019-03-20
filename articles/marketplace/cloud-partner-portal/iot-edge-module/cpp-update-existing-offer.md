@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 071837aac9fce405fcc5ef92e044a0265e0e5969
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: ca7bed26d91c28304638e85d6da93708bfcfcada
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431538"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170317"
 ---
 # <a name="update-an-existing-iot-edge-module-offer"></a>Uppdatera en befintlig IoT Edge-modulen erbjudandet
 
@@ -36,7 +36,7 @@ För att hjälpa dig på de här ändringarna, portalen erbjuder den **jämför*
 
 ## <a name="unpermitted-changes-to-iot-edge-module-offer-or-sku"></a>Unpermitted ändringar i erbjudandet för IoT Edge-modul eller SKU
 
-Det finns attribut för ett erbjudande för IoT Edge-modul eller SKU som inte kan ändras när erbjudandet är aktiv på Azure Marketplace. Du kan inte ändra följande inställningar:
+Det finns attribut för en IoT Edge-modulen erbjudandet eller SKU: N som inte kan ändras när erbjudandet är aktiv på Azure Marketplace. Du kan inte ändra följande inställningar:
 
 -  **ID för erbjudande** och **Publicerings-ID** i erbjudandet
 -  **SKU-ID** befintliga SKU: er

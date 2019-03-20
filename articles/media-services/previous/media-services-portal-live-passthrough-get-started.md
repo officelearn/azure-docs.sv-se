@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 4609c9d49cd2ed9aeb8d07c7fb27d290b6bd7771
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: c960ae10fc892a5f4bd044fff80a44a0628ea38e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765857"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875914"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Så här utför du liveuppspelning med lokala kodare med hjälp av Azure Portal
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Följande krävs för att kunna genomföra vägledningen:
 
 * Ett Azure-konto. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 * Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
-* En webbkamera. Till exempel [Telestream Wirecast-kodaren](http://www.telestream.net/wirecast/overview.htm).
+* En webbkamera. Till exempel [Telestream Wirecast-kodaren](https://www.telestream.net/wirecast/overview.htm).
 
 Vi rekommenderar att du tittar närmare på följande artiklar:
 

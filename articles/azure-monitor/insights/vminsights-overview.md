@@ -11,24 +11,24 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2019
+ms.date: 03/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 9a4c31df51f804d4738e3a2eb4ce904e793c3f1b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: f7a0300619d82f760c0e307601efbd3987eb6067
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005003"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004582"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Vad är Azure Monitor för virtuella datorer (förhandsversion)?
 
-Azure Monitor för virtuella datorer övervakar dina Azure-datorer (VM) och VM-skalningsuppsättningar i stor skala. Tjänsten analyserar prestanda och hälsa för Windows och Linux-datorer, övervaka sina processer och deras beroenden till andra resurser och externa processer. 
+Azure Monitor för virtuella datorer övervakar dina Azure-datorer (VM) och VM-skalningsuppsättningar i stor skala. Den analyserar prestandan och hälsotillståndet för dina Windows- och Linux-datorer och övervakar sina processer och beroenden på andra resurser och externa processer. 
 
 Som en lösning för har Azure Monitor för virtuella datorer stöd för övervakning av prestanda och programberoenden för virtuella datorer som hanteras lokalt eller i en annan molnleverantör. Tre huvudfunktioner ger djupgående insikter:
 
 * **Logiska komponenterna i Azure virtuella datorer som kör Windows och Linux**: Mäts mot förkonfigurerade health-villkor, och de varnar dig när det utvärderade villkoret uppfylls.  
 
-* **Fördefinierade, trender prestandadiagram**: Visa core prestandamått från gästoperativsystemet för virtuell dator.
+* **Fördefinierade populära prestandadiagram**: Visa core prestandamått från gästoperativsystemet för virtuell dator.
 
 * **Beroendekarta**: Visar komponenterna som är sammankopplade med den virtuella datorn från olika resursgrupper och prenumerationer.  
 
@@ -39,7 +39,7 @@ Funktionerna är uppdelade i tre perspektiv:
 * Karta
 
 >[!NOTE]
->För närvarande kan erbjuds funktionen hälsotillstånd endast för virtuella Azure-datorer och VM-skalningsuppsättning uppsättningar. Funktioner för prestanda och kartan har stöd för både virtuella Azure-datorer och virtuella datorer som finns i din miljö eller annan molnleverantör.
+>För närvarande kan erbjuds funktionen hälsotillstånd endast för virtuella Azure-datorer och VM-skalningsuppsättning uppsättningar. Prestanda och kartfunktioner stöd för både virtuella Azure-datorer och virtuella datorer som finns i din miljö eller annan molnleverantör.
 
 Integrering med Azure Monitor-loggarna ger kraftfulla aggregering och filtrering och den kan analysera datatrender över tid. Sådana omfattande arbetsbelastningsövervakning uppnås inte med Azure Monitor eller Service Map enbart.  
 
@@ -54,13 +54,14 @@ Azure Monitor för virtuella datorer kan leverera förutsägbar prestanda och ti
 
 ## <a name="data-usage"></a>Dataanvändning 
 
-När du distribuerar Azure Monitor för virtuella datorer är de data som samlas in av dina virtuella datorer samlas in och lagras i Azure Monitor. Baserat på priserna på den [Azure Monitor sidan med priser](https://azure.microsoft.com/pricing/details/monitor/), Azure Monitor för virtuella datorer debiteras för:
+När du distribuerar Azure Monitor för virtuella datorer är de data som samlas in av dina virtuella datorer samlas in och lagras i Azure Monitor. Villkor för hälsomått lagras i Azure Monitor i en time series-databas, prestanda och beroende data som samlas in lagras i en Log Analytics-arbetsyta. Baserat på priserna på den [Azure Monitor sidan med priser](https://azure.microsoft.com/pricing/details/monitor/), Azure Monitor för virtuella datorer debiteras för:
+
 * De data som har samlats in och lagras.
 * Antal hälsotillstånd kriterier mått tidsserier som övervakas.
 * Varningsregler som skapas.
 * Meddelanden som skickas. 
 
-Loggstorleken varierar beroende på sträng längder av räknare och det kan öka med antalet logiska diskar och nätverkskort. Om du redan har en arbetsyta och samlar in dessa räknare, tillämpas inga dubbla avgifter. Om du redan använder Tjänstkarta, är den enda ändringen visas ytterligare data som skickas till Azure Monitor.
+Loggstorleken varierar beroende på sträng längder av prestandaräknare och det kan öka med antalet logiska diskar och nätverkskort tilldelas den virtuella datorn. Om du redan har en arbetsyta och samlar in dessa räknare, tillämpas inga dubbla avgifter. Om du redan använder Tjänstkarta, är den enda ändringen visas ytterligare data som skickas till Azure Monitor.
 
 ## <a name="next-steps"></a>Nästa steg
 För att förstå de krav och metoder som hjälper dig att övervaka dina virtuella datorer, granska [distribuera Azure Monitor för virtuella datorer](vminsights-onboard.md).

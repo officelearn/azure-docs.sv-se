@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
-ms.openlocfilehash: c9524396376f3de7d9468d94e3236929aadd374c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6dea36afd3a426bbbd0c28a96f21ccad1a82ea88
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463923"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997996"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Självstudier: Förbättra webbplatsen svaret med hjälp av Traffic Manager
 
@@ -63,6 +63,7 @@ I det här avsnittet skapar du de två virtuella datorerna *myIISVMEastUS* och *
     |Resursgrupp| Välj **Ny** och skriv sedan *myResourceGroupTM1*.|
     |Plats| Välj **USA, östra**.|
     |||
+
 4. Välj en VM-storlek i **Välj en storlek**.
 5. Välj följande värden för **Inställningar** och sedan **OK**:
     
@@ -72,6 +73,7 @@ I det här avsnittet skapar du de två virtuella datorerna *myIISVMEastUS* och *
     |Nätverkssäkerhetsgrupp|Välj **Grundläggande** och i listrutan **Välj offentliga inkommande portar** väljer du **HTTP** och **RDP** |
     |Startdiagnostik|Välj **Inaktiverad**.|
     |||
+
 6. Under **Skapa** i **sammanfattningen** väljer du **Skapa** för att starta VM-distributionen.
 
 7. Utför steg 1–6 igen, med följande ändringar:
@@ -83,6 +85,7 @@ I det här avsnittet skapar du de två virtuella datorerna *myIISVMEastUS* och *
     |Namn på virtuell dator | myIISVMWEurope|
     |Virtuellt nätverk | Välj **Virtuellt nätverk** i **Skapa virtuellt nätverk**. För **Namn** anger du *myVNet2* och för undernätet anger du  *mySubnet*.|
     |||
+
 8. Det tar några minuter att skapa de virtuella datorerna. Fortsätt inte med återstående steg förrän båda virtuella datorerna har skapats.
 
    ![Skapa en virtuell dator](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -139,6 +142,7 @@ I det här avsnittet skapar du en virtuell dator (*mVMEastUS* och *myVMWestEurop
 
 4. Välj en VM-storlek i **Välj en storlek**.
 5. Välj följande värden för **Inställningar** och sedan **OK**:
+
     |Inställning|Värde|
     |---|---|
     |Virtuellt nätverk| Välj **Virtuellt nätverk** i **Skapa virtuellt nätverk**. För **Namn** anger du *myVNet3* och för undernätet anger du *mySubnet*.|
@@ -164,6 +168,7 @@ Skapa en Traffic Manager-profil som dirigerar användartrafik som genom att skic
 
 1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Traffic Manager-profil** > **Skapa**.
 2. I **Skapa Traffic Manager-profil** anger eller väljer du följande information, accepterar standardinställningarna för återstående inställningar och väljer sedan **Skapa**:
+
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Namn                   | Namnet måste var unikt inom trafficmanager.net-zonen och generera DNS-namnet, trafficmanager.net, som används för att öppna din Traffic Manager-profil.                                   |
@@ -185,7 +190,7 @@ Lägg till de två virtuella datorer som kör IIS servrar – *myIISVMEastUS* & 
 
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
-    | Typ                    | Azure-slutpunkt                                   |
+    | Type                    | Azure-slutpunkt                                   |
     | Namn           | myEastUSEndpoint                                        |
     | Målresurstyp           | Offentlig IP-adress                          |
     | Målresurs          | **Välj en offentlig IP-adress** för att visa en lista över resurser med offentliga IP-adresser i samma prenumeration. I **Resurs** väljer du den offentliga IP-adressen med namnet *myIISVMEastUS-ip*. Det här är den offentliga IP-adressen för virtuella datorer med IIS i USA, östra.|

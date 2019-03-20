@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 807643146c4f2821cecf60499ea1985f56e9d251
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9fb657d2c2cd4eeae0eb96dd37505a1c47278725
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168603"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103068"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Lägg till företagsanpassning till din organisations Azure Active Directory-inloggningssida
 Använda organisationens logotyp och egna färgscheman för att tillhandahålla ett konsekvent utseende och känsla på webbsidorna för Azure Active Directory (AD Azure). Logga in sidorna visas när användare loggar in på din organisations webbaserade appar, till exempel Office 365, som använder Azure AD som identitetsprovider.
@@ -29,7 +29,7 @@ Använda organisationens logotyp och egna färgscheman för att tillhandahålla 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Anpassa din Azure AD-inloggningssida
 Du kan anpassa dina Azure AD-inloggningssidor, som visas när användare loggar in till din organisations klientspecifik appar, till exempel [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), eller vid sändning av en domänvariabel i, till exempel [ *https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
 
-Ditt varumärke visas inte direkt när dina användare gå till platser, till exempel www.office.com. Användaren måste i stället logga in innan din anpassningsfunktionerna visas.
+Ditt varumärke omedelbart visas inte när användarna gå till platser, till exempel www\.office.com. Användaren måste i stället logga in innan din anpassningsfunktionerna visas.
 
 > [!NOTE]
 > Alla företagsanpassning element är valfria. Exempel: Om du anger en banderollslogotyp med ingen bakgrundsbild visas på inloggningssidan din logotyp med en standard bakgrundsbild från målplatsen (till exempel Office 365).<br><br>Dessutom sprids inloggningssidan anpassning inte till personliga Microsoft-konton. Om dina användare eller företagsgäster loggar du in med ett personligt microsoftkonto, visas inte på inloggningssidan anpassning av din organisation.
@@ -103,7 +103,7 @@ När du har skapat ditt varumärke, kan du gå tillbaka och ändra vad du vill.
 
 4. Välj **Spara**.
 
-  Det kan ta upp till en timme innan ändringar som du har gjort på inloggningssidan visas.
+   Det kan ta upp till en timme innan ändringar som du har gjort på inloggningssidan visas.
 
 ## <a name="add-language-specific-company-branding-to-your-directory"></a>Lägga till språkspecifik varumärkesanpassning till din katalog
 Du kan inte ändra den ursprungliga konfigurationen språk från din standardspråk. Om du behöver en konfiguration på ett annat språk kan du skapa en ny konfiguration.

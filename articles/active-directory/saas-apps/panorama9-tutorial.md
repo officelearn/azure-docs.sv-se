@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8008f96e00b0d9a4366832110c696c67a9c7257
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dc3a42c280a344ef08fa23111df8652b6167cfb0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165424"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109907"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Självstudier: Azure Active Directory-integrering med Panorama9
 
@@ -114,7 +114,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/panorama9-tutorial/tutorial_panorama9_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL: en som: `https://dashboard.panorama9.com/saml/access/3262`
+    a. I textrutan **Inloggnings-URL** skriver du en URL: `https://dashboard.panorama9.com/saml/access/3262`
 
     b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://www.panorama9.com/saml20/<tenant-name>`
 
@@ -198,18 +198,18 @@ När det gäller Panorama9 är etablering en manuell aktivitet.
 
 1. Klicka på menyn längst upp **hantera**, och klicka sedan på **användare**.
    
-  ![Användare](./media/panorama9-tutorial/ic790027.png "Användare")
+   ![Användare](./media/panorama9-tutorial/ic790027.png "Användare")
 
 1. I avsnittet användare klickar du på **+** att lägga till nya användare.
 
- ![Användare](./media/panorama9-tutorial/ic790028.png "Användare")
+   ![Användare](./media/panorama9-tutorial/ic790028.png "Användare")
 
 1. Gå till avsnittet användaren data, ange en giltig Azure Active Directory-användare som du vill etablera i e-postadress i **e-post** textrutan.
 
 1. Gå till avsnittet för användare, klicka på **spara**.
    
 > [!NOTE]
-    > Azure Active Directory-kontoinnehavare tar emot ett e-postmeddelande och följer en länk för att bekräfta sina konton innan den blir aktiv.
+> Azure Active Directory-kontoinnehavaren får ett e-postmeddelande och följer en länk för att bekräfta kontot innan det blir aktivt.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
@@ -250,7 +250,7 @@ Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen]
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

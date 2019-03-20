@@ -4,17 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanliga frågor eller produkthandböcker. QnA Maker-kunskapsbasen i det här exemplet skapas med en enkel webbsida för vanliga frågor för att besvara frågor om återställning av BitLocker-nycklar.
 author: diberry
 manager: nitinme
+services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 2ac6e6fcd73abddcee668b8f73184b923aeab5d3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3f7b24af3d48075150ae7c192ccf421b928a7aa3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877005"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113707"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Skapa, träna och publicera en QnA Maker-kunskapsbas
 
@@ -53,7 +54,7 @@ Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanli
 
 10. Välj **Add QnA pair** (lägg till par med fråga och svar) högst upp till höger för att lägga till en ny rad i avsnittet **Redaktionellt** i kunskapsbasen. Skriv **Hi** under **Fråga.** Skriv **Hello** under **Svar. Ställ bitlocker-frågor till mig.**
 
-   ![Lägga till par med fråga och svar](../media/qnamaker-quickstart-kb/add-qna-pair.png)
+    ![Lägga till par med fråga och svar](../media/qnamaker-quickstart-kb/add-qna-pair.png)
 
 11. Välj **Spara och öva** i det övre högra hörnet för att spara dina ändringar och öva med QnA Maker-modellen. Redigeringarna försvinner om de inte sparas.
 
@@ -61,7 +62,7 @@ Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanli
 
 13. Välj **Granska** för att undersöka svaret i detalj. Testfönstret används för att testa dina ändringar med kunskapsbasen innan de publiceras.
 
-   ![Testpanel](../media/qnamaker-quickstart-kb/inspect-panel.png)
+    ![Testpanel](../media/qnamaker-quickstart-kb/inspect-panel.png)
 
 14. Välj **Test** igen för att dölja popup-fönstret **Test**.
 
@@ -69,7 +70,7 @@ Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanli
 
 16. QnA Maker-tjänsten har nu publicerats. Du kan använda slutpunkten i ditt program eller din robotkod.
 
-   ![Publicera](../media/qnamaker-quickstart-kb/publish-sucess.png)
+    ![Publicera](../media/qnamaker-quickstart-kb/publish-sucess.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

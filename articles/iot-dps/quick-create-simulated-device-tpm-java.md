@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: c1426ebb5a64a1e0552cc35a736186fda60a5af1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: a83f027cbfcf84beb43ceeb79971807366f22626
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415159"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102306"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad TPM-enhet med Java-enhets-SDK för Azure IoT Hub Device Provisioning-tjänsten
 
@@ -26,8 +26,8 @@ Dessa steg visar hur du skapar en simulerad enhet på utvecklingsdatorn som kör
 Om du inte känner till processen för automatisk etablering, bör du även gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal) innan du fortsätter. 
 
 Azure IoT Device Provisioning Service stöder två typer av registreringar:
-- [Registreringsgrupper](concepts-service.md#enrollment-group): används för att registrera flera relaterade enheter.
-- [Enskilda registreringar](concepts-service.md#individual-enrollment): används för att registrera en enskild enhet.
+- [Registreringsgrupper](concepts-service.md#enrollment-group): Används för att registrera flera relaterade enheter.
+- [Enskilda registreringar](concepts-service.md#individual-enrollment): Används för att registrera en enskild enhet.
 
 Den här artikeln visar enskilda registreringar.
 
@@ -100,14 +100,14 @@ Den här artikeln visar enskilda registreringar.
 1. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Välj fliken **Enskilda registreringar** och klicka på knappen **Lägg till enskild registrering** längst upp. 
 
 1. Under **Lägg till registrering** anger du följande information:
-    - Välj **TPM** som identitet för bestyrkande *mekanism*.
-    - Ange *registrerings-ID* och *bekräftelsenyckel* för din TPM-enhet enligt tidigare notering. 
-    - Välj en IoT hub som är länkad till din etableringstjänst.
-    - Ange ett unikt enhets-ID. Se till att undvika känsliga data när du namnger din enhet.
-    - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
-    - Klicka på knappen **Spara** när det är klart. 
+   - Välj **TPM** som identitet för bestyrkande *mekanism*.
+   - Ange *registrerings-ID* och *bekräftelsenyckel* för din TPM-enhet enligt tidigare notering. 
+   - Välj en IoT hub som är länkad till din etableringstjänst.
+   - Ange ett unikt enhets-ID. Se till att undvika känsliga data när du namnger din enhet.
+   - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
+   - Klicka på knappen **Spara** när det är klart. 
 
-    ![Ange information för enhetsregistrering på portalbladet](./media/java-quick-create-simulated-device/enterdevice-enrollment.png)  
+     ![Ange information för enhetsregistrering på portalbladet](./media/java-quick-create-simulated-device/enterdevice-enrollment.png)  
 
    Vid lyckad registrering visas *Registrerings-ID* för enheten i listan under fliken *Enskilda registreringar*. 
 

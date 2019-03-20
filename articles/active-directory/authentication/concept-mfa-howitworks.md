@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dabb47d4c4f39d30d8e19e8d8f41b5b84c57fd42
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c7c05c9a7db7f8e8c6e84232009780988d77aa14
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217606"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088340"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Så här fungerar det: Azure Multi-Factor Authentication
 
@@ -26,7 +26,9 @@ Säkerheten för tvåstegsverifiering ligger i dess lager. En stor utmaning ange
 * Något du har (betrodda enheter som inte enkelt dupliceras, t.ex. en telefon)
 * Något du är (biometrik)
 
-<center>![Konceptuell autentisering metoder bild](./media/concept-mfa-howitworks/methods.png)</center>
+<center>
+
+![Konceptuell autentisering metoder bild](./media/concept-mfa-howitworks/methods.png)</center>
 
 Azure Multi-Factor Authentication (MFA) hjälper dig att skydda åtkomsten till data och program samtidigt som förenklar för användare. Det ger ökad säkerhet genom att kräva ett andra formen av autentisering och ger stark autentisering via en mängd lättanvända [autentiseringsmetoder](concept-authentication-methods.md). Användare kan eller inte kan angripas för MFA baserat på konfigurationsbeslut som administratören gör.
 

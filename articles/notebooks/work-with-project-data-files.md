@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: fd1e7ccdc54b5c5111ecfa466e916a376f43521a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c5f8b6db77cabdf5e7af66063cbd9a058bd01800
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770725"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082780"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Arbeta med datafiler i Azure Notebook-projekt
 
@@ -42,13 +42,13 @@ Du kan sätta filer i ett projekt från instrumentpanelen för projektet eller i
 
 1. Välj den **överför** kommando och sedan antingen **från URL: en** eller **från datorn** och projekt informationen som krävs för de data som du vill importera:
 
-    - **Från URL: en**: Ange källadress i den **URL: en för filen** fältet och filnamnet för att tilldela till anteckningsboken i ditt projekt i den **filnamn** fält. Välj sedan **+ Lägg till filen** att lägga till URL: en i överföringslistan över. Upprepa processen för eventuella ytterligare URL: er och välj sedan **klar**.
+   - **Från URL: en**: Ange källadress i den **URL: en för filen** fältet och filnamnet för att tilldela till anteckningsboken i ditt projekt i den **filnamn** fält. Välj sedan **+ Lägg till filen** att lägga till URL: en i överföringslistan över. Upprepa processen för eventuella ytterligare URL: er och välj sedan **klar**.
 
-    ![Ladda upp från URL: en popup-fönstret](media/quickstarts/upload-from-url-popup.png)
+     ![Ladda upp från URL: en popup-fönstret](media/quickstarts/upload-from-url-popup.png)
 
-    - **Från datorn**: Dra och släppa filer i popup-fönstret, eller välja **Välj filer**, bläddra till och välj de filer du vill importera. Du kan släppa eller välja valfritt antal filer av valfri typ och format, eftersom det är upp till koden i anteckningsboken för att öppna filen och parsa data.
+   - **Från datorn**: Dra och släppa filer i popup-fönstret, eller välja **Välj filer**, bläddra till och välj de filer du vill importera. Du kan släppa eller välja valfritt antal filer av valfri typ och format, eftersom det är upp till koden i anteckningsboken för att öppna filen och parsa data.
 
-    ![Överför från datorn popup-fönstret](media/quickstarts/upload-from-computer-popup.png)
+     ![Överför från datorn popup-fönstret](media/quickstarts/upload-from-computer-popup.png)
 
 1. När du importerat filer visas på instrumentpanelen för projektet och kan nås i anteckningsboken kod med relativa sökvägar till mappen som innehåller.
 

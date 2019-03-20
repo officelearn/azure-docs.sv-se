@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5899b2b667df4800bf98aa6ed7b70f2f8ba4f931
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 7d56f01aabe77680ed78927848668457344a0f2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337112"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080303"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Snabbstart: Etablera en simulerad enhet med symmetriska nycklar
 
@@ -32,7 +32,7 @@ Den här artikeln riktar sig till en Windows-arbetsstation. Du kan dock utföra 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Visual Studio 2015 eller [Visual Studio 2017](https://www.visualstudio.com/vs/) med arbetsbelastningen [”Desktop development with C++”](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) (Skrivbordsutveckling med C++) aktiverad.
 * Senaste versionen av [Git](https://git-scm.com/download/) installerad.
@@ -114,15 +114,15 @@ SDK innehåller exempelkod för en simulerad enhet. Den här simulerade enheten 
 
 3. På **Lägg till registrering** anger du följande information och klickar på knappen **Spara**.
 
-    - **Mekanism**: Välj **Symmetrisk nyckel** som *identitetsattesteringsmekanism*.
+   - **Mekanism**: Välj **Symmetrisk nyckel** som *identitetsattesteringsmekanism*.
 
-    - **Generera nycklar automatiskt**: Markera den här kryssrutan.
+   - **Generera nycklar automatiskt**: Markera den här kryssrutan.
 
-    - **Registrerings-ID**: Ange ett registrerings-ID som identifierar registreringen. Använd endast alfanumeriska gemener och bindestreck (”-”). Till exempel `symm-key-device-007`.
+   - **Registrerings-ID**: Ange ett registrerings-ID som identifierar registreringen. Använd endast alfanumeriska gemener och bindestreck (”-”). Till exempel `symm-key-device-007`.
 
-    - **Enhets-ID för IoT Hub:** Ange en enhetsidentifierare. Till exempel **device-007**.
+   - **Enhets-ID för IoT Hub:** Ange en enhetsidentifierare. Till exempel **device-007**.
 
-    ![Lägga till en enskild registrering för symmetrisk nyckelattestering i portalen](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
+     ![Lägga till en enskild registrering för symmetrisk nyckelattestering i portalen](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
 
 4. När du har sparat din registrering genereras **primärnyckeln** och **sekundärnyckel** och läggs till registreringsposten. Registreringen av din symmetriska nyckel visas som **symm-key-device-007** under kolumnen *Registrerings-ID* på fliken *Enskilda registreringar*. 
 

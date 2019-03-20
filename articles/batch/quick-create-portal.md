@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 4356ea57e73e063d18155611b8c11090aa11edb3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d478307ff4393d84a854fcd3b2ea0efd77de7135
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471223"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087847"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Snabbstart: Köra ditt första Batch-jobb i Azure-portalen
 
@@ -34,7 +34,7 @@ Följ dessa steg om du vill skapa ett Batch-konto som ska användas som exempel 
 
 1. Välj **Skapa en resurs** > **Beräkna** > **Batch-tjänst**. 
 
-  ![Batch på Marketplace][marketplace_portal]
+   ![Batch på Marketplace][marketplace_portal]
 
 2. Ange värden för **Kontonamn** och **Resursgrupp**. Kontonamnet måste vara unikt inom den **Azureplats** som valts, får endast använda små bokstäver eller siffror och innehålla 3 till 24 tecken. 
 
@@ -42,7 +42,7 @@ Följ dessa steg om du vill skapa ett Batch-konto som ska användas som exempel 
 
 4. Behåll standardinställningarna för återstående inställningar och välj **Skapa** för att skapa kontot.
 
-  ![Skapa ett Batch-konto][account_portal]  
+   ![Skapa ett Batch-konto][account_portal]  
 
 När meddelandet **Distributionen lyckades** visas ska du gå till Batch-kontot i portalen.
 
@@ -57,23 +57,23 @@ Nu när du har ett Batch-konto kan du skapa en exempelpool med Windows beräknin
 
 3. Vid **Operativsystem** väljer du följande inställningar (du kan utforska andra alternativ).
   
-  |Inställning  |Värde  |
-  |---------|---------|
-  |**Avbildningstyp**|Marketplace (Linux/Windows)|
-  |**Utgivare**     |MicrosoftWindowsServer|
-  |**Erbjudande**     |WindowsServer|
-  |**Sku**     |2012-R2-Datacenter-smalldisk|
+   |Inställning  |Värde  |
+   |---------|---------|
+   |**Avbildningstyp**|Marketplace (Linux/Windows)|
+   |**Utgivare**     |MicrosoftWindowsServer|
+   |**Erbjudande**     |WindowsServer|
+   |**Sku**     |2012-R2-Datacenter-smalldisk|
 
-  ![Välj ett pooloperativsystem][pool_os] 
+   ![Välj ett pooloperativsystem][pool_os] 
 
 4. Rulla nedåt för att ange inställningar för **Nodstorlek** och **Skala**. Föreslagen nodstorlek erbjuder en bra balans mellan prestanda och kostnad för det här snabba exemplet.
   
-  |Inställning  |Värde  |
-  |---------|---------|
-  |**Nodprisnivå**     |Standard_A1|
-  |**Reserverade målnoder**     |2|
+   |Inställning  |Värde  |
+   |---------|---------|
+   |**Nodprisnivå**     |Standard_A1|
+   |**Reserverade målnoder**     |2|
 
-  ![Välj en poolstorlek][pool_size] 
+   ![Välj en poolstorlek][pool_size] 
 
 5. Behåll standardinställningarna för återstående inställningar och välj **OK** för att skapa poolen.
 
@@ -91,7 +91,7 @@ Nu när du har en pool ska du skapa ett jobb att köra på den. Ett Batch-jobb �
 
 2. Ange ett **Jobb-ID** som kallas *myjob*. I **Pool**väljer du *mypool*. Behåll standardinställningarna för återstående inställningar och välj **OK**.
 
-  ![Skapa ett jobb][job_create]
+   ![Skapa ett jobb][job_create]
 
 När jobbet har skapats öppnas sidan **Aktiviteter**.
 
@@ -109,7 +109,7 @@ Så här skapar du den första aktiviteten:
 
 3. På **Kommandoraden** anger du `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Behåll standardinställningarna för återstående inställningar och välj **OK**.
 
-  ![Skapa en uppgift][task_create]
+   ![Skapa en uppgift][task_create]
 
 När du har skapat en aktivitet köar Batch den så att den körs på poolen. När en nod kan köra den, körs aktiviteten.
 

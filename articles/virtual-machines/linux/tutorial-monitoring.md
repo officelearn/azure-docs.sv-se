@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7916995d2630e9b33e3695c5c505925851ba4934
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: fba54fa1d2ca6675b41728b460a07515b05758f8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092804"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531597"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Självstudier: Övervaka och uppdatera en virtuell Linux-dator i Azure
 
@@ -177,7 +177,7 @@ Om du vill utföra ytterligare åtgärder på virtuella datorer som kräver uppd
 
 Verifieringsprocessen kontrollerar också om den virtuella datorn har etablerats med Log Analytics-agenten och Automation Hybrid Runbook Worker. Den här agenten används för att kommunicera med den virtuella datorn och hämta information om uppdateringsstatus.
 
-Välj Log Analytics-arbetsytan och Automation-kontot och välj **Aktivera** för att aktivera lösningen. Det tar upp till 15 minuter att aktivera lösningen.
+Välj det Log Analytics-arbetsytan och automation-kontot och välj **aktivera** att aktivera lösningen. Det tar upp till 15 minuter att aktivera lösningen.
 
 Om några av följande krav saknades under publiceringen läggs de till automatiskt:
 
@@ -185,11 +185,11 @@ Om några av följande krav saknades under publiceringen läggs de till automati
 * [Automation-konto](../../automation/automation-offering-get-started.md)
 * En [Hybrid runbook worker](../../automation/automation-hybrid-runbook-worker.md) aktiveras på den virtuella datorn
 
-Skärmen **Uppdateringshantering** öppnas. Konfigurera platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas och välj **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas.
+Skärmen **Uppdateringshantering** öppnas. Konfigurera platsen, Log Analytics-arbetsytan och Automation-konto du använder och välj **aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas.
 
 ![Aktivera lösningen för hantering av uppdateringar](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
-Det kan ta upp till 15 minuter att aktivera lösningen. Under tiden ska du inte stänga webbläsaren. När lösningen har aktiverats flödar information om saknade uppdateringar på den virtuella datorn till Log Analytics. Det kan ta mellan 30 minuter och 6 timmar innan data blir tillgängliga för analys.
+Det kan ta upp till 15 minuter att aktivera lösningen. Under tiden ska du inte stänga webbläsaren. När lösningen har aktiverats flödar information om saknade uppdateringar på den virtuella datorn till Azure Monitor-loggar. Det kan ta mellan 30 minuter och 6 timmar innan data blir tillgängliga för analys.
 
 ### <a name="view-update-assessment"></a>Visa kontroll av uppdateringar
 
@@ -258,7 +258,7 @@ Så här aktiverar du ändringsspårning och inventering för din virtuella dato
 2. Välj en virtuell dator i listan.
 3. Gå till avsnittet **Åtgärder** på VM-skärmen och klicka på **Inventering** eller **Ändringsspårning**. Skärmen **Aktivera ändringsspårning och inventering** öppnas.
 
-Konfigurera platsen, Log Analytics-arbetsytan och Automation-kontot som ska användas och välj **Aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas. Trots att lösningarna är separata på menyn är de samma lösning. När du aktiverar den ena aktiveras båda för den virtuella datorn.
+Konfigurera platsen, Log Analytics-arbetsytan och Automation-konto du använder och välj **aktivera**. Om fälten är nedtonade betyder det att någon annan automatiseringslösning är aktiverad för den virtuella datorn, och samma arbetsyta och Automation-konto måste användas. Trots att lösningarna är separata på menyn är de samma lösning. När du aktiverar den ena aktiveras båda för den virtuella datorn.
 
 ![Aktivera Ändringsspårning och lager](./media/tutorial-monitoring/manage-inventory-enable.png)
 
@@ -294,7 +294,7 @@ Du kan utföra mer avancerad övervakning av den virtuella datorn med hjälp av 
 
 Den virtuella datorn ansluts till dig via Log Analytics-arbetsytan och du kan även hämta, konsolidera och analysera insamlade data med [avancerade frågespråk](../../azure-monitor/log-query/log-query-overview.md). 
 
-![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Log Analytics-arbetsyta](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

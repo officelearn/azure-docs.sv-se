@@ -2,18 +2,18 @@
 title: Förbereda Azure för haveriberedskap för lokala datorer med Azure Site Recovery | Microsoft Docs
 description: Lär dig hur du förbereder Azure för haveriberedskap för lokala datorer med hjälp av Azure Site Recovery.
 services: site-recovery
-author: rayne-wiselman
+author: mayurigupta13
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/08/2019
-ms.author: raynew
+ms.date: 03/03/2019
+ms.author: mayg
 ms.custom: MVC
-ms.openlocfilehash: da71857e84b27b9e9a063d707f75fdf33e5d6a96
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 5168fc28952631f00c2415d6bc171a130dc85dfd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159017"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838569"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Förbereda Azure-resurser för haveriberedskap för lokala datorer
 
@@ -28,7 +28,6 @@ Den här artikeln visar hur du förbereder Azure-komponenter när du vill replik
 
 > [!div class="checklist"]
 > * Kontrollera att ditt Azure-konto har replikeringsbehörighet.
-> * Skapa ett Azure-lagringskonto. Avbildningar av replikerade datorer lagras i den.
 > * Skapa ett Recovery Services-valv. Ett valv innehåller metadata och konfigurationsinformation för virtuella datorer och andra replikeringskomponenter.
 > * Skapa ett Azure-nätverk. När de virtuella Azure-datorerna skapats efter redundansen, är de anslutna till det här Azure-nätverket.
 
@@ -36,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](http://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="verify-account-permissions"></a>Verifiera kontobehörighet
 
@@ -44,27 +43,11 @@ Om du nyligen skapade ditt kostnadsfria Azure-konto är du administratör för p
 
 - Skapa en virtuell dator i den valda resursgruppen.
 - Skapa en virtuell dator i det valda virtuella nätverket.
-- Skriva till det valda lagringskontot.
+- Skriva till lagringskontot.
+- Skriva till hanterade diskar.
 
 För att slutföra dessa uppgifter måste ditt konto tilldelas en inbyggd roll som virtuell datordeltagare. För att hantera Site Recovery-åtgärder i ett valv, måste ditt konto också tilldelas en inbyggd roll som Site Recovery-deltagare.
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
-
-Avbildningar av replikerade datorer lagras i Azure-lagringen. Virtuella Azure-datorer skapas från minnet vid redundansväxling från lokalt till Azure. Lagringskontot måste finnas i samma region som Recovery Services-valvet. Vi använder Västeuropa i den här självstudiekursen.
-
-1. I [Azure-portalen](https://portal.azure.com) väljer du **Skapa en resurs** > **Storage** > **Storage Account – blob, file, table, queue**.
-2. I **Skapa lagringskonto** anger du ett namn för kontot. I de här självstudierna använder vi namnet **contosovmsacct1910171607**. Namnet måste vara unikt i Azure och vara mellan 3 och 24 tecken långt. Det får endast bestå av siffror och gemener.
-3. För **Distributionsmodell** väljer du **Resource Manager**.
-4. I **Typ av konto** väljer du **Minne (generell användning v1)**. Välj inte blobblagring.
-5. I **Replikering** väljer du standardinställningen **Read-access geo-redundant storage** för lagringsredundans. Vi låter **Säker överföring krävs** vara **Inaktiverat**.
-6. I **Prestanda** väljer du **Standard** och i **Åtkomstnivå** väljer du standardalternativet **Frekvent**.
-7. I **Prenumeration** väljer du den prenumeration som du vill skapa det nya lagringskontot i.
-8. Ange ett nytt namn på resursgruppen i **Resursgrupp**. En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I de här självstudierna använder vi namnet **ContosoRG**.
-9. Välj den geografiska platsen för ditt lagringskonto för **Plats**. 
-
-   ![skapar ett lagringskonto](media/tutorial-prepare-azure/create-storageacct.png)
-
-9. Skapa lagringskontot genom att välja **Skapa**.
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
@@ -81,7 +64,7 @@ Avbildningar av replikerade datorer lagras i Azure-lagringen. Virtuella Azure-da
 
 ## <a name="set-up-an-azure-network"></a>Skapa ett Azure-nätverk
 
-När de virtuella Azure-datorerna har skapats från minnet efter redundansen, är de anslutna till det här nätverket.
+När virtuella Azure-datorer skapas från hanterade diskar efter en redundansväxling, anslutna de till nätverket.
 
 1. I [Azure Portal](https://portal.azure.com) markerar du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
 2. Låt **Resource Manager** vara valt som distributionsmodell.
@@ -100,8 +83,7 @@ När de virtuella Azure-datorerna har skapats från minnet efter redundansen, ä
 ## <a name="useful-links"></a>Användbara länkar
 
 - [Lär dig om](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) Azure-nätverk.
-- [Lär dig om](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts) typer av Azure-lagring.
-- [Lär dig om](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) lagringsredundans och [säker överföring](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) för lagring.
+- [Lär dig mer om](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) hanterade diskar.
 
 
 

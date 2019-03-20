@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: ad3b672a2db9bccaf5124d4bc897e85806966255
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: fb3ed970b7f92e1cc06a9d1023e01f5888915e94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312808"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088680"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervaka aktivitet om prenumeration med Azure-aktivitetsloggen
 
@@ -118,10 +118,10 @@ Du kan strömma aktivitetsloggen till en Event Hub eller lagra dem i ett Lagring
 
     ![Exportera-knappen i portalen](./media/activity-logs-overview/activity-logs-portal-export-v2.png)
 3. På bladet som visas, kan du välja:  
-  * regioner som du vill exportera händelser
-  * Storage-konto som du vill spara händelser
-  * antal dagar som du vill behålla dessa händelser i lagring. En inställning på 0 dagar behåller loggarna alltid.
-  * Service Bus Namespace där du vill ha en Händelsehubb skapas för direktuppspelning av dessa händelser.
+   * regioner som du vill exportera händelser
+   * Storage-konto som du vill spara händelser
+   * antal dagar som du vill behålla dessa händelser i lagring. En inställning på 0 dagar behåller loggarna alltid.
+   * Service Bus Namespace där du vill ha en Händelsehubb skapas för direktuppspelning av dessa händelser.
 
      ![Exportera aktivitetslogg bladet](./media/activity-logs-overview/activity-logs-portal-export-blade.png)
 4. Klicka på **spara** dessa inställningar ska sparas. Inställningarna tillämpas omedelbart på din prenumeration.

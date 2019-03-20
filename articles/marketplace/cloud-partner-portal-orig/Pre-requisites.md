@@ -12,17 +12,16 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 46a12307a70125973d36cf0a09b44b32d3279a97
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: a4596b711cd90610051faee0d09501c075548062
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811697"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57991880"
 ---
-<a name="prerequisites-for-application-curation"></a>Krav för hantering av program
-===============================
+# <a name="prerequisites-for-application-curation"></a>Krav för hantering av program
 
 Microsoft kräver specifika granskningar för att kunna verifiera att följande krav är uppfyllda:
 
@@ -43,4 +42,5 @@ För närvarande kan partner måste visar att dessa krav är uppfyllda genom att
 - Modeller (kod och tester)
 - Marknadsföring innehåll
 
-Se [kraven för app-hantering](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions) för mer information.
+Mer information om tekniken och processer krav finns i [verifiera program för Finance and Operations](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions).  Även om du inte redan har gjort det, granska de [Office 365, Dynamics 365, PowerApps och Power BI erbjuder publiceringsguide](../appsource-offer-publishing-guide.md).
+

@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: 188e58261cec90e9afcc885f3da21fa3fab3b746
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2925ca5a303876a68b6d605c7312d43af102b6e0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875441"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088476"
 ---
 # <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Självstudie: Ansluta till API för nyhetssökning i Bing med anslutna tjänster i Visual Studio och C#
 
@@ -23,7 +23,7 @@ Du kan aktivera appar och tjänster för att dra nytta av en annonsfri sökmotor
 
 Den här artikeln innehåller information om att använda Visual Studio-funktionen för ansluten tjänst för nyhetssökning i Bing. Funktionen är tillgänglig i Visual Studio 2017 15.7 eller senare, med Cognitive Services-tillägget installerat.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 - Visual Studio 2017 version 15.7 med arbetsbelastningen webbutveckling installerad. [Ladda ned det nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -87,14 +87,14 @@ Den här artikeln innehåller information om att använda Visual Studio-funktion
 
 Nu när du har lagt till stöd för API för nyhetssökning i Bing i projektet ser du här hur du använder API:et för att lägga till intelligenta sökfunktioner till en webbsida.
 
-1.  I `ConfigureServices`-metoden i *Startup.cs* lägger du till ett anrop till `IServiceCollection.AddSingleton`. På så sätt blir konfigurationsobjektet som innehåller de viktiga inställningarna tillgängligt för koden i projektet.
+1. I `ConfigureServices`-metoden i *Startup.cs* lägger du till ett anrop till `IServiceCollection.AddSingleton`. På så sätt blir konfigurationsobjektet som innehåller de viktiga inställningarna tillgängligt för koden i projektet.
  
    ```csharp
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddMvc();
-            services.AddSingleton<IConfiguration>(Configuration);
-        }
+       public void ConfigureServices(IServiceCollection services)
+       {
+           services.AddMvc();
+           services.AddSingleton<IConfiguration>(Configuration);
+       }
    ```
 
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: 4370cc5e39b7d1b9a50e8fc8af9f7bfc58f6356a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 05df154db27dcf1b07506c6bf9c2a681408de61e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602757"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091825"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Använd Azure Toolkit för Eclipse för att skapa Apache Spark-program för ett HDInsight-kluster
 
@@ -141,12 +141,12 @@ Du kan länka ett normalt kluster med hjälp av Ambari hanteras användarnamnet.
    a. Högerklicka på projektnamnet i Package Explorer och välj sedan **skicka Spark-program till HDInsight**.        
    b. I den **Spark bidrag** dialogrutan Ange följande värden och välj sedan **skicka**:
       
-      * För **klusternamnet**, Välj HDInsight Spark-klustret som du vill köra ditt program.
-      * Välj en artefakt från Eclipse-projektet, eller välja en från en hårddisk. Standardvärdet beror på vilket objekt du högerklickar på från Package Explorer.
-      * I den **Main klassnamn** listrutan skicka guiden visar alla objektnamn från ditt projekt. Välj eller ange en som du vill köra. Om du har valt en artefakt från en hårddisk måste du ange det huvudsakliga klassnamnet manuellt. 
-      * Eftersom programkoden i det här exemplet inte kräver några kommandoradsargument eller referera till JAR-filer eller filer, kan du lämna textrutorna tomt.
+   * För **klusternamnet**, Välj HDInsight Spark-klustret som du vill köra ditt program.
+   * Välj en artefakt från Eclipse-projektet, eller välja en från en hårddisk. Standardvärdet beror på vilket objekt du högerklickar på från Package Explorer.
+   * I den **Main klassnamn** listrutan skicka guiden visar alla objektnamn från ditt projekt. Välj eller ange en som du vill köra. Om du har valt en artefakt från en hårddisk måste du ange det huvudsakliga klassnamnet manuellt. 
+   * Eftersom programkoden i det här exemplet inte kräver några kommandoradsargument eller referera till JAR-filer eller filer, kan du lämna textrutorna tomt.
         
-      ![Dialogrutan för Spark-bidrag](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
+     ![Dialogrutan för Spark-bidrag](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
 1. Den **Spark bidrag** fliken ska börja Visa förloppet. Du kan stoppa programmet genom att välja den röda knappen i den **Spark bidrag** fönster. Du kan också visa loggarna för specifika programmet körs genom att välja ikonen (enligt den blå rutan i bilden).
       
    ![Spark-bidrag fönster](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)

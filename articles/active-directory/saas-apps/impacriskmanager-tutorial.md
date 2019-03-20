@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec119c9e11b21828b1b056fb97598ca7434cfc68
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9f987c6803f6ca538f4ae7470caaff597c9596c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197717"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900751"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Självstudier: Azure Active Directory-integrering med IMPAC Risk Manager
 
@@ -114,6 +114,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     a. I den **identifierare** textrutan, ange ett värde som tillhandahålls av IMPAC
 
     b. I textrutan **Svars-URL** anger du en URL med följande mönster:
+
     | Miljö | URL-mönster |
     | ---------------|--------------- |    
     | För produktion |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
@@ -127,6 +128,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![IMPAC Risk Manager-domän och URL: er med enkel inloggning för information](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_url1_new.png)
 
     I textrutan **Inloggnings-URL** anger du en URL med följande mönster:
+    
     | Miljö | URL-mönster |
     | ---------------|--------------- |    
     | För produktion |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
@@ -230,7 +232,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

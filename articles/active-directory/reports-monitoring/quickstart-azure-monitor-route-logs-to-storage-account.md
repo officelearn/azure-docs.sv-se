@@ -17,18 +17,18 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b50b8f6c54cbefde2120dd61643c23f5175927c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e8706e839005d43ab9fa2662d13d7d3c3994c136
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211758"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077759"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Självstudier: Arkivera Azure AD-loggar till ett Azure-lagringskonto (förhandsversion)
 
 I den här självstudien får du lära dig hur du konfigurerar Azure Monitor-diagnostikinställningar för att dirigera Azure Active Directory-loggar (Azure AD) till ett Azure-lagringskonto.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Om du vill använda den här funktionen behöver du:
 
@@ -38,18 +38,18 @@ Om du vill använda den här funktionen behöver du:
 
 ## <a name="archive-logs-to-an-azure-storage-account"></a>Arkivera loggar till ett Azure-lagringskonto
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). 
+1. Logga in på [Azure Portal](https://portal.azure.com). 
 
 2. Välj **Azure Active Directory** > **Aktivitet** > **Spårningsloggar**. 
 
 3. Välj **Exportinställningar**. 
 
 4. I fönsterrutan **Diagnostikinställningar** gör du något av följande:
-    * Om du vill ändra befintliga inställningar väljer du **Redigera inställning**.
-    * Om du vill lägga till nya inställningar väljer du **Add diagnostics setting** (Lägg till diagnostikinställning).  
-      Du kan ha upp till tre inställningar. 
+   * Om du vill ändra befintliga inställningar väljer du **Redigera inställning**.
+   * Om du vill lägga till nya inställningar väljer du **Add diagnostics setting** (Lägg till diagnostikinställning).  
+     Du kan ha upp till tre inställningar. 
 
-    ![Exportinställningar](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
+     ![Exportinställningar](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
 
 5. Ange ett eget namn för inställningen som påminner dig om dess syfte (exempelvis *Skicka till Azure-lagringskonto*). 
 

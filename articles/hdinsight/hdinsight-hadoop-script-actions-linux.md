@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6702bfabd27b56ce473fe8eb14aadc9dc6e8e7c9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 4bef785a08d7482468630bc690d6c19b05bdf770
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338877"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202970"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Skriptåtgärdsutveckling med HDInsight
 
@@ -332,7 +332,6 @@ Mer information om hur du använder varje metod finns i [hur du använder skript
 Microsoft tillhandahåller exempelskript för att installera komponenter på ett HDInsight-kluster. Se följande länkar för mer exempel skriptåtgärder.
 
 * [Installera och använda Hue på HDInsight-kluster](hdinsight-hadoop-hue-linux.md)
-* [Installera och använda Apache Solr på HDInsight-kluster](hdinsight-hadoop-solr-install-linux.md)
 * [Installera och använda Apache Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md)
 * [Installera eller uppgradera Mono på HDInsight-kluster](hdinsight-hadoop-install-mono.md)
 

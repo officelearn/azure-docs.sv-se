@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 8d6d2d83e24b5e42af5f4322021eebfe9bf09494
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2eb395b4f3d922aa116e01c5de080a54d81e10ff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551304"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118654"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnostisera vanliga scenarier med Service Fabric
 
@@ -111,15 +111,15 @@ I samma vy med alla diagram ser du vissa paneler för prestanda för dina behål
 
 3. Klicka på Data > Windows-prestandaräknare (Data > Linux-prestandaräknare för Linux-datorer) börjar samla in-specifika räknare från noderna via Log Analytics-agenten. Här följer exempel på formatet för räknare att lägga till
 
-    * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
-    * `Processor(_Total)\\% Processor Time`
+   * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
+   * `Processor(_Total)\\% Processor Time`
 
-    I snabbstarten, VotingData och VotingWeb är processnamn används, så att spåra dessa räknare skulle se ut
+     I snabbstarten, VotingData och VotingWeb är processnamn används, så att spåra dessa räknare skulle se ut
 
-    * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
-    * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
+   * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
+   * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
 
-    ![Prestandaräknare för log Analytics](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
+     ![Prestandaräknare för log Analytics](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
 
 4. Detta kommer att du kan se hur din infrastruktur hanterar dina arbetsbelastningar och ställa in relevanta aviseringar baserat på Resursanvändning. Till exempel – kan du ställa in en avisering om den totala processoranvändningen går över 90% eller mindre än 5%. Räknarnamnet som du använder för detta är ”% processortid”. Du kan göra detta genom att skapa en aviseringsregel för följande fråga:
 

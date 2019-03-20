@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7ab6b387a28df06758e5e0c1ce197781fc4be3c5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: c5764c36a646b9639c0eb6463c39b9f014c4272d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436815"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168093"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Lära dig viktiga begrepp i Windows PowerShell-arbetsflöde för Automation-runbooks
 
@@ -226,7 +226,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>Kontrollpunkter
 
-En *kontrollpunkt* är en ögonblicksbild av det aktuella tillståndet för arbetsflödet som innehåller det aktuella värdet för variabler och all utdata som genererats till den punkten. Om ett arbetsflöde slutar i fel eller är inaktiverad, sedan börjar nästa gång den körs den från den senaste kontrollpunkten istället för i början av arbetsflödet.  Du kan ange en kontrollpunkt i ett arbetsflöde med den **Checkpoint-Workflow** aktivitet.
+En *kontrollpunkt* är en ögonblicksbild av det aktuella tillståndet för arbetsflödet som innehåller det aktuella värdet för variabler och all utdata som genererats till den punkten. Om ett arbetsflöde slutar i fel eller är inaktiverad, sedan börjar nästa gång den körs den från den senaste kontrollpunkten istället för i början av arbetsflödet.  Du kan ange en kontrollpunkt i ett arbetsflöde med den **Checkpoint-Workflow** aktivitet. Azure Automation har en funktion som kallas [rättmätiga del](automation-runbook-execution.md#fair-share), där valfri runbook som körs i tre timmar är tas bort från minnet för att tillåta körning av andra runbooks. Slutligen bort från minnet runbook ska läsas och när det är de återupptas om körning från den senaste kontrollpunkten som vidtagits i runbooken. För att säkerställa att runbooken slutförs så småningom måste du lägga till kontrollpunkter med intervall som körs i mindre än tre timmar. Under varje körning läggs till en ny kontrollpunkt, och om runbooken som hämtar avlägsnas efter 3 timmar på grund av ett fel, sedan fortsätter runbook på obestämd tid.
 
 I följande exempelkod, ett undantag som inträffar efter Activity2 orsakar arbetsflödet ska sluta. När arbetsflödet körs igen, startar genom att köra Activity2 eftersom det bara när den senast lagrade kontrollpunkten.
 

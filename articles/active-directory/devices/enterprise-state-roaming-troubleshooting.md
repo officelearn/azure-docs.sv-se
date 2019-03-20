@@ -19,12 +19,12 @@ ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bf7919a2dc69bc834a5834d10a5a297a2ad6949
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9e2b99871cc1da2b1e8e136fc4d689e90dfad77a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170311"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081244"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Felsöka Enterprise State Roaming-inställningar i Azure Active Directory
 
@@ -47,7 +47,7 @@ Om du inte kan lösa problemet med riktlinjerna nedan kan du kontakta vår suppo
 * **Användare som påverkas** – är sync fungerande/misslyckas för en användare eller flera användare? Hur många enheter ingår per användare? Dem inte synkroniserar alla eller vissa av dem synkroniseras och vissa inte synkroniserar?
 * **Information om användaren** – vilka identiteten är användaren med att logga in på enheten? Hur användaren loggar in på enheten? De är en del av en vald säkerhetsgrupp som tillåts synkronisera? 
 * **Information om enheten** – är den här enheten av Azure AD-anslutna eller domänansluten? Vilken build är enheten på? Vilka är de senaste uppdateringarna?
-- **Datum / tid / tidszon** – vad var exakt datum och tid som du såg felet (inkludera tidszonen)?
+* **Datum / tid / tidszon** – vad var exakt datum och tid som du såg felet (inkludera tidszonen)?
 
 Inklusive den här informationen hjälper oss att lösa problemet så snabbt som möjligt.
 
@@ -59,8 +59,8 @@ Det här avsnittet innehåller förslag på hur du felsöker och diagnostisera p
 1. När du ansluter din Windows 10-dator till en domän som är konfigurerad för att tillåta Enterprise State Roaming, logga in med ditt arbetskonto. Gå till **inställningar** > **konton** > **Your synkroniseringsinställningar** och bekräfta att synkronisera och de enskilda inställningarna finns på, och att överst i inställningssidan anger att du synkroniserar med ditt arbetskonto. Bekräfta samma konto används också som ett inloggningskonto i **inställningar** > **konton** > **Your Info**. 
 1. Kontrollera att synkroniseringen fungerar över flera datorer genom att göra några ändringar på den ursprungliga datorn, till exempel flytta Aktivitetsfältet till höger eller längst upp på skärmen. Titta på ändringen sprids till den andra datorn inom fem minuter. 
 
-  * Låsa och låsa upp skärmen (Win + L) kan utlösa en synkronisering.
-  * Du måste logga in med samma konto på båda datorerna för synkronisering fungera – som Enterprise State Roaming är knuten till användarkontot och inte datorkontot.
+   * Låsa och låsa upp skärmen (Win + L) kan utlösa en synkronisering.
+   * Du måste logga in med samma konto på båda datorerna för synkronisering fungera – som Enterprise State Roaming är knuten till användarkontot och inte datorkontot.
 
 **Potentiella problem**: Om kontrollerna i den **inställningar** sidan är inte tillgängliga och du ser meddelandet ”vissa Windows-funktioner är endast tillgängliga om du använder ett Microsoft-konto eller ett arbetskonto”. Det här problemet kan uppstå för enheter som ska vara domänansluten och registrerad till Azure AD, men enheten har inte ännu har autentiserats med Azure AD. En möjlig orsak är att Enhetsprincipen måste användas, men det här programmet sker asynkront och kan fördröjas med några timmar. 
 

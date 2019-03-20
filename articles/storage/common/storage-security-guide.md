@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 72d4a9cd9a8b9244c428d49b5270952deb6f5162
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 56c09d9c6d1249713de7c6a0428ad2a124eee157
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454495"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013069"
 ---
 # <a name="azure-storage-security-guide"></a>Säkerhetsguiden för Azure Storage
 
@@ -111,7 +111,7 @@ Här är de viktigaste aspekterna som du behöver veta om hur du använder RBAC 
 ### <a name="managing-your-storage-account-keys"></a>Hantera dina Lagringskontonycklar
 Lagringskontonycklar är 512 bitar strängar som skapats av Azure som tillsammans med lagringskontonamn, kan användas för att få åtkomst till dataobjekt som lagras i lagringskontot, till exempel, blobbar, entiteter i en tabell, Kömeddelanden och filer på en Azure-filresurs. Kontrollera åtkomst till de storage-konto nycklar kontrollerar åtkomsten till dataplanet för det lagringskontot.
 
-Varje lagringskonto har två nycklar som kallas ”nyckel 1” och ”nyckel 2” i den [Azure-portalen](http://portal.azure.com/) och i PowerShell-cmdlets. Dessa kan återskapas manuellt med hjälp av en eller flera metoder, inklusive men inte begränsat till med hjälp av den [Azure-portalen](https://portal.azure.com/), PowerShell, Azure CLI, eller programmässigt med .NET Storage Client Library eller Azure Storage-tjänster REST-API.
+Varje lagringskonto har två nycklar som kallas ”nyckel 1” och ”nyckel 2” i den [Azure-portalen](https://portal.azure.com/) och i PowerShell-cmdlets. Dessa kan återskapas manuellt med hjälp av en eller flera metoder, inklusive men inte begränsat till med hjälp av den [Azure-portalen](https://portal.azure.com/), PowerShell, Azure CLI, eller programmässigt med .NET Storage Client Library eller Azure Storage-tjänster REST-API.
 
 Det finns många anledningar till att återskapa nycklar för ditt lagringskonto.
 
@@ -187,7 +187,7 @@ Dessutom kan du ange att begäranden som görs med hjälp av en SAS är begräns
 #### <a name="definition-of-a-shared-access-signature"></a>Definitionen av en signatur för delad åtkomst
 En signatur för delad åtkomst är en uppsättning frågeparametrar som bifogats till den URL som pekar på resursen
 
-som innehåller information om åtkomst tillåts och hur lång tid som åtkomst tillåts. Här är ett exempel. URI: N ger läsåtkomst till en blob i fem minuter. Observera att SAS frågeparametrar måste vara URL-kodade, till exempel % 3A för kolon (:) eller % 20 för ett blanksteg.
+som innehåller information om åtkomst tillåts och hur lång tid som åtkomst tillåts. Här är ett exempel. URI: N ger läsåtkomst till en blob i fem minuter. Observera att SAS-frågeparametrar måste vara URL-kodade, till exempel % 3A för kolon (:) eller % 20 för ett blanksteg.
 
 ```
 http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
@@ -244,7 +244,7 @@ Mer detaljerad information om hur du använder signaturer för delad åtkomst oc
 
     Den här artikeln innehåller en förklaring av den SAS-modellen, exempel på signaturer för delad åtkomst och rekommendationer för bästa praxis använder SAS. Vi beskriver även återkallande av vilken behörighet.
 
-* Autentisering
+* Authentication
 
   * [Autentisering för Azure Storage-tjänster](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * Signaturer för delad åtkomst har börjat självstudie

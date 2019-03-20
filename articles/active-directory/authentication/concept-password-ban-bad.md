@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca079fa2ec41f85c365102fbd81ffde23e97e2c4
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: ccad4f9aaa85d528697c1bcf34e1b034eeabe9e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990500"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996007"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminera felaktiga lösenord i din organisation
 
@@ -60,7 +60,7 @@ Normalisering består av två delar.  Första, versaler bokstäver ändras till 
 | '0'  | ' formatmönster |
 | '1'  | 'l' |
 | '$'  | 's' |
-| '@'  | ”a” |
+| '\@'  | ”a” |
 
 Exempel: Anta att lösenordet ”blank” är bannlyst och en användare försöker att ändra sina lösenord till ”Bl@nK”. Även om ”Bl@nk” är inte specifikt förbjuden normaliseringsprocessen konverterar det här lösenordet till ”blank”, som är förbjudna lösenord.
 

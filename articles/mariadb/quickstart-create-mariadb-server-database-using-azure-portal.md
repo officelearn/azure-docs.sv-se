@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 01/09/2019
-ms.openlocfilehash: e739ed1f7cd1b832ffe11299d3444c9bf0ac99e9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 296005f68592a8c89f3ec78da8ece4d1741f253f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874468"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880831"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Snabbstart: Skapa en Azure Database for MariaDB-server med Azure-portalen
 
@@ -72,11 +72,11 @@ Azure Database for MariaDB-tjänsten skapar en brandvägg på servernivå. Brand
 
 Skapa en brandväggsregel på servernivå:
 
-1.   När distributionen är klar letar du reda på servern. Om det behövs kan du söka efter den. Välj till exempel **Alla resurser** i menyn till vänster. Ange sedan servernamnet. Ange till exempel **mydemoserver** för att söka efter den nya servern. Välj servernamnet i sökresultatlistan. **Översiktssidan** för servern öppnas. Du kan ändra ytterligare inställningar på den här sidan.
+1. När distributionen är klar letar du reda på servern. Om det behövs kan du söka efter den. Välj till exempel **Alla resurser** i menyn till vänster. Ange sedan servernamnet. Ange till exempel **mydemoserver** för att söka efter den nya servern. Välj servernamnet i sökresultatlistan. **Översiktssidan** för servern öppnas. Du kan ändra ytterligare inställningar på den här sidan.
 
 2. På serverns översiktssida väljer du **Anslutningssäkerhet**.
 
-3.  Under **Brandväggsregler** väljer du den tomma textrutan i kolumnen **Regelnamn** och börjar skapa brandväggsregeln. Ange de exakta IP-adressintervallen för de klienter som ska ansluta till den här servern.
+3. Under **Brandväggsregler** väljer du den tomma textrutan i kolumnen **Regelnamn** och börjar skapa brandväggsregeln. Ange de exakta IP-adressintervallen för de klienter som ska ansluta till den här servern.
    
    ![Anslutningssäkerhet – Brandväggsregler](./media/quickstart-create-mariadb-server-database-using-azure-portal/5-firewall-2.png)
 
@@ -94,7 +94,7 @@ Du behöver det fullständiga servernamnet och inloggningsuppgifterna för admin
 
 2. Kopiera värdena genom att placera markören över det fält du vill kopiera. Kopieringsikonen visas till höger om texten. Välj kopieringssymbolen för att kopiera värdena.
 
-I vårt exempel är servernamnet **mydemoserver.mariadb.database.azure.com** och inloggningsnamnet för serveradministratören är **myadmin@mydemoserver**.
+I vårt exempel är servernamnet **mydemoserver.mariadb.database.azure.com** och inloggningsnamnet för serveradministratören är **myadmin\@mydemoserver**.
 
 ## <a name="connect-to-azure-database-for-mariadb-by-using-the-mysql-command-line"></a>Ansluta till Azure Database for MariaDB med hjälp av mysql-kommandoraden
 
@@ -103,9 +103,9 @@ Du kan använda en mängd olika program för att ansluta till Azure Database for
 Först använder vi [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)-kommandoradsverktyget för att visa hur man ansluter till servern. Du kan även använda en webbläsare och Azure Cloud Shell utan att installera programvara. Om mysql-verktyget är installerat lokalt kan du även ansluta därifrån.
 
 1. Starta Azure Cloud Shell via terminalikonen (**>_**) i verktygsfältet överst till höger på Azure-portalen.
-![Terminalsymbol för Azure Cloud Shell](./media/quickstart-create-mariadb-server-database-using-azure-portal/7-cloud-console.png)
+   ![Terminalsymbol för Azure Cloud Shell](./media/quickstart-create-mariadb-server-database-using-azure-portal/7-cloud-console.png)
 
-2.  Azure Cloud Shell öppnas i webbläsaren. Du kan använda bash shell-kommandon i Cloud Shell.
+2. Azure Cloud Shell öppnas i webbläsaren. Du kan använda bash shell-kommandon i Cloud Shell.
 
    ![Kommandotolk – exempel på mysql-kommandorad](./media/quickstart-create-mariadb-server-database-using-azure-portal/8-bash.png)
 
@@ -126,7 +126,7 @@ Först använder vi [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)-
     mysql-parameter |Föreslaget värde|Beskrivning
     ---|---|---
     --host | *servernamn* | Servernamnsvärdet som du använde när du skapade Azure Database for MariaDB-servern. Exempelservern är **mydemoserver.mariadb.database.azure.com**. Använd det fullständiga domännamnet (**\*.mariadb.database.azure.com**) som i det här exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation.
-    --användare | *inloggning för serveradministratör* |Inloggningen för serveradministratör som du har använt för att skapa Azure Database for MariaDB-server. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *username@servername*.
+    --användare | *inloggning för serveradministratör* |Inloggningen för serveradministratör som du har använt för att skapa Azure Database for MariaDB-server. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *användarnamn\@servername*.
     -p | *ditt lösenord*<br>(vänta på uppmaning) |När du uppmanas anger du det lösenord du använde för att skapa servern. Det angivna lösenordet visas inte i bash-kommandotolken när du skriver. Tryck på RETUR när du har angett lösenordet.
 
    När mysql-verktyget är anslutet visas en `mysql>`-kommandotolk. Du kan ange kommandon i kommandotolken. 
@@ -165,14 +165,14 @@ Först använder vi [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)-
    > [!TIP]
    > Fler kommandon finns i [referenshandboken för MySQL 5.7 – kapitel 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
-5.  Skapa en tom databas i `mysql>`-kommandotolken genom att ange följande kommando:
+5. Skapa en tom databas i `mysql>`-kommandotolken genom att ange följande kommando:
 
-    ```sql
-    CREATE DATABASE quickstartdb;
-    ```
-    Det kan ta några minuter att slutföra kommandot. 
+   ```sql
+   CREATE DATABASE quickstartdb;
+   ```
+   Det kan ta några minuter att slutföra kommandot. 
 
-    Du kan skapa en eller flera databaser på en Azure Database for MariaDB-server. Du kan skapa en databas per server om du vill använda dig av samtliga resurser eller så kan du skapa flera databaser som får dela på resurserna. Det finns ingen gräns för hur många databaser du kan skapa, men flera databaser delar samma serverresurser. 
+   Du kan skapa en eller flera databaser på en Azure Database for MariaDB-server. Du kan skapa en databas per server om du vill använda dig av samtliga resurser eller så kan du skapa flera databaser som får dela på resurserna. Det finns ingen gräns för hur många databaser du kan skapa, men flera databaser delar samma serverresurser. 
 
 6. Lista databaserna i `mysql>`-kommandotolken genom att ange följande kommando:
 
@@ -180,7 +180,7 @@ Först använder vi [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)-
     SHOW DATABASES;
     ```
 
-7.  Ange **\q** och tryck sedan på RETUR för att stänga mysql-verktyget. Sedan kan du stänga Azure Cloud Shell.
+7. Ange **\q** och tryck sedan på RETUR för att stänga mysql-verktyget. Sedan kan du stänga Azure Cloud Shell.
 
 Du har anslutit till Azure Database for MariaDB-server och skapat en tom användardatabas. I nästa avsnitt ansluter du till samma server genom att använda ett annat vanligt verktyg MySQL Workbench.
 
@@ -202,7 +202,7 @@ Ansluta till servern med MySQL Workbench:
     Anslutningsmetod | **Standard (TCP/IP)** | Standard (TCP/IP) är tillräckligt. |
     Värdnamn | *servernamn* | Servernamnsvärdet som du använde när du skapade Azure Database for MariaDB-servern. Exempelservern är **mydemoserver.mariadb.database.azure.com**. Använd det fullständiga domännamnet (**\*.mariadb.database.azure.com**) som i det här exemplet. Om du inte kommer ihåg servernamnet slutför du stegen ovan i den här artikeln för att hämta anslutningsinformationen.|
      Port | 3306 | Den port som ska användas när du ansluter till din Azure Database for MariaDB-server. |
-    Användarnamn |  *inloggning för serveradministratör* | Inloggningsinformationen för server som du använde för att skapa Azure Database for MariaDB-servern. Exempelanvändarnamnet är **myadmin@mydemoserver**. Om du inte kommer ihåg användarnamnet slutför du stegen ovan i den här artikeln för att hämta anslutningsinformationen. Formatet är *username@servername*.
+    Användarnamn |  *inloggning för serveradministratör* | Inloggningsinformationen för server som du använde för att skapa Azure Database for MariaDB-servern. Vårt exempel användarnamnet är **myadmin\@mydemoserver**. Om du inte kommer ihåg användarnamnet slutför du stegen ovan i den här artikeln för att hämta anslutningsinformationen. Formatet är *användarnamn\@servername*.
     Lösenord | *ditt lösenord* | Klicka på knappen **Spara i valvet** för att spara lösenordet. |
 
 4. Välj **Testanslutning** för att kontrollera att alla parametrar är rätt konfigurerade. Välj **OK** för att spara anslutningen. 
@@ -227,13 +227,13 @@ Ta bort hela resursgruppen, inklusive den nya servern:
 
 Ta bort bara den nyligen skapade servern:
 
-1.  Leta upp din server i Azure-portalen om du inte redan har den öppen. Välj **Alla resurser** i menyn till vänster. Sök sedan efter den server som du skapade.
+1. Leta upp din server i Azure-portalen om du inte redan har den öppen. Välj **Alla resurser** i menyn till vänster. Sök sedan efter den server som du skapade.
 
-2.  Välj **Ta bort** på sidan **Översikt**. 
+2. Välj **Ta bort** på sidan **Översikt**. 
 
    ![Azure Database for MariaDB – Ta bort server](./media/quickstart-create-mariadb-server-database-using-azure-portal/delete-server.png)
 
-3.  Bekräfta namnet på den server du vill ta bort. Visa databaserna under den som påverkas av borttagningen. Ange servernamnet (**mydemoserver** i vårt exempel) för att bekräfta borttagningen. Välj **Ta bort**.
+3. Bekräfta namnet på den server du vill ta bort. Visa databaserna under den som påverkas av borttagningen. Ange servernamnet (**mydemoserver** i vårt exempel) för att bekräfta borttagningen. Välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

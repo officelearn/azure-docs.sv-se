@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: a195a8967ab68990c305097fdcc3476fb3491d4f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e66387a904f0026eb862178b19fd1b005212d674
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730077"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124022"
 ---
 # <a name="customize-your-text-translations"></a>Anpassa dina textöversättningar
 
@@ -60,8 +60,8 @@ Mer information om de olika nivåerna på anpassning som är baserad på tillgä
 
 > [!NOTE]
 > Från och med den 1 februari 2018 AddTranslation() och AddTranslationArray() är inte längre tillgängliga för användning med Translator Text API V2.0. De här metoderna misslyckas och inget ska skrivas. Translator Text API V3.0 har inte stöd för dessa metoder.
-
->Liknande funktionalitet är tillgänglig i hubben Translator-API. Se [ https://hub.microsofttranslator.com/swagger ](https://hub.microsofttranslator.com/swagger).
+> 
+> Liknande funktionalitet är tillgänglig i hubben Translator-API. Se [ https://hub.microsofttranslator.com/swagger ](https://hub.microsofttranslator.com/swagger).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,7 +3,6 @@ title: Azure SQL-jobbautomatisering | Microsoft Docs
 description: Använda jobbautomatisering för att köra Transact-SQL-skript (T-SQL) över en uppsättning med en eller flera Azure SQL-databaser
 services: sql-database
 ms.service: sql-database
-ms.subservice: database-features
 ms.custom: ''
 ms.devlang: ''
 ms.topic: overview
@@ -12,18 +11,20 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1fd524e858b20c75aef4101ad98ac54c4f485d1e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 4e80bbc868376a41212d924bd31df6ac70a52ded
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457215"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901975"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatisera hanteringsuppgifter med hjälp av databasjobb
 
 Med Azure SQL Database kan du skapa och schemalägga jobb som kan köras periodiskt mot en eller flera databaser för att köra T-SQL-frågor och utföra underhållsuppgifter. Alla jobb loggar status för körning och försöker automatiskt utföra åtgärderna på nytt om det uppstår fel.
 Du kan definiera måldatabas eller grupper med Azure SQL-databaser där jobbet ska köras och även definiera scheman för att köra ett jobb.
 Ett jobb hanterar uppgiften att logga in på måldatabasen. Du definierar, underhåller och bevarar även Transact-SQL-skript som ska köras över en grupp Azure SQL-databaser.
+
+## <a name="when-to-use-automated-jobs"></a>När du ska använda automatiska jobb
 
 Det finns flera scenarier när du kan använda jobbautomatisering:
 
@@ -36,8 +37,10 @@ Det finns flera scenarier när du kan använda jobbautomatisering:
   - Sammanställ data från en samling Azure SQL-databaser till en enskild måltabell.
   - Kör databearbetningsfrågor med längre körningstid över en stor uppsättning databaser, till exempel insamling av kundtelemetri. Resultaten samlas till en enskild måltabell för ytterligare analys.
 - Dataflyttar
- - Skapa jobb som replikerar ändringar som görs i dina databaser till andra databaser eller samla in uppdateringar som görs i fjärrdatabaser och tillämpa ändringar i databasen.
- - Skapa jobb som läser in data från eller till databaser med hjälp av SQL Server Integration Services (SSIS).
+  - Skapa jobb som replikerar ändringar som görs i dina databaser till andra databaser eller samla in uppdateringar som görs i fjärrdatabaser och tillämpa ändringar i databasen.
+  - Skapa jobb som läser in data från eller till databaser med hjälp av SQL Server Integration Services (SSIS).
+
+## <a name="overview"></a>Översikt
 
 Följande tekniker för jobbschemaläggning är tillgängliga i Azure SQL Database:
 
@@ -48,7 +51,7 @@ Det finns vissa skillnader mellan SQL Agent (tillgängligt lokalt och som en del
 
 |  |Elastiska jobb  |SQL Agent |
 |---------|---------|---------|
-|Omfång     |  Vilket antal som helst av Azure SQL-databaser och/eller informationslagerdatabaser i samma Azure-moln som jobbagenten. Målen kan finnas på olika SQL Database-servrar, prenumerationer och/eller regioner. <br><br>Målgrupper kan bestå av enskilda databaser eller informationslagerdatabaser, eller alla databaser i en server, pool eller shardkarta (dynamiskt uppräknade vid jobbkörningen). | Valfri enskild databas i samma SQL Server-instans som SQL-agenten. |
+|Scope     |  Vilket antal som helst av Azure SQL-databaser och/eller informationslagerdatabaser i samma Azure-moln som jobbagenten. Målen kan finnas på olika SQL Database-servrar, prenumerationer och/eller regioner. <br><br>Målgrupper kan bestå av enskilda databaser eller informationslagerdatabaser, eller alla databaser i en server, pool eller shardkarta (dynamiskt uppräknade vid jobbkörningen). | Valfri enskild databas i samma SQL Server-instans som SQL-agenten. |
 |API:er och verktyg som stöds     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
 
 ## <a name="sql-agent-jobs"></a>SQL Agent-jobb
@@ -158,9 +161,9 @@ Vissa av de SQL Agent-funktioner som är tillgängliga i SQL Server stöds inte 
 - Inställningar för SQL Agent är skrivskyddade. Proceduren `sp_set_agent_properties` stöds inte i hanterad instans.
 - Aktivering/inaktivering av Agent stöds för närvarande inte i hanterad instans. SQL Agent körs alltid.
 - Meddelanden stöds delvis
- - Personsökare stöds inte.
- - NetSend stöds inte.
- - Aviseringar stöds ännu inte.
+  - Personsökare stöds inte.
+  - NetSend stöds inte.
+  - Aviseringar stöds ännu inte.
 - Proxyservrar stöds inte.
 - EventLog stöds inte.
 

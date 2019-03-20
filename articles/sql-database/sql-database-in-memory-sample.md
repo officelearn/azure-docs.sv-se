@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 9551f07efa9d388da69b6474f6a2dd5af947ff2c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2aa98c3958f1dffeb8adbad5e91a11f397d4a9fd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767659"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005735"
 ---
 # <a name="in-memory-sample"></a>InMemory-exempel
 
@@ -190,11 +190,11 @@ Mer information finns i:
 <!--
 dn511655.aspx is for SQL 2014,
 [Extensions to AdventureWorks to Demonstrate In-Memory OLTP]
-(http://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx)
+(https://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx)
 
 whereas for SQL 2016+
 [Sample Database for In-Memory OLTP]
-(http://msdn.microsoft.com/library/mt465764.aspx)
+(https://msdn.microsoft.com/library/mt465764.aspx)
 -->
 
 
@@ -244,9 +244,9 @@ När du har resultatet från den *_inmem* kör, utför följande steg för den *
 
 
 1. Återställ databasen genom att köra följande kommando i SSMS för att ta bort alla data som infogats av den tidigare körningen:
-```sql
-EXECUTE Demo.usp_DemoReset;
-```
+   ```sql
+   EXECUTE Demo.usp_DemoReset;
+   ```
 
 2. Redigera ostress.exe kommandoraden för att byta ut all *_inmem* med *_ondisk*.
 
@@ -277,13 +277,13 @@ För analys i realtid på en OLTP-arbetsbelastning är det ofta bäst att använ
 
 
 1. Använd Azure-portalen för att skapa en ny AdventureWorksLT-databasen från exemplet.
- - Använda det exakta namnet.
- - Välj alla Premium-tjänstnivån.
+   - Använda det exakta namnet.
+   - Välj alla Premium-tjänstnivån.
 
 2. Kopiera den [sql_in memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) till Urklipp.
- - T-SQL-skript skapar nödvändiga InMemory-objekt i AdventureWorksLT-exempeldatabasen som du skapade i steg 1.
- - Skriptet skapar dimensionstabellen och två faktatabeller. Faktatabellerna fylls med 3,5 miljoner rader.
- - Skriptet kan ta 15 minuter att slutföra.
+   - T-SQL-skript skapar nödvändiga InMemory-objekt i AdventureWorksLT-exempeldatabasen som du skapade i steg 1.
+   - Skriptet skapar dimensionstabellen och två faktatabeller. Faktatabellerna fylls med 3,5 miljoner rader.
+   - Skriptet kan ta 15 minuter att slutföra.
 
 3. Klistra in T-SQL-skript i SSMS och sedan köra skriptet. Den **COLUMNSTORE** nyckelord i den **CREATE INDEX** instruktionen är avgörande, som i:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 

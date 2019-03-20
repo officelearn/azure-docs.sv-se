@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3cf71de72a6005c59d76e2d88059a1ae16ec2970
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5814e05aa65bf005a3156aa75e65747bbd46733c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817481"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58171065"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Kända problem och felsökning Azure Machine Learning-tjänsten
 
@@ -45,6 +45,7 @@ Bild för att skapa fel när du distribuerar webbtjänsten. Lösningen är att l
 Om du observerar `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`, ändra SKU: N för virtuella datorer som används i distributionen till ett som har mer minne.
 
 ## <a name="fpgas"></a>FPGA:er
+
 Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt och godkänts för FPGA kvot. För att begära åtkomst, fyller du i formuläret för begäran av kvot: https://aka.ms/aml-real-time-ai
 
 ## <a name="databricks"></a>Databricks
@@ -52,23 +53,52 @@ Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt o
 Databricks och Azure Machine Learning-problem.
 
 ### <a name="failure-when-installing-packages"></a>Fel vid installation av paket
-Azure Machine Learning SDK-installationsfel på Databricks när flera paket installeras. Vissa paket, till exempel `psutil`, kan orsaka konflikter. Installera paket genom att du låser lib-version för att undvika installationsfel. Det här problemet är relaterat till Databricks och inte Azure Machine Learning-tjänsten SDK – du kan stöta på det med andra libs för. Exempel:
-   ```python
-   pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+
+Azure Machine Learning SDK-installation misslyckas på Azure Databricks när flera paket installeras. Vissa paket, till exempel `psutil`, kan orsaka konflikter. Undvik installationsfel genom att installera paket genom att frysa version library. Det här problemet är relaterat till Databricks och inte till Azure Machine Learning-tjänst-SDK. Du kan uppleva problemet med andra bibliotek för. Exempel:
+
+```python
+pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+```
+
+Du kan också använda init skript om du hålla får installera problem med med Python-biblioteken. Den här metoden stöds inte officiellt. Mer information finns i [kluster-omfattande init skript](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+
+### <a name="cancel-an-automated-machine-learning-run"></a>Avbryt en automatiserad machine learning-körning
+
+Starta om ditt Azure Databricks-kluster för att avbryta en körning och starta ett nytt experiment som körs, när du använder automatisk maskininlärningsfunktioner på Azure Databricks.
+
+### <a name="10-iterations-for-automated-machine-learning"></a>> 10 iterationer för automatiserade machine learning
+
+I automatiserade machine learning-inställningar, om du har fler än 10 iterationer, ange `show_output` till `False` när du skickar körningen.
+
+### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Widget för Azure Machine Learning SDK/automatiserad machine learning
+
+Azure Machine Learning SDK-widgeten stöds inte i en Databricks notebook eftersom de bärbara datorerna inte kan tolka HTML widgetar. Du kan visa widgeten på portalen med hjälp av den här Python-koden i din Azure Databricks notebook-cellen:
+
+```
+displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
+```
+
+### <a name="import-error-no-module-named-pandascoreindexes"></a>Fel vid import: Ingen modul med namnet ”pandas.core.indexes”
+
+Om du ser det här felet automatisk när du använder maskininlärning:
+
+1. Kör följande kommando för att installera två paket i Azure Databricks-klustret: 
+
    ```
-Du kan också använda init skript om du hålla får installera problem med med Python-bibliotek. Den här metoden är inte en metod som stöds. Du kan referera till [det här dokumentet](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+   scikit-learn==0.19.1
+   pandas==0.22.0
+   ```
 
-### <a name="cancel-an-automated-ml-run"></a>Avbryt en automatiserad ML-körning
-När du använder automatisk maskininlärningsförmågor på Databricks, om du vill avbryta en körning och starta ett nytt experiment som körs, startar du om din Azure Databricks-kluster.
+1. Koppla från och Återanslut klustret för att din bärbara dator. 
 
-### <a name="10-iterations-for-automated-ml"></a>> 10 iterationer för automatiserade ML
-I inställningarna för automatisk ml om du har fler än 10 iterationer ange `show_output` till `False` när du skickar körningen.
-
+Om detta inte löser problemet, försök att starta om klustret.
 
 ## <a name="azure-portal"></a>Azure Portal
+
 Om du går direkt för att visa din arbetsyta från en delningslänk från SDK: N eller portalen kan du inte visa normala översikt översiktssidan med prenumerationsinformation i tillägget. Du kommer inte heller att kunna växla till en annan arbetsyta. Om du vill visa en annan arbetsyta lösningen är att gå direkt till den [Azure-portalen](https://portal.azure.com) och Sök efter namnet på arbetsytan.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
+
 Ibland kan det vara bra om du kan ange diagnostisk information när du frågar om du behöver hjälp.
 Här är där loggfilerna live:
 

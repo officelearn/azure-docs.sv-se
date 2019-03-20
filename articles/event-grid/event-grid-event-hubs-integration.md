@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 6e8ca9d3a7fbdf1926ac642ac60a37d298af0129
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: c2c49563bf505ce70c4900c6c0a8e41c0f6ac9c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476862"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176624"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Självstudie: Strömma stordata till ett datalager
 Azure [Event Grid](overview.md) är en intelligent tjänst för händelsedirigering som innebär att du kan agera på aviseringar (händelser) från appar och tjänster. Tjänsten kan till exempel utlösa en Azure-funktion som bearbetar Event Hubs-data som har hämtats till en Azure-blobblagring eller Azure Data Lake Storage och som migrerar datan till andra lagringsplatser. Det här [integrationsexemplet med Event Hubs och Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) visar hur du använder Event Hubs med Event Grid för att sömlöst migrera hämtade Event Hubs-data från blobblagring till SQL Data Warehouse.
@@ -38,7 +38,10 @@ I den här självstudien gör du följande:
 > * Kör appen som skickar data till händelsehubben.
 > * Visar migrerade data i informationslagret.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Du behöver följande för att kunna slutföra den här självstudiekursen:
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
@@ -57,7 +60,7 @@ I det här steget distribuerar du den infrastruktur som krävs med en [Resource 
 
 ### <a name="launch-azure-cloud-shell-in-azure-portal"></a>Starta Azure Cloud Shell i Azure Portal
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). 
+1. Logga in på [Azure Portal](https://portal.azure.com). 
 2. Välj **Cloud Shell**-knappen överst.
 
     ![Azure Portal](media/event-grid-event-hubs-integration/azure-portal.png)
@@ -129,7 +132,7 @@ I det här steget distribuerar du den infrastruktur som krävs med en [Resource 
     1. Kopiera och klistra in följande kommando i Cloud Shell-fönstret.
 
         ```powershell
-        New-AzureRmResourceGroup -Name rgDataMigration -Location westcentralus
+        New-AzResourceGroup -Name rgDataMigration -Location westcentralus
         ```
     2. Ge **resursgruppen** ett namn.
     3. Tryck på Retur-tangenten. 
@@ -137,7 +140,7 @@ I det här steget distribuerar du den infrastruktur som krävs med en [Resource 
     1. Kopiera och klistra in kommandot i Cloud Shell-fönstret. Alternativt kan du kopiera och klistra in i ett redigeringsprogram, ange värden och sedan kopiera kommandot till Cloud Shell. 
 
         ```powershell
-        New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
+        New-AzResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
         ```
     2. Ange värden för följande entiteter:
         1. Namn på den resursgrupp som du skapade tidigare.

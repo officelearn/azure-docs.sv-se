@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: c8320a0f504927830c47400f1f1ef0369c0e1cad
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 783cef6ff4e107838bb3ff7502fb4a8e9189ec3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116542"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011184"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>insamlade: Linux-prestandamått i Application Insights
 
@@ -26,14 +26,12 @@ Utforska prestandamått för Linux-system i [Programinsikter](../../azure-monito
 
 Normalt använder insamlade om du redan har [instrumenterats Java-webbtjänsten med Application Insights][java]. Det ger dig mer data som hjälper dig att förbättra appens prestanda- och diagnostikproblem. 
 
-![Exempeldiagram](./media/java-collectd/sample.png)
-
 ## <a name="get-your-instrumentation-key"></a>Hämta din instrumentationsnyckel
 I den [Microsoft Azure-portalen](https://portal.azure.com)öppnar den [Application Insights](../../azure-monitor/app/app-insights-overview.md) resurs där du vill att data ska visas. (Eller [skapa en ny resurs](../../azure-monitor/app/create-new-resource.md ).)
 
 Ta en kopia av instrumenteringsnyckeln som identifierar resursen.
 
-![Bläddra igenom alla, öppna din resurs i Essentials listrutan Välj och kopierar Instrumenteringsnyckeln.](./media/java-collectd/02-props.png)
+![Bläddra igenom alla, öppna din resurs i Essentials listrutan Välj och kopierar Instrumenteringsnyckeln.](./media/java-collectd/instrumentation-key-001.png)
 
 ## <a name="install-collectd-and-the-plug-in"></a>Installera insamlade och plugin-programmet
 På din server-datorer för Linux:
@@ -93,9 +91,7 @@ Konfigurera andra [insamlade plugin-program](https://collectd.org/wiki/index.php
 Starta om insamlade enligt dess [manuell](https://collectd.org/wiki/index.php/First_steps).
 
 ## <a name="view-the-data-in-application-insights"></a>Visa data i Application Insights
-Öppna i Application Insights-resursen, [Metrics Explorer och Lägg till diagram][metrics], att välja de mått som du vill se från anpassad kategori.
-
-![](./media/java-collectd/result.png)
+Öppna i Application Insights-resursen, [mått och Lägg till diagram][metrics], att välja de mått som du vill se från anpassad kategori.
 
 Som standard sammanställs måtten för samtliga värddatorer där mått som samlades in. Om du vill visa mått per värd, i bladet diagrammet, aktiverar gruppering och sedan välja att gruppera efter insamlade-värd.
 

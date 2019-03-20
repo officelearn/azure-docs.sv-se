@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: b174b1279a2e93560932334c9ae1e926c1eeca3c
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 31909d007727ca5b440343e3c5a035984399b77a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990772"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201746"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Bearbeta och analysera JSON-dokument med hjälp av Apache Hive i Azure HDInsight
 
@@ -57,7 +57,7 @@ Lär dig mer om att bearbeta och analysera JavaScript Object Notation (JSON) fil
 }
 ```
 
-Filen finns på **wasb://processjson@hditutorialdata.blob.core.windows.net/**. Mer information om hur du använder Azure Blob storage med HDInsight finns i [Använd HDFS-kompatibla Azure Blob storage med Apache Hadoop i HDInsight](../hdinsight-hadoop-use-blob-storage.md). Du kan kopiera filen till standardbehållare på klustret.
+Filen finns på **wasb://processjson\@hditutorialdata.blob.core.windows.net/**. Mer information om hur du använder Azure Blob storage med HDInsight finns i [Använd HDFS-kompatibla Azure Blob storage med Apache Hadoop i HDInsight](../hdinsight-hadoop-use-blob-storage.md). Du kan kopiera filen till standardbehållare på klustret.
 
 I den här självstudien använder du Apache Hive-konsolen. Anvisningar för hur du öppnar konsolen Hive finns i [Använd Apache Ambari Hive-vy med Apache Hadoop i HDInsight](apache-hadoop-use-hive-ambari-view.md).
 
@@ -83,7 +83,7 @@ SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
 SELECT * FROM StudentsOneLine
 ```
 
-Rå JSON-filen finns på **wasb://processjson@hditutorialdata.blob.core.windows.net/**. Den **StudentsRaw** Hive-tabellen pekar till den råa JSON-dokument som inte är utplattad.
+Rå JSON-filen finns på **wasb://processjson\@hditutorialdata.blob.core.windows.net/**. Den **StudentsRaw** Hive-tabellen pekar till den råa JSON-dokument som inte är utplattad.
 
 Den **StudentsOneLine** Hive-tabell som lagrar data i standardfilsystemet för HDInsight under den **/json/studenter/** sökväg.
 
@@ -153,8 +153,8 @@ Sammanfattningsvis beror typ av JSON-operator i Hive som du väljer på ditt sce
 Relaterade artiklar finns här:
 
 * [Använda Apache Hive och HiveQL med Apache Hadoop i HDInsight för att analysera ett exempel Apache log4j-fil](../hdinsight-use-hive.md)
-* [Analysera flygförseningsdata med hjälp av Apache Hive i HDInsight](../hdinsight-analyze-flight-delay-data.md)
-* [Analysera Twitter-data med hjälp av Apache Hive i HDInsight](../hdinsight-analyze-twitter-data.md)
+* [Analysera flygförseningsdata med hjälp av Apache Hive i HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
+* [Analysera Twitter-data med hjälp av Apache Hive i HDInsight](../hdinsight-analyze-twitter-data-linux.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

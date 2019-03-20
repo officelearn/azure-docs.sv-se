@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
-ms.openlocfilehash: 748f4562e1efd613b87dd5ab44a83d3d50171f67
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3126be88e272ab3891caa94ee15b622b0dfbdbdf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539929"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860507"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL migrering och application development partner
 
@@ -32,10 +32,10 @@ Från NoSQL migrering till programutveckling, kan du välja från en mängd olik
 |![Altoros utveckling LLC][3]    |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling |   USA, Norge, Finland, Vitryssland, Argentina |  [Webbplats](https://www.altoros.com/)     |
 |![Attunix Redapt][4]     |   NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling      |    USA     |  [Webbplats](https://www.attunix.com/)       |
 | ![Avanade][26] | Ny apputveckling <br/> Appinnovation (befintliga appar) | Österrike, Tyskland, Schweiz, Italien, Norge, Spanien, Storbritannien | [Webbplats](https://www.avanade.com/)
-|![Bluemetal Architects][5]     |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling       |    Nordamerika, Asien –     |  [Webbplats](http://www.bluemetal.com/)       |
+|![Bluemetal Architects][5]     |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling       |    Nordamerika, Asien –     |  [Webbplats](https://www.bluemetal.com/)       |
 |![Capax globala LLC][6]     |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling       |    USA     |  [Webbplats](https://www.capaxglobal.com/)       |
 | ![Capgemini][14] | NoSQL-migrering; Appinnovation (befintliga appar); Ny apputveckling | USA, Frankrike, Storbritannien, Nederländerna, Finland  | [Webbplats](https://www.capgemini.com/) | 
-|![Coeo][7]     |   Appinnovation (befintliga appar) <br/> Ny apputveckling |    Storbritannien     |  [Webbplats](http://www.coeo.com/)       |
+|![Coeo][7]     |   Appinnovation (befintliga appar) <br/> Ny apputveckling |    Storbritannien     |  [Webbplats](https://www.coeo.com/)       |
 | ![Cognizant][15] | NoSQL-migrering |USA, Kanada, Storbritannien, Danmark, Nederländerna, Schweiz, Australien, Japan | [Webbplats](https://www.cognizant.com/)|
 |![Infosys][8]     |  NoSQL-migrering       |    Global     |  [Webbplats](https://www.infosys.com/)       |
 | ![Lagash][16] | NoSQL-migrering <br/> Ny apputveckling | Argentina, Chile, Colombia, Mexiko| [Webbplats](https://www.lagash.com/)|

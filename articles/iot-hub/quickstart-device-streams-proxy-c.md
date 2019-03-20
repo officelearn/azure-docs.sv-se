@@ -8,28 +8,29 @@ services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 300b42c9452fc58c857d075a7fd8c42fd6a1c409
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 59a84190386b554716472b4cb46c94030a66a4cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731741"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077113"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>Snabbstart: SSH/RDP över IoT Hub-enhetsströmmar med hjälp av C-proxyprogram (förhandsversion)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
+
+Microsoft Azure IoT Hub stöder för närvarande enheten strömmar som en [förhandsgranskningsfunktion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [IoT Hub-enhetsströmmar](./iot-hub-device-streams-overview.md) gör att tjänst- och enhetsprogram kan kommunicera på ett säkert och brandväggsvänligt sätt. En översikt över konfigurationen finns på [den här sidan](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 
 I det här dokumentet beskrivs konfigurationen för att händelsedirigera SSH-trafik nedåt (genom port 22) via enhetsströmmar. Konfigurationen för RDP-trafik är liknande och kräver en enkel konfigurationsändring. Eftersom enhetsströmmar är program- och protokolloberoende kan den aktuella snabbstarten ändras (genom att kommunikationsportarna ändras) med avseende på andra typer av programtrafik.
 
 ## <a name="how-it-works"></a>Hur fungerar det?
-I bilden nedan visas konfigurationen för hur de enhets- och tjänstlokala proxyprogrammen möjliggör slutpunkt till slutpunkt-anslutning mellan SSH-klient- och SSH-daemonprocesser. Under den allmänna förhandsversionen stöder C SDK endast enhetsströmmar på enhetssidan. Därför omfattar den här snabbstarten bara instruktioner för att köra enhetslokalt proxyprogram. Du bör köra ett tillhörande tjänstlokalt proxyprogram som finns tillgängligt i guiderna för [C#-snabbstart](./quickstart-device-streams-proxy-csharp.md) eller [Node.js-snabbstart](./quickstart-device-streams-proxy-nodejs.md).
+Installationen av hur enheten och tjänsten lokal proxy-program aktiverar slutpunkt till slutpunkt-anslutning mellan SSH-klient och SSH-daemon processer ser i bilden nedan. Under den allmänna förhandsversionen stöder C SDK endast enhetsströmmar på enhetssidan. Därför omfattar den här snabbstarten bara instruktioner för att köra enhetslokalt proxyprogram. Du bör köra ett tillhörande tjänstlokalt proxyprogram som finns tillgängligt i guiderna för [C#-snabbstart](./quickstart-device-streams-proxy-csharp.md) eller [Node.js-snabbstart](./quickstart-device-streams-proxy-nodejs.md).
 
 ![Alternativ text](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg "Konfiguration av lokal proxy")
-
 
 1. Tjänstlokal proxy ansluter till IoT-hubben och initierar en enhetsström till målenheten.
 
@@ -46,7 +47,12 @@ I bilden nedan visas konfigurationen för hur de enhets- och tjänstlokala proxy
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
+
+* Förhandsgranskning av enheten strömmar är för närvarande stöds endast för IoT-hubbar som har skapats i följande regioner:
+
+  * **USA, centrala**
+  * **USA, centrala – EUAP**
 
 * Installera [Visual Studio 2017](https://www.visualstudio.com/vs/) med arbetsbelastningen [”Desktop development with C++”](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) (Skrivbordsutveckling med C++) aktiverad.
 * Installera den senaste versionen av [Git](https://git-scm.com/download/).
@@ -55,24 +61,23 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 För den här snabbstarten kommer du att använda [SDK för Azure IoT-enheter](iot-hub-device-sdk-c-intro.md). Du kommer att förbereda en utvecklingsmiljö som ska användas för att klona och skapa [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) från GitHub. SDK:n på GitHub inkluderar den exempelkod som används i den här snabbstarten. 
 
-
-1. Ladda ned version 3.11.4 av [CMake-buildsystemet](https://cmake.org/download/) från [GitHub](https://github.com/Kitware/CMake/releases/tag/v3.11.4). Kontrollera den hämta binära filen med hjälp av det motsvarande kryptografiska hashvärdet. I följande exempel används Windows PowerShell för att verifiera den kryptografisk hashen för version 3.11.4 av x64 MSI-distributionen:
+1. Hämta versionen 3.13.4 av den [CMake-buildsystemet](https://cmake.org/download/). Kontrollera den hämta binära filen med hjälp av det motsvarande kryptografiska hashvärdet. I följande exempel används Windows PowerShell för att verifiera kryptografisk hash för version 3.13.4 av x64 MSI-distribution:
 
     ```PowerShell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
     ```
-    
-    Följande hash-värden för version 3.11.4 visades på CMake-webbplatsen när detta skrevs:
+
+    Följande hash-värden för version 3.13.4 visades på CMake-webbplatsen när detta skrevs:
 
     ```
-    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
-    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
-    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
+    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
+    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
+    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
     ```
 
-    Det är viktigt att förutsättningarna för Visual Studio (Visual Studio och arbetsbelastningen ”Desktop development with C++” (Skrivbordsutveckling med C++)) är installerade på datorn **innan** installationen av `CMake` påbörjas. När förutsättningarna är uppfyllda och nedladdningen har verifierats installerar du CMake-byggesystemet.
+    Det är viktigt att Visual Studio-krav (Visual Studio och arbetsbelastningen skrivbordsutveckling med C++) är installerade på din dator **innan** startar den `CMake` installation. När kraven är uppfyllda och hämtningen har verifierats, installera CMake build-system.
 
 2. Öppna en kommandotolk eller Git Bash-gränssnittet. Kör följande kommando för att klona [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen:
     
@@ -80,7 +85,6 @@ För den här snabbstarten kommer du att använda [SDK för Azure IoT-enheter](i
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
     Storleken på den här lagringsplatsen är för närvarande cirka 220 MB. Den här åtgärden kan förväntas ta flera minuter att slutföra.
-
 
 3. Skapa en `cmake`-underkatalog i rotkatalogen på git-lagringsplatsen och navigera till den mappen. 
 
@@ -90,28 +94,27 @@ För den här snabbstarten kommer du att använda [SDK för Azure IoT-enheter](i
     cd cmake
     ```
 
-4. Kör följande kommando som skapar en version av SDK:n som är specifik för din utvecklingsklientsplattform. I Windows genereras en Visual Studio-lösning för den simulerade enheten i `cmake`-katalogen. 
+4. Kör följande kommandon från den `cmake` directory för att skapa en version av SDK som är specifika för din utvecklingsplattform för klienten.
 
-```
-    # In Linux
-    cmake ..
-    make -j
-```
+   * I Linux:
 
-I Windows kör du följande kommandon i kommandotolken för utvecklare för din Visual Studio 2015- eller 2017-kommandotolk:
+      ```bash
+      cmake ..
+      make -j
+      ```
 
-```
-    rem In Windows
-    rem For VS2015
-    cmake .. -G "Visual Studio 15 2015"
+   * I Windows, kör du följande kommandon i Kommandotolken för utvecklare för Visual Studio 2015 eller 2017. En Visual Studio-lösning för den simulerade enheten genereras i `cmake`-katalogen.
 
-    rem Or for VS2017
-    cmake .. -G "Visual Studio 15 2017"
+      ```cmd
+      rem For VS2015
+      cmake .. -G "Visual Studio 14 2015"
 
-    rem Then build the project
-    cmake --build . -- /m /p:Configuration=Release
-```
-    
+      rem Or for VS2017
+      cmake .. -G "Visual Studio 15 2017"
+
+      rem Then build the project
+      cmake --build . -- /m /p:Configuration=Release
+      ```
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
@@ -146,65 +149,64 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I det h
 
     Du kommer att använda det här värdet senare i snabbstarten.
 
-
 ## <a name="ssh-to-a-device-via-device-streams"></a>SSH till en enhet via enhetsströmmar
 
 ### <a name="run-the-device-local-proxy-application"></a>Kör det enhetslokala proxyprogrammet
 
-- Redigera källfilen `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample/iothub_client_c2d_streaming_proxy_sample.c` och ange enhetens anslutningssträng, målenhetens IP/värdnamn samt RDP-port 22:
-```C
-  /* Paste in the your iothub connection string  */
-  static const char* connectionString = "[Connection string of IoT Hub]";
-  static const char* localHost = "[IP/Host of your target machine]"; // Address of the local server to connect to.
-  static const size_t localPort = 22; // Port of the local server to connect to.
-```
+1. Redigera källfilen `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample/iothub_client_c2d_streaming_proxy_sample.c` och tillhandahåller enhetens anslutningssträng, målenheten IP/värdnamn och SSH-porten 22:
 
-- Kompilera exemplet på följande sätt:
+   ```C
+   /* Paste in the your iothub connection string  */
+   static const char* connectionString = "[Connection string of IoT Hub]";
+   static const char* localHost = "[IP/Host of your target machine]"; // Address of the local server to connect to.
+   static const size_t localPort = 22; // Port of the local server to connect to.
+   ```
 
-```
+2. Kompilera exemplet:
+
+   ```bash
     # In Linux
     # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
     make -j
-```
+   ```
 
-```
+   ```cmd
     rem In Windows
     rem Go to cmake at root of repository
     cmake --build . -- /m /p:Configuration=Release
-```
+   ```
 
-- Kör det kompilerade programmet på enheten:
-```
+3. Kör det kompilerade programmet på enheten:
+
+   ```bash
     # In Linux
-    # Go to sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
+    # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
     ./iothub_client_c2d_streaming_proxy_sample
-```
+   ```
 
-```
+   ```cmd
     rem In Windows
-    rem Go to sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
+    rem Go to the sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
     iothub_client_c2d_streaming_proxy_sample.exe
-```
+   ```
 
 ### <a name="run-the-service-local-proxy-application"></a>Köra tjänstlokalt proxyprogram
 
-Enligt [ovan](#how-it-works) kräver upprättande av en slutpunkt till slutpunkt-dataström för att dirigera SSH-trafik en lokal proxy i varje ände (dvs. tjänsten och enheten). Under den allmänna förhandsversionen stöder dock IoT Hub C SDK endast enhetsströmmar på enhetssidan. För den tjänstlokala proxyn använder du de medföljande guiderna i [C#-snabbstarten](./quickstart-device-streams-proxy-csharp.md) eller [Node.js-snabbstarten](./quickstart-device-streams-proxy-nodejs.md) i stället.
-
+Enligt [tidigare](#how-it-works), upprätta en slutpunkt till slutpunkt-dataström för att tunnla SSH-trafik kräver en lokal proxy i slutet (både på tjänsten och enheten). Allmänt tillgängliga förhandsversionen stöder IoT Hub C SDK endast enheten strömmar på enheten. Om du vill skapa och köra service-lokal proxy, följer du stegen i den [ C# snabbstarten](./quickstart-device-streams-proxy-csharp.md) eller [Snabbstart för Node.js](./quickstart-device-streams-proxy-nodejs.md).
 
 ### <a name="establish-an-ssh-session"></a>Upprätta en SSH-session
 
-Förutsatt att både den enhetslokala proxyn och den tjänstlokala proxyn körs ska du nu använda SSH-klientprogrammet och ansluta till den tjänstlokala proxyn på port 2222 (i stället för direkt till SSH-daemon). 
+När både de enheten och tjänsten lokala proxyservrarna har körts använder ditt SSH-klientprogram och ansluta till proxyservern service-lokala på port 2222 (i stället för SSH-daemon direkt).
 
-```
+```cmd/sh
 ssh <username>@localhost -p 2222
 ```
 
 Nu visas prompten för SSH-inloggning, där du anger dina autentiseringsuppgifter.
 
-
 Konsolens utdata på den enhetslokala proxy som ansluter till SSH-daemon på `IP_address:22`: ![Alternativ text](./media/quickstart-device-streams-proxy-c/device-console-output.PNG "Utdata för enhetslokal proxy")
 
-Konsolens utdata för SSH-klientprogrammet (SSH-klienten kommunicerar med SSH-daemon genom att ansluta till port 22 där den tjänstlokala proxyn lyssnar): ![Alternativ text](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "Utdata för SSH-klient")
+Konsolens utdata i programmet för SSH-klient (SSH-klient som kommunicerar med SSH-daemon genom att ansluta till port 22, som service-lokal proxy lyssnar på): ![Alternativ text](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "Utdata för SSH-klient")
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

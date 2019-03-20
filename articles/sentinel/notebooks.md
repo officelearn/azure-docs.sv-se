@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 83bbb7f6a683265e4f2ed20801d0c7541a54e9f9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 63ce2be847017ed7e80fe5e573d5553311f6af2f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244969"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107686"
 ---
 # <a name="use-notebooks-to-hunt-for-anomalies"></a>Använda anteckningsböcker för jakt efter avvikelser
 
@@ -48,15 +48,15 @@ I följande exempel kör vi inbyggda anteckningsboken för att söka efter djup 
   
    ![Välj anteckningsbok](./media/notebooks/select-notebook.png)
 
-3.  Klicka på **Import** att klona GitHub-lagringsplatsen till ditt projekt i Azure-anteckningsböcker.
-  ![Import-anteckningsbok](./media/notebooks/import1.png)
-4.  Varje notebook vägleder dig genom stegen för att utföra en hunt eller undersökning. Modeller, bibliotek, och andra beroenden och konfiguration för anslutning till Azure Sentinel importeras automatiskt om du vill aktivera en körning. Alla kod och bibliotek som krävs för att köra en anteckningsbok läses in i förväg. Du kan omedelbart börja kör en bärbar dator mot Log Analytics-arbetsytan utan konfiguration.
+3. Klicka på **Import** att klona GitHub-lagringsplatsen till ditt projekt i Azure-anteckningsböcker.
+   ![Import-anteckningsbok](./media/notebooks/import1.png)
+4. Varje notebook vägleder dig genom stegen för att utföra en hunt eller undersökning. Modeller, bibliotek, och andra beroenden och konfiguration för anslutning till Azure Sentinel importeras automatiskt om du vill aktivera en körning. Alla kod och bibliotek som krävs för att köra en anteckningsbok läses in i förväg. Du kan omedelbart börja kör en bärbar dator mot Log Analytics-arbetsytan utan konfiguration.
 
    ![Importera lagringsplats](./media/notebooks/import2.png)
 
-5.  Utforska, ändra och köra alla exempelanteckningsböcker som tillhandahålls. Dessa kan användas som byggblock för många olika scenarier.
+5. Utforska, ändra och köra alla exempelanteckningsböcker som tillhandahålls. Dessa kan användas som byggblock för många olika scenarier.
 
-  ![Välj anteckningsbok](./media/notebooks/import3.png)
+   ![Välj anteckningsbok](./media/notebooks/import3.png)
 
 
 

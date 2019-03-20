@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/02/2019
-ms.openlocfilehash: 8441f6793140bcb565b97776a0cd86c7319db9c1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e6a528ae7eda7e10ab06c6f338fd05d20332a9fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448923"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089020"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Viktig information för Azure HDInsight
 
@@ -1309,116 +1309,116 @@ Det här avsnittet beskriver alla vanliga säkerhetsproblem och Exposures (CVE) 
 
 ## <a name="known-issues"></a>Kända problem
 
--   **HDInsight-integrering med ADLS Gen 2** det finns två problem på ESP för HDInsight-kluster med Azure Data Lake Storage Gen 2 med användarkataloger och behörigheter:
+- **HDInsight-integrering med ADLS Gen 2** det finns två problem på ESP för HDInsight-kluster med Azure Data Lake Storage Gen 2 med användarkataloger och behörigheter:
    
-   1. Hemkataloger för användare är inte skapas på Head nod 1. Som en lösning kan du skapa katalogerna manuellt och ändra ägarskap till respektive användarens UPN.
+  1. Hemkataloger för användare är inte skapas på Head nod 1. Som en lösning kan du skapa katalogerna manuellt och ändra ägarskap till respektive användarens UPN.
    
-   2. Behörigheter på /hdp directory har inte angetts till 751. Det här måste vara inställt på 
-      ```bash
-      chmod 751 /hdp 
-      chmod –R 755 /hdp/apps
-      ```
+  2. Behörigheter på /hdp directory har inte angetts till 751. Det här måste vara inställt på 
+     ```bash
+     chmod 751 /hdp 
+     chmod –R 755 /hdp/apps
+     ```
 
--   **Spark 2.3**
+- **Spark 2.3**
 
-    -   \[[*SPARK-23523*](https://issues.apache.org/jira/browse/SPARK-23523)\]\[SQL\] felaktiga resultat på grund av regeln OptimizeMetadataOnlyQuery
+  -   \[[*SPARK-23523*](https://issues.apache.org/jira/browse/SPARK-23523)\]\[SQL\] felaktiga resultat på grund av regeln OptimizeMetadataOnlyQuery
 
-    -   \[[*SPARK-23406* ](https://issues.apache.org/jira/browse/SPARK-23406) \] buggar i stream-ström Självkopplingar
+  -   \[[*SPARK-23406* ](https://issues.apache.org/jira/browse/SPARK-23406) \] buggar i stream-ström Självkopplingar
 
-    -   Spark-exempelanteckningsböcker är inte tillgängliga när Azure Data Lake Storage (Gen2) är Standardlagringsutrymmet för klustret.
+  -   Spark-exempelanteckningsböcker är inte tillgängliga när Azure Data Lake Storage (Gen2) är Standardlagringsutrymmet för klustret.
 
--   **Enterprise Security Package**
+- **Enterprise Security Package**
 
-    - Spark Thrift-Server accepterar inte anslutningar från ODBC-klienter.
-      Lösningssteg:
-      1. Vänta ungefär 15 minuter när klustret har skapats.
-      2. Kontrollera ranger Användargränssnittet för förekomsten av hivesampletable_policy.
-      3. Starta om Spark-tjänst.
-         STS anslutning bör fungera nu.
+  - Spark Thrift-Server accepterar inte anslutningar från ODBC-klienter.
+    Lösningssteg:
+    1. Vänta ungefär 15 minuter när klustret har skapats.
+    2. Kontrollera ranger Användargränssnittet för förekomsten av hivesampletable_policy.
+    3. Starta om Spark-tjänst.
+       STS anslutning bör fungera nu.
 
--   **Lösning för Ranger-tjänsten misslyckas**
+- **Lösning för Ranger-tjänsten misslyckas**
 
-    -   [RANGER 1607](https://issues.apache.org/jira/browse/RANGER-1607): Lösning för Ranger-tjänsten misslyckas när du uppgraderar till HDP 2.6.2 från tidigare HDP-versioner.
+  -   [RANGER 1607](https://issues.apache.org/jira/browse/RANGER-1607): Lösning för Ranger-tjänsten misslyckas när du uppgraderar till HDP 2.6.2 från tidigare HDP-versioner.
 
-        > [!NOTE]  
-        > Bara när Ranger har SSL aktiverat. 
+      > [!NOTE]  
+      > Bara när Ranger har SSL aktiverat. 
      
-    Det här problemet uppstår när du försöker uppgradera till HDP-2.6.1 från tidigare versioner i HDP via Ambari. Ambari använder ett curl-anrop för att göra en kontroll av tjänsten till Ranger-tjänsten i Ambari. Om JDK-version som används av Ambari är JDK 1.7, curl anropet att misslyckas med den nedanstående fel:
+  Det här problemet uppstår när du försöker uppgradera till HDP-2.6.1 från tidigare versioner i HDP via Ambari. Ambari använder ett curl-anrop för att göra en kontroll av tjänsten till Ranger-tjänsten i Ambari. Om JDK-version som används av Ambari är JDK 1.7, curl anropet att misslyckas med den nedanstående fel:
     
-    `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
+  `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
     
-    Orsaken till felet är tomcat-versionen som används i Ranger är Tomcat 7.0.7\*. Med hjälp av JDK 1.7 står i konflikt med standard-chiffer som anges i Tomcat-7.0.7\*.
+  Orsaken till felet är tomcat-versionen som används i Ranger är Tomcat 7.0.7\*. Med hjälp av JDK 1.7 står i konflikt med standard-chiffer som anges i Tomcat-7.0.7\*.
     
-    Du kan lösa problemet på två sätt:
+  Du kan lösa problemet på två sätt:
     
-    -   Uppdatera JDK som används i Ambari från JDK 1.7 till JDK 1.8 (se avsnittet [ändra JDK-Version](https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.0.0/bk_ambari_reference_guide/content/ch_changing_the_jdk_version_on_an_existing_cluster.html) i Ambari-referensguide).
+  -   Uppdatera JDK som används i Ambari från JDK 1.7 till JDK 1.8 (se avsnittet [ändra JDK-Version](https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.0.0/bk_ambari_reference_guide/content/ch_changing_the_jdk_version_on_an_existing_cluster.html) i Ambari-referensguide).
     
-    -   Om du vill fortsätta stödja en JDK 1.7-miljö:
+  -   Om du vill fortsätta stödja en JDK 1.7-miljö:
     
-        1.  Lägg till egenskapen ranger.tomcat.ciphers i avsnittet ranger-admin-plats i din Ambari Ranger-konfiguration med den under värde:
+      1.  Lägg till egenskapen ranger.tomcat.ciphers i avsnittet ranger-admin-plats i din Ambari Ranger-konfiguration med den under värde:
             
-            SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
+          SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
         
-        2.  Om din miljö har konfigurerats för Ranger KMS, lägga till egenskapen ranger.tomcat.ciphers under theranger-kms-plats i Ambari Ranger konfigurationen med den under värde:
+      2.  Om din miljö har konfigurerats för Ranger KMS, lägga till egenskapen ranger.tomcat.ciphers under theranger-kms-plats i Ambari Ranger konfigurationen med den under värde:
             
-            SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
+          SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
     
-    >[!NOTE]  
-    >Antecknat värdena arbetar exempel och kanske inte indikation på din miljö. Se till att det sätt som du anger dessa egenskaper matchar hur miljön är konfigurerad.   
+  >[!NOTE]  
+  >Antecknat värdena arbetar exempel och kanske inte indikation på din miljö. Se till att det sätt som du anger dessa egenskaper matchar hur miljön är konfigurerad.   
 
--   **RangerUI: Escape av princip villkor text som skrivs i principformuläret**
+- **RangerUI: Escape av princip villkor text som skrivs i principformuläret**
     
-    **Komponent som påverkas:** Ranger
+  **Komponent som påverkas:** Ranger
     
-    **Beskrivning av problemet**
+  **Beskrivning av problemet**
     
-    Om en användare vill skapa en princip med anpassad Principvillkor och uttryck eller text innehåller specialtecken, fungerar inte principtillämpning. Specialtecken konverteras till ASCII innan du sparar principen till databasen.
+  Om en användare vill skapa en princip med anpassad Principvillkor och uttryck eller text innehåller specialtecken, fungerar inte principtillämpning. Specialtecken konverteras till ASCII innan du sparar principen till databasen.
     
-    **Specialtecken:**   &  &lt; &gt; ” \` ”
+  **Specialtecken:**  &  &lt; &gt; ” \` ”
     
-    Till exempel villkoret tags.attributes\[”type”\]= ”abc” skulle konverteras till följande när principen har sparats.
+  Till exempel villkoret tags.attributes\[”type”\]= ”abc” skulle konverteras till följande när principen har sparats.
     
-    tags.attds\[&\#x27;dsds&\#x27;\]=&\#x27;cssdfs&\#x27;
+  tags.attds\[&\#x27;dsds&\#x27;\]=&\#x27;cssdfs&\#x27;
     
-    Du kan se Principvillkor med de här tecknen genom att öppna principen i redigeringsläge.
+  Du kan se Principvillkor med de här tecknen genom att öppna principen i redigeringsläge.
     
-    **Lösning**
+  **Lösning**
     
-    - **Alternativet \#1: Skapa/uppdatera principer via Ranger Rest API**
+  - **Alternativet \#1: Skapa/uppdatera principer via Ranger Rest API**
         
-        REST-URL: http://&lt;värden&gt;: 6080/service/plugin-program/principer
+      REST-URL: http://&lt;värden&gt;: 6080/service/plugin-program/principer
         
-        **Skapar en princip med villkor:**
+      **Skapar en princip med villkor:**
         
-        I följande exempel skapar principen med etiketter som \`taggar och testning\` och koppla det till \`offentliga\` med princip villkor astags.attr\[”type”\]== ”abc” genom att välja alla behörigheter för hive-komponent som väljer, uppdatera, skapa, ta bort, alter, indexera, låsa, alla.
+      I följande exempel skapar principen med etiketter som \`taggar och testning\` och koppla det till \`offentliga\` med princip villkor astags.attr\[”type”\]== ”abc” genom att välja alla behörigheter för hive-komponent som väljer, uppdatera, skapa, ta bort, alter, indexera, låsa, alla.
         
-        **Exempel:**
+      **Exempel:**
         
-        `curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":["tags-test"],"isRecursive":"","isExcludes":false}},"policyItems":[{"groups":["public"],"conditions":[{"type":"accessed-after-expiry","values":[]},{"type":"tag-expression","values":["tags.attr['type']=='abc'"]}],"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}]}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"service":"tagdev"}'`
+      `curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":["tags-test"],"isRecursive":"","isExcludes":false}},"policyItems":[{"groups":["public"],"conditions":[{"type":"accessed-after-expiry","values":[]},{"type":"tag-expression","values":["tags.attr['type']=='abc'"]}],"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}]}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"service":"tagdev"}'`
         
-        **Uppdatera befintlig princip med villkor:**
+      **Uppdatera befintlig princip med villkor:**
         
-        I följande exempel uppdateras princip med etiketter som \`taggar och testning\` och koppla det till \`offentliga\` med princip villkor astags.attr\[”type”\]== ”abc” genom att välja alla behörigheter för hive-komponent som väljer, uppdatera, skapa, ta bort, alter, indexera, låsa, alla.
+      I följande exempel uppdateras princip med etiketter som \`taggar och testning\` och koppla det till \`offentliga\` med princip villkor astags.attr\[”type”\]== ”abc” genom att välja alla behörigheter för hive-komponent som väljer, uppdatera, skapa, ta bort, alter, indexera, låsa, alla.
         
-        REST-URL: http://&lt;värdnamn&gt;: 6080/service/plugin-program/principer/&lt;princip-id&gt;
+      REST-URL: http://&lt;värdnamn&gt;: 6080/service/plugin-program/principer/&lt;princip-id&gt;
         
-        **Exempel:**
+      **Exempel:**
         
-        `curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'`
+      `curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'`
         
-    - **Alternativet \#2: Tillämpa ändringar för Javascript**
+  - **Alternativet \#2: Tillämpa ändringar för Javascript**
         
-        Steg för att uppdatera JS-filen:
+      Steg för att uppdatera JS-filen:
         
-        1.  Ta reda på PermissionList.js filen under /usr/hdp/current/ranger-admin
+      1.  Ta reda på PermissionList.js filen under /usr/hdp/current/ranger-admin
         
-        2.  Ta reda på definitionen av renderPolicyCondtion-funktionen (rad Nej: 404).
+      2.  Ta reda på definitionen av renderPolicyCondtion-funktionen (rad Nej: 404).
         
-        3.  Ta bort följande rad från den funktionen dvs under Visningsfunktionen (rad Nej: 434)
+      3.  Ta bort följande rad från den funktionen dvs under Visningsfunktionen (rad Nej: 434)
             
-            värde = \_.escape(val);//Line Nej: 460
+          värde = \_.escape(val);//Line Nej: 460
             
-            När du tar bort den ovanstående raden Ranger-Gränssnittet kan du skapa principer med villkor som kan innehålla specialtecken och principen utvärderingen kommer att lyckas för samma princip.
+          När du tar bort den ovanstående raden Ranger-Gränssnittet kan du skapa principer med villkor som kan innehålla specialtecken och principen utvärderingen kommer att lyckas för samma princip.
 
 **HDInsight-integrering med ADLS Gen 2: Användaren kataloger och behörigheter problemet med ESP-kluster**
     1.  Hemkataloger för användare är inte skapas på Head nod 1. Lösningen är att skapa dem manuellt och ändra ägarskap till respektive användarens UPN.

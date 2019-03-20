@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 799a40d759dc5614bd43234638982d5275d9d325
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: da465fb9fe51b2be5ec90df1ac75c50271db87a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429204"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992069"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server
 
@@ -426,9 +426,9 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
 
    När du använder drbd för att synkronisera data från en värd till en annan, kan en så kallad split-brain inträffa. En delad hjärna är ett scenario där båda klusternoderna befordras drbd enheten för att vara primärt och gick synkroniserad. Det kan vara en sällsynta situationen men du ändå vill hantera och lösa en delad hjärna så fort som möjligt. Det är därför viktigt att du meddelas när en split-brain inträffade.
 
-   Läs [officiella drbd dokumentationen](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) på hur du ställer in ett meddelande om delad hjärna.
+   Läs [officiella drbd dokumentationen](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) på hur du ställer in ett meddelande om delad hjärna.
 
-   Det är också möjligt att återställa automatiskt från ett scenario med delad hjärna. Mer information finns [automatisk delad hjärna recovery principer](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration)
+   Det är också möjligt att återställa automatiskt från ett scenario med delad hjärna. Mer information finns [automatisk delad hjärna recovery principer](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration)
    
 ### <a name="configure-cluster-framework"></a>Konfigurera klustret Framework
 

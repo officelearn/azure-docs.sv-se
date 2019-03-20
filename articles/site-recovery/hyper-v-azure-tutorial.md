@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6e0cff6725db52601b4639ad638216370dd3cfda
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
-ms.translationtype: HT
+ms.openlocfilehash: ac214e9d29bade37bcb00f804859db730131752b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810703"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087337"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Konfigurera haveriberedskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -137,7 +137,7 @@ Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringsk
 4. Välj lagringskontot **contosovmsacct1910171607** som vi skapade i den tidigare självstudiekursen för replikerade data och **ContosoASRnet**-nätverket där de virtuella Azure-datorerna ska finnas efter redundansväxling.
 5. I **Virtuella datorer** > **Välj** väljer du den virtuella dator som du vill replikera. Klicka sedan på **OK**.
 
- Du kan följa förloppet för åtgärden **Aktivera skydd** under **Jobb** > **Site Recovery-jobb**. När jobbet **Slutför skyddet** är klart är den inledande replikeringen slutförd och den virtuella datorn är redo för redundans.
+   Du kan följa förloppet för åtgärden **Aktivera skydd** under **Jobb** > **Site Recovery-jobb**. När jobbet **Slutför skyddet** är klart är den inledande replikeringen slutförd och den virtuella datorn är redo för redundans.
 
 ## <a name="next-steps"></a>Nästa steg
 [Köra ett återställningstest](tutorial-dr-drill-azure.md)

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 731b87d7958bb461466b16f2ff724ea33f234ba8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: be7dbe35800bbe911bc56d1883462534a16499a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439816"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083189"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för shardade flera innehavare Azure SQL-databas i en SaaS-app för flera innehavare
 
@@ -28,7 +28,7 @@ Databas för flera klienter i Wingtip biljetter SaaS-appen använder en modell f
 I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-
+> 
 > * Simulera användning på en fragmenterade (sharded) databas för flera innehavare genom att köra en angiven belastningsgenerator
 > * Övervaka databasen eftersom den svarar på belastningsökningar
 > * Skala upp databasen som svar på den ökade databasbelastningen

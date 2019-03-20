@@ -8,18 +8,20 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 0231b67ee56de5e1729c02ed3d87b2461f025b84
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: a737413f6692b4ee811d0590351a385552cc9a8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887435"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085583"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-nodejs-proxy-application-preview"></a>Snabbstart: SSH/RDP över IoT Hub-enhetsströmmar med hjälp av Node.js-proxyprogram (förhandsversion)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
+
+Microsoft Azure IoT Hub stöder för närvarande enheten strömmar som en [förhandsgranskningsfunktion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [IoT Hub-enhetsströmmar](./iot-hub-device-streams-overview.md) gör att tjänst- och enhetsprogram kan kommunicera på ett säkert och brandväggsvänligt sätt. Den här snabbstarten beskriver körningen av ett Node.js-proxyprogram som körs på tjänstsidan för att tillåta att SSH- och RDP-trafik skickas till enheten via en enhetsström. [Här](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) finns en översikt över installationen. Under den allmänna förhandsversionen stöder Node.js SDK endast enhetsströmmar på tjänstsidan. Därför innehåller den här snabbstarten endast instruktioner för att köra den tjänstlokala proxyn. Du bör köra en tillhörande enhetslokal proxy som är tillgänglig i [C-snabbstarten](./quickstart-device-streams-proxy-c.md) och [C#-snabbstarten](./quickstart-device-streams-proxy-csharp.md).
 
@@ -31,7 +33,12 @@ Först beskrivs konfiguration för SSH (via port 22). Sedan beskrivs hur du änd
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
+
+Förhandsgranskning av enheten strömmar är för närvarande stöds endast för IoT-hubbar som har skapats i följande regioner:
+
+  - **USA, centrala**
+  - **USA, centrala – EUAP**
 
 För att kunna köra det tjänstlokala programmet i den här snabbstarten behöver du ha Node.js v4.x.x eller senare på utvecklingsdatorn.
 
@@ -75,7 +82,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
     **YourIoTHubName**: Ersätt platshållaren nedan med det namn som du har valt för din IoT-hubb.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --hub-name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
     Anteckna det returnerade värdet, som ser ut så här:
@@ -95,7 +102,7 @@ Som tidigare nämnts stöder IoT Hub Node.js SDK endast enhetsströmmar på tjä
 Förutsatt att den [enhetslokala proxyn](#run-the-device-local-proxy) körs följer du stegen nedan för att köra den tjänstlokala proxyn som skrivits i Node.js.
 
 - Ange autentiseringsuppgifter för tjänsten, målets enhets-ID där SSH-daemon körs samt portnumret för den proxy som körs på enheten som miljövariabler.
-```
+  ```
   # In Linux
   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
   export STREAMING_TARGET_DEVICE="MyDevice"
@@ -105,11 +112,11 @@ Förutsatt att den [enhetslokala proxyn](#run-the-device-local-proxy) körs föl
   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
   SET STREAMING_TARGET_DEVICE=MyDevice
   SET PROXY_PORT=2222
-```
-Ändra värdena ovan så att de matchar ditt enhets-ID och anslutningssträngen.
+  ```
+  Ändra värdena ovan så att de matchar ditt enhets-ID och anslutningssträngen.
 
 - Gå till `Quickstarts/device-streams-service` i den uppackade projektmappen och kör den tjänstlokala proxyn.
-```
+  ```
   cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
 
   # Install the preview service SDK, and other dependencies
@@ -118,7 +125,7 @@ Förutsatt att den [enhetslokala proxyn](#run-the-device-local-proxy) körs föl
 
   # Run the service-local proxy application
   node proxy.js
-```
+  ```
 
 ### <a name="ssh-to-your-device-via-device-streams"></a>SSH till din enhet via enhetsströmmar
 I Linux kör du SSH med hjälp av `ssh $USER@localhost -p 2222` på en terminal. I Windows använder du valfri SSH-klient (till exempel PuTTY).

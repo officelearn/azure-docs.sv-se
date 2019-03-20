@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/01/2018
-ms.openlocfilehash: 4963114f3646453510e20c7071157c952e52c40f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: e7d01a6512c2d39c86da9f7020aa3988c9680c6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307147"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995225"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Offentliga datauppsättningar för testning och prototyper
 
@@ -31,7 +31,7 @@ Bläddra i den här listan över offentliga datauppsättningar för data som du 
 | [USA insamlade data](https://www.census.gov/data.html) | Statistiska data om befolkningen i USA | Uppgifter som är i olika format. |
 | [Earth science data från NASA](https://earthdata.nasa.gov/) | Över 32 000 datasamlingar som täcker jordbruk, atmosfär, biosfärreservat, klimat, cryosphere, mänskliga dimensioner, hydrosphere, mark surface, hav, sun earth interaktioner med mera. | Uppgifter som är i olika format. |
 | [Flygbolag flygförseningar och andra transport-data](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "The U.S. : S Transportmyndighet är (punkt) som administreras av transport-statistik (BTS) spårar punktlighetsinformation inrikes flygningar drivs av stort flygbolag. Sammanfattningsinformation för antalet i tid, fördröjd, avbrutna och distribueras flyg visas... i översikt över tabeller som publiceras på den här webbplatsen ”. | Filer är CSV-format. |
-| [Trafik skadades - oss Fatality Analysis Reporting System (FARS)](http://www.nhtsa.gov/FARS) | ”FARS är en nationell inventering ger NHTSA, den amerikanska kongressen och, American offentliga årliga data om allvarliga skador haft i fordon trafik krascher”. | ”Skapa dina egna fatality data kör online genom att använda FARS fråga systemet. Eller ladda ned alla FARS data från 1975 att presentera från FTP-platsen ”. |
+| [Trafik skadades - oss Fatality Analysis Reporting System (FARS)](https://www.nhtsa.gov/FARS) | ”FARS är en nationell inventering ger NHTSA, den amerikanska kongressen och, American offentliga årliga data om allvarliga skador haft i fordon trafik krascher”. | ”Skapa dina egna fatality data kör online genom att använda FARS fråga systemet. Eller ladda ned alla FARS data från 1975 att presentera från FTP-platsen ”. |
 | [Giftiga kemiska data – EPA toxicitet prognosmodell (ToxCast™)-data](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | ”Miljövårdsmyndighetens mest uppdaterade, offentligt tillgängliga högt dataflöde toxicitet data på tusentals kemikalier. Dessa data skapas via den EPA ToxCast research arbete ”. | Uppgifter som är tillgängliga i olika format, inklusive kalkylblad, R-paket och MySQL-databasfiler. |
 | [Giftiga kemiska data – NIH Tox21 Data utmaning 2014](https://tripod.nih.gov/tox21/challenge/) | ”2014 Tox21 data utmaningen är utformad för att forskare införstådd med risken för kemikalier och föreningar som har testats via toxikologi i initiativet 2000-talet att störa bioteknik sökvägar på ett sätt som kan leda till Giftverkningar”. | Uppgifter som är tillgängliga i LEENDEN och SDF format. Data innehåller ”assay aktivitetsdata och kemiska strukturer på Tox21 uppsättning ~ 10 000 föreningar (Tox21 10K)”. |
 | [Bioteknik och genome data från NCBI](https://www.ncbi.nlm.nih.gov/guide/data-software/) | Flera datauppsättningar som täcker gener och genomer proteiner. | Uppgifter som är i text, XML, POSTKAMPANJ och andra format. En POSTKAMPANJ appen är tillgänglig. |
@@ -42,12 +42,12 @@ Bläddra i den här listan över offentliga datauppsättningar för data som du 
 |---|---|---|
 | [New York City taxi-data](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | ”Taxi resans posterna innehåller fält som avbildning du vill hämta och dropoff datum/tider, vill hämta och dropoff platser, resa avstånd, specificerade priser, priset typer, betalningstyper och drivrutinen rapporterat passagerartrafik räknar”. | Uppgifter som är i CSV-filer per månad. |
 | [Microsoft Research datauppsättningar – ”Data Science för forskning”](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Flera datauppsättningar som täcker datorn interaktion, ljud/video, data-utvinning/informationshämtning, geospatiala/plats, bearbetning av naturligt språk och robotteknik/visuellt. | Uppgifter som är i olika format, zippade för hämtning. |
-| [Offentliga genom data](http://www.completegenomics.com/public-data/) | ”En mängd olika människor genomer data är tillgängligt för allmänt bruk att förbättra den stora uppsättningar genomiska analys...” Providern, fullständig Genomics är en privat vinstdrivande corporation. | Datauppsättningar, är efter extrahering, i textformat för UNIX. Analysverktyg är också tillgängliga. |
+| [Offentliga genom data](https://www.completegenomics.com/public-data/) | ”En mängd olika människor genomer data är tillgängligt för allmänt bruk att förbättra den stora uppsättningar genomiska analys...” Providern, fullständig Genomics är en privat vinstdrivande corporation. | Datauppsättningar, är efter extrahering, i textformat för UNIX. Analysverktyg är också tillgängliga. |
 | [Öppna Science Data molndata](https://www.opensciencedatacloud.org/) | ”Öppna Science Data molnet erbjuder vetenskapliga community med resurser för att lagra, dela och analysera terabyte och petabyte-skala vetenskapliga datauppsättningar”.| Uppgifter som är i olika format. |
-| [Global klimat-data – WorldClim](http://worldclim.org/) | ”WorldClim är en uppsättning globala klimat lager (förnätade klimat data) med en spatial upplösning på ca 1 km2. Dessa data kan användas för mappning och rumsliga modellering ”. | De här filerna innehåller geospatiala data. Mer information finns i [dataformat](http://worldclim.org/formats1). |
-| [Data om mänskliga society – The GDELT projekt](http://www.gdeltproject.org/data.html) | ”GDELT projektet är störst, mest omfattande och högsta upplösning öppna databasen för mänskliga society gång har skapat”. | De rådata-filerna finns i CSV-format. |
-| [Reklam klickar du på förutsägelsedata för maskininlärning från Criteo](http://labs.criteo.com/2013/12/download-terabyte-click-logs/) | ”Den största någonsin offentligt utgivna ML datauppsättningen”. Mer information finns i [Criteo's 1 TB klickar du på förutsägelse datauppsättning](https://blogs.technet.microsoft.com/machinelearning/20../../now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |
-| [ClueWeb09 text utvinning datauppsättning från The Lemur projekt](http://www.lemurproject.org/clueweb09.php/) | ”ClueWeb09 datauppsättningen har skapats för att stödja research på informationshämtning och relaterade mänskliga språk tekniker. Den består av cirka 1 miljard webbsidor i 10 språk som samlades in i januari och februari 2009 ”. | Se [Datamängdsinformation](http://www.lemurproject.org/clueweb09/datasetInformation.php).|
+| [Global klimat-data – WorldClim](https://worldclim.org/) | ”WorldClim är en uppsättning globala klimat lager (förnätade klimat data) med en spatial upplösning på ca 1 km2. Dessa data kan användas för mappning och rumsliga modellering ”. | De här filerna innehåller geospatiala data. Mer information finns i [dataformat](https://worldclim.org/formats1). |
+| [Data om mänskliga society – The GDELT projekt](https://www.gdeltproject.org/data.html) | ”GDELT projektet är störst, mest omfattande och högsta upplösning öppna databasen för mänskliga society gång har skapat”. | De rådata-filerna finns i CSV-format. |
+| [Reklam klickar du på förutsägelsedata för maskininlärning från Criteo](https://labs.criteo.com/2013/12/download-terabyte-click-logs/) | ”Den största någonsin offentligt utgivna ML datauppsättningen”. Mer information finns i [Criteo's 1 TB klickar du på förutsägelse datauppsättning](https://blogs.technet.microsoft.com/machinelearning/20../../now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |
+| [ClueWeb09 text utvinning datauppsättning från The Lemur projekt](https://www.lemurproject.org/clueweb09.php/) | ”ClueWeb09 datauppsättningen har skapats för att stödja research på informationshämtning och relaterade mänskliga språk tekniker. Den består av cirka 1 miljard webbsidor i 10 språk som samlades in i januari och februari 2009 ”. | Se [Datamängdsinformation](https://www.lemurproject.org/clueweb09/datasetInformation.php).|
 
 ## <a name="online-service-data"></a>Online-tjänstdata
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 6cb9e839b1fffd29ce1d78e82fb4ab054b92efc6
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 44b9e592d60c541e6b1e7f0e8c639b641af414e4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959139"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118365"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Självstudie: Konfigurera vidarebefordrade portar med Azure Load Balancer med portalen
 
@@ -53,7 +53,7 @@ Börja med att skapa en offentlig standardbelastningsutjämnare som kan belastni
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | Typ          | Välj **Offentligt**.                                        |
+    | Type          | Välj **Offentligt**.                                        |
     | SKU           | Välj **standard**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
@@ -220,7 +220,7 @@ Belastningsutjämningsregeln med namnet **MyLoadBalancerRule** avlyssnar port 80
    
 1. Välj **OK**.
    
-  ![Lägga till en belastningsutjämningsregel](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
+   ![Lägga till en belastningsutjämningsregel](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
 
 ## <a name="create-an-inbound-nat-port-forwarding-rule"></a>Skapa inkommande NAT-portvidarebefordringsregel
 

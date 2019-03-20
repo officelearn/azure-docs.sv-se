@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 733ae4451988651df2a62a22aa6eb1b6fae44309
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ea4cf03b368cebbfc7d1229be28014b54f2c11d0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331732"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004312"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Kopiera data till och från Azure Blob Storage med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -169,7 +169,7 @@ Det här avsnittet beskrivs kopieringsåtgärden för olika kombinationer av vä
 | false |flattenHierarchy |För en källmapp Mapp1 med följande struktur:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målmappen Mapp1 skapas med följande struktur<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Automatiskt genererade namn på File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för fil2<br/><br/><br/>Subfolder1 med fil3, File4 och File5 plockas inte upp. |
 | false |mergeFiles |För en källmapp Mapp1 med följande struktur:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5<br/><br/>Målmappen Mapp1 skapas med följande struktur<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1 + fil2 innehållet slås samman i en fil med automatiskt genererade namnet. Automatiskt genererade namn på File1<br/><br/>Subfolder1 med fil3, File4 och File5 plockas inte upp. |
 
-## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>Steg-för-steg-beskrivning: Använd guiden Kopiera för att kopiera data till och från Blob Storage
+## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>Genomgång: Använd guiden Kopiera för att kopiera data till och från Blob Storage
 Nu ska vi titta på hur du snabbt kopiera data till och från Azure blob storage. I den här genomgången lagrar både källa och mål data av typen: Azure Blob Storage. Pipelinen i den här genomgången kopierar data från en mapp till en annan mapp i samma blob-behållaren. Den här genomgången är avsiktligt enkelt att visa egenskaper eller inställningar när du använder Blob Storage som källa eller mottagare.
 
 ### <a name="prerequisites"></a>Förutsättningar
@@ -181,6 +181,7 @@ Nu ska vi titta på hur du snabbt kopiera data till och från Azure blob storage
     John, Doe
     Jane, Doe
     ```
+
 ### <a name="create-the-data-factory"></a>Skapa data factory
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på **skapa en resurs** i det övre vänstra hörnet, klickar du på **information + analys**, och klicka på **Data Factory**.
@@ -249,14 +250,14 @@ Nu ska vi titta på hur du snabbt kopiera data till och från Azure blob storage
     4. Välj ditt Azure storage-konto.
     5. Klicka på **Nästa**.
 10. På den **Välj utdatafil eller mapp** sidan:  
-    6. Ange **mappsökväg** som **adfblobconnector/output / {year} / {month} / {day}**. Ange **FLIKEN**.
-    7. För den **år**väljer **åååå**.
-    8. För den **månad**, bekräfta att den är inställd på **MM**.
-    9. För den **dag**, bekräfta att den är inställd på **dd**.
-    10. Bekräfta att den **Komprimeringstypen** är inställd på **ingen**.
-    11. Bekräfta att den **kopiera beteende** är inställd på **Sammanfoga filer**. Om utdatafilen med samma namn redan finns läggs det nya innehållet till samma fil i slutet.
-    12. Klicka på **Nästa**.
-    ![Verktyget kopiera – Välj utdatafil eller mapp](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
+    1. Ange **mappsökväg** som **adfblobconnector/output / {year} / {month} / {day}**. Ange **FLIKEN**.
+    1. För den **år**väljer **åååå**.
+    1. För den **månad**, bekräfta att den är inställd på **MM**.
+    1. För den **dag**, bekräfta att den är inställd på **dd**.
+    1. Bekräfta att den **Komprimeringstypen** är inställd på **ingen**.
+    1. Bekräfta att den **kopiera beteende** är inställd på **Sammanfoga filer**. Om utdatafilen med samma namn redan finns läggs det nya innehållet till samma fil i slutet.
+    1. Klicka på **Nästa**.
+       ![Verktyget kopiera – Välj utdatafil eller mapp](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
 11. På den **filformatinställningar** sidan, granskar du inställningarna och klicka på **nästa**. En av de ytterligare alternativen är att lägga till en rubrik till utdatafilen. Om du har valt alternativet läggs en rubrikrad med namnen på kolumnerna från schemat för källan. Du kan byta namn på standardkolumnvärdena när du visar schemat för källan. Du kan till exempel ändra den första kolumnen till förnamn och efternamn andra kolumn. Sedan skapas utdatafilen med ett huvud med namnen som kolumnnamn.
     ![Verktyget kopiera – filformatinställningar för mål](media/data-factory-azure-blob-connector/file-format-destination.png)
 12. På den **prestandainställningar** bekräftar som **molnbaserade enheter** och **parallell kopior** är inställda på **automatisk**, och klicka på Nästa. Mer information om dessa inställningar finns i [kopiera aktivitet prestanda- och Justeringsguiden](data-factory-copy-activity-performance.md#parallel-copy).
@@ -281,7 +282,7 @@ Nu ska vi titta på hur du snabbt kopiera data till och från Azure blob storage
     2017/04/24
     2017/04/25
     ```
-Detaljerad information om övervaka och hantera datafabriker finns i [övervaka och hantera Data Factory-pipeline](data-factory-monitor-manage-app.md) artikeln.
+   Detaljerad information om övervaka och hantera datafabriker finns i [övervaka och hantera Data Factory-pipeline](data-factory-monitor-manage-app.md) artikeln.
 
 ### <a name="data-factory-entities"></a>Data Factory-entiteter
 Gå tillbaka till fliken med Data Factory-startsidan. Observera att det finns två länkade tjänster, två datauppsättningar och en pipeline i data factory nu.

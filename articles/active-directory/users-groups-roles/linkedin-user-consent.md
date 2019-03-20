@@ -1,5 +1,5 @@
 ---
-title: LinkedIn integrering av Datadelning och medgivande - Azure Active Directory | Microsoft Docs
+title: LinkedIn-konto anslutningar Datadelning och medgivande - Azure Active Directory | Microsoft Docs
 description: Förklarar hur integrering LinkedIn delar data via Microsoft-appar i Azure Active Directory
 services: active-directory
 author: curtand
@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71eeed62c6de2a3771909e8489ca816930993435
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4e6e24f4e726e25ae65ecceaeb161f8e16d61721
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442230"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200454"
 ---
-# <a name="linkedin-integration-data-sharing-and-consent"></a>Datadelning för LinkedIn-integrering och samtycke
+# <a name="linkedin-account-connections-data-sharing-and-consent"></a>Delning av LinkedIn konto anslutningar data och samtycke
 
-Som administratör för Azure Active Directory (Azure AD) kan ge du användarna i din organisation samtycker till att ansluta sina Microsoft arbets- eller skolkonto med ett LinkedIn-konto. När användarna ansluter sina konton, information och höjdpunkter från LinkedIn finns i vissa Microsoft-appar och tjänster. Användare kan också förväntar sig sin nätverksupplevelse på LinkedIn att förbättras och berikats med information från Microsoft.
+Du kan ge användarna i organisationen Active Directory (Azure AD) samtycker till att ansluta sina Microsoft arbets- eller skolkonto med ett LinkedIn-konto. När en användare ansluter sina konton, information och höjdpunkter från LinkedIn är tillgängliga i vissa Microsoft-appar och tjänster. Användare kan också förväntar sig sin nätverksupplevelse på LinkedIn att förbättras och berikats med information från Microsoft.
 
 Om du vill se LinkedIn-information i Microsoft-appar och tjänster, måste användarna godkänna att ansluta sina egna Microsoft och LinkedIn-konton. Användare uppmanas att ansluta sina konton första gången de klickar på om du vill se en persons LinkedIn-information på ett Profilkort i Outlook, OneDrive eller SharePoint Online. LinkedIn-kontoanslutningar är inte helt aktiverade för dina användare tills de godkänna att upplevelsen och för att ansluta sina konton.
 
@@ -32,13 +32,13 @@ Om du vill se LinkedIn-information i Microsoft-appar och tjänster, måste anvä
 
 Åtkomst till LinkedIn-information i Microsoft-appar och tjänster gör det enklare för användarna att ansluta, engagera och skapa professionella relationer med kollegor, kunder och partner i och utanför organisationen. Nya användare kan få igång snabbare genom att ansluta med kollegor, mer information om dem och enkel åtkomst till mer information. Här är ett exempel på hur LinkedIn-information visas på kortet profil i Microsoft-appar:
 
-![Aktiverar LinkedIn-integrering](./media/linkedin-user-consent/display-example.png)
+![Aktiverar LinkedIn-integrering i din organisation](./media/linkedin-user-consent/display-example.png)
 
 ## <a name="enable-and-announce-linkedin-integration"></a>Aktivera och meddela LinkedIn-integrering
 
 Du måste vara en Azure Active Directory-administratör att hantera inställningen för din organisation. Du kan aktivera det för alla användare eller för en specifik uppsättning användare.
 
-1. Om du vill aktivera eller inaktivera integrationen, följer du stegen i [LinkedIn-integrering](linkedin-integration.md).
+1. Om du vill aktivera eller inaktivera integrationen, följer du stegen i [samtycka till LinkedIn-integrering för organisationen Azure AD](linkedin-integration.md).
 2. När du meddela LinkedIn-integrering i din organisation, peka användarna på vanliga frågor om [LinkedIn-information i Microsoft-appar och tjänster](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381). Artikeln innehåller information om var LinkedIn-information visas hur du ansluter konton och mycket mer.
 
 ## <a name="user-consent-for-data-access-in-microsoft-and-linkedin"></a>Användargodkännande för dataåtkomst i Microsoft och LinkedIn

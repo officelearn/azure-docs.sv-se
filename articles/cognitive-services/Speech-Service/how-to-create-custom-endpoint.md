@@ -1,6 +1,6 @@
 ---
-title: Skapa en anpassad slutpunkt med Speech Service på Azure | Microsoft Docs
-description: Lär dig hur du skapar en anpassad tal till text-slutpunkt med Speech-tjänsten i Cognitive Services.
+title: Skapa en anpassad slutpunkt med Speech Services på Azure | Microsoft Docs
+description: Lär dig hur du skapar en anpassad tal till text-slutpunkt med hjälp av Azure Speech Services.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,19 +9,19 @@ ms.subservice: custom-speech
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: panosper
-ms.openlocfilehash: 63d2c15c14340b0d7407b0144a8b8c75a2634e6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1f7a84d187ba6279caad4926d54bfc56254152af
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220254"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863006"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>Skapa en anpassad slutpunkt för till tal till text
 
-När du har skapat anpassade akustiska modeller eller språkmodeller, kan du distribuera dem i en anpassad tal till text-slutpunkt. 
+När du har skapat anpassade akustiska modeller eller språkmodeller, kan du distribuera dem i en anpassad tal till text-slutpunkt.
 
 ## <a name="create-an-endpoint"></a>Skapa en slutpunkt
-Om du vill skapa en ny anpassad slutpunkt, Välj **slutpunkter** på den **Custom Speech** menyn längst upp på sidan. Den här åtgärden tar dig till den **slutpunkter** sidan, som innehåller en tabell med aktuella anpassade slutpunkter. Om du inte har skapat några slutpunkter är tabellen tom. Den aktuella nationella inställningen visas i tabellrubriken. 
+Om du vill skapa en ny anpassad slutpunkt, Välj **slutpunkter** på den **Custom Speech** menyn längst upp på sidan. Den här åtgärden tar dig till den **slutpunkter** sidan, som innehåller en tabell med aktuella anpassade slutpunkter. Om du inte har skapat några slutpunkter är tabellen tom. Den aktuella nationella inställningen visas i tabellrubriken.
 
 Om du vill skapa en distribution för ett annat språk, Välj **ändra språket**. Mer information om språk som stöds.
 
@@ -44,6 +44,6 @@ När distributionen är klar, blir en länk i namnet på slutpunkten. Att välja
 ## <a name="next-steps"></a>Nästa steg
 
 Fler självstudier finns i:
-- [Hämta en kostnadsfri utvärderingsprenumeration på Speech-tjänsten](https://azure.microsoft.com/try/cognitive-services/)
+- [Hämta en kostnadsfri utvärderingsprenumeration på Speech Services](https://azure.microsoft.com/try/cognitive-services/)
 - [Skapa anpassad akustisk modell](how-to-customize-acoustic-models.md)
 - [Skapa anpassat språkmodell](how-to-customize-language-model.md)

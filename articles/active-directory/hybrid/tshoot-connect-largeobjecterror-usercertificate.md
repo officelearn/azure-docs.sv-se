@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 776e3f7047e2f6b43063e085a8ae7a8d29835a75
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217361"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096681"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect-synkronisering: Hantera LargeObject-fel som orsakats av userCertificate-attributet
 
@@ -79,9 +79,9 @@ Se till att ingen synkronisering sker när du är mitt implementerar en ny synkr
 > [!Note]
 > Föregående steg gäller endast för nyare versioner (1.1.xxx.x) av Azure AD Connect med inbyggda scheduler. Om du använder äldre versioner (1.0.xxx.x) av Azure AD Connect som använder Schemaläggaren i Windows, eller om du använder din egen anpassade scheduler (inte vanliga) för att utlösa Periodisk synkronisering, måste du inaktivera dem enlighet med detta.
 
-3. Starta den **hanteraren för synkroniseringstjänsten** genom att gå till START → synkroniseringstjänsten.
+1. Starta den **hanteraren för synkroniseringstjänsten** genom att gå till START → synkroniseringstjänsten.
 
-4. Gå till den **Operations** fliken och bekräfta att ingen åtgärd har vars status är *”pågår”.*
+1. Gå till den **Operations** fliken och bekräfta att ingen åtgärd har vars status är *”pågår”.*
 
 ### <a name="step-2-find-the-existing-outbound-sync-rule-for-usercertificate-attribute"></a>Steg 2. Hitta befintliga utgående synkroniseringsregel för userCertificate-attributet
 Det bör finnas en befintlig sync-regel som är aktiverad och konfigurerad för att exportera userCertificate-attributet för användarobjekt till Azure AD. Leta upp den här synkroniseringsregel för att ta reda på dess **prioritet** och **Omfångsfilter** konfiguration:

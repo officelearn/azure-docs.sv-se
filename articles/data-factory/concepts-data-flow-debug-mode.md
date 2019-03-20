@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: d3cabbcc04766d4a209ecf96db3f842902b465a5
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 1a332dd46cac196c8185ddb12c0d900f5c36e1b3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792403"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894061"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Felsökningsläge för mappning av Data flöde
 
@@ -46,7 +46,7 @@ När du är klar med din felsökning, tur felsöka inaktivera så att avsluta di
 <img src="media/data-flow/datapreview.png" width="400">
 
 ## <a name="data-preview"></a>Dataförhandsgranskning
-Felsökning på fliken förhandsgranskningen kommer ljus upp i den nedre rutan. Utan felsökningsläget vid visar dataflöde endast den aktuella metadata och från var och en av dina transformeringar på fliken Granska. Förhandsgranskning frågar endast antalet rader som du har angett som din gräns i inställningar för datakälla. Du kan behöva klicka på ”Hämta data” Uppdatera förhandsgranskning.
+Felsökning på fliken förhandsgranskningen kommer ljus upp i den nedre rutan. Utan felsökningsläget vid visar dataflöde endast den aktuella metadata och från var och en av dina transformeringar på fliken Granska. Förhandsgranskning frågar endast antalet rader som du har angett som din gräns i inställningar för felsökning. Du kan behöva klicka på ”Hämta data” Uppdatera förhandsgranskning.
 
 <img src="media/data-flow/stats.png" width="400">
 

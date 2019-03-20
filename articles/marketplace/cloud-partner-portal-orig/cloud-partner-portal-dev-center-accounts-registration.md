@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6482eea23707f451e59d21e70f7583a0cd6680cc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: adfe0af646fae79bc9a954cd5d654626880915d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168251"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894095"
 ---
 <a name="create-a-microsoft-developer-account"></a>Skapa ett Microsoft Developer-konto
 ====================================
@@ -90,7 +90,7 @@ Microsoft Developer Center för att registrera företagsinformation en gång. Av
 
 1. Öppna en ny Internet Explorer InPrivate- eller Chrome Incognito-webbläsarsession för att säkerställa att du inte är inloggad på ett personligt konto.
 
-2. Gå till den [Windows Dev Center](http://dev.windows.com/registration?accountprogram=azure) registrera dig själv som en säljare. Läs följande viktig information innan du fortsätter.
+2. Gå till den [Windows Dev Center](https://dev.windows.com/registration?accountprogram=azure) registrera dig själv som en säljare. Läs följande viktig information innan du fortsätter.
 
    ![Verifiering av Microsoft-konto](./media/cloud-partner-portal-create-dev-center-registration/seller-dashboard-verify.jpg)
 
@@ -157,7 +157,7 @@ Om du vill publicera kommersiella erbjudanden för inköp, måste du lägga till
 
 **Ange bankinformation**
 
-1.  Logga in på den [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) med ditt Microsoft-konto.
+1.  Logga in på den [Microsoft Developer Center](https://dev.windows.com/registration?accountprogram=azure) med ditt Microsoft-konto.
 2.  Välj **Payout konto** på den vänstra menyn under **Välj betalningssätt**väljer **konto** eller **PayPal**.
 
     >[!NOTE]
@@ -173,7 +173,7 @@ Om du vill publicera kommersiella erbjudanden för inköp, måste du lägga till
 
 **Ange skatteinformation**
 
-1.  Logga in på den [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) med ditt Microsoft-konto (vid behov).
+1.  Logga in på den [Microsoft Developer Center](https://dev.windows.com/registration?accountprogram=azure) med ditt Microsoft-konto (vid behov).
 2.  På menyn till vänster väljer **skatt profil**.
 3.  På den **ställer in formulärets skatt** sidan:
     - Välj land eller region där du har permanent datahemvist.

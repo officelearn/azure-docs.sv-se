@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/05/2019
 ms.author: jowargo
-ms.openlocfilehash: d2de4a4be8838cf696d2d3ed6589e8f154a6ca05
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 2fe448f3ed91f2c6dd242c24aa378c3541eceecc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959859"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857954"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Självstudier: Skicka push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Firebase Cloud Messaging
 
@@ -29,7 +29,7 @@ ms.locfileid: "55959859"
 
 I de här självstudierna får du lära dig hur du använder Azure Notification Hubs och Firebase Cloud Messaging (FCM) för att skicka meddelanden till ett Android-program. I den här självstudien skapar du en tom Android-app som tar emot push-meddelanden via Firebase Cloud Messaging (FCM).
 
-Den slutförda koden för den här självstudiekursen kan hämtas från GitHub [här](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStartedFirebase).
+Den slutförda koden för den här självstudiekursen kan hämtas från GitHub [här](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples/FCMTutorialApp).
 
 I den här självstudien gör du följande:
 
@@ -40,7 +40,7 @@ I den här självstudien gör du följande:
 > * Anslut appen till meddelandehubben.
 > * Testa appen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/free/).
 
@@ -92,7 +92,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med Firebase Cloud Mess
 1. Lägg till följande rader i avsnittet för **beroenden** i filen `Build.Gradle` för **appen**.
 
     ```gradle
-    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
+    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
     implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
@@ -101,7 +101,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med Firebase Cloud Mess
     ```gradle
     repositories {
         maven {
-            url "http://dl.bintray.com/microsoftazuremobile/SDK"
+            url "https://dl.bintray.com/microsoftazuremobile/SDK"
         }
     }
     ```
@@ -111,7 +111,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med Firebase Cloud Mess
 1. I `Build.Gradle`-filen för **appen** lägger du till följande rader i avsnittet **beroenden** om de inte redan finns. 
 
     ```gradle
-    implementation 'com.google.firebase:firebase-core:16.0.0'
+    implementation 'com.google.firebase:firebase-core:16.0.7'
     ```
 
 2. Lägg till följande plugin-program i slutet av filen om det inte redan finns. 
@@ -186,8 +186,8 @@ Din meddelandehubb har nu konfigurerats för att fungera med Firebase Cloud Mess
         }
         ```
 
-    > [!IMPORTANT]
-    > Ange den **namn** och **DefaultListenSharedAccessSignature** meddelandehubbens innan du fortsätter. 
+     > [!IMPORTANT]
+     > Ange den **namn** och **DefaultListenSharedAccessSignature** meddelandehubbens innan du fortsätter. 
 2. Lägg till ytterligare en klass med namnet `MyInstanceIDService`. Den här klassen är din implementering av lyssnartjänsten för instans-ID.
 
     Koden för den här klassen anropar din `IntentService` för att [uppdatera FCM-token](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) i bakgrunden.
@@ -554,7 +554,7 @@ I den här självstudiekursen har du använt Firebase Cloud Messaging för att s
 <!-- URLs. -->
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
+[Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md

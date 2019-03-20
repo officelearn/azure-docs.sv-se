@@ -2,21 +2,24 @@
 title: Testa Terraform-moduler i Azure med hjälp av Terratest
 description: Lär dig hur du använder Terratest för att testa Terraform-modulerna.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, storage account, azure, terratest, unit test, integration test
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/19/2018
-ms.openlocfilehash: fce70916cef96cee6496478503305e2bb1e73c09
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.date: 03/19/2019
+ms.openlocfilehash: 9d621905122ab7bf64432323d7d11cf8f1b50750
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656353"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224013"
 ---
 # <a name="test-terraform-modules-in-azure-by-using-terratest"></a>Testa Terraform-moduler i Azure med hjälp av Terratest
+
+> [!NOTE]
+> Exempelkoden i den här artikeln fungerar inte med version 0,12 (eller senare).
 
 Du kan använda Azure Terraform-moduler för att skapa återanvändbara, sammansättningsbara och testningsbara komponenter. Terraform-moduler innehåller inkapsling som är användbar för att implementera infrastruktur som kodprocesser.
 

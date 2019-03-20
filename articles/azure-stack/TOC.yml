@@ -5,10 +5,12 @@ items:
   items:
   - name: Vad är Azure Stack?
     href: azure-stack-poc.md
+  - name: Huvudfunktioner och koncept
+    href: azure-stack-key-features.md
   - name: Viktig information
     items:
     - name: Senaste uppdateringarna
-      href: azure-stack-servicing-policy.md#update-package-release-cadence
+      href: azure-stack-servicing-policy.md
     - name: 1902-uppdatering
       href: azure-stack-update-1902.md
     - name: 1901 update
@@ -113,10 +115,6 @@ items:
         href: azure-stack-integrate-security.md
       - name: Granskning av enhet
         href: azure-stack-integrate-physical-device-auditing.md
-  - name: Hanteringsprincip
-    href: azure-stack-servicing-policy.md
-  - name: Huvudfunktioner och koncept
-    href: azure-stack-key-features.md
   - name: Grundläggande om administration
     href: azure-stack-manage-basics.md
 - name: Instruktionsguider
@@ -401,9 +399,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Utbildning och certifiering
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: fc0efe87aa0eea7f7c7ba5c6ca11d3e88e3d74df
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 4875ccf5b74151809788e024ae659756cf769e10
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838586"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223333"

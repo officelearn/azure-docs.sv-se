@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: mareat
-ms.openlocfilehash: 9e408b45f47cb86191628916124611735f374d9e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 73173c144f979d4a10b90a16aec783fe51a3f90e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819042"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000399"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Hantera och analysera flödesloggar för Nätverkssäkerhetsgruppen med Network Watcher och Grafana
 
@@ -182,7 +182,7 @@ sudo dpkg -i grafana_4.5.1_amd64.deb
 sudo service grafana-server start
 ```
 
-Av ytterligare installationsinformation finns i [installerar på Debian / Ubuntu](http://docs.grafana.org/installation/debian/).
+Av ytterligare installationsinformation finns i [installerar på Debian / Ubuntu](https://docs.grafana.org/installation/debian/).
 
 #### <a name="add-the-elasticsearch-server-as-a-data-source"></a>Lägg till ElasticSearch-servern som en datakälla
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 12/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 498dc3f81968b60deb4f6f70466938026ac48f6a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9ce236748c1ca4f5e166fe1d7574f6a635d6204b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868008"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855894"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Vanliga frågor – Hyper-V till Azure-haveriberedskap
 
@@ -65,10 +65,9 @@ Ja, både kryptering under överföring och [kryptering i Azure](https://docs.mi
 ### <a name="what-do-i-need-on-premises"></a>Vad gör jag behöver på plats?
 
 Du behöver en eller flera virtuella datorer som körs på en eller flera fristående eller klustrade Hyper-V-värdar. Du kan också replikera virtuella datorer som körs på värdar som hanteras av System Center Virtual Machine Manager (VMM).
-    - Om du inte använder VMM under distributionen av Site Recovery kan du samla in Hyper-V-värdar och kluster i Hyper-V-platser. Du installerar Site Recovery-agenter (Azure Site Recovery-providern och Recovery Services-agent) på varje Hyper-V-värd.
-    - Om Hyper-V-värdar finns i VMM-moln kan dirigera du replikering i VMM. Du installerar Site Recovery-providern på VMM-servern och Recovery Services-agenten på varje Hyper-V-värd. Du kan mappa mellan VMM logiska och VM-nätverk och virtuella Azure-nätverk.
-    - 
-[Läs mer](hyper-v-azure-architecture.md) om Hyper-V till Azure-arkitektur.
+- Om du inte använder VMM under distributionen av Site Recovery kan du samla in Hyper-V-värdar och kluster i Hyper-V-platser. Du installerar Site Recovery-agenter (Azure Site Recovery-providern och Recovery Services-agent) på varje Hyper-V-värd.
+- Om Hyper-V-värdar finns i VMM-moln kan dirigera du replikering i VMM. Du installerar Site Recovery-providern på VMM-servern och Recovery Services-agenten på varje Hyper-V-värd. Du kan mappa mellan VMM logiska och VM-nätverk och virtuella Azure-nätverk.
+- [Läs mer](hyper-v-azure-architecture.md) om Hyper-V till Azure-arkitektur.
 
 ### <a name="can-i-replicate-vms-located-on-a-hyper-v-cluster"></a>Kan jag replikera virtuella datorer på Hyper-V-kluster?
 
@@ -139,11 +138,11 @@ För replikering, måste en Hyper-V virtuell dator köra ett operativsystem som 
 
 Hyper-V-datorer kan replikeras var 30 sekunder (förutom för premium-lagring), 5 minuter eller 15 minuter.
 
-###<a name="can-i-extend-replication"></a>Kan jag utöka replikeringen?
-Utökad eller länkad replikering stöds inte. Begär den här funktionen i [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+### <a name="can-i-extend-replication"></a>Kan jag utöka replikeringen?
+Utökad eller länkad replikering stöds inte. Begär den här funktionen i [Feedbackforum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Kan jag göra en offlinereplikering första?
-Det stöds inte. Begär den här funktionen i den [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+Det stöds inte. Begär den här funktionen i den [Feedbackforum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-disks"></a>Kan jag utesluta diskar?
 Ja, kan du undanta diskar från replikering. 

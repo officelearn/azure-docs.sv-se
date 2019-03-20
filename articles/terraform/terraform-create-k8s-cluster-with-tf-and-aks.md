@@ -2,31 +2,31 @@
 title: Skapa ett Kubernetes-kluster med Azure Kubernetes Service (AKS) och Terraform
 description: Självstudie som visar hur du skapar ett Kubernetes-kluster med Azure Kubernetes Service och Terraform
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, virtuell dator, azure, kubernetes
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/04/2018
-ms.openlocfilehash: 57615ecd4c81359360004b732736bf757c0026c3
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: d8438f5ddbbb3744811448aeb563be602b04516d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892073"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009089"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Skapa ett Kubernetes-kluster med Azure Kubernetes Service och Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) hanterar din värdmiljö för Kubernetes, vilket gör det enkelt att snabbt distribuera och hantera containerbaserade program utan kunskaper om orkestrering av containrar. Det eliminerar också problem med pågående åtgärder och underhåll genom etablering, uppgradering och skalning av resurser på begäran, utan att koppla från dina program.
 
-I den här självstudien lär du dig hur du utför följande uppgifter för att skapa ett [Kubernetes-kluster](https://www.redhat.com/en/topics/containers/what-is-kubernetes) med [Terraform](http://terraform.io) och AKS:
+I den här självstudien lär du dig hur du utför följande uppgifter för att skapa ett [Kubernetes-kluster](https://www.redhat.com/en/topics/containers/what-is-kubernetes) med [Terraform](https://terraform.io) och AKS:
 
 > [!div class="checklist"]
 > * Använda HCL (HashiCorp Language) för att definiera ett Kubernetes-kluster
 > * Använda Terraform och AKS för att skapa ett Kubernetes-kluster
 > * Använda verktyget kubectl för att testa tillgängligheten för ett Kubernetes-kluster
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
@@ -37,7 +37,7 @@ I den här självstudien lär du dig hur du utför följande uppgifter för att 
 ## <a name="create-the-directory-structure"></a>Skapa katalogstrukturen
 Det första steget är att skapa katalogen som innehåller Terraform-konfigurationsfilerna för övningen.
 
-1. Bläddra till [Azure-portalen](http://portal.azure.com).
+1. Bläddra till [Azure-portalen](https://portal.azure.com).
 
 1. Öppna [Azure Cloud Shell](/azure/cloud-shell/overview). Om du inte har valt en miljö tidigare väljer du **Bash** som miljö.
 

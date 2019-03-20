@@ -17,12 +17,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 0a9975b6f44a97d198dc308e263879c3358aab82
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: a2081bab2aebf0d49f3bde2467dac1fa683452ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672703"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008729"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Snabbstart: Skapa en VM-skalningsuppsättning i Azure Portal
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning som CPU, minnesefterfrågan eller nätverkstrafik. En Azure-lastbalanserare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning i Azure Portal.
@@ -31,7 +31,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
-Logga in på Azure Portal på http://portal.azure.com.
+Logga in på Azure Portal på https://portal.azure.com.
 
 
 ## <a name="create-virtual-machine-scale-set"></a>Skapa VM-skalningsuppsättningar
@@ -43,10 +43,10 @@ Du kan distribuera en skalningsuppsättning som anges med en Windows Server-avbi
 4. Välj önskad typ av operativsystem, t.ex. *Windows Server 2016 Datacenter*.
 5. Ange önskat resursgruppsnamn, t.ex *myResourceGroup*, och plats, t.ex *USA, östra*.
 6. Ange önskat användarnamn och välj den autentiseringstyp du föredrar.
-    - Ett **lösenord** måste innehålla minst 12 tecken och måste uppfylla tre av följande fyra komplexitetskrav: en gemen, en versal, en siffra och ett specialtecken. Mer information finns i [kraven om användarnamn och lösenord](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
-    - Om du väljer en Linux OS-diskavbildning kan du istället välja **offentlig SSH-nyckel**. Du behöver bara ange din offentliga nyckel, t.ex. *~/.ssh/id_rsa.pub*. Du kan använda Azure Cloud Shell från portalen för att [skapa och använda SSH-nycklar](../virtual-machines/linux/mac-create-ssh-keys.md).
+   - Ett **lösenord** måste innehålla minst 12 tecken och måste uppfylla tre av följande fyra komplexitetskrav: en gemen, en versal, en siffra och ett specialtecken. Mer information finns i [kraven om användarnamn och lösenord](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
+   - Om du väljer en Linux OS-diskavbildning kan du istället välja **offentlig SSH-nyckel**. Du behöver bara ange din offentliga nyckel, t.ex. *~/.ssh/id_rsa.pub*. Du kan använda Azure Cloud Shell från portalen för att [skapa och använda SSH-nycklar](../virtual-machines/linux/mac-create-ssh-keys.md).
 
-    ![Grundläggande information för skapande av en VM-skalningsuppsättning i Azure-portalen](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
+     ![Grundläggande information för skapande av en VM-skalningsuppsättning i Azure-portalen](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
 1. Välj ett alternativ för belastningsutjämning, till exempel *Lastbalanserare*, under **Välj belastningsutjämningsalternativ**. Ange återstående information för ditt alternativ för belastningsutjämning. För till exempel *Lastbalanserare* behöver du ange ett **namn på offentlig IP-adress** och en **domännamnsetikett**.
 1. Ange informationen för virtuellt nätverk under **Konfigurera virtuella nätverk**. Till exempel kan du skapa ett nytt virtuellt nätverk, *myVirtualNetwork*, och ett nytt undernät, *standard*.
 1. Bekräfta skalningsuppsättningsalternativen genom att välja **Skapa**.

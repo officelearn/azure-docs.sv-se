@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
-ms.openlocfilehash: 53eed3148483285bbcbc1e66edea5f2b189624c8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: bfb111b07db105190fc59f21b3255c2ea2b1471c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530560"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081023"
 ---
 # <a name="get-started-with-device-twins-java"></a>Kom igång med enhetstvillingar (Java)
 
@@ -294,18 +294,18 @@ I det här avsnittet skapar du en Java-konsolapp som anger en rapporterad egensk
     * Skapa en klientenhet att kommunicera med IoT Hub.
     * Skapa en **enhet** objekt för att lagra tvillingegenskaper.
 
-    ```java
-    DeviceClient client = new DeviceClient(connString, protocol);
+      ```java
+      DeviceClient client = new DeviceClient(connString, protocol);
 
-    // Create a Device object to store the device twin properties
-    Device dataCollector = new Device() {
+      // Create a Device object to store the device twin properties
+      Device dataCollector = new Device() {
       // Print details when a property value changes
       @Override
       public void PropertyCall(String propertyKey, Object propertyValue, Object context) {
         System.out.println(propertyKey + " changed to " + propertyValue);
       }
-    };
-    ```
+      };
+      ```
 
 10. Lägg till följande kod till den **huvudsakliga** metod för att skapa en **connectivityType** rapporterade egenskap och skicka den till IoT Hub:
 
@@ -341,9 +341,9 @@ I det här avsnittet skapar du en Java-konsolapp som anger en rapporterad egensk
 
 1. Ändra signaturen för **main**-metoden och ta med undantagen som visas nedan:
 
-    ```java
-    public static void main(String[] args) throws URISyntaxException, IOException
-    ```
+     ```java
+     public static void main(String[] args) throws URISyntaxException, IOException
+     ```
 
 1. Spara och Stäng den `simulated-device\src\main\java\com\mycompany\app\App.java` filen.
 

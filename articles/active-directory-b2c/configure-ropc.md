@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e464787919577b89b1cfec11e579cb17c18e2878
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 777aca4754d4d5dc893f930994ffe61db18362fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404234"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089343"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurera resursägarens lösenord autentiseringsuppgifter flöde i Azure AD B2C
 
@@ -37,15 +37,15 @@ Följande flöden stöds inte:
 
 ##  <a name="create-a-resource-owner-user-flow"></a>Skapa ett användarflöde för resurs-ägare
 
-1.  Logga in på Azure Portal som global administratör för din Azure AD B2C-klient.
-2.  Om du vill växla till din Azure AD B2C-klient, väljer du B2C-katalogen i det övre högra hörnet i portalen.
-3.  Klicka på **användarflöden**, och välj **nytt användarflöde**.
-4.  Klicka på den **alla** fliken och markera **logga in med ROPC**.
-5.  Ange ett namn för användarflödet, till exempel *ROPC_Auth*.
-6.  Under **Programanspråk**, klickar du på **visa fler**.
-7.  Välj Programanspråk som du behöver för ditt program, till exempel visningsnamn, e-postadress och identitetsprovider.
-8.  Välj **OK** och sedan **Skapa**.
-9.  Klicka på **kör användarflödet**.
+1. Logga in på Azure Portal som global administratör för din Azure AD B2C-klient.
+2. Om du vill växla till din Azure AD B2C-klient, väljer du B2C-katalogen i det övre högra hörnet i portalen.
+3. Klicka på **användarflöden**, och välj **nytt användarflöde**.
+4. Klicka på den **alla** fliken och markera **logga in med ROPC**.
+5. Ange ett namn för användarflödet, till exempel *ROPC_Auth*.
+6. Under **Programanspråk**, klickar du på **visa fler**.
+7. Välj Programanspråk som du behöver för ditt program, till exempel visningsnamn, e-postadress och identitetsprovider.
+8. Välj **OK** och sedan **Skapa**.
+9. Klicka på **kör användarflödet**.
 
    Du ser därefter en slutpunkt som det här exemplet:
 

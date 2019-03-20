@@ -1,6 +1,6 @@
 ---
-title: Skydda ditt innehåll med Media Services – Azure | Microsoft Docs
-description: Den här artikeln ger en översikt över innehållsskydd med Media Services.
+title: Skydda ditt innehåll med Media Services dynamisk kryptering – Azure | Microsoft Docs
+description: Den här artikeln ger en översikt över innehållsskydd med dynamisk kryptering. Den berättar även om att strömma protokoll och krypteringstyper.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,17 +11,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: cc32338a69953c49efad4a206a974ac4523923e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3ce24100a0780f313a00b80129601f4e8f344bde
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894146"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189775"
 ---
-# <a name="content-protection-overview"></a>Content protection-översikt
+# <a name="content-protection-with-dynamic-encryption"></a>Innehållsskydd med dynamisk kryptering
 
 Du kan använda Azure Media Services för att skydda dina mediefiler från den tidpunkt som den lämnar din dator via lagrings-, bearbetnings- och leverans. Med medietjänster kan leverera du live och på begäran innehållet krypteras dynamiskt med Advanced Encryption Standard (AES-128) eller någon av de tre största digital rights management (DRM) system: Microsoft PlayReady, Google Widevine och FairPlay för Apple. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM (PlayReady, Widevine och FairPlay) licenser till auktoriserade klienter. 
 
@@ -96,17 +96,54 @@ För att slutföra utformningen ”content protection” system/program, måste 
 
 Du kan använda Media Services för att leverera ditt innehåll dynamiskt krypterad med Klartextnyckel eller DRM-kryptering med PlayReady, Widevine och FairPlay. För närvarande kan kryptera du HTTP Live Streaming (HLS), MPEG DASH och Smooth Streaming-format. Varje protokoll som stöder följande krypteringsmetoder:
 
+### <a name="hls"></a>HLS
+
+HLS-protokollet stöder följande behållare format och krypteringsscheman.
+
+|Behållare-format|Krypteringsschemat|URL-exempel|
+|---|---|---|
+|Alla|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
+|MPG2-TS |CBCS (FairPlay) ||
+|CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
+|MPG2-TS |CENC (PlayReady) ||
+|CMAF(fmp4) |CENC (PlayReady) ||
+
+HLS/CMAF + FairPlay (inklusive – HEVC / H.265) stöds på följande enheter:
+
+* iOS v11 eller högre 
+* iPhone 8 eller senare
+* MacOS high Sierra med Intel 7 Gen CPU
+
+### <a name="mpeg-dash"></a>MPEG-DASH
+
+MPEG-DASH-protokollet stöder följande behållare format och krypteringsscheman.
+
+|Behållare-format|Krypteringsschemat|URL-exempel
+|---|---|---|
+|Alla|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
+|CMAF(fmp4)|CENC (Widevine + PlayReady)||
+
+### <a name="smooth-streaming"></a>Smooth Streaming
+
+Smooth Streaming-protokollet stöder följande behållare format och krypteringsscheman.
+
 |Protokoll|Behållare-format|Krypteringsschemat|
 |---|---|---|
-|MPEG-DASH|Alla|AES|
-||CSF(fmp4) |CENC (Widevine + PlayReady) |
-||CMAF(fmp4)|CENC (Widevine + PlayReady)|
-|HLS|Alla|AES|
-||MPG2-TS |CBCS (Fairplay) |
-||MPG2-TS |CENC (PlayReady) |
-||CMAF(fmp4) |CENC (PlayReady) |
-|Smooth Streaming|fMP4|AES|
-||fMP4 | CENC (PlayReady) |
+|fMP4|AES||
+|fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(encryption=cenc)`|
+
+### <a name="browsers"></a>Webbläsare
+
+Vanliga webbläsare har stöd för följande DRM-klienter:
+
+|Webbläsare|Kryptering|
+|---|---|
+|Chrome|Widevine|
+|Edge, Internet Explorer 11|PlayReady|
+|Firefox|Widevine|
+|Opera|Widevine|
+|Safari|FairPlay|
 
 ## <a name="aes-128-clear-key-vs-drm"></a>Rensa viktiga jämfört med AES-128 DRM
 
@@ -167,6 +204,6 @@ Resurserna som ska krypteras av kryptering för lagring på serversidan för att
 
 * [Skydda med AES-kryptering](protect-with-aes128.md)
 * [Skydda med DRM](protect-with-drm.md)
-* [Utforma multi-drm innehållsskydd system med åtkomstkontroll](design-multi-drm-system-with-access-control.md)
+* [Utforma multi-DRM innehållsskydd system med åtkomstkontroll](design-multi-drm-system-with-access-control.md)
 * [Vanliga frågor och svar](frequently-asked-questions.md)
 

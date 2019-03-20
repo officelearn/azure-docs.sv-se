@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: e51fa086b26e5692d8dd572654b7c1ec50c641c5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 608abd09227014513a0ad358d7a2c225b5ab2b97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005156"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863380"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Koda en tillgång med Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ Information om hur du ansluter till AMS API finns i [åtkomst till Azure Media S
 >
 > Vid åtkomst till entiteter i Media Services, måste du ange specifika namn på huvudfält och värden i HTTP-förfrågningar. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
 >
-> När använder JSON och ange om du vill använda den **__metadata** nyckelord i begäran (till exempel till ett länkat-referens), måste du ställa in den **acceptera** sidhuvud till [JSON utförlig format](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Acceptera: application/json; odata = utförlig.
+> När använder JSON och ange om du vill använda den **__metadata** nyckelord i begäran (till exempel till ett länkat-referens), måste du ställa in den **acceptera** sidhuvud till [JSON utförlig format](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Acceptera: application/json; odata = utförlig.
 >
 >
 
@@ -151,7 +151,7 @@ Aktivera aktiviteten länkning:
 * Det måste finnas minst en aktivitet vars indata är utdata från en annan aktivitet i jobbet.
 
 ## <a name="use-odata-batch-processing"></a>Använd OData-batchbearbetning
-I följande exempel visar hur du skapar ett jobb och aktiviteter med hjälp av OData-batch-bearbetning. Information om batchbearbetning finns [Open Data Protocol (OData) gruppbearbetning](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+I följande exempel visar hur du skapar ett jobb och aktiviteter med hjälp av OData-batch-bearbetning. Information om batchbearbetning finns [Open Data Protocol (OData) gruppbearbetning](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
     POST https://media.windows.net/api/$batch HTTP/1.1
     DataServiceVersion: 1.0;NetFx

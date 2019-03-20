@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 7d0743c09adf1c50d888d2e279ba85a8369bf286
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 6c96b7139787a3863b3f7a47949d9cdf20cc5021
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991639"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855681"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Felsöka problem med att aktivera och visa Application Insights Profiler
 
@@ -36,11 +36,11 @@ Profiler skriver spårningsmeddelanden och anpassade händelser till Application
     ```
     Följande bild visas två exempel på sökningar från två AI-resurser: 
     
-    * Längst till vänster är inte programmet tar emot begäranden när Profiler körs. Meddelandet förklarar att överföringen avbröts på grund av någon aktivitet. 
+   * Längst till vänster är inte programmet tar emot begäranden när Profiler körs. Meddelandet förklarar att överföringen avbröts på grund av någon aktivitet. 
 
-    * Till höger, Profiler igång och anpassade händelser när det har upptäckts begäranden som inträffade när Profiler kördes som skickas. Om ServiceProfilerSample anpassad händelse visas, betyder det att Profiler bifogas en begäran om en spårning och du kan visa spår i den **Insights programprestanda** fönstret.
+   * Till höger, Profiler igång och anpassade händelser när det har upptäckts begäranden som inträffade när Profiler kördes som skickas. Om ServiceProfilerSample anpassad händelse visas, betyder det att Profiler bifogas en begäran om en spårning och du kan visa spår i den **Insights programprestanda** fönstret.
 
-    Om ingen telemetri visas är Profiler inte igång. Felsökning av beskrivs felsökningsavsnitt för specifika apptyper senare i den här artikeln.  
+     Om ingen telemetri visas är Profiler inte igång. Felsökning av beskrivs felsökningsavsnitt för specifika apptyper senare i den här artikeln.  
 
      ![Profiler telemetrisökning][profiler-search-telemetry]
 
@@ -90,7 +90,7 @@ När du konfigurerar Profiler görs uppdateringar till webbappens inställningar
 
 1. I den **Web App Control** rutan Öppna **inställningar**.
 
-1. Ange **.Net Framework-version** till **v4.6**.
+1. Ange **.NET Framework-version** till **v4.6**.
 
 1. Ange **Always On** till **på**.
 
@@ -124,7 +124,7 @@ Profiler körs som ett kontinuerligt webbjobb i webbapp. Du kan öppna webbappre
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Felsöka problem med Profiler och Azure Diagnostics
 
-  >**Det finns en bugg i profiler som levereras i den senaste versionen av WAD för molntjänster.** För att kunna använda profiler med en molnbaserad tjänst, stöder den versionen 2.7.2 endast AI-SDK. Om du använder en nyare version av AI-SDK måste du gå tillbaka till 2.7.2 för att kunna använda profiler.
+  >**Det finns en bugg i profiler som levereras i den senaste versionen av WAD för molntjänster.** För att kunna använda profiler med en molnbaserad tjänst, stöder den versionen 2.7.2 endast AI-SDK. Om du använder en nyare version av AI-SDK måste du gå tillbaka till 2.7.2 för att kunna använda profiler. Om du använder Visual Studio för att nedgradera versionen av SDK: N för App Insights, kan du få en bindning omdirigerings-fel vid körning. Det beror på att ”newVersion” i filen web.config för Microsoft.ApplicationInsights ska vara inställd på ”2.7.2.0” när nedgradering AI-SDK, men det inte uppdateras automatiskt.
 
 Om du vill se om Profiler är korrekt konfigurerad genom Azure Diagnostics-data, gör du följande tre saker: 
 1. Kontrollera först om du vill se om innehållet i Azure Diagnostics-konfiguration som distribueras är vad du förväntar dig. 

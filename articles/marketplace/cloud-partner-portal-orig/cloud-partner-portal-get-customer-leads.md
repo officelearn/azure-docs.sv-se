@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 2ebc0c90d62d1299c076f8d91ba9fed1998a20e5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2a425e607ea7dac394ab90a3fed4d4026056bbc1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450200"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118586"
 ---
 <a name="get-customer-leads"></a>Hämta kundleads
 ==================
@@ -39,13 +39,13 @@ Leads är kunder som vill eller distribuerar dina produkter från den [Azure Mar
 
 <!-- -->
 
-2.  Kunden samtycker till att dela sin information när du har valt ”Hämta nu”. Det här är en **inledande intresse** ledare, där vi delar information om kunder som har visat intresse vid hämtning av din produkt. Det är upp förvärv tratten.
+1. Kunden samtycker till att dela sin information när du har valt ”Hämta nu”. Det här är en **inledande intresse** ledare, där vi delar information om kunder som har visat intresse vid hämtning av din produkt. Det är upp förvärv tratten.
 
-    ![Hämta den nu alternativ](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
+   ![Hämta den nu alternativ](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
 
-3.  Kunden väljer ”köp” i den [Azure-portalen](https://portal.azure.com/) att hämta din produkt. Det här är en **active** ledare, där vi delar information om en kund som har startats för att distribuera din produkt.
+1. Kunden väljer ”köp” i den [Azure-portalen](https://portal.azure.com/) att hämta din produkt. Det här är en **active** ledare, där vi delar information om en kund som har startats för att distribuera din produkt.
 
-    ![Köpalternativ](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
+   ![Köpalternativ](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
 
 
 ### <a name="appsource"></a>AppSource

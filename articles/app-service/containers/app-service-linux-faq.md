@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: a12d3708cdb547cc036b249bebf901d2ec5121c3
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 4c2ed5fa65528a690d618e45c118d2433820ddc6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729327"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871501"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service i Linux vanliga frågor och svar
 
@@ -35,9 +35,17 @@ Om du har en fråga kan du kommentera den här artikeln.
 
 Du hittar alla Docker-filer på [GitHub](https://github.com/azure-app-service). Du hittar alla Docker-behållare på [Docker Hub](https://hub.docker.com/u/appsvc/).
 
+<a id="#startup-file"></a>
+
 **Vilka är de förväntade värdena för avsnittet startfil när jag konfigurerar körningsstack?**
 
-För Node.js anger du PM2-konfigurationsfilen eller skriptfilen. För .NET Core, anger du ditt kompilerade DLL-namn som `dotnet <myapp>.dll`. För Ruby, kan du ange det Ruby-skript som du vill initiera din app med.
+| Stack     | Förväntat värde                                                                |
+|-----------|-------------------------------------------------------------------------------|
+| Java SE   | ett kommando för att starta din `.jar` program                                    |
+| Tomcat    | platsen för ett skript för att utföra alla nödvändiga configruations för din app |
+| Node.js   | PM2-konfigurationsfilen eller skriptfilen                                |          
+| .NET core | Det kompilerade DLL-namnet som `dotnet <myapp>.dll`                                 |
+| Ruby      | Ruby-skript som du vill initiera din app med                     
 
 ## <a name="management"></a>Hantering
 
@@ -92,7 +100,7 @@ Om det inte går att webbappen Linux Git-distribution, väljer du något av föl
 Ja, inaktivera `perMessageDeflate` i din Node.js-kod på serversidan. Till exempel om du använder socket.io, Använd följande kod:
 
 ```nodejs
-var io = require('socket.io')(server,{
+const io = require('socket.io')(server,{
   perMessageDeflate :false
 });
 ```

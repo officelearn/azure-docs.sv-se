@@ -14,22 +14,24 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: ce19041b29d567f061dde59fbe041adf61f889a0
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: f9d21cb1b047fcc1043ca2d92f718bb5821879a3
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961490"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226070"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Snabbstart: Skapa en ASP.NET Core-app med Azure App Configuration
 
-Azure App Configuration är en hanterad konfigurationstjänst i Azure. Med den kan du enkelt lagra och hantera alla programinställningar på ett ställe som är separat från din kod. Den här snabbstarten visar hur du införlivar tjänsten i en ASP.NET Core-webbapp. ASP.NET Core skapar ett enda nyckelvärdesbaserat konfigurationsobjekt med hjälp av inställningar från en eller flera datakällor, som kallas *konfigurationsprovidrar*, som anges av ett program. Eftersom App Configurations .NET Core-klient är implementerad som en sådan provider visas tjänsten precis som andra datakällor.
+Azure App Configuration är en hanterad konfigurationstjänst i Azure. Du kan använda den för att enkelt lagra och hantera alla programinställningarna på ett ställe som är avgränsade från din kod. Den här snabbstarten visar hur du införlivar tjänsten i en ASP.NET Core-webbapp. 
 
-Du kan använda valfritt kodredigeringsprogram för att slutföra stegen i den här snabbstarten. [Visual Studio Code](https://code.visualstudio.com/) är dock ett utmärkt alternativ som är tillgängligt på Windows-, macOS- och Linux-plattformar.
+ASP.NET Core skapar ett enda nyckel-värde-baserade konfigurationsobjekt med hjälp av inställningarna från en eller flera datakällor som anges av ett program. Dessa datakällor kallas *konfigurationsprovidrar*. Eftersom App Configuration .NET Core-klienten är implementerat som till exempel en provider, tjänsten visas som en annan datakälla.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+Du kan använda valfri Kodredigerare för att utföra stegen i den här snabbstarten. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ tillgängligt på Windows, macOS och Linux-plattformar.
 
-Slutför den här snabbstarten genom att installera [.NET Core SDK](https://dotnet.microsoft.com/download).
+## <a name="prerequisites"></a>Förutsättningar
+
+Om du vill göra den här snabbstarten måste du installera den [.NET Core SDK](https://dotnet.microsoft.com/download).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,19 +41,19 @@ Slutför den här snabbstarten genom att installera [.NET Core SDK](https://dotn
 
 ## <a name="create-an-aspnet-core-web-app"></a>Skapa en ASP.NET Core-webbapp
 
-Du använder [.NET Core-kommandoradsgränssnittet (CLI)](https://docs.microsoft.com/dotnet/core/tools/) för att skapa ett nytt ASP.NET Core MVC-webbapprojekt. Fördelen med att använda .NET Core CLI istället för Visual Studio är att det finns tillgängligt för både Windows-, macOS- och Linux-plattformar.
+Du använder den [.NET Core-kommandoradsgränssnittet (CLI)](https://docs.microsoft.com/dotnet/core/tools/) att skapa ett nytt ASP.NET Core MVC web app-projekt. Fördelen med att använda .NET Core CLI via Visual Studio är att den är tillgänglig i Windows, macOS och Linux-plattformar.
 
-1. Skapa en ny mapp för ditt projekt. För den här snabbstarten ger vi den namnet *TestAppConfig*.
+1. Skapa en ny mapp för ditt projekt. Den här snabbstarten, ge den namnet *TestAppConfig*.
 
-2. Kör följande kommando i den nya mappen för att skapa ett nytt ASP.NET Core MVC-webbapp-projekt:
+2. Kör följande kommando för att skapa ett nytt ASP.NET Core MVC web app-projekt i den nya mappen:
 
         dotnet new mvc
 
 ## <a name="add-secret-manager"></a>Lägga till Secret Manager
 
-Du lägger till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets) i projektet. Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanför projektträdet. Den här metoden hjälper till att förhindra oavsiktlig delning av apphemligheter i källkoden.
+Lägg till den [Secret Manager verktyget](https://docs.microsoft.com/aspnet/core/security/app-secrets) i projektet. Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanför projektträdet. Den här metoden hjälper till att förhindra oavsiktlig delning av apphemligheter i källkoden.
 
-- Öppna *.csproj*-filen. Lägg till ett `UserSecretsId`-element såsom det visas nedan och ersätt dess värde med ditt eget, vilket vanligtvis är ett GUID. Spara filen.
+- Öppna *.csproj*-filen. Lägg till en `UserSecretsId` element som visas här, och Ersätt värdet med dina egna, vilket vanligtvis är ett GUID. Spara filen.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -69,29 +71,29 @@ Du lägger till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/cor
     </Project>
     ```
 
-## <a name="connect-to-app-configuration-store"></a>Ansluta till ett appkonfigurationsarkiv
+## <a name="connect-to-an-app-configuration-store"></a>Ansluta till en appbutik för konfiguration
 
-1. Lägg till en referens till NuGet-paketet `Microsoft.Extensions.Configuration.AzureAppConfiguration` genom att köra följande kommando:
+1. Lägg till en referens till den `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet-paketet genom att köra följande kommando:
 
         dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
 
-2. Kör följande kommando för att återställa paket för projektet.
+2. Kör följande kommando för att återställa paketen för ditt projekt:
 
         dotnet restore
 
 3. Lägg till en hemlighet med namnet *ConnectionStrings:AppConfig* i Secret Manager.
 
-    Den här hemligheten kommer att innehålla anslutningssträngen för åtkomst till ditt appkonfigurationsarkiv. Ersätt värdet i kommandot nedan med anslutningssträngen för ditt appkonfigurationsarkiv.
+    Den här hemligheten innehåller anslutningssträngen för att komma åt din app configuration store. Ersätt värdet i följande kommando med anslutningssträngen för din konfiguration appbutik.
 
     Det här kommandot måste köras i samma katalog som *.csproj*-filen.
 
         dotnet user-secrets set ConnectionStrings:AppConfig "Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>"
 
-    Secret Manager används endast för testning av webbappen lokalt. När appen har distribuerats (till exempel till [Azure App Service](https://azure.microsoft.com/services/app-service/web)) kommer du att använda en programinställning (till exempel **anslutningssträngar** i App Service) i stället för att lagra anslutningssträngen med Secret Manager.
+    SECRET Manager används endast för att testa webbappen lokalt. När appen har distribuerats, till exempel till [Azure App Service](https://azure.microsoft.com/services/app-service/web), du kan använda ett program som inställningen, till exempel **anslutningssträngar** i App Service. Du kan använda den här inställningen istället för att lagra anslutningssträngen med Secret Manager.
 
-    Du får tillgång till den här hemligheten med konfigurations-API:et. Ett kolon (:) fungerar i konfigurationsnamnet med API-konfigurationen på alla plattformar som stöds. Se dokumentationen om [konfiguration efter miljö](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0#configuration-by-environment).
+    Den här hemligheten nås med konfigurations-API. Ett kolon (:) fungerar i Konfigurationsnamnet med API-konfigurationen på alla plattformar som stöds. Se [konfigurationen av miljön](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-4. Öppna *Program.cs* och uppdatera metoden `CreateWebHostBuilder` till att använda App Configuration genom att anropa metoden `config.AddAzureAppConfiguration()`.
+4. Öppna Program.cs och uppdatera den `CreateWebHostBuilder` metod du använder Appkonfiguration genom att anropa den `config.AddAzureAppConfiguration()` metoden.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -104,7 +106,7 @@ Du lägger till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/cor
             .UseStartup<Startup>();
     ```
 
-5. Öppna *Index.cshtml* i katalogen *Views* > *Home* och ersätt dess innehåll med följande kod:
+5. Öppna Index.cshtml i vyerna > Home directory och Ersätt innehållet med följande kod:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -130,7 +132,7 @@ Du lägger till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/cor
     </html>
     ```
 
-6. Öppna *_Layout.cshtml* i katalogen *Views* > *Shared* och ersätt dess innehåll med följande kod:
+6. Öppna _Layout.cshtml i vyerna > delad directory och Ersätt innehållet med följande kod:
 
     ```html
     <!DOCTYPE html>
@@ -159,15 +161,15 @@ Du lägger till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/cor
 
 ## <a name="build-and-run-the-app-locally"></a>Skapa och köra appen lokalt
 
-1. För att skapa en appversion med .NET Core CLI, kör du följande kommando i kommandogränssnittet:
+1. Om du vill skapa appen med hjälp av .NET Core CLI kör du följande kommando i Kommandotolken:
 
         dotnet build
 
-2. När versionen har slutförts, kör du följande kommando för att köra webbappen lokalt:
+2. När bygget har slutförts kör du följande kommando för att köra webbappen lokalt.
 
         dotnet run
 
-3. Starta ett webbläsarfönster och gå till `http://localhost:5000`, som är standard-URL för den webapp som hanteras lokalt.
+3. Öppna ett webbläsarfönster och gå till `http://localhost:5000`, vilket är standard-URL för web-app som finns lokalt.
 
     ![Snabbstart av lokal app](./media/quickstarts/aspnet-core-app-launch-local.png)
 
@@ -177,7 +179,7 @@ Du lägger till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/cor
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat ett nytt appkonfigurationsarkiv och använt det med en ASP.NET Core-webbapp. Om du vill lära dig mer om att använda App Configuration fortsätter du till nästa självstudie som visar hur autentisering går till.
+I den här snabbstarten har du skapade en ny konfiguration appbutik och använder den med en ASP.NET Core-webbapp. Om du vill veta mer om hur du använder Appkonfiguration kan du fortsätta till nästa självstudie som visar autentisering.
 
 > [!div class="nextstepaction"]
 > [Hanterade identiteter för integrering av Azure-resurser](./integrate-azure-managed-service-identity.md)

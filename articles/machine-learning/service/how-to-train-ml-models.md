@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 2/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 58dd96b079dda50faa17a52782a79db83a0141bd
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 818b6e5994a4f5b9d21d511f0a31eab6e00033f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330077"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012472"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Träna modeller med Azure Machine Learning med hjälp av kostnadsuppskattning
 
@@ -63,6 +63,7 @@ Parameter | Beskrivning
 `compute_target`| Remote beräkningsmål som utbildning skriptet ska köras på, i det här fallet en Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) klustret. (Observera att även om AmlCompute kluster är vanliga mål, det är också möjligt att välja andra beräkning måltyper, till exempel virtuella datorer i Azure eller till och med lokala datorn.)
 `entry_script`| FilePath (relativt till den `source_directory`) för utbildning-skriptet som ska köras på den fjärranslutna databearbetning. Den här filen och eventuella ytterligare filer som den är beroende av, bör finnas i den här mappen
 `conda_packages`| Lista över Python-paket installeras via conda som krävs för dina utbildningsskript.  
+
 Konstruktorn har en annan parameter med namnet `pip_packages` som du använder för eventuella pip-paket som behövs
 
 Nu när du har skapat din `Estimator` objekt, skicka utbildningsjobbet som ska köras på den fjärranslutna beräkningen med ett anrop till den `submit` fungerar på din [Experiment](concept-azure-machine-learning-architecture.md#experiment) objektet `experiment`. 

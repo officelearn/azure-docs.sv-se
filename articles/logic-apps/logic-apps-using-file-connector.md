@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: b58059727a383e978691bfbbee77a1f6b04692ce
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c5128e904e540deeb3293fb687da4e8cafcfa1e0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264334"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871002"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ansluta till lokala filsystem med Azure Logic Apps
 
@@ -34,9 +34,9 @@ Om du vill följa exemplet behöver du följande objekt:
 
 * Innan du kan ansluta logikappar till lokala system, till exempel filservern för system, måste du [installera och konfigurera en lokal datagateway](../logic-apps/logic-apps-gateway-install.md). På så sätt kan du ange om du vill använda din gatewayinstallationen när du skapar filen system-anslutning från din logikapp.
 
-* En [Drobox konto](https://www.dropbox.com/) och autentiseringsuppgifterna för ditt konto. Dina autentiseringsuppgifter för DropBox är nödvändiga för att skapa en anslutning mellan din logikapp och Drobox-konto. 
+* En [Dropbox-konto](https://www.dropbox.com/), som du kan registrera dig kostnadsfritt. Autentiseringsuppgifterna för ditt konto är nödvändiga för att skapa en anslutning mellan din logikapp och ditt Dropbox-konto. 
 
-* Dina autentiseringsuppgifter för datorn där du vill ha åtkomst till filsystemet. Till exempel om du installerar datagateway på samma dator som filsystem, måste du autentiseringsuppgifter för datorn. 
+* Åtkomst till den dator som har filsystemet som du vill använda. Om du installerar datagateway på samma dator som filsystem, behöver du till exempel kontoinformationen för datorn. 
 
 * Ett e-postkonto från en leverantör som stöds av Logic Apps, som Office 365 Outlook, Outlook.com eller Gmail. För andra providrar [läser du listan med anslutningsappar här](https://docs.microsoft.com/connectors/). För den här logikappen används ett Office 365 Outlook-konto. Om du använder något annat e-postkonto är de övergripande stegen desamma, men användargränssnittet kan skilja sig något. 
 
@@ -58,7 +58,7 @@ Om du vill följa exemplet behöver du följande objekt:
 
    ![Dropbox-utlösare](media/logic-apps-using-file-connector/dropbox-trigger.png)
 
-## <a name="add-actions"></a>Lägga till åtgärder
+## <a name="add-actions"></a>Lägg till åtgärder
 
 1. Under utlösaren väljer **nästa steg**. I sökrutan anger du ”file system” som filter. Välj den här åtgärden från åtgärdslistan över: **Skapa fil - filsystem**
 
@@ -68,7 +68,7 @@ Om du vill följa exemplet behöver du följande objekt:
 
    ![Skapa anslutning](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   | Egenskap  | Krävs | Värde | Beskrivning | 
+   | Egenskap  | Krävs | Value | Beskrivning | 
    | -------- | -------- | ----- | ----------- | 
    | **Anslutningsnamn** | Ja | <*connection-name*> | Du ett namn för anslutningen | 
    | **Rotmapp för vyer** | Ja | <*root-folder-name*> | Rotmappen för ditt filsystem, till exempel, om du har installerat din lokala datagateway, till exempel en lokal mapp på den dator där den lokala datagatewayen är installerad, eller mappen för en nätverksresurs som datorn kan komma åt. <p>Exempel: `\\PublicShare\\DropboxFiles` <p>Rotmappen är huvudsakliga överordnad mapp, som används för relativa sökvägar för alla filrelaterade åtgärder. | 

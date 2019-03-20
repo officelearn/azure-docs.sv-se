@@ -6,22 +6,22 @@ author: anuragm
 manager: shivamg
 ms.service: backup
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: 8bfa9f2fcdc3047ed5541db058f670a4bc464164
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b8fb6e2b23c275d198ac58fec874ad6627a7b43e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449911"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007182"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Felsöka säkerhetskopiering av SQL Server på Azure
 
 Den här artikeln innehåller felsökningsinformation för att skydda SQL Server-datorer på Azure (förhandsversion).
 
-## <a name="public-preview-limitations"></a>Begränsningar för offentlig förhandsversion
+## <a name="feature-consideration-and-limitations"></a>Funktionen överväganden och begränsningar
 
-Om du vill visa de offentliga begränsningarna i förhandsversionen finns i artikeln [säkerhetskopiera SQL Server-databas i Azure](backup-azure-sql-database.md#preview-limitations).
+Om du vill visa funktionen överväganden finns i artikeln [om SQL Server-säkerhetskopiering i Azure virtuella datorer](backup-sql-server-azure-vms.md#feature-consideration-and-limitations).
 
 ## <a name="sql-server-permissions"></a>SQL Server-behörigheter
 
@@ -37,7 +37,7 @@ Använd informationen i följande tabeller för att felsöka problem och fel på
 
 | Severity | Beskrivning | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|---|
-| Varning | Aktuella inställningar för den här databasen stöder inte vissa typer av säkerhetskopieringstyper som finns i den associerade principen. | <li>**Master DB**: Endast en fullständig säkerhetskopiering databasåtgärd kan utföras i master-databasen; varken **differentiell** säkerhetskopiering eller transaktion **loggar** backup som möjligt. </li> <li>Alla databaser i **enkla återställningsmodellen** tillåter inte transaktionen **loggar** säkerhetskopia som ska vidtas.</li> | Ändra databasinställningarna så att alla säkerhetskopieringstyper i principen stöds. Du kan också ändra den aktuella principen om du vill inkludera endast säkerhetskopiering typer som stöds. I annat fall stöds inte säkerhetskopieringstyper kommer att åsidosättas vid schemalagd säkerhetskopiering eller säkerhetskopieringen misslyckas för ad hoc-säkerhetskopiering.
+| Varning | Aktuella inställningar för den här databasen stöder inte vissa typer av säkerhetskopieringstyper som finns i den associerade principen. | <li>**Master DB**: Endast en fullständig säkerhetskopiering databasåtgärd kan utföras i master-databasen; varken **differentiell** säkerhetskopiering eller transaktion **loggar** säkerhetskopiering stöds. </li> <li>Alla databaser i **enkla återställningsmodellen** tillåter inte transaktionen **loggar** säkerhetskopia som ska vidtas.</li> | Ändra databasinställningarna så att alla säkerhetskopieringstyper i principen stöds. Du kan också ändra den aktuella principen om du vill inkludera endast säkerhetskopiering typer som stöds. I annat fall stöds inte säkerhetskopieringstyper kommer att åsidosättas vid schemalagd säkerhetskopiering eller säkerhetskopieringen misslyckas för ad hoc-säkerhetskopiering.
 
 
 ## <a name="backup-failures"></a>Fel vid säkerhetskopiering
@@ -136,6 +136,35 @@ Följande fel är koder för Konfigurera säkerhetskopiering fel.
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
 | Automatiskt skydd avsett har antingen tagits bort eller är inte längre giltig. | När du aktiverar automatiskt skydd på en SQL-instans **Konfigurera säkerhetskopiering** uppgifter har körts för alla databaser i instansen. Om du inaktiverar automatiskt skydd medan jobben körs, kommer **pågår** jobb avbryts med den här felkoden. | Aktivera automatiskt skydd igen att skydda alla återstående databaser. |
+
+## <a name="re-registration-failures"></a>Omregistrering fel
+
+Sök efter en eller flera av de [symptom](#symptoms) innan du utlöser åtgärden registrera igen.
+
+### <a name="symptoms"></a>Symtom
+
+* Alla åtgärder som säkerhetskopiering, återställning och konfigurera säkerhetskopiering misslyckas på den virtuella datorn med någon av följande felkoder: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**
+* Den **Status för säkerhetskopiering** för säkerhetskopiering objekt som visar **kan inte nås**. Även om du måste försäkra dig om att alla andra orsaker som kan också leda till samma status:
+
+  * Bristande behörighet att utföra relaterade säkerhetskopieringsåtgärder på den virtuella datorn  
+  * Virtuell dator har stängts av på grund av som säkerhetskopieringar inte kan äga rum
+  * Nätverksproblem  
+
+    ![Registrera virtuell dator](./media/backup-azure-sql-database/re-register-vm.png)
+
+* När det gäller alltid på tillgänglighetsgruppen igång säkerhetskopieringarna misslyckas när du har ändrat inställning för säkerhetskopiering eller när det uppstod ett fel
+
+### <a name="causes"></a>Orsaker
+Dessa problem kan uppstå på grund av en eller flera av följande orsaker:
+
+  * Tillägget har tagits bort eller avinstallerats från portalen 
+  * Tillägget har avinstallerats från den **Kontrollpanelen** för den virtuella datorn under **avinstallera eller ändra ett Program** UI
+  * Virtuell dator har återställts bakåt i tiden med återställning av diskar som är på plats
+  * Virtuella datorer stängdes av under en längre period på grund av som tilläggskonfigurationen på den upphört att gälla
+  * Virtuell dator har tagits bort och en annan virtuell dator har skapats med samma namn, i samma resursgrupp som den borttagna virtuella datorn
+  * En av noderna AG fick inte konfigurationen för fullständig säkerhetskopiering, detta kan inträffa antingen vid tidpunkten för tillgänglighet av gruppregistrering till valvet eller när en ny nod läggs  <br>
+    I situationerna ovan rekommenderas att utlösa Omregistrera åtgärden på den virtuella datorn. Det här alternativet är bara tillgänglig via PowerShell och kommer snart att vara tillgängliga på Azure Portal.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

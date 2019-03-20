@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5db4387c2fd610313aaac032c122366aa45dc7f9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 93313557781c6b3788d8b4d43d6676fc17625709
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720194"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201321"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Utveckla skriptåtgärder skript för HDInsight Windows-baserade kluster
-Lär dig hur du skriver skript för skriptåtgärd för HDInsight. Information om hur du använder skriptåtgärd skript finns i [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster.md). Samma artikel skrivna för Linux-baserade HDInsight-kluster finns i [utveckla skriptåtgärder skript till HDInsight](hdinsight-hadoop-script-actions-linux.md).
+Lär dig hur du skriver skript för skriptåtgärd för HDInsight. Information om hur du använder skriptåtgärd skript finns i [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md). Samma artikel skrivna för Linux-baserade HDInsight-kluster finns i [utveckla skriptåtgärder skript till HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 
 > [!IMPORTANT]  
@@ -29,7 +29,7 @@ Skriptåtgärd kan användas för att installera ytterligare programvara som kö
 > [!NOTE]  
 > Om du får följande felmeddelande visas:
 >
-> System.Management.Automation.CommandNotFoundException; ExceptionMessage: Termen ”spara HDIFile' identifieras inte som namnet på en cmdlet, funktion, skriptfil eller ett körbart program. Kontrollera stavningen av namnet, eller om en sökväg har inkluderats, kontrollera att sökvägen är korrekt och försök igen.
+> System.Management.Automation.CommandNotFoundException; ExceptionMessage : Termen ”spara HDIFile' identifieras inte som namnet på en cmdlet, funktion, skriptfil eller ett körbart program. Kontrollera stavningen av namnet, eller om en sökväg har inkluderats, kontrollera att sökvägen är korrekt och försök igen.
 > 
 > Det beror på att du skickat helper-metoder.  Se [hjälpkomponentmetoder för anpassade skript](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
 
@@ -95,12 +95,11 @@ HDInsight innehåller flera skript för att installera ytterligare komponenter i
 | --- | --- |
 | **Installera Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Se [installera och använda Apache Spark i HDInsight-kluster][hdinsight-install-spark]. |
 | **Installera R** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. Se [installera och använda R i HDInsight-kluster](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster). |
-| **Installera Solr** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. Se [installerar och använder Apache Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md). |
 | **Installera Giraph** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. Se [installera och använda Apache Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md). |
 | **Förhandsladda Hive-bibliotek** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. Se [lägga till Apache Hive-bibliotek på HDInsight-kluster](hdinsight-hadoop-add-hive-libraries.md) |
 
 
-Skriptåtgärd kan distribueras från Azure-portalen, Azure PowerShell eller med hjälp av HDInsight .NET SDK.  Mer information finns i [anpassa HDInsight-kluster med skriptåtgärd][hdinsight-cluster-customize].
+Skriptåtgärd kan distribueras från Azure-portalen, Azure PowerShell eller med hjälp av HDInsight .NET SDK.  Mer information finns i [anpassa HDInsight-kluster med skriptåtgärd] [hdinsight-kluster – anpassa].
 
 > [!NOTE]  
 > Exempel på skript fungerar bara med HDInsight-kluster av version 3.1 eller senare. Läs mer på HDInsight-klusterversioner [HDInsight-klusterversioner](hdinsight-component-versioning.md).
@@ -131,10 +130,10 @@ Här följer hjälpmetoder som tillhandahålls av det här skriptet:
 
 | Hjälpmetoden | Beskrivning |
 | --- | --- |
-| **Spara HDIFile** |Hämta en fil från den angivna identifieraren URI (Uniform Resource) till en plats på den lokala disken som är associerad med den Virtuella Azure-noden som tilldelats i klustret. |
-| **Expandera HDIZippedFile** |Packa upp ZIP-filer. |
-| **Anropa HDICmdScript** |Köra ett skript från cmd.exe. |
-| **Skriv HDILog** |Skriva utdata från det anpassade skriptet som används för en skriptåtgärd. |
+| **Save-HDIFile** |Hämta en fil från den angivna identifieraren URI (Uniform Resource) till en plats på den lokala disken som är associerad med den Virtuella Azure-noden som tilldelats i klustret. |
+| **Expand-HDIZippedFile** |Packa upp ZIP-filer. |
+| **Invoke-HDICmdScript** |Köra ett skript från cmd.exe. |
+| **Write-HDILog** |Skriva utdata från det anpassade skriptet som används för en skriptåtgärd. |
 | **Get-tjänster** |Hämta en lista över tjänster som körs på datorn där skriptet körs. |
 | **Get-tjänst** |Med specifika tjänstnamnet som indata, får du detaljerad information för en specifik tjänst (namn på tjänst, process-ID, tillstånd och så vidare) på den dator där skriptet körs. |
 | **Get-HDIServices** |Hämta en lista över HDInsight-tjänster som körs på datorn där skriptet körs. |
@@ -147,7 +146,7 @@ Här följer hjälpmetoder som tillhandahålls av det här skriptet:
 | **Test-IsHDIHeadNode** |Kontrollera om den dator där skriptet körs är en huvudnod. |
 | **Test-IsActiveHDIHeadNode** |Kontrollera om den dator där skriptet körs är en aktiv huvudnod. |
 | **Test-IsHDIDataNode** |Kontrollera om den dator där skriptet körs är en datanod. |
-| **Redigera HDIConfigFile** |Redigera config filer hive-site.xml, core-site.xml, hdfs-site.xml, mapred site.xml eller yarn-site.xml. |
+| **Edit-HDIConfigFile** |Redigera config filer hive-site.xml, core-site.xml, hdfs-site.xml, mapred site.xml eller yarn-site.xml. |
 
 ## <a name="best-practices-for-script-development"></a>Metodtips för skriptutveckling av
 När du utvecklar ett anpassat skript för ett HDInsight-kluster kan finns det flera bästa praxis att tänka på:
@@ -291,13 +290,11 @@ I den här loggen är det tydligt att instruktionen Spark-skriptet har körts p�
 I händelse av att ett körningsfel inträffar ingå utdata som beskriver den också i den här loggfilen. Informationen i de här loggarna ska vara användbara vid felsökning av problem med skript som kan uppstå.
 
 ## <a name="see-also"></a>Se också
-* [Anpassa HDInsight-kluster med skriptåtgärd][hdinsight-cluster-customize]
+* [Anpassa HDInsight-kluster med skriptåtgärd] [hdinsight-kluster – anpassa]
 * [Installera och använda Apache Spark på HDInsight-kluster][hdinsight-install-spark]
-* [Installera och använda Apache Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md).
 * [Installera och använda Apache Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [powershell-install-configure]: install-configure-powershell.md
 

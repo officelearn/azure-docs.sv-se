@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 65940aa07c532ae3bc708d475b2d6ac60cf8d636
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: d7865d394dfc955a7b24115e747dd77352d89e3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308932"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901924"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Distribuerade transaktioner över molndatabaser
 
@@ -127,6 +127,8 @@ Observera att installationsprogrammet för .NET 4.6.1 kan kräva mer tillfällig
 ## <a name="transactions-across-multiple-servers"></a>Transaktioner över flera servrar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
 
 Elastisk databastransaktioner stöds mellan olika SQL Database-servrar i Azure SQL Database. När transaktioner mellan SQL Database server gränser, måste deltagande servrar först anges i en relation för dubbelriktad kommunikation. När relationen kommunikation har upprättats, kan alla databaser i någon av de två servrarna delta i elastiska transaktioner med databaser från den andra servern. En kommunikation-relationen måste finnas för alla typer av SQL Database-servrar med transaktioner som omfattar fler än två SQL Database-servrar.
 

@@ -1,25 +1,25 @@
 ---
 title: Köra Ansible med Bash i Azure Cloud Shell
 description: Lär dig hur du utför olika Ansible-uppgifter med Bash i Azure Cloud Shell
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/07/2018
 ms.topic: quickstart
-ms.openlocfilehash: 61b23b5bc2620c82051b0ba1de4bb54b44a495e0
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: 37426f1cdc51734c28b2c9739e26ad35f08e606f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359195"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791400"
 ---
 # <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Köra Ansible med Bash i Azure Cloud Shell
 
 Lär dig hur du använder Bash i Cloud Shell för att konfigurera en Azure-prenumeration som en Ansible-arbetsyta i den här självstudien. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration** – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: aschhab
-ms.openlocfilehash: c467c963a558f84a0a08887d3777dccf7cd8554d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 0801469d586e6f2d6514927cdc7b894900a3aa35
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234075"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843584"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Använda virtuella nätverksslutpunkter med Azure Service Bus
 
@@ -48,7 +48,7 @@ Resultatet är en privata och isolerade relation mellan de arbetsbelastningar so
 
 ## <a name="enable-service-endpoints-with-service-bus"></a>Aktivera Tjänsteslutpunkter med Service Bus
 
-Ett viktigt övervägande när du använder VNet-tjänstslutpunkter med Service Bus är att du inte aktiverar de här slutpunkterna i program som blandar Standard och Premium-nivån Service Bus-namnområden. Slutpunkten är begränsad till Premium-nivån namnområden eftersom Standard-nivån inte har stöd för virtuella nätverk. Det virtuella nätverket blockerar trafik till Standard-namnområdet.
+Ett viktigt övervägande när du använder VNet-tjänstslutpunkter med Service Bus är att du inte aktiverar de här slutpunkterna i program som blandar Standard och Premium-nivån Service Bus-namnområden. Slutpunkten är begränsad till Premium-nivån namnområden eftersom Standard-nivån inte har stöd för virtuella nätverk.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Avancerade scenarier som använder VNet-integrering 
 

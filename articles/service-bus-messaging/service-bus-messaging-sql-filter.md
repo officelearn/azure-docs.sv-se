@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 7bac115ab3215a7dde625f194bdf325f9e0af318
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: e490c7c24ed38e2988c1f097b09b508746f08178
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392864"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118143"
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter-syntax
 
@@ -66,7 +66,7 @@ En *SqlFilter* objekt är en instans av den [SqlFilter klass](/dotnet/api/micros
 
 Ett försök att komma åt en icke-existerande systemegenskap är ett fel när ett försök att komma åt en icke-existerande användaregenskap inte är ett fel. I stället utvärderas en egenskap för icke-existerande internt som ett okänt värde. Ett okänt värde behandlas särskilt under operatorn utvärdering.  
   
-## <a name="propertyname"></a>%{Property_Name/  
+## <a name="propertyname"></a>property_name  
   
 ```  
 <property_name> ::=  
@@ -119,7 +119,7 @@ En `<regular_identifier>` får inte vara ett reserverat nyckelord.
   
 `<pattern>` måste vara ett uttryck som utvärderas som en sträng. Den används som ett mönster för operatorn.      Den kan innehålla följande jokertecken:  
   
--   `%`: En sträng med noll eller flera tecken.  
+-   `%`:  Valfri sträng med noll eller flera tecken.  
   
 -   `_`: Ett enskilt tecken.  
   
@@ -223,29 +223,29 @@ Tänk på följande [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfi
   
 ### <a name="property-evaluation-semantics"></a>Egenskapen utvärdering semantik  
   
--   Ett försök att utvärdera en obefintlig systemegenskap utlöser en [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) undantag.  
+- Ett försök att utvärdera en obefintlig systemegenskap utlöser en [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) undantag.  
   
--   En egenskap som inte finns utvärderas internt som **okänd**.  
+- En egenskap som inte finns utvärderas internt som **okänd**.  
   
- Okänd utvärdering i aritmetiska operatorer:  
+  Okänd utvärdering i aritmetiska operatorer:  
   
--   För binära operatorerna som om de vänster eller höger sida av operander utvärderas som **okänd**, och sedan resultatet är **okänd**.  
+- För binära operatorerna som om de vänster eller höger sida av operander utvärderas som **okänd**, och sedan resultatet är **okänd**.  
   
--   För unära operatorer, om en operand utvärderas som **okänd**, och sedan resultatet är **okänd**.  
+- För unära operatorer, om en operand utvärderas som **okänd**, och sedan resultatet är **okänd**.  
   
- Okänd utvärdering i binär jämförelseoperatorer:  
+  Okänd utvärdering i binär jämförelseoperatorer:  
   
--   Om antingen vänster eller höger sida av operander utvärderas som **okänd**, och sedan resultatet är **okänd**.  
+- Om antingen vänster eller höger sida av operander utvärderas som **okänd**, och sedan resultatet är **okänd**.  
   
- Okänd utvärdering i `[NOT] LIKE`:  
+  Okänd utvärdering i `[NOT] LIKE`:  
   
--   Om operanden alla utvärderas som **okänd**, och sedan resultatet är **okänd**.  
+- Om operanden alla utvärderas som **okänd**, och sedan resultatet är **okänd**.  
   
- Okänd utvärdering i `[NOT] IN`:  
+  Okänd utvärdering i `[NOT] IN`:  
   
--   Om den vänstra operanden utvärderas som **okänd**, och sedan resultatet är **okänd**.  
+- Om den vänstra operanden utvärderas som **okänd**, och sedan resultatet är **okänd**.  
   
- Okänd utvärdering i **och** operator:  
+  Okänd utvärdering i **och** operator:  
   
 ```  
 +---+---+---+---+  

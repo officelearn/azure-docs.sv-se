@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 6a568fa724d0d403833e938ae8b01556fe96cf1f
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 9b36332382de1317e386af59695f993efb233e79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428645"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108451"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Säkerhetsscenarier för Service Fabric-kluster
 Ett Azure Service Fabric-kluster är en resurs som du äger. Det är ditt ansvar att skydda dina kluster för att förhindra att obehöriga användare från att ansluta till dem. Ett säkert kluster är särskilt viktigt när du kör produktionsarbetsbelastningar i klustret. Även om det är möjligt att skapa ett oskyddat kluster om klustret exponerar hanteringsslutpunkter till det offentliga internet, kan anonyma användare ansluta till den. Oskyddade kluster stöds inte för produktionsarbetsbelastningar. 
@@ -66,15 +66,15 @@ Läs hur du ställer in Certifikatsäkerhet i ett kluster för Azure i [konfigur
 Läs hur du ställer in Certifikatsäkerhet i ett kluster för ett fristående Windows Server-kluster i [skydda ett fristående kluster i Windows genom att använda X.509-certifikat](service-fabric-windows-cluster-x509-security.md).
 
 ### <a name="client-to-node-azure-active-directory-security-on-azure"></a>Klient-till-nod Azure Active Directory-säkerhetsgrupp i Azure
-Azure AD kan organisationer (kallas även klienter) för att hantera åtkomst till program. Program är indelade i dem med en webbaserad Användargränssnittet för inloggning och personer med en intern klient-upplevelse. Om du inte redan har skapat en klient som börjar med att läsa [skaffa en Azure Active Directory-klient][active-directory-howto-tenant].
+Med Azure AD kan organisationer (som kallas klientorganisationer) hantera användaråtkomst till program. Program är indelade i dem med en webbaserad Användargränssnittet för inloggning och personer med en intern klient-upplevelse. Om du inte redan har skapat en klient som börjar med att läsa [skaffa en Azure Active Directory-klient][active-directory-howto-tenant].
 
 Service Fabric-kluster erbjuder flera startpunkter för dess hanteringsfunktioner, inklusive den webbaserade [Service Fabric Explorer] [ service-fabric-visualizing-your-cluster] och [Visual Studio] [ service-fabric-manage-application-in-visual-studio]. Därför kan skapa du två Azure AD-program för att styra åtkomsten till klustret, ett webbprogram och ett internt program.
 
 För kluster som körs på Azure kan skydda du också åtkomst till hanteringsslutpunkter genom att använda Azure Active Directory (AD Azure). Lär dig hur du skapar de nödvändiga Azure AD-artefakter och hur du kan fylla dem när du skapar klustret, se [ställa in Azure AD för att autentisera klienter](service-fabric-cluster-creation-setup-aad.md).
 
 ## <a name="security-recommendations"></a>Säkerhetsrekommendationer
-För Service Fabric-kluster som distribueras i ett offentligt nätverk finns i Azure, är rekommendationen för klient-till-nod ömsesidig autentisering:
-*   Använd Azure Active Directory för klientens identitet
+För Service Fabric-kluster som distribueras i ett offentligt nätverk som hanteras i Azure är rekommendationen för ömsesidig klient-till-nod-autentisering:
+*   Använd Azure Active Directory för klientidentitet
 *   Ett certifikat för serveridentitet och SSL-kryptering av http-kommunikation
 
 Rekommendationen för nod-till-nod-säkerhet är att använda ett klustercertifikat för att autentisera noder för Service Fabric-kluster som distribueras i ett offentligt nätverk finns i Azure. 
@@ -112,7 +112,7 @@ Certifikatet måste uppfylla följande krav:
 
 Några andra saker att tänka på:
 
-* Den **ämne** fält kan ha flera värden. Varje värde är föregås av ett initieringen du ange vilken värdetyp. Initieringen är vanligtvis **CN** (för *nätverksnamn*), till exempel **CN = www.contoso.com**. 
+* Den **ämne** fält kan ha flera värden. Varje värde är föregås av ett initieringen du ange vilken värdetyp. Initieringen är vanligtvis **CN** (för *nätverksnamn*), till exempel **CN = www\.contoso.com**. 
 * Den **ämne** fältet kan vara tomt. 
 * Om den valfria **Alternativt ämnesnamn** fylls, måste den ha både vanliga namn för certifikatet och en post per SAN. Dessa anges som **DNS-namnet** värden. Läs hur du genererar certifikat som har SAN-nätverk i [lägga till ett alternativt namn i certifikatet för säkert LDAP](https://support.microsoft.com/kb/931351).
 * Värdet för den **avsedda syften** fält för certifikatet ska innehålla ett lämpligt värde som **serverautentisering** eller **klientautentisering**.

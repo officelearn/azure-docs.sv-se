@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
-ms.openlocfilehash: 14de0f632584ff5fb1a6b4395298e9cecfe455e6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 6d8cbac7eab797662896a96ed588c9d6370cb230
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268731"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105207"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Säkerhetskopiering av systemtillstånd för Windows i Resource Manager-distribution
 Den här artikeln förklarar hur du säkerhetskopierar dina Windows Server-systemtillstånd till Azure. I den här självstudiekursen går vi igenom grunderna.
@@ -51,7 +51,7 @@ Om du vill säkerhetskopiera Windows Server System-tillstånd, måste du skapa e
     Eller
     * Välj **Använd befintlig** och klicka på listrutan om du vill se listan över tillgängliga resursgrupper.
 
-  Fullständig information om resursgrupper finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+   Fullständig information om resursgrupper finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 7. Klicka på **Plats** för att välja en geografisk region för valvet. Det här alternativet anger den geografiska region som dina säkerhetskopierade data skickas till.
 
@@ -130,9 +130,9 @@ Nu när du har skapat ett valv kan du konfigurera den för att säkerhetskopiera
     Autentiseringsuppgifterna för valvet hämtas till mappen Hämtningsbara filer. När autentiseringsuppgifterna för valvet har hämtats visas ett popup-fönster och du tillfrågas om du vill öppna eller spara autentiseringsuppgifterna. Klicka på **Spara**. Om du råkar klicka på **Öppna** av misstag väntar du tills dialogrutan som försöker öppna autentiseringsuppgifterna för valvet misslyckas. Du kan inte öppna valvautentiseringsuppgifterna. Gå vidare till nästa steg. Valvautentiseringsuppgifterna finns i mappen Hämtade filer.   
 
     ![valvautentiseringsuppgifterna har hämtats](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
-> [!NOTE]
-> Autentiseringsuppgifterna för valvet måste sparas endast till en plats som är lokala Windows-Server som du tänker använda agenten.
->
+   > [!NOTE]
+   > Autentiseringsuppgifterna för valvet måste sparas endast till en plats som är lokala Windows-Server som du tänker använda agenten.
+   >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 

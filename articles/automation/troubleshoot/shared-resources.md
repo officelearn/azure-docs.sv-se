@@ -4,16 +4,16 @@ description: Lär dig hur du felsöker problem med Azure Automation delade resur
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/22/2019
+ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: abce40958f8d775e0a579a18cf8d1351740031ff
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 35e39a070a4c976655296d2ea141478d13e43bbc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671071"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902832"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Felsöka fel med delade resurser
 
@@ -55,7 +55,7 @@ Det finns ett känt problem med uppdatering AzureRM-moduler i ett Automation-kon
 
 #### <a name="resolution"></a>Lösning
 
-Om du vill uppdatera din Azure-moduler i ditt Automation-konto, måste den vara i en resursgrupp med ett alfanumeriskt namn. Resursgrupper med numeriska namn som börjar med 0 kan inte uppdatera AzureRM-moduler just nu.
+Om du vill uppdatera din Azure-moduler i ditt Automation-konto, måste den vara i en resursgrupp som har ett alfanumeriskt namn. Resursgrupper med numeriska namn som börjar med 0 kan inte uppdatera AzureRM-moduler just nu.
 
 ### <a name="module-fails-to-import"></a>Scenario: Modulen kan inte importera eller cmdlet: ar kan inte utföras när du har importerat
 
@@ -137,6 +137,30 @@ Du har inte de behörigheter som du behöver skapa eller uppdatera kör som-kont
 Du måste ha behörighet till de olika resurserna som används av kör som-kontot för att skapa eller uppdatera en Kör som-konto. Läs om de behörigheter som krävs för att skapa eller uppdatera en Kör som-konto i [kör som-kontobehörighet](../manage-runas-account.md#permissions).
 
 Om problemet är på grund av ett lås, kontrollerar du att låset är ok om du vill ta bort den. Gå sedan till den resurs som är låst och högerklicka på låset väljer **ta bort** att ta bort låset.
+
+### <a name="iphelper"></a>Scenario: Du får felet ”Det går inte att hitta en startpunkt med namnet” GetPerAdapterInfo ”i DLL-filen 'iplpapi.dll'” när kör en runbook.
+
+#### <a name="issue"></a>Problem
+
+När du kör en runbook visas följande undantag:
+
+```error
+Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
+```
+
+#### <a name="cause"></a>Orsak
+
+Det här felet beror sannolikt på grund av en felaktigt konfigurerad [kör som-konto](../manage-runas-account.md).
+
+#### <a name="resolution"></a>Lösning
+
+Kontrollera att din [kör som-konto](../manage-runas-account.md) är korrekt konfigurerad. När den har konfigurerats korrekt kan du kontrollera att du har rätt kod i din runbook för att autentisera med Azure. I följande exempel visas ett kodfragment till att autentisera till Azure i en runbook med en Kör som-konto.
+
+```powershell
+$connection = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
+-ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,22 +10,24 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/06/2018
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 1f831f2d962626de6f847e2fe775605b7bfca5b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 68199083369018cab1c9f83dd6781653a8cae37c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097598"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849303"
 ---
 # <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>Självstudie: Använda Azure Resource Manager-mallreferensen
 
 Lär dig hur du hittar information om mallschema och använd informationen för att skapa Azure Resource Manager-mallar.
 
 I den här självstudien använder du en basmall från Azure-snabbstartmallar. Använd referensdokumentationen för mallar för att anpassa mallen och skapa ett krypterat lagringskonto.
+
+![Mallreferens för Resource Manager-distribuera krypterad lagring-konto](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-tutorial-deploy-encrypted-storage-account.png)
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -76,9 +78,9 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 ## <a name="find-the-template-reference"></a>Leta upp mallreferensen
 
-1. Bläddra till [Azure-mallar](https://docs.microsoft.com/azure/templates/).
-2. I **filtrera efter rubrik**, ange **lagringskonton**.
-3. Välj **Referens/Mallreferens/Lagring/<Version>/Lagringskonton** enligt följande skärmbild:
+1. Bläddra till [mallreferensen för Azure](https://docs.microsoft.com/azure/templates/).
+2. I den **filtrera efter rubrik** anger **lagringskonton**.
+3. Välj **referens mallen referens/Storage/&lt;Version > / Lagringskonton** enligt följande skärmbild:
 
     ![Resource Manager, mallreferens, lagringskonto](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 

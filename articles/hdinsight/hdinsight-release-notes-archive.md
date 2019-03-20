@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: ed7f18d1a40e0b766a2f10cce99aa735d51b4110
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 7626b8359befe234a981ee3d5de1c7cedc5bdaa5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672567"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007680"
 ---
 # <a name="archived-release-notes-for-azure-hdinsight"></a>Arkiverade viktig information för Azure HDInsight
 
@@ -41,13 +41,13 @@ Följande är de viktigaste delarna. Detaljerad viktig buggar, kända problem oc
 ## <a name="notes-for-08012017-release-of-hdinsight"></a>Information för 2017-08-01-versionen av HDInsight
 
 | Rubrik | Beskrivning | Berörda området  | Typ av kluster  | 
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Version av Microsoft R Server 9.1 på HDInsight |HDInsight har nu stöd för etablering R Server 9.1 kluster på HDInsight. |Tjänst |R Server |
-| HDInsight 3.6 innehåller nu nyare versioner av Hadoop-stacken|<ul><li>En detaljerad lista över uppdaterade versioner finns i [Apache Hadoop-komponent-versioner som är tillgängliga i HDInsight](hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).</li><li>En lista över buggar i de senaste versionerna av Hadoop-stacken, se [Apache Patch Information](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>En lista över större ändringar mellan HDP 2.6.1 (som är nu tillgänglig i HDInsight 3.6), se [ https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html ](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>En lista över kända problem i HDP 2.6.1 finns i [kända problem](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |Tjänst |Alla |Gäller inte |
-| Uppdateringar till Interactive Hive (förhandsgranskning)-kluster |<ul><li><b>Förbättring av funktionen.</b> Implementeringen av cachelagrade metastore som minskar belastningen på serverdelen SQL genom cachelagring av metadata och förbättrar prestandan för alla åtgärder för metadata.  Den här förbättringen är nu en standard på alla interaktiva Apache Hive-kluster. Mer information finns på [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520).</li><li><b>Förbättring av funktionen.</b> Läser in partition dynamiska optimeras. Mer information finns på [https://issues.apache.org/jira/browse/HIVE-14204](https://issues.apache.org/jira/browse/HIVE-14204).</li><li><b>Förbättring av funktionen.</b> Konfiguration av optimeringar för HDInsight på Linux.</li><li><b>Felkorrigering.</b> `CredentialProviderFactory$getProviders` är inte trådsäker. Det här problemet löses nu. Mer information finns på [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195).</li><li><b>Felkorrigering.</b> Hög CPU-användning med WASB-drivrutinen `liststatus` API, vilket resulterar i felaktiga ATS-prestanda. Det här problemet löses nu. Mer information finns på [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154).</li></ul> |Tjänst |Interaktiv Hive (förhandsgranskning) |
-| Uppdateringar av Hadoop-kluster |Ökad tillförlitlighet för Templeton jobbet igen. Mer information finns i [https://issues.apache.org/jira/browse/HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947) |Tjänst |Hadoop |
-| YARN-uppdateringar | HDInsight skapar nu en 250 GB Ambari databas (utan att öka kostnaden), vilket resulterar i en bättre upplevelse för kunder. Den här ändringen bör förhindra att ATS komma fylld uppåt och troligtvis en bättre prestanda. |Tjänst |Alla |
-| Spark-uppdateringar | Versionen av Spark 2.1.1. Mer information finns i [Apache Spark-versionen 2.1.1](https://spark.apache.org/releases/spark-release-2-1-1.html). | Tjänst | Spark |
+| HDInsight 3.6 innehåller nu nyare versioner av Hadoop-stacken|<ul><li>En detaljerad lista över uppdaterade versioner finns i [Apache Hadoop-komponent-versioner som är tillgängliga i HDInsight](hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).</li><li>En lista över buggar i de senaste versionerna av Hadoop-stacken, se [Apache Patch Information](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>En lista över större ändringar mellan HDP 2.6.1 (som är nu tillgänglig i HDInsight 3.6), se [ https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html ](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>En lista över kända problem i HDP 2.6.1 finns i [kända problem](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |Tjänst |Alla |
+| Uppdateringar till Interactive Hive (förhandsgranskning)-kluster |<ul><li><b>Förbättring av funktionen.</b> Implementeringen av cachelagrade metastore som minskar belastningen på serverdelen SQL genom cachelagring av metadata och förbättrar prestandan för alla åtgärder för metadata.  Den här förbättringen är nu en standard på alla interaktiva Apache Hive-kluster. Mer information finns på [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520).</li><li><b>Förbättring av funktionen.</b> Läser in partition dynamiska optimeras. Mer information finns på [https://issues.apache.org/jira/browse/HIVE-14204](https://issues.apache.org/jira/browse/HIVE-14204).</li><li><b>Förbättring av funktionen.</b> Konfiguration av optimeringar för HDInsight på Linux.</li><li><b>Felkorrigering.</b> `CredentialProviderFactory$getProviders` är inte trådsäker. Det här problemet löses nu. Mer information finns på [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195).</li><li><b>Felkorrigering.</b> Hög CPU-användning med WASB-drivrutinen `liststatus` API, vilket resulterar i felaktiga ATS-prestanda. Det här problemet löses nu. Mer information finns på [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154).</li></ul> |Tjänst |Interaktiv Hive (förhandsgranskning) | |
+| Uppdateringar av Hadoop-kluster |Ökad tillförlitlighet för Templeton jobbet igen. Mer information finns i [https://issues.apache.org/jira/browse/HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947) |Tjänst |Hadoop | |
+| YARN-uppdateringar | HDInsight skapar nu en 250 GB Ambari databas (utan att öka kostnaden), vilket resulterar i en bättre upplevelse för kunder. Den här ändringen bör förhindra att ATS komma fylld uppåt och troligtvis en bättre prestanda. |Tjänst |Alla | |
+| Spark-uppdateringar | Versionen av Spark 2.1.1. Mer information finns i [Apache Spark-versionen 2.1.1](https://spark.apache.org/releases/spark-release-2-1-1.html). | Tjänst | Spark | |
 
   
 

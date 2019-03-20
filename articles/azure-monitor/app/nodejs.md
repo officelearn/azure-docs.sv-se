@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/01/2017
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 075f08f89e0bbdefa76623a284971f46a1b3966a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 13379111706eaa816a8fa16cfe72711b7bf4d739
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119806"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013288"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Övervaka dina Node-js-tjänster och -appar med Application Insights
 
@@ -28,8 +28,6 @@ För att ta emot, lagra, och utforska dina övervakade data inkluderar du SKD:t 
 Node.js-SDK:n kan automatiskt övervaka inkommande och utgående HTTP-begäran, undantag och vissa systemmått. Från och med version 0.20 kan SDK även övervaka vissa vanliga paket från tredje part, MongoDB, MySQL och Redis. Alla händelser som relaterar till en inkommande HTTP-begäran korreleras för snabbare felsökning.
 
 Med TelemetryClient API kan du manuellt instrumentera och övervaka ytterligare aspekter av din app och ditt system. Vi beskriver TelemetryClient-API:n mer ingående senare i den här artikeln.
-
-![Exempel på prestandaövervakningsdiagram](./media/nodejs/10-perf.png)
 
 ## <a name="get-started"></a>Kom igång
 
@@ -49,11 +47,7 @@ Innan du börjar ska du se till att ha en Azure-prenumeration eller [så skaffar
 1. Logga in på [Azure Portal][portal].
 2. Välj **Skapa en resurs** > **Utvecklarverktyg** > **Application Insights**. Resursen innehåller en slutpunkt för att ta emot telemetridata, lagring för dessa data, sparade rapporter och instrumentpaneler, regel- och aviseringskonfiguration med mera.
 
-  ![Skapa en Application Insights-resurs](./media/nodejs/03-new_appinsights_resource.png)
-
 3. På sidan där du skapar resursen väljer du **Node.js Application** i rutan **Programtyp**. Apptypen bestämmer vilken standardinstrumentpanel och rapporter som skapas. (Alla App Insights-resurser kan samla in data från alla språk och plattformar.)
-
-  ![Nytt Application Insights-resursformulär](./media/nodejs/04-create_appinsights_resource.png)
 
 ### <a name="sdk"></a>Konfigurera Node.js-SDK:n
 
@@ -61,29 +55,29 @@ Inkludera SDK:n i din app så den kan samla in data.
 
 1. Kopiera resursens instrumenteringsnyckel (även kallad *ikey*) från Azure Portal. Application Insights använder ikey för att mappa data till Azure-resursen. Innan SDK:n kan använda din ikey måste du ange den i en miljövariabel eller i din kod.  
 
-  ![Kopiera instrumenteringsnyckel](./media/nodejs/05-appinsights_ikey_portal.png)
+   ![Kopiera instrumenteringsnyckel](./media/nodejs/instrumentation-key-001.png)
 
 2. Lägg till Node.js-SDK-biblioteket till appens beroenden via package.json. Från appens rotmapp kör du:
 
-  ```bash
-  npm install applicationinsights --save
-  ```
+   ```bash
+   npm install applicationinsights --save
+   ```
 
 3. Läs uttryckligen in biblioteket i din kod. Eftersom SDK:n lägger in instrumentationen i många andra bibliotek ska du läsa in biblioteket så tidigt som möjligt, till och med före andra `require`-uttryck. 
 
-  Överst i din första .js-fil lägger du till följande kod. Metoden `setup` konfigurerar nyckeln (och således Azure-resursen) som ska användas som standard för alla spårade objekt.
+   Överst i din första .js-fil lägger du till följande kod. Metoden `setup` konfigurerar nyckeln (och således Azure-resursen) som ska användas som standard för alla spårade objekt.
 
-  ```javascript
-  const appInsights = require("applicationinsights");
-  appInsights.setup("<instrumentation_key>");
-  appInsights.start();
-  ```
+   ```javascript
+   const appInsights = require("applicationinsights");
+   appInsights.setup("<instrumentation_key>");
+   appInsights.start();
+   ```
    
-  Du kan också tillhandahålla en ikey via miljövariabeln APPINSIGHTS\_INSTRUMENTATIONKEY istället för att skicka den manuellt till `setup()` eller `new appInsights.TelemetryClient()`. Med den här metoden kan du behålla ikeys utanför den allokerade källkoden och ange olika ikeys för olika miljöer.
+   Du kan också tillhandahålla en ikey via miljövariabeln APPINSIGHTS\_INSTRUMENTATIONKEY istället för att skicka den manuellt till `setup()` eller `new appInsights.TelemetryClient()`. Med den här metoden kan du behålla ikeys utanför den allokerade källkoden och ange olika ikeys för olika miljöer.
 
-  Ytterligare konfigurationsalternativ finns i följande avsnitt.
+   Ytterligare konfigurationsalternativ finns i följande avsnitt.
 
-  Du kan testa SDK:n utan att skicka telemetri genom att ställa in `appInsights.defaultClient.config.disableAppInsights = true`.
+   Du kan testa SDK:n utan att skicka telemetri genom att ställa in `appInsights.defaultClient.config.disableAppInsights = true`.
 
 ### <a name="monitor"></a> Övervaka din app
 
@@ -91,15 +85,13 @@ SDK:n samlar automatiskt in telemetri om Node.js-körningen och några vanliga m
 
 På [Azure Portal][portal] går du sedan till Application Insights och öppnar den resurs som du skapade tidigare. I **Översiktstidslinje** letar du efter dina första datapunkter. Välj olika komponenter i schemana för att se mer detaljerade data.
 
-![Första datapunkter](./media/nodejs/12-first-perf.png)
-
 Om du vill visa topologin som identifierats för din app markerar du knappen **Programavbildning**. Välj komponenter i kartan för att se mer information.
 
-![Mappning av enskild app](./media/nodejs/06-appinsights_appmap.png)
+![Mappning av enskild app](./media/nodejs/application-map-002.png)
 
 Läs mer om din app och felsök problem går du till avsnittet **UNDERSÖK** och väljer de andra tillgängliga vyerna.
 
-![Avsnittet Undersök](./media/nodejs/07-appinsights_investigate_blades.png)
+![Avsnittet Undersök](./media/nodejs/007-investigate-pane.png)
 
 #### <a name="no-data"></a>Ser du inga data?
 

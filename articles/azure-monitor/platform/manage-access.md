@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 07e3552b58b702cb94c879dd34397010c07522db
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 66cef8369a314a76cf619e436cd25d6bdf628c45
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791944"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076317"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Hantera loggdata och arbetsytor i Azure Monitor
 Azure Monitor-butiker logga data över en Log Analytics-arbetsyta som är i grunden en behållare som innehåller data och konfigurationsinformation. För att hantera åtkomst för att logga data måste utföra du olika administrativa uppgifter relaterade till arbetsytor. Du eller andra medlemmar i din organisation kan använda flera arbetsytor för att hantera olika uppsättningar av data som samlas in från alla eller delar av din IT-infrastruktur.
@@ -104,7 +104,7 @@ Den _åtkomstläge_ avser hur en användare ansluter till en Log Analytics-arbet
 > - Containrar
 > - Anpassade loggar som skapats av HTTP-API för datainsamling
 >
-> Du kan testa om loggarna är korrekt kopplade till resursen genom att köra en fråga och kontrollera posterna är du intresserad av. Om rätt resurs-ID finns i den [_ResourceId](log-standard-properties.md#resourceid) egenskap och sedan data är tillgängliga för resurs-centric frågor.
+> Du kan testa om loggarna är korrekt kopplade till resursen genom att köra en fråga och kontrollera posterna är du intresserad av. Om rätt resurs-ID finns i den [_ResourceId](log-standard-properties.md#_resourceid) egenskap och sedan data är tillgängliga för resurs-centric frågor.
 
 ### <a name="comparing-access-modes"></a>Jämföra åtkomstlägen
 

@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 236009a3292f26d7fda73013c022f40535aa1ecb
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 0c2ad7e5a707c20db2773324e8047eedaad1a48b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992336"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835041"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse – massivt parallell bearbetning (MPP)-arkitektur
 Lär dig hur Azure SQL Data Warehouse kombinerar massivt parallell bearbetning (MPP) med Azure storage att uppnå höga prestanda och skalbarhet. 
@@ -51,7 +51,7 @@ Control-noden är hjärnan för datalagret. Det är den som är klientdelen som 
 
 Compute-noderna ger dataresurser. Distributioner som mappar till Compute-noder för bearbetning. Du behöver betala för mer beräkningsresurser mappar SQL Data Warehouse igen distributioner till tillgängliga beräkningsnoderna. Antalet compute-noderna sträcker sig från 1 till 60 och bestäms av servicenivå för datalagret.
 
-Varje beräkningsnod har ett nod-ID som visas i systemvyer. Du kan se Compute-nod-ID genom att söka efter node_id-kolumnen i systemvyer vars namn börjar med sys.pdw_nodes. En lista över dessa systemvyer finns i [MPP systemvyer](http://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7).
+Varje beräkningsnod har ett nod-ID som visas i systemvyer. Du kan se Compute-nod-ID genom att söka efter node_id-kolumnen i systemvyer vars namn börjar med sys.pdw_nodes. En lista över dessa systemvyer finns i [MPP systemvyer](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7).
 
 ### <a name="data-movement-service"></a>Data Movement Service
 Data Movement Service (DMS) är data transport-teknik som samordnar flyttar data mellan beräkningsnoderna. Vissa frågor kräver dataförflyttning se till de parallella frågorna returnerar korrekta resultat. När dataförflyttning krävs säkerställer DMS rätt data kommer till rätt plats. 
@@ -124,9 +124,9 @@ Nu när du vet lite om SQL Data Warehouse kan du gå vidare och se hur du snabbt
 [Customer Advisory Team-bloggar]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Funktionsbegäranden]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [MSDN-forum]: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse
-[Stack Overflow-forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow-forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videoklipp]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
-[Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
+[Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/

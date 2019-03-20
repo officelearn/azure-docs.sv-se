@@ -12,12 +12,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: jowargo
 ms.date: 02/14/2019
-ms.openlocfilehash: 18c3c298c33fa98606d59cfe1d5c7b565f2486e0
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4d3ee3a318385e96b70a38556835f6427b407a59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728445"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848719"
 ---
 # <a name="azure-notification-hubs-sdks"></a>Azure Notification Hubs SDK: er
 
@@ -26,11 +26,11 @@ Microsoft och tredje part kan du publicera SDK: er för Azure Notification Hubs.
 | SDK            | Utgivare      |
 | -------------- | -------------- |
 | [.NET Server](https://github.com/Azure/azure-notificationhubs-dotnet) | Microsoft |
-| [Android](https://github.com/Azure/azure-notificationhubs/tree/master/Android)  |Microsoft |
+| [Android](https://github.com/Azure/azure-notificationhubs-android)  |Microsoft |
 | [Apache Cordova](https://github.com/derek82511/cordova-azure-notification-hubs) | Från tredje part |
 | [iOS](https://github.com/Azure/azure-notificationhubs-ios) |Microsoft |
 | [Java Server](https://github.com/Azure/azure-notificationhubs-java-backend) |Microsoft |
-| [Nodejs](http://github.com/Azure/azure-sdk-for-node) | Microsoft |
+| [Nodejs](https://github.com/Azure/azure-sdk-for-node) | Microsoft |
 | [Reagera intern](https://github.com/CatalystCode/react-native-azurenotificationhub) | Från tredje part |
 
 > [!Note]

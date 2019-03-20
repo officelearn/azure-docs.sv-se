@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: d325cfd679c2a8b878ae9a7b483431aba32b2a5a
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: ccb408a427680cffc339797bd3421ed9f53af640
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313287"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200692"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>Anpassa Linux-baserade HDInsight-kluster med skriptåtgärder
 
@@ -157,7 +157,6 @@ HDInsight tillhandahåller skript för att installera följande komponenter i HD
 | Lägg till ett Azure Storage-konto |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Se [lägga till ytterligare lagringskonton till HDInsight](hdinsight-hadoop-add-storage.md). |
 | Installera Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Se [installera och använda Hue på HDInsight Hadoop-kluster](hdinsight-hadoop-hue-linux.md). |
 | Installera Presto |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. Se [installera och använda Presto på Hadoop-baserade HDInsight-kluster](hdinsight-hadoop-install-presto.md). |
-| Installera Solr |`https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh`. Se [installerar och använder Apache Solr på HDInsight Hadoop-kluster](hdinsight-hadoop-solr-install-linux.md). |
 | Installera Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Se [installera Apache Giraph på HDInsight Hadoop-kluster](hdinsight-hadoop-giraph-install-linux.md). |
 | Förhandsladda Hive-bibliotek |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Se [lägga till anpassade Apache Hive-bibliotek när du skapar HDInsight-kluster](hdinsight-hadoop-add-hive-libraries.md). |
 | Installera eller uppdatera Mono | `https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash`. Se [installera eller uppdatera Mono på HDInsight](hdinsight-hadoop-install-mono.md). |
@@ -410,9 +409,9 @@ Det finns två typer av komponenter med öppen källkod i HDInsight-tjänsten:
 
 * **Inbyggda komponenterna**. Dessa komponenter är förinstallerade på HDInsight-kluster och tillhandahåller huvudfunktionerna i klustret. Följande komponenter som hör till den här kategorin:
 
-    * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager.
-    * Hive-frågespråket [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
-    * [Apache Mahout](https://mahout.apache.org/). 
+  * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager.
+  * Hive-frågespråket [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
+  * [Apache Mahout](https://mahout.apache.org/). 
     
     En fullständig lista över komponenter i serverkluster finns i [vad är Apache Hadoop-komponenter och versioner som är tillgängliga med HDInsight?](hdinsight-component-versioning.md)
 
@@ -524,7 +523,6 @@ Det finns två undantag:
 ## <a name="next-steps"></a>Nästa steg
 
 * [Utveckla script åtgärd-skript för HDInsight](hdinsight-hadoop-script-actions-linux.md)
-* [Installera och använda Apache Solr på HDInsight-kluster](hdinsight-hadoop-solr-install-linux.md)
 * [Installera och använda Apache Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md)
 * [Lägga till ytterligare lagringsutrymme till ett HDInsight-kluster](hdinsight-hadoop-add-storage.md)
 

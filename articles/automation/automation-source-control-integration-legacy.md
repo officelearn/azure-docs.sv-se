@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8316e571e97fce65b3f8308709d3300bc585663f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: edc38296374538fd708a74f575d5b0c77770c005
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434877"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901550"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Källkontrollintegrering i Azure Automation - äldre
 
@@ -66,22 +66,22 @@ Om du redan har ett GitHub-konto och en databas som du vill länka till Azure Au
      | **Parametern** | **Värde** |
      |:--- |:--- |
      | Namn |Microsoft.Azure.Automation.SourceControl.Connection |
-     | Typ |Sträng |
+     | Type |String |
      | Värde |{”Gren”:\<*din grennamnet*>, ”RunbookFolderPath”:\<*runbookmapp*>, ”providertyp”:\<*har värdet 1 för GitHub*>, ”databas”:\<*namnet på databasen*>, ”användarnamn”:\<*Your GitHub-användarnamn*>} |
 
-    * Variabeln **Microsoft.Azure.Automation.SourceControl.OAuthToken**, innehåller din OAuthToken säker krypterade värdet.  
+     * Variabeln **Microsoft.Azure.Automation.SourceControl.OAuthToken**, innehåller din OAuthToken säker krypterade värdet.  
 
-    |**Parametern**            |**Värde** |
-    |:---|:---|
-    | Namn  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
-    | Typ | Unknown(Encrypted) |
-    | Värde | <*Krypterade OAuthToken*> |  
+     |**Parametern**            |**Värde** |
+     |:---|:---|
+     | Namn  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+     | Type | Unknown(Encrypted) |
+     | Värde | <*Krypterade OAuthToken*> |  
 
-    ![Variabler](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
+     ![Variabler](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 
-    * **Automation-källkontroll** läggs till som ett auktoriserat program till ditt GitHub-konto. Visa programmet: Från startsidan GitHub navigerar du till din **profil** > **inställningar** > **program**. Det här programmet kan Azure Automation att synkronisera dina GitHub-lagringsplatsen till ett Automation-konto.  
+     * **Automation-källkontroll** läggs till som ett auktoriserat program till ditt GitHub-konto. Visa programmet: Från startsidan GitHub navigerar du till din **profil** > **inställningar** > **program**. Det här programmet kan Azure Automation att synkronisera dina GitHub-lagringsplatsen till ett Automation-konto.  
 
-    ![Git-program](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
+     ![Git-program](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
 
 
 ## <a name="using-source-control-in-automation"></a>Med hjälp av källkontroll i Automation
@@ -124,10 +124,6 @@ Knappen Synkronisera på sidan för synkronisering av centrallager kan du hämta
 
     > [!NOTE] 
     > En synkronisering från källkontroll skriver över Utkastversionen av de runbooks som för närvarande finns i ditt Automation-konto för **alla** runbooks som för närvarande finns som källkontroll. Git motsvarande kommandoradsverktyget anvisningarna för att synkronisera är **git pull**
-
-
-## <a name="troubleshooting-source-control-problems"></a>Felsökning av problem i käll-kontroll
-Om det finns några fel med en kontroll i eller synkroniseringsjobb, ska göra uppehåll när jobbet har statusen och du kan visa mer information om felet på jobbsidan för.  Den **alla loggar** del visar alla PowerShell-strömmar som associeras med jobbet. Det ger dig de information som behövs för att hjälpa dig att lösa eventuella problem med din incheckning eller synkronisering. Den visar även sekvens med åtgärder som uppstod vid synkronisering eller söka i en runbook.  
 
 ![AllLogs bild](media/automation-source-control-integration-legacy/automation_13_AllLogs.png)
 

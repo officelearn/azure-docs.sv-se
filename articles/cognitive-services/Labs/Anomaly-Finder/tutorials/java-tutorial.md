@@ -10,12 +10,12 @@ ms.subservice: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 8f087e07bbf5033698b18b4349c4d13e862a1555
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: ba66c96f9129b253fc5897c3a2eaaefb53056cea
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223348"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548736"
 ---
 # <a name="tutorial-anomaly-detection-with-java-application"></a>Självstudier: Avvikelseidentifiering med Java-program
 
@@ -24,11 +24,11 @@ ms.locfileid: "55223348"
 Den här artikeln visar hur du använder ett enkelt Java-program för att anropa API:et för avvikelseidentifiering.  
 I exemplet skickas tidsseriedata till API:et för avvikelseidentifiering tillsammans med din prenumerationsnyckel, och därefter hämtas alla avvikelsepunkter och det förväntade värdet för varje datapunkt från API:et.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="platform-requirements"></a>Plattformskrav
 
-Den här självstudien har utvecklats med hjälp av [IntelliJ IDEA](https://www.jetbrains.com/idea). Och du måste också installera [Java Development Kit (JDK)](https://aka.ms/azure-jdks) version 1.8+ och ett uppdaterat [Apache Maven](http://maven.apache.org/)-verktyg.
+Den här självstudien har utvecklats med hjälp av [IntelliJ IDEA](https://www.jetbrains.com/idea). Och du måste också installera [Java Development Kit (JDK)](https://aka.ms/azure-jdks) version 1.8+ och ett uppdaterat [Apache Maven](https://maven.apache.org/)-verktyg.
 
 ### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Prenumerera på avvikelseidentifiering och få en prenumerationsnyckel 
 

@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 88d94492cb6ed3191e146f117a648293bc9e50f9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d4c64433089f14d845cea8be9adf0ef13675cfd1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243728"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892480"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Visa och hämta din organisations Azure-prissättning
 
-Azure-kunder med ett Enterprise Agreement (EA) eller [Microsoft kundavtal](#check-your-access-to-a-microsoft-customer-agreement) kan visa och hämta sina priser från Azure-portalen. Om du har ett Microsoft-kundavtal Se [visa och ladda ned priserna för ditt Microsoft-kundavtal](#View-and-download-pricing-for-your-billing-profile).
+Azure-kunder med ett Enterprise Agreement (EA) eller [Microsoft kundavtal](#check-your-access-to-a-microsoft-customer-agreement) kan visa och hämta sina priser från Azure-portalen. Om du har ett Microsoft-kundavtal Se Visa och ladda ned priserna för ditt Microsoft-kundavtal.
 
 ## <a name="view-and-download-ea-pricing"></a>Visa och hämta EA-priser
 

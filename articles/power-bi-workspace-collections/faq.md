@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: 83f4ebd9c3f5ad05173b045b3fa15804ddc88df6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 08d0a446fc29bf58da2583cbee8576831914ac09
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157572"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862730"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI-Arbetsytesamlingar vanliga frågor och svar
 
@@ -77,7 +77,7 @@ I Power BI-Arbetsytesamlingar-modellen krävs inte explicit ha dina kunder i Azu
 Utvecklare/anställda arbetar eller skapar ett program måste ha ett AAD-användarkonto när de är att hantera dina Azure-prenumeration och samlingar med arbetsytor via Azure portal. Programmatisk API: er till utvecklare importera rapporter, ändra anslutningssträngar och få bädda in URL: er utnyttjar Apptoken för autentisering i stället och därför kräver inte en AAD.
 
 ## <a name="where-can-i-learn-more"></a>Var hittar jag mer information?
-Du kan gå till den [dokumentationssidan för Power BI-Arbetsytesamlingar](get-started.md). Du kan hålla dig uppdaterad om den här tjänsten genom att besöka den [Power BI-bloggen](https://powerbi.microsoft.com/blog/) eller genom att besöka Power BI developer center på dev.powerbi.com. Du kan även ställa frågor på [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi).
+Du kan gå till den [dokumentationssidan för Power BI-Arbetsytesamlingar](get-started.md). Du kan hålla dig uppdaterad om den här tjänsten genom att besöka den [Power BI-bloggen](https://powerbi.microsoft.com/blog/) eller genom att besöka Power BI developer center på dev.powerbi.com. Du kan även ställa frågor på [Stack Overflow](https://stackoverflow.com/questions/tagged/powerbi).
 
 ## <a name="how-do-i-get-started"></a>Hur kommer jag igång?
 Du kan komma igång gratis nu! Om du har en Azure-prenumeration kan etablera du nu Power BI-Arbetsytesamlingar från Azure portal direkt. Du kan också skapa dina [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). När du har etablerat Power BI-Arbetsytesamlingar-tjänsten, du kan enkelt använda Power BI REST API: er direkt eller använda utvecklaren SDK på [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472). Exempel medföljer på hur man utnyttjar utvecklaren SDK.
@@ -89,5 +89,5 @@ Du kan komma igång gratis nu! Om du har en Azure-prenumeration kan etablera du 
 [komma igång med exemplet](get-started-sample.md)   
 [Inbäddat exempel med JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-Fler frågor? [Försök med Power BI Community](http://community.powerbi.com/)
+Fler frågor? [Försök med Power BI Community](https://community.powerbi.com/)
 

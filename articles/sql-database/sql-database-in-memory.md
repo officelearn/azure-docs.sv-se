@@ -7,27 +7,33 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: jodebrui
-ms.author: jodebrui
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: fcfe8ed0bc132377fbaefaccb03e1d6a9374b8d6
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/19/2019
+ms.openlocfilehash: d2c852b48c219283bba2304a993dd26e802b3252
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312490"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226988"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimera prestanda med hjälp av minnesinterna tekniker i SQL-databas
 
-Minnesinterna tekniker i Azure SQL Database kan du förbättra programmets prestanda och minska kostnaden för din databas. Du kan åstadkomma prestandaförbättringar med olika arbetsbelastningar med hjälp av minnesinterna tekniker i Azure SQL Database:
+Minnesinterna tekniker i Azure SQL Database kan du förbättra programmets prestanda och minska kostnaden för din databas. 
+
+## <a name="when-to-use-in-memory-technologies"></a>När du ska använda minnesinterna tekniker
+
+Du kan åstadkomma prestandaförbättringar med olika arbetsbelastningar med hjälp av minnesinterna tekniker i Azure SQL Database:
 
 - **Transaktionell** (online transaktionsbearbetning (OLTP)) där de flesta av begäranden läsa eller uppdatera mindre uppsättning data (till exempel CRUD-åtgärder).
 - **Analytiska** (online analytical processing (OLAP)) där de flesta av frågorna som har komplexa beräkningar för rapportering teständamål, med ett visst antal frågor som kan läsa in och Lägg till data i de befintliga tabellerna (så kallade massinläsning) eller ta bort den data från tabeller. 
 - **Blandade** (hybrid transaktion för analytisk bearbetning (HTAP)) där både OLTP och OLAP-frågor körs på samma uppsättning data.
 
-Minnesinterna tekniker kan förbättra prestandan för dessa arbetsbelastningar genom att lagra de data som ska bearbetas i minnet, med hjälp av inbyggda kompilering av frågorna eller avancerad bearbetning av sådana som batch-bearbetning och SIMD instruktioner som är tillgängliga på den underliggande maskinvara.
+Minnesinterna tekniker kan förbättra prestandan för dessa arbetsbelastningar genom att lagra de data som ska bearbetas i minnet, med hjälp av inbyggda kompilering av frågorna eller avancerad bearbetning av sådana som batch-bearbetning och SIMD instruktioner som är tillgängliga på den underliggande maskinvara. 
+
+## <a name="overview"></a>Översikt
 
 Azure SQL Database har följande minnesinterna tekniker:
 - *[In-Memory OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)*  ökar antalet transaktioner per sekund och minskar svarstiden för transaktionsbearbetning. Scenarier som har nytta av In-Memory OLTP är: högt dataflöde transaktionsbearbetning, till exempel handel och spel, datainmatning från händelser eller IoT-enheter, cachelagring, datainläsning, och tillfällig tabell och tabellen variabeln scenarier.
@@ -77,7 +83,7 @@ Minnesintern OLTP-teknik ger mycket snabba åtgärder för dataåtkomst genom at
 
 - **Minnesoptimerade rowstore** format där varje rad är ett minnesutrymme-objekt. Det här är ett klassiska InMemory-OLTP-format som är optimerat för OLTP-arbetsbelastningar med höga prestanda. Det finns två typer av minnesoptimerade tabeller som kan användas i minnesoptimerade rowstore-format:
   - *Hållbar tabeller* (SCHEMA_AND_DATA) där de rader som placeras i minnet bevaras när servern startas om. Den här typen av tabeller fungerar som en traditionell rowstore-tabell med de ytterligare fördelarna med InMemory-optimeringar.
-  - *Icke-beständiga tabeller* (SCEMA_ONLY) där raderna är inte bevaras efter omstart. Den här typen av tabellen har utformats för tillfälliga data (till exempel byte av temporära tabeller), eller tabeller där du behöver för att snabbt läsa in data innan du flyttar den till vissa beständiga tabell (så kallade mellanlagringstabellerna).
+  - *Icke-beständiga tabeller* (SCHEMA_ONLY) där raderna är inte bevaras efter omstart. Den här typen av tabellen har utformats för tillfälliga data (till exempel byte av temporära tabeller), eller tabeller där du behöver för att snabbt läsa in data innan du flyttar den till vissa beständiga tabell (så kallade mellanlagringstabellerna).
 - **Minnesoptimerade columnstore** format där data ordnas i ett kolumnformat. Den här strukturen är utformad för HTAP scenarier där du behöver köra analytiska frågor på samma datastruktur där din OLTP-arbetsbelastning körs.
 
 > [!Note]

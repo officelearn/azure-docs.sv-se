@@ -17,12 +17,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: b52ac4ae2a02208e61aafebe883d33ed27309134
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 77942e24af847f7c8f9680ca793dacf8ba0be55f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194350"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112593"
 ---
 # <a name="redeploy-the-asdk"></a>Distribuera om ASDK
 I den här artikeln får du lära dig hur du distribuera om Azure Stack Development Kit (ASDK) i en produktionsmiljö. Eftersom uppgraderar ASDK inte stöds, måste du distribuera helt om den att flytta till en nyare version. Du kan också distribuera om ASDK när som helst som du vill börja om från början.
@@ -39,24 +39,24 @@ Ta bort resursen för registrering med den **Remove-AzsRegistration** cmdlet fö
 
 2. Kör följande PowerShell-kommandon för att avregistrera ASDK installationen och ta bort den **azurestack** resursgruppen från Azure-prenumerationen:
 
-  ```Powershell    
-  #Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+   ```Powershell    
+   #Import the registration module that was downloaded with the GitHub tools
+   Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
-  # Provide Azure subscription admin credentials
-  Add-AzureRmAccount
+   # Provide Azure subscription admin credentials
+   Add-AzureRmAccount
 
-  # Provide ASDK admin credentials
-  $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
+   # Provide ASDK admin credentials
+   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
 
-  # Unregister Azure Stack
-  Remove-AzsRegistration `
+   # Unregister Azure Stack
+   Remove-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint AzS-ERCS01
 
-  # Remove the Azure Stack resource group
-  Remove-AzureRmResourceGroup -Name azurestack -Force
-  ```
+   # Remove the Azure Stack resource group
+   Remove-AzureRmResourceGroup -Name azurestack -Force
+   ```
 
 3. Du uppmanas att logga in på både Azure-prenumerationen och den lokala ASDK installationen när skriptet körs.
 4. När skriptet har slutförts bör du se meddelanden som liknar följande exempel:

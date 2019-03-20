@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: ergreenl
-ms.openlocfilehash: d72fa2551eb4db3cb68a52cd8a76dd7b9d27b6f0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a2abdbf1409564f94356279332d253627c5b447a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179012"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111930"
 ---
 # <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>Inaktivera Azure Active Directory Domain Services med Azure portal
 Den här artikeln visar hur du använder Azure-portalen för att inaktivera Azure Active Directory (AD)-domäntjänster för Azure AD-katalogen.
@@ -28,12 +28,11 @@ Den här artikeln visar hur du använder Azure-portalen för att inaktivera Azur
 > [!WARNING]
 > **Borttagningen är permanent och kan inte ångras.**
 > Gå vidare med försiktighet! När du tar bort den hanterade domänen:
-  * Domänkontrollanter för den hanterade domänen är avetableras och tas bort från det virtuella nätverket.
-  * Data i den hanterade domänen tas bort permanent. Detta inkluderar anpassade organisationsenheter, grupprincipobjekt, anpassade DNS-poster, tjänstens huvudnamn, GMSAs etc. som du har skapat i den hanterade domänen.
-  * Datorer som är anslutna till den hanterade domänen förlora sina förtroenderelation med domänen och behöver inte frånkopplas från domänen.
-  * Du kan inte logga in på dessa datorer med hjälp av företagets AD-autentiseringsuppgifter. Använd autentiseringsuppgifter för lokal administratör för datorn, i stället.
-Tar bort den hanterade domänen tar inte bort Azure AD-katalogen eller annars negativt påverka katalogen.
->
+>   * Domänkontrollanter för den hanterade domänen är avetableras och tas bort från det virtuella nätverket.
+>   * Data i den hanterade domänen tas bort permanent. Detta inkluderar anpassade organisationsenheter, grupprincipobjekt, anpassade DNS-poster, tjänstens huvudnamn, GMSAs etc. som du har skapat i den hanterade domänen.
+>   * Datorer som är anslutna till den hanterade domänen förlora sina förtroenderelation med domänen och behöver inte frånkopplas från domänen.
+>   * Du kan inte logga in på dessa datorer med hjälp av företagets AD-autentiseringsuppgifter. Använd autentiseringsuppgifter för lokal administratör för datorn, i stället.
+> Tar bort den hanterade domänen tar inte bort Azure AD-katalogen eller annars negativt påverka katalogen.
 
 Utför följande steg för att ta bort din hanterade domän i Azure AD Domain Services:
 1. Navigera till den [Azure AD Domain Services-tillägget](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) i Azure-portalen.

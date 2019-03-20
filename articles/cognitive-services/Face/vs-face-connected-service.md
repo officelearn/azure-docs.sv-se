@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: a8c3bc7a3a659809f1602ffae303f9bd26f2c35a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: aafa115ee1e270b903e958e5b43826dfb4ff8bdb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857791"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435237"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Ansluta till Cognitive Services Ansikts-API med Connected Services i Visual Studio
 
@@ -23,7 +23,7 @@ Med hjälp av Cognitive Services Ansikts-API kan du identifiera, analysera, orga
 
 Den här artikeln, och dess relaterade artiklar, innehåller information om hur man använder Visual Studios Connected Service-funktion för Cognitive Services Ansikts-API. Funktionen är tillgänglig i Visual Studio 2017 15.7 och senare med Cognitive Services-tillägget installerat.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - **En Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual Studio 2017 version 15.7** med arbetsbelastningen **Webbutveckling** installerad. [Ladda ned nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -79,7 +79,7 @@ Den här artikeln, och dess relaterade artiklar, innehåller information om hur 
       }
    ```
 
-1. Lägg till en bildfil i mappen wwwroot i projektet och lägg till en bildfil i din wwwroot-mapp. Som exempel kan du använda en av bilderna på den här [Ansikts-API-sidan](https://azure.microsoft.com/services/cognitive-services/face/). Högerklicka på en av bilderna, spara den på den lokala hårddisken och högerklicka sedan på bildmappen i Solution Explorer och välj **Lägg till** > **Befintligt objekt** för att lägga till den i projektet. Ditt projekt bör se ut ungefär så här i Solution Explorer:
+1. Lägg till en bildfil i mappen wwwroot i projektet och lägg till en bildfil i din wwwroot-mapp. Som exempel kan du använda en av bilderna på den här [Ansikts-API-sidan](https://azure.microsoft.com/services/cognitive-services/face/). Högerklicka på en av avbildningarna, spara till den lokala hårddisken och sedan i Solution Explorer, högerklicka på bildmappen och välj **Lägg till** > **befintligt objekt** att lägga till den i projektet. Ditt projekt bör se ut ungefär så här i Solution Explorer:
  
    ![Bildmapp med bildfil](media/vs-face-connected-service/Cog-Face-Connected-Service-6.PNG)
 

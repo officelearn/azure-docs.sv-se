@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.openlocfilehash: c4ee56f4ddcccb1fc4ddd84aa1c1b16dea9754d9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 6665ea8bc4016c9d64005f9c742115cf785ed5ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123965"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842149"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Exchange X12 meddelanden för B2B enterprise-integration i Azure Logic Apps med Enterprise-Integrationspaket
 
@@ -36,9 +36,10 @@ När du [skapar ett integrationskonto](../logic-apps/logic-apps-enterprise-integ
 
 ## <a name="create-an-x12-agreement"></a>Skapa en X12 avtal
 
-1. Logga in på [Azure Portal](http://portal.azure.com "Azure Portal"). 
+1. Logga in på [Azure Portal](https://portal.azure.com "Azure Portal"). 
 
-2. Välj den Azure-huvudmenyn **alla tjänster**. Ange ”-integration” i sökrutan och välj sedan **integrationskonton**.  
+2. Välj den Azure-huvudmenyn **alla tjänster**. 
+   Ange ”-integration” i sökrutan och välj sedan **integrationskonton**.  
 
    ![Hitta ditt integrationskonto](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
@@ -49,7 +50,8 @@ När du [skapar ett integrationskonto](../logic-apps/logic-apps-enterprise-integ
 
    ![Välj var du vill skapa avtalet för integrationskontot](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
-4. Välj **översikt**och välj sedan den **avtal** panelen. Om du inte har ett avtal panel, Lägg till panelen först. 
+4. Välj **översikt**och välj sedan den **avtal** panelen. 
+   Om du inte har ett avtal panel, Lägg till panelen först. 
 
    ![Välj panelen ”avtal”](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
@@ -57,7 +59,10 @@ När du [skapar ett integrationskonto](../logic-apps/logic-apps-enterprise-integ
 
    ![Välj ”Lägg till”](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
-6. Under **Lägg till**, ange en **namn** för ditt avtal. Avtalstyp, Välj **X12**. Välj den **värdpartner**, **Värdidentiteten**, **Gästpartner**, och **Gästidentitet** för ditt avtal. Mer information om egenskapen, finns i tabellen i det här steget.
+6. Under **Lägg till**, ange en **namn** för ditt avtal. 
+   Avtalstyp, Välj **X12**. 
+   Välj den **värdpartner**, **Värdidentiteten**, **Gästpartner**, och **Gästidentitet** för ditt avtal. 
+   Mer information om egenskapen, finns i tabellen i det här steget.
 
     ![Ange avtalsinformation](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 
@@ -72,8 +77,8 @@ När du [skapar ett integrationskonto](../logic-apps/logic-apps-enterprise-integ
     | Ta emot inställningar |Dessa egenskaper gäller för alla meddelanden som tas emot av ett avtal. |
     | Skicka inställningar |Dessa egenskaper gäller för alla meddelanden som skickas av ett avtal. |  
 
-  > [!NOTE]
-  > Lösning av X12 avtal beror på matchande avsändarkvalificerare och identifierare och mottagarkvalificerare och identifieraren som definierats i partner och inkommande meddelande. Ändrar värdena för din partner, uppdatera avtalet också.
+   > [!NOTE]
+   > Lösning av X12 avtal beror på matchande avsändarkvalificerare och identifierare och mottagarkvalificerare och identifieraren som definierats i partner och inkommande meddelande. Ändrar värdena för din partner, uppdatera avtalet också.
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Konfigurera hur ditt avtal hanterar fått meddelanden
 
@@ -82,7 +87,7 @@ Nu när du har ställt in egenskaperna avtal kan konfigurera du hur detta avtal 
 1.  Under **Lägg till**väljer **ta emot inställningar**.
 Konfigurera dessa egenskaper baserat på ditt avtal med partner som utbyter meddelanden med dig. Egenskapsbeskrivningar finns i tabellerna i det här avsnittet.
 
-    **Ta emot inställningarna** är uppdelad i följande avsnitt: identifierare, bekräftelse, scheman, kuvert, kontrollnummer, verifieringar och interna inställningar.
+    **Ta emot inställningarna** är uppdelad i följande avsnitt: Identifierare, bekräftelse, scheman, kuvert, kontrollnummer, verifieringar och interna inställningar.
 
 2. När du är klar kan du se till att spara inställningarna genom att välja **OK**.
 
@@ -178,7 +183,7 @@ Du kan konfigurera hur detta avtal identifierar och hanterar utgående meddeland
 1.  Under **Lägg till**väljer **skicka inställningar**.
 Konfigurera dessa egenskaper baserat på ditt avtal med din partner som utbyter meddelanden med dig. Egenskapsbeskrivningar finns i tabellerna i det här avsnittet.
 
-    **Skicka inställningar** är uppdelad i följande avsnitt: identifierare, bekräftelse, scheman, kuvert, teckenuppsättningar och avgränsare, kontrollnummer och verifiering.
+    **Skicka inställningar** är uppdelad i följande avsnitt: Identifierare, bekräftelse, scheman, kuvert, teckenuppsättningar och avgränsare, kontrollnummer och verifiering.
 
 2. När du är klar kan du se till att spara inställningarna genom att välja **OK**.
 
@@ -213,7 +218,7 @@ Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer me
 | --- | --- |
 | Version |Välj X12 version |
 | Transaktionstyp (ST01) |Välj transaktionstyp |
-| SCHEMAT |Välj scheman som ska användas. Scheman finns i ditt integrationskonto. Om du väljer schemat först konfigurerar den automatiskt version och transaktionen typ  |
+| SCHEMA |Välj scheman som ska användas. Scheman finns i ditt integrationskonto. Om du väljer schemat först konfigurerar den automatiskt version och transaktionen typ  |
 
 > [!NOTE]
 > Konfigurera de nödvändiga [schemat](../logic-apps/logic-apps-enterprise-integration-schemas.md) som har överförts till din [integrationskontot](../logic-apps/logic-apps-enterprise-integration-accounts.md).

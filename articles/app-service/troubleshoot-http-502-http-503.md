@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5a4b8b2fd3e232d7b42b2f510075c3964ca50531
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 5edd3e51e83b5ab324d1e110a1882b20d935a9b5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652582"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899136"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Felsöka HTTP-fel ”502 Felaktig gateway” och ”503 tjänsten ej tillgänglig” i Azure App Service
 ”502 Felaktig gateway” och ”503 tjänsten ej tillgänglig” är vanliga fel i din app som finns på [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Den här artikeln hjälper dig att felsöka de här felen.
@@ -109,7 +109,7 @@ Dessutom kan du välja att köra programmet i fler än en instans. Detta inte ba
 Du kan ange skalning för att vara manuell eller automatisk.
 
 #### <a name="use-autoheal"></a>Använd AutoHeal
-AutoHeal återanvänder arbetsprocessen för din app baserat på dina inställningar (till exempel konfigurationsändringar, begäranden, Minnesbaserad gränser eller den tid som behövs för att utföra en begäran). I de flesta fall, är omarbetning av processen det snabbaste sättet att komma tillrätta med problem. Även om du kan alltid starta om appen direkt i Azure Portal, gör AutoHeal det automatiskt åt dig. Allt du behöver göra är att lägga till vissa utlösare i rot web.config för din app. Observera att de här inställningarna skulle fungerar på samma sätt, även om ditt program inte är en .net något.
+AutoHeal återanvänder arbetsprocessen för din app baserat på dina inställningar (till exempel konfigurationsändringar, begäranden, Minnesbaserad gränser eller den tid som behövs för att utföra en begäran). I de flesta fall, är omarbetning av processen det snabbaste sättet att komma tillrätta med problem. Även om du kan alltid starta om appen direkt i Azure Portal, gör AutoHeal det automatiskt åt dig. Allt du behöver göra är att lägga till vissa utlösare i rot web.config för din app. Observera att de här inställningarna skulle fungerar på samma sätt, även om ditt program inte är en .NET något.
 
 Mer information finns i [automatisk återställning Azure Web Sites](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/19/2018
 ms.author: wesmc
-ms.openlocfilehash: b8623acc9d29f083e34c7fa7494e866317146802
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: a9e5b00ad84a57f49303f2e6f9389b4791fd0f60
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252566"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58166954"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Snabbstart: Kontrollera en enhet ansluten till en IoT Hub (Android)
 
@@ -33,7 +33,7 @@ Snabbstarten använder två färdiga Java-program:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 
 * Android Studio från https://developer.android.com/studio/. Mer information om Android Studio-installationen finns i [android-installation](https://developer.android.com/studio/install).
@@ -91,7 +91,7 @@ Du behöver även ha en _tjänstanslutningssträng_ för att kunna aktivera tjä
 **YourIoTHubName**: Ersätt platshållaren nedan med det namn som du har valt för din IoT-hubb.
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --output table
 ```
 
 Anteckna tjänstanslutningssträngen. Den ser ut ungefär som:
@@ -115,6 +115,13 @@ Exempelprogrammet för enhets-SDK kan köras på en fysisk Android-enhet eller e
     ```
 
 3. I Android Studio klickar du på **Arkiv** > **Synkronisera projekt med Gradle-filer**. Kontrollera att bygget slutförs.
+
+   > [!NOTE]
+   > Om projektet synkroniseringen misslyckas, kan det bero på något av följande orsaker:
+   >
+   > * Versioner av Android Gradle-plugin-programmet och Gradle som refereras till i projektet har upphört att gälla för din version av Android Studio. Följ [instruktionerna](https://developer.android.com/studio/releases/gradle-plugin) att referera till och installera rätt version av plugin-programmet och Gradle för installationen.
+   > * Licensavtalet för Android SDK har inte signerats. Följ instruktionerna i resultatet från att logga i detta avtal och ladda ned SDK.
+
 
 4. När bygget har slutförts klickar du på **Kör** > **Kör app**. Konfigurera appen att köras på en fysisk Android-enhet eller en Android-emulator. Mer information om att köra en Android-app på en fysisk enhet eller emulator finns i [Köra appen](https://developer.android.com/training/basics/firstapp/running-app).
 
@@ -163,6 +170,13 @@ Ett IoT-hubbtjänstprogram för serverdel körs vanligtvis i molnet, där det ä
     ```
 
 3. I Android Studio klickar du på **Arkiv** > **Synkronisera projekt med Gradle-filer**. Kontrollera att bygget slutförs.
+
+   > [!NOTE]
+   > Om projektet synkroniseringen misslyckas, kan det bero på något av följande orsaker:
+   >
+   > * Versioner av Android Gradle-plugin-programmet och Gradle som refereras till i projektet har upphört att gälla för din version av Android Studio. Följ [instruktionerna](https://developer.android.com/studio/releases/gradle-plugin) att referera till och installera rätt version av plugin-programmet och Gradle för installationen.
+   > * Licensavtalet för Android SDK har inte signerats. Följ instruktionerna i resultatet från att logga i detta avtal och ladda ned SDK.
+
 
 4. När bygget har slutförts klickar du på **Kör** > **Kör app**. Konfigurera appen att köras på en separat fysisk Android-enhet eller en Android-emulator. Mer information om att köra en Android-app på en fysisk enhet eller emulator finns i [Köra appen](https://developer.android.com/training/basics/firstapp/running-app).
 

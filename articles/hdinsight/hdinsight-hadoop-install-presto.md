@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6fdeab56523d05232dd4e6a720de0be9866a4801
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fe3727c90819a96b7e1785362e557edd5cbbdf02
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084835"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199332"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Installera och använda Presto på Hadoop-baserade HDInsight-kluster
 
@@ -175,8 +175,6 @@ TPC DS-är branschstandard för att mäta prestanda för många stöd för beslu
 * [Installera och använda Hue på HDInsight Hadoop-kluster](hdinsight-hadoop-hue-linux.md). Hue är ett webbgränssnitt som gör det enkelt att skapa, köra och spara Apache Pig och Hive-jobb.
 
 * [Installera Apache Giraph på HDInsight Hadoop-kluster och använda Giraph för att bearbeta storskaliga diagram](hdinsight-hadoop-giraph-install-linux.md). Använd kluster anpassning för att installera Giraph på Hadoop-baserade HDInsight-kluster. Med Giraph kan utföra du diagrambearbetning med hjälp av Hadoop. Det kan också användas med Azure HDInsight.
-
-* [Installera och använda Apache Solr på HDInsight Hadoop-kluster](hdinsight-hadoop-solr-install-linux.md). Använd kluster anpassning för att installera Solr på Hadoop-baserade HDInsight-kluster. Genom att använda Solr kan utföra du kraftfulla sökningar på lagrade data.
 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

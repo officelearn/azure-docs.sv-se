@@ -1,7 +1,7 @@
 ---
-title: Automatisk – träna en prognosmodell
+title: Automatisk – träna en prognosmodell med tidsserie
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du använder Azure Machine Learning-tjänsten för att träna en prognosmodell regression med automatiserade maskininlärning.
+description: Lär dig hur du använder Azure Machine Learning-tjänsten för att träna en tidsserie prognosmodellen regression modell med hjälp av automatisk maskininlärning.
 services: machine-learning
 author: trevorbye
 ms.author: trbye
@@ -9,17 +9,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 03/08/2019
-ms.openlocfilehash: 7c34040180cd7c6b635d55e59498908b1373ae1b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.date: 03/19/2019
+ms.openlocfilehash: cc5aae0e46e181e8063a4e01a832e68eab0eae0e
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57786621"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226624"
 ---
-# <a name="auto-train-a-forecast-model"></a>Automatisk – träna en prognosmodell
+# <a name="auto-train-a-time-series-forecast-model"></a>Automatisk – träna en prognosmodell med tidsserie
 
-I den här artikeln får du lära dig hur du tränar en prognosmodell regression med automatiserade maskininlärning i Azure Machine Learning-tjänsten. Konfigurera en prognosmodell liknar hur du konfigurerar en standard regressionsmodell med automatiserade maskininlärning, men vissa konfigurationssteg för alternativ och bearbeta data i förväg finns för att arbeta med time series-data. I följande exempel visar hur du att:
+I den här artikeln får du lära dig hur du tränar en time series-regression prognosmodell med automatiserade maskininlärning i Azure Machine Learning-tjänsten. Konfigurera en prognosmodell liknar hur du konfigurerar en standard regressionsmodell med automatiserade maskininlärning, men vissa konfigurationssteg för alternativ och bearbeta data i förväg finns för att arbeta med time series-data. I följande exempel visar hur du att:
 
 * Förbereda data för time series modellering
 * Konfigurera specifika time series-parametrar i en [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) objekt
@@ -58,7 +58,7 @@ I det här fallet data är redan sorterad stigande efter fältet `week_starting`
 
 ```python
 X_train = data.iloc[:950]
-X_test = data.iloc[50:]
+X_test = data.iloc[-50:]
 
 y_train = X_train.pop("sales_quantity").values
 y_test = X_test.pop("sales_quantity").values

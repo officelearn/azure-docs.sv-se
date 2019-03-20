@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: ff68bfc9cdd13563fa8f938870742e9e9ceac9c2
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 3621ca198ec2bac24791a2515ade51b990194bf2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313267"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003849"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Felsöka med hjälp av Azure skisser
 
@@ -24,7 +24,7 @@ Du kanske stöter på fel när du skapar eller tilldelar skisser. Den här artik
 
 Många fel blir resultatet av att tilldela en skiss till ett omfång. När en uppgift misslyckas, innehåller information om den misslyckade distributionen i skissen. Den här informationen anger problemet så att det kan åtgärdas och nästa distributionen är klar.
 
-1. Välj **alla tjänster** i den vänstra rutan. Sök efter och välj **skisser**.
+1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
 1. Välj **tilldelade skisser** från sidan till vänster och Använd sökningen för att filtrera skissen tilldelningar för att hitta den misslyckade tilldelningen. Du kan också sortera tabellen med tilldelningar efter den **Etableringsstatus** kolumn att se alla misslyckade tilldelningar grupperas tillsammans.
 
@@ -71,6 +71,6 @@ Om du vill skicka en funktion via som en parameter, escape-hela strängen med `[
 
 Om du inte ser ditt problem eller inte kan lösa problemet besöker du någon av följande kanaler för ytterligare support:
 
-- Få svar från Azure-experter via [Azure-forumen](https://azure.microsoft.com/support/forums/)
+- Få svar från Azure-experter via [Azure-forumen](https://azure.microsoft.com/support/forums/).
 - Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure-kontot för att förbättra kundtjänstupplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 - Om du behöver mer hjälp kan öppna du en incident i Azure-supporten. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och välj **hämta stöder**.

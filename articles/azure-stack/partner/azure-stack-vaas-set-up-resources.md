@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: ad97381d983446dfcc32dd1ba82af587a500b9da
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 55c9120547472bb9a9a74533fe532d346844e89c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762151"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081771"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Självstudier: Konfigurera resurser för verifiering som en tjänst
 
@@ -56,13 +56,13 @@ Skapa en klient som din organisation använder för att komma åt VaaS tjänster
 
     Tilldela roller i den **Azure Stack-verifiering Service** program:
 
-    1. Logga in på [Azure Portal](https://portal.azure.com).
-    2. Välj **alla tjänster** > **Azure Active Directory** under den **identitet** avsnittet.
-    3. Välj **företagsprogram** > **Azure Stack-verifiering Service** program.
-    4. Välj **Användare och grupper**. Den **Azure Stack-verifiering Service - användare och grupper** bladet visar en lista över användare med behörighet att använda programmet.
-    5. Välj **+ Lägg till användare** lägga till en användare från din klient och tilldela en roll.
+   1. Logga in på [Azure Portal](https://portal.azure.com).
+   2. Välj **alla tjänster** > **Azure Active Directory** under den **identitet** avsnittet.
+   3. Välj **företagsprogram** > **Azure Stack-verifiering Service** program.
+   4. Välj **Användare och grupper**. Den **Azure Stack-verifiering Service - användare och grupper** bladet visar en lista över användare med behörighet att använda programmet.
+   5. Välj **+ Lägg till användare** lägga till en användare från din klient och tilldela en roll.
 
-    Om du vill isolera VaaS resurser och åtgärder mellan olika grupper inom en organisation kan du skapa flera kataloger i Azure AD-klient.
+      Om du vill isolera VaaS resurser och åtgärder mellan olika grupper inom en organisation kan du skapa flera kataloger i Azure AD-klient.
 
 ### <a name="register-your-tenant"></a>Registrera din klient
 

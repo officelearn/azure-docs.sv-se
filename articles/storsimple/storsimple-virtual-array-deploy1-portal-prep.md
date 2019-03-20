@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17e51c91d2857ac91b0ebf998c016ebcf56c0de0
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 7c6f0a6371b38f0271237db0f7d80b831ecc145c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244791"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088714"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuera StorSimple Virtual Array – förbereda Azure-portalen
 
@@ -155,15 +155,15 @@ Utför följande steg i den [Azure-portalen](https://ms.portal.azure.com/) på t
 3. Klicka på **Lägg till**.
 4. I den **Lägg till ett lagringskonto** bladet gör du följande:
    
-    1. För **prenumeration**väljer **aktuella**.
+   1. För **prenumeration**väljer **aktuella**.
    
-    2. Ange namnet på ditt Azure storage-konto.
+   2. Ange namnet på ditt Azure storage-konto.
    
-    3. Välj **aktivera** att skapa en säker kanal för nätverkskommunikation mellan din StorSimple-enhet och molnet. Välj **inaktivera** endast om du arbetar i ett privat moln.
+   3. Välj **aktivera** att skapa en säker kanal för nätverkskommunikation mellan din StorSimple-enhet och molnet. Välj **inaktivera** endast om du arbetar i ett privat moln.
    
-    4. Klicka på **Lägg till**. Du meddelas när lagringskontot har skapats.<br></br>
+   4. Klicka på **Lägg till**. Du meddelas när lagringskontot har skapats.<br></br>
    
-     ![Lägg till en befintlig autentiseringsuppgift för lagringskonto](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
+      ![Lägg till en befintlig autentiseringsuppgift för lagringskonto](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
 ## <a name="next-step"></a>Nästa steg
 

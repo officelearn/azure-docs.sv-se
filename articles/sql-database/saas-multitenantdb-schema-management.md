@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 55e414a35574f8437a30ffb75aebd82eded14fa9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c7c10608d90f7659b108d2d8c80038f59396de2d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447933"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878082"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Hantera schemat i ett SaaS-program som använder delat SQL-databaser för flera innehavare
 
@@ -53,7 +53,7 @@ I den här självstudiekursen får du lära du dig att:
 - Azure PowerShell måste vara installerad. Mer information finns i [komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> Den här guiden använder funktioner för Azure SQL Database-tjänsten som finns i en begränsad förhandsversion ([elastiska databasjobb](sql-database-elastic-database-client-library.md)). Om du vill följa den här guiden kan du ange ditt prenumerations-ID till *SaaSFeedback@microsoft.com* med ämnet = förhandsgranskning av elastiska jobb. När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Den här förhandsversionen är begränsat, så Kontakta *SaaSFeedback@microsoft.com* för relaterade frågor eller support.
+> Den här guiden använder funktioner för Azure SQL Database-tjänsten som finns i en begränsad förhandsversion ([elastiska databasjobb](sql-database-elastic-database-client-library.md)). Om du vill följa den här guiden kan du ange ditt prenumerations-ID till *SaaSFeedback\@microsoft.com* med ämnet = förhandsgranskning av elastiska jobb. När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Den här förhandsversionen är begränsat, så Kontakta *SaaSFeedback\@microsoft.com* för relaterade frågor eller support.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introduktion till mönster för hantering av SaaS-schema
 

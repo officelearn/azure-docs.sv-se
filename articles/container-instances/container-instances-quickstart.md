@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – Kör ett program i Azure Container Instances – CLI
-description: I den här snabbstarten använder du Azure CLI till att distribuera ett Docker-containerprogram som ska köras i en isolerad container i Azure Container Instances
+title: Snabbstart – distribuera Docker-behållare till Azure Container Instances – CLI
+description: I den här snabbstarten använder du Azure CLI att snabbt distribuera en behållarbaserad webbapp som körs i en isolerad Azure container-instans
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,16 +8,18 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 93a41610035d91774256410cea6af1d06b085d30
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 7252636287d634927979d70954f48cab5aecde5d
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562070"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732273"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>Snabbstart: Köra ett containerprogram i Azure Container Instances med Azure CLI
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Snabbstart: Distribuera en behållarinstans i Azure med hjälp av Azure CLI
 
-Använd Azure Container Instances för att snabbt och enkelt köra dockercontainrar i Azure. Du behöver inte distribuera virtuella datorer eller använda en komplett plattform för containerorkestrering, som Kubernetes. I den här snabbstarten använder du Azure CLI till att skapa en container i Azure och göra programmet tillgängligt med ett fullständigt domännamn (FQDN). Några sekunder efter att du har kört ett enskilt distributionskommando kan du gå till det program som körs:
+Använd Azure Container Instances för att köra serverlös Docker-behållare i Azure med enkelhet och hastighet. Distribuera ett program till en container-instans på begäran när du inte behöver en fullständig behållarplattform orchestration som Azure Kubernetes Service.
+
+I den här snabbstarten använder du Azure CLI för att distribuera en isolerad dockerbehållare och tillgängliggöra dess program med ett fullständigt kvalificerat domännamn (FQDN). Några sekunder efter du kör en enkel distribution-kommando som du kan bläddra till det program som körs i behållaren:
 
 ![App som distribuerats via Azure Container Instances visas i webbläsaren][aci-app-browser]
 
@@ -25,7 +27,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt][azure-acc
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att genomföra den här snabbstarten. Om du vill använda den lokalt måste du ha version 2.0.27 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att genomföra den här snabbstarten. Om du vill använda den lokalt, version 2.0.55 eller senare rekommenderas. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -39,11 +41,11 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Skapa en container
 
-Nu när du har en resursgrupp kan du köra en container i Azure. Om du vill skapa en containerinstans med Azure CLI anger du ett resursgruppsnamn, ett containerinstansnamn och en Docker-containeravbildning till kommandot [az container create][az-container-create]. I den här snabbstarten använder du `microsoft/aci-helloworld`-avbildningen från det offentliga Docker Hub-registret. Den här avbildningen paketerar en liten webbapp som skrivits i Node.js och som hanterar en statisk HTML-sida.
+Nu när du har en resursgrupp kan du köra en container i Azure. Om du vill skapa en containerinstans med Azure CLI anger du ett resursgruppsnamn, ett containerinstansnamn och en Docker-containeravbildning till kommandot [az container create][az-container-create]. I den här snabbstarten använder du offentligt `microsoft/aci-helloworld` bild. Den här avbildningen paketerar en liten webbapp som skrivits i Node.js och som hanterar en statisk HTML-sida.
 
 Du kan exponera dina containrar till internet genom att ange en eller flera portar som ska öppnas, en DNS-namnetikett eller båda. I den här snabbstarten distribuerar du en container med en DNS-namnetikett så att webbappen kan nås offentligt.
 
-Kör följande kommando för att starta en instans av containern. Värdet `--dns-name-label` måste vara unikt inom den Azure-region som du skapar instansen i. Om du får felmeddelandet ”DNS-namnetiketten är inte tillgänglig” provar du med en annan DNS-namnetikett.
+Köra ett kommando som liknar följande att starta en behållarinstans. Ange en `--dns-name-label` värde som är unikt i Azure-regionen där du skapar instansen. Om du får felmeddelandet ”DNS name label not available” (DNS-namnetikett inte tillgänglig) kan du prova en annan DNS-namnetikett.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aci-demo --ports 80
@@ -97,13 +99,13 @@ Förutom att granska loggarna kan du ansluta dina lokala standardströmmar för 
 Börja med att köra kommandot [az container attach][az-container-attach] för att ansluta din lokala konsol till containerns utdataströmmar:
 
 ```azurecli-interactive
-az container attach --resource-group myResourceGroup -n mycontainer
+az container attach --resource-group myResourceGroup --name mycontainer
 ```
 
 När anslutningen är klar uppdaterar du webbläsaren ett antal gånger för att generera ytterligare utdata. Avsluta med att koppla från konsolen med `Control+C`. Du bör se utdata som liknar följande:
 
 ```console
-$ az container attach --resource-group myResourceGroup -n mycontainer
+$ az container attach --resource-group myResourceGroup --name mycontainer
 Container 'mycontainer' is in state 'Running'...
 (count: 1) (last timestamp: 2018-03-15 21:17:59+00:00) pulling image "microsoft/aci-helloworld"
 (count: 1) (last timestamp: 2018-03-15 21:18:05+00:00) Successfully pulled image "microsoft/aci-helloworld"
@@ -155,7 +157,7 @@ Om du vill testa alternativ för att köra containrar i ett orkestreringssystem 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
 [azure-account]: https://azure.microsoft.com/free/
-[node-js]: http://nodejs.org
+[node-js]: https://nodejs.org
 
 <!-- LINKS - Internal -->
 [az-container-attach]: /cli/azure/container#az-container-attach

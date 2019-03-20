@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4db4c2fc0781225af6cc59df72467a69e0ba73e1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0fc2aca2b785329b6faebd37c94493269d65c22b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189573"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182990"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Åtgärda användare som flaggats för risk i Azure Active Directory-portalen
 
@@ -46,7 +46,7 @@ Mer information finns i [användare som flaggats i säkerhetsrapporten](concept-
 
 Du kan också använda dina Office 365-autentiseringsuppgifter för att komma åt den **Azure Admin Center**. När du har aktiverat din åtkomst till Azure AD omdirigeras du till Azure AD-portalen. Lägg märke till att mängden detaljer som tillhandahålls i rapporterna är begränsade på Basic-nivån. Ytterligare data och analyser är tillgängliga för Azure Premium-prenumeranter.
 
-Åtkomst till den **användare som har flaggats för risk** rapporter i Administrationscenter för Office 365:
+Åtkomst till den **användare som har flaggats för risk** rapporter i Microsoft 365 Administrationscenter:
 
 1.  På navigeringsmenyn till vänster väljer du **administratörscentra**. 
 2.  Välj **Azure AD**.

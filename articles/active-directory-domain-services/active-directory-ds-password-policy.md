@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5fc50aeeb2764f90a111c2466ff5a9deefe1e65c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 513cccb8b83eb4a69df1bc6172f1f02485215e35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167996"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086011"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Lösenord och kontoutelåsningar på hanterade domäner
 Den här artikeln förklarar standardprinciper för lösenord på en hanterad domän. Den behandlar också hur du konfigurerar dessa principer.
@@ -89,28 +89,28 @@ Skapa en anpassad FGPP på din hanterade domän:
 7. På den **uppgifter** panelen i höger klickar du på **New** och klicka på **lösenordsinställningar**.
 8. I den **skapa lösenordsinställningar** dialogrutan Ange för anpassade lösenordsinställningar för den som en del av den anpassade FGPP. Kom ihåg att ange prioriteten på lämpligt sätt för att åsidosätta standarden FGPP.
 
-  ![Skapa anpassade FGPP](./media/how-to/custom-fgpp.png)
+   ![Skapa anpassade FGPP](./media/how-to/custom-fgpp.png)
 
-  > [!TIP]
-  > **Kom ihåg att avmarkera Skydda mot oavsiktlig borttagning alternativet.** Om det här alternativet väljs, går inte att spara FGPP.
-  >
-  >
+   > [!TIP]
+   > **Kom ihåg att avmarkera Skydda mot oavsiktlig borttagning alternativet.** Om det här alternativet väljs, går inte att spara FGPP.
+   >
+   >
 
 9. I **tillämpas direkt för**, klickar du på den **Lägg till** knappen. I den **Välj användare eller grupper** dialogrutan klickar du på den **platser** knappen.
 
-  ![Välj användare och grupper](./media/how-to/fgpp-applies-to.png)
+   ![Välj användare och grupper](./media/how-to/fgpp-applies-to.png)
 
 10. I den **platser** dialogrutan expanderar du domännamnet och klickar på **AADDC-användare**. Nu kan du välja en grupp från inbyggda Organisationsenheten för användare, som att tillämpa FGPP.
 
-  ![Välj Organisationsenheten gruppen tillhör](./media/how-to/fgpp-container.png)
+    ![Välj Organisationsenheten gruppen tillhör](./media/how-to/fgpp-container.png)
 
 11. Skriv namnet på gruppen och klicka på den **Kontrollera namn** knappen för att verifiera gruppen finns.
 
-  ![Markera gruppen för att tillämpa FGPP](./media/how-to/fgpp-apply-group.png)
+    ![Markera gruppen för att tillämpa FGPP](./media/how-to/fgpp-apply-group.png)
 
 12. Namnet på gruppen visas i **tillämpas direkt för** avsnittet. Klicka på den **OK** för att spara ändringarna.
 
-  ![FGPP tillämpas](./media/how-to/fgpp-applied.png)
+    ![FGPP tillämpas](./media/how-to/fgpp-applied.png)
 
 > [!TIP]
 > **Tillämpa anpassad lösenordsprinciper för användarkonton i en anpassad Organisationsenhet:** Bra detaljerade lösenordsprinciper kan tillämpas endast för grupper. Skapa en grupp som innehåller användare i denna Organisationsenhet för att konfigurera en anpassad princip för endast för användare från en anpassad Organisationsenhet.

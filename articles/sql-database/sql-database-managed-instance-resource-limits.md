@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 02/27/2019
-ms.openlocfilehash: e429504cb6df2ba4f871fa0c9ca780ac5d906356
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 09ab154494ad3e1276239e36068255c2042358c5
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958982"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223826"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt över Azure SQL Database Managed Instance resursbegränsningar
 
@@ -55,8 +55,8 @@ Hanterad instans har två tjänstnivåer - generell användning och affärskriti
 | Maximalt lagringsutrymme per databas | Bestäms av den maximala lagringsstorleken per instans | Bestäms av den maximala lagringsstorleken per instans |
 | Maximalt antal databaser per instans | 100 | 100 |
 | Max databasfiler per instans | Upp till 280 | 32 767 filer per databas |
-| Data/Log IOPS (ungefärlig) | 500 – 7500 per fil<br/>\*[Beror på filstorleken](https://docs.microsoft.com/azure/virtual-machines)| 11 K - 110 K (1,375 per vCore) |
-|Log dataflöde | 22 MB/s per instans | 3 MB/s per vCore<br/>Max 48 MB/s per instans|
+| Data/Log IOPS (ungefärlig) | 500 – 7500 per fil<br/>\*[Beror på filstorleken](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1,375 per vCore) |
+| Log dataflöde | 22 MB/s per instans | 3 MB/s per vCore<br/>Max 48 MB/s per instans|
 | Dataflöde (ungefärlig) | 100 - 250 MB/s per fil<br/>\*[Beror på filstorleken](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24 – 48 MB/s per vCore |
 | I/o-svarstid (ungefärlig) | 5 – 10 ms | 1 – 2 ms |
 | Maxstorlek för tempDB | 192 - 1,920 GB (24 GB per vCore) | Inga begränsningar – begränsas av de största instansstorleken för lagring |
@@ -90,6 +90,9 @@ Stöds prenumerationstyper kan innehålla ett begränsat antal resurser per regi
 - **Undernät gränsen**: Det maximala antalet undernät där hanterade instanser har distribuerats i en region.
 - **Gränsen för antal instans**: Det maximala antalet instanser som kan distribueras i en region.
 
+> [!Note]
+> Dessa gränser är standardinställningarna och inte tekniska begränsningar. Gränserna kan vara ökad på begäran genom att skapa särskilda [supportförfrågan i Azure-portalen](#obtaining-a-larger-quota-for-sql-managed-instance) om du behöver fler hanterade instanser i den aktuella regionen. Alternativt kan skapa du nya hanterade instanser i en annan Azure-region utan att skicka supportförfrågningar.
+
 I följande tabell visas regionala standardgränser för stöds prenumerationer:
 
 |Prenumerationstyp| Maxantal undernät för hanterad instans | Maximalt antal instanser |Maxantal GP hanterade instanser *|Maxantal BC hanterade instanser *|
@@ -97,14 +100,14 @@ I följande tabell visas regionala standardgränser för stöds prenumerationer:
 |Användningsbaserad betalning|1*|4*|4*|1*|
 |CSP |1*|4*|4*|1*|
 |Betala per användning – utveckling/testning|1*|4*|4*|1*|
-|Enterprise – utveckling/testning|1*|4*|4*|1*|
+|Enterprise Dev/Test|1*|4*|4*|1*|
 |EA|3**|12**|12**|3**|
 
 \* Du kan antingen distribuera 1 BC eller 4 GP-instanser i ett undernät så att det totala antalet ”instans enheter” i undernätet aldrig överstiger 4.
 
 ** Maximalt antal instanser i en tjänstnivå gäller om det finns inga instanser i en annan tjänstnivå. Om du planerar att blanda GP- och BC instanser inom samma undernät, Använd följande avsnitt som referens för tillåtna kombinationer. Det totala antalet undernät får inte överskrida 3 som en enkel regel och det totala antalet enheter för instansen får inte överstiga 12.
 
-Dessa begränsningar kan utökas genom att skapa särskilda [supportförfrågan i Azure-portalen](#obtaining-a-larger-quota-for-sql-managed-instance) om du behöver fler hanterade instanser i den aktuella regionen. Alternativt kan skapa du nya hanterade instanser i en annan Azure-region utan att skicka supportförfrågningar.
+
 
 > [!IMPORTANT]
 > När du planerar din distribution, Överväg att en kritisk Business (BC)-instans (på grund av har lagts till redundans) Allmänt förbrukar 4 x mer kapacitet än en instans för allmänt syfte (GP). Så för dina beräkningar, 1 instans i GP = 1 instans enhet och 1 BC instans = 4 instans-enheter. För att förenkla din förbrukning analys mot standardgränserna sammanfatta instans enheter över alla undernät i den region där hanterade instanser har distribuerats och jämföra resultaten med enhet instansgränser för prenumerationstyp.

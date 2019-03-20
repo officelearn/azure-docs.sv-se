@@ -5,25 +5,25 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2018
+ms.date: 03/14/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: e526d7fac3c66c5eaf9686db3c9f9f9506d6fc6b
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 69f91949347eadcffb3c0d3ff833a40b5e483e24
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768665"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003168"
 ---
 # <a name="what-is-azure-cost-management"></a>Vad är Azure Cost Management?
 
-Kostnadshantering är processen med att effektivt planera och styra kostnaderna i företaget. Kostnadshanteringsuppgifter utförs normalt av ekonomi-, hanterings- och appteam. Azure Cost Management hjälper organisationer att planera med kostnaderna i åtanke. Det hjälper även till att effektivt analysera kostnader och vidta åtgärder för att optimera molnutgifter. Om du vill veta mer om metoder för kostnadshantering för organisationer kan du läsa artikeln om [metodtips för Azure Cost Management](cost-mgt-best-practices.md).
+Kostnadshantering är processen att effektivt planera och styra kostnader för ditt företag. Kostnadshanteringsuppgifter utförs normalt av ekonomi-, hanterings- och appteam. Azure Cost Management hjälper organisationer att planera kostnad i åtanke. Det hjälper också till att analysera kostnaderna effektivt och vidta åtgärder för att optimera utgifter. Om du vill veta mer om metoder för kostnadshantering för organisationer kan du läsa artikeln om [metodtips för Azure Cost Management](cost-mgt-best-practices.md).
 
 Fakturering är relaterat till kostnadshantering men inbegriper skillnader. I faktureringsprocessen ingår att fakturera kunder för varor eller tjänster och att hantera den affärsrelationen.  Inköps- och ekonomiteamen genomför vanligtvis faktureringsuppgifter.
 
-Kostnadshantering visar organisationens kostnader och användningsmönster med hjälp av avancerade analyser. Rapporter i Cost Management visar kostnader, användning och reserverade instanser för Azure samt användning av Azure Hybrid-förmån. Sammantaget visar rapporterna dina interna och externa kostnader för användning och Azure Marketplace-debiteringar. Andra debiteringar, till exempel köp av reservation, support och skatter visas ännu inte i rapporter. Rapporterna hjälper dig att förstå dina utgifter och resursanvändningen och kan hjälpa dig hitta utgiftsavvikelser. Förutsägelseanalys är också tillgängligt. Kostnadshantering använder Azure-hanteringsgrupper, budgetar och rekommendationer för att tydligt visa hur dina utgifter organiseras och hur du kan minska kostnaderna.
+Kostnadshantering visar organisationens kostnader och användningsmönster med hjälp av avancerade analyser. Rapporter i Cost Management visar användningsbaserad kostnader som används av Azure-tjänsterna och Marketplace-erbjudanden från tredje part. Kostnaderna baseras på förhandlade priser och ta reservation och Azure Hybrid-förmånen rabatter. Sammantaget visar rapporterna dina interna och externa kostnader för användning och Azure Marketplace-debiteringar. Andra debiteringar, till exempel köp av reservation, support och skatter visas ännu inte i rapporter. Rapporterna hjälper dig att förstå dina utgifter och resursanvändningen och kan hjälpa dig hitta utgiftsavvikelser. Förutsägelseanalys är också tillgängligt. Kostnadshantering använder Azure-hanteringsgrupper, budgetar och rekommendationer för att tydligt visa hur dina utgifter organiseras och hur du kan minska kostnaderna.
 
 Du kan använda Azure-portalen eller olika API:er för exportautomatisering för att integrera kostnadsdata med externa system och processer. Automatiserad export av faktureringsdata och schemalagda rapporter är också tillgängligt.
 
@@ -41,7 +41,7 @@ Om du använder externa system för att komma åt eller granska kostnadshanterin
 
 ## <a name="consider-cloudyn"></a>Tjänsten Cloudyn
 
-[Cloudyn](overview.md) är en Azure-tjänst som är relaterad till Cost Management. Med Cloudyn kan du spåra molnanvändning och utgifter för dina Azure-resurser. Det stöder även andra molnleverantörer, inklusive AWS och Google. Instrumentpanelsrapporter som är lätta att förstå hjälper dig med kostnadsallokering och kostnadsrapporter/återbetalningar. För närvarande har Cost Management inte stöd för kostnadsfördelning/återbetalning eller andra molntjänstleverantörer. Cloudyn är dock ett alternativ som _har_ stöd för dem. För närvarande har Cost Management endast stöd för Azure EA-konton. Det har inte stöd för enskilda konton, konton med betala per användning eller Microsoft Cloud-tjänstleverantörskonton, men det har Cloudyn. Om du har ett av dessa konton kan du använda Cloudyn för att hantera dina kostnader.
+[Cloudyn](overview.md) är en Azure-tjänst som är relaterad till Cost Management. Med Cloudyn kan du spåra molnanvändning och utgifter för dina Azure-resurser. Det stöder även andra molnleverantörer, inklusive AWS och Google. Instrumentpanelsrapporter som är lätta att förstå hjälper dig med kostnadsallokering och kostnadsrapporter/återbetalningar. För närvarande har Cost Management inte stöd för kostnadsfördelning/återbetalning eller andra molntjänstleverantörer. Cloudyn är dock ett alternativ som _har_ stöd för dem. För närvarande kostnadshantering stöder inte Microsoft Cloud Service Provider (CSP)-konton, men Cloudyn gör. Om du har CSP-konton eller om du vill använda kostnadsrapporter/återbetalning, kan du använda Cloudyn för att hantera dina kostnader.
 
 ## <a name="additional-azure-tools"></a>Ytterligare Azure-verktyg
 

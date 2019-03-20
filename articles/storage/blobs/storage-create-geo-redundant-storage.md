@@ -9,12 +9,12 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: b031e7b772389aa81fd214d31365c20018cf48ae
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: f00f11e66d33c37ff2107cbb8282b49994fe0d3b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874451"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013576"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Självstudier: Skapa ett program med hög tillgänglighet med Blob-lagring
 
@@ -33,7 +33,7 @@ I del ett i den här serien lärde du dig att:
 > * Ange anslutningssträngen
 > * Kör konsolprogrammet
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 
@@ -49,21 +49,20 @@ För att slutföra den här självstudien behöver du:
 * Installera [Python](https://www.python.org/downloads/)
 * Ladda ned och installera [Azure Storage SDK för Python](https://github.com/Azure/azure-storage-python)
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK ](#tab/java-v7)
-
-* Installera och konfigurera [Maven](http://maven.apache.org/download.cgi) så att det fungerar från kommandoraden
-* Installera och konfigurera [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-* Installera och konfigurera [Maven](http://maven.apache.org/download.cgi) så att det fungerar från kommandoraden
-* Installera och konfigurera [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* Installera och konfigurera [Maven](https://maven.apache.org/download.cgi) så att det fungerar från kommandoraden
+* Installera och konfigurera [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+* Installera [Node.js](https://nodejs.org).
 
 ---
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
@@ -74,24 +73,24 @@ Följ dessa steg om du vill skapa ett RA-GRS-lagringskonto:
 1. Välj knappen **Skapa en resurs** längst upp till vänster i Azure Portal.
 2. Välj **Lagring** på sidan **Ny**.
 3. Välj **Lagringskonto – blob, fil, tabell, kö** i **Aktuellt**.
-4. Fyll i formuläret för lagringskontot med följande information (se bilden nedan) och välj **Skapa**:
+4. Fyll i formuläret för lagringskontot med följande information som visas i följande bild och väljer **skapa**:
 
    | Inställning       | Föreslaget värde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Namn** | mystorageaccount | Ett unikt värde för lagringskontot |
-   | **Distributionsmodell** | Resource Manager  | Resource Manager innehåller de senaste funktionerna.|
-   | **Typ av konto** | StorageV2 | Mer information om kontotyper finns i [typer av lagringskonton](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **Prenumeration** | din prenumeration |Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
+   | **Resursgrupp** | myResourceGroup |Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Lagringskontonamn** | mystorageaccount | Ett unikt värde för lagringskontot |
+   | **Plats** | Östra USA | Välj en plats. |
    | **Prestanda** | Standard | Standard är tillräckligt för exempelscenariot. |
+   | **Typ av konto** | StorageV2 | Mer information om kontotyper finns i [typer av lagringskonton](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Replikering**| Geo-redundant lagring med läsbehörighet (RA-GRS) | Detta krävs för att exemplet ska fungera. |
-   |**Prenumeration** | din prenumeration |Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
-   |**ResourceGroup** | myResourceGroup |Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   |**Plats** | Östra USA | Välj en plats. |
+   | **Åtkomstnivå** | Frekvent | Frekvent är tillräckligt för exempelscenariot. |
 
 ![skapa lagringskonto](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
-# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
 
 [Ladda ned exempelprojektet](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) och extrahera (packa upp) filen storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. Du kan också använda [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. Exempelprojektet innehåller ett konsolprogram.
 
@@ -99,7 +98,7 @@ Följ dessa steg om du vill skapa ett RA-GRS-lagringskonto:
 git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
 ```
 
-# <a name="python-tabpython"></a>[Python] (#tab/python)
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 [Ladda ned exempelprojektet](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) och extrahera (packa upp) filen storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. Du kan också använda [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. Exempelprojektet innehåller ett grundläggande Python-program.
 
@@ -107,15 +106,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="java-v7-sdk--tabjava-v7"></a>[Java V7 SDK ] (#tab/java-v7)
-
-[Hämta exempelprojektet](https://github.com/Azure-Samples/storage-java-ha-ra-grs) och extrahera filen storage-java-ragrs.zip. Du kan också använda [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. Exempelprojektet innehåller ett grundläggande Java-program.
-
-```bash
-git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
-```
-
-# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (#tab/java-v10)
+# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
 [Hämta exempelprojektet](https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs) och extrahera filen storage-java-ragrs.zip. Du kan också använda [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. Exempelprojektet innehåller ett grundläggande Java-program.
 
@@ -123,62 +114,57 @@ git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
 git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
 ```
 
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+[Ladda ned exempelprojektet](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) och packa upp filen. Du kan också använda [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. Exempelprojektet innehåller ett grundläggande Node.js-program.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
+```
+
 ---
 
-# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+## <a name="configure-the-sample"></a>Konfigurera exemplet
 
-Du måste ange anslutningssträngen för ditt lagringskonto i programmet. Det rekommenderas att du lagrar den här anslutningssträngen i en miljövariabel på den lokala datorn där programmet körs. Följ något av exemplen nedan beroende på operativsystemet för att skapa miljövariabeln.
+# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
 
-Navigera till ditt lagringskonto i Azure Portal. Välj **Åtkomstnycklar** under **Inställningar** i ditt lagringskonto. Kopiera **anslutningssträngen** från den primära eller sekundära nyckeln. Ersätt \<yourconnectionstring\> med den faktiska anslutningssträngen genom att köra ett av följande kommandon beroende på vilket operativsystem du har. Kommandot sparar en miljövariabel till den lokala datorn. I Windows är miljövariabeln inte tillgänglig förrän du har läst in **kommandotolken** eller gränssnittet på nytt. Ersätt **\<storageConnectionString\>** i följande exempel:
+Du måste ange anslutningssträngen för ditt lagringskonto i programmet. Du kan lagra den här anslutningssträngen inom en miljövariabel på den lokala dator där programmet körs. Följ något av exemplen nedan beroende på operativsystemet för att skapa miljövariabeln.
 
-### <a name="linux"></a>Linux
-
-```
-export storageconnectionstring=\<yourconnectionstring\> 
-```
-### <a name="windows"></a>Windows
-
-```PowerShell
-setx storageconnectionstring "\<yourconnectionstring\>"
-```
-
-# <a name="python-tabpython"></a>[Python] (#tab/python)
-
-Du måste ange anslutningssträngen för ditt lagringskonto i programmet. Det rekommenderas att du lagrar den här anslutningssträngen i en miljövariabel på den lokala datorn där programmet körs. Följ något av exemplen nedan beroende på operativsystemet för att skapa miljövariabeln.
-
-Navigera till ditt lagringskonto i Azure Portal. Välj **Åtkomstnycklar** under **Inställningar** i ditt lagringskonto. Kopiera **anslutningssträngen** från den primära eller sekundära nyckeln. Ersätt \<yourconnectionstring\> med den faktiska anslutningssträngen genom att köra ett av följande kommandon beroende på vilket operativsystem du har. Kommandot sparar en miljövariabel till den lokala datorn. I Windows är miljövariabeln inte tillgänglig förrän du har läst in **kommandotolken** eller gränssnittet på nytt. Ersätt **\<storageConnectionString\>** i följande exempel:
+Navigera till ditt lagringskonto i Azure Portal. Välj **Åtkomstnycklar** under **Inställningar** i ditt lagringskonto. Kopiera **anslutningssträngen** från den primära eller sekundära nyckeln. Kör något av följande kommandon baserat på ditt operativsystem, ersätta \<yourconnectionstring\> med faktiska anslutningssträngen. Kommandot sparar en miljövariabel till den lokala datorn. I Windows är miljövariabeln inte tillgänglig förrän du har läst in **kommandotolken** eller gränssnittet på nytt.
 
 ### <a name="linux"></a>Linux
 
 ```
-export storageconnectionstring=\<yourconnectionstring\> 
+export storageconnectionstring=<yourconnectionstring>
 ```
 ### <a name="windows"></a>Windows
 
 ```PowerShell
-setx storageconnectionstring "\<yourconnectionstring\>"
+setx storageconnectionstring "<yourconnectionstring>"
 ```
 
-# <a name="java-v7-sdk--tabjava-v7"></a>[Java V7 SDK ] (#tab/java-v7)
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
-Du måste ange anslutningssträngen för ditt lagringskonto i programmet. Det rekommenderas att du lagrar den här anslutningssträngen i en miljövariabel på den lokala datorn där programmet körs. Följ något av exemplen nedan beroende på operativsystemet för att skapa miljövariabeln.
+Du måste ange autentiseringsuppgifterna för ditt lagringskonto i programmet. Du kan spara informationen i miljövariabler på den lokala datorn där programmet körs. Följ något av exemplen nedan beroende på operativsystemet för att skapa miljövariabeln.
 
-Navigera till ditt lagringskonto i Azure Portal. Välj **Åtkomstnycklar** under **Inställningar** i ditt lagringskonto. Kopiera **anslutningssträngen** från den primära eller sekundära nyckeln. Ersätt \<yourconnectionstring\> med den faktiska anslutningssträngen genom att köra ett av följande kommandon beroende på vilket operativsystem du har. Kommandot sparar en miljövariabel till den lokala datorn. I Windows är miljövariabeln inte tillgänglig förrän du har läst in **kommandotolken** eller gränssnittet på nytt. Ersätt **\<storageConnectionString\>** i följande exempel:
+Navigera till ditt lagringskonto i Azure Portal. Välj **Åtkomstnycklar** under **Inställningar** i ditt lagringskonto. Klistra in den **lagringskontonamn** och **nyckel** värden i följande kommandon och Ersätt den \<youraccountname\> och \<youraccountkey\>platshållare. Det här kommandot sparar miljövariablerna till den lokala datorn. I Windows är miljövariabeln inte tillgänglig förrän du har läst in **kommandotolken** eller gränssnittet på nytt.
 
 ### <a name="linux"></a>Linux
 
 ```
-export storageconnectionstring=\<yourconnectionstring\> 
+export accountname=<youraccountname>
+export accountkey=<youraccountkey>
 ```
 ### <a name="windows"></a>Windows
 
 ```PowerShell
-setx storageconnectionstring "\<yourconnectionstring\>"
+setx accountname "<youraccountname>"
+setx accountkey "<youraccountkey>"
 ```
 
-# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (#tab/java-v10)
+# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-Det här exemplet kräver att du lagrar namnet och nyckeln för ditt lagringskonto på ett säkert sätt. Lagra dem i miljövariabler som är lokala på den dator som kommer att köra exemplet. Använd antingen Linux- eller Windows-exemplet, beroende på operativsystemet, för att skapa miljövariablerna. I Windows är miljövariabeln inte tillgänglig förrän du har läst in **kommandotolken** eller gränssnittet på nytt.
+Det här exemplet kräver att du lagrar namnet och nyckeln för ditt lagringskonto på ett säkert sätt. Lagra dem i miljövariabler som är lokala på den dator som kommer att köra exemplet. Använd antingen Linux- eller Windows-exemplet, beroende på operativsystemet, för att skapa miljövariablerna. 
 
 ### <a name="linux-example"></a>Linux-exemplet
 
@@ -194,11 +180,26 @@ setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
 setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 ```
 
+Du hittar den här informationen i Azure portal genom att gå till ditt storage-konto och välja **åtkomstnycklar** i den **inställningar** avsnittet. 
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+Om du vill köra det här exemplet måste du lägga till autentiseringsuppgifterna för ditt lagringskonto till den `.env.example` filen och Byt sedan namn till `.env`.
+
+```
+AZURE_STORAGE_ACCOUNT_NAME=<replace with your storage account name>
+AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
+```
+
+Du hittar den här informationen i Azure portal genom att gå till ditt storage-konto och välja **åtkomstnycklar** i den **inställningar** avsnittet. 
+
+Du måste också installera de nödvändiga beroendena. Om du vill göra detta, öppna en kommandotolk, navigerar du till exempelmappen och sedan ange `npm install`.
+
 ---
 
 ## <a name="run-the-console-application"></a>Kör konsolprogrammet
 
-# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
 
 I Visual Studio trycker du på **F5** eller väljer **Start** för att starta felsökning av programmet. Visual Studio återställer automatiskt NuGet-paket som saknas (om konfigurerat). Gå till avsnittet om hur du [installerar och ominstallerar paket med paketåterställning](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) om du vill veta mer.
 
@@ -208,7 +209,7 @@ Ett konsolfönster öppnas och programmet körs. Programmet överför bilden **H
 
 I exempelkoden används aktiviteten `RunCircuitBreakerAsync` i filen `Program.cs` för att ladda ned en bild från lagringskontot med hjälp av metoden [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_). Före nedladdningen definieras en [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). Åtgärdskontexten definierar de händelsehanterare som utlöses när en nedladdning slutförs eller om en nedladdning misslyckas och ett nytt försök görs.
 
-# <a name="python-tabpython"></a>[Python] (#tab/python)
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 Om du vill köra programmet i en terminal eller kommandotolk går du till katalogen **circuitbreaker.py** och skriver `python circuitbreaker.py`. Programmet överför bilden **HelloWorld.png** från lösningen till lagringskontot. Programmet kontrollerar att bilden har replikerats till den sekundära RA-GRS-slutpunkten. Sedan börjar programmet ladda ned bilden upp till 999 gånger. Varje läsning representeras av ett **P** eller ett **S**. **P** representerar den primära slutpunkten och **S** representerar den sekundära slutpunkten.
 
@@ -220,17 +221,11 @@ I exempelkoden används metoden `run_circuit_breaker` i filen `circuitbreaker.py
 
 Före nedladdningen definieras funktionerna [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) och [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) för objektet. Funktionerna definierar de händelsehanterare som utlöses när en nedladdning slutförs eller om en nedladdning misslyckas och ett nytt försök görs.  
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK] (#tab/java-v7)
-
-Du kan köra programmet genom att öppna en terminal eller Kommandotolken begränsad till den nedladdade programmappen. Därifrån anger du `mvn compile exec:java` för att köra programmet. Programmet överför bilden **HelloWorld.png** från katalogen till ditt lagringskonto och kontrollerar att bilden har replikerats till den sekundära RA-GRS-slutpunkten. När kontrollen är slutförd börjar programmet ladda ned bilden upprepade gånger samtidigt som det rapporterar tillbaka till slutpunkten som nedladdningen görs från.
-
-Återförsöksfunktionen för lagringsobjektet är inställd på att använda en linjär återförsöksprincip. Återförsöksfunktionen bestämmer om det ska göras ett nytt försök med begäran och anger antalet sekunder som ska förflyta mellan varje nytt försök. Egenskapen **LocationMode** för **BlobRequestOptions** har angetts till **PRIMARY\_THEN\_SECONDARY**. Det gör att programmet automatiskt växlar till den sekundära platsen om det inte lyckas nå den primära platsen för att hämta **HelloWorld.png**.
-
-# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (#tab/java-v10)
+# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
 Du kör exemplet med hjälp av Maven på kommandoraden.
 
-1. öppna ett gränssnitt och gå till **storage-blobs-java-v10-quickstart** i den klonade katalogen.
+1. Öppna ett gränssnitt och gå till **storage-blobs-java-v10-tutorial-master** inuti den klonade katalogen.
 2. Ange `mvn compile exec:java`.
 
 Det här exemplet skapar en testfil i din standardkatalog. För Windows-användare är det **AppData\Local\Temp**. Exemplet visar sedan följande alternativ med kommandon som du kan ange:
@@ -270,11 +265,38 @@ Cleaning up the sample and exiting!
 
 Du kontrollerar exemplet, så ange kommandon så att den kör koden. Indata är skiftlägeskänsliga.
 
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+Om du vill köra exemplet, öppna en kommandotolk, navigerar du till exempelmappen och sedan ange `node index.js`.
+
+Exemplet skapar en behållare i Blob storage-kontot, överför **HelloWorld.png** till behållare och sedan upprepade gånger kontrollerar om behållaren och bilden har replikerats till den sekundära regionen. Efter replikeringen, uppmanas du att ange **D** eller **Q** (följt av RETUR) att hämta eller avsluta. Dina utdata bör se ut ungefär så här:
+
+```
+Created container successfully: newcontainer1550799840726
+Uploaded blob: HelloWorld.png
+Checking to see if container and blob have replicated to secondary region.
+[0] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+[1] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+...
+[31] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+[32] Container found, but blob has not replicated to secondary region yet.
+...
+[67] Container found, but blob has not replicated to secondary region yet.
+[68] Blob has replicated to secondary region.
+Ready for blob download. Enter (D) to download or (Q) to quit, followed by ENTER.
+> D
+Attempting to download blob...
+Blob downloaded from primary endpoint.
+> Q
+Exiting...
+Deleted container newcontainer1550799840726
+```
+
 ---
 
 ## <a name="understand-the-sample-code"></a>Förstå exempelkoden
 
-# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
 
 ### <a name="retry-event-handler"></a>Händelsehanterare för nytt försök
 
@@ -325,7 +347,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-# <a name="python-tabpython"></a>[Python] (#tab/python) 
+# <a name="pythontabpython"></a>[Python](#tab/python) 
 
 ### <a name="retry-event-handler"></a>Händelsehanterare för nytt försök
 
@@ -367,22 +389,9 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="java-v7-sdk--tabjava-v7"></a>[Java V7 SDK ] (#tab/java-v7)
+# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-Med Java behöver du inte definiera återanropshanterare om egenskapen **LocationMode** för **BlobRequestOptions** är inställd på **PRIMARY\_THEN\_SECONDARY**. Det gör att programmet automatiskt växlar till den sekundära platsen om det inte lyckas nå den primära platsen för att hämta **HelloWorld.png**.
-
-```java
-    BlobRequestOptions myReqOptions = new BlobRequestOptions();
-    myReqOptions.setRetryPolicyFactory(new RetryLinearRetry(deltaBackOff, maxAttempts));
-    myReqOptions.setLocationMode(LocationMode.PRIMARY_THEN_SECONDARY);
-    blobClient.setDefaultRequestOptions(myReqOptions);
-
-    blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
-```
-
-# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (#tab/java-v10)
-
-Med Java V10 SDK är det fortfarande onödigt att definiera motringningshanterare, och det finns nu vissa grundläggande skillnader i SDK:t jämfört med V7 SDK. I stället för LocationMode finns en sekundär **pipeline**. Du kan definiera en sekundär pipeline via **RequestRetryOptions**. Om en sådan definieras kan programmet automatiskt växla till den sekundära pipelinen om det inte når dina data genom den primära pipelinen.
+Med SDK för Java V10 definiera återanropshanterare och SDK: N har nu några grundläggande skillnader från V7-SDK. I stället för LocationMode finns en sekundär **pipeline**. Du kan definiera en sekundär pipeline via **RequestRetryOptions**. Om en sådan definieras kan programmet automatiskt växla till den sekundära pipelinen om det inte når dina data genom den primära pipelinen.
 
 ```java
 // We create pipeline options here so that they can be easily used between different pipelines
@@ -391,6 +400,30 @@ myOptions.withRequestRetryOptions(new RequestRetryOptions(RetryPolicyType.EXPONE
 // We are using a default pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
 final ServiceURL serviceURL = new ServiceURL(new URL("https://" + accountName + ".blob.core.windows.net"), StorageURL.createPipeline(creds, myOptions));
 ```
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+Med SDK för Node.js V10 är återanrop hanterare onödiga. I stället skapar exemplet en pipeline som konfigurerats med alternativ för omförsök och en sekundär slutpunkt. På så sätt kan programmet automatiskt växlar till sekundär pipelinen om det inte går att nå dina data genom primära pipelinen. 
+
+```javascript
+const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+const storageAccessKey = process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY;
+const sharedKeyCredential = new SharedKeyCredential(accountName, storageAccessKey);
+
+const primaryAccountURL = `https://${accountName}.blob.core.windows.net`;
+const secondaryAccountURL = `https://${accountName}-secondary.blob.core.windows.net`;
+
+const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
+  retryOptions: {
+    maxTries: 3, 
+    tryTimeoutInMs: 10000,
+    retryDelayInMs: 500, 
+    maxRetryDelayInMs: 1000,
+    secondaryHost: secondaryAccountURL
+  }
+});
+```
+
 ---
 
 ## <a name="next-steps"></a>Nästa steg

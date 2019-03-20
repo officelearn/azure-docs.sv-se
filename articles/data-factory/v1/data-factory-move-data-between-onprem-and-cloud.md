@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 94c464733d731505cde0327ce9a295d3b4ab68de
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 72e93b99783441bda97c52ff295a89b0fcf4e629
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538705"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995901"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Flytta data mellan lokala källor och molnet med Data Management Gateway
 > [!NOTE]
@@ -359,7 +359,7 @@ I det här steget skapar du en **pipeline** med en **Kopieringsaktiviteten** som
 
    * I aktivitetsavsnittet finns endast aktivitet vars **typ** är inställd på **kopiera**.
    * **Indata** för aktiviteten är inställd på **EmpOnPremSQLTable** och **utdata** för aktiviteten är inställd på **OutputBlobTable**.
-   * I den **typeProperties** avsnittet **SqlSource** har angetts som den **källtyp** och ** BlobSink ** har angetts som den **mottagare typ**.
+   * I den **typeProperties** avsnittet **SqlSource** har angetts som den **källtyp** och **BlobSink** har angetts som **mottagare typ**.
    * SQL-fråga `select * from emp` har angetts för den **sqlReaderQuery** egenskapen för **SqlSource**.
 
    Både start- och slutdatum måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41Z. **Sluttiden** är valfri, men vi använder den i den här självstudiekursen.

@@ -1,5 +1,5 @@
 ---
-title: Gäller för en ohanterad katalog - administratör - Azure Active Directory | Microsoft Docs
+title: Administratören övertagande av en ohanterad katalog - Azure Active Directory | Microsoft Docs
 description: Så här att ta över en DNS-domännamnet i en ohanterad katalog (shadow klient) i Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -10,19 +10,20 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0af2628e1da24bd790e94306703aab797a0d56a1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3f9a33b6bce8cef5bf790efeb43259dfb8013487
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164778"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202494"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Ta över en ohanterad katalog som administratör i Azure Active Directory
+
 Den här artikeln beskrivs två sätt att ta över en DNS-domännamnet i en ohanterad katalog i Azure Active Directory (AD Azure). När en självbetjäningsanvändare registrerar sig för en molntjänst som använder Azure AD läggs de till i en ohanterad Azure AD-katalog baserat på e-postdomän. Mer information om självbetjäning eller ”viral” registrering för en tjänst finns i [vad är självbetjäningsregistrering för Azure Active Directory?](directory-self-service-signup.md)
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Bestäm hur du vill ta över en ohanterad katalog
@@ -42,13 +43,13 @@ Vissa produkter som innehåller SharePoint och OneDrive, till exempel Office 365
 
 3. I e-postbekräftelsen från Power BI, väljer **Ja, det är jag**.
 
-4. Logga in på den [Office 365 Administrationscenter](https://portal.office.com/admintakeover) med Power BI-konto. Du får ett meddelande där du uppmanas att **bli administratör** för det domännamn som har redan verifierats i en ohanterad klient. Välj **Ja, jag vill att administratören**.
+4. Logga in på den [Microsoft 365 Administrationscenter](https://admin.microsoft.com) med Power BI-konto. Du får ett meddelande där du uppmanas att **bli administratör** för det domännamn som har redan verifierats i en ohanterad klient. Välj **Ja, jag vill att administratören**.
   
-  ![första skärmbild för bli administratör](./media/domains-admin-takeover/become-admin-first.png)
+   ![första skärmbild för bli administratör](./media/domains-admin-takeover/become-admin-first.png)
   
 5. Lägg till TXT-posten för att bevisa att du äger domännamnet **fourthcoffee.xyz** på din domänregistrator. I det här exemplet är det GoDaddy.com.
   
-  ![Lägg till en txt-post för domännamnet](./media/domains-admin-takeover/become-admin-txt-record.png)
+   ![Lägg till en txt-post för domännamnet](./media/domains-admin-takeover/become-admin-txt-record.png)
 
 Du kan hantera Azure AD-klienten när DNS TXT-poster har verifierats i din domännamnsregistrator.
 
@@ -56,23 +57,23 @@ När du har slutfört föregående steg, men du är nu global administratör fö
 
 ### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Att lägga till domännamnet till en hanterad klient i Azure AD
 
-1. Öppna den [Office 365 Administrationscenter](https://portal.office.com/admintakeover).
-2. Välj **användare** fliken och skapa ett nytt användarkonto med ett namn som liknar *user@fourthcoffeexyz.onmicrosoft.com* som inte använder det anpassade domännamnet. 
+1. Öppna den [Microsoft 365 Administrationscenter](https://admin.microsoft.com).
+2. Välj **användare** fliken och skapa ett nytt användarkonto med ett namn som liknar *användaren\@fourthcoffeexyz.onmicrosoft.com* som inte använder det anpassade domännamnet. 
 3. Kontrollera att det nya användarkontot har globala administratörsrättigheter för Azure AD-klient.
-4. Öppna **domäner** fliken i Office 365 Administrationscenter, Välj domännamnet och välj **ta bort**. 
+4. Öppna **domäner** fliken i Microsoft 365 Administrationscenter, Välj domännamnet och välj **ta bort**. 
   
-  ![ta bort domännamnet från Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
+   ![ta bort domännamnet från Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Om du har några användare eller grupper i Office 365 som refererar till borttagna domännamnet, måste de ändras till den. onmicrosoft.com-domän. Om du tvingar ta bort domännamnet, alla användare får automatiskt ett nytt namn, i det här exemplet till *user@fourthcoffeexyz.onmicrosoft.com*.
+5. Om du har några användare eller grupper i Office 365 som refererar till borttagna domännamnet, måste de ändras till den. onmicrosoft.com-domän. Om du tvingar ta bort domännamnet, alla användare får automatiskt ett nytt namn, i det här exemplet till *användaren\@fourthcoffeexyz.onmicrosoft.com*.
   
 6. Logga in på den [Azure AD administratörscenter](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med ett konto som är global administratör för Azure AD-klient.
   
 7. Välj **anpassade domännamn**, lägga till domännamnet. Du måste ange DNS TXT-poster för att verifiera ditt ägarskap till domännamnet. 
   
-  ![domän som har lagts till i Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
+   ![domänkontrollerats som lagts till i Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Alla användare av Power BI eller Azure Rights Management-tjänsten som har licenser som tilldelats i Office 365-klient måste spara sina instrumentpaneler om domännamnet har tagits bort. De måste logga in med ett användarnamn som *user@fourthcoffeexyz.onmicrosoft.com* snarare än *user@fourthcoffee.xyz*.
+> Alla användare av Power BI eller Azure Rights Management-tjänsten som har licenser som tilldelats i Office 365-klient måste spara sina instrumentpaneler om domännamnet har tagits bort. De måste logga in med ett användarnamn som *användaren\@fourthcoffeexyz.onmicrosoft.com* snarare än *användaren\@fourthcoffee.xyz*.
 
 ## <a name="external-admin-takeover"></a>Externa adminövertagande
 
@@ -132,46 +133,47 @@ cmdlet | Användning
 ### <a name="powershell-example"></a>PowerShell-exempel
 
 1. Anslut till Azure AD med de autentiseringsuppgifter som användes för att svara på självbetjäning erbjudandet:
-  ```
+   ```powershell
     Install-Module -Name MSOnline
     $msolcred = get-credential
     
     connect-msolservice -credential $msolcred
-  ```
+   ```
 2. Hämta en lista över domäner:
   
-  ```
+   ```powershell
     Get-MsolDomain
-  ```
+   ```
 3. Kör cmdleten Get-MsolDomainVerificationDns för att skapa en utmaning:
-  ```
+   ```powershell
     Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
   
     For example:
   
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
-  ```
+   ```
 
 4. Kopiera värdet (utmaningen) som returneras från det här kommandot. Exempel:
-  ```
+   ```powershell
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
-  ```
+   ```
 5. Skapa en DNS txt-post som innehåller värdet som du kopierade i föregående steg i ditt offentliga DNS-namnområde. Namn för den här posten är namnet på den överordnade domänen, så om du skapar denna resurspost med hjälp av DNS-roll från Windows Server, post namn tomt och bara klistra in värdet i textrutan.
 6. Kör cmdleten Confirm-MsolDomain för att verifiera utmaningen:
   
-  ```
+   ```powershell
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
-  ```
+   ```
   
-  Exempel:
+   Exempel:
   
-  ```
+   ```powershell
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
-  ```
+   ```
 
 En lyckad utmaning återgår till Kommandotolken utan fel.
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Lägga till ett anpassat domännamn i Azure AD](../fundamentals/add-custom-domain.md)
 * [Installera och konfigurera Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)

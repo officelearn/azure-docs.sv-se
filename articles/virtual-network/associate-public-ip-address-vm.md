@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: be3e9b8003bc6eb585177b285255658c44c7fc36
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ce573ff8fe61f2e1d4c88963e0f21fc9402776e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808743"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083223"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Associera en offentlig IP-adress till en virtuell dator
 
@@ -74,20 +74,20 @@ Installera den [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-n
      --public-ip-address myVMPublicIP
    ```
 
-  - Om du inte har en befintlig offentlig IP-adress kan du använda den [az nätverket offentliga ip-skapa](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) kommando för att skapa en. Till exempel följande kommando skapar en offentlig IP-adress med namnet *myVMPublicIP* i en resursgrupp med namnet *myResourceGroup*.
+   - Om du inte har en befintlig offentlig IP-adress kan du använda den [az nätverket offentliga ip-skapa](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) kommando för att skapa en. Till exempel följande kommando skapar en offentlig IP-adress med namnet *myVMPublicIP* i en resursgrupp med namnet *myResourceGroup*.
   
-    ```azurecli-interactive
-    az network public-ip create --name myVMPublicIP --resource-group myResourceGroup
-    ```
+     ```azurecli-interactive
+     az network public-ip create --name myVMPublicIP --resource-group myResourceGroup
+     ```
 
-    > [!NOTE]
-    > Föregående kommando skapar en offentlig IP-adress med standardvärden för flera inställningar som du kan anpassa. Läs mer om alla offentliga IP-adressinställningarna i [skapa en offentlig IP-adress](virtual-network-public-ip-address.md#create-a-public-ip-address). Adressen tilldelas från en pool med offentliga IP-adresser som används för varje Azure-region. Om du vill se en lista över-adresspooler som används i varje region Se [IP-intervall i Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653).
+     > [!NOTE]
+     > Föregående kommando skapar en offentlig IP-adress med standardvärden för flera inställningar som du kan anpassa. Läs mer om alla offentliga IP-adressinställningarna i [skapa en offentlig IP-adress](virtual-network-public-ip-address.md#create-a-public-ip-address). Adressen tilldelas från en pool med offentliga IP-adresser som används för varje Azure-region. Om du vill se en lista över-adresspooler som används i varje region Se [IP-intervall i Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653).
 
-  - Om du inte vet namnet på ett nätverksgränssnitt som är kopplat till den virtuella datorn använder den [az vm nic list](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-list) kommando för att visa dem. Till exempel följande kommando visar namnen på de nätverksgränssnitt som är kopplade till en virtuell dator med namnet *myVM* i en resursgrupp med namnet *myResourceGroup*:
+   - Om du inte vet namnet på ett nätverksgränssnitt som är kopplat till den virtuella datorn använder den [az vm nic list](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-list) kommando för att visa dem. Till exempel följande kommando visar namnen på de nätverksgränssnitt som är kopplade till en virtuell dator med namnet *myVM* i en resursgrupp med namnet *myResourceGroup*:
 
-    ```azurecli-interactive
-    az vm nic list --vm-name myVM --resource-group myResourceGroup
-    ```
+     ```azurecli-interactive
+     az vm nic list --vm-name myVM --resource-group myResourceGroup
+     ```
 
      Utdata innehåller en eller flera rader som liknar följande exempel:
   
@@ -97,11 +97,11 @@ Installera den [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-n
 
      I exemplet ovan *myVMVMNic* är namnet på nätverksgränssnittet.
 
-  - Om du inte vet namnet på en IP-konfiguration för ett nätverksgränssnitt, använda den [az network nic ip-config list](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-list) kommando för att hämta dem. Till exempel följande kommando visar namnen på IP-konfigurationer för ett nätverksgränssnitt med namnet *myVMVMNic* i en resursgrupp med namnet *myResourceGroup*:
+   - Om du inte vet namnet på en IP-konfiguration för ett nätverksgränssnitt, använda den [az network nic ip-config list](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-list) kommando för att hämta dem. Till exempel följande kommando visar namnen på IP-konfigurationer för ett nätverksgränssnitt med namnet *myVMVMNic* i en resursgrupp med namnet *myResourceGroup*:
 
-    ```azurecli-interactive
-    az network nic ip-config list --nic-name myVMVMNic --resource-group myResourceGroup --out table
-    ```
+     ```azurecli-interactive
+     az network nic ip-config list --nic-name myVMVMNic --resource-group myResourceGroup --out table
+     ```
 
 3. Visa offentliga IP-adress som tilldelats IP-konfiguration med den [az vm list-ip-adresser](/cli/azure/vm?view=azure-cli-latest#az-vm-list-ip-addresses) kommando. I följande exempel visas de IP-adresserna som tilldelats till en befintlig virtuell dator med namnet *myVM* i en resursgrupp med namnet *myResourceGroup*.
 
@@ -132,35 +132,35 @@ Installera [PowerShell](/powershell/azure/install-az-ps), eller använda Azure C
    $nic | Set-AzNetworkInterface
    ```
 
-  - Om du inte har en befintlig offentlig IP-adress kan du använda den [New AzPublicIpAddress](/powershell/module/Az.Network/New-AzPublicIpAddress) kommando för att skapa en. Till exempel följande kommando skapar en *dynamisk* offentlig IP-adress med namnet *myVMPublicIP* i en resursgrupp med namnet *myResourceGroup* i den  *eastus* region.
+   - Om du inte har en befintlig offentlig IP-adress kan du använda den [New AzPublicIpAddress](/powershell/module/Az.Network/New-AzPublicIpAddress) kommando för att skapa en. Till exempel följande kommando skapar en *dynamisk* offentlig IP-adress med namnet *myVMPublicIP* i en resursgrupp med namnet *myResourceGroup* i den  *eastus* region.
   
-    ```azurepowershell-interactive
-    New-AzPublicIpAddress -Name myVMPublicIP -ResourceGroupName myResourceGroup -AllocationMethod Dynamic -Location eastus
-    ```
+     ```azurepowershell-interactive
+     New-AzPublicIpAddress -Name myVMPublicIP -ResourceGroupName myResourceGroup -AllocationMethod Dynamic -Location eastus
+     ```
 
-    > [!NOTE]
-    > Föregående kommando skapar en offentlig IP-adress med standardvärden för flera inställningar som du kan anpassa. Läs mer om alla offentliga IP-adressinställningarna i [skapa en offentlig IP-adress](virtual-network-public-ip-address.md#create-a-public-ip-address). Adressen tilldelas från en pool med offentliga IP-adresser som används för varje Azure-region. Om du vill se en lista över-adresspooler som används i varje region Se [IP-intervall i Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653).
+     > [!NOTE]
+     > Föregående kommando skapar en offentlig IP-adress med standardvärden för flera inställningar som du kan anpassa. Läs mer om alla offentliga IP-adressinställningarna i [skapa en offentlig IP-adress](virtual-network-public-ip-address.md#create-a-public-ip-address). Adressen tilldelas från en pool med offentliga IP-adresser som används för varje Azure-region. Om du vill se en lista över-adresspooler som används i varje region Se [IP-intervall i Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653).
 
-  - Om du inte vet namnet på ett nätverksgränssnitt som är kopplat till den virtuella datorn använder den [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) kommando för att visa dem. Till exempel följande kommando visar namnen på de nätverksgränssnitt som är kopplade till en virtuell dator med namnet *myVM* i en resursgrupp med namnet *myResourceGroup*:
+   - Om du inte vet namnet på ett nätverksgränssnitt som är kopplat till den virtuella datorn använder den [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) kommando för att visa dem. Till exempel följande kommando visar namnen på de nätverksgränssnitt som är kopplade till en virtuell dator med namnet *myVM* i en resursgrupp med namnet *myResourceGroup*:
 
-    ```azurepowershell-interactive
-    $vm = Get-AzVM -name myVM -ResourceGroupName myResourceGroup
-    $vm.NetworkProfile
-    ```
+     ```azurepowershell-interactive
+     $vm = Get-AzVM -name myVM -ResourceGroupName myResourceGroup
+     $vm.NetworkProfile
+     ```
 
-    Utdata innehåller en eller flera rader som liknar följande exempel. I Exempelutdata *myVMVMNic* är namnet på nätverksgränssnittet.
+     Utdata innehåller en eller flera rader som liknar följande exempel. I Exempelutdata *myVMVMNic* är namnet på nätverksgränssnittet.
   
-    ```
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic",
-    ```
+     ```
+     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic",
+     ```
 
-  - Om du inte vet namnet på det virtuella nätverk eller undernät som nätverksgränssnittet finns i, Använd den `Get-AzNetworkInterface` kommando för att visa informationen. Till exempel följande kommando hämtar informationen virtuella nätverk och undernät för ett nätverksgränssnitt med namnet *myVMVMNic* i en resursgrupp med namnet *myResourceGroup*:
+   - Om du inte vet namnet på det virtuella nätverk eller undernät som nätverksgränssnittet finns i, Använd den `Get-AzNetworkInterface` kommando för att visa informationen. Till exempel följande kommando hämtar informationen virtuella nätverk och undernät för ett nätverksgränssnitt med namnet *myVMVMNic* i en resursgrupp med namnet *myResourceGroup*:
 
-    ```azurepowershell-interactive
-    $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
-    $ipConfigs = $nic.IpConfigurations
-    $ipConfigs.Subnet | Select Id
-    ```
+     ```azurepowershell-interactive
+     $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
+     $ipConfigs = $nic.IpConfigurations
+     $ipConfigs.Subnet | Select Id
+     ```
 
      Utdata innehåller en eller flera rader som liknar följande exempel. I Exempelutdata *myVMVNET* är namnet på det virtuella nätverket och *myVMSubnet* är namnet på undernätet.
   
@@ -168,18 +168,18 @@ Installera [PowerShell](/powershell/azure/install-az-ps), eller använda Azure C
      "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVMVNET/subnets/myVMSubnet",
      ```
 
-  - Om du inte vet namnet på en IP-konfiguration för ett nätverksgränssnitt, använda den [Get-AzNetworkInterface](/powershell/module/Az.Network/Get-AzNetworkInterface) kommando för att hämta dem. Till exempel följande kommando visar namnen på IP-konfigurationer för ett nätverksgränssnitt med namnet *myVMVMNic* i en resursgrupp med namnet *myResourceGroup*:
+   - Om du inte vet namnet på en IP-konfiguration för ett nätverksgränssnitt, använda den [Get-AzNetworkInterface](/powershell/module/Az.Network/Get-AzNetworkInterface) kommando för att hämta dem. Till exempel följande kommando visar namnen på IP-konfigurationer för ett nätverksgränssnitt med namnet *myVMVMNic* i en resursgrupp med namnet *myResourceGroup*:
 
-    ```azurepowershell-interactive
-    $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
-    $nic.IPConfigurations
-    ```
+     ```azurepowershell-interactive
+     $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
+     $nic.IPConfigurations
+     ```
 
-    Utdata innehåller en eller flera rader som liknar följande exempel. I Exempelutdata *ipconfigmyVM* är namnet på en IP-konfiguration.
+     Utdata innehåller en eller flera rader som liknar följande exempel. I Exempelutdata *ipconfigmyVM* är namnet på en IP-konfiguration.
   
-    ```
-    Id     : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM
-    ```
+     ```
+     Id     : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM
+     ```
 
 3. Visa offentliga IP-adress som tilldelats IP-konfiguration med den [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) kommando. I följande exempel visas den adress som tilldelats en offentlig IP-adress med namnet *myVMPublicIP* i en resursgrupp med namnet *myResourceGroup*.
 

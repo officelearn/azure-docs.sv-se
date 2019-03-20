@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 9a76ad219e538874af04a72c9aa64e87a35bc53d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7b6f9ca914e9fed48463d2134eeba1cd4c103690
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434893"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225332"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Hantera loggar för ett HDInsight-kluster
 
@@ -34,7 +34,7 @@ Vanliga steg i hantering av HDInsight är:
 
 Det första steget i att skapa ett HDInsight-kluster log management strategi är att samla in information om affärsscenarier och lagringskrav för jobbet körning historik.
 
-### <a name="cluster-details"></a>Information om kluster
+### <a name="cluster-details"></a>Klusterinformation
 
 Information om följande kluster är användbara i hjälper till att samla in information i din strategi för hantering av loggen. Samla in informationen från alla HDInsight-kluster som du har skapat i en viss Azure-konto.
 
@@ -77,7 +77,7 @@ En typisk HDInsight-klustret använder flera tjänster och program med öppen k�
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Visa inställningar för klustrets med Ambari UI
 
-Apache Ambari förenklar hantering, konfiguration och övervakning i ett HDInsight-kluster genom att tillhandahålla en web UI och ett REST-API. Ambari ingår i Linux-baserade HDInsight-kluster. Välj den **Klusterinstrumentpanel** fönstret på Azure HDInsight portalsidan att öppna den **' Klusterinstrumentpaneler** länksida.  Välj sedan den **HDInsight-klusterinstrumentpanel** fönstret för att öppna Ambari UI.  Du uppmanas att ange dina autentiseringsuppgifter för klusterinloggning.
+Apache Ambari förenklar hantering, konfiguration och övervakning i ett HDInsight-kluster genom att tillhandahålla en web UI och ett REST-API. Ambari ingår i Linux-baserade HDInsight-kluster. Välj den **Klusterinstrumentpanel** fönstret på Azure HDInsight portalsidan att öppna den**Klusterinstrumentpaneler** länksida.  Välj sedan den **HDInsight-klusterinstrumentpanel** fönstret för att öppna Ambari UI.  Du uppmanas att ange dina autentiseringsuppgifter för klusterinloggning.
 
 Om du vill öppna en lista över service-vyerna, Välj den **Ambari-vyer** rutan på sidan för Azure portal för HDInsight.  Den här listan varierar beroende på vilka bibliotek som du har installerat.  Du kan till exempel se köhanteraren YARN, Hive-vyerna och Tez.  Välj en länk för tjänsten att se konfigurations- och tjänstinformation.  Ambari UI **Stack och Version** sidan innehåller information om kluster-tjänsternas konfiguration och versionshistorik för tjänsten. Gå till det här avsnittet av Ambari UI, välja den **Admin** menyn och sedan **stackar och versioner**.  Välj den **versioner** fliken för att se information om tjänstens version.
 
@@ -177,5 +177,5 @@ För att samla in loggar från alla noder till en central plats, kan du skapa et
 ## <a name="next-steps"></a>Nästa steg
 
 * [Övervakning och loggning för HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Åtkomstlogg Apache Hadoop YARN-program på Linux-baserat HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Åtkomst Apache Hadoop YARN-program för inloggning i Linux-baserat HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Så här kontrollerar du storleken på loggfiler för olika Apache Hadoop-komponenter](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

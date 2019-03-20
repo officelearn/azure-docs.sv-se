@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 4998084ed15e6ed455789689674e134c6cd9d0a8
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 4b2763629a3036551cb3d362e609c72737436f4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749774"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012230"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Arbeta med strängar i Azure Monitor log-frågor
 
@@ -64,9 +64,9 @@ Operator       |Beskrivning                         |Skiftlägeskänsligt|Exempe
 `hasprefix_cs`    |Right hand sida är en term som prefix i vänstra hand sida         |Ja            |`"North America" hasprefix_cs "Ame"`
 `!hasprefix_cs`   |Right hand sida inte är en term prefixet i vänstra hand sida     |Ja            |`"North America" !hasprefix_cs "CA"` 
 `hassuffix`    |Right hand sida är en term suffix i vänstra hand sida         |Nej            |`"North America" hassuffix "ica"`
-`!hassuffix`   |Right hand sida inte är en term suffix i vänstra hand sida     |Nej            |”” Nordamerika ”! hassuffix” americ ”
+`!hassuffix`   |Right hand sida inte är en term suffix i vänstra hand sida     |Nej            |`"North America" !hassuffix "americ"`
 `hassuffix_cs`    |Right hand sida är en term suffix i vänstra hand sida         |Ja            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |Right hand sida inte är en term suffix i vänstra hand sida     |Ja            |`"North America" !hassuffix_cs "icA"
+`!hassuffix_cs`   |Right hand sida inte är en term suffix i vänstra hand sida     |Ja            |`"North America" !hassuffix_cs "icA"`
 `contains`     |Right hand sida som utförs som en efterföljande av vänstra hand sida  |Nej            |`"FabriKam" contains "BRik"`
 `!contains`    |Right hand sida inträffar inte i vänstra hand sida           |Nej            |`"Fabrikam" !contains "xyz"`
 `contains_cs`   |Right hand sida som utförs som en efterföljande av vänstra hand sida  |Ja           |`"FabriKam" contains_cs "Kam"`
@@ -259,6 +259,7 @@ SecurityEvent
 ```
 
 Kan ha följande resultat:
+
 Aktivitet                                        |ersatt
 ------------------------------------------------|----------------------------------------------------------
 4663 – ett försök gjordes att komma åt ett objekt  |Aktivitets-ID 4663: Ett försök gjordes att komma åt ett objekt.

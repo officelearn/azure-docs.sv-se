@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: hning86
-ms.author: haining
-ms.reviewer: j-martens
+ms.author: larryfr
+author: Blackmist
 ms.date: 03/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: bb074dd848ce5e752ba8e4ca1d3a8ee533a2f5d2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2a2817501628d55d7ccc84979700ea53e4114eed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777455"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860643"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -30,6 +29,7 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En 
 
  + **Ändringar**
    + Azureml-tensorboard paketet ersätter azureml-contrib-tensorboard.
+   + Med den här versionen kan du konfigurera ett användarkonto på dina hanterade beräkningskluster (amlcompute) när du skapar den. Detta kan göras genom att bara skicka de här egenskaperna i etablerar konfigurationen. Du hittar mer information finns i den [SDK referensdokumentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none-).
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1017"></a>Azure Machine Learning Data Prep SDK v1.0.17
 

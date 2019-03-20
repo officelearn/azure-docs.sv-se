@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 937f6ffb9865419611c35b95ac84832bb2f1f3fe
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 92ffa02959f020789d14b3bea71763f3f5b9bb47
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791826"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084106"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kärnor för Jupyter notebook i Apache Spark-kluster i Azure HDInsight 
 
@@ -59,15 +59,15 @@ Här följer några fördelar med att använda de nya kernlar med Jupyter notebo
 
 - **Förinställda kontexter**. Med **PySpark**, **PySpark3**, eller **Spark** kernlar, du behöver inte ange kontexter för Spark- eller Hive explicit innan du börjar arbeta med dina program. Dessa är tillgängliga som standard. Dessa kontexter är:
    
-   * **SC** – för Spark-kontexten
-   * **sqlContext** – för Hive-kontexten
+  * **SC** – för Spark-kontexten
+  * **sqlContext** – för Hive-kontexten
    
-   Så behöver du köra instruktioner som följande för att ange kontexter:
+    Så behöver du köra instruktioner som följande för att ange kontexter:
    
-          sc = SparkContext('yarn-client')
-          sqlContext = HiveContext(sc)
+         sc = SparkContext('yarn-client')
+         sqlContext = HiveContext(sc)
    
-   Du kan i stället använda förinställda kontexter direkt i ditt program.
+    Du kan i stället använda förinställda kontexter direkt i ditt program.
 
 - **Cell användbara**. PySpark-kerneln innehåller vissa fördefinierade ”användbara”, vilket är särskilt kommandon som du kan anropa med `%%` (till exempel `%%MAGIC` <args>). Den magiska språkkommandot måste vara det första ordet i en kodcell och tillåter flera rader med innehåll. Magic ordet ska vara det första ordet i cellen. Att lägga till något innan magic, även kommentarer orsakar ett fel.     Mer information om användbara funktioner finns i [här](https://ipython.readthedocs.org/en/stable/interactive/magics.html).
    
@@ -87,7 +87,7 @@ Här följer några fördelar med att använda de nya kernlar med Jupyter notebo
    > [!NOTE]  
    > Förutom användbara funktioner har lagts till av PySpark-kerneln, du kan också använda den [inbyggda IPython användbara](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), inklusive `%%sh`. Du kan använda den `%%sh` magic att köra skript och kodblock på klustrets huvudnod.
 
-2. **Automatisk visualisering**. Den **Pyspark** kernel automatiskt visualiserar utdata för Hive- och SQL-frågor. Du kan välja mellan flera olika typer av visualiseringar, inklusive tabell, cirkel, rad, området, -fältet.
+1. **Automatisk visualisering**. Den **Pyspark** kernel automatiskt visualiserar utdata för Hive- och SQL-frågor. Du kan välja mellan flera olika typer av visualiseringar, inklusive tabell, cirkel, rad, området, -fältet.
 
 ## <a name="parameters-supported-with-the-sql-magic"></a>Parametrar som stöds med den %% sql magic
 Den `%%sql` magic har stöd för olika parametrar som du kan använda för att styra vilken typ av utdata som visas när du kör frågor. I följande tabell visas utdata.

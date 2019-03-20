@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a81754b9b95c7cc6e257707aec188abf1dab58c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6ed8bae32cb8d0680b1f9aa66f26407c3313ea06
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194877"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077827"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Tableau Online för automatisk användaretablering
 
@@ -106,13 +106,13 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 5. Under den **administratörsautentiseringsuppgifter** avsnittet, ange den **domän**, **Admin Username**, **adminlösenord**, och **innehåll URL: en** din Tableau Online-konto:
 
-    *   I den **domän** fältet, fylla underdomän baserat på steg 6.
+   * I den **domän** fältet, fylla underdomän baserat på steg 6.
 
-    *   I den **Admin Username** fältet, fylla i användarnamnet för administratörskontot på Clarizen-klienten. Exempel: admin@contoso.com.
+   * I den **Admin Username** fältet, fylla i användarnamnet för administratörskontot på Clarizen-klienten. Exempel: admin@contoso.com.
 
-    *   I den **adminlösenord** fältet, Fyll i lösenord för administratörskontot som motsvarar administratörens användarnamn.
+   * I den **adminlösenord** fältet, Fyll i lösenord för administratörskontot som motsvarar administratörens användarnamn.
 
-    *   I den **Innehållswebbadress** fältet, fylla underdomän baserat på steg 6.
+   * I den **Innehållswebbadress** fältet, fylla underdomän baserat på steg 6.
 
 6. När du loggar in till ditt administratörskonto för Online Tableau värdena för **domän** och **Innehållswebbadress** kan extraheras från URL: en för sidan.
 

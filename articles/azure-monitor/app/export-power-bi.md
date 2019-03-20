@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 17c493568953265ac12ebccc680652ed5da6ae4d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: MT
+ms.openlocfilehash: 13156b3419d961850c8e4e408a9cf565a5f957ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312999"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086402"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Powerbi-flöde från Application Insights
 [Power BI](https://www.powerbi.com/) är en uppsättning verktyg för business som hjälper dig att analysera data och dela insikter. Omfattande instrumentpaneler är tillgängliga på varje enhet. Du kan kombinera data från många källor, inklusive Analytics-frågor från [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -96,7 +96,7 @@ Detta kan inträffa om din uppdateringstoken inte har uppdaterats. Prova de här
 1. Logga in på Azure portal och kontrollera att du kan komma åt resursen.
 2. Försök att uppdatera autentiseringsuppgifterna för instrumentpanelen.
 
- Om du har åtkomst och uppdaterar autentiseringsuppgifterna som inte fungerar, öppnar du ett supportärende.
+   Om du har åtkomst och uppdaterar autentiseringsuppgifterna som inte fungerar, öppnar du ett supportärende.
 
 ### <a name="bad-gateway-502"></a>Bad Gateway (502)
 Detta orsakas normalt av en Analytics-fråga som returnerar för mycket data. Försök med ett mindre tidsintervall för frågan. 

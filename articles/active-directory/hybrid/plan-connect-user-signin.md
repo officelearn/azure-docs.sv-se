@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3b503c7f0693a90d438fcec3ecae335fd349b3d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cb44c64540cc461bca4e305f7783f7c6b612591b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996336"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect-inloggning användaralternativ
 Azure Active Directory (Azure AD) Connect kan användarna att logga in på både i molnet och lokala resurser med hjälp av samma lösenord. Den här artikeln beskriver viktiga begrepp för varje identitet modell för att välja den identitet som du vill använda för att logga in till Azure AD.
@@ -75,7 +75,9 @@ Mer information finns i:
 ### <a name="federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2"></a>Federation med en ny eller befintlig servergrupp med AD FS i Windows Server 2012 R2
 Med federerad inloggning, kan användarna logga in på Azure AD-baserade tjänster med sina lokala lösenord. Även om de är i företagets nätverk, behöver inte de även ange sina lösenord. Du kan distribuera en ny eller befintlig servergrupp med AD FS i Windows Server 2012 R2 med hjälp av alternativet federation med AD FS. Om du vill ange en befintlig servergrupp konfigurerar Azure AD Connect förtroendet mellan din grupp och Azure AD så att användarna kan logga in.
 
-<center>![Federation med AD FS i Windows Server 2012 R2](./media/plan-connect-user-signin/federatedsignin.png)</center>
+<center>
+
+![Federation med AD FS i Windows Server 2012 R2](./media/plan-connect-user-signin/federatedsignin.png)</center>
 
 #### <a name="deploy-federation-with-ad-fs-in-windows-server-2012-r2"></a>Distribuera federation med AD FS i Windows Server 2012 R2
 
@@ -152,6 +154,7 @@ Det är mycket viktigt att förstå förhållandet mellan de anpassade domänen 
 I följande information, antar vi att vi är bekymrad över UPN-suffixet contoso.com, som används i en lokal katalog som en del av UPN – till exempel user@contoso.com.
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>Express-inställningar/synkronisering av lösenordshash
+
 | Status | Användarens inloggning i Azure-upplevelse |
 |:---:|:--- |
 | Inte har lagts till |I det här fallet har ingen anpassad domän för contoso.com lagts till i Azure AD-katalog. Användare som har UPN lokalt med suffixet @contoso.com kommer inte att kunna använda sina lokala UPN för att logga in på Azure. De måste i stället använda en ny UPN som har angetts för dem av Azure AD genom att lägga till suffix för standard Azure AD-katalog. Exempel: Om du synkroniserar användare till Azure AD directory azurecontoso.onmicrosoft.com sedan lokala användare user@contoso.com får ett UPN för user@azurecontoso.onmicrosoft.com. |

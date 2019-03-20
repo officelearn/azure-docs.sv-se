@@ -10,16 +10,30 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 2e51bdd24f33789a95017c9fe5df88b0bb55de26
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 4d802b9f71edee1eec4b2c92881e2a8796db2865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870715"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005519"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Viktig information för Cognitive Services tal enheter SDK
 
 Följande avsnitt lista över ändringar i de senaste versionerna.
+
+## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Cognitive Services tal enheter SDK 1.3.1: 2019 Mar versionen 
+
+* Uppdatera den [tal SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) komponenten till version 1.3.1. Mer information finns i dess [viktig](https://aka.ms/csspeech/whatsnew). 
+*   Uppdaterade wake word hantering, se större ändringar.
+*   Exempelprogram lägger till val av språk för både taligenkänning och översättning.
+
+**Större ändringar** 
+
+*   [Installera ett wake ord](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg#run-a-sample-application) har förenklad, det är nu en del av appen och behöver inte separat installation på enheten.
+*   Wake word erkännande har ändrats och två händelser som stöds.
+    - RecognizingKeyword, anger det tal resultatet innehåller (overifierade) Nyckelordstext.
+    - RecognizedKeyword, anger den nyckelordet igenkänning av slutförts eftersom det angivna nyckelordet.
+
 
 ## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Cognitive Services tal enheter SDK 1.1.0: 2018-Nov versionen 
 

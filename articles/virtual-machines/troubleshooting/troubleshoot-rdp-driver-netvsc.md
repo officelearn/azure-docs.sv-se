@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: c6918126c36e1940daf564ee7eae562e31b280c3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e6685a5e77d92bb9e05ab9578e48c99e80a64b74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449112"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994631"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Det går inte att fjärransluta till en Windows 10 eller Windows Server 2016-dator i Azure på grund av netvsc.sys
 
@@ -28,7 +28,7 @@ Den här artikeln förklarar hur du felsöker ett problem där det inte finns n�
 
 Du kan inte ansluta till en Azure Windows 10 eller Windows Server 2016-dator med hjälp av Remote Desktop Protocol (RDP). I [Startdiagnostik](boot-diagnostics.md), skärmen visas ett rött kryss över nätverkskort (NIC). Detta anger att den virtuella datorn inte har någon anslutning efter att operativsystemet har lästs in helt.
 
-Vanligtvis det här problemet uppstår i Windows [skapa 14393](http://support.microsoft.com/help/4093120/) och [skapa 15063](http://support.microsoft.com/help/4015583/). Om versionen av operativsystemet är senare än dessa versioner, gäller inte den här artikeln för ditt scenario. Om du vill kontrollera vilken version av systemet, öppna en CMD-session i [funktionen åtkomst Seriekonsolen](serial-console-windows.md), och kör sedan **Ver**.
+Vanligtvis det här problemet uppstår i Windows [skapa 14393](https://support.microsoft.com/help/4093120/) och [skapa 15063](https://support.microsoft.com/help/4015583/). Om versionen av operativsystemet är senare än dessa versioner, gäller inte den här artikeln för ditt scenario. Om du vill kontrollera vilken version av systemet, öppna en CMD-session i [funktionen åtkomst Seriekonsolen](serial-console-windows.md), och kör sedan **Ver**.
 
 ## <a name="cause"></a>Orsak
 
@@ -55,8 +55,8 @@ Ansluta till [Seriekonsolen, öppna en PowerShell-instans](serial-console-window
 
 2. Hämta lämplig uppdatering till en ny eller befintlig datadisk som är kopplad till en aktiv virtuell dator från samma region:
 
-   - **10.0.14393.594**: [KB4073562](http://support.microsoft.com/help/4073562) eller en senare uppdatering
-   - **10.0.15063.0**: [KB4016240](http://support.microsoft.com/help/4016240) eller en senare uppdatering
+   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) eller en senare uppdatering
+   - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) eller en senare uppdatering
 
 3. Koppla från verktygsdisk fungerande virtuell dator och sedan ansluta den till den brutna virtuella datorn.
 
@@ -98,22 +98,22 @@ Ansluta till [Seriekonsolen, öppna en PowerShell-instans](serial-console-window
 
 12. Hämta lämplig uppdatering:
 
-   - **10.0.14393.594**: [KB4073562](http://support.microsoft.com/help/4073562) eller en senare uppdatering
-   - **10.0.15063.0**: [KB4016240](http://support.microsoft.com/help/4016240) eller en senare uppdatering
+    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) eller en senare uppdatering
+    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) eller en senare uppdatering
 
 13. Koppla systemdisken som en datadisk på en Räddade virtuell dator där du kan ladda ned uppdateringen.
 
 14. Kör följande kommando för att installera uppdateringen på den virtuella datorn:
 
-   ```
-   dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
-   ```
+    ```
+    dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
+    ```
 
 15. Kör följande kommando för att demontera registreringsdatafilerna:
 
-   ```
-   reg unload HKLM\BROKENSYSTEM
-   ```
+    ```
+    reg unload HKLM\BROKENSYSTEM
+    ```
 
 16. [Koppla från systemdisken och skapa den virtuella datorn igen](../windows/troubleshoot-recovery-disks-portal.md).
 

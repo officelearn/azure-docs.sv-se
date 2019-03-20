@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: 842c0d5e3dff0c21545405624f0f536c80359b19
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: eb98fc2da95f1aa2b7294d09ec2a3145bdb5c789
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809903"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112746"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Visa topologi för Azure-nätverk
 
@@ -42,7 +42,7 @@ Du kan använda den [Azure-portalen](#azure-portal), [Azure CLI](#azure-cli), el
     - Inom samma resursgrupp och region som den *myVnet* virtuellt nätverk. Till exempel en nätverkssäkerhetsgrupp som finns i en resursgrupp än *MyResourceGroup*, inte visas, även om nätverkssäkerhetsgruppen är kopplad till ett undernät i den *MyVnet* virtuellt nätverk .
     - I, eller så är kopplade till resurser i, den *myVnet* virtuellt nätverk. Till exempel en nätverkssäkerhetsgrupp som inte är kopplad till ett undernät eller ett gränssnitt i den *myVnet* virtuellt nätverk är inte visas, även om nätverkssäkerhetsgruppen är i den *MyResourceGroup* resursgrupp.
 
-  Topologi som visas i bilden är för det virtuella nätverket skapas när du har distribuerat den **dirigera trafik via ett nätverk virtuell nätverksinstallation – skriptexempel**, vilka du kan distribuera med hjälp av den [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), eller [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+   Topologi som visas i bilden är för det virtuella nätverket skapas när du har distribuerat den **dirigera trafik via ett nätverk virtuell nätverksinstallation – skriptexempel**, vilka du kan distribuera med hjälp av den [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), eller [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 6. Välj **ladda ned topologi** ladda ned bilden som en redigerbara fil i svg-format.
 
@@ -79,7 +79,7 @@ Det konto som du använder måste ha nödvändiga [behörigheter](required-rbac-
 
     Topologiinformation returneras bara för resurser som ligger inom samma resursgrupp som den *MyResourceGroup* resursgruppens namn och samma region som nätverksbevakaren. Till exempel en nätverkssäkerhetsgrupp som finns i en resursgrupp än *MyResourceGroup*, inte visas, även om nätverkssäkerhetsgruppen är kopplad till ett undernät i den *MyVnet* virtuellt nätverk .
 
-  Mer information om relationerna och [egenskaper](#properties) i returnerade utdata. Om du inte har ett befintligt virtuellt nätverk för att visa en topologi för kan du skapa en med den [dirigera trafik via en virtuell nätverksinstallation](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) skriptexempel. Om du vill visa ett diagram över topologi och ladda ned den i en fil som redigeras, Använd den [portal](#azure-portal).
+   Mer information om relationerna och [egenskaper](#properties) i returnerade utdata. Om du inte har ett befintligt virtuellt nätverk för att visa en topologi för kan du skapa en med den [dirigera trafik via en virtuell nätverksinstallation](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) skriptexempel. Om du vill visa ett diagram över topologi och ladda ned den i en fil som redigeras, Använd den [portal](#azure-portal).
 
 ## <a name = "powershell"></a>Visa topologi – PowerShell
 
@@ -123,7 +123,7 @@ Det konto som du använder måste ha nödvändiga [behörigheter](required-rbac-
 
    Topologiinformation returneras bara för resurser som ligger inom samma resursgrupp som den *MyResourceGroup* resursgruppens namn och samma region som nätverksbevakaren. Till exempel en nätverkssäkerhetsgrupp som finns i en resursgrupp än *MyResourceGroup*, inte visas, även om nätverkssäkerhetsgruppen är kopplad till ett undernät i den *MyVnet* virtuellt nätverk .
 
-  Mer information om relationerna och [egenskaper](#properties) i returnerade utdata. Om du inte har ett befintligt virtuellt nätverk för att visa en topologi för kan du skapa en med den [dirigera trafik via en virtuell nätverksinstallation](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) skriptexempel. Om du vill visa ett diagram över topologi och ladda ned den i en fil som redigeras, Använd den [portal](#azure-portal).
+   Mer information om relationerna och [egenskaper](#properties) i returnerade utdata. Om du inte har ett befintligt virtuellt nätverk för att visa en topologi för kan du skapa en med den [dirigera trafik via en virtuell nätverksinstallation](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) skriptexempel. Om du vill visa ett diagram över topologi och ladda ned den i en fil som redigeras, Använd den [portal](#azure-portal).
 
 ## <a name="relationships"></a>Relationer
 

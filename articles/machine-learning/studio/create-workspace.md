@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: a0a6c2d6171b4b383c97cc80d8a64efef9d193f5
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7aeee4f24f6c7133ad978bc0c6c7fb8853bc4c35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823135"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086147"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>Skapa och dela en Azure Machine Learning Studio-arbetsyta
 
@@ -36,10 +36,10 @@ Du måste ha en Machine Learning Studio-arbetsyta om du vill använda Azure Mach
 
 4. Ange informationen om arbetsytan:
 
-    - Den *Arbetsytenamn* kan vara upp till 260 tecken, inte slutar med ett blanksteg. Namnet får inte innehålla följande tecken: `< > * % & : \ ? + /`
-    - Den *webbtjänstplan* du väljer (eller skapa), tillsammans med den associerade *prisnivån* du väljer, används om du distribuerar webbtjänster från den här arbetsytan.
+   - Den *Arbetsytenamn* kan vara upp till 260 tecken, inte slutar med ett blanksteg. Namnet får inte innehålla följande tecken: `< > * % & : \ ? + /`
+   - Den *webbtjänstplan* du väljer (eller skapa), tillsammans med den associerade *prisnivån* du väljer, används om du distribuerar webbtjänster från den här arbetsytan.
 
-    ![Skapa en ny Studio-arbetsyta](./media/create-workspace/create-new-workspace.png)
+     ![Skapa en ny Studio-arbetsyta](./media/create-workspace/create-new-workspace.png)
 
 5. Klicka på **Skapa**.
 

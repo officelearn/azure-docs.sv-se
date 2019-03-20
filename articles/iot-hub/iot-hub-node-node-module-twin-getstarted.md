@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: node
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: ed60e379837a2c2af2a0cc2c3b27eec314bff56b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 80132a2d15333308766b62e89262133b1f05b394
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545182"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888731"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>Kom igång med IoT Hub identitets- och modulen modultvilling med hjälp av Node.js-serverdel och Node.js-enhets-
 
@@ -43,7 +43,7 @@ I det här avsnittet skapar du en Node.js-app som skapar en enhetsidentitet och 
 
 1. Skapa en katalog för att lagra din kod.
 2. Kör först i katalogen **npm init -y** att skapa en tom package.json med standardvärden. Det här är projektfilen för din kod.
-3. Kör **npm-installationsprogrammet -S azure-iothub@modules-preview ** att installera service SDK inuti den **node_modules** underkatalog.
+3. Kör **npm-installationsprogrammet -S azure-iothub\@moduler förhandsversion** att installera service SDK inuti den **node_modules** underkatalog.
 
     > [!NOTE]
     > Underkatalog namnet node_modules använder word-modulen för att beskriva ”ett nod-bibliotek”. Den här termen har inget samband med IoT Hub-moduler.
@@ -107,7 +107,7 @@ I det här avsnittet skapar du en Node.js-app som skapar en enhetsidentitet och 
 
 Den här appen skapar en enhetsidentitet med ID **myFirstDevice** och en modul identitet med ID **myFirstModule** under enhet **myFirstDevice**. (Om modul-ID:t redan finns i identitetsregistret, hämtar koden bara den befintliga modulinformationen.) Appen visar sedan den primära nyckeln för den identiteten. Du använder den här nyckeln i den simulerade modulappen för att ansluta till din IoT Hub.
 
-5. Kör det här med hjälp av noden add.js. Det ger dig en anslutningssträng för din enhetsidentitet och en annan för din modul-identitet.
+1. Kör det här med hjälp av noden add.js. Det ger dig en anslutningssträng för din enhetsidentitet och en annan för din modul-identitet.
 
     > [!NOTE]
     > IoT Hub-identitetsregistret lagrar enhets- och modulidentiteter endast för att skydda åtkomsten till IoT Hub. Enhets-ID:n och nycklar lagras i identitetsregistret och används som autentiseringsuppgifter. I identitetsregistret lagras också en aktiverad/inaktiverad-flagga för varje enhet som du kan använda till att inaktivera enhetens åtkomst. Om ditt program behöver lagra andra enhetsspecifika metadata bör det använda ett programspecifikt datalager. Det finns ingen aktiverad/inaktiverad flagga för modulidentiteter. Mer information finns i [utvecklarhandboken för IoT Hub][lnk-devguide-identity].
@@ -120,7 +120,7 @@ I det här avsnittet skapar du ett Node.js-appen på din simulerade enhet som up
 
     ![Information om Azure-portalmodulen][15]
 
-2. Ett liknande sätt som du gjorde i ovanstående steg, skapa en katalog för enhetskoden och Använd NPM för att initiera den och installera enhets-SDK (**npm-installationsprogrammet -S azure-iot-device-amqp@modules-preview** ).
+2. Ett liknande sätt som du gjorde i ovanstående steg, skapa en katalog för enhetskoden och Använd NPM för att initiera den och installera enhets-SDK (**npm-installationsprogrammet -S azure-iot-device-amqp\@moduler förhandsversion**).
 
     > [!NOTE]
     > Npm install-kommandot kan känna långsam. Ha tålamod, det dra nedåt massor av kod från paketdatabasen.

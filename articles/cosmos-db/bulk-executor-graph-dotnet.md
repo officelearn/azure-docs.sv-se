@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 2f949265e3961794e2fc4b0efbce107762a75ef7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 5e88602aa3b983e1533248253d53967f39e6b5eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041568"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837532"
 ---
 # <a name="using-the-graph-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Använda BulkExecutor .NET-diagrambiblioteket för att utföra massåtgärder i Azure Cosmos DB Gremlin API
 
@@ -113,7 +113,7 @@ e.AddProperty("customProperty", "value");
 
 ## <a name="sample-application"></a>Exempelprogram
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 * Visual Studio 2017 med arbetsbelastningen Azure Development. Du kan komma igång med [Visual Studio 2017 Community Edition](https://visualstudio.microsoft.com/downloads/) utan kostnad.
 * En Azure-prenumeration. Du kan skapa [ett kostnadsfritt Azure-konto här](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Du kan även skapa ett Cosmos DB-databaskonto med [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration.
 * En Azure Cosmos DB Gremlin API-databas med en **obegränsad samling**. Den här guiden visar hur du kommer igång med [Azure Cosmos DB Gremlin API i .NET](https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet).
@@ -155,6 +155,6 @@ Inställning|Beskrivning
 3. Utvärdera resultaten genom att köra frågor mot diagramdatabasen. Om `ShouldCleanupOnFinish`-alternativet är inställt på true (sant) tas databasen bort automatiskt.
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om Nuget-paketinformation och viktig information för massexecutor-.Net-biblioteket finns i [information om massexecutor-SDK](sql-api-sdk-bulk-executor-dot-net.md). 
+* Mer information om Nuget-Paketinformation och viktig information för bulk executor .NET-biblioteket, se [bulk information om SDK-executor](sql-api-sdk-bulk-executor-dot-net.md). 
 * Gå igenom [prestandatipsen](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#performance-tips) för att optimera användningen av BulkExecutor.
 * Läs [referensartikeln om BulkExecutor.Graph](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) för mer information om de klasser och metoder som definieras i den här namnrymden.

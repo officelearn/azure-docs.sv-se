@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: b298836070a511421f9df25155ff1ee4422e61dd
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 05c6f1cbf5f7f20745fa837accdaa95e6c186b8b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994376"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226631"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Felsöka ett långsamt eller felaktigt HDInsight-kluster
 
@@ -44,7 +44,7 @@ För att identifiera problemet, beakta följande frågor:
 * När det här problemet första gången? Hur ofta har det skett sedan?
 * Ändrats något i min klusterkonfiguration?
 
-### <a name="cluster-details"></a>Information om kluster
+### <a name="cluster-details"></a>Klusterinformation
 
 Viktig information om klustret innehåller:
 
@@ -129,7 +129,7 @@ $ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton
 
 Ambari visas en avisering som visar de värdar där WebHCat-tjänsten har stoppats. Du kan försöka att återställa tjänsten WebHCat säkerhetskopiera genom att starta om tjänsten på dess värd.
 
-![Starta om WebHCat-Server](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat.png)
+![Restart WebHCat Server](./media/hdinsight-troubleshoot-failed-cluster/restart-webhcat.png)
 
 Om en server med WebHCat fortfarande inte kommer, kontrollerar du åtgärdsloggen för felmeddelanden. Mer detaljerad information, kontrollera den `stderr` och `stdout` filer som refereras till på noden.
 
@@ -265,8 +265,8 @@ Starta ett nytt kluster med samma konfiguration för att diagnostisera källan t
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantera HDInsight-kluster med hjälp av Apache Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md)
+* [Hantera HDInsight-kluster med hjälp av Apache Ambari-webbgränssnittet](hdinsight-hadoop-manage-ambari.md)
 * [Analysera HDInsight-loggar](hdinsight-debug-jobs.md)
-* [Åtkomstlogg Apache Hadoop YARN-program på Linux-baserat HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Åtkomst Apache Hadoop YARN-program för inloggning i Linux-baserat HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Aktivera heap dumps för Apache Hadoop-tjänster på Linux-baserat HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [Kända problem för Apache Spark-kluster i HDInsight](hdinsight-apache-spark-known-issues.md)

@@ -16,12 +16,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: klam; LADocs
-ms.openlocfilehash: 7920fee1bacf569ac41c36142fc68080b4de5780
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230496"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904379"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Anropa, utlösare, eller kapsla arbetsflöden med HTTP-slutpunkter i logic apps
 
@@ -71,7 +71,7 @@ Lägg till en utlösare som kan ta emot inkommande begäranden för att skapa en
 
     > [!TIP]
     > 
-    > Du kan skapa ett schema för en exempel-JSON-nyttolast från ett verktyg som [jsonschema.net](http://jsonschema.net/), eller i den **begära** utlösaren genom att välja **Använd exempel för att generera schemat**. 
+    > Du kan skapa ett schema för en exempel-JSON-nyttolast från ett verktyg som [jsonschema.net](https://jsonschema.net/), eller i den **begära** utlösaren genom att välja **Använd exempel för att generera schemat**. 
     > Ange din exempelnyttolast och välj **klar**.
 
     Exempelvis kan den här exempelnyttolast:
@@ -275,9 +275,9 @@ Här är JSON-schemat ser ut nu för den **svar** åtgärd:
 
 ## <a name="q--a"></a>Frågor och svar
 
-#### <a name="q-what-about-url-security"></a>F: vad gäller URL säkerhet?
+#### <a name="q-what-about-url-security"></a>F: Vad är URL: en säkerhet?
 
-S: azure genererar på ett säkert sätt logic app Motringnings-URL: er med hjälp av en signatur för delad åtkomst (SAS). Den här signaturen passerar som frågeparameter och måste verifieras innan din logikapp kan utlöses. Azure genererar signaturen med hjälp av en unik kombination av en hemlig nyckel per logikapp, Utlösarens namn och den åtgärd som utförs. Så att de inte kan generera en giltig signatur, såvida inte någon har åtkomst till den hemliga logic app-nyckeln.
+S: På ett säkert sätt genererar Azure logic app Motringnings-URL: er med hjälp av en signatur för delad åtkomst (SAS). Den här signaturen passerar som frågeparameter och måste verifieras innan din logikapp kan utlöses. Azure genererar signaturen med hjälp av en unik kombination av en hemlig nyckel per logikapp, Utlösarens namn och den åtgärd som utförs. Så att de inte kan generera en giltig signatur, såvida inte någon har åtkomst till den hemliga logic app-nyckeln.
 
    > [!IMPORTANT]
    > För produktion och säkra system rekommenderar vi starkt mot anropa logikappen direkt från webbläsaren eftersom:
@@ -285,7 +285,7 @@ S: azure genererar på ett säkert sätt logic app Motringnings-URL: er med hjä
    > * Den delade åtkomstnyckeln visas i URL: en.
    > * Du kan inte hantera säkra innehållsprinciper på grund av delad domäner i Logic App-kunder.
 
-#### <a name="q-can-i-configure-http-endpoints-further"></a>F: kan jag konfigurera HTTP-slutpunkter ytterligare?
+#### <a name="q-can-i-configure-http-endpoints-further"></a>F: Kan jag konfigurera HTTP-slutpunkter ytterligare?
 
 S: Ja, HTTP-slutpunkter stöder mer avancerade konfiguration via [ **API Management**](../api-management/api-management-key-concepts.md). Den här tjänsten erbjuder också möjligheten att konstant hantera alla dina API: er, inklusive logikappar, ställa in anpassade domännamn, använda flera autentiseringsmetoder och mycket mer, till exempel:
 
@@ -294,9 +294,9 @@ S: Ja, HTTP-slutpunkter stöder mer avancerade konfiguration via [ **API Managem
 * Ställ in din API Management-domäner i den [Azure-portalen](https://portal.azure.com/ "Azure-portalen")
 * Ställa in principen för att söka efter grundläggande autentisering
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>F: vad som ändrats när schemat migreras från den 1 December 2014-förhandsversionen?
+#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>F: Vad som ändrats när schemat migreras från den 1 December 2014-förhandsversionen?
 
-S: här är en sammanfattning om dessa ändringar:
+S: Här följer en sammanfattning om dessa ändringar:
 
 | Den 1 december 2014 preview | Den 1 juni 2016 |
 | --- | --- |

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2019
+ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: ad676070bb684e459c0dae648443318199f77b6d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 7e4a4572a53338dc0c7b5d7d11dca7130c8979be
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091536"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226903"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Security Center
 Den här vanliga frågor och svar innehåller frågor och svar om Azure Security Center, en tjänst som hjälper dig att förhindra, upptäcka och svara på hot med ökad insyn i och kontroll över säkerheten hos dina Microsoft Azure-resurser.
@@ -52,7 +52,7 @@ Security Center utvärderar konfigurationen av dina resurser för att identifier
 Se [behörigheter i Azure Security Center](security-center-permissions.md) mer information om roller och tillåtna åtgärder i Security Center.
 
 ## <a name="data-collection-agents-and-workspaces"></a>Insamling av data, agenter och arbetsytor
-Security Center samlar in data från dina virtuella Azure-datorer (VM) och icke-Azure-datorer för att övervaka säkerhetsproblem och hot. Data samlas in med Microsoft Monitoring Agent, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys.
+Security Center samlar in data från dina virtuella Azure-datorer (VM), VM-skalningsuppsättningar (VMSS), IaaS-behållare och icke-Azure (inklusive lokalt) datorer för att övervaka säkerhetsproblem och hot. Data samlas in med Microsoft Monitoring Agent, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys.
 
 ### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Debiteras jag för Azure Monitor-loggar på arbetsytor som skapats av Security Center?
 Nej. Arbetsytor som skapats av Security Center, medan konfigurerad för Azure Monitor-loggar för noden fakturering per avgifter Azure Monitor-loggar. Security Center fakturering baseras alltid på din säkerhetsprincip i Security Center och de lösningar som är installerad på en arbetsyta:
@@ -74,7 +74,7 @@ Kvalificera dig om Windows eller Linux IaaS-datorer:
 
 - Tillägget Microsoft Monitoring Agent är inte installerat på den virtuella datorn.
 - Den virtuella datorn är i körningstillstånd.
-- Windows eller Linux VM-agenten är installerad.
+- Windows- eller Linux [Azure VM-agenten](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/agent-windows) är installerad.
 - Den virtuella datorn används inte som en enhet, till exempel Brandvägg för webbaserade program eller nästa generations brandvägg.
 
 ### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Kan jag ta bort Standardarbetsytor som skapats av Security Center?
@@ -115,21 +115,23 @@ Att välja en befintlig Log Analytics-arbetsyta:
 
    - Välj **Avbryt** att avbryta åtgärden.
 
-### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>Vad händer om Microsoft Monitoring Agent installerades som ett tillägg på den virtuella datorn?
-Security Center åsidosätts inte befintliga anslutningar till arbetsytor som användaren. Security Center lagrar säkerhetsdata från den virtuella datorn i arbetsytan som redan är ansluten. Security Center uppdaterar tilläggsversion om du vill inkludera Azure resurs-ID för den virtuella datorn för användning av Security Center.
+### Vad händer om Microsoft Monitoring Agent installerades som ett tillägg på den virtuella datorn?<a name="mmaextensioninstalled"></a>
+När Monitoring Agent installeras som ett tillägg, kan tilläggskonfigurationen rapporterar till endast en enda arbetsyta. Security Center åsidosätts inte befintliga anslutningar till arbetsytor som användaren. Security Center lagrar säkerhetsdata från en virtuell dator i en arbetsyta som redan är ansluten, förutsatt att ”säkerhet” eller ”securityFree” lösningen har installerats på den. Security Center kan uppgradera versionen av tillägget till den senaste versionen i den här processen.
 
-### <a name="what-if-i-had-a-microsoft-monitoring-agent-installed-on-the-machine-but-not-as-an-extension"></a>Vad händer om jag hade en Microsoft Monitoring Agent installerad på datorn men inte som ett tillägg?
-Om Microsoft Monitoring Agent är installerad direkt på den virtuella datorn (inte som en utökning av Azure), Security Center installera inte Microsoft Monitoring Agent och virtuella datorer är begränsad.
+Mer information finns i [Automatisk etablering i händelse av en befintlig agentinstallation](security-center-enable-data-collection.md#preexisting).
 
-Mer information finns i nästa avsnitt [vad händer om en SCOM eller OMS dirigera agenten är redan installerad på den virtuella datorn?](#scomomsinstalled)
 
-### Vad händer om en SCOM eller OMS direktagent är redan installerad på den virtuella datorn?<a name="scomomsinstalled"></a>
-Security Center kan inte identifiera i förväg att en agent är installerad.  Security Center försöker att installera Microsoft Monitoring Agent-tillägget och misslyckas på grund av den befintliga installerade agenten.  Det här felet förhindrar att åsidosätta agentens anslutningsinställningar till sin arbetsyta och inte nödvändigt att skapa flera värdar.
+### Vad händer om jag hade en Microsoft Monitoring Agent installerad direkt på datorn men inte som ett tillägg (Direct Agent)?<a name="directagentinstalled"></a>
+Om Microsoft Monitoring Agent är installerad direkt på den virtuella datorn (inte som en utökning av Azure), Security Center installeras Microsoft Monitoring Agent-tillägget och uppgradera Microsoft Monitoring agent till den senaste versionen.
+Agenten installerad fortsätter att rapportera till sin redan konfigurerade arbetsytor och dessutom rapporterar till arbetsytan som konfigurerats i Security Center (flera värdar stöds).
+Om den konfigurerade arbetsytan är en användararbetsytan (inte Security Center standard-arbetsytan), måste du installera den ”säkerhet /” securityFree ”-lösning på det för Security Center för att börja bearbeta händelser från virtuella datorer och datorer som rapporterar till arbetsytan.
 
-> [!NOTE]
-> Agenten har uppdaterats till den senaste versionen av OMS-agenten.  Detta gäller för SCOM-användare också.
->
->
+För befintliga datorer på prenumerationer har integrerats i Security Center innan 2019-03-17, när en befintlig agent identifieras, kommer inte att installera Microsoft Monitoring Agent-tillägget och datorn påverkas inte. Dessa datorer finns i ”Lös övervaka problem med hälsotillstånd på dina datorer” rekommendationen för att lösa installationsproblem för agenten på dessa datorer
+
+ Mer information finns i nästa avsnitt [vad händer om en SCOM eller OMS dirigera agenten är redan installerad på den virtuella datorn?](#scomomsinstalled)
+
+### Vad händer om en SCOM-agenten redan har installerats på den virtuella datorn?<a name="scomomsinstalled"></a>
+Security center installeras i Microsoft Monitoring Agent-tillägget sida-vid-sida till befintlig SCOM. Den befintliga SCOM-agenten fortsätter att rapportera till SCOM-servern normalt. Observera att SCOM-agenten och Microsoft Monitoring Agent delar vanliga körning bibliotek, som kommer att uppdateras till den senaste versionen under den här proccess.
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>Vad är effekt vid borttagning av dessa tillägg?
 Om du tar bort tillägget Microsoft Monitoring Security Center kan inte samla in säkerhetsdata från den virtuella datorn och vissa säkerhetsrekommendationer och aviseringar är inte tillgängliga. Security Center anger att den virtuella datorn saknar tillägget och installerar om tillägget inom 24 timmar.
@@ -184,18 +186,18 @@ Du kan manuellt ta bort Microsoft Monitoring Agent. Detta rekommenderas inte eft
 
 Ta manuellt bort agenten:
 
-1. Öppna i portalen, **Log Analytics**.
-2. Välj en arbetsyta på Log Analytics-bladet:
-3. Välj varje virtuell dator som du inte vill övervaka och välj **Disconnect**.
+1.  Öppna i portalen, **Log Analytics**.
+2.  Välj en arbetsyta på Log Analytics-bladet:
+3.  Välj varje virtuell dator som du inte vill övervaka och välj **Disconnect**.
 
    ![Ta bort agenten][3]
 
 > [!NOTE]
 > Om en Linux VM redan har en icke-extension OMS-agenten, tar bort tillägget tar bort agenten samt och kunden har installera det på nytt.
-> 
-> 
-> ### <a name="how-do-i-disable-data-collection"></a>Hur jag för att inaktivera insamling av data?
-> Automatisk etablering är inaktiverat som standard. Du kan inaktivera automatisk etablering från resurser när som helst genom att stänga av den här inställningen i säkerhetsprincipen. Automatisk försörjning rekommenderas starkt för att få säkerhetsaviseringar och rekommendationer om systemuppdateringar, OS-säkerhetsproblem och endpoint protection.
+>
+>
+### <a name="how-do-i-disable-data-collection"></a>Hur jag för att inaktivera insamling av data?
+Automatisk etablering är inaktiverat som standard. Du kan inaktivera automatisk etablering från resurser när som helst genom att stänga av den här inställningen i säkerhetsprincipen. Automatisk försörjning rekommenderas starkt för att få säkerhetsaviseringar och rekommendationer om systemuppdateringar, OS-säkerhetsproblem och endpoint protection.
 
 Inaktivera datainsamling, [logga in på Azure-portalen](https://portal.azure.com)väljer **Bläddra**väljer **Security Center**, och välj **Välj princip**. Välj den prenumeration du vill avaktivera automatisk etablering för. När du väljer en prenumeration **säkerhetsprincip – datainsamling** öppnas. Under **Automatisk etablering**väljer **av**.
 

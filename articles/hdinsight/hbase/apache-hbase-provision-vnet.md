@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: af5a261ba57c406335fb75260d6af797af70a1b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 73ac2072a087f0931b6c9c776d3ad0bfedb4320b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101456"
+ms.locfileid: "58199536"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Skapa Apache HBase-kluster i HDInsight i Azure-nätverk
 Lär dig hur du skapar Azure HDInsight Apache HBase-kluster i en [Azure Virtual Network][1].
@@ -50,7 +50,7 @@ I det här avsnittet skapar du ett Linux-baserade Apache HBase-kluster med beroe
 >
 >
 
-1. Klicka på följande bild för att öppna mallen i Azure Portal. Mallen finns i [Azure-Snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
+1. Klicka på följande bild för att öppna mallen i Azure Portal. Mallen finns i [Azures snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Från den **anpassad distribution** bladet, ange följande egenskaper:
@@ -64,7 +64,7 @@ I det här avsnittet skapar du ett Linux-baserade Apache HBase-kluster med beroe
    * **Jag godkänner villkoren och de villkor som anges ovan**: (Välj)
 3. Klicka på **Köp**. Det tar cirka 20 minuter att skapa ett kluster. När klustret har skapats klickar du på klusterbladet i portalen för att öppna den.
 
-När du har slutfört självstudien kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används. Anvisningar för att ta bort ett kluster finns i [hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure portal](../hdinsight-administer-use-management-portal.md#delete-clusters).
+När du har slutfört självstudien kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används. Anvisningar för att ta bort ett kluster finns i [hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure portal](../hdinsight-administer-use-portal-linux.md#delete-clusters).
 
 Om du vill börja arbeta med din nya HBase-kluster måste du använda de procedurer som finns i [komma igång med Apache HBase med Apache Hadoop i HDInsight](./apache-hbase-tutorial-get-started-linux.md).
 

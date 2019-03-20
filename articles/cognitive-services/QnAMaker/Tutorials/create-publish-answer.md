@@ -7,27 +7,27 @@ author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: 348cb6a451f15ddec6b7ee013832ad6c563bb2da
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 42d53cee48be73a0d151b6f44d381463fa1c4e16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874964"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102170"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Självstudie: Använda C#, skapa kunskapsbas och sedan besvara fråga
 
 Den här självstudien vägleder dig genom att programmatiskt skapa och publicera en kunskapsbas (KB) och sedan besvara en kundfråga med kunskapsbasen. 
 
 > [!div class="checklist"]
-* Skapa en kunskapsbas 
-* Kontrollera skapandestatus
-* Träna och publicera kunskapsbasen
-* Hämta slutpunktsinformation
-* Använda Curl för att köra frågor mot kunskapsbasen
+> * Skapa en kunskapsbas 
+> * Kontrollera skapandestatus
+> * Träna och publicera kunskapsbasen
+> * Hämta slutpunktsinformation
+> * Använda Curl för att köra frågor mot kunskapsbasen
 
 
 Den här snabbstarten anropar API:er för QnA Maker:
@@ -38,7 +38,7 @@ Den här snabbstarten anropar API:er för QnA Maker:
 * [Hämta slutpunkter för kunskapsbas](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys)
 * [Publicera](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Senaste [**Visual Studio Community-versionen**](https://www.visualstudio.com/downloads/).
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Hämta nyckeln genom att välja **Nycklar** under **Resurshantering** på instrumentpanelen. 

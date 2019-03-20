@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: e3d13082e3c076061b8d343827266ec04ae80646
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ac11244b87c87285722b4922da69530fab98c299
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180695"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117616"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Konfigurera begränsade synkronisering från Azure AD till din hanterade domän
 Den här artikeln visar hur du konfigurerar endast specifika användarkonton som ska synkroniseras från din Azure AD-katalog till din hanterade domän i Azure AD Domain Services.
@@ -39,12 +39,10 @@ Tabellen nedan hjälper dig att avgöra hur du använder begränsade synkroniser
 
 > [!WARNING]
 > **Ändrar omfånget av synkronisering gör din hanterade domän genomgå för omsynkronisering.**
->
- * När du ändrar synkronisering omfånget för en hanterad domän, sker en fullständig omsynkronisering.
- * Objekt som inte längre behövs i den hanterade domänen tas bort. Nya objekt skapas i den hanterade domänen.
- * Omsynkroniseringen kan ta lång tid att slutföra beroende på hur många objekt (användare, grupper och gruppmedlemskap) i den hanterade domänen och Azure AD-katalogen. Omsynkroniseringen kan ta ett par dagar för stora kataloger med flera hundra tusentals objekt.
->
->
+> 
+>  * När du ändrar synkronisering omfånget för en hanterad domän, sker en fullständig omsynkronisering.
+>  * Objekt som inte längre behövs i den hanterade domänen tas bort. Nya objekt skapas i den hanterade domänen.
+>  * Omsynkroniseringen kan ta lång tid att slutföra beroende på hur många objekt (användare, grupper och gruppmedlemskap) i den hanterade domänen och Azure AD-katalogen. Omsynkroniseringen kan ta ett par dagar för stora kataloger med flera hundra tusentals objekt.
 
 
 ## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>Skapa en ny hanterad domän och aktivera gruppbaserad begränsade synkronisering med hjälp av Azure portal
@@ -58,46 +56,46 @@ Använda PowerShell för att slutföra den här uppsättningen med steg. Se anvi
 Utför följande steg för att konfigurera gruppbaserad begränsade synkronisering till din hanterade domän:
 
 1. Utför följande uppgifter:
-  * [Uppgift 1: Installera PowerShell-moduler som krävs](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
-  * [Uppgift 2: Skapa nödvändiga tjänstens huvudnamn i Azure AD-katalogen](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
-  * [Uppgift 3: Skapa och konfigurera gruppen ”AAD DC-administratörer”](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group).
-  * [Uppgift 4: Registrera resursprovidern Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
-  * [Uppgift 5: Skapa en resursgrupp](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group).
-  * [Uppgift 6: Skapa och konfigurera det virtuella nätverket](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network).
+   * [Uppgift 1: Installera PowerShell-moduler som krävs](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
+   * [Uppgift 2: Skapa nödvändiga tjänstens huvudnamn i Azure AD-katalogen](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
+   * [Uppgift 3: Skapa och konfigurera gruppen ”AAD DC-administratörer”](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group).
+   * [Uppgift 4: Registrera resursprovidern Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
+   * [Uppgift 5: Skapa en resursgrupp](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group).
+   * [Uppgift 6: Skapa och konfigurera det virtuella nätverket](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network).
 
 2. Välj de grupper som du vill synkronisera och ange visningsnamnet för de grupper som du vill att synkroniseras till din hanterade domän.
 
 3. Spara den [skript i följande avsnitt](active-directory-ds-scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) till en fil med namnet ```Select-GroupsToSync.ps1```. Kör skriptet som den här:
 
-  ```powershell
-  .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
-  ```
+   ```powershell
+   .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
+   ```
 
-  > [!WARNING]
-  > **Glöm inte att inkludera gruppen ”AAD DC-administratörer”.**
-  >
-  > I listan över grupper som konfigurerats för begränsade synkronisering måste du inkludera gruppen ”AAD DC-administratörer”. Om du inte använder den här gruppen, blir den hanterade domänen inte kan användas.
-  >
+   > [!WARNING]
+   > **Glöm inte att inkludera gruppen ”AAD DC-administratörer”.**
+   >
+   > I listan över grupper som konfigurerats för begränsade synkronisering måste du inkludera gruppen ”AAD DC-administratörer”. Om du inte använder den här gruppen, blir den hanterade domänen inte kan användas.
+   >
 
 4. Nu kan skapa den hanterade domänen och aktivera gruppbaserad begränsade synkronisering för den hanterade domänen. Egenskapen ```"filteredSync" = "Enabled"``` i den ```Properties``` parametern. Till exempel finns i den följande skript fragment som kopieras från [uppgift 7: Etablera den hanterade domänen i Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
 
-  ```powershell
-  $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-  $ManagedDomainName = "contoso100.com"
-  $ResourceGroupName = "ContosoAaddsRg"
-  $VnetName = "DomainServicesVNet_WUS"
-  $AzureLocation = "westus"
+   ```powershell
+   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
+   $ManagedDomainName = "contoso100.com"
+   $ResourceGroupName = "ContosoAaddsRg"
+   $VnetName = "DomainServicesVNet_WUS"
+   $AzureLocation = "westus"
 
-  # Enable Azure AD Domain Services for the directory.
-  New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-  -Location $AzureLocation `
-  -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
+   # Enable Azure AD Domain Services for the directory.
+   New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+   -Location $AzureLocation `
+   -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-  -ApiVersion 2017-06-01 -Force -Verbose
-  ```
+   -ApiVersion 2017-06-01 -Force -Verbose
+   ```
 
-  > [!TIP]
-  > Glöm inte att inkludera ```"filteredSync" = "Enabled"``` i den ```-Properties``` parameter, så begränsade synkronisering har aktiverats för den hanterade domänen.
+   > [!TIP]
+   > Glöm inte att inkludera ```"filteredSync" = "Enabled"``` i den ```-Properties``` parameter, så begränsade synkronisering har aktiverats för den hanterade domänen.
 
 
 ## <a name="script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1"></a>Skript för att välja grupper ska synkroniseras till den hanterade domänen (Välj GroupsToSync.ps1)

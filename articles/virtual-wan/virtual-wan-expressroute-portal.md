@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/5/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 17d80d07f9b272b0dcb7449404d5d6626e72ce65
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 017c8c2f060f969f2e7f8d387dcbafa2dac426d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692898"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842953"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Självstudier: Skapa en ExpressRoute-association med hjälp av Azure Virtual WAN (förhandsversion)
 
@@ -37,11 +37,13 @@ I den här guiden får du lära dig att:
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
 ## <a name="register"></a>Registrera funktionen
 
-Du måste registrera din prenumeration i förhandsversionen innan du kan konfigurera Virtual WAN. I annat fall kan du inte arbeta med virtuellt WAN i portalen. Skicka ett e-postmeddelande till **azurevirtualwan@microsoft.com** med prenumerations-ID:t. Du får ett e-postmeddelande tillbaka när din prenumeration har registrerats.
+Du måste registrera din prenumeration i förhandsversionen innan du kan konfigurera Virtual WAN. Annars kan du inte arbeta med Virtual WAN på portalen. Om du vill registrera, skicka ett e- **azurevirtualwan\@microsoft.com** med ditt prenumerations-ID. Du får ett e-postmeddelande tillbaka när din prenumeration har registrerats.
 
 **Överväganden för förhandsversion:**
 
@@ -69,15 +71,15 @@ Du måste registrera din prenumeration i förhandsversionen innan du kan konfigu
 ## <a name="hub"></a>4. Hitta och associera en krets med hubben
 
 1. Välj ditt vWAN. Under **Virtual WAN architecture** (Virtuell WAN-arkitektur) väljer du **ExpressRoute Circuits** (ExpressRoute-kretsar)
-2. Om ExpressRoute-kretsen är i samma prenumeration som ditt vWAN klickar du på **Välj ExpressRoute-krets** från din prenumeration 
-3. Använd listrutan och välj den ExpressRoute som du vill associera med hubben.
-4. Om ExpressRoute-kretsen inte är i samma prenumeration eller om du har fått [en auktoriseringsnyckel och ett peer-ID](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md) väljer du **Find a circuit redeeming an authorization key** (Hitta en krets som löser in en auktoriseringsnyckel)
-5. Ange följande uppgifter:
-* **Auktoriseringsnyckel** – genereras av kretsägaren enligt beskrivningen ovan
-* **Peer-kretsens URI** – krets-URI som tillhandahålls av kretsägaren och är den unika identifieraren för kretsen
-* **Routningsvikt** - [Routningsvikt](../expressroute/expressroute-optimize-routing.md) gör att du kan föredra vissa vägar när flera kretsar från olika peeringplatser är anslutna till samma hubb
-6. Klicka på **Hitta krets** och välj kretsen om den hittas
-7. Välj 1 eller flera hubbar i listrutan och klicka på **Spara**
+1. Om ExpressRoute-kretsen är i samma prenumeration som ditt vWAN klickar du på **Välj ExpressRoute-krets** från din prenumeration 
+1. Använd listrutan och välj den ExpressRoute som du vill associera med hubben.
+1. Om ExpressRoute-kretsen inte är i samma prenumeration eller om du har fått [en auktoriseringsnyckel och ett peer-ID](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md) väljer du **Find a circuit redeeming an authorization key** (Hitta en krets som löser in en auktoriseringsnyckel)
+1. Ange följande uppgifter:
+1. **Auktoriseringsnyckel** – genereras av kretsägaren enligt beskrivningen ovan
+1. **Peer-kretsens URI** – krets-URI som tillhandahålls av kretsägaren och är den unika identifieraren för kretsen
+1. **Routningsvikt** - [Routningsvikt](../expressroute/expressroute-optimize-routing.md) gör att du kan föredra vissa vägar när flera kretsar från olika peeringplatser är anslutna till samma hubb
+1. Klicka på **Hitta krets** och välj kretsen om den hittas
+1. Välj 1 eller flera hubbar i listrutan och klicka på **Spara**
 
 ## <a name="vnet"></a>5. Ansluta ett virtuellt nätverk till en hubb
 
@@ -110,10 +112,10 @@ Skapa en anslutning för att övervaka kommunikation mellan en virtuell Azure-da
 
 ## <a name="cleanup"></a>9. Rensa resurser
 
-Du kan använda [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) för att ta bort resursgruppen och alla resurser den innehåller när du inte längre behöver dem. Ersätt myResourceGroup med namnet på resursgruppen och kör följande PowerShell-kommando:
+När du inte längre behöver dessa resurser kan du använda [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) att ta bort resursgruppen och alla resurser den innehåller. Ersätt myResourceGroup med namnet på resursgruppen och kör följande PowerShell-kommando:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Nästa steg

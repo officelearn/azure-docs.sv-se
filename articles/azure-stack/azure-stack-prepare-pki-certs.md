@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: fab7ead59ce8d7e12d145095c64cedf4234e6233
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 6e11df8bedb88d3e505b7fa3c55ade13282911a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656727"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106499"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Förbereda Azure Stack PKI-certifikat för användning i distributionen eller rotation
 
@@ -32,23 +32,23 @@ Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat 
 
 ### <a name="import-the-certificate"></a>Importera certifikatet
 
-1.  Kopiera de ursprungliga versionerna certifikat [hämtas från din Certifikatutfärdare valfri](azure-stack-get-pki-certs.md) i en katalog på värden för distribution. 
-  > [!WARNING]
-  > Kopiera inte filer som har redan tagits importeras, exporteras eller ändras på något sätt från filerna direkt från CA: N.
+1. Kopiera de ursprungliga versionerna certifikat [hämtas från din Certifikatutfärdare valfri](azure-stack-get-pki-certs.md) i en katalog på värden för distribution. 
+   > [!WARNING]
+   > Kopiera inte filer som har redan tagits importeras, exporteras eller ändras på något sätt från filerna direkt från CA: N.
 
-1.  Högerklicka på certifikatet och välj **installera certifikat** eller **Installera PFX** beroende på hur certifikaten som har levererats från din Certifikatutfärdare.
+1. Högerklicka på certifikatet och välj **installera certifikat** eller **Installera PFX** beroende på hur certifikaten som har levererats från din Certifikatutfärdare.
 
 1. I den **guiden Importera certifikat**väljer **lokal dator** som plats för importen. Välj **Nästa**. På följande skärm, klicka på Nästa igen.
 
     ![Importplats för lokal dator](./media/prepare-pki-certs/1.png)
 
-1.  Välj **placera alla certifikat i nedanstående arkiv** och välj sedan **förtroende för företag** som plats. Klicka på **OK** att stänga dialogrutan för val av certifikat store och sedan **nästa**.
+1. Välj **placera alla certifikat i nedanstående arkiv** och välj sedan **förtroende för företag** som plats. Klicka på **OK** att stänga dialogrutan för val av certifikat store och sedan **nästa**.
 
-    ![Konfigurera certifikatarkivet](./media/prepare-pki-certs/3.png)
+   ![Konfigurera certifikatarkivet](./media/prepare-pki-certs/3.png)
 
-    a. Om du importerar en PFX visas med en ytterligare dialogruta. På den **skydd av privat nyckel** anger du lösenordet för din certifikatfiler och sedan aktivera den **Markera den här nyckeln kan exporteras. Detta gör att du kan säkerhetskopiera eller flytta dina nycklar vid ett senare tillfälle** alternativet. Välj **Nästa**.
+   a. Om du importerar en PFX visas med en ytterligare dialogruta. På den **skydd av privat nyckel** anger du lösenordet för din certifikatfiler och sedan aktivera den **Markera den här nyckeln kan exporteras. Detta gör att du kan säkerhetskopiera eller flytta dina nycklar vid ett senare tillfälle** alternativet. Välj **Nästa**.
 
-    ![Markera att nycklarna kan exporteras](./media/prepare-pki-certs/2.png)
+   ![Markera att nycklarna kan exporteras](./media/prepare-pki-certs/2.png)
 
 1. Klicka på Slutför för att slutföra importen.
 
@@ -70,19 +70,19 @@ Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat 
 
 1. Uppgiften fältet Certificate Manager-konsolen väljer du **åtgärder** > **alla uppgifter** > **exportera**. Välj **Nästa**.
 
-  > [!NOTE]
-  > Beroende på hur många Azure Stack behöva certifikat som du har du slutföra den här processen mer än en gång.
+   > [!NOTE]
+   > Beroende på hur många Azure Stack behöva certifikat som du har du slutföra den här processen mer än en gång.
 
 1. Välj **Ja, exportera den privata nyckeln**, och klicka sedan på **nästa**.
 
 1. I avsnittet filformat för Export:
     
-    - Välj **inkludera om möjligt alla certifikat i certifikatet**.  
-    - Välj **exportera alla utökade egenskaper**.  
-    - Välj **aktivera certifikatet sekretess**.  
-    - Klicka på **Nästa**.  
+   - Välj **inkludera om möjligt alla certifikat i certifikatet**.  
+   - Välj **exportera alla utökade egenskaper**.  
+   - Välj **aktivera certifikatet sekretess**.  
+   - Klicka på **Nästa**.  
     
-    ![Guiden för export av certifikat med markerat alternativ](./media/prepare-pki-certs\azure-stack-save-cert.png)
+     ![Guiden för export av certifikat med markerat alternativ](./media/prepare-pki-certs/azure-stack-save-cert.png)
 
 1. Välj **lösenord** och ange ett lösenord för certifikaten. Skapa ett lösenord som uppfyller följande komplexitetskrav för lösenord. En minsta längd på åtta tecken. Lösenordet innehåller minst tre av följande: versala bokstäver, gemena bokstäver, siffror från 0 till 9, specialtecken, alfabetiskt tecken som är varken versaler eller gemener. Anteckna det här lösenordet. Du använder den som en parameter för distribution.
 

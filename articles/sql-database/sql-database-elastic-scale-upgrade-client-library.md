@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 395aff83c8983c4f61ca0b1fd1da276de17ec98b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 02c09e5a2ad0c3e23fe641bf445a646477f7db2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190103"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993972"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Uppgradera en app för att använda det senaste klientbiblioteket för elastiska databaser
 
@@ -47,7 +47,7 @@ Utför de här stegen i ordning säkerställer att äldre versioner av klientbib
 
 ***Alternativ 1: Uppgradera metadata med hjälp av PowerShell***
 
-1. Ladda ned det senaste kommandoradsverktyget för NuGet från [här](http://nuget.org/nuget.exe) och spara i en mapp.
+1. Ladda ned det senaste kommandoradsverktyget för NuGet från [här](https://nuget.org/nuget.exe) och spara i en mapp.
 2. Öppna en kommandotolk, navigerar du till samma mapp och utfärda kommandot: `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
 3. Gå till undermappen som innehåller den nya klient DLL versionen som du har precis har laddat ned, till exempel: `cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
 4. Ladda ned elastisk databas klienten uppgraderingsskriptet från den [Script Center](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9), och spara den i samma mapp som innehåller DLL-filen.

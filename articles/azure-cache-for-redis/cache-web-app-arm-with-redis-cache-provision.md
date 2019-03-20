@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: yegu
-ms.openlocfilehash: 52c5fb8a6da7e3f12d621406542f0e31f7ece1de
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 23b8e4e7e88f5b993f9b0f9981bbae6b884e2818
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233293"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880019"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Skapa en Webbapp plus Azure Cache för Redis med hjälp av en mall
 
@@ -35,7 +35,7 @@ Läs den fullständiga mallen, [Web App med Azure Cache för Redis-mallen](https
 I den här mallen distribuerar du:
 
 * Azure-webbapp
-* Azure Cache för Redis.
+* Azure Cache for Redis
 
 Klicka på följande knapp för att köra distributionen automatiskt:
 
@@ -86,7 +86,7 @@ Mallen skapar cacheminnet på samma plats som resursgruppen.
 ### <a name="web-app"></a>Webbapp
 Skapar webbappen med namnet som angetts i den **WebbPlatsensNamn** variabeln.
 
-Observera att webbappen har konfigurerats med inställningsegenskaper som möjliggör arbete med Azure Cache för Redis. Den här appen inställningar skapas dynamiskt baserat på värden som anges under distributionen.
+Observera att webbappen har konfigurerats med inställningsegenskaper som möjliggör arbete med Azure Cache för Redis. Dessa appen inställningar skapas dynamiskt baserat på värden som anges under distributionen.
 
     {
       "apiVersion": "2015-08-01",

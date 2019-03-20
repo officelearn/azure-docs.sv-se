@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: b99490102dd4f2c08a11be066b2ddc5fd6b7ea7b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: bc7a49aa143400387afcd59d5b9307d82a028486
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535843"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098669"
 ---
 # <a name="post-deployment-tasks"></a>Uppgifter efter distribution
 
@@ -75,23 +75,23 @@ Anteckna appId-egenskapen som returneras från kommandot för ett senare steg.
 
 På Azure Portal:
 
-1.  Välj **Azure Active Directory** > **Appregistrering**.
-2.  Sök efter din appregistrering (till exempel OCPAzureAD).
-3.  Klicka på appregistreringen i resultatet.
-4.  Under **inställningar**väljer **behörigheter som krävs för**.
-5.  Under **nödvändiga behörigheter**väljer **Lägg till**.
+1. Välj **Azure Active Directory** > **Appregistrering**.
+2. Sök efter din appregistrering (till exempel OCPAzureAD).
+3. Klicka på appregistreringen i resultatet.
+4. Under **inställningar**väljer **behörigheter som krävs för**.
+5. Under **nödvändiga behörigheter**väljer **Lägg till**.
 
-  ![Appregistrering](media/openshift-post-deployment/app-registration.png)
+   ![Appregistrering](media/openshift-post-deployment/app-registration.png)
 
-6.  Klicka på steg 1: Välj API och klicka sedan på **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Klicka på **Välj** längst ned på sidan.
+6. Klicka på steg 1: Välj API och klicka sedan på **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Klicka på **Välj** längst ned på sidan.
 
-  ![Appregistrering väljer API](media/openshift-post-deployment/app-registration-select-api.png)
+   ![Appregistrering väljer API](media/openshift-post-deployment/app-registration-select-api.png)
 
-7.  I steg 2: Välj behörigheter, Välj **logga in och läsa användarprofil** under **delegerade behörigheter**, och klicka sedan på **Välj**.
+7. I steg 2: Välj behörigheter, Välj **logga in och läsa användarprofil** under **delegerade behörigheter**, och klicka sedan på **Välj**.
 
-  ![Appregistrering åtkomst](media/openshift-post-deployment/app-registration-access.png)
+   ![Appregistrering åtkomst](media/openshift-post-deployment/app-registration-access.png)
 
-8.  Välj **Done** (Klar).
+8. Välj **Done** (Klar).
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>Konfigurera OpenShift för Azure AD-autentisering
 

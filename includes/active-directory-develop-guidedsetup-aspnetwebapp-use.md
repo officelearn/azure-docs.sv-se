@@ -3,8 +3,8 @@ title: ta med fil
 description: ta med fil
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,16 +12,16 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/19/2018
-ms.author: andret
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 167fccd8e0546bc8f5ac1b24489cae68cc14191f
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 2b9d696ca896d0c8f0801f055000b9763d65d7ff
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843517"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203650"
 ---
-## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Lägga till en styrenhet för att hantera inloggning och utloggning begäranden
+## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Lägga till en styrenhet för att hantera inloggnings- och utloggningsbegäranden
 
 Det här steget visar hur du skapar en ny kontrollant som exponerar metoder för inloggning och utloggning.
 
@@ -65,7 +65,7 @@ Det här steget visar hur du skapar en ny kontrollant som exponerar metoder för
     }
     ```
 
-## <a name="create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Skapa appens startsida för inloggning av användare via en knapp för inloggning
+## <a name="create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Skapa appens startsida för att logga in användare via en inloggningsknapp
 
 Skapa en ny vy i Visual Studio för att lägga till inloggningsknappen och visa användarinformation efter autentiseringen:
 

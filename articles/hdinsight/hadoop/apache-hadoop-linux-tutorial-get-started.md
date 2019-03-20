@@ -10,18 +10,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 12/27/2018
-ms.openlocfilehash: 5814c3f386ed31d8804469fa1a261ab9bda6b8f8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 220549c4ac3b6db584654b2c8bf27d9b4519b54a
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865866"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225815"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>Snabbstart: Komma igång med Apache Hadoop och Apache Hive i Azure HDInsight med en Resource Manager-mall
 
 I den här artikeln får du lära dig hur du skapar [Adope Hadoop](https://hadoop.apache.org/)-kluster i HDInsight med en Resource Manager-mall och sedan kör Hive-jobb i HDInsight. De flesta Hadoop-jobb är batchjobb. Du skapar ett kluster, kör vissa jobb och tar sedan bort klustret. I den här artikeln utför du alla tre aktiviteterna.
 
-I den här snabbstarten använder du en Resource Manager-mall för att skapa ett HDInsight Hadoop-kluster. Du kan även skapa ett kluster med [Azure Portal](apache-hadoop-linux-create-cluster-get-started-portal.md).  Liknande mallar kan visas på [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). Mallreferensen finns [här](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
+I den här snabbstarten använder du en Resource Manager-mall för att skapa ett HDInsight Hadoop-kluster. Du kan även skapa ett kluster med [Azure Portal](apache-hadoop-linux-create-cluster-get-started-portal.md).  Liknande mallar kan läsas på [Azures snabbstartsmallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). Mallreferensen finns [här](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
 
 För närvarande innehåller HDInsight [sju olika klustertyper](./apache-hadoop-introduction.md#cluster-types-in-hdinsight). Varje typ av kluster har stöd för olika komponentuppsättningar. Samtliga klustertyper stöder Hive. En lista över stödda komponenter som hanteras i HDInsight finns i [Vad är nytt i de Hadoop-klusterversioner som tillhandahålls av HDInsight?](../hdinsight-component-versioning.md)  
 
@@ -45,7 +45,7 @@ I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med en Azure Resou
 
     Ange eller välj följande värden:
     
-    |Egenskap  |Beskrivning  |
+    |Egenskap   |Beskrivning  |
     |---------|---------|
     |**Prenumeration**     |  Välj din Azure-prenumeration. |
     |**Resursgrupp**     | Skapa en resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är en container med Azure-komponenter.  I det här fallet innehåller resursgruppen HDInsight-klustret och det beroende Azure Storage-kontot. |
@@ -75,7 +75,7 @@ Du kan skicka interaktiva Hive-frågor till interaktiva HDInsight-frågekluster 
 
 1. Skapa en ny arbetsmapp och en ny fil för Hive-skript om du inte redan har gjort det.
 
-2. Anslut till ditt Azure-konto och konfigurera sedan standardklustret om du inte redan gjort det.
+2. Anslut till ditt Azure-konto och sedan konfigurera standardklustret om du inte redan gjort det.
 
 3. Sedan kopierar du och klistrar in följande kod i din Hive-fil och sparar den.
 
@@ -96,7 +96,7 @@ Interaktiva frågor tar mycket kortare tid än [att köra ett Apache Hive-batchj
 
 1. Skapa en ny arbetsmapp och en ny fil för Hive-skript om du inte redan har gjort det.
 
-2. Anslut till ditt Azure-konto och konfigurera sedan standardklustret om du inte redan gjort det.
+2. Anslut till ditt Azure-konto och sedan konfigurera standardklustret om du inte redan gjort det.
 
 3. Sedan kopierar du och klistrar in följande kod i din Hive-fil och sparar den.
 
@@ -124,7 +124,7 @@ Det finns två sätt att skapa och köra Hive-frågor:
 * Skapa ad hoc-frågor
 * Skapa ett Hive-program
 
-Skapa och köra ad-hoc-frågor:
+Skapa och köra ad hoc-frågor:
 
 1. I **Server Explorer** väljer du **Azure** > **HDInsight-kluster**.
 
@@ -258,7 +258,7 @@ Mer information om att skapa eller hantera HDInsight-kluster hittar du i följan
 
 Mer information om att skapa HDInsight-kluster med hjälp av Azure Resource Manager-mallar finns här:
 
-* [Azure-snabbstartmallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular).
+* [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular).
 * [Azure-mallreferens](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
 
 [1]: ../HDInsight/apache-hadoop-visual-studio-tools-get-started.md

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: b8240f69649e9bcb9a705f2c9fcbb819cf119356
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d0c5260fcc2e7ac2acbeec308c6a0cba7d6a81be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761420"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098101"
 ---
 # <a name="azure-dns-faq"></a>Vanliga frågor och svar med Azure DNS
 
@@ -42,7 +42,7 @@ Mer information finns i den [Azure DNS-SLA-sida](https://azure.microsoft.com/sup
 
 En domän är ett unikt namn i domain name system. Ett exempel kan vara contoso.com.
 
-En DNS-zon används som värd åt DNS-posterna för en viss domän. Domänen contoso.com kan till exempel innehålla flera DNS-poster. Poster kan innehålla mail.contoso.com för en e-postserver och www.contoso.com för en webbplats. Dessa poster finns i DNS-zonen contoso.com.
+En DNS-zon används som värd åt DNS-posterna för en viss domän. Domänen contoso.com kan till exempel innehålla flera DNS-poster. Poster kan innehålla mail.contoso.com för en e-postserver och en www\.contoso.com för en webbplats. Dessa poster finns i DNS-zonen contoso.com.
 
 Ett domännamn är *bara ett namn*. En DNS-zon är en Dataresurs som innehåller DNS-poster för ett domännamn. Med Azure DNS kan du vara värd för en DNS-zon och hantera DNS-posterna för en domän i Azure. Det ger också DNS-namnservrar för att besvara DNS-frågor från Internet.
 

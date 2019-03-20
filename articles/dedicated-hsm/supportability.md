@@ -2,7 +2,7 @@
 title: Support – Azure dedikerad HSM | Microsoft Docs
 description: Supportalternativ och ansvarsområden för Azure dedikerad HSM i olika scenarier
 services: dedicated-hsm
-author: barclayn
+author: johndaw
 manager: barbkess
 ms.service: key-vault
 ms.workload: identity
@@ -10,24 +10,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seodec18
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.author: barclayn
-ms.openlocfilehash: 23c509f6f219b708fc259ee123d73948ebe50773
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 8e4bbe3a5e2de8ba919cf0b641ee4e6776c5e8d4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114492"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225560"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Azure dedikerad HSM-support
 
 Tjänsten Azure dedikerad HSM ger en fysisk enhet för användning efter kund fullständig administrativ kontroll och hantering av ansvar. Enheten som gjorts tillgängliga är en [Gemalto SafeNet Luna 7 HSM modellen A790](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/). Microsoft kommer inte ha administrativ åtkomst när etablerats av en kund, utöver fysiska serieport bifogad fil som en övervakning roll.  Utan åtkomst till, kan Microsoft har inga pågående programvara på underhåll eller system administration ansvarsområden. Därför kan ansvarar kunder för vanliga driftaktiviteter.
 Kunderna ansvarar helt för program som använder HSM: erna och ska fungera med Gemalto för support eller consulting-baserade hjälp. På grund av omfattningen av kunden ägarskapet för operativa hygien är det inte möjligt för Microsoft att erbjuda alla slags garanti för hög tillgänglighet för den här tjänsten. Det är kundens ansvar att se till att programmen är korrekt konfigurerade för att uppnå hög tillgänglighet. Microsoft kommer att övervaka och underhålla enhetens hälsotillstånd och nätverksanslutningen.
 
+## <a name="getting-support"></a>Få support
+
+Kundsupport för dedikerad HSM är ett gemensamt projekt mellan Microsoft och Gemalto. Problem med maskinvara eller sökvägen nätverksproblem kan hanteras av Microsoft och något att göra med den faktiska HSM, till exempel konfiguration, programvara, inbyggd programvara och programutveckling, kommer att lösas med Gemalto. Den här supportmodell innebär snabbaste sättet det mest effektiva stöd. Om du tvekar med ett visst problem, begär support med Microsoft och vi ser till att du dirigeras korrekt. Microsoft kommer arbetet i alla supportscenarier och sträva efter den bästa upplevelsen för stöd för våra kunder.
+
 ## <a name="gemalto-support"></a>Gemalto support
 
-Kunder som använder dedikerade HSM-tjänst måste ha en support-kontrakt med Gemalto. Som en del av deras support-kontrakt kan få kunder vägledning, support och tjänster direkt från Gemalto. Mekanism för att få support från Gemalto är via sina [support-kundportalen](https://supportportal.gemalto.com/csm/).
-Gemalto ger alla programkomponenter som krävs för att använda HSM (till exempel klientprogrammet för åtkomst och SDK: er). De kommer även stöd för konfiguration och erbjuder konsulttjänster för design, utveckling och distribution av program som använder SafeNet Luna 7 HSM.
+Kunder som använder dedikerade HSM-tjänst som är kvalificerade för support från Gemalto enligt deras Plus-supportavtalet. Detta kräver bara en registreringsprocess med hjälp av Gemalto support portal. Ett kund-ID och instruktioner ges för detta som en del av inledande samarbetet med Microsoft att få åtkomst till dedikerad HSM-tjänst. Mekanism för att få support från Gemalto är via sina [support-kundportalen](https://supportportal.gemalto.com/csm/).
+En viktig aspekt att notera är att Gemalto ger alla programvaran och dokumentationen som krävs för att använda HSM (till exempel klientprogrammet för åtkomst och SDK: er) via hämtning på kundportal för support.
 
 ### <a name="software-components"></a>Programkomponenter
 
@@ -51,7 +55,7 @@ Kontakta representanten för ditt konto Gemalto för alla hjälp i design, utvec
 
 ## <a name="microsoft-support"></a>Microsoft Support
 
-Microsoft ansvarar för att säkerställa fysisk HSM enheter kan nås och ett drifttillstånd uteslutande användning av en enda kund. Kunderna ansvarar för administration och hantering av enheten. Microsofts ansvar omfattar:
+Microsoft garanterar fysiska HSM-enheter är tillgänglig och ett drifttillstånd för exklusiv användning av en enda kund. Kunderna ansvarar för konfiguration, administration och hantering av enheten. Microsofts ansvar omfattar:
 
 * Se till att enheten har ström och kylning
 * Underhålla en driftstatus för HSM (till exempel webbsupport scenario)
@@ -72,7 +76,7 @@ När en kund har en godkänd registrering för dedikerad HSM-tjänst, kommer de 
 
 ### <a name="hardware-issues"></a>Maskinvaruproblem
 
-HSM-enheten har redundant och replaceable strömförsörjning och fläkt enheter. Fläkt enhet borttagningen kommer att orsaka en förvanskningstålig händelse om tas bort när enheten är påslagen. När ett fel uppstår kan använder Microsoft den lämpligaste processen för att åtgärda komponent på problemet på ett sätt som gör att minimal avbrottstid och lägsta risken för angrepp på våra kunder tjänstens tillgänglighet.
+HSM-enheten har redundant och replaceable strömförsörjning och fläkt enheter.  Fläkt enhet borttagningen kommer dock fortfarande få förvanskningstålig händelsen. När ett fel uppstår kan använder Microsoft den lämpligaste processen för att åtgärda komponent på problemet på ett sätt som gör att minimal avbrottstid och lägsta risken för angrepp på våra kunder tjänstens tillgänglighet.
 Alla allvarligare fel på enheten resulterar i enheten håller på att ersättas av ett nytt från poolen. Kunden innehåller bara den nya enheten i befintliga HA-par för det att synkronisera och återgå till fullständig Användningsstatus. Misslyckade enheten har sina data med enheter tas bort och förstörs på platsen på datacentret. Endast chassi återgår till Gemalto för återvinning.
 
 

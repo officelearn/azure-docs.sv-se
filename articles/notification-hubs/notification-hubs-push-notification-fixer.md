@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 4419b68a0005ff6e0b5e46f22fba918699f3ba4f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: c0fd7dec31a2c4054c59db3bae52cdb15ba01eed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672210"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884429"
 ---
 # <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Azure Notification Hubs – diagnostisera utelämnade meddelanden
 
@@ -271,11 +271,11 @@ Läs mer om Programmeringsåtkomst [telemetri för programmässig åtkomst]
 [Templates]: https://msdn.microsoft.com/library/dn530748.aspx
 [APNs-översikt]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [Om FCM-meddelanden]: https://firebase.google.com/docs/cloud-messaging/concept-options
-[Export and modify registrations in bulk]: http://msdn.microsoft.com/library/dn790624.aspx
+[Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
 [Service Bus Explorer]: https://msdn.microsoft.com/library/dn530751.aspx#sb_explorer
 [Service Bus Explorer kod]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[Visa enhetsregistreringar för meddelandehubbar]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
-[Djupdykning: Visual Studio 2013 Update 2 RC och Azure SDK 2.3]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
-[Vi presenterar versionen av Visual Studio 2013 Update 3 och Azure SDK 2.4]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
+[Visa enhetsregistreringar för meddelandehubbar]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
+[Djupdykning: Visual Studio 2013 Update 2 RC och Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
+[Vi presenterar versionen av Visual Studio 2013 Update 3 och Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
-[Telemetri för programmässig åtkomst]: http://msdn.microsoft.com/library/azure/dn458823.aspx
+[Telemetri för programmässig åtkomst]: https://msdn.microsoft.com/library/azure/dn458823.aspx

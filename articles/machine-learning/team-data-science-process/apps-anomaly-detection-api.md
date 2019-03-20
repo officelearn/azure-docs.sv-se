@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: e407aee98bef9917a99e3305e2c99dbdd0c182e0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e5f428062155ea732dce785955ac76011f3e4678
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469829"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899357"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning-Avvikelseidentifiering API
 ## <a name="overview"></a>Översikt
@@ -32,7 +32,7 @@ Dessa machine learning detektorerna spåra ändringar i värden över tid och ra
 
 Avvikelseidentifiering erbjudandet kommer med bra verktyg för att komma igång.
 
-* Den [webbprogram](http://anomalydetection-aml.azurewebsites.net/) hjälper dig att utvärdera och visualiserar resultatet av API: er för avvikelseidentifiering på dina data.
+* Den [webbprogram](https://anomalydetection-aml.azurewebsites.net/) hjälper dig att utvärdera och visualiserar resultatet av API: er för avvikelseidentifiering på dina data.
 
 > [!NOTE]
 > Försök **insikter för IT-avvikelser lösning** drivs av [detta API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
@@ -110,9 +110,9 @@ Avvikelseidentifiering API stöder detektorerna i 3 olika kategorier. Informatio
 | Detektor kategori | Detektor | Beskrivning | Indataparametrar | Utdata |
 | --- | --- | --- | --- | --- |
 | Topp detektorerna |TSpike detektor |Identifiera toppar och dalar baserat på mycket värdena kommer från första och tredje Kvartiler |*tspikedetector.sensitivity:* tar heltal i intervallet 1-10 standard: 3. Högre värden ska fånga upp mer extrema värden, vilket gör det mindre känsliga |TSpike: binära värden – '1' om en topp/dip upptäcks, '0' annars |
-| Topp detektorerna | ZSpike detektor |Identifiera toppar och dalar baserat på hur långt datapoints är medelvärdet för |*zspikedetector.sensitivity:* ta heltal i intervallet 1-10 standard: 3. Högre värden ska fånga upp mer extrema värden, vilket gör det mindre känsliga |ZSpike: binära värden – '1' om en topp/dip upptäcks, '0' annars | |
+| Topp detektorerna | ZSpike detektor |Identifiera toppar och dalar baserat på hur långt datapoints är medelvärdet för |*zspikedetector.sensitivity:* ta heltal i intervallet 1-10 standard: 3. Högre värden ska fånga upp mer extrema värden, vilket gör det mindre känsliga |ZSpike: binära värden – '1' om en topp/dip upptäcks, '0' annars |
 | Långsam Trend detektor |Långsam Trend detektor |Identifiera långsamma positivt trend enligt set-känslighet |*trenddetector.sensitivity:* tröskelvärdet på detektor poäng (standard: 3,25, 3,25 – 5 är ett rimligt intervall att välja det från; Ju högre det mindre känsligt) |tscore: flytande tal som representerar avvikelsepoäng på trend |
-| Nivåändring detektorerna | Dubbelriktad nivå ändringen detektor |Identifiera både uppåt och nedåt nivåändring enligt set-känslighet |*bileveldetector.sensitivity:* tröskelvärdet på detektor poäng (standard: 3,25, 3,25 – 5 är ett rimligt intervall att välja det från; Ju högre det mindre känsligt) |rpscore: flytande tal som representerar avvikelsepoäng på uppåt och nedåt nivåändring | |
+| Nivåändring detektorerna | Dubbelriktad nivå ändringen detektor |Identifiera både uppåt och nedåt nivåändring enligt set-känslighet |*bileveldetector.sensitivity:* tröskelvärdet på detektor poäng (standard: 3,25, 3,25 – 5 är ett rimligt intervall att välja det från; Ju högre det mindre känsligt) |rpscore: flytande tal som representerar avvikelsepoäng på uppåt och nedåt nivåändring |
 
 ### <a name="parameters"></a>Parametrar
 Mer detaljerad information om dessa indataparametrar visas i tabellen nedan:

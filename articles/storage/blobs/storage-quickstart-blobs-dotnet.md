@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa en blob i objektlagring med hjälp av .NET – Azure Storage'
+title: 'Snabbstart: Använda .NET för att skapa en blob i objektlagring - Azure Storage'
 description: I den här snabbstarten får du lära dig använda Azure Storage-klientbiblioteket för .NET för att skapa en behållare och en blob i bloblagring (objekt). Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container.
 services: storage
 author: tamram
@@ -8,18 +8,18 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 4b632d9aab89e4c8d79983855bdd12aeafb05147
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.openlocfilehash: 277ed8328a537efe4d32e1ca8b0d62f5d74537dd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712032"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193185"
 ---
-# <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Snabbstart: Skapa en blob i objektlagring med hjälp av .NET
+# <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Snabbstart: Använda .NET för att skapa en blob i objektlagring
 
 I den här snabbstarten får du lära dig använda Azure Storage-klientbiblioteket för .NET för att skapa en behållare och en blob i bloblagring (objekt). Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -162,6 +162,7 @@ Det första som exemplet gör är att kontrollera att miljövariabeln innehålle
 string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
 
 // Check whether the connection string can be parsed.
+CloudStorageAccount storageAccount;
 if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
 {
     // If the connection string is valid, proceed with operations against Blob storage here.
@@ -196,7 +197,7 @@ I det här fallet anropar exemplet metoden [CreateAsync](/dotnet/api/microsoft.w
 CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
 
 // Create a container called 'quickstartblobs' and append a GUID value to it to make the name unique. 
-cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
+CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
 await cloudBlobContainer.CreateAsync();
 
 // Set the permissions so the blobs are public. 

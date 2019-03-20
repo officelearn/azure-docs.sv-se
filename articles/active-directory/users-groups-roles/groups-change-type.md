@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bf73708be8a8bc597b70d0cb50fc337efa72906
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dd753ca4994975302a0bc6fede61964f80196d7c
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211690"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199609"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Ändra medlemskap i statisk till dynamisk i Azure Active Directory
 
@@ -33,7 +33,7 @@ Du kan ändra en grupps medlemskap från statisk till dynamisk (eller vice versa
 
 ## <a name="change-the-membership-type-for-a-group"></a>Ändra medlemskapstypen av för en grupp
 
-1. Logga in på den [Azure AD administratörscenter](https://aad.portal.azure.com) med ett konto som är en global administratör eller Användaradministratör konto i din klient.
+1. Logga in på den [Azure AD administratörscenter](https://aad.portal.azure.com) med ett konto som är en global administratör eller Användaradministratör i din klient.
 2. Välj **grupper**.
 3. Från den **alla grupper** öppna den grupp som du vill ändra.
 4. Välj **egenskaper**.
@@ -47,14 +47,13 @@ Följande är ett exempel på hur en grupp från statisk till dynamiskt medlemsk
   
 2. Välj **Lägg till dynamisk fråga**, och ange sedan regeln.
   
-   ![Ange regeln](./media/groups-change-type/enter-rule.png)
+   ![Ange regeln för den dynamiska gruppen](./media/groups-change-type/enter-rule.png)
   
 3. När du har skapat regeln, Välj **Lägg till fråga** längst ned på sidan.
 4. Välj **spara** på den **egenskaper** för gruppen för att spara dina ändringar. Den **Medlemskapstyp** i gruppen uppdateras direkt i listan.
 
 > [!TIP]
 > Konverteringen kan misslyckas om medlemskapsregel som du har angett var felaktig. Ett meddelande visas i det övre högra hörnet i portalen som den innehåller en förklaring av varför regeln kan inte accepteras av systemet. Läs den noggrant för att förstå hur du kan justera regeln så att den blir giltigt. Exempel på regelsyntax och en fullständig lista över egenskaper som stöds, operatorer och värden för en medlemskapsregel finns i [regler för dynamiskt medlemskap för grupper i Azure Active Directory](groups-dynamic-membership.md).
-
 
 ## <a name="change-membership-type-for-a-group-powershell"></a>Ändra typ av medlemskap för en grupp (PowerShell)
 
@@ -63,7 +62,7 @@ Följande är ett exempel på hur en grupp från statisk till dynamiskt medlemsk
 
 Här är ett exempel på funktioner som växla hantering av medlemskap i en befintlig grupp. I det här exemplet är noggrant att ändra egenskapen GroupTypes och bevara alla värden som inte är relaterade till dynamiskt medlemskap korrekt.
 
-```
+```powershell
 #The moniker for dynamic groups as used in the GroupTypes property of a group object
 $dynamicGroupTypeString = "DynamicMembership"
 
@@ -107,13 +106,13 @@ function ConvertStaticGroupToDynamic
 ```
 Så här gör en grupp statiska:
 
-```
+```powershell
 ConvertDynamicGroupToStatic "a58913b2-eee4-44f9-beb2-e381c375058f"
 ```
 
 Du gör en grupp dynamisk:
 
-```
+```powershell
 ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.displayName -startsWith ""Peter"""
 ```
 

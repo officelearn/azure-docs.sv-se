@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 7ce66d3f6117a5e395920dc2232efb0e43f4cd18
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 9dade2ccebfb96cd54bdb9c8ef70c14fdeadad76
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106455"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225781"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer"></a>Snabbstart: Fråga efter data i Azure Data Explorer
 
@@ -21,7 +21,7 @@ Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Förutom en Azure-prenumeration behöver du ett [testkluster och en databas](create-cluster-database-portal.md) för att slutföra den här snabbstarten.
 
@@ -39,7 +39,11 @@ Du måste lägga till en anslutning till minst ett kluster innan du kan börja k
 
 1. Överst till vänster i programmet väljer du **Lägg till kluster**.
 
-1. I dialogrutan **Lägg till kluster** anger du `https://help.kusto.windows.net` och väljer sedan **Lägg till**.
+1. I den **Lägg till klustret** dialogrutan Ange URI: N och välj sedan **Lägg till**.
+
+   Du kan använda hjälpklustret URI, `https://help.kusto.windows.net`. Om du har ett eget kluster kan du ange URI för ditt kluster. Till exempel `https://mydataexplorercluster.westus.kusto.windows.net` som i följande bild:
+
+    ![Serverns URI i portalen](media/web-query-data/server-uri.png)
 
 1. I den vänstra rutan bör du nu se **hjälpklustret**. Expandera **exempeldatabasen** så att du kan se de exempeltabeller som du har åtkomst till.
 

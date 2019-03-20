@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 9b9a041f1e4269538488d17ee73a7ffdd138c8ab
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f6c8966582c0c5ae31818ce9d88b511cef811328
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251826"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099567"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Snabbstart: skapa en Windows Server-dator med hjälp av PowerShell i Azure Stack
 
@@ -32,8 +32,8 @@ Du kan skapa en virtuell Windows Server 2016-dator med hjälp av Azure Stack Pow
 * Installera IIS-webbservern och visa standardstartsidan.
 * Rensa dina resurser.
 
->[!NOTE]
- Du kan köra stegen som beskrivs i den här artikeln från Azure Stack Development Kit eller från en extern Windows-baserad klient om du är ansluten via ett VPN.
+> [!NOTE]
+>  Du kan köra stegen som beskrivs i den här artikeln från Azure Stack Development Kit eller från en extern Windows-baserad klient om du är ansluten via ett VPN.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

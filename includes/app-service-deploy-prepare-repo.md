@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: c212bda3b59037f99139e02ee6adc63b0084cbe5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: df987d1e13cb5330842fbab41dae96b24b581ddb
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44305622"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58227277"
 ---
 ## <a name="prepare-your-repository"></a>Förbereda din lagringsplats
 
-För att få automatiska versioner från App Service Kudu build-servern kan du se till att Lagringsplatsens rot har rätt filer i projektet.
+För att få automatiska versioner från Azure App Service Kudu build-servern kan du se till att Lagringsplatsens rot har rätt filer i projektet.
 
 | Körmiljö | Root directory filer |
 |-|-|
@@ -28,7 +28,7 @@ För att få automatiska versioner från App Service Kudu build-servern kan du s
 | Node.js | _Server.js_, _app.js_, eller _package.json_ med ett skript för start |
 | Python (endast Windows) | _\*.PY_, _requirements.txt_, eller _runtime.txt_ |
 | HTML | _default.htm_, _default.html_, _default.asp_, _index.htm_, _index.html_, eller  _iisstart.htm_ |
-| Webbjobb | _\<job_name > / run. \<tillägget >_ under _App\_Data/jobb/continuous_ (för kontinuerliga WebJobs) eller _App\_Data/jobb/triggered_ (för utlöses WebJobs). Mer information finns i [Kudu WebJobs-dokumentation](https://github.com/projectkudu/kudu/wiki/WebJobs) |
+| Webbjobb | _\<job_name > / run. \<tillägget >_ under _App\_Data/jobb/continuous_ (för kontinuerliga WebJobs) eller _App\_Data/jobb/triggered_ (för utlöses WebJobs). Mer information finns i [Kudu WebJobs-dokumentation](https://github.com/projectkudu/kudu/wiki/WebJobs). |
 | Functions | Se [kontinuerlig distribution för Azure Functions](../articles/azure-functions/functions-continuous-deployment.md#continuous-deployment-requirements). |
 
 Om du vill anpassa distributionen omfattar en _.deployment_ filen i Lagringsplatsens rot. Mer information finns i [anpassa distributioner](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) och [anpassat distributionsskript](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).

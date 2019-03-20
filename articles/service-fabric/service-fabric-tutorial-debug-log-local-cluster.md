@@ -15,21 +15,16 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c1a8b18062f61be9eb020beefd3ad741c41b55f8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: c5ff1a0373fcce339bea2b235d86f20dc861a15c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652710"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444267"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Självstudier: Felsöka en Java-tillämpning som distribuerats i ett lokalt Service Fabric-kluster
 
 Den här självstudien är del två i en serie. Du får lära dig att ansluta en fjärrfelsökare till Service Fabric-programmet med Eclipse. Dessutom får du lära dig hur du dirigerar om loggar från program som körs till en plats som passar utvecklaren.
-
-I del två i serien lär du dig hur du:
-> [!div class="checklist"]
-> * Felsöka Java-tillämpningar med hjälp av Eclipse
-> * Omdirigera loggar till en plats som kan konfigureras
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
@@ -39,7 +34,14 @@ I den här självstudieserien får du lära du dig att:
 > * [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-java-elk.md)
 > * [konfigurera CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+
+I del två i serien lär du dig hur du:
+> [!div class="checklist"]
+> * Felsöka Java-tillämpningar med hjälp av Eclipse
+> * Omdirigera loggar till en plats som kan konfigureras
+
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudien:
 
@@ -53,7 +55,7 @@ Om du inte byggde exempelprogrammet Röstning i [del ett av självstudiekursen](
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 ```
 
-[Skapa och distribuera](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster) programmet i klustret för lokal utveckling.
+[Skapa och distribuera](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster) programmet till klustret för lokal utveckling.
 
 ## <a name="debug-java-application-using-eclipse"></a>Felsöka Java-tillämpningar med hjälp av Eclipse
 
@@ -63,7 +65,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 3. I fönstret Import Projects (Importera projekt) väljer du alternativet **Select root directory** (Välj rotkatalogen) och katalogen **Voting** (Röstning). Om du har genomgått den första delen av självstudiekursen borde katalogen **Voting** (Röstning) redan finnas i katalogen **Eclipse-workspace** (Eclipse-arbetsyta).
 
-4. Uppdatera entryPoint.sh för tjänsten som du vill felsöka så att den startar Java-processen med fjärrstyrda felsökningsparametrar. I den här självstudien används den tillståndslösa klientdelen: *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. Port 8001 har angetts för felsökning i det här exemplet.
+4. Uppdatera entryPoint.sh för tjänsten som du vill felsöka så att den startar Java-processen med fjärrstyrda felsökningsparametrar. Den här självstudien används den tillståndslösa klientdelen: *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. Port 8001 har angetts för felsökning i det här exemplet.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
@@ -89,13 +91,15 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 10. I Eclipse IDE väljer du **Run -> Debug Configurations -> Remote Java Application** (Kör -> Felsöka konfigurationer -> Fjärranslutna Java-program), klickar på konfigurationen **Voting** (Röstning) och klickar på **Debug** (Felsök).
 
-11. Gå till webbläsaren och navigera till **localhost:8080** för att nå brytpunkten och ange **felsökningsperspektivet** i Eclipse.
+11. Gå till din webbläsare och **localhost: 8080**. Detta kommer automatiskt att nå brytpunkten och Eclipse anger den **Felsökningsperspektivet**.
+
+Nu kan du använda samma steg för att felsöka alla Service Fabric-program i Eclipse.
 
 ## <a name="redirect-application-logs-to-custom-location"></a>Omdirigera programloggar till en anpassad plats
 
 Följande steg guidar dig igenom dirigering av programloggar från standardplatsen */var/log/syslog* plats till en anpassad plats.
 
-1. För närvarande stöder programmen som körs i Service Fabric Linux-kluster hämtning av en enda loggfil. Därför leder loggarna alltid till */tmp/mysfapp0.0.log*. Skapa en fil med namnet logging.properties på följande plats *Voting/VotingApplication/VotingWebPkg/Code/logging.properties* och lägg till följande innehåll.
+1. För närvarande stöder program som körs i Service Fabric Linux-kluster hämtning av en enda loggfil. Konfigurera ett program så att loggarna alltid gå till */tmp/mysfapp0.0.log*, skapa en fil med namnet logging.properties på följande plats *Voting/VotingApplication/VotingWebPkg/Code/logging.properties*  och Lägg till följande innehåll.
 
     ```
     handlers = java.util.logging.FileHandler
@@ -103,7 +107,8 @@ Följande steg guidar dig igenom dirigering av programloggar från standardplats
     java.util.logging.FileHandler.level = ALL
     java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 
-    # This value specifies your custom location. You will have to ensure this path has read and write access by the process running the SF Application
+    # This value specifies your custom location.
+    # You will have to ensure this path has read and write access by the process running the SF Application
     java.util.logging.FileHandler.pattern = /tmp/mysfapp0.0.log
     ```
 
@@ -113,7 +118,7 @@ Följande steg guidar dig igenom dirigering av programloggar från standardplats
     -Djava.util.logging.config.file=logging.properties
     ```
 
-    I följande exempel visas en exempelkörning:
+    I följande exempel visas en exempelkörning med felsökningsprogrammet anslutna, vilket liknar körningen i föregående avsnitt.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar

@@ -1,5 +1,5 @@
 ---
-title: Entiteten matchare i en modell för Konversationsdeltagare – Microsoft Cognitive Services | Microsoft Docs
+title: Entiteten matchare i en konversation Learner modell – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Lär dig hur du använder entiteten matchare i Konversationsdeltagare.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: ebe555bfd7b34efd87d400d786049964665c76e6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: cca78e2536a922165f40bbcbabcae005021aa70b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451067"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167855"
 ---
 # <a name="entity-resolvers"></a>Entiteten matchare
 
@@ -26,7 +26,7 @@ Den här kursen visar hur du använder entiteten matchare i Konversationsdeltaga
 [![Entiteten matchare självstudiekursen förhandsversion](https://aka.ms/cl_Tutorial_v3_EntityResolvers_Preview)](https://aka.ms/cl_Tutorial_v3_EntityResolvers)
 
 ## <a name="requirements"></a>Krav
-Den här självstudien krävs att Allmänt självstudiekursen bot körs
+Den här självstudien krävs att Allmänt självstudien Bot körs
 
     npm run tutorial-general
 
@@ -37,39 +37,44 @@ Den här självstudien krävs att Allmänt självstudiekursen bot körs
 
 ## <a name="steps"></a>Steg
 
-### <a name="create-a-new-model"></a>Skapa en ny modell
+Starta på startsidan i Webbgränssnittet.
 
-1. Klicka på knappen ”ny modell” i Användargränssnittet för webben.
-2. I fältet ”Name”, skriver du ”entitet matchare”, träffar ange eller klicka på knappen ”Skapa”.
+### <a name="create-the-model"></a>Skapa modellen
+
+1. Välj **nya modellen**.
+2. Ange **entitet matchare** för **namn**.
+3. Välj **Skapa**.
 
 ### <a name="create-a-pair-of-entities"></a>Skapa ett par med entiteter
 
-1. I den vänstra rutan klickar du på ”enheter” och sedan på knappen ”ny entitet”.
-2. Skriv ”avgång” i fältet ”entitetsnamn”.
-3. Välj ”datetimeV2” i ”matchare Type” listrutan.
-4. Klicka på knappen ”Skapa”.
-5. Klicka på ”OK” när du har läst informationen popup-fönstret.
-6. Skapa en annan entitet med namnet ”return” som också har en ”datetimeV2” matchare typ följa samma steg.
+1. Välj **entiteter** i den vänstra panelen, sedan **ny entitet**.
+2. Ange **avgång** för **entitetsnamn**.
+3. Välj **datetimeV2** för **matchare typ**.
+4. Välj **Skapa**. Stäng endast i informationssyfte popup-fönstret genom att välja **OK**.
+5. Upprepa steg 1-4 om du vill skapa en andra enhet med namnet **returnera** med **datetimeV2** matchare typen.
+
+![](../media/T09_entities.png)
 
 ### <a name="create-a-pair-of-actions"></a>Skapa ett par åtgärder
 
-1. I den vänstra rutan klickar du på ”åtgärder” och sedan på knappen ”ny åtgärd”.
-2. I ”Robotens svaret” fälttyp ”du lämnar på $departure och returnera på $return”.
-    - VIKTIGT - när att skriva in ”$[entityName]” måste du når anger eller klicka på entiteten i listrutan, annars Konversationsdeltagare kommer på det här som text i stället för en entitet.
-    - Observera att fältet ”entiteter krävs” kommer också att få dessa entiteter och de kan inte tas bort. Detta förhindrar att den här åtgärden från att bli tillgängliga förrän båda krävs entiteter finns.
-3. Klicka på knappen ”Skapa”.
-4. Klicka på knappen ”ny åtgärd” igen för att skapa en andra åtgärd.
-5. I ”Robotens svaret” fälttyp, ”när du planerar att resa”?.
-6. I ”diskvalificera entiteter” fälttypen, ”avgång” och även typen, ”return”.
-    - Dessa berätta för våra robotar kan inte vidta åtgärden om något av dessa entiteter innehåller ett värde.
-7. Klicka på knappen ”Skapa”.
+1. Välj **åtgärder** i den vänstra panelen, sedan **ny åtgärd**.
+2. Ange **du lämnar på $departure och returnera på $return** för **Robotens svar...** .
+    - VIKTIGT - när att skriva i $[entityName] måste du trycker på RETUR eller klickar på entiteten i nedrullningsbara menyn annars Konversationsdeltagare kommer på det här som text i stället för en entitet.
+    - Observera att den **krävs entiteter** fält kommer också att få dessa entiteter och de kan inte tas bort. Detta förhindrar att den här åtgärden från att bli tillgängliga förrän båda krävs entiteter finns.
+3. Välj **Skapa**.
+4. Välj **ny åtgärd** att skapa en andra åtgärd.
+5. Ange **när du planerar att resa?** för **Robotens svar...** .
+6. Ange **avgång** och **returnera** för **diskvalificera entiteter**. Dessa berätta för våra robotar kan inte vidta åtgärden om något av dessa entiteter innehåller ett värde.
+7. Välj **Skapa**.
 
+![](../media/T09_actions.png)
 
 ### <a name="training"></a>Utbildning
 
-1. Titta på den ”utbildning: [Status]” i det övre vänstra hörnet en del av sidan och vänta tills den för att vara ”slutfört”.
+1. Titta på den **utbildning: [Status]** i det övre vänstra hörnet för **slutförd**.
     - Du kan klicka på länken ”Uppdatera” om det tar för lång.
     - Utbildning status krävs ”slutfört” så att våra entitet matchare fungerar när vi tränar modellen.
+
 2. På den vänstra panelen klickar du på ”Train-dialogrutor” och sedan på knappen ”Ny träna dialogruta”.
 3. Typen i den första användaren uttryck ”boka mig en flygning”. 
 4. Klicka på knappen ”poäng åtgärder”.
@@ -83,6 +88,8 @@ Den här självstudien krävs att Allmänt självstudiekursen bot körs
     - Hovra över var och en och se hur entiteterna är date-objekt som tydligt avbilda faktiska kalenderdatumet istället för ”Sunday” eller ”imorgon”.
 10. Välj den ”du lämnar på...” Bot-svar.
 11. Klicka på knappen ”Spara”.
+
+![](../media/T09_training.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

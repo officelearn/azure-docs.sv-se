@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 9d1229084410b6fe7c500a22f8e1e1aed1b8107d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 88b903d68e4398b4e30b0b7435279c29bee6cd6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227356"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005225"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>Installera uppdatering 1.1 på StorSimple Virtual Array
 
@@ -66,7 +66,7 @@ Utför följande steg för att ladda ned uppdateringen 1.1 från Microsoft Updat
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Ladda ned uppdateringen eller snabbkorrigeringen
 
-1. Starta Internet Explorer och navigera till [ http://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
+1. Starta Internet Explorer och navigera till [ https://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
 
 2. Om du använder Microsoft Update-katalogen för första gången på den här datorn, klickar du på **installera** när du uppmanas att installera tillägget för Microsoft Update-katalogen.
 

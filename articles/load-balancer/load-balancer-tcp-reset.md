@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/29/2019
 ms.author: kumud
-ms.openlocfilehash: 18e4a7ae5010730054dd110828c63e8418b93f39
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 52524e6291faae8ccc27c0d53e9e38ab63a4c8d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296927"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58132437"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Belastningsutjämnare med TCP-återställning på inaktiv (offentlig förhandsversion)
 
@@ -27,7 +27,7 @@ Du kan använda [Standardbelastningsutjämnare](load-balancer-standard-overview.
 ![Load Balancer TCP-återställning](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
->Belastningsutjämnare med TCP nollställs timeout för inaktivitet funktioner är tillgängliga just nu som offentlig förhandsversion och är tillgänglig i en begränsad uppsättning [regioner](#regions). Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Belastningsutjämnare med TCP nollställs timeout för inaktivitet funktioner finns som offentlig förhandsversion just nu. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 Du kan ändra det här standardbeteendet och aktivera skicka TCP återställer på timeout för inaktivitet på inkommande NAT-regler, belastningsutjämningsregler, och [utgående regler](https://aka.ms/lboutboundrules).  När aktiverat per regel belastningsutjämnaren skickar dubbelriktad TCP-återställning (TCP RSTA paket) till både klienten och servern slutpunkter vid tidpunkten för timeout för inaktivitet för alla matchande flöden.
 

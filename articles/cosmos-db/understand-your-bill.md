@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 5c3da9a69204d7229ddcbbf39ec389684258e389
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9411cc42f2fbc12348b4d841174edbe75c584247
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470696"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890567"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Förstå fakturan för Azure Cosmos DB
 
@@ -184,7 +184,7 @@ Den totala månadsfaktura kommer (förutsatt att 30 dagar i 720 timmar under en 
 | | |Dataflödesfaktura för 2 ytterligare regioner: Östra USA, Norra Europa (alla regioner är skrivbar)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2,880  |
 |[101-200] |D1:50K <br/>D2:70K <br/>C1: -- |Dataflödesfaktura för behållare i västra USA (alla regioner är skrivbar)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` |$1920  |
 | | |Dataflödesfaktura för 2 ytterligare regioner: Östra USA, Norra Europa (alla regioner är skrivbar)  |`(2 + 1) * (120 K RU/sec /100 * $0.016) * 100 hours = $5,760`  |$5,760  |
-|[201-300]  |D1:50K <br/>D2:70K <br/>C1:20K |Dataflödesfaktura för behållare i västra USA (alla regioner är skrivbar)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>`C1: 20 K RU/SEK/100 * $0.016 * 100 timmar = $320 |$2,240`  |
+|[201-300]  |D1:50K <br/>D2:70K <br/>C1:20K |Dataflödesfaktura för behållare i västra USA (alla regioner är skrivbar)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$2,240  |
 | | |Dataflödesfaktura för 2 ytterligare regioner: Östra USA, Norra Europa (alla regioner är skrivbar)  |`(2 + 1) * (140 K RU/sec /100 * $0.016-) * 100 hours = $6,720` |$6,720 |
 |[301-400] |D1:10K <br/>D2:80K <br/>C1: -- |Dataflödesfaktura för behållare i västra USA (alla regioner är skrivbar)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 80 K RU/sec/100 * $0.016 * 100 hours = $1,280`  |$1,440   |
 | | |Dataflödesfaktura för 2 ytterligare regioner: Östra USA, Norra Europa (alla regioner är skrivbar)  |`(1 + 1) * (90 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2,880  |

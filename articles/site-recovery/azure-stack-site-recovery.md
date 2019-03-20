@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: c353c40cc838dc4082d3d4b843a48a5fedb6e1f5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a84cbba968baf50563a2c2b0e2843d64f17bb34a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039477"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002379"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replikera Azure Stack-datorer till Azure
 
@@ -87,7 +87,7 @@ Se till att de virtuella datorerna kör något av de operativsystem som sammanfa
 
 **Operativsystem** | **Detaljer**
 --- | ---
-**64-bitars Windows** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (från SP1)
+**64-bitars Windows** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (from SP1)
 **CentOS** | 5.2 5.11, 6.1 6,9, 7.0 7.3
 **Ubuntu** | 14.04 server LTS, 16.04 LTS server. Granska [kernlar som stöds](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#ubuntu-kernel-versions)
 
@@ -190,7 +190,7 @@ Nu installera konfigurationsservern:
 
 > [!NOTE]
 > Konfigurationsservern kan även installeras från kommandoraden. [Läs mer](physical-manage-configuration-server.md#install-from-the-command-line).
-
+> 
 > Det kan ta 15 minuter eller mer innan kontonamnet visas i portalen. Om du vill uppdatera omedelbart väljer du **Konfigurationsservrar** > ***servernamn*** > **Uppdatera server**.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Steg 4: Konfigurera målmiljön
@@ -249,9 +249,9 @@ Kontrollera att du har slutfört alla aktiviteter i [steg 1: Förbered datorn](#
 
 > [!NOTE]
 > Site Recovery installerar mobilitetstjänsten när replikering är aktiverad för en virtuell dator.
-
+> 
 > Det kan ta 15 minuter eller längre innan ändringarna träder i kraft och visas på portalen.
-
+> 
 > Om du vill övervaka de virtuella datorer som du lägger till, kan du se när de senast identifierades i **Konfigurationsservrar** > **Senaste kontakt**. Om du vill lägga till virtuella datorer utan att vänta på den schemalagda identifieringen markerar du konfigurationsservern (välj den inte) och väljer **Uppdatera**.
 
 
@@ -280,7 +280,7 @@ När du kör ett redundanstest händer följande:
 2. Redundansprocessen bearbetar data med hjälp av den angivna återställningspunkten:
     - **Senaste bearbetade**: Datorn flyttas över till den senaste återställningspunkten som bearbetats av Site Recovery. Tidsstämpeln visas. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt RTO (mål för återställningstid).
     - **Senaste appkonsekventa**: Datorn flyttas över till den senaste appkonsekventa återställningspunkten.
-    - **Anpassad**: Välj den återställningspunkt som används för redundans.
+    - **Anpassat**: Välj den återställningspunkt som används för redundans.
 
 3. En Azure-dator skapas med hjälp av bearbetade data.
 4. Testa redundans kan automatiskt Rensa Azure virtuella datorer som skapas under detaljerade.
@@ -328,7 +328,7 @@ När den primära platsen är igång igen kan växla du tillbaka från Azure til
 
     - Till exempel VHD-URI som används i vår test: https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd kan delas upp att hämta följande indataparametrar som används för att hämta den virtuella Hårddisken.
         - Lagringskonto: 502055westcentralus
-        - Behållare: wahv9b8d2ceb284fb59287
+        - Container: wahv9b8d2ceb284fb59287
         - Namn på virtuell Hårddisk: kopieras-3676553984.vhd
 
 5. Nu kan du använda Azure Storage Explorer för att ladda ned den virtuella Hårddisken.

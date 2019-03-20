@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: cc8c62113a9a7a12525f1ba7e59c68831a322cfe
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 828d0ced775d46b0e966969acb3220d2a678c57b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959195"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440054"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Skapa en .NET Core-konsolapp för att hantera data på Azure Cosmos DB SQL API-konto (SDK version 3 – förhandsversion)
 
@@ -70,7 +70,7 @@ Nu ska vi skapa ett Azure Cosmos DB-konto. Om du redan har ett konto som du vill
 1. Öppna **Visual Studio 2017** i datorn.
 1. I menyn **Arkiv** väljer du **Nytt** och sedan **Projekt**.
 1. I dialogrutan **Nytt projekt** väljer du **Visual C#** / **Konsolapp (.NET Core)**, namnger projektet och klickar på **OK**.
-   ![Skärmdump som visar fönstret Nytt projekt](./media/sql-api-dotnetcore-get-started/dotnetcore-tutorial-visual-studio-new-project.png)
+   ![Skärmbild av fönstret nytt projekt](./media/sql-api-dotnetcore-get-started/dotnetcore-tutorial-visual-studio-new-project.png)
 1. I **Solution Explorer** högerklickar du på den nya konsolappen, som finns under din Visual Studio-lösning, och klickar sedan på **Hantera NuGet-paket ...**
 
    ![Skärmdump som visar den högerklickade menyn för projektet](./media/sql-api-dotnetcore-get-started/dotnetcore-tutorial-visual-studio-manage-nuget.png)
@@ -78,7 +78,7 @@ Nu ska vi skapa ett Azure Cosmos DB-konto. Om du redan har ett konto som du vill
 1. På fliken **NuGet** klickar du på **Bläddra** och skriver **Microsoft.Azure.Cosmos** i sökrutan.
 1. Leta upp **Microsoft.Azure.Cosmos** i resultatet och klicka på **Installera**.
    Paket-ID:t för Azure Cosmos DB-klientbiblioteket är [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
-   ![Skärmbild av NuGet-menyn där du hittar Azure Cosmos DB-klient-SDK:n](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
+   ![Skärmbild av NuGet-menyn där du hittar Azure Cosmos DB Client SDK](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
    Om du får ett meddelande om att granska ändringar i lösningen klickar du på **OK**. Om du får ett meddelande om godkännande av licens klickar du på **Jag godkänner**.
 
@@ -131,9 +131,9 @@ Bra! Konfigurationen är slutförd, så vi kan börja skriva kod. Det finns ett 
 
    Kopiera URI från portalen och klistra in den i `<your endpoint URL>` i filen `Program.cs`. Kopiera PRIMÄRNYCKELN från portalen och klistra in den i `<your primary key>`.
 
-   ![Skärmbild av hur du hämtar Azure Cosmos DB-nycklar från Azure-portalen](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
+   ![Skärmbild för att hämta nycklar för Azure Cosmos DB från Azure-portalen](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
-1. Nu ska vi skapa en ny instans av `CosmosClient` och konfigurera ramar för programmet.
+1. Nu skapar vi en ny instans av `CosmosClient` och konfigurera ramar för programmet.
 
    Under metoden **Main** lägger du till en ny asynkron uppgift med namnet **GetStartedDemoAsync**, som instansierar vår nya `CosmosClient`. Vi använder **GetStartedDemoAsync** som den startpunkt som anropar metoder som behandlar Azure Cosmos DB-resurser.
 
@@ -347,7 +347,7 @@ Först måste vi skapa klassen **Familj** som ska representera objekt som lagras
 
 1.  Välj **Ctrl+Skift+A** för att öppna dialogrutan **Lägg till nytt objekt**. Lägg till en ny klass, **Family.cs**, i projektet.
 
-    ![Skärmbild som visar tillägg av en ny Family.cs-klass i projektet](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
+    ![Skärmbild av att lägga till en ny Family.cs klass i projektet](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
 
 1.  Kopiera och klistra in klasserna **Family** (Familj), **Parent** (Förälder), **Child** (Barn), **Pet** (Husdjur) och **Address** (Adress) i **Family.cs**. Observera att din namnrymd skiljer sig baserat på namnet på ditt projekt.
 

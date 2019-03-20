@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 679284783ac93662c1c96e813f9f028fffb434f0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f0bffdf439a192fb10fe695fbfa18e8c7abf8077
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173665"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846692"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Självstudier: Azure Active Directory-integrering med Spotinst
 
@@ -221,7 +221,7 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
     * I den **fullständigt namn** textrutan anger du det fullständiga namnet på användaren som **BrittaSimon**.
 
-    * I den **e-post** textrutan anger du e-postadressen för användaren som **brittasimon@contoso.com**.
+    * I den **e-post** textrutan anger du e-postadressen för användaren som **brittasimon\@contoso.com**.
 
     * Välj din specifika information för den **konton, Kontorollen och organisation rollen**.
 
@@ -266,7 +266,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-direct
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

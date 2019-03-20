@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 4e787ab134caee1a7f9a26e46f698f2fe9807d83
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: edb169d131aafd045fdf0f670e1dda87677d57ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813695"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834685"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Redundans och växla tillbaka fysiska servrar som replikeras till Azure
 
@@ -36,7 +36,7 @@ Kontrollera egenskaperna för servern och se till att den överensstämmer med [
 1. I **skyddade objekt**, klickar du på **replikerade objekt**, och välj datorn.
 
 2. I den **replikerat objekt** rutan finns en sammanfattning av informationen, hälsostatus för datorn och den senaste tillgängliga återställningspunkterna. Klicka på **Egenskaper** för att se mer information.
-3. I **beräkning och nätverk**, du kan ändra Azure-namnet, resursgrupp, Målstorlek, [tillgänglighetsuppsättning](../virtual-machines/windows/tutorial-availability-sets.md), och hanterade Diskinställningar
+3. I **Beräkning och nätverk** kan du ändra Azure-namnet, resursgrupp, målstorlek, [tillgänglighetsuppsättning](../virtual-machines/windows/tutorial-availability-sets.md) samt inställningar för hanterad disk
 4. Du kan visa och ändra inställningar för nätverk, inklusive det nätverk/undernät där den virtuella Azure-datorn kommer att finnas efter redundansen och den IP-adress som kommer att tilldelas till den.
 5. I **diskar**, du kan se information om datorns operativsystem och datadiskar.
 
@@ -68,7 +68,7 @@ Följ stegen som beskrivs [här](site-recovery-failover-to-azure-troubleshoot.md
 Processervern tar emot data från den virtuella Azure-datorn och skickar den till den lokala platsen. Ett nätverk med låg latens krävs mellan processervern och den skyddade datorn.
 
 - Om du har en Azure ExpressRoute-anslutning för testning, kan du använda den lokala processervern som installerades automatiskt på konfigurationsservern.
-- Om du har en VPN-anslutning eller om du kör återställning efter fel i en produktionsmiljö, måste du konfigurera en virtuell dator i Azure som en Azure-baserad processerver för återställning efter fel.
+- Om du har en VPN-anslutning eller om du kör återställning efter fel i en produktionsmiljö, måste du konfigurera en virtuell Azure-dator som en Azure-baserad processerver för återställning efter fel.
 - Följ instruktionerna i [i den här artikeln](vmware-azure-set-up-process-server-azure.md) att ställa in en processerver i Azure.
 
 ## <a name="configure-the-master-target-server"></a>Konfigurera huvudmålservern

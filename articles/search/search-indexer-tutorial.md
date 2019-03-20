@@ -1,32 +1,31 @@
 ---
 title: Självstudie i indexering av Azure SQL-databaser i Azure-portalen – Azure Search
-description: I den här självstudien crawlar du en Azure SQL-databas för att extrahera sökbara data och fylla ett Azure Search-index.
+description: Ansluta till Azure SQL-databas i den här självstudien, extrahera sökbara data och läsa in den i ett Azure Search-index.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 872871d2ab9a9c693ad81081f24c8de68457982d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 4e94f4c1b5de47e36dd9a5be6b9e7f43d264de82
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312059"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201406"
 ---
-# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Självstudie: Crawla en Azure SQL-databas med hjälp av Azure Search-indexerare
+# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Självstudier: Crawla en Azure SQL-databas med hjälp av Azure Search-indexerare
 
-Den här kursen visar hur du konfigurerar en indexerare för att extrahera sökbara data från en Azure SQL-exempeldatabas. [Indexerare](search-indexer-overview.md) är en komponent i Azure Search som crawlar externa datakällor och fyller ett [sökindex](search-what-is-an-index.md) med innehåll. Indexeraren för Azure SQL-databasen är den indexerare som används mest. 
+Lär dig hur du konfigurerar en indexerare för att extrahera sökbara data från en Azure SQL-exempeldatabas. [Indexerare](search-indexer-overview.md) är en komponent i Azure Search som crawlar externa datakällor och fyller ett [sökindex](search-what-is-an-index.md) med innehåll. Indexerare för Azure SQL Database är de mest använda indexerare. 
 
 Kunskaper i indexerarkonfiguration är användbara eftersom det gör att du inte behöver skriva och underhålla lika mycket kod. I stället för att förbereda och push-överföra en schemakompatibel JSON-datauppsättning kan du bifoga en indexerare till en datakälla, låta indexeraren extrahera data och infoga dem i ett index och, om du vill, köra indexeraren enligt ett återkommande schema för att hämta ändringar i den underliggande källan.
 
-I den här kursen får du utföra följande uppgifter med hjälp av [Azure Search .NET-klientbiblioteken](https://aka.ms/search-sdk) och ett .NET Core-konsolprogram:
+I den här självstudien använder den [Azure Search .NET-klientbibliotek](https://aka.ms/search-sdk) och en .NET Core-konsolprogram för att utföra följande uppgifter:
 
 > [!div class="checklist"]
-> * Hämta och konfigurera lösningen
 > * Lägga till söktjänstinformation i programinställningar
 > * Förbereda en extern datauppsättning i Azure SQL Database 
 > * Granska index- och indexerardefinitionerna i exempelkod
@@ -36,18 +35,18 @@ I den här kursen får du utföra följande uppgifter med hjälp av [Azure Searc
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure Search-tjänst. Information om hur du skapar en tjänst finns i [Skapa en söktjänst](search-create-service-portal.md).
+[Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här självstudiekursen.
 
-* En Azure SQL-databas som tillhandahåller den externa datakällan som används av en indexerare. I exempellösningen finns en SQL-datafil för att skapa tabellen.
+* En [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) att tillhandahålla den externa datakällan som används av en indexerare. I exempellösningen finns en SQL-datafil för att skapa tabellen.
 
-* Visual Studio 2017. Du kan använda [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/), som är kostnadsfri. 
+* + [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), alla versioner. Exempelkod och instruktioner har testats på den kostnadsfria Community-versionen.
 
 > [!Note]
 > Om du använder den kostnadsfria Azure Search-tjänsten är du begränsad till tre index, tre indexerare och tre datakällor. I den här kursen skapar du en av varje. Se till att det finns utrymme på din tjänst för de nya resurserna.
 
-## <a name="download-the-solution"></a>Ladda ned lösningen
+### <a name="download-the-solution"></a>Ladda ned lösningen
 
 Indexerarlösningen i den här kursen kommer från en samling Azure Search-exempel som tillhandahålls i en nedladdning (master). Den lösning som används i den här kursen är *DotNetHowToIndexers*.
 
@@ -63,7 +62,7 @@ Indexerarlösningen i den här kursen kommer från en samling Azure Search-exemp
 
 6. I **Solution Explorer** högerklickar du på den översta noden Solution > **Restore Nuget Packages**.
 
-## <a name="set-up-connections"></a>Konfigurera anslutningar
+### <a name="set-up-connections"></a>Konfigurera anslutningar
 Anslutningsinformationen för nödvändiga tjänster anges i filen **appsettings.json** i lösningen. 
 
 Öppna **appsettings.json** i Solution Explorer så att du kan fylla i varje inställning med instruktionerna i den här självstudiekursen.  
@@ -90,22 +89,22 @@ Du hittar slutpunkten och nyckeln för söktjänsten i portalen. En nyckel ger �
 
 4. Kopiera och klistra in det som första post i **appsettings.json** i Visual Studio.
 
-  > [!Note]
-  > Ett tjänstnamn är en del av slutpunkten som innehåller search.windows.net. Om du är nyfiken kan du se hela URL:en i **Essentials** på översiktssidan. URL:erna ser ut som i det här exemplet: https://your-service-name.search.windows.net
+   > [!Note]
+   > Ett tjänstnamn är en del av slutpunkten som innehåller search.windows.net. Om du är nyfiken kan du se hela URL:en i **Essentials** på översiktssidan. URL:erna ser ut som i det här exemplet: https://your-service-name.search.windows.net
 
 5. I **Settings (Inställningar)** > **Keys (Nycklar)** kopierar du en av admin-nycklarna och klistrar in den som andra post i **appsettings.json**. Nycklarna är alfanumeriska strängar som genereras för din tjänst vid etableringen och krävs för att få åtkomst till tjänståtgärder. 
 
-  När du har lagt till båda inställningarna bör din fil se ut ungefär som i det här exemplet:
+   När du har lagt till båda inställningarna bör din fil se ut ungefär som i det här exemplet:
 
-  ```json
-  {
+   ```json
+   {
     "SearchServiceName": "azs-tutorial",
     "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
     . . .
-  }
-  ```
+   }
+   ```
 
-## <a name="prepare-an-external-data-source"></a>Förbereda en extern datakälla
+## <a name="prepare-sample-data"></a>Förbereda exempeldata
 
 I det här steget skapar du en extern datakälla som indexeraren kan crawla. Datafilen för den här kursen är *hotels.sql* och finns i lösningsmappen \DotNetHowToIndexers. 
 
@@ -115,7 +114,7 @@ Du kan använda Azure Portal och filen *hotels.sql* från exemplet för att skap
 
 Följande övning utgår ifrån att det inte finns någon server eller databas, och du instrueras att skapa dessa i steg 2. Om du har en befintlig resurs kan du lägga till hotels-tabellen i den, med början i steg 4.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/). 
+1. Logga in på [Azure Portal](https://portal.azure.com/). 
 
 2. Klicka på **Skapa en resurs** > **SQL Database** för att skapa en databas, server och resursgrupp. Du kan använda standardinställningarna och den lägsta prisnivån. En fördel jämfört med att skapa en server är att du kan ange namn och lösenord för administratörsanvändaren, vilket krävs för att skapa och läsa in tabeller i ett senare steg.
 
@@ -125,7 +124,7 @@ Följande övning utgår ifrån att det inte finns någon server eller databas, 
 
 4. Öppna SQL Database-sidan för den nya databasen, om den inte redan är öppen. Resursnamnet ska vara *SQL database* och inte *SQL Server*.
 
-  ![SQL-databassida](./media/search-indexer-tutorial/hotels-db.png)
+   ![SQL-databassida](./media/search-indexer-tutorial/hotels-db.png)
 
 4. Klicka på **Verktyg** > **Frågeredigeraren**.
 
@@ -135,24 +134,24 @@ Följande övning utgår ifrån att det inte finns någon server eller databas, 
 
 7. Markera filen och klicka på **Öppna**. Skriptet bör se ut ungefär som på följande skärmbild:
 
-  ![SQL-skript](./media/search-indexer-tutorial/sql-script.png)
+   ![SQL-skript](./media/search-indexer-tutorial/sql-script.png)
 
 8. Klicka på **Kör** för att köra frågan. Nu bör du se ett meddelande om att frågan lyckades för tre rader i resultatfönstret.
 
 9. Om du vill returnera en raduppsättning från den här tabellen kan du köra följande fråga som ett verifieringssteg:
 
-   ```sql
-   SELECT HotelId, HotelName, Tags FROM Hotels
-   ```
-   Prototypfrågan `SELECT * FROM Hotels` fungerar inte i frågeredigeraren. Exempeldata innehåller geografiska koordinater i fältet Location (Plats), som inte hanteras i redigeraren för tillfället. Om du vill ha en lista med andra kolumner att fråga kan du köra den här instruktionen: `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
+    ```sql
+    SELECT HotelId, HotelName, Tags FROM Hotels
+    ```
+    Prototypfrågan `SELECT * FROM Hotels` fungerar inte i frågeredigeraren. Exempeldata innehåller geografiska koordinater i fältet Location (Plats), som inte hanteras i redigeraren för tillfället. Om du vill ha en lista med andra kolumner att fråga kan du köra den här instruktionen: `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
 
 10. Nu när du har en extern datauppsättning kopierar du ADO.NET-anslutningssträngen för databasen. På SQL Database-sidan för din databas går du till **Inställningar** > **Anslutningssträngar** och kopierar ADO.NET-anslutningssträngen.
  
-  ADO.NET-anslutningssträngen ser ut som i följande exempel. Den har ändrats så att den har ett giltigt databasnamn, användarnamn och lösenord.
+    ADO.NET-anslutningssträngen ser ut som i följande exempel. Den har ändrats så att den har ett giltigt databasnamn, användarnamn och lösenord.
 
-  ```sql
-  Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
-  ```
+    ```sql
+    Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+    ```
 11. Klistra in anslutningssträngen i "AzureSqlConnectionString" som tredje post i filen **appsettings.json** i Visual Studio.
 
     ```json
@@ -250,15 +249,15 @@ På översiktssidan för söktjänsten i Azure Portal klickar du på **Sökutfor
 
 2. Klicka på **Sök** för att utfärda en tom sökning. 
 
-  De tre posterna i ditt index returneras som JSON-dokument. Sökutforskaren returnerar dokument i JSON så att du kan se hela strukturen.
+   De tre posterna i ditt index returneras som JSON-dokument. Sökutforskaren returnerar dokument i JSON så att du kan se hela strukturen.
 
 3. Ange sedan en söksträng: `search=river&$count=true`. 
 
-  Den här frågan kör en fulltextsökning på termen `river`, och resultatet innefattar en räkning av matchande dokument. Att returnera antalet matchande dokument är användbart i testscenarier när du har ett stort index med tusentals eller miljontals dokument. I det här fallet är det bara ett dokument som matchar frågan.
+   Den här frågan kör en fulltextsökning på termen `river`, och resultatet innefattar en räkning av matchande dokument. Att returnera antalet matchande dokument är användbart i testscenarier när du har ett stort index med tusentals eller miljontals dokument. I det här fallet är det bara ett dokument som matchar frågan.
 
 4. Slutligen anger du en söksträng som begränsar JSON-utdata till intresseområden: `search=river&$count=true&$select=hotelId, baseRate, description`. 
 
-  Svaret på frågan begränsas till valda fält, vilket ger mer koncisa utdata.
+   Svaret på frågan begränsas till valda fält, vilket ger mer koncisa utdata.
 
 ## <a name="view-indexer-configuration"></a>Visa indexerarkonfiguration
 
@@ -268,7 +267,7 @@ Alla indexerare, inklusive den som du just har skapat programmässigt, visas i p
 2. Rulla ned till panelerna för **indexerare** och **datakällor**.
 3. Klicka på en panel för att öppna en lista för varje resurs. Du kan välja enskilda indexerare eller datakällor om du vill visa eller ändra konfigurationsinställningarna.
 
-  ![Paneler för indexerare och datakällor](./media/search-indexer-tutorial/tiles-portal.png)
+   ![Paneler för indexerare och datakällor](./media/search-indexer-tutorial/tiles-portal.png)
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

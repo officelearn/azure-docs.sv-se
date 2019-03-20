@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: aa3f2bc23b731f1e2c02d84edd6079debfbae134
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 249ed7b1be2731fc8165ca7f205ba1d94066818e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727271"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088051"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Viktig information om Microsoft Azure Lagringsutforskaren
 
@@ -158,12 +158,12 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 
 * Du kan nu använda Storage Explorer för att få åtkomst till din Blob-data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Om du har loggat in och Storage Explorer kan inte hämta nycklarna för ditt lagringskonto, används en OAuth-token för autentisering när du interagerar med dina data.
 * Lagringsutforskaren stöder nu ADLS Gen2 Storage-konton. När Storage Explorer upptäcker det hierarkiskt namnområdet har aktiverats för ett lagringskonto, kommer du att se ”(ADLS Gen2 förhandsgranskning)” bredvid namnet på ditt lagringskonto. Lagringsutforskaren kan identifiera huruvida hierarkiskt namnområde är aktiverad när du är inloggad, eller om du har anslutit ditt Lagringskonto med namnet och nyckeln. Du kan använda Storage Explorer för ADLS Gen2 Storage-konton:
-    * Skapa och ta bort behållare
-    * Hantera egenskaper för behållare och behörigheter (vänster)
-    * Visa och navigera data i behållare
-    * Skapa nya mappar
-    * Ladda upp, hämta, byta namn på och ta bort filer och mappar
-    * Hantera egenskaper för filer och mappar och behörigheter (till höger).
+  * Skapa och ta bort behållare
+  * Hantera egenskaper för behållare och behörigheter (vänster)
+  * Visa och navigera data i behållare
+  * Skapa nya mappar
+  * Ladda upp, hämta, byta namn på och ta bort filer och mappar
+  * Hantera egenskaper för filer och mappar och behörigheter (till höger).
     
     Andra vanliga Blob-funktioner, till exempel mjuk borttagning och ögonblicksbilder är inte tillgänglig för tillfället. Hantera behörigheter är också bara tillgängligt när du loggat in. När du arbetar i ett ADLS Gen2 Storage-konto, kommer Lagringsutforskaren dessutom använda AzCopy för alla överföringar och hämtning och med namnet och nyckeln autentiseringsuppgifter för alla åtgärder om det är tillgängligt som standard.
 * Efter stark Användarfeedback användas lease break återigen att avbryta lån för flera blobar på samma gång.
@@ -227,12 +227,12 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 
 * Du kan nu använda Storage Explorer för att få åtkomst till din Blob-data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Om du har loggat in och Storage Explorer kan inte hämta nycklarna för ditt lagringskonto, används en OAuth-token för autentisering när du interagerar med dina data.
 * Lagringsutforskaren stöder nu ADLS Gen2 Storage-konton. När Storage Explorer upptäcker det hierarkiskt namnområdet har aktiverats för ett lagringskonto, kommer du att se ”(ADLS Gen2 förhandsgranskning)” bredvid namnet på ditt lagringskonto. Lagringsutforskaren kan identifiera huruvida hierarkiskt namnområde är aktiverad när du är inloggad, eller om du har anslutit ditt Lagringskonto med namnet och nyckeln. Du kan använda Storage Explorer för ADLS Gen2 Storage-konton:
-    * Skapa och ta bort behållare
-    * Hantera egenskaper för behållare och behörigheter (vänster)
-    * Visa och navigera data i behållare
-    * Skapa nya mappar
-    * Ladda upp, hämta, byta namn på och ta bort filer och mappar
-    * Hantera egenskaper för filer och mappar och behörigheter (till höger).
+  * Skapa och ta bort behållare
+  * Hantera egenskaper för behållare och behörigheter (vänster)
+  * Visa och navigera data i behållare
+  * Skapa nya mappar
+  * Ladda upp, hämta, byta namn på och ta bort filer och mappar
+  * Hantera egenskaper för filer och mappar och behörigheter (till höger).
     
     Andra vanliga Blob-funktioner, till exempel mjuk borttagning och ögonblicksbilder är inte tillgänglig för tillfället. Hantera behörigheter är också bara tillgängligt när du loggat in. När du arbetar i ett ADLS Gen2 Storage-konto, kommer Lagringsutforskaren dessutom använda AzCopy för alla överföringar och hämtning och med namnet och nyckeln autentiseringsuppgifter för alla åtgärder om det är tillgängligt som standard.
 * Efter stark Användarfeedback användas lease break återigen att avbryta lån för flera blobar på samma gång.
@@ -282,12 +282,12 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 
 * Du kan nu använda Storage Explorer för att få åtkomst till din Blob-data via [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Om du har loggat in och Storage Explorer kan inte hämta nycklarna för ditt lagringskonto, används en OAuth-token för autentisering när du interagerar med dina data.
 * Lagringsutforskaren stöder nu ADLS Gen2 Storage-konton. När Storage Explorer upptäcker det hierarkiskt namnområdet har aktiverats för ett lagringskonto, kommer du att se ”(ADLS Gen2 förhandsgranskning)” bredvid namnet på ditt lagringskonto. Lagringsutforskaren kan identifiera huruvida hierarkiskt namnområde är aktiverad när du är inloggad, eller om du har anslutit ditt Lagringskonto med namnet och nyckeln. Du kan använda Storage Explorer för ADLS Gen2 Storage-konton:
-    * Skapa och ta bort behållare
-    * Hantera egenskaper för behållare och behörigheter (vänster)
-    * Visa och navigera data i behållare
-    * Skapa nya mappar
-    * Ladda upp, hämta, byta namn på och ta bort filer och mappar
-    * Hantera egenskaper för filer och mappar och behörigheter (till höger).
+  * Skapa och ta bort behållare
+  * Hantera egenskaper för behållare och behörigheter (vänster)
+  * Visa och navigera data i behållare
+  * Skapa nya mappar
+  * Ladda upp, hämta, byta namn på och ta bort filer och mappar
+  * Hantera egenskaper för filer och mappar och behörigheter (till höger).
     
     Andra vanliga Blob-funktioner, till exempel mjuk borttagning och ögonblicksbilder är inte tillgänglig för tillfället. Hantera behörigheter är också bara tillgängligt när du loggat in. När du arbetar i ett ADLS Gen2 Storage-konto, kommer Lagringsutforskaren dessutom använda AzCopy för alla överföringar och hämtning och med namnet och nyckeln autentiseringsuppgifter för alla åtgärder om det är tillgängligt som standard.
 * Efter stark Användarfeedback användas lease break återigen att avbryta lån för flera blobar på samma gång.

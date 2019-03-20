@@ -10,16 +10,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 53c816ee8fa670c8a4dde3212325524a17d25aab
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 85113a5007a171459b831684f584773ba4328b94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314440"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079954"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Skapa en Programgateway med flera för webbplatsen med Azure portal
 
-Du kan använda Azure-portalen för att konfigurera [som är värd för flera webbplatser](application-gateway-multi-site-overview.md) när du skapar en [Programgateway](application-gateway-introduction.md). I den här självstudien skapar du serverdelspooler med skalningsuppsättningar för virtuella datorer. Du konfigurerar sedan lyssnare och regler baserat på de domäner du äger för att kontrollera att webbtrafiken anländer till rätt servrar i poolerna. I den här självstudien förutsätts att du äger flera domäner. Vi använder *www.contoso.com* och *www.fabrikam.com* som exempel.
+Du kan använda Azure-portalen för att konfigurera [som är värd för flera webbplatser](application-gateway-multi-site-overview.md) när du skapar en [Programgateway](application-gateway-introduction.md). I den här självstudien skapar du serverdelspooler med skalningsuppsättningar för virtuella datorer. Du konfigurerar sedan lyssnare och regler baserat på de domäner du äger för att kontrollera att webbtrafiken anländer till rätt servrar i poolerna. Den här självstudien förutsätter att du äger flera domäner och använder exempel på *www\.contoso.com* och *www\.fabrikam.com*.
 
 I den här artikeln kan du se hur du:
 
@@ -46,20 +46,20 @@ Det krävs ett virtuellt nätverk för kommunikation mellan de resurser som du s
 2. Välj **Nätverk** och sedan **Application Gateway** i listan Aktuella.
 3. Ange följande värden för programgatewayen:
 
-    - *myAppGateway* – Namnet på programgatewayen.
-    - *myResourceGroupAG* – Den nya resursgruppen.
+   - *myAppGateway* – Namnet på programgatewayen.
+   - *myResourceGroupAG* – Den nya resursgruppen.
 
-    ![Skapa en ny programgateway](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
+     ![Skapa en ny programgateway](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
 
 4. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
 5. Klicka på **Välj ett virtuellt nätverk**, klicka på **Skapa nytt** och ange sedan följande värden för det virtuella nätverket:
 
-    - *myVnet* – Det virtuella nätverkets namn.
-    - *10.0.0.0/16* – Det virtuella nätverkets adressutrymme.
-    - *myBackendSubnet* – Undernätsnamnet.
-    - *10.0.0.0/24* – Undernätets adressutrymme.
+   - *myVnet* – Det virtuella nätverkets namn.
+   - *10.0.0.0/16* – Det virtuella nätverkets adressutrymme.
+   - *myBackendSubnet* – Undernätsnamnet.
+   - *10.0.0.0/24* – Undernätets adressutrymme.
 
-    ![Skapa det virtuella nätverket](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
+     ![Skapa det virtuella nätverket](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
 
 6. Klicka på **OK** för att skapa det virtuella nätverket och undernätet.
 7. Klicka på **välja en offentlig IP-adress**, klickar du på **Skapa nytt**, och ange sedan namnet på den offentliga IP-adressen. I det här exemplet heter den offentliga IP-adressen *myAGPublicIPAddress*. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
@@ -136,11 +136,11 @@ I det här exemplet skapar du två virtuella datorer som ska användas som serve
 1. Klicka på **lyssnare** och klicka sedan på **multisite**.
 2. Ange följande värden för lyssnaren:
     
-    - *contosoListener* – för namnet på lyssnaren.
-    - *www.contoso.com* -Ersätt exemplet värden namnet med ditt domännamn.
+   - *contosoListener* – för namnet på lyssnaren.
+   - *www\.contoso.com* -Ersätt exemplet värden namnet med ditt domännamn.
 
 3. Klicka på **OK**.
-4. Skapa en andra lyssnare med namnet på *fabrikamListener* och använda dina andra domännamn. I det här exemplet *www.fabrikam.com* används.
+4. Skapa en andra lyssnare med namnet på *fabrikamListener* och använda dina andra domännamn. I det här exemplet *www\.fabrikam.com* används.
 
 Regler bearbetas i ordningen de anges, och trafiken dirigeras med hjälp av den första regel som matchar oavsett särskilda egenskaper. Om du till exempel har en regel med en grundläggande lyssnare och en regel med en lyssnare för flera webbplatser för samma port så måste regeln med lyssnare för flera platser stå innan regeln med den grundläggande lyssnaren om regeln för flera platser ska fungera som förväntat. 
 

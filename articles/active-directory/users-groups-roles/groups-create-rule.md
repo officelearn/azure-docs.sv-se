@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df5668c3fa43130ee1a0271d6040b1989ee8ab79
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: f828ff83e6b9c60eb08edef7f47e88185fb5aef8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242640"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199689"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Skapa en dynamisk grupp och kontrollera status
 
@@ -34,15 +34,15 @@ Exempel på syntax, egenskaper som stöds, operatorer och värden för en medlem
 2. Välj **grupper**.
 3. Välj **alla grupper**, och välj **ny grupp**.
 
-   ![Lägg till ny grupp](./media/groups-create-rule/new-group-creation.png)
+   ![Välj kommandot för att lägga till ny grupp](./media/groups-create-rule/new-group-creation.png)
 
 4. På den **grupp** anger du ett namn och beskrivning för den nya gruppen. Välj en **Medlemskapstyp** för användare eller enheter och välj sedan **Lägg till dynamisk fråga**. Du kan använda regeln builder för att skapa en enkel regel eller [skriva en medlemskapsregel själv](groups-dynamic-membership.md).
 
-   ![Lägg till dynamisk medlemsregel](./media/groups-create-rule/add-dynamic-group-rule.png)
+   ![Lägg till regel för medlemskap för en dynamisk grupp](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 5. Se anpassat tilläggs-egenskaper som är tillgängliga för din medlemskapsfråga
-  1. Välj **hämta anpassat tilläggs-egenskaper**
-  2. Ange program-ID och välj sedan **uppdatera egenskaper för**. 
+   1. Välj **hämta anpassat tilläggs-egenskaper**
+   2. Ange program-ID och välj sedan **uppdatera egenskaper för**. 
 6. När du har skapat regeln, Välj **Lägg till fråga** längst ned på bladet.
 7. Välj **skapa** på den **grupp** bladet för att skapa gruppen.
 
@@ -56,7 +56,7 @@ När en ny Office 365-grupp skapas skickas en Välkommen meddelandet de använda
 
 Du kan se medlemskapet bearbetning status och datum för senaste uppdatering på den **översikt** för gruppen.
   
-  ![skärm för dynamisk grupp](./media/groups-create-rule/group-status.png)
+  ![visning av dynamisk grupp-status](./media/groups-create-rule/group-status.png)
 
 Följande statusmeddelanden kan visas för **medlemskap bearbetning** status:
 
@@ -74,7 +74,7 @@ Följande statusmeddelanden kan visas för **medlemskap senast uppdaterad** stat
 
 Om det uppstår ett fel vid bearbetning av medlemskapsregeln för en viss grupp, visas en avisering i den **översiktssidan** för gruppen. Om du inte väntar på dynamiskt medlemskap uppdateringar kan bearbetas för alla grupper i klienten för sedan 24 timmar, visas en avisering i **alla grupper**.
 
-![felmeddelande för bearbetning](./media/groups-create-rule/processing-error.png)
+![bearbetning av felmeddelanden för meddelande](./media/groups-create-rule/processing-error.png)
 
 Dessa artiklar innehåller ytterligare information om grupper i Azure Active Directory.
 

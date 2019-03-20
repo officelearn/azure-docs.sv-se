@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: f742f6923b7d9f40a8752d77c7702e9b2ea2a4cf
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7932d057a348957d369ba325044055ac8dfe3428
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185876"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170198"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Övervakning av runbooks med måttaviseringar
 
@@ -36,6 +36,9 @@ Gå till ditt Automation-konto i Azure-portalen. Under **övervakning**väljer *
 2. Den **konfigurera signallogiken** sidan är här du definierar logiken som utlöser aviseringen. Under den historiska diagram visas två dimensioner **Runbooknamn** och **Status**. Dimensioner är olika egenskaper för ett mått som kan användas för att filtrera resultat. För **Runbooknamn**, Välj den runbook som du vill varning i eller lämna tomt för aviseringen för alla runbooks. För **Status**, Välj en status i listrutan som du vill övervaka. Runbook-namnet och statusen för värdena som visas i listrutan är endast för jobb som har körts under den senaste veckan.
 
    Om du vill att Avisera om en status eller en runbook som inte visas i listrutan, klickar du på den **\+** bredvid dimensionen. Den här åtgärden öppnar en dialogruta där du kan ange i ett anpassat värde inte anges för den aktuella dimensionen nyligen. Om du anger ett värde som inte finns för en egenskap som aviseringen inte kommer utlösas.
+
+   > [!NOTE]
+   > Om du inte använder ett namn för den **RunbookName** dimension, om det finns alla runbooks som uppfyller villkoren för status som innehåller dolda system runbooks, får du en avisering.
 
 3. Under **Avisera logic**, definiera villkor och tröskelvärdet för aviseringen. En förhandsgranskning av villkoret definierats visas under.
 

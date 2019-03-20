@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 47ca2febeffe395ba2482165f04ee29aa0193c63
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: be1c46c5bc2c8edcfeca81c82095687c4ddfd894
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512252"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225832"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Utforma högtillgängliga program med hjälp av RA-GRS
 
@@ -123,7 +123,7 @@ Det finns två scenarier för att tänka på när du bestämmer hur du svarar p�
 
     I det här scenariot finns det en prestandaförsämring eftersom alla läsbegäranden kommer försöka den primära slutpunkten först, vänta tills tidsgränsen på att gå ut och sedan växla till den sekundära slutpunkten.
 
-I dessa scenarier bör du identifiera som det finns en pågående problem med den primära slutpunkten och skicka läser alla begäranden direkt till den sekundära slutpunkten genom att ange den **LocationMode** egenskap **SecondaryOnly** . För tillfället bör du också ändra programmet att köras i skrivskyddat läge. Den här metoden kallas den [Kretsbrytarmönstret](https://msdn.microsoft.com/library/dn589784.aspx).
+I dessa scenarier bör du identifiera som det finns en pågående problem med den primära slutpunkten och skicka läser alla begäranden direkt till den sekundära slutpunkten genom att ange den **LocationMode** egenskap **SecondaryOnly** . För tillfället bör du också ändra programmet att köras i skrivskyddat läge. Den här metoden kallas den [Kretsbrytarmönstret](/azure/architecture/patterns/circuit-breaker).
 
 ### <a name="update-requests"></a>Begäranden om att uppdatera
 
@@ -201,12 +201,12 @@ I följande tabell visar ett exempel på vad som händer när du uppdaterar info
 | **Time** | **Transaktionen**                                            | **Replikering**                       | **Senaste synkroniseringstid** | **Resultatet** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transaktionen A: <br> Infoga medarbetare <br> entiteten i primär |                                   |                    | Transaktionen A infogas till primär,<br> inte har replikerats än. |
-| T1       |                                                            | Transaktionen A <br> replikeras till<br> sekundär | T1 | Transaktionen A replikeras till sekundär. <br>Senaste synkronisering har uppdaterats.    |
+| T1       |                                                            | Transaktionen A <br> replikeras till<br> Sekundär | T1 | Transaktionen A replikeras till sekundär. <br>Senaste synkronisering har uppdaterats.    |
 | T2       | Transaktionen B:<br>Uppdatering<br> Medarbetaren entitet<br> i primär  |                                | T1                 | Transaktionen B som skrivs till primär,<br> inte har replikerats än.  |
 | T3       | Transaktionen C:<br> Uppdatering <br>administratör<br>rollen entitet i<br>primär |                    | T1                 | Transaktionen skrivs till primär, C<br> inte har replikerats än.  |
-| *T4*     |                                                       | Transaktionen C <br>replikeras till<br> sekundär | T1         | Transaktionen C som replikeras till sekundär.<br>LastSyncTime inte uppdateras eftersom <br>transaktionen B har ännu inte replikerats.|
+| *T4*     |                                                       | Transaktionen C <br>replikeras till<br> Sekundär | T1         | Transaktionen C som replikeras till sekundär.<br>LastSyncTime inte uppdateras eftersom <br>transaktionen B har ännu inte replikerats.|
 | *T5*     | Läsa entiteter <br>från den sekundära                           |                                  | T1                 | Du får det inaktuella värdet för medarbetare <br> entiteten eftersom transaktionen B har inte <br> replikerade ännu. Du får det nya värdet för<br> administratören rollentiteten eftersom C har<br> replikeras. Senaste synkroniseringstid fortfarande inte<br> har uppdaterats eftersom transaktionen B<br> har inte replikeras. Du kan se den<br>administratören rollentiteten är inkonsekvent <br>eftersom entiteten datum/tid är efter <br>Senaste synkronisering. |
-| *T6*     |                                                      | Transaktionen B<br> replikeras till<br> sekundär | T6                 | *T6* – alla transaktioner via C <br>har replikerats, senaste synkroniseringstid<br> har uppdaterats. |
+| *T6*     |                                                      | Transaktionen B<br> replikeras till<br> Sekundär | T6                 | *T6* – alla transaktioner via C <br>har replikerats, senaste synkroniseringstid<br> har uppdaterats. |
 
 I det här exemplet antar vi att klienten växlar till läsning från den sekundära regionen på T5. Det kan läsa den **administratörsroll** entiteten just nu, men entitet som innehåller ett värde för antalet administratörer som inte stämmer överens med antalet **medarbetare** entiteter som är markerad som administratörer i den sekundära regionen just nu. Klienten kan bara visa det här värdet med risk att den är inkonsekvent information. Du kan också klienten kan försöka fastställa som den **administratörsroll** är i ett eventuellt inkonsekvent tillstånd eftersom uppdateringarna vara har fel ordning och informera användaren om detta.
 
@@ -216,7 +216,7 @@ Att identifiera att den har potentiellt inkonsekventa data kan klienten använda
 
 Det är viktigt att testa att ditt program fungerar som förväntat när återförsökbart fel påträffas. Till exempel behöver du testa att programmet växlar till sekundärt och i skrivskyddat läge när det upptäcker ett problem och växlar tillbaka när den primära regionen blir tillgänglig igen. Om du vill göra detta måste behöver du ett sätt att simulera återförsökbart fel och styra hur ofta de inträffar.
 
-Du kan använda [Fiddler](http://www.telerik.com/fiddler) att komma åt och ändra HTTP-svar i ett skript. Det här skriptet kan identifiera svar som kommer från din primära slutpunkt och ändra HTTP-statuskoden till en Storage-klientbiblioteket känner igen som ett återförsökbart fel. Det här kodstycket visar ett enkelt exempel på ett Fiddler-skript som fångar upp svar om du vill läsa förfrågningar mot den **employeedata** tabell för att returnera statusen 502:
+Du kan använda [Fiddler](https://www.telerik.com/fiddler) att komma åt och ändra HTTP-svar i ett skript. Det här skriptet kan identifiera svar som kommer från din primära slutpunkt och ändra HTTP-statuskoden till en Storage-klientbiblioteket känner igen som ett återförsökbart fel. Det här kodstycket visar ett enkelt exempel på ett Fiddler-skript som fångar upp svar om du vill läsa förfrågningar mot den **employeedata** tabell för att returnera statusen 502:
 
 ```java
 static function OnBeforeResponse(oSession: Session) {
@@ -228,7 +228,7 @@ static function OnBeforeResponse(oSession: Session) {
 }
 ```
 
-Du kan utöka det här exemplet för att fånga upp ett bredare spektrum av begäranden och bara ändra den **responseCode** på några av dem att bättre simulera ett verkligt scenario. Mer information om hur du anpassar Fiddler skript finns i [ändra en begäran eller ett svar](http://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) i Fiddler-dokumentationen.
+Du kan utöka det här exemplet för att fånga upp ett bredare spektrum av begäranden och bara ändra den **responseCode** på några av dem att bättre simulera ett verkligt scenario. Mer information om hur du anpassar Fiddler skript finns i [ändra en begäran eller ett svar](https://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) i Fiddler-dokumentationen.
 
 Om du har gjort tröskelvärdena för att växla ditt program till skrivskyddat läge kan konfigureras, är det lättare att testa beteende med icke-produktion transaktionsvolymer.
 

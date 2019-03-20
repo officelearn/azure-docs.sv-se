@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: a6607fa91d9c8556881a5532527a63b6f21ad4d1
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: f6f4858740288facb1e206eed3a8cd4ee1854daa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977464"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111454"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Distribuera ett Service Fabric-kluster som använder certifikatets unika namn i stället för tumavtryck
 Inga två certifikat kan ha samma tumavtryck, vilket gör förnya certifikatet för klustret eller management svårt. Flera certifikat kan dock ha samma namn eller ämne.  Ett kluster med vanliga namn för certifikatet gör det mycket enklare att certifikathantering. Den här artikeln beskriver hur du distribuerar Service Fabric-kluster för certifikatets unika namn istället för certifikatets tumavtryck.
@@ -158,36 +158,36 @@ Därefter öppnar den *azuredeploy.json* filen i en textredigerare och gör tre 
           },
     ```
 
-4.  I den **Microsoft.ServiceFabric/clusters** resurs, Uppdateringsversion API: et till ”2018-02-01”.  Också lägga till en **certificateCommonNames** inställning med en **commonNames** egenskap och ta bort den **certifikat** inställning (med tumavtrycksegenskapen) enligt följande Exempel:
-    ```json
-    {
-        "apiVersion": "2018-02-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
-        ],
-        "properties": {
-        "addonFeatures": [
-            "DnsService",
-            "RepairManager"
-        ],        
-        "certificateCommonNames": {
-            "commonNames": [
-            {
-                "certificateCommonName": "[parameters('certificateCommonName')]",
-                "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprint')]"
-            }
-            ],
-            "x509StoreName": "[parameters('certificateStoreValue')]"
-        },
-        ...
-    ```
-> [!NOTE]
-> Fältet ”certificateIssuerThumbprint” kan du ange de förväntade utfärdarna av certifikat med ett visst ämne nätverksnamn. Det här fältet accepterar en kommaavgränsad uppräkning av SHA1-tumavtryck. Observera att detta är en förstärkning av certifikatsverifiering - i fall när utfärdaren inte har angetts eller tom certifikatet kommer accepteras för autentisering om kedjan kan byggas och ends upp i en rotcertifikatutfärdare som är betrodd av verifieraren. Om utfärdaren har angetts, kommer att accepteras certifikatet om tumavtrycket för dess direkta utfärdaren matchar något av värdena som anges i det här fältet – oavsett om rot är betrodd eller inte. Observera att en PKI kan använda olika certifikatutfärdare för att utfärda certifikat för samma ämne och det är därför viktigt att ange alla förväntade certifikatutfärdarens tumavtryck för ett visst ämne.
->
-> Att ange utfärdaren anses vara bästa praxis. och utelämna det fortsätter att fungera – för certifikat som länkning till ett betrott rotcertifikat – det här beteendet har begränsningar och kan fasas ut inom en snar framtid. Observera också att kluster distribueras i Azure och skyddas med X509 certifikat som utfärdats av en privat PKI och deklarerats av ämne kanske inte kan verifieras av Azure Service Fabric-tjänsten (för kluster-till-tjänst-kommunikation) om PKI: ns certifikatprincip är inte synliga, tillgänglig och kan nås. 
+4. I den **Microsoft.ServiceFabric/clusters** resurs, Uppdateringsversion API: et till ”2018-02-01”.  Också lägga till en **certificateCommonNames** inställning med en **commonNames** egenskap och ta bort den **certifikat** inställning (med tumavtrycksegenskapen) enligt följande Exempel:
+   ```json
+   {
+       "apiVersion": "2018-02-01",
+       "type": "Microsoft.ServiceFabric/clusters",
+       "name": "[parameters('clusterName')]",
+       "location": "[parameters('clusterLocation')]",
+       "dependsOn": [
+       "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
+       ],
+       "properties": {
+       "addonFeatures": [
+           "DnsService",
+           "RepairManager"
+       ],        
+       "certificateCommonNames": {
+           "commonNames": [
+           {
+               "certificateCommonName": "[parameters('certificateCommonName')]",
+               "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprint')]"
+           }
+           ],
+           "x509StoreName": "[parameters('certificateStoreValue')]"
+       },
+       ...
+   ```
+   > [!NOTE]
+   > Fältet ”certificateIssuerThumbprint” kan du ange de förväntade utfärdarna av certifikat med ett visst ämne nätverksnamn. Det här fältet accepterar en kommaavgränsad uppräkning av SHA1-tumavtryck. Observera att detta är en förstärkning av certifikatsverifiering - i fall när utfärdaren inte har angetts eller tom certifikatet kommer accepteras för autentisering om kedjan kan byggas och ends upp i en rotcertifikatutfärdare som är betrodd av verifieraren. Om utfärdaren har angetts, kommer att accepteras certifikatet om tumavtrycket för dess direkta utfärdaren matchar något av värdena som anges i det här fältet – oavsett om rot är betrodd eller inte. Observera att en PKI kan använda olika certifikatutfärdare för att utfärda certifikat för samma ämne och det är därför viktigt att ange alla förväntade certifikatutfärdarens tumavtryck för ett visst ämne.
+   >
+   > Att ange utfärdaren anses vara bästa praxis. och utelämna det fortsätter att fungera – för certifikat som länkning till ett betrott rotcertifikat – det här beteendet har begränsningar och kan fasas ut inom en snar framtid. Observera också att kluster distribueras i Azure och skyddas med X509 certifikat som utfärdats av en privat PKI och deklarerats av ämne kanske inte kan verifieras av Azure Service Fabric-tjänsten (för kluster-till-tjänst-kommunikation) om PKI: ns certifikatprincip är inte synliga, tillgänglig och kan nås. 
 
 ## <a name="deploy-the-updated-template"></a>Distribuera den uppdaterade mallen
 Distribuera om den uppdaterade mallen när du har gjort ändringarna.

@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: renash
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 7305fbf21557061250a80e095998ad7ea2f35510
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 561c8c9d942210a9bbdc70feff9bc468fa69967e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792522"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995861"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (och svar FAQ) om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via vanliga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära där data används.
@@ -27,19 +27,19 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 
 ## <a name="general"></a>Allmänt
 * <a id="why-files-useful"></a>
-**Hur är Azure Files användbart?**  
+  **Hur är Azure Files användbart?**  
    Du kan använda Azure Files för att skapa filresurser i molnet, utan att vara ansvarar för att hantera kostnaderna för att en fysisk server, en enhet eller en installation. Vi gör monotont arbetet åt dig, till exempel tillämpa uppdateringar av Operativsystemet och ersätta skadade diskar. Läs mer om de scenarier som Azure Files kan hjälpa dig med i [varför Azure Files är användbart](storage-files-introduction.md#why-azure-files-is-useful).
 
 * <a id="file-access-options"></a>
-**Det finns olika sätt att komma åt filer i Azure Files?**  
-    Du kan montera filresursen på den lokala datorn med hjälp av SMB 3.0-protokollet och du kan använda verktyg som [Lagringsutforskaren](http://storageexplorer.com/) att komma åt filer i filresursen. Från ditt program, kan du använda storage-klientbibliotek, REST API: er, PowerShell eller Azure CLI att få åtkomst till filer i Azure-filresursen.
+  **Det finns olika sätt att komma åt filer i Azure Files?**  
+    Du kan montera filresursen på den lokala datorn med hjälp av SMB 3.0-protokollet och du kan använda verktyg som [Lagringsutforskaren](https://storageexplorer.com/) att komma åt filer i filresursen. Från ditt program, kan du använda storage-klientbibliotek, REST API: er, PowerShell eller Azure CLI att få åtkomst till filer i Azure-filresursen.
 
 * <a id="what-is-afs"></a>
-**Vad är Azure File Sync?**  
+  **Vad är Azure File Sync?**  
     Du kan använda Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar dina Windows Server-datorer till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, Network File System (NFS) och File Transfer Protocol Service (FTPS). Du kan ha så många cacheminnen som du behöver över hela världen.
 
 * <a id="files-versus-blobs"></a>
-**Varför ska jag använda en Azure-filresurs jämfört med Azure Blob storage för Mina data?**  
+  **Varför ska jag använda en Azure-filresurs jämfört med Azure Blob storage för Mina data?**  
     Azure Files och Azure Blob storage både erbjuder olika sätt att lagra stora mängder data i molnet, men de är användbara i något annat syfte. 
     
     Azure Blob storage är användbart för massiv skala, molnbaserade program som behöver lagra Ostrukturerade data. För att maximera prestanda och skalning, är Azure Blob storage en enklare storage abstraktion än något filsystem. Du kan komma åt Azure Blob storage bara via REST-baserade klientbibliotek (eller direkt via REST-baserade protokollet).
@@ -58,42 +58,42 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
     Information om ett alternativ för hur du konfigurerar en server för höga prestanda och hög tillgänglighet i Azure finns i [distribuera IaaS VM-gästkluster i Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). En mer detaljerad beskrivning av skillnaderna mellan Azure Files och Azure-diskar, se [avgöra när du ska använda Azure Blob storage, Azure Files eller Azure Disks](../common/storage-decide-blobs-files-disks.md). Läs mer om Azure-diskar i [översikt över Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
 
 * <a id="get-started"></a>
-**Hur kommer jag igång med Azure Files?**  
+  **Hur kommer jag igång med Azure Files?**  
    Det är enkelt att komma igång med Azure Files. Först [skapa en filresurs](storage-how-to-create-file-share.md), och sedan montera den i önskat operativsystem: 
 
-    * [Montera i Windows](storage-how-to-use-files-windows.md)
-    * [Montera i Linux](storage-how-to-use-files-linux.md)
-    * [Montera i macOS](storage-how-to-use-files-mac.md)
+  * [Montera i Windows](storage-how-to-use-files-windows.md)
+  * [Montera i Linux](storage-how-to-use-files-linux.md)
+  * [Montera i macOS](storage-how-to-use-files-mac.md)
 
-   En mer detaljerad vägledning om hur du distribuerar en Azure-filresurs att ersätta filresurser för produktion i din organisation, se [planera för distribution av Azure Files](storage-files-planning.md).
+    En mer detaljerad vägledning om hur du distribuerar en Azure-filresurs att ersätta filresurser för produktion i din organisation, se [planera för distribution av Azure Files](storage-files-planning.md).
 
 * <a id="redundancy-options"></a>
-**Vilka alternativ för lagringsredundans stöds av Azure Files?**  
+  **Vilka alternativ för lagringsredundans stöds av Azure Files?**  
     Azure Files stöder för närvarande, lokalt redundant lagring (LRS), zonredundant lagring (ZRS) och geo-redundant lagring (GRS). Vi planerar att stödja läsåtkomst till geografiskt redundant (RA-GRS)-lagring i framtiden, men vi har inte tidslinjer för att dela just nu.
 
 * <a id="tier-options"></a>
-**Vilka nivåer stöds i Azure Files?**  
+  **Vilka nivåer stöds i Azure Files?**  
     Azure Files stöder för närvarande endast standardlagring-nivå. Vi har inte tidslinjer för att dela för premium storage och lågfrekvent lagring stöder just nu. 
     
     > [!NOTE]
     > Du kan inte skapa Azure-filresurser från endast blob storage-konton eller från premium storage-konton.
 
 * <a id="give-us-feedback"></a>
-**Nu vill jag verkligen finns i en specifik funktion som läggs till i Azure-filer. Kan du lägga till den?**  
+  **Nu vill jag verkligen finns i en specifik funktion som läggs till i Azure-filer. Kan du lägga till den?**  
     Azure Files-teamet vill ha tagit reda på alla feedback som du har om vår tjänst. Du rösta på funktionsförfrågningar på [Azure filer UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! Vi tittar framåt till delighting du till många nya funktioner.
 
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 * <a id="afs-region-availability"></a>
-**Vilka regioner stöds för Azure File Sync?**  
+  **Vilka regioner stöds för Azure File Sync?**  
     Lista över tillgängliga regioner finns på den [regiontillgänglighet](storage-sync-files-planning.md#region-availability) avsnitt av Azure File Sync-planering guide. Vi lägger kontinuerligt till stöd för ytterligare regioner, inklusive icke-offentlig regioner.
 
 * <a id="cross-domain-sync"></a>
-**Kan jag ha domänanslutna och icke-domänanslutna servrar i samma synkroniseringsgruppen?**  
+  **Kan jag ha domänanslutna och icke-domänanslutna servrar i samma synkroniseringsgruppen?**  
     Ja. En synkroniseringsgrupp kan innehålla serverslutpunkter som har olika medlemskap i Active Directory, även om de inte är ansluten till domänen. Den här konfigurationen fungerar tekniskt men rekommenderar vi inte detta som en typisk konfiguration eftersom åtkomstkontrollistor (ACL) som har definierats för filer och mappar på en server inte kanske kan tillämpas av andra servrar i synkroniseringsgruppen. För bästa resultat rekommenderar vi synkroniseras mellan servrar som finns i samma Active Directory-skog, mellan servrar som finns i olika Active Directory-skogar men som etablerade förtroenderelationer eller mellan servrar som inte ingår i en domän. Vi rekommenderar att du inte använder en blandning av de här konfigurationerna.
 
 * <a id="afs-change-detection"></a>
-**Jag har skapat en fil direkt i min Azure-filresurs med hjälp av SMB eller i portalen. Hur lång tid tar det för den fil som ska synkroniseras till servrar i synkroniseringsgruppen?**  
+  **Jag har skapat en fil direkt i min Azure-filresurs med hjälp av SMB eller i portalen. Hur lång tid tar det för den fil som ska synkroniseras till servrar i synkroniseringsgruppen?**  
     [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
 * <a id="afs-conflict-resolution"></a>**Vad händer om samma fil ändras på två servrar på ungefär samma gång?**  
@@ -104,66 +104,66 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
     Första konflikter mellan CompanyReport.docx skulle bli CompanyReport CentralServer.docx om CentralServer är där det äldre Skriv inträffade. Andra konflikten namnet CompanyReport-CentralServer-1.docx.
 
 * <a id="afs-storage-redundancy"></a>
-**Stöds geo-redundant lagring för Azure File Sync?**  
+  **Stöds geo-redundant lagring för Azure File Sync?**  
     Ja, Azure Files stöder både lokalt redundant lagring (LRS) och geo-redundant lagring (GRS). Om du startar storage-konto växling mellan länkade regioner från ett konto som konfigurerats för GRS rekommenderar Microsoft att du ska hantera den nya regionen som en säkerhetskopia av data endast. Azure File Sync börjar automatiskt inte synkroniseras med den nya primära regionen. 
 
 * <a id="sizeondisk-versus-size"></a>
-**Varför inte den *storlek på disken* -egenskapen för en fil matchar den *storlek* egenskapen när du har använt Azure File Sync?**  
- Se [förstå Molnnivå](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
+  **Varför inte den *storlek på disken* -egenskapen för en fil matchar den *storlek* egenskapen när du har använt Azure File Sync?**  
+  Se [förstå Molnnivå](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
 
 * <a id="is-my-file-tiered"></a>
-**Hur vet jag om en fil har nivåindelade?**  
- Se [förstå Molnnivå](storage-sync-cloud-tiering.md#is-my-file-tiered).
+  **Hur vet jag om en fil har nivåindelade?**  
+  Se [förstå Molnnivå](storage-sync-cloud-tiering.md#is-my-file-tiered).
 
 * <a id="afs-recall-file"></a>**En fil som jag vill använda har varit nivåindelade. Hur kan jag återställa filen till disk för att använda den lokalt?**  
- Se [förstå Molnnivå](storage-sync-cloud-tiering.md#afs-recall-file).
+  Se [förstå Molnnivå](storage-sync-cloud-tiering.md#afs-recall-file).
 
 * <a id="afs-force-tiering"></a>
-**Hur gör jag för att tvinga en fil eller katalog för att vara nivåindelad?**  
- Se [förstå Molnnivå](storage-sync-cloud-tiering.md#afs-force-tiering).
+  **Hur gör jag för att tvinga en fil eller katalog för att vara nivåindelad?**  
+  Se [förstå Molnnivå](storage-sync-cloud-tiering.md#afs-force-tiering).
 
 * <a id="afs-effective-vfs"></a>
-**Hur är *ledigt utrymme på volym* tolkas när jag har flera serverslutpunkter på en volym?**  
- Se [förstå Molnnivå](storage-sync-cloud-tiering.md#afs-effective-vfs).
+  **Hur är *ledigt utrymme på volym* tolkas när jag har flera serverslutpunkter på en volym?**  
+  Se [förstå Molnnivå](storage-sync-cloud-tiering.md#afs-effective-vfs).
 
 * <a id="afs-files-excluded"></a>
-**Vilka filer och mappar undantas automatiskt av Azure File Sync?**  
+  **Vilka filer och mappar undantas automatiskt av Azure File Sync?**  
     Som standard omfattar Azure File Sync inte följande filer:
-    * desktop.ini
-    * thumbs.DB
-    * ehthumbs.DB
-    * ~$\*.\*
-    * \*.laccdb
-    * \*.tmp
-    * 635D02A9D91C401B97884B82B3BCDAEA.\*
+  * desktop.ini
+  * thumbs.DB
+  * ehthumbs.DB
+  * ~$\*.\*
+  * \*.laccdb
+  * \*.tmp
+  * 635D02A9D91C401B97884B82B3BCDAEA.\*
 
     Följande mappar undantas också som standard:
 
-    * \System Volume Information
-    * \$PAPPERSKORGEN. BIN
-    * \SyncShareState
+  * \System Volume Information
+  * \$PAPPERSKORGEN. BIN
+  * \SyncShareState
 
 * <a id="afs-os-support"></a>
-**Kan jag använda Azure File Sync med Windows Server 2008 R2, Linux eller enheten nätverksansluten lagring (NAS)?**  
+  **Kan jag använda Azure File Sync med Windows Server 2008 R2, Linux eller enheten nätverksansluten lagring (NAS)?**  
     Azure File Sync stöder för närvarande endast Windows Server 2016 och Windows Server 2012 R2. Vi har inte några andra planer kan vi dela just nu, men vi är öppen för stöd för ytterligare plattformar baserat på kundernas behov. Berätta för oss på [Azure filer UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) vilka plattformar du vill bli kontaktad för.
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
-**Varför finns nivåindelade filer utanför den slutpunkten namnrymden?**  
+  **Varför finns nivåindelade filer utanför den slutpunkten namnrymden?**  
     Innan Azure File Sync-agentversion 3 blockeras Azure File Sync flytt av nivåindelade filer utanför Serverslutpunkten men på samma volym som Serverslutpunkten. Kopieringsåtgärder, flyttas av icke-nivåindelade filer och flyttas av nivåindelade andra volymer har påverkas inte. Orsaken till detta var det underförstådda antagandet att Utforskaren och andra Windows-API: er har att flyttåtgärder på samma volym är (nästan) omedelbara Byt namn på åtgärder. Det innebär att flytta gör Utforskaren eller andra move-metoder (till exempel från kommandoraden eller PowerShell) visas inte svarar medan Azure File Sync återställer data från molnet. Från och med [Azure File Sync-agentversion 3.0.12.0](storage-files-release-notes.md#supported-versions), Azure File Sync kan du flytta en nivåindelad fil utanför Serverslutpunkten. Vi undvika negativa effekter som vi nämnde tidigare genom att nivåindelade filen finns som en nivåindelad fil utanför Serverslutpunkten och sedan återställa filen i bakgrunden. Det innebär som flyttas på samma volym är omedelbara och vi gör allt arbete för att återställa filen till disk när förflyttningen har slutförts. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
-**Jag har problem med Azure File Sync på Min server (sync molnet lagringsnivåer, etc). Ta bort och återskapa min serverslutpunkt**  
+  **Jag har problem med Azure File Sync på Min server (sync molnet lagringsnivåer, etc). Ta bort och återskapa min serverslutpunkt**  
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
     
 * <a id="afs-resource-move"></a>
-**Kan jag flytta storage sync-tjänsten och/eller storage-konto till en annan resursgrupp eller prenumeration?**  
+  **Kan jag flytta storage sync-tjänsten och/eller storage-konto till en annan resursgrupp eller prenumeration?**  
    Ja, storage sync-tjänsten och/eller storage-konto kan flyttas till en annan resursgrupp eller prenumeration inom de befintliga Azure AD-klienten. Om lagringskontot har flyttats, måste du ge Hybrid Filsynkroniseringstjänstens åtkomst till lagringskontot (se [se till att Azure File Sync har åtkomst till lagringskontot](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > Azure File Sync stöder inte flytta prenumerationen till en annan Azure AD-klient.
     
 * <a id="afs-ntfs-acls"></a>
-**Bevarar Azure File Sync directory/filnivå NTFS-ACL: er tillsammans med data som lagras i Azure Files?**
+  **Bevarar Azure File Sync directory/filnivå NTFS-ACL: er tillsammans med data som lagras i Azure Files?**
 
     NTFS-ACL: er utförs från en lokal fil servrar sparas av Azure File Sync som metadata. Azure Files stöder inte autentisering med Azure AD-autentiseringsuppgifter för åtkomst till filresurser som hanteras av Azure File Sync-tjänsten.
     

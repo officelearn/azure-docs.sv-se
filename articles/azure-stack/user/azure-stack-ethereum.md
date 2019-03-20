@@ -12,12 +12,12 @@ ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
 ms.lastreviewed: 02/04/2019
-ms.openlocfilehash: 6c9893aac349b05580f49a445bd088ed5c76044b
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a1902ae2bf663c432876a0f73e2bb17616023b8a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697489"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006927"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Distribuera ett nätverk med Ethereum blockchain på Azure Stack
 
@@ -39,7 +39,7 @@ Ladda ned de senaste objekten [från Marketplace](../azure-stack-download-azure-
 - Anpassat skript för Linux 2.0
 - Tillägget för anpassat skript för Windows
 
-Läs mer om blockkedjescenarier [Ethereum proof of work consortium lösningsmallen](../../blockchain/templates/ethereum-deployment.md).
+Läs mer om blockkedjescenarier [Ethereum proof-of-authority consortium lösningsmallen](../../blockchain/templates/ethereum-poa-deployment.md).
 
 ## <a name="deployment-architecture"></a>Distributionsarkitektur för
 

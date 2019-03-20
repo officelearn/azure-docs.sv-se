@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: 4b6c4af37211ede2cb2153afdd071c219178f2ba
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b323836ff804d9e4af3765a2d4ea713a34bcf284
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882849"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226529"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
 
@@ -65,10 +65,10 @@ Konfigurera en säker kanal enligt följande:
 4. Spara filen på Azure Backup Server-datorn med filtillägget .zip.
 
 5. Högerklicka på **download.zip** > **extrahera alla**. ZIP-filen extraherar innehållet till den **certifikat** mappen som innehåller:
-    - Filen med rotcertifikatet med ett tillägg som börjar med en numrerad sekvens som.0 och.1.
-    - CRL-filen har ett tillägg som börjar med en sekvens som .r0 eller .r1. CRL-filen är associerad med ett certifikat.
+   - Filen med rotcertifikatet med ett tillägg som börjar med en numrerad sekvens som.0 och.1.
+   - CRL-filen har ett tillägg som börjar med en sekvens som .r0 eller .r1. CRL-filen är associerad med ett certifikat.
 
-    ![Hämtade certifikat](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
+     ![Hämtade certifikat](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
 
 5. I den **certifikat** mapp, högerklickar du på filen med rotcertifikatet > **Byt namn på**.
 
@@ -85,7 +85,7 @@ Konfigurera en säker kanal enligt följande:
 
 9. På den **Certificate Store** väljer **placera alla certifikat i nedanstående arkiv**, och klicka sedan på **Bläddra** välja certifikatarkivet.
 
-    ![Certifikatlagring](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
+     ![Certifikatlagring](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
 10. I **Välj certifikatet Store**väljer **betrodda rotcertifikatutfärdare** som målmapp för certifikat och klicka sedan på **OK**.
 
@@ -134,11 +134,11 @@ Azure Backup Server behöver ett användarkonto med behörighet att komma åt v 
 4. I **skapa roll** > **rollnamn**, ange *BackupAdminRole*. Rollnamnet kan vara vad du vill, men det bör vara att känna igen för rollens ändamål.
 
 5. Välj behörigheterna som sammanfattas i tabellen nedan och klicka sedan på **OK**.  Den nya rollen visas i listan i den **roller** panelen.
-    - Klicka på ikonen bredvid den överordnade etiketten Expandera överordnat och visa behörigheter som underordnade.
-    - För att välja behörigheter som VirtualMachine, måste du börja överordnad-underordnad hierarki med flera nivåer.
-    - Du behöver inte välja alla underordnade privilegier i en överordnad-behörighet.
+   - Klicka på ikonen bredvid den överordnade etiketten Expandera överordnat och visa behörigheter som underordnade.
+   - För att välja behörigheter som VirtualMachine, måste du börja överordnad-underordnad hierarki med flera nivåer.
+   - Du behöver inte välja alla underordnade privilegier i en överordnad-behörighet.
 
-    ![Hierarkin behörighet överordnad-underordnad](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
+     ![Hierarkin behörighet överordnad-underordnad](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
 
 ### <a name="role-permissions"></a>Rollbehörigheter
 **6.5/6.0** | **5.5**
@@ -265,7 +265,7 @@ Lägg till vCenter-servern i Azure Backup Server.
 
 8. Kontrollera inställningarna på den **Slutför** sidan.
 
-  ![Sidan Slutför](./media/backup-azure-backup-server-vmware/summary-screen.png)
+   ![Sidan Slutför](./media/backup-azure-backup-server-vmware/summary-screen.png)
 
 Om du har flera ESXi-värdar som inte hanteras av vCenter-server, eller du har flera instanser av vCenter Server, måste du köra guiden för att lägga till servrar.
 
@@ -281,77 +281,77 @@ Lägg till virtuella VMware-datorer för säkerhetskopiering. Skyddsgrupper saml
 
     ![Öppna guiden Skapa ny Skyddsgrupp](./media/backup-azure-backup-server-vmware/open-protection-wizard.png)
 
-2. I den **Skapa ny Skyddsgrupp** välkomstsidan i guiden klickar du på **nästa**.
+1. I den **Skapa ny Skyddsgrupp** välkomstsidan i guiden klickar du på **nästa**.
 
     ![Skapa ny Skyddsgrupp dialogruta](./media/backup-azure-backup-server-vmware/protection-wizard.png)
 
-3. På den **typ av Välj Skyddsgrupp** väljer **servrar** och klicka sedan på **nästa**. Den **Välj gruppmedlemmar** visas.
+1. På den **typ av Välj Skyddsgrupp** väljer **servrar** och klicka sedan på **nästa**. Den **Välj gruppmedlemmar** visas.
 
-3. I **Välj gruppmedlemmar** > Välj de virtuella datorerna (eller virtuell dator mappar) som du vill säkerhetskopiera. Klicka sedan på **Nästa**.
+1. I **Välj gruppmedlemmar** > Välj de virtuella datorerna (eller virtuell dator mappar) som du vill säkerhetskopiera. Klicka sedan på **Nästa**.
 
     - När du markerar en mapp eller virtuella datorer eller mappar inuti den mappen som också har valts för säkerhetskopiering. Du kan avmarkera mappar eller virtuella datorer som du inte vill säkerhetskopiera.
-- Om en virtuell dator eller en mapp redan säkerhetskopieras, kan du välja den. På så se till att dubbla återställningspunkter inte skapas för en virtuell dator. .
+1. Om en virtuell dator eller en mapp redan säkerhetskopieras, kan du välja den. På så se till att dubbla återställningspunkter inte skapas för en virtuell dator. .
 
-    ![Välj gruppmedlemmar](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
+     ![Välj gruppmedlemmar](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
 
-4. I **Välj Dataskyddsmetod** anger du ett namn för skyddsgruppen och inställningar. Tillbaka till Azure, ange skydd på kort sikt till **Disk** och aktiverar onlineskydd. Klicka sedan på **Nästa**.
+1. I **Välj Dataskyddsmetod** anger du ett namn för skyddsgruppen och inställningar. Tillbaka till Azure, ange skydd på kort sikt till **Disk** och aktiverar onlineskydd. Klicka sedan på **Nästa**.
 
     ![Välj dataskyddsmetod](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
-5. I **ange kortsiktiga mål**, ange hur länge du vill behålla data som säkerhetskopieras till disk.
-    - I **Kvarhållningsintervall**, ange hur många dagar som diskåterställningspunkter bör hållas.
-    - I **Synkroniseringsfrekvens**, anger du hur ofta återställningspunkter för disken skapas.
-        - Om du inte vill ange en säkerhetskopiering intervall kan du kontrollera **precis innan en återställningspunkt** så att en säkerhetskopiering körs precis innan varje återställningspunkt schemaläggs.
-        - Kortsiktig säkerhetskopiering är fullständiga säkerhetskopior som inte är inkrementell.
-        - Klicka på **ändra** att ändra den gånger/datum när kortvariga säkerhetskopieringar sker.
+1. I **ange kortsiktiga mål**, ange hur länge du vill behålla data som säkerhetskopieras till disk.
+   - I **Kvarhållningsintervall**, ange hur många dagar som diskåterställningspunkter bör hållas.
+   - I **Synkroniseringsfrekvens**, anger du hur ofta återställningspunkter för disken skapas.
+       - Om du inte vill ange en säkerhetskopiering intervall kan du kontrollera **precis innan en återställningspunkt** så att en säkerhetskopiering körs precis innan varje återställningspunkt schemaläggs.
+       - Kortsiktig säkerhetskopiering är fullständiga säkerhetskopior som inte är inkrementell.
+       - Klicka på **ändra** att ändra den gånger/datum när kortvariga säkerhetskopieringar sker.
 
-    ![Ange kortvariga mål](./media/backup-azure-backup-server-vmware/short-term-goals.png)
+     ![Ange kortvariga mål](./media/backup-azure-backup-server-vmware/short-term-goals.png)
 
-6. I **granska diskallokering**, granska diskutrymme för VM-säkerhetskopieringar. för de virtuella datorerna.
+1. I **granska diskallokering**, granska diskutrymme för VM-säkerhetskopieringar. för de virtuella datorerna.
 
-    - De rekommenderade diskallokering baseras på kvarhållningsintervallet som du angav, vilken typ av arbetsbelastning och storleken på skyddade data. Gör eventuella ändringar och klicka sedan på **nästa**.
-    -  **Datastorlek:** Storleken på data i skyddsgruppen.
-    - **Diskutrymme:** Den rekommenderade mängden ledigt diskutrymme för skyddsgruppen. Om du vill ändra den här inställningen allokerar du ett totalt utrymme som är något större än det belopp som du uppskattar att varje datakälla växer.
-    - **Samordna data:** Om du aktiverar samordning, mappa flera datakällor i skyddet till en enda replik och återställningspunktvolym. Samordning stöds inte för alla arbetsbelastningar.
-    - **Väx automatiskt:** Om du aktiverar den här inställningen om datan i skyddsgruppen blir större än den ursprungliga allokeringen kan försöker Azure Backup Server öka diskstorleken med 25 procent.
-    - **Information om lagringspool:** Visar status för lagringspoolen, inklusive total och återstående diskstorlek.
+   - De rekommenderade diskallokering baseras på kvarhållningsintervallet som du angav, vilken typ av arbetsbelastning och storleken på skyddade data. Gör eventuella ändringar och klicka sedan på **nästa**.
+   - **Datastorlek:** Storleken på data i skyddsgruppen.
+   - **Diskutrymme:** Den rekommenderade mängden ledigt diskutrymme för skyddsgruppen. Om du vill ändra den här inställningen allokerar du ett totalt utrymme som är något större än det belopp som du uppskattar att varje datakälla växer.
+   - **Samordna data:** Om du aktiverar samordning, mappa flera datakällor i skyddet till en enda replik och återställningspunktvolym. Samordning stöds inte för alla arbetsbelastningar.
+   - **Väx automatiskt:** Om du aktiverar den här inställningen om datan i skyddsgruppen blir större än den ursprungliga allokeringen kan försöker Azure Backup Server öka diskstorleken med 25 procent.
+   - **Information om lagringspool:** Visar status för lagringspoolen, inklusive total och återstående diskstorlek.
 
-    ![Granska diskallokering](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
+     ![Granska diskallokering](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
 
-7. I **väljer Replikskapandemetod** anger du hur du vill ta den första säkerhetskopieringen och klicka sedan på **nästa**.
-    - Standardvärdet är **automatiskt över nätverket** och **nu**.
-    - Om du använder standard, rekommenderar vi att du anger en tid med låg belastning. Välj **senare** och ange en dag och tidpunkt.
-    - Överväg att replikera data offline med hjälp av flyttbara media för stora mängder data eller mindre än optimala nätverksförhållanden.
+1. I **väljer Replikskapandemetod** anger du hur du vill ta den första säkerhetskopieringen och klicka sedan på **nästa**.
+   - Standardvärdet är **automatiskt över nätverket** och **nu**.
+   - Om du använder standard, rekommenderar vi att du anger en tid med låg belastning. Välj **senare** och ange en dag och tidpunkt.
+   - Överväg att replikera data offline med hjälp av flyttbara media för stora mängder data eller mindre än optimala nätverksförhållanden.
 
-    ![Välj metod för skapande av replik](./media/backup-azure-backup-server-vmware/replica-creation.png)
+     ![Välj metod för skapande av replik](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-8. I **alternativ för konsekvenskontroll**, Välj hur och när du vill automatisera konsekvenskontroller. Klicka sedan på **Nästa**.
-    - Du kan köra en konsekvenskontroll när replikdata blir inkonsekvent, eller enligt ett schema.
-    - Om du inte vill konfigurera automatiska konsekvenskontroller kan köra du en manuell kontroll. Gör detta genom att högerklicka på skyddsgruppen > **utför konsekvenskontroll**.
+1. I **alternativ för konsekvenskontroll**, Välj hur och när du vill automatisera konsekvenskontroller. Klicka sedan på **Nästa**.
+      - Du kan köra en konsekvenskontroll när replikdata blir inkonsekvent, eller enligt ett schema.
+      - Om du inte vill konfigurera automatiska konsekvenskontroller kan köra du en manuell kontroll. Gör detta genom att högerklicka på skyddsgruppen > **utför konsekvenskontroll**.
 
-9. I **ange Onlineskyddsdata** väljer du de virtuella datorer eller VM mappar som du vill säkerhetskopiera. Du kan välja medlemmarna individuellt eller klicka på **Markera alla** att välja alla medlemmar. Klicka sedan på **Nästa**.
+1. I **ange Onlineskyddsdata** väljer du de virtuella datorer eller VM mappar som du vill säkerhetskopiera. Du kan välja medlemmarna individuellt eller klicka på **Markera alla** att välja alla medlemmar. Klicka sedan på **Nästa**.
 
-    ![Ange onlineskyddsdata](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
+      ![Ange onlineskyddsdata](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
-10. På den **Ange schema för Online Backup** anger du hur ofta du vill säkerhetskopiera data från lokal lagring till Azure.
+1. På den **Ange schema för Online Backup** anger du hur ofta du vill säkerhetskopiera data från lokal lagring till Azure.
 
     - Återställningspunkter i molnet för data skapas enligt schemat. Klicka sedan på **Nästa**.
     - När återställningspunkten har skapats, överförs den till Recovery Services-valv i Azure.
 
-    ![Ange onlinesäkerhetskopieringsschema](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
+      ![Ange onlinesäkerhetskopieringsschema](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
-11. På den **ange bevarandeprincip** kan ange hur länge du vill behålla återställningspunkter som skapats från säkerhetskopior varje dag/vecka/månad/år till Azure. Klicka sedan på **nästa**.
+1. På den **ange bevarandeprincip** kan ange hur länge du vill behålla återställningspunkter som skapats från säkerhetskopior varje dag/vecka/månad/år till Azure. Klicka sedan på **nästa**.
 
     - Det finns ingen tidsbegränsning för hur länge du kan behålla data i Azure.
     - Den ena begränsningen är att du inte kan ha fler än 9999 återställningspunkter per skyddad instans. I det här exemplet är den skyddade instansen VMware-servern.
 
-    ![Ange princip för onlinebevarande](./media/backup-azure-backup-server-vmware/retention-policy.png)
+      ![Ange princip för onlinebevarande](./media/backup-azure-backup-server-vmware/retention-policy.png)
 
 
-12. På den **sammanfattning** sidan, granskar du inställningarna och klicka sedan på **Skapa grupp**.
+1. På den **sammanfattning** sidan, granskar du inställningarna och klicka sedan på **Skapa grupp**.
 
-    ![Medlem i skyddsgruppen och inställningen sammanfattning](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
+     ![Medlem i skyddsgruppen och inställningen sammanfattning](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
 ## <a name="vmware-vsphere-67"></a>VMWare vSphere 6.7
 

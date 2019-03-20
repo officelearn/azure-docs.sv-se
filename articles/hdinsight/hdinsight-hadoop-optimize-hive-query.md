@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: ba332bb0f77dc198abdd76ccf024336788a77a33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1c863bc3b0ded0558e052ee3d98586ad815a0cfd
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435044"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202749"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimera Apache Hive-frågor i Azure HDInsight
 
@@ -196,10 +196,8 @@ Det finns flera optimeringsmetoder som du kan tänka på, till exempel:
 I den här artikeln har du lärt dig flera vanliga optimeringsmetoder för Hive-fråga. Mer information finns i följande artiklar:
 
 * [Använda Apache Hive i HDInsight](hadoop/hdinsight-use-hive.md)
-* [Analysera flygförseningsdata med hjälp av Apache Hive i HDInsight](hdinsight-analyze-flight-delay-data.md)
-* [Analysera Twitter-data med Apache Hive i HDInsight](hdinsight-analyze-twitter-data.md)
-* [Analysera sensordata med hjälp av konsolen Apache Hive-fråga på Apache Hadoop i HDInsight](hadoop/apache-hive-analyze-sensor-data.md)
-* [Använda Apache Hive med HDInsight för att analysera loggar från webbplatser](hadoop/apache-hive-analyze-website-log.md)
+* [Analysera flygförseningsdata med hjälp av Apache Hive i HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
+* [Analysera Twitter-data med Apache Hive i HDInsight](hdinsight-analyze-twitter-data-linux.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

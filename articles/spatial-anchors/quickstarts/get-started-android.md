@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 64e5e78f93488b2c375c617e8857c84ba2171f00
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: 8f2a5fdaf2222de7a802e8ff2a1f6fdb37dae4c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822403"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880055"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Snabbstart: Skapa en Android-app med Azure Spatial Anchors
 
@@ -28,11 +28,13 @@ Du lär dig följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
 - En Windows- eller macOS-dator med <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3+</a>.
+  - Om körs på Windows kan du också se <a href="https://git-scm.com/download/win" target="_blank">Git för Windows</a>.
+  - Om du kör på macOS, får du Git installerade via HomeBrew. Ange följande kommando i en enda rad terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Kör sedan `brew install git`.
   - För att skapa NDK-exemplet behöver du även installera NDK- och CMake 3.6 SDK-verktyg i Android Studio.
 - En <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">utvecklaraktiverad</a> och <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore-kapabel</a> Android-enhet.
 - Din app måste ha ARCore 1.5 som mål (stöd för ARCore 1.6+ kommer snart)
@@ -59,7 +61,7 @@ Välj **Öppna ett befintligt Android Studio-projekt** och välj det projekt som
 
 ## <a name="configure-account-identifier-and-key"></a>Konfigurera kontoidentifierare och nyckel
 
-Nästa steg är att använda kontoidentifierare och kontonyckeln som registrerades tidigare vid konfiguration av Spatial Anchors-resursen för att konfigurera appen.
+Nästa steg är att konfigurera appen att använda ditt konto-ID och kontonyckeln. Du kopierade dem i en textredigerare när [konfigurerar Spatial ankare resursen](#create-a-spatial-anchors-resource).
 
 # <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
 

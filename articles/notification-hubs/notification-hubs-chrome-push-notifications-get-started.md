@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: ffac79209f998f1ef042ed5fcb4d8c6a45de2c2e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 03374f63345bd6c9e4f2b603443a1448493e1cdc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447045"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894622"
 ---
 # <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till Chrome-appar med Azure Notification Hubs
 
@@ -266,7 +266,7 @@ Chrome-appen skapas med hjälp av JavaScript och du kan använda den textrediger
         sendNHRegistrationRequest();
     }
 
-    // From http://msdn.microsoft.com/library/dn495627.aspx
+    // From https://msdn.microsoft.com/library/dn495627.aspx
     function splitConnectionString()
     {
         var parts = connectionString.split(';');
@@ -361,17 +361,17 @@ Chrome-appen skapas med hjälp av JavaScript och du kan använda den textrediger
 
     Skriptet har följande nyckelparametrar:
 
-    * `window.onload` definierar knapptryckningshändelserna för de två knapparna i användargränssnittet. Den första knapptryckshändelsehanteraren står för registrering med GCM och den andra använder registrerings-ID:et som returneras efter GCM-registreringen för registrering med Azure Notification Hubs.
-    * `updateLog` är den funktion som möjliggör kodlogginformation.
-    * `registerWithGCM` är den första knapptryckningshanteraren. Den gör att anropet `chrome.gcm.register` till GCM registrerar den aktuella Chrome App-instansen.
-    * `registerCallback` är den återanropsfunktion som anropas när registreringsanropet för GCM returneras.
-    * `registerWithNH` är den andra knapptryckningshanteraren. Den utför registreringar med Notification Hubs. Den får `hubName` och `connectionString` (som användaren har angett) och utformar REST-API-anropet för Notification Hubs Registration.
-    * `splitConnectionString` och `generateSaSToken` är hjälpprogram som representerar JavaScript-implementeringen för skapandeprocessen av SaS-token. Dessa måste användas i alla REST-API-anrop. Mer information finns i [Vanliga koncept](https://msdn.microsoft.com/library/dn495627.aspx).
-    * `sendNHRegistrationRequest` är den funktion som gör ett HTTP-REST-anrop till Azure Notification Hubs.
-    * `registrationPayload` definierar XML-nyttolasten för registrering. Mer information finns i [Skapa Registration NH REST API]. Uppdatera registrerings-ID:t i den med värdet du tog emot från GCM.
-    * `client` är en instans av `XMLHttpRequest` som programmet använder för att utföra HTTP POST-begäran. Uppdatera rubriken `Authorization` med `sasToken`. Om det här anropet slutförs registreras den här Chrome App-instansen med Azure Notification Hubs.
+   * `window.onload` definierar knapptryckningshändelserna för de två knapparna i användargränssnittet. Den första knapptryckshändelsehanteraren står för registrering med GCM och den andra använder registrerings-ID:et som returneras efter GCM-registreringen för registrering med Azure Notification Hubs.
+   * `updateLog` är den funktion som möjliggör kodlogginformation.
+   * `registerWithGCM` är den första knapptryckningshanteraren. Den gör att anropet `chrome.gcm.register` till GCM registrerar den aktuella Chrome App-instansen.
+   * `registerCallback` är den återanropsfunktion som anropas när registreringsanropet för GCM returneras.
+   * `registerWithNH` är den andra knapptryckningshanteraren. Den utför registreringar med Notification Hubs. Den får `hubName` och `connectionString` (som användaren har angett) och utformar REST-API-anropet för Notification Hubs Registration.
+   * `splitConnectionString` och `generateSaSToken` är hjälpprogram som representerar JavaScript-implementeringen för skapandeprocessen av SaS-token. Dessa måste användas i alla REST-API-anrop. Mer information finns i [Vanliga koncept](https://msdn.microsoft.com/library/dn495627.aspx).
+   * `sendNHRegistrationRequest` är den funktion som gör ett HTTP-REST-anrop till Azure Notification Hubs.
+   * `registrationPayload` definierar XML-nyttolasten för registrering. Mer information finns i [Skapa Registration NH REST API]. Uppdatera registrerings-ID:t i den med värdet du tog emot från GCM.
+   * `client` är en instans av `XMLHttpRequest` som programmet använder för att utföra HTTP POST-begäran. Uppdatera rubriken `Authorization` med `sasToken`. Om det här anropet slutförs registreras den här Chrome App-instansen med Azure Notification Hubs.
 
-    Den övergripande mappstrukturen för det här projektet bör likna följande struktur:  ![Google Chrome App – mappstruktur][21]
+     Den övergripande mappstrukturen för det här projektet bör likna följande struktur: ![Google Chrome App – mappstruktur][21]
 
 ### <a name="set-up-and-test-your-chrome-app"></a>Konfigurera och testa din Chrome-app
 
@@ -406,7 +406,7 @@ I testsyfte skickas Chrome-push-meddelanden med hjälp av en .NET-konsolapp.
     Install-Package Microsoft.Azure.NotificationHubs
     ```
 
-   En referens till Azure Service Bus-SDK:n med [WindowsAzure.ServiceBus NuGet-paketet läggs automatiskt till i projektet](http://nuget.org/packages/WindowsAzure.ServiceBus/).
+   En referens till Azure Service Bus-SDK:n med [WindowsAzure.ServiceBus NuGet-paketet läggs automatiskt till i projektet](https://nuget.org/packages/WindowsAzure.ServiceBus/).
 4. Öppna `Program.cs` och lägg till följande `using`-uttryck:
 
     ```csharp
@@ -481,8 +481,8 @@ I den här självstudiekursen har du skickat meddelanden till alla klienter som 
 [Chrome App GCM Sample]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Installable Web Apps]: https://developers.google.com/chrome/apps/docs/
 [Chrome-appar på mobila enheter]: https://developer.chrome.com/apps/chrome_apps_on_mobile
-[Skapa Registration NH REST API]: http://msdn.microsoft.com/library/azure/dn223265.aspx
-[biblioteket crypto-js]: http://code.google.com/p/crypto-js/
+[Skapa Registration NH REST API]: https://msdn.microsoft.com/library/azure/dn223265.aspx
+[biblioteket crypto-js]: https://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging for Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
 [Azure Notification Hubs Notify Users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md

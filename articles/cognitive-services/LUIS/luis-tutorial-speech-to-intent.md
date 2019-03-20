@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: c247ef748628c14074c2b5ea37df251793840b16
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 6f775ffaf53019cc50bc38c294b4d5f40c8eca90
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876045"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076759"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Integrera Speech-tjänsten med din Language Understanding-app
 Med [Speech-tjänsten](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kan du använda en enskild begäran för att ta emot ljud och returnera LUIS JSON-förutsägelseobjekt. I den här artikeln laddar du ned och använder ett C#-projekt i Visual Studio för att tala in ett yttrande i en mikrofon och ta emot LUIS-förutsägelseinformation. Projektet använder Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/)-paketet, som redan ingår som referens. 
@@ -49,11 +49,11 @@ När du har importerat appen väljer du **Entiteter** och sedan **Lägg till fö
 
 3. På sidan **Nycklar och slutpunkter** tilldelar du den LUIS-nyckel som skapades i avsnittet [Skapa LUIS-slutpunktsnyckel](#create-luis-endpoint-key).
 
-  På den här sidan samlar du in app-ID, publiceringsregion och prenumerations-ID för den LUIS-nyckel som skapades i avsnittet [Skapa LUIS-slutpunktsnyckel](#create-luis-endpoint-key). Du behöver ändra koden för att använda de här värdena senare i den här artikeln. 
+   På den här sidan samlar du in app-ID, publiceringsregion och prenumerations-ID för den LUIS-nyckel som skapades i avsnittet [Skapa LUIS-slutpunktsnyckel](#create-luis-endpoint-key). Du behöver ändra koden för att använda de här värdena senare i den här artikeln. 
   
-  Använd **inte** den kostnadsfria startnyckeln för den här övningen. Endast en **Language Understanding**-nyckel som skapats i Azure-portalen fungerar i den här övningen. 
+   Använd **inte** den kostnadsfria startnyckeln för den här övningen. Endast en **Language Understanding**-nyckel som skapats i Azure-portalen fungerar i den här övningen. 
 
-  https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?subscription-key=**LUISKEY**&q=
+   https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?subscription-key=**LUISKEY**&q=
 
 
 4. Publicera LUIS-appen genom att välja knappen **Publicera** i det övre högra fältet. 

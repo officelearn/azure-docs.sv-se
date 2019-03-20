@@ -13,18 +13,22 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 06/06/2017
+ms.date: 02/28/2019
 ms.author: ramankum
-ms.openlocfilehash: 8447ffc27068fbbdf5793acdc51bb9724ee41cb8
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 6164a92e19d8657525029bca9a749baadcb49362
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976732"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242895"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>Kopiera en ögonblicksbild av en hanterad disk i sammaprenumeration eller en annan prenumeration med PowerShell
 
-Det här skriptet skapar en kopia av en ögonblicksbild i samma prenumeration eller i en annan prenumeration. Använd det här skriptet för att flytta en ögonblicksbild till annan prenumeration för datakvarhållning. Genom att lagra ögonblicksbilder i en annan prenumeration skyddas du mot oavsiktlig borttagning av ögonblicksbilder i din huvudprenumeration. 
+Det här skriptet kopierar en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration. Använd det här skriptet för följande scenarier:
+
+1. Migrera en ögonblicksbild i Premium-lagring (Premium_LRS) till standardlagring (Standard_LRS eller Standard_ZRS) för att minska dina kostnader.
+1. Migrera en ögonblicksbild från lokalt redundant lagring (Premium_LRS, Standard_LRS) till zonredundant lagring (Standard_ZRS) för att dra nytta av ZRS storage högre tillförlitlighet.
+1. Flytta en ögonblicksbild till annan prenumeration i samma region för längre kvarhållning.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -36,7 +40,6 @@ Det här skriptet skapar en kopia av en ögonblicksbild i samma prenumeration el
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.ps1 "Copy snapshot")]
 
-
 ## <a name="script-explanation"></a>Förklaring av skript
 
 Det här skriptet använder följande kommandon för att skapa en ögonblicksbild i målprenumerationen med källögonblicksbildens ID. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
@@ -46,10 +49,9 @@ Det här skriptet använder följande kommandon för att skapa en ögonblicksbil
 | [New-AzSnapshotConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzSnapshotConfig) | Skapar konfiguration av ögonblicksbild som används för att skapa ögonblicksbilder. Den innehåller resurs-ID:t för den överordnade ögonblicksbilden och den plats som är samma som för den överordnade ögonblicksbilden.  |
 | [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Skapar en ögonblicksbild med hjälp av konfiguration av ögonblicksbild, namn på ögonblicksbild och resursgruppens namn som parametrar. |
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa en virtuell dator från en ögonblicksbild](./virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[Skapa en virtuell dator från en ögonblicksbild](./virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 Mer information om Azure PowerShell-modulen finns i [Azure PowerShell-dokumentationen](/powershell/azure/overview).
 

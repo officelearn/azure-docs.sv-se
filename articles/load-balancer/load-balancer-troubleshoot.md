@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 26f60a6f1796b080df3294737ce93bfb43029bf1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c5f92d564a93823fd9c0f932fa95f20d4e827761
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439133"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108839"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Felsök Azure Load Balancer
 
@@ -128,7 +128,7 @@ Om en intern belastningsutjämnare konfigureras i ett virtuellt nätverk och en 
 Samla in följande information för en snabbare lösning om du vill öppna ett supportärende. Välj en enda serverdel virtuell dator för att utföra följande test:
 - Använd Psping från någon av serverdelen virtuella datorer i det virtuella nätverket för att testa avsökningen port svar (exempel: psping 10.0.0.4:3389) och registrera resultaten. 
 - Om inget svar tas emot i dessa Pingtest, kör du en samtidig Netsh-spårning på den virtuella datorn på serversidan och den Virtuella testdatorn i VNet när du kör PsPing och sedan stoppa Netsh-spårning. 
-  
+  
 ## <a name="next-steps"></a>Nästa steg
 
 Om föregående steg inte löser problemet kan du öppna en [supportärende](https://azure.microsoft.com/support/options/).

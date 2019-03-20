@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: fcf18731bd5b9bbe91541931ac68effd9de6debf
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: c67369edec2f3c84ada14e6c2a3a3ab8056b3e0c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104702"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57870103"
 ---
 # <a name="connect-to-a-data-source"></a>Anslut till en datakälla
 
@@ -72,5 +72,5 @@ För att säkerställa att frågor som skickats till den underliggande datakäll
 * [Kom igång med Microsoft Power BI-Arbetsytesamlingar](get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-Fler frågor? [Försök med Power BI Community](http://community.powerbi.com/)
+Fler frågor? [Försök med Power BI Community](https://community.powerbi.com/)
 

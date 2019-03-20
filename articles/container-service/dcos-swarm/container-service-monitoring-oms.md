@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: 8ed148dfd6441d05891ef38934123a9cd3827b8b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 290141136672729060f5156d645c47ac303fa0c3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538552"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110978"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(INAKTUELL) Övervaka ett Azure Container Service DC/OS-kluster med Log Analytics
 
@@ -41,18 +41,18 @@ Den här artikeln förutsätter att du har konfigurerat ett DC/OS och har distri
    >[!NOTE]
    >OMS kallas nu för Log Analytics.
 
- ![](media/container-service-monitoring-oms/image2.png)
+   ![](media/container-service-monitoring-oms/image2.png)
 
 2. Klicka på **Installera**. Visas ett popup-fönster med versionsinformationen och en **installera paket** eller **avancerade installationen** knappen. När du klickar på **avancerade Installation**, vilket innebär att du den **OMS specifika konfigurationsegenskaper** sidan.
 
- ![](media/container-service-monitoring-oms/image3.png)
+   ![](media/container-service-monitoring-oms/image3.png)
 
- ![](media/container-service-monitoring-oms/image4.png)
+   ![](media/container-service-monitoring-oms/image4.png)
 
 3. Här kan du bli ombedd att ange den `wsid` (Log Analytics arbetsyte-ID) och `wskey` (primärnyckel för arbetsyte-ID). Att hämta båda `wsid` och `wskey` måste du skapa ett konto på <https://mms.microsoft.com>.
-Följ stegen för att skapa ett konto. När du är klar skapar du behöver hämta din `wsid` och `wskey` genom att klicka på **inställningar**, sedan **anslutna källor**, och sedan **Linux-servrar**, enligt nedan.
+   Följ stegen för att skapa ett konto. När du är klar skapar du behöver hämta din `wsid` och `wskey` genom att klicka på **inställningar**, sedan **anslutna källor**, och sedan **Linux-servrar**, enligt nedan.
 
- ![](media/container-service-monitoring-oms/image5.png)
+   ![](media/container-service-monitoring-oms/image5.png)
 
 4. Välj antalet instanser som du vill och klicka på knappen ”Granska och installera”. Normalt vill du ha så många instanser som är lika med antalet Virtuella datorer du har i klustret för agenten. Log Analytics-agenten för Linux installerar som enskilda behållare på varje virtuell dator som du vill samla in information för övervakning och loggning.
 

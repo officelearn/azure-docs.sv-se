@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: bdc98a87a71dc7f8552f4bf869ec035409e0535e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 9692d495ada8a311fd5037a4f17f24ed6da9243a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091546"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843682"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Vad är CDN på Azure?
 Ett nätverk för innehållsleverans (CDN, Content Delivery Network) är ett distribuerat nätverk av servrar som effektivt kan leverera webbinnehåll till användare. CDN-nät cachelagrar innehåll på edge-servrar på POP-platser (Point-of-Presence) som är nära slutanvändarna för att minimera fördröjningen. 
@@ -59,7 +59,7 @@ Varje Azure-prenumeration har standardgränser för följande resurser:
  - Antalet slutpunkter som kan skapas i en CDN-profil. 
  - Antal anpassade domäner som kan mappas till en slutpunkt.
 
-Mer information om CDN-prenumerationsbegränsningar finns i [CDN limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits) (CDN-begränsningar).
+Mer information om CDN-prenumerationsbegränsningar finns i [CDN limits](https://docs.microsoft.com/azure/azure-subscription-service-limits) (CDN-begränsningar).
     
 ## <a name="azure-cdn-features"></a>Funktioner i Azure CDN
 Azure CDN erbjuder följande huvudfunktioner:
@@ -79,4 +79,3 @@ En fullständig lista över vilka funktioner som varje Azure CDN-produkt stöder
 - Läs mer om hur man automatiserar Azure CDN med [.NET](cdn-app-dev-net.md) eller [Node.js](cdn-app-dev-node.md).
 - Titta på [Azure CDN-videor](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest) om du vill se exempel på hur Azure CDN fungerar i praktiken.
 - Information om de senaste funktionerna i Azure CDN finns i [Azure CDN-blogg](https://azure.microsoft.com/blog/tag/azure-cdn/).
-

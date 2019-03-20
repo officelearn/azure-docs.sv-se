@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 22347ce7296dc55d98f1ee6d4458fa6d7c5a21e6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6b5ef0f165433e2dd0685aa0e4f64bd04bf5c823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551299"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902254"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
 
@@ -73,7 +73,7 @@ Utför följande steg för att lägga till Starta/stoppa virtuella datorer vid l
 6. På den **lägga till lösning** väljer **Automation-konto**. Om du skapar en ny Log Analytics-arbetsyta kan du skapa ett nytt Automation-konto som ska associeras med den eller välja ett befintligt Automation-konto som inte är redan länkad till en Log Analytics-arbetsyta. Välj ett befintligt Automation-konto eller klicka på **skapa ett Automation-konto**, och på den **Lägg till Automation-konto** anger du följande information:
    - I fältet **namn** anger du namnet på Automation-kontot.
 
-    Alla andra alternativ fylls i automatiskt baserat på Log Analytics-arbetsyta har valts. Dessa alternativ kan inte ändras. Ett Azure kör som-konto är standardmetoden för autentisering för runbooks som ingår i den här lösningen. När du klickar på **OK**, verifieras konfigurationsalternativen och Automation-kontot har skapats. Du kan spåra förloppet under **Meddelanden** på menyn.
+     Alla andra alternativ fylls i automatiskt baserat på Log Analytics-arbetsyta har valts. Dessa alternativ kan inte ändras. Ett Azure kör som-konto är standardmetoden för autentisering för runbooks som ingår i den här lösningen. När du klickar på **OK**, verifieras konfigurationsalternativen och Automation-kontot har skapats. Du kan spåra förloppet under **Meddelanden** på menyn.
 
 7. Slutligen på den **lägga till lösning** väljer **Configuration**. Den **parametrar** visas.
 
@@ -95,7 +95,7 @@ Utför följande steg för att lägga till Starta/stoppa virtuella datorer vid l
 8. När du har konfigurerat de ursprungliga inställningarna som krävs för lösningen, klickar du på **OK** att Stäng den **parametrar** och välj **skapa**. När alla inställningar verifieras har lösningen distribuerats till din prenumeration. Den här processen kan ta flera sekunder att slutföra och du kan spåra förloppet under **meddelanden** på menyn.
 
 > [!NOTE]
-> Om du har en prenumeration för Azure Cloud Solution Provider (Azure CSP), när distributionen är klar, i ditt Automation-konto kan du gå till **variabler** under **delade resurser** och ange den [ **External_EnableClassicVMs** ](#variables) variabeln **FALSKT**. Detta stoppar lösningen från letar du efter resurser för klassiska VM.
+> Om du har en prenumeration på Azure Cloud Solution Provider (Azure CSP), när distributionen är klar, i ditt Automation-konto kan du gå till **variabler** under **delade resurser** och ange den [ **External_EnableClassicVMs** ](#variables) variabeln **FALSKT**. Detta stoppar lösningen från letar du efter resurser för klassiska VM.
 
 ## <a name="scenarios"></a>Scenarier
 
@@ -289,8 +289,8 @@ Följande tabell innehåller exempel på sökningar i loggen för jobbposter som
 
 |Söka i data | Beskrivning|
 |----------|----------|
-|Hitta jobb för runbook ScheduledStartStop_Parent att har slutförts | ```search Category == "JobLogs" | där (RunbookName_s == ”ScheduledStartStop_Parent”) | där (ResultType == ”slutfört”)  | Sammanfatta |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | Sortera efter TimeGenerated fall '''|
-|Hitta jobb för runbook SequencedStartStop_Parent att har slutförts | ```search Category == "JobLogs" | där (RunbookName_s == ”SequencedStartStop_Parent”) | där (ResultType == ”slutfört”) | Sammanfatta |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | Sortera efter TimeGenerated fall '''|
+|Hitta jobb för runbook ScheduledStartStop_Parent att har slutförts | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|Hitta jobb för runbook SequencedStartStop_Parent att har slutförts | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc```|
 
 ## <a name="viewing-the-solution"></a>Visa lösningen
 

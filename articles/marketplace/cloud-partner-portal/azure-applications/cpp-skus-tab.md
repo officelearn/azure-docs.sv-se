@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a963db0b0b1a20c110f90bacdae092846f7bdd8b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 7bf7e341a83727e21e9225c384829c05b7230579
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342549"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096001"
 ---
 # <a name="azure-application-skus-tab"></a>Fliken för Azure application SKU: er
 
 Den här artikeln beskriver hur du använder fliken SKU: er för att skapa SKU: er för dina Azure-program. 
 
->[!IMPORTANT] 
-Stegen för att konfigurera en SKU är olika för ett erbjudande för hanterade program och en lösning mall-erbjudandet. Dessa skillnader finns dokumenterade i den här artikeln. 
+> [!IMPORTANT]
+> Stegen för att konfigurera en SKU är olika för ett erbjudande för hanterade program och en lösning mall-erbjudandet. Dessa skillnader finns dokumenterade i den här artikeln. 
 
 ## <a name="configure-azure-application-skus"></a>Konfigurera SKU: er för Azure-program
 

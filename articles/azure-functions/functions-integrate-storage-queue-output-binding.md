@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 15ef1905562d04c2732016dfd1340910b3a8f699
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 381eecefbba238e712820a09c8ec489706ef3751
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900365"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106465"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Lägga till meddelanden i en Azure Storage-kö med Functions
 
@@ -25,7 +25,7 @@ I Azure Functions kan du använda indata- och utdatabindningar för att skapa da
 
 ![Kömeddelande som visas i Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -122,7 +122,7 @@ En ny kö med namnet **outqueue** skapas i ditt lagringskonto av funktionskörni
 
 Hoppa över det här avsnittet om du redan har installerat Storage Explorer och anslutit den till lagringskontot som du använder med den här snabbstarten.
 
-2. Kör verktyget [Microsoft Azure Storage Explorer](https://storageexplorer.com/), klicka på anslutningsikonen till vänster, välj **Use a storage account name and key** (Använd ett kontonamn och en kontonyckel för lagringskontot) och klicka på **Nästa**.
+1. Kör verktyget [Microsoft Azure Storage Explorer](https://storageexplorer.com/), klicka på anslutningsikonen till vänster, välj **Use a storage account name and key** (Använd ett kontonamn och en kontonyckel för lagringskontot) och klicka på **Nästa**.
 
     ![Kör verktyget Storage Account Explorer.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
@@ -140,13 +140,13 @@ Hoppa över det här avsnittet om du redan har installerat Storage Explorer och 
  
 1. Klicka på ikonen visa/dölj bredvid **Kontonyckel** för att visa värdet, kopiera sedan värdet **Kontonyckel** och klistra in det i rutan **Kontonyckel** i Storage Explorer.
   
-3. Välj **Nästa > Anslut**.
+1. Välj **Nästa > Anslut**.
 
    ![Klistra in autentiseringsuppgifter för lagringskontot och anslut.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
 ### <a name="examine-the-output-queue"></a>Granska utdatakö
 
-4. I Storage Explorer väljer du det lagringskonto som du använder för den här snabbstarten.
+1. I Storage Explorer väljer du det lagringskonto som du använder för den här snabbstarten.
 
 1. Expandera noden **Köer** och välj sedan kön med namnet **outqueue**. 
 
@@ -154,7 +154,7 @@ Hoppa över det här avsnittet om du redan har installerat Storage Explorer och 
 
     ![Kömeddelande som visas i Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-2. Kör funktionen igen så ser du ett nytt meddelande i kön.  
+1. Kör funktionen igen så ser du ett nytt meddelande i kön.  
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

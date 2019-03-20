@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3ab98669e01c9cfb2d4f46b8ddd83ff69653337b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a5b4e0465e83dec5620954998db329e7902fb59c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434180"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106057"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Distribuera en virtuell dator från dina VHD: er
 
@@ -51,13 +51,13 @@ Du vill använda följande steg för att skapa och distribuera en VM-avbildning 
 
 När den virtuella datorn har distribuerats kan du är redo att [certifiera din avbildning](./cpp-certify-vm.md).
 
-2.  Klicka på **New** och Sök efter **Malldistributionen**och välj sedan **skapa din egen mall i redigeraren**.  <br/>
-  ![Skapa mall för distribution av virtuell Hårddisk i Azure-portalen](./media/publishvm_021.png)
+1. Klicka på **New** och Sök efter **Malldistributionen**och välj sedan **skapa din egen mall i redigeraren**.  <br/>
+   ![Skapa mall för distribution av virtuell Hårddisk i Azure-portalen](./media/publishvm_021.png)
 
-3. Kopiera och klistra in det här [JSON-mall](./cpp-deploy-json-template.md) i redigeraren och klicka på **spara**. <br/>
-  ![Spara mall för distribution av virtuell Hårddisk i Azure-portalen](./media/publishvm_022.png)
+1. Kopiera och klistra in det här [JSON-mall](./cpp-deploy-json-template.md) i redigeraren och klicka på **spara**. <br/>
+   ![Spara mall för distribution av virtuell Hårddisk i Azure-portalen](./media/publishvm_022.png)
 
-4. Ange parametervärden för den visade **anpassad distribution** egenskapssidor.
+1. Ange parametervärden för den visade **anpassad distribution** egenskapssidor.
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
@@ -79,7 +79,7 @@ När den virtuella datorn har distribuerats kan du är redo att [certifiera din 
    | VHD-URL                     | Fullständig VHD URL-adress för OS-Disk                                                     |
    |  |  |
             
-5. När du anger dessa värden klickar du på **köp**. 
+1. När du anger dessa värden klickar du på **köp**. 
 
 Azure börjar distribution: den skapar en ny virtuell dator med den angivna ohanterade VHD i sökvägen för angivna lagringskontot.  Du kan följa förloppet i Azure portal genom att klicka på **virtuella datorer** till vänster i portalen.  När den virtuella datorn har skapats ändras status från `Starting` till `Running`. 
 

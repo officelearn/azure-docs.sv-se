@@ -14,12 +14,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 7bd533e9319a265e935e32be15768ab3487db6da
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 054edaf321d90015840fd84e1697fca742fd7e1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561356"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838603"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Hur du använder Notification Hubs från PHP
 
@@ -289,4 +289,4 @@ I det här avsnittet visade vi hur du skapar en enkel Java REST-klient för Medd
 Mer information finns också i [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
 [Exempel för PHP-REST-omslutning]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[Självstudier för att komma igång]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Självstudier för att komma igång]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/

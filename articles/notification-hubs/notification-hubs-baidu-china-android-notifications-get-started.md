@@ -14,12 +14,12 @@ ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: ec90c230674799d9b2f56f1659d61032d0eb834c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c9aadb0dcd5adabed6a6490760282c5201a79000
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780957"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848685"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Kom igång med Notification Hub genom att använda Baidu
 
@@ -132,8 +132,8 @@ Anteckna `DefaultListenSharedAccessSignature` och `DefaultFullSharedAccessSignat
 5. Lägg sedan till Azure Notification Hubs-bibliotek. I `Build.Gradle`-filen för appen, lägger du till följande rader i avsnittet beroenden.
 
     ```javascript
-    compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
-    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
+    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
+    implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
     Lägg till följande lagringsplats efter avsnittet beroenden.
@@ -141,7 +141,7 @@ Anteckna `DefaultListenSharedAccessSignature` och `DefaultFullSharedAccessSignat
     ```javascript
     repositories {
         maven {
-            url "http://dl.bintray.com/microsoftazuremobile/SDK"
+            url "https://dl.bintray.com/microsoftazuremobile/SDK"
         }
     }
     ```
@@ -161,7 +161,7 @@ Anteckna `DefaultListenSharedAccessSignature` och `DefaultFullSharedAccessSignat
         tools:replace="android:allowBackup,icon,theme,label">
     ```
 
-6. Hämta och packa upp [Baidu Push Android SDK:n](http://push.baidu.com/doc/android/api). Kopiera `pushservice-x.y.z jar`-filen i libs-mappen. Kopiera sedan `.so`-filerna i `src/main/jniLibs`-mapparna (skapa en ny mapp) på din Android-App.
+6. Hämta och packa upp [Baidu Push Android SDK:n](https://push.baidu.com/doc/android/api). Kopiera `pushservice-x.y.z jar`-filen i libs-mappen. Kopiera sedan `.so`-filerna i `src/main/jniLibs`-mapparna (skapa en ny mapp) på din Android-App.
 
     ![Azure Notification Hubs – Baidu SDK Libs](./media/notification-hubs-baidu-get-started/BaiduSDKLib.png)
 
@@ -497,7 +497,7 @@ I det här avsnittet kommer du att lära dig hur du skickar meddelanden med hjä
     Install-Package Microsoft.Azure.NotificationHubs
     ```
 
-    Med den här instruktionen läggs en referens till i Azure Notification Hubs SDK med hjälp av [Microsoft.Azure.Notification Hubs-NuGet-paketet](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+    Med den här instruktionen läggs en referens till i Azure Notification Hubs SDK med hjälp av [Microsoft.Azure.Notification Hubs-NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
@@ -537,6 +537,6 @@ Du kan använda felsökningsfliken i [Azure Portal] för att skicka ett testmedd
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Baidu Push Android SDK]: http://push.baidu.com/sdk/push_client_sdk_for_android
+[Baidu Push Android SDK]: https://push.baidu.com/sdk/push_client_sdk_for_android
 [Azure Portal]: https://portal.azure.com/
-[Baidu-portalen]: http://www.baidu.com/
+[Baidu-portalen]: https://www.baidu.com/

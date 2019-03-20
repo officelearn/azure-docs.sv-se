@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ec55a33874973bf9aeaaa34ab07b162a46db44eb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 1dc7930649a4e90c3b1c69a4f109f545f74a79f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081125"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Säkerhetskopiera och återställa en server i Azure Database for MariaDB med Azure portal
 
@@ -64,10 +64,10 @@ Följande steg återställer exempelservern till point-in-time:
 3. Fyll i formuläret återställning med informationen som krävs:
 
    ![Azure Database for MariaDB - information för återställningspunkter](./media/howto-restore-server-portal/3-restore.png)
-  - **Återställningspunkt**: Välj du vill återställa till point-in-time.
-  - **Målserver**: Ange ett namn för den nya servern.
-  - **Plats**: Du kan inte välja region. Som standard är det samma som källservern.
-  - **Prisnivå**: Du kan inte ändra dessa parametrar när du gör en point-in-time-återställning. Det är samma som källservern. 
+   - **Återställningspunkt**: Välj du vill återställa till point-in-time.
+   - **Målserver**: Ange ett namn för den nya servern.
+   - **Plats**: Du kan inte välja region. Som standard är det samma som källservern.
+   - **Prisnivå**: Du kan inte ändra dessa parametrar när du gör en point-in-time-återställning. Det är samma som källservern. 
 
 4. Klicka på **OK** att återställa servern att återställa till point-in-time. 
 

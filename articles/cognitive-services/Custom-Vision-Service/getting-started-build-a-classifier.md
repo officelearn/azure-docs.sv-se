@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: d91d62c387fc7bcaef8b7f2cb7e8d865c882aeed
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: f2cd8f5074f815e84caaedb01335406657f29088
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445465"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088017"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Hur du skapar en klassificerare med anpassad visuellt innehåll
 
@@ -100,7 +100,7 @@ Tillbaka till början av det här avsnittet för att ladda upp en annan uppsätt
 
 > [!NOTE]
 > Custom Vision Service har stöd för vissa automatiska negativt bildhantering. Om du skapar en delvis kontra bananer klassificerare och skicka in en avbildning av en sko för förutsägelse bör klassificeraren exempelvis score avbildningen som nära 0% för både delvis och bananer.
-
+> 
 > Å andra sidan i fall där negativt bilderna är bara en variant av avbildningarna som används i utbildning, är det troligt att modellen klassificera negativt avbildningar som en klass som är märkta på grund av bra likheterna. Till exempel om du har en orange kontra grapefrukter klassificerare och du flöde i en avbildning av en clementine, kan det bedöma clementine som ett orange eftersom många funktioner i clementine liknar apelsiner. Om dina negativt avbildningar är av den här typen kan vi rekommenderar att du skapar en eller flera ytterligare taggar (till exempel **andra**) och märka negativt bilder med den här taggen under utbildning för att tillåta modellen bättre skilja mellan dessa klasser .
 
 ## <a name="train-the-classifier"></a>Träna klassificeraren

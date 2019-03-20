@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 28b28dc15809aa5d37eb9347ff3bc7eecccc9a20
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452716"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099060"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installera en Linux-huvudmålserver för återställning efter fel
 När du växlar över dina virtuella datorer till Azure kan du återställa dit de virtuella datorerna till den lokala platsen. För att återställa, måste du återaktivera skyddet för den virtuella datorn från Azure till den lokala platsen. För den här processen behöver du ett lokala huvudmålservern tar emot trafiken. 
@@ -168,15 +168,15 @@ Att hämta ID för varje SCSI-hårddisk i en Linux-dator, den **disk. EnableUUID
 
 5. Se om en rad med **disk. EnableUUID** finns redan.
 
-    - Om värdet finns och är inställd på **FALSKT**, ändra värdet till **SANT**. (Värdena är inte skiftlägeskänsliga.)
+   - Om värdet finns och är inställd på **FALSKT**, ändra värdet till **SANT**. (Värdena är inte skiftlägeskänsliga.)
 
-    - Om värdet finns och är inställd på **SANT**väljer **Avbryt**.
+   - Om värdet finns och är inställd på **SANT**väljer **Avbryt**.
 
-    - Om värdet inte finns, väljer **Lägg till rad**.
+   - Om värdet inte finns, väljer **Lägg till rad**.
 
-    - Lägg till i namnkolumnen **disk. EnableUUID**, och sedan ange värdet till **SANT**.
+   - Lägg till i namnkolumnen **disk. EnableUUID**, och sedan ange värdet till **SANT**.
 
-    ![Kontrollerar om disken. EnableUUID finns redan](./media/vmware-azure-install-linux-master-target/image25.png)
+     ![Kontrollerar om disken. EnableUUID finns redan](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>Inaktivera kernel-uppgraderingar
 

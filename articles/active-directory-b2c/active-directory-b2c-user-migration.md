@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e19e21ab31fcee87aac6e7e8a0e1d0fbd0a7452c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0ca35c5d7a882a67bdce5e006b94d1f16daf9130
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409915"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57893212"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Användarmigrering
 När du migrerar din identitetsprovider till Azure Active Directory B2C (Azure AD B2C) du kan också behöva migrera användarkontot. Den här artikeln förklarar hur du migrerar befintliga användarkonton från alla identitetsprovider till Azure AD B2C. Artikeln är inte avsedd att köras förebyggande, men i stället beskriver några scenarier. Utvecklaren är ansvarig för lämpligheten för varje metod.
@@ -63,7 +63,7 @@ Först registrera ditt program för migrering i Azure AD. Sedan skapar en progra
 1. Skapa ett nytt program genom att göra följande:
    - För **namn**, använda **B2CUserMigration** eller ett annat namn som du vill.
    - För **programtyp**, använda **Web app/API**.
-   - För **inloggnings-URL**, använda **https://localhost** (eftersom den inte är relevanta för det här programmet).
+   - För **inloggnings-URL**, använda `https://localhost` (eftersom den inte är relevanta för det här programmet).
    - Välj **Skapa**.
    
 1. När programmet har skapats i den **program** väljer du den nyligen skapade **B2CUserMigration** program.
@@ -94,7 +94,7 @@ Nu har du ett program med behörighet att skapa, läsa och uppdatera användare 
 Läsa och skriva data katalogbehörigheter gör *inte* får du ta bort användare. Om du vill ge ditt program kan ta bort användare (för att rensa upp din miljö), måste du utföra ett extra steg, vilket involverar körning av PowerShell för att ange Användarkontoadministratören behörigheter. Annars kan gå du till nästa avsnitt.
 
 > [!IMPORTANT]
-> Du måste använda ett administratörskonto för B2C-klient som är *lokala* till B2C-klient. Konto Namnsyntaxen är *admin@contosob2c.onmicrosoft.com*.
+> Du måste använda ett administratörskonto för B2C-klient som är *lokala* till B2C-klient. Konto Namnsyntaxen är *admin\@contosob2c.onmicrosoft.com*.
 
 >[!NOTE]
 > Följande PowerShell-skript kräver [Azure Active Directory PowerShell Version 2][AD-Powershell].

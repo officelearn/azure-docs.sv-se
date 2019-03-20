@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/12/2019
 ms.author: rkarlin
-ms.openlocfilehash: c711ea3636a3ea045b4a145481f9da156b8c5bfc
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 30f6d08594bdf2e5d78bc8c7881a135d6e57f397
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246992"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852240"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Integrera Azure Sentinel-förhandsversion
 
@@ -43,8 +43,9 @@ När du ansluter dina datakällor kan du välja från ett galleri med flytta ska
 - Deltagarbehörighet till din klient för att aktivera Sentinel-Azure
 
 - Klient som är global eller administratörsbehörigheter för säkerhet
+ 
 
-## <a name="enable-azure-sentinel"></a>Aktivera Azure Sentinel
+## Aktivera Azure Sentinel <a name="enable"></a>
 
 1. Gå till Azure-portalen.
 2. Kontrollera att den prenumeration som Azure Sentinel skapas, har valts. 
@@ -56,9 +57,10 @@ När du ansluter dina datakällor kan du välja från ett galleri med flytta ska
 
    ![sök](./media/quickstart-onboard/choose-workspace.png)
 
-  >[!NOTE] 
-  > - **Arbetsytan, position** är det viktigt att förstå att alla data som strömmas till Azure Sentinel lagras i den geografiska platsen där du har valt.  
-  > - Standardarbetsytor som skapats av Azure Security Center visas inte i listan. Du kan inte installera Azure Sentinel på dem.
+   >[!NOTE] 
+   > - **Arbetsytan, position** är det viktigt att förstå att alla data som strömmas till Azure Sentinel lagras i den geografiska platsen där du har valt.  
+   > - Standardarbetsytor som skapats av Azure Security Center visas inte i listan. Du kan inte installera Azure Sentinel på dem.
+   > - Azure Sentinel kan köras på arbetsytor som har distribuerats i någon av följande regioner:  Australien, sydöstra Australien, centrala Kanada, centrala Indien, östra USA, östra USA 2 – EUAP (Kanarieöarna), östra Japan, Sydostasien, Storbritannien, södra, västra Europa, västra USA 2.
 
 6. Klicka på **lägga till Azure Sentinel**.
   

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: bc3dd038a21786a75d6b519ef8523dc328829705
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: b1b5dffed0a82e3e3c91efd4024bafdc64f0d3d2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192896"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119045"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Serverloggar i Azure Database for MySQL
 Långsam frågelogg är tillgänglig för användare i Azure Database för MySQL. Åtkomst till transaktionsloggen stöds inte. Långsam frågelogg kan användas för att identifiera flaskhalsar i prestanda för felsökning. 
@@ -52,7 +52,7 @@ Azure Database för MySQL är integrerat med Azure Monitor-diagnostikloggar. Nä
 I följande tabell beskrivs vad som finns i varje logg. De fält som ingår och i vilken ordning som de visas kan variera beroende på utdata-metod.
 
 | **Egenskap** | **Beskrivning** |
-|---|---|---|
+|---|---|
 | TenantId | Ditt klient-ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Tidsstämpel när loggen registrerades i UTC |

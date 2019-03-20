@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: f4886a8c66c464d3fd474da5946e53558a32ad13
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d6048ee90eb6e39e70550aa52a96b4466faa3efa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532481"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119895"
 ---
 # <a name="connect-your-check-point-appliance"></a>Ansluta din Check Point-installation
 
@@ -46,18 +46,18 @@ Ett nätverksdiagram för båda alternativen finns i [ansluta datakällor](conne
 
 1. Under **Linux Syslog-agentkonfiguration**:
    - Välj **automatisk distribution** om du vill skapa en ny dator som är förinstallerade med agenten Sentinel-Azure och innehåller alla konfiguration behövs, enligt beskrivningen ovan. Välj **automatisk distribution** och klicka på **agenten för automatisk distribution**. Detta tar dig till sidan för en dedikerad virtuell dator som automatiskt ansluter till din arbetsyta. Den virtuella datorn är en **standard D2s v3 (2 virtuella processorer, 8 GB minne)** och har en offentlig IP-adress.
-      1. I den **anpassad distribution** anger din information och välja ett användarnamn och ett lösenord och om du samtycker till villkoren kan du köpa den virtuella datorn.
+     1. I den **anpassad distribution** anger din information och välja ett användarnamn och ett lösenord och om du samtycker till villkoren kan du köpa den virtuella datorn.
       
-       2. Kör följande kommandon på agentdatorn Syslog att se till att alla Check Point loggar mappas till Sentinel-Azure-agenten:
+        1. Kör följande kommandon på agentdatorn Syslog att se till att alla Check Point loggar mappas till Sentinel-Azure-agenten:
            - Om du använder Syslog-ng kör du följande kommandon (Observera att det startas Syslog-agenten):
             
-                 sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Check Point\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"
+                sudo bash - c ”printf” filtrera f_local4_oms {facility(local4);}; \ n mål security_oms {tcp (\"127.0.0.1\" port(25226));}; \n log {source(src); filter(f_local4_oms); destination(security_oms);}; \n\nfilter f_msg_oms {matchar (\"Check Point\" värde (\" MEDDELANDET\")); }; \n mål security_msg_oms {tcp (\"127.0.0.1\" port(25226));}; \n log {source(src); filter(f_msg_oms); destination(security_msg_oms);};' > /etc/syslog-ng/security-config-omsagent.conf ”
 
              Starta om Syslog-daemon: `sudo service syslog-ng restart`
-            - Om du använder rsyslog kör du följande kommandon (Observera att det startas Syslog-agenten):
+           - Om du använder rsyslog kör du följande kommandon (Observera att det startas Syslog-agenten):
                     
-                  sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Check Point\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"
-              Starta om Syslog-daemon: `sudo service rsyslog restart`
+                 sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Check Point\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"
+             Starta om Syslog-daemon: `sudo service rsyslog restart`
 
    - Välj **manuell distribution** om du vill använda en befintlig virtuell dator som den dedikerade Linux-datorn där Sentinel-Azure-agenten ska installeras. 
       1. Under **ladda ned och installera agenten Syslog**väljer **virtuella Linux-datorer**. 
@@ -88,19 +88,19 @@ Om du inte använder Azure, distribuera manuellt Azure Sentinel-agenten ska kör
 1. Skapa en dedikerad Linux VM under **Linux Syslog-agentkonfiguration** väljer **manuell distribution**.
    1. Under **ladda ned och installera agenten Syslog**väljer **icke-Azure Linux-dator**. 
    1. I den **direktagent** skärm som öppnas väljer du **agenten för Linux** att ladda ned agenten eller kör detta kommando för att hämta den på din Linux-dator:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`
-    3. På skärmen anslutningen under **konfigurera och vidarebefordra Syslog**, Ställ in om din Syslog-daemon är **rsyslog.d** eller **syslog-ng**. 
-    4. Kopiera dessa kommandon och köra dem på din installation:
-       - Om du har valt **rsyslog**:
-          1. Berätta för Syslog-daemon att lyssna på anläggningen local_4 och till ”Check Point” och att skicka Syslog-meddelanden till Sentinel-Azure-agenten med porten 25226. `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Check Point\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
+      1. På skärmen anslutningen under **konfigurera och vidarebefordra Syslog**, Ställ in om din Syslog-daemon är **rsyslog.d** eller **syslog-ng**. 
+      1. Kopiera dessa kommandon och köra dem på din installation:
+         - Om du har valt **rsyslog**:
+           1. Berätta för Syslog-daemon att lyssna på anläggningen local_4 och till ”Check Point” och att skicka Syslog-meddelanden till Sentinel-Azure-agenten med porten 25226. `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Check Point\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
             
-          2. Ladda ned och installera den [security_events konfigurationsfilen](https://aka.ms/asi-syslog-config-file-linux) som konfigurerar Syslog-agenten att lyssna på port 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Där {0} ska ersättas med din arbetsyta GUID.
-          3. Starta om syslog-daemon `sudo service rsyslog restart`
-       - Om du har valt **syslog-ng**:
+           2. Ladda ned och installera den [security_events konfigurationsfilen](https://aka.ms/asi-syslog-config-file-linux) som konfigurerar Syslog-agenten att lyssna på port 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Där {0} ska ersättas med din arbetsyta GUID.
+           3. Starta om syslog-daemon `sudo service rsyslog restart`
+         - Om du har valt **syslog-ng**:
             1. Berätta för Syslog-daemon att lyssna på anläggningen local_4 och till ”Check Point” och att skicka Syslog-meddelanden till Sentinel-Azure-agenten med porten 25226. `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Check Point\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
             2. Ladda ned och installera den [security_events konfigurationsfilen](https://aka.ms/asi-syslog-config-file-linux) som konfigurerar Syslog-agenten att lyssna på port 25226. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Där {0} ska ersättas med din arbetsyta GUID.
             3. Starta om syslog-daemon `sudo service syslog-ng restart`
-    5. Starta om Syslog-agenten med hjälp av det här kommandot: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
-    6. Bekräfta att det inte finns några fel i agentloggen genom att köra det här kommandot: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
+      1. Starta om Syslog-agenten med hjälp av det här kommandot: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
+      1. Bekräfta att det inte finns några fel i agentloggen genom att köra det här kommandot: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
 ## <a name="step-2-forward-check-point-logs-to-the-syslog-agent"></a>Steg 2: Vanlig Check Point loggar till Syslog-agent
 
@@ -108,9 +108,9 @@ Konfigurera Check Point installationen för att vidarebefordra Syslog-meddelande
 
 1. Gå till [Kontrollera Export av punkt](https://aka.ms/asi-syslog-checkpoint-forwarding).
 2. Rulla ned till **grundläggande distribution** och följ anvisningarna för att upprätta anslutningen med hjälp av följande riktlinjer:
-     - Ange den **Syslog-port** till **514** eller den port du ställt in på agenten.
-    - Ersätt den **namn** och **mål-IP-adress** i CLI med namnet på den Syslog och IP-adress.
-    - Ange format **CEF**.
+   - Ange den **Syslog-port** till **514** eller den port du ställt in på agenten.
+     - Ersätt den **namn** och **mål-IP-adress** i CLI med namnet på den Syslog och IP-adress.
+     - Ange format **CEF**.
 3. Om du använder version R77.30 eller R80.10 rulla upp till **installationer** och följ anvisningarna för att installera en logg exportör för din version.
  
 ## <a name="step-3-validate-connectivity"></a>Steg 3: Verifiera anslutningen

@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9c66a937ffd9155569820c47c99946d186c55cce
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2d17991854f13f889c4e8c3a8c6f18e933655546
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052163"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884230"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Felsök problem med långsamma app prestanda i Azure App Service
 Den här artikeln hjälper dig att felsöka långsam prestandaproblem i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -162,7 +162,7 @@ Dessutom kan du välja att köra programmet i fler än en instans. Skala ut inte
 Du kan ange skalning för att vara manuell eller automatisk.
 
 #### <a name="use-autoheal"></a>Använd AutoHeal
-AutoHeal återanvänder arbetsprocessen för din app baserat på dina inställningar (till exempel konfigurationsändringar, begäranden, Minnesbaserad gränser eller den tid som behövs för att utföra en begäran). I de flesta fall, är omarbetning av processen det snabbaste sättet att komma tillrätta med problem. Även om du kan alltid starta om appen direkt i Azure-portalen, gör AutoHeal det automatiskt åt dig. Allt du behöver göra är att lägga till vissa utlösare i rot web.config för din app. De här inställningarna skulle fungera på samma sätt även om ditt program inte är en .net-app.
+AutoHeal återanvänder arbetsprocessen för din app baserat på dina inställningar (till exempel konfigurationsändringar, begäranden, Minnesbaserad gränser eller den tid som behövs för att utföra en begäran). I de flesta fall, är omarbetning av processen det snabbaste sättet att komma tillrätta med problem. Även om du kan alltid starta om appen direkt i Azure-portalen, gör AutoHeal det automatiskt åt dig. Allt du behöver göra är att lägga till vissa utlösare i rot web.config för din app. De här inställningarna skulle fungera på samma sätt även om ditt program inte är en .NET-app.
 
 Mer information finns i [automatisk återställning Azure Web Sites](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 

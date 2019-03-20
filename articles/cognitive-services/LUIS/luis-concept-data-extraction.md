@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 385e0065123b86f8f8b7c8503fe6de6daa7c6562
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3d9c2a694562977c2a012d9faa9c282c6b8fff9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874132"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099839"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>Extrahering av data från avsikter och entiteter
 LUIS ger dig möjlighet att få information från en användares naturligt språk yttranden. Informationen hämtas i ett sätt att den kan användas av ett program, programmet eller chattrobot vidta åtgärder. Läs om vilka data returneras från avsikter och entiteter med exempel på JSON i avsnitten nedan.
@@ -195,7 +195,7 @@ De data som returneras från slutpunkten innehåller enhetens namn och namnet p�
 ```
 
 |Dataobjekt|Överordnad|Underordnade|Värde|
-|--|--|--|--|--|
+|--|--|--|--|
 |Hierarkisk entitet|Plats|ToLocation|”paris”|
 
 ## <a name="composite-entity-data"></a>Sammansatta entitetsdata

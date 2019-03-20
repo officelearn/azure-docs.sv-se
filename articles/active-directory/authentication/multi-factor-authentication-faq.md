@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c94c564434df0e9c48facedba1d2232f9510662e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cc7b935833a6b212bb008be86b26c613d8817133
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206482"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182616"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor och svar om Azure Multi-Factor Authentication
 
@@ -87,7 +87,7 @@ Läs mer om alternativen i [så här hämtar du Azure Multi-Factor Authenticatio
 
 I vissa fall Ja.
 
-Multi-Factor Authentication för administratörer för Azure erbjuder en delmängd av Azure MFA-funktioner utan kostnad för åtkomst till Microsoft online services, inklusive portalerna för Azure och Office 365-administratör. Det här erbjudandet gäller endast globala administratörer i Azure Active Directory-instanser som inte har den fullständiga versionen av Azure MFA via en MFA-licens, ett paket eller en fristående förbrukningsbaserad provider. Om dina administratörer använder den kostnadsfria versionen och sedan du köpa en fullständig version av Azure MFA, sedan upphöjs alla globala administratörer till den betalda versionen automatiskt.
+Multi-Factor Authentication för Azure-administratörer har en deluppsättning av Azure MFA-funktioner utan kostnad för åtkomst till Microsoft online services, inklusive den [Azure-portalen](https://portal.azure.com) och [Microsoft 365 Administrationscenter](https://admin.microsoft.com). Det här erbjudandet gäller endast globala administratörer i Azure Active Directory-instanser som inte har den fullständiga versionen av Azure MFA via en MFA-licens, ett paket eller en fristående förbrukningsbaserad provider. Om dina administratörer använder den kostnadsfria versionen och sedan du köpa en fullständig version av Azure MFA, sedan upphöjs alla globala administratörer till den betalda versionen automatiskt.
 
 Multi-Factor Authentication för Office 365-användare erbjuder en delmängd av Azure MFA-funktioner utan kostnad för åtkomst till Office 365-tjänster, inklusive Exchange Online och SharePoint Online. Det här erbjudandet gäller för användare som har en Office 365-licens som tilldelas när den motsvarande instansen av Azure Active Directory inte har den fullständiga versionen av Azure MFA via en MFA-licens, ett paket eller en fristående förbrukningsbaserad provider.
 

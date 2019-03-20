@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 336b30a8e8687b3a2bdd05a17e558f44905f135e
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a4757be00a3633f56aed52dd7af22923e49b0b62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338849"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102391"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Konfigurera säkerhetsinformation (förhandsversion) för att använda en autentiseringsapp
 Du kan följa stegen nedan för att lägga till två faktorer verifieringen och metoder för återställning av lösenord. När du har konfigurerat detta första gången kan du gå tillbaka till den **säkerhetsinformation** sidan för att lägga till, uppdatera eller ta bort din säkerhetsinformation.
@@ -52,10 +52,10 @@ Beroende på organisationens inställningar kan kanske du använda en authentica
 
     ![Börja med att hämta sidan](media/security-info/securityinfo-myprofile-getauthapp.png)
 
-    >[!Note]
-    >Om du vill använda en annan autentiseringsapp än Microsoft Authenticator-appen väljer du länken **Jag vill använda en annan autentiseringsapp**.
-    
-    >Om din organisation låter dig välja en annan metod än autentiseringsappen kan du välja länken **Jag vill konfigurera en annan metod**.
+   > [!Note]
+   > Om du vill använda en annan autentiseringsapp än Microsoft Authenticator-appen väljer du länken **Jag vill använda en annan autentiseringsapp**.
+   > 
+   > Om din organisation låter dig välja en annan metod än autentiseringsappen kan du välja länken **Jag vill konfigurera en annan metod**.
 
 5. Ha sidan **Konfigurera ditt konto** öppen medan du konfigurerar Microsoft Authenticator-appen på din mobila enhet.
 
@@ -81,9 +81,9 @@ Beroende på organisationens inställningar kan kanske du använda en authentica
 
 8. Godkänn meddelandet i Microsoft Authenticator-appen och välj sedan **Nästa**.
 
-    ![Meddelande om att det lyckades; appen och ditt konto ansluts](media/security-info/securityinfo-myprofile-successauthapp.png)
+     ![Meddelande om att det lyckades; appen och ditt konto ansluts](media/security-info/securityinfo-myprofile-successauthapp.png)
 
-    Din säkerhetsinformation uppdateras till att använda Microsoft Authenticator-appen som standard för att verifiera din identitet vid användning av tvåstegsverifiering eller återställning av lösenord.
+     Din säkerhetsinformation uppdateras till att använda Microsoft Authenticator-appen som standard för att verifiera din identitet vid användning av tvåstegsverifiering eller återställning av lösenord.
 
 ## <a name="delete-your-authenticator-app-from-your-security-info-methods"></a>Ta bort din authenticator-app från din info säkerhetsmetoder
 Om du inte längre vill använda din autentiserare som en säkerhetsmetod information du kan ta bort den från den **säkerhetsinformation** sidan. Detta fungerar för alla authenticator-appar, inte bara Microsoft Authenticator-appen. När du tar bort appen, har du gå till autentiseringsappen på din mobila enhet och ta bort kontot.

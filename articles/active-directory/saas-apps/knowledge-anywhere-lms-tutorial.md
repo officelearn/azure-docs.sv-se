@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5cfa07b1-a792-4f0a-8c6f-1a13142193d9
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
-ms.openlocfilehash: c56c03637e5a8eb7716673974292482a9fb75212
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: f39952c74006964155fd23920c85506cac13a878
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877800"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892734"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledge-anywhere-lms"></a>Självstudier: Azure Active Directory-integrering med Knowledge Anywhere LMS
 
@@ -33,7 +33,7 @@ Att integrera Knowledge Anywhere LMS med Azure Active Directory ger dig följand
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure Active Directory-integrering med Knowledge Anywhere LMS, behöver du följande objekt:
 
@@ -53,7 +53,7 @@ När du konfigurerar integreringen av Knowledge Anywhere LMS i Azure Active Dire
 
 **Utför följande steg för att lägga till Knowledge Anywhere LMS från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -191,14 +191,14 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet låter du Britta Simon använda enkel inloggning i Azure genom att ge henne åtkomst till Knowledge Anywhere LMS.
 
@@ -230,7 +230,7 @@ I det här avsnittet skapas en användare som heter Britta Simon i Knowledge Any
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
 När du klickar på Knowledge Anywhere LMS-ikonen i åtkomstpanelen bör du automatiskt loggas in på den Knowledge Anywhere LMS som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

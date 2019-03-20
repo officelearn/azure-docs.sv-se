@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf2e1b97d228de47634e570a407ec03d7a13e540
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4c831a5a939e946d7189e4d35eaf051508e904a4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199654"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999521"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Åtgärda felmeddelanden från NPS-tillägget för Azure Multi-Factor Authentication
 
@@ -68,7 +68,7 @@ Ibland kan kan dina användare få meddelanden från Multi-Factor Authentication
 
 | Felkod | Felmeddelande | Rekommenderade åtgärder | 
 | ---------- | ------------- | ----------------- |
-| **OathCodeIncorrect** | Fel kod entered\OATH felaktig kod | Användaren har inte ett fel har angett fel kod. | Användaren angav fel kod. Låt användaren prova igen genom att begära en ny kod eller logga in igen. | 
+| **OathCodeIncorrect** | Fel kod entered\OATH felaktig kod | Användaren angav fel kod. Låt användaren prova igen genom att begära en ny kod eller logga in igen. | 
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | Högsta tillåtna kod försök har nåtts | Användaren inte verifieringen utmaningen för många gånger. Beroende på dina inställningar kan behöva de vara avblockerad av en administratör nu.  |
 | **SMSAuthFailedWrongCodeEntered** | Fel kod har angett/Text Message OTP felaktigt | Användaren angav fel kod. Låt användaren prova igen genom att begära en ny kod eller logga in igen. |
 

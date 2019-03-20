@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: cherylmc
-ms.openlocfilehash: f59a871297189cfd5082b55a3dbdfd3156a4e501
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 34d8eb976a2a1e173f234be214799832dae7e9ca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985712"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079613"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Skapa och installera VPN-klientkonfigurationsfiler för P2S RADIUS-autentisering
 
@@ -66,9 +66,9 @@ Generera VPN-klientkonfigurationsfiler för användning med autentisering med an
 ```azurepowershell-interactive
 New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
- 
+ 
 Kör kommandot returnerar en länk. Kopiera och klistra in en länk till en webbläsare för att ladda ned **VpnClientConfiguration.zip**. Packa upp filen om du vill visa följande mappar: 
- 
+ 
 * **WindowsAmd64** och **WindowsX86**: Dessa mappar innehåller installationsprogrammet för Windows 64-bitars och 32-bitars-paket. 
 * **Allmän**: Den här mappen innehåller allmän information som används för att skapa egna VPN-klientkonfiguration. Du behöver inte den här mappen för konfigurationer med användarnamn/lösenord autentisering.
 * **Mac**: Om du har konfigurerat IKEv2 när du skapade den virtuella nätverksgatewayen finns i en mapp med namnet **Mac** som innehåller en **mobileconfig** fil. Du kan använda den här filen för att konfigurera Mac-klienter.
@@ -88,7 +88,7 @@ Du kan konfigurera följande VPN-klienter:
 * [Windows](#adwincli)
 * [Mac (OS X)](#admaccli)
 * [Linux med hjälp av strongSwan](#adlinuxcli)
- 
+ 
 #### <a name="adwincli"></a>Windows VPN-klientkonfiguration
 
 Du kan använda samma konfigurationspaketet för VPN-klienten på varje Windows-klientdator, förutsatt att versionen matchar arkitekturen för klienten. Lista över klientoperativsystem som stöds finns i den [vanliga frågor och svar](vpn-gateway-vpn-faq.md#P2S).
@@ -109,7 +109,7 @@ Använd följande steg för att konfigurera den inbyggda Windows VPN-klienten f�
 
 3. Valfritt steg - om du vill ange en anpassad DNS, Lägg till följande rader till den **mobileconfig** fil:
 
-  ```xml
+   ```xml
     <key>DNS</key>
     <dict>
       <key>ServerAddresses</key>
@@ -121,7 +121,7 @@ Använd följande steg för att konfigurera den inbyggda Windows VPN-klienten f�
             <string>TestDomain.com</string>
         </array>
     </dict> 
-  ```
+   ```
 4. Dubbelklicka på profilen du vill installera den och välj **Fortsätt**. Namnet på profilen är samma som namnet på det virtuella nätverket.
 
    ![Meddelande om att installationen](./media/point-to-site-vpn-client-configuration-radius/adinstall.png)
@@ -142,10 +142,10 @@ Använd följande steg för att konfigurera den inbyggda Windows VPN-klienten f�
    ![Ikonerna i Systeminställningar](./media/point-to-site-vpn-client-configuration-radius/adnetwork.png)
 10. VPN-anslutningen visas som **IkeV2 VPN**. Du kan ändra namnet genom att uppdatera den **mobileconfig** fil.
 
-   ![Information om VPN-anslutningen](./media/point-to-site-vpn-client-configuration-radius/adconnection.png)
+    ![Information om VPN-anslutningen](./media/point-to-site-vpn-client-configuration-radius/adconnection.png)
 11. Välj **autentiseringsinställningar**. Välj **användarnamn** i listan och ange dina autentiseringsuppgifter. Om du har angett autentiseringsuppgifterna tidigare, sedan **användarnamn** automatiskt vald i listan och det användarnamn och lösenord är innehåller. Välj **OK** att spara inställningarna.
 
-   ![Autentiseringsinställningar](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
+    ![Autentiseringsinställningar](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
 12. I den **nätverk** dialogrutan **tillämpa** att spara ändringarna. För att initiera anslutningen, Välj **Connect**.
 
 #### <a name="adlinuxcli"></a>Linux VPN-klientkonfiguration via strongSwan
@@ -178,7 +178,7 @@ Följande instruktioner har skapats via strongSwan 5.5.1 på Ubuntu 17.0.4. Fakt
    ![”VPN med Radius”-anslutning i Nätverkshanteraren](./media/point-to-site-vpn-client-configuration-radius/ConnectRADIUS.png)
 
 ## <a name="certeap"></a>Autentisering med datorcertifikat
- 
+ 
 Du kan skapa VPN-klienten konfigurationsfilerna för RADIUS-autentisering som använder EAP-TLS-protokollet. Ett enterprise-utfärdade certifikat används vanligtvis för att autentisera en användare för VPN. Se till att alla anslutande användare har ett certifikat installerat på sina enheter och att RADIUS-servern kan verifiera certifikatet.
 
 >[!NOTE]
@@ -194,7 +194,7 @@ Varje enhet för VPN-klienten kräver ett installerat klientcertifikat. Ibland h
 ### <a name="certfiles"></a>1. Generera VPN-klientkonfigurationsfiler
 
 Generera VPN-klientkonfigurationsfiler för användning med certifikatautentisering. Du kan generera VPN-klientkonfigurationsfiler med hjälp av följande kommando:
- 
+ 
 ```azurepowershell-interactive
 New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
 ```
@@ -211,7 +211,7 @@ Om du vill hämta tidigare genererade klientkonfigurationsfiler, använder du f�
 ```azurepowershell-interactive
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
- 
+ 
 ### <a name="setupusername"></a> 2. Konfigurera VPN-klienter
 
 Du kan konfigurera följande VPN-klienter:
@@ -271,7 +271,7 @@ Att använda olika autentiseringstyper (till exempel OTP), eller Använd en anna
 1. Använd den `Get-AzVpnClientConfiguration` cmdlet för att generera VPN-klientkonfiguration för EapMSChapv2.
 
 2. Packa upp filen VpnClientConfiguration.zip och leta efter den **GenericDevice** mapp. Ignorera mapparna som innehåller de Windows-installationsprogram för 64-bitars och 32-bitars arkitektur.
- 
+ 
 3. Den **GenericDevice** mappen innehåller en XML-fil som heter **VpnSettings**. Den här filen innehåller informationen som krävs:
 
    * **VpnServer**: FQDN för Azure VPN-gatewayen. Det här är den adress som klienten ansluter till.

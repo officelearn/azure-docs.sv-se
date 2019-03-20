@@ -16,12 +16,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bf55cef00c0600963f8363e617c24fdc9113eae
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543873"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122985"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synkronisering: Gör en ändring i standardkonfigurationen
 Syftet med den här artikeln är att hjälper dig att göra ändringar i standardkonfigurationen i Azure Active Directory (Azure AD) Connect-synkronisering. Den innehåller steg för några vanliga scenarier. Med denna kunskap kan ska du kunna göra enkla ändringar i din egen konfiguration baserat på dina egna affärsregler.
@@ -349,8 +349,8 @@ Du kan använda följande steg för att bekräfta ändringarna när du kör de s
    3. I popup-dialogrutan Välj **fullständig Import** och klicka sedan på **OK**.
    4. Vänta tills åtgärden slutförs.
 
-    > [!NOTE]
-    > Du kan hoppa över en fullständig import på lokalt AD-koppling om källattributet ingår redan i listan över importerade attribut. Med andra ord du inte göra några ändringar under [steg 2: Lägg till attribut för datakälla till lokalerna AD anslutningsschema](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
+      > [!NOTE]
+      > Du kan hoppa över en fullständig import på lokalt AD-koppling om källattributet ingår redan i listan över importerade attribut. Med andra ord du inte göra några ändringar under [steg 2: Lägg till attribut för datakälla till lokalerna AD anslutningsschema](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
 
 2. Kör en **fullständig import** på den **Azure AD Connector**:
 

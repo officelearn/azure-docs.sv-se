@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 8a67b94c7f2355872b243a05a7908604e88cf778
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ae3b4787928b3a578df30dd7f8a2791ce487305d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433798"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100504"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av Azure Virtual Network
 
@@ -115,8 +115,8 @@ Använd stegen i det här avsnittet för att identifiera hur du lägger till en 
     * [Skapa HDInsight med klassiska Azure-CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Skapa HDInsight med en Azure Resource Manager-mall](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-  > [!IMPORTANT]  
-  > Att lägga till HDInsight i ett virtuellt nätverk är ett valfritt konfigurationssteg. Var noga med att välja det virtuella nätverket när du konfigurerar klustret.
+   > [!IMPORTANT]  
+   > Att lägga till HDInsight i ett virtuellt nätverk är ett valfritt konfigurationssteg. Var noga med att välja det virtuella nätverket när du konfigurerar klustret.
 
 ## <a id="multinet"></a>Ansluta flera virtuella nätverk
 
@@ -128,8 +128,8 @@ Azure ger namnmatchning för Azure-tjänster som är installerade i ett virtuell
 
 * Alla resurser som tillhör samma Azure Virtual Network, med hjälp av den __interna DNS-namnet__ för resursen. Till exempel när du använder standard-namnmatchning, är följande exempel interna DNS-namn som tilldelats till HDInsight-arbetsnoder:
 
-    * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
-    * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+  * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+  * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
 
     Båda dessa noder kan kommunicera direkt med varandra och andra noder i HDInsight, med hjälp av interna DNS-namn.
 
@@ -148,29 +148,29 @@ Om du vill aktivera namnmatchningen mellan det virtuella nätverket och resurser
 
 4. Konfigurera vidarebefordran mellan DNS-servrar. Konfigurationen beror på vilken typ av fjärrnätverket.
 
-    * Om fjärrnätverket är ett lokalt nätverk kan du konfigurera DNS på följande sätt:
+   * Om fjärrnätverket är ett lokalt nätverk kan du konfigurera DNS på följande sätt:
         
-        * __Anpassad DNS__ (i det virtuella nätverket):
+     * __Anpassad DNS__ (i det virtuella nätverket):
 
-            * Vidarebefordra begäranden för DNS-suffixet för det virtuella nätverket till Azures rekursiva matchare (168.63.129.16). Azure hanterar begäranden för resurser i det virtuella nätverket
+         * Vidarebefordra begäranden för DNS-suffixet för det virtuella nätverket till Azures rekursiva matchare (168.63.129.16). Azure hanterar begäranden för resurser i det virtuella nätverket
 
-            * Vidarebefordra alla övriga förfrågningar till den lokala DNS-servern. Den lokala DNS hanterar alla andra namnmatchning, även begäranden om Internetresurser, till exempel Microsoft.com.
+         * Vidarebefordra alla övriga förfrågningar till den lokala DNS-servern. Den lokala DNS hanterar alla andra namnmatchning, även begäranden om Internetresurser, till exempel Microsoft.com.
 
-        * __Den lokala DNS__: Vidarebefordra begäranden för DNS-suffixet för virtuellt nätverk till anpassade DNS-servern. Den anpassa DNS-servern vidarebefordrar sedan till Azures rekursiva matchare.
+     * __Den lokala DNS__: Vidarebefordra begäranden för DNS-suffixet för virtuellt nätverk till anpassade DNS-servern. Den anpassa DNS-servern vidarebefordrar sedan till Azures rekursiva matchare.
 
-        Den här konfigurationen vägar begäranden för fullständigt kvalificerade domännamn som innehåller DNS-suffixet för det virtuella nätverket till anpassade DNS-servern. Alla övriga förfrågningar (även för offentliga internet-adresser) hanteras av den lokala DNS-servern.
+       Den här konfigurationen vägar begäranden för fullständigt kvalificerade domännamn som innehåller DNS-suffixet för det virtuella nätverket till anpassade DNS-servern. Alla övriga förfrågningar (även för offentliga internet-adresser) hanteras av den lokala DNS-servern.
 
-    * Om fjärrnätverket är ett annat Azure virtuellt nätverk kan du konfigurera DNS enligt följande:
+   * Om fjärrnätverket är ett annat Azure virtuellt nätverk kan du konfigurera DNS enligt följande:
 
-        * __Anpassad DNS__ (i varje virtuellt nätverk):
+     * __Anpassad DNS__ (i varje virtuellt nätverk):
 
-            * Begäranden för DNS-suffixet för de virtuella nätverken vidarebefordras till de anpassade DNS-servrarna. DNS i varje virtuellt nätverk är ansvarig för att lösa resurser inom sitt nätverk.
+         * Begäranden för DNS-suffixet för de virtuella nätverken vidarebefordras till de anpassade DNS-servrarna. DNS i varje virtuellt nätverk är ansvarig för att lösa resurser inom sitt nätverk.
 
-            * Vidarebefordra alla övriga förfrågningar till Azures rekursiva matchare. Rekursiva matchare ansvarar för att lösa lokala och internet-resurser.
+         * Vidarebefordra alla övriga förfrågningar till Azures rekursiva matchare. Rekursiva matchare ansvarar för att lösa lokala och internet-resurser.
 
-        DNS-servern baserat för varje nätverk vidarebefordrar begäranden till en annan på DNS-suffix. Andra förfrågningar har åtgärdats med hjälp av Azures rekursiva matchare.
+       DNS-servern baserat för varje nätverk vidarebefordrar begäranden till en annan på DNS-suffix. Andra förfrågningar har åtgärdats med hjälp av Azures rekursiva matchare.
 
-    Ett exempel på varje konfiguration finns i den [exempel: Anpassad DNS](#example-dns) avsnittet.
+     Ett exempel på varje konfiguration finns i den [exempel: Anpassad DNS](#example-dns) avsnittet.
 
 Mer information finns i den [namnmatchning för virtuella datorer och Rollinstanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) dokumentet.
 
@@ -647,9 +647,9 @@ Det här exemplet gör följande antaganden:
     };
     ```
     
-    * Ersätt den `10.0.0.0/16` och `10.1.0.0/16` värden med IP-adressintervall för dina virtuella nätverk. Den här posten kan resurser i varje nätverk för att göra förfrågningar från DNS-servrar.
+   * Ersätt den `10.0.0.0/16` och `10.1.0.0/16` värden med IP-adressintervall för dina virtuella nätverk. Den här posten kan resurser i varje nätverk för att göra förfrågningar från DNS-servrar.
 
-    Alla förfrågningar som inte är för DNS-suffix för de virtuella nätverken (till exempel microsoft.com) hanteras av Azures rekursiva matchare.
+     Alla förfrågningar som inte är för DNS-suffix för de virtuella nätverken (till exempel microsoft.com) hanteras av Azures rekursiva matchare.
 
 4. Om du vill använda konfigurationen startar du om bindning. Till exempel `sudo service bind9 restart` på båda DNS-servrar.
 

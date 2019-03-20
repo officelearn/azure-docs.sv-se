@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 8ee424412c9c54dadef7391084e3ab976da9ad7f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 0b8349c6c59ac64be15c75b28c083a4483f2f68a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417456"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57896270"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Etablera en Windows Data Science-dator på Azure
 
@@ -44,7 +44,7 @@ Följande verktyg ingår i en DSVM:
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) – snabb machine learning-system som har stöd för tekniker som hash-online, allreduce, sänkt, learning2search och aktiva och interaktiv utbildning
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/) – ett verktyg som ger snabba och exakta bättre trädet implementering
   * [Rattle](https://togaware.com/rattle/) -R analysverktyg som hjälper dig att komma igång med dataanalys och maskininlärning i R. Det omfattar GUI-baserade datagranskning och modellering med automatisk generering av klientkod R.
-  * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) -visual datautvinning och machine learning-programvara i Java
+  * [Weka](https://www.cs.waikato.ac.nz/ml/weka/) -visual datautvinning och machine learning-programvara i Java
   * [Apache Drill](https://drill.apache.org/) – en schemafria SQL-frågemotor för Apache Hadoop-, NoSQL- och molnlagring. Det har stöd för ODBC- och JDBC-gränssnitt för frågor till NoSQL och filer från standard BI-verktyg som Power BI, Microsoft Excel och Tableau.
 * Bibliotek i R och Python för använder i Azure Machine Learning och andra Azure-tjänster
 * Git, inklusive Git Bash, att arbeta med lagringsutrymmen för källkod som omfattar GitHub och Azure DevOps. Git innehåller flera populära Linux-kommandoradsverktyg som är tillgängliga både på Git Bash och en kommandotolk. Exempel är awk, sed, perl, grep, Sök, wget eller curl.
@@ -71,7 +71,7 @@ Det finns inga programvaruavgifter för den här data science VM-avbildning. Du 
 
 ## <a name="prerequisite"></a>Krav
 
-Om du vill skapa en Microsoft Data Science Virtual Machine, måste du ha en Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](http://azure.com/free).
+Om du vill skapa en Microsoft Data Science Virtual Machine, måste du ha en Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.com/free).
 
 ## <a name="create-your-dsvm"></a>Skapa din DSVM
 
@@ -96,7 +96,7 @@ Skapa en DSVM-instans:
    1. **Inställningar för**:  
       * **Använda hanterade diskar**. Välj **hanterade** om du vill att Azure för att hantera diskar för den virtuella datorn. Om inte, måste du ange ett nytt eller befintligt lagringskonto.  
       * **Andra parametrar**. Du kan använda standardvärdena. Om du vill använda icke-standardvärden hovra över informationsmeddelande länken Hjälp om specifika fält.
-   1. **Sammanfattning av**: Kontrollera att all information som du angett är korrekt. Välj **Skapa**.
+   1. **Sammanfattning**: Kontrollera att all information som du angett är korrekt. Välj **Skapa**.
 
 > [!NOTE]
 > * Den virtuella datorn inte några ytterligare avgifter utöver beräkningskostnaden för serverstorlek som du valde i den **storlek** steg.
@@ -229,4 +229,4 @@ Du kan använda den [Microsoft Web Platform Installer](https://www.microsoft.com
 * I Utforskaren går du till **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** för exempel som använder sig av RevoScaleR library i R som har stöd för dataanalys i enterprise-skala.  
 * Läs artikeln [tio saker som du kan göra på den virtuella datorn för datavetenskap](https://aka.ms/dsvmtenthings).
 * Lär dig att skapa slutpunkt till slutpunkt Analyslösningar systematiskt med hjälp av den [Team Data Science Process](../team-data-science-process/index.yml).
-* Gå till den [Azure AI-galleriet](http://gallery.cortanaintelligence.com) för machine learning och data analytics-exempel som använder Azure Machine Learning och relaterade data services på Azure. Vi har också lagt till en ikon för det här galleriet på den **starta** -menyn och skrivbordet för den virtuella datorn.
+* Gå till den [Azure AI-galleriet](https://gallery.cortanaintelligence.com) för machine learning och data analytics-exempel som använder Azure Machine Learning och relaterade data services på Azure. Vi har också lagt till en ikon för det här galleriet på den **starta** -menyn och skrivbordet för den virtuella datorn.

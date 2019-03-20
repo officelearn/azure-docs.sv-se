@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: d9d2b58ff249e765620e2fbae5c9677e9412f1ea
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: cf90f7231362d147914e22419c9008d2628a483f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432064"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861901"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestandatips för Azure Cosmos DB och .NET
 
@@ -38,37 +38,37 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
 
    * Direkt-läge
 
-     Direkt-läge stöder anslutningar via TCP- och HTTPS-protokoll. Om du använder den senaste versionen av .net SDK stöds direktanslutning läge i .NET Standard 2.0 och .net framework. När du använder direkt läge, finns det två protokollalternativ:
+     Direkt-läge stöder anslutningar via TCP- och HTTPS-protokoll. Om du använder den senaste versionen av .NET SDK stöds direktanslutning läge i .NET Standard 2.0 och .NET framework. När du använder direkt läge, finns det två protokollalternativ:
 
-    * TCP
-    * HTTPS
+     * TCP
+     * HTTPS
 
-    När du använder Gateway-läge, använder Cosmos DB port 443 och portarna 10250, 10255 och 10256 när du använder Azure Cosmos DB API för MongoDB. 10250 port mappas till en MongoDB-instans som ska användas som standard utan geo-replikering och 10255/10256 portar mappas till MongoDB-instans med funktioner för geo-replikering. När du använder TCP i direkt läge, förutom portarna som Gateway, måste du kontrollera porten intervallet mellan 10000 och 20000 är öppen eftersom Azure Cosmos DB använder dynamiska TCP-portar. Om inte dessa portar är öppna och du försöker använda TCP, felmeddelandet 503 tjänsten är inte tillgänglig. I följande tabell visar anslutningslägen som är tillgängliga för olika API: er och portar tjänstanvändaren för varje API:
+     När du använder Gateway-läge, använder Cosmos DB port 443 och portarna 10250, 10255 och 10256 när du använder Azure Cosmos DB API för MongoDB. 10250 port mappas till en MongoDB-instans som ska användas som standard utan geo-replikering och 10255/10256 portar mappas till MongoDB-instans med funktioner för geo-replikering. När du använder TCP i direkt läge, förutom portarna som Gateway, måste du kontrollera porten intervallet mellan 10000 och 20000 är öppen eftersom Azure Cosmos DB använder dynamiska TCP-portar. Om inte dessa portar är öppna och du försöker använda TCP, felmeddelandet 503 tjänsten är inte tillgänglig. I följande tabell visar anslutningslägen som är tillgängliga för olika API: er och portar tjänstanvändaren för varje API:
 
-    |Anslutningsläge  |Protokoll som stöds  |Stödda SDK: erna  |API/Service-port  |
-    |---------|---------|---------|---------|
-    |Gateway  |   HTTPS    |  All SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
-    |Direkt    |    HTTPS     |  .NET och Java SDK    |   Portar i intervallet 20 10 000 000    |
-    |Direkt    |     TCP    |  .Net SDK    | Portar i intervallet 20 10 000 000 |
+     |Anslutningsläge  |Protokoll som stöds  |Stödda SDK: erna  |API/Service-port  |
+     |---------|---------|---------|---------|
+     |Gateway  |   HTTPS    |  All SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
+     |Direkt    |    HTTPS     |  .NET och Java SDK    |   Portar i intervallet 20 10 000 000    |
+     |Direkt    |     TCP    |  .NET SDK    | Portar i intervallet 20 10 000 000 |
 
-    Azure Cosmos DB erbjuder en enkel och öppna RESTful-programmeringsmiljö via HTTPS. Dessutom finns det en effektiv TCP-protokollet som är också RESTful i sin modell och är tillgänglig via SDK för .NET-klient. Använda SSL för den inledande autentiseringen och kryptering trafik direkt TCP- och HTTPS. Använda TCP-protokollet när det är möjligt för bästa prestanda.
+     Azure Cosmos DB erbjuder en enkel och öppna RESTful-programmeringsmiljö via HTTPS. Dessutom finns det en effektiv TCP-protokollet som är också RESTful i sin modell och är tillgänglig via SDK för .NET-klient. Använda SSL för den inledande autentiseringen och kryptering trafik direkt TCP- och HTTPS. Använda TCP-protokollet när det är möjligt för bästa prestanda.
 
-    Anslutningsläget konfigureras under konstruktionen av DocumentClient-instansen med parametern ConnectionPolicy. Om du använder direkt läge anges protokollet också i parametern ConnectionPolicy.
+     Anslutningsläget konfigureras under konstruktionen av DocumentClient-instansen med parametern ConnectionPolicy. Om du använder direkt läge anges protokollet också i parametern ConnectionPolicy.
 
-    ```csharp
-    var serviceEndpoint = new Uri("https://contoso.documents.net");
-    var authKey = new "your authKey from the Azure portal";
-    DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
-    new ConnectionPolicy
-    {
+     ```csharp
+     var serviceEndpoint = new Uri("https://contoso.documents.net");
+     var authKey = new "your authKey from the Azure portal";
+     DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
+     new ConnectionPolicy
+     {
         ConnectionMode = ConnectionMode.Direct,
         ConnectionProtocol = Protocol.Tcp
-    });
-    ```
+     });
+     ```
 
-    Eftersom TCP stöds endast i direkt läge om Gateway-läge används, HTTPS-protokollet används alltid för att kommunicera med gatewayen och Protocol-värdet i ConnectionPolicy ignoreras.
+     Eftersom TCP stöds endast i direkt läge om Gateway-läge används, HTTPS-protokollet används alltid för att kommunicera med gatewayen och Protocol-värdet i ConnectionPolicy ignoreras.
 
-    ![Bild av principen för Azure Cosmos DB](./media/performance-tips/connection-policy.png)
+     ![Bild av principen för Azure Cosmos DB](./media/performance-tips/connection-policy.png)
 
 2. **Anropa OpenAsync för att undvika Start svarstid på första begäran**
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 243697c20f10a019a73326c3bd79e23fc3342640
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ddcaca46a2b8f9501337b3591d6ed666876e1de9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113608"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093777"
 ---
 # <a name="tutorial-install-azure-data-box-edge-preview"></a>Självstudier: Installera Azure Data Box Edge (förhandsversion)
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 > [!IMPORTANT]
 > Data Box Edge-lösningen är i förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 De nödvändiga komponenterna för att installera en fysisk enhet är följande:
 
@@ -94,15 +94,15 @@ Enheten måste installeras i ett 19-tums standardrack. Använd följande procedu
     ![Installera rackmonteringsspår](./media/data-box-edge-deploy-install/rack-mount-rail-1.png)
 
 2. Installera de yttre spåren på rackskåpets lodräta delar. För att underlätta orienteringen är spårskenorna markerade med **Front** (Framsida), och den änden är fäst mot höljets framsida.    
-    1. Leta upp spårstiften på framsidan och baksidan av spårenheten. Dra ut spåret så att det får plats mellan rackbenen. Fäst först det yttre spåret på baksidan av racket. Justera det bakre monteringsfästet så att det hamnar på insidan av de bakre rackmonteringhålen.   
+   1. Leta upp spårstiften på framsidan och baksidan av spårenheten. Dra ut spåret så att det får plats mellan rackbenen. Fäst först det yttre spåret på baksidan av racket. Justera det bakre monteringsfästet så att det hamnar på insidan av de bakre rackmonteringhålen.   
 
-    2. Tryck och håll ned utlösaren på det bakre fästet så att metallkrokarna visas. Rikta in och infoga det bakre fästet i monteringshålen och släpp sedan utlösaren.
+   2. Tryck och håll ned utlösaren på det bakre fästet så att metallkrokarna visas. Rikta in och infoga det bakre fästet i monteringshålen och släpp sedan utlösaren.
 
-    3. Rikta in det främre fästet med monteringshålet.
+   3. Rikta in det främre fästet med monteringshålet.
 
-    4. Det främre fästet bör nu vara fast i racket. Alternativt kan du använda M5 X 10L-skruvar för att fästa spåren vid benen om det behövs. 
+   4. Det främre fästet bör nu vara fast i racket. Alternativt kan du använda M5 X 10L-skruvar för att fästa spåren vid benen om det behövs. 
 
-    ![Installera rackmonteringsspår](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
+      ![Installera rackmonteringsspår](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
 
 3. Fäst de inre spåren på chassit genom att rikta in nyckelhålsöppningarna på det inre spåret med orienteringsstiften på sidan av chassit. Se till att huvudena på chassits orienteringsstift sticker ut genom nyckelhålsöppningarna i det inre spåret. Dra ut spåret mot framsidan av chassit tills du hör ett klick som indikerar att spåret har låsts fast. Upprepa med det andra inre spåret. Tryck in chassit med de inre spåret i skenan för att slutföra installationen av racket.
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 015cbadef57a3e306fea4321db4b12c3a3918683
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4685c4213ad992e8d0fcffdf91a039cd04b426ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433789"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844215"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrera API Management med Service Fabric i Azure
 
@@ -142,7 +142,7 @@ Ange ett beskrivande **DisplayName** och en **beskrivning** av produkten. I den 
 
 * **DisplayName** kan vara valfritt namn för din API. Använd ”Service Fabric-App” i den här artikeln.
 * **name** är ett unikt och beskrivande namn för API:et, till exempel ”service-fabric-app”. Det visas i utvecklar- och utgivarportalerna.
-* **serviceUrl** refererar till HTTP-tjänsten som implementerar API:et. API-hanteringen vidarebefordrar begäranden till den här adressen. Det här URL-värdet används inte för Service Fabric-serverdelar. Du kan ange ett valfritt värde här. Den här artikeln är till exempel ”http://servicefabric”.
+* **serviceUrl** refererar till HTTP-tjänsten som implementerar API:et. API-hanteringen vidarebefordrar begäranden till den här adressen. Det här URL-värdet används inte för Service Fabric-serverdelar. Du kan ange ett valfritt värde här. Den här artikeln är till exempel ”<http://servicefabric>”.
 * **path** läggs till baswebbadressen för API-hanteringstjänsten. Baswebbadressen är gemensam för alla API:er som har en API Management-tjänstinstans som värd. API Management skiljer API:erna åt med hjälp av deras suffix, och suffixet måste därför vara unikt för alla API:er för en viss utgivare.
 * **protocol** anger vilka protokoll som kan användas för åtkomst till API:et. Den här artikeln lista **http** och **https**.
 * **sökväg** är ett suffix för API:et. Använd ”myapp” för den här artikeln.
@@ -177,7 +177,7 @@ Fyll i följande värden för att lägga till en API-åtgärd i klientdelen:
     <set-backend-service
         backend-id="servicefabric"
         sf-service-instance-name="service-name"
-        sf-resolve-condition="@(context.LastError?.Reason == 'BackendConnectionFailure')" />
+        sf-resolve-condition="@(context.LastError?.Reason == "BackendConnectionFailure")" />
   </inbound>
   <backend>
     <base/>
@@ -226,7 +226,7 @@ I *inbound_policy* byter du ut värdet för *sf-service-instance-name* mot `fabr
     <set-backend-service
         backend-id="servicefabric"
         sf-service-instance-name="service-name"
-        sf-resolve-condition="@(context.LastError?.Reason == 'BackendConnectionFailure')" />
+        sf-resolve-condition="@(context.LastError?.Reason == "BackendConnectionFailure")" />
   </inbound>
   <backend>
     <base/>
@@ -285,7 +285,7 @@ Nu kan du testa att skicka en begäran till din serverdelstjänst i Service Fabr
 
 Ett kluster består av andra Azure-resurser förutom själva klusterresursen. Det enklaste sättet att ta bort klustret och alla de resurser det använder är att ta bort resursgruppen.
 
-Logga in på Azure och välj det prenumerations-ID som du vill ta bort klustret för.  Du hittar ditt prenumerations-ID genom att logga in på [Azure Portal](http://portal.azure.com). Ta bort resursgruppen och alla klusterresurser med cmdleten [Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
+Logga in på Azure och välj det prenumerations-ID som du vill ta bort klustret för.  Du hittar ditt prenumerations-ID genom att logga in på [Azure Portal](https://portal.azure.com). Ta bort resursgruppen och alla klusterresurser med cmdleten [Remove-AzureRMResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"

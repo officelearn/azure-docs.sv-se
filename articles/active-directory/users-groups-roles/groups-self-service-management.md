@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5584e4ecc78a8805135cb3f36bd5f5cd7079129
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5122c9142eccf12193e7e429a3af5ac44fbb8fd6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767081"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111335"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Konfigurera hantering av självbetjäning i Azure Active Directory 
 
@@ -46,8 +46,8 @@ Grupper som skapats i | Standardbeteendet för säkerhet grupp | Standardbeteend
 2. Välj **Användare och grupper** och sedan **Gruppinställningar**.
 3. Ställ in **Självbetjäning för grupphantering aktiverad** på **Ja**.
 4. Ställ in **Användare kan skapa säkerhetsgrupper** eller **Användare kan skapa Office 365-grupper** på **Ja**.
-  * När inställningarna är aktiverade kan alla användare i katalogen skapa nya säkerhetsgrupper och lägga till medlemmar i dessa grupper. Dessa nya grupper visas även på åtkomstpanelen för alla andra användare. Om gruppens principinställningar så tillåter kan andra användare skapa förfrågningar om att ansluta till dessa grupper. 
-  * När de här inställningarna är avaktiverade kan användarna inte skapa grupper eller ändra de befintliga grupper som de äger. De kan dock fortfarande hantera medlemskap i dessa grupper och godkänna förfrågningar från andra användare om att ansluta till grupperna.
+   * När inställningarna är aktiverade kan alla användare i katalogen skapa nya säkerhetsgrupper och lägga till medlemmar i dessa grupper. Dessa nya grupper visas även på åtkomstpanelen för alla andra användare. Om gruppens principinställningar så tillåter kan andra användare skapa förfrågningar om att ansluta till dessa grupper. 
+   * När de här inställningarna är avaktiverade kan användarna inte skapa grupper eller ändra de befintliga grupper som de äger. De kan dock fortfarande hantera medlemskap i dessa grupper och godkänna förfrågningar från andra användare om att ansluta till grupperna.
 
 Genom **Användare som kan hantera säkerhetsgrupper** och **Användare som kan hantera Office 365-grupper** kan du få mer detaljerad åtkomstkontroll över dina användares grupphantering via självbetjäning. När **Användare kan skapa grupper** är aktiverat kan alla användare i klientorganisationen skapa nya grupper och lägga till medlemmar i dessa grupper. Om du ställer in dem på **Some** (Vissa) begränsar du grupphanteringen till enbart en begränsad grupp användare. När du har angett den här växeln till **Vissa** måste du lägga till användare i gruppen SSGMSecurityGroupsUsers innan de kan skapa nya grupper och lägga till medlemmar i dem. Om du väljer **Alla** för **Användare som kan använda självbetjäning för säkerhetsgrupper** och **Användare som kan hantera Office 365-grupper** kan alla användare i klienten skapa nya grupper.
 

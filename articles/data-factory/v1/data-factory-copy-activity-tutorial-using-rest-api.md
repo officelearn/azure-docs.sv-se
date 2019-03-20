@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 92bd80135d2ce0c72537240a12e6c0788443abe8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: d83b659cc04218fad66ea95216e69682b265dc83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700187"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077810"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Självstudier: Använd REST API för att skapa ett Azure Data Factory-pipeline för att kopiera data 
 > [!div class="op_single_selector"]
@@ -48,7 +48,10 @@ En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra 
 >  
 > Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. En självstudie om hur du omvandlar data med Azure Data Factory finns i [Självstudie: Bygga en pipeline för att omvandla data med Hadoop-kluster](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Gå igenom [Självstudier – översikt](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) och slutför de **nödvändiga** stegen.
 * Installera [Curl](https://curl.haxx.se/dlwiz/) på din dator. Du kan använda verktyget Curl med REST-kommandon för att skapa en datafabrik. 
 * Gör följande genom att följa anvisningarna i [den här artikeln](../../active-directory/develop/howto-create-service-principal-portal.md): 
@@ -61,24 +64,24 @@ En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra 
   
   1. Kör följande kommando och ange det användarnamn och lösenord som du använder för att logga in på Azure-portalen:
     
-    ```PowerShell 
-    Connect-AzureRmAccount
-    ```   
+     ```PowerShell 
+     Connect-AzAccount
+     ```   
   2. Kör följande kommando för att visa alla prenumerationer för det här kontot:
 
-    ```PowerShell     
-    Get-AzureRmSubscription
-    ``` 
+     ```PowerShell     
+     Get-AzSubscription
+     ``` 
   3. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt **&lt;NameOfAzureSubscription**&gt; med namnet på din Azure-prenumeration. 
      
-    ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
-    ```
+     ```PowerShell
+     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
+     ```
   4. Skapa en Azure-resursgrupp med namnet **ADFTutorialResourceGroup** genom att köra följande kommando i PowerShell:  
 
-    ```PowerShell     
-      New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
-    ```
+     ```PowerShell     
+      New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+     ```
      
       Om resursgruppen redan finns anger du om du vill uppdatera den (Y) eller lämna den som den är (N). 
      
@@ -284,7 +287,7 @@ Observera följande punkter:
  
 Ersätt värdet i **start**egenskapen med den aktuella dagen och **slut**värdet med nästa dag. Du kan ange endast datumdelen och hoppa över tidsvärdet. Till exempel ”2017-02-03” som motsvarar ”2017-02-03T00:00:00Z”
  
-Både start- och slutdatum måste vara i [ISO-format](http://en.wikipedia.org/wiki/ISO_8601). Exempel: 2016-10-14T16:32:41Z. **Sluttiden** är valfri, men vi använder den i den här självstudiekursen. 
+Både start- och slutdatum måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2016-10-14T16:32:41Z. **Sluttiden** är valfri, men vi använder den i den här självstudiekursen. 
  
 Om du inte anger värdet för **slut**egenskapen, beräknas det som ”**start + 48 timmar**”. Om du vill köra pipelinen på obestämd tid, anger du **9999-09-09** som värde för **slut**egenskapen.
  
@@ -364,12 +367,12 @@ Observera följande punkter:
   * I Azure PowerShell kör du följande kommando för att registrera Data Factory-providern: 
 
     ```PowerShell    
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
     Du kan köra följande kommando om du vill kontrollera att Data Factory-providern är registrerad. 
     
     ```PowerShell
-    Get-AzureRmResourceProvider
+    Get-AzResourceProvider
     ```
   * Logga in med Azure-prenumerationen i [Azure Portal](https://portal.azure.com) och navigera till ett Data Factory-blad (eller) skapa en datafabrik i Azure Portal. Med den här åtgärden registreras providern automatiskt.
 

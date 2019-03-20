@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako;
-ms.openlocfilehash: eee0d5365c515f8a7764b9d5636ae3d1b34cb934
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 1fe003ae13bc5f195932f4f140e17c4dc2791959
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240855"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188262"
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Redigera ansikten med Azure Media Analytics 
 ## <a name="overview"></a>Översikt
@@ -41,10 +41,10 @@ Detta ger en omarbetade mp4 automatiskt utan att alla manuella som indata.
 | Utdatatillgången |foo_redacted.mp4 |Video med suddiga tillämpas |
 
 #### <a name="input-example"></a>Inkommande exempel:
-[se den här videon](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
+[se den här videon](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
 
 #### <a name="output-example"></a>Exempel på utdata:
-[se den här videon](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
+[se den här videon](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
 
 ### <a name="analyze-mode"></a>Analysera läge
 Den **analysera** pass två gånger arbetsflödets tar en video som indata och producerar en JSON-fil med ansikts-platser och jpg-bilder för var och en identifieras ansikte.
@@ -125,7 +125,7 @@ Utdata från analysera passet innehåller inte den ursprungliga videon. Videon m
 #### <a name="example-output"></a>Exempel på utdata
 Det här är utdata från en IDList med ett ID som har valts.
 
-[se den här videon](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
+[se den här videon](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
 Exempel foo_IDList.txt
  
@@ -373,5 +373,5 @@ namespace FaceRedaction
 ## <a name="related-links"></a>Relaterade länkar
 [Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
-[Azure Medieanalys-demonstrationer](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Medieanalys-demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

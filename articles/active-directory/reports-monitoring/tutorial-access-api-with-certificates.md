@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b6fcdb117033e69db82d8f9bb083891794ed72
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8706414b27969efd6aa26085370f8a0b1f891d69
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187092"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095202"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Självstudier: Hämta data med hjälp av Azure Active Directory Reporting-API:et med certifikat
 
@@ -87,15 +87,15 @@ I den här självstudien får du lära dig hur du använder ett testcertifikat �
   
 7. Nu kan kan du hämta en åtkomsttoken för MS Graph API med det här certifikatet. Använd den **Get-MSCloudIdMSGraphAccessTokenFromCert** från MSCloudIdUtils PowerShell-modulen skicka i program-ID och tumavtrycket du hämtade i föregående steg. 
 
- ![Azure Portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
+   ![Azure Portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
 8. Använda åtkomsttoken i Powershell-skript för att fråga Graph API. Använd den **Invoke-MSCloudIdMSGraphQuery** cmdlet från MSCloudIDUtils att räkna upp inloggningar och directoryAudits slutpunkten. Den här cmdleten hanterar flerväxlade resultat och skickar dessa resultat till PowerShell-pipelinen.
 
 9. Fråga directoryAudits slutpunkten för att hämta granskningsloggarna. 
- ![Azure Portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
+   ![Azure Portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
 10. Fråga inloggningar slutpunkten om du vill hämta loggar för inloggning.
- ![Azure Portal](./media/tutorial-access-api-with-certificates/query-signins.png)
+    ![Azure Portal](./media/tutorial-access-api-with-certificates/query-signins.png)
 
 11. Du kan nu välja att exportera dessa data till en CSV-fil och spara i ett SIEM-system. Du kan också ta med skriptet i en schemalagd aktivitet för att regelbundet hämta Azure AD-data från din klientorganisation utan att behöva lagra programnycklar i källkoden. 
 

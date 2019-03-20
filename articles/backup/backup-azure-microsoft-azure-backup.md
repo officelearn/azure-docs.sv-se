@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: f81e7a0008c015c033d30045970fe1bd67597ff9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 26f25a0dcbeef0d5b7456d42caaca392c3ca6a1a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452206"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075620"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 > [!div class="op_single_selector"]
@@ -231,16 +231,16 @@ I följande avsnitt beskrivs hur du uppdaterar skyddsagenter för klientdatorer.
 
 2. I visningsfönstret väljer du de klientdatorer som du vill uppdatera skyddsagenten.
 
-  > [!NOTE]
-  > Den **Agentuppdateringar** kolumnen visar när en uppdatering till skyddsagenten finns tillgänglig för varje skyddad dator. I den **åtgärder** fönstret den **uppdatering** åtgärden är tillgänglig endast när en skyddad dator är markerad och uppdateringar är tillgängliga.
-  >
-  >
+   > [!NOTE]
+   > Den **Agentuppdateringar** kolumnen visar när en uppdatering till skyddsagenten finns tillgänglig för varje skyddad dator. I den **åtgärder** fönstret den **uppdatering** åtgärden är tillgänglig endast när en skyddad dator är markerad och uppdateringar är tillgängliga.
+   >
+   >
 
 3. Installerar uppdaterade skyddsagenter på de valda datorerna i den **åtgärder** väljer **uppdatering**.
 
 4. För en klientdator som inte är ansluten till nätverket, tills datorn är ansluten till nätverket, den **Agentstatus** kolumnen visar statusen **väntande uppdatering**.
 
-  När en klientdator är ansluten till nätverket, den **Agentuppdateringar** kolumn för klientdatorn visar statusen **uppdaterar**.
+   När en klientdator är ansluten till nätverket, den **Agentuppdateringar** kolumn för klientdatorn visar statusen **uppdaterar**.
 
 ## <a name="move-mabs-to-a-new-server"></a>Flytta MABS till en ny server
 
@@ -262,10 +262,11 @@ Här följer stegen om du behöver flytta MABS till en ny server, samtidigt som 
 9. Återställ DPMDB från SQL
 10. Från kommandoraden för administratör på den nya servern cd till Microsoft Azure Backup installerar du platsen och bin-mappen
 
-Sökväg till exempel: C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
-Säkerhetskopiera till Azure kör DPMSYNC-SYNC
+    Sökväg till exempel: C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\" 
 
-10) Kör DPMSYNC-SYNC Obs Om du har lagt till nya diskar i DPM lagringspoolen i stället för att flytta gamla kör DPMSYNC - Reallocatereplica
+11. Till Azure backup, kör DPMSYNC-SYNC
+
+    Om du har lagt till nya diskar i DPM lagringspoolen i stället för att flytta gamla, och kör sedan DPMSYNC - Reallocatereplica
 
 ## <a name="network-connectivity"></a>Nätverksanslutning
 Azure Backup Server kräver anslutning till Azure Backup-tjänsten för produkten som ska fungera korrekt. Du kan kontrollera om datorn är ansluten till Azure genom att använda den ```Get-DPMCloudConnection``` cmdlet i Azure Backup Server PowerShell-konsolen. Om resultatet av cmdlet: en är SANT och sedan anslutning finns, annars det finns ingen nätverksanslutning.
@@ -306,33 +307,33 @@ Använd följande procedurer för att uppgradera MABS.
 ### <a name="upgrade-from-mabs-v2-to-v3"></a>Uppgradera från MABS V2 till V3
 
 > [!NOTE]
-
+> 
 > MABS V2 är inte ett krav för att installera MABS V3. Du kan dock uppgradera till MABS V3 endast från MABS V2.
 
 Använd följande steg för att uppgradera MABS:
 
 1. Om du vill uppgradera från MABS V2 till V3 MABS kan du uppgradera ditt operativsystem till Windows Server 2016 eller Windows Server 2019 om det behövs.
 
-2.  Uppgradera din server. Stegen är liknande [installation](#install-and-upgrade-azure-backup-server). Men för SQL-inställningar får du ett alternativ för att uppgradera SQL-instansen till SQL 2017 eller använda en egen instans av SQLServer 2017.
+2. Uppgradera din server. Stegen är liknande [installation](#install-and-upgrade-azure-backup-server). Men för SQL-inställningar får du ett alternativ för att uppgradera SQL-instansen till SQL 2017 eller använda en egen instans av SQLServer 2017.
 
-  > [!NOTE]
+   > [!NOTE]
+   > 
+   > Avsluta inte medan SQL-instansen håller på att uppgraderas, avslutar avinstalleras SQL reporting-instansen och därför försöker uppgradera igen MABS misslyckas.
 
-  > Avsluta inte medan SQL-instansen håller på att uppgraderas, avslutar avinstalleras SQL reporting-instansen och därför försöker uppgradera igen MABS misslyckas.
+   Viktiga saker att tänka på:
 
-  Viktiga saker att tänka på:
-
-  > [!IMPORTANT]
-
-  >  Som en del av SQL 2017 uppgraderingen kan vi säkerhetskopiera krypteringsnycklarna SQL och avinstallera reporting services. Efter uppgraderingen av SQL server reporting service(14.0.6827.4788) installeras & krypteringsnycklar har återställts.
-
- > När du konfigurerar SQL 2017 manuellt, referera till *SSRS-konfiguration med SQL 2017* avsnittet under installationsanvisningar.
+   > [!IMPORTANT]
+   > 
+   >  Som en del av SQL 2017 uppgraderingen kan vi säkerhetskopiera krypteringsnycklarna SQL och avinstallera reporting services. Efter uppgraderingen av SQL server reporting service(14.0.6827.4788) installeras & krypteringsnycklar har återställts.
+   > 
+   > När du konfigurerar SQL 2017 manuellt, referera till *SSRS-konfiguration med SQL 2017* avsnittet under installationsanvisningar.
 
 3. Uppdatera skyddsagenter på de skyddade servrarna.
 4. Säkerhetskopior bör fortsätta utan att behöva starta om produktionsservrarna.
 5. Du kan börja skydda dina data nu. Om du uppgraderar till Modern Backup Storage, samtidigt som du skyddar, kan du också välja de volymer som du vill lagra säkerhetskopior i och söka efter under etablerade utrymme. [Läs mer](backup-mabs-add-storage.md).
 
 > [!NOTE]
-
+> 
 > Om du uppgraderar från MABS V1 till V2, kontrollera att ditt operativsystem är Windows Server 2016 eller Windows Server 2012 R2. Om du vill dra nytta av nya funktioner som System Center 2016 Data Protection Manager Modern Backup Storage, måste du installera Backup Server V2 på Windows Server 2016. Innan du uppgraderar till eller installera Backup Server V2, Läs om de [installationskrav](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites) gäller för MABS.
 
 ## <a name="troubleshooting"></a>Felsökning

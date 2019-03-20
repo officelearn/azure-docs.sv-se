@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11ebb8bbeb2a58cad41294b6bba805585127844a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8de47aab231c66f3539c2d2f0f0e4c535a04038a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442401"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085379"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sömlös enkel inloggning: Vanliga frågor och svar
 
@@ -47,7 +47,7 @@ Nedan följer en ofullständig lista över program som kan skicka dessa parametr
 | -- | -- |
 | Åtkomstpanel | https://myapps.microsoft.com/contoso.com |
 | Outlook på webben | https://outlook.office365.com/contoso.com |
-| Office 365-portaler | https://portal.office.com?domain_hint=contoso.com, https://www.office.com?domain_hint=contoso.com |
+| Office 365-portaler | <https://portal.office.com?domain_hint=contoso.com>, <https://www.office.com?domain_hint=contoso.com> |
 
 Dessutom kan användare får en tyst inloggning om ett program skickar inloggningsförfrågningar till Azure AD-slutpunkter som klienter – det vill säga https://login.microsoftonline.com/contoso.com/<..> eller https://login.microsoftonline.com/<tenant_ID>/<..> – i stället för Azure AD: s vanliga slutpunkt - det vill säga https://login.microsoftonline.com/common/<...>. Nedan följer en ofullständig lista över program som gör att dessa typer av inloggningsförfrågningar.
 
@@ -95,8 +95,8 @@ Följ dessa steg på den lokala servern där du kör Azure AD Connect:
 
 1. Anropa `$creds = Get-Credential`. När du uppmanas, anger du inloggningsuppgifterna för domänadministratören för den avsedda AD-skogen.
 
-    >[!NOTE]
-    >Vi använder den domänadministratör, det tillhandahållna användarnamnet i User Principal namn (UPN) (johndoe@contoso.com)-format eller domän kvalificerade sam-konto (contoso\johndoe eller contoso.com\johndoe) namnformatet, att hitta rätt AD-skogen. Om du använder domän kvalificerade sam-kontonamnet som vi använder domändelen i användarnamnet för att [hitta domänkontrollant av domänadministratören med hjälp av DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Om du använder UPN i stället vi [översätta det till en domän kvalificerade sam-kontonamnet](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) innan du hitta rätt domänkontrollanten.
+   > [!NOTE]
+   > Vi använder den domänadministratör, det tillhandahållna användarnamnet i User Principal namn (UPN) (johndoe@contoso.com)-format eller domän kvalificerade sam-konto (contoso\johndoe eller contoso.com\johndoe) namnformatet, att hitta rätt AD-skogen. Om du använder domän kvalificerade sam-kontonamnet som vi använder domändelen i användarnamnet för att [hitta domänkontrollant av domänadministratören med hjälp av DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Om du använder UPN i stället vi [översätta det till en domän kvalificerade sam-kontonamnet](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) innan du hitta rätt domänkontrollanten.
 
 2. Anropa `Update-AzureADSSOForest -OnPremCredentials $creds`. Det här kommandot uppdaterar dekrypteringsnyckel Kerberos för den `AZUREADSSOACC` datorkonto i den här specifika AD-skogen och uppdaterar den i Azure AD.
 3. Upprepa föregående steg för varje AD-skog som du har ställt in funktionen på.

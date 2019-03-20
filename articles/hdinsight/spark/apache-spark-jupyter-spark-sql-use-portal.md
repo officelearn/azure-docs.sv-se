@@ -9,15 +9,15 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.custom: mvc
-ms.openlocfilehash: 5833571bc1c1ac2674723abf286437c3e5e0a5ae
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 6f96195197daf026cddee10785e0cadae8096031
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791877"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111777"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-the-azure-portal"></a>Snabbstart: Skapa ett Apache Spark-kluster i HDInsight med hjälp av Azure Portal
-Lär dig hur du skapar Apache Spark-kluster på Azure HDInsight och hur du kör Spark SQL-frågor mot Hive-tabeller. Apache Spark möjliggör snabb dataanalys och databehandling i kluster med hjälp av minnesintern bearbetning. Mer information om Apache Spark på HDInsight finns i [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md).
+Lär dig hur du skapar Apache Spark-kluster på Azure HDInsight och hur du kör Spark SQL-frågor mot Hive-tabeller. Apache Spark möjliggör snabb dataanalys och databehandling i kluster med hjälp av minnesintern bearbetning. Mer information om Spark på HDInsight finns i [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md).
 
 I den här snabbstarten använder du Azure Portal för att skapa ett HDInsight Spark-kluster. Klustret använder Azure Storage Blobar som klusterlagring. Mer information om hur du kan använda Data Lake Storage Gen2 finns i [Snabbstart: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
     ![HDInsight i Azure Portal](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster.png "HDInsight i Azure Portal")
 2. Under **Grunder**, ange följande värden:
      
-    |Egenskap  |Beskrivning  |
+    |Egenskap   |Beskrivning  |
     |---------|---------|
     |**Klusternamn**     | Namnge ett HDInsight Spark-kluster. Klusternamnet som används för den här snabbstarten är **myspark20180403**.|
     |**Prenumeration**     | I listrutan, Välj en Azure-prenumeration som används för det här klustret. Prenumerationen som används för den här snabbstarten är **&lt;Azure-prenumeration**. |
@@ -49,16 +49,16 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
     Välj **Nästa** för att fortsätta till sidan **Lagring**.
 3. Under **Lagring**, ange följande värden:
 
-    - **Välj ett lagringskonto**: Välj **Skapa nytt** och ge ett namn till det nya lagringskontot. Lagringskontots namn som används för den här snabbstarten är **myspark20180403store**.
+   - **Välj ett lagringskonto**: Välj **Skapa nytt** och ge ett namn till det nya lagringskontot. Lagringskontots namn som används för den här snabbstarten är **myspark20180403store**.
 
-    ![Skapa lagringskonfigurationer för HDInsight Spark-kluster](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-storage.png "Skapa lagringskonfigurationer för Spark-kluster i HDInsight")
+     ![Skapa lagringskonfigurationer för HDInsight Spark-kluster](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-storage.png "Skapa lagringskonfigurationer för Spark-kluster i HDInsight")
 
-    > [!NOTE]  
-    > På skärmbilden, visas **Välj befintlig**. Länken växlar mellan **Skapa nytt** och **Välj befintlig**.
+     > [!NOTE]  
+     > På skärmbilden, visas **Välj befintlig**. Länken växlar mellan **Skapa nytt** och **Välj befintlig**.
 
-    **Standardbehållaren** har ett standardnamn.  Du kan ändra namnet om du vill.
+     **Standardbehållaren** har ett standardnamn.  Du kan ändra namnet om du vill.
 
-    Välj **Nästa** för att fortsätta till sidan **Sammanfattning**. 
+     Välj **Nästa** för att fortsätta till sidan **Sammanfattning**. 
 
 
 3. På **Sammanfattning** väljer du **Skapa**. Det tar cirka 20 minuter att skapa klustret. Klustret måste skapas innan du kan fortsätta till nästa session.

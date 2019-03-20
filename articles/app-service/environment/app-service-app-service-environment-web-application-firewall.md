@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: 4681dad55807705a2ce8e9908cbd3ee53fb3c32e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: c1930777f44266755f20400d063ec938ee631adb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631506"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089326"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Konfigurera en brandvägg för webbaserade program (WAF) för en App Service-miljö
 ## <a name="overview"></a>Översikt
@@ -66,7 +66,7 @@ Lägg till hanteringsslutpunkten enligt följande bild för att konfigurera Barr
 
 ![Lägga till hanteringsslutpunkt][AddManagementEndpoint]
 
-Gå till hanteringsslutpunkten i din molntjänst via en webbläsare. Om din molntjänst till exempel heter test.cloudapp.net når du slutpunkten genom att gå till http://test.cloudapp.net:8000. Du bör se en inloggningssida som på bilden nedan så att du kan logga in med de autentiseringsuppgifter som du angav när du konfigurerade WAF VM.
+Gå till hanteringsslutpunkten i din molntjänst via en webbläsare. Om din molntjänst till exempel heter test.cloudapp.net når du slutpunkten genom att gå till `http://test.cloudapp.net:8000`. Du bör se en inloggningssida som på bilden nedan så att du kan logga in med de autentiseringsuppgifter som du angav när du konfigurerade WAF VM.
 
 ![Inloggningssida för hanteringspanel][ManagementLoginPage]
 

@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: fb976842f3ea6f5df81c795b3be775ed57798b90
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: dd60897d19ef4de7369b2b127c88e778363a387f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870953"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852287"
 ---
 # <a name="quickstart-change-model-using-c"></a>Snabbstart: Ändra modell med hjälp av C#
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * Senaste [**Visual Studio Community-versionen**](https://www.visualstudio.com/downloads/).
@@ -37,7 +37,7 @@ ms.locfileid: "55870953"
 
 ## <a name="create-quickstart-code"></a>Kod för att skapa snabbstart 
 
-I Visual Studio skapar du en ny **Windows Classic Desktop Console**-app med hjälp av .Net Framework. 
+I Visual Studio skapar du en ny **Windows Classic Desktop-konsolen** app med hjälp av .NET Framework. 
 
 ![Visual Studio-projekttyp](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e7449b5c36d9a1c3df3692f80aed8ccc05a98ade
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6215230a52bcb5c44f54747b447dc5f64e6af650
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731661"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999087"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrera ett aktivt DNS-namn till Azure App Service
 
@@ -52,13 +52,13 @@ När du migrerar slutligen din anpassade DNS-namnet från den gamla platsen till
 
 Du kan kontrollera domänägarskapet genom att lägga till en TXT-post. TXT-posten mappar från _awverify.&lt; underdomän >_ till  _&lt;appname >. azurewebsites.net_. 
 
-TXT-posten som du behöver beror på DNS-posten som du vill migrera. Exempel finns i följande tabell (`@` representerar vanligtvis rotdomänen):
+The TXT record you need depends on the DNS record you want to migrate. Exempel finns i följande tabell (`@` representerar vanligtvis rotdomänen):
 
-| DNS-post-exempel | TXT-värd | TXT-värde |
+| DNS-post-exempel | TXT Host | TXT Value |
 | - | - | - |
-| \@ (rot) | _awverify_ | _&lt;AppName >. azurewebsites.net_ |
-| www (under) | _awverify.www_ | _&lt;AppName >. azurewebsites.net_ |
-| \* (med jokertecken) | _awverify.\*_ | _&lt;AppName >. azurewebsites.net_ |
+| \@ (rot) | _awverify_ | _&lt;appname>.azurewebsites.net_ |
+| www (under) | _awverify.www_ | _&lt;appname>.azurewebsites.net_ |
+| \* (med jokertecken) | _awverify.\*_ | _&lt;appname>.azurewebsites.net_ |
 
 Observera postens typ av DNS-namnet som du vill migrera på sidan DNS-poster. App Service stöder mappningar från CNAME- och A-poster.
 
@@ -124,8 +124,8 @@ För den `contoso.com` rot domänexemplet, mappa om A- eller CNAME-post som i ex
 | FQDN-exempel | Posttyp | Värd | Värde |
 | - | - | - | - |
 | Contoso.com (rot) | A | `@` | IP-adress från [Kopiera appens IP-adress](#info) |
-| www.contoso.com (under) | CNAME | `www` | _&lt;AppName >. azurewebsites.net_ |
-| \*. contoso.com (med jokertecken) | CNAME | _\*_ | _&lt;AppName >. azurewebsites.net_ |
+| www\.contoso.com (sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |
+| \*. contoso.com (med jokertecken) | CNAME | _\*_ | _&lt;appname>.azurewebsites.net_ |
 
 Spara dina inställningar.
 

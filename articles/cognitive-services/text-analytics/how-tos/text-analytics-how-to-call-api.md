@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 6fedc1b9a6b88419dbcae41b5bb6f89bd8c5cbf7
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 9d0a803f8a397d3c24f083188b6186acf4dde809
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886887"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122883"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Hur du anropar den REST API för textanalys
 
@@ -58,7 +58,7 @@ Tjänsten tar emot begäran upp till 1 MB i storlek. Om du använder Postman (el
    + Klistra in den slutpunkt som du kopierade i portalsidan.
    + Lägg till en resurs.
 
-  Resursen slutpunkter finns på följande sätt (din region kan variera):
+   Resursen slutpunkter finns på följande sätt (din region kan variera):
 
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
@@ -71,7 +71,7 @@ Tjänsten tar emot begäran upp till 1 MB i storlek. Om du använder Postman (el
    + `Content-Type`: application/json.
    + `Accept`: application/json.
 
-  Din begäran bör likna följande skärmbild, förutsatt att en **/keyPhrases** resurs.
+   Din begäran bör likna följande skärmbild, förutsatt att en **/keyPhrases** resurs.
 
    ![Skärmbild med slutpunkt och sidhuvuden för begäran](../media/postman-request-keyphrase-1.png)
 
@@ -81,15 +81,15 @@ Tjänsten tar emot begäran upp till 1 MB i storlek. Om du använder Postman (el
 
 5. Klistra in några JSON-dokument i ett format som är giltig för den avsedda analysen. Mer information om en viss analys finns i följande avsnitt:
 
-  + [Språkidentifiering](text-analytics-how-to-language-detection.md)  
-  + [Extrahering av diskussionsämne](text-analytics-how-to-keyword-extraction.md)  
-  + [Attitydanalys](text-analytics-how-to-sentiment-analysis.md)  
-  + [Igenkänning av entiteter (förhandsversion)](text-analytics-how-to-entity-linking.md)  
+   + [Språkidentifiering](text-analytics-how-to-language-detection.md)  
+   + [Extrahering av diskussionsämne](text-analytics-how-to-keyword-extraction.md)  
+   + [Attitydanalys](text-analytics-how-to-sentiment-analysis.md)  
+   + [Igenkänning av entiteter (förhandsversion)](text-analytics-how-to-entity-linking.md)  
 
 
 6. Klicka på **skicka** att skicka begäran. Du kan skicka upp till 100 begäranden per minut. 
 
-  I Postman visas svaret i fönstret nästa ned, som ett enda JSON-dokument med ett objekt för varje dokument-ID som tillhandahölls i begäran.
+   I Postman visas svaret i fönstret nästa ned, som ett enda JSON-dokument med ett objekt för varje dokument-ID som tillhandahölls i begäran.
 
 ## <a name="see-also"></a>Se också 
 

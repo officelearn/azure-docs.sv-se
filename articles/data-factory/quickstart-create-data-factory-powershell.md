@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 0e6db6ad4d2f3dfdf6aa95c0ee2255328de7e4ef
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: b675ab9663be674ec2439bfe9139b7c79c144cbd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996329"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453396"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Snabbstart: Skapa en Azure-datafabrik med hjälp av PowerShell
 
@@ -35,7 +35,9 @@ Den här snabbstarten beskriver hur du använder PowerShell till att skapa en Az
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
 
 #### <a name="log-in-to-powershell"></a>Logga in på PowerShell
 
@@ -44,19 +46,19 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
 2. Kör följande kommando och ange användarnamnet och lösenordet som du använder för att logga in på Azure-portalen:
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 3. Kör följande kommando för att visa alla prenumerationer för det här kontot:
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
 4. Om du har flera Azure-prenumerationer associerade till ditt konto kör du följande kommando för att välja den prenumeration du vill arbeta med. Ersätt **SubscriptionId** med ID:t för din Azure-prenumeration:
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"
+    Select-AzSubscription -SubscriptionId "<SubscriptionId>"
     ```
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
@@ -72,7 +74,7 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
 2. Kör följande kommando för att skapa en Azure-resursgrupp:
 
     ```powershell
-    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'East US'
+    $ResGrp = New-AzResourceGroup $resourceGroupName -location 'East US'
     ```
 
     Om resursgruppen redan finns behöver du kanske inte skriva över den. Ge variabeln `$ResourceGroupName` ett annat värde och kör kommandot igen.
@@ -86,10 +88,10 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
     $dataFactoryName = "ADFQuickStartFactory";
     ```
 
-4. För att skapa datafabriken kör du följande **Set-AzureRmDataFactoryV2**-cmdlet med hjälp av platsen och egenskapen ResourceGroupName från variabeln $ResGrp:
+4. Om du vill skapa data factory, kör du följande **Set-AzDataFactoryV2** cmdlet, med hjälp av den platsen och egenskapen ResourceGroupName från variabeln $ResGrp:
 
     ```powershell
-    $DataFactory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName `
+    $DataFactory = Set-AzDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName `
         -Location $ResGrp.Location -Name $dataFactoryName
     ```
 
@@ -137,10 +139,10 @@ Skapa länkade tjänster i en datafabrik för att länka ditt datalager och ber�
     Set-Location 'C:\ADFv2QuickStartPSH'
     ```
 
-3. Kör cmdleten **Set-AzureRmDataFactoryV2LinkedService** för att skapa den länkade tjänsten: **AzureStorageLinkedService**.
+3. Kör den **Set-AzDataFactoryV2LinkedService** cmdlet för att skapa den länkade tjänsten: **AzureStorageLinkedService**.
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName `
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName `
         -ResourceGroupName $ResGrp.ResourceGroupName -Name "AzureStorageLinkedService" `
         -DefinitionFile ".\AzureStorageLinkedService.json"
     ```
@@ -181,10 +183,10 @@ I det här steget definierar du en datamängd som representerar data som ska kop
     }
     ```
 
-2. Så här skapar du datamängden: **BlobDataset**, kör cmdleten **Set-AzureRmDataFactoryV2Dataset**.
+2. Så här skapar du datamängden: **BlobDataset**, kör den **Set-AzDataFactoryV2Dataset** cmdlet.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
+    Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
         -ResourceGroupName $ResGrp.ResourceGroupName -Name "BlobDataset" `
         -DefinitionFile ".\BlobDataset.json"
     ```
@@ -253,10 +255,10 @@ I den här snabbstarten skapar du en pipeline med en aktivitet som tar två para
     }
     ```
 
-2. Så här skapar du pipelinen: **Adfv2QuickStartPipeline**, kör cmdleten **Set-AzureRmDataFactoryV2Pipeline**.
+2. Så här skapar du pipelinen: **Adfv2QuickStartPipeline**, kör den **Set-AzDataFactoryV2Pipeline** cmdlet.
 
     ```powershell
-    $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline `
+    $DFPipeLine = Set-AzDataFactoryV2Pipeline `
         -DataFactoryName $DataFactory.DataFactoryName `
         -ResourceGroupName $ResGrp.ResourceGroupName `
         -Name "Adfv2QuickStartPipeline" `
@@ -275,10 +277,10 @@ I det här steget anger du värden för pipelineparametrarna:  **inputPath** och
         "outputPath": "adftutorial/output"
     }
     ```
-2. Kör cmdleten **Invoke-AzureRmDataFactoryV2Pipeline** för att skapa en pipelinekörning och ange parametervärdena. Cmdleten samlar även in pipelinekörningens ID för kommande övervakning.
+2. Kör den **Invoke-AzDataFactoryV2Pipeline** cmdlet för att skapa en pipeline och ange parametrarnas värden. Cmdleten samlar även in pipelinekörningens ID för kommande övervakning.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline `
+    $RunId = Invoke-AzDataFactoryV2Pipeline `
         -DataFactoryName $DataFactory.DataFactoryName `
         -ResourceGroupName $ResGrp.ResourceGroupName `
         -PipelineName $DFPipeLine.Name `
@@ -291,7 +293,7 @@ I det här steget anger du värden för pipelineparametrarna:  **inputPath** och
 
     ```powershell
     while ($True) {
-        $Run = Get-AzureRmDataFactoryV2PipelineRun `
+        $Run = Get-AzDataFactoryV2PipelineRun `
             -ResourceGroupName $ResGrp.ResourceGroupName `
             -DataFactoryName $DataFactory.DataFactoryName `
             -PipelineRunId $RunId
@@ -356,7 +358,7 @@ I det här steget anger du värden för pipelineparametrarna:  **inputPath** och
 
     ```powershell
     Write-Output "Activity run details:"
-    $Result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineRunId $RunId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $Result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineRunId $RunId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     $Result
 
     Write-Output "Activity 'Output' section:"

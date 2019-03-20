@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 85763a895b61d184db033c09a413cc897ef6eaa3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 42b59c8da9e66b0f749d067e3df867911c7108e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551610"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106839"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Lägga till en artefaktcentrallagret i ditt labb i DevTest Labs
 DevTest Labs kan du ange en artefakt som ska läggas till en virtuell dator vid tidpunkten för att skapa den virtuella datorn eller när den virtuella datorn har skapats. Den här artefakten kan vara ett verktyg eller ett program som du vill installera på den virtuella datorn. Artefakter har definierats i en JSON-fil lästs in från en GitHub- eller VSTS Git-lagringsplats. 
@@ -74,11 +74,11 @@ Det här avsnittet innehåller steg för att lägga till en artefaktcentrallagre
 
     ![Knappen Lägg till databasen](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. På den **databaser** anger du följande information:
-  1. **Namn**. Ange ett namn för databasen.
-  2. **Url för Git-klonen**. Ange URL för Git HTTPS-klonen som du kopierade tidigare från GitHub eller Azure DevOps-tjänsterna.
-  3. **Branch**. Ange grenen för att få definitionerna.
-  4. **Personlig åtkomsttoken**. Ange din personliga åtkomsttoken som du tidigare fått från GitHub eller Azure DevOps-tjänsterna.
-  5. **Mappsökvägar**. Ange minst en mappsökväg i förhållande till den klon-URL som innehåller din artefakt eller Malldefinitioner för Resource Manager. När du anger en underkatalog måste du kontrollera att du inkluderar snedstreck i mappsökvägen.
+   1. **Namn**. Ange ett namn för databasen.
+   2. **Url för Git-klonen**. Ange URL för Git HTTPS-klonen som du kopierade tidigare från GitHub eller Azure DevOps-tjänsterna.
+   3. **Branch**. Ange grenen för att få definitionerna.
+   4. **Personlig åtkomsttoken**. Ange din personliga åtkomsttoken som du tidigare fått från GitHub eller Azure DevOps-tjänsterna.
+   5. **Mappsökvägar**. Ange minst en mappsökväg i förhållande till den klon-URL som innehåller din artefakt eller Malldefinitioner för Resource Manager. När du anger en underkatalog måste du kontrollera att du inkluderar snedstreck i mappsökvägen.
 
         ![Lagringsplatser området](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 6. Välj **Spara**.

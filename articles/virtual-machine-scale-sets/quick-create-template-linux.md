@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 481c05f01992ea682176d68211feeea26711e29c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 5361dc41aeaab0d44ee9a28ad0d7e40d98b17b8a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671887"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013004"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Snabbstart: Skapa en skalningsuppsättning för virtuella Linux-datorer med en Azure-mall
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning som CPU, minnesefterfrågan eller nätverkstrafik. En Azure-lastbalanserare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning och distribuerar ett exempelprogram med en Azure Resource Manager-mall.
@@ -40,7 +40,7 @@ Mer information om mallar finns i [Översikt över Azure Resource Manager](https
 
 När du skapar en skalningsuppsättning med en mall definierar du lämpliga resurser. Huvuddelarna i resurstypen för VM-skalningsuppsättning:
 
-| Egenskap                     | Egenskapsbeskrivning                                  | Exempelmallvärde                    |
+| Egenskap                      | Egenskapsbeskrivning                                  | Exempelmallvärde                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
 | typ                         | Azure-resurstypen som ska skapas                            | Microsoft.Compute/virtualMachineScaleSets |
 | namn                         | Namnet på skalningsuppsättningen                                       | myScaleSet                                |
@@ -104,7 +104,7 @@ Testa din skalningsuppsättning genom att installera ett grundläggande webbprog
 - Plats för konfiguration eller installation av skript
 - Kommandon för att köra VM-instanserna
 
-Mallen [Python HTTP-servern på Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) använder tillägget för anpassat skript för att installera [Bottle](http://bottlepy.org/docs/dev/) (ett Python-webbramverk) och en enkel HTTP-server. 
+Mallen [Python HTTP-servern på Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) använder tillägget för anpassat skript för att installera [Bottle](https://bottlepy.org/docs/dev/) (ett Python-webbramverk) och en enkel HTTP-server. 
 
 Två skript definieras i **fileUris** - *installserver.sh* och *workserver.py*. De här filerna laddas ned från GitHub. Sedan kör *commandToExecute* `bash installserver.sh` för att installera och konfigurera appen:
 

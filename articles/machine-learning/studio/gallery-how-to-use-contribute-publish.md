@@ -6,20 +6,20 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 53104aeaa88464a666a6ece495e51bf58bd1f002
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 382d05869a56dc0920d60bca55d99be4b46e3f52
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816869"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885427"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Dela och Upptäck resurser i Azure AI-galleriet
 
-**[Azure AI-galleriet](http://gallery.azure.ai)**  är en community-drivna plats för att upptäcka och dela lösningar som byggts med Azure AI.
+**[Azure AI-galleriet](https://gallery.azure.ai)**  är en community-drivna plats för att upptäcka och dela lösningar som byggts med Azure AI.
 Galleriet har en mängd olika resurser som du kan använda för att utveckla dina egna Analyslösningar.
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Vad kan jag hitta i galleriet?
@@ -201,4 +201,4 @@ Vi vill galleriet kan styras av våra användare och för våra användare. Anv�
 
 ![Feedback](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
-**[TA MIG TILL TJÄNSTEN GALLERIET &GT;&GT;](http://gallery.azure.ai)**
+**[TA MIG TILL TJÄNSTEN GALLERIET &GT;&GT;](https://gallery.azure.ai)**

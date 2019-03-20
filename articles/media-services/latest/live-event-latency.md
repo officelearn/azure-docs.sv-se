@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: db6646c2066be940b2c058653fe8f2ceb9bff3a2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 30cd77799837f9b1ef08a9c609e518fd679b9b15
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169714"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871430"
 ---
 # <a name="live-event-latency-in-media-services"></a>Live-händelse svarstid i Media Services
 
 Den här artikeln visar hur du anger med låg latens för en [direktsänd händelse](https://docs.microsoft.com/rest/api/media/liveevents). Det innehåller också information om typiska resultat som visas när du använder med låg latens-inställningar i olika spelare. Resultatet varierar beroende på CDN och nätverksfördröjning.
 
-Du använder den nya **LowLatency** funktionen kan du ange den **StreamOptionsFlag** till **LowLatency** på den **LiveEvent**. När du skapar [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) HLS uppspelning ange [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) till 1. När den är igång, kan du använda den [Azure Media Player](http://ampdemo.azureedge.net/) (AMP demo sidan) och ange uppspelningsalternativ att använda ”låg latens heuristik profilen”.
+Du använder den nya **LowLatency** funktionen kan du ange den **StreamOptionsFlag** till **LowLatency** på den **LiveEvent**. När du skapar [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) HLS uppspelning ange [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) till 1. När den är igång, kan du använda den [Azure Media Player](https://ampdemo.azureedge.net/) (AMP demo sidan) och ange uppspelningsalternativ att använda ”låg latens heuristik profilen”.
 
 > [!NOTE]
 > För närvarande är LowLatency HeuristicProfile i Azure Media Player utformad för att spela strömmar i protokollet DASH eller HLS med CMAF. Om du arbetar med MacOS- eller iOS-enheter via HLS med TS (till exempel `format=m3u8-aapl` eller `format=m3u8-aapl-v3`), bör du inte använda den här inställningen eftersom AMP direkt använder den medföljande spelaren som tillhandahålls av Operativsystemet i det här fallet.

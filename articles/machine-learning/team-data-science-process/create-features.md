@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b7c10884682b6537bbfcbb1b1f8b89b38751d05b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8b0973007a78b492cff1c5ffc2ce1e43116a0847
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478057"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835092"
 ---
 # <a name="feature-engineering-in-data-science"></a>Funktionstekniker i datavetenskap
 Den här artikeln förklarar syftet funktionsframställning och innehåller exempel på dess roll i processen för data förbättring av machine learning. I exemplen som används för att illustrera denna process hämtas från Azure Machine Learning Studio. 
@@ -46,7 +46,7 @@ Vilken typ av funktioner ska skapas för att förbättra datauppsättningen när
 
 När du börjar med Azure Machine Learning är det enklast att förstå själva processen concretely med hjälp av exemplen i Studio. Två exempel visas här:
 
-* Ett exempel på regression [förutsägelse av antalet uthyrda cyklar](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) i ett övervakat experiment där målvärden är kända
+* Ett exempel på regression [förutsägelse av antalet uthyrda cyklar](https://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) i ett övervakat experiment där målvärden är kända
 * En text utvinning klassificering exempel med hjälp av [funktions-hashning](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
 ## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Exempel 1: Lägga till den temporala funktioner för en regressionsmodell

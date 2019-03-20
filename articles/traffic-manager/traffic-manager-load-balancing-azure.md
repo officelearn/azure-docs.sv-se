@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-ms.openlocfilehash: 8c4d890633a8d588b51f876a361a77e6533b5db4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 906e1840f35ab14997c727551b893a0219eb78d8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533161"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099026"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Med belastningsutjämning tjänster i Azure
 
@@ -68,26 +68,26 @@ Följande diagram illustrerar arkitekturen i det här scenariot:
 1. I Azure-portalen klickar du på **skapa en resurs** > **nätverk** > **Traffic Manager-profil**  >   **Skapa**.
 2. Ange följande information:
 
-  * **Namn**: Ge din Traffic Manager-profil ett DNS prefixet.
-  * **Routningsmetod**: Välj princip för routning av nätverkstrafik metod. Mer information om metoderna som finns i [om Traffic Manager trafikroutningsmetoder](traffic-manager-routing-methods.md).
-  * **Prenumeration**: Välj den prenumeration som innehåller profilen.
-  * **Resursgrupp**: Välj den resursgrupp som innehåller profilen. Det kan vara en ny eller befintlig resursgrupp.
-  * **Resursgruppsplats**: Traffic Manager-tjänsten är global och inte knuten till en plats. Du måste dock ange en region för gruppen där metadata som tillhör Traffic Manager-profilen finns. Den här platsen påverkar inte tillgängligheten för körning av profilen.
+   * **Namn**: Ge din Traffic Manager-profil ett DNS prefixet.
+   * **Routningsmetod**: Välj princip för routning av nätverkstrafik metod. Mer information om metoderna som finns i [om Traffic Manager trafikroutningsmetoder](traffic-manager-routing-methods.md).
+   * **Prenumeration**: Välj den prenumeration som innehåller profilen.
+   * **Resursgrupp**: Välj den resursgrupp som innehåller profilen. Det kan vara en ny eller befintlig resursgrupp.
+   * **Resursgruppsplats**: Traffic Manager-tjänsten är global och inte knuten till en plats. Du måste dock ange en region för gruppen där metadata som tillhör Traffic Manager-profilen finns. Den här platsen påverkar inte tillgängligheten för körning av profilen.
 
 3. Klicka på **skapa** att generera Traffic Manager-profilen.
 
-  ![Bladet ”skapa Traffic Manager”](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
+   ![Bladet ”skapa Traffic Manager”](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
 
 ### <a name="step-2-create-the-application-gateways"></a>Steg 2: Skapa dina application gateways
 
 1. I Azure-portalen, i den vänstra rutan klickar du på **skapa en resurs** > **nätverk** > **Application Gateway**.
 2. Ange följande information om application gateway:
 
-  * **Namn**: Namnet på application gateway.
-  * **SKU-storlek**: Storleken på application gateway tillgänglig som liten, medel eller stor.
-  * **Antal instanser**: Antalet instanser, ett värde mellan 2 och 10.
-  * **Resursgrupp**: Den resursgrupp som innehåller application gateway. Det kan vara en befintlig resursgrupp eller en ny.
-  * **Plats**: Region för application gateway, som är på samma plats som resursgruppen. Platsen är viktig, eftersom det virtuella nätverket och en offentlig IP-adress måste vara på samma plats som en gateway.
+   * **Namn**: Namnet på application gateway.
+   * **SKU-storlek**: Storleken på application gateway tillgänglig som liten, medel eller stor.
+   * **Antal instanser**: Antalet instanser, ett värde mellan 2 och 10.
+   * **Resursgrupp**: Den resursgrupp som innehåller application gateway. Det kan vara en befintlig resursgrupp eller en ny.
+   * **Plats**: Region för application gateway, som är på samma plats som resursgruppen. Platsen är viktig, eftersom det virtuella nätverket och en offentlig IP-adress måste vara på samma plats som en gateway.
 3. Klicka på **OK**.
 4. Definiera virtuellt nätverk, undernät, frontend-IP och konfigurationer för lyssnare för programgatewayen. I det här scenariot frontend IP-adressen är **offentliga**, vilket gör att det måste läggas till som en slutpunkt i Traffic Manager-profilen vid ett senare tillfälle.
 5. Konfigurera lyssnaren med något av följande alternativ:
@@ -104,11 +104,11 @@ När du väljer en serverdelspool tar en Programgateway som är konfigurerad med
 2. Under **inställningar**väljer **serverdelspooler**, och välj sedan **Lägg till** att lägga till de virtuella datorerna som du vill associera med webbnivå backend-adresspooler.
 3. Ange namnet på backend poolen och alla IP-adresser för de datorer som finns i poolen. I det här scenariot ansluter vi två backend-adresspooler för virtuella datorer.
 
-  ![Application Gateway ”Lägg till serverdelspool”](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
+   ![Application Gateway ”Lägg till serverdelspool”](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
 4. Under **inställningar** application gateway, väljer du **regler**, och klicka sedan på den **Sökvägsbaserad** för att lägga till en regel.
 
-  ![Application Gateway regler ”sökvägsbaserad”-knappen](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
+   ![Application Gateway regler ”sökvägsbaserad”-knappen](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
 5. Konfigurera regeln genom att ange följande information.
 
@@ -138,13 +138,13 @@ I det här scenariot är Traffic Manager ansluten till application gateway (som 
 1. Öppna din Traffic Manager-profil. Du gör detta genom att titta i din resursgrupp eller Sök efter namnet på Traffic Manager-profil från **alla resurser**.
 2. I den vänstra rutan väljer **slutpunkter**, och klicka sedan på **Lägg till** lägga till en slutpunkt.
 
-  ![Traffic Manager-slutpunkter ”Lägg till”-knappen](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
+   ![Traffic Manager-slutpunkter ”Lägg till”-knappen](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
 3. Skapa en slutpunkt genom att ange följande information:
 
-  * **Typ**: Välj typ av slutpunkt för att utjämna belastningen. I det här scenariot väljer **Azure-slutpunkt** eftersom vi ansluter den till application gateway-instanser som har konfigurerats tidigare.
-  * **Namn**: Ange namnet på slutpunkten.
-  * **Målresurstyp**: Välj **offentliga IP-adressen** och under **målresurs**, Välj offentlig IP-Adressen för application gateway som konfigurerats tidigare.
+   * **Typ**: Välj typ av slutpunkt för att utjämna belastningen. I det här scenariot väljer **Azure-slutpunkt** eftersom vi ansluter den till application gateway-instanser som har konfigurerats tidigare.
+   * **Namn**: Ange namnet på slutpunkten.
+   * **Målresurstyp**: Välj **offentliga IP-adressen** och under **målresurs**, Välj offentlig IP-Adressen för application gateway som konfigurerats tidigare.
 
    ![Traffic Manager ”Lägg till slutpunkten”](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
@@ -171,7 +171,7 @@ Läs mer om hur du konfigurerar en intern belastningsutjämnare, [skapa en inter
 1. Hitta från resursgruppen, belastningsutjämnaren som skapades i föregående steg.
 2. Under **inställningar**, klickar du på **serverdelspooler**, och klicka sedan på **Lägg till** att lägga till en backend-adresspoolen.
 
-  ![Belastningsutjämnaren ”Lägg till serverdelspool”](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
+   ![Belastningsutjämnaren ”Lägg till serverdelspool”](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
 3. Ange namnet på backend poolen.
 4. Lägga till enskilda datorer eller en tillgänglighetsuppsättning till backend-poolen.
@@ -180,7 +180,7 @@ Läs mer om hur du konfigurerar en intern belastningsutjämnare, [skapa en inter
 
 1. I en belastningsutjämnare, under **inställningar**väljer **avsökningar**, och klicka sedan på **Lägg till** att lägga till en avsökning.
 
- ![Belastningsutjämnaren ”Lägg till avsökning”](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
+   ![Belastningsutjämnaren ”Lägg till avsökning”](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
 2. Ange namnet för avsökningen.
 3. Välj den **protokollet** för avsökningen. Du kanske vill en TCP-avsökning i stället för en HTTP-avsökning för en databas. Läs mer om belastningsutjämnare avsökningar [förstå avsökningar av belastningsutjämnare](../load-balancer/load-balancer-custom-probe-overview.md).

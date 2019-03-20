@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: c4c175a2c9e8138a1c385c42837335ee7df157ec
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e783181e737a235a83149b1f22d699fe0aef0bfb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861297"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848668"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-go-in-computer-vision"></a>Snabbstart: Analysera en fjärrbild med hjälp av REST-API:et och Go i Visuellt innehåll
 
@@ -24,7 +24,7 @@ I den här snabbstarten analyserar du en fjärrlagrad bild för att extrahera vi
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha [Go](https://golang.org/dl/) installerat.
 - Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan skaffa en prenumerationsnyckel genom att följa anvisningarna i [Skaffa prenumerationsnycklar](../Vision-API-How-to-Topics/HowToSubscribe.md).
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Så här skapar du och kör exemplet:
 
-1. Kopiera följande kod till en textredigerare.
+1. Kopiera den nedan kod i en textredigerare.
 1. Gör nedanstående ändringar i koden där det behövs:
     1. Ersätt värdet för `subscriptionKey` med din prenumerationsnyckel.
     1. Ersätt värdet för `uriBase` med slutpunktsadressen för metoden [Analysera bild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) från den Azure-region där du fått dina prenumerationsnycklar om det behövs.
@@ -70,7 +70,7 @@ func main() {
     const uriBase =
         "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze"
     const imageUrl =
-        "http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg"
+        "https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg"
 
     const params = "?visualFeatures=Description&details=Landmarks&language=en"
     const uri = uriBase + params
@@ -177,10 +177,6 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelprogrammet 
   "requestId": "a92f89ab-51f8-4735-a58d-507da2213fc2"
 }
 ```
-
-## <a name="clean-up-resources"></a>Rensa resurser
-
-Ta bort det kompilerade paketet och filen som paketet kompilerades från när du inte längre behöver dem. Stäng sedan kommandotolkens fönster och textredigeraren.
 
 ## <a name="next-steps"></a>Nästa steg
 

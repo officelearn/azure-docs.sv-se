@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: fea950e2c13d9b5ce0c3619990961e611edd6626
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 78dc759632c4fc3116a59ea1e5bc0b93200bca45
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207385"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168195"
 ---
 # <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>Hur du använder negeras entiteter med en konversation Learner modell
 
@@ -26,7 +26,7 @@ Den här självstudien visas ”Negatable”-egenskapen för entiteter.
 [![Negeras entiteter självstudiekursen förhandsversion](https://aka.ms/cl_Tutorial_v3_NegatableEntities_Preview)](https://aka.ms/cl_Tutorial_v3_NegatableEntities)
 
 ## <a name="requirements"></a>Krav
-Den här självstudien krävs att Allmänt självstudiekursen bot körs
+Den här självstudien krävs att Allmänt självstudien Bot körs
 
     npm run tutorial-general
 
@@ -35,65 +35,64 @@ Egenskapen ”Negatable” för en entitet kan du märka både normal (positiv) 
 
 ## <a name="steps"></a>Steg
 
+Starta på startsidan i Webbgränssnittet.
+
 ### <a name="create-the-model"></a>Skapa modellen
 
-1. I Webbgränssnittet, klickar du på ”ny modell”.
-2. Skriv ”NegatableEntity” i fältet ”namn” och tryck på RETUR.
-3. Klicka på knappen ”Skapa”.
+1. Välj **nya modellen**.
+2. Ange **NegatableEntity** för **namn**.
+3. Välj **Skapa**.
 
 ### <a name="entity-creation"></a>Skapa en entitet
 
-1. Klicka på ”entiteter” och knappen ”ny entitet” på den vänstra panelen.
-2. Välj ”anpassad” för ”entitetstypen”.
-3. Skriv ”name” för ”entitetsnamnet”.
-4. Markera kryssrutan ”Negatable”.
-    - Kontrollerar den här egenskapen gör det möjligt för användarna att ange ett värde för entiteten eller säga att det är något *inte* ett värde för entiteten. Resultatet är i det senare fallet borttagning av det matchande entity-värdet.
-5. Klicka på knappen ”Skapa”.
+1. Välj **entiteter** i den vänstra panelen, sedan **ny entitet**.
+2. Välj **anpassad tränas** för **entitetstypen**.
+3. Ange **namn** för **entitetsnamn**.
+4. Kontrollera **Negatable** så att användarna kan ange ett värde för entiteten eller säga något är *inte* en entitet värde tar därmed bort matchande entitet värdet.
+5. Välj **Skapa**.
 
-![](../media/tutorial5_entities.PNG)
+![](../media/T06_entity_create.png)
 
 ### <a name="create-the-first-action"></a>Skapa den första åtgärden
 
-1. Klicka på ”åtgärder” och knappen ”ny åtgärd” på den vänstra panelen.
-2. Fältet i ”Robotens svaret...”, skriver du ”Jag vet inte ditt namn”.
-3. Skriv i fältet ”diskvalificera berättigar”, ”name”.
-4. Klicka på knappen ”Skapa”.
+1. Välj **åtgärder** i den vänstra panelen, sedan **ny åtgärd**.
+2. Ange **jag vet inte ditt namn.** för **Robotens svar...** .
+3. Ange **namn** för **diskvalificera berättigar**.
+4. Välj **Skapa**.
+
+![](../media/T06_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>Skapa den andra åtgärden
 
-1. Klicka på ”åtgärder” och knappen ”ny åtgärd” på den vänstra panelen.
-2. Fältet i ”Robotens svaret...”, skriver du ”Jag vet ditt namn. Det är $name ”.
-3. Klicka på knappen ”Skapa”.
+1. Välj **åtgärder** i den vänstra panelen, sedan **ny åtgärd**.
+2. Ange **jag vet ditt namn. Det är $name.** för **Robotens svar...** .
+3. Välj **Skapa**.
 
 > [!NOTE]
-> ”Namn” entitet läggs automatiskt som en ”krävs enheter” med referens i svaret.
+> Den **namn** entitet automatiskt har lagts till som en **krävs entiteter** med referens i svar-uttryck.
 
 Nu har du två åtgärder.
 
-![](../media/tutorial5_actions.PNG)
+![](../media/T06_action_create_2.png)
 
 ### <a name="train-the-model"></a>Träna modellen
 
-1. Klicka på ”Train-dialogrutor” och knappen ”Ny träna dialogruta” på den vänstra panelen.
-2. På panelen chatt står det ”Skriv meddelandet...”, ange ”hello”.
-3. Klicka på knappen ”poäng åtgärder”.
-4. Välj svar ”jag vet inte ditt namn”.
-    - Den: e percentilen är 100%, eftersom den enda giltiga åtgärden baserat på begränsningarna.
-5. På panelen chatt står det ”Skriv meddelandet...”, ange ”mitt namn är Frank”
-6. Välj ”Frank”, och välj etiketten ”+ namn”
-    - Det finns två instanser för entiteten för ”name”: ”+ namn” och ”-namnet”.  (+) Dessutom lägger till eller skriver över värdet. (-) Minustecken tar du bort värdet.
-7. Klicka på knappen ”poäng åtgärder”.
-    - ”Namn” entitet nu är definierade som ”Frank” i minnet för den modellen, så den ”jag vet ditt namn. Det är $name ”är åtgärden tillgänglig.
-8. Välj svar ”jag vet ditt namn. Det är $name ”.
-9. På panelen chatt står det ”Skriv meddelandet...”, ange ”mitt namn är inte Frank”.
-10. Välj ”Frank” och välj etiketten ”-namnet”
-    - Väljer vi ”-namnet” Rensa entitetens aktuella värdet.
-11. Klicka på knappen ”poäng åtgärder”.
-12. Välj svar ”jag vet inte ditt namn”.
-13. På panelen chatt står det ”Skriv meddelandet...”, ange ”mitt namn är Susan”.
-14. Välj Susan, och välj etiketten ”+ namn”
+1. Välj **Train-dialogrutor** i den vänstra panelen, sedan **dialogrutan Ny träna**.
+2. Ange **hello** för användarens uttryck i den vänstra chat-panelen.
+3. Välj **poäng åtgärder**.
+4. Välj **jag vet inte ditt namn.** från listan över åtgärder. Den: e percentilen är 100% som det enda giltiga åtgärder baserat på begränsningarna.
+5. Ange **mitt namn är Frank** för användarens uttryck i den vänstra chat-panelen.
+6. Markera **Frank** därefter **+ namn**. Negeras entiteter har två instanser: (+) plus lägger till eller skriver över värdet. (-) minus tar bort värdet.
+7. Välj **poäng åtgärder**. Den **namn** entitet nu har definierats som **Frank** i minnet för den modellen, så den **jag vet ditt namn. Det är $name** åtgärden är tillgänglig.
+8. Välj **jag vet ditt namn. Det är $name.** från listan över åtgärder.
+9. Ange **mitt namn är inte Frank.** för användarens uttryck i den vänstra chat-panelen.
+10. Markera **Frank** därefter **-namnet** att rensa värdet från den **namn** entitet.
+11. Välj **poäng åtgärder**.
+12. Välj **jag vet inte ditt namn.** från listan över åtgärder.
+13. Ange **mitt namn är Susan.** för användarens tredje uttryck i den vänstra chat-panelen.
+14. Markera **Susan** sedan **+ namn** 
 
-![](../media/tutorial5_dialogs.PNG)
+![](../media/T06_training.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

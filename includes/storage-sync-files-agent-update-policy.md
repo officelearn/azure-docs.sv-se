@@ -4,18 +4,18 @@ ms.service: storage
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: tamram
-ms.openlocfilehash: b099f5ff7e43f2deeb3b8c41adcb802cd431a65a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: fa0edaaa3ee785f89faceb51419d360752bb9825
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53636011"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58051664"
 ---
 Azure File Sync-agenten uppdateras regelbundet att lägga till nya funktioner och för att lösa problem. Vi rekommenderar att du konfigurerar Microsoft Update för att hämta uppdateringar för Azure File Sync-agenten när de är tillgängliga.
 
 #### <a name="major-vs-minor-agent-versions"></a>Större eller mindre agentversioner
-* Större agentversioner ofta innehåller nya funktioner och har allt fler som den första delen av versionsnumret. Exempel: *2.\*.\**
-* Mindre agentversioner kallas även ”korrigeringar” och släpps oftare än högre versioner. De innehåller ofta felkorrigeringar och förbättringar av mindre men inga nya funktioner. Till exempel:  *\*.3.\**
+* Större agentversioner ofta innehåller nya funktioner och har allt fler som den första delen av versionsnumret. Exempel: \*2.\*.\*\*
+* Mindre agentversioner kallas även ”korrigeringar” och släpps oftare än högre versioner. De innehåller ofta felkorrigeringar och förbättringar av mindre men inga nya funktioner. Till exempel: \* \*.3.\*\*
 
 #### <a name="upgrade-paths"></a>Sökvägar för uppgradering
 Det finns fyra godkända och testats sätt att installera uppdateringar för Azure File Sync-agenten. 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: ee39d2d2cf85b8de52804ac764b17db348a053e0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 98e00eb382962d2364adda93b1a5b24fdef832eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538229"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101779"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Java företagens guide för App Service på Linux
 
@@ -44,7 +44,7 @@ Du kan skriva en start Bash-skript för att anropa WildFly CLI för att:
 - Konfigurera meddelanden-providrar
 - Lägga till andra moduler och beroenden i Wildfly serverkonfigurationen.
 
- Skriptet körs när Wildfly är igång, men innan programmet startas. Skriptet bör använda den [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) anropas från `/opt/jboss/wildfly/bin/jboss-cli.sh` att konfigurera application server med en konfiguration eller ändringar som behövs när servern startas. 
+  Skriptet körs när Wildfly är igång, men innan programmet startas. Skriptet bör använda den [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) anropas från `/opt/jboss/wildfly/bin/jboss-cli.sh` att konfigurera application server med en konfiguration eller ändringar som behövs när servern startas. 
 
 Använd inte interaktivt läge i CLI för att konfigurera Wildfly. I stället, du kan ange ett skript med kommandon till JBoss CLI med hjälp av den `--file` kommandot, till exempel:
 

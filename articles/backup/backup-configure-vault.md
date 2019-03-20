@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 3700ffe0a2b0e0d3ec69bce3a11cdc36d28d9145
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: MT
+ms.openlocfilehash: 4aff7c486762d9ea7bd38ae152d169968432307e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569118"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898966"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>Säkerhetskopiera Windows-datorer med Azure Backup MARS-agenten
 
@@ -43,7 +43,7 @@ Vad du kan säkerhetskopiera beror på där agenten är installerad.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-- [Lär dig hur](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders) Azure Backup säkerhetskopierar Windows-datorer med MARS-agenten.
+- [Lär dig hur](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders) Azure Backup säkerhetskopierar Windows-datorer med MARS-agenten.
 - [Lär dig mer om](backup-architecture.md#architecture-back-up-to-dpmmabs) arkitektur för säkerhetskopiering körs MARS-agenten på en sekundär MABS eller DPM-server.
 - [Granska](backup-support-matrix-mars-agent.md) vad stöds och vad kan säkerhetskopieras med MARS-agenten.
 - Kontrollera åtkomst för datorer som du vill säkerhetskopiera.
@@ -53,7 +53,7 @@ Vad du kan säkerhetskopiera beror på där agenten är installerad.
 
 Om din dator har begränsad tillgång till internet, kontrollerar du att brandväggsinställningarna på den datorn eller proxyservern tillåter dessa webbadresser:
 
-- www.msftncsi.com
+- www\.msftncsi.com
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com
@@ -72,15 +72,20 @@ Recovery Services-valvet lagrar alla säkerhetskopior och återställningspunkte
 
     ![Skapa Recovery Services-valv (steg 2)](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-4. I **Namn** anger du ett eget namn som identifierar valvet. Namnet måste vara unikt för Azure-prenumerationen. Skriv ett namn som innehåller mellan 2 och 50 tecken. Det måste börja med en bokstav och får endast innehålla bokstäver, siffror och bindestreck.
+4. I **Namn** anger du ett eget namn som identifierar valvet.
+
+   - Namnet måste vara unikt för Azure-prenumerationen.
+   - Det kan innehålla 2 och 50 tecken.
+   - Det måste börja med en bokstav och det får innehålla endast bokstäver, siffror och bindestreck.
 
 5. Välj Azure-prenumeration, resursgrupp och geografiska region där valvet ska skapas. Säkerhetskopierade data skickas till valvet. Klicka sedan på **Skapa**.
 
     ![Skapa Recovery Services-valv (steg 3)](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
-Det kan ta flera minuter att skapa valvet. Övervaka Statusmeddelandena i portalen. När valvet har skapats visas den i listan över Recovery Services-valv. Om du inte ser valvet efter ett par minuter, klickar du på **uppdatera**.
+   - Det kan ta en stund innan valvet har skapats.
+   - Övervaka Statusmeddelandena i området längst upp till höger i portalen. Om du inte ser valvet efter ett par minuter, klickar du på **uppdatera**.
 
-![Klicka på Uppdatera](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
+     ![Klicka på Uppdatera](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
 
 ### <a name="set-storage-redundancy"></a>Ange lagringsredundans
 
@@ -129,17 +134,17 @@ Hämta MARS-agenten installeras på datorer som du vill säkerhetskopiera.
 
 1. Kör den **MARSagentinstaller.exe** fil på datorer som du vill säkerhetskopiera.
 2. I MARS Agent Setup Wizard > **installationsinställningar**, ange var du vill installera agenten och en plats som ska användas för cachen. Klicka sedan på **Nästa**.
-    - Azure Backup använder cachen för att lagra ögonblicksbilder av data innan de skickas till Azure.
-    - Cacheplatsen bör ha ledigt utrymme som motsvarar minst 5% av storleken på de data du säkerhetskopierar.
+   - Azure Backup använder cachen för att lagra ögonblicksbilder av data innan de skickas till Azure.
+   - Cacheplatsen bör ha ledigt utrymme som motsvarar minst 5% av storleken på de data du säkerhetskopierar.
 
-    ![MARS guiden installationsinställningar](./media/backup-configure-vault/mars1.png)
+     ![MARS guiden installationsinställningar](./media/backup-configure-vault/mars1.png)
 
 2. I **proxykonfiguration**, anger hur agenten som körs på Windows-datorn ska ansluta till internet. Klicka sedan på **Nästa**.
 
-    - Om du använder en anpassad proxy ange proxyinställningar och autentiseringsuppgifter om det behövs.
-    - Kom ihåg att agenten behöver åtkomst till [dessa URL: er](#verify-internet-access).
+   - Om du använder en anpassad proxy ange proxyinställningar och autentiseringsuppgifter om det behövs.
+   - Kom ihåg att agenten behöver åtkomst till [dessa URL: er](#verify-internet-access).
 
-    ![Internetåtkomst för MARS-guiden](./media/backup-configure-vault/mars2.png)
+     ![Internetåtkomst för MARS-guiden](./media/backup-configure-vault/mars2.png)
 
 3. I **Installation** granska kravkontrollen och klicka på **installera**.
 4. När agenten är installerad klickar du på **fortsätta till registreringen**.

@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c60dc2ca93547b93ce2ee457393570479069c899
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 10335f9c74b9033b303c960a77af136cc80d75bb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216276"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094372"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Hur du använder alternativa indata
 
@@ -48,6 +48,8 @@ Alternativa indata är alternativ, betyda samma sak användaren yttranden som an
 3. Skriv ”stad” för ”entitetsnamnet”.
 4. Klicka på knappen ”Skapa”.
 
+![](../media/T10_actions.png)
+
 Nu ska vi skapa tre åtgärder.
 
 ### <a name="create-the-first-action"></a>Skapa den första åtgärden
@@ -58,11 +60,15 @@ Nu ska vi skapa tre åtgärder.
 4. I fältet ”diskvalificera berättigar”, skriver du ”stad”.
 5. Klicka på knappen ”Skapa”.
 
+![](../media/T10_action_create_1.png)
+
 ### <a name="create-the-second-action"></a>Skapa den andra åtgärden
 
 1. Klicka på ”åtgärder” och knappen ”ny åtgärd” på den vänstra panelen.
 2. Fältet i ”Robotens svaret...”, skriver du ”vädret i $city är förmodligen vackert”.
 3. Klicka på knappen ”Skapa”.
+
+![](../media/T10_action_create_2.png)
 
 ### <a name="create-the-third-action"></a>Skapa den tredje åtgärden
 
@@ -71,7 +77,11 @@ Nu ska vi skapa tre åtgärder.
 3. I fältet ”diskvalificera berättigar”, skriver du ”stad”.
 4. Klicka på knappen ”Skapa”.
 
+![](../media/T10_action_create_3.png)
+
 Nu har du tre åtgärder.
+
+![](../media/T10_actions.png)
 
 ### <a name="train-the-model"></a>Träna modellen
 
@@ -82,7 +92,9 @@ Nu har du tre åtgärder.
 5. På panelen chatt står det ”Skriv meddelandet...”, ange ”Denver”
 6. Klicka på knappen ”poäng åtgärder”.
 7. Välj svar ”vädret i Denver är förmodligen vackert”.
-8. Klicka på knappen ”Spara”.
+8. Klicka på knappen ”Skicka ändringar”.
+
+![](../media/T10_training_1.png)
 
 Nu ska vi träna modellen mer genom att skapa en annan train-dialogruta.
 
@@ -96,7 +108,9 @@ Nu ska vi träna modellen mer genom att skapa en annan train-dialogruta.
 6. Klicka på ”Seattle” och sedan på ”stad” från entitetslistan.
 7. Klicka på knappen ”poäng åtgärder”.
 8. Välj svar ”vädret i Seattle är förmodligen vackert”.
-9. Klicka på knappen ”Spara”.
+9. Klicka på knappen ”Skicka ändringar”.
+
+![](../media/T10_training_2.png)
 
 ### <a name="third-model-train-dialog-using-alternative-input"></a>Tredje modellen träna dialogruta med alternativ som indata
 
@@ -106,27 +120,29 @@ Nu ska vi träna modellen mer genom att skapa en annan train-dialogruta.
     - Modellen är osäker till det bästa alternativet så att det skulle välja den högsta: e percentilen som standard.
 4. Klicka på ”Avbryt Teaching”-knappen och sedan ”Confirm”-knappen.
 
-![](../media/tutorial8_closescores.png)
+![](../media/T10_training_3.png)
 
 Nu ska vi bättre finjustera systemet med alternativa indata. Du kan lägga till alternativa indata medan undervisning eller senare.
 
-5. I den vänstra rutan klickar du på ”Train-dialogrutor” och välj sedan ”vad kan du göra”? i listan över Train-dialogrutor.
-6. Klicka på ”vad kan du göra”? uttryck i panelen chatt.
-7. I den ”Lägg till alternativa indata...” RETUR fält, typ ”hjälp” och tryck på.
-8. Klicka på knappen ”Spara ändringar”.
+1. I den vänstra rutan klickar du på ”Train-dialogrutor” och välj sedan ”vad kan du göra”? i listan över Train-dialogrutor.
+1. Klicka på ”vad kan du göra”? uttryck i panelen chatt.
+1. I den ”Lägg till alternativa indata...” RETUR fält, typ ”hjälp” och tryck på.
+1. Klicka på knappen ”Spara ändringar”.
 
-![](../media/tutorial8_helpalternates.png)
+![](../media/T10_training_4.png)
 
 Vi lägger till ett annat alternativ indata för att hantera Houston (USA).
 
-9. Klicka på ”vad är vädret i Seattle”? uttryck i panelen chatt.
-10. I fältet ”Lägg till alternativa indata...” typ ”prognos för Houston (USA)” och tryck på RETUR.
-    - Fel meddelande viktiga fakta alternativa indata måste ha samma sak och innehålla samma entiteter som den ursprungliga uttryck; inte bara samma värde för entiteter. Förekomst av samma entiteter är obligatoriskt.
-11. Klicka på ”Houston (USA)” och välj ”stad” från listan över entiteter.
-12. I fältet ”Lägg till alternativa indata...” typ ”prognos för Seattle” och tryck på RETUR.
-13. Klicka på ”Seattle” och välj ”stad” från listan över entiteter.
-14. Klicka på knappen ”Spara ändringar”.
-15. Klicka på knappen ”Spara redigera”.
+1. Klicka på ”vad är vädret i Seattle”? uttryck i panelen chatt.
+1. I fältet ”Lägg till alternativa indata...” typ ”prognos för Houston (USA)” och tryck på RETUR.
+   - Fel meddelande viktiga fakta alternativa indata måste ha samma sak och innehålla samma entiteter som den ursprungliga uttryck; inte bara samma värde för entiteter. Förekomst av samma entiteter är obligatoriskt.
+1. Klicka på ”Houston (USA)” och välj ”stad” från listan över entiteter.
+1. I fältet ”Lägg till alternativa indata...” typ ”prognos för Seattle” och tryck på RETUR.
+1. Klicka på ”Seattle” och välj ”stad” från listan över entiteter.
+1. Klicka på knappen ”Spara ändringar”.
+1. Klicka på knappen ”Spara redigera”.
+
+![](../media/T10_training_5.png)
 
 ### <a name="testing-the-model"></a>Testa modellen
 
@@ -134,7 +150,7 @@ Vi lägger till ett annat alternativ indata för att hantera Houston (USA).
 2. På panelen chatt står det ”Skriv meddelandet...”, ”Hjälp mig” ange
 3. På panelen chatt står det ”Skriv meddelandet...”, ange ”prognosen för Denver”
 
-![](../media/tutorial8_altcities.png)
+![](../media/T10_logdialog.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

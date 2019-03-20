@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d48ad97d50c413c4530e54f2538fda9cd0e31b8f
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 09cc38cd5343e8b01b3e704191ea40c133d724f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342685"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103731"
 ---
 # <a name="try-speech-services-for-free"></a>Testa Speech Services kostnadsfritt
 
@@ -87,19 +87,19 @@ Lägga till en resurs med Speech Services (nivå kostnadsfritt eller betalt) på
 
 1. Under **skapa**, ange:
 
-    * Ett namn för den nya resursen. Namnet hjälper dig att skilja mellan flera prenumerationer för samma tjänst.
-    * Välj den prenumeration som den nya resursen är associerad med för att fastställa hur avgiften faktureras.
-    * Välj den region där resursen ska användas. Speech Services är för närvarande tillgängligt i östra Asien, Europa, norra och västra USA-regioner.
-    * Välj antingen en kostnadsfri eller betald prisnivå. Klicka på **Visa fullständiga prisuppgifter** fullständig information om priser och användning kvoter för varje nivå.
-    * Skapa en ny resursgrupp för den här prenumerationen med tal eller tilldela prenumerationen till en befintlig resursgrupp. Kan du spara dina olika Azure-prenumerationer som ordnas resursgrupperna.
-    * För åtkomst till prenumerationen i framtiden, väljer du den **fäst på instrumentpanelen** markerar du kryssrutan.
-    * Välj **skapa.**
+   * Ett namn för den nya resursen. Namnet hjälper dig att skilja mellan flera prenumerationer för samma tjänst.
+   * Välj den prenumeration som den nya resursen är associerad med för att fastställa hur avgiften faktureras.
+   * Välj den region där resursen ska användas. Speech Services är för närvarande tillgängligt i östra Asien, Europa, norra och västra USA-regioner.
+   * Välj antingen en kostnadsfri eller betald prisnivå. Klicka på **Visa fullständiga prisuppgifter** fullständig information om priser och användning kvoter för varje nivå.
+   * Skapa en ny resursgrupp för den här prenumerationen med tal eller tilldela prenumerationen till en befintlig resursgrupp. Kan du spara dina olika Azure-prenumerationer som ordnas resursgrupperna.
+   * För åtkomst till prenumerationen i framtiden, väljer du den **fäst på instrumentpanelen** markerar du kryssrutan.
+   * Välj **skapa.**
 
-    ![Välj knappen Skapa](media/index/try-speech-api-create-speech4.png)
+     ![Välj knappen Skapa](media/index/try-speech-api-create-speech4.png)
 
-    Det tar en stund att skapa och distribuera din nya tal-resurs. Välj **snabbstarten** att se information om ny resurs.
+     Det tar en stund att skapa och distribuera din nya tal-resurs. Välj **snabbstarten** att se information om ny resurs.
 
-    ![Snabbstart för panelen](media/index/try-speech-api-create-speech5.png)
+     ![Snabbstart för panelen](media/index/try-speech-api-create-speech5.png)
 
 1. Under **snabbstarten**, klickar du på den **nycklar** länken under steg 1 för att visa dina prenumerationsnycklar. Varje prenumeration har två nycklar; Du kan använda någon av nycklarna i ditt program. Välj knappen bredvid varje nyckel för att kopiera den till Urklipp för att klistra in i din kod.
 

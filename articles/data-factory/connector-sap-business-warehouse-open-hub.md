@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 474ebaad60328b011e91337c46040ae37c603e21
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: c64842dc89c9519c738701558f510940f4cc148d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731049"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103918"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse via Open-hubb med Azure Data Factory
 
@@ -55,7 +55,7 @@ ADF-SAP BW Open Hub-Anslutningsappen erbjuder två valfria egenskaper: `excludeL
 
 1. **ADF datakopiering** i det här steget tabellen öppna Hub läses av ADF-anslutningen 
 
-![Delta extrahering flöde](media\connector-sap-business-warehouse-open-hub\delta-extraction-flow.png)
+![Delta extrahering flöde](media/connector-sap-business-warehouse-open-hub/delta-extraction-flow.png)
 
 I det första steget körs en DTP. Varje körning skapar en ny SAP begärande-ID. Begäran-ID lagras i tabellen öppna Hub och sedan används av ADF-anslutningen för att identifiera deltadata. De två stegen körs asynkront: DTP utlöses av SAP och Datakopieringen ADF utlöses av ADF. 
 

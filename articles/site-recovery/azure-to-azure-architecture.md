@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 797838b077993ddcb4120bcf48b026063abbe1ab
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ef75ec40df50931f5a49c06184c61d2f78608dcf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105329"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014993"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure-datorer disaster recovery-arkitekturen
 
@@ -102,9 +102,10 @@ I följande tabell beskrivs olika typer av konsekvens.
 En konsekvent ögonblicksbild krascher samlar in data på disken när ögonblicksbilden togs. De omfattar inte något i minnet.<br/><br/> Den innehåller motsvarande data på disken som skulle vara närvarande om den virtuella datorn har kraschat eller kontakten hämtades från servern vid så snart som ögonblicksbilden togs.<br/><br/> En kraschkonsekvent garantera inte datakonsekvens för operativsystemet eller för appar på den virtuella datorn. | Skapar site Recovery kraschkonsekventa återställningspunkter var femte minut som standard. Den här inställningen kan inte ändras.<br/><br/>  | Idag är kan de flesta appar återställa från kraschkonsekventa återställningspunkter.<br/><br/> Kraschkonsekventa återställningspunkter är vanligen tillräckligt för replikering av operativsystem och program som till exempel DHCP-servrar och utskriftsservrar.
 
 ### <a name="app-consistent"></a>Appkonsekvent
+
 **Beskrivning** | **Detaljer** | **Rekommendationen**
 --- | --- | ---
-Appkonsekventa återställningspunkter skapas från appkonsekventa ögonblicksbilder.<br/><br/> En appkompatibel ögonblicksbild innehålla all information på en kraschkonsekvent ögonblicksbild, plus alla data i minnet och pågående transaktioner. | Appkonsekventa ögonblicksbilder använda tjänsten Volume Shadow Copy (VSS):<br/><br/>   (1) när en ögonblicksbild initieras, utföra VSS en kopia vid skrivning (KO)-åtgärd på volymen.<br/><br/>   2) innan den utför KO, informerar VSS varje app på den dator som den behöver för att tömma minne kommande data till disk.<br/><br/>   3) VSS kan sedan appen backup/disaster recovery (i det här fallet Site Recovery) att läsa ögonblicksbilddata och fortsätta. | Appkonsekventa ögonblicksbilder tas i enlighet med vilken frekvens som du anger. Denna frekvens ska alltid vara mindre än vad som du anger för att bevara återställningspunkter. Om du behåller återställningspunkter genom att använda standardinställningen på 24 timmar, bör du till exempel ange frekvensen på mindre än 24 timmar.<br/><br/>De är mer komplexa och ta lite längre tid än kraschkonsekventa ögonblicksbilder.<br/><br/> De påverkar prestanda för appar som körs på en virtuell dator som aktiverats för replikering. | <br/><br/>Programkonsekventa återställningspunkter rekommenderas för databas-operativsystem och program, till exempel SQL.<br/><br/> Appkonsekventa ögonblicksbilder stöds bara för virtuella datorer som kör Windows.
+Appkonsekventa återställningspunkter skapas från appkonsekventa ögonblicksbilder.<br/><br/> En appkompatibel ögonblicksbild innehålla all information på en kraschkonsekvent ögonblicksbild, plus alla data i minnet och pågående transaktioner. | Appkonsekventa ögonblicksbilder använda tjänsten Volume Shadow Copy (VSS):<br/><br/>   (1) när en ögonblicksbild initieras, utföra VSS en kopia vid skrivning (KO)-åtgärd på volymen.<br/><br/>   2) innan den utför KO, informerar VSS varje app på den dator som den behöver för att tömma minne kommande data till disk.<br/><br/>   3) VSS kan sedan appen backup/disaster recovery (i det här fallet Site Recovery) att läsa ögonblicksbilddata och fortsätta. | Appkonsekventa ögonblicksbilder tas i enlighet med vilken frekvens som du anger. Denna frekvens ska alltid vara mindre än vad som du anger för att bevara återställningspunkter. Om du behåller återställningspunkter genom att använda standardinställningen på 24 timmar, bör du till exempel ange frekvensen på mindre än 24 timmar.<br/><br/>De är mer komplexa och ta lite längre tid än kraschkonsekventa ögonblicksbilder.<br/><br/> De påverkar prestanda för appar som körs på en virtuell dator som aktiverats för replikering. 
 
 ## <a name="replication-process"></a>Replikeringsprocessen
 
@@ -116,8 +117,7 @@ När du aktiverar replikering för en Azure-dator händer följande:
 4. Site Recovery bearbetar data i cacheminnet, och skickar det till mållagringskontot eller hanterade diskar på repliken.
 5. När data har bearbetats skapas kraschkonsekventa återställningspunkter var femte minut. Appkonsekventa återställningspunkter skapas enligt inställningarna som anges i replikeringsprincipen.
 
-
-   ![Aktivera replikeringsprocessen, steg 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
+![Aktivera replikeringsprocessen, steg 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
 
 **Replikeringsprocessen**
 

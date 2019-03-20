@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 78370b004d18f70ae4d485f3ad7cfd910e6dd70a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7a261d65a7bd3eea150dd764c65b94ddd47466b3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047930"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100317"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Felsöka vanliga problem för Routning
 Den här artikeln beskriver hur du felsöker vanliga routning problem du kan stöta på för din Azure ytterdörren Service-konfiguration. 
@@ -28,7 +28,7 @@ Den här artikeln beskriver hur du felsöker vanliga routning problem du kan st�
 ### <a name="symptom"></a>Symtom
 - Du har skapat en ytterdörren men en begäran till Frontend-värden returneras statuskoden HTTP 400.
 
- - Du har skapat en DNS-mappning från en anpassad domän till frontend-värden som du har konfigurerat. Dock skicka en begäran om att det anpassade domänvärdnamnet returnerar statuskoden HTTP 400 och visas inte för dirigering till backend(s) som du har konfigurerat.
+  - Du har skapat en DNS-mappning från en anpassad domän till frontend-värden som du har konfigurerat. Dock skicka en begäran om att det anpassade domänvärdnamnet returnerar statuskoden HTTP 400 och visas inte för dirigering till backend(s) som du har konfigurerat.
 
 ### <a name="cause"></a>Orsak
 - Det här problemet kan inträffa om du inte har konfigurerat en routningsregel för den anpassade domänen som du har lagt till som en frontend-värd. En regel för vidarebefordran måste läggas uttryckligen för klientdel värden, även om någon har redan konfigurerats för frontend-värden under underdomänen ytterdörren (*. azurefd.net) att din anpassade domän har en DNS-mappning till.
@@ -54,11 +54,11 @@ Det finns flera tänkbara orsaker till problemet:
     - Se till att du har väntat ~ 10 minuter för att konfigurationen ska distribueras.
 
 2. Kontrollera inställningarna för serverdel
-     - Gå till serverdelspoolen som begäran bör routning till (beror på hur du har en routningsregel för konfigurerats) och kontrollera att den _serverdel värdtyp_ och backend-värdnamnet är korrekta. Om serverdelen är en anpassad värd kan du se till att du har stavat rätt. 
+   - Gå till serverdelspoolen som begäran bör routning till (beror på hur du har en routningsregel för konfigurerats) och kontrollera att den _serverdel värdtyp_ och backend-värdnamnet är korrekta. Om serverdelen är en anpassad värd kan du se till att du har stavat rätt. 
 
-     - Kontrollera din HTTP och HTTPS-portar. I de flesta fall 80 och 443 (respektive), är korrekta och inga ändringar kommer att krävas. Det finns dock en risk att serverdelen inte är konfigurerad på så sätt och lyssnar på en annan port.
+   - Kontrollera din HTTP och HTTPS-portar. I de flesta fall 80 och 443 (respektive), är korrekta och inga ändringar kommer att krävas. Det finns dock en risk att serverdelen inte är konfigurerad på så sätt och lyssnar på en annan port.
 
-    - Kontrollera den _serverdel värdhuvud_ konfigurerats för servrar som ska routning Frontend-värden till. I de flesta fall bör den här rubriken vara samma som den _serverdel värdnamn_. Ett felaktigt värde kan dock orsaka olika HTTP 4xx-statuskoder om serverdelen förväntar sig något annat. Om du anger IP-adressen för din serverdel kan du behöva ange den _serverdel värdhuvud_ till värdnamnet för serverdelen.
+     - Kontrollera den _serverdel värdhuvud_ konfigurerats för servrar som ska routning Frontend-värden till. I de flesta fall bör den här rubriken vara samma som den _serverdel värdnamn_. Ett felaktigt värde kan dock orsaka olika HTTP 4xx-statuskoder om serverdelen förväntar sig något annat. Om du anger IP-adressen för din serverdel kan du behöva ange den _serverdel värdhuvud_ till värdnamnet för serverdelen.
 
 
 3. Kontrollera Regelinställningarna för Routning

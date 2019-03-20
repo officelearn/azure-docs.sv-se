@@ -11,22 +11,65 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/20/2019
+ms.date: 3/14/2019
 ms.author: raiye
-ms.openlocfilehash: 9a54a7676b874eee601ac2b673021bb7ff161ba8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ec50cff2a2d3323b988632fd7ee96b73f60117b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532958"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887297"
 ---
 # <a name="azure-guest-os"></a>Azure gäst-OS
 Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Gästoperativsystemet i Azure. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för speciellt [familj] [ family-explain] de introducerades i.
 
-## <a name="february-2019-guest-os"></a>Februari 2019 gäst-OS
-
 >[!NOTE]
->Februari gäst-OS är för närvarande att distribueras till molnet virtuella datorer som är konfigurerade för automatiska uppdateringar. När distributionen är klar kan kommer den här versionen att göras tillgängligt för manuella uppdateringar via Azure portal och -konfigurationsfiler. Följande korrigeringar som ingår i Gästoperativsystemet i februari. Den här listan kan ändras.
+>Mars-Gästoperativsystem distribueras för närvarande till molnet virtuella datorer som är konfigurerade för automatiska uppdateringar. När distributionen är klar kan kommer den här versionen att göras tillgängligt för manuella uppdateringar via Azure portal och -konfigurationsfiler. Följande korrigeringar som ingår i mars-OS. Den här listan kan ändras.
+
+
+## <a name="march-2019-guest-os"></a>Mars 2019 gäst-OS
+
+| Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
+| --- | --- | --- | --- | --- |
+| Rel 19-03 | [4489873] | Internet Explorer | 2.84, 3.71, 4.64 | Den 12 mars 2019 |
+| Rel 19-03 | [4489907] | Flash | 3.71, 4.64, 5.29, 6.5 | Den 12 mars 2019 |
+| Rel 19-03 | [4489885] | Windows-säkerhet | 2.84 | Den 12 mars 2019 |
+| Rel 19-03 | [4489884] | Windows-säkerhet | 3.71 | Den 12 mars 2019 |
+| Rel 19-03 | [4489883] | Windows-säkerhet | 4.64 | Den 12 mars 2019 |
+| Rel 19-03 | [4489882] | Windows 10 Security | 5.29 | Den 12 mars 2019 |
+| Rel 19-03 | [4489899] | Windows 10 Security | 6.5 | Den 12 mars 2019 |
+| Rel 19-03 | [4486563] | Insamling av februari icke-säkerhet | 2.84 | 12 februari 2019 |
+| Rel 19-03 | [4483458] | Insamling av februari icke-säkerhet .NET 3.x | 2.84 | 12 februari 2019 |
+| Rel 19-03 | [4483455] | Insamling av februari icke-säkerhet .NET 4.x | 2.84 | 12 februari 2019 |
+| Rel 19-03 | [4487025] | Insamling av februari icke-säkerhet | 3.71 | 12 februari 2019 |
+| Rel 19-03 | [4483456] | Insamling av februari icke-säkerhet .NET 3.x | 3.71 | 12 februari 2019 |
+| Rel 19-03 | [4483454] | Insamling av februari icke-säkerhet .NET 4.x | 3.71 | 12 februari 2019 |
+| Rel 19-03 | [4487000] | Insamling av februari icke-säkerhet | 4.64 | 12 februari 2019 |
+| Rel 19-03 | [4483459] | Insamling av februari icke-säkerhet .NET 3.x | 4.64 | 12 februari 2019 |
+| Rel 19-03 | [4483453] | Insamling av februari icke-säkerhet .NET 4.x | 4.64 | 12 februari 2019 |
+| Rel 19-03 | [4485447] | Februari Servicing Stack-uppdatering | 5.29 | 12 februari 2019 |
+| Rel 19-03 | [4486459] | Tidszon update | 2.84, 3.71, 4.64 | 12 februari 2019 |
+
+[4489873]: https://support.microsoft.com/kb/4489873
+[4489907]: https://support.microsoft.com/kb/4489907
+[4489885]: https://support.microsoft.com/kb/4489885
+[4489884]: https://support.microsoft.com/kb/4489884
+[4489883]: https://support.microsoft.com/kb/4489883
+[4489882]: https://support.microsoft.com/kb/4489882
+[4489899]: https://support.microsoft.com/kb/4489899
+[4486563]: https://support.microsoft.com/kb/4486563
+[4483458]: https://support.microsoft.com/kb/4483458
+[4483455]: https://support.microsoft.com/kb/4483455
+[4487025]: https://support.microsoft.com/kb/4487025
+[4483456]: https://support.microsoft.com/kb/4483456
+[4483454]: https://support.microsoft.com/kb/4483454
+[4487000]: https://support.microsoft.com/kb/4487000
+[4483459]: https://support.microsoft.com/kb/4483459
+[4483453]: https://support.microsoft.com/kb/4483453
+[4485447]: https://support.microsoft.com/kb/4485447
+[4486459]: https://support.microsoft.com/kb/4486459
+
+## <a name="february-2019-guest-os"></a>Februari 2019 gäst-OS
 
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
@@ -87,13 +130,13 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Rel 19-01 | [4480964] | Windows-säkerhet | 4.62 | Den 8 januari 2019 |
 | Rel 19-01 | [4480972] | Windows-säkerhet | 3.69 | Den 8 januari 2019 |
 | Rel 19-01 | [4480960] | Windows-säkerhet | 2.82 | Den 8 januari 2019 |
-| Rel 19-01 | [4480056] | Säkerheten i .net | 6.3 | Den 8 januari 2019 |
-| Rel 19-01 | [4480074] | Säkerheten i .net 4.x | 4.62 | Den 8 januari 2019 |
-| Rel 19-01 | [4480075] | Säkerheten i .net 4.x | 3.69 | Den 8 januari 2019 |
-| Rel 19-01 | [4480076] | Säkerheten i .net 4.x | 2.82 | Den 8 januari 2019 |
-| Rel 19-01 | [4480086] | .Net 3.x Security | 4.62 | Den 8 januari 2019 |
-| Rel 19-01 | [4480083] | .Net 3.x Security | 3.69 | Den 8 januari 2019 |
-| Rel 19-01 | [4480085] | .Net 3.x Security | 2.82 | Den 8 januari 2019 |
+| Rel 19-01 | [4480056] | Säkerheten i .NET | 6.3 | Den 8 januari 2019 |
+| Rel 19-01 | [4480074] | Säkerheten i .NET 4.x | 4.62 | Den 8 januari 2019 |
+| Rel 19-01 | [4480075] | Säkerheten i .NET 4.x | 3.69 | Den 8 januari 2019 |
+| Rel 19-01 | [4480076] | Säkerheten i .NET 4.x | 2.82 | Den 8 januari 2019 |
+| Rel 19-01 | [4480086] | .NET 3.x Security | 4.62 | Den 8 januari 2019 |
+| Rel 19-01 | [4480083] | .NET 3.x Security | 3.69 | Den 8 januari 2019 |
+| Rel 19-01 | [4480085] | .NET 3.x Security | 2.82 | Den 8 januari 2019 |
 | Rel 19-01 | [4480979] | Flash | 3.69, 4.62, 5.27, 6.3 | Den 8 januari 2019 |
 | Rel 19-01 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | Den 8 januari 2019 |
 | Gäller inte | [4471318] | Insamling av december icke-säkerhet | 2.82 | 11 december 2018 |
@@ -138,12 +181,12 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Rel 18 – 12 | [4471328] | Windows-säkerhet   | 2.81 | 11 december 2018 |
 | Rel 18 – 12 | [4471326] | Windows-säkerhet   | 3.68 | 11 december 2018 |
 | Rel 18 – 12 | [4471322] | Windows-säkerhet   | 4.61 | 11 december 2018 |
-| Rel 18 – 12 | [4470600] | .Net 3.x Security  | 2.81 | 11 december 2018 |
-| Rel 18 – 12 | [4470601] | .Net 3.x Security  | 3.68 | 11 december 2018|
-| Rel 18 – 12 | [4470602] | .Net 3.x Security  | 4.61 | 11 december 2018 |
-| Rel 18 – 12 | [4470493] | Säkerheten i .net 4.x  | 2.81 | 11 december 2018 |
-| Rel 18 – 12 | [4470492] | Säkerheten i .net 4.x  | 3.68 | 11 december 2018 |
-| Rel 18 – 12 | [4470491] | Säkerheten i .net 4.x  | 4.61| 11 december 2018 |
+| Rel 18 – 12 | [4470600] | .NET 3.x Security  | 2.81 | 11 december 2018 |
+| Rel 18 – 12 | [4470601] | .NET 3.x Security  | 3.68 | 11 december 2018|
+| Rel 18 – 12 | [4470602] | .NET 3.x Security  | 4.61 | 11 december 2018 |
+| Rel 18 – 12 | [4470493] | Säkerheten i .NET 4.x  | 2.81 | 11 december 2018 |
+| Rel 18 – 12 | [4470492] | Säkerheten i .NET 4.x  | 3.68 | 11 december 2018 |
+| Rel 18 – 12 | [4470491] | Säkerheten i .NET 4.x  | 4.61| 11 december 2018 |
 | Rel 18 – 12 | [4471331] | Flash  | 3.68, 4.61, 5.26 | 5 december 2018  |
 | Rel 18 – 12 | [4470199] | Internet Explorer  | 2.81, 3.68, 4.61 | 11 december 2018 |
 | Gäller inte | [4468323] | Tidszon update    | 2.81, 3.68, 4.61 | 13 december 2018 |
@@ -520,7 +563,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Rel 17 05 | [4010323] |SHA1 Advisory |2.62, 4.42, 5.7 | Den 9 maj 2017 |
 | Rel 17 05 | [4022344] |Microsoft Security Advisory |5.7 | Den 9 maj 2017 |
 | Rel 17 05 | [4022345] |Microsoft Security Advisory |5.7 | Den 9 maj 2017 |
-| Rel 17 05 | [4021279] |.NET /ASP.Net core rådgivning |2.62, 3.49, 4.42, 5.7 | Den 9 maj 2017 |
+| Rel 17 05 | [4021279] |.NET /ASP.NET Core Advisory |2.62, 3.49, 4.42, 5.7 | Den 9 maj 2017 |
 | Gäller inte | [4012864] |Timezone Update |2.62, 3.49, 4.42 | Den 9 maj 2017 |
 | Gäller inte | [4014565] |Insamling av april .NET icke-säkerhet |2.62 | 11 april 2017 |
 | Gäller inte | [4014559] |Insamling av april .NET icke-säkerhet |2.62 | 11 april 2017 |

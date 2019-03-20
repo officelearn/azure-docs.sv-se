@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee6c6559b5dd6c6a6e357ff2f258bad79d57205c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9809993d47141b70484892103e318a6f55381a2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192650"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856268"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera Azure Multi-Factor Authentication-inställningar
 
@@ -64,7 +64,7 @@ Använd den _blockera och avblockera användare_ funktionen för att förhindra 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
 2. Bläddra till **Azure Active Directory** > **MFA** > **blockera/avblockera användare**.
 3. Välj **Lägg till** blockerar en användare.
-4. Välj den **replikeringsgruppen**. Ange användarnamnet för blockerade användare som **username@domain.com**. Ange en kommentar i den **orsak** fält.
+4. Välj den **replikeringsgruppen**. Ange användarnamnet för blockerade användare som **användarnamn\@domain.com**. Ange en kommentar i den **orsak** fält.
 5. Välj **Lägg till** att slutföra att användaren blockeras.
 
 ### <a name="unblock-a-user"></a>Avblockera en användare
@@ -154,7 +154,7 @@ Den _engångsförbikoppling_ funktionen låter en användare autentiseras en gå
 2. Bläddra till **Azure Active Directory** > **MFA** > **engångsförbikoppling**.
 3. Välj **Lägg till**.
 4. Om det behövs väljer du gruppen för ögonblicksbildreplikering för förbikopplingen.
-5. Ange ett användarnamn som **username@domain.com**. Ange hur många sekunder som förbikopplingen ska. Ange en orsak till förbikopplingen.
+5. Ange ett användarnamn som **användarnamn\@domain.com**. Ange hur många sekunder som förbikopplingen ska. Ange en orsak till förbikopplingen.
 6. Välj **Lägg till**. Tidsgränsen börjar gälla omedelbart. Användaren måste logga in innan engångsförbikopplingen upphör att gälla.
 
 ### <a name="view-the-one-time-bypass-report"></a>Visa rapporten engångsförbikoppling
@@ -252,7 +252,7 @@ Som standard det går inte att användare skapar applösenord. Funktionen app l�
 
 Användare kan skapa applösenord under sin första registreringen. Användaren har alternativet för att skapa applösenord i slutet av registreringsprocessen.
 
-Användarna kan också skapa applösenord efter registreringen. Applösenord kan ändras via inställningarna i Azure portal eller Office 365-portalen. Mer information och detaljerade anvisningar för dina användare finns i [vad är applösenord i Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Användarna kan också skapa applösenord efter registreringen. Mer information och detaljerade anvisningar för dina användare finns i [vad är applösenord i Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## <a name="trusted-ips"></a>Tillförlitliga IP-adresser
 

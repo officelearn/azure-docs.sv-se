@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 1cfba4bf824d381e1b40ea0228ee902a1d6b5a9a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a7bd812d3aadfd3c358c8d0aeccf0e92ed474a05
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763222"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993210"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>BitLocker startfel på en Azure VM
 
@@ -32,7 +32,7 @@ ms.locfileid: "57763222"
 
 - Plugin-USB-drivrutin med BitLocker-nyckel
 
-- Du komma åt! Ange återställningsnyckeln för att komma igång igen (tangentbordslayout: USA) fel inloggningsinformation har angetts för många gånger, så att din dator har låsts för att skydda din integritet. Om du vill hämta den, går du till http://windows.microsoft.com/recoverykeyfaq från en annan dator eller mobil enhet. Om du behöver den, nyckeln ID: T är XXXXXXX. Eller så kan du återställa din dator.
+- Du komma åt! Ange återställningsnyckeln för att komma igång igen (tangentbordslayout: USA) fel inloggningsinformation har angetts för många gånger, så att din dator har låsts för att skydda din integritet. Om du vill hämta den, går du till https://windows.microsoft.com/recoverykeyfaq från en annan dator eller mobil enhet. Om du behöver den, nyckeln ID: T är XXXXXXX. Eller så kan du återställa din dator.
 
 - Ange lösenordet för att låsa upp den här enheten [] tryck på Infoga för att se lösenordet när du skriver.
 - Ange återställningsnyckeln belastningen återställningsnyckeln från USB-enhet.

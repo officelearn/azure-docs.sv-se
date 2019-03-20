@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 857672e8dee4dbe8d586db0cd80b206ec6ecb7df
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: f684a9d7bca77a8aa3aa60f5079dda0ce3b58a1c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244578"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121595"
 ---
 # <a name="azure-network-security"></a>Azure-nätverkssäkerhet
 
@@ -90,7 +90,7 @@ Du kan ansluta virtuella nätverk till varandra, så att resurser som är anslut
 
 - **Peering:** Gör det möjligt för resurser som är anslutna till olika virtuella Azure-nätverk inom samma Azure-plats att kommunicera med varandra. Nätverksbandbredd och svarstid i det virtuella nätverket är samma som om resurserna som var anslutna till samma virtuella nätverk. Mer information om peering [peerkoppling av virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
- ![Peering](media/azure-network-security/azure-network-security-fig-3.png)
+  ![Peering](media/azure-network-security/azure-network-security-fig-3.png)
 
 - **VNet-till-VNet-anslutning:** Gör det möjligt för resurser som är anslutna till olika virtuella Azure-nätverket i samma eller olika Azure platser. Bandbredden är begränsad mellan virtuella nätverk till skillnad från peering, eftersom trafiken måste flöda via Azure VPN Gateway.
 
@@ -318,19 +318,19 @@ Tvingad tunneltrafik i Azure konfigureras via virtuella nätverk användardefini
 
 I följande avsnitt visas den aktuella begränsningen Routning och vägar för ett virtuellt Azure-nätverk:
 
--   Varje virtuellt nätverksundernät har en inbyggd, system-routningstabell. Routningstabellen system har följande tre grupper av vägar:
+- Varje virtuellt nätverksundernät har en inbyggd, system-routningstabell. Routningstabellen system har följande tre grupper av vägar:
 
- -  **Lokala virtuella nätverket vägar:** Direkt till målets virtuella datorer i samma virtuella nätverk
+  -  **Lokala virtuella nätverket vägar:** Direkt till målets virtuella datorer i samma virtuella nätverk
 
- - **På lokala vägar:** Till Azure VPN-gateway
+  - **På lokala vägar:** Till Azure VPN-gateway
 
- -  **Standardvägen:** Direkt till Internet. Ignoreras paket som är avsedd för de privata IP-adresser som inte omfattas av de föregående två vägarna.
+  -  **Standardvägen:** Direkt till Internet. Ignoreras paket som är avsedd för de privata IP-adresser som inte omfattas av de föregående två vägarna.
 
--   Med lanseringen av användardefinierade vägar kan du skapa en routningstabell för att lägga till en standardväg och sedan associera routningstabellen till ditt VNet-undernät för att aktivera Tvingad tunneltrafik på dessa undernät.
+- Med lanseringen av användardefinierade vägar kan du skapa en routningstabell för att lägga till en standardväg och sedan associera routningstabellen till ditt VNet-undernät för att aktivera Tvingad tunneltrafik på dessa undernät.
 
--   Du måste ange en ”standardwebbplats” mellan de över flera lokala platserna anslutna till det virtuella nätverket.
+- Du måste ange en ”standardwebbplats” mellan de över flera lokala platserna anslutna till det virtuella nätverket.
 
--   Tvingad tunneltrafik måste vara associerad med ett virtuellt nätverk som har en VPN-gateway för dynamisk routning (inte en statisk gateway).
+- Tvingad tunneltrafik måste vara associerad med ett virtuellt nätverk som har en VPN-gateway för dynamisk routning (inte en statisk gateway).
 
 - ExpressRoute Tvingad tunneltrafik är inte konfigurerad via den här mekanismen, men i stället aktiveras genom att annonsera en standardväg via ExpressRoute BGP-peeringsessioner.
 

@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: fe34668577efb1552731af7760896bccbb99cf67
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: a0099fa085e21c381b74dc2690ffcf0870345f21
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009196"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992358"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT-enhetens SDK för C
 
@@ -89,7 +89,7 @@ Om du inte är bekant med device explorer-verktyg, beskriver följande procedur 
 
 1. När du kör programmet visas det här gränssnittet:
 
-  ![Device Explorer Twin skärmbild](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
+   ![Device Explorer Twin skärmbild](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
 
 1. Ange din **IoT Hub-anslutningssträngen** i första fältet och klickar på **uppdatering**. Det här steget konfigurerar verktyget så att den kan kommunicera med IoT Hub. 
 
@@ -97,17 +97,17 @@ Den **Connection String** finns under **IoT Hub-tjänsten** > **inställningar**
 
 1. När IoT Hub-anslutningssträngen konfigureras, klickar du på den **Management** fliken:
 
-  ![Device Explorer Twin / hantering av skärmbild](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
+   ![Device Explorer Twin / hantering av skärmbild](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
 
 Den här fliken är där du hanterar enheter som är registrerade i IoT hub.
 
 1. Du skapar en enhet genom att klicka på den **skapa** knappen. En dialogruta visas med en uppsättning förifyllda nycklar (primär eller sekundär). Ange en **enhets-ID** och klicka sedan på **skapa**.
 
-  ![Skapa enhet skärmbild](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
+   ![Skapa enhet skärmbild](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
 
 1. När enheten har skapats, lista enheterna uppdateringar med alla registrerade enheter, inklusive den som du nyss skapade. Om du högerklickar på den nya enheten kan se du den här menyn:
 
-  ![Device Explorer Twin högerklickar du på resultatet](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
+   ![Device Explorer Twin högerklickar du på resultatet](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
 
 1. Om du väljer **kopiera anslutningssträngen för vald enhet**, enhetens anslutningssträng har kopierats till Urklipp. Behåll en kopia av enhetens anslutningssträng. Du behöver den när du kör exempelprogram som beskrivs i följande avsnitt.
 
@@ -351,7 +351,7 @@ Precis som med i föregående exempel innehåller den här flera NuGet-paket:
 
 Du har sett de flesta av dessa paket i föregående exempel, men **Microsoft.Azure.IoTHub.Serializer** är ny. Det här paketet måste anges när du använder den **serialiserare** biblioteket.
 
-Du kan hitta implementeringen av exempelprogrammet i den ***iothub_client\_exempel\_iothub_convenience_sample** fil.
+Du kan hitta implementeringen av exempelprogrammet i den **iothub_client\_exempel\_iothub_convenience_sample** fil.
 
 I följande avsnitt vägleder dig genom de viktigaste delarna av det här exemplet.
 

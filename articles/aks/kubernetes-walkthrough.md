@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 5e53a0658809cd278841b39b1015a6051cebf371
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2c613a42278fb4064e5c1cdbff5ebd3b4000092c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204652"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444845"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Snabbstart: Distribuera ett kluster med Azure Kubernetes Service (AKS) med hjälp av Azure CLI
 
@@ -31,7 +31,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. När du skapar en resursgrupp uppmanas du att ange en plats. Den här platsen är där metadata för resursgrupper lagras. Det är även där dina resurser körs i Azure om du inte anger en annan region under resursskapandet. Skapa en resursgrupp med hjälp av kommandot [az group create][az-group-create].
+En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. När du skapar en resursgrupp uppmanas du att ange en plats. Den här platsen är där resource group metadata lagras, det är också där dina resurser kör i Azure om du inte anger en annan region under resursskapandet. Skapa en resursgrupp med hjälp av kommandot [az group create][az-group-create].
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 

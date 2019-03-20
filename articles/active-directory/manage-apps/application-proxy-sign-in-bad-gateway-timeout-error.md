@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 995f9d2bc0ad0a6b985790d75a63866a3a2d55bc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f8db5552ad81a1a47db72a5372e643a6fc167888
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445372"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091213"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>”Det går inte att komma åt företagets programmet” fel när du använder ett programproxy-program
 
@@ -75,19 +75,19 @@ Som ett första snabba steg kontrollerar och åtgärda den interna URL: en genom
 
 Att kontrollera att tilldelas till ett aktivt Anslutningsgrupp:
 
-1.  Öppna programmet i portalen genom att gå till **Azure Active Directory**, klicka på **företagsprogram**, sedan **alla program.** Öppna programmet och välj sedan **Application Proxy** menyn till vänster.
+1. Öppna programmet i portalen genom att gå till **Azure Active Directory**, klicka på **företagsprogram**, sedan **alla program.** Öppna programmet och välj sedan **Application Proxy** menyn till vänster.
 
-2.  Titta på fältet Anslutningsgrupp. Om det finns inga aktiva anslutningar i gruppen, visas en varning. Om du inte ser alla varningar, gå vidare till ”verifiera alla nödvändiga portar är godkänd”.
+2. Titta på fältet Anslutningsgrupp. Om det finns inga aktiva anslutningar i gruppen, visas en varning. Om du inte ser alla varningar, gå vidare till ”verifiera alla nödvändiga portar är godkänd”.
 
-3.  Om fel Anslutningsgrupp visas, kan du använda listrutan för att välja rätt grupp och bekräfta att du inte längre visas för alla varningar. Om den avsedda Anslutningsgrupp visas, klickar du på varningsmeddelandet att öppna sidan med kopplingens.
+3. Om fel Anslutningsgrupp visas, kan du använda listrutan för att välja rätt grupp och bekräfta att du inte längre visas för alla varningar. Om den avsedda Anslutningsgrupp visas, klickar du på varningsmeddelandet att öppna sidan med kopplingens.
 
-4.  Här kan finns det ett antal sätt att öka detaljnivån ytterligare:
+4. Här kan finns det ett antal sätt att öka detaljnivån ytterligare:
 
-  * Flytta en aktiv anslutning till gruppen: Om du har en aktiv anslutning som ska tillhöra den här gruppen och har åtkomst till målprogrammet för serverdel kan flytta du anslutningen till den tilldelade gruppen. Du gör detta genom att klicka på kopplingen. I fältet ”Anslutningsgrupp” använder du listrutan att välja rätt grupp Klicka på Spara.
+   * Flytta en aktiv anslutning till gruppen: Om du har en aktiv anslutning som ska tillhöra den här gruppen och har åtkomst till målprogrammet för serverdel kan flytta du anslutningen till den tilldelade gruppen. Du gör detta genom att klicka på kopplingen. I fältet ”Anslutningsgrupp” använder du listrutan att välja rätt grupp Klicka på Spara.
 
-  * Ladda ned en ny koppling för gruppen: Den här sidan kan du hämta en länk till [hämta en ny Anslutningsapp](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Installera anslutningen på en dator med direkt åtkomst till backend-applikationer. Anslutningen är vanligtvis installerad på samma server som programmet. Använd download Connector-länk för att hämta en anslutningsapp på måldatorn. Sedan klickar du på anslutningen och använda ”Anslutningsgruppen” listrutan för att se till att det hör till rätt grupp.
+   * Ladda ned en ny koppling för gruppen: Den här sidan kan du hämta en länk till [hämta en ny Anslutningsapp](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Installera anslutningen på en dator med direkt åtkomst till backend-applikationer. Anslutningen är vanligtvis installerad på samma server som programmet. Använd download Connector-länk för att hämta en anslutningsapp på måldatorn. Sedan klickar du på anslutningen och använda ”Anslutningsgruppen” listrutan för att se till att det hör till rätt grupp.
 
-  * Undersöka en inaktiv anslutning: Om en koppling visas som inaktiva, är det inte går att nå tjänsten. Det här felet beror vanligtvis på vissa portar som krävs blockeras. För att lösa problemet, gå vidare till ”verifiera alla nödvändiga portar är godkänd”.
+   * Undersöka en inaktiv anslutning: Om en koppling visas som inaktiva, är det inte går att nå tjänsten. Det här felet beror vanligtvis på vissa portar som krävs blockeras. För att lösa problemet, gå vidare till ”verifiera alla nödvändiga portar är godkänd”.
 
 När du använder testa dessa steg för att se till att programmet har tilldelats en grupp med fungerar anslutningar, programmet igen. Om det fortfarande inte fungerar, kan du fortsätta till nästa avsnitt.
 

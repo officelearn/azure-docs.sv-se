@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 44056ae1bca2595965abd3a47b4a2aa29d221623
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cec8ab9d678ff559176580fa8eccc261f449f4c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255241"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012895"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Komma igång med Azure table storage och Visual Studio-anslutna tjänster (cloud services-projekt)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -29,12 +29,12 @@ Azure Table storage-tjänsten kan du lagra stora mängder strukturerade data. Tj
 
 För att komma igång, måste du först skapa en tabell i ditt storage-konto. Vi visar dig hur du skapar en Azure-tabell i koden och hur du utför grundläggande tabell och entiteten åtgärder, till exempel att lägga till, ändra, läsa och läsa tabellenheter. Exemplen är skrivna i C\# kod och använda den [Microsoft Azure Storage-klientbiblioteket för .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-**Obs:** några av de API: er som utför anrop ut till Azure storage är asynkrona. Se [asynkron programmering med Async och Await](https://msdn.microsoft.com/library/hh191443.aspx) för mer information. Koden nedan förutsätter asynkrona programming metoder som används.
+**Obs!** Vissa av de API: er som utför anrop ut till Azure storage är asynkrona. Se [asynkron programmering med Async och Await](https://msdn.microsoft.com/library/hh191443.aspx) för mer information. Koden nedan förutsätter asynkrona programming metoder som används.
 
 * Se [komma igång med Azure Table storage med hjälp av .NET](../storage/storage-dotnet-how-to-use-tables.md) för mer information om hur du programmässigt arbete i tabeller.
 * Se [dokumentation om Storage](https://azure.microsoft.com/documentation/services/storage/) allmän information om Azure Storage.
 * Se [dokumentation om Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/) allmän information om Azure-molntjänster.
-* Se [ASP.NET](http://www.asp.net) för mer information om programmering i ASP.NET-program.
+* Se [ASP.NET](https://www.asp.net) för mer information om programmering i ASP.NET-program.
 
 ## <a name="access-tables-in-code"></a>Access-tabeller i kod
 För att komma åt tabeller i molntjänstprojekt, måste du inkludera följande objekt till alla C# källfiler som har åtkomst till Azure-tabellagring.

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 4fa8e28d9ccc16482ca937a220eae83e282da7e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2b801df6036566840dd96bde0801ab018d0614b5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210045"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103102"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Stöd matrix för haveriberedskap för Hyper-V-datorer till en sekundär plats
 
@@ -72,7 +72,7 @@ Gäst VM - med flera nätverkskort | Ja
 
 **Lagring (värd)** | **Stöds**
 --- | --- 
-NFS | Saknas
+NFS | Gäller inte
 SMB 3.0 |  Ja
 SAN (ISCSI) | Ja
 Flera sökvägar (MPIO) | Ja
@@ -81,15 +81,15 @@ Flera sökvägar (MPIO) | Ja
 
 **Konfiguration** | **Stöds**
 --- | --- | 
-VMDK |  Saknas
+VMDK |  Gäller inte
 VHD/VHDX | Ja (upp till 16 diskar)
 Gen 2 VM | Ja
 Delad klusterdisk | Nej
 Krypterad disk | Nej
-UEFI| Saknas
+UEFI| Gäller inte
 NFS | Nej
 SMB 3.0 | Nej
-RDM | Saknas
+RDM | Gäller inte
 Disk > 1 TB | Ja
 Volymen med stripe-disk > 1 TB<br/><br/> LVM | Ja
 Lagringsutrymmen | Ja
@@ -109,7 +109,7 @@ Flytta lagring, nätverk, virtuella Azure-datorer mellan resursgrupper (inom ell
 Providern samordnar kommunikationen mellan VMM-servrar. 
 
 **senaste** | **Uppdateringar**
---- | --- | --- | --- | ---
+--- | --- 
 5.1.19 ([tillgängliga från portal](https://aka.ms/downloaddra) | [Senaste funktionerna och korrigeringarna](https://support.microsoft.com/kb/3155002)
 
 

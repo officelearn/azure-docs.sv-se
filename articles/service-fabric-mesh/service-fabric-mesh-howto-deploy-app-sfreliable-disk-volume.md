@@ -1,5 +1,5 @@
 ---
-title: Använda med hög tillgänglighet Service Fabric tillförlitliga diskvolymen i ett program med Azure Service Fabric nät | Microsoft Docs
+title: Använda med hög tillgänglighet Service Fabric tillförlitliga diskvolymen i nät för Azure Service Fabric-program | Microsoft Docs
 description: Lär dig hur du lagrar tillstånd i ett Azure Service Fabric nät program genom att montera Service Fabric tillförlitliga baserat diskvolymen i behållaren med hjälp av Azure CLI.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2ed64bbf0da252285184e2ca6fef0555a85ce149
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955329"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850861"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Montera med hög tillgänglighet Service Fabric tillförlitliga baserat diskvolymen i ett Service Fabric-nät program 
 Den vanliga metoden för att bevara tillstånd med behållarappar är att använda Fjärrlagring som Azure File Storage eller databas som Azure Cosmos DB. Detta medför betydande läsning och skrivning Nätverksfördröjningen till arkivet för fjärråtkomst.

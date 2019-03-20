@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 96cb07ca4ede26e9bf0e5ceba28f1549061d0bf3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 07e598d6fd4ed2937d86f31593a220c0c28ba328
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815684"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074666"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurera IPsec/IKE-princip för plats-till-plats VPN-anslutningar
 
@@ -76,7 +76,7 @@ I följande tabell visas stöds kryptografiska algoritmer och nyckellängder som
 | IPsec-kryptering                                     | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None |
 | IPsec Integrity                                      | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                       |
 | PFS-grupp                                            | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, None                         |
-| QM SA-livstid                                       | (Valfritt: standardvärden är används om inget anges)<br />                         Sekunder (heltal; min. 300/standard 27 000 sekunder)<br />                         Kbyte (heltal; min. 1024/standard 102400000 kilobyte) |                                                                          |
+| QM SA-livstid                                       | (Valfritt: standardvärden är används om inget anges)<br />                         Sekunder (heltal; min. 300/standard 27 000 sekunder)<br />                         Kbyte (heltal; min. 1024/standard 102400000 kilobyte) |
 | Trafikväljare                                     | Principen baserat Trafikväljare stöds inte i Azure Stack.         |
 
 - Din lokala konfiguration för VPN-enheten måste stämma överens med eller innehålla följande algoritmer och parametrar som du anger på Azure IPsec/IKE-principen:

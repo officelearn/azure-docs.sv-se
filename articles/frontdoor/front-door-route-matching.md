@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 23582215654ff2d5003fe611c7149ad760d72bc5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eec99bde0ea73a99a9dc1345f938b821a95a7c05
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957048"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111845"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Hur ytterdörren matchar begäranden till en regel för vidarebefordran
 
@@ -29,7 +29,7 @@ En ytterdörren routning regelkonfigurationen består av två huvuddelar: en ”
 Följande egenskaper avgör om den inkommande begäranden matchar routningsregel (eller till vänster):
 
 * **HTTP-protokoll** (HTTP/HTTPS)
-* **Värdar** (till exempel www.foo.com \*. bar.com)
+* **Värdar** (till exempel www\.foo.com, \*. bar.com)
 * **Sökvägar** (till exempel /\*, /users/\*, /file.gif)
 
 De här egenskaperna expanderas ut internt så att varje kombination av protokoll/Värdsökvägen är en potentiell matchningsuppsättning.
@@ -48,64 +48,64 @@ När matchning Frontend-värdar, använder vi logiken enligt nedan:
 
 För att förklara ytterligare den här processen kan du nu ska vi titta på en exempelkonfiguration av ytterdörren vägar (endast vänster):
 
-| Routingregeln | Frontend-värdar | Sökväg |
+| Routingregeln | Klientdelsvärdar | Sökväg |
 |-------|--------------------|-------|
 | A | foo.contoso.com | /\* |
 | B | foo.contoso.com | /Users/\* |
-| C | www.Fabrikam.com, foo.adventure works.com  | /\*, /images/\* |
+| C | www\.fabrikam.com, foo.adventure works.com  | /\*, /images/\* |
 
 Om följande förfrågningar skickades till ytterdörren, skulle de matchar mot följande regler för vidarebefordran ovan:
 
 | Inkommande frontend-värd | Matchade routning regler |
 |---------------------|---------------|
 | foo.contoso.com | A, B |
-| www.Fabrikam.com | C |
-| images.Fabrikam.com | Fel 400: Felaktig begäran |
-| foo.adventure works.com | C |
+| www\.fabrikam.com | C |
+| images.fabrikam.com | Fel 400: Felaktig begäran |
+| foo.adventure-works.com | C |
 | contoso.com | Fel 400: Felaktig begäran |
-| www.Adventure-Works.com | Fel 400: Felaktig begäran |
-| www.northwindtraders.com | Fel 400: Felaktig begäran |
+| www\.adventure-works.com | Fel 400: Felaktig begäran |
+| www\.northwindtraders.com | Fel 400: Felaktig begäran |
 
 ### <a name="path-matching"></a>Sökvägsmatchning
 När du avgör den specifika frontend-värden och filtrering möjliga routningsregler och bara vägar med den frontend-värden, filtrerar ytterdörren sedan regler för routning baserat på sökvägen för begäran. Vi använder en liknande logik som frontend-värdar:
 
 1. Leta efter någon regel för vidarebefordran med en exakt matchning i sökvägen
 2. Om ingen exakt matchning sökvägar, leta efter routningsregler med jokertecken sökväg som matchar
-3. Om det finns inga regler för routning med en matchande sökväg Avvisa begäran och returnera en 400: Felaktig begäran fel HTTP-svar.
+3. Om det finns inga regler för routning med en matchande sökväg Avvisa begäran och returnera en 400: Felaktig fel HTTP-svar.
 
 >[!NOTE]
 > Alla sökvägar utan jokertecken anses vara exakt matchning sökvägar. Även om sökvägen slutar med ett snedstreck, betraktas fortfarande exakt matchning.
 
 För att förklara ytterligare kan du nu ska vi titta på en annan uppsättning exempel:
 
-| Routingregeln | Frontend-värd    | Sökväg     |
+| Routingregeln | Klientdelsvärd    | Sökväg     |
 |-------|---------|----------|
-| A     | www.contoso.com | /        |
-| B     | www.contoso.com | /\*      |
-| C     | www.contoso.com | /AB      |
-| D     | www.contoso.com | /ABC     |
-| E     | www.contoso.com | /ABC/    |
-| F     | www.contoso.com | /ABC/\*  |
-| G     | www.contoso.com | / abc/def |
-| H     | www.contoso.com | /Path/   |
+| A     | www\.contoso.com | /        |
+| B     | www\.contoso.com | /\*      |
+| C     | www\.contoso.com | /AB      |
+| D     | www\.contoso.com | /ABC     |
+| E     | www\.contoso.com | /ABC/    |
+| F     | www\.contoso.com | /ABC/\*  |
+| G     | www\.contoso.com | / abc/def |
+| H     | www\.contoso.com | /Path/   |
 
 Med denna konfiguration kan det skulle resultera i följande exempel matchande tabell:
 
 | Inkommande begäran    | Matchade väg |
 |---------------------|---------------|
-| www.contoso.com/            | A             |
-| www.contoso.com/a           | B             |
-| www.contoso.com/AB          | C             |
-| www.contoso.com/ABC         | D             |
-| www.contoso.com/abzzz       | B             |
-| www.contoso.com/ABC/        | E             |
-| www.contoso.com/ABC/d       | F             |
-| www.contoso.com/ABC/def     | G             |
-| www.contoso.com/ABC/defzzz  | F             |
-| www.contoso.com/ABC/def/ghi | F             |
-| www.contoso.com/Path        | B             |
-| www.contoso.com/Path/       | H             |
-| www.contoso.com/Path/zzz    | B             |
+| www\.contoso.com/            | A             |
+| www\.contoso.com/a           | B             |
+| www\.contoso.com/ab          | C             |
+| www\.contoso.com/abc         | D             |
+| www\.contoso.com/abzzz       | B             |
+| www\.contoso.com/abc/        | E             |
+| www\.contoso.com/abc/d       | F             |
+| www\.contoso.com/abc/def     | G             |
+| www\.contoso.com/abc/defzzz  | F             |
+| www\.contoso.com/abc/def/ghi | F             |
+| www\.contoso.com/path        | B             |
+| www\.contoso.com/path/       | H             |
+| www\.contoso.com/path/zzz    | B             |
 
 >[!WARNING]
 > </br> Om det finns inga regler för routning för en exakt matchning frontend-värd med en allomfattande dirigera sökväg (`/*`), så inte att vara en matchning för att någon regel för vidarebefordran.
@@ -114,18 +114,18 @@ Med denna konfiguration kan det skulle resultera i följande exempel matchande t
 >
 > | Routa | Värd             | Sökväg    |
 > |-------|------------------|---------|
-> | A     | Profile.contoso.com | /API/\* |
+> | A     | profile.contoso.com | /API/\* |
 >
 > Matchande tabell:
 >
 > | Inkommande begäran       | Matchade väg |
 > |------------------------|---------------|
-> | Profile.domain.com/Other | Ingen. Fel 400: Felaktig begäran |
+> | profile.domain.com/other | Ingen. Fel 400: Felaktig begäran |
 
 ### <a name="routing-decision"></a>Beslut om routning
 När vi har kopplats till en enda ytterdörren routningsregel kan behöver vi välja hur du vill bearbeta begäran. Om en matchande routningsregel ytterdörren har ett cachelagrat svar som är tillgängliga hämtar samma hanteras tillbaka till klienten. Annars hämtar utvärderas nästa sak är om du har konfigurerat [URL-Omskrivningsregler (anpassade vidarebefordran sökväg)](front-door-url-rewrite.md) för matchade routningen regel eller inte. Om det inte finns en anpassad vidarebefordran sökväg som definierats, hämtar begäran vidarebefordras till den korrekta serverdelen i konfigurerade serverdelspoolen skick. Annars begäran sökvägen uppdateras enligt den [sökvägen för anpassade vidarebefordran](front-door-url-rewrite.md) definierade och sedan vidare till serverdelen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [skapa en ytterdörren](quickstart-create-front-door.md).
-- Lär dig [hur ytterdörren fungerar](front-door-routing-architecture.md).
+- Läs hur du [skapar en Front Door](quickstart-create-front-door.md).
+- Läs [hur Front Door fungerar](front-door-routing-architecture.md).

@@ -1,25 +1,25 @@
 ---
 title: Installera Ansible på virtuella Azure-datorer
 description: Lär dig hur du installerar och konfigurerar Ansible för att hantera Azure-resurser på Ubuntu, CentOS och SLES
-ms.service: ansible
+ms.service: virtual-machines-linux
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/21/2018
-ms.openlocfilehash: 3c57e46ebb8828cbf2e44ced95d2d37afe5671c5
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 38a1ffdc815b357f7bb7ebe2c337b55a738fb6b5
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893926"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790440"
 ---
 # <a name="install-ansible-on-azure-virtual-machines"></a>Installera Ansible på virtuella Azure-datorer
 
 Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera dina virtuella datorer (VM) i Azure på samma sätt som för alla andra resurser. Den här artikeln beskriver hur du installerar Ansible och de Azure Python SDK-moduler som krävs för några av de vanligaste Linux-distributionerna. Du kan installera Ansible för andra distributioner genom att justera de installerade paketen så att de passar din specifika plattform. För att skapa Azure-resurser på ett säkert sätt lär du dig även hur du skapar och definierar autentiseringsuppgifter som Ansible ska använda. En lista över ytterligare verktyg som är tillgängliga i Cloud Shell finns i avsnittet om [funktioner och verktyg för Bash i Azure Cloud Shell](../../cloud-shell/features.md#tools).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration** – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 

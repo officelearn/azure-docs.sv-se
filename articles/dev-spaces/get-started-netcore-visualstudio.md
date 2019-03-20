@@ -1,23 +1,22 @@
 ---
-title: Skapa en Kubernetes-utvecklarmiljö i molnet med .NET Core och Visual Studio | Microsoft Docs
+title: Skapa ett utrymme för Kubernetes-utveckling i molnet med .NET Core och Visual Studio
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: f345ff2e64670536771a639a7619c6e1d4d2d82d
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
+ms.openlocfilehash: 9b5f5d41a35b608ecec5e9ab2161a6c122e7aa82
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823951"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894163"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Komma igång med Azure Dev Spaces med .NET Core och Visual Studio
 
@@ -34,18 +33,17 @@ I den här guiden får du lära dig hur du:
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Skapa ett Kubernetes-kluster som är aktiverat för Azure Dev Spaces
 
-1. Logga in på Azure Portal på http://portal.azure.com.
+1. Logga in på Azure Portal på https://portal.azure.com.
 1. Välj **Skapa en resurs** > sök efter **Kubernetes** > välj **Kubernetes Service** > **Skapa**.
 
-   Utför följande steg under varje rubrik för att skapa AKS-klustret.
+   Gör följande under varje rubrik i den *skapa Kubernetes-kluster* formuläret och verifiera dina valda [region har stöd för Azure Dev blanksteg](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
 
-    - **PROJEKTINFORMATION**: välj en Azure-prenumeration och en ny eller befintlig Azure-resursgrupp.
-    - **KLUSTERINFORMATION**: ange namn, region (för närvarande måste du välja USA, östra; USA, östra 2; USA, centrala; Europa, västra; USA, västra 2; Asien, sydöstra, Kanada, centrala eller Kanada, östra), version och DNS-prefix för AKS-klustret.
-    - **SKALNING**: välj en VM-storlek för AKS-agentnoderna och sedan antalet noder. Om du håller på att komma igång med Azure Dev Spaces är en nod tillräckligt för att utforska alla funktioner. Antalet noder kan enkelt justeras när som helst efter att klustret har distribuerats. Observera att VM-storleken inte kan ändras efter att ett AKS-kluster har skapats. Men när ett AKS-kluster har distribuerats kan du enkelt skapa ett nytt AKS-kluster med större virtuella datorer och använda Dev Spaces för att distribuera till större kluster igen om du behöver skala upp.
-
-   Se till att välja Kubernetes version 1.9.6 eller senare.
+   - **PROJEKTINFORMATION**: Välj en Azure-prenumeration och en ny eller befintlig Azure-resursgrupp.
+   - **KLUSTERINFORMATION**: ange namn, region, version och DNS-prefix för AKS-klustret.
+   - **SKALNING**: välj en VM-storlek för AKS-agentnoderna och sedan antalet noder. Om du håller på att komma igång med Azure Dev Spaces är en nod tillräckligt för att utforska alla funktioner. Antalet noder kan enkelt justeras när som helst efter att klustret har distribuerats. Observera att VM-storleken inte kan ändras efter att ett AKS-kluster har skapats. Men när ett AKS-kluster har distribuerats kan du enkelt skapa ett nytt AKS-kluster med större virtuella datorer och använda Dev Spaces för att distribuera till större kluster igen om du behöver skala upp.
 
    ![Konfigurationsinställningar för Kubernetes](media/common/Kubernetes-Create-Cluster-2.PNG)
+
 
    Välj **Nästa: Autentisering** när det är klart.
 
@@ -63,7 +61,7 @@ I den här guiden får du lära dig hur du:
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Skapa en webbapp som körs i en container
 
-I det här avsnittet ska du skapa en ASP.NET Core-webbapp och köra den i en container i Kubernetes.
+I det här avsnittet ska du skapa en ASP.NET Core-webbapp och hämta den körs i en behållare i Kubernetes.
 
 ### <a name="create-an-aspnet-web-app"></a>Skapa en ASP.NET-webbapp
 

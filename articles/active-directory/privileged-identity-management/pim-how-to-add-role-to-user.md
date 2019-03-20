@@ -1,6 +1,6 @@
 ---
-title: Tilldela Azure AD-katalogroller i PIM | Microsoft Docs
-description: Lär dig hur du tilldelar Azure AD-katalogroller i Azure AD Privileged Identity Management (PIM).
+title: Tilldela administratörsroller i Azure AD - Privileged Identity Management | Microsoft Docs
+description: Lär dig mer om att tilldela administratörsroller i Azure Active Directory i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,22 +13,22 @@ ms.subservice: pim
 ms.date: 10/30/2018
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4acabd4b583766ac730558fd07c424ce97a1299a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e3c8a7fb7a94dbca7b0e63ddaf756a536fbd0600
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192525"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000623"
 ---
-# <a name="assign-azure-ad-directory-roles-in-pim"></a>Tilldela Azure AD-katalogroller i PIM
+# <a name="assign-azure-ad-administrator-roles-in-pim"></a>Tilldela administratörsroller i Azure AD i PIM
 
-Med Azure Active Directory (AD Azure), en Global administratör kan göra **permanent** directory rolltilldelningar. De här rolltilldelningarna kan skapas med den [Azure-portalen](../users-groups-roles/directory-assign-admin-roles.md) eller med hjälp av [PowerShell-kommandon](/powershell/module/azuread#directory_roles).
+Med Azure Active Directory (AD Azure), en Global administratör kan göra **permanent** rolltilldelningar i Azure AD-administratör. De här rolltilldelningarna kan skapas med den [Azure-portalen](../users-groups-roles/directory-assign-admin-roles.md) eller med hjälp av [PowerShell-kommandon](/powershell/module/azuread#directory_roles).
 
-Tjänsten Azure AD Privileged Identity Management (PIM) kan också Privilegierade Rolladministratörer att göra permanenta directory rolltilldelningar. Dessutom kan administratörer med privilegierad roll kan utse användare **berättigade** för katalogroller. En berättigad administratör kan aktivera rollen när de behöver den, och sedan deras behörigheter går ut när de är klar.
+Tjänsten Azure AD Privileged Identity Management (PIM) kan också Privilegierade Rolladministratörer skapa permanent administratör rolltilldelningar. Dessutom kan administratörer med privilegierad roll kan utse användare **berättigade** för Azure AD-administratörsroller. En berättigad administratör kan aktivera rollen när de behöver den, och sedan deras behörigheter går ut när de är klar.
 
 ## <a name="make-a-user-eligible-for-a-role"></a>Gör en användare som är tillgängliga för en roll
 
-Följ dessa steg om du vill göra en användare som är berättigade till en Azure AD directory-roll.
+Följ dessa steg om du vill göra en användare som är berättigade till en Azure AD-administratörsroll.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/) med en användare som är medlem i den [privilegierad Rolladministratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) roll.
 
@@ -68,7 +68,7 @@ Följ dessa steg om du vill göra en användare som är berättigade till en Azu
 
 ## <a name="make-a-role-assignment-permanent"></a>Göra en rolltilldelning permanenta
 
-Som standard är endast nya användare berättigade till en katalogroll. Följ dessa steg om du vill göra en rolltilldelning permanenta.
+Som standard är endast nya användare berättigade till en Azure AD-administratörsroll. Följ dessa steg om du vill göra en rolltilldelning permanenta.
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
@@ -92,7 +92,7 @@ Som standard är endast nya användare berättigade till en katalogroll. Följ d
 
 Du kan ta bort användare från rolltilldelningar, men se till att det finns alltid minst en användare som är en permanent Global administratör. Om du inte vet vilka användare behöver fortfarande ha sin rolltilldelningar kan du [starta en åtkomstgranskning för rollen](pim-how-to-start-security-review.md).
 
-Följ dessa steg om du vill ta bort en specifik användare från en katalogroll.
+Följ dessa steg om du vill ta bort en specifik användare från en Azure AD-administratörsroll.
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
@@ -116,7 +116,7 @@ Följ dessa steg om du vill ta bort en specifik användare från en katalogroll.
 
 ## <a name="authorization-error-when-assigning-roles"></a>Behörighetsfel när du tilldelar roller
 
-Om du nyligen har aktiverat PIM för en prenumeration och du får ett felmeddelande för auktorisering när du försöker göra en användare som är berättigade till en katalogroll, kanske eftersom tjänstens huvudnamn som MS-PIM ännu inte har de behörigheter som krävs. Tjänstens huvudnamn som MS-PIM måste ha den [administratör för användaråtkomst](../../role-based-access-control/built-in-roles.md#user-access-administrator) roll att tilldela roller till andra. I stället för att vänta tills MS-PIM har tilldelats rollen Administratör för användaråtkomst, kan du tilldela den manuellt.
+Om du nyligen har aktiverat PIM för en prenumeration och du får ett felmeddelande för auktorisering när du försöker göra en användare som är berättigade till en Azure AD-administratörsroll, kanske eftersom tjänstens huvudnamn som MS-PIM ännu inte har de behörigheter som krävs. Tjänstens huvudnamn som MS-PIM måste ha den [administratör för användaråtkomst](../../role-based-access-control/built-in-roles.md#user-access-administrator) roll att tilldela roller till andra. I stället för att vänta tills MS-PIM har tilldelats rollen Administratör för användaråtkomst, kan du tilldela den manuellt.
 
 Följ dessa steg om du vill tilldela rollen Administratör för användaråtkomst till MS-PIM tjänstens huvudnamn för en prenumeration.
 
@@ -151,5 +151,5 @@ Följ dessa steg om du vill tilldela rollen Administratör för användaråtkoms
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera Azure AD directory rollinställningar i PIM](pim-how-to-change-default-settings.md)
+- [Konfigurera Azure AD-administratör rollinställningar i PIM](pim-how-to-change-default-settings.md)
 - [Tilldela Azure-resursroller i PIM](pim-resource-roles-assign-roles.md)

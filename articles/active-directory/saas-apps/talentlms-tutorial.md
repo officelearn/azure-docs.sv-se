@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b5c4779605922bf6d523a9bc6e65e4d9a27f32a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8fa78ec2b5623dfd010a8fe5709916a47e221a9e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163724"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902203"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Självstudier: Azure Active Directory-integrering med TalentLMS
 
@@ -215,11 +215,11 @@ Om du vill aktivera Azure AD-användare att logga in på TalentLMS, måste de et
    
     ![Lägg till användare](./media/talentlms-tutorial/IC777299.png "Lägg till användare")  
 
-    a. I den **Förnamn** textrutan Ange först namnet på användaren som **Britta**.
+    a. I textrutan **Förnamn** skriver du förnamnet på användaren: **Britta**.
 
-    b. I den **efternamn** textrutan Ange efternamn för användaren som **Simon**.
+    b. I textrutan **Efternamn** skriver du efternamnet på användaren: **Simon**.
  
-    c. I den **e-postadress** textrutan Ange e-postadress för användaren som **brittasimon@contoso.com**.
+    c. I den **e-postadress** textrutan Ange e-postadress för användaren som **brittasimon\@contoso.com**.
 
     d. Klicka på **Lägg till användare**.
 
@@ -265,7 +265,7 @@ När du klickar på panelen TalentLMS i åtkomstpanelen du bör få automatiskt 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

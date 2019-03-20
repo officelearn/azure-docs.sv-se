@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 7d02f5b592600cf7efd0980c1284e8c724cd1f5b
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ece6c7048100a8204bfc067d9d57854b1d83c9b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195163"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074921"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>VMware Monitoring (inaktuell)-lösning i Azure Monitor
 
@@ -195,13 +195,13 @@ Det kan finnas flera anledningar:
   1. Log Analytics lyssnar på port 1514. Kontrollera att den är öppen med följande kommando: `netstat -a | grep 1514`
   1. Du bör se port `1514/tcp` öppna. Om du inte gör det, kan du kontrollera att omsagent är korrekt installerad. Syslog-porten är inte öppen på den virtuella datorn om du inte ser portinformationen.
 
-    a. Kontrollera att Log Analytics-agenten körs med hjälp av `ps -ef | grep oms`. Om den inte körs, starta den genom att köra kommandot ` sudo /opt/microsoft/omsagent/bin/service_control start`
+     a. Kontrollera att Log Analytics-agenten körs med hjälp av `ps -ef | grep oms`. Om den inte körs, starta den genom att köra kommandot ` sudo /opt/microsoft/omsagent/bin/service_control start`
 
-    b. Öppna filen `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
+     b. Öppna filen `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
 
-    c. Kontrollera att rätt användare och grupp-inställning är giltig, vilket liknar: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+     c. Kontrollera att rätt användare och grupp-inställning är giltig, vilket liknar: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 
-    d. Om filen inte finns eller är fel, användare och grupp-inställning vidta åtgärder med [förbereda en Linux-server](#prepare-a-linux-server).
+     d. Om filen inte finns eller är fel, användare och grupp-inställning vidta åtgärder med [förbereda en Linux-server](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Nästa steg
 * Använd [logga frågor](../log-query/log-query-overview.md) ha data i Log Analytics för att visa detaljerad VMware.

@@ -1,5 +1,5 @@
 ---
-title: 'Azure DMZ exempel – skapa en enkel DMZ med NSG: er | Microsoft Docs'
+title: 'Exempel på Azure DMZ – skapa en enkel DMZ med NSG: er | Microsoft Docs'
 description: Skapa ett perimeternätverrk med Nätverkssäkerhetsgrupper (NSG)
 services: virtual-network
 documentationcenter: na
@@ -14,42 +14,42 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 115a459c6a9e4ea96931c89272a49396f0656258
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23928890"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993347"
 ---
-# <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Exempel 1 – skapa en enkel DMZ NSG: er med klassiska PowerShell
-[Gå tillbaka till gränsen bästa praxis säkerhetssidan][HOME]
+# <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Exempel 1 – skapa en enkel DMZ med NSG: er med klassisk PowerShell
+[Gå tillbaka till gränsen bästa praxis sidan][HOME]
 
 > [!div class="op_single_selector"]
 > * [Resource Manager-mall](virtual-networks-dmz-nsg.md)
-> * [Klassisk - PowerShell](virtual-networks-dmz-nsg-asm.md)
+> * [Klassisk – PowerShell](virtual-networks-dmz-nsg-asm.md)
 > 
 >
 
-Det här exemplet skapar en primitiv DMZ med fyra Nätverkssäkerhetsgrupper och Windows-servrar. Detta exempel beskrivs var och en av de relevanta PowerShell-kommandona för att ge en bättre förståelse för varje steg. Det finns också ett trafik scenariot avsnitt för att ge en detaljerad steg för steg hur trafik fortsätter via lager i skyddsstrategierna i Perimeternätverket. Slutligen är avsnitt i hänvisning den fullständiga koden och anvisningarna för att skapa den här miljön för att testa och experimentera med olika scenarier. 
+Det här exemplet skapar en primitiv DMZ med fyra Windows-servrar och Nätverkssäkerhetsgrupper. Det här exemplet beskrivs relevanta PowerShell-kommandon för att ge en bättre förståelse för varje steg. Det finns också ett avsnitt för trafik scenariot att ge en djupgående steg för steg hur trafik fortsätter genom försvarslinjer i Perimeternätverket. Slutligen är avsnittet i referenserna den fullständiga koden och anvisningarna för att skapa den här miljön för att testa och experimentera med olika scenarier. 
 
 ![Inkommande perimeternätverk med NSG][1]
 
-## <a name="environment-description"></a>Beskrivning av miljö
+## <a name="environment-description"></a>Miljö-beskrivning
 I det här exemplet innehåller en prenumeration i följande resurser:
 
 * Två molntjänster: ”FrontEnd001” och ”BackEnd001”
-* Ett virtuellt nätverk ”CorpNetwork” med två undernät; ”FrontEnd” och ”BackEnd”
+* Ett virtuellt nätverk ”CorpNetwork”, med två undernät; ”FrontEnd” och ”serverdel”
 * En Nätverkssäkerhetsgrupp som tillämpas på båda undernäten
 * En Windows-Server som representerar en program-webbserver (”IIS01”)
-* Två windows-servrar som representerar backend-programservrar (”AppVM01”, ”AppVM02”)
+* Två windows-servrar som representerar programmet backend-servrar (”AppVM01”, ”AppVM02”)
 * En Windows-server som representerar en DNS-server (”DNS01”)
 
-Det finns ett PowerShell-skript som bygger mest i miljön som beskrivs i det här exemplet i referensavsnittet. Skapande av virtuella datorer och virtuella nätverk, även om den är klar med exempelskriptet som inte beskrivs i detalj i detta dokument. 
+Det finns ett PowerShell-skript som bygger på de flesta av miljön som beskrivs i det här exemplet i referensavsnittet. Att skapa virtuella datorer och virtuella nätverk, även om utförs av exempelskript, som inte beskrivs i detalj i det här dokumentet. 
 
 Att skapa miljön.
 
-1. Spara nätverket XML-konfigurationsfilen finns i referensavsnittet (uppdaterade med namn, plats och IP-adresser för att matcha det aktuella scenariot)
-2. Uppdatera Användarvariabler i skript för att matcha den miljö som skriptet ska köras mot (prenumerationer, tjänstnamn osv.)
+1. Spara nätverk XML-konfigurationsfilen i referensavsnittet (uppdateras med namn, plats och IP-adresser för att matcha det aktuella scenariot)
+2. Uppdatera Användarvariabler i skriptet så att den matchar den miljö som skriptet ska köras mot (prenumerationer, tjänstnamn osv.)
 3. Kör skriptet i PowerShell
 
 >[!Note]
@@ -57,34 +57,34 @@ Att skapa miljön.
 >
 >
 
-När skriptet körs har ytterligare valfria steg vidtas finns i referensavsnittet två skript för att konfigurera webbserver- och app-servern med en enkel webbapp för att testa med den här DMZ-konfigurationen.
+När skriptet har körts har ytterligare valfria steg vidtas finns i referensavsnittet två skript för att konfigurera webbservern och applikationsserver med en enkel webbapp för att testa med den här DMZ-konfigurationen.
 
 Följande avsnitt innehåller en detaljerad beskrivning av Nätverkssäkerhetsgrupper och hur de fungerar i det här exemplet genom att gå igenom viktiga rader med PowerShell-skriptet.
 
 ## <a name="network-security-groups-nsg"></a>Nätverkssäkerhetsgrupper (NSG)
-I det här exemplet bygger en NSG-grupp och sedan in med sex regler. 
+I det här exemplet bygger en NSG-grupp och sedan läsa in med sex regler. 
 
 > [!TIP]
-> Generellt sett bör du skapa specifika ”Tillåt” reglerna först och sedan de mer allmänna reglerna som ”Deny” sist. De tilldelade prioritet bestämmer vilka regler är utvärderas först. När du har hittat trafik ska gälla för en specifik regel utvärderas inga ytterligare regler. NSG-regler kan använda antingen i inkommande eller utgående riktning (ur undernätet).
+> Generellt sett bör du skapa dina specifika regler för ”Tillåt” först och sedan senaste mer allmänt ”Deny” reglerna. De tilldelade prioritet avgör vilka regler är utvärderas först. När trafik identifieras som gäller för en specifik regel, utvärderas inga fler regler. NSG-regler kan använda antingen i inkommande eller utgående riktning (ur undernätet).
 > 
 > 
 
 Deklarativt, byggs följande regler för inkommande trafik:
 
-1. Intern DNS-trafik (port 53) tillåts
-2. RDP-trafik (port 3389) från Internet till någon virtuell dator är tillåtet
+1. Interna DNS-trafik (port 53) tillåts
+2. RDP-trafik (port 3389) från Internet för alla virtuella datorer är tillåtet
 3. HTTP-trafik (port 80) från Internet till webbservern (IIS01) tillåts
 4. All trafik (alla portar) från IIS01 till AppVM1 tillåts
-5. All trafik (alla portar) från Internet till hela virtuella nätverk (båda undernäten) nekas
-6. All trafik (alla portar) från undernätet som klientdel till Backend-undernät nekas
+5. All trafik (alla portar) från Internet till hela VNet (både undernät) nekas
+6. All trafik (alla portar) från undernätet på klientsidan till Backend-undernät nekas
 
-Med de här reglerna bunden till varje undernät, om en HTTP-begäran var inkommande trafik från Internet till webbservern, både regler 3 (Tillåt) och 5 (neka) är skulle ha använts, men eftersom regel 3 har högre prioritet bara den skulle tillämpas och regel 5 inte skulle komma till användning. HTTP-begäran skulle därför tillåtas till webbservern. Om samma trafiken försökte nå servern DNS01 regel 5 (neka) skulle vara först att tillämpa och trafiken kan inte skickas till servern. Regel 6 (neka) blockerar undernätet Frontend från kommunicerar med Backend-undernät (förutom tillåten trafik i regler 1 och 4), den här regeluppsättningen skyddar Backend-nätverket om en angripare kompromisser webbprogrammet på Frontend angriparen skulle har begränsad åtkomst till Backend ”skyddad” nätverket (endast för resurser som visas på AppVM01 servern).
+Med de här reglerna bunden till varje undernät, om en HTTP-begäran var inkommande från Internet till webbservern, både regler 3 (Tillåt) och 5 (neka) är skulle tillämpas, men eftersom regel 3 har högre prioritet bara den skulle tillämpas och regel 5 skulle inte har betydelse. HTTP-begäran skulle därför tillåts till webbservern. Om samma trafiken försökte nå DNS01 servern, regel 5 (neka) skulle vara först med att tillämpa och trafiken kan inte skickas till servern. Regel 6 (neka) blockerar undernätet på klientsidan för att tala med Backend-undernät (förutom tillåten trafik i reglerna 1 och 4), den här regeluppsättningen skyddar Backend-nätverket om en angripare kompromisser webbprogrammet på klientdelen angriparen skulle har begränsad åtkomst till serverdelen ”skyddad” nätverk (endast för resurser som visas på AppVM01 servern).
 
-Det finns en utgående Standardregeln som tillåter trafik ut till internet. I det här exemplet vi att tillåta utgående trafik och inte ändra de utgående reglerna. Om du vill låsa i båda riktningarna användaren definierat routning krävs och är utforskade ”exempel 3” på den [gräns bästa praxis sidan][HOME].
+Det finns en utgående standardregel som tillåter trafik ut till internet. I det här exemplet vi tillåter utgående trafik och ändrar inte någon utgående regler. Om du vill låsa trafik i båda riktningarna, användaren definierats routning krävs och är utforskat ”exempel 3” på den [gräns bästa praxis säkerhetssidan][HOME].
 
-Varje regel är beskrivs i detalj (**Observera**: ett objekt i den följande listan som början med ett dollartecken (till exempel: $NSGName) är en användardefinierad variabel från skriptet i referensavsnittet i det här dokumentet):
+Varje regel beskrivs i detalj enligt följande (**Obs**: ett objekt i den följande listan som början med ett dollartecken (till exempel: $NSGName) är en användardefinierad variabel från skriptet i referensavsnittet i det här dokumentet):
 
-1. En Nätverkssäkerhetsgrupp måste först skapas för att lagra reglerna:
+1. Först måste en Nätverkssäkerhetsgrupp skapas för att lagra reglerna:
 
     ```PowerShell
     New-AzureNetworkSecurityGroup -Name $NSGName `
@@ -92,23 +92,23 @@ Varje regel är beskrivs i detalj (**Observera**: ett objekt i den följande lis
         -Label "Security group for $VNetName subnets in $DeploymentLocation"
     ```
 
-2. Den första regeln i det här exemplet tillåter DNS-trafik mellan alla interna nätverk till DNS-servern på backend-undernät. Regeln har vissa viktiga parametrar:
+2. Den första regeln i det här exemplet kan DNS-trafik mellan alla interna nätverk till DNS-servern på backend-undernät. Regeln har vissa viktiga parametrar:
    
-   * ”Typ” betyder i vilken riktning för trafikflöde regeln träder i kraft. Riktningen är ur ett undernät eller virtuella datorn (beroende på om den här NSG binds). Därför om typen är ”inkommande” trafik kommer in undernätet, skulle regeln och trafik som lämnar undernätet inte påverkas av den här regeln.
-   * ”Prioritet” Anger att ett trafikflöde utvärderas. Ju lägre det nummer desto högre prioritet. När en regel som gäller för en specifik trafikflödet, bearbetas inga ytterligare regler. Därför om en regel med prioritet 1 tillåter trafik, och en regel med prioritet 2 nekar trafik, och båda reglerna som gäller för trafik som sedan trafiken skulle kunna flöda (eftersom regel 1 har en högre prioritet det tog att gälla och inga ytterligare regler har tillämpats).
-   * ”Åtgärden” innebär det att om trafik som påverkas av regeln blockeras eller tillåts.
+   * ”Type” innebär det att gälla i den här regeln i vilken riktning av flödet i nätverkstrafiken. Riktningen är ur undernät eller virtuella datorn (beroende på var den här NSG binds). Därför om typen är ”Inbound” och trafiken som kommer in i undernätet, regeln skulle tillämpas och trafik som lämnar undernätet inte påverkas av den här regeln.
+   * ”Prioritet” Anger att där ett trafikflöde utvärderas. Ju lägre det nummer desto högre prioritet. När en regel som gäller för en specifik trafikflödet, bearbetas inga ytterligare regler. Därför om en regel med prioritet 1 tillåter trafik, och en regel med prioritet 2 nekar trafik, och båda regler gäller vid trafik så trafiken kan flöda (eftersom regel 1 har högre prioritet det tog att gälla och inga ytterligare regler tillämpades).
+   * ”Action” avser om trafik som påverkas av den här regeln är blockerad eller tillåten.
 
-    ```PowerShell    
-    Get-AzureNetworkSecurityGroup -Name $NSGName | `
+     ```PowerShell    
+     Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" `
         -Type Inbound -Priority 100 -Action Allow `
         -SourceAddressPrefix VIRTUAL_NETWORK -SourcePortRange '*' `
         -DestinationAddressPrefix $VMIP[4] `
         -DestinationPortRange '53' `
         -Protocol *
-    ```
+     ```
 
-3. Den här regeln kan RDP-trafik ska flödas från internet till RDP-porten på alla servrar i det bundna undernätet. Den här regeln använder två särskilda typer av adressprefix; ”VIRTUAL_NETWORK” och ”INTERNET”. Dessa taggar är ett enkelt sätt att adressera en större kategori av adressprefix.
+3. Den här regeln tillåter RDP-trafik kan flöda från internet till RDP-porten på alla servrar i det bundna undernätet. Den här regeln använder två särskilda typer av adressprefix; ”VIRTUAL_NETWORK” och ”INTERNET”. Dessa taggar är ett enkelt sätt att åtgärda en större kategori av adressprefix.
 
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
@@ -120,7 +120,7 @@ Varje regel är beskrivs i detalj (**Observera**: ett objekt i den följande lis
          -Protocol *
     ```
 
-4. Den här regeln tillåter inkommande trafik för internet att träffa på webbservern. Den här regeln ändras inte dirigeringsbeteendet. Regeln kan bara trafik till IIS01 att skicka. Därför om trafik från Internet hade webbservern som leder den här regeln skulle göra det möjligt och stoppa bearbetningen ytterligare regler. (I regeln med prioritet 140 alla andra inkommande internet-trafiken blockeras). Om du bara bearbetning av HTTP-trafik, kan den här regeln begränsas ytterligare så att bara mål Port 80.
+4. Den här regeln tillåter inkommande Internettrafik till trycker på webbservern. Den här regeln ändrar inte beteendet routning. Regeln tillåter endast trafik till IIS01 att skicka. Därför om trafik från Internet hade webbservern som mål den här regeln skulle tillåta att den och stoppa bearbetningen ytterligare regler. (I regeln med prioritet 140 alla andra inkommande internet-trafiken blockeras). Om du endast bearbetar HTTP-trafik, kan den här regeln begränsas ytterligare så att bara mål Port 80.
 
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
@@ -132,7 +132,7 @@ Varje regel är beskrivs i detalj (**Observera**: ett objekt i den följande lis
          -Protocol *
     ```
 
-5. Den här regeln kan trafik skickas från servern IIS01 till AppVM01-server, en senare regeln block andra klientdel till Backend-trafik. Att förbättra den här regeln om porten är känd som ska läggas till. Till exempel om IIS-servern är träffa endast SQL Server på AppVM01, Målportintervallet ändras från ”*” (alla) till 1433 (SQL-port), vilket ger en mindre inkommande risken för angrepp på AppVM01 bör webbprogrammet någonsin äventyras.
+5. Den här regeln tillåter trafik skickas från IIS01 servern till AppVM01-servern, en senare regeln blockerar alla andra klientdel för Backend-trafik. Att förbättra den här regeln om porten är känt som ska läggas till. Till exempel IIS-servern når endast SQL Server på AppVM01, kan portintervallet för målet ska ändras från ”*” (valfritt) till 1433 (SQL-port), vilket medför att ett mindre inkommande risken för angrepp på AppVM01 webbprogrammet någonsin behövs.
 
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
@@ -144,7 +144,7 @@ Varje regel är beskrivs i detalj (**Observera**: ett objekt i den följande lis
         -Protocol *
     ```
 
-6. Den här regeln nekar trafik från internet till alla servrar i nätverket. Med regler med prioritet 110 och 120 är effekten att bara inkommande Internettrafik till brandvägg och RDP-portar på servrar och block allt annat. Den här regeln är en ”felsäkra” regel att blockera alla oväntat flöden.
+6. Den här regeln nekar trafik från internet till alla servrar i nätverket. Med reglerna med prioritet 110 och 120 är effekten att endast inkommande Internettrafik till brandväggen och RDP-portar på servrar och blockerar allt annat. Den här regeln är en ”felsäker” regel för att blockera alla oväntat flöden.
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule `
@@ -155,7 +155,7 @@ Varje regel är beskrivs i detalj (**Observera**: ett objekt i den följande lis
         -DestinationPortRange '*' `
         -Protocol *
     ```
-7. Den slutliga regeln nekar trafik från undernätet Frontend till Backend-undernät. Eftersom den här regeln är en regel för inkommande endast, tillåts omvänd trafik (från serverdelen för klientdelen).
+7. Sista regeln nekar trafik från undernätet på klientsidan till Backend-undernät. Eftersom den här regeln är en inkommande regel som endast är tillåts omvänd trafik (från serverdelen för klientdelen).
 
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
@@ -168,118 +168,118 @@ Varje regel är beskrivs i detalj (**Observera**: ett objekt i den följande lis
         -Protocol * 
     ```
 
-## <a name="traffic-scenarios"></a>Trafik scenarier
+## <a name="traffic-scenarios"></a>Trafik-scenarier
 #### <a name="allowed-internet-to-web-server"></a>(*Tillåtna*) Internet till webbservern
-1. En internet-användare begär en HTTP-sida från FrontEnd001.CloudApp.Net (Internet Facing Cloud Service)
-2. Cloud service överför trafik via öppna slutpunkter på port 80 mot IIS01 (webbserver)
-3. Undernätet frontend börjar bearbetning av inkommande regel:
-   1. NSG regel 1 (DNS) inte tillämpas, gå till nästa regel
-   2. NSG regel 2 (RDP) inte tillämpas, gå till nästa regel
-   3. NSG regel 3 (Internet till IIS01) gäller, trafik är tillåtna, stoppa regel bearbetning
-4. Trafik träffar interna IP-adressen för webbservern IIS01 (10.0.1.5)
-5. IIS01 lyssnar för webbtrafik, tar emot denna begäran och startar bearbetning av begäran
+1. En internet-användare begär en HTTP-sida från FrontEnd001.CloudApp.Net (Internet som riktas mot Cloud Services)
+2. Cloud service skickar trafik via öppna slutpunkter på port 80 för IIS01 (webbserver)
+3. Frontend-undernätet börjar bearbetning av inkommande regel:
+   1. 1 för NSG-regel (DNS) inte tillämpa, gå till nästa regel
+   2. NSG regel 2 (RDP) inte tillämpa, gå till nästa regel
+   3. NSG-regel 3 (Internet till IIS01) gäller, trafik är tillåtna, stoppa regelbehandling
+4. Trafiken kommer till den interna IP-adressen för webbservern IIS01 (10.0.1.5)
+5. IIS01 lyssnar för webbtrafik, får den här förfrågan och startar bearbetning av begäran
 6. IIS01 begär SQL Server på AppVM01 information
-7. Eftersom det finns inga regler för utgående trafik på undernätet Frontend, tillåts trafik
+7. Eftersom det finns inga regler för utgående trafik på Frontend-undernätet, tillåts trafik
 8. Backend-undernät börjar bearbetning av inkommande regel:
-   1. NSG regel 1 (DNS) inte tillämpas, gå till nästa regel
-   2. NSG regel 2 (RDP) inte tillämpas, gå till nästa regel
-   3. NSG regel 3 (Internet-brandväggen) inte tillämpas, gå till nästa regel
-   4. NSG regel 4 (IIS01 till AppVM01) gäller, tillåts trafik, stoppa regelbearbetningen
+   1. 1 för NSG-regel (DNS) inte tillämpa, gå till nästa regel
+   2. NSG regel 2 (RDP) inte tillämpa, gå till nästa regel
+   3. NSG-regel 3 (Internet-brandväggen) inte tillämpa, gå till nästa regel
+   4. NSG-regel 4 (IIS01 till AppVM01) gäller, trafik tillåts, stoppa regelbehandling
 9. AppVM01 tar emot en SQL-fråga och svarar
 10. Eftersom det finns inga regler för utgående trafik på Backend-undernät, tillåts svaret
-11. Undernätet frontend börjar bearbetning av inkommande regel:
-    1. Det finns ingen NSG-regel som gäller för inkommande trafik från Backend-undernät till undernätet Frontend, så att ingen av NSG: N regler tillämpas
-    2. System Standardregeln som tillåter trafik mellan undernät att den här trafiken så att trafik tillåts.
-12. IIS-servern tar emot svaret SQL och slutför HTTP-svar och skickar till begäranden
-13. Eftersom det inte finns några regler för utgående trafik på undernätet Frontend svaret tillåts och internet-användare får den begärda webbsidan.
+11. Frontend-undernätet börjar bearbetning av inkommande regel:
+    1. Det finns ingen NSG-regel som gäller för inkommande trafik från Backend-undernät för Frontend-undernätet, så att ingen av NSG-regler tillämpas
+    2. System Standardregeln som tillåter trafik mellan undernät för att den här trafiken så att trafiken tillåts.
+12. IIS-servern tar emot SQL-svar och slutför HTTP-svar och skickar till begäranden
+13. Eftersom det finns inga utgående regler på undernätet på klientsidan svaret tillåts och internet-användare får sidan begärs.
 
 #### <a name="allowed-rdp-to-backend"></a>(*Tillåtna*) RDP till serverdelen
-1. Serveradministratören på internet begär RDP-session till AppVM01 på BackEnd001.CloudApp.Net:xxxxx där xxxxx är slumpmässigt tilldelad portnumret för RDP till AppVM01 (tilldelad port finns på Azure-portalen eller via PowerShell)
+1. Serveradministratören på internet begär RDP-session till AppVM01 på BackEnd001.CloudApp.Net:xxxxx där xxxxx är antalet slumpmässigt tilldelad port för RDP till AppVM01 (tilldelad port finns på Azure portal eller via PowerShell)
 2. Backend-undernät börjar bearbetning av inkommande regel:
-   1. NSG regel 1 (DNS) inte tillämpas, gå till nästa regel
-   2. NSG regel 2 (RDP) gäller, trafik är tillåtna, stoppa regel bearbetning
-3. Med några regler för utgående trafik standardregler gäller och returnera trafik tillåts
-4. RDP-session är aktiverad
+   1. 1 för NSG-regel (DNS) inte tillämpa, gå till nästa regel
+   2. NSG regel 2 (RDP) gäller, trafik är tillåtna, stoppa regelbehandling
+3. Med inga utgående regler gäller för standard och återvändande trafik tillåts
+4. RDP-session är aktiverat
 5. AppVM01 måste ange användarnamn och lösenord
 
 #### <a name="allowed-web-server-dns-look-up-on-dns-server"></a>(*Tillåtna*) Web server DNS-sökningen på DNS-server
-1. Web Server, IIS01, måste en datafeed på www.data.gov, men måste matcha adressen.
-2. Nätverkskonfigurationen för listorna VNet DNS01 (10.0.2.4 på Backend-undernät) som den primära DNS-servern, IIS01 skickar en DNS-begäran till DNS01
-3. Inga regler för utgående trafik på undernätet Frontend, tillåts trafik
+1. Web Server, IIS01, måste en data-feed på www.data.gov, men måste matcha adressen.
+2. Nätverkskonfigurationen för VNet-listor DNS01 (10.0.2.4 på Backend-undernät) som den primära DNS-servern, IIS01 skickar en DNS-begäran till DNS01
+3. Inga utgående regler på Frontend-undernätet trafik tillåts
 4. Backend-undernät börjar bearbetning av inkommande regel:
-   * NSG regel 1 (DNS) gäller, trafik är tillåtna, stoppa regel bearbetning
+   * 1 för NSG-regel (DNS) gäller, trafik är tillåtna, stoppa regelbehandling
 5. DNS-servern tar emot begäran
-6. DNS-servern har inte cachelagrade-adress och begär en rot-DNS-server på internet
-7. Inga regler för utgående trafik på Backend-undernät, tillåts trafik
-8. Internet-DNS-servern svarar, eftersom denna session initierades internt, tillåts svaret
-9. DNS-servern cachelagrar svaret och svarar på den ursprungliga begäranden tillbaka till IIS01
-10. Inga regler för utgående trafik på Backend-undernät, tillåts trafik
-11. Undernätet frontend börjar bearbetning av inkommande regel:
-    1. Det finns ingen NSG-regel som gäller för inkommande trafik från Backend-undernät till undernätet Frontend, så att ingen av NSG: N regler tillämpas
-    2. System Standardregeln som tillåter trafik mellan undernät skulle göra att den här trafiken så att trafik tillåts
+6. DNS-servern har inte den adress som cachelagras och frågar en rot-DNS-server på internet
+7. Inga utgående regler på Backend-undernät tillåts trafik
+8. Internet-DNS-servern svarar, eftersom den här sessionen initierades internt, tillåts svaret
+9. DNS-servern cachelagrar svaret och svarar på den första begäran tillbaka till IIS01
+10. Inga utgående regler på Backend-undernät tillåts trafik
+11. Frontend-undernätet börjar bearbetning av inkommande regel:
+    1. Det finns ingen NSG-regel som gäller för inkommande trafik från Backend-undernät för Frontend-undernätet, så att ingen av NSG-regler tillämpas
+    2. System Standardregeln som tillåter trafik mellan undernät skulle tillåta den här trafiken så att trafiken tillåts
 12. IIS01 tar emot svaret från DNS01
 
 #### <a name="allowed-web-server-access-file-on-appvm01"></a>(*Tillåtna*) Web server access-fil på AppVM01
 1. IIS01 begär en fil på AppVM01
-2. Inga regler för utgående trafik på undernätet Frontend, tillåts trafik
+2. Inga utgående regler på Frontend-undernätet trafik tillåts
 3. Backend-undernät börjar bearbetning av inkommande regel:
-   1. NSG regel 1 (DNS) inte tillämpas, gå till nästa regel
-   2. NSG regel 2 (RDP) inte tillämpas, gå till nästa regel
-   3. NSG regel 3 (Internet till IIS01) inte tillämpas, gå till nästa regel
-   4. NSG regel 4 (IIS01 till AppVM01) gäller, tillåts trafik, stoppa regelbearbetningen
+   1. 1 för NSG-regel (DNS) inte tillämpa, gå till nästa regel
+   2. NSG regel 2 (RDP) inte tillämpa, gå till nästa regel
+   3. NSG-regel 3 (Internet till IIS01) inte tillämpa, gå till nästa regel
+   4. NSG-regel 4 (IIS01 till AppVM01) gäller, trafik tillåts, stoppa regelbehandling
 4. AppVM01 tar emot begäran och svarar med (förutsatt att du har behörighet)
 5. Eftersom det finns inga regler för utgående trafik på Backend-undernät, tillåts svaret
-6. Undernätet frontend börjar bearbetning av inkommande regel:
-   1. Det finns ingen NSG-regel som gäller för inkommande trafik från Backend-undernät till undernätet Frontend, så att ingen av NSG: N regler tillämpas
-   2. System Standardregeln som tillåter trafik mellan undernät att den här trafiken så att trafik tillåts.
+6. Frontend-undernätet börjar bearbetning av inkommande regel:
+   1. Det finns ingen NSG-regel som gäller för inkommande trafik från Backend-undernät för Frontend-undernätet, så att ingen av NSG-regler tillämpas
+   2. System Standardregeln som tillåter trafik mellan undernät för att den här trafiken så att trafiken tillåts.
 7. IIS-servern tar emot filen
 
-#### <a name="denied-web-to-backend-server"></a>(*Nekas*) Web till backend-servern
+#### <a name="denied-web-to-backend-server"></a>(*Nekad*) webben till backend-servern
 1. En internet-användare försöker få åtkomst till en fil på AppVM01 via tjänsten BackEnd001.CloudApp.Net
-2. Eftersom inga slutpunkter är öppen för filresursen är den här trafiken skulle inte klarar Molntjänsten och skulle nå servern
-3. Om slutpunkterna öppna av någon anledning skulle NSG regel 5 (Internet till VNet) blockera den här trafiken
+2. Eftersom det finns inga slutpunkter som är öppna för filresursen är den här trafiken skickar inte Molntjänsten och skulle nå servern
+3. Om du slutpunkterna öppna av någon anledning skulle NSG-regel 5 (Internet till VNet) blockera den här trafiken
 
-#### <a name="denied-web-dns-look-up-on-dns-server"></a>(*Nekas*) Web DNS-sökningen på DNS-server
+#### <a name="denied-web-dns-look-up-on-dns-server"></a>(*Nekad*) Web DNS-sökningen på DNS-server
 1. En internet-användare försöker att leta upp en intern DNS-post på DNS01 via tjänsten BackEnd001.CloudApp.Net
-2. Eftersom inga slutpunkter är öppen för DNS är den här trafiken skulle inte klarar Molntjänsten och skulle nå servern
-3. Om slutpunkterna öppna av någon anledning NSG regel 5 (Internet till VNet) skulle blockera den här trafiken (Obs: regel 1 (DNS) inte tillämpas av två skäl, först källadressen är på internet, den här regeln gäller för det lokala VNet som källa den här regeln är också en Tillåt-regel, så det skulle aldrig neka trafik)
+2. Eftersom det finns inga slutpunkter som är öppen för DNS är den här trafiken skickar inte Molntjänsten och skulle nå servern
+3. Om du slutpunkterna öppna av någon anledning NSG-regel 5 (Internet till VNet) skulle blockera den här trafiken (Obs: den regel 1 (DNS) inte tillämpas av två skäl, först källadressen är internet, den här regeln gäller endast för det lokala virtuella nätverket som källa den här regeln är också en Tillåt-regel så att det skulle aldrig nekar trafik)
 
-#### <a name="denied-web-to-sql-access-through-firewall"></a>(*Nekas*) Web SQL-åtkomst genom brandväggen
-1. En internet-användare begär SQL-data från FrontEnd001.CloudApp.Net (Internet Facing Cloud Service)
-2. Eftersom inga slutpunkter är öppen för SQL är den här trafiken skulle inte klarar Molntjänsten och skulle nå brandväggen
-3. Om slutpunkter öppna av någon anledning börjar undernätet Frontend bearbetning av inkommande regel:
-   1. NSG regel 1 (DNS) inte tillämpas, gå till nästa regel
-   2. NSG regel 2 (RDP) inte tillämpas, gå till nästa regel
-   3. NSG regel 3 (Internet till IIS01) gäller, trafik är tillåtna, stoppa regel bearbetning
-4. Trafik träffar interna IP-adressen för IIS01 (10.0.1.5)
+#### <a name="denied-web-to-sql-access-through-firewall"></a>(*Nekad*) webben till SQL-åtkomst via brandväggen
+1. En internet-användare begär SQL-data från FrontEnd001.CloudApp.Net (Internet som riktas mot Cloud Services)
+2. Eftersom det finns inga slutpunkter som är öppen för SQL är den här trafiken skickar inte Molntjänsten och skulle nå brandväggen
+3. Om du slutpunkter öppna av någon anledning börjar med Frontend-undernätet bearbetning av inkommande regel:
+   1. 1 för NSG-regel (DNS) inte tillämpa, gå till nästa regel
+   2. NSG regel 2 (RDP) inte tillämpa, gå till nästa regel
+   3. NSG-regel 3 (Internet till IIS01) gäller, trafik är tillåtna, stoppa regelbehandling
+4. Trafik når interna IP-adressen för IIS01 (10.0.1.5)
 5. IIS01 lyssnar inte på port 1433, så inga svar på begäran
 
 ## <a name="conclusion"></a>Sammanfattning
-Det här exemplet är ett relativt enkla och rakt framåt sätt att isolera backend-undernät från inkommande trafik.
+Det här exemplet är ett relativt enkla och okomplicerat sätt att isolera serverdelsundernätet från inkommande trafik.
 
 Fler exempel och en översikt över nätverket säkerhetsgränser finns [här][HOME].
 
 ## <a name="references"></a>Referenser
-### <a name="main-script-and-network-config"></a>Huvudsakliga skript- och konfiguration
-Spara fullständig skript i ett PowerShell-skriptfil. Spara konfigurationen nätverk i en fil med namnet ”NetworkConf1.xml”.
+### <a name="main-script-and-network-config"></a>Viktigaste skript och nätverk-config
+Spara fullständigt skript i en PowerShell-skriptfilen. Spara konfiguration för nätverk i en fil med namnet ”NetworkConf1.xml”.
 Ändra de användardefinierade variablerna vid behov och kör skriptet.
 
 #### <a name="full-script"></a>Fullständigt skript
-Det här skriptet kommer att baseras på de användardefinierade variablerna.
+Det här skriptet kommer, baserat på användardefinierade variabler.
 
 1. Ansluta till en Azure-prenumeration
 2. skapar ett lagringskonto
-3. Skapa ett VNet och två undernät som har definierats i konfigurationsfilen för nätverk
+3. Skapa ett VNet och två undernät som definierats i konfigurationsfilen för nätverk
 4. Skapa fyra windows server-datorer
-5. Konfigurera NSG inklusive:
-   * Skapa en NSG
+5. Konfigurera NSG, inklusive:
+   * Skapa en Nätverkssäkerhetsgrupp
    * Fylla det med regler
    * Bindning NSG: N till lämpliga undernät
 
-Detta PowerShell-skript ska köras lokalt på en internet-ansluten dator eller server.
+Det här PowerShell-skriptet ska köras lokalt på en internet-ansluten dator eller server.
 
 > [!IMPORTANT]
-> När du kör det här skriptet kanske varningar eller andra informationsmeddelanden som visas i PowerShell. Endast felmeddelanden i rött är orsaken till problem.
+> När skriptet har körts kanske varningar eller andra informationsmeddelanden som pop i PowerShell. Endast felmeddelanden i rött är orsaka problem.
 > 
 >
 
@@ -541,10 +541,10 @@ Else { Write-Host "Validation passed, now building the environment." -Foreground
 ```
 
 #### <a name="network-config-file"></a>Konfigurationsfilen för nätverk
-Spara XML-filen med uppdaterad plats och lägga till länken till den här filen till variabeln $NetworkConfigFile i det här skriptet.
+Spara den här xml-filen med uppdaterade plats och lägga till länken till den här filen till variabeln $NetworkConfigFile i föregående skript.
 
 ```XML
-<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+<NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
   <VirtualNetworkConfiguration>
     <Dns>
       <DnsServers>
@@ -575,14 +575,14 @@ Spara XML-filen med uppdaterad plats och lägga till länken till den här filen
 </NetworkConfiguration>
 ```
 
-#### <a name="sample-application-scripts"></a>Exempelskript för programmet
-Om du vill installera ett exempelprogram för det här och andra DMZ exempel något finns på följande länk: [exempelskript för programmet][SampleApp]
+#### <a name="sample-application-scripts"></a>Exempelskript för program
+Om du vill installera ett exempelprogram för detta och andra DMZ-exempel finns en på följande länk: [Exempelskript för program][SampleApp]
 
 ## <a name="next-steps"></a>Nästa steg
 * Uppdatera och spara XML-fil
 * Kör PowerShell-skript för att skapa miljön
 * Installera exempelprogrammet
-* Testa olika trafikflöden via den här DMZ
+* Testa olika trafikflöden via det här perimeternätverket
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-asm/example1design.png "Inkommande perimeternätverk med NSG"

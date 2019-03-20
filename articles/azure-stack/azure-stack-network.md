@@ -16,18 +16,18 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 97fcfa20e474edb8108474ef02c6542688d627ff
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 3705b2dda7da8df2e6e3c98d5f6003bd3d771daf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243496"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098584"
 ---
 # <a name="network-connectivity"></a>Nätverksanslutning
 Den här artikeln innehåller information om hur du bestämmer hur du integrerar Azure Stack bäst i din befintliga nätverksmiljö för Azure Stack nätverk infrastruktur. 
 
 > [!NOTE]
-> För att lösa externa DNS-namn från Azure Stack (till exempel www.bing.com), måste du ange DNS-servrar för att vidarebefordra DNS-förfrågningar. Läs mer om Azure Stack DNS-krav, [Azure Stack datacenter-integrering - DNS-](azure-stack-integrate-dns.md).
+> För den externa DNS-namnmatchning från Azure Stack (till exempel www\.bing.com), måste du ange DNS-servrar för att vidarebefordra DNS-förfrågningar. Läs mer om Azure Stack DNS-krav, [Azure Stack datacenter-integrering - DNS-](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Fysiska nätverksdesign
 Driften och tjänsterna i Azure Stack-lösningen kräver en flexibel fysisk infrastruktur med hög tillgänglighet. Överordnade länkar från ToR till kantlinje växlar är begränsade till SFP + eller SFP28 media och 1 GB, 10 GB eller 25 GB hastigheter. Kontrollera med maskinvaruleverantören OEM-tillverkare (original equipment manufacturer) för tillgänglighet. Följande diagram visar våra rekommenderade design:

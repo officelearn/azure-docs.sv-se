@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a315933dcd438c68a1326d2b656c2353e4185f12
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 92cb4f1093d8450bb2c32d99f4ccedd0a5688253
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866801"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58165925"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Självstudier: Azure Active Directory-integrering med InsideView
 
@@ -116,7 +116,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://my.insideview.com/iv/<STS Name>/login.iv`
 
     > [!NOTE] 
-    > Det här värdet är inte verkligt. Uppdatera det här värdet med faktiska svars-URL. Kontakta [InsideView supportteamet](mailto:support@insideview.com) att hämta det här värdet.
+    > Det här värdet är inte verkligt. Uppdatera det här värdet med den faktiska svars-URL:en. Kontakta [InsideView supportteamet](mailto:support@insideview.com) att hämta det här värdet.
  
 1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Raw)** och spara certifikatfilen på datorn.
 
@@ -191,7 +191,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     d. Klicka på **Skapa**.
  
-### <a name="creating-a-insideview-test-user"></a>Skapa en InsideView testanvändare
+### <a name="creating-an-insideview-test-user"></a>Skapa en InsideView testanvändare
 
 Om du vill aktivera Azure AD-användare att logga in på InsideView, måste de vara etablerade i att InsideView. När det gäller InsideView är etablering en manuell aktivitet.
 
@@ -238,7 +238,7 @@ När du klickar på panelen InsideView i åtkomstpanelen du bör få automatiskt
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

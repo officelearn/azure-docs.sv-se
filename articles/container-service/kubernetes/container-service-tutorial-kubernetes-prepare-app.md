@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a003248104c45fa2bcc1020e0ad8ea895d759457
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 961f09d7581a26596b03e7a2f8e97d98fe83e6aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992384"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995374"
 ---
 # <a name="deprecated-create-container-images-to-be-used-with-azure-container-service"></a>(INAKTUELL) Skapa containeravbildningar som ska användas med Azure Container Service
 
@@ -93,7 +93,7 @@ Kör kommandot [docker ps](https://docs.docker.com/engine/reference/commandline/
 docker ps
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 CONTAINER ID        IMAGE             COMMAND                  CREATED             STATUS              PORTS                           NAMES
@@ -103,7 +103,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="test-application-locally"></a>Testa programmet lokalt
 
-Gå till http://localhost:8080 om du vill se programmet som körs.
+Gå till `http://localhost:8080` om du vill se programmet som körs.
 
 ![Bild av Kubernetes-kluster i Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 

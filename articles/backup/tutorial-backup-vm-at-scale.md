@@ -9,12 +9,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: a73568fd1dd7ed6b6cd3a7938768db4982725658
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 99f5b09d0b5dfc144dca7f19efff3f0656a82b35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497894"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093253"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Använda Azure Portal till att säkerhetskopiera flera virtuella datorer
 
@@ -77,16 +77,16 @@ När du har skapat Recovery Services-valvet är nästa steg att konfigurera valv
     ![Välja arbetsbelastning](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
 5. På menyn **Säkerhetskopieringspolicy** skriver du *Finans* som **Policynamn**. Ange följande ändringar för säkerhetskopieringspolicyn:
-    - För **Säkerhetskopieringsfrekvens** ställer du in tidszon på *Central Time*. Eftersom sportkomplexet ligger i Texas vill ägaren att tidsinställningen ska vara lokal. Ställ in säkerhetskopieringsfrekvensen på varje dag klockan 3:30.
-    - För **Kvarhållning av daglig säkerhetskopieringspunkt** anger du 90 dagarsperiod.
-    - För **Kvarhållning av veckovis säkerhetskopieringspunkt** använder du återställningspunkten *Måndag* och behåller den i 52 veckor.
-    - För **Kvarhållning av månatlig säkerhetskopieringspunkt** använder du från den första söndagen i varje månad och behåller det i 36 månader.
-    - Avmarkera alternativet **Kvarhållning av årlig säkerhetskopieringspunkt**. Den ansvariga för Finans vill inte behålla data längre än 36 månader.
-    - Skapa säkerhetskopieringspolicyn genom att klicka på **OK**.
+   - För **Säkerhetskopieringsfrekvens** ställer du in tidszon på *Central Time*. Eftersom sportkomplexet ligger i Texas vill ägaren att tidsinställningen ska vara lokal. Ställ in säkerhetskopieringsfrekvensen på varje dag klockan 3:30.
+   - För **Kvarhållning av daglig säkerhetskopieringspunkt** anger du 90 dagarsperiod.
+   - För **Kvarhållning av veckovis säkerhetskopieringspunkt** använder du återställningspunkten *Måndag* och behåller den i 52 veckor.
+   - För **Kvarhållning av månatlig säkerhetskopieringspunkt** använder du från den första söndagen i varje månad och behåller det i 36 månader.
+   - Avmarkera alternativet **Kvarhållning av årlig säkerhetskopieringspunkt**. Den ansvariga för Finans vill inte behålla data längre än 36 månader.
+   - Skapa säkerhetskopieringspolicyn genom att klicka på **OK**.
 
-    ![Välja arbetsbelastning](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
+     ![Välja arbetsbelastning](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
-    När du har skapat säkerhetskopieringspolicyn associerar du policyn med de virtuella datorerna.
+     När du har skapat säkerhetskopieringspolicyn associerar du policyn med de virtuella datorerna.
 
 6. I dialogrutan **Välj virtuella datorer** väljer du *myVM* och klicka på **OK** för att distribuera säkerhetskopieringspolicyn till de virtuella datorerna.
 

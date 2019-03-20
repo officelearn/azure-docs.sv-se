@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: cb959bd74322534573f83c2b3258ff28d4c324ff
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: 3c40e00d55af49b1b040d3fe706f08af719b2238
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584164"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112797"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Självstudier: Apache Kafka Streams-API
 
@@ -36,7 +36,7 @@ I den här guiden får du lära dig att:
 > * Konfigurera Kafka-ämnen
 > * Kör koden
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Kafka på HDInsight 3.6-klustret. Information om hur du skapar en Kafka på ett HDInsight-kluster finns i dokumentet [Starta med Apache Kafka i HDInsight](apache-kafka-get-started.md).
 
@@ -199,13 +199,13 @@ För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför 
 
     Ämnena använda för följande ändamål:
 
-    * `test`: I det här ämnet tas poster emot. Strömningsprogrammet läses härifrån.
-    * `wordcounts`: I det här ämnet lagrar strömningsprogrammet sina utdata.
-    * `RekeyedIntermediateTopic`: Det här ämnet används för att partitionera om data när antalet uppdateras av operatorn `countByKey`.
-    * `wordcount-example-Counts-changelog`: Det är ämnet är ett tillståndslager som används av åtgärden `countByKey`
+   * `test`: I det här ämnet tas poster emot. Strömningsprogrammet läses härifrån.
+   * `wordcounts`: I det här ämnet lagrar strömningsprogrammet sina utdata.
+   * `RekeyedIntermediateTopic`: Det här ämnet används för att partitionera om data när antalet uppdateras av operatorn `countByKey`.
+   * `wordcount-example-Counts-changelog`: Det är ämnet är ett tillståndslager som används av åtgärden `countByKey`
 
-    > [!IMPORTANT]  
-    > Kafka på HDInsight kan också konfigureras för att automatiskt skapa ämnen. Mer information finns i dokumentet [Configure automatic topic creation](apache-kafka-auto-create-topics.md) (Konfigurera automatiskt skapande av ämne).
+     > [!IMPORTANT]  
+     > Kafka på HDInsight kan också konfigureras för att automatiskt skapa ämnen. Mer information finns i dokumentet [Configure automatic topic creation](apache-kafka-auto-create-topics.md) (Konfigurera automatiskt skapande av ämne).
 
 ## <a name="run-the-code"></a>Kör koden
 

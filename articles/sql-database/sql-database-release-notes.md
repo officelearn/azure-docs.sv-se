@@ -10,12 +10,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: carlrab
-ms.openlocfilehash: 9a461f84577997ff976956b7f2f50500e9b3d323
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6600a578ba9c73c8a2c71466fd0b008f19058b80
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548072"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861305"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL-databas
 
@@ -50,7 +50,7 @@ Den här artikeln innehåller nya funktioner och förbättringar i tjänsten SQL
 |Hanterad instans-stöd för routningstabeller förbättrad| Mer information finns i [krav på](sql-database-managed-instance-connectivity-architecture.md#network-requirements).|
 |Databasen namnbyte stöds i hanterade instansen | Mer information finns i den [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) och [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql) syntax.|
 |SQL-databas som en källa för referensdata för Stream Analytics. | Mer information finns i [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).|
-|Data Migration Assistant lägger till stöd för den hanterade instansen. |Mer information finns i [vad är nytt i DMA](https://docs.microsoft.com/sql/dma/dma-whatsnew?view=sql-server-2017).|
+|Data Migration Assistant lägger till stöd för den hanterade instansen. |Mer information finns i [vad är nytt i DMA](https://docs.microsoft.com/sql/dma/dma-whatsnew).|
 |SQL Server Migration Assistant lägger till stöd för target diagnostisk utvärdering av för den hanterade instansen. | Mer information finns i [SQL Server Migration Assistant](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant).
 |Datamigreringstjänst stöder migrering från Amazon RDS till managed instance | Mer information finns i [Självstudie: Migrera Fjärrskrivbordstjänster SQL Server till Azure SQL Database eller en Azure SQL Database hanterad instans online med DMS](../dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md).|
 | &nbsp; |
@@ -60,7 +60,7 @@ Den här artikeln innehåller nya funktioner och förbättringar i tjänsten SQL
 | Dokumentation om förbättringar | Information |
 | --- | --- |
 |Lägger till den hanterade instansen distribution alternativet förtydliganden|Uppdatera många artiklar för att förtydliga se om det gäller enkel databas och elastisk pool distributionsalternativ för hanterad instans. |
-|Uppdaterade tempdb-storlekar för DTU-baserade inköpsmodellen | Mer information finns i [Tempdb-databasen i SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).|
+|Uppdaterade tempdb-storlekar för DTU-baserade inköpsmodellen | Mer information finns i [Tempdb-databasen i SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).|
 |Uppdaterade import och export med bacpac-fil för hanterad instans-support| Mer information finns i [Import från BACPAC](sql-database-import.md) och [exportera till BACPAC](sql-database-export.md). |
 | &nbsp; |
 
@@ -97,4 +97,4 @@ Azure SQL-dokumentationsuppsättningen är öppen källkod. Att arbeta offentlig
 - Granskning av lagringsplatser med öppen källkod med att publicera det mest hjälpfulla innehållet på din första utgåva.
 - Uppdatering av lagringsplatser med öppen källkod med att göra det enklare att kontinuerligt förbättra innehållet.
 
-Om du vill bidra till Azure SQL Database-dokumentationsinnehåll, se den [Microsoft Docs översikt över deltagarguiden](https://docs.microsoft.com/en-us/contribute/). Användarupplevelsen på [docs.microsoft.com](https://docs.microsoft.com/) integrerar [GitHub](https://github.com/) arbetsflödet direkt för att göra det ännu enklare. Börja med att [redigera det dokument du visar](https://docs.microsoft.com/en-us/contribute/#quick-edits-to-existing-documents). Hjälp till genom [granska nya ämnen](https://docs.microsoft.com/en-us/contribute/#review-open-prs), eller [skapa kvalitetsärenden](https://docs.microsoft.com/en-us/contribute/#create-quality-issues).
+Om du vill bidra till Azure SQL Database-dokumentationsinnehåll, se den [Microsoft Docs översikt över deltagarguiden](https://docs.microsoft.com/contribute/). Användarupplevelsen på [docs.microsoft.com](https://docs.microsoft.com/) integrerar [GitHub](https://github.com/) arbetsflödet direkt för att göra det ännu enklare. Börja med att [redigera det dokument du visar](https://docs.microsoft.com/contribute/#quick-edits-to-existing-documents). Hjälp till genom [granska nya ämnen](https://docs.microsoft.com/contribute/#review-open-prs), eller [skapa kvalitetsärenden](https://docs.microsoft.com/contribute/#create-quality-issues).

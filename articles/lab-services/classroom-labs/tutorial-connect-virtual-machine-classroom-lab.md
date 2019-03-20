@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 2e34aef9a6f184c60fbb23023f798941a1fc11da
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 3ec3abffc7962051f4cfc02d5369581ca193d70e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894436"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775585"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Självstudier: Få åtkomst till ett klassrumslabb i Azure Lab Services
 I den här självstudien ansluter du som student till en virtuell dator (VM) i ett klassrumslabb. 
@@ -44,8 +44,9 @@ I den här självstudien gör du följande:
 1. Välj **Anslut** i panelen för den virtuella datorn för det labb som du vill komma åt. 
 
     ![Ansluta till virtuell dator](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
-2. Spara RDP-filen till hårddisken och öppna den (förutsatt att det är en virtuell Windows-dator)
-3. Använd det **användarnamn** och **lösenord** som du fick av läraren och logga in på datorn. 
+2. Gör något av följande steg: 
+    1. För **Windows** virtuella datorer, spara den **RDP** filen till hårddisken. Öppna RDP-filen för att ansluta till den virtuella datorn. Använd den **användarnamn** och **lösenord** du får från educator/professor att logga in på datorn. 
+    3. För **Linux** virtuella datorer, kopiera och spara anslutningssträngen SSH på den **Anslut till den virtuella datorn** dialogrutan. Använd den här anslutningssträngen från en SSH-terminalen (t.ex. [Putty](https://www.putty.org/)) att ansluta till den virtuella datorn. 
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudien fick du åtkomst till ett klassrumslabb med registreringslänken du får från din lärare/professor.

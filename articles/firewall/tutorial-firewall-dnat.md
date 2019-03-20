@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 11/28/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e37d5b050c5ca957b59c1e0a60c88171c1fc4a23
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
-ms.translationtype: HT
+ms.openlocfilehash: df57faad770b252228b6c55d4caff775acfe3594
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582249"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531172"
 ---
-# <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Självstudie: Filtrera inkommande trafik med Azure Firewall DNAT med hjälp av Azure-portalen
+# <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Självstudier: Filtrera inkommande trafik med Azure Firewall DNAT med hjälp av Azure-portalen
 
 Du kan konfigurera Azure Firewall Destination Network Address Translation (DNAT) att översätta och filtrera inkommande trafik till dina undernät. När du konfigurerar DNAT ställs åtgärden för NAT-regelsamling in på **Dnat**. Varje regel i NAT-regelsamlingen kan sedan användas till att översätta brandväggens offentliga IP-adress och port till en privat IP-adress och port. DNAT-regler lägger implicit till en motsvarande nätverksregel för att tillåta den översatta trafiken. Du kan åsidosätta det här beteendet genom att uttryckligen lägga till en nätverksregelsamling med neka-regler som matchar den översatta trafiken. Mer information om regelbearbetningslogik för Azure Firewall finns i [Regelbearbetningslogik för Azure Firewall](rule-processing.md).
 
@@ -37,7 +37,7 @@ För den här självstudien skapar du två peerkopplade virtuella nätverk:
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-1. Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com).
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. Klicka på startsidan för Azure Portal, klicka på **Resursgrupper** och sedan på **Lägg till**.
 3. I fältet **Resursgruppsnamn** anger du **RG-DNAT-Test**.
 4. I fältet **Prenumeration** väljer du din prenumeration.
@@ -229,4 +229,4 @@ I den här självstudiekursen lärde du dig att:
 Därefter kan du övervaka Azure Firewall-loggarna.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Övervaka Azure Firewall-loggar](./tutorial-diagnostics.md)
+> [Självstudie: Monitor Azure Firewall-loggar](./tutorial-diagnostics.md)

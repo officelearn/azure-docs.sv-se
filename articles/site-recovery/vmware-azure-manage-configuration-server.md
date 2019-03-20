@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: 9aa6b9dc26b53315957b7ddbb113d1d129dcc1da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: da7750198f76bc9e17c23b1347e9fc78262aa06c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109171"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086963"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Hantera konfigurationsservern för VMware-VM-katastrofåterställning
 
@@ -93,25 +93,25 @@ Open Virtualization Format (OVF) mallen distribuerar configuration server VM med
 Du kan registrera om konfigurationsservern på samma valv om du behöver. Om du har en ytterligare process server-dator, utöver standard-processerver som körs på configuration server-dator kan du registrera om båda datorerna.
 
 
-  1. Öppna i valvet, **hantera** > **Site Recovery-infrastruktur** > **Konfigurationsservrar**.
-  2. I **servrar**väljer **ladda ned Registreringsnyckeln** att hämta valvautentiseringsfilen.
-  3. Logga in på configuration server-dator.
-  4. I **%ProgramData%\ASR\home\svsystems\bin**öppnar **cspsconfigtool.exe**.
-  5. På den **Vault registrering** fliken **Bläddra**, och leta upp filen med valvautentiseringsuppgifter som du laddade ned.
-  6. Om det behövs kan du ange proxy serverinformation. Välj sedan **Registrera**.
-  7. Öppna en PowerShell-kommandofönster som administratör och kör följande kommando:
+1. Öppna i valvet, **hantera** > **Site Recovery-infrastruktur** > **Konfigurationsservrar**.
+2. I **servrar**väljer **ladda ned Registreringsnyckeln** att hämta valvautentiseringsfilen.
+3. Logga in på configuration server-dator.
+4. I **%ProgramData%\ASR\home\svsystems\bin**öppnar **cspsconfigtool.exe**.
+5. På den **Vault registrering** fliken **Bläddra**, och leta upp filen med valvautentiseringsuppgifter som du laddade ned.
+6. Om det behövs kan du ange proxy serverinformation. Välj sedan **Registrera**.
+7. Öppna en PowerShell-kommandofönster som administratör och kör följande kommando:
    ```
-      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
    ```
 
-      >[!NOTE]
-      >För att **Hämta senaste certifikaten** från konfigurationsservern till skalbar processerver kör du kommandot *”< Installation Drive\Microsoft Azure plats Recovery\agent\cdpcli.exe >” – registermt*
+    >[!NOTE]
+    >För att **Hämta senaste certifikaten** från konfigurationsservern till skalbar processerver kör du kommandot *”< Installation Drive\Microsoft Azure plats Recovery\agent\cdpcli.exe >” – registermt*
 
-  8. Slutligen startar du om obengine genom att köra följande kommando.
-  ```
-          net stop obengine
-          net start obengine
+8. Slutligen startar du om obengine genom att köra följande kommando.
+   ```
+        net stop obengine
+        net start obengine
    ```
 
 

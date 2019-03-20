@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: daf3ebec00d81488c100c51bc95b03c313dba391
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1cff60e6134e08e4b9e59a9f69ec09700cca1814
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432846"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098754"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Kör ett SSIS-paket med aktiviteten lagringsprocedur i Azure Data Factory
 Den här artikeln beskriver hur du kör ett SSIS-paket i en Azure Data Factory-pipeline med hjälp av en lagringsprocedur-aktivitet. 
@@ -52,20 +52,20 @@ Första steget är att skapa en datafabrik med hjälp av Azure portal.
 3. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i. 
 4. För **resursgruppen** utför du något av följande steg:
      
-      - Välj **Använd befintlig** och välj en befintlig resursgrupp i listrutan. 
-      - Välj **Skapa ny** och ange namnet på en resursgrupp.   
+   - Välj **Använd befintlig** och välj en befintlig resursgrupp i listrutan. 
+   - Välj **Skapa ny** och ange namnet på en resursgrupp.   
          
-    Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
+     Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/resource-group-overview.md).  
 4. Välj **V2** för **versionen**.
 5. Välj **plats** för datafabriken. Endast platser som stöds av Data Factory visas i listrutan. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas på andra platser.
 6. Välj **fäst till instrumentpanelen**.     
 7. Klicka på **Skapa**.
 8. På instrumentpanelen visas följande panel med statusen: **Distribuerar datafabrik**. 
 
-    ![panelen distribuerar datafabrik](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
+     ![panelen distribuerar datafabrik](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
 9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
    
-    ![Datafabrikens startsida](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
+     ![Datafabrikens startsida](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 10. Klicka på rutan **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik. 
 
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Skapa en pipeline med en aktivitet för lagrad procedur

@@ -1,26 +1,26 @@
 ---
 title: Skapa kunskapsbas
-titleSuffix: QnA Maker - Azure Cognitive Services
-description: Använd QnA Maker-portalen att lägga till kan du skapa en kunskapsbas med chit-chatt. Detta gör att din app engagerande. Lägg till en i förväg uppsättning övre chit-chatt i din Kunskapsbas som utgångspunkt för din robot chit-chatt och spara tid och pengar på att skriva dem från grunden.
+titleSuffix: QnA Maker API - Azure Cognitive Services
+description: Använd QnA Maker API-tjänstportalen måste du lägger till kan du skapa en kunskapsbas med chit-chatt. Detta gör att din app engagerande. Lägg till en i förväg uppsättning övre chit-chatt i din Kunskapsbas som utgångspunkt för din robot chit-chatt och spara tid och pengar på att skriva dem från grunden.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 03/11/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 1691bf9334d15ed7af211a929cf87ce433af895c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b4553a392795bb8578f24848ccacc870b654bce9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866410"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116240"
 ---
-# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-portal"></a>Snabbstart: Skapa en kunskapsbas med QnA Maker-portalen
+# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Snabbstart: Skapa en kunskapsbas med QnA Maker API service-portalen
 
-QnA Maker gör det enkelt att lägga till befintliga datakällor när du skapar en kunskapsbas. Du kan skapa en ny QnA Maker-kunskapsbas från följande dokumenttyper:
+QnA Maker API service-portalen gör det enkelt att lägga till befintliga datakällor när du skapar en kunskapsbas. Du kan skapa en ny QnA Maker-kunskapsbas från följande dokumenttyper:
 
 <!-- added for scanability -->
 * Vanliga frågor och svar-sidor

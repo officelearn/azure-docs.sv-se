@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: e6d2404e6f509c03d2d3965f34d8229de25df4b7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ee28bfebb6732c7bb3b689cf08b9b876adb74b1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114631"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104683"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Snabbstart: Publicera Linux-datorer till Azure Security Center
 När du har publicerat dina Azure-prenumerationer kan du aktivera Security Center för Linux-resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att etablera Linux-agenten.
@@ -37,7 +37,7 @@ Innan du startar den här snabbstarten måste du ha standardnivån i Security Ce
 1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
 2. På menyn **Microsoft Azure** väljer du **Security Center**. **Security Center – Översikt** öppnas.
 
- ![Översikt över Security Center][2]
+   ![Översikt över Security Center][2]
 
 3. På huvudmenyn i Security Center väljer du **Komma igång**.
 4. Välj fliken **Kom igång**. ![Komma igång][3]
@@ -46,16 +46,16 @@ Innan du startar den här snabbstarten måste du ha standardnivån i Security Ce
 
     ![Lägga till en dator som inte är en Azure-dator](./media/quick-onboard-linux-computer/non-azure.png)
 
-6.  På sidan **Direktagent**, under **LADDA NED OCH INTEGRERA AGENT FOR LINUX** väljer du **kopieringsknappen** för att kopiera kommandot *wget*.
+6. På sidan **Direktagent**, under **LADDA NED OCH INTEGRERA AGENT FOR LINUX** väljer du **kopieringsknappen** för att kopiera kommandot *wget*.
 
-7.  Öppna Anteckningar och klistra in det här kommandot. Spara den här filen på en plats som kan nås från din Linux-dator.
+7. Öppna Anteckningar och klistra in det här kommandot. Spara den här filen på en plats som kan nås från din Linux-dator.
 
 ## <a name="install-the-agent"></a>Installera agenten
 
-1.  På Linux-datorn öppnar du filen du sparade tidigare. Markera hela innehållet, kopiera, öppna en terminalkonsol och klistra in kommandot.
-2.  När installationen är klar kan du kontrollera att *omsagent* är installerat genom att köra kommandot *pgrep*. Kommandot returnerar PIP (process-ID:t) *omsagent* som det visas nedan:
+1. På Linux-datorn öppnar du filen du sparade tidigare. Markera hela innehållet, kopiera, öppna en terminalkonsol och klistra in kommandot.
+2. När installationen är klar kan du kontrollera att *omsagent* är installerat genom att köra kommandot *pgrep*. Kommandot returnerar PIP (process-ID:t) *omsagent* som det visas nedan:
 
-  ![Installera agenten][5]
+   ![Installera agenten][5]
 
 Loggarna för Security Center-agenten för Linux finns på: */var/opt/microsoft/omsagent/<workspace id>/log/*
 

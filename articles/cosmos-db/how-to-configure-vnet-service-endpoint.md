@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 03ec8858ee4b9323e6f7964ba02f8bb38f32d6a4
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: efe85e017d883ca82414fe5ff10b5c2932366e48
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819011"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101133"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Konfigurera åtkomst från virtuella nätverk (VNet)
 
@@ -49,9 +49,9 @@ I följande avsnitt beskrivs hur du konfigurerar en tjänstslutpunkt för virtue
 
 > [!NOTE]
 > Om du vill aktivera tjänstslutpunkter i virtuella nätverk behöver du följande Prenumerationsbehörigheter:
-  * Prenumeration med ett virtuellt nätverk: Nätverksdeltagare
-  * Prenumeration med Azure Cosmos DB-konto: DocumentDB-kontodeltagare
-  * Om ditt virtuella nätverk och Azure Cosmos DB-konto finns i olika prenumerationer, se till att det också har den prenumeration som virtuella nätverket `Microsoft.DocumentDB` resursprovidern registrerats. Om du vill registrera en resursleverantör, se [Azure resursproviders och resurstyper](../azure-resource-manager/resource-manager-supported-services.md) artikeln. 
+>   * Prenumeration med ett virtuellt nätverk: Nätverksdeltagare
+>   * Prenumeration med Azure Cosmos DB-konto: DocumentDB-kontodeltagare
+>   * Om ditt virtuella nätverk och Azure Cosmos DB-konto finns i olika prenumerationer, se till att det också har den prenumeration som virtuella nätverket `Microsoft.DocumentDB` resursprovidern registrerats. Om du vill registrera en resursleverantör, se [Azure resursproviders och resurstyper](../azure-resource-manager/resource-manager-supported-services.md) artikeln. 
 
 Här följer anvisningarna för att registrera prenumerationen med resursprovidern.
 

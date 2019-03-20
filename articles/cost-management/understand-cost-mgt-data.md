@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/07/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: e418cf8d619b55fde56a4d6d7d7cd9a8b36a112e
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 40c08f87a1711ae57ceb8b288851686d1e2ad391
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339240"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993948"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
@@ -29,7 +29,7 @@ Följande information visar för närvarande stöds [Microsoft Azure erbjuder](h
 | --- | --- | --- |
 | **Azure Germany** | [Azure Tyskland betala per användning](https://azure.microsoft.com/offers/ms-azr-de-0003p/) | MS-AZR-DE-0003P |
 | **Azure Government** | Azure Government Enterprise | MS-AZR-USGOV-0017P |
-| **Enterprise-avtal (EA)** | Enterprise – utveckling/testning | MS-AZR-0148P |
+| **Enterprise-avtal (EA)** | Enterprise Dev/Test | MS-AZR-0148P |
 | **Enterprise-avtal (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade/) | MS-AZR-0017P |
 | **Microsoft Developer Network (MSDN)** | [MSDN-plattformar](https://azure.microsoft.com/offers/ms-azr-0062p/) | MS-AZR-0062P |
 | **Betala per användning** | [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
@@ -52,7 +52,7 @@ I följande tabell visar erbjudanden som inte stöds.
 | **Leverantörer av Molnlösningar (CSP)** | Microsoft Azure | MS-AZR-0145P |
 | **Leverantörer av Molnlösningar (CSP)** | Azure Government CSP | MS-AZR-USGOV-0145P |
 | **Leverantörer av Molnlösningar (CSP)** | Azure Tyskland i CSP för Microsoft Cloud i Tyskland | MS-AZR-DE-0145P |
-| **Betala per användning** | Startprogrammet för Azure för studenter | MS-AZR-0144P |
+| **Betala per användning** | Microsoft Azure for Students Starter | MS-AZR-0144P |
 | **Betala per användning** | [Microsoft Azure sponsring](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
 | **Supportavtal** | Standard Support | MS-AZR-0041P |
 | **Supportavtal** | Professional Direct-support | MS-AZR-0042P |
@@ -95,7 +95,7 @@ Följande tabeller visar data som har inkluderat eller inte finns i Cost Managem
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Graderad användning datauppdateringsschemat
 
-Kostnader och användning data är tillgängliga i kostnadshantering + fakturering i Azure-portalen och [stöd API: er](https://aka.ms/costmgmt/docs). Tänk på följande när du granskar kostnader:
+Kostnader och användning data är tillgängliga i kostnadshantering + fakturering i Azure-portalen och [stöd API: er](index.yml). Tänk på följande när du granskar kostnader:
 
 - Uppskattade kostnader för den aktuella faktureringsperioden uppdateras sex gånger per dag.
 - Uppskattade kostnader för den aktuella faktureringsperioden kan ändras när du använder mer användning.

@@ -11,18 +11,18 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: f272f72a0bcae70a25bada266dc6b080f46526cd
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: 8bb035a02b8ab684bc1efb7accd785518cb151c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817736"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107618"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Konfigurera en virtuell Linux-dator med DSC (Desired State Configuration)
 
 Genom att aktivera önskat tillstånd-konfiguration, DSC (Desired State Configuration), kan du hantera och övervaka konfigurationerna för dina Windows- och Linux-servrar. Konfigurationer som avviker från den önskade konfigurationen kan identifieras och korrigeras automatiskt. Den här snabbstarten går igenom registrering på en virtuell Linux-dator och distribution av en LAMP-stack med DSC.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att slutföra den här snabbstarten:
 

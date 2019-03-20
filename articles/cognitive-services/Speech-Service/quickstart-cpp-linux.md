@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 7cc6153681a05944ea83b756a0439ff0c8922f91
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 2b63eea7b8562a6972aecef02395d734d1c2655f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959535"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883873"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C++ på Linux med hjälp av Speech SDK
 
@@ -23,9 +23,9 @@ ms.locfileid: "56959535"
 
 I den här artikeln får skapa du ett C++-konsolprogram för Ubuntu Linux 16.04 eller 18.04. Du använder Cognitive Services [Speech SDK](speech-sdk.md) för att transkribera tal till text i realtid från datorns mikrofon. Programmet har skapat med [Speech SDK för Linux](https://aka.ms/csspeech/linuxbinary) och Linux-distributionens C++-kompilerare (till exempel `g++`).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver en prenumerationsnyckel för Speech-tjänsten för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Mer information finns i [Prova Speech Service kostnadsfritt](get-started.md).
+Du behöver en Speech Services-prenumeration för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Se [testa Speech Services kostnadsfritt](get-started.md) mer information.
 
 ## <a name="install-speech-sdk"></a>Installera Speech SDK
 
@@ -79,7 +79,7 @@ Ladda ned och installera SDK enligt följande:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
 
-1. Ersätt strängen `YourSubscriptionKey` i den nya filen med din prenumerationsnyckel för Speech-tjänsten.
+1. I den nya filen ersätter du strängen `YourSubscriptionKey` med din prenumerationsnyckel för Speech Services.
 
 1. Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
@@ -122,7 +122,7 @@ Ladda ned och installera SDK enligt följande:
    ./helloworld
    ```
 
-1.  I konsolfönstret visas en uppmaning som ber dig säga något. Säg en engelsk fras eller en mening. Ditt tal överförs till Speech-tjänsten och transkriberas till text som visas i samma fönster.
+1. I konsolfönstret visas en uppmaning som ber dig säga något. Säg en engelsk fras eller en mening. Ditt tal överförs till Speech Services och transkriberas till text som visas i samma fönster.
 
    ```text
    Say something...
@@ -134,7 +134,7 @@ Ladda ned och installera SDK enligt följande:
 > [!div class="nextstepaction"]
 > [Utforska C++-exempel på GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
 - [Anpassa språkmodeller](how-to-customize-language-model.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: feb9d0a01cbba75fc9868f5a603d494c5c09ae2e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: e41647140373fcf637cad55af62764bd87826a62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386305"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849354"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Hantera program och tjänster som Azure Resource Manager-resurser
 
@@ -29,7 +29,7 @@ Det här är det rekommenderade sättet att distribuera valfri installation, sty
 
 När så är tillämpligt, kan du hantera dina program som Resource Manager-resurser för att förbättra:
 * Granskningslogg: Resource Manager granskar varje åtgärd och håller en detaljerad *aktivitetsloggen* som hjälper dig att spåra ändringar som görs till dessa program och klustret.
-* Rollbaserad åtkomstkontroll (RBAC): hantera åtkomst till kluster, samt program som distribueras i klustret kan ske via samma Resource Manager-mallen.
+* Rollbaserad åtkomstkontroll (RBAC): Hantera åtkomst till kluster, samt program som distribueras i klustret kan göras via samma Resource Manager-mallen.
 * Azure Resource Manager (via Azure portal) blir en en-när det gäller för att hantera ditt kluster och distribution av kritiska program.
 
 Följande utdrag visar de olika typerna av resurser som kan hanteras via en mall:
@@ -69,9 +69,9 @@ Följande utdrag visar de olika typerna av resurser som kan hanteras via en mall
 3. När du har kommit fram till vilka program som du vill ska distribueras på så sätt har programmen paketeras, zippade och placera på en filresurs. Resursen måste vara tillgänglig via ett REST-slutpunkt för Azure Resource Manager att använda under distributionen.
 4. I Resource Manager-mallen, under din kluster-deklarationen Beskriv egenskaper för varje program. Dessa egenskaper innehåller antalet målrepliker eller instanser och eventuella beroendekedjor mellan resurser (andra program eller tjänster). En lista över omfattande egenskaper finns i den [REST API Swagger-specifikation](https://aka.ms/sfrpswaggerspec). Observera att detta ersätter inte programmet eller tjänsten manifest, men i stället beskriver några av vad som finns i dem som en del av klustrets Resource Manager-mall. Här är en exempel-mall som innehåller distribuerar en tillståndslös tjänst *Service1* och en tillståndskänslig tjänst *plats2* som en del av *Application1*:
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+   ```json
+   {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
       "clusterName": {
@@ -251,11 +251,11 @@ Följande utdrag visar de olika typerna av resurser som kan hanteras via en mall
         }
       }
     ]
-  }
-  ```
+   }
+   ```
 
-  > [!NOTE] 
-  > Den *apiVersion* måste anges till `"2017-07-01-preview"`. Den här mallen kan också distribueras oberoende av klustret, så länge klustret redan har distribuerats.
+   > [!NOTE] 
+   > Den *apiVersion* måste anges till `"2017-07-01-preview"`. Den här mallen kan också distribueras oberoende av klustret, så länge klustret redan har distribuerats.
 
 5. Distribuera! 
 
@@ -264,7 +264,7 @@ Följande utdrag visar de olika typerna av resurser som kan hanteras via en mall
 Om klustret redan är igång och vissa program som du vill hantera som Resurshanterarens resurser redan har distribuerats på den, i stället för att avlägsna program och omdistribuera dem. Du kan använda ett PUT-anrop med samma API: er för att få programmen får bekräftas som Resource Manager-resurser. 
 
 > [!NOTE]
-> Så att en uppgradering av klustret att ignorera feltillstånd appar kunden kan ange ”maxPercentUnhealthyApplications: 100” i avsnittet ”upgradeDescription/healthPolicy”; detaljerade beskrivningar för alla inställningar finns i [dokumentation om Service fabric REST API kluster uppgradera Policy](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> Så att en uppgradering av klustret att ignorera feltillstånd appar kunden kan ange ”maxPercentUnhealthyApplications: 100 ”i avsnittet” upgradeDescription/healthPolicy ”; detaljerade beskrivningar för alla inställningar finns i [dokumentation om Service fabric REST API kluster uppgradera Policy](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Nästa steg
 

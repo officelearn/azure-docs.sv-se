@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a1022ce74fd5514b274f498a4d4f764393e6428
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a7cd986544dfb1472f5cc8a013fec951dca42a59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185782"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898660"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Självstudier: Azure Active Directory-integrering med Workteam
 
@@ -200,7 +200,7 @@ Om du vill aktivera Azure AD-användare att logga in på Workteam, måste de eta
 
     a. I den **namn** text, ange först namnet på användaren som **Brittasimon**.
 
-    b. I textrutan **E-post** anger du användarens e-postadress som **Brittasimon@contoso.com**.
+    b. I **e-post** text, ange den e-postadressen för användaren som **Brittasimon\@contoso.com**.
 
     c. Klicka på **OK**.
 
@@ -243,7 +243,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-direct
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

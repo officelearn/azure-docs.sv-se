@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: c34b3fa1597866e4f722fccee84f83f4caab6bfb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b5ad1a790f79b11b978c32c5751a6b9333f24c85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876304"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994931"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>I realtid Twitter-attitydanalys i Azure Stream Analytics
 
@@ -119,10 +119,10 @@ Om du inte redan har ett Twitter-program som du kan använda för den här själ
 
 2. Skapa ett nytt program. 
 
-    * Ange en giltig URL för webbplats-URL. Det behöver inte vara en live-webbplats. (Du kan inte ange bara `localhost`.)
-    * Lämna återanrop fältet tomt. Klientprogram som du använder för den här självstudien kräver inte återanrop.
+   * Ange en giltig URL för webbplats-URL. Det behöver inte vara en live-webbplats. (Du kan inte ange bara `localhost`.)
+   * Lämna återanrop fältet tomt. Klientprogram som du använder för den här självstudien kräver inte återanrop.
 
-    ![Skapa ett program i Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
+     ![Skapa ett program i Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
 
 3. Du kan också ändra programmets behörigheter till skrivskyddat läge.
 
@@ -167,19 +167,19 @@ Följande procedur dokument båda metoderna.
 
 3. Använd en textredigerare för att ange värden för ett beständigt sätt för att öppna filen TwitterWpfClient.exe.config. I den `<appSettings>` element, göra detta:
 
-    * Ange `oauth_consumer_key` till Twitter konsumentnyckel (API-nyckel). 
-    * Ange `oauth_consumer_secret` till Twitter-Konsumenthemligheten (API-hemlighet).
-    * Ange `oauth_token` till Twitter-åtkomsttoken.
-    * Ange `oauth_token_secret` till Twitter Åtkomsttokenhemligheten.
+   * Ange `oauth_consumer_key` till Twitter konsumentnyckel (API-nyckel). 
+   * Ange `oauth_consumer_secret` till Twitter-Konsumenthemligheten (API-hemlighet).
+   * Ange `oauth_token` till Twitter-åtkomsttoken.
+   * Ange `oauth_token_secret` till Twitter Åtkomsttokenhemligheten.
 
-    Senare i den `<appSettings>` element, gör dessa ändringar:
+     Senare i den `<appSettings>` element, gör dessa ändringar:
 
-    * Ange `EventHubName` till event hub-namn (det vill säga till värdet för entitetssökväg).
-    * Ange `EventHubNameConnectionString` på anslutningssträngen. Se till att du använder anslutningssträngen som du har tagit bort den `EntityPath` nyckel / värde-par från.
+   * Ange `EventHubName` till event hub-namn (det vill säga till värdet för entitetssökväg).
+   * Ange `EventHubNameConnectionString` på anslutningssträngen. Se till att du använder anslutningssträngen som du har tagit bort den `EntityPath` nyckel / värde-par från.
 
-    Den `<appSettings>` avsnittet ser ut som i följande exempel. (För tydlighetens skull och säkerhet, vi omslutna vissa rader och ta bort vissa tecken.)
+     Den `<appSettings>` avsnittet ser ut som i följande exempel. (För tydlighetens skull och säkerhet, vi omslutna vissa rader och ta bort vissa tecken.)
 
-    ![TwitterWpfClient programkonfigurationsfilen i en textredigerare, som visar Twitter-nycklar och hemligheter och informationen i anslutningssträngen i event hub](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
+     ![TwitterWpfClient programkonfigurationsfilen i en textredigerare, som visar Twitter-nycklar och hemligheter och informationen i anslutningssträngen i event hub](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
  
 4. Om du inte har redan startat programmet, kör du TwitterWpfClient.exe nu. 
 
@@ -214,15 +214,15 @@ Nu när tweet händelser strömning i realtid från Twitter, kan du ställa in e
 
 2. I den **indata** bladet klickar du på  **+ &nbsp;Lägg till** och Fyll i bladet med följande värden:
 
-    * **Indataalias**: Använd namnet `TwitterStream`. Om du använder ett annat namn, notera den eftersom du behöver den senare.
-    * **Datakällans typ**: Välj **dataströmmen**.
-    * **Källa**: Välj **händelsehubb**.
-    * **Importalternativ**: Välj **Använd händelsehubb från aktuell prenumeration**. 
-    * **Service bus-namnområde**: Välj händelsehubbens namnområde som du skapade tidigare (`<yourname>-socialtwitter-eh-ns`).
-    * **Händelsehubb**: Välj händelsehubben som du skapade tidigare (`socialtwitter-eh`).
-    * **Namn på händelsehubbsprincipen**: Välj den åtkomstprincip som du skapade tidigare (`socialtwitter-access`).
+   * **Indataalias**: Använd namnet `TwitterStream`. Om du använder ett annat namn, notera den eftersom du behöver den senare.
+   * **Datakällans typ**: Välj **dataströmmen**.
+   * **Källa**: Välj **händelsehubb**.
+   * **Importalternativ**: Välj **Använd händelsehubb från aktuell prenumeration**. 
+   * **Service bus-namnområde**: Välj händelsehubbens namnområde som du skapade tidigare (`<yourname>-socialtwitter-eh-ns`).
+   * **Händelsehubb**: Välj händelsehubben som du skapade tidigare (`socialtwitter-eh`).
+   * **Namn på händelsehubbsprincipen**: Välj den åtkomstprincip som du skapade tidigare (`socialtwitter-access`).
 
-    ![Skapa nya indata för Streaming Analytics-jobb](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
+     ![Skapa nya indata för Streaming Analytics-jobb](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
 3. Klicka på **Skapa**.
 
@@ -297,17 +297,17 @@ I den här självstudien får skriva du aggregerade tweet-händelser från jobbe
 
 2. I den **utdata** bladet klickar du på  **+ &nbsp;Lägg till** och Fyll i bladet med följande värden:
 
-    * **Utdataalias**: Använd namnet `TwitterStream-Output`. 
-    * **Mottagare**: Välj **Blob-lagring**.
-    * **Importalternativ**: Välj **använda blob storage från aktuell prenumeration**.
-    * **Storage-konto**. Välj **skapa ett nytt lagringskonto.**
-    * **Storage-konto** (andra rutan). Ange `YOURNAMEsa`, där `YOURNAME` är ditt namn eller en annan unik sträng. Namnet kan använda bara gemena bokstäver och siffror det måste vara unikt i Azure. 
-    * **Behållaren**. Ange `socialtwitter`.
-    Lagringskontonamn och namn på behållare används tillsammans för att tillhandahålla en URI för blob-lagring, så här: 
+   * **Utdataalias**: Använd namnet `TwitterStream-Output`. 
+   * **Mottagare**: Välj **Blob-lagring**.
+   * **Importalternativ**: Välj **använda blob storage från aktuell prenumeration**.
+   * **Storage-konto**. Välj **skapa ett nytt lagringskonto.**
+   * **Storage-konto** (andra rutan). Ange `YOURNAMEsa`, där `YOURNAME` är ditt namn eller en annan unik sträng. Namnet kan använda bara gemena bokstäver och siffror det måste vara unikt i Azure. 
+   * **Behållaren**. Ange `socialtwitter`.
+     Lagringskontonamn och namn på behållare används tillsammans för att tillhandahålla en URI för blob-lagring, så här: 
 
-    `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
+     `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
     
-    ![”Ny utdata” bladet för Stream Analytics-jobb](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
+     ![”Ny utdata” bladet för Stream Analytics-jobb](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
     
 4. Klicka på **Skapa**. 
 
@@ -338,7 +338,7 @@ Jobbindata-, fråge- och utdata har angetts. Du är redo att starta Stream Analy
 
 När jobbet har startats och bearbetar realtidsströmmar för Twitter, kan du visa utdata för attitydanalys.
 
-Du kan använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/) eller [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) att visa din jobbutdata i realtid. Härifrån kan du använda [Power BI](https://powerbi.com/) att utöka ditt program att inkludera anpassad instrumentpanel som den som visas i följande skärmbild:
+Du kan använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/) eller [Azure Explorer](https://www.cerebrata.com/products/azure-explorer/introduction) att visa din jobbutdata i realtid. Härifrån kan du använda [Power BI](https://powerbi.com/) att utöka ditt program att inkludera anpassad instrumentpanel som den som visas i följande skärmbild:
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 

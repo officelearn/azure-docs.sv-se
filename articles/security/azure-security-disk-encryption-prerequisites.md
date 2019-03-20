@@ -1,18 +1,18 @@
 ---
 title: Förutsättningar – Azure Disk Encryption för virtuella IaaS-datorer | Microsoft Docs
 description: Den här artikeln innehåller förutsättningar för att använda Microsoft Azure Disk Encryption för virtuella IaaS-datorer.
-author: mestew
+author: msmbaldwin
 ms.service: security
 ms.topic: article
-ms.author: mstewart
-ms.date: 03/04/2019
+ms.author: mbaldwin
+ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: d10a73eae3546ea0bbf7b6cad86838063ec48520
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 495095df65a03dca573f38c93eb5e77176c16359
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760261"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895914"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Krav för Azure Disk Encryption
 
@@ -30,7 +30,7 @@ Innan du aktiverar Azure Disk Encryption på virtuella Azure IaaS-datorer för d
 Azure Disk Encryption stöds på följande operativsystem:
 
 - Windows Server-versionerna: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 och Windows Server 2016.
-    - Du måste ha .NET Framework 4.5 installerat innan du aktiverar kryptering i Azure för Windows Server 2008 R2. Installera den från Windows Update med valfri uppdatering Microsoft .NET Framework 4.5.2 för Windows Server 2008 R2 x64-baserade system ([KB2901983](https://support.microsoft.com/kb/2901983)).    
+  - Du måste ha .NET Framework 4.5 installerat innan du aktiverar kryptering i Azure för Windows Server 2008 R2. Installera den från Windows Update med valfri uppdatering Microsoft .NET Framework 4.5.2 för Windows Server 2008 R2 x64-baserade system ([KB2901983](https://support.microsoft.com/kb/2901983)).    
 - Windows-klientversioner: Klienten för Windows 8 och Windows 10-klient.
 - Azure Disk Encryption är bara stöds på specifika Azure-galleriet bygger Linux server-distributioner och versioner. Listan över versioner som stöds för närvarande finns det [Azure Disk Encryption vanliga frågor och svar](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
 - Azure Disk Encryption kräver att dina nyckelvalv och virtuella datorer finns i samma Azure-region och prenumeration. Konfigurera resurserna i olika områden orsakar ett fel i Azure Disk Encryption-funktionen aktiveras.
@@ -38,11 +38,12 @@ Azure Disk Encryption stöds på följande operativsystem:
 ## <a name="bkmk_LinuxPrereq"></a> Ytterligare krav för Linux IaaS-datorer 
 
 - Azure Disk Encryption för Linux kräver 7 GB RAM-minne på den virtuella datorn att aktivera OS-diskkryptering på [bilderna som stöds i](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). När OS-disk krypteringsprocessen är klar, kan den virtuella datorn konfigureras för att köra med mindre minne.
+- Azure Disk Encryption kräver vfat modulen måste finnas på systemet.  Ta bort eller inaktivera den här modulen från standardavbildningen förhindrar att systemet inte kan läsa den viktiga volymen och hämta den nyckel som behövs för att låsa upp diskarna på efterföljande omstarter. System-härdningssteg som tar bort modulen vfat från systemet är inte kompatibla med Azure Disk Encryption. 
 - Innan du aktiverar kryptering måste på diskar som ska krypteras anges korrekt på/etc/fstab. Använd ett beständigt block enhetsnamn för den här posten som enhetens namn i formatet ”/ dev/sdX” det går inte att förlita sig på som ska associeras med samma disk mellan omstarter, särskilt när kryptering används. Mer information om detta finns här: [Felsöka ändringar av enhetsnamn Linux VM](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - Kontrollera att/etc/fstab-inställningarna har konfigurerats korrekt för montering. Kör mount - ett kommando för att konfigurera de här inställningarna, eller starta om den virtuella datorn och utlösa återmontering på så sätt. När detta är slutfört kan du kontrollera resultatet av kommandot lsblk att verifiera att enheten fortfarande är ansluten. 
-    - Om filen/etc/fstab inte montera enheten korrekt innan du aktiverar kryptering, Azure Disk Encryption inte montera den korrekt.
-    - Azure Disk Encryption-processen flyttar mount-information från/etc/fstab och i sin egen konfigurationsfilen som en del av krypteringsprocessen. Inte vara alarmed att se posten saknas i/etc/fstab när data diskkryptering har slutförts.
-    -  Efter omstart tar det tid för Azure Disk Encryption-processen för att montera de nyligen krypterade diskarna. De kommer inte blir tillgängliga omedelbart efter en omstart. Processen behöver tid att börja låsa upp och sedan montera de krypterade enheterna innan är tillgängliga för andra processer att få åtkomst till. Den här processen kan ta mer än en minut efter omstart beroende på system-egenskaper.
+  - Om filen/etc/fstab inte montera enheten korrekt innan du aktiverar kryptering, Azure Disk Encryption inte montera den korrekt.
+  - Azure Disk Encryption-processen flyttar mount-information från/etc/fstab och i sin egen konfigurationsfilen som en del av krypteringsprocessen. Inte vara alarmed att se posten saknas i/etc/fstab när data diskkryptering har slutförts.
+  -  Efter omstart tar det tid för Azure Disk Encryption-processen för att montera de nyligen krypterade diskarna. De kommer inte blir tillgängliga omedelbart efter en omstart. Processen behöver tid att börja låsa upp och sedan montera de krypterade enheterna innan är tillgängliga för andra processer att få åtkomst till. Den här processen kan ta mer än en minut efter omstart beroende på system-egenskaper.
 
 Ett exempel på kommandon som kan användas för att montera datadiskarna och skapa de nödvändiga/etc/fstab poster finns i [linjer 244-248 i den här skriptfilen](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L244-L248). 
 
@@ -69,8 +70,8 @@ Ett exempel på kommandon som kan användas för att montera datadiskarna och sk
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>Installera Azure PowerShell för användning på den lokala datorn (valfritt): 
 1. Följ anvisningarna i länkarna för ditt operativsystem sedan fortsätta men resten av stegen nedan.      
-    - [Installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps). 
-        - Installera PowerShellGet, Azure PowerShell, och Läs in Az-modulen. 
+   - [Installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps). 
+     - Installera PowerShellGet, Azure PowerShell, och Läs in Az-modulen. 
 
 2. Kontrollera de installerade versionerna av Az-modulen. Om det behövs [uppdatera Azure PowerShell-modulen](/powershell/azure/install-az-ps#update-the-azure-powershell-module).
     Du bör använda den senaste versionen av Az-modulen.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 6e62e923b6e983dfff8eb72c9526708a3b360930
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: b837aab871827c468295a365727a282f6c8a1a4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494756"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086028"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Använd Azure Automation för att utlösa ett jobb
 
@@ -53,20 +53,20 @@ Innan du börjar måste du kontrollera att du har:
 
 3. I den **Lägg till automatisering**:
 
-    1. Ange den **namn** av ditt automation-konto.
-    2. Välj den **prenumeration** länkad till StorSimple Data Manager-tjänsten.
-    3. Skapa en ny resursgrupp eller välj en befintlig resursgrupp.
-    4. Välj en **Plats**.
-    5. Låt standardvärdet **skapa kör som-konto** alternativ som valts.
-    6. Får du en länk för snabb åtkomst på instrumentpanelen **fäst på instrumentpanelen**. Klicka på **Skapa**.
+   1. Ange den **namn** av ditt automation-konto.
+   2. Välj den **prenumeration** länkad till StorSimple Data Manager-tjänsten.
+   3. Skapa en ny resursgrupp eller välj en befintlig resursgrupp.
+   4. Välj en **Plats**.
+   5. Låt standardvärdet **skapa kör som-konto** alternativ som valts.
+   6. Får du en länk för snabb åtkomst på instrumentpanelen **fäst på instrumentpanelen**. Klicka på **Skapa**.
 
-    ![Skapa kör som-konto för automation](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+      ![Skapa kör som-konto för automation](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
-    När automation-kontot har skapats, du får ett meddelande.
+      När automation-kontot har skapats, du får ett meddelande.
     
-    ![Meddelande för distribution av automation-konto](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
+      ![Meddelande för distribution av automation-konto](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
 
-    Mer information går du till [skapa ett kör som-konto](../automation/automation-create-runas-account.md).
+      Mer information går du till [skapa ett kör som-konto](../automation/automation-create-runas-account.md).
 
 3. I det nya kontot går du till **delade resurser > moduler** och klicka på **+ Lägg till modulen**.
 

@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: d7f832164a41c2107a2cb9fdca3530b1f5d785cb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f1ef06e0275954343c548d0f6937b9c6fbcfd18
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253609"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012129"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Kom igång med Azure Blob Storage och Visual Studio-anslutna tjänster (cloud services-projekt)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -32,7 +32,7 @@ Precis som filer live i mappar, lagringsblobar för Direktmigrering i behållare
 * Läs mer på programmässigt hantera blobbar, [komma igång med Azure Blob storage med hjälp av .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 * Allmän information om Azure Storage finns i [dokumentation om Storage](https://azure.microsoft.com/documentation/services/storage/).
 * Allmän information om Azure Cloud Services finns i [dokumentation om Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/).
-* Mer information om programmering i ASP.NET-program finns i [ASP.NET](http://www.asp.net).
+* Mer information om programmering i ASP.NET-program finns i [ASP.NET](https://www.asp.net).
 
 ## <a name="access-blob-containers-in-code"></a>Åtkomst till blob-behållare i kod
 Om du vill komma åt blobar i molntjänstprojekt via programmering, måste du lägga till följande, om de inte redan finns.

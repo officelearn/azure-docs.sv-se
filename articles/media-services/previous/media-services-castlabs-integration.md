@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: Mingfeiy;willzhan;Juliako
-ms.openlocfilehash: 0b3d8759f13f48e5fa95ff709fa283ed41e0ea25
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: dfb82e91b0f65b85d34b7e20d57ed9929469321f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003218"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863265"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Använd castLabs för att leverera Widevine-licenser till Azure Media Services 
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "56003218"
 
 Den här artikeln beskrivs hur du kan använda Azure Media Services (AMS) för att leverera en dataström som krypteras dynamiskt med AMS med både PlayReady och Widevine DRM: er. PlayReady-licensen kommer från licensserver för Media Services PlayReady och Widevine-licens levereras av **castLabs** licensservern.
 
-Du kan använda för att spela upp direktuppspelade innehåll som skyddas av CENC (PlayReady och/eller Widevine), [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Se [AMP dokumentet](http://amp.azure.net/libs/amp/latest/docs/) mer information.
+Du kan använda för att spela upp direktuppspelade innehåll som skyddas av CENC (PlayReady och/eller Widevine), [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html). Se [AMP dokumentet](https://amp.azure.net/libs/amp/latest/docs/) mer information.
 
 Följande diagram visar en övergripande Azure Media Services och castLabs Integreringsarkitektur.
 
@@ -101,10 +101,10 @@ Använda Web Application (STS):
 
 ## <a name="playing-back-a-video"></a>Spela upp en video
 
-Om du vill spela upp en video som krypterats med gemensam kryptering (PlayReady och/eller Widevine), kan du använda den [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). När du kör konsolappen eko innehåll nyckel-ID och Manifest-URL.
+Om du vill spela upp en video som krypterats med gemensam kryptering (PlayReady och/eller Widevine), kan du använda den [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html). När du kör konsolappen eko innehåll nyckel-ID och Manifest-URL.
 
 1. Öppna en ny flik och starta din STS: http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].
-2. Gå till [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+2. Gå till [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 3. Klistra in strömnings-URL.
 4. Klicka på den **avancerade alternativ** kryssrutan.
 5. I den **Protection** listrutan, väljer PlayReady och/eller Widevine.

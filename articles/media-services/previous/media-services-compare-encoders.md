@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 3dac469c2932276a903a516b71caa860f8870fa6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: bb827b80f79a53f30074b9230efe3e2049471051
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989346"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880780"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Jämförelse av Azure på begäran media kodare  
 
@@ -33,7 +33,7 @@ I följande tabell jämförs funktionerna mellan Media Encoder Standard (MES) oc
 |---|---|---|
 |Tillämpa villkorsstyrd logik vid kodning<br/>(till exempel om indata är HD, sedan koda 5.1 ljud)|Nej|Ja|
 |Textning|Nej|[Ja](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
-|[Dolby® Professional Loudness Correction](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> med dialog Intelligence™|Nej|Ja|
+|[Dolby® Professional Loudness Correction](https://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> med dialog Intelligence™|Nej|Ja|
 |Avlägsnande av sammanflätning, inverterade telecine|Basic|Sändningskvalitet|
 |Identifiera och ta bort svarta kantlinjer <br/>(pillarboxes letterboxes)|Nej|Ja|
 |Skapa miniatyrbilder|[Ja](media-services-dotnet-generate-thumbnail-with-mes.md)|[Ja](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
@@ -153,4 +153,4 @@ I följande tabell jämförs funktionerna mellan Media Encoder Standard (MES) oc
 * [Kvoter och begränsningar](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
-[1]: http://azure.microsoft.com/pricing/details/media-services/
+[1]: https://azure.microsoft.com/pricing/details/media-services/

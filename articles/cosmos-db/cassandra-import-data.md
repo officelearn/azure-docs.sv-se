@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
-ms.openlocfilehash: b12e7aad5fbdf65a8936b943f5053eda76dbd883
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: c9f7ec5009c9299e317d9b10f857e326d25fa005
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037488"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120116"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Självstudie: Migrera data till ett Cassandra API-konto i Azure Cosmos DB
 
@@ -35,31 +35,31 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 * **Beräkna dina dataflödesbehov:** Innan du migrerar data till Cassandra-API-kontot i Azure Cosmos DB bör du beräkna dataflödesbehoven för din arbetsbelastning. I allmänhet rekommenderar vi att du börjar med ett genomsnittligt dataflöde som krävs av CRUD-åtgärderna och att du sedan lägger till det ytterligare dataflödet som krävs för ETL-åtgärder (Extract Transform Load) eller vid belastningstoppar. Du behöver följande information för att planera för migreringen: 
 
-   * **Befintlig datastorlek eller beräknad datastorlek:** Definierar den minsta databasstorleken och det minsta dataflödet som krävs. Om du beräknar datastorleken för ett nytt program kan du anta att data är jämnt fördelade över raderna och beräkna värdet genom att multiplicera med datastorleken. 
+  * **Befintlig datastorlek eller beräknad datastorlek:** Definierar den minsta databasstorleken och det minsta dataflödet som krävs. Om du beräknar datastorleken för ett nytt program kan du anta att data är jämnt fördelade över raderna och beräkna värdet genom att multiplicera med datastorleken. 
 
-   * **Nödvändigt dataflöde:** Ungefärlig dataflödeshastighet för läsningar (fråga/hämta) och skrivningar (uppdatera/ta bort/infoga). Det här värdet krävs för att beräkna de nödvändiga enheterna för programbegäran tillsammans med datastorleken för stabilt tillstånd.  
+  * **Nödvändigt dataflöde:** Ungefärlig dataflödeshastighet för läsningar (fråga/hämta) och skrivningar (uppdatera/ta bort/infoga). Det här värdet krävs för att beräkna de nödvändiga enheterna för programbegäran tillsammans med datastorleken för stabilt tillstånd.  
 
-   * **Schemat:** Anslut till ditt befintliga Cassandra-kluster via cqlsh och exportera schemat från Cassandra: 
+  * **Schemat:** Anslut till ditt befintliga Cassandra-kluster via cqlsh och exportera schemat från Cassandra: 
 
-     ```bash
-     cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
-     ```
+    ```bash
+    cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
+    ```
 
-   När du har identifierat kraven för din befintliga arbetsbelastning bör du skapa ett konto, en databas och containrar för Azure Cosmos baserat på dataflödesbehovet.  
+    När du har identifierat kraven för din befintliga arbetsbelastning bör du skapa ett konto, en databas och containrar för Azure Cosmos baserat på dataflödesbehovet.  
 
-   * **Fastställ RU-avgiften för en åtgärd:** Du kan fastställa RU med hjälp av SDK:erna som stöds av Cassandra-API. I det här exemplet används .NET-versionen för att hämta RU-kostnaden.
+  * **Fastställ RU-avgiften för en åtgärd:** Du kan fastställa RU med hjälp av SDK:erna som stöds av Cassandra-API. I det här exemplet används .NET-versionen för att hämta RU-kostnaden.
 
-     ```csharp
-     var tableInsertStatement = table.Insert(sampleEntity);
-     var insertResult = await tableInsertStatement.ExecuteAsync();
+    ```csharp
+    var tableInsertStatement = table.Insert(sampleEntity);
+    var insertResult = await tableInsertStatement.ExecuteAsync();
 
-     foreach (string key in insertResult.Info.IncomingPayload)
-       {
-          byte[] valueInBytes = customPayload[key];
-          string value = Encoding.UTF8.GetString(valueInBytes);
-          Console.WriteLine($"CustomPayload:  {key}: {value}");
-       }
-     ```
+    foreach (string key in insertResult.Info.IncomingPayload)
+      {
+         byte[] valueInBytes = customPayload[key];
+         string value = Encoding.UTF8.GetString(valueInBytes);
+         Console.WriteLine($"CustomPayload:  {key}: {value}");
+      }
+    ```
 
 * **Allokera det nödvändiga dataflödet:** Azure Cosmos DB kan automatiskt skala lagringen och dataflödet allteftersom dina behov ökar. Du kan beräkna dataflödesbehovet med hjälp av [RU-kalkylatorn för Azure Cosmos DB](https://www.documentdb.com/capacityplanner). 
 

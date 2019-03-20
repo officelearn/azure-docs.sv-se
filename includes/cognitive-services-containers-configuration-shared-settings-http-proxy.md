@@ -4,18 +4,18 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/22/2019
-ms.openlocfilehash: 493810e85ef535005e75f4ac37fcb1920e5d8549
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 0745e4987ca602a41f2d93ddc0a93cb061ce127d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741627"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58051798"
 ---
 Om du vill konfigurera en HTTP-proxy för utgående förfrågningar kan använda dessa två argument:
 
 | Namn | Datatyp | Beskrivning |
 |--|--|--|
-|HTTP_PROXY|sträng|proxy för att använda, till exempel http://proxy:8888|
+|HTTP_PROXY|sträng|proxy för att använda, till exempel `http://proxy:8888`|
 |HTTP_PROXY_CREDS|sträng|autentiseringsuppgifter krävs för att autentisera mot proxy, till exempel användarnamn: lösenord.|
 
 ```bash

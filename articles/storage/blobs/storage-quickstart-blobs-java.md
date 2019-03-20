@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: rogarana
-ms.openlocfilehash: 3bf82f37752009a488512d720093bc9c595dff8e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: c9aaa22a656d1164ad4e9f9c1ed7539a93dd0457
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753222"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999929"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Hur du laddar upp, ladda ned och lista blobar med hjälp av klientbiblioteket för Java v7
 
@@ -34,7 +34,7 @@ Kontrollera att du har följande krav:
 
 * Du kan även installera och konfigurera Maven så att det fungerar från kommandoraden.
 
-Den här guiden används [Eclipse](http://www.eclipse.org/downloads/) med konfigurationen ”Eclipse IDE for Java Developers”.
+Den här guiden används [Eclipse](https://www.eclipse.org/downloads/) med konfigurationen ”Eclipse IDE for Java Developers”.
 
 ## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
 
@@ -87,7 +87,7 @@ Deleting the source, and downloaded files
 Kontrollera att exempelfilen finns i standardkatalogen (*C:\Användare\<användare>\AppData\Local\Temp* för Windows-användare) innan du fortsätter. Kopiera URL:en för bloben från konsolfönstret och klistra in den i en webbläsare om du vill se innehållet i filen i bloblagringen. Om du jämför exempelfilen i katalogen med det innehåll som lagras i bloblagringen märker du att de är likadana. 
 
   >[!NOTE]
-  >Du kan också använda ett verktyg som [Azure Storage Explorer](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för att visa filerna i Blob Storage. Azure Storage Explorer är ett kostnadsfritt verktyg för flera plattformar som gör det möjligt att komma åt information på lagringskontot.
+  >Du kan också använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för att visa filerna i Blob Storage. Azure Storage Explorer är ett kostnadsfritt verktyg för flera plattformar som gör det möjligt att komma åt information på lagringskontot.
 
 När du har kontrollerat filerna trycker du på **Retur**-tangenten för att avsluta demonstrationen och ta bort testfilerna. Nu när du vet vad exemplet gör kan du öppna filen **AzureApp.java** och titta på koden. 
 

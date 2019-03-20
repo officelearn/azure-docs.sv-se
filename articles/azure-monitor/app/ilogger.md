@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: c456f8f7f08fdbd0020bfc49ceeec262fa0ac773
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 14c9a453913a9a8080c840df3f23751487b86c34
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457981"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006164"
 ---
 # <a name="ilogger"></a>ILogger
 
@@ -219,6 +219,26 @@ services.AddApplicationInsightsTelemetry("ikeyhere");
 I det här exemplet används konfigurationen av `ApplicationInsightsLoggerProvider` är densamma som används av regelbundna programövervakning. Därför båda `ILogger` spår och annan telemetri (begäranden, beroenden osv.) körs samma uppsättning `TelemetryInitializers`, `TelemetryProcessors`, och `TelemetryChannel`. De korrelerade och samplas/inte samplas på samma sätt.
 
 Det är dock undantag till detta beteende. Standard `TelemetryConfiguration` fullständigt konfiguration när du loggar inte något från `Program.cs` eller `Startup.cs` själva, så dessa loggar inte standardkonfigurationen. Alla andra logga (till exempel loggar från domänkontrollanter, modeller osv) skulle dock dela konfigurationen.
+
+## <a name="control-logging-level"></a>Kontrollera loggningsnivån
+
+Förutom filtrering loggfilerna på den kod som i exemplen ovan, det är också möjligt att styra nivån för loggning av Application Insights samlar in, genom att ändra den `appsettings.json`. Den [ASP.NET loggning grunderna dokumentation](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-filtering) visar hur du kan åstadkomma detta. Specifikt för Application Insights, namnet på aliaset providern är `ApplicationInsights`, enligt den exemplet som konfigurerar nedan `ApplicationInsights` avbilda endast loggarna för `Warning` och senare från alla kategorier.
+
+```json
+{
+  "Logging": {
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Warning"
+      }
+    },
+    "LogLevel": {
+      "Default": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

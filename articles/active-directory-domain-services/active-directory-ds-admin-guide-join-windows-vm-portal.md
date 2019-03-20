@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 41e7f0ea8616b25eac43ecff7802e0f9e1c08050
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f18d3409d53123733d7f423c77864cd0739765eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180712"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900598"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Anslut en Windows Server-virtuell dator till en hanterad domän
 Den här artikeln visar hur du distribuerar en Windows Server-dator med hjälp av Azure portal. Den visar sedan hur du kopplar den virtuella datorn till en hanterad Azure Active Directory Domain Services (Azure AD DS)-domän.
@@ -107,7 +107,7 @@ Utför följande steg för att ansluta till Windows Server-dator med Azure AD DS
 
 7. Du kan ange autentiseringsuppgifter i någon av följande sätt:
 
-   * **UPN-formatet**: (Rekommenderas) Ange suffixet för användarens huvudnamn (UPN) för användarkontot som konfigurerats i Azure AD. I det här exemplet UPN-suffix för användaren *bob* är *bob@domainservicespreview.onmicrosoft.com*.
+   * **UPN-formatet**: (Rekommenderas) Ange suffixet för användarens huvudnamn (UPN) för användarkontot som konfigurerats i Azure AD. I det här exemplet UPN-suffix för användaren *bob* är *bob\@domainservicespreview.onmicrosoft.com*.
 
    * **SAMAccountName format**: Du kan ange kontonamnet i formatet SAMAccountName format. I det här exemplet är användaren *bob* skulle behöva ange *CONTOSO100\bob*.
 
@@ -146,7 +146,7 @@ Om du har problem med autentiseringsuppgifter och inte går att ansluta till dom
 
 * Kontrollera att du har [aktiverat Lösenordssynkronisering](active-directory-ds-getting-started-password-sync.md) till din hanterade domän.
 
-* Kontrollera att du har använt UPN för användaren som konfigurerats i Azure AD (till exempel *bob@domainservicespreview.onmicrosoft.com*) att logga in.
+* Kontrollera att du har använt UPN för användaren som konfigurerats i Azure AD (till exempel *bob\@domainservicespreview.onmicrosoft.com*) att logga in.
 
 * Vänta tills Lösenordssynkronisering till att slutföra som angetts i komma igång-guiden.
 

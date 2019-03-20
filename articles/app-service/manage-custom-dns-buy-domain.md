@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 44252274cc3c0050ba138c3115deeceb2f06f8d8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0c59e892c8fd5a8bcc74d23e16eaabf1dc1a08f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782776"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121544"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Köp ett anpassat domännamn för Azure App Service
 
@@ -146,7 +146,7 @@ Du kan också se den valda värdnamnen i den **anpassade domäner** sidan den **
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
-Om du vill testa värdnamnen, navigerar du till listan värdnamn i webbläsaren. I exemplet i föregående skärmbild, försök att gå till _kontoso.net_ och _www.kontoso.net_.
+Om du vill testa värdnamnen, navigerar du till listan värdnamn i webbläsaren. I exemplet i föregående skärmbild, försök att gå till _kontoso.net_ och _www\.kontoso.net_.
 
 ## <a name="assign-hostnames-to-app"></a>Tilldela värdnamn till appen
 
@@ -177,7 +177,7 @@ Välj **Lägg till värddatornamn**.
 I den **Lägg till värddatornamn** dialogrutan Skriv det fullständigt kvalificerade domännamnet för din App Service-domänen eller en underdomän. Exempel:
 
 - kontoso.net
-- www.kontoso.net
+- www\.kontoso.net
 - abc.kontoso.net
 
 När du är klar väljer **verifiera**. Posttyp för värddatornamn väljs automatiskt åt dig.

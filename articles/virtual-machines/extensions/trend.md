@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: roiyz
-ms.openlocfilehash: ddb999c252f0802ef57942de694340ae29f2d8ba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0bb49d3d75b88f197a42e02f03f89480563537ef
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240366"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005473"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Så installerar och konfigurerar du Trend Micro Deep Security som en tjänst på en virtuell Windows-dator
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
@@ -34,7 +34,7 @@ Om du har någon aktuell prenumeration från Trend Micro för en lokal lösning 
 
 ## <a name="install-the-deep-security-agent-on-a-new-vm"></a>Installera Deep Security Agent på en ny virtuell dator
 
-Den [Azure-portalen](http://portal.azure.com) kan du installera tillägget Trend Micro säkerhet när du använder en bild från den **Marketplace** att skapa den virtuella datorn. Om du skapar en virtuell dator, är med hjälp av portalen ett enkelt sätt att lägga till skydd från Trend Micro.
+Den [Azure-portalen](https://portal.azure.com) kan du installera tillägget Trend Micro säkerhet när du använder en bild från den **Marketplace** att skapa den virtuella datorn. Om du skapar en virtuell dator, är med hjälp av portalen ett enkelt sätt att lägga till skydd från Trend Micro.
 
 Med hjälp av en transaktion från den **Marketplace** öppnar en guide som hjälper dig att ställa in den virtuella datorn. Du använder den **inställningar** bladet, panelen tredje i guiden om du vill installera tillägget Trend Micro säkerhet.  Mer information, se [skapa en virtuell dator som kör Windows i Azure-portalen](../windows/classic/tutorial.md).
 
@@ -94,4 +94,4 @@ Det tar några minuter för att agenten ska börja köra när den är installera
 
 <!-- Link references -->
 [Hur du ansluter till en virtuell dator som kör Windows Server]:../windows/classic/connect-logon.md
-[Azure VM-tillägg och funktioner]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Azure VM-tillägg och funktioner]: https://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409

@@ -1,0 +1,56 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 18be472dfc6a9928b8ceea72fe1b277d77311a63
+ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57909174"
+documentType: LandingData
+title: Azure SQL Database - funktioner
+metadata:
+  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
+  title: Azure SQL Database - funktioner
+  meta.description: Learn about the features in Azure SQL Database.
+  services: sql-database
+  author: jovanpop-msft
+  manager: craigg
+  ms.service: sql-database
+  ms.tgt_pltfrm: na
+  ms.devlang: 
+  ms.topic: overview
+  ms.date: 02/06/2019
+  ms.author: jovanpop-msft
+sections:
+- items:
+  - type: paragraph
+    text: Azure SQL Database är mer än en klassisk relationsdatabasmotor som gör att du kan köra frågor mot data med SQL-språk. Databasfunktioner i Azure SQL Database kan du göra fler powerfull åtgärder och implementera avancerade scenarier.
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - title: Minnesinterna tekniker
+      href: /azure/sql-database/sql-database-in-memory
+      html: <p>Implementera program med höga prestanda med hjälp av minnesinterna tekniker.</p>
+    - title: Funktioner för flera modeller
+      href: /azure/sql-database/sql-database-multi-model-features
+      html: <p>Läs mer om Graph, JSON, XML, Spatial funktioner i Azure SQL Database.</p>
+    - title: Transaktionsreplikering
+      href: /azure/sql-database/sql-database-managed-instance-transactional-replication
+      html: <p>Replikera data mellan Azure SQL Database och SQL Server-tabeller.</p>
+    - title: Datasynkronisering
+      href: /azure/sql-database/sql-database-sync-data
+      html: <p>Synkronisera data mellan flera SQL-databaser och SQL Server-instanser.</p>
+    - title: Jobbautomation
+      href: /azure/sql-database/sql-database-job-automation-overview
+      html: <p>Schemalägg återkommande uppgifter med hjälp av SQL Agent och elastiska jobb.</p>
+    - title: Temporala tabeller
+      href: /azure/sql-database/sql-database-temporal-tables
+      html: <p>Spåra och analysera den fullständiga historiken för ändringar i dina data.</p>
+- title: Fler resurser
+  items:
+  - type: list
+    style: ordered
+    items:
+    - html: Lär dig mer om den <a href="/azure/sql-database/sql-database-features">skillnader mellan SQL Server och Azure SQL-databasfunktioner</a>.
+    - html: Lär dig hur du använder dessa funktioner i <a href="/azure/sql-database/sql-database-howto">Howto guider</a>.

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: fc874ad04e65a3a80a4ceb76434b997e80019609
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 17f9acf6dcdc5a81c785bedc3649ee0258562b43
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750301"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994158"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Hur du säkerhetskopierar och återställer en server i Azure Database for PostgreSQL med Azure CLI
 
@@ -68,6 +68,7 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 ```
 
 Den `az postgres server restore` kommandot kräver följande parametrar:
+
 | Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resursgruppen där källservern finns.  |
@@ -107,6 +108,7 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 ```
 
 Den `az postgres server georestore` kommandot kräver följande parametrar:
+
 | Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Namnet på resursgruppen som den nya servern ska tillhöra.|

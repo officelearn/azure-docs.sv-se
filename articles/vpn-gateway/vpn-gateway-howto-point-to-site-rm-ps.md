@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7cb0f37137ebde60e7b40392df458ff98306d9df
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: f3c02e80016e43bdd83218851de5ceb72be7f268
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673213"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096290"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikatautentisering: PowerShell
 
@@ -94,37 +94,37 @@ Deklarera de variabler som du vill använda. Använd följande exempel och ersä
 
 1. Skapa en resursgrupp.
 
-  ```azurepowershell-interactive
-  New-AzResourceGroup -Name $RG -Location $Location
-  ```
+   ```azurepowershell-interactive
+   New-AzResourceGroup -Name $RG -Location $Location
+   ```
 2. Skapa undernätskonfigurationerna för det virtuella nätverket och ge dem namnen *FrontEnd*, *BackEnd* och *GatewaySubnet*. Dessa prefix måste vara en del av VNet-adressutrymmet som du deklarerade.
 
-  ```azurepowershell-interactive
-  $fesub = New-AzVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
-  $besub = New-AzVirtualNetworkSubnetConfig -Name $BESubName -AddressPrefix $BESubPrefix
-  $gwsub = New-AzVirtualNetworkSubnetConfig -Name $GWSubName -AddressPrefix $GWSubPrefix
-  ```
+   ```azurepowershell-interactive
+   $fesub = New-AzVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
+   $besub = New-AzVirtualNetworkSubnetConfig -Name $BESubName -AddressPrefix $BESubPrefix
+   $gwsub = New-AzVirtualNetworkSubnetConfig -Name $GWSubName -AddressPrefix $GWSubPrefix
+   ```
 3. Skapa det virtuella nätverket.
 
-  I det här exemplet är serverparametern -DnsServer valfri. Ingen ny DNS-server skapas när du anger ett värde. IP-adressen för DNS-servern som du anger måste vara en DNS-server som kan matcha namnen för de resurser som du ansluter till från ditt virtuella nätverk. Det här exemplet använder en privat IP-adress, men förmodligen inte IP-adressen till din DNS-server. Använd dina egna värden. Värdet som du anger används av de resurser som du distribuerar till det virtuella nätverket, inte av P2S-anslutningen eller VPN-klienten.
+   I det här exemplet är serverparametern -DnsServer valfri. Ingen ny DNS-server skapas när du anger ett värde. IP-adressen för DNS-servern som du anger måste vara en DNS-server som kan matcha namnen för de resurser som du ansluter till från ditt virtuella nätverk. Det här exemplet använder en privat IP-adress, men förmodligen inte IP-adressen till din DNS-server. Använd dina egna värden. Värdet som du anger används av de resurser som du distribuerar till det virtuella nätverket, inte av P2S-anslutningen eller VPN-klienten.
 
-  ```azurepowershell-interactive
-  New-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG -Location $Location -AddressPrefix $VNetPrefix1,$VNetPrefix2 -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
-  ```
+   ```azurepowershell-interactive
+   New-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG -Location $Location -AddressPrefix $VNetPrefix1,$VNetPrefix2 -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
+   ```
 4. Ange variablerna för det virtuella nätverket som du skapade.
 
-  ```azurepowershell-interactive
-  $vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
-  $subnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   $vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
+   $subnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
+   ```
 5. En VPN-gateway måste ha en offentlig IP-adress. Först begär du IP-adressresursen och sedan hänvisar du till den när du skapar din virtuella nätverksgateway. IP-adressen tilldelas dynamiskt till resursen när en VPN-gateway har skapats. VPN Gateway stöder för närvarande endast *dynamisk* offentlig IP-adressallokering. Du kan inte begära en statisk offentlig IP-adresstilldelning. Det innebär emellertid inte att IP-adressen ändras när den har tilldelats till din VPN-gateway. Den enda gången den offentliga IP-adressen ändras är när gatewayen tas bort och återskapas. Den ändras inte vid storleksändring, återställning eller annat internt underhåll/uppgraderingar av din VPN-gateway.
 
-  Begär en dynamiskt tilldelad offentlig IP-adress.
+   Begär en dynamiskt tilldelad offentlig IP-adress.
 
-  ```azurepowershell-interactive
-  $pip = New-AzPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
-  $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
-  ```
+   ```azurepowershell-interactive
+   $pip = New-AzPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
+   $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
+   ```
 
 ## <a name="creategateway"></a>3. Skapa VPN gateway
 
@@ -173,22 +173,22 @@ Du kan inte överföra den här informationen med hjälp av Azure Cloud Shell. D
 
 1. Deklarera variabeln för certifikatnamnet och ersätt värdet med ditt eget.
 
-  ```azurepowershell
-  $P2SRootCertName = "P2SRootCert.cer"
-  ```
+   ```azurepowershell
+   $P2SRootCertName = "P2SRootCert.cer"
+   ```
 2. Ersätt sökvägen till filen med din egen och kör cmdlet:arna.
 
-  ```azurepowershell
-  $filePathForCert = "C:\cert\P2SRootCert.cer"
-  $cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2($filePathForCert)
-  $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
-  $p2srootcert = New-AzVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
-  ```
+   ```azurepowershell
+   $filePathForCert = "C:\cert\P2SRootCert.cer"
+   $cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2($filePathForCert)
+   $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
+   $p2srootcert = New-AzVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
+   ```
 3. Ladda upp informationen om den offentliga nyckeln till Azure. När certifikatinformationen har laddats upp betraktar Azure det ska vara ett betrott rotcertifikat.
 
-  ```azurepowershell
-  Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64
-  ```
+   ```azurepowershell
+   Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64
+   ```
 
 ## <a name="clientcertificate"></a>7. Installera ett exporterat klientcertifikat
 
@@ -214,10 +214,10 @@ VPN-klientkonfigurationsfilerna innehåller inställningar för att konfigurera 
 1. Anslut till ditt VNet genom att gå till VPN-anslutningarna på klientdatorn och leta upp den VPN-anslutning som du skapade. Den har samma namn som ditt virtuella nätverk. Klicka på **Anslut**. Ett popup-meddelande med information om certifikatanvändningen kanske visas. Klicka på **Fortsätt** för att använda utökade privilegier. 
 2. På statussidan **Anslutning** klickar du på **Anslut** för att initiera anslutningen. Om du ser skärmen **Välj certifikat** kontrollerar du att klientcertifikatet som visas är det som du vill använda för att ansluta. Om det inte är det använder du pilen i listrutan för att välja rätt certifikat. Klicka sedan på **OK**.
 
-  ![VPN-klient ansluter till Azure](./media/vpn-gateway-howto-point-to-site-rm-ps/clientconnect.png)
+   ![VPN-klient ansluter till Azure](./media/vpn-gateway-howto-point-to-site-rm-ps/clientconnect.png)
 3. Anslutningen upprättas.
 
-  ![Anslutning upprättad](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png)
+   ![Anslutning upprättad](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png)
 
 #### <a name="troubleshooting-windows-client-p2s-connections"></a>Felsöka P2S-anslutningar på Windows-klienter
 
@@ -237,8 +237,8 @@ Dessa anvisningar gäller för Windows-klienter.
 1. Verifiera att VPN-anslutningen är aktiv genom att öppna en upphöjd kommandotolk och köra *ipconfig/all*.
 2. Granska resultaten. Observera att IP-adressen som du fick är en av adresserna i klientadresspoolen för VPN för punkt-till-plats som du angav i konfigurationen. Resultatet är ungefär som i det här exemplet:
 
-  ```
-  PPP adapter VNet1:
+   ```
+   PPP adapter VNet1:
       Connection-specific DNS Suffix .:
       Description.....................: VNet1
       Physical Address................:
@@ -248,7 +248,7 @@ Dessa anvisningar gäller för Windows-klienter.
       Subnet Mask.....................: 255.255.255.255
       Default Gateway.................:
       NetBIOS over Tcpip..............: Enabled
-  ```
+   ```
 
 ## <a name="connectVM"></a>Ansluta till en virtuell dator
 
@@ -271,24 +271,24 @@ Den här metoden är det mest effektiva sättet att ladda upp ett rotcertifikat.
 
 1. Förbered CER-filen för uppladdning:
 
-  ```azurepowershell
-  $filePathForCert = "C:\cert\P2SRootCert3.cer"
-  $cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2($filePathForCert)
-  $CertBase64_3 = [system.convert]::ToBase64String($cert.RawData)
-  $p2srootcert = New-AzVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64_3
-  ```
+   ```azurepowershell
+   $filePathForCert = "C:\cert\P2SRootCert3.cer"
+   $cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2($filePathForCert)
+   $CertBase64_3 = [system.convert]::ToBase64String($cert.RawData)
+   $p2srootcert = New-AzVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64_3
+   ```
 2. Ladda upp filen. Du kan bara ladda upp en fil i taget.
 
-  ```azurepowershell
-  Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64_3
-  ```
+   ```azurepowershell
+   Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64_3
+   ```
 
 3. Kontrollera att certifikatfilen har laddats upp:
 
-  ```azurepowershell
-  Get-AzVpnClientRootCertificate -ResourceGroupName "TestRG" `
-  -VirtualNetworkGatewayName "VNet1GW"
-  ```
+   ```azurepowershell
+   Get-AzVpnClientRootCertificate -ResourceGroupName "TestRG" `
+   -VirtualNetworkGatewayName "VNet1GW"
+   ```
 
 #### <a name="certmethod2"></a>Metod 2 - Azure-portalen
 
@@ -296,52 +296,52 @@ Den här metoden har fler steg än metod 1, men resultatet är samma. Den finns 
 
 1. Skapa och förbered det nya rotcertifikatet som du ska lägga till i Azure. Exportera den offentliga nyckeln som en Base64-kodad X.509-fil (.CER) och öppna den i en textredigerare. Kopiera värdena, som du ser i följande exempel:
 
-  ![certifikat](./media/vpn-gateway-howto-point-to-site-rm-ps/copycert.png)
+   ![certifikat](./media/vpn-gateway-howto-point-to-site-rm-ps/copycert.png)
 
-  > [!NOTE]
-  > När du kopierar certifikatdata ska du se till att kopiera texten som en kontinuerlig rad utan vagnreturer och radmatningar. Du kan behöva ändra vyn i textredigeraren till ”Visa symbol/Visa alla tecken” så att vagnreturer och radmatningar visas.
-  >
-  >
+   > [!NOTE]
+   > När du kopierar certifikatdata ska du se till att kopiera texten som en kontinuerlig rad utan vagnreturer och radmatningar. Du kan behöva ändra vyn i textredigeraren till ”Visa symbol/Visa alla tecken” så att vagnreturer och radmatningar visas.
+   >
+   >
 
 2. Ange certifikatnamnet och viktig information som en variabel. Ersätt informationen med din egen enligt följande exempel:
 
-  ```azurepowershell
-  $P2SRootCertName2 = "ARMP2SRootCert2.cer"
-  $MyP2SCertPubKeyBase64_2 = "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
-  ```
+   ```azurepowershell
+   $P2SRootCertName2 = "ARMP2SRootCert2.cer"
+   $MyP2SCertPubKeyBase64_2 = "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
+   ```
 3. Lägg till det nya rotcertifikatet. Du kan bara lägga till ett certifikat i taget.
 
-  ```azurepowershell
-  Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $MyP2SCertPubKeyBase64_2
-  ```
+   ```azurepowershell
+   Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $MyP2SCertPubKeyBase64_2
+   ```
 4. Du kan kontrollera att det nya certifikatet har lagts till korrekt med hjälp av följande exempel:
 
-  ```azurepowershell
-  Get-AzVpnClientRootCertificate -ResourceGroupName "TestRG" `
-  -VirtualNetworkGatewayName "VNet1GW"
-  ```
+   ```azurepowershell
+   Get-AzVpnClientRootCertificate -ResourceGroupName "TestRG" `
+   -VirtualNetworkGatewayName "VNet1GW"
+   ```
 
 ### <a name="removerootcert"></a>Ta bort ett rotcertifikat
 
 1. Deklarera variablerna.
 
-  ```azurepowershell-interactive
-  $GWName = "Name_of_virtual_network_gateway"
-  $RG = "Name_of_resource_group"
-  $P2SRootCertName2 = "ARMP2SRootCert2.cer"
-  $MyP2SCertPubKeyBase64_2 = "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
-  ```
+   ```azurepowershell-interactive
+   $GWName = "Name_of_virtual_network_gateway"
+   $RG = "Name_of_resource_group"
+   $P2SRootCertName2 = "ARMP2SRootCert2.cer"
+   $MyP2SCertPubKeyBase64_2 = "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
+   ```
 2. Ta bort certifikatet.
 
-  ```azurepowershell-interactive
-  Remove-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -PublicCertData $MyP2SCertPubKeyBase64_2
-  ```
+   ```azurepowershell-interactive
+   Remove-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -PublicCertData $MyP2SCertPubKeyBase64_2
+   ```
 3. Använd följande exempel till att kontrollera att certifikatet togs bort ordentligt.
 
-  ```azurepowershell-interactive
-  Get-AzVpnClientRootCertificate -ResourceGroupName "TestRG" `
-  -VirtualNetworkGatewayName "VNet1GW"
-  ```
+   ```azurepowershell-interactive
+   Get-AzVpnClientRootCertificate -ResourceGroupName "TestRG" `
+   -VirtualNetworkGatewayName "VNet1GW"
+   ```
 
 ## <a name="revoke"></a>Återkalla ett klientcertifikat
 
@@ -355,24 +355,24 @@ Den vanligaste metoden är att använda rotcertifikatet för att hantera åtkoms
 2. Kopiera informationen till en textredigerare och ta bort alla blanksteg så att strängen är i ett stycke. Den här strängen deklareras som en variabel i nästa steg.
 3. Deklarera variablerna. Deklarera tumavtrycket du hämtade i föregående steg.
 
-  ```azurepowershell-interactive
-  $RevokedClientCert1 = "NameofCertificate"
-  $RevokedThumbprint1 = "‎51ab1edd8da4cfed77e20061c5eb6d2ef2f778c7"
-  $GWName = "Name_of_virtual_network_gateway"
-  $RG = "Name_of_resource_group"
-  ```
+   ```azurepowershell-interactive
+   $RevokedClientCert1 = "NameofCertificate"
+   $RevokedThumbprint1 = "‎51ab1edd8da4cfed77e20061c5eb6d2ef2f778c7"
+   $GWName = "Name_of_virtual_network_gateway"
+   $RG = "Name_of_resource_group"
+   ```
 4. Lägg till tumavtrycket i listan med återkallade certifikat. När tumavtrycket har lagts till visas ett meddelande om att åtgärden lyckades.
 
-  ```azurepowershell-interactive
-  Add-AzVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 `
-  -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG `
-  -Thumbprint $RevokedThumbprint1
-  ```
+   ```azurepowershell-interactive
+   Add-AzVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 `
+   -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG `
+   -Thumbprint $RevokedThumbprint1
+   ```
 5. Kontrollera att tumavtrycket har lagts till i listan över återkallade certifikat.
 
-  ```azurepowershell-interactive
-  Get-AzVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
-  ```
+   ```azurepowershell-interactive
+   Get-AzVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
+   ```
 6. När tumavtrycket har lagts till kan certifikatet inte längre användas för anslutning. Klienter som försöker ansluta med det här certifikatet får ett meddelande om att certifikatet inte längre är giltigt.
 
 ### <a name="reinstateclientcert"></a>Återställa ett klientcertifikat
@@ -381,23 +381,23 @@ Du kan återställa ett klientcertifikat genom att ta bort tumavtrycket från li
 
 1. Deklarera variablerna. Se till att du deklarerar rätt tumavtryck för det certifikat du vill återställa.
 
-  ```azurepowershell-interactive
-  $RevokedClientCert1 = "NameofCertificate"
-  $RevokedThumbprint1 = "‎51ab1edd8da4cfed77e20061c5eb6d2ef2f778c7"
-  $GWName = "Name_of_virtual_network_gateway"
-  $RG = "Name_of_resource_group"
-  ```
+   ```azurepowershell-interactive
+   $RevokedClientCert1 = "NameofCertificate"
+   $RevokedThumbprint1 = "‎51ab1edd8da4cfed77e20061c5eb6d2ef2f778c7"
+   $GWName = "Name_of_virtual_network_gateway"
+   $RG = "Name_of_resource_group"
+   ```
 2. Ta bort certifikatets tumavtryck från listan med återkallade certifikat.
 
-  ```azurepowershell-interactive
-  Remove-AzVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 `
-  -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -Thumbprint $RevokedThumbprint1
-  ```
+   ```azurepowershell-interactive
+   Remove-AzVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 `
+   -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -Thumbprint $RevokedThumbprint1
+   ```
 3. Kontrollera att tumavtrycket har tagits bort från listan över återkallade certifikat.
 
-  ```azurepowershell-interactive
-  Get-AzVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
-  ```
+   ```azurepowershell-interactive
+   Get-AzVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
+   ```
 
 ## <a name="faq"></a>Vanliga frågor och svar om punkt-till-plats
 

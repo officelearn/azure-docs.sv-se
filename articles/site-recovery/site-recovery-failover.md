@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 1/18/2019
 ms.author: mayg
-ms.openlocfilehash: 05a60ff2b2995642f797897d0e1f4db46c5b6741
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8f76d4e54133e4e899e707e666703a67310e8702
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215851"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082100"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Växla över virtuella datorer och fysiska servrar 
 
@@ -39,17 +39,17 @@ Den här proceduren beskriver hur du kör en redundansväxling för en [återst�
 
 1. Välj **Återställningsplaner** > *recoveryplan_name*. Klicka på **redundans**
 2. På den **redundans** väljer en **återställningspunkt** att redundansväxla till. Du kan välja något av följande alternativ:
-    1.  **Senaste**: Det här alternativet startar jobbet genom att bearbetning av alla data som har skickats till Site Recovery-tjänsten. Bearbeta data skapar en återställningspunkt för varje virtuell dator. Den här återställningspunkten används av den virtuella datorn under redundansväxlingen. Det här alternativet ger det lägsta MÅLET (mål för återställningspunkt) som den virtuella datorn skapas efter att redundansen har fått alla data som har replikerats till Site Recovery-tjänsten när redundansen utlöstes.
-    1.  **Senaste bearbetade**: Det här alternativet redundansväxlar alla virtuella datorer i återställningsplanen till den senaste återställningspunkten som redan har bearbetats av Site Recovery-tjänsten. När du gör redundanstest för en virtuell dator, visas också tidsstämpeln för den senaste bearbetade återställningspunkten. Om du genomför redundans för en återställningsplan går du till en enskild virtuell dator och titta på **senaste återställningspunkter** panelen för att få den här informationen. Ingen tid på för att bearbeta obearbetade data, ger det här alternativet ett lågt mål för Återställningstid (RTO) redundans alternativ.
-    1.  **Senaste appkonsekventa**: Det här alternativet redundansväxlar alla virtuella datorer i återställningsplanen till den senaste programkonsekvent återställningspunkt som redan har bearbetats av Site Recovery-tjänsten. När du gör redundanstest för en virtuell dator, visas också tidsstämpeln för den senaste appkonsekventa återställningspunkten. Om du genomför redundans för en återställningsplan går du till en enskild virtuell dator och titta på **senaste återställningspunkter** panelen för att få den här informationen.
-    1.  **Senaste multi-VM bearbetas**: Det här alternativet är endast tillgänglig för återställningsplaner som har minst en virtuell dator med flera virtuella datorer konsekvens vidare. Virtuella datorer som är en del av en replikering gruppväxling till den senaste vanliga Konsekvens programkonsekvent återställningspunkten för programkatalog. Andra virtuella datorer redundans till sina senaste bearbetade återställningspunkten.  
-    1.  **Senaste multi-VM appkonsekvent**: Det här alternativet är endast tillgänglig för återställningsplaner som har minst en virtuell dator med flera virtuella datorer konsekvens vidare. Virtuella datorer som ingår i en grupp replikeringsredundansen till den senaste vanliga Konsekvens programkonsekventa återställningspunkten för programkatalog. Andra virtuella datorer redundans till sina senaste programkonsekventa återställningspunkten.
-    1.  **Anpassat**: Om du genomför testning av redundans för en virtuell dator kan du använda det här alternativet ska gå över till en specifik återställningspunkt.
+   1. **Senaste**: Det här alternativet startar jobbet genom att bearbetning av alla data som har skickats till Site Recovery-tjänsten. Bearbeta data skapar en återställningspunkt för varje virtuell dator. Den här återställningspunkten används av den virtuella datorn under redundansväxlingen. Det här alternativet ger det lägsta MÅLET (mål för återställningspunkt) som den virtuella datorn skapas efter att redundansen har fått alla data som har replikerats till Site Recovery-tjänsten när redundansen utlöstes.
+   1. **Senaste bearbetade**: Det här alternativet redundansväxlar alla virtuella datorer i återställningsplanen till den senaste återställningspunkten som redan har bearbetats av Site Recovery-tjänsten. När du gör redundanstest för en virtuell dator, visas också tidsstämpeln för den senaste bearbetade återställningspunkten. Om du genomför redundans för en återställningsplan går du till en enskild virtuell dator och titta på **senaste återställningspunkter** panelen för att få den här informationen. Ingen tid på för att bearbeta obearbetade data, ger det här alternativet ett lågt mål för Återställningstid (RTO) redundans alternativ.
+   1. **Senaste appkonsekventa**: Det här alternativet redundansväxlar alla virtuella datorer i återställningsplanen till den senaste programkonsekvent återställningspunkt som redan har bearbetats av Site Recovery-tjänsten. När du gör redundanstest för en virtuell dator, visas också tidsstämpeln för den senaste appkonsekventa återställningspunkten. Om du genomför redundans för en återställningsplan går du till en enskild virtuell dator och titta på **senaste återställningspunkter** panelen för att få den här informationen.
+   1. **Senaste multi-VM bearbetas**: Det här alternativet är endast tillgänglig för återställningsplaner som har minst en virtuell dator med flera virtuella datorer konsekvens vidare. Virtuella datorer som är en del av en replikering gruppväxling till den senaste vanliga Konsekvens programkonsekvent återställningspunkten för programkatalog. Andra virtuella datorer redundans till sina senaste bearbetade återställningspunkten.  
+   1. **Senaste multi-VM appkonsekvent**: Det här alternativet är endast tillgänglig för återställningsplaner som har minst en virtuell dator med flera virtuella datorer konsekvens vidare. Virtuella datorer som ingår i en grupp replikeringsredundansen till den senaste vanliga Konsekvens programkonsekventa återställningspunkten för programkatalog. Andra virtuella datorer redundans till sina senaste programkonsekventa återställningspunkten.
+   1. **Anpassat**: Om du genomför testning av redundans för en virtuell dator kan du använda det här alternativet ska gå över till en specifik återställningspunkt.
 
-    > [!NOTE]
-    > Möjlighet att välja en återställningspunkt är endast tillgänglig när du redundansväxla till Azure.
-    >
-    >
+      > [!NOTE]
+      > Möjlighet att välja en återställningspunkt är endast tillgänglig när du redundansväxla till Azure.
+      >
+      >
 
 
 1. Om några av de virtuella datorerna i återställningsplanen som växlades över i en tidigare körning och nu virtuella datorer är aktiva på både käll- och plats, kan du använda **ändra riktning** alternativet för att bestämma vilken riktning där den redundans ska inträffa.
@@ -70,9 +70,9 @@ Virtuella datorer/fysiska servrar som skyddas med Site Recovery också stöd fö
 
 > [!NOTE]
 > Under en redundansväxling av Hyper-v-datorer från en lokal plats till en annan lokal plats till gå tillbaka till den primära lokala platsen måste du först **omvänd replikering** den virtuella datorn tillbaka till primär plats och sedan utlösa redundans. Om den primära virtuella datorn inte är tillgängligt sedan innan du startar till **omvänd replikering** du måste återställa den virtuella datorn från en säkerhetskopia.   
->
->
-## <a name="failover-job"></a>Redundansjobbet skapades
+> 
+> 
+> ## <a name="failover-job"></a>Redundansjobbet skapades
 
 ![Redundans](./media/site-recovery-failover/FailoverJob.png)
 

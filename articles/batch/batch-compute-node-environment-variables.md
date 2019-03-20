@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 02/07/2019
 ms.author: lahugh
-ms.openlocfilehash: 734c16111ab859b55d87525cdc8a644c8114f6d2
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 9902f38ddfd3035adcce697c2eb5b77bdc1d8c9c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429052"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57874769"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch compute miljövariabler
 
@@ -62,7 +62,6 @@ Kommandorader som körs av aktiviteter på compute-noder gör inte körs under e
 | AZ_BATCH_TASK_DIR               | Den fullständiga sökvägen till den [aktivitetskatalogen] [ files_dirs] på noden. Den här katalogen innehåller den `stdout.txt` och `stderr.txt` för aktiviteten och AZ_BATCH_TASK_WORKING_DIR. | Alla aktiviteter. | C:\user\tasks\workitems\batchjob001\job-1\task001 |
 | AZ_BATCH_TASK_ID                | ID:t för den aktuella aktiviteten. | Alla aktiviteter förutom startaktivitet. | task001 |
 | AZ_BATCH_TASK_SHARED_DIR | En sökväg som är identisk för den primära aktiviteten och varje underaktivitet för en [flerinstansuppgift][multi_instance]. Sökvägen finns på varje nod där flera instanser uppgiften körs och är tillgänglig för uppgift-kommandon som körs på noden skrivbara (både den [samordning kommandot] [ coord_cmd] och [ programmet kommandot][app_cmd]). Underaktiviteter eller en primär aktivitet som utförs på andra noder har inte fjärråtkomst till den här katalogen (det inte är en ”delad” nätverkskatalog). | Flera instanser primära och underaktiviteter. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
-| AZ_BATCH_TASK_SHARED_DIR        | En gemensam katalog för att lagra data som ska delas mellan aktiviteter på noden. | Alla aktiviteter. | C:\user\tasks\shared |
 | AZ_BATCH_TASK_WORKING_DIR       | Den fullständiga sökvägen till den [arbetskatalogen] [ files_dirs] på noden. Pågående aktivitet har läs-/ skrivbehörighet till den här katalogen. | Alla aktiviteter. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
 | CCP_NODES                       | Listan över noder och antalet kärnor per nod som har tilldelats en [flerinstansuppgift][multi_instance]. Noder och kärnor anges i formatet `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, där antalet noder som följs av en eller flera noden IP-adresser och antalet kärnor för varje. |  Flera instanser primära och underaktiviteter. |`2 10.0.0.4 1 10.0.0.5 1` |
 

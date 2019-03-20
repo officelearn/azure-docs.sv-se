@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0a8680fbc8a3a051906f223d8b2476891c92d110
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: e3b4da1c1d835e9d630c000055af058aa7b45968
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888210"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109196"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Hantera säkerhetsrekommendationer i Azure Security Center
 Det här dokumentet vägleder dig genom hur du använder rekommendationer i Azure Security Center för att hjälpa dig att skydda dina Azure-resurser.
@@ -68,10 +68,10 @@ Du kan filtrera rekommendationer. Om du vill filtrera rekommendationer, Välj **
 
 > [!NOTE]
 > Du vill förstå den [klassiska och Resource Manager-distributionsmodeller](../azure-classic-rm.md) för Azure-resurser.
->
->
-### <a name="apply-recommendations"></a>Tillämpa rekommendationer
-När du har granskat avgör alla rekommendationer vilken du bör använda först. Vi rekommenderar att du använder risknivån eftersom parametern huvudsakliga för att utvärdera vilka rekommendationer ska tillämpas först.
+> 
+> 
+> ### <a name="apply-recommendations"></a>Tillämpa rekommendationer
+> När du har granskat avgör alla rekommendationer vilken du bör använda först. Vi rekommenderar att du använder risknivån eftersom parametern huvudsakliga för att utvärdera vilka rekommendationer ska tillämpas först.
 
 
 

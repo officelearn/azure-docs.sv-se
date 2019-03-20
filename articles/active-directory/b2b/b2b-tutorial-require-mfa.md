@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70f6718c13534e7f43b183400a1ccf25c3f8d1e1
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 5a4ed93bee091bf0a40718a47ffb7cd97a85147c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669019"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993491"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Självstudier: Framtvinga multifaktorautentisering för B2B-gästanvändare
 
@@ -42,7 +42,7 @@ I den här kursen ska du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra scenariot i den här självstudien behöver du:
 
@@ -139,5 +139,6 @@ När testanvändaren inte längre behövs kan du ta bort den och principen för 
 5.  Välj **Azure Active Directory** i den vänstra rutan.
 6.  Välj **Villkorsstyrd åtkomst** under **Säkerhet**.
 7.  Välj snabbmenyn (...) för testprincipen i listan **Principnamn** och välj sedan **Ta bort**. Bekräfta genom att välja **Ja**.
+
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudien har du skapat en princip för villkorsstyrd åtkomst som kräver att gästanvändare använder MFA när de loggar in till någon av dina molnappar. Läs mer om att lägga till gästanvändare för samarbete i [Lägga till B2B-samarbetsanvändare för Azure Active Directory i Azure Portal](add-users-administrator.md).

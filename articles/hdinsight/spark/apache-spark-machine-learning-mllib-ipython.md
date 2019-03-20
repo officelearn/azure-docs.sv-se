@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: b5d1908201de803ae065403600fc3478e604eedd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: bf29fd8d9b707636fb5965669ad800517a6cf58f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959110"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075569"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Använda Apache Spark MLlib för att skapa en machine learning-program och analysera en datauppsättning
 
@@ -200,16 +200,16 @@ Låt oss börja att få en uppfattning om vad som innehåller datauppsättningen
 
     För att förutsäga ett mat inspektion resultat, måste du utveckla en modell som baseras på överträdelser. Eftersom logistic regression är en metod för binär klassificering, är det praktiskt att gruppera Resultatdata i två kategorier: **Misslyckas** och **skicka**:
 
-    - Godkänd
-        - Godkänd
-        - Skicka meddelanden med av villkor
-    - Misslyckades
-        - Misslyckades
-    - Kasta bort
-        - Företag som inte finns
-        - Verksamhet
+   - Godkänd
+       - Godkänd
+       - Skicka meddelanden med av villkor
+   - Misslyckades
+       - Misslyckades
+   - Kasta bort
+       - Företag som inte finns
+       - Verksamhet
 
-    Data med andra resultaten (”företag finns inte” eller ”Out of Business”) är inte användbara och de utgör en liten andel av resultaten ändå.
+     Data med andra resultaten (”företag finns inte” eller ”Out of Business”) är inte användbara och de utgör en liten andel av resultaten ändå.
 
 4. Kör följande kod för att konvertera den befintliga dataramen (`df`) till en ny dataframe där varje inspektion representeras som en etikett överträdelser-par. I det här fallet en etikett för `0.0` genererar ett fel, en etikett för `1.0` representerar lyckas och en etikett för `-1.0` representerar vissa resultat utöver dessa två. 
 

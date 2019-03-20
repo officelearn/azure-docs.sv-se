@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 47496be907726ca8cd0e235775cdb1a8493310d0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 4f6c420ab76462818fb17308d062cc9d881af7df
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879113"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091043"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
 
@@ -38,55 +38,55 @@ Parametrarna som skickades mot frågesträngen är:
   <th>Beskrivning</th>
   <tr>
     <td>API-versionen</td>
-    <td>*Obligatoriska parametern*.<br/>Versionen av API: et som begärs av klienten. Värdet måste vara `3.0`.</td>
+    <td><em>Obligatoriska parametern</em>.<br/>Versionen av API: et som begärs av klienten. Värdet måste vara <code>3.0</code>.</td>
   </tr>
   <tr>
     <td>från</td>
-    <td>*Valfri parameter*.<br/>Anger språket i indatatexten. Hitta vilka språk är tillgängliga att översätta från genom att leta upp [språk som stöds](./v3-0-languages.md) med hjälp av den `translation` omfång. Om den `from` parametern inte anges, automatisk språkidentifiering används för att fastställa en källspråket.</td>
+    <td><em>Valfri parameter</em>.<br/>Anger språket i indatatexten. Hitta vilka språk är tillgängliga att översätta från genom att leta upp [språk som stöds](./v3-0-languages.md) med hjälp av den <code>translation</code> omfång. Om den <code>from</code> parametern inte anges, automatisk språkidentifiering används för att fastställa en källspråket.</td>
   </tr>
   <tr>
     <td>till</td>
-    <td>*Obligatoriska parametern*.<br/>Anger språket i utdata texten. Målspråket som måste vara något av de [språk som stöds](./v3-0-languages.md) ingår i den `translation` omfång. Till exempel använda `to=de` att översätta tyska.<br/>Det är möjligt att översätta på flera språk samtidigt genom att upprepa parametern i frågesträngen. Till exempel använda `to=de&to=it` att översätta tyska och italienska.</td>
+    <td><em>Obligatoriska parametern</em>.<br/>Anger språket i utdata texten. Målspråket som måste vara något av de [språk som stöds](./v3-0-languages.md) ingår i den <code>translation</code> omfång. Till exempel använda <code>to=de</code> att översätta tyska.<br/>Det är möjligt att översätta på flera språk samtidigt genom att upprepa parametern i frågesträngen. Till exempel använda <code>to=de&to=it</code> att översätta tyska och italienska.</td>
   </tr>
   <tr>
     <td>textType</td>
-    <td>*Valfri parameter*.<br/>Anger om texten som översätts är oformaterad text eller HTML-text. All HTML-kod måste vara en korrekt strukturerad, fullständig element. Möjliga värden är: `plain` (standard) eller `html`.</td>
+    <td><em>Valfri parameter</em>.<br/>Anger om texten som översätts är oformaterad text eller HTML-text. All HTML-kod måste vara en korrekt strukturerad, fullständig element. Möjliga värden är: <code>plain</code> (standard) eller <code>html</code>.</td>
   </tr>
   <tr>
     <td>category</td>
-    <td>*Valfri parameter*.<br/>En sträng som anger kategorin (domän) för översättningen. Den här parametern används för att hämta översättningar från ett anpassat system som skapats med [anpassad Translator](../customization.md). Lägg till kategori-ID från projektet anpassade Translator för den här parametern för att använda ditt anpassade distribuerade system. Standardvärdet är: `general`.</td>
+    <td><em>Valfri parameter</em>.<br/>En sträng som anger kategorin (domän) för översättningen. Den här parametern används för att hämta översättningar från ett anpassat system som skapats med [anpassad Translator](../customization.md). Lägg till kategori-ID från projektet anpassade Translator för den här parametern för att använda ditt anpassade distribuerade system. Standardvärdet är: <code>general</code>.</td>
   </tr>
   <tr>
     <td>ProfanityAction</td>
-    <td>*Valfri parameter*.<br/>Anger hur profanities ska hanteras på översättningar. Möjliga värden är: `NoAction` (standard), `Marked` eller `Deleted`. Information om olika sätt att behandla svordomar finns i [svordomar hantering](#handle-profanity).</td>
+    <td><em>Valfri parameter</em>.<br/>Anger hur profanities ska hanteras på översättningar. Möjliga värden är: <code>NoAction</code> (standard), <code>Marked</code> eller <code>Deleted</code>. Information om olika sätt att behandla svordomar finns i [svordomar hantering](#handle-profanity).</td>
   </tr>
   <tr>
     <td>profanityMarker</td>
-    <td>*Valfri parameter*.<br/>Anger hur profanities bör markeras i översättningar. Möjliga värden är: `Asterisk` (standard) eller `Tag`. Information om olika sätt att behandla svordomar finns i [svordomar hantering](#handle-profanity).</td>
+    <td><em>Valfri parameter</em>.<br/>Anger hur profanities bör markeras i översättningar. Möjliga värden är: <code>Asterisk</code> (standard) eller <code>Tag</code>. Information om olika sätt att behandla svordomar finns i [svordomar hantering](#handle-profanity).</td>
   </tr>
   <tr>
     <td>includeAlignment</td>
-    <td>*Valfri parameter*.<br/>Anger om du vill inkludera justering projektion från källtext till översatt text. Möjliga värden är: `true` eller `false` (standard). </td>
+    <td><em>Valfri parameter</em>.<br/>Anger om du vill inkludera justering projektion från källtext till översatt text. Möjliga värden är: <code>true</code> eller <code>false</code> (standard). </td>
   </tr>
   <tr>
     <td>includeSentenceLength</td>
-    <td>*Valfri parameter*.<br/>Anger om du vill inkludera mening gränser för indatatexten och den översatta texten. Möjliga värden är: `true` eller `false` (standard).</td>
+    <td><em>Valfri parameter</em>.<br/>Anger om du vill inkludera mening gränser för indatatexten och den översatta texten. Möjliga värden är: <code>true</code> eller <code>false</code> (standard).</td>
   </tr>
   <tr>
     <td>suggestedFrom</td>
-    <td>*Valfri parameter*.<br/>Anger en återställningsplats språk om det inte går att identifiera språket i indatatexten. Automatisk identifiering av språk används när den `from` parametern utelämnas. Om identifieringen misslyckas den `suggestedFrom` antas språk.</td>
+    <td><em>Valfri parameter</em>.<br/>Anger en återställningsplats språk om det inte går att identifiera språket i indatatexten. Automatisk identifiering av språk används när den <code>from</code> parametern utelämnas. Om identifieringen misslyckas den <code>suggestedFrom</code> antas språk.</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Valfri parameter*.<br/>Anger skriptet på indatatexten.</td>
+    <td><em>Valfri parameter</em>.<br/>Anger skriptet på indatatexten.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Valfri parameter*.<br/>Anger skriptet på den översatta texten.</td>
+    <td><em>Valfri parameter</em>.<br/>Anger skriptet på den översatta texten.</td>
   </tr>
   <tr>
     <td>allowFallback</td>
-    <td>*Valfri parameter*.<br/>Anger att tjänsten ska kunna återgå till ett allmänt system när en anpassad system inte finns. Möjliga värden är: `true` (standard) eller `false`.<br/><br/>`allowFallback=false` Anger att översättningen bara ska använda system som har tränats för den `category` anges i begäran. Om en översättning för språk X språk Y kräver länkning via en pivot-språk E, sedan alla system i kedjan (X -> E- och E -> Y) måste vara anpassad och har samma kategori. Om inga så är fallet med viss kategori returnerar begäran 400-statuskod. `allowFallback=true` Anger att tjänsten ska kunna återgå till ett allmänt system när en anpassad system inte finns.
+    <td><em>Valfri parameter</em>.<br/>Anger att tjänsten ska kunna återgå till ett allmänt system när en anpassad system inte finns. Möjliga värden är: <code>true</code> (standard) eller <code>false</code>.<br/><br/><code>allowFallback=false</code> Anger att översättningen bara ska använda system som har tränats för den <code>category</code> anges i begäran. Om en översättning för språk X språk Y kräver länkning via en pivot-språk E, sedan alla system i kedjan (X -> E- och E -> Y) måste vara anpassad och har samma kategori. Om inga så är fallet med viss kategori returnerar begäran 400-statuskod. <code>allowFallback=true</code> Anger att tjänsten ska kunna återgå till ett allmänt system när en anpassad system inte finns.
 </td>
   </tr>
 </table> 
@@ -98,19 +98,19 @@ Begärandehuvuden är:
   <th>Beskrivning</th>
   <tr>
     <td>_En auktorisering_<br/>_header_</td>
-    <td>*Nödvändiga begärandehuvudet*.<br/>Se [tillgängliga alternativ för autentisering](./v3-0-reference.md#authentication).</td>
+    <td><em>Nödvändiga begärandehuvudet</em>.<br/>Se [tillgängliga alternativ för autentisering](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*Nödvändiga begärandehuvudet*.<br/>Anger innehållstypen för nyttolasten. Möjliga värden är: `application/json`.</td>
+    <td><em>Nödvändiga begärandehuvudet</em>.<br/>Anger innehållstypen för nyttolasten. Möjliga värden är: <code>application/json</code>.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*Nödvändiga begärandehuvudet*.<br/>Längden på det begärda innehållet.</td>
+    <td><em>Nödvändiga begärandehuvudet</em>.<br/>Längden på det begärda innehållet.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Valfritt*.<br/>En klientgenererade GUID för unik identifiering på begäran. Du kan utelämna den här rubriken om du inkluderar trace-ID i frågesträngen med hjälp av en frågeparameter som heter `ClientTraceId`.</td>
+    <td><em>Valfritt</em>.<br/>En klientgenererade GUID för unik identifiering på begäran. Du kan utelämna den här rubriken om du inkluderar trace-ID i frågesträngen med hjälp av en frågeparameter som heter <code>ClientTraceId</code>.</td>
   </tr>
 </table> 
 
@@ -209,7 +209,7 @@ Här följer möjliga HTTP-statuskoder som returnerar en begäran.
   </tr>
   <tr>
     <td>408</td>
-    <td>Begäran kan inte fullföljas eftersom en resurs saknas. Finns information om felmeddelandet. När du använder en anpassad `category`, detta indikerar ofta att den anpassade översättningssystemet inte ännu tillgänglig för att hantera begäranden. Begäran ska göras efter en väntetid (t.ex. 1 minut).</td>
+    <td>Begäran kan inte fullföljas eftersom en resurs saknas. Finns information om felmeddelandet. När du använder en anpassad <code>category</code>, detta indikerar ofta att den anpassade översättningssystemet inte ännu tillgänglig för att hantera begäranden. Begäran ska göras efter en väntetid (t.ex. 1 minut).</td>
   </tr>
   <tr>
     <td>429</td>
@@ -217,11 +217,11 @@ Här följer möjliga HTTP-statuskoder som returnerar en begäran.
   </tr>
   <tr>
     <td>500</td>
-    <td>Det uppstod ett oväntat fel. Om felet kvarstår bör du rapportera det med: datum och tid för fel, begärande-ID från svarshuvud `X-RequestId`, och klient-ID från begärandehuvudet `X-ClientTraceId`.</td>
+    <td>Det uppstod ett oväntat fel. Om felet kvarstår bör du rapportera det med: datum och tid för fel, begärande-ID från svarshuvud <code>X-RequestId</code>, och klient-ID från begärandehuvudet <code>X-ClientTraceId</code>.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servern är inte tillgänglig för tillfället. Gör om begäran. Om felet kvarstår bör du rapportera det med: datum och tid för fel, begärande-ID från svarshuvud `X-RequestId`, och klient-ID från begärandehuvudet `X-ClientTraceId`.</td>
+    <td>Servern är inte tillgänglig för tillfället. Gör om begäran. Om felet kvarstår bör du rapportera det med: datum och tid för fel, begärande-ID från svarshuvud <code>X-RequestId</code>, och klient-ID från begärandehuvudet <code>X-ClientTraceId</code>.</td>
   </tr>
 </table> 
 
@@ -376,28 +376,28 @@ Du kan använda svordomar filtrering alternativet om du vill undvika svordomar i
   <th width="20%">ProfanityAction</th>
   <th>Åtgärd</th>
   <tr>
-    <td>`NoAction`</td>
+    <td><code>NoAction</code></td>
     <td>Detta är standardbeteendet. Svordomar skickas från källan till målet.<br/><br/>
-    **Exempel källan (japanska)**: 彼はジャッカスです。<br/>
-    **Exempel Translation (på engelska)**: Han är en jackass.
+    <strong>Exempel källan (japanska)</strong>: 彼はジャッカスです。<br/>
+    <strong>Exempel Translation (på engelska)</strong>: Han är en jackass.
     </td>
   </tr>
   <tr>
-    <td>`Deleted`</td>
+    <td><code>Deleted</code></td>
     <td>Olämpliga ord. tas bort från utdata utan ersättning.<br/><br/>
-    **Exempel källan (japanska)**: 彼はジャッカスです。<br/>
-    **Exempel Translation (på engelska)**: Han är en.
+    <strong>Exempel källan (japanska)</strong>: 彼はジャッカスです。<br/>
+    <strong>Exempel Translation (på engelska)</strong>: Han är en.
     </td>
   </tr>
   <tr>
-    <td>`Marked`</td>
-    <td>Olämpliga ersättas med en markör i utdata. Markörens beror på den `ProfanityMarker` parametern.<br/><br/>
-För `ProfanityMarker=Asterisk`, olämpliga ord har ersatts med `***`:<br/>
-    **Exempel källan (japanska)**: 彼はジャッカスです。<br/>
-    **Exempel Translation (på engelska)**: Han är en \* \* \*.<br/><br/>
-För `ProfanityMarker=Tag`, olämpliga ord. omges av XML-taggar &lt;svordomar&gt; och &lt;/profanity&gt;:<br/>
-    **Exempel källan (japanska)**: 彼はジャッカスです。<br/>
-    **Exempel Translation (på engelska)**: Han är en &lt;svordomar&gt;jackass&lt;/profanity&gt;.
+    <td><code>Marked</code></td>
+    <td>Olämpliga ersättas med en markör i utdata. Markörens beror på den <code>ProfanityMarker</code> parametern.<br/><br/>
+För <code>ProfanityMarker=Asterisk</code>, olämpliga ord har ersatts med <code>***</code>:<br/>
+    <strong>Exempel källan (japanska)</strong>: 彼はジャッカスです。<br/>
+    <strong>Exempel Translation (på engelska)</strong>: Han är en \* \* \*.<br/><br/>
+För <code>ProfanityMarker=Tag</code>, olämpliga ord. omges av XML-taggar &lt;svordomar&gt; och &lt;/profanity&gt;:<br/>
+    <strong>Exempel källan (japanska)</strong>: 彼はジャッカスです。<br/>
+    <strong>Exempel Translation (på engelska)</strong>: Han är en &lt;svordomar&gt;jackass&lt;/profanity&gt;.
   </tr>
 </table> 
 

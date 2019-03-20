@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: 431a4ef4e84c88467dc7e36bb12d406309f9a8b7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d00bf87a80e13808c42a5839ad0f4508ad7214b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467840"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011101"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Använda Azure Storage med en Hudson-baserad CI-lösning
 ## <a name="overview"></a>Översikt
@@ -25,7 +25,7 @@ I den här självstudiekursen kommer du att använda Azure Storage-plugin-progra
 ## <a name="introduction-to-hudson"></a>Introduktion till Hudson
 Hudson möjliggör kontinuerlig integrering för ett programvaruprojekt genom att låta utvecklare att enkelt integrera sina ändringar i koden och har producerat versioner automatiskt och ofta, vilket ökar produktiviteten-utvecklare. Versioner är en ny version och byggartefakter som kan överföras till olika databaser. Den här artikeln visar hur du använder Azure Blob storage som lagringsplats för byggartefakterna. Den visas också hur du hämtar beroenden från Azure Blob storage.
 
-Mer information om Hudson finns på [uppfyller Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
+Mer information om Hudson finns på [uppfyller Hudson](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
 
 ## <a name="benefits-of-using-the-blob-service"></a>Fördelarna med att använda Blob-tjänsten
 Fördelar med att använda Blob service som värd för din smidig utveckling byggartefakter är:
@@ -52,7 +52,7 @@ Du behöver följande för att använda Blob-tjänsten med Hudson CI-lösning:
   5. När du har den inledande installationen, Avbryt den pågående instansen av Hudson WAR, starta Hudson WAR igen och öppnar instrumentpanelen Hudson `http://localhost:8080/`, som du använder för att installera och konfigurera Azure Storage-plugin-programmet.
      
       När en typisk Hudson CI-lösning skulle ställas in att köras som en tjänst som körs på Hudson war på kommandoraden räcker för den här självstudiekursen.
-* Ett Azure-konto. Du kan registrera dig för ett Azure-konto på <http://www.azure.com>.
+* Ett Azure-konto. Du kan registrera dig för ett Azure-konto på <https://www.azure.com>.
 * Ett Azure-lagringskonto. Om du inte redan har ett lagringskonto kan du skapa en med hjälp av stegen i [skapa ett Lagringskonto](../common/storage-quickstart-create-account.md).
 * Liknar processen med Hudson CI-lösning rekommenderas men krävs inte, eftersom följande innehåll kommer att använda ett grundläggande exempel för att visa de steg som krävs när du använder Blob service som databas för Hudson CI skapa artefakter.
 
@@ -134,7 +134,7 @@ Följande steg visar hur du konfigurerar ett byggsteg för att hämta objekt fr�
 1. I den **skapa** avsnittet jobbkonfigurationen, klickar du på **Lägg till byggsteg** och välj **ladda ned från Azure Blob storage**.
 2. För **lagringskontonamn**, Välj lagringskontot som du använder.
 3. För **behållarnamn**, ange namnet på behållaren som innehåller de blobar som du vill hämta. Du kan använda miljövariabler.
-4. För **blobnamnet**, ange blobnamnet på. Du kan använda miljövariabler. Du kan också använda en asterisk som jokertecken när du har angett den första bokstaven i blobnamnet. Till exempel **projekt\***  anger alla blobbar vars namn börjar på **projekt**.
+4. För **blobnamnet**, ange blobnamnet på. Du kan använda miljövariabler. Du kan också använda en asterisk som jokertecken när du har angett den första bokstaven i blobnamnet. Till exempel **projekt\\*** anger alla blobbar vars namn börjar på **projekt**.
 5. [Valfritt] För **hämtningssökvägen**, ange sökvägen på den Hudson-datorn där du vill ladda ned filer från Azure Blob storage. Miljövariabler kan också användas. (Om du inte anger ett värde för **hämtningssökvägen**, hämtas filer från Azure Blob storage till arbetsytan för jobbets.)
 
 Om du har ytterligare objekt som du vill ladda ned från Azure Blob storage kan skapa du ytterligare byggsteg.
@@ -144,7 +144,7 @@ När du kör en version måste du kontrollera build historik konsolens utdata el
 ## <a name="components-used-by-the-blob-service"></a>Komponenter som används av Blob-tjänsten
 Följande innehåller en översikt över tjänstkomponenter Blob.
 
-* **Storage-konto**: All åtkomst till Azure Storage görs genom ett lagringskonto. Det här är den högsta nivån av namnområdet för att komma åt blobar. Ett konto kan innehålla ett obegränsat antal behållare, så länge som deras totala storlek är under 100 TB.
+* **Lagringskonto**: All åtkomst till Azure Storage görs genom ett lagringskonto. Det här är den högsta nivån av namnområdet för att komma åt blobar. Ett konto kan innehålla ett obegränsat antal behållare, så länge som deras totala storlek är under 100 TB.
 * **behållaren**: En behållare grupperar en uppsättning blobbar. Alla blobar måste vara i en container. Ett konto kan innehålla ett obegränsat antal containrar. En container kan lagra ett obegränsat antal blobar.
 * **Blob**: En fil av valfri typ och storlek. Det finns två typer av blobbar som kan lagras i Azure Storage: block- och sidblobbar. De flesta filer som är blockblobar. En enda blockblobb kan vara upp till 200 GB i storlek. Den här självstudien använder blockblobar. Sidblobar, en annan blobtyp kan vara upp till 1 TB i storlek, och är mer effektivt när intervallen för byte i en fil ändras ofta. Läs mer om BLOB-objekt, [förstå Blockblobbar, Tilläggsblobbar och Sidblobbar](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 * **URL-format**: BLOB-lagring är adresserbara via följande URL-format:
@@ -158,7 +158,7 @@ Följande innehåller en översikt över tjänstkomponenter Blob.
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
 ## <a name="next-steps"></a>Nästa steg
-* [Uppfyll Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
+* [Uppfyll Hudson](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
 * [Azure Storage SDK för Java](https://github.com/azure/azure-storage-java)
 * [Azure Storage Client SDK-referens](http://dl.windowsazure.com/storage/javadoc/)
 * [REST-API för Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179355.aspx)

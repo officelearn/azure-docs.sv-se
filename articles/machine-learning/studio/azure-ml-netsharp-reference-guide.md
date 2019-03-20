@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 13ec97a8356bb24fbbc2098f1249ae8fa5b6e3ce
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d667dadeb2e7c9d0005ab8d1a565017973038aaa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877103"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905162"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guide till Net # språket för neurala nätverk för Azure Machine Learning Studio
 
@@ -216,17 +216,16 @@ Det finns två uppsättningar med egenskaper som styr utfyllnad, egenskaper som 
 + **UpperPad** och **LowerPad**: (valfritt) Ange större kontroll över utfyllnad att använda. **Viktigt!** Dessa attribut kan vara definierad om och bara om den **utfyllnad** egenskapen ovan är ***inte*** definierats. Värdena måste vara integer-värden tupplar med längder som är specifikaci för paketet. När dessa attribut anges, läggs ”dummy” noder på lägre och övre kanten av varje dimension skiktets indata. Antalet noder som har lagts till i det lägre och övre upphört att gälla i varje dimension bestäms av **LowerPad**[i] och **UpperPad**[i] respektive.
 
     För att säkerställa att kernlar motsvara endast ”verklig” noder och inte till ”dummy” noder, måste följande villkor vara uppfyllda:
-      - Varje komponent i **LowerPad** måste vara strikt mindre än `KernelShape[d]/2`.
-      - Varje komponent i **UpperPad** får inte vara större än `KernelShape[d]/2`.
-      - Standardvärdet för dessa attribut är en tuppel med alla komponenter som är lika med 0.
+  - Varje komponent i **LowerPad** måste vara strikt mindre än `KernelShape[d]/2`.
+  - Varje komponent i **UpperPad** får inte vara större än `KernelShape[d]/2`.
+  - Standardvärdet för dessa attribut är en tuppel med alla komponenter som är lika med 0.
 
     Inställningen **utfyllnad** = true tillåter så mycket utfyllnad som behövs för att hålla ”mittpunkt” kerneln i ”verkliga” indata. Detta ändrar matematiska lite för databehandling storlek. I allmänhet utdatastorlek *D* beräknas som `D = (I - K) / S + 1`, där `I` har inkommande storlek, `K` har kernel-storlek, `S` är på väg och `/` är Heltalsdivision (avrundas mot noll ). Om du ställer in UpperPad = [1, 1], Indatastorleken `I` är effektivt 29, och därmed `D = (29 - 5) / 2 + 1 = 13`. Men när **utfyllnad** = true, i stort sett `I` hämtar ökar av `K - 1`; därför `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`. Genom att ange värden för **UpperPad** och **LowerPad** du får mycket större kontroll över utfyllnaden än om du bara ange **utfyllnad** = true.
 
 Mer information om convolutional nätverk och deras program finns i följande artiklar:
 
 + [http://deeplearning.net/tutorial/lenet.html](http://deeplearning.net/tutorial/lenet.html)
-+ [http://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
-+ [http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)
++ [https://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
 
 ## <a name="pooling-bundles"></a>Poolning paket
 
@@ -252,13 +251,13 @@ hidden P1 [5, 12, 12]
 
 Mer information om en pool lager finns i följande artiklar:
 
-+ [http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Punkt 3.4)
-+ [http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
-+ [http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
++ [https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Punkt 3.4)
++ [https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
++ [https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 
 ## <a name="response-normalization-bundles"></a>Svaret normalisering paket
 
-**Svaret normalisering** är ett schema för lokala normalisering som introducerades av Geoffrey Hinton et al. i dokumentet [ImageNet klassificering med djupgående Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf).
+**Svaret normalisering** är ett schema för lokala normalisering som introducerades av Geoffrey Hinton et al. i dokumentet [ImageNet klassificering med djupgående Convolutional Neural Networks](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf).
 
 Svaret normalisering används för att underlätta generalisering i neurala nätverk. När en neuron håller på att utlösas på en mycket hög aktivering-nivå, Undertrycker en lokal svar normalisering layer aktivering andelen omgivande neurons. Detta görs med hjälp av tre parametrarna (`α`, `β`, och `k`) och en convolutional struktur (eller stadsdel form). Varje neuron i mållagret **y** motsvarar en neuron **x** i käll-lagret. Aktivering andelen **y** ges genom följande formel, där `f` är den aktivering i en neuron och `Nx` är kärnan (eller uppsättning som innehåller neurons i nätverket av **x**), som definieras av följande convolutional struktur:
 
@@ -463,4 +462,4 @@ output Digit [10] from Hid3 all;
 
 ## <a name="acknowledgements"></a>Bekräftelser
 
-Net #-språket för anpassning av arkitekturen för neurala nätverk har utvecklats på Microsoft av Shon Katzenberger (Architect, Machine Learning) och Alexey Kamenev (programvaruutvecklare, Microsoft Research). Den används internt för machine learning-projekt och program som sträcker sig från bilden identifiering till textanalys. Mer information finns i [Neurala nätverk i Azure Machine Learning studio – introduktion till Net #](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)
+Net #-språket för anpassning av arkitekturen för neurala nätverk har utvecklats på Microsoft av Shon Katzenberger (Architect, Machine Learning) och Alexey Kamenev (programvaruutvecklare, Microsoft Research). Den används internt för machine learning-projekt och program som sträcker sig från bilden identifiering till textanalys. Mer information finns i [Neurala nätverk i Azure Machine Learning studio – introduktion till Net #](https://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)

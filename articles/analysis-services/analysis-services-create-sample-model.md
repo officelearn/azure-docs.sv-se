@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 03/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 78b309336b21c3b6a58a37b1729f675db111c5d0
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 32c46f0a488d775275b3a367aa2913f034569041
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190552"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903937"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Självstudie: Lägga till en exempelmodell från portalen
 
@@ -57,7 +57,7 @@ Logga in på [portalen](https://portal.azure.com/).
 
 Din exempelmodell använder resurser i cacheminnet. Om du inte använder exempelmodellen för testning bör du ta bort den från din server.
 
-I de här anvisningarna beskrivs det hur du tar bort en modell från en server med hjälp av SSMS. Du kan också ta bort en modell med förhandsversionen av Webbdesigner-funktionen.
+I de här anvisningarna beskrivs det hur du tar bort en modell från en server med hjälp av SSMS.
 
 1. I SSMS > **Object Explorer** klickar du på **Anslut** > **Analysis Services**.
 

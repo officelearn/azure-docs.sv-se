@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: nitinme
-ms.openlocfilehash: 5c6d9bbfe5cf3632b21f374c23bf5df728478ce0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7f0bfa407705f4c9535e6dddc9a27a4f7130931d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761063"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113838"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Vad är Azure Cognitive Services?
 
@@ -46,7 +46,7 @@ Azure Cognitive Services är API: er, SDK: er och tjänster som är tillgänglig
 |[Stavningskontroll i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "stavningskontroll i Bing")|Stavningskontroll i Bing kan du utföra sammanhangsberoende grammatik och stavningskontroll.|
 |[LUIS Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/ "Språkförståelse")|Tjänst för Språkförståelse (LUIS) tillåter programmet att förstå vad en person vill med egna ord.|
 |[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "textanalys")|Text Analytics tillhandahåller naturlig språkbearbetning rå text för attitydanalys, extrahering av diskussionsämne och språkidentifiering.|
-|[Translator för textöversättning](https://docs.microsoft.com/azure/cognitive-services/translator/ "textöversättning")|Translator för textöversättning ger datorbaserade textöversättning i nära realtid.||
+|[Translator för textöversättning](https://docs.microsoft.com/azure/cognitive-services/translator/ "textöversättning")|Translator för textöversättning ger datorbaserade textöversättning i nära realtid.|
 
 ## <a name="search-apis"></a>Sök API:er
 

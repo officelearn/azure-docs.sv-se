@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 825c6a7dd0c0163a1fd298ca7510f2483a5df2ad
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: d137576b4beb5cf36dce99ffb1869049f37b60b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076526"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881273"
 ---
 # <a name="overview-of-monitoring-containers-in-azure"></a>Översikt över övervakning av behållare i Azure
 Med Azure kan du effektivt övervaka och hantera dina arbetsbelastningar som distribuerats på Azure som kör Kubernetes eller Docker-behållare. Det är viktigt att förstå hur behållare med flera mikrotjänstprogram utför för att leverera en tillförlitlig tjänst i skala och övervakning planen. Den här artikeln innehåller en kort översikt över hanterings- och övervakningsfunktionerna i Azure för att förstå dem och som är lämplig baserat på dina krav.
@@ -27,6 +27,6 @@ Med hjälp av [Azure Monitor för behållare](container-insights-overview.md), d
 
 För behållare som körs utanför den värdbaserade tjänsten i Azure Kubernetes, Log Analytics [Windows-och Docker-behållare](../../azure-monitor/insights/containers.md) hjälper dig att visa och hantera dina Windows- och Docker-behållare-värdar. Från Log Analytics-arbetsytan, kan du visa inventeringsinformation, prestanda och händelser från noderna och behållarna i miljön. Du kan visa detaljerad granskning av information som visar kommandon som används med behållare och du kan felsöka behållare genom att visa och söka i centraliserade loggar utan att fjärransluta till Docker- eller Windows-värdar.
 
-För att uppnå komplett eller slutpunkt till slutpunkt övervakning av programmet, bör eventuella beroenden om den är en Azure eller en lokal resurs, övervakas med Azure Monitor eller Log Analytics.  Programlagret ska inkluderas för att lägga till ett extra lager av hälsotillstånd i sin både på nivån plattformens och programmets med Application Insights. På nivån plattform är Application Insights SDK: er för [Kubernetes]( https://github.com/Microsoft/ApplicationInsights-Kubernetes), [Docker](https://hub.docker.com/r/microsoft/applicationinsights/), och [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights). Mikrotjänstprogram, det finns stöd för [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/learn/nodejs-quick-start.md), [.Net](../../azure-monitor/app/asp-net.md), [.Net Core](../../azure-monitor/app/asp-net-core.md), samt ett antal andra [språk/ramverk](../../azure-monitor/app/platforms.md). 
+För att uppnå komplett eller slutpunkt till slutpunkt övervakning av programmet, bör eventuella beroenden om den är en Azure eller en lokal resurs, övervakas med Azure Monitor eller Log Analytics.  Programlagret ska inkluderas för att lägga till ett extra lager av hälsotillstånd i sin både på nivån plattformens och programmets med Application Insights. På nivån plattform är Application Insights SDK: er för [Kubernetes]( https://github.com/Microsoft/ApplicationInsights-Kubernetes), [Docker](https://hub.docker.com/r/microsoft/applicationinsights/), och [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights). Mikrotjänstprogram, det finns stöd för [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/learn/nodejs-quick-start.md), [.NET](../../azure-monitor/app/asp-net.md), [.NET Core](../../azure-monitor/app/asp-net-core.md), samt ett antal andra [språk/ramverk](../../azure-monitor/app/platforms.md). 
 
 I annat fall problem går oidentifierade som kan påverka tillgängligheten för programmet och servicenivåavtal uppfylls inte.  

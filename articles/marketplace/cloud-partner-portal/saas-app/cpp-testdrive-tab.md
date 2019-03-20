@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0fa3638ef47fb8cb1d0237a2ab9530ab76d316dc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e97e79ef3077431d8fc627cd634a67b0a01b6f8e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449276"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993101"
 ---
 # <a name="saas-application-test-drive-tab"></a>SaaS-program Test Drive-fliken
 
@@ -47,6 +47,7 @@ De viktigaste publishing stegen för att lägga till ett test Drive är:
 ## <a name="setting-up-a-test-drive"></a>Hur du konfigurerar en provkörning
 
 Det finns fyra olika typer av Provkörningar, var och en baserat på vilken typ av produkt, scenario och du är på marketplace.
+
 |  **Typ**          |  **Beskrivning**  |  **Konfigurationsanvisningar**  |
 |  ---------------   |  ---------------  |  ---------------  |
 |     Azure Resource Manager               |    Testköra en Azure Resource Manager är en Distributionsmall som innehåller alla Azure-resurser som utgör en lösning som skapas av utgivaren. Produkter som passar den här typen av Test Drive är sådana som använder endast Azure-resurser.               |       [Azure Resource Manager Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)            |

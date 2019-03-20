@@ -8,31 +8,31 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 7f3b6de64343137278895d92835f080f8844dda1
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: e40b6fe115d6b6dea38ead9f0b2550d96bd04c7a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588932"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112644"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Konfigurera ett anpassat domännamn för ditt Azure storage-konto
 
-Du kan konfigurera en anpassad domän för åtkomst till blobdata på ditt Azure storage-konto. Standardslutpunkten för Azure Blob storage är  *\<lagringskontonamn->. blob.core.windows.net*. Du kan också använda webbslutpunkt som genereras som en del av den [serverstatiska webbplatser funktion (förhandsversion)](storage-blob-static-website.md). Om du mappar en anpassad domän och underdomänen, till exempel *www.contoso.com*, till blob- eller web-slutpunkt för ditt lagringskonto kan användarna använda den domänen få åtkomst till blob-data i ditt lagringskonto.
+Du kan konfigurera en anpassad domän för åtkomst till blobdata på ditt Azure storage-konto. Standardslutpunkten för Azure Blob storage är  *\<lagringskontonamn->. blob.core.windows.net*. Du kan också använda webbslutpunkt som genereras som en del av den [serverstatiska webbplatser funktion (förhandsversion)](storage-blob-static-website.md). Om du mappar en anpassad domän och underdomänen, till exempel *www\.contoso.com*, till blob- eller web-slutpunkt för ditt lagringskonto kan användarna använda den domänen få åtkomst till blob-data i ditt lagringskonto.
 
 > [!IMPORTANT]
 > Azure Storage har inte ännu har inbyggt stöd HTTPS med anpassade domäner. Du kan för närvarande [Använd Azure CDN för att få åtkomst till blobar med hjälp av anpassade domäner över HTTPS](storage-https-custom-domain-cdn.md).
->
-
-> [!NOTE]  
+> 
+> 
+> [!NOTE]
 > Storage-konton stöder för närvarande endast ett anpassat domännamn per konto. Du kan mappa ett anpassat domännamn till både webb- och blob-Tjänsteslutpunkter.
+> 
+> [!NOTE]
+> Mappningen fungerar endast för underdomäner (t.ex. www\.contoso.com). Om du vill ha din web-slutpunkt som är tillgängliga på rotdomänen (t.ex. contoso.com) kommer du behöva [använda Azure CDN med anpassade domäner](storage-https-custom-domain-cdn.md)
 
-> [!NOTE]  
-> Mappningen fungerar endast för underdomäner (t.ex. www.contoso.com). Om du vill ha din web-slutpunkt som är tillgängliga på rotdomänen (t.ex. contoso.com) kommer du behöva [använda Azure CDN med anpassade domäner](storage-https-custom-domain-cdn.md)
-
-I följande tabell visas några exempel-URL: er för blob-data som finns i ett lagringskonto med namnet *mystorageaccount*. Anpassade underdomänen som har registrerats för lagringskontot är *www.contoso.com*:
+I följande tabell visas några exempel-URL: er för blob-data som finns i ett lagringskonto med namnet *mystorageaccount*. Anpassade underdomänen som har registrerats för lagringskontot är *www\.contoso.com*:
 
 | Resurstyp | Standardwebbadress | URL: en anpassad domän |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | Lagringskonto | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
 | Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
 | Rotbehållare | http://mystorageaccount.blob.core.windows.net/myblob eller http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob eller http://www.contoso.com/$root/myblob |
@@ -43,13 +43,13 @@ I följande tabell visas några exempel-URL: er för blob-data som finns i ett l
 
 ## <a name="direct-vs-intermediary-cname-mapping"></a>Direct jämfört med mellanliggande CNAME-mappning
 
-Du kan peka din anpassade domän som föregås av en underdomän (t.ex. www.contoso.com) till blob-slutpunkten för ditt lagringskonto på något av två sätt: 
+Du kan ange din anpassade domän som föregås av en underdomän (till exempel www\.contoso.com) till blob-slutpunkten för ditt lagringskonto i något av två sätt: 
 * Använd direkt CNAME-mappning.
 * Använd den *asverify* mellanliggande underdomänen.
 
 ### <a name="direct-cname-mapping"></a>Direkt CNAME-mappning
 
-Den första och enklaste metoden är att skapa en post för kanoniskt namn (CNAME) som matchar din anpassade domäner och underdomäner direkt till blob-slutpunkten. En CNAME-post är en domain name system (DNS)-funktion som mappar en källdomän till en måldomän. I vårt exempel källdomänen använder din egen anpassade domäner och underdomäner (*www.contoso.com*, till exempel). Måldomänen är blobbtjänstens slutpunkt (*mystorageaccount.blob.core.windows.net*, till exempel).
+Den första och enklaste metoden är att skapa en post för kanoniskt namn (CNAME) som matchar din anpassade domäner och underdomäner direkt till blob-slutpunkten. En CNAME-post är en domain name system (DNS)-funktion som mappar en källdomän till en måldomän. I vårt exempel källdomänen använder din egen anpassade domäner och underdomäner (*www\.contoso.com*, till exempel). Måldomänen är blobbtjänstens slutpunkt (*mystorageaccount.blob.core.windows.net*, till exempel).
 
 Den direkta metoden beskrivs i avsnittet ”registrera en anpassad domän”.
 
@@ -89,7 +89,7 @@ Du kan vanligtvis hantera domänens DNS-inställningarna på din domänregistrat
    Värdnamnet är blobbtjänstens slutpunkt. Dess format är  *\<mystorageaccount >. blob.core.windows.net*, där *mystorageaccount* är namnet på ditt lagringskonto. Värdnamn för att använda visas i objektet #1 i den **Custom domain** fönstret i den [Azure-portalen](https://portal.azure.com). 
 
 1. I den **Custom domain** fönstret i textrutan anger du namnet på din domän, inklusive underdomänen.  
-   Exempel: om din domän är *contoso.com* och ditt underdomän alias är *www*, ange **www.contoso.com**. Om din underdomän är *foton*, ange **photos.contoso.com**.
+   Exempel: om din domän är *contoso.com* och ditt underdomän alias är *www*, ange **www\.contoso.com**. Om din underdomän är *foton*, ange **photos.contoso.com**.
 
 1. Om du vill registrera din anpassade domän, Välj **spara**.  
    Om registreringen lyckas meddelar portalen dig att ditt storage-konto har uppdaterats.
@@ -116,7 +116,7 @@ Den *asverify* underdomän är en särskild underdomän som identifieras av Azur
    Värdnamnet är blobbtjänstens slutpunkt. Dess format är *asverify.\< mystorageaccount >. blob.core.windows.net*, där *mystorageaccount* är namnet på ditt lagringskonto. Värdnamn för att använda visas i objektet #2 i den *Custom domain* fönstret i den [Azure-portalen](https://portal.azure.com).
 
 1. I den **Custom domain** fönstret i textrutan anger du namnet på din domän, inklusive underdomänen.  
-   Inkludera inte *asverify*. Exempel: om din domän är *contoso.com* och ditt underdomän alias är *www*, ange **www.contoso.com**. Om din underdomän är *foton*, ange **photos.contoso.com**.
+   Inkludera inte *asverify*. Exempel: om din domän är *contoso.com* och ditt underdomän alias är *www*, ange **www\.contoso.com**. Om din underdomän är *foton*, ange **photos.contoso.com**.
 
 1. Välj den **Använd indirekt CNAME-validering** markerar du kryssrutan.
 

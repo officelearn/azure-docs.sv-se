@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0e38e921121f9b44356a33641bea4c2666412cca
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5f98cf51b618686e3c608535667993e9d5f9e939
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456201"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852935"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatisera resurser i ditt datacenter eller i molnet med hjälp av Hybrid Runbook Worker
 
@@ -149,11 +149,8 @@ På standard-adresser och portar som kräver att Hybrid Runbook Worker, krävs f
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
-## <a name="troubleshoot"></a>Felsöka
-
-Läs hur du felsöker Hybrid Runbook Worker-arbeten i [felsöka Hybrid Runbook Worker](troubleshoot/hybrid-runbook-worker.md#general)
-
 ## <a name="next-steps"></a>Nästa steg
 
-Läs hur du konfigurerar dina runbooks för att automatisera processer i ditt lokala datacenter eller andra moln i [köra runbooks på en Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+* Läs hur du konfigurerar dina runbooks för att automatisera processer i ditt lokala datacenter eller andra moln i [köra runbooks på en Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+* Läs hur du felsöker Hybrid Runbook Worker-arbeten i [felsöka Hybrid Runbook Worker](troubleshoot/hybrid-runbook-worker.md#general)
 

@@ -16,12 +16,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4067a54326d0a4a8ab9029dd4afceea384cf6aa
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 7fd800097ca5107f7df1e67c91ff4c96b9cfcd74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188638"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107754"
 ---
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Hur du lägger till licensierade användare till en grupp för licensiering i Azure Active Directory
 
@@ -39,17 +39,17 @@ Det viktigaste att tänka på är att du bör undvika att en situation där migr
 
 4. Kontrollera att licenser har tillämpats för alla användare i dessa grupper. Det här programmet kan göras genom att kontrollera Bearbetningsstatus för i varje grupp och genom att kontrollera granskningsloggar.
 
-  - Du kan stickkontrollera enskilda användare genom att titta på sina licensinformationen. Du ser att de har samma licenser ”direkt” och ”ärvt” från grupper.
+   - Du kan stickkontrollera enskilda användare genom att titta på sina licensinformationen. Du ser att de har samma licenser ”direkt” och ”ärvt” från grupper.
 
-  - Du kan köra ett PowerShell.skript för att [kontrollera hur licenserna tilldelas till användare](licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
+   - Du kan köra ett PowerShell.skript för att [kontrollera hur licenserna tilldelas till användare](licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
 
-  - Om samma produktlicensen har tilldelats användaren både direkt och via en grupp kan förbrukas endast en licens av användaren. Därför krävs inga ytterligare licenser för att utföra migrering.
+   - Om samma produktlicensen har tilldelats användaren både direkt och via en grupp kan förbrukas endast en licens av användaren. Därför krävs inga ytterligare licenser för att utföra migrering.
 
 5. Kontrollera att hitta några licensuppgifter misslyckades genom att kontrollera varje grupp för användare med feltillstånd. Mer information finns i [identifiera och lösa licensproblem för en grupp](licensing-groups-resolve-problems.md).
 
 6. Överväg att ta bort de ursprungliga direkt tilldelningarna; Du kanske vill göra det gradvis, i ”vågor” att övervaka resultatet för en delmängd användare först.
 
-  Du kan lämna de ursprungliga direkt tilldelningarna på användare, men när användarna lämnar sina licensierade grupper de, behåller den ursprungliga licensen, vilket är eventuellt inte vad du vill ha.
+   Du kan lämna de ursprungliga direkt tilldelningarna på användare, men när användarna lämnar sina licensierade grupper de, behåller den ursprungliga licensen, vilket är eventuellt inte vad du vill ha.
 
 ## <a name="an-example"></a>Ett exempel
 
@@ -61,25 +61,25 @@ Här är hur migreringsprocessen kan se ut:
 
 2. Bekräfta att licenstilldelning har slutförts för alla användare för varje grupp. Gå till bladet för varje grupp, Välj **licenser**, och kontrollera bearbetningsstatusen överst i den **licenser** bladet.
 
-  - Se ut för ”senaste licensen ändringar har tillämpats för alla användare” för att bekräfta bearbetningen har slutförts.
+   - Se ut för ”senaste licensen ändringar har tillämpats för alla användare” för att bekräfta bearbetningen har slutförts.
 
-  - Leta efter ett meddelande längst upp om alla användare för vilka licenser inte kan har tilldelats. Kör vi inga fler licenser för vissa användare? Har några användare i konflikt licens-SKU: er som hindrar dem från ärver grupplicenserna?
+   - Leta efter ett meddelande längst upp om alla användare för vilka licenser inte kan har tilldelats. Kör vi inga fler licenser för vissa användare? Har några användare i konflikt licens-SKU: er som hindrar dem från ärver grupplicenserna?
 
 3. Plats kontrollera vissa användare för att kontrollera att de har både direkt och gruppen licenserna tillämpas. Gå till bladet för en användare, väljer **licenser**, och undersök tillståndet för licenser.
 
-  - Det här är det förväntade användartillståndet under migreringen:
+   - Det här är det förväntade användartillståndet under migreringen:
 
       ![förväntade användartillstånd](./media/licensing-groups-migrate-users/expected-user-state.png)
 
-  Detta bekräftar att användaren har både direkt och ärvda licenser. Ser vi att båda **EMS** och **E3** tilldelas.
+   Detta bekräftar att användaren har både direkt och ärvda licenser. Ser vi att båda **EMS** och **E3** tilldelas.
 
-  - Välj varje licens att visa information om aktiverade tjänster. Detta kan användas för att kontrollera om direct och gruppen licenser aktiverar exakt de samma service-planerna för användaren.
+   - Välj varje licens att visa information om aktiverade tjänster. Detta kan användas för att kontrollera om direct och gruppen licenser aktiverar exakt de samma service-planerna för användaren.
 
       ![Kontrollera service-planer](./media/licensing-groups-migrate-users/check-service-plans.png)
 
 4. Du kan börja ta bort direkt licenser från användare när du har bekräftat att både direkt och gruppen licenser är likvärdiga. Du kan testa detta genom att ta bort dem för enskilda användare i portalen och sedan köra automatiserade skript om du vill ha dem bort gruppvis. Här är ett exempel på samma användare med direkt licenser tas bort via portalen. Observera att licensen förblir oförändrat, men vi inte längre visas direkt tilldelningar.
 
-  ![Direct licenser har tagits bort](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
+   ![Direct licenser har tagits bort](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

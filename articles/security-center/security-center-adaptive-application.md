@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/21/2019
 ms.author: monhaber
-ms.openlocfilehash: d92d9c444985989cdec3e94840ff21f4a79fe3ad
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cbda94b8ceeaf7a225117e1ca73445135a32a243
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104932"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089003"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Anpassningsbara programkontroller i Azure Security Center
 Lär dig att konfigurera programkontroll i Azure Security Center med den här genomgången.
@@ -60,33 +60,33 @@ Avsnittet **Grupper av virtuella datorer** innehåller tre flikar:
 ### <a name="configure-a-new-application-control-policy"></a>Konfigurera en ny princip för programkontroll
 1. Klicka på fliken **Rekommenderas** för att visa en lista över grupper med rekommendationer för programkontroll:
 
-  ![Rekommenderas](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
+   ![Rekommenderas](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
-  Listan innehåller:
+   Listan innehåller:
 
-  - **NAMN**: namnet på prenumerationen och gruppen
-  - **Virtuella datorer**: antalet virtuella datorer i gruppen
-  - **TILLSTÅND**: tillståndet för rekommendationer
-  - **ALLVARLIGHETSGRAD**: Rekommendationernas allvarlighetsgrad
+   - **NAMN**: namnet på prenumerationen och gruppen
+   - **Virtuella datorer**: antalet virtuella datorer i gruppen
+   - **TILLSTÅND**: tillståndet för rekommendationer
+   - **ALLVARLIGHETSGRAD**: Rekommendationernas allvarlighetsgrad
 
 2. Klicka på en grupp för att öppna den **skapa regler för programkontroll** alternativet.
 
-  ![Kontrollregler för program](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
+   ![Kontrollregler för program](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
 3. I den **Välj virtuella datorer**, granska listan med rekommenderade virtuella datorer och avmarkerar dem du inte vill tillämpa en princip till listan över tillåtna program. Nu visas två listor:
 
-  - **Rekommenderade program**: en lista över program som är vanliga på virtuella datorer i den här gruppen och rekommenderas för att kunna köras.
-  - **Fler program**: en lista över program som antingen är mindre vanligt förekommande på virtuella datorer i den här gruppen eller som kallas Exploitables (se mer nedan), och rekommenderas för granskning.
+   - **Rekommenderade program**: en lista över program som är vanliga på virtuella datorer i den här gruppen och rekommenderas för att kunna köras.
+   - **Fler program**: en lista över program som antingen är mindre vanligt förekommande på virtuella datorer i den här gruppen eller som kallas Exploitables (se mer nedan), och rekommenderas för granskning.
 
 4. Granska programmen i listorna och avmarkera de du inte vill ska tillämpas. Varje lista innehåller:
 
-  - **NAMN på**: certifikatinformationen eller den fullständiga sökvägen till ett program
-  - **FILTYPER**: filtypen för programmet. Detta kan vara EXE, Script, MSI eller alla permutation av de här typerna.
-  - **EXPLOATERBAR**: en varningsikon anger om ett visst program skulle kunna användas av en angripare för att kringgå en lösning för listan över tillåtna program. Vi rekommenderar att du granskar programmen innan du godkänner dem.
-  - **ANVÄNDARE**: användare som rekommenderas få tillåtelse att köra program
+   - **NAMN på**: certifikatinformationen eller den fullständiga sökvägen till ett program
+   - **FILTYPER**: filtypen för programmet. Detta kan vara EXE, Script, MSI eller alla permutation av de här typerna.
+   - **EXPLOATERBAR**: en varningsikon anger om ett visst program skulle kunna användas av en angripare för att kringgå en lösning för listan över tillåtna program. Vi rekommenderar att du granskar programmen innan du godkänner dem.
+   - **ANVÄNDARE**: användare som rekommenderas få tillåtelse att köra program
 
 5. När du är färdig med dina val klickar du på **Skapa**. <br>
-När du har valt skapa skapar Azure Security Center automatiskt lämpliga regler ovanpå den inbyggda listan över tillåtna Programlösningen tillgängliga på Windows-servrar (AppLocker).
+   När du har valt skapa skapar Azure Security Center automatiskt lämpliga regler ovanpå den inbyggda listan över tillåtna Programlösningen tillgängliga på Windows-servrar (AppLocker).
 
 > [!NOTE]
 > - Security Center förlitar sig på minst två veckors data för att skapa en baslinje och fylla i unika rekommendationer för varje grupp med virtuella datorer. Nya Security Center-kunder på standardnivån bör vara beredda på att deras grupp med virtuella datorer först visas på fliken *Ingen rekommendation*.
@@ -98,23 +98,23 @@ När du har valt skapa skapar Azure Security Center automatiskt lämpliga regler
 
 1. Om du vill redigera och övervaka en grupp som har konfigurerats med en princip för vitlistning av program, gå tillbaka till den **anpassningsbara programkontroller** och välj **KONFIGURERAD** under **grupper av virtuella datorer**:
 
-  ![Grupper](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
+   ![Grupper](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
 
-  Listan innehåller:
+   Listan innehåller:
 
-  - **Namn på**: namnet på prenumerationen och gruppen
-  - **Virtuella datorer**: antalet virtuella datorer i gruppen
-  - **Läget**: Granskningsläget loggas försök att köra program; Framtvinga kommer inte att program ska köras
-  - **Aviseringar**: aktuella överträdelser
+   - **Namn på**: namnet på prenumerationen och gruppen
+   - **Virtuella datorer**: antalet virtuella datorer i gruppen
+   - **Läget**: Granskningsläget loggas försök att köra program; Framtvinga kommer inte att program ska köras
+   - **Aviseringar**: aktuella överträdelser
 
 2. Klicka på en grupp att göra ändringar i den **redigera principer för programkontroll** sidan.
 
-  ![Skydd](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
+   ![Skydd](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
 
 3. Under **Skyddsläge** kan du välja mellan följande alternativ:
 
-  - **Granska**: i det här läget tvingar inte programkontrollösningen reglerna, utan granskar endast aktiviteten för de skyddade virtuella datorerna. Det här rekommenderas för scenarier där du först vill observera det övergripande beteendet innan en app blockeras mot att köras i den virtuella måldatorn.
-  - **Tvinga**: i det här läget tvingar programkontrollösningen reglerna, och ser till att program som inte är tillåtna blockeras.
+   - **Granska**: i det här läget tvingar inte programkontrollösningen reglerna, utan granskar endast aktiviteten för de skyddade virtuella datorerna. Det här rekommenderas för scenarier där du först vill observera det övergripande beteendet innan en app blockeras mot att köras i den virtuella måldatorn.
+   - **Tvinga**: i det här läget tvingar programkontrollösningen reglerna, och ser till att program som inte är tillåtna blockeras.
 
    > [!NOTE]
    > -  **Framtvinga** skyddsläge inaktiveras tills vidare.
@@ -124,14 +124,14 @@ När du har valt skapa skapar Azure Security Center automatiskt lämpliga regler
 4. Under **principtillägg**, lägga till valfri programsökväg som du vill tillåta. När du lägger till sökvägarna skapar Security Center uppdaterar listan över tillåtna program-princip för program på de virtuella datorerna i den markerade gruppen av virtuella datorer och skapar lämpliga regler för programmen utöver de regler som redan finns på plats.
 
 5. Granska de aktuella överträdelser som anges i den **de senaste aviseringarna** avsnittet. Klicka på varje rad omdirigeras till den **aviseringar** sidan i Azure Security Center och visa alla aviseringar som har identifierats av Azure Security Center på virtuella.
-  - **Aviseringar**: eventuella överträdelser som har loggats.
-  - **Nej. virtuella datorer**: antalet virtuella datorer med den här aviseringstypen.
+   - **Aviseringar**: eventuella överträdelser som har loggats.
+   - **Nej. virtuella datorer**: antalet virtuella datorer med den här aviseringstypen.
 
 6. Under **utgivare av regler för**, **sökväg för regler för lista över tillåtna**, och **Hash-vitlisteregler** ser du vilka listan över tillåtna program regler är för närvarande konfigurerats på virtuella datorer i en grupp, enligt Samlingstypen av regler. För varje regel kan du se:
 
-  - **Regeln**: De specifika parametrarna som ett program granskas av AppLocker att avgöra om ett program kan köras.
-  - **Filtypen**: De filtyper som omfattas av en specifik regel. Detta kan vara något av följande: EXE, Script, MSI eller alla permutation av dessa filtyper.
-  - **Användare**: Namn eller antalet användare som har tillåtelse att köra ett program som omfattas av en regel för lista över tillåtna program.
+   - **Regeln**: De specifika parametrarna som ett program granskas av AppLocker att avgöra om ett program kan köras.
+   - **Filtypen**: De filtyper som omfattas av en specifik regel. Detta kan vara något av följande: EXE, Script, MSI eller alla permutation av dessa filtyper.
+   - **Användare**: Namn eller antalet användare som har tillåtelse att köra ett program som omfattas av en regel för lista över tillåtna program.
 
    ![Regler för lista över tillåtna](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7f8c410f368c5c63bd24bed25b9807b8061180be
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: d7ba922d66bf97dbd8173b0d5466a7e55a41f6b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189804"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993180"
 ---
 # <a name="manage-database-roles-and-users"></a>Hantera databasroller och användare
 
@@ -48,8 +48,8 @@ När du skapar ett projekt för tabellmodeller kan du skapa roller och lägga ti
     |**Ingen**|Medlemmar kan inte ändra modellschemat och det går inte att fråga efter data.|  
     |**Läsa**|Medlemmar kan fråga efter data (baserat på radfilter) men det går inte att ändra modellschemat.|  
     |**Läsa och bearbeta**|Medlemmar kan fråga data (baserat på radnivå filter) och kör processen och bearbeta alla åtgärder, men det går inte att ändra modellschemat.|  
-    |**Processen**|Medlemmar kan köra processen och bearbeta alla åtgärder. Det går inte att ändra modellschemat och det går inte att fråga efter data.|  
-    |**administratör**|Medlemmar kan ändra modellschemat och fråga efter alla data.|   
+    |**Process**|Medlemmar kan köra processen och bearbeta alla åtgärder. Det går inte att ändra modellschemat och det går inte att fråga efter data.|  
+    |**Administrator**|Medlemmar kan ändra modellschemat och fråga efter alla data.|   
   
 5.  Om rollen som du skapar har läs- eller läsa och bearbeta behörighet, du kan lägga till radfilter med hjälp av en DAX-formel. Klicka på den **radfilter** , och sedan markera en tabell och klicka sedan på den **DAX-Filter** fältet och skriv sedan en DAX-formel.
   
@@ -71,6 +71,7 @@ Om du vill lägga till roller och användare i en distribuerad modell-databas, m
 2. I **skapa roll**, ange ett rollnamn och beskrivning.
 
 3. Markera en behörighet.
+
    |Behörighet|Beskrivning|  
    |----------------|-----------------|  
    |**Fullständig kontroll (administratör)**|Medlemmar kan ändra modellschemat, bearbeta och kan fråga efter alla data.| 
@@ -124,7 +125,7 @@ Den [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) modulen inneh�
 |Cmdlet|Beskrivning|
 |------------|-----------------| 
 |[Lägg till RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Lägga till en medlem i en databasroll.| 
-|[Ta bort RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Ta bort medlem från en databasroll.|   
+|[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Ta bort medlem från en databasroll.|   
 |[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|Köra ett TMSL-skript.|
 
 ## <a name="row-filters"></a>Radfilter  
@@ -139,9 +140,9 @@ Radfilter gäller för de angivna raderna och relaterade rader. När en tabell h
   
 |Tabell|DAX-uttryck|  
 |-----------|--------------------|  
-|Region|= Region [Land] = ”USA”|  
-|ProductCategory|= ProductCategory [Name] = ”cyklar”|  
-|Transaktioner|= Transaktioner [år] = 2016|  
+|Region|=Region[Country]="USA"|  
+|ProductCategory|=ProductCategory[Name]="Bicycles"|  
+|Transaktioner|=Transactions[Year]=2016|  
   
  Nettoeffekten är medlemmar kan fråga efter rader med data där kunden finns i USA, produktkategorin cyklar och året 2016. Användare kan inte fråga transaktioner utanför USA, transaktioner som inte cyklar eller transaktioner inte i 2016 om de inte är medlem i en annan roll som ger dessa behörigheter.
   

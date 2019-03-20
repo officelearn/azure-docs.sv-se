@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6c97289cd1ad406769613621afdc16c8096f4aeb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: d5b229d96c0f63e27e36fb95122b36d3d8c128ac
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116175"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110315"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrera lokala datorer till Azure
 
@@ -36,8 +36,10 @@ Detta är den tredje självstudien i en serie. Självstudien förutsätter att d
 
 Innan du börjar är det bra att granska [VMware](vmware-azure-architecture.md)- eller [Hyper-V](hyper-v-azure-architecture.md)-arkitekturen för haveriberedskap.
 
+> [!TIP]
+> Letar du efter en agentfri metod för att migrera virtuella VMware-datorer till Azure? [Klicka här](https://aka.ms/migrateVMs-signup)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Enheter som exporteras av paravirtualiserade drivrutiner stöds inte.
 
@@ -54,7 +56,6 @@ Enheter som exporteras av paravirtualiserade drivrutiner stöds inte.
    ![Nytt valv](./media/migrate-tutorial-on-premises-azure/onprem-to-azure-vault.png)
 
 Det nya valvet läggs till på **Instrumentpanelen** under **Alla resurser** och på huvudsidan för **Recovery Services-valv**.
-
 
 
 ## <a name="select-a-replication-goal"></a>Välj ett replikeringsmål
@@ -112,10 +113,10 @@ Kör en redundansväxling för de datorer som du vill migrera.
 5. Kontrollera att den virtuella Azure-datorn visas i Azure som förväntat.
 6. I **Replikerade objekt** högerklickar du på den virtuella datorn > **Slutför migrering**. Det här gör följande:
 
-    - Avslutar migreringsprocessen, stoppar replikeringen för virtuella datorer i AWS och stoppar Site Recovery-debitering för den virtuella datorn.
-    - Det här steget rensar replikeringsdata. Men det raderar inte de migrerade virtuella datorerna.
+   - Avslutar migreringsprocessen, stoppar replikeringen för virtuella datorer i AWS och stoppar Site Recovery-debitering för den virtuella datorn.
+   - Det här steget rensar replikeringsdata. Men det raderar inte de migrerade virtuella datorerna.
 
-    ![Slutföra migrering](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
+     ![Slutföra migrering](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 
 
 > [!WARNING]

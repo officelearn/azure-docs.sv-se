@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 6a520a5b320bb1fcfed96f6ec244298e1a429c53
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: 78439a566100e861ebce908ead0312ed57a891e5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993040"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57896729"
 ---
 # <a name="h264-single-bitrate-4k"></a>H264, Enkel bithastighet, 4K
 `Media Encoder Standard` definierar en uppsättning kodning förinställningar som du kan använda när du skapar kodningsjobb. Du kan använda en `preset name` att ange i vilket format du vill koda din mediefil. Du kan också skapa egna JSON eller XML-baserade förinställningar (med UTF-8- eller UTF-16-kodning. Sedan skickar du den anpassade förinställda till kodaren. Lista över alla förvalda namn som stöds av det här `Media Encoder Standard` encoder, se [uppgift förinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
@@ -35,7 +35,7 @@ ms.locfileid: "55993040"
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
-<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">  
+<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">  
   <Encoding>  
     <H264Video>  
       <KeyFrameInterval>00:00:02</KeyFrameInterval>  

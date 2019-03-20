@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 1c784aefca19040abb7ab34dd92dddb1ef0f28de
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 52fbef24e8a1b9fd7e0ade404c23a587c81d6b0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418236"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106006"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad X.509-enhet med Java-enhets-SDK för IoT Hub Device Provisioning-tjänsten
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -25,8 +25,8 @@ Dessa steg visar hur du simulerar en X.509-enhet på utvecklingsdatorn som kör 
 Om du inte känner till processen för automatisk etablering, bör du även gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal) innan du fortsätter. 
 
 Azure IoT Device Provisioning Service stöder två typer av registreringar:
-- [Registreringsgrupper](concepts-service.md#enrollment-group): används för att registrera flera relaterade enheter.
-- [Enskilda registreringar](concepts-service.md#individual-enrollment): används för att registrera en enskild enhet.
+- [Registreringsgrupper](concepts-service.md#enrollment-group): Används för att registrera flera relaterade enheter.
+- [Enskilda registreringar](concepts-service.md#individual-enrollment): Används för att registrera en enskild enhet.
 
 Den här artikeln visar enskilda registreringar.
 
@@ -86,15 +86,15 @@ Du kommer att använda exempelkoden från [Azure IoT SDK för Java](https://gith
 6. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Välj fliken **Enskilda registreringar** och klicka på knappen **Lägg till enskild registrering** längst upp. 
 
 7. Under panelen **Lägg till registrering** anger du följande information:
-    - Välj **X.509** som identitet för bestyrkande *mekanism*.
-    - Under *den primära .pem- eller .cer-certifikatfilen* klickar du på *Välj en fil* för att välja certifikatfilen **X509individual.pem** som skapades i föregående steg.  
-    - Du kan även ange följande information:
-      - Välj en IoT hub som är länkad till din etableringstjänst.
-      - Ange ett unikt enhets-ID. Se till att undvika känsliga data när du namnger din enhet. 
-      - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
-   - Klicka på knappen **Spara** när det är klart. 
+   - Välj **X.509** som identitet för bestyrkande *mekanism*.
+   - Under *den primära .pem- eller .cer-certifikatfilen* klickar du på *Välj en fil* för att välja certifikatfilen **X509individual.pem** som skapades i föregående steg.  
+   - Du kan även ange följande information:
+     - Välj en IoT hub som är länkad till din etableringstjänst.
+     - Ange ett unikt enhets-ID. Se till att undvika känsliga data när du namnger din enhet. 
+     - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
+     - Klicka på knappen **Spara** när det är klart. 
 
-    [![Lägga till en enskild registrering för X.509-attestering i portalen](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
+     [![Lägga till en enskild registrering för X.509-attestering i portalen](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 
      Om registreringen har lyckats visas din X.509-enhet som **microsoftriotcore** under kolumnen *Registrerings-ID* på fliken *Enskilda registreringar*. 
 

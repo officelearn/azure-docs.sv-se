@@ -6,21 +6,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 03/12/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0e73c0f94e0aa240349aec45b4a146ba5eb37dab
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: ff18a14b314b5757629205f4bf0eb134411688ec
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700782"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57853138"
 ---
-# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Konfigurera haveriberedskap för virtuella Azure-datorer till en sekundär Azure-region
+# <a name="set-up-disaster-recovery-for-azure-vms"></a>Konfigurera haveriberedskap för virtuella Azure-datorer
 
 [Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och virtuella Azure-datorer.
 
-Den här självstudien visar hur du konfigurerar haveriberedskap till en sekundär Azure-region för virtuella Azure-datorer. I den här guiden får du lära dig att:
+Den här självstudien visar hur du konfigurerar haveriberedskap för virtuella Azure-datorer genom att replikera dem från en Azure-region till en annan. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * skapar ett Recovery Services-valv
@@ -29,14 +29,14 @@ Den här självstudien visar hur du konfigurerar haveriberedskap till en sekund�
 > * Aktivera replikering för en virtuell dator
 
 > [!NOTE]
-> Den här artikeln innehåller instruktioner för distribution av haveriberedskap med de enklaste inställningarna. Om du vill veta mer om anpassade inställningar läser du artiklarna i [avsnittet med anvisningar](azure-to-azure-how-to-enable-replication.md). o
+> Den här artikeln innehåller instruktioner för distribution av haveriberedskap med de enklaste inställningarna. Om du vill veta mer om anpassade inställningar läser du artiklarna i [avsnittet med anvisningar](azure-to-azure-how-to-enable-replication.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 
 - Vara säker på att du förstår [arkitekturen och komponenterna för scenariot](concepts-azure-to-azure-architecture.md).
-- Granska [kraven för stöd](site-recovery-support-matrix-azure-to-azure.md) för alla komponenter.
+- Granska den [supportkrav](site-recovery-support-matrix-azure-to-azure.md) innan du börjar.
 
 ## <a name="create-a-vault"></a>Skapa ett valv
 
@@ -65,7 +65,6 @@ Site Recovery kräver att vissa ändringar görs i utgående nätverksanslutning
 > Site Recovery har inte stöd för en autentiseringsproxy för att styra nätverksanslutningar.
 
 
-
 ### <a name="outbound-connectivity-for-urls"></a>Utgående anslutning för webbadresser
 
 Om du använder en webbadressbaserad brandväggsproxy för att styra utgående nätverksanslutningar ger du tillgång till dessa URL:er.
@@ -81,9 +80,9 @@ Om du använder en webbadressbaserad brandväggsproxy för att styra utgående n
 
 Om du vill styra utgående anslutningar med hjälp av IP-adresser i stället för URL:er tillåter du dessa adresser för IP-baserade brandväggar, proxy eller NSG-regler.
 
-  - [Microsoft Azure Datacenter IP-intervall](https://www.microsoft.com/en-us/download/details.aspx?id=41653)
-  - [Windows Azure Datacenter IP-intervall i Tyskland](https://www.microsoft.com/en-us/download/details.aspx?id=54770)
-  - [Windows Azure Datacenter IP-intervall i Kina](https://www.microsoft.com/en-us/download/details.aspx?id=42064)
+  - [Microsoft Azure Datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653)
+  - [Windows Azure Datacenter IP-intervall i Tyskland](https://www.microsoft.com/download/details.aspx?id=54770)
+  - [Windows Azure Datacenter IP-intervall i Kina](https://www.microsoft.com/download/details.aspx?id=42064)
   - [URL:er och IP-adressintervall för Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [IP-adresser för Site Recovery-tjänstens slutpunkter](https://aka.ms/site-recovery-public-ips)
 
@@ -106,7 +105,7 @@ Azure Site Recovery har tre inbyggda roller som styr Site Recovery-hanteringen.
 
 - **Site Recovery-läsare** – Den här rollen har behörighet att visa all Site Recovery-hantering. Den här rollen lämpar sig bäst för en IT-chef som kan övervaka aktuell skyddsnivå och skapa supportärenden.
 
-Läs mer om [inbyggda roller för Azure RBAC](../role-based-access-control/built-in-roles.md)
+Läs mer om [Azure RBAC inbyggda roller](../role-based-access-control/built-in-roles.md).
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
@@ -116,8 +115,9 @@ Läs mer om [inbyggda roller för Azure RBAC](../role-based-access-control/built
 2. I **Källa** väljer du **Azure**.
 3. I **Källplats** väljer du den Azure källregion där de virtuella datorerna körs just nu.
 4. Välj den **källprenumeration** där de virtuella datorerna körs. Detta kan vara en prenumeration i samma Azure Active Directory-klientorganisation som dina valv i återställningstjänsten finns i.
-5. Välj **Källresursgrupp** för Resource Manager-baserade virtuella datorer eller **Molntjänst** för klassiska virtuella datorer.
-6. Spara inställningarna genom att klicka på **OK**.
+5. Välj den **källresursgruppen**, och klicka på **OK** att spara inställningarna.
+
+    ![Konfigurera källan](./media/azure-to-azure-tutorial-enable-replication/source.png)
 
 ### <a name="select-the-vms"></a>Välj virtuella datorer
 
@@ -133,56 +133,50 @@ Site Recovery skapar standardinställningar och replikeringsprinciper för målr
 1. Klicka på **Inställningar** och visa inställningar för mål och replikering.
 2. Om du vill åsidosätta standardmålinställningarna för målet klickar du på **Anpassa** intill **Resursgrupp, nätverk, lagring och tillgänglighet**.
 
-  ![Konfigurera inställningar](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+   ![Konfigurera inställningar](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
-3. Anpassa målinställningar enligt följande:
+3. Anpassa Målinställningar som sammanfattas i tabellen.
 
-    - **Målprenumeration**: Den målprenumeration som används för haveriberedskap. Som standard är målprenumerationen samma som källprenumerationen. Klicka på Anpassa om du vill välja en annan målprenumeration inom samma Azure Active Directory-klientorganisation.
-    - **Målplats**: Den målregion som används för haveriberedskap. Vi rekommenderar att målplatsen överensstämmer med Site Recovery-valvets plats.
-    - **Målresursgrupp**: Den resursgrupp i målregionen som innehåller virtuella Azure-datorer efter redundansväxling. Som standard skapar Site Recovery en ny resursgrupp i målregionen med suffixet ”asr”. resursgruppens plats i målresursgruppen kan vara valfri region förutom den region där dina virtuella källdatorer finns.
-    - **Virtuellt målnätverk**: Nätverket i den målregion där virtuella Azure-datorer finns efter redundansväxling.
-      Som standard skapar Site Recovery ett nytt virtuellt nätverk (och undernät) i målregionen med suffixet ”asr”.
-    - **Cachelagringskonton**: Site Recovery använder ett lagringskonto i källregionen. Ändringar i virtuella källdatorer skickas till det här kontot innan replikering till målplatsen.
-      >[!NOTE]
-      >Om du använder cachelagringskonto med brandvägg aktiverat kontrollerar du att ”Tillåt betrodda Microsoft-tjänster” är på. [Läs mer.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
-      >
+    **Inställning** | **Detaljer**
+    --- | ---
+    **Målprenumerationen** | Som standard är samma som källprenumerationen i målprenumerationen. Klicka på Anpassa om du vill välja en annan målprenumeration inom samma Azure Active Directory-klientorganisation.
+    **Målplats** | Den målregion som används för haveriberedskap.<br/><br/> Vi rekommenderar att målplatsen överensstämmer med Site Recovery-valvets plats.
+    **Målresursgrupp** | Den resursgrupp i målregionen som innehåller virtuella Azure-datorer efter redundansväxling.<br/><br/> Som standard skapar Site Recovery en ny resursgrupp i målregionen med suffixet ”asr”. Platsen för målresursgruppen kan vara vilken region som helst utom den region som är värd för dina virtuella källdatorer.
+    **Virtuellt Målnätverk** | Nätverket i den målregion där virtuella Azure-datorer finns efter redundansväxling.<br/><br/> Som standard skapar Site Recovery ett nytt virtuellt nätverk (och undernät) i målregionen med suffixet ”asr”.
+    **Cachelagringskonton** | Site Recovery använder ett lagringskonto i källregionen. Ändringar i virtuella källdatorer skickas till det här kontot innan replikering till målplatsen.<br/><br/> Om du använder en brandvägg aktiverad cachelagringskontot, se till att du aktiverar **Tillåt att betrodda Microsoft-tjänster**. [Läs mer.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
+    **Mållagringskonton (Virtuella måldatorn använder icke-hanterade diskar)** | Som standard skapar Site Recovery ett nytt lagringskonto i målregionen som speglar lagringskontot för den virtuella källdatorn.<br/><br/> Aktivera **Tillåt att betrodda Microsoft-tjänster** om du använder en brandvägg aktiverad cachelagringskontot.
+    **Hanterade replikeringsdiskar (om källan som virtuell dator använder hanterade diskar)** | Som standard skapar Site Recovery hanterade replikeringsdiskar i målregionen, som speglar den virtuella källdatorns hanterade diskar med samma lagringstyp (standard eller premium) som den virtuella källdatorns hanterade disk.
+    **Tillgänglighetsuppsättningar för mål** | Som standard skapar Azure Site Recovery en ny tillgänglighetsuppsättning i målregionen med namn som har suffixet ”asr” för de virtuella datorer som ingår i en tillgänglighetsuppsättning i källregionen. Om den tillgänglighetsuppsättning som skapades av Azure Site Recovery redan finns återanvänds den.
+    **Tillgänglighetszoner för mål** | Som standard tilldelar Site Recovery samma zonnummer som källregionen i målregionen om målregionen har stöd för tillgänglighetszoner.<br/><br/> Om målregion inte stöder tillgänglighetszoner kan konfigureras de virtuella datorerna som mål som enda instanser som standard.<br/><br/> Klicka på **anpassa** att konfigurera virtuella datorer som en del av en tillgänglighetsuppsättning i målregionen.<br/><br/> Du kan inte ändra typen tillgänglighet (instans, tillgänglighetszon för set eller tillgänglighet) när du har aktiverat replikering. Du måste inaktivera och aktivera replikering för att ändra tillgänglighetstypen.
 
-    - **Mållagringskonton (om den virtuella källdatorn inte använder hanterade diskar)**: Som standard skapar Site Recovery ett nytt lagringskonto i målregionen som speglar lagringskontot för den virtuella källdatorn.
-      >[!NOTE]
-      >Om du använder käll- eller mållagringskonto med brandvägg aktiverat kontrollerar du att ”Tillåt betrodda Microsoft-tjänster” är på. [Läs mer.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
-      >
+4. Om du vill anpassa inställningarna för replikeringsprincipen klickar du på **anpassa** bredvid **replikeringsprincip**, och ändra inställningarna efter behov.
 
-    - **Hanterade replikeringsdiskar (om den virtuella källdatorn använder hanterade diskar)**: Som standard skapar Site Recovery hanterade replikeringsdiskar i målregionen, som speglar den virtuella källdatorns hanterade diskar med samma lagringstyp (standard eller premium) som den virtuella källdatorns hanterade disk.
-    - **Tillgänglighetsuppsättningar för mål**: Som standard skapar Azure Site Recovery en ny tillgänglighetsuppsättning i målregionen med namn som har suffixet ”asr” för de virtuella datorer som ingår i en tillgänglighetsuppsättning i källregionen. Om den tillgänglighetsuppsättning som skapades av Azure Site Recovery redan finns återanvänds den.
-    - **Tillgänglighetszoner för mål**: Som standard tilldelar Site Recovery samma zonnummer som källregionen i målregionen om målregionen har stöd för tillgänglighetszoner. 
+    **Inställning** | **Detaljer**
+    --- | ---
+    **Namn på replikeringsprincip** | Principnamn.
+    **Kvarhållning av återställningspunkt** | Som standard behåller Site Recovery återställningspunkter i 24 timmar. Du kan ställa in ett värde mellan 1 och 72 timmar.
+    **Appkompatibel ögonblicksbildsfrekvens** | Som standard tar Site Recovery en appkompatibel ögonblicksbild var 4:e timme. Du kan ställa in ett värde mellan 1 och 12 timmar.<br/><br/> En appkompatibel ögonblicksbild är en point-in-time-ögonblicksbild av programdata på den virtuella datorn. Volume Shadow Copy-tjänsten (VSS) säkerställer att programmen i den virtuella datorn är i ett konsekvent tillstånd när ögonblicksbilden tas.
+    **Replikeringsgrupp** | Om programmet kräver konsekvens för flera virtuella datorer mellan virtuella datorer kan du skapa en replikeringsgrupp för dessa virtuella datorer. Som standard är valda virtuella datorer inte en del av någon replikeringsgrupp.
 
-    Om målregionen inte har stöd för tillgänglighetszoner konfigureras de virtuella måldatorerna som enskilda instanser som standard. Om det behövs kan du konfigurera sådana virtuella datorer att bli en del av tillgänglighetsuppsättningarna i målregionen genom att klicka på ”Anpassa”.
+5. I **Anpassa** väljer du **Ja** för konsekvens för flera virtuella datorer om du vill lägga till virtuella datorer i en ny eller en befintlig replikeringsgrupp. Klicka sedan på **OK**. 
 
     >[!NOTE]
-    >Du kan inte ändra tillgänglighetstypen enskild instans, tillgänglighetsuppsättningen eller tillgänglighetszonen efter att du har aktiverat replikering. Du måste inaktivera och aktivera replikering för att ändra tillgänglighetstypen.
-    >
+    >- Alla datorer i en replikeringsgrupp har delade krascher konsekvent och programkonsekventa återställningspunkter vid redundansväxling.
+    >- Aktivering av konsekvens för flera datorer kan påverka prestandan (det är Processorintensiva). Den bör endast användas om datorer kör samma arbetsbelastning och konsekvens mellan flera datorer.
+    >- Du kan ha högst 16 virtuella datorer i en replikeringsgrupp.
+    >- Om du aktiverar konsekvens för flera virtuella datorer kommunicerar datorer i replikeringsgruppen med varandra på port 20004. Kontrollera att det finns ingen brandvägg blockerar den interna kommunikationen mellan de virtuella datorerna på den här porten.
+    >- Kontrollera att utgående trafik på port 20004 manuellt öppnas i enlighet med vägledning för Linux-versionen för virtuella Linux-datorer i en replikeringsgrupp.
 
-4. Om du vill anpassa inställningarna för replikeringsprincip klickar du på **Anpassa** intill **Replikeringsprincip** och ändrar följande inställningar efter behov:
 
-    - **Namn på replikeringsprincip**: Principnamn.
-    - **Kvarhållning av återställningspunkt**: Som standard behåller Site Recovery återställningspunkter i 24 timmar. Du kan ställa in ett värde mellan 1 och 72 timmar.
-    - **Appkonsekvent ögonblicksbildsfrekvens**: Som standard tar Site Recovery en appkompatibel ögonblicksbild var 4:e timme. Du kan ställa in ett värde mellan 1 och 12 timmar. En appkompatibel ögonblicksbild är en ögonblicksbild av programdata i den virtuella datorn. Volume Shadow Copy-tjänsten (VSS) säkerställer att programmen i den virtuella datorn är i ett konsekvent tillstånd när ögonblicksbilden tas.
-    - **Replikeringsgrupp**: Om programmet kräver konsekvens för flera virtuella datorer mellan virtuella datorer kan du skapa en replikeringsgrupp för dessa virtuella datorer. Som standard är valda virtuella datorer inte en del av någon replikeringsgrupp.
-
-5. I **Anpassa** väljer du **Ja** för konsekvens för flera virtuella datorer om du vill lägga till virtuella datorer i en ny eller en befintlig replikeringsgrupp. Klicka sedan på **OK**.
-
-    - Alla maskiner i en replikeringsgrupp har delade kraschkonsekventa och appkonsekventa återställningspunkter när de redundansväxlas. Aktivering av konsekvens för flera virtuella datorer kan påverka prestandan (eftersom det är processorintensivt) och ska bara användas om datorer kör samma arbetsbelastning och konsekvens mellan flera datorer krävs.
-    - Du kan som mest välja att ha 16 virtuella datorer i en replikeringsgrupp.
-    - Om du aktiverar konsekvens för flera virtuella datorer kommunicerar datorer i replikeringsgruppen med varandra på port 20004. Se till att det inte finns någon brandvägg som blockerar den interna kommunikationen mellan de virtuella datorerna på port 20004. Om du vill att virtuella datorer med Linux ska vara med i en replikeringsgrupp måste du se till att du manuellt öppnar för utgående trafik på port 20004 enligt riktlinjerna för den specifika Linux-versionen.
 
 ### <a name="configure-encryption-settings"></a>Konfigurera krypteringsinställningar
 
-Om den virtuella källdatorn har Azure-diskkryptering (ADE) aktiverad visas krypteringsinställningar:
+Om den Virtuella källdatorn har Azure-diskkryptering (ADE) aktiverad, granskar du inställningarna.
 
-1. Granska krypteringsinställningarna.
-    - **Nyckelvalv för diskkryptering**: Som standard skapar Azure Site Recovery ett nytt nyckelvalv i målregionen med namn som har suffixet ”asr” baserat på den virtuella källdatorns diskkrypteringsnycklar. Om det nyckelvalv som skapades av Azure Site Recovery redan finns återanvänds det.
-    - **Nyckelvalv för nyckelkryptering**: Som standard skapar Azure Site Recovery ett nytt nyckelvalv i målregionen med namn som har suffixet ”asr” baserat på den virtuella källdatorns nyckelkrypteringsnycklar. Om det nyckelvalv som skapades av Azure Site Recovery redan finns återanvänds det.
+1. Kontrollera inställningarna:
+    - **Nyckelvalv för diskkryptering**: Som standard skapar Site Recovery ett nytt nyckelvalv på källan VM diskkrypteringsnycklarna, med suffixet ”asr”. Om det finns redan i key vault, återanvänds.
+    - **Nyckelvalv för nyckelkryptering**: Som standard skapar Site Recovery ett nytt nyckelvalv i målregionen. Namnet har suffixet ”asr” och baseras på källan VM viktiga krypteringsnycklar. Om nyckelvalvet som skapats av Site Recovery redan finns, återanvänds.
 
 2. Klicka på **Anpassa** för att välja anpassade nyckelvalv.
 

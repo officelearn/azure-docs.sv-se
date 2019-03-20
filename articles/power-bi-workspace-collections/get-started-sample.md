@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: 4a7da4a6e7b4b395063f7e4c9a3e97d610492ef6
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 222c2983d83fe2373159ea542260be7b5a8d8ce5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882679"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885189"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Kom igång med Power BI-Arbetsytesamlingar exempel
 
@@ -93,7 +93,7 @@ När du klickar på en rapport i **EmbedSample** webbprogram bör se ut ungefär
 
 ## <a name="explore-the-sample-code"></a>Utforska exempelkoden
 
-Den **Microsoft Power BI-Arbetsytesamlingar** exemplet är en exempelwebbapp som visar hur du integrerar **Power BI** rapporter i din app. Använder en designmönstret Model-View-Controller (MVC) för att demonstrera bästa praxis. Det här avsnittet beskrivs delar av exempelkoden som du kan utforska inom den **Power BI-inbäddad** web applösning. Mönstret Model-View-Controller (MVC) avgränsar modellering av domänen, presentation och åtgärder baserat på användarindata i tre separata klasser: Modell, visa och kontroll. Läs mer om MVC i [Lär dig mer om ASP.NET](http://www.asp.net/mvc).
+Den **Microsoft Power BI-Arbetsytesamlingar** exemplet är en exempelwebbapp som visar hur du integrerar **Power BI** rapporter i din app. Använder en designmönstret Model-View-Controller (MVC) för att demonstrera bästa praxis. Det här avsnittet beskrivs delar av exempelkoden som du kan utforska inom den **Power BI-inbäddad** web applösning. Mönstret Model-View-Controller (MVC) avgränsar modellering av domänen, presentation och åtgärder baserat på användarindata i tre separata klasser: Modell, visa och kontroll. Läs mer om MVC i [Lär dig mer om ASP.NET](https://www.asp.net/mvc).
 
 Den **Microsoft Power BI-Arbetsytesamlingar** exempelkoden avgränsas på följande sätt. Varje avsnitt innehåller namnet på filen i Power BI-embedded.sln lösningen så att du lätt kan hitta koden i exemplet.
 
@@ -270,4 +270,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Inbäddat exempel med JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-Fler frågor? [Försök med Power BI Community](http://community.powerbi.com/)
+Fler frågor? [Försök med Power BI Community](https://community.powerbi.com/)

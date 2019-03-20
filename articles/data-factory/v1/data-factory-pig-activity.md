@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fe1ef8c141c4a4daa443f800181f8e6e3199d0cc
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 78ee2c1ce402a29f1a9dfdd29f31daef09134eba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331307"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997010"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformera data med Pig-aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -82,6 +82,7 @@ HDInsight-piggningsåtgärd i en Datafabrik [pipeline](data-factory-create-pipel
 ```
 
 ## <a name="syntax-details"></a>Information om syntax
+
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | namn |Namn på aktiviteten |Ja |
@@ -90,7 +91,7 @@ HDInsight-piggningsåtgärd i en Datafabrik [pipeline](data-factory-create-pipel
 | inmatningar |En eller flera inmatningar som används av Pig-aktivitet |Nej |
 | utdata |En eller flera av de utdata som genereras av Pig-aktivitet |Ja |
 | linkedServiceName |Referens till HDInsight-kluster som är registrerad som en länkad tjänst i Data Factory |Ja |
-| skriptet |Ange infogat för Pig-skript |Nej |
+| skript |Ange infogat för Pig-skript |Nej |
 | skriptets sökväg |Store Pig-skriptet i Azure blob storage och ange sökvägen till filen. Använd ”skript” eller ”scriptPath-egenskapen. Båda kan inte användas tillsammans. Filnamnet är skiftlägeskänsligt. |Nej |
 | definierar |Ange parametrar som nyckel/värde-par för refererar till Pig-skript |Nej |
 
@@ -124,7 +125,7 @@ Om du vill köra det här Pig-skriptet i en Data Factory-pipeline, gör du följ
 1. Skapa en länkad tjänst för att registrera [ditt eget HDInsight-kluster för beräkningar](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) eller konfigurera [på begäran HDInsight-kluster](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Vi kan kalla den här länkade tjänsten **HDInsightLinkedService**.
 2. Skapa en [länkad tjänst](data-factory-azure-blob-connector.md) att konfigurera anslutningen till Azure Blob storage som är värd för data. Vi kan kalla den här länkade tjänsten **StorageLinkedService**.
 3. Skapa [datauppsättningar](data-factory-create-datasets.md) som pekar på indata och utdata. Vi kan kalla den inkommande datauppsättningen **PigSampleIn** och datamängd för utdata **PigSampleOut**.
-4. Kopiera Pig-frågan i en fil i Azure Blob Storage som konfigurerats i steg #2. Om Azure-lagring som är värd för data skiljer sig från det som är värd för filen, skapar du en separat länkad Azure Storage-tjänst. Avse den länkade tjänsten i konfigurationen av aktivitet. Använd ** scriptPath ** att ange sökvägen till skriptfilen för pig och **scriptLinkedService**. 
+4. Kopiera Pig-frågan i en fil i Azure Blob Storage som konfigurerats i steg #2. Om Azure-lagring som är värd för data skiljer sig från det som är värd för filen, skapar du en separat länkad Azure Storage-tjänst. Avse den länkade tjänsten i konfigurationen av aktivitet. Använd **scriptPath** att ange sökvägen till skriptfilen för pig och **scriptLinkedService**. 
    
    > [!NOTE]
    > Du kan också ange Pig-skript direkt i aktivitetsdefinitionen med hjälp av den **skriptet** egenskapen. Men vi rekommenderar inte den här metoden som alla specialtecken i skriptet behov understrykningen och kan orsaka problem för felsökning. Det bästa sättet är att följa steg #4.

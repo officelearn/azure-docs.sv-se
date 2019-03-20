@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, vanto
 manager: craigg
-ms.date: 02/11/2019
-ms.openlocfilehash: 5cb1f04d5b7d6470fc5ab6920b2edd84c946fbf8
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: 6713182003a280c1d53e904209159b55b4ad01c6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309996"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855579"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  Skapa en virtuell tjänstslutpunkt och VNet-regel för SQL
 
@@ -37,6 +37,8 @@ Din motivering för att skapa en regel förklaras i: [Tjänstslutpunkter i virtu
 > Om allt du behöver är att utvärdera eller lägga till den virtuella tjänstslutpunkten *typnamn* för SQL-databas till ditt undernät du gå vidare till mer [dirigera PowerShell-skript](#a-verify-subnet-is-endpoint-ps-100).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
 
 ## <a name="major-cmdlets"></a>Större-cmdletar
 

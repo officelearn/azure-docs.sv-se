@@ -14,12 +14,12 @@ ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d9a60544f01048cd90605306e64d750982bf7a4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3b91e2c15e86cdda4daab27892fa7a2b6ed0c0e0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200555"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008915"
 ---
 # <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Visa granskningshistorik för Azure AD-katalogroller i PIM
 Du kan använda granskningshistoriken Privileged Identity Management (PIM) för att se alla användartilldelningar och aktiveringar inom en viss tidsperiod för alla Privilegierade roller. Om du vill visa fullständig granskningshistorik för aktiviteten i din klient, inklusive administratören, slutanvändare och synkroniseringsåtgärden, kan du använda den [rapporter för åtkomst och användning av Azure Active Directory.](../reports-monitoring/overview-reports.md)
@@ -27,10 +27,10 @@ Du kan använda granskningshistoriken Privileged Identity Management (PIM) för 
 ## <a name="navigate-to-audit-history"></a>Navigera och granskningshistorik
 Från den [Azure-portalen](https://portal.azure.com) instrumentpanelen, väljer den **Azure AD Privileged Identity Management** app. Därifrån kan du komma åt granskningshistoriken genom att klicka på **hantera Privilegierade roller** > **granskningshistorik** i PIM-instrumentpanelen.
 
-![](media/azure-ad-pim-approval-workflow/image021.png)
+![Granskningshistorik](media/azure-ad-pim-approval-workflow/image021.png)
 
->[!NOTE]
-Du kan sortera data av åtgärden och leta efter ”aktivering Approved”
+> [!NOTE]
+> Du kan sortera data av åtgärden och leta efter ”aktivering Approved”
 
 
 ## <a name="audit-history-graph"></a>Granska historiken graph

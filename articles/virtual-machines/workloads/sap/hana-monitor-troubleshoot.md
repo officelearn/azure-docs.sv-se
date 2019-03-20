@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fb81dd5bb94e09ba3583658a61e5c7cb8a74cf6
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 392dd39e2b3b0e26e7b0ba645bf5a70231167ad5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882900"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014397"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Övervakning och felsökning från HANA-sida
 
@@ -65,7 +65,7 @@ Läs in diagram kan visa hög CPU-förbrukning eller hög förbrukning tidigare:
 
 En avisering utlöses på grund av hög processoranvändning kan bero på flera orsaker, bland annat, men inte begränsat till: körning av vissa transaktioner, datainläsning, hängande för jobb, tidskrävande SQL-uttryck och felaktiga frågeprestanda (till exempel med BW på HANA kuber).
 
-Referera till den [SAP HANA Felsökning: Relaterade gör att CPU- och lösningar](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) för detaljerade felsökningsanvisningar.
+Referera till den [SAP HANA Felsökning: Relaterade gör att CPU- och lösningar](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) för detaljerade felsökningsanvisningar.
 
 ## <a name="operating-system"></a>Operativsystem
 
@@ -87,7 +87,7 @@ Du kan se att mängden minne som allokerats av SAP HANA-databas är högre än f
 - Minnesanvändning av huvudsakliga för lagring av kolumnen Store tabeller (varning 45)
 - Runtime-kraschdumpfiler (varning 46)
 
-Referera till den [SAP HANA Felsökning: Minnesproblem](http://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) för detaljerade felsökningsanvisningar.
+Referera till den [SAP HANA Felsökning: Minnesproblem](https://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) för detaljerade felsökningsanvisningar.
 
 ## <a name="network"></a>Nätverk
 
@@ -104,7 +104,7 @@ Referera till [SAP Obs! #2081065 – felsökning av nätverk för SAP HANA](http
 
 Du kan också använda den öppna källkoden [IPERF](https://iperf.fr/) verktyget (eller liknande) att mäta verkliga program nätverkets prestanda.
 
-Referera till den [SAP HANA Felsökning: Nätverk prestanda och problem med nätverksanslutningen](http://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) för detaljerade felsökningsanvisningar.
+Referera till den [SAP HANA Felsökning: Nätverk prestanda och problem med nätverksanslutningen](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) för detaljerade felsökningsanvisningar.
 
 ## <a name="storage"></a>Storage
 
@@ -116,7 +116,7 @@ Anslutna volymer i den nedre delen av skärmen ser du information om volymer, ti
 
 ![Anslutna volymer i den nedre delen av skärmen ser du information om volymer, till exempel filer och i/o-statistik](./media/troubleshooting-monitoring/image6-volumes-tab-b.png)
 
-Referera till den [SAP HANA Felsökning: I/o-relaterad underliggande orsaker och lösningar](http://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) och [SAP HANA Felsökning: Disk-lösningar och relaterade rotorsaker](http://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) för detaljerade felsökningsanvisningar.
+Referera till den [SAP HANA Felsökning: I/o-relaterad underliggande orsaker och lösningar](https://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) och [SAP HANA Felsökning: Disk-lösningar och relaterade rotorsaker](https://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) för detaljerade felsökningsanvisningar.
 
 ## <a name="diagnostic-tools"></a>Diagnostiska verktyg
 

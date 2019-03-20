@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rimman
-ms.openlocfilehash: 3d05da5f62a076dc168bef029cd0babc3946ee6b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: d37f373e98835846c2d29130781706c400086c0e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243152"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077249"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Säkerhet i Azure Cosmos DB – översikt
 
@@ -57,7 +57,7 @@ Nu ska vi gå tillbaka till föregående lista – hur många av dessa säkerhet
 Låt oss gå till var och en i detalj.
 
 |Säkerhetskrav|Metoden för Azure Cosmos DB-säkerhet|
-|---|---|---|
+|---|---|
 |Nätverkssäkerhet|Det första lagret för att skydda din databas är att använda en IP-brandvägg. Azure Cosmos DB stöder driven IP-baserade åtkomstkontroller för Brandvägg för inkommande trafik support-princip. IP-baserade åtkomstkontroller liknar brandväggsregler som används av traditionella databassystem, men de visas så att ett Azure Cosmos DB-databaskonto kan endast nås från en godkänd uppsättning datorer eller molntjänster. <br><br>Azure Cosmos DB kan du aktivera en specifik IP-adress (168.61.48.0), ett IP-adressintervall (168.61.48.0/8) och kombinationer av IP-adresser och intervall. <br><br>Alla begäranden från datorer utanför den här listan blockeras av Azure Cosmos DB. Begäranden från godkända datorer och molntjänster sedan slutföra autentiseringsprocessen för att få åtkomstkontroll till resurser.<br><br>Läs mer i [Azure Cosmos DB-brandväggsstöd](firewall-support.md).|
 |Auktorisering|Azure Cosmos DB använder hashbaserad meddelandeautentiseringskod (HMAC) för auktorisering. <br><br>Varje begäran hashas med den hemliga nyckeln och efterföljande Base64-kodad Hash-värdet skickas med varje anrop till Azure Cosmos DB. För att verifiera begäran kan Azure Cosmos DB-tjänsten som använder rätt hemlig nyckel och egenskaper för att generera en hash och sedan den jämför värdet med det i begäran. Om de två värdena matchar, åtgärden är auktoriseringen är klar och begäran har bearbetats, annars är det ett autentiseringsfel och begäran avvisas.<br><br>Du kan använda antingen en [huvudnyckeln](secure-access-to-data.md#master-keys), eller en [Resurstoken](secure-access-to-data.md#resource-tokens) detaljerad åtkomst till en resurs, till exempel ett dokument.<br><br>Läs mer i [skydda åtkomst till Azure Cosmos DB-resurserna](secure-access-to-data.md).|
 |Användare och behörigheter|Du kan använda huvudnyckeln för kontot för att skapa användarresurser och behörigheten resurser per databas. En Resurstoken är associerad med en behörighet i en databas och avgör om användaren har åtkomst (skrivskyddad, skrivskyddad, eller ingen åtkomst) till en resurs för en i databasen. Resurser för programmet är behållare, dokument, bifogade filer, lagrade procedurer, utlösare och UDF: er. Resurstoken används sedan under autentiseringen för att tillhandahålla eller neka åtkomst till resursen.<br><br>Läs mer i [skydda åtkomst till Azure Cosmos DB-resurserna](secure-access-to-data.md).|

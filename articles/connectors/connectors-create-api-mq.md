@@ -1,8 +1,7 @@
 ---
 title: Ansluta till MQ-server – Azure Logic Apps | Microsoft Docs
 description: Skicka och ta emot meddelanden med en Azure eller lokala MQ-server och Azure Logic Apps
-author: valthom
-manager: jeconnoc
+author: valrobb
 ms.author: valthom
 ms.date: 06/01/2017
 ms.topic: article
@@ -11,12 +10,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 59ef41b6d7bfcf8831eaa7d8d7e6af4ea279e415
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9e6ae5cb0afd75a1e87fe4d4d0cf307abab5a02a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342249"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58167889"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Ansluta till en IBM MQ-server från logikappar med MQ-kopplingen
 

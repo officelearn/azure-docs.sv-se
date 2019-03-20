@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: df78852e309054bb5c27a779b37bb2310d9f7a01
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: cb597edc676fbb7b63c6a07849551cc21f69b354
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201048"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015008"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera NVIDIA GPU-drivrutiner på N-serien virtuella datorer som kör Linux
 
@@ -38,7 +38,7 @@ N-serien Virtuella specifikationer, lagringskapacitet och diskinformation, finns
 Här följer stegen för att installera CUDA drivrutiner från NVIDIA CUDA Toolkit på virtuella datorer i N-serien. 
 
 
-C och C++-utvecklare kan också installera fullständig Toolkit för att bygga accelererat GPU program. Mer information finns i den [CUDA installationsguide](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
+C och C++-utvecklare kan också installera fullständig Toolkit för att bygga accelererat GPU program. Mer information finns i den [CUDA installationsguide](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 Om du vill installera CUDA-drivrutiner, skapar du en SSH-anslutning till varje virtuell dator. Kontrollera att systemet har en CUDA-kompatibla GPU genom att köra följande kommando:
 
@@ -54,30 +54,30 @@ Sedan kör installationskommandon som är specifika för din distribution.
 ### <a name="ubuntu"></a>Ubuntu 
 
 1. Hämta och installera CUDA-drivrutiner från NVIDIA-webbplatsen. Till exempel för Ubuntu 16.04 LTS:
-  ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
+   ```bash
+   CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
-  wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
+   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
-  sudo dpkg -i /tmp/${CUDA_REPO_PKG}
+   sudo dpkg -i /tmp/${CUDA_REPO_PKG}
 
-  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
+   sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
 
-  rm -f /tmp/${CUDA_REPO_PKG}
+   rm -f /tmp/${CUDA_REPO_PKG}
 
-  sudo apt-get update
+   sudo apt-get update
 
-  sudo apt-get install cuda-drivers
+   sudo apt-get install cuda-drivers
 
-  ```
+   ```
 
-  Installationen kan ta flera minuter.
+   Installationen kan ta flera minuter.
 
 2. För att du kan också installera komplett CUDA-verktyg, skriver du:
 
-  ```bash
-  sudo apt-get install cuda
-  ```
+   ```bash
+   sudo apt-get install cuda
+   ```
 
 3. Starta om den virtuella datorn och fortsätta med att verifiera installationen.
 
@@ -101,50 +101,50 @@ sudo reboot
 
 1. Uppdatera kernel (rekommenderas). Om du väljer att inte uppdatera kerneln, kontrollera att versionerna av `kernel-devel` och `dkms` är lämpliga för din kernel.
 
-  ```
-  sudo yum install kernel kernel-tools kernel-headers kernel-devel
+   ```
+   sudo yum install kernel kernel-tools kernel-headers kernel-devel
   
-  sudo reboot
+   sudo reboot
 
 2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106).
 
-  ```bash
-  wget https://aka.ms/lis
+   ```bash
+   wget https://aka.ms/lis
  
-  tar xvzf lis
+   tar xvzf lis
  
-  cd LISISO
+   cd LISISO
  
-  sudo ./install.sh
+   sudo ./install.sh
  
-  sudo reboot
-  ```
+   sudo reboot
+   ```
  
 3. Ansluta till den virtuella datorn igen och fortsätta installationen med följande kommandon:
 
-  ```bash
-  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+   ```bash
+   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
-  sudo yum install dkms
+   sudo yum install dkms
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
+   CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
 
-  wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
-  sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
+   sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
 
-  rm -f /tmp/${CUDA_REPO_PKG}
+   rm -f /tmp/${CUDA_REPO_PKG}
 
-  sudo yum install cuda-drivers
-  ```
+   sudo yum install cuda-drivers
+   ```
 
-  Installationen kan ta flera minuter. 
+   Installationen kan ta flera minuter. 
 
 4. För att du kan också installera komplett CUDA-verktyg, skriver du:
 
-  ```bash
-  sudo yum install cuda
-  ```
+   ```bash
+   sudo yum install cuda
+   ```
 
 5. Starta om den virtuella datorn och fortsätta med att verifiera installationen.
 
@@ -180,53 +180,53 @@ Om du vill installera NVIDIA GRID-drivrutiner på NV eller NVv2-seriens virtuell
 
 2. Installera uppdateringar.
 
-  ```bash
-  sudo apt-get update
+   ```bash
+   sudo apt-get update
 
-  sudo apt-get upgrade -y
+   sudo apt-get upgrade -y
 
-  sudo apt-get dist-upgrade -y
+   sudo apt-get dist-upgrade -y
 
-  sudo apt-get install build-essential ubuntu-desktop -y
-  ```
+   sudo apt-get install build-essential ubuntu-desktop -y
+   ```
 3. Inaktivera Nouveau kernel-drivrutin som inte är kompatibel med NVIDIA-drivrutin. (Endast använda NVIDIA-drivrutin på NV eller NVv2 virtuella datorer.) Gör detta genom att skapa en fil i `/etc/modprobe.d `med namnet `nouveau.conf` med följande innehåll:
 
-  ```
-  blacklist nouveau
+   ```
+   blacklist nouveau
 
-  blacklist lbm-nouveau
-  ```
+   blacklist lbm-nouveau
+   ```
 
 
 4. Starta om den virtuella datorn och ansluta igen. Avsluta X-server:
 
-  ```bash
-  sudo systemctl stop lightdm.service
-  ```
+   ```bash
+   sudo systemctl stop lightdm.service
+   ```
 
 5. Hämta och installera drivrutinen GRID:
 
-  ```bash
-  wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
+   ```bash
+   wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
 
-  chmod +x NVIDIA-Linux-x86_64-grid.run
+   chmod +x NVIDIA-Linux-x86_64-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-grid.run
-  ``` 
+   sudo ./NVIDIA-Linux-x86_64-grid.run
+   ``` 
 
 6. När du blir tillfrågad om du vill köra verktyget nvidia xconfig Välj för att uppdatera konfigurationsfilen X **Ja**.
 
 7. När installationen är klar kopierar du /etc/nvidia/gridd.conf.template till en ny fil gridd.conf på plats/etc/nvidia /
 
-  ```bash
-  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
-  ```
+   ```bash
+   sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
+   ```
 
 8. Lägg till följande till `/etc/nvidia/gridd.conf`:
  
-  ```
-  IgnoreSP=FALSE
-  ```
+   ```
+   IgnoreSP=FALSE
+   ```
 9. Starta om den virtuella datorn och fortsätta med att verifiera installationen.
 
 
@@ -234,63 +234,63 @@ Om du vill installera NVIDIA GRID-drivrutiner på NV eller NVv2-seriens virtuell
 
 1. Uppdatera kernel och DKMS (rekommenderas). Om du väljer att inte uppdatera kerneln, kontrollera att versionerna av `kernel-devel` och `dkms` är lämpliga för din kernel.
  
-  ```bash  
-  sudo yum update
+   ```bash  
+   sudo yum update
  
-  sudo yum install kernel-devel
+   sudo yum install kernel-devel
  
-  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+   sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
  
-  sudo yum install dkms
-  ```
+   sudo yum install dkms
+   ```
 
 2. Inaktivera Nouveau kernel-drivrutin som inte är kompatibel med NVIDIA-drivrutin. (Endast använda NVIDIA-drivrutin på NV eller NV2 virtuella datorer.) Gör detta genom att skapa en fil i `/etc/modprobe.d `med namnet `nouveau.conf` med följande innehåll:
 
-  ```
-  blacklist nouveau
+   ```
+   blacklist nouveau
 
-  blacklist lbm-nouveau
-  ```
+   blacklist lbm-nouveau
+   ```
  
 3. Starta om den virtuella datorn, återansluta och installera senast [Linux Integration-tjänster för Hyper-V och Azure](https://www.microsoft.com/download/details.aspx?id=55106).
  
-  ```bash
-  wget https://aka.ms/lis
+   ```bash
+   wget https://aka.ms/lis
 
-  tar xvzf lis
+   tar xvzf lis
 
-  cd LISISO
+   cd LISISO
 
-  sudo ./install.sh
+   sudo ./install.sh
 
-  sudo reboot
+   sudo reboot
 
-  ```
+   ```
  
 4. Återansluta till den virtuella datorn och kör den `lspci` kommando. Kontrollera att NVIDIA M60-kort eller kort visas som PCI-enheter.
  
 5. Hämta och installera drivrutinen GRID:
 
-  ```bash
-  wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
+   ```bash
+   wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
 
-  chmod +x NVIDIA-Linux-x86_64-grid.run
+   chmod +x NVIDIA-Linux-x86_64-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-grid.run
-  ``` 
+   sudo ./NVIDIA-Linux-x86_64-grid.run
+   ``` 
 6. När du blir tillfrågad om du vill köra verktyget nvidia xconfig Välj för att uppdatera konfigurationsfilen X **Ja**.
 
 7. När installationen är klar kopierar du /etc/nvidia/gridd.conf.template till en ny fil gridd.conf på plats/etc/nvidia /
   
-  ```bash
-  sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
-  ```
+   ```bash
+   sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
+   ```
   
 8. Lägg till följande till `/etc/nvidia/gridd.conf`:
  
-  ```
-  IgnoreSP=FALSE
-  ```
+   ```
+   IgnoreSP=FALSE
+   ```
 9. Starta om den virtuella datorn och fortsätta med att verifiera installationen.
 
 ### <a name="verify-driver-installation"></a>Kontrollera drivrutinsinstallation

@@ -11,17 +11,17 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: 13642827a6a0f6524a1f9222b72e75f51a5442a3
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: 28bb6fbc3b6b9552850244d608e6587e8a9052de
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576913"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891009"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL Transparent datakryptering med Kundhanterade nycklar i Azure Key Vault: Stöd för Bring Your Own Key
 
-[Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) med Azure Key Vault-integrering ger för att kryptera den databasen Datakrypteringsnyckeln (DEK) med en kundhanterad asymmetrisk nyckel kallas TDE-skydd. Detta kallas också i allmänhet som ta med din egen nyckel (BYOK) som har stöd för Transparent datakryptering.  I BYOK-scenariot TDE-skyddet lagras i en kundägda och hanteras [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), Azures molnbaserade externa nyckelhanteringssystem. TDE-skyddet kan vara [genereras](https://docs.microsoft.com/en-us/azure/key-vault/about-keys-secrets-and-certificates) av key vault eller [överförs](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) till nyckelvalv från en on premises HSM-enhet. TDE DEK, som finns på startsidan av en databas, krypteras och dekrypteras av TDE-skyddet i Azure Key Vault, vilket lämnar aldrig.  SQL-databasen måste ha behörighet till kundägda nyckelvalvet för att dekryptera och kryptera DEK. Om behörigheterna för den logiska SQL-servern till nyckelvalvet har återkallats, en databas kan inte nås och alla data krypteras. För Azure SQL Database, TDE-skyddet är inställd på den logiska SQL-servernivån och ärvs av alla databaser som är associerade med den här servern. För [Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance), TDE-skyddet är inställd på instansnivå och den ärvs av alla *krypterade* databaser på instansen. Termen *server* refererar både till servern och instansen i hela dokumentet, om inte anges på olika sätt.
+[Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) med Azure Key Vault-integrering ger för att kryptera den databasen Datakrypteringsnyckeln (DEK) med en kundhanterad asymmetrisk nyckel kallas TDE-skydd. Detta kallas också i allmänhet som ta med din egen nyckel (BYOK) som har stöd för Transparent datakryptering.  I BYOK-scenariot TDE-skyddet lagras i en kundägda och hanteras [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), Azures molnbaserade externa nyckelhanteringssystem. TDE-skyddet kan vara [genereras](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates) av key vault eller [överförs](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) till nyckelvalv från en on premises HSM-enhet. TDE DEK, som finns på startsidan av en databas, krypteras och dekrypteras av TDE-skyddet i Azure Key Vault, vilket lämnar aldrig.  SQL-databasen måste ha behörighet till kundägda nyckelvalvet för att dekryptera och kryptera DEK. Om behörigheterna för den logiska SQL-servern till nyckelvalvet har återkallats, en databas kan inte nås och alla data krypteras. För Azure SQL Database, TDE-skyddet är inställd på den logiska SQL-servernivån och ärvs av alla databaser som är associerade med den här servern. För [Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance), TDE-skyddet är inställd på instansnivå och den ärvs av alla *krypterade* databaser på instansen. Termen *server* refererar både till servern och instansen i hela dokumentet, om inte anges på olika sätt.
 
 Med transparent Datakryptering med Azure Key Vault-integrering, kan användare styra viktiga hanteringsaktiviteter, inklusive nyckelrotationer, nyckelvalvet behörigheter, nyckelsäkerhetskopior och aktivera granskning/reporting på alla TDE-skydd med hjälp av Azure Key Vault-funktioner. Key Vault ger central nyckelhantering, utnyttjar nära övervakade maskinvarusäkerhetsmoduler (HSM) och låter uppdelning av uppgifter mellan hantering av nycklar och data för att uppfylla efterlevnad med säkerhetsprinciper.  
 
@@ -40,6 +40,8 @@ TDE med Azure Key Vault-integrering ger följande fördelar:
 ## <a name="how-does-tde-with-azure-key-vault-integration-support-work"></a>Hur stöder transparent Datakryptering med Azure Key Vault-integrering arbete
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
 
 ![Autentisering av servern till Nyckelvalvet](./media/transparent-data-encryption-byok-azure-sql/tde-byok-server-authentication-flow.PNG)
 
@@ -64,15 +66,16 @@ När TDE först konfigureras för att använda ett TDE-skydd från Key Vault, sk
   - Den **återställa** och **Rensa** åtgärder har sina egna behörigheter som är associerade i en åtkomstprincip för nyckelvalvet.
 - Ange ett lås för nyckelvalvet för att kontrollera vem som kan ta bort den här kritisk resurs och bidra till att förhindra oavsiktliga eller obehöriga borttagning.  [Mer information om resurslås](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)
 
-- Ge SQL Database-serveråtkomst till nyckelvalvet med sin identitet med Azure Active Directory (AD Azure).  När du använder Användargränssnittet i Portal, Azure AD-identitet skapas automatiskt och åtkomstbehörigheter för nyckelvalv har beviljats till servern.  Använda PowerShell för att konfigurera transparent Datakryptering med BYOK, Azure AD-identitet måste skapas och slutförande bör verifieras. Se [konfigurera transparent Datakryptering med BYOK](transparent-data-encryption-byok-azure-sql-configure.md) och [konfigurera transparent Datakryptering med BYOK för hanterad instans](http://aka.ms/sqlmibyoktdepowershell) stegvisa anvisningar när du använder PowerShell.
+- Ge SQL Database-serveråtkomst till nyckelvalvet med sin identitet med Azure Active Directory (AD Azure).  När du använder Användargränssnittet i Portal, Azure AD-identitet skapas automatiskt och åtkomstbehörigheter för nyckelvalv har beviljats till servern.  Använda PowerShell för att konfigurera transparent Datakryptering med BYOK, Azure AD-identitet måste skapas och slutförande bör verifieras. Se [konfigurera transparent Datakryptering med BYOK](transparent-data-encryption-byok-azure-sql-configure.md) och [konfigurera transparent Datakryptering med BYOK för hanterad instans](https://aka.ms/sqlmibyoktdepowershell) stegvisa anvisningar när du använder PowerShell.
 
   > [!NOTE]
   > Om Azure AD Identity **av misstag har tagits bort eller återkallas serverns behörigheter** med hjälp av den nyckelvalvets åtkomstprincip, servern förlorat åtkomst till nyckelvalvet och transparent Datakryptering krypteras databaser är tillgängliga inom 24 timmar.
 
-- När du använder brandväggar och virtuella nätverk med Azure Key Vault, måste du konfigurera följande: - Tillåt att betrodda Microsoft-tjänster kringgår den här brandväggen – väljer Ja
+- När du använder brandväggar och virtuella nätverk med Azure Key Vault, måste du konfigurera följande: 
+  - Tillåt att betrodda Microsoft-tjänster kringgår den här brandväggen – väljer Ja
 
- > [!NOTE]
- > Om TDE krypterad SQL-databaser förlorar åtkomst till nyckelvalvet eftersom de inte kan kringgå brandväggen, databaserna är tillgängliga inom 24 timmar.
+  > [!NOTE]
+  > Om TDE krypterad SQL-databaser förlorar åtkomst till nyckelvalvet eftersom de inte kan kringgå brandväggen, databaserna är tillgängliga inom 24 timmar.
 
 - Aktivera granskning och rapportera alla krypteringsnycklar: Key Vault ger loggar som är lätt att mata in i andra säkerhetsinformation och händelse-hanteringsverktyg (SIEM). Operations Management Suite (OMS) [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) är ett exempel på en tjänst som redan har integrerat.
 - För att säkerställa hög tillgänglighet med krypterade databaser, att konfigurera varje SQL Database-server med två Azure-Nyckelvalv som finns i olika regioner.

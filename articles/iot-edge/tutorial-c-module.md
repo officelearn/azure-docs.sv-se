@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 798cf405c222a443dbbd3a316d20c482daf4429f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 98406df3746bb0ca2fc658697ee25b1f11b54c0b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563260"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084597"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Självstudie: Utveckla en C IoT Edge-modul och distribuera till den simulerade enheten
 
@@ -32,7 +32,7 @@ IoT Edge-modulen som du skapar i den här självstudien filtrerar temperaturdata
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 En Azure IoT Edge-enhet:
 
@@ -120,7 +120,7 @@ Miljöfilen lagrar autentiseringsuppgifterna för containerregistret och delar d
 
 Lägg till kod i din C-modul som gör att den kan läsa data från sensorn, kontrollera om den rapporterade datortemperaturen har överskridit ett säkerhetströskelvärde och skicka informationen till IoT Hub.
 
-5. Data från sensorn i det här scenariot kommer i JSON-format. Om du vill filtrera meddelanden i JSON-format importerar du ett JSON-bibliotek för C. Den här självstudien använder Parson.
+1. Data från sensorn i det här scenariot kommer i JSON-format. Om du vill filtrera meddelanden i JSON-format importerar du ett JSON-bibliotek för C. Den här självstudien använder Parson.
 
    1. Ladda ned den [Parson GitHub-lagringsplatsen](https://github.com/kgabis/parson). Kopiera filerna **parson.c** och **parson.h** till mappen **CModule**.
 
@@ -137,19 +137,19 @@ Lägg till kod i din C-modul som gör att den kan läsa data från sensorn, kont
 
    4. Spara filen **CMakeLists.txt**.
 
-   5. Öppna **modules** > **CModule** > **main.c**. Längst ned i listan med include-instruktioner lägger du till ett nytt som ska innehålla `parson.h` för JSON-stöd:
+   5. Öppna **modules** > **CModule** > **main.c**. Längst ned i listan över ingår satser, lägga till en ny som ska innehålla `parson.h` för JSON-stöd:
 
       ```c
       #include "parson.h"
       ```
 
-6. I filen **main.c** lägger du till en global variabel med namnet `temperatureThreshold` efter include-avsnittet. Variabeln anger det värde som den uppmätta temperaturen måste överstiga för att data ska skickas till IoT Hub.
+1. I filen **main.c** lägger du till en global variabel med namnet `temperatureThreshold` efter include-avsnittet. Variabeln anger det värde som den uppmätta temperaturen måste överstiga för att data ska skickas till IoT Hub.
 
     ```c
     static double temperatureThreshold = 25;
     ```
 
-7. Ersätt hela funktionen `CreateMessageInstance` med följande kod. Den här funktionen allokerar en kontext för återanropet.
+1. Ersätt hela funktionen `CreateMessageInstance` med följande kod. Den här funktionen allokerar en kontext för återanropet.
 
     ```c
     static MESSAGE_INSTANCE* CreateMessageInstance(IOTHUB_MESSAGE_HANDLE message)
@@ -183,7 +183,7 @@ Lägg till kod i din C-modul som gör att den kan läsa data från sensorn, kont
     }
     ```
 
-8. Ersätt hela funktionen `InputQueue1Callback` med följande kod. Den här funktionen implementerar själva meddelandefiltret.
+1. Ersätt hela funktionen `InputQueue1Callback` med följande kod. Den här funktionen implementerar själva meddelandefiltret.
 
     ```c
     static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -245,7 +245,7 @@ Lägg till kod i din C-modul som gör att den kan läsa data från sensorn, kont
     }
     ```
 
-9. Lägg till en `moduleTwinCallback`-funktion. Metoden tar emot uppdateringar av önskade egenskaper från modultvillingen och uppdaterar variabeln **temperatureThreshold** som ska matchas. Alla moduler har en egen modultvilling, vilket innebär att du kan konfigurera den kod som körs i en modul direkt från molnet.
+1. Lägg till en `moduleTwinCallback`-funktion. Metoden tar emot uppdateringar av önskade egenskaper från modultvillingen och uppdaterar variabeln **temperatureThreshold** som ska matchas. Alla moduler har en egen modultvilling, vilket innebär att du kan konfigurera den kod som körs i en modul direkt från molnet.
 
     ```c
     static void moduleTwinCallback(DEVICE_TWIN_UPDATE_STATE update_state, const unsigned char* payLoad, size_t size, void* userContextCallback)
@@ -263,35 +263,35 @@ Lägg till kod i din C-modul som gör att den kan läsa data från sensorn, kont
     }
     ```
 
-10. Ersätt funktionen `SetupCallbacksForModule` med följande kod.
+1. Ersätt funktionen `SetupCallbacksForModule` med följande kod.
 
-    ```c
-    static int SetupCallbacksForModule(IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle)
-    {
-        int ret;
+   ```c
+   static int SetupCallbacksForModule(IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle)
+   {
+       int ret;
 
-        if (IoTHubModuleClient_LL_SetInputMessageCallback(iotHubModuleClientHandle, "input1", InputQueue1Callback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
-        {
-            printf("ERROR: IoTHubModuleClient_LL_SetInputMessageCallback(\"input1\")..........FAILED!\r\n");
-            ret = __FAILURE__;
-        }
-        else if (IoTHubModuleClient_LL_SetModuleTwinCallback(iotHubModuleClientHandle, moduleTwinCallback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
-        {
-            printf("ERROR: IoTHubModuleClient_LL_SetModuleTwinCallback(default)..........FAILED!\r\n");
-            ret = __FAILURE__;
-        }
-        else
-        {
-            ret = 0;
-        }
+       if (IoTHubModuleClient_LL_SetInputMessageCallback(iotHubModuleClientHandle, "input1", InputQueue1Callback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
+       {
+           printf("ERROR: IoTHubModuleClient_LL_SetInputMessageCallback(\"input1\")..........FAILED!\r\n");
+           ret = __FAILURE__;
+       }
+       else if (IoTHubModuleClient_LL_SetModuleTwinCallback(iotHubModuleClientHandle, moduleTwinCallback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
+       {
+           printf("ERROR: IoTHubModuleClient_LL_SetModuleTwinCallback(default)..........FAILED!\r\n");
+           ret = __FAILURE__;
+       }
+       else
+       {
+           ret = 0;
+       }
 
-        return ret;
-    }
-    ```
+       return ret;
+   }
+   ```
 
-11. Spara filen main.c.
+1. Spara filen main.c.
 
-12. I VS Code-utforskaren öppnar du filen **deployment.template.json** i arbetsytan för IoT Edge-lösningen. Den här filen talar om för IoT Edge-agenten vilka moduler som ska distribueras, i detta fall **tempSensor** och **CModule**, och talar om för IoT Edge-hubben hur meddelanden ska dirigeras mellan dem. Visual Studio Code-tillägget fyller automatiskt i merparten av den information som du behöver i distributionsmallen, men kontrollerar att allt är korrekt för din lösning: 
+1. I VS Code-utforskaren öppnar du filen **deployment.template.json** i arbetsytan för IoT Edge-lösningen. Den här filen talar om för IoT Edge-agenten vilka moduler som ska distribueras, i detta fall **tempSensor** och **CModule**, och talar om för IoT Edge-hubben hur meddelanden ska dirigeras mellan dem. Visual Studio Code-tillägget fyller automatiskt i merparten av den information som du behöver i distributionsmallen, men kontrollerar att allt är korrekt för din lösning: 
 
    1. Standardplattformen för din IoT Edge är inställd på **amd64** i VS Code-statusfältet, vilket innebär att **CModule** är inställd på avbildningens Linux amd64-version. Ändra standardplattformen i statusfältet från **amd64** till **arm32v7** om det är arkitekturen för din IoT Edge-enhet. 
 
@@ -303,19 +303,19 @@ Lägg till kod i din C-modul som gör att den kan läsa data från sensorn, kont
 
    4. Mer information om distributionsmanifest finns i avsnittet om [hur du lär dig att distribuera moduler och upprätta vägar i IoT Edge](module-composition.md).
 
-13. Lägg till CModule-modultvillingen till distributionsmanifestet. Infoga följande JSON-innehåll längst ned i avsnittet `moduleContent` efter `$edgeHub`-modultvillingen:
+1. Lägg till CModule-modultvillingen till distributionsmanifestet. Infoga följande JSON-innehåll längst ned i avsnittet `moduleContent` efter `$edgeHub`-modultvillingen:
 
-    ```json
-        "CModule": {
-            "properties.desired":{
-                "TemperatureThreshold":25
-            }
-        }
-    ```
+   ```json
+       "CModule": {
+           "properties.desired":{
+               "TemperatureThreshold":25
+           }
+       }
+   ```
 
    ![Lägga till CModule-tvilling till distributionsmall](./media/tutorial-c-module/module-twin.png)
 
-14. Spara filen **deployment.template.json**.
+1. Spara filen **deployment.template.json**.
 
 ## <a name="build-and-push-your-solution"></a>Skapa och push-överföra lösningen
 

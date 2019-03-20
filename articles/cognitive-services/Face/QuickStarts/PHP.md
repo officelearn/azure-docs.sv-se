@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 93e3d9fa67cfb941abf97476e03f44a4b16e94e7
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: c29647e4ee312302b66535ba834edabb42e4cff7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313168"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550610"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Snabbstart: Identifiera ansikten i en bild med REST API och PHP
 
 I den här snabbstarten använder du Azure ansikts-REST API med PHP för att identifiera ansikten i en bild.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
 - En kodredigerare såsom [Visual Studio Code](https://code.visualstudio.com/download)
@@ -57,7 +57,7 @@ $imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
 
 // This sample uses the PHP5 HTTP_Request2 package
-// (http://pear.php.net/package/HTTP_Request2).
+// (https://pear.php.net/package/HTTP_Request2).
 require_once 'HTTP/Request2.php';
 
 $request = new Http_Request2($uriBase . '/detect');

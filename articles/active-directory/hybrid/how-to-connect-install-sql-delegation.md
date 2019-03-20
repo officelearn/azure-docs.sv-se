@@ -16,12 +16,12 @@ ms.date: 02/26/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31cfcc6d2309b90565f71a7827fb7057145323c3
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 6269d00c9a6a8f827a4e31044d9d20efb0f8471b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192420"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092590"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Installera Azure AD Connect med SQL-delegerade administratörsbehörigheter
 Före den senaste versionen av Azure AD Connect kan stöds administrativa delegering, när du distribuerar konfigurationer som krävs för SQL, inte.  Användare som vill installera Azure AD Connect som behövs för att ha administratörsbehörighet för servern (SA) på SQLServer.
@@ -44,19 +44,19 @@ Använd följande steg för att etablera databasen out of band och installera Az
 >Även om det inte krävs, är det **rekommenderas starkt** att Latin1_General_CI_AS sorteringen är markerad när du skapar databasen.
 
 
- 1. Låt SQL-administratören skapa ADSync-databas med en skiftlägesokänslig sorteringsföljden **(Latin1_General_CI_AS)**.  Databasen måste ha namnet **ADSync**.  Den återställningsmodellen och kompatibilitetsnivån inneslutning typ uppdateras till rätt värden när Azure AD Connect är installerad.  Men sorteringsföljden måste anges korrekt av SQL-administratören annars Azure AD Connect kommer att blockera installationen.  Om du vill återställa SA måste ta bort och återskapa databasen.
+1. Låt SQL-administratören skapa ADSync-databas med en skiftlägesokänslig sorteringsföljden **(Latin1_General_CI_AS)**.  Databasen måste ha namnet **ADSync**.  Den återställningsmodellen och kompatibilitetsnivån inneslutning typ uppdateras till rätt värden när Azure AD Connect är installerad.  Men sorteringsföljden måste anges korrekt av SQL-administratören annars Azure AD Connect kommer att blockera installationen.  Om du vill återställa SA måste ta bort och återskapa databasen.
  
- ![Sortering](./media/how-to-connect-install-sql-delegation/sql4.png)
- 2. Bevilja Azure AD Connect-administratör och tjänstkontot i domänen följande behörigheter:
-    - SQL-inloggning 
-    - **databasen owner(dbo)** rättigheter.
+   ![Sortering](./media/how-to-connect-install-sql-delegation/sql4.png)
+2. Bevilja Azure AD Connect-administratör och tjänstkontot i domänen följande behörigheter:
+   - SQL-inloggning 
+   - **databasen owner(dbo)** rättigheter.
  
- ![Behörigheter](./media/how-to-connect-install-sql-delegation/sql3a.png)
+   ![Behörigheter](./media/how-to-connect-install-sql-delegation/sql3a.png)
 
- >[!NOTE]
- >Azure AD Connect stöder inte inloggningar med kapslade medlemskap.  Det innebär att din Azure AD Connect-administratörskonto och ett Domäntjänstkonto måste kopplas till en inloggning som har behörighet för dbo.  Det kan inte bara vara medlem i en grupp som är tilldelad till en inloggning med dbo-behörighet.
+   >[!NOTE]
+   >Azure AD Connect stöder inte inloggningar med kapslade medlemskap.  Det innebär att din Azure AD Connect-administratörskonto och ett Domäntjänstkonto måste kopplas till en inloggning som har behörighet för dbo.  Det kan inte bara vara medlem i en grupp som är tilldelad till en inloggning med dbo-behörighet.
 
- 3. Skicka ett e-postmeddelande till Azure AD Connect-administratören som anger SQL server och instans namn som ska användas när du installerar Azure AD Connect.
+3. Skicka ett e-postmeddelande till Azure AD Connect-administratören som anger SQL server och instans namn som ska användas när du installerar Azure AD Connect.
 
 ## <a name="additional-information"></a>Ytterligare information
 När databasen har etablerats kan Azure AD Connect-administratören installera och konfigurera den lokala synkronisering när så önskas.

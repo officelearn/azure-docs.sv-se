@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 35ce6a09b77b1cebe00f3ee11f09d526dd9b0b22
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: cf296d8bb494307dbb58b9de522d55a83892c6d5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768617"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537328"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python-exempel
 
@@ -48,7 +48,7 @@ Du behöver också [Python SDK](sql-api-sdk-python.md).
    > 
 
 ## <a name="database-examples"></a>Databasexempel
-Filen [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement/Program.py) i projektet [DatabaseManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement) visar hur du utför följande uppgifter:
+Den [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement/Program.py) -filen för den [DatabaseManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement) projektet visas hur du gör följande uppgifter. Läs mer om Azure Cosmos-databaserna innan du kör följande exempel, i [arbetar med databaser, behållare och objekt](databases-containers-items.md) konceptuella artikeln. 
 
 | Aktivitet | API-referens |
 | --- | --- |
@@ -58,7 +58,7 @@ Filen [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/
 | [Ta bort en databas](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement/Program.py#L113-L126) |[CosmosClient.DeleteDatabase](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#deletedatabase-database-link--options-none-) |
 
 ## <a name="collection-examples"></a>Samlingsexempel
-Filen [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement/Program.py) i projektet [CollectionManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement) visar hur du utför följande uppgifter:
+Den [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement/Program.py) -filen för den [CollectionManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement) projektet visas hur du gör följande uppgifter. Läs om Azure Cosmos-samlingar innan du kör följande exempel i [arbetar med databaser, behållare och objekt](databases-containers-items.md) konceptuella artikeln. 
 
 | Aktivitet | API-referens |
 | --- | --- |
@@ -69,7 +69,7 @@ Filen [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/
 | [Ta bort en samling](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement/Program.py#L224-L238) |[CosmosClient.DeleteContainer](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#deletecontainer-collection-link--options-none-) |
 
 ## <a name="document-examples"></a>Exempel på dokument
-Filen [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement/Program.py) i projektet [DocumentManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement) visar hur du utför följande uppgifter:
+Den [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement/Program.py) -filen för den [DocumentManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement) projektet visas hur du gör följande uppgifter. Läs mer om Azure Cosmos-dokument innan du kör följande exempel, i [arbetar med databaser, behållare och objekt](databases-containers-items.md) konceptuella artikeln. 
 
 | Aktivitet | API-referens |
 | --- | --- |
@@ -80,7 +80,7 @@ Filen [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/
 | [Ersätta dokument med villkorlig ETag-kontroll](https://github.com/Azure/azure-cosmos-python/blob/a21f6fb4bad3f59909ef43558b598f9fb476b7bc/test/crud_tests.py#L1216-L1218) | [CosmosClient.ReplaceItem](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#replaceitem-document-link--new-document--options-none-) |
 
 ## <a name="indexing-examples"></a>Indexeringsexempel
-Filen [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py) i projektet [IndexManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement) visar hur du utför följande uppgifter:
+Den [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py) -filen för den [IndexManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement) projektet visas hur du gör följande uppgifter.  Läs mer om indexering i Azure Cosmos DB innan du kör följande exempel, i [indexeringsprinciper](index-policy.md), [indexering typer](index-types.md), och [indexering sökvägar](index-paths.md) konceptuella artiklar. 
 
 | Aktivitet | API-referens |
 | --- | --- |
@@ -92,7 +92,8 @@ Filen [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/
 | [Utföra en indextransformering](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L514-L559) |[CosmosClient.ReplaceContainer](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#replacecontainer-collection-link--collection--options-none-) |
 
 ## <a name="query-examples"></a>Exempelfrågor
-Exempelprojekten visar även hur du utför följande fråga:
+Exempelprojekten visar också hur du gör följande i fråga. Mer information om SQL-referens för frågor i Azure Cosmos DB innan du kör följande exempel finns [SQL-fråga exempel](how-to-sql-query.md) konceptuella artikeln. Mer information om SQL-referens för frågor i Azure Cosmos DB innan du kör följande exempel finns [SQL-fråga exempel](how-to-sql-query.md) konceptuella artikeln. 
+
 
 | Aktivitet | API-referens |
 | --- | --- |

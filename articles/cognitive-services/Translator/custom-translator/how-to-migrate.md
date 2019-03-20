@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 246580d7c93677859c5800cdc9394c1603c4c36b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3b2c5f3e02241f8c4e8a9ae87bd7436863243978
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776980"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901533"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrera Hub arbetsyta och projekt till anpassad Translator
 
@@ -26,12 +26,8 @@ Dessa åtgärder utföras manuellt under migreringen:
 * Alla migrerade utbildningar som inte är i distribuerat läge placeras i den migrerade utkast. Du har möjlighet att träna en modell med de migrerade definitionen i det här tillståndet, men vanliga utbildning avgifter tillkommer.
 * När som helst BLEU poängen som har migrerats från hubben utbildning kan hittas på sidan TrainingDetails i modellen i ”Bleu poäng i MT-hubb” rubrik.
 
->[!Note]
-För en utbildning ska lyckas, kräver anpassade Translator minst 10 000 unika extraherade meningar. Anpassade Translator kan inte genomföra en utbildningar med färre än den [föreslagna minsta](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
-
-## <a name="enable-account-migration"></a>Aktivera kontomigrering
-
-För att kunna använda Migreringsverktyget måste ha din hubb kontomigrering har aktiverats. Detta gör att e- [ custommt@microsoft.com ](mailto:custommt@microsoft.com) med en lista över alla live ID-konton som du vill ha aktiverat. Dessa konton bör vara e-postadresser som du loggar in med.
+> [!Note]
+> För en utbildning ska lyckas, kräver anpassade Translator minst 10 000 unika extraherade meningar. Anpassade Translator kan inte genomföra en utbildningar med färre än den [föreslagna minsta](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
 
 ## <a name="find-custom-translator-workspace-id"></a>Hitta anpassade Translator arbetsyte-ID
 

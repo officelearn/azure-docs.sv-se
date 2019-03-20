@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: eb0fd7e4feb28d60173b638a15dbce598f78e6bf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 26520e3ff8f5bb97866015d3148b4c8b8813b319
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182960"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168578"
 ---
 # <a name="get-started-with-reliable-services"></a>Kom igång med Reliable Services
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Starta Visual Studio 2015 eller Visual Studio 2017 som administratör och skapa 
 
 ![Använd dialogrutan Nytt projekt för att skapa ett nytt Service Fabric-program](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-Skapa sedan en tillståndslös tjänst-projekt med **.Net Core 2.0** med namnet *HelloWorldStateless*:
+Skapa sedan en tillståndslös tjänst-projekt med **.NET Core 2.0** med namnet *HelloWorldStateless*:
 
 ![Skapa en tillståndslös tjänst-projekt i den andra dialogrutan](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
@@ -127,7 +127,7 @@ I samma *HelloWorld* program, du kan lägga till en ny tjänst genom att högerk
 
 ![Lägga till en tjänst till ditt Service Fabric-program](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-Välj **.Net Core 2.0 -> tillståndskänslig tjänst** och ge den namnet *HelloWorldStateful*. Klicka på **OK**.
+Välj **.NET Core 2.0 -> tillståndskänslig tjänst** och ge den namnet *HelloWorldStateful*. Klicka på **OK**.
 
 ![Använd dialogrutan Nytt projekt för att skapa en ny tillståndskänslig Service Fabric-tjänst](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 

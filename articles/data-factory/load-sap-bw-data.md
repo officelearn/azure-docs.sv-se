@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 607c3ff128c82c7baa268cf8f068232428ec5331
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
-ms.translationtype: MT
+ms.openlocfilehash: 63ce3587a2c48e7e03503e50a548ed372f511e37
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57733326"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082066"
 ---
 # <a name="load-data-from-sap-business-warehouse-bw-by-using-azure-data-factory"></a>Läsa in data från SAP Business Warehouse (BW) med hjälp av Azure Data Factory
 
@@ -42,7 +42,7 @@ Den här artikeln visar dig en genomgång om hur du använder Data Factory _läs
 
   2. Ladda ned den [64-bitars SAP .NET Connector 3.0](https://support.sap.com/en/product/connectors/msnet.html) från SAP: s webbplats och installera den på den lokala IR-datorn.  När installationen i fönstret ”installationsanvisningarna” Kontrollera att du väljer den ”**installera sammansättningar GAC**” enligt i följande bild.
 
-     ![Konfigurera SAP .NET Connector](media\connector-sap-business-warehouse-open-hub\install-sap-dotnet-connector.png)
+     ![Konfigurera SAP .NET Connector](media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
 
 ## <a name="full-copy-from-sap-bw-open-hub"></a>Fullständig kopia från SAP BW Open Hub
 
@@ -56,7 +56,7 @@ På Azure-portalen, gå till din data factory -> Välj **författare och Överva
 
 4. På den **ange SAP BW Open hubbanslutning** sidan 
 
-   ![Skapa SAP BW öppna hubben som är länkad tjänst](media\load-sap-bw-data\create-sap-bw-open-hub-linked-service.png)
+   ![Skapa SAP BW öppna hubben som är länkad tjänst](media/load-sap-bw-data/create-sap-bw-open-hub-linked-service.png)
 
    1. Välj den **Anslut via Integration Runtime**: Klicka på listrutan för att välja en befintlig lokal IR eller skapa en om du inte har lokal IR ännu. 
 
@@ -72,88 +72,88 @@ På Azure-portalen, gå till din data factory -> Välj **författare och Överva
 
 5. På den **Välj Öppna Hub mål** bläddrar den öppna Hub mål som är tillgängliga på SAP BW, och väljer du det alternativ som du vill kopiera data från och klicka sedan på **nästa**.
 
-   ![Välj SAP BW Open Hub tabell](media\load-sap-bw-data\select-sap-bw-open-hub-table.png)
+   ![Välj SAP BW Open Hub tabell](media/load-sap-bw-data/select-sap-bw-open-hub-table.png)
 
 6. Ange filtret om det behövs. Om öppen Hub mål endast innehåller data från Data Transfer processen (DTP) utförande med enskild begäran-ID, eller om du är säker på att din DTP har slutförts och vill kopiera alla data, avmarkera de **undanta senaste begäran**. Du kan lära dig mer om hur dessa inställningar är relaterade till SAP BW konfigurationen i [konfigurationer för SAP BW Open Hub mål](#sap-bw-open-hub-destination-configurations) avsnittet. Klicka på **verifiera** att kontrollera data returneras, välj sedan **nästa**.
 
-   ![Konfigurera SAP BW Open Hub filter](media\load-sap-bw-data\configure-sap-bw-open-hub-filter.png)
+   ![Konfigurera SAP BW Open Hub filter](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
 7. I den **måldatalager** klickar du på **+ Skapa ny anslutning**, och välj sedan **Azure Data Lake Storage Gen2**, och välj **Fortsätt**.
 
 8. I den **ange Azure Data Lake Storage anslutning** sidan 
 
-   ![Skapa ADLS Gen2 länkad tjänst](media\load-sap-bw-data\create-adls-gen2-linked-service.png)
+   ![Skapa ADLS Gen2 länkad tjänst](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
    1. Välj din Data Lake Storage Gen2 kan kontot från ”lagringskontonamnet” nedrullningsbar listruta.
    2. Välj **Slutför** att skapa anslutningen. Välj sedan **Nästa**.
 
 9. I den **Välj utdatafil eller mapp** , anger du ”copyfromopenhub” som utdata mappnamnet och välj **nästa**.
 
-   ![Välj utdatamapp](media\load-sap-bw-data\choose-output-folder.png)
+   ![Välj utdatamapp](media/load-sap-bw-data/choose-output-folder.png)
 
 10. I den **filformat inställningen** väljer **nästa** att använda standardinställningarna.
 
-   ![Ange format för mottagare](media\load-sap-bw-data\specify-sink-format.png)
+    ![Ange format för mottagare](media/load-sap-bw-data/specify-sink-format.png)
 
 11. I den **inställningar** expanderar den **prestandainställningar**, och Ställ in **graden av parallellitet kopia** , till exempel 5 för att läsa in från SAP BW parallellt. Klicka på **Nästa**.
 
-    ![Konfigurera inställningar](media\load-sap-bw-data\configure-copy-settings.png)
+    ![Konfigurera inställningar](media/load-sap-bw-data/configure-copy-settings.png)
 
 12. I den **sammanfattning** , granskar du inställningarna och välj **nästa**.
 
 13. I den **distribution** väljer **övervakaren** att övervaka pipelinen.
 
-    ![Distributionssida](media\load-sap-bw-data\deployment.png)
+    ![Distributionssida](media/load-sap-bw-data/deployment.png)
 
 14. Observera att fliken **Övervaka** till vänster väljs automatiskt. Den **åtgärder** -kolumnen innehåller länkar för att visa information om aktivitetskörningar och köra pipelinen på nytt:
 
-    ![Pipelineövervakning](media\load-sap-bw-data\pipeline-monitoring.png)
+    ![Pipelineövervakning](media/load-sap-bw-data/pipeline-monitoring.png)
 
 15. Om du vill visa de aktivitetskörningar som är associerade med pipelinekörningen, väljer den **visa Aktivitetskörningar** länken i den **åtgärder** kolumn. Det finns bara en aktivitet (kopieringsaktiviteten) i pipelinen. Därför visas bara en post. Växla tillbaka till vyn med pipelinekörningar, Välj den **Pipelines** länken längst upp. Om du vill uppdatera listan väljer du **Uppdatera**.
 
-    ![Aktivitetsövervakning](media\load-sap-bw-data\activity-monitoring.png)
+    ![Aktivitetsövervakning](media/load-sap-bw-data/activity-monitoring.png)
 
 16. För att övervaka körning-information för varje kopieringsaktiviteten, Välj den **information** länken (glasögonbilden) under **åtgärder** i övervakningsvyn-aktivitet. Du kan övervaka information som mängden data som kopieras från källan till mottagare, dataflöde, utförande med motsvarande tid och används konfigurationer:
 
-    ![Aktivitetsövervakning information](media\load-sap-bw-data\activity-monitoring-details.png)
+    ![Aktivitetsövervakning information](media/load-sap-bw-data/activity-monitoring-details.png)
 
 17. Granska den **högsta ID för begäran** som kopieras. Gå tillbaka till aktiviteten övervakningsvyn, klickar du på den **utdata** under **åtgärder**.
 
-    ![Aktivitetsutdata](media\load-sap-bw-data\activity-output.png)
+    ![Aktivitetsutdata](media/load-sap-bw-data/activity-output.png)
 
-    ![Utdata för aktivitetsinformation](media\load-sap-bw-data\activity-output-details.png)
+    ![Utdata för aktivitetsinformation](media/load-sap-bw-data/activity-output-details.png)
 
 ## <a name="incremental-copy-from-sap-bw-open-hub"></a>Inkrementell kopia från SAP BW Open Hub
 
 > [!TIP]
-
+> 
 > Referera till [öppna hubben för SAP BW connector delta extrahering flow](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) mer information om hur ADF kopieringsaktiviteten fungerar för att kopiera inkrementella data från SAP BW.
 
 Nu ska vi fortsätta att konfigurera inkrementell kopia från SAP BW Open Hub. 
 
 Den inkrementella kopian använder högvattenmärket mekanism baserat på begäran-ID skapas automatiskt i SAP BW Open Hub mål med DTP. Arbetsflödet för den här metoden illustreras i följande diagram:
 
-![Inkrementell kopia arbetsflöde](media\load-sap-bw-data\incremental-copy-workflow.png)
+![Inkrementell kopia arbetsflöde](media/load-sap-bw-data/incremental-copy-workflow.png)
 
 På den ADF UI **nu sätter vi igång** väljer **skapa pipeline**. 
 
 1. Dra tre aktiviteter - **Lookup, kopieringsdata och webb-** – till arbetsytan och gör dem kedjat om de lyckas. I den här genomgången ska använder vi Azure Blob för att lagra högvattenmärket - max kopierade begärande-ID. Du kan också använda SQL-databas för att lagra den och använda lagringsprocedur-aktivitet i stället för webbaktivitet för att uppdatera den.
 
-   ![Inkrementella kopieringspipelinen](media\load-sap-bw-data\incremental-copy-pipeline.png)
+   ![Inkrementella kopieringspipelinen](media/load-sap-bw-data/incremental-copy-pipeline.png)
 
 2. Konfigurera Lookup-aktiviteten:
 
    1. I Lookup-aktiviteten **inställningar** fliken Kontrollera **första raden endast** alternativet.
 
-      ![Inställningar för sökning](media\load-sap-bw-data\lookup-settings.png)
+      ![Inställningar för sökning](media/load-sap-bw-data/lookup-settings.png)
 
    2. Konfigurera **källdatauppsättning** som en blobdatauppsättning i det **filsökväg**, pekar på blobben där du vill lagra max kopierade begäran-ID som högvattenmärket och hålla format som textformat.
 
-      ![Inställningar för BLOB-datauppsättning](media\load-sap-bw-data\blob-dataset.png)
+      ![Inställningar för BLOB-datauppsättning](media/load-sap-bw-data/blob-dataset.png)
 
    3. Skapa en blob med innehåll 0 i motsvarande blob-sökvägen.
 
-      ![Blobbinnehåll](media\load-sap-bw-data\blob.png)
+      ![Blobbinnehåll](media/load-sap-bw-data/blob.png)
 
 3. Konfigurera Kopieringsaktivitet: 
 
@@ -166,17 +166,17 @@ På den ADF UI **nu sätter vi igång** väljer **skapa pipeline**.
 
    3. Gå tillbaka till kopieringsaktiviteten **källa** konfigurerar ”requestId”-värdet för att använda uttryck (Lägg till dynamiskt innehåll) `@{activity('<look up activity name>').output.firstRow.Prop_0}`. Ändras ”slå upp aktivitetsnamn” i det här uttrycket.
 
-      ![Inställningar för att kopiera källa](media\load-sap-bw-data\copy-source.png)
+      ![Inställningar för att kopiera källa](media/load-sap-bw-data/copy-source.png)
 
 4. Konfigurera webbaktivitet: den här webbaktivitet anropar Logikapp för att lagra max kopierade begärande-ID till blob.
 
    1. Gå till Azure portal -> Ny en **Logikapp** med en **HTTP-begäran** och en **skapa blob** på följande sätt. Använd samma blobfil som konfigurerats i ovanstående aktivitetskälla för sökning. Och kopiera den **HTTP post-URL** som ska användas i web-aktivitet.
 
-      ![Logic App config](media\load-sap-bw-data\logic-app-config.png)
+      ![Logic App config](media/load-sap-bw-data/logic-app-config.png)
 
    2. Gå tillbaka till att redigera ADF **Web aktivitet** inställningar enligt nedan. Konfigurera texten som uttryck (Lägg till dynamiskt innehåll) `{"sapOpenHubMaxRequestId":"@{activity('CopyFromSap').output.sapOpenHubMaxRequestId}"}`.
 
-      ![Webbinställningar för aktivitet](media\load-sap-bw-data\web-activity-settings.png)
+      ![Webbinställningar för aktivitet](media/load-sap-bw-data/web-activity-settings.png)
 
 5. Kan du klicka på **felsöka** att verifiera konfigurationen eller välja **publicera alla** att publicera alla ändringar och klicka sedan på **utlösaren** att köra en körning.
 
@@ -197,19 +197,19 @@ Om du behöver både historiska kopiera och inkrementell kopia eller bara en ink
    - **Nyckeln för tabellen:** *Teknisk nyckel*
    - **Extrahering:** *Behåll Data och infoga poster i tabellen*
 
-   ![Skapa SAP BW OHD delta extrahering](media\load-sap-bw-data\create-sap-bw-ohd-delta.png)
+   ![Skapa SAP BW OHD delta extrahering](media/load-sap-bw-data/create-sap-bw-ohd-delta.png)
 
-   ![create-sap-bw-ohd-delta2](media\load-sap-bw-data\create-sap-bw-ohd-delta2.png)
+   ![create-sap-bw-ohd-delta2](media/load-sap-bw-data/create-sap-bw-ohd-delta2.png)
 
    Du kan öka antalet parallella som kör SAP arbetsprocesser för DTP:
 
-   ![create-sap-bw-ohd-delta3](media/load-sap-bw-data\create-sap-bw-ohd-delta3.png)
+   ![create-sap-bw-ohd-delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
 
 2. Schemalägga DTP i processen går att härleda
 
    En Delta-DTP för en kub fungerar bara när det behövs rader inte har komprimerats ännu. Därför måste du se till att BW-kub komprimering inte är igång innan DTP till tabellen öppna Hub. Det enklaste sättet för detta integrerar den här DTP i din befintliga processen kedjor. I exemplet nedan DTP (för att OHD) infogas i processkedjan mellan steget justera (sammanställd sammanslagning) och Dölj (kuben komprimering).
 
-   ![create-sap-bw-process-chain](media\load-sap-bw-data\create-sap-bw-process-chain.png)
+   ![create-sap-bw-process-chain](media/load-sap-bw-data/create-sap-bw-process-chain.png)
 
 ### <a name="configure-full-extraction-in-sap-bw"></a>Konfigurera fullständig extrahering i SAP BW
 
@@ -217,7 +217,7 @@ Förutom delta-utvinning, kanske du vill ha en fullständig extrahering av samma
 
 Du får inte ha fler än en DTP för samma OHD. Därför måste du skapa en ytterligare OHD än delta extrahering.
 
-![create-sap-bw-ohd-full](media\load-sap-bw-data\create-sap-bw-ohd-full.png)
+![create-sap-bw-ohd-full](media/load-sap-bw-data/create-sap-bw-ohd-full.png)
 
 Välj olika alternativ än extrahering av delta för en fullständig inläsning OHD:
 
@@ -225,7 +225,7 @@ Välj olika alternativ än extrahering av delta för en fullständig inläsning 
 
 - I DTP: Ange ”extrahering läget” som ”*fullständig*”. Du måste ändra den automatiskt skapade DTP av Delta till fullständig bara när du har skapat OHD:
 
-   ![create-sap-bw-ohd-full2](media\load-sap-bw-data\create-sap-bw-ohd-full2.png)
+   ![create-sap-bw-ohd-full2](media/load-sap-bw-data/create-sap-bw-ohd-full2.png)
 
 - I ADF SAP BW Open Hub connector: inaktivera alternativet ”*exkludera senaste begäran*”. Annars skulle ingenting extraheras. 
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 690ce08aa15a9677b04931ed1965ef819614ee84
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 76b607502324c3ca25b3536d5197a97dbb80399d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355779"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102153"
 ---
 # <a name="update-azure-marketplace-and-appsource-offers"></a>Uppdatera Azure Marketplace och AppSource erbjudanden
 
@@ -68,19 +68,19 @@ Följ stegen nedan för att implementera dessa ändringar.
 
 Azure Marketplace-erbjudanden:
 
-2. Välj den **SKU: er** fliken.  Välj SKU för att ändra.
-3. Klicka på den **Välj länder** knappen den **Land/Region tillgänglighet** fält.
-4. I region tillgänglighet dialogrutan Lägg till eller ta bort regionerna för denna SKU.
+1. Välj den **SKU: er** fliken.  Välj SKU för att ändra.
+1. Klicka på den **Välj länder** knappen den **Land/Region tillgänglighet** fält.
+1. I region tillgänglighet dialogrutan Lägg till eller ta bort regionerna för denna SKU.
 
 AppSource-erbjudanden:
 
-2. Välj den **Storefront information** fliken.
-3. Bredvid den **länder/regioner som stöds** etikett, klickar du på **länder/regioner som stöds**. 
-4. I dialogrutan för länder/regioner, Lägg till eller ta bort regioner för det här erbjudandet.
+1. Välj den **Storefront information** fliken.
+1. Bredvid den **länder/regioner som stöds** etikett, klickar du på **länder/regioner som stöds**. 
+1. I dialogrutan för länder/regioner, Lägg till eller ta bort regioner för det här erbjudandet.
 
 För antingen marketplace:
 
-5. Klicka på **publicera** att starta publiceringsprocessen. 
+1. Klicka på **publicera** att starta publiceringsprocessen. 
 
 Om en SKU gjorts tillgängliga i en ny region har du möjlighet att ange priser för en viss regionen via den **exportera priser Data** funktioner. Du kan inte uppdatera dess priser eftersom prisändringar inte tillåts om du lägger till en region tillbaka som tidigare var tillgängligt.
 

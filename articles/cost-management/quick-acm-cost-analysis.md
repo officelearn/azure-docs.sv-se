@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 931732c047a5ffe22ad456a115c36d7c882d01bc
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 55407ec1846a0fe2eb037756dc2e97d8b05e7330
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769859"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997298"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snabbstart: Utforska och analysera kostnader med kostnadsanalys
 
@@ -30,7 +30,7 @@ I den här snabbstarten lär du dig att:
 - Ladda ned kostnadsanalysdata
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Kostnadsanalys stöder en mängd olika typer av Azure-konton. Om du vill visa en fullständig lista över typer av stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Om du vill visa kostnadsdata behöver du minst läsbehörighet för ditt Azure-konto.
 
@@ -51,7 +51,7 @@ Mer information om hur du får åtkomst till Cost Management finns i [Tilldela �
 
 ## <a name="review-costs-in-cost-analysis"></a>Granska kostnader i kostnadsanalys
 
-Om du vill granska dina kostnader med kostnadsanalys går du i Azure-portalen till **Cost Microsoft Azure-portalen + fakturering** &gt; **Kostnadsanalys**. Välj **Scope: (Omfång): _ScopeName_**, välj ett omfång och klicka sedan på **Välj**.
+För att granska dina kostnader i kostnadsanalys, öppna det önskade omfånget i Azure portal och väljer **analys av kostnader** på menyn. Till exempel Gå till **prenumerationer**, Välj en prenumeration i listan och välj sedan **analys av kostnader** på menyn. Använd den **omfång** pill att växla till ett annat omfång i kostnadsanalys. Mer information om scope finns [förstå och arbeta med omfattningar](understand-work-scopes.md).
 
 Det omfång som du väljer används i hela Cost Management för att ge datakonsolidering och styra åtkomsten till kostnadsinformation. När du använder omfång så använder du inte flerval för dem. I stället väljer du ett större omfång som andra ackumuleras till, och sedan filtrerar du ned till det du vill. Detta är viktigt att förstå eftersom vissa användare inte ska ha åtkomst till ett överordnat omfång som underordnade omfång ackumuleras till.
 

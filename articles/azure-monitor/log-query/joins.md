@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: c79becfda84e1a7d65399c7211bdc3b98a28696f
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 2ea5b4e3af6591e6e25a863998baa7cecb3e29e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750573"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079119"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Kopplingar i Azure Monitor log-frågor
 
@@ -101,7 +101,7 @@ Tänk på följande för optimala prestanda:
 
 - Använd ett tidsfilter i varje tabell för att minska de poster som ska utvärderas för kopplingen.
 - Använd `where` och `project` att minska antalet rader och kolumner i tabellerna indata innan kopplingen.
-* Om en tabell alltid är mindre än den andra, kan du använda den som vänster sida i kopplingen.
+- Om en tabell alltid är mindre än den andra, kan du använda den som vänster sida i kopplingen.
 
 
 ## <a name="next-steps"></a>Nästa steg

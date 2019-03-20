@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 23fa146b7bdaef0451984d0fbc638c57691cf259
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 4b7e2a8d5eb981fc30dd14fed8f7efcfc094af0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201728"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110893"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Använda Apache Beeline klienten med Apache Hive
 
@@ -148,10 +148,10 @@ Beeline är en Hive-klient som ska tas med på huvudnoderna i ditt HDInsight-klu
 
     * `INPUT__FILE__NAME LIKE '%.log'` -Hive försöker använda schemat för alla filer i katalogen. I det här fallet innehåller katalogen filer som inte matchar schemat. För att förhindra skräpinsamling data i resultatet, meddelar den här instruktionen Hive att den endast ska returnera data från filer som slutar på. log.
 
-  > [!NOTE]  
-  > Externa tabeller som ska användas när du förväntar dig att underliggande data uppdateras av en extern källa. Till exempel en automatiserade uppladdningen eller en MapReduce-åtgärd.
-  >
-  > Tar bort en extern tabell har **inte** ta bort data, endast tabelldefinitionen.
+   > [!NOTE]  
+   > Externa tabeller som ska användas när du förväntar dig att underliggande data uppdateras av en extern källa. Till exempel en automatiserade uppladdningen eller en MapReduce-åtgärd.
+   >
+   > Tar bort en extern tabell har **inte** ta bort data, endast tabelldefinitionen.
 
     Kommandots utdata liknar följande text:
 
@@ -198,12 +198,12 @@ Använd följande steg för att skapa en fil och sedan köra den genom Beeline.
 
     Dessa instruktioner utför följande åtgärder:
 
-    * **SKAPA tabellen IF NOT finns** -om tabellen inte redan finns skapas den. Eftersom den **externa** nyckelord används inte, den här instruktionen skapar en intern tabell. Interna tabeller lagras i datalagret Hive och hanteras helt av Hive.
-    * **LAGRADE AS ORC** -lagrar data i optimerade rad kolumner (ORC)-format. ORC-format är ett mycket optimerade och effektiv format för att lagra Hive-data.
-    * **INFOGA SKRIVA ÖVER... Välj** -väljer rader från den **log4jLogs** tabellen som innehåller **[fel]**, infogar data till den **felvillkoren** tabell.
+   * **SKAPA tabellen IF NOT finns** -om tabellen inte redan finns skapas den. Eftersom den **externa** nyckelord används inte, den här instruktionen skapar en intern tabell. Interna tabeller lagras i datalagret Hive och hanteras helt av Hive.
+   * **LAGRADE AS ORC** -lagrar data i optimerade rad kolumner (ORC)-format. ORC-format är ett mycket optimerade och effektiv format för att lagra Hive-data.
+   * **INFOGA SKRIVA ÖVER... Välj** -väljer rader från den **log4jLogs** tabellen som innehåller **[fel]**, infogar data till den **felvillkoren** tabell.
 
-    > [!NOTE]  
-    > Till skillnad från externa tabeller, släppa en intern tabell tar bort de underliggande data.
+     > [!NOTE]  
+     > Till skillnad från externa tabeller, släppa en intern tabell tar bort de underliggande data.
 
 3. Om du vill spara filen, Använd **Ctrl**+**_X**, ange sedan **Y**, och slutligen **RETUR**.
 

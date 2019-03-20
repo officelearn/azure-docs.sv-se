@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8585557672c7db15e07be6a5e663ba1811e07694
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 4b47b0c5af98198d829c4658877acae2edff5455
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961320"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001200"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Vad är Microsoft Authenticator-appen?
 
@@ -28,18 +28,21 @@ Med Microsoft Authenticator-appen kan du logga in på dina konton om du använde
 
 Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följande:
 
-- Tillhandahålla en uppmaning för en andra verifieringsmetod när du har loggat in med ditt användarnamn och lösenord.
+- Besvara en fråga för autentisering när du har loggat in med ditt användarnamn och lösenord.
 
-- Tillhandahålla inloggning utan att kräva ett lösenord, med ditt användarnamn och din mobila enhet med ditt fingeravtryck, ett ansikte eller en PIN-kod.
+- Logga in utan att ange ett lösenord med ditt användarnamn, authenticator-appen och din mobila enhet med ditt fingeravtryck, ett ansikte eller en PIN-kod.
 
->[!Important]
->Microsoft Authenticator-appen fungerar med alla appar som använder tvåfaktorsverifiering och alla konton som har stöd för tidsbaserade engångslösenord (TOTP).
+- Som en kodgeneratorn för andra konton som har stöd för autentiserare.
 
->Din organisation kan kräva att du använder en autentiseringsapp för att logga in och komma åt organisationens data och dokument. Även om ditt användarnamn kanske visas i appen är kontot inte konfigurerat så för att fungera som verifieringsmetod förrän du har slutfört registreringsprocessen. Mer information finns i [Lägga till ditt arbets- eller skolkonto](user-help-auth-app-overview.md).
-
->Om du har problem med att logga in på ditt konto kan du läsa [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) (När du inte kan logga in på ditt Microsoft-konto) om du behöver hjälp. Få mer information om vad du gör när du får meddelandet [”Det Microsoft-kontot finns inte”](https://support.microsoft.com/help/13811) när du försöker logga in på ditt Microsoft-konto.
+> [!Important]
+> Microsoft Authenticator-appen fungerar med alla konton som använder två faktorer verifiering och har stöd för tidsbaserade engångslösenord (TOTP)-standarder.
+> 
+> Din organisation kan kräva att du använder en autentiseringsapp för att logga in och komma åt organisationens data och dokument. Även om ditt användarnamn kanske visas i appen är kontot inte konfigurerat så för att fungera som verifieringsmetod förrän du har slutfört registreringsprocessen. Mer information finns i [Lägga till ditt arbets- eller skolkonto](user-help-auth-app-add-work-school-account.md).
+> 
+> Om du har problem med att logga in på ditt konto kan du läsa [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) (När du inte kan logga in på ditt Microsoft-konto) om du behöver hjälp. Få mer information om vad du gör när du får meddelandet [”Det Microsoft-kontot finns inte”](https://support.microsoft.com/help/13811) när du försöker logga in på ditt Microsoft-konto.
 
 ## <a name="terminology"></a>Terminologi
+
 |Period|Beskrivning|
 |----|-----------|
 |Tvåfaktorsverifiering |En verifieringsprocess som kräver att du endast använder två typer av verifieringsinformation, t.ex. ett lösenord och en PIN-kod. Microsoft Authenticator-appen har stöd för både tvåfaktorsverifiering som är standard och lösenordsfri inloggning.|

@@ -11,24 +11,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 53716fa343df25026dcc668ed8483673d934d1ad
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: fff213c8d1a408bf96e385f2097a5ef30dcc05d2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339132"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992098"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Förstå neka tilldelningar för Azure-resurser
 
-Liknar en rolltilldelning en *neka tilldelning* bifogar en uppsättning Neka-åtgärder till en användare, grupp eller tjänstens huvudnamn i ett visst omfång i syfte att åtkomst nekas. Neka tilldelningar blockera användare från att utföra åtgärder för specifika Azure-resurs, även om en rolltilldelning ger dem åtkomst. Vissa resource providers i Azure innehåller nu neka tilldelningar. För närvarande kan neka-tilldelningar **skrivskyddad** och kan bara ställas in av Microsoft.
+Liknar en rolltilldelning en *neka tilldelning* bifogar en uppsättning Neka-åtgärder till en användare, grupp eller tjänstens huvudnamn i ett visst omfång i syfte att åtkomst nekas. Neka tilldelningar blockera användare från att utföra åtgärder för specifika Azure-resurs, även om en rolltilldelning ger dem åtkomst. Vissa resource providers i Azure innehåller nu neka tilldelningar.
 
 Neka tilldelningar skiljer sig från rolltilldelningar på vissa sätt. Neka tilldelningar kan utesluta huvudnamn och förhindra arvet till underordnade omfång. Neka tilldelningar gäller även för [klassisk prenumerationsadministratör](rbac-and-directory-admin-roles.md) tilldelningar.
 
 Den här artikeln beskrivs hur neka tilldelningar har definierats.
+
+> [!NOTE]
+> För närvarande det enda sättet som du kan lägga till egna neka tilldelningar är med hjälp av Azure skisser. Mer information finns i [skydda nya resurser med Azure skisser resurslås](../governance/blueprints/tutorials/protect-new-resources.md).
 
 ## <a name="deny-assignment-properties"></a>Neka rolltilldelningens egenskaper
 

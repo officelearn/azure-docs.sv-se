@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a434453d6164dbb9fed7aebc3b3636b45daafa21
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: d0a32f45326eb307bc31d10f4efb842d811a38c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313250"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842521"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuera en Windows Hybrid Runbook Worker
 
@@ -138,14 +138,9 @@ Eftersom det huvudsakliga syftet med funktionen Hybrid Runbook Worker är att ha
 
 Moduler som är installerade måste finnas på en plats som refererar till den **PSModulePath** miljövariabeln så att hybrid worker automatiskt kan importera dem. Mer information finns i [ändra installationssökvägen PSModulePath](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
 
-## <a name="troubleshoot"></a>Felsöka
-
-Läs hur du felsöker Hybrid Runbook Worker-arbeten i [felsökning Windows Hybrid Runbook Worker](troubleshoot/hybrid-runbook-worker.md#windows)
-
-Ytterligare anvisningar om hur du felsöker problem med hantering av uppdateringar finns i [uppdateringshantering: felsökning](troubleshoot/update-management.md).
-
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs hur du konfigurerar dina runbooks för att automatisera processer i ditt lokala datacenter eller andra moln i [köra runbooks på en Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
 * Instruktioner om hur du tar bort Hybrid Runbook Worker finns [ta bort Azure Automation Hybrid Runbook Worker](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
-
+* Läs hur du felsöker Hybrid Runbook Worker-arbeten i [felsökning Windows Hybrid Runbook Worker](troubleshoot/hybrid-runbook-worker.md#windows)
+* Ytterligare anvisningar om hur du felsöker problem med hantering av uppdateringar finns i [uppdateringshantering: felsökning](troubleshoot/update-management.md).

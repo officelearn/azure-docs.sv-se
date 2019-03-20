@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: f92fe2432051b148bf0b35fccc3fa33db9b66a14
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 5c21f1c9345fcf1b89afc3e1ee6b7f61ee79ddbe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093170"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168110"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Komma igång med Reliable Actors
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Starta Visual Studio 2015 eller senare som en administratör och sedan skapa en 
 
 ![Service Fabric-verktyg för Visual Studio – nytt projekt][1]
 
-I dialogrutan nästa väljer **Aktörstjänsten** under **.Net Core 2.0** och ange ett namn för tjänsten.
+I dialogrutan nästa väljer **Aktörstjänsten** under **.NET Core 2.0** och ange ett namn för tjänsten.
 
 ![Service Fabric-projektmallar][5]
 
@@ -152,7 +152,7 @@ Tryck på **F5** för att bygga, distribuera och köra programmet lokalt i klust
 
 När utdata innehåller texten, *programmet är redo*, är det möjligt att testa tjänsten med hjälp av ActorClient-programmet.  I Solution Explorer högerklickar du på den **ActorClient** projektet och klicka sedan på **felsöka** > **Starta ny instans**.  Kommandoraden programmet ska visa utdata från aktörstjänsten.
 
-![Utdata för program][9]
+![Programutdata][9]
 
 > [!TIP]
 > Service Fabric Actors runtime genererar några [händelser och prestandaräknare som rör aktören metoder](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). De är användbara i diagnostik och övervakning av programprestanda.

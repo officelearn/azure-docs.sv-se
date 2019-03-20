@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 84d98d6b3af884c959e8f0e4d9c117192af32d3a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 267e790cec3c915330f8f72053458527ee7bfead
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106315"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095576"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Hitta och diagnostisera körningsundantag med Azure Application Insights
 
@@ -30,7 +30,7 @@ Azure Application Insights samlar in telemetri från ditt program för att ident
 > * skapa ett nytt arbetsobjekt för att åtgärda den felaktiga koden.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 
@@ -75,7 +75,7 @@ Application Insights samlar in eventuella fel i programmet, och du kan se frekve
     ![Undantagsinformation](media/tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>Identifiera felaktig kod
-Snapshot Debugger samlar in ögonblicksbilder av de vanligaste undantagen i ditt program, som är till hjälp när du ska diagnostisera grundorsaken i produktion.  Du kan visa de här ögonblicksbilderna i portalen, se anropsstacken och inspektera variablerna på varje nivå av stacken. Efteråt kan du felsöka källkoden genom att ladda ned ögonblicksbilden och öppna den i Visual Studio 2017 Enterprise.
+Snapshot Debugger samlar in ögonblicksbilder av de vanligaste undantagen i ditt program, som är till hjälp när du ska diagnostisera grundorsaken i produktion.  Du kan visa debug ögonblicksbilder i portalen för att se anropet stacken och inspektera variabler vid varje anropsstacken. Efteråt kan du felsöka källkoden genom att ladda ned ögonblicksbilden och öppna den i Visual Studio 2017 Enterprise.
 
 1. Klicka på **Open debug snapshot** (Öppna ögonblicksbild för felsökning) i egenskaperna för undantaget.
 2. Panelen **Debug Snapshot** (Ögonblicksbild för felsökning) öppnas med anropsstacken för förfrågningen.  Om du klickar på en metod visas värdena för alla lokala variabler vid tidpunkten för förfrågningen.  Om du börjar med den översta metoden i det här exemplet ser vi att det finns lokala variabler som inte har något värde.
@@ -96,11 +96,11 @@ Snapshot Debugger samlar in ögonblicksbilder av de vanligaste undantagen i ditt
 ## <a name="use-analytics-data"></a>Använda analysdata
 Alla data som samlas in av Application Insights lagras i Azure Log Analytics, så att du har tillgång till ett funktionsrikt frågespråk som hjälper dig att analysera data på en mängd olika sätt.  Vi kan använda informationen till att analysera de förfrågningar som genererat undantaget vi undersöker. 
 
-8. Klicka på CodeLens-informationen över koden om du vill visa telemetrin som tillhandahålls av Application Insights.
+1. Klicka på CodeLens-informationen över koden om du vill visa telemetrin som tillhandahålls av Application Insights.
 
     ![Kod](media/tutorial-runtime-exceptions/codelens.png)
 
-9. Klicka på **Analyze impact** (Analysera påverkan) för att öppna Application Insights Analytics.  Det fylls i med flera frågor som kan ge detaljerad information om misslyckade förfrågningar, till exempel vilka användare, webbläsare och regioner som påverkas.<br><br>![Analys](media/tutorial-runtime-exceptions/analytics.png)<br>
+1. Klicka på **Analyze impact** (Analysera påverkan) för att öppna Application Insights Analytics.  Det fylls i med flera frågor som kan ge detaljerad information om misslyckade förfrågningar, till exempel vilka användare, webbläsare och regioner som påverkas.<br><br>![Analys](media/tutorial-runtime-exceptions/analytics.png)<br>
 
 ## <a name="add-work-item"></a>Lägg till arbetsobjekt
 Om du ansluter Application Insights till ett spårningssystem som Azure DevOps eller GitHub kan du skapa ett arbetsobjekt direkt från Application Insights.

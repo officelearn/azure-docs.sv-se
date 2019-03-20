@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: b61db97cec77fc724933c2b4e7d3fa7f7afc0ab6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 09eed87dce65325a5b3466346b073a0d786bfb89
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884961"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861459"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Snabbstart: Skicka en sökbegäran till REST API för entitetssökning i Bing med hjälp av C#
 
@@ -24,11 +24,16 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Valfri version av [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
-* Om du använder Linux/Mac OS kan det här programmet köras med [Mono](http://www.mono-project.com/).
+    * Installera NuGet-paketet i Visual studio:
+        1. Högerklicka i Solution Manager
+        2. Klicka på **hantera NuGet-paket...**
+        3. Sök efter **newtonsoft.json** och installera paketet
+
+* Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
@@ -38,6 +43,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 1. skapa en ny C#-konsollösning i Visual Studio. Lägg sedan till följande namnrymder i huvudkodfilen.
     
     ```csharp
+    using Newtonsoft.Json;
     using System;
     using System.Net.Http;
     using System.Text;
@@ -68,25 +74,26 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 1. I klassen skapar du en funktion med namnet `Search()`. Skapa ett nytt `HttpClient`-objekt och lägg till prenumerationsnyckeln i `Ocp-Apim-Subscription-Key`-rubriken.
 
-    1. Skapa URI för din begäran genom att kombinera värd och sökväg. Lägg sedan till din marknad och URL-koda frågan.
-    2. Vänta på `client.GetAsync()` för att få ett HTTP-svar och lagra sedan json-svaret genom att vänta på `ReadAsStringAsync()`.
-    3. Skriv ut strängen till konsolen.
+   1. Skapa URI för din begäran genom att kombinera värd och sökväg. Lägg sedan till din marknad och URL-koda frågan.
+   2. Vänta på `client.GetAsync()` för att få ett HTTP-svar och lagra sedan json-svaret genom att vänta på `ReadAsStringAsync()`.
+   3. Formatera JSON-sträng med `JsonConvert.DeserializeObject()` och skriva ut det till konsolen.
 
-    ```csharp
-    async static void Search()
-    {
-        //...
-        HttpClient client = new HttpClient();
-        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+      ```csharp
+      async static void Search()
+      {
+       //...
+       HttpClient client = new HttpClient();
+       client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
 
-        string uri = host + path + "?mkt=" + market + "&q=" + System.Net.WebUtility.UrlEncode(query);
+       string uri = host + path + "?mkt=" + market + "&q=" + System.Net.WebUtility.UrlEncode(query);
 
-        HttpResponseMessage response = await client.GetAsync(uri);
+       HttpResponseMessage response = await client.GetAsync(uri);
 
-        string contentString = await response.Content.ReadAsStringAsync();
-        Console.WriteLine(JsonPrettyPrint(contentString));
-    }
-    ```
+       string contentString = await response.Content.ReadAsStringAsync();
+       dynamic parsedJson = JsonConvert.DeserializeObject(contentString);
+       Console.WriteLine(parsedJson);
+      }
+      ```
 
 2. I main-metoden för programmet anropar du funktionen `Search()`.
     
@@ -139,7 +146,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [

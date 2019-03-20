@@ -5,26 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 03/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 31ca6deef6d81ca7beb08f6df1a15d52ef381a46
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 9f2eae4160dbef164ec70e8fa4d7b3a83706ae96
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190399"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880134"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Kompatibilitetsnivån för Analysis Services-tabellmodeller
 
-*Kompatibilitetsnivån* refererar till release-specifika beteenden i Analysis Services-motorn. Ändringar i kompatibilitetsnivå sammanfalla vanligtvis med större versioner av SQL Server. Dessa ändringar är också implementerade i Azure Analysis Services för att upprätthålla paritet mellan båda plattformarna. Kompatibilitetsnivån ändras även gälla funktionerna i dina tabellmodeller. DirectQuery och tabular objektmetadata du till exempel ha olika implementeringar beroende på kompatibilitetsnivå. Kompatibilitetsnivån har angetts i projekt för tabellmodeller i Visual Studio (SSDT). Tabellmodeller skapas i och importeras från Power BI Desktop finns endast kompatibilitetsnivå 1400.
+*Kompatibilitetsnivån* refererar till release-specifika beteenden i Analysis Services-motorn. Ändringar i kompatibilitetsnivå sammanfalla vanligtvis med större versioner av SQL Server. Dessa ändringar är också implementerade i Azure Analysis Services för att upprätthålla paritet mellan båda plattformarna. Kompatibilitetsnivån ändras även gälla funktionerna i dina tabellmodeller. DirectQuery och tabular objektmetadata du till exempel ha olika implementeringar beroende på kompatibilitetsnivå. Kompatibilitetsnivån har angetts i projekt för tabellmodeller i Visual Studio (SSDT).
 
-Azure Analysis Services stöder tabellmodeller på kompatibilitetsnivå 1200 och 1400. 
-
-> [!NOTE]
-> Power BI Desktop September 2018 och senare versioner har en .pbix 1465 kompatibilitetsnivå. Den här kompatibilitetsnivå stöds i Azure Analysis Services. Importera en Power BI Desktop-fil är bör dock inte för produktionsmiljöer. Mer information finns i [importera en Power BI Desktop-fil](analysis-services-import-pbix.md).
-
-Senaste kompatibilitetsnivå är 1400. Den här nivån är i linje med SQL Server 2017 Analysis Services. Huvudfunktioner i kompatibilitetsnivån 1400 omfattar:
+Azure Analysis Services stöder tabellmodeller på kompatibilitetsnivå 1200 och 1400. Senaste kompatibilitetsnivå är 1400. Den här nivån är i linje med SQL Server 2017 Analysis Services. Huvudfunktioner i kompatibilitetsnivån 1400 omfattar:
 
 *  Nya funktioner för dataanslutning och import med stöd för TOM APIs och TMSL-skript. 
 *  Transformering av data och funktioner för kombinationsprogram genom att använda hämta Data och M-uttryck.
@@ -55,5 +50,4 @@ Senaste kompatibilitetsnivå är 1400. Den här nivån är i linje med SQL Serve
 
 ## <a name="next-steps"></a>Nästa steg
 
-  [Skapa en modell i Azure-portalen](analysis-services-create-model-portal.md)   
-  [Hantera Analysis Services](analysis-services-manage.md)  
+  [Manage Analysis Services](analysis-services-manage.md)  

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 14bbb77678a70b51c7f640b501827c5618cce606
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c14b6e16a16f325681722203eaa05a435b141208
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978974"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990614"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Hur du ansluter och logga in på Azure-datorer som kör Windows
 Du använder knappen **Anslut** på Azure Portal för att starta en fjärrskrivbordssession (RDP) från ett Windows-skrivbord. Du ansluter till den virtuella datorn och sedan du loggar in på.
@@ -32,7 +32,7 @@ Om du vill ansluta till en virtuell Windows-dator från en Mac-dator, behöver d
 2. På menyn till vänster väljer **virtuella datorer**.
 3. Välj den virtuella datorn i listan.
 4. Överst på sidan för den virtuella datorn, Välj **Connect**.
-2. På den **Anslut till den virtuella datorn** väljer du lämplig IP-adress och port. I de flesta fall ska standard IP-adressen och porten användas. Välj **ladda ned RDP-filen**ladda ned RDP-filen **. Om den virtuella datorn har en just-in-time-princip som angetts, måste du först välja den **begär åtkomst** knappen för att begära åtkomst innan du kan ladda ned RDP-filen. Mer information om just-in-time-principen finns i [hantera VM-åtkomst med hjälp av just i time-princip](../../security-center/security-center-just-in-time.md).
+2. På den **Anslut till den virtuella datorn** väljer du lämplig IP-adress och port. I de flesta fall ska standard IP-adressen och porten användas. Välj **Ladda ned RDP-fil**. Om den virtuella datorn har en just-in-time-princip som angetts, måste du först välja den **begär åtkomst** knappen för att begära åtkomst innan du kan ladda ned RDP-filen. Mer information om just-in-time-principen finns i [hantera VM-åtkomst med hjälp av just i time-princip](../../security-center/security-center-just-in-time.md).
 2. Öppna den nedladdade RDP-filen och välj **Anslut** när du tillfrågas. 
 2. Du får en varning som den `.rdp` filen kommer från en okänd utgivare. Detta är normalt. I den **anslutning till fjärrskrivbord** väljer **Connect** att fortsätta.
    

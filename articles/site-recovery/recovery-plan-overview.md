@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: c7d66c389958aa3b5274a3d81f27f416308acdee
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 053d400a9986d0997344b2be09140d8afb0e1faf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975669"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996364"
 ---
 # <a name="about-recovery-plans"></a>Om återställningsplaner
 
@@ -29,7 +29,7 @@ En återställningsplan hjälper dig att definiera en systematisk återställnin
 
 * Modellera en app runt dess beroenden.
 * Automatisera aktiviteter för återställning för att minska RTO.
-- Kontrollera att du är förberedd för migrering och haveriberedskap genom att säkerställa att dina appar är en del av en återställningsplan.
+* Kontrollera att du är förberedd för migrering och haveriberedskap genom att säkerställa att dina appar är en del av en återställningsplan.
 * Kör redundanstestet på återställningsplaner, haveriberedskap och migrering fungerar som förväntat.
 
 
@@ -42,10 +42,10 @@ Du kan planera och skapa en grupp för dataåterställning för att samla in app
     - Den här ordningen säkerställer att när mellanprogrammet startar och försöker ansluta till SQL Server-nivå, SQL Server-nivå körs redan. 
     - Den här ordningen kan också se till att front-end-server börjar senaste, så att slutanvändare inte ansluta till den app-URL innan alla komponenter som är igång och körs och appen är redo att acceptera begäranden.
 
-Om du vill skapa den här ordningen, lägga till grupper i gruppen återställning och lägga till datorer i grupper. 
-    - Om ordning anges, används ordningsföljd. Åtgärder köras parallellt vid behov för att förbättra programåterställning RTO.
-    - Datorer i en enda grupp växlas över parallellt.
-    - Datorer i olika grupper växlas över i Gruppordning, så att Grupp2 datorer starta sina redundans endast när alla datorer i grupp 1 har redundansväxlats och igång.
+Om du vill skapa den här ordningen, lägga till grupper i gruppen återställning och lägga till datorer i grupper.
+- Om ordning anges, används ordningsföljd. Åtgärder köras parallellt vid behov för att förbättra programåterställning RTO.
+- Datorer i en enda grupp växlas över parallellt.
+- Datorer i olika grupper växlas över i Gruppordning, så att Grupp2 datorer starta sina redundans endast när alla datorer i grupp 1 har redundansväxlats och igång.
 
     ![Exempel återställningsplan](./media/recovery-plan-overview/rp.png)
 
@@ -93,4 +93,4 @@ Videon ett enkelt exempel som visar en på klick-redundans för en tvålagers-Wo
 ## <a name="next-steps"></a>Nästa steg
 
 - [Skapa](site-recovery-create-recovery-plans.md) en återställningsplan.
-* Lär dig mer om [köra redundansväxlingar](site-recovery-failover.md).  
+- Lär dig mer om [köra redundansväxlingar](site-recovery-failover.md).  

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 54d5fdf925769a5dd0db73ae964419388cae913c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 0b637ab5f2b6234fed301a60ee1857960a464a33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866954"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864447"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Självstudier: Utforma en Azure Database for MySQL-databas med hjälp av Azure-portalen
 Azure Database för MySQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga MySQL-databaser i molnet. I Azure-portalen kan du enkelt hantera servern och utforma en databas.
@@ -48,14 +48,14 @@ En Azure Database för MySQL-server skapas med en definierad uppsättning [compu
     ---|---|---
     servernamn | Unikt servernamn | Välj ett unikt namn för Azure Database för MySQL-server. Till exempel mydemoserver. Domännamnet *.mysql.database.azure.com* läggs till i det servernamn du anger. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
     Prenumeration | Din prenumeration | Välj den Azure-prenumeration som ska användas för servern. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
-    Resursgrupp | *myresourcegroup* | Ange ett nytt eller ett befintligt resursgruppnamn.    Resursgrupp|*myresourcegroup*| Ett nytt resursgruppnamn eller ett befintligt namn i prenumerationen.
+    Resursgrupp | *myresourcegroup* | Ange ett nytt eller ett befintligt resursgruppnamn.
     Välj källa | *Tom* | Välj *Tom* om du vill skapa en ny server från början. (Du kan välja *Säkerhetskopiering* om du vill skapa en server från en geo-säkerhetskopia av en befintlig Azure Database for MySQL-server).
     inloggning för serveradministratör | myadmin | Ett inloggningskonto som du använder när du ansluter till servern. Inloggningsnamnet för administratören får inte vara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.
     Lösenord | *Ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: Engelska versala bokstäver, engelska gemena bokstäver, siffror (0–9) och icke-alfanumeriska tecken (!, $, #, % osv.).
     Bekräfta lösenord | *Ditt val*| Bekräfta administratörslösenordet.
     Plats | *Regionen som ligger närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
     Version | *Den senaste versionen*| Välj den senaste versionen (om du inte har särskilda behov som gör att du måste ha en annan version).
-    Prisnivå | **Generell användning**, **Gen 4**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Prisnivå**. Sedan väljer du fliken **Generell användning**. *Gen 4*, *2 virtuella kärnor*, *5 GB*, och *7 dagar* är standardvärdena för **Compute-generering**, **Virtuell kärna** , **Lagring** och **Kvarhållningsperiod för säkerhetskopior**. Du kan lämna dessa skjutreglage som de är. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
+    Prisnivå | **Generell användning**, **Gen 5**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Prisnivå**. Sedan väljer du fliken **Generell användning**. *Gen 5*, *2 virtuella kärnor*, *5 GB*, och *7 dagar* är standardvärdena för **Compute-generering**, **Virtuell kärna** , **Lagring** och **Kvarhållningsperiod för säkerhetskopior**. Du kan lämna dessa skjutreglage som de är. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
     
    ![Prisnivå](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
@@ -81,7 +81,7 @@ Hämta det fullständiga **servernamnet** och **inloggningsnamnet för serveradm
 2. Skriv ned **Servernamn** och **Inloggningsnamn för serveradministratör** på sidan **Översikt**. Du kan klicka på kopieringsknappen bredvid respektive fält för att kopiera till Urklipp.
    ![4-2 Serveregenskaper](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-I det här exemplet är servernamnet *mydemoserver.mysql.database.azure.com* och inloggningen för serveradministratören är *myadmin@mydemoserver*.
+I det här exemplet är servernamnet *mydemoserver.mysql.database.azure.com*, och serveradministratören är *myadmin\@mydemoserver*.
 
 ## <a name="connect-to-the-server-using-mysql"></a>Anslut till servern med mysql
 Använd [kommandoradsverktyget mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) till att upprätta en anslutning till din Azure Database för MySQL-server. Du kan köra kommandoradsverktyget mysql från Azure Cloud Shell i webbläsaren, eller från din egen dator med mysql-verktyg som installerats lokalt. Om du vill starta Azure Cloud Shell klickar du på knappen `Try It` i ett kodblock i den här artikeln, eller så öppnar du Azure-portalen och klickar på ikonen `>_` i det övre högra verktygsfältet. 

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b06ceb86e8406657766be1375889fcfe1b4673d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 292fa61ae87d87f27b988d250b694e05f6fa1d3d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204550"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119436"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en .NET Desktop (WPF)-app
 
@@ -43,7 +43,7 @@ Om du vill skapa ett komplett, fungerande program måste du:
 2. Installera och konfigurera ADAL.
 3. Använda ADAL för att hämta token från Azure AD.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Kom igång genom att slutföra följande krav:
 
@@ -54,7 +54,7 @@ Kom igång genom att slutföra följande krav:
 
 Om du vill göra det möjligt för appen att hämta apptoken måste du registrera appen i din Azure AD-klientorganisation och bevilja den behörighet för åtkomst till Azure AD Graph API:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. I det översta fältet väljer du ditt konto och under **kataloglistan** väljer du den Active Directory-klientorganisation där du vill registrera appen.
 3. Välj **Alla tjänster** i det vänstra navigeringsfältet och välj **Azure Active Directory**.
 4. För **Appregistreringar** väljer du **Lägg till**.
@@ -77,9 +77,9 @@ Nu när du har en app i Azure AD kan du installera ADAL och skriva din identitet
 
 1. I projektet `DirectorySearcher` öppnar du `app.config`.
 1. Ersätt värdena för elementen i avsnittet `<appSettings>` så att de speglar de värden som du matade in i Azure-portalen. Koden kommer att referera till dessa värden när den använder ADAL.
-  * `ida:Tenant` är domänen för din Azure AD-klientorganisation, till exempel contoso.onmicrosoft.com
-  * `ida:ClientId` är det klient-ID för din app som du kopierade från portalen.
-  * `ida:RedirectUri` är den omdirigerings-URL som du registrerade i portalen.
+   * `ida:Tenant` är domänen för din Azure AD-klientorganisation, till exempel contoso.onmicrosoft.com
+   * `ida:ClientId` är det klient-ID för din app som du kopierade från portalen.
+   * `ida:RedirectUri` är den omdirigerings-URL som du registrerade i portalen.
 
 ## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>Steg 3: Använda ADAL för att hämta token från Azure AD
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 58306780978189749b592b6cd9d13c63ecd25641
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c19572f74a4ec4b5d7418772ec5f7251835a8bb8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996159"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012985"
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard-schema
 Den här artikeln beskriver några av de elementen och typer av XML-schema som [Media Encoder Standard förinställningar](media-services-mes-presets-overview.md) baseras. Artikeln ger förklaring av element och deras giltiga värden.  
@@ -27,6 +27,7 @@ Den här artikeln beskriver några av de elementen och typer av XML-schema som [
 Definierar en förinställningen för kodningen.  
 
 ### <a name="elements"></a>Element
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **Kodning** |[Kodning](media-services-mes-schema.md#Encoding) |Rotelementet, visar att indatakällorna ska kodas. |
@@ -34,6 +35,7 @@ Definierar en förinställningen för kodningen.
 | **StretchMode**<br/>minOccurs="0"<br/>default="AutoSize|Xs:String|Styra videon bildrutestorlek, utfyllnad, pixel eller visa proportionerna. **StretchMode** kan vara något av följande värden: **Ingen**, **AutoSize** (standard), eller **Autopassa**.<br/><br/>**Ingen**: Strikt följer på utdataupplösningen (till exempel den **bredd** och **höjd** i förinställningen) utan att överväga pixelproportionerna eller visa proportionerna på indatavideon. Rekommenderas i scenarier som [beskärning](media-services-crop-video.md), där utdata videon har andra proportioner jämfört med indata. <br/><br/>**AutoSize**: Upplösningen för utdata kommer passar i fönstret (bredd * höjd) anges av förinställning. Kodaren ger dock en utdata-videon som innehåller den fyrkantiga (1:1) pixlar proportionerna. Därför antingen utdata bredd eller höjd-utdata kan åsidosättas för att matcha visningsproportionerna av indata utan utfyllnad. Till exempel om indata är 1 920 x 1 080 och förinställningen för kodningen begär 1 280 x 1 280, sedan höjdvärdet i förinställningen åsidosätts och utdata är tillgänglig med minst 1 280 x 720 som innehåller indata förhållandet 16:9. <br/><br/>**AutoFit**: Om det behövs, Fyll ut utdata-video (med brevlåda eller pillarbox-format) för att respektera på önskad utdataupplösningen, samtidigt som man säkerställer att den aktiva video regionen i utdata har samma proportioner som indata. Anta exempelvis att indata är 1 920 x 1 080 och förinställningen för kodningen begär 1 280 x 1 280. Sedan utdata video är tillgänglig med minst 1 280 x 1 280, men den kommer att innehålla en inre 1 280 x 720 rektangel 'active video ”med proportionerna 16:9 och brevlåda regioner 280 bildpunkter hög högst upp och längst ned. För ett annat exempel är om indata är 1 440 x 1 080 och förinställningen för kodningen begär 1 280 x 720 är sedan utdata tillgänglig med minst 1 280 x 720 som innehåller en inre rektangel av 960 x 720 proportionerna på 4:3 och pelare box regioner 160 pixlar bred på vänster och höger. 
 
 ### <a name="attributes"></a>Attribut
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **Version**<br/><br/> Krävs |**xs: decimal** |Den förinställda versionen. Följande begränsningar gäller: xs:fractionDigits värde = ”1” och xs:minInclusive value = ”1” till exempel **version = ”1.0”**. |
@@ -42,6 +44,7 @@ Definierar en förinställningen för kodningen.
 Innehåller en sekvens av följande element:  
 
 ### <a name="elements"></a>Element
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **H264Video** |[H264Video](media-services-mes-schema.md#H264Video) |Inställningar för H.264-kodning av video. |
@@ -52,6 +55,7 @@ Innehåller en sekvens av följande element:
 
 ## <a name="H264Video"></a> H264Video
 ### <a name="elements"></a>Element
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs="0" |**Xs:Boolean** |För närvarande stöds endast en pass kodning. |
@@ -62,6 +66,7 @@ Innehåller en sekvens av följande element:
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Samling av utdata video lager. |
 
 ### <a name="attributes"></a>Attribut
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **villkor** |**Xs:String** | När indata har ingen bild kan du tvinga kodaren att infoga ett svartvit video spår. Gör detta genom att använda villkor = ”InsertBlackIfNoVideoBottomLayerOnly” (för att infoga en video på lägsta bithastigheten) eller ett villkor = ”InsertBlackIfNoVideo” (att infoga en video på alla utmatningen bithastighet). Mer information finns i [den här artikeln](media-services-advanced-encoding-with-mes.md#no_video).|
@@ -71,6 +76,7 @@ Innehåller en sekvens av följande element:
 Som standard innehåller utdatatillgången filer med endast ljud data om du skickar indata till den kodare som innehåller endast ljud och ingen bild. Vissa spelare kanske inte kan hantera sådana utdataströmmar. Du kan använda H264Video **InsertBlackIfNoVideo** attributet inställningen för att tvinga kodaren att lägga till en video spåra till utdata i det här scenariot. Mer information finns i [den här artikeln](media-services-advanced-encoding-with-mes.md#no_video).
               
 ### <a name="elements"></a>Element
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **H264Layer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[H264Layer](media-services-mes-schema.md#H264Layer) |En samling av H264 lager. |
@@ -82,6 +88,7 @@ Som standard innehåller utdatatillgången filer med endast ljud data om du skic
 > 
 
 ### <a name="elements"></a>Element
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **Profil**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**Xs: sträng** |Kan vara i något av följande **xs: sträng** värden: **Automatisk**, **baslinje**, **Main**, **hög**. |
@@ -104,16 +111,19 @@ Som standard innehåller utdatatillgången filer med endast ljud data om du skic
  Läs mer om AAC [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding).  
 
 ### <a name="elements"></a>Element
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **Profil**<br/><br/> minOccurs="0 "<br/><br/> default="AACLC" |**Xs: sträng** |Kan vara något av följande värden: **AACLC**, **HEAACV1**, eller **HEAACV2**. |
 
 ### <a name="attributes"></a>Attribut
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **villkor** |**Xs: sträng** |Ange värdet som ”InsertSilenceIfNoAudio” om du vill framtvinga kodaren att skapa en tillgång som innehåller en tyst ljudspår när indata har inget ljud.<br/><br/> Som standard om du skickar indata till den kodare som innehåller endast video och inga ljud innehåller utdatatillgången filer som innehåller endast video data. Vissa spelare kanske inte kan hantera sådana utdataströmmar. Du kan använda den här inställningen för att tvinga kodaren att lägga till en tyst ljudspår till utdata i det här scenariot. |
 
 ### <a name="groups"></a>Grupper
+
 | Referens | Beskrivning |
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |Se beskrivning av [AudioGroup](media-services-mes-schema.md#AudioGroup) veta hur många kanaler, samplingsfrekvensen och bithastighet som kan ställas in för varje profil. |
@@ -122,6 +132,7 @@ Som standard innehåller utdatatillgången filer med endast ljud data om du skic
 Mer information om vilka värden är giltiga för varje profil finns i ”ljud codec information”-tabellen som följer.  
 
 ### <a name="elements"></a>Element
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **kanaler**<br/><br/> minOccurs="0" |**Xs: int** |Antal ljud kanaler kodad. Följande är giltiga alternativ: 1, 2, 5, 6, 8.<br/><br/> Standard: 2. |
@@ -129,14 +140,16 @@ Mer information om vilka värden är giltiga för varje profil finns i ”ljud c
 | **Bithastighet**<br/><br/> minOccurs="0" |**Xs: int** |Bithastigheten används när kodning ljudet, anges i kbit/s. |
 
 ### <a name="audio-codec-details"></a>Ljudcodec information
+
 Ljudcodec|Information  
 -----------------|---  
-**AACLC**|1:<br/><br/> - 11025: 8 &lt;= bithastighet &lt; 16<br/><br/> - 12000: 8 &lt;= bithastighet &lt; 16<br/><br/> - 16000: 8 &lt;= bithastighet &lt;32<br/><br/>- 22050: 24 &lt;= bithastighet &lt; 32<br/><br/> - 24000: 24 &lt;= bithastighet &lt; 32<br/><br/> - 32000: 32 &lt;= bithastighet &lt;= 192<br/><br/> - 44100: 56 &lt;= bithastighet &lt;= 288<br/><br/> - 48000: 56 &lt;= bithastighet &lt;= 288<br/><br/> - 88200 : 128 &lt;= bithastighet &lt;= 288<br/><br/> - 96000 : 128 &lt;= bithastighet &lt;= 288<br/><br/> 2:<br/><br/> - 11025: 16 &lt;= bithastighet &lt; 24<br/><br/> - 12000: 16 &lt;= bithastighet &lt; 24<br/><br/> - 16000: 16 &lt;= bithastighet &lt; 40<br/><br/> - 22050: 32 &lt;= bithastighet &lt; 40<br/><br/> - 24000 : 32 &lt;= bithastighet &lt; 40<br/><br/> - 32000:  40 &lt;= bithastighet &lt;= 384<br/><br/> - 44100: 96 &lt;= bithastighet &lt;= 576<br/><br/> - 48000 : 96 &lt;= bithastighet &lt;= 576<br/><br/> - 88200: 256 &lt;= bithastighet &lt;= 576<br/><br/> - 96000: 256 &lt;= bithastighet &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000: 160 &lt;= bithastighet &lt;= 896<br/><br/> - 44100: 240 &lt;= bithastighet &lt;= 1 024<br/><br/> - 48000: 240 &lt;= bithastighet &lt;= 1 024<br/><br/> - 88200: 640 &lt;= bithastighet &lt;= 1 024<br/><br/> - 96000: 640 &lt;= bithastighet &lt;= 1 024<br/><br/> 8:<br/><br/> - 32000 : 224 &lt;= bithastighet &lt;= 1 024<br/><br/> - 44100 : 384 &lt;= bithastighet &lt;= 1 024<br/><br/> - 48000: 384 &lt;= bithastighet &lt;= 1 024<br/><br/> - 88200: 896 &lt;= bithastighet &lt;= 1 024<br/><br/> - 96000: 896 &lt;= bithastighet &lt;= 1 024  
-**HEAACV1**|1:<br/><br/> -22050: bithastighet = 8<br/><br/> - 24000: 8 &lt;= bithastighet &lt;= 10<br/><br/> - 32000: 12 &lt;= bithastighet &lt;= 64<br/><br/> - 44100: 20 &lt;= bithastighet &lt;= 64<br/><br/> - 48000: 20 &lt;= bithastighet &lt;= 64<br/><br/> -88200: bithastighet = 64<br/><br/> 2:<br/><br/> - 32000: 16 &lt;= bithastighet &lt;= 128<br/><br/> - 44100: 16 &lt;= bithastighet &lt;= 128<br/><br/> - 48000: 16 &lt;= bithastighet &lt;= 128<br/><br/> - 88200 : 96 &lt;= bithastighet &lt;= 128<br/><br/> - 96000: 96 &lt;= bithastighet &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000 : 64 &lt;= bithastighet &lt;= 320<br/><br/> - 44100: 64 &lt;= bithastighet &lt;= 320<br/><br/> - 48000: 64 &lt;= bithastighet &lt;= 320<br/><br/> - 88200 : 256 &lt;= bithastighet &lt;= 320<br/><br/> - 96000: 256 &lt;= bithastighet &lt;= 320<br/><br/> 8:<br/><br/> - 32000: 96 &lt;= bithastighet &lt;= 448<br/><br/> - 44100: 96 &lt;= bithastighet &lt;= 448<br/><br/> - 48000: 96 &lt;= bithastighet &lt;= 448<br/><br/> - 88200: 384 &lt;= bithastighet &lt;= 448<br/><br/> - 96000: 384 &lt;= bithastighet &lt;= 448  
-**HEAACV2**|2:<br/><br/> - 22050: 8 &lt;= bithastighet &lt;= 10<br/><br/> - 24000: 8 &lt;= bithastighet &lt;= 10<br/><br/> - 32000: 12 &lt;= bithastighet &lt;= 64<br/><br/> - 44100: 20 &lt;= bithastighet &lt;= 64<br/><br/> - 48000: 20 &lt;= bithastighet &lt;= 64<br/><br/> - 88200: 64 &lt;= bithastighet &lt;= 64  
+**AACLC** |1:<br/><br/> - 11025: 8 &lt;= bithastighet &lt; 16<br/><br/> - 12000: 8 &lt;= bithastighet &lt; 16<br/><br/> - 16000: 8 &lt;= bithastighet &lt;32<br/><br/>- 22050: 24 &lt;= bithastighet &lt; 32<br/><br/> - 24000: 24 &lt;= bithastighet &lt; 32<br/><br/> - 32000: 32 &lt;= bithastighet &lt;= 192<br/><br/> - 44100: 56 &lt;= bithastighet &lt;= 288<br/><br/> - 48000: 56 &lt;= bithastighet &lt;= 288<br/><br/> - 88200 : 128 &lt;= bithastighet &lt;= 288<br/><br/> - 96000 : 128 &lt;= bithastighet &lt;= 288<br/><br/> 2:<br/><br/> - 11025: 16 &lt;= bithastighet &lt; 24<br/><br/> - 12000: 16 &lt;= bithastighet &lt; 24<br/><br/> - 16000: 16 &lt;= bithastighet &lt; 40<br/><br/> - 22050: 32 &lt;= bithastighet &lt; 40<br/><br/> - 24000 : 32 &lt;= bithastighet &lt; 40<br/><br/> - 32000:  40 &lt;= bithastighet &lt;= 384<br/><br/> - 44100: 96 &lt;= bithastighet &lt;= 576<br/><br/> - 48000 : 96 &lt;= bithastighet &lt;= 576<br/><br/> - 88200: 256 &lt;= bithastighet &lt;= 576<br/><br/> - 96000: 256 &lt;= bithastighet &lt;= 576<br/><br/> 5/6:<br/><br/> - 32000: 160 &lt;= bithastighet &lt;= 896<br/><br/> - 44100: 240 &lt;= bithastighet &lt;= 1 024<br/><br/> - 48000: 240 &lt;= bithastighet &lt;= 1 024<br/><br/> - 88200: 640 &lt;= bithastighet &lt;= 1 024<br/><br/> - 96000: 640 &lt;= bithastighet &lt;= 1 024<br/><br/> 8:<br/><br/> - 32000 : 224 &lt;= bithastighet &lt;= 1 024<br/><br/> - 44100 : 384 &lt;= bithastighet &lt;= 1 024<br/><br/> - 48000: 384 &lt;= bithastighet &lt;= 1 024<br/><br/> - 88200: 896 &lt;= bithastighet &lt;= 1 024<br/><br/> - 96000: 896 &lt;= bithastighet &lt;= 1 024  
+**HEAACV1** |1:<br/><br/> -22050: bithastighet = 8<br/><br/> - 24000: 8 &lt;= bithastighet &lt;= 10<br/><br/> - 32000: 12 &lt;= bithastighet &lt;= 64<br/><br/> - 44100: 20 &lt;= bithastighet &lt;= 64<br/><br/> - 48000: 20 &lt;= bithastighet &lt;= 64<br/><br/> -88200: bithastighet = 64<br/><br/> 2:<br/><br/> - 32000: 16 &lt;= bithastighet &lt;= 128<br/><br/> - 44100: 16 &lt;= bithastighet &lt;= 128<br/><br/> - 48000: 16 &lt;= bithastighet &lt;= 128<br/><br/> - 88200 : 96 &lt;= bithastighet &lt;= 128<br/><br/> - 96000: 96 &lt;= bithastighet &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000 : 64 &lt;= bithastighet &lt;= 320<br/><br/> - 44100: 64 &lt;= bithastighet &lt;= 320<br/><br/> - 48000: 64 &lt;= bithastighet &lt;= 320<br/><br/> - 88200 : 256 &lt;= bithastighet &lt;= 320<br/><br/> - 96000: 256 &lt;= bithastighet &lt;= 320<br/><br/> 8:<br/><br/> - 32000: 96 &lt;= bithastighet &lt;= 448<br/><br/> - 44100: 96 &lt;= bithastighet &lt;= 448<br/><br/> - 48000: 96 &lt;= bithastighet &lt;= 448<br/><br/> - 88200: 384 &lt;= bithastighet &lt;= 448<br/><br/> - 96000: 384 &lt;= bithastighet &lt;= 448  
+**HEAACV2** |2:<br/><br/> - 22050: 8 &lt;= bithastighet &lt;= 10<br/><br/> - 24000: 8 &lt;= bithastighet &lt;= 10<br/><br/> - 32000: 12 &lt;= bithastighet &lt;= 64<br/><br/> - 44100: 20 &lt;= bithastighet &lt;= 64<br/><br/> - 48000: 20 &lt;= bithastighet &lt;= 64<br/><br/> - 88200: 64 &lt;= bithastighet &lt;= 64  
   
 ## <a name="Clip"></a> Clip
 ### <a name="attributes"></a>Attribut
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **StartTime** |**xs:duration** |Anger starttiden för en presentation. Värdet för StartTime måste matcha absolut tidsstämplarna på indatavideon. Till exempel om den första bildrutan på indatavideon har en tidsstämpel för 12:00:10.000, sedan StartTime bör vara minst 12:00:10.000 eller större. |
@@ -144,11 +157,13 @@ Ljudcodec|Information
 
 ## <a name="Output"></a> Utdata
 ### <a name="attributes"></a>Attribut
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **Filnamn** |**Xs:String** |Namnet på utdatafilen.<br/><br/> Du kan använda makron som beskrivs i följande tabell för att skapa utdata-filnamn. Exempel:<br/><br/> **”Utdata”: [{”FileName” ”: {Basename}*{matchning}*{bithastighet} .mp4”, ”Format”: {”Type”: "MP4Format"       }     }   ]** |
 
 ### <a name="macros"></a>Makron
+
 | Makrot | Beskrivning |
 | --- | --- |
 | **{Basename}** |Om du genomför VoD-kodning, är de första 32 tecknen i egenskapen AssetFile.Name för den primära filen i indatatillgången {Basename}.<br/><br/> Om indatatillgången är en live-arkivet, härleds {Basename} från trackName attribut i server-manifestet. Om du skickar en underklipp-jobb med hjälp av TopBitrate, som i ”: < VideoStream\>TopBitrate < / VideoStream\>”, och utdatafilen innehåller videon blir {Basename} är de första 32 tecknen i trackName skiktets video med högsta bithastighet.<br/><br/> Om du skickar i stället ett underklipp jobb med hjälp av alla indata bithastighet, till exempel ”< VideoStream\>* < / VideoStream\>”, och utdatafilen innehåller videon blir {Basename} är de första 32 tecknen i trackName av den motsvarande video lager. |
@@ -162,6 +177,7 @@ Ljudcodec|Information
 
 ## <a name="Video"></a> Video (komplex typ ärver från Codec)
 ### <a name="attributes"></a>Attribut
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **Börja** |**Xs:String** | |
@@ -186,6 +202,7 @@ Alternativt kan du använda den **PreserveResolutionAfterRotation** flaggan och 
 
 ## <a name="FormatGroup"></a> FormatGroup (grupp)
 ### <a name="elements"></a>Element
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **BmpFormat** |**BmpFormat** | |
@@ -194,30 +211,35 @@ Alternativt kan du använda den **PreserveResolutionAfterRotation** flaggan och 
 
 ## <a name="BmpLayer"></a> BmpLayer
 ### <a name="element"></a>Element
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **Bredd**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Höjd**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Attribut
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **villkor** |**Xs:String** | |
 
 ## <a name="PngLayer"></a> PngLayer
 ### <a name="element"></a>Element
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **Bredd**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Höjd**<br/><br/> minOccurs="0" |**xs:int** | |
 
 ### <a name="attributes"></a>Attribut
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **villkor** |**Xs:String** | |
 
 ## <a name="JpgLayer"></a> JpgLayer
 ### <a name="element"></a>Element
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **Bredd**<br/><br/> minOccurs="0" |**xs:int** | |
@@ -225,42 +247,49 @@ Alternativt kan du använda den **PreserveResolutionAfterRotation** flaggan och 
 | **Kvalitet**<br/><br/> minOccurs="0" |**xs:int** |Giltiga värden: 1(worst)-100(Best) |
 
 ### <a name="attributes"></a>Attribut
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **villkor** |**Xs:String** | |
 
 ## <a name="PngLayers"></a> PngLayers
 ### <a name="elements"></a>Element
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **PngLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[PngLayer](media-services-mes-schema.md#PngLayer) | |
 
 ## <a name="BmpLayers"></a> BmpLayers
 ### <a name="elements"></a>Element
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **BmpLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[BmpLayer](media-services-mes-schema.md#BmpLayer) | |
 
 ## <a name="JpgLayers"></a> JpgLayers
 ### <a name="elements"></a>Element
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **JpgLayer**<br/><br/> minOccurs="0" maxOccurs="unbounded" |[JpgLayer](media-services-mes-schema.md#JpgLayer) | |
 
 ## <a name="BmpImage"></a> BmpImage (komplex typ ärver från Video)
 ### <a name="elements"></a>Element
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |PNG-lager |
 
 ## <a name="JpgImage"></a> JpgImage (komplex typ ärver från Video)
 ### <a name="elements"></a>Element
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |PNG-lager |
 
 ## <a name="PngImage"></a> PngImage (komplex typ ärver från Video)
 ### <a name="elements"></a>Element
+
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |PNG-lager |

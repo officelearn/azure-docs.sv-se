@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: f033a93c0e4fc2648e151572bee25db5463e32e3
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 2feece21644f8b79b4e5fc74331944cdddbdee4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101193"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996414"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migrering av SQL Server-databas till Azure SQL Database
 
@@ -114,7 +114,7 @@ Det finns en mängd olika kompatibilitetsproblem som kan uppstå, beroende på b
 - [Utgångna databasmotorfunktioner i SQL Server 2008 R2](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
 - [Utgångna databasmotorfunktioner i SQL Server 2005](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 
-Utöver att söka på Internet och använda dessa resurser kan du använda [MSDN SQL Server community-forumen](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) eller [StackOverflow](http://stackoverflow.com/).
+Utöver att söka på Internet och använda dessa resurser kan du använda [MSDN SQL Server community-forumen](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) eller [StackOverflow](https://stackoverflow.com/).
 
 > [!IMPORTANT]
 > SQL Database Managed Instance kan du migrera en befintlig SQL Server-instans och dess databaser med minimal att inga kompatibilitetsproblem. Se [vad är en hanterad instans](sql-database-managed-instance.md).

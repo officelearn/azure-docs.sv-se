@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
 ms.subservice: common
-ms.openlocfilehash: 51ee5362a01a846378228a42343cc0e2b9f72497
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 13ddb4d64908421e999174623003acd2fb24024d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470220"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014904"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Lista över Azure Storage-resurser i C++
 Lista åtgärder är nyckeln till många utvecklingsscenarier med Azure Storage. Den här artikeln beskriver hur du mest effektivt räkna upp objekt i Azure Storage med på listan API: er som angavs i Microsoft Azure Storage-klientbiblioteket för C++.
 
 > [!NOTE]
-> Den här guiden riktar sig mot Azure Storage-klientbiblioteket för C++ version 2.x som är tillgänglig via [NuGet](http://www.nuget.org/packages/wastorage) eller [GitHub](https://github.com/Azure/azure-storage-cpp).
+> Den här guiden riktar sig mot Azure Storage-klientbiblioteket för C++ version 2.x som är tillgänglig via [NuGet](https://www.nuget.org/packages/wastorage) eller [GitHub](https://github.com/Azure/azure-storage-cpp).
 > 
 > 
 
@@ -34,7 +34,7 @@ Storage-klientbiblioteket erbjuder en mängd olika metoder för att lista eller 
 Var och en av dessa metoder visas med hjälp av olika överlagringar för olika scenarier.
 
 ## <a name="asynchronous-versus-synchronous"></a>Asynkrona och synkrona
-Eftersom Storage-klientbiblioteket för C++ är byggt ovanpå den [C++ REST-biblioteket](https://github.com/Microsoft/cpprestsdk), vi stöds asynkrona åtgärder med hjälp av [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Exempel:
+Eftersom Storage-klientbiblioteket för C++ är byggt ovanpå den [C++ REST-biblioteket](https://github.com/Microsoft/cpprestsdk), vi stöds asynkrona åtgärder med hjälp av [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Exempel:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
@@ -194,7 +194,7 @@ Mer information om Azure Storage och -klientbiblioteket för C++ finns i följan
 * [Använda Blob Storage från C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Använda Table Storage från C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Använda Queue Storage från C++](../storage-c-plus-plus-how-to-use-queues.md)
-* [Azure Storage-klientbibliotek för C++ API-dokumentationen.](http://azure.github.io/azure-storage-cpp/)
+* [Azure Storage-klientbibliotek för C++ API-dokumentationen.](https://azure.github.io/azure-storage-cpp/)
 * [Azure Storage Teamblogg](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Azure Storage-dokumentation](https://azure.microsoft.com/documentation/services/storage/)
 

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: 15481706d56af6cd9565e8c475b4770e432c1838
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337374"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120558"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Application Gateway översikt över hälsoövervakning
 
@@ -64,7 +64,7 @@ När de matchar de villkor som anges, den kan kopplas för att avsöka konfigura
 > [!NOTE]
 > Porten är samma port som backend-HTTP-inställningarna.
 
-Standard-avsökningen söker bara http://127.0.0.1:\<port\> fastställa hälsostatus. Om du vill konfigurera hälsoavsökningen för att gå till en anpassad URL eller ändra andra inställningar kan använda du anpassade avsökningar.
+Standard-avsökningen tittar bara på http:\//127.0.0.1:\<port\> fastställa hälsostatus. Om du vill konfigurera hälsoavsökningen för att gå till en anpassad URL eller ändra andra inställningar kan använda du anpassade avsökningar.
 
 ### <a name="probe-intervals"></a>Avsökningsintervall
 

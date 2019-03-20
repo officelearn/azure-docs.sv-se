@@ -8,17 +8,18 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.author: mayg
-ms.openlocfilehash: a1b35d4c10246af7e4dab36585c2bb9b72fd0c01
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f86ded99ef5280a4e6929c39a9fd323d1b61f6f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216973"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992333"
 ---
 # <a name="exclude-disks-from-replication"></a>Undanta diskar från replikering
 Den här artikeln beskriver hur du undantar diskar från replikering. Det här undantaget kan optimera replikeringsbandbredden som används eller optimera resurser som används av dessa diskar på målsidan.
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
+
 **Funktion** | **VMware till Azure** | **Hyper-V till Azure** | **Azure till Azure**| **Hyper-V till Hyper-V** 
 --|--|--|--|--
 Uteslut disk | Ja | Ja | Nej | Nej
@@ -69,10 +70,10 @@ Diskarna på den virtuella källdatorn är följande:
 
 **Disknamn** | **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0 | C:\ | Operativsystemsdisk
+DB-Disk0-OS | DISK0 | C:\ | Operativsystemdisk
 DB-Disk1| Disk1 | D:\ | SQL-systemdatabas och användardatabas1
 DB-Disk2 (disken har undantagits från skydd) | Disk2 | E:\ | Tillfälliga filer
-DB-Disk3 (disken har undantagits från skydd) | Disk3 | F:\ | SQL tempdb-databas (mappsökväg(F:\MSSQL\Data\) </br /> </br />Notera mappsökvägen före redundansväxling.
+DB-Disk3 (disken har undantagits från skydd) | Disk3 | F:\ | SQL tempdb-databasen (mappsökväg (F:\MSSQL\Data\) <br /> <br />Skriv ned mappsökvägen före redundansväxling.
 DB-Disk4 | Disk4 |G:\ |Användardatabas2
 
 Eftersom dataomsättning på två diskar i den virtuella datorn är tillfällig ska du undanta Disk2 och Disk3 från replikering när du skyddar den virtuella SalesDB-datorn. Azure Site Recovery replikerar inte diskarna. Vid redundansväxlingen visas inte dessa diskar på den virtuella datorn som redundansväxlas på Azure.
@@ -82,7 +83,7 @@ Diskar på virtuella Azure-datorer efter redundansväxling är följande:
 **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | ---
 DISK0 | C:\ | Operativsystemdisk
-Disk1 | E:\ | Temporär lagring</br /> </br />Azure lägger till den här disken och tilldelar den första tillgängliga enhetsbeteckningen.
+Disk1 | E:\ | Tillfällig lagring<br /> <br />Azure lägger till den här disken och tilldelar den första tillgängliga enhetsbeteckningen.
 Disk2 | D:\ | SQL-systemdatabas och användardatabas1
 Disk3 | G:\ | Användardatabas2
 
@@ -146,7 +147,7 @@ I föregående exempel är diskkonfigurationen av den virtuella Azure-datorn fö
 **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | ---
 DISK0 | C:\ | Operativsystemdisk
-Disk1 | E:\ | Temporär lagring</br /> </br />Azure lägger till den här disken och tilldelar den första tillgängliga enhetsbeteckningen.
+Disk1 | E:\ | Tillfällig lagring<br /> <br />Azure lägger till den här disken och tilldelar den första tillgängliga enhetsbeteckningen.
 Disk2 | D:\ | SQL-systemdatabas och användardatabas1
 Disk3 | G:\ | Användardatabas2
 
@@ -156,7 +157,7 @@ Diskar på den virtuella Hyper-V-datorn (ursprunglig plats) efter planerad redun
 
 **Disknamn** | **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0 |   C:\ | Operativsystemsdisk
+DB-Disk0-OS | DISK0 |   C:\ | Operativsystemdisk
 DB-Disk1 | Disk1 | D:\ | SQL-systemdatabas och användardatabas1
 DB-Disk2 (utesluten disk) | Disk2 | E:\ | Tillfälliga filer
 DB-Disk3 (utesluten disk) | Disk3 | F:\ | SQL tempdb-databasen (mappsökväg (F:\MSSQL\Data\)
@@ -172,7 +173,7 @@ Här är diskkonfigurationen:
 
 **Disknamn** | **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0 | C:\ | Operativsystemsdisk
+DB-Disk0-OS | DISK0 | C:\ | Operativsystemdisk
 DB-Disk1 (disken har undantagits från skydd) | Disk1 | D:\ | pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Användardata 1
 DB-Disk3 | Disk3 | F:\ | Användardata 2
@@ -185,8 +186,8 @@ Efter redundansväxlingen av den virtuella datorn från Hyper-V till Azure är d
 
 **Disknamn** | **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0 | C:\ | Operativsystemsdisk
-DB-Disk1 | Disk1 | D:\ | Temporär lagring</br /> </br />pagefile.sys
+DB-Disk0-OS | DISK0 | C:\ | Operativsystemdisk
+DB-Disk1 | Disk1 | D:\ | Tillfällig lagring<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Användardata 1
 DB-Disk3 | Disk3 | F:\ | Användardata 2
 
@@ -202,7 +203,7 @@ Här är diskkonfigurationen av den virtuella källdatorn:
 
 **Disknamn** | **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0 | C:\ | Operativsystemsdisk
+DB-Disk0-OS | DISK0 | C:\ | Operativsystemdisk
 DB-Disk1 (disken har undantagits från skydd) | Disk1 | G:\ | pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Användardata 1
 DB-Disk3 | Disk3 | F:\ | Användardata 2
@@ -213,10 +214,10 @@ Här följer inställningarna för växlingsfiler på den lokala virtuella dator
 
 Efter redundansväxlingen av den virtuella datorn från Hyper-V till Azure är diskarna på den virtuella Azure-datorn följande:
 
-**Disknamn**| **Antal gästoperativsystem**| **Enhetsbeteckning** | **Datatyp på disken**
+**Disknamn** | **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0  |C:\ |Operativsystemsdisk
-DB-Disk1 | Disk1 | D:\ | Temporär lagring</br /> </br />pagefile.sys
+DB-Disk0-OS | DISK0  |C:\ |Operativsystemdisk
+DB-Disk1 | Disk1 | D:\ | Tillfällig lagring<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Användardata 1
 DB-Disk3 | Disk3 | F:\ | Användardata 2
 

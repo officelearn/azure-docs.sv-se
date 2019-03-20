@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 139fe946b013b1c86404bdef6ed06314af349c89
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: MT
+ms.openlocfilehash: 08910cbae9f370dde7b8718ca4868dc7b3510f8e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343144"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108907"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Använd C# användardefinierade funktioner med Apache Hive och Apache Pig strömning på Apache Hadoop i HDInsight
 
@@ -172,13 +172,13 @@ Läs mer på vilken version av .NET framework och Mono som medföljer HDInsight-
 
 6. Använd någon av följande metoder för att ladda upp .exe-filer:
 
-    * Om du använder en __Azure Storage-konto__, klickar du på ikonen ladda upp och bläddra sedan till den **bin\debug** mapp för den **HiveCSharp** projekt. Välj slutligen den **HiveCSharp.exe** fil och klicka på **Ok**.
+   * Om du använder en __Azure Storage-konto__, klickar du på ikonen ladda upp och bläddra sedan till den **bin\debug** mapp för den **HiveCSharp** projekt. Välj slutligen den **HiveCSharp.exe** fil och klicka på **Ok**.
 
-        ![ladda upp ikon](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+       ![ladda upp ikon](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
     
-    * Om du använder __Azure Data Lake Storage__, högerklicka på ett tomt område i listan över filer och välj sedan __överför__. Välj slutligen den **HiveCSharp.exe** fil och klicka på **öppna**.
+   * Om du använder __Azure Data Lake Storage__, högerklicka på ett tomt område i listan över filer och välj sedan __överför__. Välj slutligen den **HiveCSharp.exe** fil och klicka på **öppna**.
 
-    När den __HiveCSharp.exe__ överföringen har slutförts, upprepa uppladdningsprocessen för att ladda den __PigUDF.exe__ fil.
+     När den __HiveCSharp.exe__ överföringen har slutförts, upprepa uppladdningsprocessen för att ladda den __PigUDF.exe__ fil.
 
 ## <a name="run-an-apache-hive-query"></a>Kör ett Apache Hive-fråga
 

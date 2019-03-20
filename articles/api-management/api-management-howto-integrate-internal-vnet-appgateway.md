@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 9e36ac41fb42d7c0e00dca6dc82f2f5daee1278b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 00cdc8de45d2f0177cd1f097fb874cbe67f7e442
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435549"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120133"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrera API Management i ett internt virtuellt nätverk med Application Gateway
 
@@ -356,7 +356,7 @@ Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ## <a name="summary"> </a> Sammanfattning
 Azure API Management som konfigurerats i ett virtuellt nätverk ger en enda gateway-gränssnitt för alla konfigurerade API: er, oavsett om de finns lokalt eller i molnet. Integrera Application Gateway med API Management ger dig flexibilitet för att selektivt aktivera specifika API: er ska vara tillgänglig på Internet, samt att tillhandahålla en brandvägg för webbaserade program som en klientdel till API Management-instans.
 
-##<a name="next-steps"> </a> Nästa steg
+## <a name="next-steps"> </a> Nästa steg
 * Läs mer om Azure Application Gateway
   * [Översikt över Application Gateway](../application-gateway/application-gateway-introduction.md)
   * [Application Gateway Web Application Firewall](../application-gateway/application-gateway-webapplicationfirewall-overview.md)

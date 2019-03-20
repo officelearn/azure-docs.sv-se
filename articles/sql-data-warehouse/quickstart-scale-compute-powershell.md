@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6df0ff292c21ceb99bc30c7cd8cab007a27a0fcb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: bd137b71cab4a345afce835effd2ecb0c03df312
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469455"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57882989"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Snabbstart: Skala beräkning i Azure SQL Data Warehouse i PowerShell
 
@@ -23,30 +23,30 @@ Skala beräkning i Azure SQL Data Warehouse i PowerShell. [Skala ut beräkning](
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-För den här självstudien krävs Azure PowerShell-modul version 5.1.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul).
-
 ## <a name="before-you-begin"></a>Innan du börjar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 I denna Snabbstart förutsätts att du redan har ett SQL-informationslager som du kan skala. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-prenumerationen med kommandot [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) och följ anvisningarna på skärmen.
+Logga in på Azure-prenumerationen med den [Connect AzAccount](/powershell/module/az.accounts/connect-azaccount) och följer den på skärmen riktningar.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
-Om du vill se vilken prenumeration du använder kör du [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+Om du vill se vilken prenumeration som du använder kör [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
-Om du behöver använda en annan prenumeration än standardprenumerationen kör du [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
+Om du vill använda en annan prenumeration än standard, kör [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```powershell
-Set-AzureRmContext -SubscriptionName "MySubscription"
+Set-AzContext -SubscriptionName "MySubscription"
 ```
 
 ## <a name="look-up-data-warehouse-information"></a>Leta upp information om informationslager
@@ -55,7 +55,7 @@ Leta upp databasens namn, servernamnet och resursgruppen för det informationsla
 
 Följ de här anvisningarna för att hitta platsen för ditt informationslager.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Klicka på **SQL-informationslager** till vänster på Azure Portal.
 3. Välj **mySampleDataWarehouse** på sidan **SQL-databaser**. Informationslagret öppnas.
 
@@ -68,18 +68,18 @@ Följ de här anvisningarna för att hitta platsen för ditt informationslager.
 
 I SQL Data Warehouse kan du öka eller minska beräkningsresurser genom att justera informationslagerenheter. I [Skapa och ansluta – portal](create-data-warehouse-portal.md) skapades **mySampleDataWarehouse** och initierades med 400 DWU. Följande steg justerar DWU för **mySampleDataWarehouse**.
 
-Du kan ändra informationslagerenheter med PowerShell-cmdleten [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase). I följande exempel anges informationslagerenheterna till DW300 för databasen **mySampleDataWarehouse** som finns i resursgruppen **myResourceGroup** på servern **mynewserver-20180430**.
+Du kan ändra informationslagerenheter med den [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell-cmdlet. I följande exempel anges informationslagerenheterna till DW300 för databasen **mySampleDataWarehouse** som finns i resursgruppen **myResourceGroup** på servern **mynewserver-20180430**.
 
 ```Powershell
-Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
+Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
 ```
 
 ## <a name="check-data-warehouse-state"></a>Kontrollera tillstånd för informationslager
 
-Om du vill se det aktuella tillståndet för informationslagret kan du använda PowerShell-cmdleten [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase). När du gör det hämtas statusen för databasen **mySampleDataWarehouse** i resursgruppen **myResourceGroup** på servern **mynewserver-20180430.database.windows.net**.
+Om du vill se det aktuella tillståndet för datalagret, använda den [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) PowerShell-cmdlet. När du gör det hämtas statusen för databasen **mySampleDataWarehouse** i resursgruppen **myResourceGroup** på servern **mynewserver-20180430.database.windows.net**.
 
 ```powershell
-$database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database = Get-AzSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
 $database
 ```
 

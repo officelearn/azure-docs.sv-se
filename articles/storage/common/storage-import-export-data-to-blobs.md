@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: cdaa151f0603cddc9ca1bf17b0ff304f646cfdde
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e826c7a3fc12e819fd6f145d42b7381087d5970c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462842"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000238"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att importera data till Azure Blob Storage
 
@@ -29,7 +29,7 @@ Innan du skapar ett importjobb för att överföra data till Azure Blob Storage 
     - För information om storage-behållare, går du till [skapa en lagringsbehållare](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
 - Ha tillräckligt många diskar av [typer som stöds](storage-import-export-requirements.md#supported-disks). 
 - Har ett Windows-system som kör en [stöd för OS-version](storage-import-export-requirements.md#supported-operating-systems). 
-- Aktivera BitLocker på Windows-system. Se [hur du aktiverar BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
+- Aktivera BitLocker på Windows-system. Se [hur du aktiverar BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 - [Ladda ned WAImportExport version 1](https://aka.ms/waiev1) på Windows-system. Packa upp i standardmappen `waimportexportv1`. Till exempel `C:\WaImportExportV1`.
 - Ha ett FedEx/DHL-konto.  
     - Kontot måste vara giltig, bör ha saldo och måste ha returfrakt funktioner.
@@ -47,7 +47,7 @@ Utför följande steg för att förbereda enheterna.
 
 1.  Ansluta dina enheter till Windows-systemet via SATA-kopplingar.
 1.  Skapa en enskild NTFS-volym på varje enhet. Tilldela en enhetsbeteckning till volymen. Använd inte monteringspunkter.
-2.  Aktivera BitLocker-kryptering på NTFS-volym. Om du använder ett Windows Server-system, följ instruktionerna i [hur du aktiverar BitLocker på Windows Server 2012 R2](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
+2.  Aktivera BitLocker-kryptering på NTFS-volym. Om du använder ett Windows Server-system, följ instruktionerna i [hur du aktiverar BitLocker på Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 3.  Kopiera data till krypterade volymen. Använd dra och släppa eller Robocopy eller sådana kopieringsverktyget.
 4.  Öppna ett fönster med PowerShell eller Kommandotolken med administratörsbehörighet. Om du vill ändra katalogen till mappen uppzippade, kör du följande kommando:
     
@@ -94,14 +94,14 @@ Utför följande steg för att skapa ett importjobb i Azure-portalen.
 
 4. I **grunderna**:
 
-    - Välj **importera till Azure**.
-    - Ange ett beskrivande namn för importjobbet. Använd namnet för att följa förloppet för dina jobb.
-        - Namnet får innehålla endast gemener, siffror och bindestreck.
-        - Namnet måste börja med en bokstav och får inte innehålla blanksteg.
-    - Välj en prenumeration.
-    - Ange eller välj en resursgrupp.  
+   - Välj **importera till Azure**.
+   - Ange ett beskrivande namn för importjobbet. Använd namnet för att följa förloppet för dina jobb.
+       - Namnet får innehålla endast gemener, siffror och bindestreck.
+       - Namnet måste börja med en bokstav och får inte innehålla blanksteg.
+   - Välj en prenumeration.
+   - Ange eller välj en resursgrupp.  
 
-    ![Skapa importjobb – steg 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+     ![Skapa importjobb – steg 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
 3. I **Jobbdetaljer**:
 
@@ -113,21 +113,21 @@ Utför följande steg för att skapa ett importjobb i Azure-portalen.
 
 4. I **returnera leveransinformation**:
 
-    - Välj vilken operatör i listrutan.
-    - Ange en giltig transportföretagets kontonummer som du har skapat med den operatör. Microsoft använder kontot för att leverera enheter till dig när importjobbet har slutförts. Om du inte har ett kontonummer, skapar du en [FedEx](http://www.fedex.com/us/oadr/) eller [DHL](http://www.dhl.com/) transportföretagskonto.
-    - Ange en fullständig och giltig kontaktperson, telefon, e-post, gatuadress, ort, zip, region och land/region. 
+   - Välj vilken operatör i listrutan.
+   - Ange en giltig transportföretagets kontonummer som du har skapat med den operatör. Microsoft använder kontot för att leverera enheter till dig när importjobbet har slutförts. Om du inte har ett kontonummer, skapar du en [FedEx](https://www.fedex.com/us/oadr/) eller [DHL](http://www.dhl.com/) transportföretagskonto.
+   - Ange en fullständig och giltig kontaktperson, telefon, e-post, gatuadress, ort, zip, region och land/region. 
         
-        > [!TIP] 
-        > Ange en gruppens e-post istället för att ange en e-postadress för en enskild användare. Detta säkerställer att du får meddelanden även om en administratör lämnar företaget.
+       > [!TIP] 
+       > Ange en gruppens e-post istället för att ange en e-postadress för en enskild användare. Detta säkerställer att du får meddelanden även om en administratör lämnar företaget.
 
-    ![Skapa importjobb – steg3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+     ![Skapa importjobb – steg3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
 5. I den **sammanfattning**:
 
-    - Granska Jobbinformationen i sammanfattningen. Anteckna Jobbnamnet på och Azure-datacentret leveransadress för att skicka tillbaka diskarna till Azure. Den här informationen används senare på adressetikett.
-    - Klicka på **OK** skapa importjobbet.
+   - Granska Jobbinformationen i sammanfattningen. Anteckna Jobbnamnet på och Azure-datacentret leveransadress för att skicka tillbaka diskarna till Azure. Den här informationen används senare på adressetikett.
+   - Klicka på **OK** skapa importjobbet.
 
-    ![Skapa importjobb – steg 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+     ![Skapa importjobb – steg 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
 ## <a name="step-3-ship-the-drives"></a>Steg 3: Leverera enheterna 
 

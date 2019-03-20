@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 5f6cb29d8fb3fd1c3b75e18330e3ad2711a61aab
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d7f3c8d8efbdc658e4f7621a0606cb7fd92c88d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444930"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103493"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Contoso-migrering: Ange ny värd för en lokal Linux-app på virtuella Azure-datorer
 
@@ -314,17 +314,17 @@ Nu Contoso-administratörer kan börja replikera den **OSTICKETWEB** VM.
 
 3. De väljer den **OSTICKETWEB** virtuella datorn för replikering. 
 
-    - I det här skedet de väljer **OSTICKETWEB** endast, eftersom det virtuella nätverket och undernätet måste båda väljas och de virtuella datorerna inte är i samma undernät.
-    - Site Recovery installerar automatiskt mobilitetstjänsten när replikering har aktiverats för den virtuella datorn.
+   - I det här skedet de väljer **OSTICKETWEB** endast, eftersom det virtuella nätverket och undernätet måste båda väljas och de virtuella datorerna inte är i samma undernät.
+   - Site Recovery installerar automatiskt mobilitetstjänsten när replikering har aktiverats för den virtuella datorn.
 
-    ![Aktivera replikering](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
+     ![Aktivera replikering](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
 
 4. Välj det konto som används av processervern för att automatiskt installera Mobilitetstjänsten på datorn i VM-egenskaperna de.
 
      ![Mobilitetstjänsten](./media/contoso-migration-rehost-linux-vm/linux-mobility.png)
 
 5. i **replikeringsinställningar** > **konfigurera replikeringsinställningar**, de kontrollera att rätt replikeringsprincip är tillämpad och välj **Aktivera replikering**.
-6.  De spåra Replikeringsförlopp på **jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
+6. De spåra Replikeringsförlopp på **jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
 
 
 

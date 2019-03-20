@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bacefaada8ab0d63bb17d22f67b91c51a789de8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c769d241f54d5d86ef4954609eec555d8aab947a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172339"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858005"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problem med att konfigurera lösenord för enkel inloggning för en icke-galleriprogram
 
@@ -46,25 +46,25 @@ I allmänhet **om automatisk inloggningsfält capture inte fungerar kan du prova
 
 Konfigurera **lösenordsbaserad enkel inloggning** för ett program med hjälp av **automatisk inloggningsfält capture**, Följ stegen nedan:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
-5.  Klicka på **alla program** att visa en lista över alla dina program.
+5. Klicka på **alla program** att visa en lista över alla dina program.
 
-  * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
+   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
 
-6.  Välj det program som du vill konfigurera enkel inloggning.
+6. Välj det program som du vill konfigurera enkel inloggning.
 
-7.  När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7. När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
 
-8.  Välj läget **lösenordsbaserad inloggning.**
+8. Välj läget **lösenordsbaserad inloggning.**
 
-9.  Ange den **inloggnings-URL**, URL: en där användare anger sina användarnamn och lösenord för att logga in. **Kontrollera att logga in-fält är synliga på den URL som du anger**.
+9. Ange den **inloggnings-URL**, URL: en där användare anger sina användarnamn och lösenord för att logga in. **Kontrollera att logga in-fält är synliga på den URL som du anger**.
 
 10. Klicka på knappen **Spara**.
 
@@ -76,25 +76,25 @@ Om du vill samla in inloggningsfält manuellt, måste du först ha åtkomst till
 
 Konfigurera **lösenordsbaserad enkel inloggning** för ett program med hjälp av **manuellt inloggningsfält capture**, Följ stegen nedan:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
-5.  Klicka på **alla program** att visa en lista över alla dina program.
+5. Klicka på **alla program** att visa en lista över alla dina program.
 
    * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
 
-6.  Välj det program som du vill konfigurera enkel inloggning.
+6. Välj det program som du vill konfigurera enkel inloggning.
 
-7.  När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7. När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
 
-8.  Välj läget **lösenordsbaserad inloggning.**
+8. Välj läget **lösenordsbaserad inloggning.**
 
-9.  Ange den **inloggnings-URL**, URL: en där användare anger sina användarnamn och lösenord för att logga in. **Kontrollera att logga in-fält är synliga på den URL som du anger**.
+9. Ange den **inloggnings-URL**, URL: en där användare anger sina användarnamn och lösenord för att logga in. **Kontrollera att logga in-fält är synliga på den URL som du anger**.
 
 10. Klicka på knappen **Spara**.
 
@@ -174,21 +174,21 @@ Du kan också ladda ned tillägget för Chrome och Firefox från direkt länkarn
 
 Du kan se information om alla portal-meddelande genom att följa stegen nedan:
 
-1.  Klicka på den **meddelanden** ikonen (klockan) uppe till höger på Azure portal
+1. Klicka på den **meddelanden** ikonen (klockan) uppe till höger på Azure portal
 
-2.  Välj något meddelande i en **fel** tillstånd (de med ett rött (!) bredvid dem).
+2. Välj något meddelande i en **fel** tillstånd (de med ett rött (!) bredvid dem).
 
-  >! Observera] du kan klicka på aviseringar i en **lyckade** eller **pågår** tillstånd.
-  >
-  >
+   >! Observera] du kan klicka på aviseringar i en **lyckade** eller **pågår** tillstånd.
+   >
+   >
 
-3.  Den **meddelandeinformation** öppnas fönstret.
+3. Den **meddelandeinformation** öppnas fönstret.
 
-4.  Använd informationen själv för att förstå mer information om problemet.
+4. Använd informationen själv för att förstå mer information om problemet.
 
-5.  Om du fortfarande behöver hjälp kan du också dela informationen med en supporttekniker eller produktgruppen för att få hjälp med problemet.
+5. Om du fortfarande behöver hjälp kan du också dela informationen med en supporttekniker eller produktgruppen för att få hjälp med problemet.
 
-6.  Klicka på den **kopia** **ikonen** till höger om den **kopiera fel** textrutan att kopiera alla meddelandeinformation att dela med en support eller produkt grupp-tekniker.
+6. Klicka på den **kopia** **ikonen** till höger om den **kopiera fel** textrutan att kopiera alla meddelandeinformation att dela med en support eller produkt grupp-tekniker.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Få hjälp genom att skicka information om meddelande till en supporttekniker
 
@@ -226,7 +226,7 @@ Den nedan beskriver mer vad de meddelandet objekt innebär och ger exempel på v
 
 -   **UPN** – den användare som utförde åtgärden
 
-    -   Exempel – **tperkins@f128.info**
+    -   Exempel – **tperkins\@f128.info**
 
 -   **Klient-ID** – unikt ID för den klient som den användare som utförde åtgärden var medlem av
 
@@ -240,11 +240,11 @@ Den nedan beskriver mer vad de meddelandet objekt innebär och ger exempel på v
 
 -   **Visningsnamn** – **(kan vara tom)** en mer detaljerad visningsnamn för felet
 
-    -   Exempel * – **proxyinställningarna för programmet**
+    -   Exempel – **proxyinställningarna för programmet**
 
 -   **Status för** – specifika status för meddelandet
 
-    -   Exempel * – **misslyckades**
+    -   Exempel – **misslyckades**
 
 -   **Objekt-ID** – **(kan vara tom)** objekt-ID som åtgärden utfördes
 
@@ -252,7 +252,7 @@ Den nedan beskriver mer vad de meddelandet objekt innebär och ger exempel på v
 
 -   **Information om** – detaljerad beskrivning av vad som hänt på grund av åtgärden
 
-    -   Exempel – **interna URL: en ”https://bing.com/' är ogiltig eftersom den inte redan används**
+    -   Exempel – **interna URL: en ”<https://bing.com/>' är ogiltig eftersom den inte redan används**
 
 -   **Kopiera fel** – klickar du på den **kopieringsikonen** till höger om den **Kopieringsfel** textrutan att kopiera alla meddelandeinformation att dela med en support eller produkt grupp-tekniker
 

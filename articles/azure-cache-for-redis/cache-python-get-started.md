@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: f34021ee657626b3cf81e39ba01cafb3af5d1f50
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 8682a335372a1516be49b35400a2605f08d6b45e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238002"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779461"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Snabbstart: Använda Azure Cache for Redis med Python
 
@@ -33,7 +33,7 @@ Den här snabbstarten visar hur du ansluter Azure Cache for Redis med Python fö
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Python 2 eller 3 för Python-miljön](https://www.python.org/downloads/) installeras med [pip](https://pypi.org/project/pip/). 
 

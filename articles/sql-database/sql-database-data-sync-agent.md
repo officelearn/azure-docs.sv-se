@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 40a5c21c2411d0f1bfdf3254799d8abbd585c3ee
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 5d8b3b91771fda3a714112979b8bf9df39c4a9b3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217350"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088697"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Data Sync-agenten för Azure SQL Data Sync
 
@@ -102,8 +102,8 @@ Om du vill köra lokal agent från en annan dator än den för närvarande finns
 
 - **Lösning**. Du hittar den specifika orsaken till felet genom att generera och titta på loggarna för Windows Installer. Du kan aktivera loggning i en kommandotolk. Exempel: om den nedladdade installationsfilen är `SQLDataSyncAgent-2.0-x86-ENU.msi`, generera och undersöka loggfiler med hjälp av följande kommandorader:
 
-    -   För installationer: `msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
-    -   Så här avinstallerar för: `msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+  - För installationer: `msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+  - Så här avinstallerar för: `msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
 
     Du kan också aktivera loggning för alla installationer som utförs av Windows Installer. I Microsoft Knowledge Base-artikeln [så här aktiverar du Windows Installer-loggning](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) tillhandahåller en lösning för ett klick att aktivera loggning för Windows Installer. Det ger också platsen för loggarna.
 

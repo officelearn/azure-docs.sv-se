@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: babanisa
-ms.openlocfilehash: a77c208c208ef7e0df170733dbe89963fc5cb846
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: fa0ffa9ad913f0dc3afe8dc31aeaa0254fa2d241
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727187"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863176"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Skapa din egen haveriberedskap för anpassade ämnen i Event Grid
 
@@ -28,7 +28,7 @@ För att förenkla testningen distribuerar du en [förskapad webbapp](https://gi
 
 1. Välj **Deploy to Azure** (Distribuera till Azure) för att distribuera lösningen till din prenumeration. Ange parametervärdena i Azure Portal.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. Det kan ta några minuter att slutföra distributionen. Efter distributionen har slutförts kan du visa webbappen för att kontrollera att den körs. I en webbläsare navigerar du till: `https://<your-site-name>.azurewebsites.net`
 Se till att anteckna den här URL:en, eftersom du behöver den senare.
@@ -44,7 +44,7 @@ Se till att anteckna den här URL:en, eftersom du behöver den senare.
 
 Skapa först två Event Grid-ämnen. De här avsnitten fungerar som din primära och sekundära. Som standard flödar dina händelser genom ditt primära ämne. Om det sker ett tjänstavbrott i den primära regionen tar den sekundära över.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). 
+1. Logga in på [Azure Portal](https://portal.azure.com). 
 
 1. Från det övre vänstra hörnet på huvudmenyn i Azure väljer du **Alla tjänster** > sök efter **Event Grid** > välj **Event Grid-ämnen**.
 
@@ -54,10 +54,10 @@ Skapa först två Event Grid-ämnen. De här avsnitten fungerar som din primära
 
 1. På menyn Event Grid-ämnen väljer du **+ADD** (+Lägg till) för att skapa ditt primära ämne.
 
-    * Ge ämnet ett logiskt namn och lägg till ”-primärt” som suffix så att det blir enklare att spåra.
-    * Det här avsnittets region blir den primära regionen.
+   * Ge ämnet ett logiskt namn och lägg till ”-primärt” som suffix så att det blir enklare att spåra.
+   * Det här avsnittets region blir den primära regionen.
 
-    ![Dialogruta för att skapa primärt Event Grid-ämne](./media/custom-disaster-recovery/create-primary-topic.png)
+     ![Dialogruta för att skapa primärt Event Grid-ämne](./media/custom-disaster-recovery/create-primary-topic.png)
 
 1. När ämnet har skapats går du till det och kopierar **ämnesslutpunkten**. Du behöver URI senare.
 
@@ -69,11 +69,11 @@ Skapa först två Event Grid-ämnen. De här avsnitten fungerar som din primära
 
 1. I bladet Ämne klickar du på **+Event Subscription** (+Händelseprenumeration) för att skapa en prenumeration som ansluter prenumerationen till den händelsemottagarwebbplats som du skapade i förutsättningarna för självstudien.
 
-    * Ge händelseprenumerationen ett logiskt namn och lägg till ”-primärt” som suffix så att den blir enklare att spåra.
-    * Välj Endpoint Type Web Hook (Webhook av slutpunktstyp).
-    * Ange slutpunkten till din händelsemottagares händelse-URL, som bör se ut ungefär så här: `https://<your-event-reciever>.azurewebsites.net/api/updates`
+   * Ge händelseprenumerationen ett logiskt namn och lägg till ”-primärt” som suffix så att den blir enklare att spåra.
+   * Välj Endpoint Type Web Hook (Webhook av slutpunktstyp).
+   * Ange slutpunkten till din händelsemottagares händelse-URL, som bör se ut ungefär så här: `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-    ![Händelseprenumeration för primär Event Grid](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Händelseprenumeration för primär Event Grid](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. Upprepa samma flöde för att skapa ditt sekundära ämne och prenumerationen. Den här gången ersätter du suffixet ”-primärt” med ”-sekundärt” för enklare spårning. Slutligen placerar du det i en annan Azure-region. Du kan placera det var du vill, men det rekommenderas att du använder [länkade Azure-regioner](../best-practices-availability-paired-regions.md). Genom att placera det sekundära ämnet och prenumerationen i en annan region säkerställer du att nya händelser flödar även om den primära regionen slutar fungera.
 
@@ -91,7 +91,7 @@ Nu när du har konfigurerat ett regionalt redundant par med ämnen och prenumera
 
 ### <a name="basic-client-side-implementation"></a>Grundläggande implementering på klientsidan
 
-Följande exempelkod är en enkel .Net-utgivare som alltid försöker att publicera till ditt primära ämne först. Om det inte lyckas redundansväxlar den det sekundära ämnet. I båda fallen kontrollerar den även hälso-API för det andra ämnet genom att göra en GET på `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Ett felfritt ämne bör alltid svara med **200 OK** när en GET görs på slutpunkten **/api/health**.
+Följande exempelkod är en enkel .NET-utgivare som försöker alltid att publicera till ditt primära ämne först. Om det inte lyckas redundansväxlar den det sekundära ämnet. I båda fallen kontrollerar den även hälso-API för det andra ämnet genom att göra en GET på `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Ett felfritt ämne bör alltid svara med **200 OK** när en GET görs på slutpunkten **/api/health**.
 
 ```csharp
 using System;

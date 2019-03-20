@@ -4,17 +4,17 @@ description: Lär dig hur Azure Policy använder gäst-konfiguration för att gr
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/27/2019
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: e6621172734ea02f971bd5064b403ad4844210a3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d97ac99cae963ddb9df4de06736c64d5d8ceafb5
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960776"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187667"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policy gäst-konfiguration
 
@@ -64,7 +64,7 @@ I följande tabell visas en lista över de lokala verktyg som används på varje
 
 ### <a name="validation-frequency"></a>Frekvens för verifiering
 
-Gäst-konfigurationen kontrollerar klienten för nytt innehåll var femte minut. När en gäst-tilldelning tas emot, kontrolleras inställningarna med 15 minuters intervall. Resultaten skickas till resursprovidern gäst konfiguration när granskningen är klar. När en princip [utvärdering utlösaren](../how-to/get-compliance-data.md#evaluation-triggers) inträffar, tillståndet för datorn skrivs till resursprovidern gäst-konfiguration. Den här händelsen gör Azure Policy att utvärdera Azure Resource Manager-egenskaper. En på begäran principutvärdering hämtar det senaste värdet från resursprovidern gäst-konfiguration. Dock utlöser inte den en ny granskning av konfigurationen på den virtuella datorn.
+Gäst-konfigurationen kontrollerar klienten för nytt innehåll var femte minut. När en gäst-tilldelning tas emot, kontrolleras inställningarna med 15 minuters intervall. Resultaten skickas till resursprovidern gäst konfiguration när granskningen är klar. När en princip [utvärdering utlösaren](../how-to/get-compliance-data.md#evaluation-triggers) inträffar, tillståndet för datorn skrivs till resursprovidern gäst-konfiguration. Detta leder till Azure Policy att utvärdera Azure Resource Manager-egenskaper. En på begäran principutvärdering hämtar det senaste värdet från resursprovidern gäst-konfiguration. Dock utlöser inte den en ny granskning av konfigurationen på den virtuella datorn.
 
 ### <a name="supported-client-types"></a>Stöds klienttyper
 
@@ -74,22 +74,18 @@ I följande tabell visas en lista över operativsystem som stöds på Azure-avbi
 |-|-|-|
 |Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |credativ|Debian|8, 9|
-|Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter|
+|Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
+|Microsoft|Windows-klient|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5|
 |Red Hat|Red Hat Enterprise Linux|7.4, 7.5|
 |SUSE|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Gäst-konfiguration kan granska en server som kör ett operativsystem som stöds.  Om du vill granska servrar som använder en anpassad avbildning måste du duplicera den **DeployIfNotExists** definition och ändra den **om** att inkludera din avbildningsegenskaper.
+> Gäst-konfiguration kan granska noder som kör ett operativsystem som stöds.  Om du vill granska virtuella datorer som använder en anpassad avbildning måste du duplicera den **DeployIfNotExists** definition och ändra den **om** att inkludera din avbildningsegenskaper.
 
 ### <a name="unsupported-client-types"></a>Klientappar typer
 
-I följande tabell visas operativsystem som inte stöds:
-
-|Operativsystem|Anteckningar|
-|-|-|
-|Windows-klient | Klientoperativsystem (till exempel Windows 7 och Windows 10) stöds inte.
-|Windows Server 2016 Nano Server | Stöds ej.|
+Windows Server Nano Server stöds inte i alla versioner.
 
 ### <a name="guest-configuration-extension-network-requirements"></a>Krav på gästoperativsystem Configuration Extension
 
@@ -123,15 +119,29 @@ Azure Policy använder resursen gäst konfigurationstjänst **complianceStatus**
 > [!NOTE]
 > För varje gäst-konfigurationsdefinition både den **DeployIfNotExists** och **Audit** principdefinitioner måste finnas.
 
-Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Inbyggt *[förhandsversion]: Granska säkerhetsinställningarna för lösenord i Linux och Windows-datorer* initiativ innehåller 18 principer. Det finns sex **DeployIfNotExists** och **Audit** policy definition par för Windows och tre par för Linux.
-För varje den **DeployIfNotExists** [principdefinitionsregeln](definition-structure.md#policy-rule) begränsar de system som utvärderas.
+Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Inbyggda initiativ med namnet *[förhandsversion]: Granska säkerhetsinställningarna för lösenord i Linux och Windows-datorer* innehåller 18 principer. Det finns sex **DeployIfNotExists** och **Audit** par för Windows och tre par för Linux. I båda fallen logiken i definitionen verifierar endast målet operativsystemet ska utvärderas baserat på den [principregeln](definition-structure.md#policy-rule) definition.
+
+## <a name="client-log-files"></a>Loggfiler för klienten
+
+Tillägget gäst Configuration skriver loggfiler på följande platser:
+
+Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\1.10.0.0\dsc\logs\dsc.log`
+
+Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-1.8.0/GCAgent/logs/dsc.log`
+
+## <a name="guest-configuration-samples"></a>Konfigurationsexempel för gäst
+
+Exempel för konfiguration av gäst finns på följande platser:
+
+- [Exempel index - gäst-konfiguration](../samples/index.md#guest-configuration)
+- [GitHub-lagringsplatsen för Azure Policy-exempel](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se exempel på [Azure Policy-exempel](../samples/index.md)
-- Granska den [Policy-definitionsstruktur](definition-structure.md)
-- Granska [förstå effekterna av princip](effects.md)
-- Förstå hur du [skapa principer programmässigt](../how-to/programmatically-create.md)
-- Lär dig hur du [hämta data för kompatibilitetsinställningar](../how-to/getting-compliance-data.md)
-- Lär dig hur du [åtgärda icke-kompatibla resurser](../how-to/remediate-resources.md)
-- Se över vad en hanteringsgrupp är med sidan om att [organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/index.md)
+- Se exempel på [Azure Policy-exempel](../samples/index.md).
+- Granska [Policy-definitionsstrukturen](definition-structure.md).
+- Granska [Förstå policy-effekter](effects.md).
+- Förstå hur du [skapa principer programmässigt](../how-to/programmatically-create.md).
+- Lär dig hur du [hämta kompatibilitetsdata](../how-to/getting-compliance-data.md).
+- Lär dig hur du [åtgärda icke-kompatibla resurser](../how-to/remediate-resources.md).
+- Granska vilka en hanteringsgrupp är med [organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/index.md).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 34d42f9987303c1381584ae4b2991a8f30a67ed5
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 385163d791bff0c02a05ee1b27afd82c3afd0ac3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618967"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997166"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Felsökning av anslutningsproblem för utgående SMTP i Azure
 
@@ -26,17 +26,17 @@ Från och med den 15 November 2017 är utgående e-postmeddelanden som skickas d
 Den här ändringen i beteende gäller endast för nya prenumerationer och nya distributioner sedan den 15 November 2017.
 
 ## <a name="recommended-method-of-sending-email"></a>Rekommenderad metod för att skicka e-post
-Vi rekommenderar att du använder autentiserade SMTP-relätjänster (som vanligtvis ansluta via TCP-port 587 eller 443, men stöder andra portar för) för att skicka e-post från virtuella Azure-datorer eller från Azure App Services. Dessa tjänster används för att underhålla IP eller domän rykte för att minska möjligheten att tredje parts e-postleverantörer avvisar meddelandet. Sådana SMTP-relätjänster innehåller men inte begränsat till [SendGrid](http://sendgrid.com/partners/azure/). Det är också möjligt att du har en säker SMTP-relätjänst som körs lokalt som du kan använda.
+Vi rekommenderar att du använder autentiserade SMTP-relätjänster (som vanligtvis ansluta via TCP-port 587 eller 443, men stöder andra portar för) för att skicka e-post från virtuella Azure-datorer eller från Azure App Services. Dessa tjänster används för att underhålla IP eller domän rykte för att minska möjligheten att tredje parts e-postleverantörer avvisar meddelandet. Sådana SMTP-relätjänster innehåller men inte begränsat till [SendGrid](https://sendgrid.com/partners/azure/). Det är också möjligt att du har en säker SMTP-relätjänst som körs lokalt som du kan använda.
 
 Med hjälp av dessa tjänster för leverans av e-post är inte begränsad i Azure, oavsett vilken prenumerationstyp.
 
-## <a name="enterprise-agreement"></a>Enterprise Agreement
+## <a name="enterprise-agreement"></a>Enterprise-avtal
 Det finns ingen ändring i teknisk möjlighet att skicka e-post utan att använda ett autentiserat relä för Enterprise Agreement Azure-användare. Både nya och befintliga Enterprise Agreement-användare kan försöka utgående e-postleverans från virtuella Azure-datorer direkt till externa e-postleverantörer utan begränsningar från Azure-plattformen. Även om det inte är säkert att e-postleverantörerna godkänner inkommande e-post från en viss användare, blockeras leveransförsök inte av Azure-plattformen för virtuella datorer i Enterprise Agreement-prenumerationer. Du måste arbeta direkt med e-postleverantörer åtgärda eventuella meddelandeleverans eller skicka skräppost filtrering problem som rör specifika providers.
 
 ## <a name="pay-as-you-go"></a>Betala per användning
 Om du har registrerat dig innan den 15 November 2017 för användningsbaserade eller Microsoft Partner Network-prenumerationen erbjuder det blir ingen ändring i teknisk möjlighet att prova utgående e-postleverans. Du kommer att fortsätta att kunna testa utgående e-postleverans från virtuella Azure-datorer inom dessa prenumerationer direkt till externa e-postleverantörer utan begränsningar från Azure-plattformen. Igen, är det inte säkert att e-postleverantörerna godkänner inkommande e-post från en viss användare och användarna måste arbeta direkt med e-postleverantörer åtgärda eventuella meddelandeleverans eller skicka skräppost filtrering problem som rör specifika providers.
 
-För användningsbaserad betalning eller Microsoft Partner Network-prenumerationer som har skapats efter den 15 November 2017 kan finnas det tekniska begränsningar som blockerar e-postmeddelande som skickas direkt från virtuella datorer inom dessa prenumerationer. Om du vill kunna skicka e-post från virtuella Azure-datorer direkt till externa e-postleverantörer (inte använda ett autentiserat SMTP-relä) kan du göra en begäran om att ta bort begränsningen. Förfrågningarna kommer granskas och godkänns enligt Microsofts bedömning, och de beviljas endast efter att bedrägerikontroller har utförts. Öppna ett supportärende för att göra en begäran, med hjälp av följande problem: **teknisk** > **virtuellt nätverk** > **anslutning**  >  **Kan inte skicka e-post (SMTP/Port 25)**. Se till att du lägger till information om varför din distribution har skicka e-post direkt till e-postleverantörer i stället för att använda ett autentiserat relä.
+För användningsbaserad betalning eller Microsoft Partner Network-prenumerationer som har skapats efter den 15 November 2017 kan finnas det tekniska begränsningar som blockerar e-postmeddelande som skickas direkt från virtuella datorer inom dessa prenumerationer. Om du vill kunna skicka e-post från virtuella Azure-datorer direkt till externa e-postleverantörer (inte använda ett autentiserat SMTP-relä) kan du göra en begäran om att ta bort begränsningen. Förfrågningarna kommer granskas och godkänns enligt Microsofts bedömning, och de beviljas endast efter att bedrägerikontroller har utförts. Öppna ett supportärende för att göra en begäran, med hjälp av följande problem: **Teknisk** > **virtuellt nätverk** > **anslutning** > **kan inte skicka e-post (SMTP/Port 25)**. Se till att du lägger till information om varför din distribution har skicka e-post direkt till e-postleverantörer i stället för att använda ett autentiserat relä.
 
 När en prenumeration med användningsbaserad betalning eller Microsoft Partner Network undantas kan är virtuella datorer i den aktuella prenumerationen endast undantagna framöver.
 
@@ -48,7 +48,7 @@ Om du har skapat en MSDN, Azure-Pass, Azure i öppen, Education, BizSpark, Azure
 
 Om du använder dessa typer av prenumerationer är du rekommenderas att använda SMTP-relätjänster, enligt beskrivningen tidigare i den här artikeln.
 
-## <a name="cloud-service-provider-csp"></a>Molntjänstleverantör (CSP)
+## <a name="cloud-service-provider-csp"></a>Cloud Service Provider (CSP)
 
 Om du använder Azure-resurser via CSP kan skapa ett supportärende via ditt val av CSP och du kan begära CSP: N för att skapa ett ärende avblockera för din räkning om en säker SMTP-relä inte kan användas.
 

@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 12da1b20c5e4e6299445b8ec8ec90eeec6711e2c
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: HT
+ms.openlocfilehash: 961983aad0775f9b9d728269e8a57137ff508f02
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805526"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451798"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Använd Jupyter-anteckningsböcker för att utforska Azure Machine Learning-tjänsten
 
@@ -82,7 +82,7 @@ Du kan använda något av ovanstående alternativ, men du kan också installera 
       + Startar en Jupyter-anteckningsbok
       
    >[!NOTE]
-   > Skriptet tar conda-miljönamnet som en valfri parameter. Standardinställningen för conda-miljönamnet är `azure_automl`. Det exakta kommandot beror på operativsystemet. Detta är användbart om du skapar en ny miljö eller uppgraderar till en ny version. Du kan t.ex. använda automl_setup.cmd azure_automl_sandbox om du vill skapa ett miljönamn som azure_automl_sandbox. 
+   > Skriptet tar conda-miljönamnet som en valfri parameter. Standardinställningen för conda-miljönamnet är `azure_automl`. Det exakta kommandot beror på operativsystemet. Detta är användbart om du skapar en ny miljö eller uppgraderar till en ny version. Du kan till exempel använda 'automl_setup.cmd azure_automl_sandbox' för att skapa en miljö namn azure_automl_sandbox. 
       
 1. När skriptet har slutförts visas en Jupyter Notebook-startsida i webbläsaren.
 

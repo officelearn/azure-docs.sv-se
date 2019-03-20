@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8d9e59a11957e8d108ae86ebba157a06129efa58
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: adbf3e4fbc0f9d49458dadaebcdd2a090030654e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111559"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838892"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process i praktiken: använda SQL Data Warehouse
-I de här självstudierna vi vägleder genom att skapa och distribuera en maskininlärningsmodell med SQL Data Warehouse (SQL DW) för en datauppsättning som allmänt tillgängliga – den [NYC Taxi kommunikation](http://www.andresmh.com/nyctaxitrips/) datauppsättning. Binära klassificeringsmodellen konstrueras förutsäger huruvida ett tips är betalas för en resa och modeller för multiklass-baserad klassificering och regression beskrivs som förutsäga fördelningen för tips belopp som har betalats.
+I de här självstudierna vi vägleder genom att skapa och distribuera en maskininlärningsmodell med SQL Data Warehouse (SQL DW) för en datauppsättning som allmänt tillgängliga – den [NYC Taxi kommunikation](https://www.andresmh.com/nyctaxitrips/) datauppsättning. Binära klassificeringsmodellen konstrueras förutsäger huruvida ett tips är betalas för en resa och modeller för multiklass-baserad klassificering och regression beskrivs som förutsäga fördelningen för tips belopp som har betalats.
 
 Förfarandet som följer den [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) arbetsflöde. Vi visar hur du ställer in en datavetenskapsmiljö in data i SQL DW och använda hur SQL DW eller en IPython Notebook för att utforska data och -tekniker funktioner i modellen. Sedan visar vi hur du skapar och distribuerar en modell med Azure Machine Learning.
 
@@ -881,7 +881,7 @@ Om du vill tar och sammanfattar vad vi har gjort i den här genomgången självs
 Det här exemplet genomgång och dess tillhörande skript och IPython notebook(s) som delas av Microsoft under MIT-licensen. Kontrollera filen LICENSE.txt i katalogen på exempelkoden på GitHub för mer information.
 
 ## <a name="references"></a>Referenser
-• [Andrés Monroy NYC Taxi kommunikation hämtningssidan](http://www.andresmh.com/nyctaxitrips/) • [FOILing NYC Taxitransport Resedata av Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [NYC Taxi och Limousine kommissionen forskning och statistik](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+• [Andrés Monroy NYC Taxi kommunikation hämtningssidan](https://www.andresmh.com/nyctaxitrips/) • [FOILing NYC Taxitransport Resedata av Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/) • [NYC Taxi och Limousine kommissionen forskning och statistik](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png

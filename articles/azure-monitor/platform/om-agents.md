@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/23/2018
 ms.author: magoedte
-ms.openlocfilehash: 133e617cd6bac1155ba22276887cf0790221e9de
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 722712d1e38efa3e1accc41abca5c9d88b3c1229
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186981"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095933"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Anslut Operations Manager till Log Analytics
 Att underhålla din investering i [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) och använder utökade funktioner med Log Analytics, du kan integrera Operations Manager med Log Analytics-arbetsytan. På så sätt kan du utnyttja möjligheterna i Log Analytics samtidigt som du använder Operations Manager till att:
@@ -132,7 +132,7 @@ Utför följande steg om en intern proxyserver mellan hanteringsgruppen och Log 
 1. Öppna Operations Manager-konsolen och välj arbetsytan **Administration**.
 1. Expandera Operations Management Suite och klicka sedan på **Anslutningar**.
 1. I vyn OMS-anslutning klickar du på **Konfigurera proxyserver**.
-1. På **guiden Operations Management Suite: Proxyserver** väljer **använder en proxyserver för att få åtkomst till Operations Management Suite**, och ange sedan Webbadressen med portnumret, till exempel http://corpproxy:80 och klicka sedan på **Slutför** .
+1. På **guiden Operations Management Suite: Proxyserver** väljer **använder en proxyserver för att få åtkomst till Operations Management Suite**, och ange sedan Webbadressen med portnumret, till exempel <http://corpproxy:80> och klicka sedan på **Slutför** .
 
 Om proxyservern kräver autentisering, utför du följande steg för att konfigurera autentiseringsuppgifter och inställningar som måste spridas till hanterade datorer som rapporterar till Log Analytics i hanteringsgruppen.
 

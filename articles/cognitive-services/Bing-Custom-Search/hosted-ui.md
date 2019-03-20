@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: fbe865a5d9ef6c44b80c811a023c86f6446c3bb8
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: af1e65cc7dfe1a0934056ad141f4c62a96627bbb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233888"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084140"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Konfigurera din värdbaserade användargränssnitt
 
@@ -43,10 +43,10 @@ Följ dessa steg om du vill konfigurera en värdbaserad Användargränssnittet f
     
 5. Välj ett färgtema. Du kan anpassa färger för att passa ditt program genom att klicka på **Anpassa tema**. Om du vill ändra en färg, antingen ange färgvärde RGB HEX (till exempel `#366eb8`), eller klicka på förhandsversionen av färg.
 
-  Du kan förhandsgranska dina ändringar på höger sida av portalen. Klicka på **Återställ till standard** återgår ändringarna till sidan för det valda temat.
+   Du kan förhandsgranska dina ändringar på höger sida av portalen. Klicka på **Återställ till standard** återgår ändringarna till sidan för det valda temat.
 
-  > [!NOTE]
-  > Överväg att hjälpmedel när du väljer färger.
+   > [!NOTE]
+   > Överväg att hjälpmedel när du väljer färger.
 
 6. Under **ytterligare konfigurationer**, ange värden för din app. De här inställningarna är valfria. Effekten av att använda eller ta bort dem finns i förhandsgranskningsfönstret till höger. Tillgängliga alternativ är:  
 

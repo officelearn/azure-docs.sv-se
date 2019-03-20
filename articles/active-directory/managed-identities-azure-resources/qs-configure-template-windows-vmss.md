@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 075672fb6d132258b04936aa20129fa6f8c82572
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: d6ad683af5597be746524a360d438a06b2e429b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819248"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847271"
 ---
-# <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>Konfigurera hanterade identiteter för Azure-resurser på en Azure VM-skalningsuppsättning med en mall
+# <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Konfigurera hanterade identiteter för Azure-resurser på en Azure VM-skalningsuppsättning med en mall
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -320,7 +320,7 @@ I det här avsnittet tilldelar du en hanterad Användartilldelad identitet till 
         }
     ]
    ```
-### <a name="remove-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Ta bort Användartilldelad hanterad identitet från en Azure VM-skalningsuppsättning
+   ### <a name="remove-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Ta bort Användartilldelad hanterad identitet från en Azure VM-skalningsuppsättning
 
 Om du har en skalningsuppsättning för virtuella datorer som inte längre behöver en hanterad Användartilldelad identitet:
 

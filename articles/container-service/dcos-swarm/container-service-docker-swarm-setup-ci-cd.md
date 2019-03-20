@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 93046fa8225d8c85172d113d3c7f9e979c336770
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331443"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096273"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(INAKTUELL) Fullständig CI/CD-pipeline för att distribuera program med flera behållare på Azure Container Service med Docker Swarm med Azure DevOps-tjänster
 
@@ -204,14 +204,14 @@ Versionen arbetsflödet består av två saker som du lägger till.
 
     Kommandot kördes på master användningen av Docker CLI och Docker-Compose-CLI för att utföra följande uppgifter:
 
-    - Logga in på Azure container registry (den använder tre build variab'les som definieras i den **variabler** fliken)
-    - Definiera den **DOCKER_HOST** variabel att arbeta med Swarm-slutpunkten (: 2375)
-    - Navigera till den *distribuera* mapp som har skapats i den föregående aktiviteten säker kopia och som innehåller filen docker-compose.yml 
-    - Köra `docker-compose` kommandon som hämtar de nya bilderna stoppa tjänsterna, ta bort tjänsterna och skapa behållare.
+   - Logga in på Azure container registry (den använder tre build variab'les som definieras i den **variabler** fliken)
+   - Definiera den **DOCKER_HOST** variabel att arbeta med Swarm-slutpunkten (: 2375)
+   - Navigera till den *distribuera* mapp som har skapats i den föregående aktiviteten säker kopia och som innehåller filen docker-compose.yml 
+   - Köra `docker-compose` kommandon som hämtar de nya bilderna stoppa tjänsterna, ta bort tjänsterna och skapa behållare.
 
-    >[!IMPORTANT]
-    > Som du ser i den föregående skärmbilden kan lämna den **misslyckas på STDERR** kryssrutan avmarkerad. Detta är ett viktigt inställningen eftersom `docker-compose` skriver ut flera diagnostiska meddelanden som behållare är stoppas eller tas bort på standardfelutdata. Om du markerar kryssrutan rapporterar Azure DevOps-tjänsterna att fel uppstod vid lanseringen, även om allt går bra.
-    >
+     >[!IMPORTANT]
+     > Som du ser i den föregående skärmbilden kan lämna den **misslyckas på STDERR** kryssrutan avmarkerad. Detta är ett viktigt inställningen eftersom `docker-compose` skriver ut flera diagnostiska meddelanden som behållare är stoppas eller tas bort på standardfelutdata. Om du markerar kryssrutan rapporterar Azure DevOps-tjänsterna att fel uppstod vid lanseringen, även om allt går bra.
+     >
 1. Spara den här nya releasepipeline.
 
 

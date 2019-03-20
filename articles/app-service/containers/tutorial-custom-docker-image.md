@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 6b57c3a172f39c596250b05024ad954a5d065440
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: f929424746a4e83f20af635bebf6ca60ee6cb673
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984825"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993445"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Använda du en anpassad Docker-avbildning för Web App for Containers
 
@@ -38,7 +38,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -193,7 +193,7 @@ v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974
 
 ## <a name="deploy-app-to-azure"></a>Distribuera app till Azure
 
-Om du vill skapa en app som använder den avbildning som du just har push-överfört kör du Azure CLI-kommandon som skapar en grupp, sedan en tjänstplan och slutligen själva webbappen. 
+Om du vill skapa en app som använder den avbildning som du precis skickade, kan du köra Azure CLI-kommandon som skapar en grupp, och sedan en tjänstplan och slutligen själva webbappen. 
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

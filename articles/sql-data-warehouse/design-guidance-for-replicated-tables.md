@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/23/2018
+ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 93e1904862af7eaad395bf14b0d09555d9d1d2ab
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 9b205dea0d6de6469847e8008010a3a2c9d19956
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990143"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113146"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Designriktlinjer för att använda replikerade tabeller i Azure SQL Data Warehouse
 Den här artikeln ger rekommendationer för att utforma replikerade tabeller i SQL Data Warehouse-schemat. Använd de här rekommendationerna för att förbättra frågeprestanda genom att minska komplexiteten för data movement och fråga.
@@ -32,22 +32,23 @@ Förstå så mycket som möjligt om dina data och hur data är den server som en
 - Måste jag fakta-och dimensionstabeller i ett informationslager?   
 
 ## <a name="what-is-a-replicated-table"></a>Vad är en replikerad tabell?
-En replikerad tabell har en fullständig kopia av tabellen tillgänglig på varje beräkningsnod. Replikera en tabell eliminerar behovet av att överföra data mellan beräkningsnoder innan en join- eller aggregering. Eftersom tabellen har flera kopior, fungerar replikerade tabeller bäst om tabellen är mindre än 2 GB komprimerat.
+En replikerad tabell har en fullständig kopia av tabellen tillgänglig på varje beräkningsnod. Replikera en tabell eliminerar behovet av att överföra data mellan beräkningsnoder innan en join- eller aggregering. Eftersom tabellen har flera kopior, fungerar replikerade tabeller bäst om tabellen är mindre än 2 GB komprimerat.  2 GB är inte en hård gräns.  Om data är statiska och ändrar inte, kan du replikera större tabeller.
 
 Följande diagram visar en replikerad tabell som är tillgänglig på varje beräkningsnod. I SQL Data Warehouse kopieras helt replikerad tabell till en distributionsdatabas på varje beräkningsnod. 
 
 ![Replikerat tabell](media/guidance-for-using-replicated-tables/replicated-table.png "replikerat tabell")  
 
-Replikerade tabeller fungerar bra för små dimensionstabeller i ett star-schema. Dimensionstabeller är vanligtvis med en storlek som gör det möjligt att lagra och hantera flera kopior. Dimensioner lagra beskrivande data som ändras långsamt, som kundens namn och adress och produktinformation. Långsamt föränderliga natur data leder till färre ombyggnad av replikerad tabell. 
+Replikerade tabeller fungerar bra för dimensionstabeller i ett star-schema. Dimensionstabeller kopplas vanligtvis till faktatabeller som distribueras på ett annat sätt än dimensionstabellen.  Dimensioner är vanligtvis med en storlek som gör det möjligt att lagra och hantera flera kopior. Dimensioner lagra beskrivande data som ändras långsamt, som kundens namn och adress och produktinformation. Långsamt föränderliga natur data leder till mindre underhåll av replikerad tabell. 
 
 Överväg att använda en replikerad tabell när:
 
 - Tabellen är på disken mindre än 2 GB, oavsett hur många rader. För att hitta storleken på en tabell, kan du använda den [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) kommandot: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
 - Tabellen används i kopplingar som annars skulle kräva dataförflyttning. När du ansluter tabeller som inte distribueras på samma kolumn, till exempel en hash-distribuerad tabell till en resursallokeringstabell krävs Dataförflyttning för att slutföra frågan.  Om någon av tabellerna är liten du en replikerad tabell. Vi rekommenderar att du använder replikerade tabeller i stället för resursallokeringstabeller i de flesta fall. Du kan visa dataflyttningsåtgärder i frågeplaner [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).  BroadcastMoveOperation är typiska dataförflyttningen som kan tas bort med hjälp av en replikerad tabell.  
-  Replikerade tabeller kan inte ge bästa frågeprestanda när:
+ 
+Replikerade tabeller kan inte ge bästa frågeprestanda när:
 
 - Tabellen har ofta infoga, uppdatera och ta bort. Dessa data manipulation language (DML) åtgärder kräver återskapning av replikerad tabell. Återskapa kan ofta orsaka långsammare.
-- Datalagret skalas ofta. Skala ett informationslager ändras antalet beräkningsnoder, vilket medför en återskapning.
+- Datalagret skalas ofta. Skala ett informationslager ändras antalet beräkningsnoder, vilket medför att återskapa replikerad tabell.
 - Tabellen har ett stort antal kolumner, men dataåtgärder normalt komma åt inte endast ett litet antal kolumner. I det här scenariot, istället för att replikera hela tabellen, kan det vara mer effektivt att distribuera tabellen och sedan skapa ett index på kolumnerna som används ofta. När en fråga kräver dataförflyttning, flyttar data för de begärda kolumnerna endast i SQL Data Warehouse. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Använda replikerade tabeller med enkel fråga predikat
@@ -102,7 +103,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 En replikerad tabell kräver inte någon Dataförflyttning för kopplingar, eftersom det redan finns på varje beräkningsnod hela tabellen. Om dimensionstabellerna är resursallokering distribueras, kopierar en koppling dimensionstabellen med fullständigt till varje beräkningsnod. Om du vill flytta data innehåller en åtgärd som kallas BroadcastMoveOperation i frågeplanen. Den här typen av dataförflyttningen saktar frågeprestanda och elimineras med hjälp av replikerade tabeller. Du kan visa plan frågesteg den [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) system katalogvy. 
 
 I följande fråga mot AdventureWorks-schema, till exempel den ` FactInternetSales` tabellen är hash-distribuerad. Den `DimDate` och `DimSalesTerritory` tabeller är mindre dimensionstabeller. Den här frågan returnerar den totala försäljningen i Nordamerika för räkenskapsåret 2004:
- 
+ 
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)
 FROM dbo.FactInternetSales s
@@ -138,7 +139,7 @@ Det krävs inte behöver efter:
 
 ### <a name="use-indexes-conservatively"></a>Använda index var
 Indexering standardmetoder gäller för replikerade tabeller. Varje replikerad tabell indexet som en del av återskapandet återskapas i SQL Data Warehouse. Använd endast index när prestanda uppväger kostnaden för att återskapa index.  
- 
+ 
 ### <a name="batch-data-loads"></a>Batch-Datainläsningen
 När du läser in data i replikerade tabeller, försöka minimera behöver av batchbearbetning belastningar tillsammans. Utföra gruppbaserade belastningen innan du kör select-uttryck.
 
@@ -170,20 +171,20 @@ Den här frågan använder den [sys.pdw_replicated_table_cache_state](/sql/relat
 ```sql 
 SELECT [ReplicatedTable] = t.[name]
   FROM sys.tables t  
-  JOIN sys.pdw_replicated_table_cache_state c  
-    ON c.object_id = t.object_id 
-  JOIN sys.pdw_table_distribution_properties p 
-    ON p.object_id = t.object_id 
+  JOIN sys.pdw_replicated_table_cache_state c  
+    ON c.object_id = t.object_id 
+  JOIN sys.pdw_table_distribution_properties p 
+    ON p.object_id = t.object_id 
   WHERE c.[state] = 'NotReady'
     AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
- 
+ 
 Kör följande instruktion för att utlösa en återskapning av en i varje tabell i ovanstående utdata. 
 
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]
 ``` 
- 
+ 
 ## <a name="next-steps"></a>Nästa steg 
 Använd någon av dessa instruktioner för att skapa en replikerad tabell:
 

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.topic: conceptual
-ms.openlocfilehash: dee0f55d816cae3b178990a432c37d3082d26de3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 195c39562e36000597d04bb760741ec7f40203c8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775772"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57844681"
 ---
 # <a name="data-filtering"></a>Datafiltrering
 
@@ -45,7 +45,7 @@ Anpassade Translator tar bort meningar som finns i test och justera dokument fr�
 Ersätt flera mening slutet skiljetecken med en enda instans.  
 
 ## <a name="japanese-character-normalization"></a>Japanska tecken normalisering
-Normalisera duplicerade japanska tecken: Konvertera halv bredd till full bredd tecken.
+Konvertera full bredd bokstäver och siffror till SB-tecken.
 
 ## <a name="unescaped-xml-tags"></a>Unescaped XML-taggar
 Filtrering transformeringar unescaped taggar till undantagen taggar:

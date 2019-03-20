@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0fb2103b982d5b2fc1a04455b451459ede12166e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 1363dd3c620789b9f3c8ce1dbe0892ee61d66051
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336943"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108213"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>Haveriberedskap och geo-replikering
 
@@ -24,7 +24,7 @@ ms.locfileid: "53336943"
 Alla tillstånd sparas i varaktiga funktioner i Azure Storage. En [uppgift hub](durable-functions-task-hubs.md) är en logisk behållare för Azure Storage-resurser som används för orkestreringar. Orchestrator och aktivitet kan bara interagera med varandra när de tillhör samma uppgift hubb.
 De beskrivna scenarierna föreslå distributionsalternativ för att öka tillgängligheten och minimera driftstopp under disaster recovery-aktiviteter.
 
-Det är viktigt att Observera att dessa scenarier baseras på aktivt-passivt konfigurationer, eftersom de vägleds genom användningen av Azure Storage. Det här mönstret innebär att distribuera en funktionsapp för säkerhetskopiering (passivt) till en annan region. Traffic Manager ska övervaka primära (aktiva) funktionsappen för tillgänglighet. Den växlar över till säkerhetskopiering funktionsappen om den primära databasen misslyckas. Mer information finns i [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)'s [prioritet Trafikdirigeringsmetoden.](../../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method)
+Det är viktigt att Observera att dessa scenarier baseras på aktivt-passivt konfigurationer, eftersom de vägleds genom användningen av Azure Storage. Det här mönstret innebär att distribuera en funktionsapp för säkerhetskopiering (passivt) till en annan region. Traffic Manager ska övervaka primära (aktiva) funktionsappen för tillgänglighet. Den växlar över till säkerhetskopiering funktionsappen om den primära databasen misslyckas. Mer information finns i [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)'s [prioritet Trafikdirigeringsmetoden.](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method)
 
 >[!NOTE]
 >

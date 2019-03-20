@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: c11a206316cfb7b2d9e96b631fce01701da93565
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e7f39b6298dd950147fea7ac21969c53e1b58e2e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550490"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877878"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -26,7 +26,7 @@ När du laddar upp videor med Video Indexer API, har följande Uppladdningsalter
 
 Artikeln visar hur du använder [Ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)-API:t för att ladda upp och indexera videor baserat på en URL. Kodexemplet i artikeln innehåller den kommenterade koden som visar hur du laddar upp bytematrisen. <br/>Artikeln beskriver också några av de parametrar du kan ange i API:t för att ändra API:ts process och utdata.
 
-När din video har laddats upp, kodar Video Indexer kan du kan också videon (beskrivs i artikeln). När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med betalalternativet skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till mediekontot. 
+När din video har laddats upp, kodar Video Indexer kan du kan också videon (beskrivs i artikeln). När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med betald alternativet kan du skapa en Video Indexer-konto som är [är ansluten till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till mediekontot. 
 
 ## <a name="uploading-considerations"></a>Att tänka på gällande uppladdning
 
@@ -64,16 +64,16 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
         |state|Videotillståndet|  
     - Exempel: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Person som identifierades i videon:
-    - Egenskaper
+  - Egenskaper
     
-        |Namn|Beskrivning|
-        |---|---|
-        |id| Video-ID:n|
-        |faceId|Ansikts-ID som visas i videoindexet|
-        |knownPersonId|Person-ID som är unikt inom en ansikts-modell|
-        |personName|Namnet på personen|
+      |Namn|Beskrivning|
+      |---|---|
+      |id| Video-ID:n|
+      |faceId|Ansikts-ID som visas i videoindexet|
+      |knownPersonId|Person-ID som är unikt inom en ansikts-modell|
+      |personName|Namnet på personen|
         
-     - Exempel: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Exempel: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### <a name="notes"></a>Anteckningar
 

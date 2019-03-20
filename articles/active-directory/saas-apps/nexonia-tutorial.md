@@ -4,231 +4,197 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: a93b771a-9bc3-444a-bdc0-457f8bb7e780
 ms.service: active-directory
-ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/18/2018
+ms.topic: tutorial
+ms.date: 03/04/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e57fdd07043625f7729059f430abc3e0d86a3c8a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9040c5028b3046ed60f9e30de76a9b13d2b5425b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218133"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837180"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>Självstudier: Azure Active Directory-integrering med Nexonia
 
 I den här självstudien får du lära dig hur du integrerar Nexonia med Azure Active Directory (AD Azure).
-
 Integrera Nexonia med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Nexonia.
-- Du kan aktivera användarna att automatiskt få loggat in på Nexonia (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan styra i Azure AD som har åtkomst till Nexonia.
+* Du kan aktivera användarna att vara automatiskt inloggad till Nexonia (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Nexonia, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En Nexonia enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Nexonia enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Nexonia från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+
+* Har stöd för Nexonia **IDP** -initierad SSO
 
 ## <a name="adding-nexonia-from-the-gallery"></a>Att lägga till Nexonia från galleriet
+
 För att konfigurera integrering av Nexonia i Azure AD, som du behöver lägga till Nexonia från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Nexonia från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
-    
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Knappen Nytt program][3]
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I sökrutan skriver **Nexonia**väljer **Nexonia** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Nexonia i resultatlistan](./media/nexonia-tutorial/tutorial_nexonia_addfromgallery.png)
+4. I sökrutan skriver **Nexonia**väljer **Nexonia** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+
+     ![Nexonia i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Nexonia baserat på en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Nexonia är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Nexonia upprättas.
-
-I Nexonia, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Nexonia baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Nexonia upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Nexonia, måste du utföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-1. **[Skapa en testanvändare Nexonia](#create-a-nexonia-test-user)**  – du har en motsvarighet för Britta Simon i Nexonia som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-1. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+2. **[Konfigurera Nexonia Single Sign-On](#configure-nexonia-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa testanvändare Nexonia](#create-nexonia-test-user)**  – du har en motsvarighet för Britta Simon i Nexonia som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Nexonia program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-  > [!Note]
-   > Om du har problem med i integrationen sedan finns det [länken](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery) för felsökningsguide för. Om du fortfarande inte har hittas lösningen skapar du supportförfrågan via Azure-portalen.
+Utför följande steg för att konfigurera Azure AD enkel inloggning med Nexonia:
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Nexonia:**
+1. I den [Azure-portalen](https://portal.azure.com/)på den **Nexonia** application integration markerar **enkel inloggning**.
 
-1. I Azure-portalen på den **Nexonia** program integration-sidan klickar du på **enkel inloggning**.
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-    ![Konfigurera länk för enkel inloggning][4]
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/nexonia-tutorial/tutorial_nexonia_samlbase.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-1. På den **Nexonia domän och URL: er** avsnittet, utför följande steg:
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    ![Nexonia domän och URL: er med enkel inloggning för information](./media/nexonia-tutorial/tutorial_nexonia_url.png)
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    a. I den **identifierare** textrutan, ange ett värde: `Nexonia`
+4. På sidan **Konfigurera enkel inloggning med SAML** utför du följande steg:
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
+    ![Nexonia domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
 
-    > [!NOTE] 
-    > Värdet för svars-URL:en är inte verkligt. Uppdatera värdet för med den faktiska svars-URL:en. Kontakta [Nexonia supportteamet](https://nexonia.zendesk.com/hc/requests/new) att hämta värdet.
- 
-1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+    a. I textrutan **Identifierare** skriver du in en URL: `Nexonia`
 
-    ![Länk för nedladdning av certifikatet](./media/nexonia-tutorial/tutorial_nexonia_certificate.png) 
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
 
-1. Klicka på **spara** knappen.
+    > [!NOTE]
+    > Värdet för svars-URL:en är inte verkligt. Uppdatera värdet för med den faktiska svars-URL:en. Kontakta [Nexonia klienten supportteamet](https://nexonia.zendesk.com/hc/requests/new) att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/nexonia-tutorial/tutorial_general_400.png)
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-1. På den **Nexonia Configuration** klickar du på **konfigurera Nexonia** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-    ![Nexonia konfiguration](./media/nexonia-tutorial/tutorial_nexonia_configure.png) 
+6. På den **konfigurera Nexonia** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
 
-1. Att konfigurera enkel inloggning på **Nexonia** sida, som du behöver skicka de hämtade **certifikat (Base64), URL: en för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** och **SAML entitets-ID**  till [Nexonia supportteamet](https://nexonia.zendesk.com/hc/requests/new). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+    a. Inloggnings-URL
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+    b. Azure AD-identifierare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+    c. Utloggnings-URL
 
-   ![Skapa en Azure AD-testanvändare][100]
+### <a name="configure-nexonia-single-sign-on"></a>Konfigurera Nexonia Single Sign-On
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+Att konfigurera enkel inloggning på **Nexonia** sida, som du behöver skicka de hämtade **certifikat (Base64)** och lämpliga kopierade URL: er från Azure portal för att [Nexonia supportteamet](https://nexonia.zendesk.com/hc/requests/new). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-    ![Azure Active Directory-knappen](./media/nexonia-tutorial/create_aaduser_01.png)
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/nexonia-tutorial/create_aaduser_02.png)
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Knappen Lägg till](./media/nexonia-tutorial/create_aaduser_03.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-1. I den **användaren** dialogrutan utför följande steg:
+3. Genomför följande steg i Användaregenskaper.
 
-    ![Dialogrutan användare](./media/nexonia-tutorial/create_aaduser_04.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I den **namn** skriver **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
-  
-### <a name="create-a-nexonia-test-user"></a>Skapa en Nexonia testanvändare
-
-I det här avsnittet skapar du en användare som kallas Britta Simon i Nexonia. Arbeta med [Nexonia supportteamet](https://nexonia.zendesk.com/hc/requests/new) att lägga till användare i Nexonia-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Nexonia.
 
-![Tilldela rollen][200] 
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Nexonia**.
 
-**Om du vill tilldela Britta Simon Nexonia, utför du följande steg:**
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+2. I listan med program väljer **Nexonia**.
 
-    ![Tilldela användare][201] 
+    ![Länken Nexonia i listan med program](common/all-applications.png)
 
-1. I listan med program väljer **Nexonia**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Länken Nexonia i listan med program](./media/nexonia-tutorial/tutorial_nexonia_app.png)  
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Länken ”användare och grupper”][202]
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Fönstret Lägg till tilldelning][203]
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+### <a name="create-nexonia-test-user"></a>Skapa Nexonia testanvändare
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+I det här avsnittet skapar du en användare som kallas Britta Simon i Nexonia. Arbeta med [Nexonia supportteamet](https://nexonia.zendesk.com/hc/requests/new) att lägga till användare i Nexonia-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Nexonia i åtkomstpanelen du bör få automatiskt loggat in på ditt Nexonia program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen Nexonia i åtkomstpanelen, bör det vara loggas in automatiskt till Nexonia som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/nexonia-tutorial/tutorial_general_01.png
-[2]: ./media/nexonia-tutorial/tutorial_general_02.png
-[3]: ./media/nexonia-tutorial/tutorial_general_03.png
-[4]: ./media/nexonia-tutorial/tutorial_general_04.png
-
-[100]: ./media/nexonia-tutorial/tutorial_general_100.png
-
-[200]: ./media/nexonia-tutorial/tutorial_general_200.png
-[201]: ./media/nexonia-tutorial/tutorial_general_201.png
-[202]: ./media/nexonia-tutorial/tutorial_general_202.png
-[203]: ./media/nexonia-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

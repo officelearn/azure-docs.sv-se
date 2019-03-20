@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 9740de34fe7cf7d06af1803cc6d77d7e89bbb73f
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 5c3f393278d3d51dd3a53cd19335cd242c15c6d8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391529"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58168715"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Använd Distcp för att kopiera data mellan Azure Storage-Blobbar och Azure Data Lake Storage Gen1
 > [!div class="op_single_selector"]
@@ -33,9 +33,6 @@ Om du har ett HDInsight-kluster med åtkomst till Azure Data Lake Storage Gen1, 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Ett konto med Azure Data Lake Storage Gen1**. Anvisningar för hur du skapar ett finns i [Kom igång med Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Azure HDInsight-kluster** med åtkomst till ett Data Lake Storage Gen1-konto. Se [skapa ett HDInsight-kluster med Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Kontrollera att du aktivera Fjärrskrivbord för klustret.
-
-## <a name="do-you-learn-fast-with-videos"></a>Lär du dig snabbt med videor?
-[Den här videon](https://mix.office.com/watch/1liuojvdx6sie) om hur du kopierar data mellan Azure Storage-Blobbar och Data Lake Storage Gen1 använda DistCp.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Använd Distcp från ett kluster i HDInsight Linux
 
@@ -79,7 +76,7 @@ Eftersom Distcps lägsta Granulariteten är en enskild fil, är ange det maximal
 
 Här är några riktlinjer som du kan använda.
 
-* **Steg 1: Fastställ minne totalt YARN** – det första steget är att avgöra YARN-minne i klustret där du kör jobbet DistCp. Den här informationen är tillgänglig i Ambari-portalen som är associerade med klustret. Gå till YARN och visa fliken konfigurationer om du vill visa YARN-minne. Multiplicera YARN minne per nod med antalet noder som finns i klustret för att få den totala mängden YARN-minnet.
+* **Steg 1: Fastställa minne totalt YARN** – det första steget är att avgöra YARN-minne i klustret där du kör jobbet DistCp. Den här informationen är tillgänglig i Ambari-portalen som är associerade med klustret. Gå till YARN och visa fliken konfigurationer om du vill visa YARN-minne. Multiplicera YARN minne per nod med antalet noder som finns i klustret för att få den totala mängden YARN-minnet.
 
 * **Steg 2: Beräkna antalet Mappningskomponenter** -värdet för **m** motsvarar kvoten av den totala YARN minnet dividerat med YARN-behållarens storlek. YARN-behållare Storleksinformation finns i Ambari-portalen. Gå till YARN och visa fliken konfigurationer. Behållarstorlek YARN visas i det här fönstret. Formeln ska tas emot på hur många Mappningskomponenter (**m**) är
 

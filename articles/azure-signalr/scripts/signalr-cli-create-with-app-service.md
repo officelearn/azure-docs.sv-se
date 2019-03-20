@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/20/2018
 ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: 007bf58c06d28f4445b3e57c5d692e3ee19b5b8c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: 5fd9e593a9a5158b35d3c0e17436d54bc7c1bd03
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257751"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547792"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>Skapa en SignalR Service med en App Service
 
@@ -56,4 +56,4 @@ Varje kommando i tabellen länkar till kommandospecifik dokumentation. I det hä
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
-Ytterligare Azure SignalR Service CLI-skriptexempel finns i [Azure SignalR Service-dokumentationen](../signalr-cli-samples.md).
+Ytterligare Azure SignalR Service CLI-skriptexempel finns i [Azure SignalR Service-dokumentationen](../signalr-reference-cli.md).

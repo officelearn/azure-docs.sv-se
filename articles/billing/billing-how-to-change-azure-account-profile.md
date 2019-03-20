@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f399cf55123ad6bc8ccb011c5d7d59f615af652d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: ecf39623c70441e4b726221b4e92e2492370a9bc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904394"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846760"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Ändra profilinformationen Azure-konto, till exempel kontaktpersonens e-postadress, adress och telefonnummer
 
@@ -38,15 +38,15 @@ E-postadressen i administratörsprofil konto används av Microsoft för att medd
 
 ### <a name="can-notifications-be-sent-to-a-different-email-address-other-than-the-account-administrator-email-address-associated-with-my-account"></a>Kan meddelanden skickas till en annan e-postadress än den kontoadministratör e-postadress som är associerad med mitt konto?
 
-Ja. Den e-postadressen för kontot hämtar viktig information om alla prenumerationer i kontot. Så vi rekommenderar att du anger en e-postadress som kontoadministratör kontrollerar regelbundet.
+Ja. E-postadressen för kontot hämtar viktig information om alla prenumerationer som ingår i kontot. Så vi rekommenderar att du anger en e-postadress som kontoadministratör kontrollerar regelbundet.
 
 ### <a name="can-i-change-the-account-administrator-email-address-in-my-profile"></a>Kan jag ändra kontoadministratör e-postadress i min profil?
 
-Ja. Kontoadministratören är den person som ställer in Azure-konto och som tar emot viktiga e-postaviseringar om alla prenumerationer i kontot. Vi rekommenderar att du anger en e-postadress som kontoadministratör kontrollerar regelbundet.
+Ja. Kontoadministratören är den person som ställer in Azure-kontot och som tar emot viktiga e-postaviseringar om alla prenumerationer som ingår i kontot. Vi rekommenderar att du anger en e-postadress som kontoadministratören kontrollerar regelbundet.
 
 ### <a name="does-updating-my-profile-email-also-update-my-login-email-address"></a>Uppdatera min profil e-postadress även uppdaterar min e-postadress för inloggning?
 
-Nej. Uppdaterar profilen e-postadressen uppdateras inte din e-postadress för inloggning. Du måste överföra ägarskapet för kontot om du vill ändra din e-postadress för inloggning.
+Nej. Din e-postadress för inloggning uppdateras inte när du uppdaterar e-postadressen för profilen. Du måste överföra ägarskapet för kontot om du vill ändra din e-postadress för inloggning.
 
 ### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address"></a>Uppdatera min profil adress också uppdateras faktureringsadress mitt kreditkort?
 
@@ -54,9 +54,9 @@ Läs hur du uppdaterar din faktureringsinformation i [ändra det kreditkort som 
 
 ### <a name="why-cant-i-update-the-country"></a>Varför kan jag uppdatera landet?
 
-Vi kan inte ändra land för ett befintligt konto på grund av tekniska begränsningar. Du kan dock skapa ett konto i det önskade landet och sedan kontakta Azures support och migrera dina tjänster till det kontot.
+På grund av tekniska begränsningar kan vi inte ändra land för ett befintligt konto. Du kan dock skapa ett konto i det önskade landet och sedan kontakta Azures support och migrera dina tjänster till det kontot.
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 

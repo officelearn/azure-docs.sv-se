@@ -8,12 +8,12 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 47646a1593f01c4ea695b549bbde22260ffaf2f7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 83e2f6f42de5c729667f366a6e068f1c8bd71f02
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962442"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011068"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob-filsystem drivrutinen (ABFS): En dedikerad Azure Storage-drivrutin för Hadoop
 
@@ -21,7 +21,7 @@ En av de primära åtkomst metoderna för data i Azure Data Lake Storage Gen2 ä
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Tidigare kapacitet: Windows Azure Storage Blob-drivrutinen
 
-Windows Azure Storage Blob-drivrutinen eller [WASB-drivrutinen](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) lagt till det ursprungliga stödet för Azure Blob Storage. Den här drivrutinen utföra uppgiften att mappningen filsystemet semantik (som krävs av Hadoop FileSystem-gränssnitt) som objektets lagra style-gränssnitt som visas av Azure Blob Storage. Den här drivrutinen fortsätter att stödja den här modellen ger högpresterande åtkomst till data som lagras i Blobbar, men innehåller en betydande mängd kod som utför den här mappningen, vilket gör det svårt att underhålla. Dessutom kan vissa åtgärder som [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) och [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) vid tillämpning kataloger kräver drivrutinen att utföra ett stort antal åtgärder (på grund av brist för objekt-butiker support för kataloger) vilket ofta kan leda till försämrade prestanda. ABFS-drivrutinen har utformats för att övervinna inneboende brister i WASB.
+Windows Azure Storage Blob-drivrutinen eller [WASB-drivrutinen](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) lagt till det ursprungliga stödet för Azure Blob Storage. Den här drivrutinen utföra uppgiften att mappningen filsystemet semantik (som krävs av Hadoop FileSystem-gränssnitt) som objektets lagra style-gränssnitt som visas av Azure Blob Storage. Den här drivrutinen fortsätter att stödja den här modellen ger högpresterande åtkomst till data som lagras i Blobbar, men innehåller en betydande mängd kod som utför den här mappningen, vilket gör det svårt att underhålla. Dessutom kan vissa åtgärder som [FileSystem.rename()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) och [FileSystem.delete()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) vid tillämpning kataloger kräver drivrutinen att utföra ett stort antal åtgärder (på grund av brist för objekt-butiker support för kataloger) vilket ofta kan leda till försämrade prestanda. ABFS-drivrutinen har utformats för att övervinna inneboende brister i WASB.
 
 ## <a name="the-azure-blob-file-system-driver"></a>Azure Blob-filsystem-drivrutinen
 
@@ -52,13 +52,13 @@ ABFS-drivrutinen stöder två typer av autentisering så att Hadoop-program kan 
 
 ### <a name="configuration"></a>Konfiguration
 
-All konfiguration för drivrutinen ABFS lagras i den <code>core-site.xml</code> konfigurationsfilen. På Hadoop-distributioner med [Ambari](http://ambari.apache.org/), konfigurationen kan också hanteras med webbportal eller Ambari REST API.
+All konfiguration för drivrutinen ABFS lagras i den <code>core-site.xml</code> konfigurationsfilen. På Hadoop-distributioner med [Ambari](https://ambari.apache.org/), konfigurationen kan också hanteras med webbportal eller Ambari REST API.
 
-Detaljerad information om transaktioner för alla konfigurationer som stöds anges i den [officiella Hadoop-dokumentation](http://hadoop.apache.org/docs/current/hadoop-azure/index.html).
+Detaljerad information om transaktioner för alla konfigurationer som stöds anges i den [officiella Hadoop-dokumentation](https://hadoop.apache.org/docs/current/hadoop-azure/index.html).
 
 ### <a name="hadoop-documentation"></a>Hadoop-dokumentation
 
-Drivrutinen ABFS fullständigt dokumenterade i den [officiella Hadoop-dokumentation](http://hadoop.apache.org/docs/current/hadoop-azure/index.html)
+Drivrutinen ABFS fullständigt dokumenterade i den [officiella Hadoop-dokumentation](https://hadoop.apache.org/docs/current/hadoop-azure/index.html)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
-ms.openlocfilehash: 0b5e7a36c89c594dd0a7ec681b112ea523884461
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 5ac05991bc79dcfd24a527a13084b3a9383b4839
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904168"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904004"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Registrera dig för en prenumeration på Office 365 med ditt Azure-konto
 Om du är Azure-prenumerant kan använda du ditt Azure-konto för att registrera dig för en prenumeration på Office 365. Om du är en del av en organisation som har en Azure-prenumeration kan skapa du Office 365-prenumerationer för användare i din befintliga Azure Active Directory (AD Azure). Logga på Office 365 med ett konto som har behörighet som Global administratör eller faktureringsadministratör i din Azure Active Directory-klient. Mer information finns i [Kontrollera kontobehörigheter för mitt i Azure AD](#RoleInAzureAD) och [Tilldela administratörsroller i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
@@ -71,4 +71,4 @@ När du registrerar dig läggs Office 365-prenumeration i samma Azure Active Dir
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458). 

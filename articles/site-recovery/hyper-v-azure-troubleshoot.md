@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 703bf7425962ddcb5e7566f99c461ca37d237b68
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 14d763126cccadf8042da79b20d15e5c93a8ce62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868433"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094185"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Felsöka Hyper-V till Azure replikering och redundans
 
@@ -28,9 +28,9 @@ Om det uppstår problem när du aktiverar skydd för Hyper-V-datorer kan du kont
 3. Kontrollera att Hyper-V Virtual Machine Management-tjänsten körs på Hyper-V-värdar.
 4. Sök efter problem som visas i Hyper-V-VMMS\Admin logga in på den virtuella datorn. Den här loggfilen finns i **applikationer och tjänsteloggar** > **Microsoft** > **Windows**.
 5. På den Virtuella gästdatorn, kontrollerar du att WMI är aktiverat och kan nås.
-  - [Lär dig mer om](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) grundläggande WMI-tester.
-  - [Felsöka](https://aka.ms/WMiTshooting) WMI.
-  - [Felsöka](https://technet.microsoft.com/library/ff406382.aspx#H22) problem med WMI-skript och tjänster.
+   - [Lär dig mer om](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) grundläggande WMI-tester.
+   - [Felsöka](https://aka.ms/WMiTshooting) WMI.
+   - [Felsöka](https://technet.microsoft.com/library/ff406382.aspx#H22) problem med WMI-skript och tjänster.
 6. Se till att den senaste versionen av Integration Services körs på Virtuella gästdatorn.
     - [Kontrollera](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) att du har den senaste versionen.
     - [Behåll](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) integreringstjänster är uppdaterad.
@@ -41,9 +41,9 @@ Felsöka problem med initiala lösenord och fortlöpande replikering på följan
 
 1. Kontrollera att du kör den [senaste versionen](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) av Site Recovery-tjänster.
 2. Kontrollera om pausas replikeringen:
-  - Kontrollera hälsostatus för virtuell dator i Hyper-V Manager-konsolen.
-  - Om det är viktigt, högerklickar du på den virtuella datorn > **replikering** > **visa Replikeringshälsa**.
-  - Om replikeringen har pausats, klickar du på **återuppta replikering**.
+   - Kontrollera hälsostatus för virtuell dator i Hyper-V Manager-konsolen.
+   - Om det är viktigt, högerklickar du på den virtuella datorn > **replikering** > **visa Replikeringshälsa**.
+   - Om replikeringen har pausats, klickar du på **återuppta replikering**.
 3. Kontrollera att de nödvändiga tjänsterna körs. Starta om dem om de inte är.
     - Om du replikerar virtuella Hyper-V utan VMM, kontrollera att de här tjänsterna körs på Hyper-V-värd:
         - Virtual Machine Management-tjänsten
@@ -65,10 +65,10 @@ Begränsningar i nätverksbandbredd kan påverka replikering. Felsöka problem p
 2. Kör den [Distributionshanteraren profiler](hyper-v-deployment-planner-run.md).
 3. När du kör profileraren, följer du de [bandbredd](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) och [storage](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation) rekommendationer.
 4. Kontrollera [dataomsättning begränsningar](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits). Om du ser hög dataomsättning på en virtuell dator kan du göra följande:
-  - Kontrollera om din virtuella dator har markerats för omsynkronisering.
-  - Följ [här](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/) att undersöka orsaken omsättningen.
-  - Omsättning kan inträffa när HRL-loggfilerna överskrider 50% av det tillgängliga diskutrymmet. Om detta är ett problem kan tillhandahålla mer lagringsutrymme för alla virtuella datorer där problemet uppstår.
-  - Kontrollera att replikeringen inte är pausad. Om det är fortsätter det skriva ändringar till hrl-fil, som kan bidra till ökad storlek.
+   - Kontrollera om din virtuella dator har markerats för omsynkronisering.
+   - Följ [här](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/) att undersöka orsaken omsättningen.
+   - Omsättning kan inträffa när HRL-loggfilerna överskrider 50% av det tillgängliga diskutrymmet. Om detta är ett problem kan tillhandahålla mer lagringsutrymme för alla virtuella datorer där problemet uppstår.
+   - Kontrollera att replikeringen inte är pausad. Om det är fortsätter det skriva ändringar till hrl-fil, som kan bidra till ökad storlek.
  
 
 ## <a name="critical-replication-state-issues"></a>Problem med kritisk replikering
@@ -91,17 +91,17 @@ En appkompatibel ögonblicksbild är en point-in-time-ögonblicksbild av program
 
 1. Kontrollera att den senaste versionen av Integration services är installerat och körs.  Kontrollera om en uppdatering är tillgänglig genom att köra följande kommando från en upphöjd PowerShell-kommandotolk på Hyper-V-värd: **get-vm | Välj namn, status, IntegrationServicesState**.
 2. Kontrollera att VSS-tjänsterna är körs och är felfria:
-    - Kontrollera tjänsten genom att logga in på den Virtuella gästdatorn. Sedan öppna Kommandotolken som administratör och kör följande kommandon för att kontrollera om alla VSS-skrivarna är felfri.
-        - **Vssadmin list writers**
-        - **Vssadmin list shadows**
-        - **Vssadmin list-providers**
-    - Kontrollera utdata. Om skrivarna är i ett felaktigt tillstånd kan du göra följande:
-        - Kontrollera programmets händelselogg på den virtuella datorn finns VSS-fel för åtgärden.
-    - Försök att starta om tjänsterna som är associerade med den misslyckade skrivaren:
-        - Volume Shadow Copy
-         - Azure Site Recovery VSS Provider
-    - När du gör det Vänta ett par timmar att se om appkonsekventa ögonblicksbilder skapas har.
-    - Som en sista utväg försök att starta om den virtuella datorn. Detta kan lösa tjänster som har statusen inte svarar.
+   - Kontrollera tjänsten genom att logga in på den Virtuella gästdatorn. Sedan öppna Kommandotolken som administratör och kör följande kommandon för att kontrollera om alla VSS-skrivarna är felfri.
+       - **Vssadmin list writers**
+       - **Vssadmin list shadows**
+       - **Vssadmin list-providers**
+   - Kontrollera utdata. Om skrivarna är i ett felaktigt tillstånd kan du göra följande:
+       - Kontrollera programmets händelselogg på den virtuella datorn finns VSS-fel för åtgärden.
+   - Försök att starta om tjänsterna som är associerade med den misslyckade skrivaren:
+     - Volume Shadow Copy
+       - Azure Site Recovery VSS Provider
+   - När du gör det Vänta ett par timmar att se om appkonsekventa ögonblicksbilder skapas har.
+   - Som en sista utväg försök att starta om den virtuella datorn. Detta kan lösa tjänster som har statusen inte svarar.
 3. Kontrollera att du inte har dynamiska diskar på den virtuella datorn. Detta stöds inte för appkonsekventa ögonblicksbilder. Du kan kontrollera i Diskhantering (diskmgmt.msc).
 
     ![Dynamisk disk](media/hyper-v-azure-troubleshoot/dynamic-disk.png)

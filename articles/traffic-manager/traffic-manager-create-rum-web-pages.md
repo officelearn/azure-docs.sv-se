@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: c994190ed4ccbd8e5b90f17b70ec6b65477fb0d8
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: d6b669f5baae13f9fb57c5c58060e70a8f871e17
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232013"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117276"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Hur du skickar Real User Measurements till Azure Traffic Manager med webbsidor
 
@@ -34,7 +34,7 @@ Du kan hämta den ROM-nyckeln med hjälp av Azure portal:
 3. I profilbladet Traffic Manager-klickar du på **Real User Measurements** under **inställningar**.
 4. Klicka på **Generera nyckel** att skapa en ny ROM-nyckel.
  
-  ![Generera Real User Measurements nyckel](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
+   ![Generera Real User Measurements nyckel](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
    **Bild 1: Real User Measurements nyckelgenerering**
 
@@ -44,7 +44,7 @@ Du kan hämta den ROM-nyckeln med hjälp av Azure portal:
 
     **Bild 2: Real User Measurements nyckel och JavaScript-mått**
  
-6.  Klicka på den **kopiera** för att kopiera JavaScript-koden. 
+6. Klicka på den **kopiera** för att kopiera JavaScript-koden. 
 
 >[!IMPORTANT]
 > Använda det genererade JavaScriptet för Real User Measurements funktionen ska fungera korrekt. Ändringar i det här skriptet eller skript som används av Real User Measurements kan leda till oväntade funktionssätt.

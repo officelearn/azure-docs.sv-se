@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fb22594ba240f9e7b790dbef0bd1e091c30c82b9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b400af524d303fe4fbcbc8e34a394b286a048cc4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456558"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008802"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager åtgärder för resursprovider
 
@@ -3398,7 +3398,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/write | Skriver en ögonblicksbild-resurs. |
 > | Åtgärd | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/write | Skriver en volymresursen. |
 > | Åtgärd | Microsoft.NetApp/netAppAccounts/capacityPools/write | Skriver en poolresurs. |
-> | Åtgärd | Microsoft.NetApp/netAppAccounts/delete | Tar bort resursen för lagringskonton. |
+> | Åtgärd | Microsoft.NetApp/netAppAccounts/delete | Tar bort en konto-resurs. |
 > | Åtgärd | Microsoft.NetApp/netAppAccounts/read | Läser en konto-resurs. |
 > | Åtgärd | Microsoft.NetApp/netAppAccounts/write | Skriver en konto-resurs. |
 > | Åtgärd | Microsoft.NetApp/Operations/read | Läser en åtgärd resurser. |
@@ -4153,15 +4153,15 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
-> | Åtgärd | Microsoft.Portal/consoles/delete | Tar bort Cloud Shell-instans. |
-> | Åtgärd | Microsoft.Portal/consoles/write | Skapa eller uppdatera en Cloud Shell-instans. |
+> | Åtgärd | Microsoft.Portal/consoles/delete | Tar bort cloud shell-instans. |
+> | Åtgärd | Microsoft.Portal/consoles/write | Skapa eller uppdatera en cloud shell-instans. |
 > | Åtgärd | Microsoft.Portal/dashboards/delete | Tar bort instrumentpanelen från prenumerationen. |
 > | Åtgärd | Microsoft.Portal/dashboards/read | Läser in instrumentpanelerna för prenumerationen. |
 > | Åtgärd | Microsoft.Portal/dashboards/write | Lägg till eller ändra en instrumentpanel för en prenumeration. |
 > | Åtgärd | Microsoft.Portal/register/action | Registrera i portalen |
-> | Åtgärd | Microsoft.Portal/usersettings/delete | Tar bort användarinställningarna för Cloud Shell. |
-> | Åtgärd | Microsoft.Portal/usersettings/read | Läser användarinställningarna för Cloud Shell. |
-> | Åtgärd | Microsoft.Portal/usersettings/write | Skapa eller uppdatera användarinställningar för Cloud Shell. |
+> | Åtgärd | Microsoft.Portal/usersettings/delete | Tar bort användarinställningar för cloud shell. |
+> | Åtgärd | Microsoft.Portal/usersettings/read | Läser molnet shell användarinställningar. |
+> | Åtgärd | Microsoft.Portal/usersettings/write | Skapa eller uppdatera användarinställningen för cloud shell. |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 

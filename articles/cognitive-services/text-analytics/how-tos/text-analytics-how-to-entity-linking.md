@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: bb315ff19aedd839c2b0638726be84343dcf4ec3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 1ea34d69c867d2d14496320f497df2ece5280e0c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545370"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009351"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Hur du använder med namnet Entitetsidentifiering i Text Analytics (förhandsversion)
 
@@ -62,8 +62,9 @@ Med hjälp av entitetslänkning på olika språk kräver en motsvarande kunskaps
 | DateTime      | Varaktighet      | ”1 minut och 45 sekunder”   | 
 | DateTime      | Ange           | ”varje tisdag”     | 
 | DateTime      | TimeZone      |    | 
-| URL           | EJ TILLÄMPLIGT\*         | "https://www.bing.com"    |
+| URL           | EJ TILLÄMPLIGT\*         | "<https://www.bing.com>"    |
 | E-post         | EJ TILLÄMPLIGT\*         | "support@contoso.com" |
+
 \* Beroende på indata- och extraherade entiteter, vissa entiteter kan utelämna den `SubType`.
 
 

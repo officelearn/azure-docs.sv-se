@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 7039df6dde25fd4ba9a8b9cb7670e72df7e68797
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f175360586428b57d1ff10e3529ae9e3283399e8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245824"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117069"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Justering av Azure Data Lake Storage Gen2 för prestanda
 
@@ -43,7 +43,7 @@ Nätverksanslutningen mellan dina källdata och Data Lake Storage Gen2 kan iblan
 
 När du har åtgärdat maskinvaran som källa och network connectivity flaskhalsar ovan, är du redo att konfigurera verktyg för datainhämtning. I följande tabell sammanfattas Nyckelinställningar för flera populära inmatning verktyg och ger djupgående prestandajustering artiklar för dessa.  Mer information om vilket verktyg du använder för ditt scenario finns i den här [artikeln](data-lake-storage-data-scenarios.md).
 
-| Verktyget               | Inställningar     | Mer information                                                                 |
+| Verktyg               | Inställningar     | Mer information                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)   | [Länk](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [Länk](../../data-factory/copy-activity-performance.md)                          |
@@ -131,12 +131,12 @@ Beroende på arbetsbelastningen, kommer alltid att en minsta storlek av YARN-beh
 
 Förutom de allmänna riktlinjerna ovan har olika parametrar som är tillgängliga för justering för det specifika programmet i varje program. I tabellen nedan visas några av de parametrar och länkar till Kom igång med prestandajustering för varje program.
 
-| Arbetsbelastning               | Parametern för att ställa in uppgifter                                                         |
-|--------------------|-------------------------------------------------------------------------------------|
-| [Spark i HDInsight](data-lake-storage-performance-tuning-spark.md)       | <ul><li>NUM executors</li><li>Executor-minne</li><li>Executor-kärnor</li></ul> |
-| [Hive på HDInsight](data-lake-storage-performance-tuning-hive.md)    | <ul><li>hive.tez.container.size</li></ul>         |
-| [MapReduce på HDInsight](data-lake-storage-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.Map.Memory</li><li>Mapreduce.Job.Maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
-| [Storm på HDInsight](data-lake-storage-performance-tuning-storm.md)|  | <ul><li>Antal arbetsprocesser</li><li>Antal spout executor instanser</li><li>Antal bult executor instanser </li><li>Antal spout uppgifter</li><li>Antal bult uppgifter</li></ul>|
+| Arbetsbelastning | Parametern för att ställa in uppgifter |
+|----------|------------------------|
+| [Spark i HDInsight](data-lake-storage-performance-tuning-spark.md) | <ul><li>NUM executors</li><li>Executor-minne</li><li>Executor-kärnor</li></ul> |
+| [Hive på HDInsight](data-lake-storage-performance-tuning-hive.md) | <ul><li>hive.tez.container.size</li></ul> |
+| [MapReduce på HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.Map.Memory</li><li>Mapreduce.Job.Maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
+| [Storm på HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>Antal arbetsprocesser</li><li>Antal spout executor instanser</li><li>Antal bult executor instanser </li><li>Antal spout uppgifter</li><li>Antal bult uppgifter</li></ul>|
 
 ## <a name="see-also"></a>Se också
 * [Översikt över Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)

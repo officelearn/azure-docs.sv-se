@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: byvinyal
-ms.openlocfilehash: 21a6734ab8af2e35643f6e9b25500dad2418a8c2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a32ebb3fc2448b189aa5970446e2ceb29aed51e2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772043"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838790"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränserna, som kallas ibland också kvoter. Det här dokumentet täcker inte för närvarande alla Azure-tjänster. Med tiden, kommer listan utökats och uppdaterats så att den täcker fler tjänster.
@@ -344,7 +344,7 @@ Mer information om gränser för en mer detaljerad nivå, till exempel dokuments
 [!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>SQL Database-gränser
-SQL Database-gränser för finns i [SQL Database-resursgränser för enskilda databaser](sql-database/sql-database-vcore-resource-limits-single-databases.md) och [SQL Database-resursgränser för elastiska pooler och databaser i pooler](sql-database/sql-database-vcore-resource-limits-elastic-pools.md).
+SQL Database-gränser för finns i [SQL Database-resursgränser för enskilda databaser](sql-database/sql-database-vcore-resource-limits-single-databases.md), [SQL Database-resursgränser för elastiska pooler och databaser i pooler](sql-database/sql-database-vcore-resource-limits-elastic-pools.md), och [resursgränser för SQL-databas för hanterade instanser](sql-database/sql-database-managed-instance-resource-limits.md).
 
 ### <a name="sql-data-warehouse-limits"></a>SQL Data Warehouse gränser
 SQL Data Warehouse gränser för finns i [resursgränser för SQL Data Warehouse](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).

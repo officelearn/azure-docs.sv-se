@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 010a9f4e5be34986c1098f403e4df0ccf569838c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1b6c8b1af00c2819632c60a27d61d7cf8db44885
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821688"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012325"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Prestanda och skalbarhetschecklista för Microsoft Azure Storage
 ## <a name="overview"></a>Översikt
@@ -122,7 +122,7 @@ Du kan följa några Metodtips för att minska frekvensen för sådana åtgärde
 
 * Granska den namngivningskonvention som du använder för konton, behållare, blobbar, tabeller och köer, nära. Du skapar prefix kontonamn med ett 3-siffriga hash-värde med hjälp av en hash-funktion som bäst passar dina behov.  
 * Om du ordnar dina data med tidsstämplar eller numerisk identifierare som du behöver se till att du inte använder en lagringsplats för endast (eller bara Lägg till åtkomstgruppen) trafikmönster. Dessa mönster lämpar sig inte för en rad-baserade partitionering system och kan leda till all trafik som kommer att en enda partition och begränsa systemet från effektivt belastningsutjämning. Till exempel om du har dagliga åtgärder som använder ett blobbobjekt med en tidsstämpel, till exempel ÅÅÅÅMMDD dirigeras sedan all trafik för den dagliga driften till ett enda objekt som hanteras av en enda partition-server. Titta på om den blob-gränser per per partition gränser uppfyller dina behov och kan du dela den här åtgärden i flera blobar om det behövs. På samma sätt om du sparar time series-data i dina tabeller, dirigeras alla trafiken kan till den senaste del av viktiga namnområdet. Om du måste använda tidsstämplar eller numeriska ID: N, prefix prefix ID: T med ett 3-siffriga hash-värde eller när det gäller tidsstämplar sekunder en del av tiden, till exempel ssyyyymmdd. Visa och undersöka åtgärder utförs regelbundet, väljer du en hash-funktion som begränsar din antalet frågor. I annat fall kanske ett slumpmässigt prefix är tillräckligt.  
-* Mer information om partitioneringsschemat används i Azure Storage finns SOSP paper [här](http://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
+* Mer information om partitioneringsschemat används i Azure Storage finns SOSP paper [här](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
 ### <a name="networking"></a>Nätverk
 Även om bara innehåller anrop till API: et kan har de fysiska begränsningarna för programmet ofta en betydande inverkan på prestanda. Nedan beskrivs några av begränsningar som användarna kan stöta på.  

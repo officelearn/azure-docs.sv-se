@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 21e7406d566be5be73342d530a4ad66b80a1d23f
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: deef5d17f9970f23c40c323bd1612cc3e3e1304e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990449"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107414"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Hur du använder rollbaserad åtkomstkontroll i Azure API Management
 Azure API Management bygger på rollbaserad åtkomstkontroll (RBAC) Aktivera detaljerad åtkomsthantering för API Management-tjänster och enheter (till exempel API: er och principer). Den här artikeln ger en översikt över de inbyggda och anpassade rollerna i API Management. Mer information om åtkomsthantering i Azure-portalen finns i [Kom igång med åtkomsthantering i Azure portal](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
@@ -32,7 +32,7 @@ API Management för närvarande har tre inbyggda roller och lägger till två fl
 I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Du kan tilldela dessa roller med hjälp av Azure-portalen eller andra verktyg, inklusive Azure [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), och [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Mer information om hur du tilldelar inbyggda roller finns i [använda rolltilldelningar för att hantera åtkomst till din Azure-prenumerationsresurser](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 | Roll          | Läsbehörighet<sup>[1]</sup> | Skrivåtkomst<sup>[2]</sup> | Skapa tjänster, borttagning, skalning, VPN och konfiguration av anpassad domän | Åtkomst till äldre publisher-portalen | Beskrivning
-| ------------- | ---- | ---- | ---- | ---- | ---- | ---- |
+| ------------- | ---- | ---- | ---- | ---- | ---- 
 | Azure API Management-Tjänstdeltagare | ✓ | ✓ | ✓ | ✓ | Superanvändare. Har fullständig CRUD-åtkomst till API Management-tjänster och entiteter (till exempel API: er och principer). Har åtkomst till äldre publisher-portalen. |
 | Azure API Management-tjänsten läsare | ✓ | | || Har skrivskyddad åtkomst till API Management-tjänster och entiteter. |
 | Azure API Management-tjänsten Operator | ✓ | | ✓ | | Hantera API Management-tjänster, men inte enheter.|

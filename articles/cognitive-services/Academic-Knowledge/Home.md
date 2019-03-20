@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: overview
 ms.date: 10/30/2018
 ms.author: darrine
-ms.openlocfilehash: 975c36451f0f00ce374a0bbf0a6dd87ec39eb912
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b15ed5e2b31ed817d3f6558858e2b7285f98a70f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871565"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551729"
 ---
 # <a name="academic-knowledge-api"></a>Academic Knowledge API
 
@@ -23,7 +23,7 @@ Välkommen till Academic Knowledge API. Med den här tjänsten kan du tolka anv�
 
 MAG-data hämtas från Bing-webbindexet samt en lokal kunskapsbas från Bing. På grund av pågående Bing-indexering innehåller detta API ny information från webben efter identifiering och indexering av Bing. Baserat på den här datamängden möjliggör Academic Knowledge API:er en kunskapsbaserad och interaktiv dialog som smidigt kombinerar reaktiv sökning med proaktiva förslagsfunktioner, omfattande sökresultat för forskningsartikeldiagram samt histogramdistributioner av attributvärdena för en uppsättning artiklar och relaterade entiteter.
 
-Mer information om Microsoft Academic Graph finns på [http://aka.ms/academicgraph](https://aka.ms/academicgraph).
+Mer information om Microsoft Academic Graph finns på [https://aka.ms/academicgraph](https://aka.ms/academicgraph).
 
 Academic Knowledge API har flyttats från förhandsversionen av Cognitive Services till Cognitive Services Labs. Den nya startsidan för projektet är: [https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge](https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge). Din befintliga API-nyckel fortsätter att fungera fram till den 24 maj 2018. Generera en ny API-nyckel efter detta datum. Observera att den betalade förhandsversionen inte längre är tillgänglig när din befintliga nyckel upphör att gälla. Kontakta vårt team om den kostnadsfria nivån av API:et inte är tillräcklig för dina behov. 
 

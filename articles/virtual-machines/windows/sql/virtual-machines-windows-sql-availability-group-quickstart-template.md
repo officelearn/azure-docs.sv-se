@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5390885ccb4bbc3e1552d3f5e80c1b451b7bee38
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 4b4527bfaacc592c13552e362de0cba620314cd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570172"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122054"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Använd Azure-Snabbstartsmallar för att konfigurera Always On-tillgänglighetsgrupp för SQL Server på en Azure VM
 Den här artikeln beskriver hur du använder Azure-Snabbstartsmallar att delvis automatisera distributionen av en Always On tillgänglighetsgruppens konfiguration för SQL Server-datorer i Azure. Det finns två Azure-Snabbstartsmallar som används i den här processen. 
@@ -76,8 +76,8 @@ När SQL Server-datorer har registrerats med den nya resurs-providern för SQL V
 1. Om du samtycker till villkoren markerar du kryssrutan bredvid **jag godkänner villkoren som anges ovan** och välj **köp** att slutföra malldistributionen Snabbstart. 
 1. För att övervaka din distribution, väljer du antingen distributionen från den **meddelanden** klockikonen i övre navigeringsfältet-banderollen eller navigera till din **resursgrupp** i Azure-portalen väljer du  **Distributioner** i den **inställningar** och välj ”Microsoft.Template”-distributionen. 
 
-  >[!NOTE]
-  > Autentiseringsuppgifter som angavs under malldistributionen lagras endast för längden på distributionen. När distributionen är klar, lösenord tas bort och du blir ombedd att ange dem igen bör du lägga till ytterligare SQL Server-datorer i klustret. 
+   >[!NOTE]
+   > Autentiseringsuppgifter som angavs under malldistributionen lagras endast för längden på distributionen. När distributionen är klar, lösenord tas bort och du blir ombedd att ange dem igen bör du lägga till ytterligare SQL Server-datorer i klustret. 
 
 
 ## <a name="step-2---manually-create-the-availability-group"></a>Steg 2 – Skapa tillgänglighetsgruppen manuellt 
@@ -150,8 +150,8 @@ Om du vill konfigurera den interna Belastningsutjämnaren och skapa AG-lyssnare,
 1. Om du samtycker till villkoren markerar du kryssrutan bredvid **jag godkänner villkoren som anges ovan** och välj **köp** att slutföra malldistributionen Snabbstart. 
 1. För att övervaka din distribution, väljer du antingen distributionen från den **meddelanden** klockikonen i övre navigeringsfältet-banderollen eller navigera till din **resursgrupp** i Azure-portalen väljer du  **Distributioner** i den **inställningar** och välj ”Microsoft.Template”-distributionen. 
 
-  >[!NOTE]
-  >Om distributionen misslyckas halvvägs genom, måste du manuellt [ta bort den nyligen skapade lyssnaren](#remove-availability-group-listener) med hjälp av PowerShell innan du omdistribuerar den **101-sql-vm-aglistener-setup** snabbstartsmall. 
+   >[!NOTE]
+   >Om distributionen misslyckas halvvägs genom, måste du manuellt [ta bort den nyligen skapade lyssnaren](#remove-availability-group-listener) med hjälp av PowerShell innan du omdistribuerar den **101-sql-vm-aglistener-setup** snabbstartsmall. 
 
 ## <a name="remove-availability-group-listener"></a>Ta bort tillgänglighetsgruppens lyssnare
 Om du senare behöver ta bort tillgänglighetsgruppens lyssnare konfigurerats i mallen, måste du gå igenom SQL VM-resursprovidern. Eftersom lyssnaren har registrerats via SQL VM-resursprovidern kan är bara tas bort via SQL Server Management Studio otillräcklig. Den ska faktiskt tas bort via SQL VM-resursprovidern med hjälp av PowerShell. Detta tar bort AG-lyssnare metadata från SQL VM-resursprovidern och tar bort fysiskt lyssnaren från tillgänglighetsgruppen. 
@@ -183,17 +183,17 @@ Det här felet kan bero på något av två skäl. Antingen angivna domänkontot 
 
  Kontrollera att kontot finns. I annat fall kan du köra i andra fall. Lös detta genom att göra följande:
 
- 1. Öppna på domänkontrollanten, den **Active Directory-användare och datorer** fönstret från den **verktyg** alternativet i **Serverhanteraren**. 
- 2. Gå till kontot genom att välja **användare** i det vänstra fönstret.
- 3. Högerklicka på önskat konto och välj **egenskaper**.
- 4. Välj den **konto** fliken och verifiera om den **användarens inloggningsnamn** är tomt. Om det är är det här orsaken till felet. 
+1. Öppna på domänkontrollanten, den **Active Directory-användare och datorer** fönstret från den **verktyg** alternativet i **Serverhanteraren**. 
+2. Gå till kontot genom att välja **användare** i det vänstra fönstret.
+3. Högerklicka på önskat konto och välj **egenskaper**.
+4. Välj den **konto** fliken och verifiera om den **användarens inloggningsnamn** är tomt. Om det är är det här orsaken till felet. 
 
-     ![Tom användarkonto anger saknas UPN](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
+    ![Tom användarkonto anger saknas UPN](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
 
- 5. Fyll i den **användarens inloggningsnamn** för att matcha namnet på användaren och väljer rätt domän i listrutan ned. 
- 6. Välj **tillämpa** att spara ändringarna och Stäng dialogrutan genom att välja **OK**. 
+5. Fyll i den **användarens inloggningsnamn** för att matcha namnet på användaren och väljer rätt domän i listrutan ned. 
+6. Välj **tillämpa** att spara ändringarna och Stäng dialogrutan genom att välja **OK**. 
 
- När dessa ändringar görs försök att distribuera Azure-Snabbstartsmall en gång till. 
+   När dessa ändringar görs försök att distribuera Azure-Snabbstartsmall en gång till. 
 
 
 

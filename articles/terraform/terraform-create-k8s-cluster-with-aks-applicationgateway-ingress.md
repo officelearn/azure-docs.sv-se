@@ -2,19 +2,19 @@
 title: Skapa ett Kubernetes-kluster med Application Gateway som ingress-kontrollant med AKS (Azure Kubernetes Service)
 description: Självstudie som visar hur du skapar ett Kubernetes-kluster med Azure Kubernetes Service med Application Gateway som ingress-kontrollant
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, virtual machine, azure, kubernetes, ingress, application gateway
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 1/10/2019
-ms.openlocfilehash: 6add7323fdbcf07681e8566437632aa6679828e4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 477b2ec1af4c52f51c3ab20ac2ddf7ef043dfcc7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891989"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994353"
 ---
 # <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>Skapa ett Kubernetes-kluster med Application Gateway som ingress-kontrollant med Azure Kubernetes Service och Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) hanterar din värdbaserade Kubernetes-miljö. AKS gör det snabbt och enkelt att distribuera och hantera containerbaserade program utan kunskaper om orkestrering av containrar. Det eliminerar också problem med pågående åtgärder och underhåll genom etablering, uppgradering och skalning av resurser på begäran, utan att koppla från dina program.
@@ -29,23 +29,23 @@ I den här självstudien lär du dig hur du utför följande uppgifter för att 
 > * Använda Terraform och AKS för att skapa ett Kubernetes-kluster
 > * Använda verktyget kubectl för att testa tillgängligheten för ett Kubernetes-kluster
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
 - **Konfigurera Terraform**: Följ anvisningarna i artikeln [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) (Terraform och konfigurera åtkomst till Azure)
 
 - **Azure-tjänstens huvudnamn**: Följ anvisningarna i avsnittet **Skapa huvudnamn för tjänsten** i artikeln [Skapa Azure-tjänstens huvudnamn med Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Anteckna värdena för appId, displayName och password (lösenord).
-    - Anteckna objekt-ID för tjänstens huvudnamn genom att köra följande kommando
+  - Anteckna objekt-ID för tjänstens huvudnamn genom att köra följande kommando
 
     ```bash
-     az ad sp list --display-name <displayName>
+    az ad sp list --display-name <displayName>
     ```
 
 ## <a name="create-the-directory-structure"></a>Skapa katalogstrukturen
 Det första steget är att skapa katalogen som innehåller Terraform-konfigurationsfilerna för övningen.
 
-1. Bläddra till [Azure-portalen](http://portal.azure.com).
+1. Bläddra till [Azure-portalen](https://portal.azure.com).
 
 1. Öppna [Azure Cloud Shell](/azure/cloud-shell/overview). Om du inte har valt en miljö tidigare väljer du **Bash** som miljö.
 
@@ -99,8 +99,8 @@ Skapa Terraform-konfigurationsfilen som deklarerar Azure-providern.
     ```bash
     :wq
     ```
-## <a name="define-input-variables"></a>Definiera indatavariabler
-Skapa Terraform-konfigurationsfilen som visar en lista över alla variabler som krävs för distributionen
+   ## <a name="define-input-variables"></a>Definiera indatavariabler
+   Skapa Terraform-konfigurationsfilen som visar en lista över alla variabler som krävs för distributionen
 1. I Cloud Shell skapar du en fil som heter `variables.tf`
     ```bash
     vi variables.tf

@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 2/5/2019
-ms.openlocfilehash: c171962fd6177a01afdb8e9605b09574c99f485e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
+ms.date: 3/14/2019
+ms.openlocfilehash: 422813c1ddb77aa11195d3021484744839c4e3bf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889230"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994342"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Självstudier: Mata in data i Azure Data Explorer utan en enda kodrad
 
@@ -31,36 +31,51 @@ I den här kursen får du lära du dig att:
 > [!NOTE]
 > Skapa alla resurser på samma Azure-plats eller region. Det här är ett krav för Azure Monitor-diagnostikloggar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * [Ett Azure Data Explorer-kluster och en databas](create-cluster-database-portal.md). I den här självstudien är databasnamnet *TestDatabase*.
 
 ## <a name="azure-monitor-data-provider-diagnostic-and-activity-logs"></a>Azure Monitor-dataleverantör – diagnostikloggar och aktivitetsloggar
 
-Visa och förstå de data som tillhandahålls av diagnostikloggar och aktivitetsloggar för Azure Monitor. Vi skapar en inmatningspipeline baserat på dessa datascheman.
+Visa och förstå de data som tillhandahålls av Azure Monitor diagnostik- och loggarna nedan. Vi skapar en inmatningspipeline baserat på dessa datascheman. Observera att varje händelse i en logg har en matris med poster. Den här matrisen med poster som ska delas senare under kursen.
 
 ### <a name="diagnostic-logs-example"></a>Exempel på diagnostikloggar
 
-Azure-dianostikloggar är mått som genereras av en Azure-tjänst som tillhandahåller data om användningen av den tjänsten. Data aggregeras med ett tidsintervall på 1 minut. Varje händelse i en diagnostiklogg innehåller en post. Här följer ett exempel på ett måtthändelseschema för Azure Data Explorer om frågevaraktighet:
+Azure-dianostikloggar är mått som genereras av en Azure-tjänst som tillhandahåller data om användningen av den tjänsten. Data aggregeras med ett tidsintervall på 1 minut. Här följer ett exempel på ett måtthändelseschema för Azure Data Explorer om frågevaraktighet:
 
 ```json
 {
-    "count": 14,
-    "total": 0,
-    "minimum": 0,
-    "maximum": 0,
-    "average": 0,
-    "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
-    "time": "2018-12-20T17:00:00.0000000Z",
-    "metricName": "QueryDuration",
-    "timeGrain": "PT1M"
+    "records": [
+    {
+        "count": 14,
+        "total": 0,
+        "minimum": 0,
+        "maximum": 0,
+        "average": 0,
+        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "time": "2018-12-20T17:00:00.0000000Z",
+        "metricName": "QueryDuration",
+        "timeGrain": "PT1M"
+    },
+    {
+        "count": 12,
+        "total": 0,
+        "minimum": 0,
+        "maximum": 0,
+        "average": 0,
+        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "time": "2018-12-21T17:00:00.0000000Z",
+        "metricName": "QueryDuration",
+        "timeGrain": "PT1M"
+    }
+    ]
 }
 ```
 
 ### <a name="activity-logs-example"></a>Exempel på aktivitetslogg
 
-Azure-aktivitetsloggar är loggar på prenumerationsnivå som innehåller en samling poster. Loggarna ger insikt om de åtgärder som utförs på resurser i din prenumeration. Till skillnad från diagnostikloggar har varje händelse i en aktivitetslogg en matris med poster. Vi behöver dela den här matrisen med poster senare i självstudien. Här är ett exempel på en aktivitetsloggshändelse för att kontrollera åtkomst:
+Azure-aktivitetsloggar finns prenumerationsnivå loggar som ger inblick i de åtgärder som utförs på resurser i din prenumeration. Här är ett exempel på en aktivitetsloggshändelse för att kontrollera åtkomst:
 
 ```json
 {
@@ -129,6 +144,8 @@ I din Azure Data Explorer-databas *AzureMonitoring* väljer du **Query** (Fråga
 
 ### <a name="create-the-target-tables"></a>Skapa måltabellerna
 
+Strukturen för Azure Monitor-loggar är inte tabular. Du manipulera data och expandera varje händelse till en eller flera poster. Rådata ska matas in i en mellanliggande tabell med namnet *ActivityLogsRawRecords* aktivitetsloggar och *DiagnosticLogsRawRecords* för diagnostikloggar. Då ändras och expanderas data. Med hjälp av en princip, utökade data kommer sedan att matas in i den *ActivityLogsRecords* tabell aktivitetsloggar och *DiagnosticLogsRecords* för diagnostikloggar. Det innebär att du måste skapa två separata tabeller för att föra in aktivitetsloggar och två separata tabeller för att föra in diagnostikloggar.
+
 Använd webbgränssnittet för Azure Data Explorer till att skapa måltabellerna i Azure Data Explorer-databasen.
 
 #### <a name="the-diagnostic-logs-table"></a>Tabellen för diagnostikloggar
@@ -143,9 +160,13 @@ Använd webbgränssnittet för Azure Data Explorer till att skapa måltabellerna
 
     ![Kör frågan](media/ingest-data-no-code/run-query.png)
 
-#### <a name="the-activity-logs-tables"></a>Tabellerna för aktivitetsloggar
+1. Skapa mellanliggande tabellen med namnet *DiagnosticLogsRawRecords* i den *TestDatabase* databas för datamanipulering med följande fråga. Välj **Kör** för att skapa tabellen.
 
-Eftersom strukturen för aktivitetsloggar inte har tabellformat behöver du ändra data och expandera varje händelse till en eller flera poster. Rådata matas in i en mellanliggande tabell med namnet *ActivityLogsRawRecords*. Då ändras och expanderas data. Utökade data matas sedan in i tabellen *ActivityLogsRecords* med hjälp av en uppdateringsprincip. Det innebär att du behöver skapa två separata tabeller för att mata in aktivitetsloggar.
+    ```kusto
+    .create table DiagnosticLogsRawRecords (Records:dynamic)
+    ```
+
+#### <a name="the-activity-logs-tables"></a>Tabellerna för aktivitetsloggar
 
 1. Skapa en tabell med namnet *ActivityLogsRecords* i databasen *TestDatabase* för att ta emot aktivitetsloggposter. Skapa tabellen genom att köra följande Azure Data Explorer-fråga:
 
@@ -174,7 +195,7 @@ Eftersom strukturen för aktivitetsloggar inte har tabellformat behöver du änd
 Mappa diagnostikloggarnas data till tabellen med hjälp av följande fråga:
 
 ```kusto
-.create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[{"column":"Timestamp","path":"$.time"},{"column":"ResourceId","path":"$.resourceId"},{"column":"MetricName","path":"$.metricName"},{"column":"Count","path":"$.count"},{"column":"Total","path":"$.total"},{"column":"Minimum","path":"$.minimum"},{"column":"Maximum","path":"$.maximum"},{"column":"Average","path":"$.average"},{"column":"TimeGrain","path":"$.timeGrain"}]'
+.create table DiagnosticLogsRawRecords ingestion json mapping 'DiagnosticLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
 #### <a name="table-mapping-for-activity-logs"></a>Tabellmappning för aktivitetsloggar
@@ -185,9 +206,11 @@ Mappa aktivitetsloggarnas data till tabellen med hjälp av följande fråga:
 .create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-### <a name="create-the-update-policy-for-activity-logs-data"></a>Skapa uppdateringsprincipen för aktivitetsloggarnas data
+### <a name="create-the-update-policy-for-log-data"></a>Skapa uppdateringsprincip för loggdata
 
-1. Skapa en [funktionen](/azure/kusto/management/functions) som utökar samlingen med poster så att varje värde i samlingen tar emot en separat rad. Använd operatorn [`mvexpand`](/azure/kusto/query/mvexpandoperator):
+#### <a name="activity-log-data-update-policy"></a>Aktivitetsloggdata uppdateringsprincip
+
+1. Skapa en [funktionen](/azure/kusto/management/functions) som utökar uppsättning loggposter för aktiviteten så att varje värde i samlingen tar emot en separat rad. Använd operatorn [`mvexpand`](/azure/kusto/query/mvexpandoperator):
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
@@ -212,6 +235,32 @@ Mappa aktivitetsloggarnas data till tabellen med hjälp av följande fråga:
 
     ```kusto
     .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    ```
+
+#### <a name="diagnostic-log-data-update-policy"></a>Diagnostiklogg data uppdateringsprincip
+
+1. Skapa en [funktionen](/azure/kusto/management/functions) som utökar en samling diagnostiklogg poster så att varje värde i samlingen tar emot en separat rad. Använd operatorn [`mvexpand`](/azure/kusto/query/mvexpandoperator):
+     ```kusto
+    .create function DiagnosticLogRecordsExpand() {
+        DiagnosticLogsRawRecords
+        | mvexpand events = Records
+        | project
+            Timestamp = todatetime(events["time"]),
+            ResourceId = tostring(events["resourceId"]),
+            MetricName = tostring(events["metricName"]),
+            Count = toint(events["count"]),
+            Total = todouble(events["total"]),
+            Minimum = todouble(events["minimum"]),
+            Maximum = todouble(events["maximum"]),
+            Average = todouble(events["average"]),
+            TimeGrain = tostring(events["timeGrain"])
+    }
+    ```
+
+2. Lägg till [uppdateringsprincipen](/azure/kusto/concepts/updatepolicy) i måltabellen. Den här principen körs automatiskt frågan på alla nyligen insamlade data i den *DiagnosticLogsRawRecords* mellanliggande datatabell och mata in resultaten i den *DiagnosticLogsRecords* tabell:
+
+    ```kusto
+    .alter table DiagnosticLogsRecords policy update @'[{"Source": "DiagnosticLogsRawRecords", "Query": "DiagnosticLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
 ## <a name="create-an-azure-event-hubs-namespace"></a>Skapa en Event Hubs-namnrymd
@@ -252,12 +301,12 @@ Välj en resurs som du vill exportera mått från. Fler resurstyper stödjer exp
     ![Diagnostikinställningar](media/ingest-data-no-code/diagnostic-settings.png)
 
 1. Fönstret **Diagnostikinställningar** öppnas. Utför följande steg:
-    1. Ge dina diagnostikloggdata namnet *ADXExportedData*.
-    1. Under **METRIC** (Mått) markerar du kryssrutan **AllMetrics** (valfritt).
-    1. Markera kryssrutan **Strömma till en händelsehubb**.
-    1. Välj **Konfigurera**.
+   1. Ge dina diagnostikloggdata namnet *ADXExportedData*.
+   1. Under **METRIC** (Mått) markerar du kryssrutan **AllMetrics** (valfritt).
+   1. Markera kryssrutan **Strömma till en händelsehubb**.
+   1. Välj **Konfigurera**.
 
-    ![Fönstret Diagnostikinställningar](media/ingest-data-no-code/diagnostic-settings-window.png)
+      ![Fönstret Diagnostikinställningar](media/ingest-data-no-code/diagnostic-settings-window.png)
 
 1. I fönstret **Välj händelsehubb** konfigurerar du hur data ska exporteras från diagnostikloggar till den händelsehubb som du skapade:
     1. I listan **Select event hub namespace** (Välj namnrymd för händelsehubb) väljer du *AzureMonitoringData*.
@@ -330,7 +379,7 @@ Nu behöver du skapa dataanslutningarna för diagnostikloggarna och aktivitetslo
 
      **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
-    | **Tabell** | *DiagnosticLogsRecords* | Den tabell som du skapade i databasen *TestDatabase*. |
+    | **Tabell** | *DiagnosticLogsRawRecords* | Den tabell som du skapade i databasen *TestDatabase*. |
     | **Dataformat** | *JSON* | Det format som används i tabellen. |
     | **Kolumnmappning** | *DiagnosticLogsRecordsMapping* | Den mappning som du skapade i databasen *TestDatabase*, som mappar inkommande JSON-data till kolumnnamnen och datatyperna i tabellen *DiagnosticLogsRecords*.|
     | | |
@@ -400,6 +449,7 @@ ActivityLogsRecords
 ```
 
 Frågeresultat:
+
 |   |   |
 | --- | --- |
 |   |  avg(DurationMs) |

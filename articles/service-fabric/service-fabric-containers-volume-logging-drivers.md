@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
 ms.author: aljo, subramar
-ms.openlocfilehash: f92c8a7cca70dd9de6389c201d9589c7a31ce25f
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 24cda5d6c96355ab4df086a2649c136116f200f1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726999"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863101"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure Files volym drivrutinen (förhandsversion)
 Plugin-programmet för Azure Files volym är en [Docker volym plugin-programmet](https://docs.docker.com/engine/extend/plugins_volume/) som ger [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) baserat på volymer för Docker-behållare. Det här plugin-program med Docker volymen kommer som ett Service Fabric-program som kan distribueras till Service Fabric-kluster. Dess syfte är att tillhandahålla Azure Files baserat på volymer för andra program i Service Fabric-behållare som distribueras till klustret.
@@ -66,7 +66,7 @@ Följande fragment måste läggas till i avsnittet fabricSettings i ARM-mall (f�
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>Distribuera Service Fabric Azure Files-programmet
 
-Service Fabric-program som innehåller volymerna som för dina behållare kan hämtas från följande [länk](http://download.microsoft.com/download/C/0/3/C0373AA9-DEFA-48CF-9EBE-994CA2A5FA2F/AzureFilesVolumePlugin.6.4.571.9590.zip). Programmet kan distribueras till klustret via [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) eller [FabricClient APIs](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
+Service Fabric-program som innehåller volymerna som för dina behållare kan hämtas från följande [länk](https://download.microsoft.com/download/C/0/3/C0373AA9-DEFA-48CF-9EBE-994CA2A5FA2F/AzureFilesVolumePlugin.6.4.571.9590.zip). Programmet kan distribueras till klustret via [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) eller [FabricClient APIs](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
 
 1. I Kommandotolken, ändra katalogen till rotkatalogen för nedladdade.
 
@@ -110,9 +110,8 @@ Service Fabric-program som innehåller volymerna som för dina behållare kan h�
     ```
 
 > [!NOTE]
-
+> 
 > Windows Server 2016 Datacenter har inte stöd för mappning av SMB monterar till behållare ([som stöds bara på Windows Server version 1709](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-storage)). Den här begränsningen förhindrar nätverksmappning för volymen och Azure Files volymdrivrutiner på versioner som är äldre än 1709.
->   
 
 ### <a name="deploy-the-application-on-a-local-development-cluster"></a>Distribuera programmet på ett lokalt utvecklingskluster
 Standardinstansantalet för tjänsten för Azure Files volym-plugin-programmet är 1, vilket innebär att det finns en instans av tjänsten distribueras till varje nod i klustret. Men när du distribuerar programmet Azure Files volym-plugin-programmet på ett lokalt utvecklingskluster instansantalet service anges som 1. Detta kan göras den **InstanceCount** parametr aplikace. Därför är kommandot för att distribuera programmet Azure Files volym-plugin-programmet på ett lokalt utvecklingskluster:
@@ -129,33 +128,33 @@ Följande kodfragment visar hur en Azure-filer baserat volym kan anges i applika
 
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
-<ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <Description>Calculator Application</Description>
-    <Parameters>
-      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
-      <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
-      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
-    </Parameters>
-    <ServiceManifestImport>
-        <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
-     <Policies>
+<ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
+    <Description>Calculator Application</Description>
+    <Parameters>
+      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
+      <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
+      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
+    </Parameters>
+    <ServiceManifestImport>
+        <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
+     <Policies>
        <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv">
-            <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
-            <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
+            <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
+            <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
             <Volume Source="azfiles" Destination="c:\VolumeTest\Data" Driver="sfazurefile">
                 <DriverOption Name="shareName" Value="" />
                 <DriverOption Name="storageAccountName" Value="" />
                 <DriverOption Name="storageAccountKey" Value="" />
                 <DriverOption Name="storageAccountFQDN" Value="" />
             </Volume>
-       </ContainerHostPolicies>
-   </Policies>
-    </ServiceManifestImport>
-    <ServiceTemplates>
-        <StatelessService ServiceTypeName="StatelessNodeService" InstanceCount="5">
-            <SingletonPartition></SingletonPartition>
-        </StatelessService>
-    </ServiceTemplates>
+       </ContainerHostPolicies>
+   </Policies>
+    </ServiceManifestImport>
+    <ServiceTemplates>
+        <StatelessService ServiceTypeName="StatelessNodeService" InstanceCount="5">
+            <SingletonPartition></SingletonPartition>
+        </StatelessService>
+    </ServiceTemplates>
 </ApplicationManifest>
 ```
 

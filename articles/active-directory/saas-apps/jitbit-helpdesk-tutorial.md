@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb752a6b598c9fe7f146cd6ce96182405fc0dc6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 86148d428bc526e071f095233b0692a6f3775a7d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167685"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880661"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Självstudier: Azure Active Directory-integrering med Jitbit Helpdesk
 
@@ -114,6 +114,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     ![Konfigurera enkel inloggning](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_url.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: 
+    
     | |     
     | ----------------------------------------|
     | `https://<hostname>/helpdesk/User/Login`|
@@ -161,7 +162,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     c. Öppna din **Base64-** kodade certifikat i anteckningar, kopiera innehållet i den till Urklipp och klistra in den till den **X.509-certifikat** textrutan
 
-    d. Klicka på **spara ändringar**.
+    d. Klicka på **Spara ändringar**.
 
 > [!TIP]
 > Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -224,11 +225,11 @@ För att aktivera Azure AD-användare att logga in på Jitbit Helpdesk, måste d
    
    a. I den **användarnamn** textrutan typ **BrittaSimon**, användarnamnet som i Azure-portalen.
 
-   b. I den **e-post** textrutan e-post för användaren som **BrittaSimon@contoso.com**.
+   b. I den **e-post** textrutan e-post för användaren som **BrittaSimon\@contoso.com**.
 
-   c. I den **Förnamn** textrutan Ange först namnet på användaren som **Britta**.
+   c. I textrutan **Förnamn** skriver du förnamnet på användaren: **Britta**.
 
-   d. I den **efternamn** textrutan Skriv Efternamn för användaren som **Simon**.
+   d. I textrutan **Efternamn** skriver du efternamnet på användaren: **Simon**.
    
    e. Klicka på **Skapa**.
 
@@ -276,7 +277,7 @@ Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen]
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

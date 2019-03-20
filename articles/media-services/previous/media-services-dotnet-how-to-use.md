@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 36350f8f359c6ad5cc5637ce0ce38838698cd68b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7da57c01b6717b505ea09fa9e6197bab4d4976fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177452"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57873833"
 ---
 # <a name="media-services-development-with-net"></a>Media Services-utveckling med .NET 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -45,7 +45,7 @@ Du kan också hämta de senaste nyheterna för Media Services .NET SDK från Git
 2. Skapa lösningen.
 3. Använd **NuGet** att installera och lägga till **Azure Media Services .NET SDK-tilläggen** (**windowsazure.mediaservices.extensions**). När du installerar det här paketet installeras även **Media Services .NET SDK** och lägger till alla andra nödvändiga beroenden.
    
-    Kontrollera att du har den senaste versionen av NuGet som är installerad. Mer information och installationsanvisningar finns i [NuGet](http://nuget.codeplex.com/).
+    Kontrollera att du har den senaste versionen av NuGet som är installerad. Mer information och installationsanvisningar finns i [NuGet](https://nuget.codeplex.com/).
 
     1. Högerklicka på namnet på projektet i Solution Explorer och välj **hantera NuGet-paket**.
 
@@ -54,7 +54,7 @@ Du kan också hämta de senaste nyheterna för Media Services .NET SDK från Git
     3. I Online-galleriet, Sök efter Azure MediaServices tillägg, Välj **Azure Media Services .NET SDK-tilläggen** (**windowsazure.mediaservices.extensions**), och klicka sedan på den  **Installera** knappen.
    
     4. Projektet har ändrats och referenser till Media Services .NET SDK-tilläggen, Media Services .NET SDK och andra beroende sammansättningar har lagts till.
-4. Överväg att aktivera NuGet-Paketåterställning för att flytta upp en tydligare utvecklingsmiljö. Mer information finns i [NuGet-Paketåterställning ”](http://docs.nuget.org/consume/package-restore).
+4. Överväg att aktivera NuGet-Paketåterställning för att flytta upp en tydligare utvecklingsmiljö. Mer information finns i [NuGet-Paketåterställning ”](https://docs.nuget.org/consume/package-restore).
 5. Lägg till en referens till **System.Configuration** sammansättningen. Den här sammansättningen innehåller System.Configuration. **ConfigurationManager** klass som används för att komma åt configuration-filer (till exempel App.config).
    
     1. Högerklicka på projektnamnet i Solution Explorer för att lägga till referenser med hjälp av dialogrutan Hantera referenser. Klicka sedan på **Lägg till**, klicka sedan på **referens...** .

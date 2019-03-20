@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 29208bcbdbe6ad01d0e1ac7343bd921f3287260a
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8cd50cab555755a137114bf871cad57ddf7a9db5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581919"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872988"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Skapa Service Fabric-behållare som kör Apache Tomcat-servern på Linux
 Apache Tomcat är en populär implementering med öppen källkod av Java Servlet och Server med Java-tekniker. Den här artikeln visar hur du skapar en behållare med Apache Tomcat och ett enkelt webbprogram, distribuerar du behållaren till Service Fabric-kluster som kör Linux och ansluta till webbprogrammet.  
 
-Läs mer om Apache Tomcat i den [Apache Tomcat startsidan](http://tomcat.apache.org/). 
+Läs mer om Apache Tomcat i den [Apache Tomcat startsidan](https://tomcat.apache.org/). 
 
 ## <a name="prerequisites"></a>Förutsättningar
 * En utvecklingsdator som kör:
@@ -95,9 +95,9 @@ Följ stegen i det här avsnittet och skapa en Docker-avbildning som är baserat
 
 1. Testa din behållare genom att öppna en webbläsare och ange något av följande webbadresser. Du ser en variant av ”Hello World”! välkomstskärmen för varje URL.
 
-   - http://localhost:8080/hello 
-   - http://localhost:8080/hello/sayhello 
-   - http://localhost:8080/hello/sayhi 
+   - `http://localhost:8080/hello` 
+   - `http://localhost:8080/hello/sayhello` 
+   - `http://localhost:8080/hello/sayhi` 
 
    ![Hello world /sayhi](./media/service-fabric-get-started-tomcat/hello.png)
 
@@ -142,81 +142,81 @@ Nu när du har push-överfört Tomcat-avbildningen till ett behållarregister, k
    Ange följande värden när du uppmanas till detta:
 
    * Namnge ditt program: ServiceFabricTomcat
-   * Namnet på programtjänsten: TomcatService
-   * Ange avbildningens namn: Ange en URL för behållaravbildningen i behållarregistret. till exempel myregistry.azurecr.io/samples/tomcattest.
-   * Kommandon: Lämna det tomt. Eftersom den här avbildningen har en definierad startpunkt arbetsbelastningen måste du inte uttryckligen ange inkommande kommandon (kommandon körs i den container som kommer att hålla den container som körs efter start).
-   * Antal instanser av gäst-behållarprogram: 1
+   * Namnet på tjänsten: TomcatService
+   * Indata avbildningens namn: Ange en URL för behållaravbildningen i behållarregistret. till exempel myregistry.azurecr.io/samples/tomcattest.
+   * Kommandon: Låt den vara tom. Eftersom den här avbildningen har en definierad startpunkt arbetsbelastningen måste du inte uttryckligen ange inkommande kommandon (kommandon körs i den container som kommer att hålla den container som körs efter start).
+   * Antal instanser av program för gäst-behållare: 1
 
    ![Service Fabric Yeoman-generator för containrar](./media/service-fabric-get-started-tomcat/yo-generator.png)
 
 10. I tjänstmanifestet (*ServiceFabricTomcat/ServiceFabricTomcat/TomcatServicePkg/ServiceManifest.xml*), Lägg till följande XML-filen under roten **ServiceManfest** taggen för att öppna porten din programmet lyssnar på begäranden på. Den **Endpoint** taggen deklarerar protokoll och port för slutpunkten. I den här artikeln lyssnar behållartjänsten på port 8080: 
 
-    ```xml
-    <Resources>
-      <Endpoints>
-        <!-- This endpoint is used by the communication listener to obtain the port on which to 
-         listen. Please note that if your service is partitioned, this port is shared with 
-         replicas of different partitions that are placed in your code. -->
-        <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
-      </Endpoints>
-    </Resources>
-    ```
+   ```xml
+   <Resources>
+     <Endpoints>
+       <!-- This endpoint is used by the communication listener to obtain the port on which to 
+        listen. Please note that if your service is partitioned, this port is shared with 
+        replicas of different partitions that are placed in your code. -->
+       <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
+     </Endpoints>
+   </Resources>
+   ```
 
 11. I applikationsmanifestet (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*) under den **ServiceManifestImport** indatatagg, Lägg till följande XML-filen. Ersätt den **AccountName** och **lösenord** i den **RepositoryCredentials** tagg med namnet på behållarregistret och ett lösenord för att logga in på den.
 
-    ```xml
-    <Policies>
-      <ContainerHostPolicies CodePackageRef="Code">
-        <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
-        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-      </ContainerHostPolicies>
-    </Policies>
-    ```
+   ```xml
+   <Policies>
+     <ContainerHostPolicies CodePackageRef="Code">
+       <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
+       <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+     </ContainerHostPolicies>
+   </Policies>
+   ```
 
-    Den **ContainerHostPolicies** taggen anger principer för att aktivera behållare-värdar.
+   Den **ContainerHostPolicies** taggen anger principer för att aktivera behållare-värdar.
     
-    * Den **PortBinding** taggen konfigurerar behållare till värd port mappning av principen. Den **ContainerPort** attributet har angetts till 8080 eftersom behållaren exponerar port 8080, som anges i Dockerfile. Den **EndpointRef** attributet är inställt på ”endpointTest”, slutpunkt som definierats i tjänstmanifestet i föregående steg. Därför mappas inkommande begäranden till tjänsten på port 8080 till port 8080 för behållaren. 
-    * Den **RepositoryCredentials** taggen anger de autentiseringsuppgifter som behållaren måste autentiseras mot lagringsplatsen (privat) där den hämtar avbildningen från. Du behöver inte den här principen om avbildningen ska hämtas från en offentlig lagringsplats.
+   * Den **PortBinding** taggen konfigurerar behållare till värd port mappning av principen. Den **ContainerPort** attributet har angetts till 8080 eftersom behållaren exponerar port 8080, som anges i Dockerfile. Den **EndpointRef** attributet är inställt på ”endpointTest”, slutpunkt som definierats i tjänstmanifestet i föregående steg. Därför mappas inkommande begäranden till tjänsten på port 8080 till port 8080 för behållaren. 
+   * Den **RepositoryCredentials** taggen anger de autentiseringsuppgifter som behållaren måste autentiseras mot lagringsplatsen (privat) där den hämtar avbildningen från. Du behöver inte den här principen om avbildningen ska hämtas från en offentlig lagringsplats.
     
 
 12. I den *ServiceFabricTomcat* mapp, ansluta till service fabric-kluster. 
 
-    * Om du vill ansluta till det lokala Service Fabric-klustret kör du:
+   * Om du vill ansluta till det lokala Service Fabric-klustret kör du:
 
-       ```bash
-       sfctl cluster select --endpoint http://localhost:19080
-       ```
+      ```bash
+      sfctl cluster select --endpoint http://localhost:19080
+      ```
     
-    * Om du vill ansluta till ett säkert kluster i Azure, kontrollera att klientcertifikatet finns som en PEM-fil i den *ServiceFabricTomcat* katalogen och kör: 
+   * Om du vill ansluta till ett säkert kluster i Azure, kontrollera att klientcertifikatet finns som en PEM-fil i den *ServiceFabricTomcat* katalogen och kör: 
 
-       ```bash
-       sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
-       ```
-       I det föregående kommandot ersätter `your-certificate.pem` med namnet på din klientcertifikatfilen. I utvecklings- och testmiljöer används ofta klustercertifikatet som på klientcertifikatet. Om certifikatet inte självsignerade utelämna den `-no-verify` parametern. 
+      ```bash
+      sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
+      ```
+      I det föregående kommandot ersätter `your-certificate.pem` med namnet på din klientcertifikatfilen. I utvecklings- och testmiljöer används ofta klustercertifikatet som på klientcertifikatet. Om certifikatet inte självsignerade utelämna den `-no-verify` parametern. 
        
-       Klustercertifikat hämtas vanligtvis lokalt som PFX-filer. Om du inte redan har certifikatet i PEM-format, kan du köra följande kommando för att skapa en PEM-fil från en PFX-fil:
+      Klustercertifikat hämtas vanligtvis lokalt som PFX-filer. Om du inte redan har certifikatet i PEM-format, kan du köra följande kommando för att skapa en PEM-fil från en PFX-fil:
 
-       ```bash
-       openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
-       ```
+      ```bash
+      openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
+      ```
 
-       Om din .pfx-filen inte är lösenordsskyddad, använda `-passin pass:` för den sista parametern.
+      Om din .pfx-filen inte är lösenordsskyddad, använda `-passin pass:` för den sista parametern.
 
 
 13. Kör installationsskriptet som medföljer mallen för att distribuera programmet till klustret. Skriptet kopierar programpaketet till klustrets avbildningsarkiv, registrerar programtypen och skapa en instans av programmet.
 
-       ```bash
-       ./install.sh
-       ```
+      ```bash
+      ./install.sh
+      ```
 
-    När du har kört installationsskriptet, öppna en webbläsare och gå till Service Fabric Explorer:
+   När du har kört installationsskriptet, öppna en webbläsare och gå till Service Fabric Explorer:
     
-    * I ett lokalt kluster, använda http://localhost:19080/Explorer (Ersätt *localhost* med privata IP-Adressen för den virtuella datorn om du använder Vagrant på Mac OS X).
-    * På ett säkert Azure-kluster använder https://PublicIPorFQDN:19080/Explorer. 
+   * I ett lokalt kluster, använda `http://localhost:19080/Explorer` (Ersätt *localhost* med privata IP-Adressen för den virtuella datorn om du använder Vagrant på Mac OS X).
+   * På ett säkert Azure-kluster använder `https://PublicIPorFQDN:19080/Explorer`. 
     
-    Expandera den **program** nod och Observera att det finns nu en post för din programtyp **ServiceFabricTomcatType**, och en annan för den första instansen av den typen. Det kan ta några minuter för programmet kan fullständigt distribuera så ha tålamod.
+   Expandera den **program** nod och Observera att det finns nu en post för din programtyp **ServiceFabricTomcatType**, och en annan för den första instansen av den typen. Det kan ta några minuter för programmet kan fullständigt distribuera så ha tålamod.
 
-    ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
+   ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
 
 
 1. För att komma åt programmet på Tomcat-servern, öppna ett webbläsarfönster och ange någon av följande webbadresser. Om du har distribuerat till det lokala klustret kan du använda *localhost* för *PublicIPorFQDN*. Du ser en variant av ”Hello World”! välkomstskärmen för varje URL.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 55a9e373893f6f46e6c109dde947b25a36ee93ed
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: ebeebfa4490797493a781bf462d363d1cbcf2d55
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343008"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857988"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Konfigurera Network Security Group Flow loggar med PowerShell
 
@@ -83,7 +83,7 @@ Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id 
 
 ## <a name="download-a-flow-log"></a>Ladda ned en Flow-log
 
-Lagringsplatsen för en flow-log definieras när du skapar. Ett praktiskt verktyg för att komma åt dessa flödesloggar som sparats i ett lagringskonto är Microsoft Azure Storage Explorer, som kan hämtas här:  http://storageexplorer.com/
+Lagringsplatsen för en flow-log definieras när du skapar. Ett praktiskt verktyg för att komma åt dessa flödesloggar som sparats i ett lagringskonto är Microsoft Azure Storage Explorer, som kan hämtas här:  https://storageexplorer.com/
 
 Om ett lagringskonto anges sparas flow loggfiler till ett lagringskonto på följande plats:
 

@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
-ms.openlocfilehash: 85b67fb4fa474bb00b5b7ca66580273671081cdf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2687a64bfd952888086862d929a3e5869aee5a4f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478204"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003432"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Använd Azure Container Instances som en Jenkins skapa agenten
 
@@ -73,7 +73,7 @@ Mer information om Azure Container Instances finns [om Azure Container Instances
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 
-5. Lämna SSH-session och kör-tunnel och gå till http://localhost:8080 i en webbläsare. Klistra in det ursprungliga administratörslösenordet i rutan och välj sedan **Fortsätt**.
+5. Lämna SSH-session och kör-tunnel och gå till `http://localhost:8080` i en webbläsare. Klistra in det ursprungliga administratörslösenordet i rutan och välj sedan **Fortsätt**.
 
    ![”Låsa upp Jenkins” skärmen med rutan administratörslösenordet](./media/container-instances-jenkins/jenkins-portal-05.png)
 

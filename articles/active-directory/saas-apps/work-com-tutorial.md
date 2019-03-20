@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e5d097afa3af111a7de8341b90d8c6c05ac0347
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6a37a811c7944334571b4043d8ba937ffadc1e71
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205757"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891577"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Självstudier: Azure Active Directory-integrering med Work.com
 
@@ -151,13 +151,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. Expandera den **säkerhetskontroller** menyn och klicka sedan på **inställningar för enkel inloggning**.
     
-    ![Enkel inloggning inställningar](./media/work-com-tutorial/ic794113.png "enkel inloggnings-inställningar")
+    ![Inställningar för enkel inloggning](./media/work-com-tutorial/ic794113.png "Inställningar för enkel inloggning")
 
 1. På den **inställningar för enkel inloggning** dialogrutan utför följande steg:
     
     ![SAML aktiverat](./media/work-com-tutorial/ic781026.png "SAML aktiverat")
     
-    a. Välj **SAML aktiverat**.
+    a. Välj **SAML-aktiverat** .
     
     b. Klicka på **Ny**.
 
@@ -246,7 +246,7 @@ För Azure Active Directory-användare för att kunna logga in måste de etabler
     ![Konfiguration](./media/work-com-tutorial/IC794108.png "Konfiguration")
 1. Gå till **hantera användare \> användare**.
    
-    ![Hantera användare](./media/work-com-tutorial/IC784369.png "hantera användare")
+    ![Hantera användare](./media/work-com-tutorial/IC784369.png "Hantera användare")
 
 1. Klicka på **Ny användare**.
    
@@ -262,9 +262,9 @@ För Azure Active Directory-användare för att kunna logga in måste de etabler
     
     c. I den **Alias** textrutan skriver den **namn** användarens **BrittaS**.
     
-    d. I den **e-post** textrutan skriver den **e-postadress** användarens **Brittasimon@contoso.com**.
+    d. I den **e-post** textrutan skriver den **e-postadress** användarens **Brittasimon\@contoso.com**.
     
-    e. I den **användarnamn** textrutan, skriver du in ett användarnamn för användaren som **Brittasimon@contoso.com**.
+    e. I den **användarnamn** textrutan, skriver du in ett användarnamn för användaren som **Brittasimon\@contoso.com**.
     
     f. I den **smeknamn** textrutan anger du ett **smeknamn** användarens **Simon**.
     
@@ -316,7 +316,7 @@ Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen]
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

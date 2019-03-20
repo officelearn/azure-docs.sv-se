@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: juliako
-ms.openlocfilehash: 4dd0f697d16d7a2fbeec8f712d98e6a7c439cb4e
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 6de626323c82689d0ead4f5aaad2a2e43187ebd0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064686"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897001"
 ---
 # <a name="azure-media-player-overview"></a>Översikt över Azure Media Player
 
@@ -24,13 +24,13 @@ Azure Media Player är en web videospelare som utformats för att spela upp medi
 
 Microsoft Azure Media Services kan innehåll tillhandahålls med HLS, DASH, Smooth Streaming strömningsformat att spela upp innehåll. Azure Media Player tar hänsyn till dessa olika format och spelar automatiskt den bästa länk beroende på plattform webbläsarkapacitet. Media Services kan även användas för dynamisk kryptering av tillgångar med PlayReady-kryptering eller AES-128 bitars kuvert-kryptering. Azure Media Player möjliggör med PlayReady och AES-128 bitars krypterat innehåll när korrekt konfigurerad. 
 
-[Starta din kostnadsfria utvärderingsversion](http://azure.microsoft.com/en-us/pricing/free-trial/)
+[Starta din kostnadsfria utvärderingsversion](https://azure.microsoft.com/en-us/pricing/free-trial/)
 
 ## <a name="use-azure-media-player-demo-page"></a>Med hjälp av sidan för Azure Media Player-demon
 
 ### <a name="start-using"></a>Börja använda
 
-Du kan använda den [Demonstrationssida för Azure Media Player](http://aka.ms/amp) att spela upp Azure Media Services-exempel eller dina egna stream.  
+Du kan använda den [Demonstrationssida för Azure Media Player](https://aka.ms/amp) att spela upp Azure Media Services-exempel eller dina egna stream.  
 
 För att spela upp en ny video, klistra in en annan URL och trycker på **uppdatering**.
 
@@ -40,7 +40,7 @@ För att konfigurera olika alternativ för uppspelning (till exempel teknisk, sp
 
 ### <a name="monitor-diagnostics-of-a-video-stream"></a>Övervaka diagnostik av en videoström
 
-Du kan använda den [Demonstrationssida för Azure Media Player](http://aka.ms/amp) att övervaka diagnostik av en videoström. 
+Du kan använda den [Demonstrationssida för Azure Media Player](https://aka.ms/amp) att övervaka diagnostik av en videoström. 
 
 ![Azure Media Player-diagnostik](./media/azure-media-player/diagnostics.png)
 

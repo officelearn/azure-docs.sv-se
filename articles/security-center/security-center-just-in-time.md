@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: monhaber
-ms.openlocfilehash: 9cdcfbc6074f8e343e2571063cc5dafe54072753
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: 3239bd2d4c5b79f1ebd905fb3844f3e7874ff175
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314780"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110961"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera VM-åtkomst med hjälp av just-in-time
 
@@ -82,20 +82,20 @@ Så här väljer du de virtuella datorer som du vill aktivera:
 
 1. Under **Just-in-time-åtkomst till virtuell dator**väljer den **rekommenderas** fliken.
 
-  ![Aktivera just-in-time-åtkomst](./media/security-center-just-in-time/enable-just-in-time-access.png)
+   ![Aktivera just-in-time-åtkomst](./media/security-center-just-in-time/enable-just-in-time-access.png)
 
 2. Under **VM**, Välj de virtuella datorer som du vill aktivera. Detta placerar en bock bredvid en virtuell dator.
 3. Välj **aktivera JIT på virtuella datorer**.
-  1. Det här bladet visar standardportarna som rekommenderas av Azure Security Center:
-     - 22 - SSH
-     - 3389 - RDP
-     - 5985 - WinRM 
-     - 5986 - WinRM
-  2. Du kan också konfigurera anpassade portar. Om du vill göra detta, Välj **Lägg till**. 
-  3. I **Lägg till Portkonfiguration**, för varje port som du väljer att konfigurera både standard och anpassade, du kan anpassa följande inställningar:
-    - **Protokoll-typen**-protokollet som är tillåten på den här porten när en begäran har godkänts.
-    - **Tillåtna IP-källadresser**-IP-adressintervall som tillåts på den här porten när en begäran har godkänts.
-    - **Maximal begärandetid**-den maximala tidsperioden som en specifik port kan öppnas.
+   1. Det här bladet visar standardportarna som rekommenderas av Azure Security Center:
+      - 22 - SSH
+      - 3389 - RDP
+      - 5985 - WinRM 
+      - 5986 - WinRM
+   2. Du kan också konfigurera anpassade portar. Om du vill göra detta, Välj **Lägg till**. 
+   3. I **Lägg till Portkonfiguration**, för varje port som du väljer att konfigurera både standard och anpassade, du kan anpassa följande inställningar:
+      - **Protokoll-typen**-protokollet som är tillåten på den här porten när en begäran har godkänts.
+      - **Tillåtna IP-källadresser**-IP-adressintervall som tillåts på den här porten när en begäran har godkänts.
+      - **Maximal begärandetid**-den maximala tidsperioden som en specifik port kan öppnas.
 
 4. Välj **Spara**.
 
@@ -174,9 +174,9 @@ Du kan få insikter om VM-aktiviteter med loggsökning. Visa loggar:
 2. Under **VMs**, Välj en virtuell dator för att visa information om genom att klicka på de tre punkterna i raden för den virtuella datorn. Då öppnas en meny.
 3. Välj **aktivitetsloggen** på menyn. Då öppnas **aktivitetsloggen**.
 
-  ![Välj aktivitetsloggen](./media/security-center-just-in-time/select-activity-log.png)
+   ![Välj aktivitetsloggen](./media/security-center-just-in-time/select-activity-log.png)
 
-  **Aktivitetsloggen** en filtrerad vy över tidigare åtgärder för den virtuella datorn tillsammans med tid, datum och prenumeration.
+   **Aktivitetsloggen** en filtrerad vy över tidigare åtgärder för den virtuella datorn tillsammans med tid, datum och prenumeration.
 
 Du kan ladda ned logginformation genom att välja **Klicka här för att hämta alla objekt som CSV**.
 
@@ -188,16 +188,16 @@ Du kan ladda ned logginformation genom att välja **Klicka här för att hämta 
 Ange dessa behörigheter som krävs för att aktivera en användare att konfigurera eller redigera en JIT-princip för en virtuell dator.
 
 Tilldela dem *åtgärder* för rollen: 
--   På en prenumeration eller resursgrupp omfattning som är associerad med den virtuella datorn:
-   - Microsoft.Security/locations/jitNetworkAccessPolicies/write
--    På omfånget för en prenumeration eller resursgrupp eller virtuell dator:
-   - Microsoft.Compute/virtualMachines/write 
+- På en prenumeration eller resursgrupp omfattning som är associerad med den virtuella datorn:
+  - Microsoft.Security/locations/jitNetworkAccessPolicies/write
+- På omfånget för en prenumeration eller resursgrupp eller virtuell dator:
+  - Microsoft.Compute/virtualMachines/write 
 
 Ange dessa privilegier så att en användare att begära har JIT-åtkomst till en virtuell dator: Tilldela dem *åtgärder* för användaren:
--   På en prenumeration eller resursgrupp omfattning som är associerad med den virtuella datorn:
-   - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ initiate/action
--    På omfånget för en prenumeration eller resursgrupp eller virtuell dator:
-   - Microsoft.Compute/virtualMachines/read
+- På en prenumeration eller resursgrupp omfattning som är associerad med den virtuella datorn:
+  - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ initiate/action
+- På omfånget för en prenumeration eller resursgrupp eller virtuell dator:
+  - Microsoft.Compute/virtualMachines/read
 
 
 

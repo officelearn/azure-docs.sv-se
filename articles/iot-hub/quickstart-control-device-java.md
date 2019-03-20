@@ -1,21 +1,21 @@
 ---
 title: Kontrollera en enhet från snabbstart för Azure IoT Hub (Java) | Microsoft Docs
 description: I den här snabbstarten kör du två Java-exempelprogram. Ett program är en serverdel som kan fjärrstyra enheter som är anslutna till hubben. Det andra programmet simulerar en enhet ansluten till din hubb som kan fjärrstyras.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.author: dobett
-ms.openlocfilehash: 30c5026c0f7c8fcce3cee8780622f4c835f043ce
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: ce451ebb6b4a9afb10b9213a3d50c24c586887aa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670952"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58164900"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Snabbstart: Kontrollera en enhet som är ansluten till en IoT-hubb (Java)
 
@@ -33,7 +33,7 @@ Snabbstarten använder två färdiga Java-program:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med Java. Du måste ha Java SE 8 eller senare installerat på utvecklingsdatorn.
 
@@ -103,7 +103,7 @@ Du måste också ha en _tjänstanslutningssträng_ för att kunna aktivera serve
 **YourIoTHubName**: Ersätt platshållaren nedan med det namn som du har valt för din IoT-hubb.
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --output table
 ```
 
 Anteckna tjänstanslutningssträngen. Den ser ut ungefär som:

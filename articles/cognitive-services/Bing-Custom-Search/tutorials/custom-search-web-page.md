@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 10/16/2017
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: c1124e710c3bb2cc4d00595989ccb95e584025c4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 6f44d4e6e5a0ee940394e09ceff8a425700d34e1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884502"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100742"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Självstudier: Skapa en webbsida för anpassad sökning
 
@@ -32,7 +32,7 @@ Här är några av uppgifterna:
 > - Lägga till fästa poster
 > - Integrera anpassad sökning i en webbsida
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du vill följa självstudiekursen behöver du en prenumerationsnyckel för API för anpassad Bing-sökning.  Information om hur du skaffar en nyckel finns i [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
 - Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **utan kostnad**.
@@ -49,11 +49,11 @@ Så här skapar du en instans för anpassad sökning i Bing:
   
 4. När du har loggat in klickar du på **Ny anpassad sökning**. I fönstret **Skapa en ny anpassad sökinstans** anger du ett namn som betyder något och beskriver typen av innehåll som sökningen returnerar. Du kan ändra namnet när som helst.  
   
-  ![Skärmbild för rutan Skapa en ny anpassad sökinstans](../media/newCustomSrch.png)  
+   ![Skärmbild för rutan Skapa en ny anpassad sökinstans](../media/newCustomSrch.png)  
   
 5. Klicka på OK, ange en webbadress och om du vill inkludera underordnade sidor av webbadressen.  
   
-  ![Skärmbild av URL-definitionssidan](../media/newCustomSrch1-a.png)  
+   ![Skärmbild av URL-definitionssidan](../media/newCustomSrch1-a.png)  
 
 
 ## <a name="add-active-entries"></a>Lägga till aktiva poster
@@ -97,28 +97,28 @@ Anpassad sökning ger ett värdbaserat gränssnitt för att rendera JSON-svar f�
   
 2. Välj en layout.  
   
-  ![Skärmbild av steget för att välja layout för värdbaserat användargränssnitt](./media/custom-search-hosted-ui-select-layout.png)  
+   ![Skärmbild av steget för att välja layout för värdbaserat användargränssnitt](./media/custom-search-hosted-ui-select-layout.png)  
   
 3. Välj ett färgtema.  
   
-  ![Skärmbild av val av färgtema för värdbaserat användargränssnitt](./media/custom-search-hosted-ui-select-color-theme.png)  
+   ![Skärmbild av val av färgtema för värdbaserat användargränssnitt](./media/custom-search-hosted-ui-select-color-theme.png)  
 
-  Om du behöver finjustera färgtemat så att det bättre integrerar med din webbapp klickar du på **Anpassa tema**. Alla färgkonfigurationer finns inte för alla layoutteman. Om du vill ändra en färg anger du färgens RGB HEX-värde (till exempel #366eb8) i motsvarande textruta. Eller så kan du klicka på färgknappen och klicka på nyansen som passar dig. Tänk alltid på tillgänglighet när du väljer färger.
+   Om du behöver finjustera färgtemat så att det bättre integrerar med din webbapp klickar du på **Anpassa tema**. Alla färgkonfigurationer finns inte för alla layoutteman. Om du vill ändra en färg anger du färgens RGB HEX-värde (till exempel #366eb8) i motsvarande textruta. Eller så kan du klicka på färgknappen och klicka på nyansen som passar dig. Tänk alltid på tillgänglighet när du väljer färger.
   
-  ![Skärmbild av anpassa tema för värdbaserat användargränssnitt](./media/custom-search-hosted-ui-customize-color-theme.png)  
+   ![Skärmbild av anpassa tema för värdbaserat användargränssnitt](./media/custom-search-hosted-ui-customize-color-theme.png)  
 
   
 4. Ange ytterligare konfigurationsalternativ.  
   
-  ![Skärmbild av ytterligare konfigurationssteg för värdbaserat användargränssnitt](./media/custom-search-hosted-ui-additional-configurations.png)  
+   ![Skärmbild av ytterligare konfigurationssteg för värdbaserat användargränssnitt](./media/custom-search-hosted-ui-additional-configurations.png)  
   
-  Om du vill få avancerade konfigurationer klickar du på **Visa avancerade konfigurationer**. Detta lägger till konfigurationer som *Länkmål* till webbsökningsalternativ, *Aktivera filter* för bild- och videoalternativ och *Textplatshållare för sökruta* till övriga alternativ.
+   Om du vill få avancerade konfigurationer klickar du på **Visa avancerade konfigurationer**. Detta lägger till konfigurationer som *Länkmål* till webbsökningsalternativ, *Aktivera filter* för bild- och videoalternativ och *Textplatshållare för sökruta* till övriga alternativ.
 
-  ![Skärmbild av avancerade konfigurationssteg för värdbaserat användargränssnitt](./media/custom-search-hosted-ui-advanced-configurations.png)  
+   ![Skärmbild av avancerade konfigurationssteg för värdbaserat användargränssnitt](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
 5. Välj dina prenumerationsnycklar från listrutorna. Eller så kan du ange prenumerationsnyckeln manuellt. Information om hämtning av nycklar finns i [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
   
-  ![Skärmbild av ytterligare konfigurationssteg för värdbaserat användargränssnitt](./media/custom-search-hosted-ui-subscription-key.png)
+   ![Skärmbild av ytterligare konfigurationssteg för värdbaserat användargränssnitt](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
@@ -140,66 +140,66 @@ Resten av den här självstudien visar **Alternativ 1: JavaScript-kodavsnitt**.
   
 3. I fönstret **Nytt projekt** väljer du **Visual C# / Webb / ASP.NET Core-webbprogram**, namnger ditt projekt och klickar på **OK**.  
   
-  ![Skärmbild av fönstret Nytt projekt](./media/custom-search-new-project.png)  
+   ![Skärmbild av fönstret Nytt projekt](./media/custom-search-new-project.png)  
   
 4. I fönstret **Nytt ASP.NET-webbprogram** väljer du **Webbprogram** och klickar på **OK**.  
   
-  ![Skärmbild av fönstret Nytt projekt](./media/custom-search-new-webapp.png)  
+   ![Skärmbild av fönstret Nytt projekt](./media/custom-search-new-webapp.png)  
 
 ## <a name="edit-indexcshtml"></a>Redigera index.cshtml
 
 1. I **Solution Explorer** expanderar du **Sidor** och öppnar filen genom att dubbelklicka på **index.cshtml**.  
   
-  ![Skärmbild av Solution Explorer med Sidor expanderat och index.cshtml vald](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
+   ![Skärmbild av Solution Explorer med Sidor expanderat och index.cshtml vald](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
   
 2. I index.cshtml tar du bort allt från rad 7 och nedan.  
   
-  ```razor
-  @page
-  @model IndexModel
-  @{
+   ```razor
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }    
-  ```  
+   }    
+   ```  
   
 3. Lägg till ett radbrytningselement och en div som ska fungera som en container.  
   
-  ```html
-  @page
-  @model IndexModel
-  @{
+   ```html
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }
-  <br />
-  <div id="customSearch"></div>
-  ```  
+   }
+   <br />
+   <div id="customSearch"></div>
+   ```  
   
 4. På sidan för **värdbaserat användargränssnitt** rullar du ned till avsnittet om att **använda användargränssnittet**. Klicka på *Slutpunkter* för att få åtkomst till JavaScript-kodavsnittet. Du kan också få kodfragmentet genom att klicka på **Produktion** och sedan på fliken för **värdbaserat användargränssnitt**.
   
-  <!-- Get new screenshot after prod gets new bits
-  ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
-  -->
+   <!-- Get new screenshot after prod gets new bits
+   ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
+   -->
   
 5. Klistra in skriptelementet i den container som du har lagt till.  
   
-  ``` html
-  @page
-  @model IndexModel
-  @{
+   ``` html
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }
-  <br />
-  <div id="customSearch">
+   }
+   <br />
+   <div id="customSearch">
       <script type="text/javascript" 
           id="bcs_js_snippet"
           src="https://ui.customsearch.ai /api/ux/rendering-js?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate&version=latest&q=">
       </script>
-  </div>
-  ```  
+   </div>
+   ```  
   
 6. I **Solution Explorer** högerklickar du på **wwwroot** och sedan på **Visa i webbläsare**.  
   
-  ![Skärmbild av när Solution Explorer väljer Visa i webbläsare på snabbmenyn wwwroot](./media/custom-search-webapp-view-in-browser.png)  
+   ![Skärmbild av när Solution Explorer väljer Visa i webbläsare på snabbmenyn wwwroot](./media/custom-search-webapp-view-in-browser.png)  
 
 Den nya webbsidan för anpassad sökning i bör se ut ungefär så här:
 

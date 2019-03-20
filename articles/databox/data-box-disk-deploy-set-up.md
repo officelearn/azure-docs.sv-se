@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f2e18db7bd1766901ffb36cc74172f4c8414135c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 4c2f2ebca40ee3e4b5a9a32767783694af52944b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232901"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106652"
 ---
-# <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Självstudie: Packa upp, ansluta och låsa upp en Azure Data Box-disk
+# <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Självstudier: Packa upp, Anslut och lås Azure Data Box-Disk
 
 Den här självstudien beskriver hur du packar upp, ansluter och låser upp en Azure Data Box-disk.
 
@@ -28,11 +28,11 @@ I den här guiden får du lära dig att:
 > * Låsa upp diskar Windows-klient
 > * Låsa upp diskar på Linux-klient
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrollera att:
 
-1. Du har slutfört [självstudien Beställa en Azure Data Box-disk](data-box-disk-deploy-ordered.md).
+1. Du har slutfört självstudien [: Beställa Azure Data Box Disk](data-box-disk-deploy-ordered.md).
 2. Du har tagit emot diskarna och jobbstatusen på portalen har uppdaterats till **Levererade**.
 3. Du har en klientdator som du kan installera Data Box Disk-upplåsningsverktyget på. Klientdatorn måste:
     - Köra ett [operativsystem som stöds](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
@@ -70,7 +70,7 @@ Beroende på om du är ansluten till en Windows- eller Linux-klient är skiljer 
 Anslut och lås upp diskarna genom att följa stegen nedan.
      
 1. Gå till **Allmänt > Enhetsinformation**. 
-2. Ladda ned de Data Box Disk-verktyg som motsvarar Windows-klienten. Den här verktygsuppsättningen innehåller 3 verktyg: Data Box Disk Unlock, Data Box Disk Validation samt Data Box Disk Split Copy. 
+2. Ladda ned de Data Box Disk-verktyg som motsvarar Windows-klienten. Den här verktygsuppsättningen innehåller 3 verktyg: Verktyget för data Box Disk låsa upp Data Box Disk Validation verktyget och kopieringsverktyget för Data Box Disk dela. 
 
     I den här proceduren använder du endast verktyget Data Box Disk Unlock. De andra två verktygen används senare.
 
@@ -170,39 +170,39 @@ Anslut och lås upp diskarna genom att följa stegen nedan.
     
  
 5. Skriv `y` för att fortsätta installationen. Paketen som skripten installerar är: 
-    - **epel-release** – Datalager som innehåller följande tre paket. 
-    - **dislocker och fuse-dislocker** – Det här verktyget hjälper till att dekryptera BitLocker-krypterade diskar. 
-    - **ntfs-3g** – Paket som hjälper till att montera NTFS-volymer. 
+   - **epel-release** – Datalager som innehåller följande tre paket. 
+   - **dislocker och fuse-dislocker** – Det här verktyget hjälper till att dekryptera BitLocker-krypterade diskar. 
+   - **ntfs-3g** – Paket som hjälper till att montera NTFS-volymer. 
  
-    När paketen har installerats visas ett meddelande om det i terminalen.     
-    ```
-    Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
-    ruby-libs.x86 64 0:1.8.7.374-5.el6 
-    Complete! 
-    Loaded plugins: fastestmirror, refresh-packagekit, security 
-    Setting up Remove Process 
-    Resolving Dependencies 
-    --> Running transaction check 
-    ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
-    Dependencies Resolved 
-    Package        Architecture        Version        Repository        Size 
-    Removing:  epel-release        noarch         6-8        @extras        22 k 
-    Transaction Summary                                 
-    Remove        1 Package(s) 
-    Installed size: 22 k 
-    Downloading Packages: 
-    Running rpmcheckdebug 
-    Running Transaction Test 
-    Transaction Test Succeeded 
-    Running Transaction 
-    Erasing : epel-release-6-8.noarch 
-    Verifying : epel-release-6-8.noarch 
-    Removed: 
-    epel-release.noarch 0:6-8 
-    Complete! 
-    Dislocker is installed by the script. 
-    OpenSSL is already installed.
-    ```
+     När paketen har installerats visas ett meddelande om det i terminalen.     
+     ```
+     Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
+     ruby-libs.x86 64 0:1.8.7.374-5.el6 
+     Complete! 
+     Loaded plugins: fastestmirror, refresh-packagekit, security 
+     Setting up Remove Process 
+     Resolving Dependencies 
+     --> Running transaction check 
+     ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
+     Dependencies Resolved 
+     Package        Architecture        Version        Repository        Size 
+     Removing:  epel-release        noarch         6-8        @extras        22 k 
+     Transaction Summary                                 
+     Remove        1 Package(s) 
+     Installed size: 22 k 
+     Downloading Packages: 
+     Running rpmcheckdebug 
+     Running Transaction Test 
+     Transaction Test Succeeded 
+     Running Transaction 
+     Erasing : epel-release-6-8.noarch 
+     Verifying : epel-release-6-8.noarch 
+     Removed: 
+     epel-release.noarch 0:6-8 
+     Complete! 
+     Dislocker is installed by the script. 
+     OpenSSL is already installed.
+     ```
 
 6. Kör upplåsningsverktyget för Data Box Disk. Ange nyckeln från Azure-portalen som du hämtade i [Ansluta till diskar och hämta nyckeln](#Connect-to-disks-and-get-the-passkey). Du kan också ange en lista med BitLocker-krypterade volymer som ska låsas upp. Nyckeln och volymlistan ska anges inom enkla citattecken. 
 

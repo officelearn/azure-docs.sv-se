@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: b8bd57953845278aa75e8cbdf41ae28300edad58
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3d825a0f8a23380b4d9cf453076ab4b18ee67831
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184915"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095525"
 ---
 # <a name="azure-stack-capacity-planning"></a>Azure Stack-kapacitetsplanering
 När du utvärderar en Azure Stack-lösning finns maskinvara konfigurationsalternativ som har en direkt inverkan på den totala kapaciteten i Azure Stack-molnet. Det här är de klassiska val av CPU, minne densitet, lagringskonfiguration, och övergripande lösningen skala eller antalet servrar. Till skillnad från en traditionell virtualiseringslösning gäller inte det enkla aritmetiskt av dessa komponenter för att fastställa användbar kapacitet. Den första orsaken till detta är att Azure Stack har byggts för att vara värd för infrastruktur eller hantering av komponenterna i själva lösningen. Den andra orsaken är att några av lösningens kapaciteten är reserverad till stöd för återhämtning; uppdatering av lösningens programvara på ett sätt att minimera störningar för klienternas arbetsbelastningar.
@@ -49,7 +49,7 @@ En ytterligare beskrivning av komplexitet i en kapacitet beräkningar är beskri
 |     |     |     |     |     |     |     |     |
 
 > <sup>1</sup> standard D2 virtuella datorer.
-
+> 
 > <sup>2</sup> virtuella kärnor till fysisk kärna-kvot.
 
 Som nämnts ovan är bestäms VM-kapacitet per tillgängligt minne. De virtuella kärnorna till fysiska kärnor förhållanden är exempel på hur VM-densiteten ändra tillgängliga CPU-kapacitet, såvida inte lösningen har konstruerats med ett större antal fysiska kärnor (en annan processor har valts). Detsamma gäller för lagringskapacitet och lagringskapacitet för cache.

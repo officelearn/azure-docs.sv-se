@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4873c834a33ff5f401f38fdb810c65ca7ef20f5e
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 6330e941f3308920ff4d5404663824633484146a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191195"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108366"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Ansluta en Raspberry Pi till Azure IoT Central programmet (C#)
 
@@ -68,13 +68,13 @@ Du kan använda Visual Studio Code för att slutföra följande steg. Mer inform
 
 1. Om du vill initiera ditt .NET-projekt och Lägg till NuGet-paket som krävs, kör du följande kommandon:
 
-  ```cmd/sh
-  mkdir pisample
-  cd pisample
-  dotnet new console
-  dotnet add package Microsoft.Azure.Devices.Client
-  dotnet restore
-  ```
+   ```cmd/sh
+   mkdir pisample
+   cd pisample
+   dotnet new console
+   dotnet add package Microsoft.Azure.Devices.Client
+   dotnet restore
+   ```
 
 1. Öppna den `pisample` mappen i Visual Studio Code. Öppna sedan den **pisample.csproj** projektfilen. Lägg till den `<RuntimeIdentifiers>` tagg som visas i följande kodavsnitt:
 
@@ -281,10 +281,10 @@ Lägga till specifika anslutningssträngen i koden för enheten för att autenti
 
 1. Kör följande kommando i miljön kommandoraden:
 
-  ```cmd/sh
-  dotnet restore
-  dotnet publish -r linux-arm
-  ```
+   ```cmd/sh
+   dotnet restore
+   dotnet publish -r linux-arm
+   ```
 
 1. Kopiera den `pisample\bin\Debug\netcoreapp2.0\linux-arm\publish` mappen till din Raspberry Pi-enhet. Du kan använda den **scp** kommando för att kopiera filer, till exempel:
 
@@ -313,13 +313,13 @@ Lägga till specifika anslutningssträngen i koden för enheten för att autenti
 
 1. Du kan se hur koden körs på Raspberry Pi interagerar med programmet i Azure IoT Central programmet:
 
-    * På den **mätningar** sidan för din riktig enhet visas telemetri.
-    * På den **egenskaper** sidan ser du värdet för det rapporterade **dör nummer** egenskapen.
-    * På den **inställningar** kan du kan ändra olika inställningar på Raspberry Pi, till exempel spänning och fläkt hastighet.
+   * På den **mätningar** sidan för din riktig enhet visas telemetri.
+   * På den **egenskaper** sidan ser du värdet för det rapporterade **dör nummer** egenskapen.
+   * På den **inställningar** kan du kan ändra olika inställningar på Raspberry Pi, till exempel spänning och fläkt hastighet.
 
-    I följande skärmbild visas den Raspberry Pi som tar emot ändringen:
+     I följande skärmbild visas den Raspberry Pi som tar emot ändringen:
 
-    ![Raspberry Pi tar emot Inställningsändringen](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
+     ![Raspberry Pi tar emot Inställningsändringen](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
 
 
 ## <a name="raspberry-pi-device-template-details"></a>Raspberry PI mall enhetsinformation

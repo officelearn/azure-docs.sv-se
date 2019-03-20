@@ -10,12 +10,12 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: c03278c0d0faced20f4e02fcc1f61531c88ae141
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8a8f669c33f40fb80dc826ec04203880dee74d82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869678"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109417"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
@@ -49,7 +49,7 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | `-s START_DATE`, `--start_date START_DATE` | Hämtning startdatum (inkluderat) är i *åååå-MM-DD* format. | `None` |
 | `-e END_DATE`, `--end_date END_DATE` | Hämtar slutdatumet (ingår), i *åååå-MM-DD* format. | `None` |
 | `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | Överskrivningsläge att använda. | |
-| | `0`: Skriv aldrig över; Be användaren om BLOB-objekt används för närvarande. | Standard | |
+| | `0`: Skriv aldrig över; Be användaren om BLOB-objekt används för närvarande. | Standard |
 | | `1`: Be användaren hur du fortsätter när filerna har olika storlekar eller när blobarna som används för närvarande. | |
 | | `2`: Alltid över; ladda ned används blobar. | |
 | | `3`: Skriv aldrig över och till om den är större, utan att be; ladda ned används blobar. | |

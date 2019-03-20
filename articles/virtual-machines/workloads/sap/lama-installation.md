@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 1f0f9c548d9b3c8a7df2d356bcb4c5f993285c28
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 432dcf4608d23f269c5005b86d2c58b7f70b3068
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670435"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007589"
 ---
 # <a name="sap-lama-connector-for-azure"></a>SAP LaMa connector för Azure
 
@@ -77,7 +77,7 @@ Azure connector levereras från och med SAP LaMa 3.0 SP05. Vi rekommenderar att 
 1. Öppna bladet Azure Active Directory
 1. Klicka på App-registreringar
 1. Klicka på Lägg till
-1. Ange ett namn, väljer typen ”Web app/API”, ange en inloggnings-URL (till exempel http://localhost) och klicka på Skapa
+1. Ange ett namn, väljer typen ”Web app/API”, ange en inloggnings-URL (till exempel `http://localhost`) och klicka på Skapa
 1. Inloggnings-URL: en används inte och kan vara vilken giltig URL
 1. Välj den nya appen och klicka på nycklar på fliken Inställningar
 1. Ange en beskrivning för en ny nyckel, Välj ”upphör aldrig att gälla” och klickar på Spara
@@ -103,7 +103,7 @@ Tjänstens huvudnamn har inte behörighet att komma åt dina Azure-resurser som 
 * Lösenord: Tjänstens huvudnamn nyckel/lösenord
 * URL: Behåll standardvärdet https://management.azure.com/
 * Övervakning av intervall (sekunder): Bör vara minst 300
-* Prenumerations-ID: Azure-prenumerations-ID
+* Prenumerations-ID: Azure prenumerations-ID
 * Azure Active Directory klient-ID: ID för Active Directory-klient
 * Proxyvärd: Värdnamnet för proxyservern om SAP LaMa behöver en proxyserver för att ansluta till internet
 * Proxyport: TCP-porten för proxyservern

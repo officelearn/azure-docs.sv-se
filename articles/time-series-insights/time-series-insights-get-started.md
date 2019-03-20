@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: 74cd56f5a8bfe8717927c13e6bf30eb27b43fbc9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: b18ae44a140d77c24d8b5741bc09740767d1344f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558540"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075960"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Skapa en ny Time Series Insights-miljö i Azure Portal
 Den här artikeln beskriver hur du skapar en ny Time Series Insights-miljö med Azure portal.
@@ -26,15 +26,15 @@ Time Series Insights kan du börja visualisera och köra frågor mot data som fl
 ## <a name="steps-to-create-the-environment"></a>Anvisningar för att skapa miljön
 Följ stegen nedan för att skapa en miljö:
 
-1.  Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2.  Välj den **+ ny** knappen.
+2. Välj den **+ ny** knappen.
 
-3.  Välj den **Internet of Things** kategori och välj **Time Series Insights**.
+3. Välj den **Internet of Things** kategori och välj **Time Series Insights**.
 
    ![Skapa Time Series Insights-miljön](media/time-series-insights-get-started/1-new-tsi.png)
 
-4.  På den **Time Series Insights** väljer **skapa**.
+4. På den **Time Series Insights** väljer **skapa**.
 
 5. Fyll i de obligatoriska parametrarna. I följande tabell beskrivs varje parameter:
    

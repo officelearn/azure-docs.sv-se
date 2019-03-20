@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e56169d74d1669c3bb7adda06590145d2ca31b72
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 432120c324aa81107946fc30548e6e49acce6575
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893348"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002329"
 ---
 # <a name="saas-sell-through-azure---apis"></a>SaaS-sälj via Azure - API: er
 
@@ -53,26 +53,26 @@ Alla program som vill använda funktionerna i Azure AD måste först registreras
 
 Utför följande steg för att registrera ett nytt program med Azure portal:
 
-1.  Logga in på [Azure Portal](https://portal.azure.com/).
-2.  Om ditt konto ger dig tillgång till fler än en klickar du på ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-3.  I det vänstra navigeringsfönstret klickar du på den **Azure Active Directory** tjänsten, klicka på **appregistreringar**, och klicka på **ny programregistrering**.
+1. Logga in på [Azure Portal](https://portal.azure.com/).
+2. Om ditt konto ger dig tillgång till fler än en klickar du på ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
+3. I det vänstra navigeringsfönstret klickar du på den **Azure Active Directory** tjänsten, klicka på **appregistreringar**, och klicka på **ny programregistrering**.
 
-    ![SaaS AD App-registreringar](./media/saas-offer-app-registration.png)
+   ![SaaS AD App-registreringar](./media/saas-offer-app-registration.png)
 
-4.  Ange ditt program på sidan Skapa\'s registreringsinformation:
-    -   **Namn**: Ange ett beskrivande programnamn
-    -   **Programtyp**: 
-        - Välj **Internt** för [klientprogram](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) som installeras lokalt på en enhet. Den här inställningen används för OAuth-offentliga [interna klienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client).
-        - Välj **webbapp / API** för [klientprogram](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) och [resurs/API-program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) som är installerade på en säker server. Den här inställningen används för OAuth-konfidentiella [webbklienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) och offentliga [användar-agent-baserade klienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
-        Samma program kan även visa både en klient och resurs/API.
-    -   **Inloggnings-URL**: För Web app/API-program, anger du den grundläggande Webbadressen för din app. Till exempel **http://localhost:31544** kanske URL-Adressen för en webbapp som körs på den lokala datorn. Användare använder sedan denna URL för att logga in till ett webbprogram för klienten.
-    -   **Omdirigerings-URI**: Ange den URI som används av Azure AD för att returnera tokensvar för interna program. Ange ett specifikt värde till ditt program, till exempel **http://MyFirstAADApp**.
+4. Ange ditt program på sidan Skapa\'s registreringsinformation:
+   - **Namn**: Ange ett beskrivande programnamn
+   - **Programtyp**: 
+     - Välj **Internt** för [klientprogram](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) som installeras lokalt på en enhet. Den här inställningen används för OAuth-offentliga [interna klienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client).
+     - Välj **webbapp / API** för [klientprogram](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) och [resurs/API-program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) som är installerade på en säker server. Den här inställningen används för OAuth-konfidentiella [webbklienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) och offentliga [användar-agent-baserade klienter](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
+     Samma program kan även visa både en klient och resurs/API.
+   - **Inloggnings-URL**: För Web app/API-program, anger du den grundläggande Webbadressen för din app. Till exempel **http://localhost:31544** kanske URL-Adressen för en webbapp som körs på den lokala datorn. Användare använder sedan denna URL för att logga in till ett webbprogram för klienten.
+   - **Omdirigerings-URI**: Ange den URI som används av Azure AD för att returnera tokensvar för interna program. Ange ett specifikt värde till ditt program, till exempel **http://MyFirstAADApp**.
 
-        ![SaaS AD App-registreringar](./media/saas-offer-app-registration-2.png) för specifika exempel på webbprogram eller interna program, Kolla in snabbstarten guidad inställningar som är tillgängliga i avsnittet komma igång i den [Utvecklarguiden för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+     ![SaaS AD App-registreringar](./media/saas-offer-app-registration-2.png) för specifika exempel på webbprogram eller interna program, Kolla in snabbstarten guidad inställningar som är tillgängliga i avsnittet komma igång i den [Utvecklarguiden för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
-5.  Klicka på **Skapa** när du är klar. Azure AD tilldelas ett unikt ID till ditt program, och du\'på nytt kommer du till ditt program\'s huvudsakliga registreringssidan. Beroende på om ditt program är ett webbprogram eller ett internt program ges olika alternativ för att lägga till ytterligare funktioner i programmet.
+5. Klicka på **Skapa** när du är klar. Azure AD tilldelas ett unikt ID till ditt program, och du\'på nytt kommer du till ditt program\'s huvudsakliga registreringssidan. Beroende på om ditt program är ett webbprogram eller ett internt program ges olika alternativ för att lägga till ytterligare funktioner i programmet.
 
-    **Obs:** som standard det nyligen registrerade programmet konfigureras så att endast användare från samma klient att logga in på ditt program.
+   **Obs:** som standard det nyligen registrerade programmet konfigureras så att endast användare från samma klient att logga in på ditt program.
 
 <a name="api-methods-and-endpoints"></a>API-metoder och slutpunkter
 -------------------------
@@ -502,6 +502,7 @@ Get-åtgärd på prenumerera på slutpunkten låter en användare att hämta en 
     "lastModified": ""
 }
 ```
+
 | **Parameternamn**     | **Datatyp** | **Beskrivning**                               |
 |------------------------|---------------|-----------------------------------------------|
 | id                     | String        | ID för SaaS-prenumeration-resurs i Azure.    |

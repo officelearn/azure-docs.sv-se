@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6c71956bf43a0147d5abff4b708be93f62fe34fa
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4093febd19d71512e3c80704e88f9d5cf669d7d9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545069"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122071"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Skapa förutsägande pipelines med Azure Machine Learning och Azure Data Factory
 
@@ -261,8 +261,8 @@ Vi rekommenderar att du går igenom den [skapa din första pipeline med Data Fac
       >
       >
 
-    ```JSON
-    {
+      ```JSON
+      {
         "name": "PredictivePipeline",
         "properties": {
             "description": "use AzureML model",
@@ -300,8 +300,8 @@ Vi rekommenderar att du går igenom den [skapa din första pipeline med Data Fac
             "start": "2016-02-13T00:00:00Z",
             "end": "2016-02-14T00:00:00Z"
         }
-    }
-    ```
+      }
+      ```
 
       Båda **starta** och **slutet** datum och tid måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41Z. Den **slutet** är valfri. Om du inte anger värdet för den **slutet** egenskapen, beräknas det som ”**start + 48 timmar.**” Om du vill köra pipelinen på obestämd tid, anger du **9999-09-09** som värde för **slut**egenskapen. Se [Referens för JSON-skript](https://msdn.microsoft.com/library/dn835050.aspx) för information om JSON-egenskaper.
 

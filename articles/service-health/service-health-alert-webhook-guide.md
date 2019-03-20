@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: 898f2eca0b6cc115f56bcae195c58c6eef190694
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 69b142cd46c006e562218c949fb450864589a661
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884876"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838095"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Konfigurera aviseringar om hälsotillståndet för befintliga problem system med en webhook
 
@@ -59,7 +59,7 @@ Från lägsta allvarlighetsgrad till högsta allvarlighetsgrad den `level` egens
 
 ## <a name="parsing-the-impacted-services-to-understand-the-full-scope-of-the-incident"></a>Parsning av de berörda tjänsterna för att förstå vilka incidenten
 Service health-aviseringar kan informera dig om problem i flera regioner och tjänster. Om du vill ha fullständig information du behöver att parsa värdet för `impactedServices`.
-Innehållet i är en [JSON undantagna](http://json.org/) string, när unescaped, innehåller ett annat JSON-objekt som kan parsas regelbundet.
+Innehållet i är en [JSON undantagna](https://json.org/) string, när unescaped, innehåller ett annat JSON-objekt som kan parsas regelbundet.
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}

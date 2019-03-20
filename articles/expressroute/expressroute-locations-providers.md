@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: pareshmu
-ms.openlocfilehash: 92cb69ba6d1ee34160cf2015fdf8083c8d37327b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 54fb871f653e74606d54f98c9ca695c33b7b5f37
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780039"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849150"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -50,11 +50,8 @@ Följande tabell innehåller en karta över Azures regioner till ExpressRoute-pl
 | **Indien** | 2 |Västra Indien, centrala Indien, södra Indien |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japan** | 2 |Västra Japan, östra Japan |Osaka, Tokyo |
 | **Sydkorea** | 2 |Sydkorea, centrala; Sydkorea, södra |Busan, Söul|
-| **Sydafrika** | 3 |[Sydafrika, västra+, Sydafrika, norra+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Kapstaden, Johannesburg |
+| **Sydafrika** | 3 |Sydafrika, västra, Sydafrika, Norra |Kapstaden, Johannesburg |
 | **Sydamerika** | 3 |Södra Brasilien |Sao Paulo |
-
- **+** kommer snart
-
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regioner och geopolitiska gränser för nationella moln
 Tabellen nedan innehåller information om regioner och geopolitiska gränser för nationella moln.
@@ -160,7 +157,7 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
 
 * Fråga anslutningsleverantören om de är anslutna till något av utbytena i tabellen ovan. Du kan använda följande länkar för att samla in mer information om tjänster som erbjuds av utbytesleverantörer. Flera anslutningsleverantörer är redan ansluten till Ethernet-utbyten.
   * [Cologix](https://www.cologix.com/)
-  * [CoreSite](http://www.coresite.com/)
+  * [CoreSite](https://www.coresite.com/)
   * [Equinix Cloud Exchange](https://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
   * [InterXion](https://www.interxion.com/)
   * [NextDC](https://www.nextdc.com/)

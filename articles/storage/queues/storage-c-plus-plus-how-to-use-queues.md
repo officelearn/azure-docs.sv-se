@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: cbrooksmsft
 ms.subservice: queues
-ms.openlocfilehash: b1a566c4179e940b82790c69b3036e3be9e352cc
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 08c865e5383e4095a22aa6c10c8b181f916d1d30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564535"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999418"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Använda Queue Storage från C++
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -23,10 +23,10 @@ ms.locfileid: "55564535"
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Översikt
-Den här guiden visar hur du utför vanliga scenarier med Azure Queue storage-tjänsten. Exemplen är skrivna i C++ och använder [Azure Storage-klientbiblioteket för C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Scenarier som omfattas är **infoga**, **granskning**, **komma**, och **tar bort** köa meddelanden, samt  **Skapa och ta bort köer**.
+Den här guiden visar hur du utför vanliga scenarier med Azure Queue storage-tjänsten. Exemplen är skrivna i C++ och använder [Azure Storage-klientbiblioteket för C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Scenarier som omfattas är **infoga**, **granskning**, **komma**, och **tar bort** köa meddelanden, samt  **Skapa och ta bort köer**.
 
 > [!NOTE]
-> För den här guiden krävs Azure Storage-klientbiblioteket för C++ version 1.0.0 eller senare. Den rekommenderade versionen är Storage-klientbibliotek 2.2.0, som är tillgängligt via [NuGet](http://www.nuget.org/packages/wastorage) eller [GitHub](http://github.com/Azure/azure-storage-cpp/).
+> För den här guiden krävs Azure Storage-klientbiblioteket för C++ version 1.0.0 eller senare. Den rekommenderade versionen är Storage-klientbibliotek 2.2.0, som är tillgängligt via [NuGet](https://www.nuget.org/packages/wastorage) eller [GitHub](https://github.com/Azure/azure-storage-cpp/).
 > 
 > 
 
@@ -42,7 +42,7 @@ För att göra det måste du installera Azure Storage-klientbiblioteket för C++
 Du kan installera Azure Storage-klientbiblioteket för C++ med någon av följande metoder:
 
 * **Linux:** Följ instruktionerna den [Azure Storage-klientbiblioteket för C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) sidan.
-* **Windows:** Klicka på **Verktyg > NuGet Package Manager > Package Manager Console** i Visual Studio. Skriv följande kommando i den [NuGet Package Manager-konsolen](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) och tryck på **RETUR**.
+* **Windows:** Klicka på **Verktyg > NuGet Package Manager > Package Manager Console** i Visual Studio. Skriv följande kommando i den [NuGet Package Manager-konsolen](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) och tryck på **RETUR**.
 
 ```powershell
 Install-Package wastorage
@@ -266,5 +266,5 @@ Nu när du har lärt dig grunderna i Queue storage kan du följa dessa länkar o
 * [Använda Blob Storage från C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Använda Table Storage från C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Lista över Azure Storage-resurser i C++](../common/storage-c-plus-plus-enumeration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
-* [Storage-klientbibliotek för C++-referens](http://azure.github.io/azure-storage-cpp)
+* [Storage-klientbibliotek för C++-referens](https://azure.github.io/azure-storage-cpp)
 * [Azure Storage-dokumentation](https://azure.microsoft.com/documentation/services/storage/)

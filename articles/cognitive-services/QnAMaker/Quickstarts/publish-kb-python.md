@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 11/19/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: f4491a343d9d84f714c1ac21a46d495ebd4d40b9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 30a29b69fb44c45598841a7571e5d052ee9ad398
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868063"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213253"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Snabbstart: Publicera en kunskapsbas i QnA Maker med Python
 
@@ -25,7 +25,7 @@ Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar
 Den här snabbstarten anropar API:er för QnA Maker:
 * [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) (Publicera) – detta API kräver inte någon information i brödtexten för begäran.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Python 3.7](https://www.python.org/downloads/)
 * Du måste ha en QnA Maker-tjänst. Hämta nyckeln genom att välja Nycklar under Resurshantering på instrumentpanelen.

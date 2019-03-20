@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: b34b103d3b710b90fd7b396f2c8d0e7adc27aaca
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 24a37775298d6c6b40ec49f34158fcb77f26a379
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454675"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113222"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-portal"></a>Skapa och hantera skrivskyddade repliker från Azure portal
 
@@ -50,17 +50,17 @@ Den `azure.replication_support` parametern måste anges till **REPLIKEN** på hu
 ## <a name="create-a-read-replica"></a>Skapa en skrivskyddad replik
 Följ dessa steg om du vill skapa en skrivskyddad replik:
 
-1.  Välj befintlig Azure Database for PostgreSQL-server att använda som huvudserver. 
+1. Välj befintlig Azure Database for PostgreSQL-server att använda som huvudserver. 
 
-2.  På servermenyn under **inställningar**väljer **replikering**.
+2. På servermenyn under **inställningar**väljer **replikering**.
 
    Om du inte angett det `azure.replication_support` parameter **REPLIKEN** på en generell användning eller Minnesoptimerade huvudservern och starta om servern, visas ett meddelande. Slutföra de här stegen innan du skapar repliken.
 
-3.  Välj **lägga till en replik**.
+3. Välj **lägga till en replik**.
 
    ![Lägg till en replik](./media/howto-read-replicas-portal/add-replica.png)
 
-4.  Ange ett namn för den skrivskyddade repliken. Välj **OK** att bekräfta skapandet av repliken.
+4. Ange ett namn för den skrivskyddade repliken. Välj **OK** att bekräfta skapandet av repliken.
 
    ![Namn på repliken](./media/howto-read-replicas-portal/name-replica.png) 
 
@@ -82,19 +82,19 @@ Du kan stoppa replikering mellan en huvudserver och en skrivskyddad replik.
 
 Följ dessa steg om du vill stoppa replikering mellan en huvudserver och en skrivskyddad replik från Azure portal:
 
-1.  Välj master Azure Database för PostgreSQL-server i Azure-portalen.
+1. Välj master Azure Database för PostgreSQL-server i Azure-portalen.
 
-2.  På servermenyn under **inställningar**väljer **replikering**.
+2. På servermenyn under **inställningar**väljer **replikering**.
 
-3.  Välj replikservern som du vill stoppa replikering.
+3. Välj replikservern som du vill stoppa replikering.
 
    ![Väljer du repliken](./media/howto-read-replicas-portal/select-replica.png)
  
-4.  Välj **replikeringen stoppas**.
+4. Välj **replikeringen stoppas**.
 
    ![Välj replikeringen stoppas](./media/howto-read-replicas-portal/select-stop-replication.png)
  
-5.  Välj **OK** att stoppa replikering.
+5. Välj **OK** att stoppa replikering.
 
    ![Bekräfta att du vill stoppa replikering](./media/howto-read-replicas-portal/confirm-stop-replication.png)
  
@@ -107,13 +107,13 @@ Om du vill ta bort en huvudserver måste använda du samma steg att ta bort en f
 
 Följ dessa steg om du vill ta bort en server från Azure portal:
 
-1.  Välj master Azure Database för PostgreSQL-server i Azure-portalen.
+1. Välj master Azure Database för PostgreSQL-server i Azure-portalen.
 
-2.  Öppna den **översikt** sidan för servern. Välj **Ta bort**.
+2. Öppna den **översikt** sidan för servern. Välj **Ta bort**.
 
    ![På sidan Översikt, Välj att ta bort huvudservern](./media/howto-read-replicas-portal/delete-server.png)
  
-3.  Ange namnet på huvudservern för att ta bort. Välj **ta bort** att bekräfta borttagningen av huvudservern.
+3. Ange namnet på huvudservern för att ta bort. Välj **ta bort** att bekräfta borttagningen av huvudservern.
 
    ![Bekräfta att du vill ta bort huvudservern](./media/howto-read-replicas-portal/confirm-delete.png)
  
@@ -127,19 +127,19 @@ Du kan ta bort en skrivskyddad replik som liknar hur du tar bort en huvudserver.
  
 Du kan också ta bort Läs replik från den **replikering** fönster genom att följa dessa steg:
 
-1.  Välj master Azure Database för PostgreSQL-server i Azure-portalen.
+1. Välj master Azure Database för PostgreSQL-server i Azure-portalen.
 
-2.  På servermenyn under **inställningar**väljer **replikering**.
+2. På servermenyn under **inställningar**väljer **replikering**.
 
-3.  Välj den skrivskyddade repliken för att ta bort.
+3. Välj den skrivskyddade repliken för att ta bort.
 
    ![Välj repliken för att ta bort](./media/howto-read-replicas-portal/select-replica.png)
  
-4.  Välj **ta bort replik**.
+4. Välj **ta bort replik**.
 
    ![Välj Ta bort replik](./media/howto-read-replicas-portal/select-delete-replica.png)
  
-5.  Ange namnet på repliken för att ta bort. Välj **ta bort** att bekräfta borttagningen av repliken.
+5. Ange namnet på repliken för att ta bort. Välj **ta bort** att bekräfta borttagningen av repliken.
 
    ![Bekräfta att du vill ta bort te replik](./media/howto-read-replicas-portal/confirm-delete-replica.png)
  
@@ -162,13 +162,13 @@ Den **Max fördröjning mellan repliker** måttet visar förskjutningen i byte m
 ### <a name="replica-lag-metric"></a>Repliken fördröjning mått
 Den **repliken fördröjning** mått visar tiden sedan senast återupprepas transaktion på en replik. Om det finns inga transaktioner som sker i bakgrunden, visar den här tidsförskjutningen i måttet.
 
-1.  Välj Azure Database för PostgreSQL Läs replik i Azure-portalen.
+1. Välj Azure Database för PostgreSQL Läs replik i Azure-portalen.
 
-2.  Välj **Mått**. I den **mått** väljer **repliken fördröjning**.
+2. Välj **Mått**. I den **mått** väljer **repliken fördröjning**.
 
    ![Övervaka replik-fördröjning](./media/howto-read-replicas-portal/select-replica-lag.png)
  
-3.  För din **aggregering**väljer **Max**. 
+3. För din **aggregering**väljer **Max**. 
  
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om [läsa repliker i Azure Database för PostgreSQL](concepts-read-replicas.md).

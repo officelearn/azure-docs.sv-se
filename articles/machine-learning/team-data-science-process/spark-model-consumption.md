@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9edd243c47c7c0eeeff3b875fccede01806862a7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d89886e7cc5fe47013902b281c490b79a07e7641
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452685"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888118"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operationalisera Spark-byggda machine learning-modeller
 
@@ -190,9 +190,9 @@ Det här avsnittet visar hur du index, koda och skala kategoriska funktioner fö
 ### <a name="feature-transformation-index-and-encode-categorical-features-for-input-into-models-for-scoring"></a>Funktionen omvandling: indexera och koda kategoriska funktioner för mata in modeller för bedömning
 Det här avsnittet visas hur du indexerar kategoriska data med hjälp av en `StringIndexer` och koda funktioner med `OneHotEncoder` indata i modeller.
 
-Den [StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) kodar en strängkolumn för etiketter till en kolumn etikett index skapas. Indexen ordnas efter frekvenser som etikett. 
+Den [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) kodar en strängkolumn för etiketter till en kolumn etikett index skapas. Indexen ordnas efter frekvenser som etikett. 
 
-Den [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) mappar en kolumn med etiketten index till en kolumn med binära vektorer, med högst ett ett-värde. Den här kodningen kan algoritmer som förväntar sig kontinuerlig värdefull funktioner, till exempel logistic regression som ska tillämpas på kategoriska funktioner.
+Den [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) mappar en kolumn med etiketten index till en kolumn med binära vektorer, med högst ett ett-värde. Den här kodningen kan algoritmer som förväntar sig kontinuerlig värdefull funktioner, till exempel logistic regression som ska tillämpas på kategoriska funktioner.
 
     #INDEX AND ONE-HOT ENCODE CATEGORICAL FEATURES
 
@@ -257,7 +257,7 @@ Den [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.pre
 Åtgången tid att köra ovanför cellen: 5.37 sekunder
 
 ### <a name="create-rdd-objects-with-feature-arrays-for-input-into-models"></a>Skapa RDD-objekt med funktionen matriser för mata in modeller
-Det här avsnittet innehåller kod som visar hur du indexera kategoriska textdata som ett RDD-objekt och en frekvent koda den så att den kan användas för att träna och testa MLlib logistic regression och trädet-baserade modellen. Indexerade data lagras i [Resilient Distributed Dataset (RDD)](http://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) objekt. Det här är den grundläggande abstraktionen i Spark. En RDD-objektet representerar en oföränderlig, partitionerad samling element som kan användas på parallellt med Spark.
+Det här avsnittet innehåller kod som visar hur du indexera kategoriska textdata som ett RDD-objekt och en frekvent koda den så att den kan användas för att träna och testa MLlib logistic regression och trädet-baserade modellen. Indexerade data lagras i [Resilient Distributed Dataset (RDD)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) objekt. Det här är den grundläggande abstraktionen i Spark. En RDD-objektet representerar en oföränderlig, partitionerad samling element som kan användas på parallellt med Spark.
 
 Den innehåller också kod som visar hur du skalar data med den `StandardScalar` tillhandahålls av MLlib för användning i linjär regression med Stokastisk brantaste Lutningsmetoden (Descent), en populär algoritm för att träna ett stort antal machine learning-modeller. Den [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) används för att skala funktioner till enhet avvikelse. Funktionen skalning, även kallat databasnormalisering försäkrar att funktioner med brett erläggas värden har inte gett överdriven väga i funktionen servicenivåmål. 
 
@@ -397,9 +397,9 @@ Koden i det här avsnittet visar hur du läser in en linjär regressionsmodell f
 ## <a name="score-classification-and-regression-random-forest-models"></a>Bedöma klassificerings- och regressionsmodeller slumpmässiga skog modeller
 Koden i det här avsnittet visar hur du läser in sparade klassificeringen och regression slumpmässiga skog modeller sparas i Azure blob storage, poängsätta sina utföranden med standard klassificerare och regression mått och spara resultaten tillbaka till blob storage.
 
-[Slumpmässig skogar](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) är ensembler för beslutsträd.  De kombinera många beslutsträd för att minska risken för overfitting. Slumpmässig skogar kan hantera kategoriska funktioner, utöka till inställningen multiklass-baserad klassificering, kräver funktionen skalning och kan samla in icke-linjära och funktionen interaktioner. Slumpmässig skogar är en av de mest framgångsrika machine learning-modeller för klassificering och regression.
+[Slumpmässig skogar](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) är ensembler för beslutsträd.  De kombinera många beslutsträd för att minska risken för overfitting. Slumpmässig skogar kan hantera kategoriska funktioner, utöka till inställningen multiklass-baserad klassificering, kräver funktionen skalning och kan samla in icke-linjära och funktionen interaktioner. Slumpmässig skogar är en av de mest framgångsrika machine learning-modeller för klassificering och regression.
 
-[Spark.mllib](http://spark.apache.org/mllib/) stöder slumpmässiga skogar för binära och multiklass-baserad klassificering och regression, med hjälp av både kontinuerlig och kategoriska funktioner. 
+[Spark.mllib](https://spark.apache.org/mllib/) stöder slumpmässiga skogar för binära och multiklass-baserad klassificering och regression, med hjälp av både kontinuerlig och kategoriska funktioner. 
 
     # SCORE RANDOM FOREST MODELS FOR CLASSIFICATION AND REGRESSION
 
@@ -445,7 +445,7 @@ Koden i det här avsnittet visar hur du läser in klassificering och regression 
 
 **Spark.mllib** stöder GBTs för binär klassificering och regression, med hjälp av både kontinuerlig och kategoriska funktioner. 
 
-[Gradient Boosting träd](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) är ensembler för beslutsträd. GBTs träna beslutsträd upprepade gånger för att minimera en förlust-funktion. GBTs kan hantera kategoriska funktioner kräver funktionen skalning och kan samla in icke-linjära och funktionen interaktioner. De kan också användas i en inställning för multiclass-klassificering.
+[Gradient Boosting träd](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) är ensembler för beslutsträd. GBTs träna beslutsträd upprepade gånger för att minimera en förlust-funktion. GBTs kan hantera kategoriska funktioner kräver funktionen skalning och kan samla in icke-linjära och funktionen interaktioner. De kan också användas i en inställning för multiclass-klassificering.
 
     # SCORE GRADIENT BOOSTING TREE MODELS FOR CLASSIFICATION AND REGRESSION
 

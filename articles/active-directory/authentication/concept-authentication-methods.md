@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9d90407dab29f431f5a592e077c859aea997c4c
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 09f61f60a3885fbc58cddc4b46df11014057f54e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214103"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999486"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
 
@@ -148,6 +148,8 @@ Microsoft Authenticator-appen eller andra appar från tredje part kan användas 
 > [!WARNING]
 > För lösenordsåterställning via självbetjäning när bara en metod krävs för återställning av verifieringskoden är det enda alternativet som är tillgängliga för användare **att säkerställa högsta säkerhetsnivå**.
 >
+
+Användare kan ha en kombination av upp till 5 OATH-maskinvarutoken eller authenticator-program, till exempel Microsoft Authenticator-appen som konfigurerats för användning när som helst.
 
 ## <a name="oath-hardware-tokens-public-preview"></a>OATH-maskinvarutoken (offentlig förhandsversion)
 

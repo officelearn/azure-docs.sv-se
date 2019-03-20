@@ -6,12 +6,12 @@ ms.date: 11/27/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: f7b546e8a0ca52fd2037e471f01787bb64db032d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: aefb0684ea065841824ad27d1105ef309418c6b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842755"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090754"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Behålla IP-adresser vid redundans
 
@@ -62,10 +62,10 @@ Om det uppstår ett regionalt strömavbrott källa, kan företag A redundansväx
 
 - Med mål-IP-adresser redan på plats innan redundansen, företag A kan samordna redundans och upprätta anslutningar automatiskt efter en redundansväxling mellan **Recovery VNet** och **virtuella Azure-nätverket**. Detta illustreras i följande diagram...
 - Beroende på krav för appar, anslutningar mellan de två virtuella nätverken (**Recovery VNet** och **virtuella Azure-nätverket**) i mål-region kan vara etablerad innan, under (som ett mellanliggande steg) eller efter redundansen.
-    - Företaget kan använda [återställningsplaner](site-recovery-create-recovery-plans.md) att ange när anslutningar upprättas.
-    - De kan ansluta mellan virtuella nätverk med VNet-peering eller plats-till-plats-VPN.
-        - VNet-peering använder inte en VPN-gateway och har även andra restriktioner.
-        - VNet-peering [priser](https://azure.microsoft.com/pricing/details/virtual-network) beräknas annorlunda än VNet-till-VNet VPN-gatewayen [priser](https://azure.microsoft.com/pricing/details/vpn-gateway). För växling vid fel rekommenderar vi Allmänt använda samma anslutningsmetod som käll-nätverk, inklusive typen av anslutning kan minimera oförutsägbara nätverk incidenter.
+  - Företaget kan använda [återställningsplaner](site-recovery-create-recovery-plans.md) att ange när anslutningar upprättas.
+  - De kan ansluta mellan virtuella nätverk med VNet-peering eller plats-till-plats-VPN.
+      - VNET-peering använder ingen VPN-gateway och har även andra restriktioner.
+      - VNet-peering [priser](https://azure.microsoft.com/pricing/details/virtual-network) beräknas annorlunda än VNet-till-VNet VPN-gatewayen [priser](https://azure.microsoft.com/pricing/details/vpn-gateway). För växling vid fel rekommenderar vi Allmänt använda samma anslutningsmetod som käll-nätverk, inklusive typen av anslutning kan minimera oförutsägbara nätverk incidenter.
 
     ![Resurser i Azure fullständig växling vid fel](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 
@@ -128,13 +128,13 @@ I det här scenariot **företag B** körs en hybrid-företag med en del av den i
 Här är nätverksarkitekturen ser det ut före redundans.
 
 - Programmet virtuella datorer finns i Azure Östasien.
--  Östasien har ett virtuellt nätverk (**Källnätverk**) med adressen utrymme 10.1.0.0/16.
-    - Östasien har arbetsbelastningar som delas upp i alla tre undernät i **Källnätverk**:
-        - **Undernät 1**: 10.1.1.0/24
-        - **Undernät 2**: 10.1.2.0/24,
-        - **Undernät 3**: 10.1.3.0/24utilizing ett Azure-nätverk med adress utrymme 10.1.0.0/16. Det här virtuella nätverket har namnet **Källnätverk**
- - Regionen sekundär (mål) är Azure Sydostasien:
-    - Sydostasien har en återställning VNet (**Recovery VNet**) identisk **Källnätverk**.
+- Östasien har ett virtuellt nätverk (**Källnätverk**) med adressen utrymme 10.1.0.0/16.
+  - Östasien har arbetsbelastningar som delas upp i alla tre undernät i **Källnätverk**:
+    - **Undernät 1**: 10.1.1.0/24
+    - **Undernät 2**: 10.1.2.0/24,
+    - **Undernät 3**: 10.1.3.0/24utilizing Azure-nätverk med adress utrymme 10.1.0.0/16. Det här virtuella nätverket har namnet **Källnätverk**
+      - Regionen sekundär (mål) är Azure Sydostasien:
+  - Sydostasien har en återställning VNet (**Recovery VNet**) identisk **Källnätverk**.
 - Virtuella datorer i Östasien är anslutna till ett lokalt datacenter med Azure ExpressRoute eller plats-till-plats-VPN.
 - För att minska RTO etablerar företag B gateways på Recovery VNet i Azure Sydostasien före redundans.
 - Företag B verifierar tilldelar/mål-IP-adresser för replikerade virtuella datorer. Mål-IP-adressen är samma som IP-källadressen för varje virtuell dator.

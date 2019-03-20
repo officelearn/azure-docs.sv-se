@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 264f10be1ecb22b6261a14f7185f88b101242d36
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 512e07f2892f9c4adf47956d3a5b07debf870e46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440785"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849915"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Stöd matrix för virtuell Azure-säkerhetskopiering
 Du kan använda den [Azure Backup-tjänsten](backup-overview.md) för säkerhetskopiering av lokala datorer och arbetsbelastningar och virtuella Azure-datorer (VM). Den här artikeln sammanfattas support inställningar och begränsningar när du säkerhetskopierar virtuella Azure-datorer med Azure Backup.
@@ -40,7 +40,7 @@ Läs mer om backup [med hjälp av en reservserver](backup-architecture.md#archit
 
 **Åtgärd** | **Support**
 --- | ---
-Aktivera säkerhetskopiering när du skapar en Windows Azure VM | Stöd för:  Windows Server 2016 (Datacenter/Datacenter kärnor); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 SP1
+Aktivera säkerhetskopiering när du skapar en Windows Azure VM | Stöd för:  Windows Server 2019 (Datacenter/Datacenter Core), Windows Server 2016 (Datacenter/Datacenter kärnor); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM och SP1)
 Aktivera säkerhetskopiering när du skapar en Linux VM | Stöd för:<br/><br/> - Ubuntu Server: 1710, 1704, 1604 (LTS), 1404 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3<br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> - Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 Säkerhetskopiera en virtuell dator som är avstängning/offline/söker VM | Stöds.<br/><br/> Ögonblicksbilden är kraschkonsekventa, men inte appkonsekventa.
 Säkerhetskopiera diskar när du migrerar till hanterade diskar | Stöds.<br/><br/> Backup fortsätter att fungera. Ingen åtgärd krävs.
@@ -61,7 +61,7 @@ I följande tabell sammanfattas operativsystem som stöds när du säkerhetskopi
 
 **Scenario** | **OS-support**
 --- | ---
-Säkerhetskopiera med tillägget för Azure VM-agent | Windows-klient: Stöds inte<br/><br/> Windows Server: Windows Server 2008 R2 eller senare
+Säkerhetskopiera med tillägget för Azure VM-agent | Windows-klient: Stöds inte<br/><br/> Windows Server 2019 (Datacenter/Datacenter Core), Windows Server 2016 (Datacenter/Datacenter kärnor); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM och SP1)
 Säkerhetskopiera med MARS-agenten | [Stöds](backup-support-matrix-mars-agent.md#support-for-direct-backups) operativsystem.
 Säkerhetskopiera med DPM/MABS | Operativsystem som stöds för säkerhetskopiering med [MABS](backup-mabs-protection-matrix.md) och [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 

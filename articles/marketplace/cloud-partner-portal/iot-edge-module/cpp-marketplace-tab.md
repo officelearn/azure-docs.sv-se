@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c119869c47547fd5d91f6ee91fcd772ea5941f46
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 30f44e0e8bae4071403b5c28cd4133970fc4d468
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431429"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010950"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>IoT Edge-modulen Marketplace fliken
 
 
-Den **Marketplace** fliken den **nytt erbjudande** sidan kan du ge din potentiella kunder marknadsföring, försäljning och juridisk information och avtal och hantera leads som genereras från den Marketplace. Den här diktering är uppdelad i fyra delar: **översikt**, **marknadsföring artefakter**, **leda Management**, och **juridiska**.
+Den **Marketplace** fliken den **nytt erbjudande** sidan kan du ge din potentiella kunder marknadsföring, försäljning och juridisk information och avtal och hantera leads som genereras från den Marketplace. Den här diktering är uppdelad i fyra delar: **Översikt över**, **marknadsföring artefakter**, **leda Management**, och **juridiska**.
 
 ## <a name="overview"></a>Översikt
 
@@ -39,7 +39,7 @@ I följande tabell beskrivs syftet med och innehållet i de här fälten.
 | **Rubrik**                 | Rubrik för erbjudandet. Det ska visas på en framträdande plats i marketplace.  Högst 50 tecken. <!--ADD PICTURE IN ACTION-->|
 | **Sammanfattning**               | Kort sammanfattning av erbjudandet. Högst 100 tecken. <!--ADD PICTURE IN ACTION-->|
 | **Lång sammanfattning**          | Längre sammanfattning av erbjudandet (trots att den kan vara samma som den **sammanfattning**).  Högst 256 tecken. <!--ADD PICTURE IN ACTION-->|
-| **Beskrivning**           | Beskrivning av erbjudandet.  Maximal längd på 3000 tecken har stöd för enkel HTML-formatering.<br/> Det måste innehålla en *maskinvarukraven* punkt längst ned på sidan. Till exempel: <br/> <p><u>Minimikraven på maskinvara:</u> Linux x64 och arm32 Operativsystemet, 1 GB RAM, 500 Mb lagringsutrymme</p>
+| **Beskrivning**           | Beskrivning av erbjudandet.  Maximal längd på 3000 tecken har stöd för enkel HTML-formatering.<br/> Det måste innehålla en *maskinvarukraven* punkt längst ned på sidan. Till exempel: <br/> <p><u>Minsta maskinvarukrav:</u> Linux x64 och arm32 Operativsystemet, 1 GB RAM, 500 Mb lagringsutrymme</p>
 | **Identifierare för marknadsföring**  | En unik URL att koppla till det här erbjudandet innehåller normalt sett din organisation och lösningsnamn, maximal längd 50 tecken.  Exempel: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **Förhandsversion av prenumerations-ID: N** | Lägg till en till 100 prenumeration identifierare av förhandsgranskningar. Dessa white visas prenumerationer har åtkomst till erbjudandet när den publiceras innan det lanseras. |
 | **Användbara länkar**          | Flera val för verksamheten och teknisk kategorier som erbjuder kan kopplas bäst.  Högst 10 tillåts. Se till att lägga till minst en länk till din dokumentation och en länk till kompatibla IoT Edge-enheter från den [Azure IoT-enhetskatalog](https://catalog.azureiotsolutions.com/). |
@@ -78,7 +78,7 @@ I följande tabell beskrivs syftet med och innehållet i de här fälten.
 
 ## <a name="marketing-artifacts"></a>Marknadsföring artefakter
 
-Det här avsnittet innehåller följande underavsnitt: **logotyper**, **skärmbild**, och **videor**. 
+Det här avsnittet innehåller följande underavsnitt: **Logotyper**, **skärmbild**, och **videor**. 
 
 >[!Note]
 >Logotyper är den enda krävs marknadsföring artefakter, men alla rekommenderas för bästa kund ändring.
@@ -104,7 +104,7 @@ Det här avsnittet innehåller följande underavsnitt: **logotyper**, **skärmbi
 
 ### <a name="logo-guidelines"></a>Riktlinjer för logotyp
 
-<!-- It seems like this section could be better located in some common area, maybe a AMP Marketing/Design section 
+<!-- It seems like this section could be better located in some common area, maybe an AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
 Alla logotyper som överförts till Cloud Partner Portal bör följa riktlinjerna:
@@ -136,7 +136,7 @@ As an example, the following hero icon is for the Azure Container Service.
 -->
 
 
-## <a name="lead-management"></a>Lead-hantering
+## <a name="lead-management"></a>Leadhantering
 
 Det här avsnittet kan du ställa in alternativ för att samla in kund leads genererade från Azure Marketplace-erbjudanden. Du kan välja följande lagringsalternativ från en listruta.
 
@@ -160,7 +160,7 @@ När du har publicerat ditt erbjudande, lead-anslutningen har verifierats och et
 
 ## <a name="legal"></a>Juridisk information
 
-Det här avsnittet kan du tillhandahålla två juridiska dokument som krävs för varje erbjudande: sekretesspolicy och användningsvillkor med.
+Det här avsnittet kan du ange två juridiska dokument som krävs för varje erbjudande: Sekretesspolicy och användningsvillkoren.
 
 |  **Fält**                |     **Beskrivning**                                                          |
 |  ---------                |     ---------------                                                          |

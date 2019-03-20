@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7829627352815bc96a7a81bcbbc7e51240c858e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9cfff565dec0d6f9d2bbea8edf39f180d4b63fd9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870864"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993174"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Vanliga frågor och kända problem med hanterade identiteter för Azure-resurser
 
@@ -55,17 +55,17 @@ Säkerhetsgräns identitetsinformationen är den resurs som den är ansluten til
 När du använder hanterade identiteter för Azure-resurser med virtuella datorer, bör du använda IMDS-slutpunkten. Azure Instance Metadata Service är en REST-slutpunkt som är tillgängliga för alla virtuella IaaS-datorer skapas via Azure Resource Manager. 
 
 Några av fördelarna med att använda hanterade identiteter för Azure-resurser över IMDS är:
-    - Alla operativsystem för Azure IaaS som stöds kan använda hanterade identiteter för Azure-resurser via IMDS.
-    - Inte längre behöver du installera ett tillägg på den virtuella datorn att aktivera hanterade identiteter för Azure-resurser. 
-    - Certifikat som används av hanterade identiteter för Azure-resurser finns inte längre i den virtuella datorn.
-    - IMDS slutpunkten är en välkänd icke-dirigerbara IP-adress som endast tillgängliga i den virtuella datorn.
-    - 1000 användartilldelade hanterade identiteter kan tilldelas till en enskild virtuell dator. 
+- Alla operativsystem för Azure IaaS som stöds kan använda hanterade identiteter för Azure-resurser via IMDS.
+- Inte längre behöver du installera ett tillägg på den virtuella datorn att aktivera hanterade identiteter för Azure-resurser. 
+- Certifikat som används av hanterade identiteter för Azure-resurser finns inte längre i den virtuella datorn.
+- IMDS slutpunkten är en välkänd icke-dirigerbara IP-adress som endast tillgängliga i den virtuella datorn.
+- 1000 användartilldelade hanterade identiteter kan tilldelas till en enskild virtuell dator. 
 
 Hanterade identiteter för VM-tillägg för Azure-resurser är fortfarande tillgänglig. Vi är dock inte längre att utveckla nya funktioner på den. Vi rekommenderar att du väljer att använda IMDS-slutpunkten. 
 
 Vissa begränsningar med att använda VM-tillägg-slutpunkten är:
-    - Begränsat stöd för Linux-distributioner: CoreOS stabila, CentOS 7.1, 7.2 för Red Hat, Ubuntu 15.04, Ubuntu 16.04
-    - Endast 32 användartilldelade hanterade identiteter kan tilldelas till den virtuella datorn.
+- Begränsat stöd för Linux-distributioner: CoreOS stabila, CentOS 7.1, 7.2 för Red Hat, Ubuntu 15.04, Ubuntu 16.04
+- Endast 32 användartilldelade hanterade identiteter kan tilldelas till den virtuella datorn.
 
 
 Obs! Hanterade identiteter för Azure-resurser VM-tillägget kommer att januari 2019 support upphör. 
@@ -75,8 +75,8 @@ Läs mer på Azure Instance Metadata Service [IMDS dokumentation](https://docs.m
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Hanterade identiteter återskapas automatiskt om jag flyttar en prenumeration till en annan katalog?
 
 Nej. Om du flyttar en prenumeration till en annan katalog, måste du manuellt återskapa dem och ge Azure RBAC-rolltilldelningar igen.
-    - För system tilldelade hanterade identiteter: inaktivera och återaktivera. 
-    - För användare tilldelade hanterade identiteter: ta bort, skapa och koppla dem till resurser (t.ex. virtuella datorer)
+- För system tilldelade hanterade identiteter: inaktivera och återaktivera. 
+- För användare tilldelade hanterade identiteter: ta bort, skapa och koppla dem till resurser (t.ex. virtuella datorer)
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Kan jag använda en hanterad identitet för att komma åt en resurs i en annan katalog/klient?
 

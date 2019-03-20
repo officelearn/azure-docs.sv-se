@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: e52f75d61afda247652467f06350ca4d75320318
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5bb45ff87f558e1142b68af01147ad55386ee28f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768697"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888067"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Komma igång med HTTP-begäranden för Relay-hybridanslutningar i .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -38,7 +38,7 @@ I den här snabbstarten gör du följande:
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
-* [Visual Studio 2015 eller senare](http://www.visualstudio.com). I exemplen i den här självstudiekursen används Visual Studio 2017.
+* [Visual Studio 2015 eller senare](https://www.visualstudio.com). I exemplen i den här självstudiekursen används Visual Studio 2017.
 * En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="create-a-namespace"></a>Skapa ett namnområde

@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 025f2ecef070170fef216d7533150359cf11c50f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: ea4134c486310592f1f0f344ae26a11276143faf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092597"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193372"
 ---
-# <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Snabbstart: Integrera ett Azure Storage-konto med Azure CDN
+# <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Snabbstart: Integrera ett Azure storage-konto med Azure CDN
 I den här snabbstarten aktiverar du [Azure Content Delivery Network (CDN)](cdn-overview.md) för att cachelagra innehåll från Azure Storage. Azure CDN ger utvecklarna en global lösning när det gäller att leverera innehåll med hög bandbredd. Det kan cachelagra blobbar och statiskt innehåll för beräkningsinstanser på fysiska noder i USA, Europa, Asien, Australien och Sydamerika.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -31,7 +31,7 @@ I den här snabbstarten aktiverar du [Azure Content Delivery Network (CDN)](cdn-
 Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
-Använd följande procedur om du vill skapa ett nytt lagringskonto för en Azure-prenumeration. Ett lagringskonto ger åtkomst till Azure Storage-tjänster. Lagringskontot representerar namnrymdens högsta nivå för åtkomst till var och en av Azure Storages tjänstkomponenter: Azure Blob, Queue och Table Storage. Mer information finns i [Introduktion till Microsoft Azure Storage](../storage/common/storage-introduction.md).
+Använd följande procedur om du vill skapa ett nytt lagringskonto för en Azure-prenumeration. Ett lagringskonto ger åtkomst till Azure Storage-tjänster. Lagringskontot som representerar den högsta nivån av namnområdet för att komma åt var och en av komponenter för Azure Storage-tjänsten: Azure Blob, Queue och Table storage. Mer information finns i [Introduktion till Microsoft Azure Storage](../storage/common/storage-introduction.md).
 
 Om du vill skapa ett lagringskonto måste du vara tjänstadministratör eller medadministratör för den associera prenumerationen.
 
@@ -96,9 +96,10 @@ Du kan aktivera Azure CDN för ditt lagringskonto direkt från ditt lagringskont
 
     | Inställning  | Värde |
     | -------- | ----- |
-    | **CDN-profil** | Välj **Skapa ny** och ange *my-cdn-profile-123* som profilnamn. Namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn.  |
+    | **CDN-profil** | Välj **Skapa nytt** och ange ditt profilnamn, till exempel *my-cdn-profile-123*. Det här namnet måste vara globalt unikt.  |
     | **prisnivå** | Välj **Standard Verizon** i listrutan. |
-    | **CDN-slutpunktsnamn** | Ange *my-endpoint-123* som slutpunktens värdnamn. Namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn. Namnet används för att komma åt cachelagrade resurser på domänen _&lt;slutpunktens namn&gt;_.azureedge.net. En ny CDN-slutpunkt använder som standard lagringskontots värdnamn som ursprunglig server.|
+    | **CDN-slutpunktsnamn** | Ange slutpunktens värdnamn, d.v.s. *my-endpoint-123*. Det här namnet måste vara globalt unikt. Namnet används för att komma åt cachelagrade resurser på domänen _&lt;slutpunktens namn&gt;_.azureedge.net. |
+    | **Ursprungets värdnamn** | En ny CDN-slutpunkt använder som standard lagringskontots värdnamn som ursprunglig server. |
 
 3. Välj **Skapa**. När slutpunkten har skapats visas den i listan med slutpunkter.
 
@@ -145,5 +146,5 @@ I föregående steg skapade du en CDN-profil och en CDN-slutpunkt i en resursgru
 Mer information om hur du lägger till en anpassad domän och aktiverar HTTPS för din CDN-slutpunkt finns i följande självstudie:
 
 > [!div class="nextstepaction"]
-> [Självstudie: Använda lagringsblobar via en anpassad Azure CDN-domän och HTTPS](cdn-storage-custom-domain-https.md)
+> [Självstudier: Lagringsblobar för åtkomst med hjälp av en anpassad Azure CDN-domän via HTTPS](cdn-storage-custom-domain-https.md)
 

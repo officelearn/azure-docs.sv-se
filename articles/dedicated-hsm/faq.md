@@ -2,7 +2,7 @@
 title: Vanliga frågor och svar – Azure dedikerad HSM | Microsoft Docs
 description: Vanliga frågor om olika ämnen på Azure dedikerad HSM
 services: dedicated-hsm
-author: barclayn
+author: johndaw
 manager: barbkess
 tags: azure-resource-manager
 ms.custom: mvc
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 3/11/2019
 ms.author: barclayn
-ms.openlocfilehash: 2c77f5abac69a1bade523d2a4b6793c2a9df8cf2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: cd3228b66dbbf19b574c390733340c0ea2fb5a78
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447871"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846896"
 ---
 # <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
 
@@ -166,17 +166,17 @@ Ja. Du kan skicka loggar från HSM-installation till en syslog-server
 
 Ja. Konfiguration för hög tillgänglighet och installationen utförs i HSM-klientprogrammet som tillhandahålls av Gemalto. HSM: er från samma virtuella nätverk eller andra virtuella nätverk i samma region eller i olika regioner eller i lokala HSM: er som är ansluten till ett virtuellt nätverk med plats-till-plats eller point-to-point VPN kan läggas till samma konfiguration för hög tillgänglighet.
 
-### <a name="can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Kan jag lägga till HSM: er från mitt lokala nätverk till en grupp för hög tillgänglighet med Azure dedikerad HSM?
+### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>F: Kan jag lägga till HSM: er från mitt lokala nätverk till en grupp för hög tillgänglighet med Azure dedikerad HSM?
 
 Ja. De måste uppfylla kraven för hög tillgänglighet för SafeNet Luna nätverk HSM 7.
 
-### <a name="can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Kan jag lägga till Luna 5/6 HSM: er från lokala nätverk till en grupp för hög tillgänglighet med Azure dedikerad HSM?
+### <a name="q-can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>F: Kan jag lägga till Luna 5/6 HSM: er från lokala nätverk till en grupp för hög tillgänglighet med Azure dedikerad HSM?
 
 Nej.
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>F: Hur många HSM: er kan jag lägga till samma konfiguration för hög tillgänglighet från ett enda program?
 
-16.
+16\.
 
 ## <a name="support"></a>Support
 
@@ -246,7 +246,7 @@ Ja. Dedikerad HSM tjänsten etablerar SafeNet nätverk HSM 7-installationer som 
 
 Dedikerad HSM-tjänst etablerar SafeNet Luna nätverk HSM 7-enheter. Dessa installationer Använd FIPS 140-2 nivå 3 verifierade HSM: er. Standardkonfigurationen distribueras, operativsystemet och inbyggd programvara är också FIPS-verifierade. Du behöver inte vidta några åtgärder för FIPS 140-2 Level 3-kompatibilitet.
 
-### <a name="how-does-a-customer-ensure-that-when-an-hsm-is-deprovisioned-all-the-key-material-is-wiped-out"></a>Hur ser en kund till att när en HSM datorn avetableras alla nyckelmaterial rensar?
+### <a name="q-how-does-a-customer-ensure-that-when-an-hsm-is-deprovisioned-all-the-key-material-is-wiped-out"></a>F: Hur ser en kund till att när en HSM datorn avetableras alla nyckelmaterial rensar?
 
 Innan du begär avetablering, har en kund zeroized HSM med hjälp av Gemalto tillhandahålls HSM-klientverktyg.
 

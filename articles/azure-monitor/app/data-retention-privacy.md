@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8218da62eb8c3d8c454ca1dca1bd1071e0de67b0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 3c74d3a6c5b66053fb968ad52f72eca181799a3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308762"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003591"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Datainsamling, kvarhållning och lagring i Application Insights
 
@@ -156,12 +156,12 @@ Via kod:
 
 - Ta bort ServerTelemetryChannel från konfigurationsfilen
 - Lägg till det här kodfragmentet i konfigurationen:
-```csharp
-ServerTelemetryChannel channel = new ServerTelemetryChannel();
-channel.StorageFolder = @"D:\NewTestFolder";
-channel.Initialize(TelemetryConfiguration.Active);
-TelemetryConfiguration.Active.TelemetryChannel = channel;
-```
+  ```csharp
+  ServerTelemetryChannel channel = new ServerTelemetryChannel();
+  channel.StorageFolder = @"D:\NewTestFolder";
+  channel.Initialize(TelemetryConfiguration.Active);
+  TelemetryConfiguration.Active.TelemetryChannel = channel;
+  ```
 
 ### <a name="netcore"></a>NetCore
 
@@ -237,6 +237,7 @@ Dock kan du implementera en sådan funktion i ditt program. Alla SDK: erna inneh
 SDK: erna kan variera mellan plattformar och det finns flera komponenter som du kan installera. (Se [Application Insights – översikt][start].) Varje komponent skickar olika data.
 
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>Typer av data som skickas i olika scenarier
+
 | Åtgärden | Dataklasser som samlas in (se nästa tabell) |
 | --- | --- |
 | [Lägg till Application Insights SDK till en .NET-webbprojekt][greenbrown] |ServerContext<br/>Härledd<br/>Prestandaräknare<br/>Begäranden<br/>**Undantag**<br/>Session<br/>användare |
@@ -252,6 +253,7 @@ SDK: erna kan variera mellan plattformar och det finns flera komponenter som du 
 För [SDK: er för andra plattformar][platforms], finns i sina dokument.
 
 #### <a name="the-classes-of-collected-data"></a>Klasser av insamlade data
+
 | Insamlade data-klass | Innehåller (inte en fullständig förteckning) |
 | --- | --- |
 | **Egenskaper** |**Alla data – avgörs av din kod** |

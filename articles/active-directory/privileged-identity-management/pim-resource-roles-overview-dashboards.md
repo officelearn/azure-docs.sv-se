@@ -1,5 +1,5 @@
 ---
-title: Använda en resurs-instrumentpanel för att utföra en åtkomstgranskning – Azure | Microsoft Docs
+title: Använd en resurs-instrumentpanel för att utföra en åtkomstgranskning i PIM - Azure | Microsoft Docs
 description: Beskriver hur du använder en resurs-instrumentpanel för att utföra en åtkomstgranskning i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30cfafec770aec72faf01563018fbd478e73ab2f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 89abf15731bd125737e7c18ab45782820a856b38
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202612"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012674"
 ---
-# <a name="use-a-resource-dashboard-to-perform-an-access-review"></a>Använda en resurs-instrumentpanel för att utföra en åtkomstgranskning
+# <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>Använd en resurs-instrumentpanel för att utföra en åtkomstgranskning i PIM
 
 Du kan använda en resurs-instrumentpanel för att utföra en åtkomstgranskning i Privileged Identity Management (PIM) för Azure-resurser. Admin-visa instrumentpanelen har tre huvudkomponenter:
 

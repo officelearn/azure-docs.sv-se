@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 1fd472c452b476820414d51b8d13bce8a72dfb3d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ca4cd1aa074353914f5187e353c233f8b45140eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874944"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091689"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS-bot i C# med Bot Framework 3.x och Azure Web app-robot
 
@@ -46,16 +46,16 @@ Använd C# och skapa en chattrobot som är integrerad med språkförståelse (LU
 3. I fönstret Web App-robot klickar du på **skapa**.
 
 4. I **Robottjänst**, ange nödvändig information och klicka på **skapa**. Detta skapar och distribuerar bot service och LUIS-app till Azure. Om du vill använda [tal promotor](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), granska [region krav](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming) innan du skapar din robot. 
-    * Ange **appnamn** till din robot namn. Namnet används som underdomänen när din robot distribueras till molnet (exempelvis mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
-    * Välj prenumerationen [resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service-plan och [plats](https://azure.microsoft.com/regions/).
-    * För **Bot mallen**väljer:
-        * **SDK v3**
-        * **C#**
-        * **Språkförståelse**
-    * Välj den **LUIS platsen**. Det här är redigeringen [region](luis-reference-regions.md) appen skapas i.
-    * Markera kryssrutan bekräftelse för juridiskt meddelande. Villkoren i juridiskt meddelande är lägre än kryssrutan.
+   * Ange **appnamn** till din robot namn. Namnet används som underdomänen när din robot distribueras till molnet (exempelvis mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+   * Välj prenumerationen [resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service-plan och [plats](https://azure.microsoft.com/regions/).
+   * För **Bot mallen**väljer:
+       * **SDK v3**
+       * **C#**
+       * **Språkförståelse**
+   * Välj den **LUIS platsen**. Det här är redigeringen [region](luis-reference-regions.md) appen skapas i.
+   * Markera kryssrutan bekräftelse för juridiskt meddelande. Villkoren i juridiskt meddelande är lägre än kryssrutan.
 
-    ![Robottjänst](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
+     ![Robottjänst](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
 
 
 5. Bekräfta att bot-tjänsten har distribuerats.
@@ -86,9 +86,9 @@ Roboten svarar genom att säga ”du har nått hälsning. Du SA: hello ”.  Det
 > 1. Klicka på **Mina appar**. 
 > 2. Hitta LUIS-appen du skapade tidigare, som innehåller avsikter och entiteter från HomeAutomation-domän.
 > 3. I den **inställningar** för LUIS-app, hitta och kopiera app-ID. Se till att det [tränade](luis-interactive-test.md) och [publicerade](luis-how-to-publish-app.md). 
-
-    > [!WARNING]
-    > If you delete your app ID or LUIS key, the bot will stop working.
+> 
+> [!WARNING]
+> Om du tar bort din app-ID eller LUIS nyckel att roboten sluta fungera.
 
 ## <a name="modify-the-bot-code"></a>Ändra bot-koden
 

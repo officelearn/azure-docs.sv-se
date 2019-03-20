@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: a3a259b9734a1cc313e046d9946a090232cd14a1
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727067"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088425"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions runtime versioner-översikt
 
@@ -65,9 +65,9 @@ I version 2.x kan följande ändringar har gjorts:
 
 * Värd-konfigurationsfilen (host.json) ska vara tomt eller ha strängen `"version": "2.0"`.
 
-* Att förbättra övervakning, WebJobs-instrumentpanelen i portalen, som används i [ `AzureWebJobsDashboard` ](functions-app-settings.md#azurewebjobsdashboard) inställningen ersätts med Azure Application Insights, som använder den [ `APPINSIGHTS_INSTRUMENTATIONKEY` ](functions-app-settings.md#appinsightsinstrumentationkey) inställningen. Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
+* Att förbättra övervakning, WebJobs-instrumentpanelen i portalen, som används i [ `AzureWebJobsDashboard` ](functions-app-settings.md#azurewebjobsdashboard) inställningen ersätts med Azure Application Insights, som använder den [ `APPINSIGHTS_INSTRUMENTATIONKEY` ](functions-app-settings.md#appinsights_instrumentationkey) inställningen. Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
 
-* Alla funktioner i en funktionsapp måste dela samma språk. När du skapar en funktionsapp måste du välja en körningsstack för appen. Körningsstack som anges av den [ `FUNCTIONS_WORKER_RUNTIME` ](functions-app-settings.md#functionsworkerruntime) värdet i programinställningarna. Det här kravet har lagts till att förbättra tid-fotavtryck och Start. När du utvecklar lokalt, måste du också inkludera den här inställningen i den [local.settings.json-fil](functions-run-local.md#local-settings-file).
+* Alla funktioner i en funktionsapp måste dela samma språk. När du skapar en funktionsapp måste du välja en körningsstack för appen. Körningsstack som anges av den [ `FUNCTIONS_WORKER_RUNTIME` ](functions-app-settings.md#functions_worker_runtime) värdet i programinställningarna. Det här kravet har lagts till att förbättra tid-fotavtryck och Start. När du utvecklar lokalt, måste du också inkludera den här inställningen i den [local.settings.json-fil](functions-run-local.md#local-settings-file).
 
 * Standardvärdet för timeout för i en App Service plan ändras till 30 minuter. Du kan manuellt ändra timeout-värdet till obegränsat med hjälp av den [functionTimeout](functions-host-json.md#functiontimeout) i host.json.
 
@@ -109,7 +109,7 @@ För Visual Studio Code-utveckling du också behöva uppdatera användarinställ
 
 ### <a name="changing-version-of-apps-in-azure"></a>Ändra versionen av appar i Azure
 
-Versionen av Functions-körning som används av publicerade appar i Azure beror den [ `FUNCTIONS_EXTENSION_VERSION` ](functions-app-settings.md#functionsextensionversion) programinställningen. Värdet `~2` riktar sig till version 2.x-körningen och `~1` riktar sig mot version 1.x-körningen. Godtyckligt ändras inte den här inställningen eftersom andra ändringar i appen och kodändringar i dina funktioner är sannolikt krävs. Mer information om det rekommenderade sättet att migrera din funktionsapp till en annan körningsversion, se [hur du Azure Functions runtime versioner](set-runtime-version.md).
+Versionen av Functions-körning som används av publicerade appar i Azure beror den [ `FUNCTIONS_EXTENSION_VERSION` ](functions-app-settings.md#functions_extension_version) programinställningen. Värdet `~2` riktar sig till version 2.x-körningen och `~1` riktar sig mot version 1.x-körningen. Godtyckligt ändras inte den här inställningen eftersom andra ändringar i appen och kodändringar i dina funktioner är sannolikt krävs. Mer information om det rekommenderade sättet att migrera din funktionsapp till en annan körningsversion, se [hur du Azure Functions runtime versioner](set-runtime-version.md).
 
 ## <a name="bindings"></a>Bindningar
 

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: d7f67015d4df20ea39c1225d52be36340b8f65d1
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 487c142400dc2bfa6f44e17963535051af017196
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556984"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116189"
 ---
 # <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Självstudier: Stream Analytics och Power BI: En instrumentpanel för analys i realtid för strömmande data
 Azure Stream Analytics kan du dra nytta av en av de ledande business intelligence-verktyg, [Microsoft Power BI](https://powerbi.com/). I den här artikeln får du lära dig hur skapa business intelligence-verktyg med Power BI som utdata för dina Azure Stream Analytics-jobb. Du också lära dig hur du skapar och använder en realtidsinstrumentpanel.
@@ -56,16 +56,16 @@ I självstudierna identifiering av bedrägerier i realtid skickas utdata till Az
 
 7. När du är tillbaka till den **nya utdata** bladet anger du följande information:
 
-    * **Gruppen arbetsyta**: Välj en arbetsyta i Power BI-klient där du vill skapa datauppsättningen.
-    * **Namn på datauppsättning**:  Ange `sa-dataset`. Du kan använda ett annat namn. Om du gör, notera den till senare.
-    * **Tabellnamn**: Ange `fraudulent-calls`. Power BI-utdata från Stream Analytics-jobb kan för närvarande kan ha endast en tabell i en datauppsättning.
+   * **Gruppen arbetsyta**: Välj en arbetsyta i Power BI-klient där du vill skapa datauppsättningen.
+   * **Namn på datauppsättning**:  Ange `sa-dataset`. Du kan använda ett annat namn. Om du gör, notera den till senare.
+   * **Tabellnamn**: Ange `fraudulent-calls`. Power BI-utdata från Stream Analytics-jobb kan för närvarande kan ha endast en tabell i en datauppsättning.
 
-    ![Power BI-arbetsytan datauppsättning och tabell](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
+     ![Power BI-arbetsytan datauppsättning och tabell](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
 
-    > [!WARNING]
-    > Om Power BI har en datauppsättning och en tabell som har samma namn som de som du anger i Stream Analytics-jobb, skrivs befintliga.
-    > Vi rekommenderar att du inte uttryckligen skapar datauppsättningen och tabellen i Power BI-kontot. De skapas automatiskt när du startar ditt Stream Analytics-jobb och jobbet startar pumpande utdata till Power BI. Om jobbet frågan inte returnerar några resultat, skapas inte datauppsättningen och tabellen.
-    >
+     > [!WARNING]
+     > Om Power BI har en datauppsättning och en tabell som har samma namn som de som du anger i Stream Analytics-jobb, skrivs befintliga.
+     > Vi rekommenderar att du inte uttryckligen skapar datauppsättningen och tabellen i Power BI-kontot. De skapas automatiskt när du startar ditt Stream Analytics-jobb och jobbet startar pumpande utdata till Power BI. Om jobbet frågan inte returnerar några resultat, skapas inte datauppsättningen och tabellen.
+     >
 
 8. Klicka på **Skapa**.
 
@@ -189,13 +189,13 @@ Streaming Analytics-jobbet startar söker efter bedrägliga samtal i den inkomma
     * Lägg till ett värde och välj **fraudulentcalls**.
     * För **Tidsfönster att visa** väljer du de senaste 10 minuterna.
 
-    ![Skapa panelen för linjediagram i Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
+      ![Skapa panelen för linjediagram i Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
 
 9. Klicka på **nästa**, lägga till en rubrik och underrubrik och på **tillämpa**.
 
-    Power BI-instrumentpanel nu ger två vyer av data om bedrägliga samtal som identifierats i strömmande data.
+     Power BI-instrumentpanel nu ger två vyer av data om bedrägliga samtal som identifierats i strömmande data.
 
-    ![Klar med Power BI-instrumentpanel som visar två paneler efter bedrägliga samtal](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
+     ![Klar med Power BI-instrumentpanel som visar två paneler efter bedrägliga samtal](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
 
 
 ## <a name="learn-more-about-power-bi"></a>Ta reda på med om Power BI

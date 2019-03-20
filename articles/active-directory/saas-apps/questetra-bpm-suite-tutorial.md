@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db8438bfa567c207e543ed716a2940bce991cc19
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 78b069e6534d8394de1f9a9fcdf51b871441c386
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196050"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838042"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Självstudier: Azure Active Directory-integrering med Questetra BPM Suite
 
@@ -210,9 +210,9 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
    
     ![Skapa testanvändare][300] 
    
-    a. I den **namn** textrutan typ **namn** användarens **britta.simon@contoso.com**.
+    a. I den **namn** textrutan typ **namn** användarens **britta.simon\@contoso.com**.
    
-    b. I den **e-post** textrutan typ **e-post** för användaren **britta.simon@contoso.com**
+    b. I den **e-post** textrutan typ **e-post** användarens **britta.simon\@contoso.com**
    
     c. I den **lösenord** textrutan anger du ett **lösenord** för användaren.
     
@@ -257,7 +257,7 @@ Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen]
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

@@ -2,31 +2,31 @@
 title: Skapa en grundläggande Terraform-mall i Azure med hjälp av Yeoman
 description: Lär dig hur du skapar en grundläggande Terraform-mall i Azure med hjälp av Yeoman.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, utvecklar, virtuell dator, azure, yeoman
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 1133e6b35d200ec7f855b41f3ae5d6f37949fc97
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 8405624831c572f194fa0afaad2f0caa40bcf9ba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568506"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001273"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Skapa en grundläggande Terraform-mall i Azure med hjälp av Yeoman
 
 [Terraform](https://docs.microsoft.com/azure/terraform/
-) gör det möjligt att enkelt skapa infrastruktur på Azure. [Yeoman](http://yeoman.io/) förenklar modulutvecklarens jobb avsevärt vid skapandet av Terraform-moduler samtidigt som det utgör ett utmärkt ramverk för *bästa praxis*.
+) gör det möjligt att enkelt skapa infrastruktur på Azure. [Yeoman](https://yeoman.io/) förenklar modulutvecklarens jobb avsevärt vid skapandet av Terraform-moduler samtidigt som det utgör ett utmärkt ramverk för *bästa praxis*.
 
 I den här artikeln får du lära dig hur du använder Yeoman-modulgeneratorn för att skapa en grundläggande Terraform-mall. Sedan lär du dig hur du testar din nya Terraform-mall med hjälp av två olika metoder:
 
 - Kör Terraform-modulen med hjälp av en Docker-fil som du skapar i den här artikeln.
 - Kör Terraform-modulen internt i Azure Cloud Shell.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - **Visual Studio Code**: Vi kommer att använda [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) för att undersöka filer som skapats av Yeoman-generatorn. Du kan dock använda valfri kodredigerare.

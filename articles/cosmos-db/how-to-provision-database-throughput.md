@@ -6,22 +6,22 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 759adf95604e66209cf3ec5083246d16e952114a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 8c2fe8d42ded5a072a2211b102736326554bc4f4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884197"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57239894"
 ---
 # <a name="provision-throughput-for-a-database-in-azure-cosmos-db"></a>Etablera dataflöde för en databas i Azure Cosmos DB
 
-I den här artikeln beskrivs hur du etablerar dataflödet för en databas i Azure Cosmos DB. Du kan etablera dataflöden för en enda [container](how-to-provision-container-throughput.md) eller för en databas och dela dataflödet mellan containrar i den. Du kan etablera dataflöde på databasnivå med hjälp av Azure-portalen eller Azure Cosmos DB-SDK:er.
+I den här artikeln beskrivs hur du etablerar dataflödet för en databas i Azure Cosmos DB. Du kan etablera dataflöden för en enda [container](how-to-provision-container-throughput.md) eller för en databas och dela dataflödet mellan containrar i den. Läs när du ska använda behållare på servernivå och databasnivå dataflöde i den [användningsfall för att etablera dataflöde på behållare och databaser](set-throughput.md) artikeln. Du kan etablera dataflöde på databasnivå med hjälp av Azure-portalen eller Azure Cosmos DB-SDK:er.
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>Etablera dataflöde med hjälp av Azure-portalen
 
 ### <a id="portal-sql"></a>SQL (Core) API
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. [Skapa ett nytt Azure Cosmos DB-konto](create-sql-api-dotnet.md#create-a-database-account) eller välj ett befintligt konto.
 

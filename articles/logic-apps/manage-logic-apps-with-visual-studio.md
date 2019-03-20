@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.openlocfilehash: dbb38336f0521f8f8e526ad3f5e13829075e7cca
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 9f626e2a5c277cdce78c6e90046a1d40dac2d588
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158153"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078677"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Hantera logic apps i Visual Studio
 
@@ -79,7 +79,7 @@ I Visual Studio kan du öppna logikappar tidigare skapas och distribueras direkt
 
    Det här exemplet visar logikappar efter resurstyp, så att dina logikappar visas under den **Logic Apps** avsnittet.
 
-  ![Öppna distribuerade logikapp från Azure-portalen](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
+   ![Öppna distribuerade logikapp från Azure-portalen](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
    När logikappen öppnas i Logikappdesigner längst ned i Designern kan du välja **kodvy** så att du kan granska den underliggande strukturen av logic app-definition. 
    Om du vill skapa en Distributionsmall för logikappen kan du läsa [hur du hämtar en Azure Resource Manager-mall](#download-logic-app) för den logikappen. Läs mer om [Resource Manager-mallar](../azure-resource-manager/resource-group-overview.md#template-deployment).

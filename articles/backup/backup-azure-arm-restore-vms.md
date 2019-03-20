@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: geg
-ms.openlocfilehash: 0140cbc440e6098290a81f7ae61aa99e36da7d80
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: 26856ac77f169d76c8bcbee7efd707c9881e4876
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312043"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105819"
 ---
 # <a name="restore-azure-vms"></a>Återställa virtuella Azure-datorer
 
@@ -101,11 +101,11 @@ När disken har återställts måste du använda mallen som skapades som en del 
     - [Läs mer](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) om hur du distribuerar resurser från en anpassad mall.
     - [Läs mer](../azure-resource-manager/resource-group-authoring-templates.md) om att skapa mallar.
 
-  ![Läsa in malldistribution](./media/backup-azure-arm-restore-vms/edit-template1.png)
+   ![Läsa in malldistribution](./media/backup-azure-arm-restore-vms/edit-template1.png)
 
 4. Ange anpassade värden för den virtuella datorn, godkänner den **villkor** och klicka på **köp**.
 
-  ![Skicka malldistribution](./media/backup-azure-arm-restore-vms/submitting-template1.png)
+   ![Skicka malldistribution](./media/backup-azure-arm-restore-vms/submitting-template1.png)
 
 
 ## <a name="replace-existing-disks"></a>Byta ut befintliga diskar

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f6ae69c04d83e1ce1540267fb7932b80cca1013c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: ef0a3d251679d7dd6760f1f928cbf0f0daf3db01
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087224"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099145"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad TPM-enhet med Node.js-enhetens SDK för IoT Hub Device Provisioning-tjänsten
 
@@ -72,25 +72,25 @@ Den här artikeln visar enskilda registreringar.
 
 1. Installera följande paket som innehåller de komponenter som användes under registreringen:
 
-    - en säkerhetsklient som fungerar med TPM: `azure-iot-security-tpm`
-    - en transport för att enheten ska kunna ansluta till enhetsetableringstjänsten: antingen `azure-iot-provisioning-device-http` eller `azure-iot-provisioning-device-amqp`
-    - en klient som använder transport- och säkerhetsklienten: `azure-iot-provisioning-device`
+   - en säkerhetsklient som fungerar med TPM: `azure-iot-security-tpm`
+   - en transport för att enheten ska kunna ansluta till enhetsetableringstjänsten: antingen `azure-iot-provisioning-device-http` eller `azure-iot-provisioning-device-amqp`
+   - en klient som använder transport- och säkerhetsklienten: `azure-iot-provisioning-device`
 
-    När enheten är registrerad kan du använda vanliga IoT Hub-enhetsklientpaket till att ansluta enheten med de autentiseringsuppgifter som angavs under registreringen. Du behöver:
+     När enheten är registrerad kan du använda vanliga IoT Hub-enhetsklientpaket till att ansluta enheten med de autentiseringsuppgifter som angavs under registreringen. Du behöver:
 
-    - enhetsklienten: `azure-iot-device`
-    - en transport: antingen `azure-iot-device-amqp`, `azure-iot-device-mqtt` eller `azure-iot-device-http`
-    - säkerhetsklienten som du redan har installerat: `azure-iot-security-tpm`
+   - enhetsklienten: `azure-iot-device`
+   - en transport: antingen `azure-iot-device-amqp`, `azure-iot-device-mqtt` eller `azure-iot-device-http`
+   - säkerhetsklienten som du redan har installerat: `azure-iot-security-tpm`
 
-    > [!NOTE]
-    > I exemplen nedan används transporterna `azure-iot-provisioning-device-http` och `azure-iot-device-mqtt`.
-    > 
+     > [!NOTE]
+     > I exemplen nedan används transporterna `azure-iot-provisioning-device-http` och `azure-iot-device-mqtt`.
+     > 
 
-    Du kan installera alla paket samtidigt genom att köra följande kommando i en kommandotolk i mappen **registerdevice**:
+     Du kan installera alla paket samtidigt genom att köra följande kommando i en kommandotolk i mappen **registerdevice**:
 
-        ```cmd/sh
-        npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device
-        ```
+       ```cmd/sh
+       npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device
+       ```
 
 1. Med hjälp av en textredigerare skapar du en ny **ExtractDevice.js**-fil i mappen **registerdevice**.
 
@@ -141,15 +141,15 @@ Den här artikeln visar enskilda registreringar.
 1. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Välj fliken **Enskilda registreringar** och klicka på knappen **Lägg till enskild registrering** längst upp. 
 
 1. Under **Lägg till registrering** anger du följande information:
-    - Välj **TPM** som identitet för bestyrkande *mekanism*.
-    - Ange *registrerings-ID* och *bekräftelsenyckel* för din TPM-enhet.
-    - Du kan även ange följande information:
-        - Välj en IoT hub som är länkad till din etableringstjänst.
-        - Ange ett unikt enhets-ID. Se till att undvika känsliga data när du namnger din enhet.
-        - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
-    - Klicka på knappen **Spara** när det är klart. 
+   - Välj **TPM** som identitet för bestyrkande *mekanism*.
+   - Ange *registrerings-ID* och *bekräftelsenyckel* för din TPM-enhet.
+   - Du kan även ange följande information:
+       - Välj en IoT hub som är länkad till din etableringstjänst.
+       - Ange ett unikt enhets-ID. Se till att undvika känsliga data när du namnger din enhet.
+       - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
+   - Klicka på knappen **Spara** när det är klart. 
 
-    ![Ange information för enhetsregistrering på portalbladet](./media/quick-create-simulated-device/enter-device-enrollment.png)  
+     ![Ange information för enhetsregistrering på portalbladet](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
    Vid lyckad registrering visas *Registrerings-ID* för enheten i listan under fliken *Enskilda registreringar*. 
 

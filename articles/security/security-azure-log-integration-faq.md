@@ -15,12 +15,12 @@ ms.workload8: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: fc94208ef01e52207b6efbf88223119cf58ddb7f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4f6a724fe6c1e8668084f1c1cefbaa01cffba181
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727170"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005846"
 ---
 # <a name="azure-log-integration-faq"></a>Azure-Loggintegrering vanliga frågor och svar
 
@@ -99,7 +99,7 @@ Den **azlog createazureid** kommando görs ett försök att skapa ett huvudnamn 
 
 Fel:
 
-  *Skapa rolltilldelning - AuthorizationFailed varning Klienten janedo@microsoft.com' med objekt id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' har inte behörighet att utföra åtgärden ”Microsoft.Authorization/roleAssignments/write' över område '/ subscriptions/70 d 95299-d689-4 c 97-b971-0d8ff0000000”.*
+  *Skapa rolltilldelning - AuthorizationFailed varning Klienten janedo\@microsoft.com' med objekt id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' inte har behörighet att utföra åtgärden ”Microsoft.Authorization/roleAssignments/write' omfånget” /subscriptions/ 70d 95299-d689-4c 97-b971-0d8ff0000000 ”.*
 
 Den **azlog auktorisera** kommandot tilldelar rollen läsare till AD-tjänstens huvudnamn (skapad med **azlog createazureid**) till de angivna prenumerationerna. Om Azure-inloggning inte är en delad administratör eller ägare till prenumerationen kan misslyckas med felmeddelandet ”auktorisering misslyckades”. Azure rollbaserad åtkomstkontroll (RBAC) för delad administratör eller ägare krävs för att slutföra åtgärden.
 

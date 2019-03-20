@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2c6ca05e2a76cb6fbf7aabc1e9d801a2639665d5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a1b6fe38087975838d99ca4fe45ee0d0638c56c3
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850334"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187752"
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Översikt över och jämförelse av Azure på begäran media kodare 
 

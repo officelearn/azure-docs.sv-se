@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: e918a8624d637e44a4bb1122b58d5bd5dac67690
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c4998712d77771a5600c06183a76254548289372
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816682"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080090"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Konfigurera ExpressRoute direkt med hjälp av Azure CLI
 
@@ -23,32 +23,32 @@ Du kan använda Azure ExpressRoute direkt för att ansluta direkt till Microsoft
 
 1. Logga in på Azure och välj den prenumeration som innehåller ExpressRoute. ExpressRoute-Direct-resursen och ExpressRoute-kretsarna måste vara i samma prenumeration. Kör följande kommandon i Azure-CLI:
 
-  ```azurecli
-  az login
-  ```
+   ```azurecli
+   az login
+   ```
 
-  Kontrollera prenumerationerna för kontot: 
+   Kontrollera prenumerationerna för kontot: 
 
-  ```azurecli
-  az account list 
-  ```
+   ```azurecli
+   az account list 
+   ```
 
-  Välj den prenumeration som du vill skapa en ExpressRoute-krets:
+   Välj den prenumeration som du vill skapa en ExpressRoute-krets:
 
-  ```azurecli
-  az account set --subscription "<subscription ID>"
-  ```
+   ```azurecli
+   az account set --subscription "<subscription ID>"
+   ```
 
 2. Lista över alla platser där ExpressRoute Direct stöds:
     
-  ```azurecli
-  az network express-route port location list
-  ```
+   ```azurecli
+   az network express-route port location list
+   ```
 
-  **Exempel på utdata**
+   **Exempel på utdata**
   
-  ```azurecli
-  [
+   ```azurecli
+   [
    {
     "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
     "availableBandwidths": [],
@@ -104,64 +104,64 @@ Du kan använda Azure ExpressRoute direkt för att ansluta direkt till Microsoft
     "tags": null,
     "type": "Microsoft.Network/expressRoutePortsLocations"
    }
-  ]
-  ```
+   ]
+   ```
 3. Avgöra om en av de platser som anges i föregående steg har tillgänglig bandbredd:
 
-  ```azurecli
-  az network express-route port location show -l "Equinix-Ashburn-DC2"
-  ```
+   ```azurecli
+   az network express-route port location show -l "Equinix-Ashburn-DC2"
+   ```
 
-  **Exempel på utdata**
+   **Exempel på utdata**
 
-  ```azurecli
-  {
-  "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
-  "availableBandwidths": [
+   ```azurecli
+   {
+   "address": "21715 Filigree Court, DC2, Building F, Ashburn, VA 20147",
+   "availableBandwidths": [
     {
       "offerName": "100 Gbps",
       "valueInGbps": 100
     }
-  ],
-  "contact": "support@equinix.com",
-  "id": "/subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Ashburn-DC2",
-  "location": null,
-  "name": "Equinix-Ashburn-DC2",
-  "provisioningState": "Succeeded",
-  "tags": null,
-  "type": "Microsoft.Network/expressRoutePortsLocations"
-  }
-  ```
+   ],
+   "contact": "support@equinix.com",
+   "id": "/subscriptions/<subscriptionID>/providers/Microsoft.Network/expressRoutePortsLocations/Equinix-Ashburn-DC2",
+   "location": null,
+   "name": "Equinix-Ashburn-DC2",
+   "provisioningState": "Succeeded",
+   "tags": null,
+   "type": "Microsoft.Network/expressRoutePortsLocations"
+   }
+   ```
 4. Skapa en ExpressRoute-Direct-resurs som baseras på den plats som du valde i föregående steg.
 
-  ExpressRoute Direct stöder både QinQ och Dot1Q inkapsling. Om du väljer QinQ varje ExpressRoute-krets tilldelas dynamiskt en S-tagg och är unikt i hela ExpressRoute Direct-resursen. Varje C-tagg i kretsen måste vara unikt i kretsen men inte mellan ExpressRoute Direct-resursen.  
+   ExpressRoute Direct stöder både QinQ och Dot1Q inkapsling. Om du väljer QinQ varje ExpressRoute-krets tilldelas dynamiskt en S-tagg och är unikt i hela ExpressRoute Direct-resursen. Varje C-tagg i kretsen måste vara unikt i kretsen men inte mellan ExpressRoute Direct-resursen.  
 
-  Om du väljer Dot1Q inkapsling måste du hantera unikhet för C-taggen (VLAN) över hela ExpressRoute Direct-resursen.  
+   Om du väljer Dot1Q inkapsling måste du hantera unikhet för C-taggen (VLAN) över hela ExpressRoute Direct-resursen.  
 
-  > [!IMPORTANT]
-  > ExpressRoute Direct kan vara endast en Inkapslingstyp av. Du kan inte ändra typen inkapsling när du har skapat ExpressRoute Direct-resursen.
-  > 
+   > [!IMPORTANT]
+   > ExpressRoute Direct kan vara endast en Inkapslingstyp av. Du kan inte ändra typen inkapsling när du har skapat ExpressRoute Direct-resursen.
+   > 
  
-  ```azurecli
-  az network express-route port create -n $name -g $RGName --bandwidth 100 gbps  --encapsulation QinQ | Dot1Q --peering-location $PeeringLocationName -l $AzureRegion 
-  ```
+   ```azurecli
+   az network express-route port create -n $name -g $RGName --bandwidth 100 gbps  --encapsulation QinQ | Dot1Q --peering-location $PeeringLocationName -l $AzureRegion 
+   ```
 
-  > [!NOTE]
-  > Du kan också ställa in den **inkapsling** attributet **Dot1Q**. 
-  >
+   > [!NOTE]
+   > Du kan också ställa in den **inkapsling** attributet **Dot1Q**. 
+   >
 
-  **Exempel på utdata**
+   **Exempel på utdata**
 
-  ```azurecli
-  {
-  "allocationDate": "Wednesday, October 17, 2018",
-  "bandwidthInGbps": 100,
-  "circuits": null,
-  "encapsulation": "Dot1Q",
-  "etag": "W/\"<etagnumber>\"",
-  "etherType": "0x8100",
-  "id": "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct",
-  "links": [
+   ```azurecli
+   {
+   "allocationDate": "Wednesday, October 17, 2018",
+   "bandwidthInGbps": 100,
+   "circuits": null,
+   "encapsulation": "Dot1Q",
+   "etag": "W/\"<etagnumber>\"",
+   "etherType": "0x8100",
+   "id": "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct",
+   "links": [
     {
       "adminState": "Disabled",
       "connectorType": "LC",
@@ -190,19 +190,19 @@ Du kan använda Azure ExpressRoute direkt för att ansluta direkt till Microsoft
       "routerName": "tst-09xgmr-cis-2",
       "type": "Microsoft.Network/expressRoutePorts/links"
     }
-  ],
-  "location": "westus",
-  "mtu": "1500",
-  "name": "Contoso-Direct",
-  "peeringLocation": "Equinix-Ashburn-DC2",
-  "provisionedBandwidthInGbps": 0.0,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "Contoso-Direct-rg",
-  "resourceGuid": "02ee21fe-4223-4942-a6bc-8d81daabc94f",
-  "tags": null,
-  "type": "Microsoft.Network/expressRoutePorts"
-  }  
-  ```
+   ],
+   "location": "westus",
+   "mtu": "1500",
+   "name": "Contoso-Direct",
+   "peeringLocation": "Equinix-Ashburn-DC2",
+   "provisionedBandwidthInGbps": 0.0,
+   "provisioningState": "Succeeded",
+   "resourceGroup": "Contoso-Direct-rg",
+   "resourceGuid": "02ee21fe-4223-4942-a6bc-8d81daabc94f",
+   "tags": null,
+   "type": "Microsoft.Network/expressRoutePorts"
+   }  
+   ```
 
 ## <a name="state"></a>Ändra AdminState för länkar
 
@@ -210,26 +210,26 @@ Använd den här processen för att genomföra en nivå 1-test. Se till att varj
 
 1. Anger länkar **aktiverad**. Upprepa det här steget om du vill ställa in varje länk till **aktiverad**.
 
-  Länkar [0] är den primära och länkar [1] är den sekundära porten.
+   Länkar [0] är den primära och länkar [1] är den sekundära porten.
 
-  ```azurecli
-  az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[0].adminState="Enabled"
-  ```
-  ```azurecli
-  az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[1].adminState="Enabled"
-  ```
-  **Exempel på utdata**
+   ```azurecli
+   az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[0].adminState="Enabled"
+   ```
+   ```azurecli
+   az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[1].adminState="Enabled"
+   ```
+   **Exempel på utdata**
 
-  ```azurecli
-  {
-  "allocationDate": "Wednesday, October 17, 2018",
-  "bandwidthInGbps": 100,
-  "circuits": null,
-  "encapsulation": "Dot1Q",
-  "etag": "W/\"<etagnumber>\"",
-  "etherType": "0x8100",
-  "id": "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct",
-  "links": [
+   ```azurecli
+   {
+   "allocationDate": "Wednesday, October 17, 2018",
+   "bandwidthInGbps": 100,
+   "circuits": null,
+   "encapsulation": "Dot1Q",
+   "etag": "W/\"<etagnumber>\"",
+   "etherType": "0x8100",
+   "id": "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct",
+   "links": [
     {
       "adminState": "Enabled",
       "connectorType": "LC",
@@ -258,21 +258,21 @@ Använd den här processen för att genomföra en nivå 1-test. Se till att varj
       "routerName": "tst-09xgmr-cis-2",
       "type": "Microsoft.Network/expressRoutePorts/links"
     }
-  ],
-  "location": "westus",
-  "mtu": "1500",
-  "name": "Contoso-Direct",
-  "peeringLocation": "Equinix-Ashburn-DC2",
-  "provisionedBandwidthInGbps": 0.0,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "Contoso-Direct-rg",
-  "resourceGuid": "<resourceGUID>",
-  "tags": null,
-  "type": "Microsoft.Network/expressRoutePorts"
-  }
-  ```
+   ],
+   "location": "westus",
+   "mtu": "1500",
+   "name": "Contoso-Direct",
+   "peeringLocation": "Equinix-Ashburn-DC2",
+   "provisionedBandwidthInGbps": 0.0,
+   "provisioningState": "Succeeded",
+   "resourceGroup": "Contoso-Direct-rg",
+   "resourceGuid": "<resourceGUID>",
+   "tags": null,
+   "type": "Microsoft.Network/expressRoutePorts"
+   }
+   ```
 
-  Använd samma procedur och äldre portarna med hjälp av `AdminState = “Disabled”`.
+   Använd samma procedur och äldre portarna med hjälp av `AdminState = “Disabled”`.
 
 ## <a name="circuit"></a>Skapa en krets
 

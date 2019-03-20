@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5048a4ab4db6d4cb168d2a643a412f89273658b4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: MT
+ms.openlocfilehash: 961103b787cf42170fc3022fc33d8eb218b7a4bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984264"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998345"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Använda Apache Oozie med Apache Hadoop för att definiera och köra ett arbetsflöde i HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -126,7 +126,7 @@ RunHiveScript har flera variabler. Du kan skicka värdena när du har skickat jo
 |Arbetsflödesvariabler|Beskrivning|
 |---|---|
 |${jobTracker}|Anger URL: en för spårningsverktyget för Hadoop-jobb. Använd **jobtrackerhost:9010** i HDInsight version 3.0 och 2.1.|
-|${nameNode}|Anger URL: en för noden Hadoop namn. Använda file system standardadressen, till exempel *wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net*.|
+|${nameNode}|Anger URL: en för noden Hadoop namn. Använda file system standardadressen, till exempel *wasb: / /&lt;containerName&gt;\@&lt;storageAccountName&gt;. blob.core.windows.net*.|
 |${queueName}|Anger namnet på kön som jobbet skickas till. Använd den **standard**.|
 
 |Variabeln för hive-åtgärd|Beskrivning|

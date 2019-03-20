@@ -1,5 +1,5 @@
 ---
-title: Stöd för språk - tjänsten för Taligenkänning
+title: Språkstöd – Speech Services
 titleSuffix: Azure Cognitive Services
 description: Azure Speech Services stöder flera språk för tal till text och text till tal konvertering, tillsammans med talöversättning. Den här artikeln innehåller en omfattande lista över språk som stöds av tjänsten.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 22916a188c79d5894faf48dd71d6ab17a582cf8b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 927781c61a9ca2a1ef23db47294468dad7140dff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878042"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885359"
 ---
-# <a name="language-and-region-support-for-speech-service-api"></a>Stöd för språk och din region för tjänsten för Taligenkänning
+# <a name="language-and-region-support-for-the-speech-services"></a>Stöd för språk och din region för Speech Services
 
 Olika språk stöds för olika Speech Services-funktioner. Följande tabeller sammanfattar språkstöd.
 
@@ -179,7 +179,7 @@ zh-TW | Kinesiska (Taiwan)|Kvinna | ”Microsoft Server tal Text till tal-röst 
 Röst anpassning är tillgängliga för oss engelska (en-US), fastlandet kinesiska (zh-CN), franska (fr-FR), tyska (de-DE) och italienska (it-IT).
 
 > [!NOTE]
-> Franska, tyska och italienska röst utbildning börjar med en uppsättning av 2 000 + yttranden. Kinesiska – engelska tvåspråkig modeller stöds också med en inledande data över 2 000 yttranden.
+> Franska, tyska och italienska röst utbildning börjar med en uppsättning av över 2 000 yttranden. Kinesiska – engelska tvåspråkig modeller stöds också med en inledande data över 2 000 yttranden.
 
 ## <a name="speech-translation"></a>Talöversättning
 
@@ -255,5 +255,5 @@ Den **Talöversättning** API har stöd för olika språk för översättning av
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
+* [Hämta en kostnadsfri utvärderingsprenumeration på Speech Services](https://azure.microsoft.com/try/cognitive-services/)
 * [Se hur du kan känna igen tal i C#](quickstart-csharp-dotnet-windows.md)

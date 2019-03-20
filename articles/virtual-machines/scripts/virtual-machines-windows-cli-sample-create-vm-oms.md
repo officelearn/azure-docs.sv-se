@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-exempel – skapa en virtuell Azure-dator som kör Log Analytics-övervakning | Microsoft Docs
-description: Azure CLI-exempel – Skapa en virtuell Azure-dator som kör Windows Server 2016 VM och Log Analytics-övervakning.
+title: Azure CLI – skapa en Azure-dator som kör Azure Monitor | Microsoft Docs
+description: Azure CLI – skapa en Azure-dator som kör Windows Server 2016-dator och Azure Monitor.
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 06e853534dc811ba5b37b192a9da75e88eedd778
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 2565433b8f42a3b81b843a972dd27850cce124b8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668321"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543329"
 ---
-# <a name="monitor-a-vm-with-log-analytics"></a>Övervaka en virtuell dator med Log Analytics
+# <a name="monitor-a-vm-with-azure-monitor-logs"></a>Övervaka en virtuell dator med Azure Monitor-loggar
 
 Det här skriptet skapar en virtuell Azure-dator, installerar Log Analytics-agenten och registrerar systemet på en Log Analytics-arbetsyta. När skriptet har körts visas den virtuella datorn i Azure Monitoring.
 

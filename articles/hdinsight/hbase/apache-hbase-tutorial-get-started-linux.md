@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: af604dbabe9df56322342230eaec70548f53c927
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: MT
+ms.openlocfilehash: 556d67bb67e9eb01c442cdf158561f16a5bcf922
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794506"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875948"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Kom igång med ett Apache HBase-exempel i HDInsight
 
@@ -31,7 +31,7 @@ Innan du testar det här HBase-exemplet måste du ha följande objekt:
 * [curl](https://curl.haxx.se/download.html).
 
 ## <a name="create-apache-hbase-cluster"></a>Skapa Apache HBase-kluster
-Följande procedur använder en Azure Resource Manager-mall för att skapa ett HBase-kluster och det beroende standardkontot för Azure Storage. Mer information om de parametrar som används i proceduren och andra metoder för att skapa kluster finns i [Skapa Linux-baserade Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Mer information om hur du använder Data Lake Storage Gen2 finns [Snabbstart: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+Följande procedur använder en Azure Resource Manager-mall för att skapa ett HBase-kluster och det beroende standardkontot för Azure Storage. Mer information om de parametrar som används i proceduren och andra metoder för att skapa kluster finns i [Skapa Linux-baserade Hadoop-kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Mer information om hur du kan använda Data Lake Storage Gen2 finns i [Snabbstart: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 1. Klicka på följande bild för att öppna mallen i Azure Portal. Mallen finns i [Azure-snabbstartmallar](https://azure.microsoft.com/resources/templates/).
    
@@ -56,7 +56,7 @@ Följande procedur använder en Azure Resource Manager-mall för att skapa ett H
 > 
 
 ## <a name="create-tables-and-insert-data"></a>Skapa tabeller och infoga data
-Du kan använda SSH för att ansluta till HBase-kluster och sedan använda [Apache HBase-gränssnittet](https://hbase.apache.org/0.94/book/shell.html) för att skapa HBase-tabeller, infoga data och köra frågor mot data. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+Du kan använda SSH för att ansluta till HBase-kluster och sedan använda [Apache HBase Shell](https://hbase.apache.org/0.94/book/shell.html) för att skapa HBase-tabeller, infoga data och köra frågor mot data. Mer information finns i [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 För de flesta visas data i tabellformat:
 
@@ -111,7 +111,7 @@ I HBase (en implementering av [molnet BigTable](https://cloud.google.com/bigtabl
 
 HBase innehåller flera metoder för att läsa in data i tabeller.  Mer information finns i [Massinläsning](https://hbase.apache.org/book.html#arch.bulk.load).
 
-En exempeldatafil finns i en offentlig blob-container, *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  Innehållet i datafilen är:
+En exempeldatafil finns i en offentlig blobbehållare *wasb://hbasecontacts\@hditutorialdata.blob.core.windows.net/contacts.txt*.  Innehållet i datafilen är:
 
     8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
@@ -175,14 +175,14 @@ Du kan fråga efter data i HBase-tabeller med hjälp av [Apache Hive](https://hi
 
 REST API skyddas via [grundläggande autentisering](https://en.wikipedia.org/wiki/Basic_access_authentication). Du bör alltid göra begäranden genom att använda säker HTTP (HTTPS) för att säkerställa att dina autentiseringsuppgifter skickas på ett säkert sätt till servern.
 
-2. Använd följande kommando för att lista de befintliga HBase-tabellerna:
+1. Använd följande kommando för att lista de befintliga HBase-tabellerna:
 
     ```bash
     curl -u <UserName>:<Password> \
     -G https://<ClusterName>.azurehdinsight.net/hbaserest/
     ```
 
-3. Använd följande kommando för att skapa en ny HBase-tabell med två kolumnserier:
+1. Använd följande kommando för att skapa en ny HBase-tabell med två kolumnserier:
 
     ```bash   
     curl -u <UserName>:<Password> \
@@ -194,7 +194,7 @@ REST API skyddas via [grundläggande autentisering](https://en.wikipedia.org/wik
     ```
 
     Schemat tillhandahålls i JSon-format.
-4. Använd följande kommando för att infoga vissa data:
+1. Använd följande kommando för att infoga vissa data:
 
     ```bash   
     curl -u <UserName>:<Password> \
@@ -208,11 +208,11 @@ REST API skyddas via [grundläggande autentisering](https://en.wikipedia.org/wik
     Du måste base64-koda de värden som anges i switchen -d. I exemplet:
    
    * MTAwMA ==: 1000
-   * UGVyc29uYWw6TmFtZQ ==: Personlig: namn
+   * UGVyc29uYWw6TmFtZQ==: Personlig: namn
    * Sm9obiBEb2xl: John Dole
      
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) gör att du kan infoga flera (gruppbaserade) värden.
-5. Använd följande kommando för att få en rad:
+1. Använd följande kommando för att få en rad:
    
     ```bash 
     curl -u <UserName>:<Password> \
@@ -247,15 +247,15 @@ HBase i HDInsight levereras med ett webbgränssnitt för övervakning av kluster
 2. Klicka på **HBase** på den vänstra menyn.
 3. Klicka på **Snabblänkar** överst på sidan, peka på den aktiva Zookeeper-nodlänken och klicka sedan på **HBase Master UI**.  Gränssnittet har öppnats i en annan webbläsarflik:
 
-  ![HDInsight HBase HMaster UI](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+   ![HDInsight HBase HMaster UI](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-  HBase Master UI innehåller följande avsnitt:
+   HBase Master UI innehåller följande avsnitt:
 
-  - regionservrar
-  - huvudservrar för säkerhetskopiering
-  - tabeller
-  - uppgifter
-  - attribut för programvara
+   - regionservrar
+   - huvudservrar för säkerhetskopiering
+   - tabeller
+   - uppgifter
+   - attribut för programvara
 
 ## <a name="delete-the-cluster"></a>Ta bort klustret
 Om du vill undvika inkonsekvenser rekommenderar vi att du inaktiverar HBase-tabellerna innan du tar bort klustret.

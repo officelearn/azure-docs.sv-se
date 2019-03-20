@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: f592cfdba940b95a9935c6b68f3294233d9fbf15
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 64a7a52d39fcac87bdc49b9d36e80d453557bc5b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888499"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002267"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Övervaka dina Azure-tjänster i Grafana
 Du kan nu övervaka Azure-tjänster och program från [Grafana](https://grafana.com/) med hjälp av den [Azure Monitor-plugin-programmet för datakällans](https://grafana.com/plugins/grafana-azure-monitor-datasource). Plugin-programmet samlar in program-prestandadata som samlats in från Azure Monitor, inklusive olika loggar och mått. Du kan sedan visa dessa data på din Grafana-instrumentpanel.
@@ -77,9 +77,9 @@ När du har loggat in kan bör du se att plugin-programmet Azure Monitor data k�
 
         > [!NOTE]
         > Vissa data källfält namnges annorlunda än sina korrelerade inställningar för Azure:
-        >     * Klient-ID är Azure-katalog-ID
-        >     * Klient-ID är Azure Active Directory-program-ID
-        >     * Klienthemlighet är nyckelvärdet för Azure Active Directory-program
+        > * Klient-ID är Azure-katalog-ID
+        > * Klient-ID är Azure Active Directory-program-ID
+        > * Klienthemlighet är nyckelvärdet för Azure Active Directory-program
 
 5. Du kan även inkludera din Application Insights API och program-ID för att samla in Application Insights baserat mått om du använder Application Insights. Mer information finns i [få din API-nyckel och en program-ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
@@ -96,16 +96,16 @@ När du har loggat in kan bör du se att plugin-programmet Azure Monitor data k�
     ![Grafana nytt diagram](./media/grafana-plugin/grafana-new-graph-dark.png)
 
 4. Välj Azure Monitor-datakälla som du har konfigurerat.
-    * Samla in Azure Monitor metrics - Välj **Azure Monitor** i listrutan för tjänsten. En lista över väljare visar upp, där du kan välja resurser och mått som ska övervakas i det här diagrammet. Om du vill samla in statistik från en virtuell dator att använda namnområdet **Microsoft.Compute/VirtualMachines**. När du har valt virtuella datorer och mått, kan du visa sina data i instrumentpanelen.
-    ![Grafana graph-konfiguration för Azure Monitor](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-    * Samla in Azure Monitor logga data – Välj **Azure Log Analytics** i listrutan för tjänsten. Välj den arbetsyta som du vill fråga och ställa in frågetexten. Du kan kopiera här några loggfråga du redan har eller skapa en ny. När du skriver i din fråga visas IntelliSense och föreslår att du alternativ för automatisk komplettering. Välj typen av visualisering **Time series** **tabell**, och kör frågan.
+   * Samla in Azure Monitor metrics - Välj **Azure Monitor** i listrutan för tjänsten. En lista över väljare visar upp, där du kan välja resurser och mått som ska övervakas i det här diagrammet. Om du vill samla in statistik från en virtuell dator att använda namnområdet **Microsoft.Compute/VirtualMachines**. När du har valt virtuella datorer och mått, kan du visa sina data i instrumentpanelen.
+     ![Grafana graph-konfiguration för Azure Monitor](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
+   * Samla in Azure Monitor logga data – Välj **Azure Log Analytics** i listrutan för tjänsten. Välj den arbetsyta som du vill fråga och ställa in frågetexten. Du kan kopiera här några loggfråga du redan har eller skapa en ny. När du skriver i din fråga visas IntelliSense och föreslår att du alternativ för automatisk komplettering. Välj typen av visualisering **Time series** **tabell**, och kör frågan.
     
-    > [!NOTE]
-    >
-    > Standardfrågan medföljer plugin-programmet använder två makron: ”$__timeFilter() och $__interval. 
-    > Dessa makron Tillåt Grafana att dynamiskt beräkna tidsintervall och tidsintervallet, när du zoomar in på en del av ett diagram. Du kan ta bort dessa makron och använda ett normaltid filter som *TimeGenerated > ago(1)*, men som innebär att diagrammet inte stöder zoomning i funktionen.
+     > [!NOTE]
+     >
+     > Standardfrågan medföljer plugin-programmet använder två makron: ”$__timeFilter() och $__interval. 
+     > Dessa makron Tillåt Grafana att dynamiskt beräkna tidsintervall och tidsintervallet, när du zoomar in på en del av ett diagram. Du kan ta bort dessa makron och använda ett normaltid filter som *TimeGenerated > ago(1)*, men som innebär att diagrammet inte stöder zoomning i funktionen.
     
-    ![Grafana graph-konfiguration för Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
+     ![Grafana graph-konfiguration för Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
 
 5. Följande är en enkel instrumentpanel med två diagram. En vänster visar CPU-procent två virtuella datorer. Diagrammet till höger visar transaktioner i ett Azure Storage-konto per transaktion API-typen.
     ![Grafana två diagram-exempel](media/grafana-plugin/grafana6.png)

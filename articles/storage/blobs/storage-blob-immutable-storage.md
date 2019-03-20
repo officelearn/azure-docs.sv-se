@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/02/2019
 ms.author: hux
 ms.subservice: blobs
-ms.openlocfilehash: e9ef73bbed83587f635492553f3e467922481ede
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: 76d2794d45e9cd73ae8faf203ba29c4dbba64eae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309680"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004622"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Store verksamhetskritiska data i Azure Blob storage
 
@@ -86,7 +86,7 @@ Det finns ingen extra kostnad för att använda den här funktionen. Oföränder
 
 ## <a name="getting-started"></a>Komma igång
 
-De senaste versionerna av den [Azure-portalen](http://portal.azure.com), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), och [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) stöder inte kan ändras lagring för Azure Blob storage. [Bibliotek för klientstöd](#client-libraries) tillhandahålls också.
+De senaste versionerna av den [Azure-portalen](https://portal.azure.com), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), och [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) stöder inte kan ändras lagring för Azure Blob storage. [Bibliotek för klientstöd](#client-libraries) tillhandahålls också.
 
 > [!NOTE]
 >

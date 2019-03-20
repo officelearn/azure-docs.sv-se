@@ -12,12 +12,12 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7d33fb24e08ea0a726f9f8e51eacf17fd22efaf9
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 468db9d62a98e079fbe6954843e23a518eaabd0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791145"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011713"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Etablera en virtuell Linux-dator med SQL Server på Azure Portal
 
@@ -76,23 +76,23 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 1. Ange ett namn för din nya virtuella Linux-dator i **Virtuellt datornamn**.
 1. Ange eller välj sedan följande värden:
-    * **Region**: Välj den Azure-region som är rätt för dig.
-    * **Tillgänglighetsalternativ**: Välj det alternativ för tillgänglighet och redundans som passar bäst för dina appar och data.
-    * **Ändra storlek**: Välj det här alternativet om du vill välja en datorstorlek, och välj sedan **Välj** när du är klar. Mer information om storlekar på virtuella datorer finns i [Linux-VM-storlekar](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
+   * **Region**: Välj den Azure-region som är rätt för dig.
+   * **Tillgänglighetsalternativ**: Välj det alternativ för tillgänglighet och redundans som passar bäst för dina appar och data.
+   * **Ändra storlek**: Välj det här alternativet om du vill välja en datorstorlek, och välj sedan **Välj** när du är klar. Mer information om storlekar på virtuella datorer finns i [Linux-VM-storlekar](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
 
-    ![Välja storlek för virtuella datorer](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
+     ![Välja storlek för virtuella datorer](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
    > [!TIP]
    > För utveckling och funktionstestning bör du använda en storlek för virtuella datorer på **DS2** eller högre. För prestandatestning använder du **DS13** eller högre.
 
-    * **Autentiseringstyp**: Välj **Offentlig SSH-nyckel**.
+   * **Autentiseringstyp**: Välj **Offentlig SSH-nyckel**.
 
-    > [!Note]
-    > Du kan välja mellan offentlig SSH-nyckel eller lösenord för autentisering. SSH är säkrare. Instruktioner om hur du genererar en SSH-nyckel finns i [Skapa SSH-nycklar på Linux och Mac för virtuella Linux-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+     > [!Note]
+     > Du kan välja mellan offentlig SSH-nyckel eller lösenord för autentisering. SSH är säkrare. Instruktioner om hur du genererar en SSH-nyckel finns i [Skapa SSH-nycklar på Linux och Mac för virtuella Linux-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
 
-    * **Användarnamn**: Ange den virtuella datorns administratörsnamn.
-    * **Offentlig SSH-nyckel**: Ange din offentliga RSA-nyckel.
-    * **Offentliga inkommande portar**: Välj **Tillåt valda portar** och välj porten **SSH (22)** i listan **Välj offentliga ingående portar**. I den här snabbstarten är det här steget nödvändigt för att ansluta och slutföra SQL Server-konfigurationen. Om du vill fjärransluta till SQL Server kan du också välja **MS SQL (1433)** för att öppna port 1433 för anslutningar över Internet.
+   * **Användarnamn**: Ange den virtuella datorns administratörsnamn.
+   * **Offentlig SSH-nyckel**: Ange din offentliga RSA-nyckel.
+   * **Offentliga inkommande portar**: Välj **Tillåt valda portar** och välj porten **SSH (22)** i listan **Välj offentliga ingående portar**. I den här snabbstarten är det här steget nödvändigt för att ansluta och slutföra SQL Server-konfigurationen. Om du vill fjärransluta till SQL Server kan du också välja **MS SQL (1433)** för att öppna port 1433 för anslutningar över Internet.
 
    ![Ingående portar](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
 
@@ -120,7 +120,7 @@ Du hittar IP-adressen till den virtuella datorn i Azure Portal.
 
 Om du kör på Windows och inte har något BASH-gränssnitt kan du installera en SSH-klient som t.ex. PuTTY.
 
-1. [Ladda ned och installera PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+1. [Ladda ned och installera PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 1. Kör PuTTY.
 

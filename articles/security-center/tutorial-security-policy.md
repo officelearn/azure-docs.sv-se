@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/17/2019
+ms.date: 3/14/2019
 ms.author: monhaber
-ms.openlocfilehash: 7931caa985bc5dea98ca36bd15e0e634855ab2c5
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 98fffbc7a3b287dd59cfc681beec2107a5fd4ed6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650639"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085056"
 ---
 # <a name="working-with-security-policies"></a>Arbeta med säkerhetsprinciper
 
@@ -36,7 +36,7 @@ En säkerhetsprincip definierar den önskade konfigurationen för arbetsbelastni
 
 Dina säkerhetsprinciper innehåller säkerhetsrekommendationer som du får i Azure Security Center. Du kan övervaka efterlevnad med dem för att hjälpa dig att upptäcka potentiella säkerhetsrisker och avhjälpa hot. Mer information om hur du avgör vilket alternativ som passar dig finns i listan över [inbyggda säkerhetsprinciper](security-center-policy-definitions.md).
 
-När du aktiverar Security Center, visas säkerhetsprincipen som är inbyggd i Security Center i Azure Policy som en inbyggd initiativ under kategorin Security Center. Det inbyggda initiativet tilldelas automatiskt till alla Security Center-registrerade prenumerationer (på kostnadsfri nivå eller standardnivå). Det inbyggda initiativet innehåller endast granskningsprinciper. 
+När du aktiverar Security Center, visas säkerhetsprincipen som är inbyggd i Security Center i Azure Policy som en inbyggd initiativ under kategorin Security Center. Det inbyggda initiativet tilldelas automatiskt till alla Security Center-registrerade prenumerationer (på kostnadsfri nivå eller standardnivå). Det inbyggda initiativet innehåller endast granskningsprinciper.
 
 
 ### <a name="management-groups"></a>Hanteringsgrupper
@@ -68,25 +68,25 @@ Visa dina säkerhetsprinciper i Security Center:
 
     ![Fönstret för principhantering](./media/security-center-policies/security-center-policy-mgt.png)
 
-  I den **principhantering** skärmen, du kan se antalet hanteringsgrupper, prenumerationer och arbetsytor, samt dina hanteringsgruppsstruktur.
+   I den **principhantering** skärmen, du kan se antalet hanteringsgrupper, prenumerationer och arbetsytor, samt dina hanteringsgruppsstruktur.
 
-  > [!NOTE]
-  > - Instrumentpanelen i Security Center kan indikera ett högre antal prenumerationer under **prenumerationstäckning** än antalet prenumerationer som visas under **principhantering**. Prenumerationstäckningen visar antalet prenumerationer av typen Standard, Kostnadsfri och Omfattas inte. ”Inte motsvarar”-prenumerationer har inte Security Center aktiverat och visas inte **principhantering**.
-  >
+   > [!NOTE]
+   > - Instrumentpanelen i Security Center kan indikera ett högre antal prenumerationer under **prenumerationstäckning** än antalet prenumerationer som visas under **principhantering**. Prenumerationstäckningen visar antalet prenumerationer av typen Standard, Kostnadsfri och Omfattas inte. ”Inte motsvarar”-prenumerationer har inte Security Center aktiverat och visas inte **principhantering**.
+   >
 
-  Tabellens kolumner:
+   Tabellens kolumner:
 
- - **Principinitiativsuppgift** – Security Center [inbyggda principer](security-center-policy-definitions.md) och initiativ som har tilldelats en prenumerations- eller grupp.
- - **Täckning** – identifierar prisnivån kostnadsfri eller Standard som hanteringsgruppen, prenumeration eller arbetsyta körs på.  Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
- - **Inställningar för** – prenumerationer har länken **redigera inställningar för**. Att välja **redigera inställningar för** låter dig uppdatera ditt [Security Center-inställningar](security-center-policies-overview.md) för varje prenumerations- eller grupp.
- - **Säker poäng** – [säker poäng](security-center-secure-score.md) ger ett mått på hur säker din arbetsbelastning säkerhetsposition och hjälper dig att prioritera rekommendationer för förbättring.
+   - **Principinitiativsuppgift** – Security Center [inbyggda principer](security-center-policy-definitions.md) och initiativ som har tilldelats en prenumerations- eller grupp.
+   - **Täckning** – identifierar prisnivån kostnadsfri eller Standard som hanteringsgruppen, prenumeration eller arbetsyta körs på.  Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
+   - **Inställningar för** – prenumerationer har länken **redigera inställningar för**. Att välja **redigera inställningar för** låter dig uppdatera ditt [Security Center-inställningar](security-center-policies-overview.md) för varje prenumerations- eller grupp.
+   - **Säker poäng** – [säker poäng](security-center-secure-score.md) ger ett mått på hur säker din arbetsbelastning säkerhetsposition och hjälper dig att prioritera rekommendationer för förbättring.
 
 2. Välj den prenumeration eller hanteringsgrupp grupp vars principer som du vill visa.
 
-  - Den **säkerhetsprincip** skärmen återspeglar den åtgärd som de principer som tilldelats för prenumerations- eller gruppen som du har valt.
-  - Överst på sidan använder du länkarna för att öppna varje princip **tilldelning** som gäller för prenumerations- eller gruppen. Du kan använda länkarna för att komma åt tilldelningen och redigera eller inaktivera principen. Om du ser att en viss principtilldelning effektivt nekas slutpunktsskydd kan använda du länken till åtkomst till principen och redigera eller inaktivera den.
-  - I listan med principer ser du en effektiv tillämpning av principen på din prenumeration eller hanteringsgrupp. Det innebär att inställningarna för varje princip som gäller för omfånget beaktas och du får det kumulativa resultatet av vilka åtgärder som vidtas av principen. Om principen är inaktiverad i en tilldelning, men i en annan som den är inställd på AuditIfNotExist, gäller den ackumulerade effekten AuditIfNotExist. Mer aktiva effekten har alltid företräde.
-  - De principer börjar gälla kan vara: Lägga till, granskning, AuditIfNotExists, neka, DeployIfNotExists, inaktiverad. Mer information om hur effekterna tillämpas finns [Förstå princip effekterna](../governance/policy/concepts/effects.md).
+   - Den **säkerhetsprincip** skärmen återspeglar den åtgärd som de principer som tilldelats för prenumerations- eller gruppen som du har valt.
+   - Överst på sidan använder du länkarna för att öppna varje princip **tilldelning** som gäller för prenumerations- eller gruppen. Du kan använda länkarna för att komma åt tilldelningen och redigera eller inaktivera principen. Om du ser att en viss principtilldelning effektivt nekas slutpunktsskydd kan använda du länken till åtkomst till principen och redigera eller inaktivera den.
+   - I listan med principer ser du en effektiv tillämpning av principen på din prenumeration eller hanteringsgrupp. Det innebär att inställningarna för varje princip som gäller för omfånget beaktas och du får det kumulativa resultatet av vilka åtgärder som vidtas av principen. Om principen är inaktiverad i en tilldelning, men i en annan som den är inställd på AuditIfNotExist, gäller den ackumulerade effekten AuditIfNotExist. Mer aktiva effekten har alltid företräde.
+   - De principer börjar gälla kan vara: Lägga till, granskning, AuditIfNotExists, neka, DeployIfNotExists, inaktiverad. Mer information om hur effekterna tillämpas finns [Förstå princip effekterna](../governance/policy/concepts/effects.md).
 
    ![princip för skärmen](./media/security-center-policies/policy-screen.png)
 
@@ -102,16 +102,25 @@ Du kan redigera säkerhetsprinciper via Azure Policy-portalen via REST API eller
 
 
 ## <a name="disable-security-policies"></a>Inaktivera säkerhetsprinciper
-Om standard-säkerhetsprincipen ger dig en rekommendation som inte är relevanta för din miljö kan hindra du den genom att inaktivera principdefinitionen som skickar rekommendationen. Detta görs via Azure Policy-portal (och inte på Security Center-portalen), som beskrivs här.
-Mer information om rekommendationer finns [hantera säkerhetsrekommendationer](security-center-recommendations.md). 
-1. Gå till Azure Policy och klicka **tilldelningar**.
-2. I den **ASC-standard** rad, klicka på de tre punkterna och klickar på **View definition**. Den **Initiativdefinition** öppnas.
-   ![Visa definition](./media/tutorial-security-policy/view-definition.png)
-3. Klicka på **redigera intitiative**. Den **redigera Initiativdefinition** öppnas.
-   ![Redigera initiativ](./media/tutorial-security-policy/edit-initiative.png)
-4. I den **principer och parametrar** , sökning för principen som anropar rekommendationen som du vill inaktivera och i listrutan väljer du **inaktiverad**.
+Om standard-säkerhetsprincipen ger dig en rekommendation som inte är relevanta för din miljö kan hindra du den genom att inaktivera principdefinitionen som skickar rekommendationen.
+Mer information om rekommendationer finns [hantera säkerhetsrekommendationer](security-center-recommendations.md).
+
+1. I Security Center, från den **princip och efterlevnad** klickar du på **säkerhetsprincip**.
+
+   ![hantering av Grupprincip](./media/tutorial-security-policy/policy-management.png)
+
+2. Klicka på den prenumeration som du vill inaktivera rekommendationen.
+
+1. Klicka på den tilldelade principen.
+
+   ![Inaktivera princip](./media/tutorial-security-policy/security-policy.png)
+
+1. I den **parametrar** , sökning för principen som anropar rekommendationen som du vill inaktivera och i listrutan väljer du **inaktiverad**
+
    ![Inaktivera princip](./media/tutorial-security-policy/disable-policy.png)
-1. Klicka på **spara** (som finns längst ned på sidan).
+1. Klicka på **Spara**.
+> [!Note]
+> Inaktivera principändringar kan ta upp till 12 timmar ska börja gälla.
 
 
 ### <a name="configure-a-security-policy-using-the-rest-api"></a>Konfigurera en säkerhetsprincip med hjälp av REST-API
@@ -173,38 +182,38 @@ Det här exemplet visar hur du tilldelar initiativet inbyggda Security Center p�
 
 - Slutpunktsskydd (”endpointProtectionMonitoringEffect”) 
 
- 
-      PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
 
-      Request Body (JSON) 
-
-      { 
-
-        "properties":{ 
-
-      "displayName":"Enable Monitoring in Azure Security Center", 
-
-      "metadata":{ 
-
-      "assignedBy":"{Name}" 
-
-      }, 
-
-      "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
-
-      "parameters":{ 
-
-      "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
-
-      "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
-
-      "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
-
-      }, 
-
-       } 
-
-      } 
+    PLACERA https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+    
+    Begärandetexten (JSON) 
+    
+    { 
+    
+      "properties":{ 
+    
+    ”displayName”: ”aktivera övervakning i Azure Security Center”, 
+    
+    "metadata":{ 
+    
+    ”assignedBy”: ”{Name} 
+    
+    }, 
+    
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+    
+    ”Parametrar”: { 
+    
+    "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
+    
+    "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
+    
+    "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
+    
+    }, 
+    
+     } 
+    
+    } 
 
 Det här exemplet visar hur du tar bort en tilldelning:
 

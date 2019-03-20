@@ -1,26 +1,26 @@
 ---
 title: Skapa Azure-webbappar med Ansible
 description: Lär dig att använda Ansible för att skapa en webbapp med Java 8 och Tomcat-körmiljö för container i App Service i Linux
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, Java
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: 106fe11355d629e57f71b12d1125d188b98c2236
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 5f67a9f7d629eec9ab1462a25940355869c1cd28
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051353"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791230"
 ---
 # <a name="create-azure-app-service-web-apps-by-using-ansible"></a>Skapa Azure App Service-webbappar med Ansible
 [Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (eller bara Web Apps) är värd för webbprogram, REST API:er och mobila serverdelar. Du kan utveckla i det språk du föredrar&mdash; .NET, .NET Core, Java, Ruby, Node.js, PHP eller Python.
 
 Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Den här artikeln visar hur du använder Ansible för att skapa en webbapp med Java Runtime. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 - **Azure-prenumeration** – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 

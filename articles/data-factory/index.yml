@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2179b212dbbc7891b003664f4bea3d47cbb3a34e
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: f03ece417ef5db891efe32a662a092ebf6072b33
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575400"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848169"
 documentType: LandingData
 title: Dokumentation om Azure Data Factory
 metadata:
@@ -80,6 +80,7 @@ sections:
     - html: Omvandla data i ett virtuellt nätverk – <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal">Data Factory-användargränssnitt</a> | <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network">Azure PowerShell</a>
     - html: Lägga till branchning och länkning – <a href="/azure/data-factory/tutorial-control-flow-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-control-flow">.NET</a>
     - html: Köra SSIS-paket i Azure – <a href="/azure/data-factory/tutorial-create-azure-ssis-runtime-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
+    - html: Kontinuerlig integrering och leverans (CI/CD) i Azure Data Factory – <a href="/azure/data-factory/continuous-integration-deployment">Data Factory UI</a>
 - title: Exempel
   items:
   - type: paragraph

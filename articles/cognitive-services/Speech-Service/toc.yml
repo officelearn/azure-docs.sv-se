@@ -1,53 +1,60 @@
 items:
-- name: Dokumentation om Speech Service
+- name: Dokumentation om Speech Services
   href: index.yml
 - name: Översikt
   items:
-  - name: Vad är Speech Service?
+  - name: Vad är Speech Services?
     href: overview.md
-  - name: Prova Speech Service kostnadsfritt
-    href: get-started.md
+  - name: Tal till text
+    displayName: recognize speech, speech recognition, speech-to-text, stt
+    href: speech-to-text.md
+  - name: Text till tal
+    displayName: synthesize speech, speech synthesis, text-to-speech, tts
+    href: text-to-speech.md
+  - name: Talöversättning
+    displayName: translate speech, speech translation, translator, s2s, speech to speech
+    href: speech-translation.md
   expanded: true
 - name: Snabbstarter
   items:
-  - name: SDK
+  - name: Speech SDK
     items:
-    - name: Identifiera tal
+    - name: Tal till text
       items:
       - name: C# (.NET Framework Windows)
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-csharp-dotnet-windows.md
       - name: C# (.NET Core Windows)
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-csharp-dotnetcore-windows.md
       - name: C# (UWP)
-        displayName: recognize speech, speech recognition, speech to text, stt, C#, universal windows platform
+        displayName: recognize speech, speech recognition, speech-to-text, stt, C#, universal windows platform
         href: quickstart-csharp-uwp.md
       - name: C# (Unity)
-        displayName: recognize speech, speech recognition, speech to text, stt, C#, unity 3d, windows, android, universal windows platform, uwp
+        displayName: recognize speech, speech recognition, speech-to-text, stt, C#, unity 3d, windows, android, universal windows platform, uwp
         href: quickstart-csharp-unity.md
       - name: C++ (Windows)
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-cpp-windows.md
       - name: C++ (Linux)
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-cpp-linux.md
       - name: Java (Android)
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-java-android.md
       - name: Java (Windows, Linux)
-        displayName: recognize speech, speech recognition, speech to text, stt, jre, jvm
+        displayName: recognize speech, speech recognition, speech-to-text, stt, jre, jvm
         href: quickstart-java-jre.md
       - name: JavaScript (webbläsare)
         href: quickstart-js-browser.md
       - name: JavaScript (Node.js)
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-js-node.md
       - name: Objective-C (iOS)
-        displayName: recognize speech, speech recognition, speech to text, stt, xcode
+        displayName: recognize speech, speech recognition, speech-to-text, stt, xcode
         href: quickstart-objectivec-ios.md
       - name: Python
-        displayName: recognize speech, speech recognition, speech to text, stt
+        displayName: recognize speech, speech recognition, speech-to-text, stt
         href: quickstart-python.md
     - name: Översätt tal
       items:
@@ -56,7 +63,7 @@ items:
       - name: C# (.NET Framework Windows)
         href: quickstart-translate-speech-dotnetframework-windows.md
       - name: C# (UWP)
-        displayName: recognize speech, speech recognition, speech to text, stt, C#, universal windows platform
+        displayName: recognize speech, speech recognition, speech-to-text, stt, C#, universal windows platform
         href: quickstart-translate-speech-uwp.md
       - name: C++ (Windows)
         href: quickstart-translate-speech-cpp-windows.md
@@ -64,7 +71,7 @@ items:
         href: quickstart-translate-speech-java-jre.md
   - name: REST API:er
     items:
-    - name: Konvertera text-till-tal
+    - name: Text till tal
       items:
       - name: C# (.NET Core)
         href: quickstart-dotnet-text-to-speech.md
@@ -77,68 +84,45 @@ items:
     href: speech-devices-sdk-qsg.md
 - name: Självstudier
   items:
-  - name: Identifiera tal
-    displayName: recognize speech, speech recognition, speech to text, stt
-    items:
-    - name: C#
-      href: how-to-recognize-speech-csharp.md
-    - name: C++
-      href: how-to-recognize-speech-cpp.md
-    - name: Java
-      href: how-to-recognize-speech-java.md
-    - name: REST
-      href: how-to-recognize-speech-rest.md
-  - name: Identifiera avsikter från tal
+  - name: Känna igen talavsikter med LUIS, C#
     displayName: recognize intent, intent recognition, language understanding service, luis
-    items:
-    - name: C#
-      href: how-to-recognize-intents-from-speech-csharp.md
-    - name: C++
-      href: how-to-recognize-intents-from-speech-cpp.md
-    - name: Java
-      href: how-to-recognize-intents-from-speech-java.md
-  - name: Översätt tal
-    displayName: translate speech, speech translation, translator, s2s, speech to speech
-    items:
-    - name: C#
-      href: how-to-translate-speech-csharp.md
-    - name: C++
-      href: how-to-translate-speech-cpp.md
-    - name: Java
-      href: how-to-translate-speech-java.md
+    href: how-to-recognize-intents-from-speech-csharp.md
 - name: Instruktionsguider
   items:
+  - name: Registrera dig för Speech Services
+    href: get-started.md
   - name: Batch-transkription (REST)
-    displayName: recognize speech, speech recognition, speech to text, stt
+    displayName: recognize speech, speech recognition, speech-to-text, stt
     href: batch-transcription.md
-  - name: Hämta Speech Devices SDK
-    displayName: roobo, speech devices sdk, download
-    href: get-speech-devices-sdk.md
-  - name: Anpassa
-    items:
-    - name: Anpassa akustiska modeller
-      href: how-to-customize-acoustic-models.md
-    - name: Anpassa språkmodeller
-      href: how-to-customize-language-model.md
-    - name: Anpassa uttal
-      href: how-to-customize-pronunciation.md
-    - name: Skapa en anpassad slutpunkt för tal till text
-      href: how-to-create-custom-endpoint.md
-    - name: Anpassa rösttyper (bot brand voice)
-      href: how-to-customize-voice-font.md
-    - name: Anpassa väckningsord för enhet (Devices SDK)
-      displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
-      href: speech-devices-sdk-create-kws.md
-  - name: Spela in röstexempel
-    href: record-custom-voice-samples.md
-  - name: Förbered avskrifter
-    href: prepare-transcription.md
-  - name: Använda anpassade ljudströmmar
+  - name: Använda ljudindataströmmar (SDK)
     href: how-to-use-audio-input-streams.md
-  - name: Välj enhet för ljudinspelning
+  - name: Välj enhet för ljudinspelning (SDK)
     displayName: audio, microphone, input, device
     href: how-to-select-audio-input-devices.md
-  - name: Migrera
+  - name: Anpassning
+    items:
+    - name: Tal till text
+      items:
+      - name: Förbereda avskrifter för anpassning
+        href: prepare-transcription.md
+      - name: Anpassa akustiska modeller
+        href: how-to-customize-acoustic-models.md
+      - name: Anpassa språkmodeller
+        href: how-to-customize-language-model.md
+      - name: Anpassa uttal
+        href: how-to-customize-pronunciation.md
+      - name: Skapa en slutpunkt för anpassad igenkänning
+        href: how-to-create-custom-endpoint.md
+    - name: Text till tal
+      items:
+      - name: Skapa rösttyper (bot brand voice)
+        href: how-to-customize-voice-font.md
+      - name: Spela in röstexempel
+        href: record-custom-voice-samples.md
+    - name: Skapa ett anpassat aktiveringsord (SDK för enheter)
+      displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
+      href: speech-devices-sdk-create-kws.md
+  - name: Migrering
     items:
     - name: Från Taligenkänning i Bing
       href: how-to-migrate-from-bing-speech.md
@@ -146,19 +130,56 @@ items:
       href: how-to-migrate-from-custom-speech-service.md
     - name: Från Translator Speech API:et
       href: how-to-migrate-from-translator-speech-api.md
-- name: Begrepp
+- name: Exempel
   items:
-  - name: Tal till text
-    displayName: recognize speech, speech recognition, speech to text, stt
-    href: speech-to-text.md
-  - name: Text till tal
-    displayName: synthesize speech, speech synthesis, text to speech, tts
-    href: text-to-speech.md
-  - name: Talöversättning
-    displayName: translate speech, speech translation, translator, s2s, speech to speech
-    href: speech-translation.md
+  - name: Speech SDK
+    href: https://github.com/Azure-Samples/cognitive-services-speech-sdk
+  - name: Speech Devices SDK
+    href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
+  - name: Text till tal (REST)
+    href: https://github.com/Azure-Samples/Cognitive-Speech-TTS
+  - name: Batch-transkription (REST)
+    href: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch
 - name: Referens
   items:
+  - name: Speech SDK
+    items:
+    - name: Översikt
+      displayName: C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows
+      href: speech-sdk.md
+    - name: Viktig information
+      href: releasenotes.md
+    - name: C++
+      href: https://aka.ms/csspeech/cppref
+    - name: C#
+      href: https://aka.ms/csspeech/csharpref
+    - name: Java/Android
+      href: https://aka.ms/csspeech/javaref
+    - name: Javascript/Node.js
+      href: https://aka.ms/csspeech/javascriptref
+    - name: Objective-C
+      href: https://aka.ms/csspeech/objectivecref
+    - name: Python
+      href: https://aka.ms/csspeech/pythonref
+  - name: Speech Devices SDK
+    items:
+    - name: Hämta Speech Devices SDK
+      href: get-speech-devices-sdk.md#download-the-speech-devices-sdk
+    - name: Viktig information
+      href: devices-sdk-release-notes.md
+  - name: REST API:er
+    items:
+    - name: Tal till text
+      displayName: speech-to-text, speech recognition
+      href: rest-speech-to-text.md
+    - name: Text till tal
+      displayName: text-to-speech, speech synthesis
+      href: rest-text-to-speech.md
+    - name: Batch-transkription och anpassning
+      displayName: Batch transcription, transcription, custom models, customization, model management
+      href: https://westus.cris.ai/swagger/ui/index
+  - name: Speech Synthesis Markup Language (SSML)
+    href: speech-synthesis-markup.md
   - name: PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Azure CLI
@@ -167,41 +188,22 @@ items:
     href: language-support.md
   - name: Regioner
     href: regions.md
-  - name: REST API:er
-    href: rest-apis.md
-  - name: Swagger-referens
-    href: https://westus.cris.ai/swagger/ui/index
-  - name: API för Speech SDK
-    displayName: C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows
-    href: speech-sdk-reference.md
-  - name: Pålägg för talsyntes
-    displayName: synthesize speech, speech synthesis, text to speech, tts
-    href: speech-synthesis-markup.md
 - name: Resurser
   items:
   - name: VANLIGA FRÅGOR OCH SVAR
     items:
-    - name: Vanliga frågor och svar om tal till text
-      displayName: recognize speech, speech recognition, speech to text, stt
+    - name: Tal till text
+      displayName: recognize speech, speech recognition, speech-to-text, stt
       href: faq-stt.md
-    - name: Vanliga frågor och svar om text till tal
-      displayName: synthesize speech, speech synthesis, text to speech, tts
+    - name: Text till tal
+      displayName: synthesize speech, speech synthesis, text-to-speech, tts
       href: faq-text-to-speech.md
-    - name: Vanliga frågor och svar om Translator
+    - name: Talöversättning
       displayName: translate speech, speech translation, translator, s2s, speech to speech
       href: https://www.microsoft.com/translator/faq.aspx
-  - name: Speech SDK
+  - name: Speech SDK-licenser
     displayName: C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample
-    href: speech-sdk.md
     items:
-    - name: Ladda ned
-      href: speech-sdk.md#get-the-sdk
-    - name: Exempel
-      href: speech-sdk.md#get-the-samples
-    - name: Leverera ditt program
-      href: ship-application.md
-    - name: Viktig information
-      href: releasenotes.md
     - name: Licens
       href: https://aka.ms/csspeech/license201809
     - name: Meddelanden från tredje part
@@ -210,12 +212,6 @@ items:
     displayName: roobo, speech devices sdk
     href: speech-devices-sdk.md
     items:
-    - name: Ladda ned
-      href: get-speech-devices-sdk.md#download-the-speech-devices-sdk
-    - name: Exempel
-      href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
-    - name: Viktig information
-      href: devices-sdk-release-notes.md
     - name: Licens
       displayName: roobo, speech devices sdk
       href: speech-devices-sdk-license.md
@@ -232,9 +228,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Sekretess och cookies
     href: https://privacy.microsoft.com/privacystatement
-ms.openlocfilehash: 096aab6e2b59f8e6846be6ab1446a190df5e8434
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 7ca4d35f9db9368af60971a5af66cc1d2c7faaf7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56962000"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875812"

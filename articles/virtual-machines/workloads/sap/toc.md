@@ -78,6 +78,7 @@
 #### [Hög tillgänglighet på Windows med delad disk för (A)SCS-instans](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [Hög tillgänglighet på Windows med SOFS-filresurs för (A)SCS-instans](sap-high-availability-guide-wsfc-file-share.md)
 #### [Hög tillgänglighet på SUSE Linux för (A)SCS-instans](high-availability-guide-suse.md)
+#### [Hög tillgänglighet på SUSE Linux för (A)SCS-instans med Azure NetApp Files](high-availability-guide-suse-netapp-files.md)
 #### [Hög tillgänglighet på Red Hat Enterprise Linux för (A)SCS-instans](high-availability-guide-rhel.md)
 ### Förberedelse av Azure-infrastruktur
 #### [Windows med delad disk för (A)SCS-instans](sap-high-availability-infrastructure-wsfc-shared-disk.md)
@@ -90,6 +91,7 @@
 #### [Windows med delad disk för (A)SCS-instans](sap-high-availability-installation-wsfc-shared-disk.md)
 #### [Windows med SOFS-filresurs för (A)SCS-instans](sap-high-availability-installation-wsfc-file-share.md)
 #### [SUSE Linux med NFS för (A)SCS-instans](high-availability-guide-suse.md)
+#### [SUSE Linux med NFS för (A)SCS-instans med Azure NetApp Files](high-availability-guide-suse-netapp-files.md)
 #### [Hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux](high-availability-guide-rhel.md)
 ### SAP – flera säkerhetsidentifierare
 #### [Windows med delad disk för (A)SCS-instans](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)

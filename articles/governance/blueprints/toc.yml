@@ -21,12 +21,46 @@ items:
   - name: Skapa från en exempelskiss
     displayName: template, resource group, rbac, role assignment
     href: ./tutorials/create-from-sample.md
+  - name: Skydda nya resurser med skissresurslås
+    displayName: read only, do not delete, lock assignment
+    href: ./tutorials/protect-new-resources.md
+  expanded: true
+- name: Exempel
+  items:
+  - name: Index
+    displayName: list, examples
+    href: ./samples/index.md
+  - name: ISO 27001 – Delade tjänster
+    items:
+    - name: Översikt
+      displayName: standards, iso, 27001, shared services
+      href: ./samples/iso27001-shared/index.md
+    - name: Kontrollmappning
+      displayName: standards, iso, 27001
+      href: ./samples/iso27001-shared/control-mapping.md
+    - name: Distributionssteg
+      displayName: standards, iso, 27001
+      href: ./samples/iso27001-shared/deploy.md
+  - name: ISO 27001 – ASE/SQL-arbetsbelastning
+    items:
+    - name: Översikt
+      displayName: standards, iso, 27001, shared services
+      href: ./samples/iso27001-ase-sql-workload/index.md
+    - name: Kontrollmappning
+      displayName: standards, iso, 27001
+      href: ./samples/iso27001-ase-sql-workload/control-mapping.md
+    - name: Distributionssteg
+      displayName: standards, iso, 27001
+      href: ./samples/iso27001-ase-sql-workload/deploy.md
   expanded: true
 - name: Begrepp
   items:
   - name: Livscykeln för en skiss
     displayName: publish, edit, delete, assignments
     href: ./concepts/lifecycle.md
+  - name: Faser i en skissdistribution
+    displayName: assign, managed identity
+    href: ./concepts/deployment-stages.md
   - name: Dynamiska parametrar i en skiss
     displayName: secureString, secureObject, static
     href: ./concepts/parameters.md
@@ -39,7 +73,10 @@ items:
   expanded: true
 - name: Instruktionsguider
   items:
-  - name: Uppdatera befintliga tilldelningar
+  - name: Hantera tilldelningar med PowerShell
+    displayName: create, update, remove
+    href: ./how-to/manage-assignments-ps.md
+  - name: Uppdatera befintliga tilldelningar via portalen
     displayName: lock, errors
     href: ./how-to/update-existing-assignments.md
   expanded: true
@@ -48,9 +85,11 @@ items:
   href: ./troubleshoot/general.md
 - name: Referenser
   items:
-  - name: REST-API
+  - name: REST
     href: /rest/api/blueprints/
-  - name: PowerShell (community)
+  - name: PSGallery (Az.Blueprint-modul)
+    href: https://www.powershellgallery.com/packages/Az.Blueprint
+  - name: PSGallery (community-modul)
     href: https://www.powershellgallery.com/packages/Manage-AzureRMBlueprint
   expanded: true
 - name: Resurser
@@ -65,9 +104,9 @@ items:
     href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
   - name: Azure Friday – Översikt över Azure Blueprints
     href: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
-ms.openlocfilehash: cc616ebfaa3bbde485fefbd6abe4a4b4568a5b96
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: aa7ec969dbb16508cb08dde4cf8f16e07042611c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410153"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892378"

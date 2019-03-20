@@ -32,15 +32,17 @@ items:
 - name: Begrepp
   items:
   - name: Indatatyper för ett jobb
-    href: stream-analytics-add-inputs.md
     items:
+    - name: Översikt över indata
+      href: stream-analytics-add-inputs.md
     - name: Inmatningar av strömmande data
       href: stream-analytics-define-inputs.md
     - name: Inmatningar av referensdata
       href: stream-analytics-use-reference-data.md
   - name: Utdatatyper för ett jobb
-    href: stream-analytics-define-outputs.md
     items:
+    - name: Översikt över utdata
+      href: stream-analytics-define-outputs.md
     - name: Utdata till Cosmos DB
       href: stream-analytics-documentdb-output.md
     - name: Utdata till Azure SQL DB
@@ -122,9 +124,10 @@ items:
     items:
     - name: Skala med direktuppspelningsenheter
       href: stream-analytics-streaming-unit-consumption.md
-    - name: Skala med frågeparallellisering
-      href: stream-analytics-parallelization.md
+    - name: Skala med parallellisering
       items:
+      - name: Frågeparallellisering
+        href: stream-analytics-parallelization.md
       - name: Öka dataflödet
         href: stream-analytics-scale-jobs.md
     - name: Skala med ML-funktioner
@@ -428,16 +431,16 @@ items:
   - name: Tjänstuppdateringar
     href: https://azure.microsoft.com/updates/?product=stream-analytics
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-stream-analytics
+    href: https://stackoverflow.com/questions/tagged/azure-stream-analytics
   - name: Videoklipp
     href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
   - name: Kundfallstudier
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: Whitepaper-datablad – händelsebearbetning i realtid
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: 24c475fcbe1bda825693ee04f9381922c46633ad
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 127d7aa2588a47084dd43eb7f22adf9f73f90dce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539249"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853026"

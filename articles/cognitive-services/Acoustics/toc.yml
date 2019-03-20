@@ -6,27 +6,41 @@ items:
     href: what-is-acoustics.md
 - name: Snabbstarter
   items:
-  - name: Komma igång
-    href: getting-started.md
+  - name: Snabbstart med Unity
+    href: unity-quickstart.md
+  - name: Snabbstart med Unreal
+    href: unreal-quickstart.md
+- name: Självstudier
+  items:
+  - name: Designarbetsflöde i Unity
+    href: unity-workflow.md
+  - name: Designarbetsflöde i Unreal/Wwise
+    href: unreal-workflow.md
+  - name: Ljudbearbetning med Unity
+    href: unity-baking.md
+  - name: Ljudbearbetning med Unreal/Wwise
+    href: unreal-baking.md
+- name: Begrepp
+  items:
+  - name: Designbegrepp för akustiksimulering
+    href: design-process.md
 - name: Instruktioner
   items:
   - name: Skapa ett Azure Batch-konto
     href: create-azure-account.md
-  - name: Bake Acoustics
-    href: bake-ui-walkthrough.md
-  - name: Design Acoustics
-    href: design-process.md
+  - name: Integrera Akustik för projekt i Unity
+    href: unity-integration.md
+  - name: Integrera Akustik för projekt i Unreal/Wwise
+    href: unreal-integration.md
 - name: Resurser
   items:
-  - name: Acoustics-exempel
-    href: sample-walkthrough.md
   - name: Vanliga frågor och svar
     href: faq.md
   - name: Kända problem
     href: known-issues.md
-ms.openlocfilehash: 225d620cddfd68f3d5fb6d6d841c8f33254f1309
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 37514a3f8c149c1e34b4e0faa8a7109290a80feb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181850"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58138227"

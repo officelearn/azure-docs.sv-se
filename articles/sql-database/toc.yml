@@ -533,10 +533,16 @@ items:
       href: sql-database-develop-overview.md
     - name: Arbeta med JSON-data
       href: sql-database-json-features.md
+    - name: Använda ASP.NET och App Service
+      href: /azure/app-service/app-service-web-tutorial-dotnet-sqldatabase?toc=/azure/sql-database/toc.json
     - name: Använda Azure Functions
       href: ../azure-functions/functions-scenario-database-table-cleanup.md?toc=/azure/sql-database/toc.json
+    - name: Använda Azure Logic Apps
+      href: /azure/connectors/connectors-create-api-sqlazure?toc=/azure/sql-database/toc.json
     - name: Använda Spark-anslutningsappen
       href: sql-database-spark-connector.md
+    - name: Indexera med Azure Search
+      href: /azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers?toc=/azure/sql-database/toc.json
     - name: Autentisera app
       href: sql-database-client-id-keys.md
     - name: Felmeddelanden
@@ -718,9 +724,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Avinstallera elastiskt jobb (inaktuellt)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 8c0124072f26716a25cc2fc098c2da0a29a6b15f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 41379e27d936db125261459c106687fc6c74a098
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835511"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58227005"

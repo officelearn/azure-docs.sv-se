@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 82ba644f844c59b59f449e137c64b767d5dffbff
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f0d4a689e783f8c460ee54b3613ac0fe432b59ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464032"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862802"
 documentType: LandingData
 title: Azure IoT Edge
 metadata:
@@ -15,7 +15,7 @@ metadata:
   ms.service: iot-edge
   services: iot-edge
   ms.topic: landing-page
-  ms.date: 01/30/2019
+  ms.date: 03/13/2019
   ms.author: kgremban
 abstract:
   description: Azure IoT Edge är en IoT-tjänst (Sakernas Internet) som bygger på IoT Hub. Den här tjänsten är avsedd för kunder som vill analysera data på enheter, dvs. vid nätverksgränsen, i stället för i molnet. När du flyttar delar av din arbetsbelastning till nätverksgränsen går det åt mindre tid till att skicka meddelanden till molnet och dina enheter reagerar snabbare på tillståndsändringar.
@@ -32,7 +32,7 @@ sections:
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: 'Distribuera din första IoT Edge-modul och bearbeta data på en simulerad enhet:'
+    text: 'Skapa en virtuell Azure-dator, konfigurera den så att den körs som en IoT Edge-enhet och distribuera kod till den:'
   - type: list
     style: icon48
     items:

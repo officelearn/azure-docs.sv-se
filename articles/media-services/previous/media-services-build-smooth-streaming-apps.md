@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 65625fcc12143a8ea53ff2ab7d1dfcb43a0def8d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 92fc63ed45b6f1ea377138744d19137645c916e7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992151"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57882734"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Hur du skapar ett Smooth Streaming Windows Store-program  
 
-Smooth Streaming klient SDK för Windows 8 gör det möjligt för utvecklare att bygga Windows Store-program som kan spelas upp på begäran och live Smooth Streaming-innehåll. Förutom grundläggande uppspelningen av Smooth Streaming-innehåll finns i SDK även omfattande funktioner som Microsoft PlayReady-skydd, begränsning för kvalitet, Live DVR ljudström växlar, lyssna efter statusuppdateringar (till exempel kvalitet ändras) och felhändelser och så vidare. Mer information om hur över funktionerna som stöds finns i den [viktig](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Mer information finns i [Player Framework för Windows 8](http://playerframework.codeplex.com/). 
+Smooth Streaming klient SDK för Windows 8 gör det möjligt för utvecklare att bygga Windows Store-program som kan spelas upp på begäran och live Smooth Streaming-innehåll. Förutom grundläggande uppspelningen av Smooth Streaming-innehåll finns i SDK även omfattande funktioner som Microsoft PlayReady-skydd, begränsning för kvalitet, Live DVR ljudström växlar, lyssna efter statusuppdateringar (till exempel kvalitet ändras) och felhändelser och så vidare. Mer information om hur över funktionerna som stöds finns i den [viktig](https://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Mer information finns i [Player Framework för Windows 8](https://playerframework.codeplex.com/). 
 
 Den här självstudien innehåller fyra lektioner:
 
@@ -38,7 +38,7 @@ Den här självstudien innehåller fyra lektioner:
 
 * Windows 8, 32-bitars eller 64-bitars.
 * Visual Studio-versioner 2012 till 2015.
-* [Microsoft Smooth Streaming-klient-SDK för Windows 8](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
+* [Microsoft Smooth Streaming-klient-SDK för Windows 8](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
 Den färdiga lösningen för varje lektion kan laddas ned från kodexempel för MSDN-utvecklare (Code Gallery): 
 
@@ -107,7 +107,7 @@ När du lägger till referenser, måste du välja den aktuella plattformen (x64 
 
          <StackPanel Name="spMediaControl" Grid.Row="1" Orientation="Horizontal">
             <TextBlock x:Name="tbSource" Text="Source :  " FontSize="16" FontWeight="Bold" VerticalAlignment="Center" />
-            <TextBox x:Name="txtMediaSource" Text="http://ecn.channel9.msdn.com/o9/content/smf/smoothcontent/elephantsdream/Elephants_Dream_1024-h264-st-aac.ism/manifest" FontSize="10" Width="700" Margin="0,4,0,10" />
+            <TextBox x:Name="txtMediaSource" Text="https://ecn.channel9.msdn.com/o9/content/smf/smoothcontent/elephantsdream/Elephants_Dream_1024-h264-st-aac.ism/manifest" FontSize="10" Width="700" Margin="0,4,0,10" />
             <Button x:Name="btnSetSource" Content="Set Source" Width="111" Height="43" Click="btnSetSource_Click"/>
             <Button x:Name="btnPlay" Content="Play" Width="111" Height="43" Click="btnPlay_Click"/>
             <Button x:Name="btnPause" Content="Pause"  Width="111" Height="43" Click="btnPause_Click"/>
@@ -203,7 +203,7 @@ Vissa händelsehanterare är associerade med kontroller i XAML-filen.  Du måste
          }
          # endregion
    ```
-Händelsehanteraren sliderProgress_PointerPressed definieras här.  Det finns flera fungerar för att detta ska fungera, vilket beskrivs i nästa kurs i den här kursen.
+   Händelsehanteraren sliderProgress_PointerPressed definieras här.  Det finns flera fungerar för att detta ska fungera, vilket beskrivs i nästa kurs i den här kursen.
 6. Tryck på **CTRL + S** att spara filen.
 
 Den färdiga koden bakom filen bör se ut så här:
@@ -807,7 +807,7 @@ Smooth Streaming är kapabel att strömma innehåll med flera språk ljudspår s
             changeStreams(selectedStreams);
         }
    ```
-**Att kompilera och testa programmet**
+   **Att kompilera och testa programmet**
 
 1. Tryck på **F6** projektet ska kompileras. 
 2. Tryck på **F5** för att köra programmet.
@@ -1009,7 +1009,7 @@ En Smooth Streaming-presentation kan innehålla flera videofiler kodad med olika
             changeStreams(selectedStreams);
          }
    ```
-**Att kompilera och testa programmet**
+   **Att kompilera och testa programmet**
 
 1. Tryck på **F6** projektet ska kompileras. 
 2. Tryck på **F5** för att köra programmet.
@@ -1026,8 +1026,8 @@ Du har slutfört Lektion 4.  Lägg till funktioner för att välja spårar i den
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="other-resources"></a>Andra resurser:
-* [Hur du skapar ett program för Smooth Streaming Windows 8 JavaScript med avancerade funktioner](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
-* [Jämn direktuppspelning teknisk översikt](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
+* [Hur du skapar ett program för Smooth Streaming Windows 8 JavaScript med avancerade funktioner](https://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
+* [Jämn direktuppspelning teknisk översikt](https://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8caeb6ad79f82ecb86da313cca901cb3a16b6d5c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8385fe5ecb9a6e17d872795ba4eff5c038e4df47
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004714"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199877"
 documentType: LandingData
 title: Dokumentation om Azure Search
 metadata:
@@ -57,12 +57,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: '<a href="/azure/search/cognitive-search-tutorial-blob">Lär dig REST API: erna för kognitiva kunskaper</a>'
+    - html: <a href="/azure/search/cognitive-search-tutorial-blob">Indexera med AI (Cognitive Services)</a>
     - html: <a href="/azure/search/search-howto-dotnet-sdk">Så här använder du Azure Search med .NET</a>
     - html: <a href="/azure/search/search-indexer-tutorial">Indexera Azure SQL Database-innehåll med .NET</a>
     - html: <a href="/azure/search/search-semi-structured-data">Indexera halvstrukturerade data i Azure Blob Storage med REST</a>
-    - html: <a href="/azure/search/search-synonyms-tutorial-sdk">Lägga till synonymer för att returnera resultat för motsvarande termer</a>
-    - html: <a href="/azure/search/search-autocomplete-tutorial">Lägga till automatisk komplettering i sökrutan med .NET</a>
     - html: <a href="/azure/search/search-get-started-portal">Använda portalen för indexering och frågetestning</a>
 - title: Referens
   items:

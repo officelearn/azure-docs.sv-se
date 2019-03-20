@@ -22,7 +22,7 @@ items:
   expanded: true
 - name: Självstudier
   items:
-  - name: 1 – Skapa konto
+  - name: 1 – Skapa och hantera data
     items:
     - name: Skapa en konsolapp
       items:
@@ -238,7 +238,7 @@ items:
         href: create-mongodb-golang.md
     - name: Självstudier
       items:
-      - name: 1 – Skapa konto
+      - name: 1 – Skapa och hantera data
         items:
         - name: Node.js-konsolapp
           href: mongodb-samples.md
@@ -337,7 +337,7 @@ items:
         href: create-cassandra-python.md
     - name: Självstudier
       items:
-      - name: 1 – Skapa konto och databas
+      - name: 1 – Skapa och hantera data
         href: create-cassandra-api-account-java.md
       - name: 2 – Läsa in data
         href: cassandra-api-load-data.md
@@ -389,7 +389,7 @@ items:
         href: create-table-python.md
     - name: Självstudier
       items:
-      - name: 1 – Skapa konto
+      - name: 1 – Skapa och hantera data
         href: tutorial-develop-table-dotnet.md
       - name: 2 – Migrera data
         displayName: import
@@ -656,9 +656,9 @@ items:
       href: use-cases.md
     - name: Appar för sociala medier
       href: social-media-apps.md
-ms.openlocfilehash: f42bc31661ecc14fde4d2466ccd89d91dfd5deb5
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 96160b85319ddd7e09b1ecd4e57b974608648021
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406821"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876926"

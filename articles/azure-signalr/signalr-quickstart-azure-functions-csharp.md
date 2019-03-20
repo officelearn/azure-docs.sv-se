@@ -1,26 +1,28 @@
 ---
-title: Snabbstart för serverlös Azure SignalR Service – C#
+title: Azure SignalR Service utan Server Snabbstart –C#
 description: En snabbstart för att använda Azure SignalR Service och Azure Functions för att skapa ett chattrum.
 author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/23/2018
+ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: db54282563acc6afac4dada7a45f6dff0716879a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: e3a437d44c557d2ec53182d4f6178cbea3e54eba
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255065"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544988"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Snabbstart: Skapa ett chattrum med Azure Functions och SignalR Service med hjälp av C\#
 
 Med Azure SignalR Service kan du enkelt lägga till realtidsfunktioner i ditt program. Azure Functions är en serverlös plattform som gör att du kan köra din kod utan att behöva hantera någon infrastruktur. I den här snabbstarten lär du dig hur du använder SignalR Service och Functions för att skapa ett serverlöst realtidschattprogram.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **utan kostnad**. Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
+
+Du kan också köra den här självstudiekursen på kommandoraden (macOS, Windows eller Linux) med hjälp av den [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing), [.NET Core SDK](https://dotnet.microsoft.com/download), och valfri Kodredigerare.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,7 +36,7 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Konfigurera och köra Azure Functions-appen
 
-1. Starta Visual Studio och öppna lösningen i mappen *chat\src\csharp* på den klonade lagringsplatsen.
+1. Starta Visual Studio (eller en annan Kodredigerare) och öppna lösningen i den *chat\src\csharp* mapp i den klonade lagringsplatsen.
 
 1. I den webbläsare där Azure-portalen är öppnad bekräftar du att den SignalR Service-instans som du distribuerade tidigare skapades korrekt genom att söka efter dess namn i sökrutan längst upp i portalen. Välj instansen för att öppna den.
 
@@ -53,9 +55,17 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
     - **GetSignalRInfo** – använder indatabindningen *SignalRConnectionInfo* för att skapa och returnera giltig anslutningsinformation.
     - **SendMessage** – tar emot ett chattmeddelande i begärandetexten och använder utdatabindningen *SignalR* för att skicka meddelandet till alla anslutna klientprogram.
 
-1. I menyn **Debug** (Felsökning) väljer du **Start debugging** (Starta felsökning) för att köra programmet.
+1. Använd något av följande alternativ för att starta appen Azure-funktion lokalt.
 
-    ![Felsök programmet](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-debug-vs.png)
+    - **Visual Studio**: I menyn Debug (Felsökning) väljer du *Start debugging* (Starta felsökning) för att köra programmet.
+
+        ![Felsök programmet](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-debug-vs.png)
+
+    - **Kommandoraden**: Kör följande kommando för att starta funktionen värden.
+
+        ```bash
+        func start
+        ```
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
@@ -63,7 +73,7 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade och körde du ett serverlöst realtidsprogram i VS Code. Som nästa steg ska du lära dig mer om hur du distribuerar Azure Functions via VS Code.
+I den här snabbstarten har du skapat och kört ett serverlöst program i realtid i Visual Studio. Härnäst får du lära dig mer om att utveckla och distribuera Azure Functions med Visual Studio.
 
 > [!div class="nextstepaction"]
-> [Distribuera Azure Functions med VS Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)
+> [Utveckla Azure Functions med hjälp av Visual Studio](../azure-functions/functions-develop-vs.md)

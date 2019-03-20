@@ -40,6 +40,9 @@ items:
   - name: Jämför lagringsalternativ
     href: ../hdinsight-hadoop-compare-storage-options.md
     maintainContext: true
+  - name: Förstå hanterade identiteter
+    href: ../hdinsight-managed-identities.md
+    maintainContext: true
 - name: Gör så här för att
   items:
   - name: Använda sandbox-miljön för Apache Hadoop
@@ -75,10 +78,6 @@ items:
         href: apache-hadoop-use-hive-powershell.md
       - name: Använd .NET SDK
         href: apache-hadoop-use-hive-dotnet-sdk.md
-      - name: Använd Fjärrskrivbord
-        href: apache-hadoop-use-hive-remote-desktop.md
-      - name: Använd frågekonsol
-        href: apache-hadoop-use-hive-query-console.md
     - name: Använd en Java UDF med Hive
       href: apache-hadoop-hive-java-udf.md
     - name: Använda MapReduce med Apache Hadoop
@@ -159,15 +158,11 @@ items:
       href: apache-hadoop-connect-excel-hive-odbc-driver.md
     - name: Ansluta med Apache Hive JDBC-drivrutinen
       href: apache-hadoop-connect-hive-jdbc-driver.md
-    - name: Analysera lagrade sensordata
-      href: apache-hive-analyze-sensor-data.md
     - name: Analysera lagrade tweets
       href: ../hdinsight-analyze-twitter-data-linux.md
       maintainContext: true
     - name: Skapa rekommendationer med Apache Mahout
       href: apache-hadoop-mahout-linux-mac.md
-    - name: Analysera webbplatsloggar med Apache Hive
-      href: apache-hive-analyze-website-log.md
     - name: Analysera loggar i Application Insights Telemetry
       href: ../spark/apache-spark-analyze-application-insight-logs.md
       maintainContext: true
@@ -207,9 +202,6 @@ items:
       maintainContext: true
     - name: Använd Hue
       href: ../hdinsight-hadoop-hue-linux.md
-      maintainContext: true
-    - name: Använda Apache Solr
-      href: ../hdinsight-hadoop-solr-install-linux.md
       maintainContext: true
     - name: Använda Apache Zeppelin
       href: ../hdinsight-apache-spark-zeppelin-notebook.md
@@ -321,8 +313,11 @@ items:
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
       maintainContext: true
-    - name: Skala ett HDInsight-kluster
+    - name: Skala ett kluster manuellt
       href: ../hdinsight-scaling-best-practices.md
+      maintainContext: true
+    - name: Skala kluster automatiskt
+      href: ../hdinsight-autoscale-clusters.md
       maintainContext: true
     - name: Använda extern metadatalagring
       href: ../hdinsight-use-external-metadata-stores.md
@@ -495,9 +490,6 @@ items:
     - name: Köra MapReduce-exempel i Apache Hadoop
       href: ../hdinsight-run-samples.md
       maintainContext: true
-    - name: Använda Apache Solr i kluster
-      href: ../hdinsight-hadoop-solr-install-linux.md
-      maintainContext: true
     - name: Använda Apache Giraph för att bearbeta storskaliga diagram
       href: ../hdinsight-hadoop-giraph-install.md
       maintainContext: true
@@ -510,26 +502,14 @@ items:
     - name: Använda Apache Maven för att skapa Java-program
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
-    - name: Anpassa med skriptåtgärd
-      href: ../hdinsight-hadoop-customize-cluster.md
-      maintainContext: true
     - name: Få åtkomst till Apache Hadoop YARN-programloggar
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
       maintainContext: true
     - name: Skapa filmrekommendationer med Apache Mahout
       href: ../hdinsight-mahout.md
       maintainContext: true
-    - name: Analysera flygförseningsdata
-      href: ../hdinsight-analyze-flight-delay-data.md
-      maintainContext: true
     - name: Utveckla skriptåtgärder
       href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: Analysera Twitter-data
-      href: ../hdinsight-analyze-twitter-data.md
-      maintainContext: true
-    - name: Hantera kluster med Azure-portalen
-      href: ../hdinsight-administer-use-management-portal.md
       maintainContext: true
     - name: Övervaka kluster med Apache Ambari-API:et
       href: ../hdinsight-monitor-use-ambari-api.md
@@ -556,9 +536,9 @@ items:
   - name: Windows-verktyg för HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: c679970484666a6087b33276eb545304a3b2793c
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: c2272c9ae3b5f26dc1c83b7af5850a44aed6abdc
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887037"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224404"

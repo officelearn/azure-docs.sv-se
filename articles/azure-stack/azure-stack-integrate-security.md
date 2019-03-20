@@ -11,12 +11,12 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/28/2019
 keywords: ''
-ms.openlocfilehash: 7dff82538448b27f14dd81e2862cd63d4dd56a9b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a47b38acc372e6c1d215c7440657486b5babf3bb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247110"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009472"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Integrering med Azure Stack datacenter - syslog-vidarebefordran
 
@@ -63,8 +63,8 @@ Parametrar för *Set-SyslogServer* cmdlet:
 
 | Parameter | Beskrivning | Type | Krävs |
 |---------|---------|---------|---------|
-|*Servernamn* | FQDN eller IP-adress för syslog-servern | Sträng | ja|
-|*ServerPort* | Portnumret syslog-servern lyssnar på | Sträng | ja|
+|*Servernamn* | FQDN eller IP-adress för syslog-servern | String | ja|
+|*ServerPort* | Portnumret syslog-servern lyssnar på | String | ja|
 |*NoEncryption*| Tvinga klienten att skicka syslog-meddelanden i klartext | flag | nej|
 |*SkipCertificateCheck*| Hoppa över verifieringen av det certifikat som tillhandahålls av syslog-servern under den inledande TLS-handskakning | flag | nej|
 |*SkipCNCheck*| Hoppa över validering av nätverksnamn värdet för det certifikat som tillhandahålls av syslog-servern under den inledande TLS-handskakning | flag | nej|
@@ -72,9 +72,10 @@ Parametrar för *Set-SyslogServer* cmdlet:
 |*ta bort*| Ta bort konfigurationen av servern från klienten och stoppa syslog-vidarebefordran| flag | nej|
 
 Parametrar för *Set-SyslogClient* cmdlet:
+
 | Parameter | Beskrivning | Type |
 |---------|---------| ---------|
-| *pfxBinary* | pfx-fil som innehåller certifikatet som ska användas av klienten som identitet för att autentisera mot syslog-servern  | Byte] |
+| *pfxBinary* | pfx-fil som innehåller certifikatet som ska användas av klienten som identitet för att autentisera mot syslog-servern  | Byte[] |
 | *CertPassword* |  Lösenord för att importera den privata nyckeln som är associerad med pfx-filen | SecureString |
 |*RemoveCertificate* | Ta bort certifikat från klienten | flag|
 
@@ -287,6 +288,7 @@ Tabell med händelser för återställning-slutpunkten:
 |RecoveryEndpointClosed |1016|RecoveryEndpointClosedEvent|5|
 
 REP Severity tabell:
+
 | Severity | Nivå | Numeriskt värde |
 |----------|-------| ----------------|
 |0|Undefined (Odefinierad)|Värde: 0. Anger loggar på alla nivåer|
@@ -306,6 +308,7 @@ REP Severity tabell:
 ```
 
 Allvarlighetsgrad tabell för Windows-händelser:
+
 | CEF-allvarlighetsgrad | Windows Händelsenivå | Numeriskt värde |
 |--------------------|---------------------| ----------------|
 |0|Undefined (Odefinierad)|Värde: 0. Anger loggar på alla nivåer|
@@ -316,6 +319,7 @@ Allvarlighetsgrad tabell för Windows-händelser:
 |0|Utförlig|Värde: 5. Anger loggar på alla nivåer|
 
 Anpassat tilläggs-tabell för Windows-händelser i Azure Stack:
+
 | Namn på anpassade tillägg | Exempel för Windows-händelse | 
 |-----------------------|---------|
 |MasChannel | System|
@@ -352,6 +356,7 @@ Anpassat tilläggs-tabell för Windows-händelser i Azure Stack:
 ```
 
 Aviseringar allvarlighetsgrad tabell:
+
 | Severity | Nivå |
 |----------|-------|
 |0|Undefined (Odefinierad)|
@@ -359,6 +364,7 @@ Aviseringar allvarlighetsgrad tabell:
 |5|Varning|
 
 Tabell med anpassade tillägg för aviseringar som skapats i Azure Stack:
+
 | Namn på anpassade tillägg | Exempel | 
 |-----------------------|---------|
 |MasEventDescription|DESCRIPTION (BESKRIVNING): Ett användarkonto \<TestUser\> skapades för \<TestDomain\>. Det är en potentiell säkerhetsrisk. --REPARATION: Kontakta supporten. Kundtjänst krävs för att lösa problemet. Försök inte att lösa problemet utan deras hjälp. Innan du öppnar en supportförfrågan, starta filen logginsamlingsprocessen med hjälp av vägledningen från https://aka.ms/azurestacklogfiles |

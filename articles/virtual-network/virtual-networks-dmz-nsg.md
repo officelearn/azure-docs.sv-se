@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 680b47fd65cfde1fe01dfff9b74ddd42d1a73c1f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 68655ea03f53fe7100f67d111fcd3c8595bdf4c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052401"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109400"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Exempel 1 – skapa en enkel DMZ med NSG: er med en Azure Resource Manager-mall
 [Gå tillbaka till gränsen bästa praxis sidan][HOME]
@@ -97,14 +97,14 @@ Varje regel beskrivs i detalj på följande sätt:
     ``` 
 
 2. Den första regeln i det här exemplet kan DNS-trafik mellan alla interna nätverk till DNS-servern på backend-undernät. Regeln har vissa viktiga parametrar:
-  * ”destinationAddressPrefix” - målets adressprefix anges till ”10.0.2.4” så att DNS-trafik tillåts att nå DNS-servern.
-  * ”Riktning” innebär det att gälla i den här regeln i vilken riktning av flödet i nätverkstrafiken. Riktningen är ur undernät eller virtuella datorn (beroende på var den här NSG binds). Därför om riktningen är ”Inbound” och trafiken som kommer in i undernätet, regeln skulle tillämpas och trafik som lämnar undernätet inte påverkas av den här regeln.
-  * ”Prioritet” Anger att där ett trafikflöde utvärderas. Ju lägre det nummer desto högre prioritet. När en regel som gäller för en specifik trafikflödet, bearbetas inga ytterligare regler. Därför om en regel med prioritet 1 tillåter trafik, och en regel med prioritet 2 nekar trafik, och båda regler gäller vid trafik så trafiken kan flöda (eftersom regel 1 har högre prioritet det tog att gälla och inga ytterligare regler tillämpades).
-  * ”Åtkomst” innebär det att om trafik som påverkas av den här regeln är blockerade (”Deny”) eller tillåtna (”Tillåt”).
+   * ”destinationAddressPrefix” - målets adressprefix anges till ”10.0.2.4” så att DNS-trafik tillåts att nå DNS-servern.
+   * ”Riktning” innebär det att gälla i den här regeln i vilken riktning av flödet i nätverkstrafiken. Riktningen är ur undernät eller virtuella datorn (beroende på var den här NSG binds). Därför om riktningen är ”Inbound” och trafiken som kommer in i undernätet, regeln skulle tillämpas och trafik som lämnar undernätet inte påverkas av den här regeln.
+   * ”Prioritet” Anger att där ett trafikflöde utvärderas. Ju lägre det nummer desto högre prioritet. När en regel som gäller för en specifik trafikflödet, bearbetas inga ytterligare regler. Därför om en regel med prioritet 1 tillåter trafik, och en regel med prioritet 2 nekar trafik, och båda regler gäller vid trafik så trafiken kan flöda (eftersom regel 1 har högre prioritet det tog att gälla och inga ytterligare regler tillämpades).
+   * ”Åtkomst” innebär det att om trafik som påverkas av den här regeln är blockerade (”Deny”) eller tillåtna (”Tillåt”).
 
-    ```JSON
-    "properties": {
-    "securityRules": [
+     ```JSON
+     "properties": {
+     "securityRules": [
       {
         "name": "enable_dns_rule",
         "properties": {
@@ -119,7 +119,7 @@ Varje regel beskrivs i detalj på följande sätt:
           "direction": "Inbound"
         }
       },
-    ```
+     ```
 
 3. Den här regeln tillåter RDP-trafik kan flöda från internet till RDP-porten på alla servrar i det bundna undernätet. 
 
@@ -221,23 +221,23 @@ Varje regel beskrivs i detalj på följande sätt:
 1. En internet-användare begär en HTTP-sida från offentliga IP-adressen för nätverkskortet som är associerade med IIS01 NIC
 2. Offentliga IP-adress skickar trafik till det virtuella nätverket mot IIS01 (webbserver)
 3. Frontend-undernätet börjar bearbetning av inkommande regel:
-  1. 1 för NSG-regel (DNS) inte tillämpa, gå till nästa regel
-  2. NSG regel 2 (RDP) inte tillämpa, gå till nästa regel
-  3. NSG-regel 3 (Internet till IIS01) gäller, trafik är tillåtna, stoppa regelbehandling
+   1. 1 för NSG-regel (DNS) inte tillämpa, gå till nästa regel
+   2. NSG regel 2 (RDP) inte tillämpa, gå till nästa regel
+   3. NSG-regel 3 (Internet till IIS01) gäller, trafik är tillåtna, stoppa regelbehandling
 4. Trafiken kommer till den interna IP-adressen för webbservern IIS01 (10.0.1.5)
 5. IIS01 lyssnar för webbtrafik, får den här förfrågan och startar bearbetning av begäran
 6. IIS01 begär SQL Server på AppVM01 information
 7. Inga utgående regler på Frontend-undernätet trafik tillåts
 8. Backend-undernät börjar bearbetning av inkommande regel:
-  1. 1 för NSG-regel (DNS) inte tillämpa, gå till nästa regel
-  2. NSG regel 2 (RDP) inte tillämpa, gå till nästa regel
-  3. NSG-regel 3 (Internet-brandväggen) inte tillämpa, gå till nästa regel
-  4. NSG-regel 4 (IIS01 till AppVM01) gäller, trafik tillåts, stoppa regelbehandling
+   1. 1 för NSG-regel (DNS) inte tillämpa, gå till nästa regel
+   2. NSG regel 2 (RDP) inte tillämpa, gå till nästa regel
+   3. NSG-regel 3 (Internet-brandväggen) inte tillämpa, gå till nästa regel
+   4. NSG-regel 4 (IIS01 till AppVM01) gäller, trafik tillåts, stoppa regelbehandling
 9. AppVM01 tar emot en SQL-fråga och svarar
 10. Eftersom det finns inga regler för utgående trafik på Backend-undernät, tillåts svaret
 11. Frontend-undernätet börjar bearbetning av inkommande regel:
-  1. Det finns ingen NSG-regel som gäller för inkommande trafik från Backend-undernät för Frontend-undernätet, så att ingen av NSG-regler tillämpas
-  2. System Standardregeln som tillåter trafik mellan undernät för att den här trafiken så att trafiken tillåts.
+    1. Det finns ingen NSG-regel som gäller för inkommande trafik från Backend-undernät för Frontend-undernätet, så att ingen av NSG-regler tillämpas
+    2. System Standardregeln som tillåter trafik mellan undernät för att den här trafiken så att trafiken tillåts.
 12. IIS-servern tar emot SQL-svar och slutför HTTP-svar och skickar till beställaren
 13. Eftersom det finns inga regler för utgående trafik på undernätet på klientsidan är svaret tillåts och Internet-användare får den webbsida som begärdes.
 
@@ -245,8 +245,8 @@ Varje regel beskrivs i detalj på följande sätt:
 1. En serveradministratör på internet begär en RDP-session till IIS01 på den offentliga IP-adressen för nätverkskortet som är associerade med IIS01 nätverkskortet (den här offentliga IP-adressen kan hittas via portalen eller PowerShell)
 2. Offentliga IP-adress skickar trafik till det virtuella nätverket mot IIS01 (webbserver)
 3. Frontend-undernätet börjar bearbetning av inkommande regel:
-  1. 1 för NSG-regel (DNS) inte tillämpa, gå till nästa regel
-  2. NSG regel 2 (RDP) gäller, trafik är tillåtna, stoppa regelbehandling
+   1. 1 för NSG-regel (DNS) inte tillämpa, gå till nästa regel
+   2. NSG regel 2 (RDP) gäller, trafik är tillåtna, stoppa regelbehandling
 4. Med inga utgående regler gäller för standard och återvändande trafik tillåts
 5. RDP-session är aktiverat
 6. IIS01 måste ange användarnamn och lösenord
@@ -261,7 +261,7 @@ Varje regel beskrivs i detalj på följande sätt:
 2. Nätverkskonfigurationen för VNet-listor DNS01 (10.0.2.4 på Backend-undernät) som den primära DNS-servern, IIS01 skickar en DNS-begäran till DNS01
 3. Inga utgående regler på Frontend-undernätet trafik tillåts
 4. Backend-undernät börjar bearbetning av inkommande regel:
-  * 1 för NSG-regel (DNS) gäller, trafik är tillåtna, stoppa regelbehandling
+   * 1 för NSG-regel (DNS) gäller, trafik är tillåtna, stoppa regelbehandling
 5. DNS-servern tar emot begäran
 6. DNS-servern har inte den adress som cachelagras och frågar en rot-DNS-server på internet
 7. Inga utgående regler på Backend-undernät tillåts trafik
@@ -269,23 +269,23 @@ Varje regel beskrivs i detalj på följande sätt:
 9. DNS-servern cachelagrar svaret och svarar på den första begäran tillbaka till IIS01
 10. Inga utgående regler på Backend-undernät tillåts trafik
 11. Frontend-undernätet börjar bearbetning av inkommande regel:
-  1. Det finns ingen NSG-regel som gäller för inkommande trafik från Backend-undernät för Frontend-undernätet, så att ingen av NSG-regler tillämpas
-  2. System Standardregeln som tillåter trafik mellan undernät skulle tillåta den här trafiken så att trafiken tillåts
+    1. Det finns ingen NSG-regel som gäller för inkommande trafik från Backend-undernät för Frontend-undernätet, så att ingen av NSG-regler tillämpas
+    2. System Standardregeln som tillåter trafik mellan undernät skulle tillåta den här trafiken så att trafiken tillåts
 12. IIS01 tar emot svaret från DNS01
 
 #### <a name="allowed-web-server-access-file-on-appvm01"></a>(*Tillåtna*) Web server access-fil på AppVM01
 1. IIS01 begär en fil på AppVM01
 2. Inga utgående regler på Frontend-undernätet trafik tillåts
 3. Backend-undernät börjar bearbetning av inkommande regel:
-  1. 1 för NSG-regel (DNS) inte tillämpa, gå till nästa regel
-  2. NSG regel 2 (RDP) inte tillämpa, gå till nästa regel
-  3. NSG-regel 3 (Internet till IIS01) inte tillämpa, gå till nästa regel
-  4. NSG-regel 4 (IIS01 till AppVM01) gäller, trafik tillåts, stoppa regelbehandling
+   1. 1 för NSG-regel (DNS) inte tillämpa, gå till nästa regel
+   2. NSG regel 2 (RDP) inte tillämpa, gå till nästa regel
+   3. NSG-regel 3 (Internet till IIS01) inte tillämpa, gå till nästa regel
+   4. NSG-regel 4 (IIS01 till AppVM01) gäller, trafik tillåts, stoppa regelbehandling
 4. AppVM01 tar emot begäran och svarar med (förutsatt att du har behörighet)
 5. Eftersom det finns inga regler för utgående trafik på Backend-undernät, tillåts svaret
 6. Frontend-undernätet börjar bearbetning av inkommande regel:
-  1. Det finns ingen NSG-regel som gäller för inkommande trafik från Backend-undernät för Frontend-undernätet, så att ingen av NSG-regler tillämpas
-  2. System Standardregeln som tillåter trafik mellan undernät för att den här trafiken så att trafiken tillåts.
+   1. Det finns ingen NSG-regel som gäller för inkommande trafik från Backend-undernät för Frontend-undernätet, så att ingen av NSG-regler tillämpas
+   2. System Standardregeln som tillåter trafik mellan undernät för att den här trafiken så att trafiken tillåts.
 7. IIS-servern tar emot filen
 
 #### <a name="denied-rdp-to-backend"></a>(*Nekad*) RDP till serverdelen
@@ -312,9 +312,9 @@ Varje regel beskrivs i detalj på följande sätt:
 1. En internet-användare begär SQL-data från IIS01
 2. Eftersom det finns inga offentliga IP-adresser som är associerade med den här NIC-servrar är den här trafiken anger aldrig det virtuella nätverket och inte skulle nå servern
 3. Om en offentlig IP-adress har aktiverats av någon anledning, börjar med Frontend-undernätet bearbetning av inkommande regel:
-  1. 1 för NSG-regel (DNS) inte tillämpa, gå till nästa regel
-  2. NSG regel 2 (RDP) inte tillämpa, gå till nästa regel
-  3. NSG-regel 3 (Internet till IIS01) gäller, trafik är tillåtna, stoppa regelbehandling
+   1. 1 för NSG-regel (DNS) inte tillämpa, gå till nästa regel
+   2. NSG regel 2 (RDP) inte tillämpa, gå till nästa regel
+   3. NSG-regel 3 (Internet till IIS01) gäller, trafik är tillåtna, stoppa regelbehandling
 4. Trafik når interna IP-adressen för IIS01 (10.0.1.5)
 5. IIS01 lyssnar inte på port 1433, så inga svar på begäran
 

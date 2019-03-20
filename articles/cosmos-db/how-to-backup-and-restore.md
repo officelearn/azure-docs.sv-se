@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e79fdf2d7d680b3a229385c0fd96d844b3425b18
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 1d886e146e9e18eb735e6f88d2cb2c1a4a472924
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992489"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996874"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Återställa data från en säkerhetskopia i Azure Cosmos DB 
 
-Om du råkar ta bort din databas eller en behållare kan du [öppna ett supportärende]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) eller [anropa Azure-supporten]( https://azure.microsoft.com/support/options/) att återställa data från automatiska säkerhetskopior online. Azure-support är tillgängligt för planerna i de valda endast som **Standard**, ** Developer och planer som är högre än dem. Azure-support är inte tillgänglig med **grundläggande** plan. Läs mer om olika supportplaner, i den [supportavtal](https://azure.microsoft.com/support/plans/) sidan. 
+Om du råkar ta bort din databas eller en behållare kan du [öppna ett supportärende]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) eller [anropa Azure-supporten]( https://azure.microsoft.com/support/options/) att återställa data från automatiska säkerhetskopior online. Azure-support är tillgängligt för planerna i de valda endast som **Standard**, **Developer**, och planer som är högre än dem. Azure-support är inte tillgänglig med **grundläggande** plan. Läs mer om olika supportplaner, i den [supportavtal](https://azure.microsoft.com/support/plans/) sidan. 
 
 Om du vill återställa en specifik ögonblicksbild av säkerhetskopian, kräver Azure Cosmos DB att data är tillgängliga under hela säkerhetskopieringscykel för denna ögonblicksbild.
 

@@ -7,20 +7,20 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8569cae1-87dd-4c40-9bbb-527ac80d6a96
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/12/2019
+ms.date: 03/13/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecfdd76e171ed237e3e87c98f6596634784faea1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: d58da4781a7c5c93d897e0efd7cf3d5aee612d78
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865322"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225695"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-figma"></a>Självstudier: Azure Active Directory-integrering med Figma
 
@@ -32,14 +32,16 @@ Integreringen av Figma med Azure AD medför följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Figma behöver du följande:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Figma-prenumeration med enkel inloggning aktiverat
+* En organisation Figma-Plan
+
+>[!NOTE]
+>Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö. Nya kunder och aktiva Figma Team för Professional-prenumeranter kan kontakta Figma om du vill uppgradera prenumerationen för den [Figma organisation planerar.](https://www.figma.com/pricing/)
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -55,7 +57,7 @@ För att konfigurera integreringen av Figma i Azure AD måste du lägga till Fig
 
 **Utför följande steg för att lägga till Figma från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -107,20 +109,20 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Fi
 
     ![Figma-domän och information om URL:er för enkel inloggning](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>`
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://www.figma.com/saml/<TENANT ID>`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/consume`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://www.figma.com/saml/<TENANT ID>/consume`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     ![Figma-domän och information om URL:er för enkel inloggning](common/metadata-upload-additional-signon.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/start`
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://www.figma.com/saml/<TENANT ID>/start`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [kundsupporten för Figma](mailto:support@figma.com) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Du får den `TENANT ID` från steg 11 av Figmas artikeln [konfigurera Azure Active Directory SAML SSO-processen](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
 
-6. Figma-programmet förväntar sig SAML-försäkringar i ett specifikt format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut. Klicka på ikonen Redigera för att lägga till attributen.
+6. Figma-programmet förväntar sig SAML-försäkringar i ett specifikt format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut. Klicka på **redigera** ikonen för att öppna **användarattribut** dialogrutan.
 
     ![image](common/edit-attribute.png)
 
@@ -154,13 +156,13 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Fi
 
     g. Klicka på **Spara**.
 
-8. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **URL för appfederationsmetadata** och sparar den på datorn.
+8. Klicka på kopieringsknappen i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** om du vill kopiera **URL:en för federationsmetadata** och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
-
+  
 ### <a name="configure-figma-single-sign-on"></a>Konfigurera enkel inloggning för Figma
 
-Om du vill konfigurera enkel inloggning på Figma-sidan fyller du i det här formuläret: [https://goo.gl/forms/XkRB1z5ed4eVUzXn2](https://goo.gl/forms/XkRB1z5ed4eVUzXn2). Det tar emot din **URL för appfederationsmetadata** från steg 8.
+Om du vill konfigurera enkel inloggning på Figma sida, du måste följa den Figma artikeln [konfigurera Azure Active Directory SAML SSO-processen](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -180,14 +182,14 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    b. I den **användarnamn** skriver **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Figma.
 
@@ -219,7 +221,7 @@ I det här avsnittet skapas en användare som heter Britta Simon i Figma. Figma 
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
 När du klickar på Figma-panelen i åtkomstpanelen bör du automatiskt loggas in på Figma som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
@@ -230,3 +232,4 @@ När du klickar på Figma-panelen i åtkomstpanelen bör du automatiskt loggas i
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

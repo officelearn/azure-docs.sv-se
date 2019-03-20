@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3dda16450f5454b4fae6d18235b05b7bb29a8b91
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4b622a5925aebd140fed2ac74eaf7cc186803b90
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018866"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113759"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformera data med Hive-aktivitet i Azure Data Factory 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -81,7 +81,7 @@ HDInsight Hive-aktivitet i en Datafabrik [pipeline](data-factory-create-pipeline
 | inmatningar |Indata som används av Hive-aktivitet |Nej |
 | utdata |Utdata som produceras av Hive-aktivitet |Ja |
 | linkedServiceName |Referens till HDInsight-kluster som är registrerad som en länkad tjänst i Data Factory |Ja |
-| skriptet |Ange infogat för Hive-skript |Nej |
+| skript |Ange infogat för Hive-skript |Nej |
 | skriptets sökväg |Store Hive-skriptet i Azure blob storage och ange sökvägen till filen. Använd ”skript” eller ”scriptPath-egenskapen. Båda kan inte användas tillsammans. Filnamnet är skiftlägeskänsligt. |Nej |
 | definierar |Ange parametrar som nyckel/värde-par för refererar till Hive-skript med hjälp av ”hiveconf” |Nej |
 
@@ -242,7 +242,7 @@ Gör följande för att använda parametriserade Hive-skript
         SUM(Duration)
     FROM HiveSampleIn Group by ProfileID
     ```
-## <a name="see-also"></a>Se även
+  ## <a name="see-also"></a>Se även
 * [Piggningsåtgärd](data-factory-pig-activity.md)
 * [MapReduce-aktivitet](data-factory-map-reduce.md)
 * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)

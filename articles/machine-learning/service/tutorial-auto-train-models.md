@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c064874c7eeeae0ae0b1176e3756be24f225e7fb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: 1f9265567ea23b7a3f47c995474ee1328ebaae2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818637"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878422"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Självstudier: Använda automatiserad maskininlärning för att skapa en regressionsmodell
 
@@ -35,12 +35,12 @@ I den här självstudien kommer du att lära dig följande:
 > * Köra modellen lokalt med anpassade parametrar.
 > * Utforska resultaten.
 
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) i dag.
+Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
 >[!NOTE]
 > Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.0.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Gå vidare till [Ställ in din utvecklingsmiljö](#start) och läs igenom stegen för notebook eller följ instruktionerna nedan för att hämta din notebook och kör den på Azure Notebooks eller din egen Notebook-server. För att köra anteckningsboken behöver du:
 
@@ -82,18 +82,19 @@ Skapa en lokal Jupyter Notebook-server på datorn enligt nedan.  När du har slu
 
     ```shell
     jupyter notebook
+    ```
 
-## <a name="start"></a>Set up your development environment
+## <a name="start"></a>Konfigurera din utvecklingsmiljö
 
-All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+All konfiguration under utvecklingsarbetet kan utföras i en Python-anteckningsbok. Konfigurationen inkluderar följande åtgärder:
 
-* Install the SDK
-* Import Python packages
-* Configure your workspace
+* Installera SDK:n
+* Importera Python-paket
+* Konfigurera din arbetsyta
 
-### Install and import packages
+### <a name="install-and-import-packages"></a>Installera och importera paket
 
-If you are following the tutorial in your own Python environment, use the following to install necessary packages.
+Om du följer självstudien i din egen Python-miljö använder du följande för att installera nödvändiga paket.
 
 ```shell
 pip install azureml-sdk[automl,notebooks] matplotlib
@@ -111,7 +112,7 @@ import os
 
 ### <a name="configure-workspace"></a>Konfigurera arbetsyta
 
-Skapa ett arbetsyteobjekt från den befintliga arbetsytan. En `Workspace` är en klass som accepterar din Azure-prenumeration och resursgruppsinformation. Den skapar också en molnresurs för att övervaka och spåra dina körningar i modellen.
+Skapa ett arbetsyteobjekt från den befintliga arbetsytan. En [arbetsytan](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py) är en klass som accepterar dina Azure-prenumeration och resursgrupp information. Den skapar också en molnresurs för att övervaka och spåra dina körningar i modellen.
 
 `Workspace.from_config()` läser filen **aml_config/config.json** och läser in informationen i ett objekt med namnet `ws`.  `ws` används i resten av koden i den här självstudien.
 
@@ -155,7 +156,7 @@ dflow_prepared.get_profile()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Typ</th>
+      <th>Type</th>
       <th>Min</th>
       <th>Max</th>
       <th>Antal</th>
@@ -661,7 +662,7 @@ För att träna en modell automatiskt gör du följande:
 Definiera experimentparametern och modellinställningarna för automatisk generering och justering. Visa hela listan med [inställningar](how-to-configure-auto-train.md). Att skicka experimentet med de här standardinställningarna tar cirka 10–15 minuter, men om du vill ha en kortare körtid kan du minska antingen `iterations` eller `iteration_timeout_minutes`.
 
 
-|Egenskap| Värde i den här självstudien |Beskrivning|
+|Egenskap | Värde i den här självstudien |Beskrivning|
 |----|----|---|
 |**iteration_timeout_minutes**|10|Tidsgräns i minuter för varje iteration. Minska det här värdet om du vill minska den totala körningstiden.|
 |**iterationer**|30|Antal iterationer. I varje iteration tränas en ny maskininlärningsmodell med dina data. Det här är det primära värde som påverkar den totala körningstiden.|

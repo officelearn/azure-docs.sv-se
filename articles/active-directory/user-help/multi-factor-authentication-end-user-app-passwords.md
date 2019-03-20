@@ -14,12 +14,12 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee21080fd95815289f73654cc5bc650296c8e8dd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 47128bce8dbbee1b28f6b0a3a5783e5ccee501bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433373"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177406"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Hantera lösenord för tvåstegsverifiering
 
@@ -89,7 +89,7 @@ Om du använder tvåstegsverifiering med ditt arbets- eller skolkonto och Office
 
 1. Logga in på ditt arbets- eller skolkonto konto.
 
-2. Gå till https://portal.office.comväljer den **inställningar** ikonen till höger på den **Office 365-portalen** sidan och expandera sedan **ytterligare säkerhetsverifiering**.
+2. Gå till [ https://portal.office.com ](https://portal.office.com)väljer den **inställningar** ikonen till höger på den **Office 365-portalen** sidan och expandera sedan **ytterligare säkerhet verifiering**.
 
     ![Office-portalen med utökat ytterligare verifiering säkerhetsområde](media/security-info/security-info-o365password.png)
 
@@ -105,7 +105,7 @@ Om du använder tvåstegsverifiering med ditt arbets- eller skolkonto och Office
 
 1. Logga in på ditt arbets- eller skolkonto konto.
 
-2. Gå till https://portal.office.comväljer den **inställningar** ikonen till höger på den **Office 365-portalen** och välj sedan **ytterligare säkerhetsverifiering**.
+2. Gå till [ https://portal.office.com ](https://portal.office.com)väljer den **inställningar** ikonen till höger på den **Office 365-portalen** och välj sedan **ytterligare säkerhet verifiering**.
 
 3. Välj där det står, **skapa och hantera applösenord** att öppna den **applösenord** sidan.
 

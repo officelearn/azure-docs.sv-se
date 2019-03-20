@@ -1,21 +1,21 @@
 ---
-title: Migrera analytics från Excel till Azure Machine Learning Studio
+title: Migrera analyser från Excel
 titleSuffix: Azure Machine Learning Studio
 description: En jämförelse av linjära regressionsmodeller i Excel och Azure Machine Learning Studio
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 706fe0afb004109ee591eab0efe99cadf9045d33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f6b2f4ef9a4f3f1615081a422a16ea9f2e156571
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447662"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864838"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Migrera analytics från Excel till Azure Machine Learning Studio
 
@@ -102,11 +102,11 @@ Vår lösning var att operationalisera vår Machine Learning regression-modellen
 
 Den *Web Services-instrumentpanel* avsnittet innehåller en nedladdningsbar Excel-arbetsbok. Arbetsboken innehåller redan formaterad web API- och schemareferenser information om tjänstens inbäddade. När du klickar på *ladda ned Excel-arbetsbok*, arbetsboken öppnas och du kan spara den till din lokala dator. 
 
-![](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png)
+![Ladda ned Excel-arbetsbok från Web Services-instrumentpanel](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png)
 
 Kopiera dina fördefinierade parametrar till blå parameteravsnittet med öppna arbetsboken som visas nedan. När parametrarna har angetts Excel som anropar till Machine Learning-webbtjänsten och förväntade poängsatta etiketter visas i avsnittet grön förutsagda värden. Arbetsboken kommer att fortsätta att skapa förutsägelser för parametrar som baserat på din tränade modellen för alla radobjekt som angetts under parametrar. Mer information om hur du använder den här funktionen finns i [förbrukar en Azure Machine Learning-webbtjänst från Excel](consuming-from-excel.md). 
 
-![](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
+![Mall för Excel-arbetsbok som ansluter till den distribuerade webbtjänsten](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
 
 ### <a name="optimization-and-further-experiments"></a>Optimering och ytterligare experiment
 Nu när vi har haft en baslinje med vår Excel-datamodellen, flyttas vi vidare att optimera våra linjär regressionsmodell för Maskininlärning. Vi använde modulen [Filter-baserade Funktionsurval] [ filter-based-feature-selection] för att förbättra på vår valet av ursprungliga data element och det hjälpt oss att uppnå en förbättring av prestanda för 4.6% innebär absoluta fel. Vi använder den här funktionen som kunde vi sparar veckor i går igenom dataattribut att hitta rätt uppsättning funktioner för modellering för framtida projekt. 
@@ -132,13 +132,9 @@ Möjlighet att överföra förutsägande analys prognoser från Studio till Exce
 ## <a name="resources"></a>Resurser
 Här är några resurser som hjälper dig att arbeta med regression: 
 
-* Regression i Excel. Om du aldrig har försökt regression i Excel, gör du enklare med hjälp av den här självstudien: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
+* Regression i Excel. Om du aldrig har försökt regression i Excel, gör du enklare med hjälp av den här självstudien: [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
 * Regression jämfört med prognoser Tyler Chessman skrev en bloggartikel som förklarar hur du time series prognoser i Excel, som innehåller en bra nybörjare beskrivning av linjär regression. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* Vanlig minst Squares linjär Regression: Fel, problem och fallgropar. En introduktion och en beskrivning av Regression: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
-
-[1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
-[2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png
-
+* Vanlig minst Squares linjär Regression: Fel, problem och fallgropar. En introduktion och en beskrivning av Regression: [https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 <!-- Module References -->
 [bayesian-linear-regression]: https://msdn.microsoft.com/library/azure/ee12de50-2b34-4145-aec0-23e0485da308/

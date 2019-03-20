@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/23/2018
 ms.author: victorh
-ms.openlocfilehash: 759f5e8441ec62ef11d4be93921e3c4f2629145c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ee0267146140d095487b293331a7de493ba151c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774170"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895591"
 ---
 # <a name="azure-application-gateway-url-path-based-routing-overview"></a>Översikt över routning av URL-sökvägsbaserat innehåll med Azure Application Gateway
 
@@ -29,7 +29,7 @@ I följande exempel Application Gateway fungerar som värd för trafik åt conto
 
 ![imageURLroute](./media/url-route-overview/figure1.png)
 
-Begäranden dirigeras för http://contoso.com/video/* till VideoServerPool och http://contoso.com/images/* dirigeras till ImageServerPool. DefaultServerPool väljs om inget av sökvägsmönstren matchar.
+Begäranden om <http://contoso.com/video/*> dirigeras till VideoServerPool, och <http://contoso.com/images/*> dirigeras till ImageServerPool. DefaultServerPool väljs om inget av sökvägsmönstren matchar.
 
 > [!IMPORTANT]
 > Regler bearbetas i den ordning de visas i portalen. Vi rekommenderar starkt att konfigurera lyssnare för flera platser första innan du konfigurerar en grundläggande lyssnare.  Detta säkerställer att trafik dirigeras till rätt serverdel. Om en grundläggande lyssnare visas först och matchar en inkommande begäran kommer den att bearbetas av den lyssnaren.

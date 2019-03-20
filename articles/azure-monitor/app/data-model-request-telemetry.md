@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: d39ec71315bec98c35ac7fb76ed9a88a094817ca
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117154"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884128"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Begärandetelemetri: Application Insights-datamodell
 
@@ -29,7 +29,7 @@ Begäran om telemetri stöder standard utökningsmodellen med hjälp av anpassad
 
 Namnet på begäran representerar kodsökvägar vid bearbetning av begäran. Kardinalitet för lågt värde så att bättre gruppering av begäranden. För HTTP-förfrågningar som den representerar den HTTP-metoden och URL-sökväg-mallen som `GET /values/{id}` utan den faktiska `id` värde.
 
-Application Insights web SDK skickar namnet på begäran ”i befintligt skick” för små bokstäver. Gruppering på Användargränssnittet är skiftlägeskänsligt så `GET /Home/Index` räknas separat från `GET /home/INDEX` även om de leder ofta samma kontrollanten och åtgärden körningen. Orsaken till som är att URL: er i allmänhet är [skiftlägeskänsliga](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Du kanske vill se om alla `404` inträffade för URL: er som skrivits i versaler. Du kan läsa mer på begäran namnsamling av ASP.Net Web SDK i den [blogginlägget](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
+Application Insights web SDK skickar namnet på begäran ”i befintligt skick” för små bokstäver. Gruppering på Användargränssnittet är skiftlägeskänsligt så `GET /Home/Index` räknas separat från `GET /home/INDEX` även om de leder ofta samma kontrollanten och åtgärden körningen. Orsaken till som är att URL: er i allmänhet är [skiftlägeskänsliga](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Du kanske vill se om alla `404` inträffade för URL: er som skrivits i versaler. Du kan läsa mer på begäran namnsamling av ASP.NET Web SDK i den [blogginlägget](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
 
 Maxlängd: 1024 tecken
 

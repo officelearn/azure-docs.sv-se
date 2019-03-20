@@ -11,12 +11,12 @@ ms.date: 02/20/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: fa156beba6d5eb1f7e10529d7f1287ab9a148024
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: aaf1d72a0c9c56e7d140fb615caf014507ebf263
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576573"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840570"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Skapa förutsägande pipelines med Azure Machine Learning och Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ ms.locfileid: "57576573"
 3. **Distribuera den som en webbtjänst**. Du kan publicera ditt bedömnings experiment som en Azure-webbtjänst. Du kan skicka data till din modell via den här web service-slutpunkt och få resultatet förutsägelser från modellen.
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory och Machine Learning tillsammans
-Azure Data Factory kan du enkelt kan skapa pipelines som använder en publicerade [Azure Machine Learning] [azure-maskininlärning] webbtjänst för förutsägande analys. Med hjälp av den **Batchkörningsaktivitet** i en Azure Data Factory-pipeline kan du anropa en Azure Machine Learning studio-webbtjänst för att göra förutsägelser på data i batch.
+Azure Data Factory kan du enkelt skapa pipelines som använder en publiceringswebbkod [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning) webbtjänsten för förutsägande analys. Med hjälp av den **Batchkörningsaktivitet** i en Azure Data Factory-pipeline kan du anropa en Azure Machine Learning studio-webbtjänst för att göra förutsägelser på data i batch.
 
 Framöver kommer måste förutsägande modeller i Azure Machine Learning studio bedömning experiment vara modellkomponenten med hjälp av nya indatauppsättningar. Du kan träna en modell från Data Factory-pipeline genom att göra följande:
 

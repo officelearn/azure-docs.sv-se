@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: ryanwi
-ms.openlocfilehash: a030860bcef41d7276e1356553b984f55e27ae1e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 65fccada665743cf293b4ee4bb8f786a4c01c58a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164171"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093913"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Skapa enhetstester för tillståndskänsliga tjänster
 Enhetstestning Service Fabric tillståndskänsliga tjänster ger vanliga misstag som inte skulle nödvändigtvis fångas upp av konventionella program eller domänspecifika Enhetstestning. Det finns vissa saker som ska finnas i åtanke när du utvecklar enhetstester för tillståndskänsliga tjänster.
@@ -42,13 +42,13 @@ Från och med version 3.3.0, [ServiceFabric.Mocks](https://www.nuget.org/package
 Som en del av den ordna delen av ett test, en fingerad replikuppsättning och tillståndshanterare kommer att skapas. Replikuppsättningen kommer sedan äger för att skapa en instans av tjänsten testade för varje replik. Det kommer också ägare Livscykelhändelser för verkställande som `OnChangeRole` och `RunAsync`. Fingerad tillståndshanterare garanterar åtgärder som utförs mot tillstånd manager körs och sparas som hanteraren för bibliotekets aktuella tillstånd.
 
 1. Skapa ett service fabrik ombud som instantierar tjänsten som testas. Detta bör vara liknande eller densamma som service fabrik återanrop som vanligtvis finns i `Program.cs` för en Service Fabric-tjänst eller en aktör. Detta bör följa följande signaturen:
-```csharp
-MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
-```
+   ```csharp
+   MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
+   ```
 2. Skapa en instans av `MockReliableStateManager` klass. Detta kommer fingera all interaktion med hanteraren för tillstånd.
 3. Skapa en instans av `MockStatefulServiceReplicaSet<TStatefulService>` där `TStatefulService` är typ av tjänsten som testas. Detta kräver ombud som skapades i steg #1 och tillståndshanterare instansierats i #2
 4. Lägga till repliker i uppsättningen. Ange rollen (till exempel primär, ActiveSecondary, IdleSecondary) och ID för repliken
-> Vänta till replik-ID: N! Dessa sannolikt kommer att användas under åtgärden och assert delar av en enhetstest.
+   > Vänta till replik-ID: N! Dessa sannolikt kommer att användas under åtgärden och assert delar av en enhetstest.
 
 ```csharp
 //service factory to instruct how to create the service instance

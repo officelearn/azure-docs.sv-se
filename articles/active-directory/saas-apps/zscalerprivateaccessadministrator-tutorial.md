@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ba2bde039cec65a1afe33efac58752d26f22c2b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d9cdb842c4cebe48f2f6534417a7fe6aa4686d1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171901"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894690"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Självstudier: Azure Active Directory-integrering med Zscaler privat administratör för användaråtkomst
 
@@ -217,7 +217,7 @@ De måste etableras i Zscaler privat åtkomst administratören om du vill aktive
 
     ![Administratör för Zscaler privat Användaradministration](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_useradmin.png)
 
-    a. I den **användarnamn** textrutan Ange e-postadress för användaren som **BrittaSimon@contoso.com**.
+    a. I den **användarnamn** textrutan Ange e-postadress för användaren som **BrittaSimon\@contoso.com**.
 
     b. I den **lösenord** textrutan skriver du lösenordet.
 
@@ -225,7 +225,7 @@ De måste etableras i Zscaler privat åtkomst administratören om du vill aktive
 
     d. Välj **rollen** som **Zscaler privat åtkomst administratören**.
 
-    e. I textrutan **E-post** anger du e-postadressen för användaren, t.ex. **BrittaSimon@contoso.com**.
+    e. I den **e-post** textrutan Ange e-postadress för användaren som **BrittaSimon\@contoso.com**.
 
     f. I den **Phone** textrutan anger du telefonnumret.
 
@@ -272,7 +272,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

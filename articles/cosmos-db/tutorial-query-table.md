@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.reviewer: sngun
-ms.openlocfilehash: 9a47333c8cd8968c007a2d328e81d8ea8585971c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 28e9b420f3abc972e047af72e1b5bc755e7f9d2b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037998"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001635"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Självstudier: Fråga Azure Cosmos DB med hjälp av tabell-API:et
 
@@ -36,7 +36,7 @@ I [Fråga tabeller och entiteter](https://docs.microsoft.com/rest/api/storageser
 
 Mer information om de förstklassiga funktioner som Azure Cosmos DB erbjuder finns i [Azure Cosmos DB Table API](table-introduction.md) och [Utveckla med tabell-API:t i .NET](tutorial-develop-table-dotnet.md). 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att de här frågorna ska fungera måste du ha ett konto i Azure Cosmos DB och ha entitetsdata i containern. Har du detta? Slutför [snabbstarten på fem minuter](create-table-dotnet.md) eller [självstudien för utvecklare](tutorial-develop-table-dotnet.md) om du behöver skapa ett konto och fylla i databasen.
 
@@ -78,7 +78,7 @@ Mer information om hur du skapar filteruttryck för olika datatyper finns i [Fr�
 
 | PartitionKey | RowKey | E-post | PhoneNumber |
 | --- | --- | --- | --- |
-| Ben |Smith | Ben@contoso.com| 425-555-0102 |
+| Smith |Ben | Ben@contoso.com| 425-555-0102 |
 
 ## <a name="query-by-using-linq"></a>Fråga med hjälp av LINQ 
 Du kan också fråga med hjälp av LINQ, som översätter till motsvarande OData-frågeuttryck. Här är ett exempel på hur du skapar frågor med .NET SDK:

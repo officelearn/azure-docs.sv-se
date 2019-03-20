@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: a2ecc2b0b8bfcf65d2ba566b8524a0c37c89ab78
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 8aa62e4ed65f8223071786ac165f8343cb6901d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980558"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079102"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(INAKTUELL) Fullständig CI/CD-pipeline för att distribuera program med flera behållare på Azure Container Service med ACS-motor och Docker Swarm-läge med hjälp av Azure DevOps
 
@@ -163,21 +163,21 @@ Du behöver två Docker steg för varje bild, en för att skapa avbildningen och
 
    ![Azure DevOps - Lägg till Kommandoradsaktivitet](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
 
-      1. En kommandoradsaktivitet som använder ett bash-skript för att ersätta den *RegistryURL* förekomsten i filen docker-compose.yml med variabeln RegistryURL. 
+   1. En kommandoradsaktivitet som använder ett bash-skript för att ersätta den *RegistryURL* förekomsten i filen docker-compose.yml med variabeln RegistryURL. 
     
-          ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
+       ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
 
-          ![Azure DevOps - uppdatering Compose-fil med Registry URL](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
+       ![Azure DevOps - uppdatering Compose-fil med Registry URL](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
 
-      2. En kommandoradsaktivitet som använder ett bash-skript för att ersätta den *AgentURL* förekomsten i filen docker-compose.yml med variabeln AgentURL.
+   2. En kommandoradsaktivitet som använder ett bash-skript för att ersätta den *AgentURL* förekomsten i filen docker-compose.yml med variabeln AgentURL.
   
-          ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
+       ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
 
-     3. En aktivitet som släpper den uppdaterade Compose-filen som en byggesartefakt så att den kan användas i versionen. Se följande skärm för information.
+      1. En aktivitet som släpper den uppdaterade Compose-filen som en byggesartefakt så att den kan användas i versionen. Se följande skärm för information.
 
-         ![Azure DevOps - publicera artefakter](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
+      ![Azure DevOps - publicera artefakter](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
 
-         ![Publicera Azure DevOps - Compose-fil](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
+      ![Publicera Azure DevOps - Compose-fil](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
 
 5. Klicka på **spara och köa** att testa din build-pipeline.
 
@@ -187,7 +187,7 @@ Du behöver två Docker steg för varje bild, en för att skapa avbildningen och
 
 6. Om den **skapa** är korrekt, du behöver se den här skärmen:
 
-  ![Azure DevOps - genereringen lyckades](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
+   ![Azure DevOps - genereringen lyckades](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
 ## <a name="step-3-create-the-release-pipeline"></a>Steg 3: Skapa versionspipelinen
 
@@ -235,14 +235,14 @@ Versionen arbetsflödet består av två saker som du lägger till.
 
     Kommandot körs i bakgrunden använder Docker CLI och Docker-Compose-CLI för att utföra följande uppgifter:
 
-    - Logga in på Azure container registry (den använder tre build-variabler som definieras i den **variabler** fliken)
-    - Definiera den **DOCKER_HOST** variabel att arbeta med Swarm-slutpunkten (: 2375)
-    - Navigera till den *distribuera* mapp som har skapats i den föregående aktiviteten säker kopia och som innehåller filen docker-compose.yml 
-    - Köra `docker stack deploy` kommandon som hämtar de nya bilderna och skapa behållarna.
+   - Logga in på Azure container registry (den använder tre build-variabler som definieras i den **variabler** fliken)
+   - Definiera den **DOCKER_HOST** variabel att arbeta med Swarm-slutpunkten (: 2375)
+   - Navigera till den *distribuera* mapp som har skapats i den föregående aktiviteten säker kopia och som innehåller filen docker-compose.yml 
+   - Köra `docker stack deploy` kommandon som hämtar de nya bilderna och skapa behållarna.
 
-    >[!IMPORTANT]
-    > Som du ser på den föregående skärmen kan lämna den **misslyckas på STDERR** kryssrutan avmarkerad. Den här inställningen gör att vi kan slutföras på grund av att versionen `docker-compose` skriver ut flera diagnostiska meddelanden som behållare är stoppas eller tas bort på standardfelutdata. Om du markerar kryssrutan rapporterar Azure DevOps att fel uppstod vid lanseringen, även om allt går bra.
-    >
+     >[!IMPORTANT]
+     > Som du ser på den föregående skärmen kan lämna den **misslyckas på STDERR** kryssrutan avmarkerad. Den här inställningen gör att vi kan slutföras på grund av att versionen `docker-compose` skriver ut flera diagnostiska meddelanden som behållare är stoppas eller tas bort på standardfelutdata. Om du markerar kryssrutan rapporterar Azure DevOps att fel uppstod vid lanseringen, även om allt går bra.
+     >
 3. Spara den här nya releasepipeline.
 
 ## <a name="step-4-test-the-cicd-pipeline"></a>Steg 4: Testa CI/CD-pipeline

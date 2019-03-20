@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c961238d1fbce1ff590e0b0843ae1390aa7f1cd9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: adaed4c7af1d325f85d6fc349ac9a4faf73c1169
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534828"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078829"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Distributionsproblem för Azure Cloud Services: Vanliga frågor och svar (FAQ)
 
@@ -67,10 +67,11 @@ Mer information finns i [så här uppdaterar du en molnbaserad tjänst](cloud-se
 ## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Varför kan jag inte distribuera molntjänster via Service Management API: er eller PowerShell när du använder Azure Resource Manager-lagringskonto? 
 
 Eftersom Cloud-Service är en klassisk resurs som inte är direkt kompatibla med Azure Resource Manager-modellen, kan du associera den med Azure Resource Manager-lagringskonton. Här följer några alternativ: 
- 
+ 
 - Distribuera via REST-API.
 
-    När du distribuerar via Service Management REST API, kan du komma runt begränsningen genom att ange en SAS-URL till blob-lagring, som fungerar med både klassiska och Resource Manager-lagring för Azure-konto. Läs mer om egenskapen 'PackageUrl' [här](https://msdn.microsoft.com/library/azure/ee460813.aspx).  
+    När du distribuerar via Service Management REST API, kan du komma runt begränsningen genom att ange en SAS-URL till blob-lagring, som fungerar med både klassiska och Resource Manager-lagring för Azure-konto. Läs mer om egenskapen 'PackageUrl' [här](https://msdn.microsoft.com/library/azure/ee460813.aspx).
+  
 - Distribuera via [Azure-portalen](https://portal.azure.com).
 
     Detta fungerar från den [Azure-portalen](https://portal.azure.com) eftersom anropet genomgår en proxy/shim som tillåter kommunikation mellan resurser i Azure Resource Manager och klassisk. 

@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Distribuera din ASP.NET-app och Azure SQL Database-kod med Azure DevOps-projekt'
-description: Det är enkelt att komma igång med Azure med DevOps-projekt. Med DevOps-projekt kan du distribuera din ASP.NET-app och Azure SQL Database-kod i några få enkla steg.
+title: 'Självstudier: Distribuera din ASP.NET-app och Azure SQL Database-kod med hjälp av Azure DevOps-projekt'
+description: DevOps Projects gör det enkelt att komma igång med Azure. Med DevOps-projekt kan du distribuera din ASP.NET-app och Azure SQL Database-kod i några få enkla steg.
 ms.author: mlearned
 ms.manager: douge
 ms.prod: devops
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 32f33e4ac66ad456b5ff8807d6a1b5ea5f541fed
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
-ms.translationtype: HT
+ms.openlocfilehash: 0d05a2f3de92791572f0a5e6313777b5388af3df
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161409"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845230"
 ---
-# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>Självstudie: Distribuera din ASP.NET-app och Azure SQL Database-kod med Azure DevOps-projekt
+# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>Självstudier: Distribuera din ASP.NET-app och Azure SQL Database-kod med hjälp av Azure DevOps-projekt
 
 Azure DevOps Projects ger ett förenklat sätt att ta med befintlig kod och Git-lagringsplatser i Azure, eller välja ett exempelprogram för att skapa en pipeline för kontinuerlig integration (CI) och kontinuerlig leverans (CD) till Azure. 
 
@@ -45,11 +45,11 @@ I den här kursen ska du:
 
 DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. DevOps Projects skapar även Azure-resurser som en Azure SQL-databas i den Azure-prenumeration som du väljer.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Välj **Skapa en resurs** i fönstret till vänster.
 
-1. I sökrutan skriver du **DevOps Projects**, och välj sedan **Skapa**.
+1. I sökrutan skriver du **DevOps Projects** och väljer sedan **Skapa**.
 
     ![DevOps Projects-instrumentpanelen](_img/azure-devops-project-github/fullbrowser.png)
 
@@ -86,7 +86,7 @@ DevOps Projects konfigurerar automatiskt en fullständig CI/CD-pipeline i Azure 
 
 1. Välj **Redigera**.
 
-1. I det här fönstret kan du granska de olika uppgifterna för bygg-pipelinen.  
+1. I den här fönsterrutan kan du granska de olika uppgifterna för bygg-pipelinen.  
     Versionen utför olika uppgifter som att hämta källor från Git-lagringsplatsen, återställa beroenden och publicera utdata för distributioner.
 
 1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
@@ -94,7 +94,7 @@ DevOps Projects konfigurerar automatiskt en fullständig CI/CD-pipeline i Azure 
 1. Ändra på din bygg-pipeline till något mer beskrivande och välj alternativet för att **spara och placera i kö**. Välj sedan **Spara**.
 
 1. Under ditt bygg-pipelinenamn väljer du **Historik**.  
-    I det här fönstret kan du se en spårningslogg över de senaste ändringarna för versionen. Azure Pipelines spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
+    I den här fönsterrutan visas en spårningslogg över de senaste ändringarna för versionen. Azure Pipelines spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
 
 1. Välj **Utlösare**.  
     DevOps Projects skapar automatiskt en CI-utlösare, och varje incheckning till lagringsplatsen startar en ny version. Du kan välja att inkludera eller exkludera grenar från CI-processen.
@@ -109,11 +109,11 @@ DevOps-projekt skapar och konfigurerar de nödvändiga stegen för att automatis
 1. Välj **Build and Release** (Build-versioner och versioner) och sedan **Versioner**.  
     DevOps Projects skapar en versionspipeline för att hantera distributioner till Azure.
 
-1. Välj ellipsen (...) bredvid din releasepipeline och välj sedan **Redigera**.  
+1. Välj ellipsen (...) intill din versionspipeline och välj sedan **Redigera**.  
     Versionspipelinen innehåller en *pipeline* som definierar släpprocessen.
 
 1. Under **Artefakter** väljer du **Släpp**.  
-    Den bygg-pipeline du undersökte i de föregående stegen skapar de utdata som används för artefakten. 
+    Den bygg-pipeline som du undersökte i de föregående stegen skapar de utdata som används för artefakten. 
 
 1. På höger sida av ikonen **Släpp** väljer du **Utlösare av kontinuerlig distribution**.  
     Den här versionspipelinen har en aktiverad CD-utlösare som kör en distribution varje gång en ny versionsartefakt är tillgänglig. Du kan även inaktivera utlösaren så att dina distributioner kräver manuell körning. 
@@ -122,8 +122,8 @@ DevOps-projekt skapar och konfigurerar de nödvändiga stegen för att automatis
     
 1. Längst till vänster väljer du **Variabler**. 
 
-  > [!NOTE]
-  > Utför endast följande steg om du har ändrat lösenordet för SQL Server. Det finns en lösenordsvariabel.
+   > [!NOTE]
+   > Utför endast följande steg om du har ändrat lösenordet för SQL Server. Det finns en lösenordsvariabel.
   
 1. Bredvid rutan **Värde** väljer du hänglåsikonen, anger det nya lösenordet och väljer därefter **Spara**.
 
@@ -135,14 +135,14 @@ DevOps-projekt skapar och konfigurerar de nödvändiga stegen för att automatis
 
 1. Till höger väljer du alternativet för att **visa versioner** för att visa en historik över versioner.
 
-1. Välj ellipsen (...) bredvid en version och välj sedan **Öppna**.  
-    Du kan utforska flera menyer, till exempel en versionssammanfattning, tillhörande arbetsobjekt och tester.
+1. Välj ellipsen (...) intill en version och välj sedan **Öppna**.  
+     Du kan utforska flera menyer, till exempel en versionssammanfattning, tillhörande arbetsobjekt och tester.
 
 1. Välj **Incheckningar**.  
-    Den här vyn visar kodincheckningar som är associerade med den här distributionen. Jämför versioner för att se skillnaderna i incheckning mellan distributioner.
+     Den här vyn visar kodincheckningar som är associerade med den här distributionen. Jämför versioner för att se skillnaderna i incheckning mellan distributioner.
 
 1. Välj **Loggar**.  
-    Loggarna innehåller användbar information om distributionsprocessen. Du kan visa dem både under och efter distributionerna.
+     Loggarna innehåller användbar information om distributionsprocessen. Du kan visa dem både under och efter distributionerna.
 
 ## <a name="commit-changes-to-azure-repos-and-automatically-deploy-them-to-azure"></a>Genomföra ändringar av Azure Repos och distribuera dem automatiskt till Azure 
 
@@ -182,17 +182,17 @@ Du behöver rätt behörigheter för att ansluta till Azure SQL-databasen.
 
     Du kan nu även använda klientverktyg som SQL Server Management Studio eller Visual Studio för att ansluta till SQL Server och Azure SQL Database. Använd egenskapen **servernamn** för att ansluta.
 
-    Om du inte ändrade databasanvändarnamnet när du först konfigurerade projektet i DevOps Projects är ditt användarnamn den lokala delen av din e-postadress. Om din e-postadress till exempel är *johndoe@microsoft.com* är ditt användarnamn *johndoe*.
+    Om du inte ändrade databasanvändarnamnet när du först konfigurerade projektet i DevOps Projects är ditt användarnamn den lokala delen av din e-postadress. Exempel: om din e-postadress är *johndoe\@microsoft.com*, ditt användarnamn är *johndoe*.
 
- > [!NOTE]
- > Om du ändrar ditt lösenord för SQL-inloggningen måste du ändra lösenordet i variabeln för versionspipelinen enligt beskrivningen i avsnittet Granska CD-pipelinen.
+   > [!NOTE]
+   > Om du ändrar ditt lösenord för SQL-inloggningen måste du ändra lösenordet i variabeln för versionspipelinen enligt beskrivningen i avsnittet Granska CD-pipelinen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du testar kan du rensa bland resurserna för att undvika att behöva betala fler avgifter. När de inte längre behövs kan du ta bort Azure SQL-databasen och relaterade resurser som du skapade i den här självstudien. Det gör du med funktionen **Ta bort** på DevOps Projects-instrumentpanelen.
 
 > [!IMPORTANT]
-> Följande procedur tar permanent bort resurser. Funktionen *Ta bort* förstör alla data som skapats av Azure DevOps-projektet i både Azure och Azure DevOps, och du kan inte återskapa dem. Använd inte den här proceduren förrän du har läst anvisningarna noga.
+> Följande procedur tar permanent bort resurser. Funktionen *Ta bort* förstör alla data som skapats av Azure DevOps-projektet i både Azure och Azure DevOps, och du kan inte återskapa dem. Använd den här proceduren först när du har läst anvisningarna noga.
 
 1. Gå till DevOps Projects-instrumentpanelen i Azure-portalen.
 2. Välj **Ta bort** i det övre högra hörnet. 

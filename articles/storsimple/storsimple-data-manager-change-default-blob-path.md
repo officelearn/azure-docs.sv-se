@@ -14,70 +14,70 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: f73d9dcedee5165af752b9e10fb70de860e8e98b
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: cdaf991c25c23dee4f87b44142c1482bf892bcf2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2018
-ms.locfileid: "27862408"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011631"
 ---
-# <a name="change-a-blob-path-from-the-default-path"></a>Ändra en blobbsökvägen från standardsökvägen
+# <a name="change-a-blob-path-from-the-default-path"></a>Ändra sökväg till en blob från standardsökvägen
 
-När StorSimple Data Manager-tjänsten överför informationen, som standard placeras omvandlade blobbar i en lagringsbehållare som anges under genereringen av måldatabasen. När blobar anländer på denna plats, kanske du vill flytta dessa BLOB till en alternativ plats. Den här artikeln beskriver hur du ställer in en Azure-funktion att byta namn på en standardsökväg för blob och därför flytta blobar till en annan plats.
+När tjänsten StorSimple Data Manager omvandlar data, som standard placeras transformerade blobbar i en lagringsbehållare som anges under genereringen av måldatabasen. När blobarna som tas emot på den här platsen, kan du flytta dessa blobar till en annan plats. Den här artikeln beskriver hur du ställer in en Azure-funktion att byta namn på en filsökväg för standard-blob och kan därför flytta blobar till en annan plats.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Se till att du har en korrekt konfigurerad jobbdefinitionen i StorSimple Data Manager-tjänsten.
+Se till att du har en korrekt konfigurerad jobbdefinition i StorSimple Data Manager-tjänsten.
 
 ## <a name="create-an-azure-function"></a>Skapa en Azure-funktion
 
 Utför följande steg för att skapa en Azure-funktion:
 
-1. Gå till [Azure-portalen](http://portal.azure.com/).
+1. Gå till [Azure-portalen](https://portal.azure.com/).
 
-2. Klicka på **+ skapa en resurs för**. I den **Sök** skriver **Funktionsapp** och tryck på **RETUR**. Välj och klicka på **funktionsapp** i listan över appar som visas.
+2. Klicka på **+ skapa en resurs**. I den **Search** skriver **Funktionsapp** och tryck på **RETUR**. Välj och klicka på **funktionsapp** i listan över appar som visas.
 
-    ![Skriv ”Funktionsapp” i sökrutan](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
+    ![Skriv ”Function-App” i sökrutan](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
 
 3. Klicka på **Skapa**.
 
-    ![Knappen Funktionsapp fönster ”skapa”](./media/storsimple-data-manager-change-default-blob-path/create-function-app.png)
+    ![Knappen ”Skapa” Funktionsapp fönster](./media/storsimple-data-manager-change-default-blob-path/create-function-app.png)
 
-4. På den **Funktionsapp** configuration-bladet, utför följande steg:
+4. På den **Funktionsapp** konfigurationsbladet, utför följande steg:
 
     1. Ange ett unikt **appnamn**.
-    2. I listrutan väljer du den **prenumeration**. Den här prenumerationen ska vara samma som den som är kopplade till StorSimple Data Manager-tjänsten.
-    3. Välj **Skapa nytt** resursgruppen.
-    4. För den **värd planera** listrutan, Välj **förbrukning planera**.
-    5. Ange en plats där din funktion körs. Vill du samma region där StorSimple Data Manager-tjänsten och lagringskontot som är associerade med jobbdefinitionen finns.
+    2. Välj den nedrullningsbara listan den **prenumeration**. Den här prenumerationen ska vara samma som det som är associerade med StorSimple Data Manager-tjänsten.
+    3. Välj **Skapa nytt** resursgrupp.
+    4. För den **som är värd för planera** listrutan, väljer **Standardförbrukningsplanen**.
+    5. Ange en plats där din funktion körs. Vill du samma region där StorSimple Data Manager-tjänsten och lagringskontot som associerats med jobbdefinitionen, finns.
     6. Välj ett befintligt lagringskonto eller skapa ett nytt lagringskonto. Ett lagringskonto används internt för funktionen.
 
-        ![Ange nya Funktionsapp konfigurationsdata](./media/storsimple-data-manager-change-default-blob-path/function-app-parameters.png)
+        ![Ange ny Funktionsapp konfigurationsdata](./media/storsimple-data-manager-change-default-blob-path/function-app-parameters.png)
 
-    7. Klicka på **Skapa**. Funktionen appen skapas.
+    7. Klicka på **Skapa**. Funktionsappen skapas.
      
-        ![Funktionsapp skapas](./media/storsimple-data-manager-change-default-blob-path/function-app-created.png)
+        ![Funktionsappen skapas](./media/storsimple-data-manager-change-default-blob-path/function-app-created.png)
 
-5. Välj **funktioner**, och klicka på **+ nya funktionen**.
+5. Välj **Functions**, och klicka på **+ ny funktion**.
 
     ![Klicka på + ny funktion](./media/storsimple-data-manager-change-default-blob-path/create-new-function.png)
 
-6. Välj **C#** för språket. I matrisen med mallen paneler, Välj **C#** i den **QueueTrigger CSharp** panelen.
+6. Välj **C#** för språket. I matrisen med mallen paneler, Välj **C#** i den **QueueTrigger-CSharp** panelen.
 
-7. I den **kö utlösaren**:
+7. I den **köutlösare**:
 
     1. Ange en **namn** för din funktion.
-    2. I den **könamnet** skriver du namnet på data transformation jobbet definition.
-    3. Under **konto lagringsanslutning**, klickar du på **nya**. Välj det konto som är associerade med din jobbdefinitionen från listan över storage-konton. Anteckna namnet på anslutningen (markerat). Namnet krävs senare i Azure-funktion.
+    2. I den **könamn** skriver du namnet på jobbdefinitionen dina data omvandling.
+    3. Under **lagringskontoanslutning**, klickar du på **nya**. Välj det konto som är associerade med din jobbdefinition listan med lagringskonton. Anteckna anslutningens namn (markerat). Namnet måste senare i Azure-funktion.
 
-        ![Skapa en ny C#-funktion](./media/storsimple-data-manager-change-default-blob-path/new-function-parameters.png)
+        ![Skapa en ny C# funktion](./media/storsimple-data-manager-change-default-blob-path/new-function-parameters.png)
 
     4. Klicka på **Skapa**. Den **funktionen** skapas.
 
      
 10. I fönstret funktionen kör _.csx_ fil.
 
-    ![Skapa en ny C#-funktion](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
+    ![Skapa en ny C# funktion](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
     
     Utför följande steg.
 
@@ -183,15 +183,15 @@ Utför följande steg för att skapa en Azure-funktion:
 
         ```
 
-    2. Ersätt **STORAGE_CONNECTIONNAME** på rad 11 med anslutningens storage-konto (se steg 7 c).
+    2. Ersätt **STORAGE_CONNECTIONNAME** på rad 11 med anslutning till ditt lagringskonto (se steg 7 c).
 
-        ![Kopiera lagring anslutningsnamn](./media/storsimple-data-manager-change-default-blob-path/new-function-storage-connection-name.png)
+        ![Kopiera anslutningsnamn för lagring](./media/storsimple-data-manager-change-default-blob-path/new-function-storage-connection-name.png)
 
     3. **Spara** funktionen.
 
-        ![Spara funktion](./media/storsimple-data-manager-change-default-blob-path/save-function.png)
+        ![Spara funktionen](./media/storsimple-data-manager-change-default-blob-path/save-function.png)
 
-12. Slutför funktionen genom att lägga till flera filer genom att göra följande:
+12. Lägg till en mer fil genom att göra följande steg för att slutföra funktionen:
 
     1. Klicka på **visa filer**.
 
@@ -201,7 +201,7 @@ Utför följande steg för att skapa en Azure-funktion:
         
         ![Länken ”Visa filer”](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
-    3. Typen **project.json**, och tryck sedan på **RETUR**. I den **project.json** fil, klistra in följande kod:
+    3. Typ **project.json**, och tryck sedan på **RETUR**. I den **project.json** fil, klistra in följande kod:
 
         ```
         {
@@ -221,8 +221,8 @@ Utför följande steg för att skapa en Azure-funktion:
 
         ![Länken ”Visa filer”](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
 
-Du har skapat en Azure-funktion. Den här funktionen aktiveras varje gång en ny blob genereras av data transformation jobb.
+Du har skapat en Azure-funktion. Den här funktionen utlöses varje gång en ny blob skapas av omvandlingsjobb.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Använd StorSimple Data Manager UI att omvandla data](storsimple-data-manager-ui.md)
+[Använd StorSimple Data Manager UI och omvandla data](storsimple-data-manager-ui.md)

@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: raynew
-ms.openlocfilehash: 637a8e91ba03240cd4c2c530ae2c982d2115c81d
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: MT
+ms.openlocfilehash: 086a3b4bf34f2ea7454bb018f9468dd21629a8ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569832"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903104"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd matrix för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -48,7 +48,7 @@ Ledigt diskutrymme | 600 GB utrymme som krävs för processerverns cacheminne.
 Ledigt diskutrymme | 600 GB utrymme som krävs för kvarhållningsenhet.
 Operativsystem  | Windows Server 2012 R2 eller Windows Server 2016 |
 Nationella inställningar för operativsystem | Engelska (en-us)
-PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") ska installeras.
+PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") krävs inte för konfigurationsservern med versioner från [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery).
 Windows Server-roller | Aktivera inte: <br/> - Active Directory Domain Services <br/>- Internet Information Services <br/> - Hyper-V |
 Grupprinciper| Aktivera inte: <br/> -Förhindra åtkomst till Kommandotolken. <br/> -Förhindra åtkomst till registerredigeringsverktygen. <br/> -Förtroende för bifogade filer. <br/> -Aktivera körning av skript. <br/> [Läs mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Se till att du:<br/><br/> -Inte har en befintlig standardwebbplatsen <br/> -Aktivera [anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> -Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) inställningen  <br/> -Inte har redan befintliga webbplats/appen lyssnar på port 443<br/>
@@ -185,7 +185,7 @@ Gäst/server multipath (MPIO) | Nej
 
 > [!NOTE]
 > UEFI-Start VMware-datorer som kör Windows Server 2012 eller senare kan migreras till Azure. Följande begränsningar gäller:
-
+> 
 > - Stöds endast migrering till Azure. Växla tillbaka till den lokala VMware-platsen stöds inte.
 > - Servern bör inte ha fler än fyra partitioner på operativsystemdisken.
 > - Kräver Mobilitetstjänsten version 9.13 eller senare.
@@ -265,7 +265,7 @@ Flytta lagring, nätverk, virtuella Azure-datorer mellan resursgrupper<br/><br/>
 ## <a name="download-latest-azure-site-recovery-components"></a>Hämta senaste Azure Site Recovery-komponenter
 
 **Namn** | **Beskrivning** | **Senaste version Hämtningsinstruktioner**
---- | --- | --- | --- | ---
+--- | --- | --- 
 Konfigurationsserver | Samordnar kommunikationen mellan lokala VMware-servrar och Azure <br/><br/> Installerad på den lokala VMware-servrar | Ny installation klickar du på [här](vmware-azure-deploy-configuration-server.md). För att uppgradera befintliga komponenten till senaste versionen, klickar du på [här](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 Processerver|Installeras som standard på konfigurationsservern. Den tar emot replikeringsdata; optimerar dem med cachelagring, komprimering och kryptering och skickar dem till Azure Storage. Allt eftersom distributionen växer kan du lägga till ytterligare, separat processervrar för att hantera större mängder replikeringstrafik.| Ny installation klickar du på [här](vmware-azure-set-up-process-server-scale.md). För att uppgradera befintliga komponenten till senaste versionen, klickar du på [här](vmware-azure-manage-process-server.md#upgrade-a-process-server).
 Mobilitetstjänsten | Samordnar replikering mellan lokala VMware-servrar/fysiska servrar och Azure/sekundär plats<br/><br/> Installerad på VMware VM eller fysiska servrar som du vill replikera | Ny installation klickar du på [här](vmware-azure-install-mobility-service.md). För att uppgradera befintliga komponenten till senaste versionen, klickar du på [här](vmware-physical-mobility-service-overview.md##update-mobility-service-from-azure-portal).

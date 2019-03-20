@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/27/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d1ff4b44ff352742ee91b61c0c774cfe7c3f9d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 28f9c17e21db5a46ad01fd1b318c52a3a721f8b9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181362"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226971"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Konfigurera hanterade identiteter för Azure-resurser på en Azure-dator med hjälp av PowerShell
 
@@ -46,7 +46,7 @@ I det här avsnittet får du lära dig hur du aktiverar och inaktiverar det syst
 
 Om du vill skapa en Azure-dator med systemtilldelade hanterade identiteten aktiverat ditt konto måste den [virtuell Datordeltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) rolltilldelning.  Inga ytterligare Azure AD directory rolltilldelningar krävs.
 
-1. Se något av följande Azure VM Snabbstarter, Slutför bara de nödvändiga avsnitt (”logga in på Azure”, ”skapa resursgruppen”, ”skapa nätverk grupp”, ”skapa den virtuella datorn”).
+1. Se något av följande Azure VM Snabbstarter, Slutför bara de nödvändiga avsnitt (”logga in till Azure”, ”skapa resursgrupp”, ”skapa nätverk grupp”, ”skapa den virtuella datorn”).
     
     När du kommer till avsnittet ”Skapa VM” gör en liten ändring i [New AzVMConfig](/powershell/module/az.compute/new-azvm) cmdlet-syntax. Se till att lägga till en `-AssignIdentity:$SystemAssigned` parameter för att etablera den virtuella datorn med identiteten systemtilldelade aktiverat, till exempel:
       
@@ -57,14 +57,8 @@ Om du vill skapa en Azure-dator med systemtilldelade hanterade identiteten aktiv
    - [Skapa en Windows-dator med hjälp av PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
    - [Skapa en Linux-dator med hjälp av PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (Valfritt) Lägg till hanterade identiteter för Azure-resurser VM-tillägget (planerad för utfasning i januari 2019) med den `-Type` parametern på den [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet. Du kan skicka ”ManagedIdentityExtensionForWindows” eller ”ManagedIdentityExtensionForLinux” beroende på vilken typ av virtuell dator och namnge den med hjälp av den `-Name` parametern. Den `-Settings` parametern anger den port som används av OAuth-token-slutpunkten för tokenförvärv:
-
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
-    > [!NOTE]
-    > Det här steget är valfritt eftersom du kan använda Azure Instance Metadata Service (IMDS) identitet slutpunkten, för att hämta token samt. Hanterade identiteter för VM-tillägg för Azure-resurser är planerat för utfasning i januari 2019. 
+> [!NOTE]
+> Du kan etablera hanterade identiteter för VM-tillägg för Azure-resurser, men snart upphör att gälla. Vi rekommenderar att du använder Azure Instance Metadata identitet slutpunkten för autentisering. Mer information finns i [migrera från VM-tillägget till Azure IMDS slutpunkten för autentisering](howto-migrate-vm-extension.md).
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-azure-vm"></a>Aktivera systemtilldelade hanterad identitet på en befintlig Azure VM
 
@@ -83,14 +77,8 @@ Om du vill aktivera systemtilldelade hanterad identitet på en virtuell dator so
    Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
    ```
 
-3. (Valfritt) Lägg till hanterade identiteter för Azure-resurser VM-tillägget (planerad för utfasning i januari 2019) med den `-Type` parametern på den [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet. Du kan skicka ”ManagedIdentityExtensionForWindows” eller ”ManagedIdentityExtensionForLinux” beroende på vilken typ av virtuell dator och namnge den med hjälp av den `-Name` parametern. Den `-Settings` parametern anger den port som används av OAuth-token-slutpunkten för tokenförvärv. Se till att ange rätt `-Location` parameter, matcha platsen för den befintliga virtuella datorn:
-
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
-    > [!NOTE]
-    > Det här steget är valfritt eftersom du kan använda Azure Instance Metadata Service (IMDS) identitet slutpunkten, för att hämta token samt.
+> [!NOTE]
+> Du kan etablera hanterade identiteter för VM-tillägg för Azure-resurser, men snart upphör att gälla. Vi rekommenderar att du använder Azure Instance Metadata identitet slutpunkten för autentisering. Mer information finns i [migrera från VM-tillägget till Azure IMDS slutpunkten för autentisering](howto-migrate-vm-extension.md).
 
 ### <a name="add-vm-system-assigned-identity-to-a-group"></a>Lägg till systemtilldelad identitet för virtuell dator till en grupp
 
@@ -146,13 +134,10 @@ $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 ```
 
-Ta bort hanterade identiteter för Azure-resurser VM-tillägg, användare-Name-växeln med den [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension) cmdlet, att ange samma namn som du använde när du har lagt till tillägget:
+> [!NOTE]
+> Om du har etablerat den hanterade identitet för VM-tillägg för Azure-resurser (för att bli inaktuell) kan du behöva ta bort den med den [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension). Mer information finns i [migrera från VM-tillägg till Azure IMDS för autentisering](howto-migrate-vm-extension.md).
 
-   ```powershell
-   Remove-AzVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
-   ```
-
-## <a name="user-assigned-managed-identity"></a>Användartilldelade hanterad identitet
+## <a name="user-assigned-managed-identity"></a>Användartilldelad hanterad identitet
 
 Du lär dig hur du lägger till och ta bort en hanterad Användartilldelad identitet från en virtuell dator med Azure PowerShell i det här avsnittet.
 
@@ -160,7 +145,7 @@ Du lär dig hur du lägger till och ta bort en hanterad Användartilldelad ident
 
 Om du vill tilldela en Användartilldelad identitet till en virtuell dator, ditt konto måste den [virtuell Datordeltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) och [hanterade Identitetsoperatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator) rolltilldelningar. Inga ytterligare Azure AD directory rolltilldelningar krävs.
 
-1. Se något av följande Azure VM Snabbstarter, Slutför bara de nödvändiga avsnitt (”logga in på Azure”, ”skapa resursgruppen”, ”skapa nätverk grupp”, ”skapa den virtuella datorn”). 
+1. Se något av följande Azure VM Snabbstarter, Slutför bara de nödvändiga avsnitt (”logga in till Azure”, ”skapa resursgrupp”, ”skapa nätverk grupp”, ”skapa den virtuella datorn”). 
   
     När du kommer till avsnittet ”Skapa VM” gör en liten ändring i [ `New-AzVMConfig` ](/powershell/module/az.compute/new-azvm) cmdlet-syntax. Lägg till den `-IdentityType UserAssigned` och `-IdentityID ` parametrar för att etablera den virtuella datorn med en Användartilldelad identitet.  Ersätt `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, och `<USER ASSIGNED IDENTITY NAME>` med dina egna värden.  Exempel:
     
@@ -171,14 +156,8 @@ Om du vill tilldela en Användartilldelad identitet till en virtuell dator, ditt
     - [Skapa en Windows-dator med hjälp av PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
     - [Skapa en Linux-dator med hjälp av PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (Valfritt) Lägg till hanterad identitet för Azure-resurser VM en tillägget med hjälp av den `-Type` parametern på den [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet. Du kan skicka ”ManagedIdentityExtensionForWindows” eller ”ManagedIdentityExtensionForLinux” beroende på vilken typ av virtuell dator och namnge den med hjälp av den `-Name` parametern. Den `-Settings` parametern anger den port som används av OAuth-token-slutpunkten för tokenförvärv. Se till att ange rätt `-Location` parameter, matcha platsen för den befintliga virtuella datorn:
-      > [!NOTE]
-    > Det här steget är valfritt eftersom du kan använda Azure Instance Metadata Service (IMDS) identitet slutpunkten, för att hämta token samt. Hanterade identiteter för VM-tillägg för Azure-resurser är planerat för utfasning i januari 2019.
-
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
+> [!NOTE]
+> Du kan etablera hanterade identiteter för VM-tillägg för Azure-resurser, men snart upphör att gälla. Vi rekommenderar att du använder Azure Instance Metadata identitet slutpunkten för autentisering. Mer information finns i [migrera från VM-tillägget till Azure IMDS slutpunkten för autentisering](howto-migrate-vm-extension.md).
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-vm"></a>Tilldela en hanterad Användartilldelad identitet till en befintlig Azure VM
 
@@ -193,7 +172,7 @@ Om du vill tilldela en Användartilldelad identitet till en virtuell dator, ditt
 2. Skapa en Användartilldelad hanterad identitet med hjälp av den [New AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) cmdlet.  Obs den `Id` i utdata eftersom du behöver det i nästa steg.
 
    > [!IMPORTANT]
-   > Skapa användartilldelade hanterade identiteter stöder endast alfanumeriskt och bindestreck (0-9 eller a-z eller A-Z eller -) tecken. Namnet bör dessutom begränsas till 24 tecken för tilldelning till VM/VMSS ska fungera korrekt. Kom tillbaka om för att få uppdateringar. Mer information finns i [vanliga frågor och kända problem](known-issues.md)
+   > Skapa användartilldelade hanterade identiteter stöder endast alfanumeriska, understreck och bindestreck (0-9 eller a-z eller A – Z, \_ eller -) tecken. Dessutom kan bör namn begränsas från 3 till 128 tecken för tilldelning till VM/VMSS ska fungera korrekt. Mer information finns i [vanliga frågor och kända problem](known-issues.md)
 
    ```powershell
    New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
@@ -208,12 +187,8 @@ Om du vill tilldela en Användartilldelad identitet till en virtuell dator, ditt
    Update-AzVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
    ```
 
-4. Lägg till hanterad identitet för Azure-resurser VM-tillägget (planerad för utfasning i januari 2019) med den `-Type` parametern på den [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet. Du kan skicka ”ManagedIdentityExtensionForWindows” eller ”ManagedIdentityExtensionForLinux” beroende på vilken typ av virtuell dator och namnge den med hjälp av den `-Name` parametern. Den `-Settings` parametern anger den port som används av OAuth-token-slutpunkten för tokenförvärv. Ange rätt `-Location` parameter, matcha platsen för den befintliga virtuella datorn.
-
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
+> [!NOTE]
+> Du kan etablera hanterade identiteter för VM-tillägg för Azure-resurser, men snart upphör att gälla. Vi rekommenderar att du använder Azure Instance Metadata identitet slutpunkten för autentisering. Mer information finns i [migrera från VM-tillägget till Azure IMDS slutpunkten för autentisering](howto-migrate-vm-extension.md).
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Ta bort en hanterad Användartilldelad identitet från en Azure-dator
 

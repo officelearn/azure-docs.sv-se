@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 11/18/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 587661236e28b9e0fdf7d527b762897d417d0d98
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 8a6a46708b78b3f92087ace02173f9f081fa85b2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866856"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170521"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Snabbstart: Publicera en kunskapsbas i QnA Maker med C#
 
@@ -25,7 +25,7 @@ Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar
 Den här snabbstarten anropar API:er för QnA Maker:
 * [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) (Publicera) – detta API kräver inte någon information i brödtexten för begäran.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Senaste [**Visual Studio Community-versionen**](https://www.visualstudio.com/downloads/).
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Hämta nyckeln genom att välja **Nycklar** under **Resurshantering** på instrumentpanelen. 
@@ -41,7 +41,7 @@ Den här snabbstarten anropar API:er för QnA Maker:
 ## <a name="create-knowledge-base-project"></a>Skapa kunskapsbasprojekt
 
 1. Öppna Visual Studio 2017 Community Edition.
-1. Skapa ett nytt **konsolapprojekt (.Net Core)** och ge projektet namnet `QnaMakerQuickstart`. Godkänn standardinställningarna för de återstående inställningarna.
+1. Skapa en ny **Konsolapp (.NET Core)** projektet och ge projektet namnet `QnaMakerQuickstart`. Godkänn standardinställningarna för de återstående inställningarna.
 
 ## <a name="add-required-dependencies"></a>Lägga till nödvändiga beroenden
 

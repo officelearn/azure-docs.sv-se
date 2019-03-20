@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3bdf642c37fe5f64b7d853da6a050ec8c2a7d44d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cc07aa9c1b2c540c33949a8c591bd98f91b04666
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834667"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225458"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuera en Linux Hybrid Runbook Worker
 
@@ -84,6 +84,9 @@ Observera Log Analytics-arbetsytan och Automation-kontot är länkat till innan 
    ```
 
 1. När kommandot har slutförts, den **Hybrid Worker-grupper** visar den nya gruppen och antalet medlemmar i Azure-portalen. Om det här är en befintlig grupp ökas antalet medlemmar. Du kan välja grupp i listan på den **Hybrid Worker-grupper** och välj den **Hybrid Worker-arbeten** panelen. På den **Hybrid Worker-arbeten** du se att varje medlem i gruppen i listan.
+
+> [!NOTE]
+> Om du använder Azure Monitor-tillägget för virtuell dator för Linux för en Azure virtuell dator rekommenderar vi att ställa `autoUpgradeMinorVersion` till FALSKT som automatiskt uppgradera versioner kan orsaka problem med Hybrid Runbook Worker. Läs hur du uppgraderar tillägget manuellt i [distribution av Azure CLI ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
 
 ## <a name="turning-off-signature-validation"></a>Om du inaktiverar signaturverifiering
 

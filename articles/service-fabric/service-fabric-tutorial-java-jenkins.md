@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a4b8d930a2176c16bb9d1cbcd3b67e6f919575ed
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: 0a0f7cc8e3810a28fdbec914a9f37808c33ab878
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162230"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880603"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Självstudie: Konfigurera en Jenkins-miljö och aktivera CI/CD för en Java-app i Service Fabric
 
@@ -40,7 +40,7 @@ I den här självstudieserien får du lära du dig att:
 > * [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-java-elk.md)
 > * Konfigurera CI/CD
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Installera Git på den lokala datorn från [sidan för hämtningsbara Git-filer](https://git-scm.com/downloads). Mer information om Git finns i [Git-dokumentationen](https://git-scm.com/docs).
 * Ha tidigare erfarenhet av [Jenkins](https://jenkins.io/).
@@ -72,15 +72,15 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följand
     * När du loggar in för första gången skapar du ett eget användarkonto, eller så använder du administratörskontot.
 
 1. Konfigurera GitHub för Jenkins genom att utföra åtgärderna som nämns i [Generating a new SSH key and adding it to the SSH agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) (Generera en ny SSH-nyckel och lägga till den i SSH-agenten). Eftersom kommandona körs från en Docker-container följer du instruktionerna för Linux-miljön.
-    * Skapa SSH-nyckeln med hjälp av instruktionerna från GitHub. Lägg sedan till SSH-nyckeln till GitHub-kontot som är värd för databasen.
-    * Kör de kommandon som nämns i länken ovan i Jenkins Docker-gränssnittet (och inte på värden).
-    * Om du vill logga in till Jenkins-gränssnittet från värden ska du använda följande kommandon:
+   * Skapa SSH-nyckeln med hjälp av instruktionerna från GitHub. Lägg sedan till SSH-nyckeln till GitHub-kontot som är värd för databasen.
+   * Kör de kommandon som nämns i länken ovan i Jenkins Docker-gränssnittet (och inte på värden).
+   * Om du vill logga in till Jenkins-gränssnittet från värden ska du använda följande kommandon:
 
-    ```sh
-    docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
-    ```
+     ```sh
+     docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
+     ```
 
-    Kontrollera att klustret eller datorn där Jenkins-containeravbildningen finns har en offentlig IP-adress. Med en offentlig IP-adress kan Jenkins-instansen ta emot meddelanden från GitHub.
+     Kontrollera att klustret eller datorn där Jenkins-containeravbildningen finns har en offentlig IP-adress. Med en offentlig IP-adress kan Jenkins-instansen ta emot meddelanden från GitHub.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Skapa och konfigurera ett Jenkins-jobb
 
@@ -146,7 +146,7 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följand
 
     ```xml
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
-    <ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingApplicationType" ApplicationTypeVersion="2.0.0">
+    <ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingApplicationType" ApplicationTypeVersion="2.0.0">
       <Description>Voting Application</Description>
       <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="VotingWebPkg" ServiceManifestVersion="2.0.0"/>

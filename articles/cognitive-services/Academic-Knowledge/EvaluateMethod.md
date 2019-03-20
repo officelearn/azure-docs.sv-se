@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: a5ad7005a2ab3d6ed5f9c8fe38db9552e3925a30
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d2e628fb7fc502ef9ba81d20680d66f24fd7d138
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871327"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004924"
 ---
 # <a name="evaluate-method"></a>utvärdera metod
 
@@ -27,7 +27,9 @@ Den **utvärdera** REST-API används för att returnera en uppsättning akademis
 https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate? 
 ```   
 <br>
+
 ## <a name="request-parameters"></a>Parametrar för begäran  
+
 Namn     | Värde | Krävs?  | Beskrivning
 -----------|-----------|---------|--------
 **uttryck för Markörstorlek**       | Textsträngen | Ja | Ett frågeuttryck som anger vilka enheter som ska returneras.
@@ -38,7 +40,9 @@ Namn     | Värde | Krävs?  | Beskrivning
 **orderby** |   Textsträngen | Nej<br>Standard: genom att minska sannolikhet | Namnet på ett attribut som används för att sortera entiteterna. Du kan också kan stigande/fallande anges. Formatet är: *namn: asc* eller *namn: desc*.
   
  <br>
+
 ## <a name="response-json"></a>Svar (JSON)
+
 Namn | Beskrivning
 -------|-----   
 **uttryck för Markörstorlek** |  Den *uttryck* parametern från begäran.
@@ -46,6 +50,7 @@ Namn | Beskrivning
 **avbröts** | SANT om uppnåddes för begäran.
 
 <br>
+
 #### <a name="example"></a>Exempel:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?expr=

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0463a2ad3fa74f33a52e15a246dfd4ffd63107a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0f8e0b79d5aebd1e92dd71bba72efa7430aa475b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200878"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224659"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Självstudie: Azure AD-lösenordsåterställning från inloggningsskärmen
 
@@ -27,14 +27,16 @@ I den här självstudien gör du så att användare kan återställa sina lösen
 > * Konfigurera med hjälp av Windows-registret som alternativ lösning
 > * Förstå vad användarna ser
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Du måste köra minst Windows 10, versionen med uppdatering från april 2018, och enheterna måste vara antingen:
    * [Azure AD-anslutna](../device-management-azure-portal.md) eller
    * [Hybrid Azure AD-anslutna](../device-management-hybrid-azuread-joined-devices-setup.md) med en nätverksanslutning till en domänkontrollant.
 * Du måste aktivera självbetjäning av lösenordsåterställning med Azure AD.
-* Om dina Windows 10-enheter är bakom en proxyserver eller en brandvägg måste du lägga till URL:erna `passwordreset.microsoftonline.com` och `ajax.aspnetcdn.com` i din lista över URL:er med tillåten HTTPS-trafik (port 443).
+* Om Windows 10-enheter är bakom en proxyserver eller brandvägg, måste du lägga till URL: er, `passwordreset.microsoftonline.com` och `ajax.aspnetcdn.com` till HTTPS-trafik (port 443) tillåtna URL-listan.
+* SSPR för Windows 10 stöds endast med datornivå proxyservrar
 * Granska begränsningarna nedan innan du provar den här funktionen i din miljö.
+* Se till att webb-cachen rensats för det inbyggda administratörskontot innan du utför CopyProfile steg innan sysprep om du använder en bild. Mer information om detta finns i supportartikeln [prestanda dåligt när du använder anpassad standardanvändarprofil](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 
 ## <a name="configure-reset-password-link-using-intune"></a>Konfigurera länken Återställ lösenord med Intune
 

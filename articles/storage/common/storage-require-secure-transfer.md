@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: ec5949438ef179ecef17c65e91138ed4dcde9906
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e75cd873b780f514b24ee254dd491b6aa779c420
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467092"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101932"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Kräv säker överföring i Azure Storage
 
@@ -35,7 +35,7 @@ Du kan aktivera den ”säker överföring krävs” inställningen när du skap
 1. Öppna den **skapa lagringskonto** fönstret i Azure-portalen.
 1. Under **säker överföring krävs**väljer **aktiverad**.
 
-  ![Skapa bladet lagringskonto](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
+   ![Skapa bladet lagringskonto](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
 ### <a name="require-secure-transfer-for-an-existing-storage-account"></a>Kräv säker överföring för ett befintligt lagringskonto
 
@@ -43,7 +43,7 @@ Du kan aktivera den ”säker överföring krävs” inställningen när du skap
 1. I storage-konto menyn fönstret under **inställningar**väljer **Configuration**.
 1. Under **säker överföring krävs**väljer **aktiverad**.
 
-  ![Storage-konto menyn fönstret](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
+   ![Storage-konto menyn fönstret](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
 ## <a name="enable-secure-transfer-required-programmatically"></a>Aktivera ”säker överföring krävs” programmässigt
 

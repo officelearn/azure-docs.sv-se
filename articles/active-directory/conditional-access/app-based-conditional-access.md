@@ -18,12 +18,12 @@ ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f7765b775706d3bdf09176bc4bfbf18533d054
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 57b7f540ccf80c6d25a7dfcfcad1ba7ca6698167
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441315"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113239"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Instruktioner: Kräv godkända klientappar för cloud app-åtkomst med villkorlig åtkomst 
 
@@ -292,13 +292,13 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
 5. Som **åtkomstkontroller**, måste du ha följande valda:
 
-    - **Kräv att enheten är markerad som kompatibel**
+   - **Kräv att enheten är markerad som kompatibel**
 
-    - **Kräv godkänd klientapp (förhandsversion)**
+   - **Kräv godkänd klientapp (förhandsversion)**
 
-    - **Begär en av de valda kontrollerna**   
+   - **Begär en av de valda kontrollerna**   
  
-    ![Villkorlig åtkomst](./media/app-based-conditional-access/11.png)
+     ![Villkorlig åtkomst](./media/app-based-conditional-access/11.png)
 
 
 
@@ -388,13 +388,13 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
 5. Som **åtkomstkontroller**, måste du ha följande valda:
 
-    - **Kräv att enheten är markerad som kompatibel**
+   - **Kräv att enheten är markerad som kompatibel**
 
-    - **Kräv godkänd klientapp (förhandsversion)**
+   - **Kräv godkänd klientapp (förhandsversion)**
 
-    - **Kräv de valda kontrollerna**   
+   - **Kräv de valda kontrollerna**   
  
-    ![Villkorlig åtkomst](./media/app-based-conditional-access/13.png)
+     ![Villkorlig åtkomst](./media/app-based-conditional-access/13.png)
 
 
 
@@ -420,13 +420,13 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
 5. Som **åtkomstkontroller**, måste du ha följande valda:
 
-    - **Kräv att enheten är markerad som kompatibel**
+   - **Kräv att enheten är markerad som kompatibel**
 
-    - **Kräv godkänd klientapp (förhandsversion)**
+   - **Kräv godkänd klientapp (förhandsversion)**
 
-    - **Kräv de valda kontrollerna**   
+   - **Kräv de valda kontrollerna**   
  
-    ![Villkorlig åtkomst](./media/app-based-conditional-access/64.png)
+     ![Villkorlig åtkomst](./media/app-based-conditional-access/64.png)
 
 
 

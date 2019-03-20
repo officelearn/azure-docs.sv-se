@@ -13,21 +13,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/04/2019
+ms.date: 03/18/2019
 ms.author: kaanan
-ms.openlocfilehash: 5532174b6fc72f51e7ba7a946e601e7d97c7808e
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 45224b1b0ec4a4b3c93393c178f1f03baa58e10b
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408453"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189146"
 ---
 # <a name="virtual-network-tap"></a>Virtual Network TAP
 
 Azure-nätverk TRYCK (Terminal åtkomstpunkt) kan du kontinuerligt stream dina VM-nätverkstrafik till en insamlare eller analytics verktyg för nätverkspaket. Verktyget insamlare eller analytics tillhandahålls av en [virtuell nätverksinstallation](https://azure.microsoft.com/solutions/network-appliances/) partner. En lista över partnerlösningar som godkänts för att fungera med virtuella nätverks-TAP finns i [partnerlösningar](#virtual-network-tap-partner-solutions).
 
 > [!IMPORTANT]
-> Virtuellt nätverk TRYCK förhandsvisas just nu utvecklare i regionen västra Azure. Om du vill använda virtuella nätverks-TAP som du måste registrera i förhandsgranskningen genom att skicka ett e-postmeddelande till <azurevnettap@microsoft.com> med ditt prenumerations-ID. Du får ett e-postmeddelande tillbaka när din prenumeration har registrerats. Du inte kan använda funktionen tills du får ett e-postmeddelande med bekräftelse. Den här developer preview tillhandahålls utan serviceavtal och ska inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Se den [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) information.
+> Virtuellt nätverk TRYCK förhandsvisas just nu i alla Azure-regioner. Om du vill använda virtuella nätverks-TAP som du måste registrera i förhandsgranskningen genom att skicka ett e-postmeddelande till <azurevnettap@microsoft.com> med ditt prenumerations-ID. Du får ett e-postmeddelande tillbaka när din prenumeration har registrerats. Du inte kan använda funktionen tills du får ett e-postmeddelande med bekräftelse. Den här förhandsversionen tillhandahålls utan serviceavtal och ska inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Se den [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) information.
 
 ## <a name="virtual-network-tap-partner-solutions"></a>Virtuellt nätverk TRYCK partnerlösningar
 
@@ -40,9 +40,11 @@ Azure-nätverk TRYCK (Terminal åtkomstpunkt) kan du kontinuerligt stream dina V
 ### <a name="security-analytics-networkapplication-performance-management"></a>Säkerhetsanalyser, nätverk/hantering av programprestanda
 
 - [Aktiva säkerhet](https://awakesecurity.com/technology-partners/microsoft-azure/)
+- [Cisco Stealthwatch Cloud](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
 - [ExtraHop Reveal(x)](https://www.extrahop.com/company/tech-partners/microsoft/)
 - [Fidelis Cybersäkerhet](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
 - [Flowmon](https://www.flowmon.com/blog/azure-vtap)
+- [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [Netscout vSTREAM]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
 - [Nubeva Prisms](https://www.nubeva.com/azurevtap)
 - [RSA NetWitness® plattform](https://www.rsa.com/azure)

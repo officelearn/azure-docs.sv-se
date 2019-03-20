@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 35a041216bf24a4c6ab73f9d5c3e85dff38a4501
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: 423db264c8035f9b089524eb4b19a13baccdf2e0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588117"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404713"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Självstudier: Kopiera data till Azure Data Box via NFS
 
@@ -22,11 +22,11 @@ Den här självstudien beskriver hur du ansluter till och kopierar data från v�
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Nödvändiga komponenter
+> * Förutsättningar
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrollera att:
 
@@ -40,7 +40,8 @@ Innan du börjar ska du kontrollera att:
 
 Utifrån det lagringskontot som väljs skapar Data Box upp till:
 - Tre resurser för varje associerat lagringskonto för GPv1 och GPv2.
-- En resurs för premium- eller bloblagringskonto. 
+- En resurs för premium storage. 
+- En resurs för blob storage-konto. 
 
 Under blockblob- och sidblobresurser är entiteter på första nivån containrar och entiteter på andra nivån är blobar. Under resurser för Azure Files är entiteter på första nivån resurser och entiteter på andra nivån är filer.
 
@@ -126,6 +127,9 @@ Om du använder rsync-alternativet för en flertrådig kopia följer du dessa ri
 
      Vi rekommenderar att du börjar med 16 parallella kopior och öka antalet trådar beroende på tillgängliga resurser.
 
+> [!IMPORTANT]
+> Följande Linux-filtyper stöds inte: symboliska länkar, filer, filer, sockets och pipes. De här filtyperna leder till fel under den **Förbered för att skicka** steg.
+
 - För att säkerställa dataintegriteten beräknas kontrollsumman infogat när data kopieras. När kopieringen är klar kontrollerar du det använda utrymmet och det lediga utrymmet på enheten.
     
    ![Kontrollera ledigt och använt utrymme på instrumentpanelen](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
@@ -136,7 +140,7 @@ Om du använder rsync-alternativet för en flertrådig kopia följer du dessa ri
 I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
-> * Nödvändiga komponenter
+> * Förutsättningar
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
 

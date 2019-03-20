@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: diberry
-ms.openlocfilehash: 39e942b3694ebc59d3cf7d9f4b6a02c4f025e0d0
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b9304e151bbce691b752f12aeec8a5376e517a8d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737305"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120779"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Språkförståelse vanliga frågor (och svar FAQ)
 
@@ -147,7 +147,7 @@ Se den [Batch testning](luis-tutorial-batch-testing.md) självstudien.
 
 ### <a name="when-an-app-is-exported-then-reimported-into-a-new-app-with-a-new-app-id-the-luis-prediction-scores-are-different-why-does-this-happen"></a>När en app har exporterat sedan återimporteras till en ny app (med en ny app-ID), är LUIS förutsägelse poängen olika. Varför inträffar det?
 
-Se [förutsägelse skillnaderna mellan kopior av samma app](luis-concept-prediction-score.md#differences-with-predictions).
+Se [förutsägelse skillnaderna mellan kopior av samma app](luis-concept-prediction-score.md#review-intents-with-similar-scores).
 
 ### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>Vissa yttranden går du till fel avsikten när jag har gjort ändringar i min app. Det verkar som om problemet försvinna slumpmässigt. Hur jag för att åtgärda det? 
 

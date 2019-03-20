@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
 ms.subservice: files
-ms.openlocfilehash: 92c77ce8124727d658cc596864f88037f6c34ac0
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: a0937de97d858084433f969f1f6d4bdb2ae9e3fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569288"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893568"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Utveckla för Azure Files med C++
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -39,7 +39,7 @@ Om du vill skapa exemplen behöver du installerar Azure Storage-klientbiblioteke
 För att du har installerat Azure Storage-klienten 2.4.0 för C++ kan använda du någon av följande metoder:
 
 * **Linux:** Följ instruktionerna den [Azure Storage-klientbiblioteket för C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) sidan.
-* **Windows:** I Visual Studio klickar du på **verktyg &gt; NuGet-Pakethanteraren &gt; Pakethanterarkonsolen**. Skriv följande kommando i den [NuGet Package Manager-konsolen](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) och tryck på **RETUR**.
+* **Windows:** I Visual Studio klickar du på **verktyg &gt; NuGet-Pakethanteraren &gt; Pakethanterarkonsolen**. Skriv följande kommando i den [NuGet Package Manager-konsolen](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) och tryck på **RETUR**.
   
 ```
 Install-Package wastorage

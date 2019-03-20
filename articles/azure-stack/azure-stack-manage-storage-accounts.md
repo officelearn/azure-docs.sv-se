@@ -11,29 +11,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 03/19/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: bce00300e62b3ea04331530bbda2c16f0ddd2ab3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 03/19/2019
+ms.openlocfilehash: 34e49060a28869015f067f058b81239ec13eff47
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759380"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226410"
 ---
-# <a name="manage-storage-accounts-in-azure-stack"></a>Hantera lagringskonton i Azure Stack
+# <a name="manage-azure-stack-storage-accounts"></a>Hantera lagringskonton för Azure Stack
 
-Lär dig mer om att hantera lagringskonton i Azure Stack för att hitta, återställa och frigöra lagringskapacitet baserat på affärsbehoven.
+Lär dig mer om att hantera lagringskonton för Azure Stack. Hitta, återställa och frigöra lagringskapacitet baserat på affärsbehoven.
 
 ## <a name="find-a-storage-account"></a>Hitta ett storage-konto
+
 Listan med lagringskonton i regionen kan ses i Azure Stack med:
 
 1. Logga in på den [administrationsportalen](https://adminportal.local.azurestack.external).
 
-2. Välj **alla tjänster** > **lagringskonton**.
+2. Välj **alla tjänster** > **Storage** > **lagringskonton**.
 
-   ![](media/azure-stack-manage-storage-accounts/image4.png)
+   ![Azure Stack-lagringskonton](media/azure-stack-manage-storage-accounts/image4.png)
 
 Som standard visas de första 10 kontona. Du kan välja att hämta mer genom att klicka på den **Läs in fler** länken längst ned i listan.
 
@@ -45,17 +46,18 @@ Om du är intresserad av ett visst lagringskonto – kan du **filtrera och hämt
 **Så här filtrerar för konton:**
 
 1. Välj **Filter** överst i fönstret.
-2. I fönstret Filter kan du ange **kontonamn**, ** prenumerations-ID eller **status** att finjustera listan med lagringskonton som ska visas. Använd dem efter behov.
-3. Välj **Uppdatera**. Listan bör uppdatera därefter.
+2. I fönstret Filter kan du ange **kontonamn**, **prenumerations-ID**, eller **status** att finjustera listan med lagringskonton som ska visas. Använd dem efter behov.
+3. När du skriver visar listan automatiskt att använda filtret.  .
    
-    ![](media/azure-stack-manage-storage-accounts/image5.png)
+    ![Filtrera lagringskonton för Azure Stack](media/azure-stack-manage-storage-accounts/image5.png)
+
 4. Att återställa filtret: Välj **Filter**, tar bort valen och uppdatera.
 
 Sökrutan (överst i listvyn för storage-konton) kan du markera den markerade texten i listan över konton. Du kan använda när det fullständiga namnet eller ID: T inte är tillgängliga.
 
 Du kan använda fri text här för att identifiera det konto du är intresserad av.
 
-![](media/azure-stack-manage-storage-accounts/image6.png)
+![Hitta lagringskonton för Azure Stack](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>Titta på kontoinformation
 När du har hittat de konton som du är intresserad av, kan du välja kontot att visa vissa detaljer. Ett nytt fönster öppnas med information om kontot som: vilken typ av konto, tidpunkten för skapandet, plats, osv.
@@ -97,9 +99,8 @@ Period kvarhållningsinställning kan en cloud-operator för att ange en tidsper
 
 1. Logga in på den [administrationsportalen](https://adminportal.local.azurestack.external).
 2. Välj **alla tjänster** > **regionshantering** under **Administration**.
-3. Välj **Storage** från den **Resursprovidrar** lista.
-4. Välj **inställningar** överst för att öppna fönstret inställningen.
-5. Välj **Configuration** redigera värdet för kvarhållning perioden.
+3. Välj **resurser providers** > **Storage** > **inställningar**. Sökvägen är Start > *region* -resursprovidrar > Storage.
+4. Välj **Configuration** redigera värdet för kvarhållning perioden.
 
    Ange antal dagar och spara den.
    

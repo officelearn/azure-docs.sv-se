@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: terrylan
-ms.openlocfilehash: 7dfc4329b338a65169c81521360264753bafa9d6
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: f79f94c277b02a9f377b90bf74763ac617f65c16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239924"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892906"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure säkerhetshantering och övervakning-översikt
 
@@ -50,7 +50,7 @@ Med Azure kan använda du program mot skadlig kod från stora säkerhetsleverant
 
 Microsoft Antimalware för Azure Cloud Services och virtuella datorer ger dig möjlighet att installera en agent för program mot skadlig kod för virtuella datorer och PaaS-roller. Baserat på System Center Endpoint Protection kan den här funktionen ger dig beprövade lokala security-teknik till molnet.
 
-Vi erbjuder också djupgående integrering för Trenders [Deep Security](http://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) och [SecureCloud](http://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) produkter i Azure-plattformen. Deep Security är en antivirus och SecureCloud är en lösning för kryptering. Deep Security distribueras i virtuella datorer via en modell för tillägget. Med hjälp av Azure-portalens användargränssnitt och PowerShell, kan du välja att använda Deep Security i nya virtuella datorer som är påskyndas eller befintliga virtuella datorer som redan har distribuerats.
+Vi erbjuder också djupgående integrering för Trenders [Deep Security](https://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) och [SecureCloud](https://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) produkter i Azure-plattformen. Deep Security är en antivirus och SecureCloud är en lösning för kryptering. Deep Security distribueras i virtuella datorer via en modell för tillägget. Med hjälp av Azure-portalens användargränssnitt och PowerShell, kan du välja att använda Deep Security i nya virtuella datorer som är påskyndas eller befintliga virtuella datorer som redan har distribuerats.
 
 Symantec Endpoint Protection (SEP) stöds även på Azure. Du kan ange att du tänker använda SEP på en virtuell dator via portalen integrering. SEP kan installeras på en ny virtuell dator via Azure portal eller den kan installeras på en befintlig virtuell dator via PowerShell.
 
@@ -122,8 +122,8 @@ Genom att tillhandahålla meddelanden och rekommenderade åtgärder, hjälper Id
 
 Läs mer:
 
-* [Azure Active Directory Identity Protection](../active-directory/active-directory-identityprotection.md)
-* [Channel 9: Azure AD och Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* [Identitetsskydd för Azure Active Directory](../active-directory/active-directory-identityprotection.md)
+* [Channel 9: Azure AD och Identity visa: Förhandsversionen av Identity Protection](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>Security Center
 
@@ -144,7 +144,7 @@ Läs mer:
 
 ## <a name="intelligent-security-graph"></a>Intelligent Security Graph
 
-Intelligent Security Graph ger skydd i realtid mot hot i Microsoftprodukter och tjänster. Det använder avancerad analys som länkar en omfattande mängd intelligens och säkerhet hotdata för att ge insikter som kan förstärka företagssäkerhet. Microsoft använder avancerad analys – bearbetar drygt 450 miljarder autentiseringar per månad, genomsöker 400 miljarder e-postmeddelanden efter skadlig programvara och nätfiske och uppdaterar en miljard enheter – att leverera bättre. Dessa insikter kan hjälpa organisationen att identifiera och åtgärda attacker snabbt.
+Intelligent Security Graph ger skydd i realtid mot hot i Microsoftprodukter och tjänster. Det använder avancerad analys som länkar en omfattande mängd intelligens och säkerhet hotdata för att ge insikter som kan förstärka företagssäkerhet. Microsoft använder avancerad analys – bearbetar drygt 450 miljarder autentiseringar per månad, genomsöker 400 miljarder e-postmeddelanden efter skadlig programvara och nätfiske och uppdaterar en miljard enheter – att leverera bättre. Med hjälp av dessa insikter kan din organisation snabbt identifiera och förhindra angrepp.
 
 * [Intelligent Security Graph](https://www.microsoft.com/security/intelligence)
 

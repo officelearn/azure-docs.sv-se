@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: c60fd90adda4c362b15fe2e324aa55a581c9e59a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0c090499ee6ae2aaaa14af18c3c38db28ecb2f3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003780"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884735"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Analytics på Media Services-plattformen 
 
@@ -126,7 +126,7 @@ Svar:
     }
 
 ## <a name="demos"></a>Demos
-Se [Azure Media Analytics demonstrationer](http://azuremedialabs.azurewebsites.net/demos/Analytics.html).
+Se [Azure Media Analytics demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

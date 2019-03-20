@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: dececc961e40d83cf44442dc61054bc8833208f0
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d1e896aee4ba699704ce01e0cff8210d53700993
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265039"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899816"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Översikt över Azure övervakningsagenter 
 Microsoft Azure tillhandahåller flera olika sätt att samla in olika typer av data från virtuella datorer som kör Microsoft Windows och Linux som ligger i Azure, ditt datacenter eller andra molnleverantörer. Det finns tre typer av agenter som kan övervaka en virtuell dator:
@@ -37,7 +37,7 @@ Du kan välja att samla in:
 * En fördefinierad uppsättning operativsystem prestandaräknare och händelseloggar, eller du kan ange som du vill samla in. 
 * Alla begäranden och/eller misslyckade begäranden på en IIS-webbserver
 * Spårning av utdataloggar .NET-app
-* Händelsespårning för Windows (ETW)-händelser 
+* Händelsespårning för Windows-händelser (ETW) 
 * Samla in händelser från syslog  
 * Kraschdumpar 
 
@@ -52,7 +52,7 @@ Azure Diagnostics-agenten ska användas när du vill:
 * Konfigurera Log Analytics för att importera mått och loggar data som samlas in från molntjänster, klassiska virtuella datorer, och Service Fabric-noder som lagras i ett Azure storage-konto.
 
 ## <a name="log-analytics-agent"></a>Log Analytics-agenten
-För avancerad övervakning där du behöver mer än att samla in mått och en delmängd av loggar, Log Analytics-agenten för Windows och Linux måste anges. Log Analytics-agenten har utvecklats specifikt för omfattande hantering i den lokala fysiska och virtuella datorer, datorer som övervakas av System Center Operations Manager och virtuella datorer i finns i andra moln. Windows och Linux-agenter ansluter till en Log Analytics-arbetsyta för att samla in såväl lösningen som baseras övervakningsdata som anpassade datakällor som du konfigurerar.
+För avancerad övervakning där du behöver mer än att samla in mått och en delmängd av loggar, Log Analytics-agenten för Windows (kallas även som Microsoft Monitoring Agent (MMA)) och Linux måste anges. Log Analytics-agenten har utvecklats specifikt för omfattande hantering i den lokala fysiska och virtuella datorer, datorer som övervakas av System Center Operations Manager och virtuella datorer i finns i andra moln. Windows och Linux-agenter ansluter till en Log Analytics-arbetsyta för att samla in såväl lösningen som baseras övervakningsdata som anpassade datakällor som du konfigurerar.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: bb1616c7cbf5c9c4620aed3e31896e32fe0163f9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606222"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076742"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Stöd för OpenAPI 2.0-metadata i Azure Functions (förhandsversion)
 OpenAPI 2.0 (tidigare Swagger) metadata stöds i Azure Functions är en förhandsgranskningsfunktion som du kan använda för att skriva en definition för OpenAPI 2.0 i en funktionsapp. Du kan sedan ha filen med hjälp av funktionsappen.
@@ -53,7 +53,7 @@ Stegvisa instruktioner finns i den [komma igång-självstudiekurs](./functions-a
 
 I följande tabell representerar inställningar för Azure portal och motsvarande data i function.json som det är kopplat till den genererade Swagger-stommen.
 
-|Swagger.JSON|Portalens användargränssnitt|Function.JSON|
+|Swagger.json|Portalens användargränssnitt|Function.json|
 |:----|:-----|:-----|
 |[Värd](https://swagger.io/specification/#fixed-fields-15)|**Funktionen appinställningar** > **App Service-inställningarna** > **översikt** > **URL**|*Finns inte*
 |[Sökvägar](https://swagger.io/specification/#paths-object-29)|**Integrera** > **valda HTTP-metoder**|Bindningar: Routa
@@ -72,9 +72,9 @@ I följande tabell representerar inställningar för Azure portal och motsvarand
  Du måste aktivera API-definition som är värd i portalen innan du aktiverar källkontroll att ändra API-definitionen från källkontroll. Följ dessa anvisningar:
 
 1. Bläddra till **API-Definition (förhandsversion)** i din funktionsappinställningarna.
-  1. Ange **API-definitionskälla** till **funktionen**.
-  1. Klicka på **generera API-definitionsmall** och sedan **spara** att skapa en definition för mallen för att ändra senare.
-  1. Observera att din URL för API-definition och nyckel.
+   1. Ange **API-definitionskälla** till **funktionen**.
+   1. Klicka på **generera API-definitionsmall** och sedan **spara** att skapa en definition för mallen för att ändra senare.
+   1. Observera att din URL för API-definition och nyckel.
 1. [Konfigurera kontinuerlig integrering/kontinuerlig distribution (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements).
 2. Ändra swagger.json i källkontrollen på \site\wwwroot\.azurefunctions\swagger\swagger.json.
 

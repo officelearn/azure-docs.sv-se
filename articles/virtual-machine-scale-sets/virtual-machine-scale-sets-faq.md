@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 610ac10e757ef422ce130c0cfe8253af6ba4b7b9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 994612f390cb6c6dcb3b4c2acaaec839ef461d2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542479"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999558"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -234,7 +234,7 @@ Du kan ange offentliga SSH-nycklar i oformaterad text när du skapar en Linux-VM
 ```
 
 linuxConfiguration elementnamn | Krävs | Typ | Beskrivning
---- | --- | --- | --- |  ---
+--- | --- | --- | --- 
 SSH | Nej | Samling | Anger den viktiga SSH-konfigurationen för en Linux-operativsystem
 sökväg | Ja | Sträng | Anger sökvägen till Linux där SSH-nycklar eller certifikat ska vara belägen
 nyckeldata | Ja | Sträng | Anger en base64-kodad offentlig SSH-nyckel
@@ -309,7 +309,7 @@ I Azure Key Vault-dokumentationen om att hämta hemligheten REST API ska returne
 
 Metod | URL
 --- | ---
-HÄMTA | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
+HÄMTA | <https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}>
 
 Ersätt {*hemligt namn*} med namnet och Ersätt {*hemlighet version*} med versionen av hemligheten som du vill hämta. Den hemliga versionen kan inte uteslutas. I så fall hämtas den aktuella versionen.
 
@@ -535,7 +535,7 @@ Om du vill distribuera en VM-skalningsuppsättning till en befintlig Azure-nätv
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Hur gör jag för att lägga till IP-adressen för den första virtuella datorn i en VM-skalningsuppsättning till utdata från en mall?
 
-Om du vill lägga till IP-adressen för den första virtuella datorn i en VM-skalningsuppsättning till utdata från en mall, se [Azure Resource Manager: Hämta VM scale sets för privata IP-adresser](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+Om du vill lägga till IP-adressen för den första virtuella datorn i en VM-skalningsuppsättning till utdata från en mall, se [Azure Resource Manager: Hämta VM scale sets för privata IP-adresser](https://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Kan jag använda skalningsuppsättningar med Accelererat nätverk?
 
@@ -721,3 +721,26 @@ Den största skillnaden mellan tar bort en virtuell dator i en skalningsuppsätt
 - Du vill starta en uppsättning virtuella datorer snabbare än du kan skala ut en skalningsuppsättning för virtuell dator.
   - Relaterat till det här scenariot, kan du ha skapat en egen motor för automatisk skalning och vill en snabbare slutpunkt till slutpunkt-skala.
 - Du har en skalningsuppsättning för virtuella datorer som är ojämnt fördelade mellan feldomäner och uppdateringsdomäner. Det kan vara eftersom du selektivt ta bort virtuella datorer eller virtuella datorer har tagits bort efter överetablering. Kör `stop deallocate` följt av `start` på den virtuella datorn skaluppsättningen jämnt distribuerar de virtuella datorerna mellan feldomäner och uppdateringsdomäner.
+
+### <a name="how-do-i-take-a-snapshot-of-a-vmss-instance"></a>Hur jag för att ta en ögonblicksbild av en VMSS-instans?
+Skapa en ögonblicksbild från en instans av en VMSS.
+
+```azurepowershell-interactive
+$rgname = "myResourceGroup"
+$vmssname = "myVMScaleSet"
+$Id = 0
+$location = "East US"
+ 
+$vmss1 = Get-AzVmssVM -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $Id     
+$snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard_LRS -OsType Windows -CreateOption Copy -SourceUri $vmss1.StorageProfile.OsDisk.ManagedDisk.id
+New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
+``` 
+ 
+Skapa en hanterad disk från ögonblicksbilden.
+
+```azurepowershell-interactive
+$snapshotName = "myShapshot"
+$snapshot = Get-AzSnapshot -ResourceGroupName $rgname -SnapshotName $snapshotName  
+$diskConfig = New-AzDiskConfig -AccountType Premium_LRS -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
+$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk') 
+```

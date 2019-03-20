@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 6e3b1e3d501355994cd81c5eb9d712a684474524
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0524bd224e3da3e6a9b18a4225c88e9c43d07606
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136198"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223418"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Snabbstart: Skapa ett Azure Search-index med PowerShell och REST API
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "58136198"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Den här artikeln vägleder dig genom processen att skapa, läsa in och fråga ett Azure Search [index](search-what-is-an-index.md) med hjälp av PowerShell och [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/). Definition av index och innehåll finns i begärandetexten som välformulerad JSON-innehåll.
+Den här artikeln vägleder dig genom processen att skapa, läsa in och fråga ett Azure Search [index](search-what-is-an-index.md) med hjälp av PowerShell och [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/). Definition av index och sökbart innehåll tillhandahålls som välformulerad JSON-innehåll i begärandetexten.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -35,13 +35,13 @@ Den här artikeln vägleder dig genom processen att skapa, läsa in och fråga e
 
 En URL-slutpunkt och admin api-nyckeln för search-tjänsten. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
 
-  1. Azure-portalen i din söktjänst **översikt** sidan, hämta URL: en. Här följer ett exempel på hur en slutpunkt kan se ut: `https://my-service-name.search.windows.net`.
+1. Azure-portalen i din söktjänst **översikt** sidan, hämta URL: en. En exempel-slutpunkt kan se ut https:\//my-service-name.search.windows.net.
 
-  2. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln för förfrågningar för att lägga till, ändra och ta bort objekt.
+2. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln för förfrågningar för att lägga till, ändra och ta bort objekt.
 
-  ![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-fiddler/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
+   ![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-fiddler/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
 
-  Alla begäranden som kräver en api-nyckel för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
+   Alla begäranden som kräver en api-nyckel för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
 ## <a name="connect-to-azure-search"></a>Anslut till Azure Search
 
@@ -344,7 +344,7 @@ $url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-1
 ```
 ## <a name="clean-up"></a>Rensa 
 
-Du bör ta bort indexet om du inte längre behöver den. En kostnadsfri tjänst är begränsad till tre index. Du kanske vill ta bort alla index som du inte använder.
+Du bör ta bort indexet om du inte längre behöver den. En kostnadsfri tjänst är begränsad till tre index. Du kanske vill ta bort alla index som du inte aktivt använder så att du kan gå igenom andra självstudier.
 
 ```powershell
 # Set the URI to the hotel index

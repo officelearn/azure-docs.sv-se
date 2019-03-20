@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 3cac893fcaafd4fe8d35aab2a10da92019d3ed42
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 114f4ccccaa861928263eb59b4e43379989abcca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698980"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077861"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Contoso-migrering: Byta värd för en lokal Linux-app till virtuella Azure-datorer och Azure MySQL
 
@@ -127,7 +127,7 @@ Här är hur Contoso administratörer kommer att slutföra migreringen:
 > [!div class="checklist"]
 > * **Steg 1: Förbereda Azure Site Recovery**: De skapar ett Azure storage-konto för att lagra replikerade data och skapa ett Recovery Services-valv.
 > * **Steg 2: Förbereda lokala VMware för Site Recovery**: De förbereda konton för installation av VM-identifiering och agentinstallation och förbereda för att ansluta till virtuella Azure-datorer efter redundans.
- * **Steg 3: Etablera databasen]**: I Azure, kan de etablera en instans av Azure MySQL-databas.
+>   * **Steg 3: Etablera databasen]**: I Azure, kan de etablera en instans av Azure MySQL-databas.
 > * **Steg 4: Replikera virtuella datorer**: De konfigurera Site Recovery-miljö för källa och mål, konfigurera en replikeringsprincip och börja replikera virtuella datorer till Azure storage.
 > * **Steg 5: Migrera databasen**: De har konfigurerat migrering med MySQL-verktyg.
 > * **Steg 6: Migrera de virtuella datorerna med Site Recovery**: Till sist de kör ett redundanstest för att kontrollera att allt fungerar och sedan köra en fullständig redundans om du vill migrera de virtuella datorerna till Azure.
@@ -147,10 +147,10 @@ Contoso-administratörer skapa ett lagringskonto och valv på följande sätt:
 
 1. De skapar ett lagringskonto (**contosovmsacc20180528**) i regionen östra USA 2.
 
-    - Lagringskontot måste finnas i samma region som Recovery Services-valvet.
-    - De använder ett konto för generell användning med standardlagring och LRS-replikering.
+   - Lagringskontot måste finnas i samma region som Recovery Services-valvet.
+   - De använder ett konto för generell användning med standardlagring och LRS-replikering.
 
-    ![Site Recovery-lagring](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
+     ![Site Recovery-lagring](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
 
 3. De skapar ett valv (ContosoMigrationVault) med nätverks- och storage-kontot på plats, och placera den i den **ContosoFailoverRG** resursgrupp i den primära regionen östra USA 2.
 

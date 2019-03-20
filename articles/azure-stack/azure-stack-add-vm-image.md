@@ -15,12 +15,12 @@ ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: ae4b19e9a4f11d84dddd7ec3b129cc5d575b75cb
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ccf3beaacd15ad7d3e9177614bb62b0050bd8d5c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767405"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109178"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Göra en avbildning av virtuell dator som är tillgängliga i Azure Stack
 
@@ -39,8 +39,8 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
 
    - Azure Stack som endast stöder generering en (1) virtuell dator i hårddisk VHD-format. Det fasta formatet strukturer den logiska disken linjärt i filen så att diskförskjutning X lagras vid blob-förskjutning X. En liten sidfot i slutet av bloben beskriver egenskaperna för den virtuella Hårddisken. För att bekräfta om disken är fast, använda den [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell-kommando.  
 
-    > [!IMPORTANT]  
-    >  Azure Stack har inte stöd för dynamisk disk virtuella hårddiskar. Ändra storlek på en dynamisk disk som är kopplad till en virtuell dator lämnar den virtuella datorn i ett felaktigt tillstånd. Om du vill minimera detta problem genom att ta bort den virtuella datorn utan att ta bort den Virtuella datorns disk, en VHD-blob i ett lagringskonto. Konvertera den virtuella Hårddisken från en dynamisk disk till en fast disk och återskapa den virtuella datorn i.
+     > [!IMPORTANT]  
+     >  Azure Stack har inte stöd för dynamisk disk virtuella hårddiskar. Ändra storlek på en dynamisk disk som är kopplad till en virtuell dator lämnar den virtuella datorn i ett felaktigt tillstånd. Om du vill minimera detta problem genom att ta bort den virtuella datorn utan att ta bort den Virtuella datorns disk, en VHD-blob i ett lagringskonto. Konvertera den virtuella Hårddisken från en dynamisk disk till en fast disk och återskapa den virtuella datorn i.
 
    - Det är mer effektivt att överföra en avbildning till Azure Stack blob-lagring än till Azure blob-lagring eftersom det tar mindre tid att överföra avbildningen till Azure Stack-avbildningslagringsplatsen.
 
@@ -50,9 +50,9 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
 
    - För att göra blob anonymt tillgänglig, går du till blob-behållaren storage-konto där den Virtuella datoravbildningen VHD har överförts. Välj **Blob**, och välj sedan **princip**. Du kan också generera en signatur för delad åtkomst för behållaren och lägger till den som en del av blob-URI. Det här steget ser till att bloben är tillgängliga att användas för att lägga till detta som en bild. Om du inte kan nås anonymt blob skapas VM-avbildning till i ett felaktigt tillstånd.
 
-    ![Gå till lagringskontoblobbar](./media/azure-stack-add-vm-image/image1.png)
+     ![Gå till lagringskontoblobbar](./media/azure-stack-add-vm-image/image1.png)
 
-    ![Ange blob-åtkomst till offentliga](./media/azure-stack-add-vm-image/image2.png)
+     ![Ange blob-åtkomst till offentliga](./media/azure-stack-add-vm-image/image2.png)
 
 2. Logga in på Azure Stack som operatör. I menyn, Välj **alla tjänster** > **avbildningar** under **Compute** > **Lägg till**.
 
@@ -83,42 +83,42 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
 
 3. Öppna PowerShell med en upphöjd kommandotolk och kör:
 
-  ```PowerShell  
+   ```PowerShell  
     Add-AzsPlatformimage -publisher "<publisher>" `
       -offer "<offer>" `
       -sku "<sku>" `
       -version "<#.#.#>” `
       -OSType "<ostype>" `
       -OSUri "<osuri>"
-  ```
+   ```
 
-  Den **Lägg till AzsPlatformimage** cmdlet anger värden som används av Azure Resource Manager-mallar för att referera till VM-avbildning. Värdena är:
-  - **publisher**  
-    Exempel: `Canonical`  
-    Utgivarens namn segment i VM-avbildning som användare använder när de distribuerar avbildningen. Ett exempel är **Microsoft**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
-  - **offer**  
-    Exempel: `UbuntuServer`  
-    Erbjudandet namnet segment i VM-avbildning som användare använder när de distribuerar VM-avbildning. Ett exempel är **WindowsServer**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
-  - **sku**  
-    Exempel: `14.04.3-LTS`  
-    Namnsegmentet SKU för avbildningen som användare använder när de distribuerar VM-avbildning. Ett exempel är **Datacenter2016**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
-  - **version**  
-    Exempel: `1.0.0`  
-    Versionen av avbildningen som användare använder när de distribuerar VM-avbildning. Den här versionen är i formatet *\#.\#.\#*. Ett exempel är **1.0.0**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
-  - **osType**  
-    Exempel: `Linux`  
-    OsType för avbildningen måste vara antingen **Windows** eller **Linux**.  
-  - **OSUri**  
-    Exempel: `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
-    Du kan ange en URI för blob-lagring för en `osDisk`.  
+   Den **Lägg till AzsPlatformimage** cmdlet anger värden som används av Azure Resource Manager-mallar för att referera till VM-avbildning. Värdena är:
+   - **publisher**  
+     Exempel: `Canonical`  
+     Utgivarens namn segment i VM-avbildning som användare använder när de distribuerar avbildningen. Ett exempel är **Microsoft**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
+   - **offer**  
+     Exempel: `UbuntuServer`  
+     Erbjudandet namnet segment i VM-avbildning som användare använder när de distribuerar VM-avbildning. Ett exempel är **WindowsServer**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
+   - **sku**  
+     Exempel: `14.04.3-LTS`  
+     Namnsegmentet SKU för avbildningen som användare använder när de distribuerar VM-avbildning. Ett exempel är **Datacenter2016**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
+   - **version**  
+     Exempel: `1.0.0`  
+     Versionen av avbildningen som användare använder när de distribuerar VM-avbildning. Den här versionen är i formatet *\#.\#.\#*. Ett exempel är **1.0.0**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
+   - **osType**  
+     Exempel: `Linux`  
+     OsType för avbildningen måste vara antingen **Windows** eller **Linux**.  
+   - **OSUri**  
+     Exempel: `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
+     Du kan ange en URI för blob-lagring för en `osDisk`.  
 
-    Mer information finns i PowerShell-referens för den [Lägg till AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet och [New DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet.
+     Mer information finns i PowerShell-referens för den [Lägg till AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet och [New DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet.
 
 ## <a name="add-a-custom-vm-image-to-the-marketplace-by-using-powershell"></a>Lägga till en anpassad virtuell datoravbildning i Marketplace med hjälp av PowerShell
  
 1. [Installera PowerShell för Azure Stack](azure-stack-powershell-install.md).
 
-  ```PowerShell  
+   ```PowerShell  
     # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
     Add-AzureRMEnvironment `
       -Name "AzureStackAdmin" `
@@ -135,19 +135,19 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
     Add-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID
-  ```
+   ```
 
 2. Om du använder **Active Directory Federation Services**, använder du följande cmdlet:
 
-  ```PowerShell
-  # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+   ```PowerShell
+   # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-  # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
-  $GraphAudience = "<GraphAudience endpoint for your environment>"
+   # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+   $GraphAudience = "<GraphAudience endpoint for your environment>"
 
-  # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
-  Add-AzureRMEnvironment `
+   # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+   Add-AzureRMEnvironment `
     -Name "AzureStackAdmin" `
     -ArmEndpoint $ArmEndpoint
     ```
@@ -158,24 +158,24 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
 
 5. Förbereda en Windows- eller Linux operativsystemavbildning i VHD-format (inte VHDX), överför avbildningen till ditt storage-konto och hämta URI där VM-avbildning kan hämtas med PowerShell.  
 
-  ```PowerShell  
+   ```PowerShell  
     Add-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID
-  ```
+   ```
 
 6. (Valfritt) Du kan överföra en matris med datadiskar som en del av avbildningen. Skapa din datadiskar med hjälp av cmdleten New-DataDiskObject. Öppna PowerShell från en upphöjd kommandotolk och kör:
 
-  ```PowerShell  
+   ```PowerShell  
     New-DataDiskObject -Lun 2 `
     -Uri "https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd"
-  ```
+   ```
 
 7. Öppna PowerShell med en upphöjd kommandotolk och kör:
 
-  ```PowerShell  
+   ```PowerShell  
     Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>” -OSType "<ostype>" -OSUri "<osuri>"
-  ```
+   ```
 
     Mer information om cmdlet: en Add-AzsPlatformimage och New-DataDiskObject cmdlet finns i Microsoft-PowerShell [dokumentation för Azure Stack-operatör modulen](https://docs.microsoft.com/powershell/module/).
 
@@ -189,28 +189,28 @@ När du behöver inte längre den avbildning av virtuell dator som du laddade up
 
 3. Öppna PowerShell med en upphöjd kommandotolk och kör:
 
-  ```PowerShell  
-  Remove-AzsPlatformImage `
+   ```PowerShell  
+   Remove-AzsPlatformImage `
     -publisher "<publisher>" `
     -offer "<offer>" `
     -sku "<sku>" `
     -version "<version>" `
-  ```
-  Den **Remove-AzsPlatformImage** cmdlet anger värden som används av Azure Resource Manager-mallar för att referera till VM-avbildning. Värdena är:
-  - **publisher**  
-    Exempel: `Canonical`  
-    Utgivarens namn segment i VM-avbildning som användare använder när de distribuerar avbildningen. Ett exempel är **Microsoft**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
-  - **offer**  
-    Exempel: `UbuntuServer`  
-    Erbjudandet namnet segment i VM-avbildning som användare använder när de distribuerar VM-avbildning. Ett exempel är **WindowsServer**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
-  - **sku**  
-    Exempel: `14.04.3-LTS`  
-    Namnsegmentet SKU för avbildningen som användare använder när de distribuerar VM-avbildning. Ett exempel är **Datacenter2016**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
-  - **version**  
-    Exempel: `1.0.0`  
-    Versionen av avbildningen som användare använder när de distribuerar VM-avbildning. Den här versionen är i formatet *\#.\#.\#*. Ett exempel är **1.0.0**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
+   ```
+   Den **Remove-AzsPlatformImage** cmdlet anger värden som används av Azure Resource Manager-mallar för att referera till VM-avbildning. Värdena är:
+   - **publisher**  
+     Exempel: `Canonical`  
+     Utgivarens namn segment i VM-avbildning som användare använder när de distribuerar avbildningen. Ett exempel är **Microsoft**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
+   - **offer**  
+     Exempel: `UbuntuServer`  
+     Erbjudandet namnet segment i VM-avbildning som användare använder när de distribuerar VM-avbildning. Ett exempel är **WindowsServer**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
+   - **sku**  
+     Exempel: `14.04.3-LTS`  
+     Namnsegmentet SKU för avbildningen som användare använder när de distribuerar VM-avbildning. Ett exempel är **Datacenter2016**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
+   - **version**  
+     Exempel: `1.0.0`  
+     Versionen av avbildningen som användare använder när de distribuerar VM-avbildning. Den här versionen är i formatet *\#.\#.\#*. Ett exempel är **1.0.0**. Ta inte med ett blanksteg eller andra specialtecken i det här fältet.  
     
-    Mer information om cmdleten Remove-AzsPlatformImage finns i Microsoft-PowerShell [dokumentation för Azure Stack-operatör modulen](https://docs.microsoft.com/powershell/module/).
+     Mer information om cmdleten Remove-AzsPlatformImage finns i Microsoft-PowerShell [dokumentation för Azure Stack-operatör modulen](https://docs.microsoft.com/powershell/module/).
 
 ## <a name="next-steps"></a>Nästa steg
 

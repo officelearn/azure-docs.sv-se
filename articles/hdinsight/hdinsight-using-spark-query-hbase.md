@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: a2cd0d213be778624ae862d35f99f7fe960f0755
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 0ba61dc266add48577c3a382465ecb2cec9d2a05
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093862"
+ms.locfileid: "58188041"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Använda Apache Spark för att läsa och skriva Apache HBase-data
 
@@ -77,7 +77,7 @@ Kopiera hbase-site.xml från lokal lagring till roten för ditt Spark-kluster st
 
 | Syntaxvärde | Nytt värde|
 |---|---|
-|[URI-schema](/hdinsight-hadoop-linux-information#URI-and-scheme.md) | Ändra för att återspegla din lagring.  Syntaxen nedan är för blob storage med säker överföring.|
+|[URI-schema](hdinsight-hadoop-linux-information.md#URI-and-scheme) | Ändra för att återspegla din lagring.  Syntaxen nedan är för blob storage med säker överföring.|
 |`SPARK_STORAGE_CONTAINER`|Ersätt med standardnamnet på lagringsbehållaren används för Spark-klustret.|
 |`SPARK_STORAGE_ACCOUNT`|Ersätt med standard lagringskontonamn används för Spark-klustret.|
 

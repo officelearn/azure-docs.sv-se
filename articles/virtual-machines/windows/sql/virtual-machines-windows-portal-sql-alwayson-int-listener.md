@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 43f2694f597d99edaf127a6afd64376cca33dad2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3b90ae3e9808b22b6d6c41e3ac11bec0293bd4bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448160"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107890"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Konfigurera en belastningsutjämnare för en Always On-tillgänglighetsgrupp i Azure
 Den här artikeln förklarar hur du skapar en belastningsutjämnare för en SQL Server Always On-tillgänglighetsgrupp i Azure virtuella datorer som körs med Azure Resource Manager. En tillgänglighetsgrupp kräver en belastningsutjämnare när SQL Server-instanserna är på Azure virtual machines. Belastningsutjämnaren lagrar IP-adressen för tillgänglighetsgruppens lyssnare. Om en tillgänglighetsgrupp sträcker sig över flera regioner, måste en belastningsutjämnare i varje region.
@@ -235,18 +235,18 @@ Lägg till en IP-adress till en belastningsutjämnare med Azure portal genom att
 
 10. Konfigurera nya belastningsutjämningsregeln med hjälp av följande inställningar:
 
-   |Inställning |Värde
-   |:-----|:----
-   |**Namn** |Ett namn som identifierar regel för belastningsutjämning. 
-   |**Frontend-IP-adress** |Välj IP-adress som du skapade. 
-   |**Protokoll** |TCP
-   |**Port** |Använd den port som använder SQL Server-instanserna. En standardinstans använder port 1433, såvida inte du har ändrat. 
-   |**Serverdelsport** |Använd samma värde som **Port**.
-   |**Serverdelspool** |Den pool som innehåller virtuella datorer med SQL Server-instanserna. 
-   |**Hälsoavsökning** |Välj avsökningen som du skapade.
-   |**Sessionspermanens** |Ingen
-   |**Timeout för inaktivitet (minuter)** |Standard (4)
-   |**Flytande IP (direkt serverreturnering)** | Enabled
+    |Inställning |Värde
+    |:-----|:----
+    |**Namn** |Ett namn som identifierar regel för belastningsutjämning. 
+    |**Frontend-IP-adress** |Välj IP-adress som du skapade. 
+    |**Protokoll** |TCP
+    |**Port** |Använd den port som använder SQL Server-instanserna. En standardinstans använder port 1433, såvida inte du har ändrat. 
+    |**Serverdelsport** |Använd samma värde som **Port**.
+    |**Serverdelspool** |Den pool som innehåller virtuella datorer med SQL Server-instanserna. 
+    |**Hälsoavsökning** |Välj avsökningen som du skapade.
+    |**Sessionspermanens** |Ingen
+    |**Timeout för inaktivitet (minuter)** |Standard (4)
+    |**Flytande IP (direkt serverreturnering)** | Enabled
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>Konfigurera tillgänglighetsgruppen för att använda den nya IP-adressen
 

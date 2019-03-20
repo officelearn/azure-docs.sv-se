@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 1af6214833109ad89e8b5f27eefc0c99cdaf2496
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.openlocfilehash: 2eb57268aece081423b6b0beaa314a244b6fdd8f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984194"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456014"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Snabbstart: Skapa ett Azure Data Lake Storage Gen2-lagringskonto
 
@@ -21,7 +21,7 @@ Azure Data Lake Storage Gen2 [har stöd för en hierarkisk namnområdestjänst](
 
 Den här snabbstarten visar hur du skapar ett konto med [Azure-portalen](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) eller [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 
@@ -76,7 +76,7 @@ Följ de här stegen för att skapa en resursgrupp i Azure-portalen:
 5. Välj platsen för resursgruppen.
 6. Klicka på knappen **Skapa**.  
 
-   ![Skärmbild som visar hur du skapar en resursgrupp i Azure-portalen](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
+   ![Skärmbild som visar du skapar en resursgrupp i Azure portal](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Skapa ett v2-lagringskonto för generell användning
 
@@ -96,7 +96,7 @@ Följ de här stegen för att skapa ett GPv2-konto för generell användning i A
 9. I avsnittet **Data Lake Storage Gen2** anger du **Hierarkisk namnrymd** till **Aktiverad**.
 10. Skapa lagringskontot genom att klicka på **Granska + Skapa**.
 
-    ![Skärmbild som visar hur du skapar ett lagringskonto i Azure-portalen](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
+    ![Skärmbild som visar lagringskontot har skapats i Azure portal](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
 
 Nu har ditt lagringskonto skapats via Portal.
 

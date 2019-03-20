@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 8bb1733090ac2a4f3fad837e55943706309c4a5a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 9cb43cfdf930b14449f5c7130df275ef0b8d6484
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344020"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842625"
 ---
 # <a name="advanced-resource-graph-queries"></a>Avancerade frågor för Resource Graph
 
@@ -74,7 +74,7 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 ## <a name="vm-regex"></a>Virtuella datorer matchade av regex
 
 Den här frågan söker efter virtuella datorer som matchar ett [reguljärt uttryck](/dotnet/standard/base-types/regular-expression-language-quick-reference) (även kallat _regex_).
-Med **matches regex @** kan vi definiera regex så att det matchar, vilket är `^Contoso(.*)[0-9]+$`. Den regex-definitionen förklaras så här:
+Den **matchar regex \@**  ger oss möjlighet att definiera regex så att de matchar, vilket är `^Contoso(.*)[0-9]+$`. Den regex-definitionen förklaras så här:
 
 - `^` – Matchningen måste börja i början av strängen.
 - `Contoso` – Skiftlägeskänslig sträng.

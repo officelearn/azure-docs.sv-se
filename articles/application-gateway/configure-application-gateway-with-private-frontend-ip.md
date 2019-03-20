@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
-ms.openlocfilehash: 599372bccc7465bfea0387dedd8dfd63b8a61060
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4755eeda6a254389f0e0fbceec602fef718a9c45
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57555215"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100180"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Konfigurera en Programgateway med en intern belastningsutjämnare (ILB) slutpunkt
 
@@ -42,14 +42,14 @@ För att Azure ska kunna kommunicera mellan resurserna som du skapar krävs ett 
    - 10.0.0.0/16* – för virtuella nätverkets adressutrymme.
    - *myBackendSubnet* – Undernätsnamnet.
    - *10.0.0.0/24* – Undernätets adressutrymme.  
-   ![private-frontendip-1](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-1.png)
+     ![private-frontendip-1](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-1.png)
 6. Klicka på **OK** för att skapa det virtuella nätverket och undernätet.
 7. Välj Frontend IP-konfigurationen som privat och som standard är en dynamisk IP-adresstilldelning. Den första tillgängliga adressen för valt undernätet anges som klientdelens IP-adress.
 8. Om du vill välja en privat IP-adress från adressintervallet i undernätet (statisk tilldelning) klickar du på rutan **väljer en specifik privat IP-adress** och ange IP-adress.
    > [!NOTE]
    > När du har allokerat, kan inte IP-adresstyp (statisk eller dynamisk) ändras senare.
 9. Välj din konfiguration för lyssnare för protokollet och port, konfiguration av WAF (vid behov) och klicka på OK.
-    ![private-frontendip-2](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-2.png)
+    ![private-frontendip-2](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-2.png)
 10. Granska inställningarna på sidan Sammanfattning och klicka sedan på **OK** att skapa nätverksresurser och application gateway. Det kan ta flera minuter för application gateway kan skapas, vänta tills distributionen har slutförts innan du går vidare till nästa avsnitt.
 
 ## <a name="add-backend-pool"></a>Lägg till serverdelspool
@@ -78,7 +78,7 @@ Serverdelspoolen används för att dirigera begäranden till backend-servrarna s
 ### <a name="install-iis"></a>Installera IIS
 
 1. Öppna det interaktiva gränssnittet och kontrollera att det är inställt på **PowerShell**.
-    ![private-frontendip-3](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-3.png)
+    ![private-frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
 2. Kör följande kommando för att installera IIS på den virtuella datorn:
 
    ```azurepowershell
@@ -107,13 +107,13 @@ Serverdelspoolen används för att dirigera begäranden till backend-servrarna s
 1. Click **All resources**, and then click **myAppGateway**.
 2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGatewayBackendPool**.
 3. Click **Add target** to add each virtual machine that you created to the backend pool.
-   ![private-frontendip-4](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-4.png)
+   ![private-frontendip-4](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
 4. Click **Save.**
 
 ## Test the application gateway
 
 1. Check your frontend IP that got assigned by clicking the **Frontend IP Configurations** blade in the portal.
-    ![private-frontendip-5](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-5.png)
+    ![private-frontendip-5](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
 2. Copy the private IP address, and then paste it into the address bar of your browser of a VM in the same VNet or on-premises which has connectivity to this VNet and try to access the Application Gateway.
 
 ## Next steps

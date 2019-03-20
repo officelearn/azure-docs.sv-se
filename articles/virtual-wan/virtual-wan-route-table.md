@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 02c05bc7d8488a5fd4d0698f13a1ba354dbbb0e8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ac1384827ceede0f66fd08c6c08fa8e934b1ae42
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546049"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076164"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Skapa en virtuell hubb routningstabellen för att styra trafik till en virtuell nätverksinstallation
 
@@ -49,37 +49,37 @@ Kontrollera att du installerar den senaste versionen av Resource Manager PowerSh
 
 1. Öppna PowerShell-konsolen med förhöjd behörighet och logga in på kontot. Denna cmdlet uppmanar dig autentiseringsuppgifter för inloggning. När du har loggat in hämtas dina kontoinställningar så att de är tillgängliga för Azure PowerShell.
 
-  ```powershell
-  Connect-AzAccount
-  ```
+   ```powershell
+   Connect-AzAccount
+   ```
 2. Hämta en lista över dina Azure-prenumerationer.
 
-  ```powershell
-  Get-AzSubscription
-  ```
+   ```powershell
+   Get-AzSubscription
+   ```
 3. Ange den prenumeration som du vill använda.
 
-  ```powershell
-  Select-AzSubscription -SubscriptionName "Name of subscription"
-  ```
+   ```powershell
+   Select-AzSubscription -SubscriptionName "Name of subscription"
+   ```
 
 ## <a name="rg"></a>2. Skapa resurser
 
 1. Skapa en resursgrupp.
 
-  ```powershell
-  New-AzResourceGroup -Location "West US" -Name "testRG"
-  ```
+   ```powershell
+   New-AzResourceGroup -Location "West US" -Name "testRG"
+   ```
 2. Skapa ett virtuellt WAN.
 
-  ```powershell
-  $virtualWan = New-AzVirtualWan -ResourceGroupName "testRG" -Name "myVirtualWAN" -Location "West US"
-  ```
+   ```powershell
+   $virtualWan = New-AzVirtualWan -ResourceGroupName "testRG" -Name "myVirtualWAN" -Location "West US"
+   ```
 3. Skapa en virtuell hubb.
 
-  ```powershell
-  New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24"
-  ```
+   ```powershell
+   New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24"
+   ```
 
 ## <a name="connections"></a>3. Skapa anslutningar
 

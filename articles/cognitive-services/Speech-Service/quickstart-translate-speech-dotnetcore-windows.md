@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 5e4b8bbd84b16f74943d8958c4153fb1546bdb32
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: b0b0c256db3cc93e515b38bf7daad72b082d2d3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110565"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850266"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-core"></a>Snabbstart: Översätt tal med Speech-SDK för .NET Core
 
@@ -23,7 +23,7 @@ I den här snabbstarten skapar du ett enkelt .NET Core-program som samlar in anv
 
 En fullständig lista över språk som är tillgängliga för talöversättning finns i [språkstöd](language-support.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
@@ -69,7 +69,7 @@ Ytterligare exempel, till exempel att läsa tal från en ljudfil och mata ut öv
 > [!div class="nextstepaction"]
 > [Utforska C#-exempel på GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
 - [Anpassa språkmodeller](how-to-customize-language-model.md)

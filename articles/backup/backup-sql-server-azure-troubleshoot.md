@@ -10,7 +10,7 @@ ms.date: 03/13/2019
 ms.author: anuragm
 ms.openlocfilehash: b8fb6e2b23c275d198ac58fec874ad6627a7b43e
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58007182"

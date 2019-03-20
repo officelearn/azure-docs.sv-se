@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2019
 ms.author: magoedte
-ms.openlocfilehash: 7eecd7f5da2b20cb80d8a04d105460baaf9ed4a2
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 38236cba6af46df2701bb0128fe9d78e95aa6ec7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984721"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076827"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Förstå hälsotillståndet för virtuella datorer i Azure med Azure Monitor för virtuella datorer (förhandsversion)
 Azure innehåller flera tjänster som individuellt utför en viss roll eller en uppgift i övervakningsutrymmet, men ger en djupgående hälsotillstånd perspektiv av operativsystemet som körs på virtuella Azure-datorer inte var tillgänglig.  Medan du kan övervaka för olika villkor med Azure Monitor, var inte det utformat för att modellera och representerar hälsan för kärnkomponenter eller övergripande hälsa för den virtuella datorn.  Med Azure Monitor för virtuella datorer hälsotillstånd funktion kan övervakar det proaktivt tillgänglighet och prestanda för Windows eller Linux gästoperativsystemet med en modell som representerar viktiga komponenter och deras relationer villkor som anger hur hälsotillståndet för de komponenter, och varnar dig när ett feltillstånd har identifierats.  
@@ -29,22 +29,22 @@ Den här artikeln hjälper dig att snabbt utvärdera, undersöka och lösa probl
 
 Information om hur du konfigurerar Azure Monitor för virtuella datorer finns i [aktivera Azure Monitor för virtuella datorer](vminsights-onboard.md).
 
->[!NOTE]
->Startar den 11 februari 2019 börjar vi migrerar du från den aktuella hälsomodellen i Azure Monitor för virtuella datorer hälsotillstånd funktion, som visas när du är i hälsotillstånd diagnostik upplevelse idag, till en ny version av hälsomodellen. Den här uppdateringen innehåller en förfinade hälsomodellen som visas i vyn hälsotillstånd diagnostik förbättrar prestandan vid hälsotillstånd samlad bearbetning. 
->
->Med den nya hälsomodellen blir sammanslagning av underordnade Hälsokriterier som överordnade/entiteten på health-villkor snabbare och därmed hälsotillståndet för de överordnade uppdateringarna till önskade eller aktuella tillstånd med mindre fördröjning. Du kan fortfarande filtrera health-villkor under den **prestanda** och **tillgänglighet** kategorier till skillnad från den föregående flik-baserade metoden för att välja antingen kategori i vyn.
->
->Mer information om hälsotillstånd diagnostik upplevelse finns hälsotillstånd diagnostiken [avsnittet](#health-diagnostics) i den här artikeln. 
->
->Den här uppdateringen kommer att förbättra följande: 
->
->- Samla in hälsa för bearbetning med minskad fördröjning  
->- Snabbare varnar vid hälsotillståndsändringar 
->- Snabbare uppdatering av hälsotillståndet i aggregerad VM-vyn för alla virtuella datorer 
->
->Det finns inga regression av någon funktionalitet som levereras i dag med funktionen Health i Azure Monitor för virtuella datorer.
-
->Till följd av den här ändringen två upplevelser i hälsotillstånd diagnostik påverkas – ändringshistoriken för tillstånd kommer att återställas och föregående tillståndsändringar för health-villkor kan inte tillgänglig för granskning i kolumnen tillståndsändring i diagnostik hälsosidan. Om du är intresserad av historiska data för någon verksamhetskritiska kritiska virtuell dator, och du kan ta en skärmbild av kriterier hälsodata och motsvarande tillståndsändringar som referens. 
+> [!NOTE]
+> Startar den 11 februari 2019 börjar vi migrerar du från den aktuella hälsomodellen i Azure Monitor för virtuella datorer hälsotillstånd funktion, som visas när du är i hälsotillstånd diagnostik upplevelse idag, till en ny version av hälsomodellen. Den här uppdateringen innehåller en förfinade hälsomodellen som visas i vyn hälsotillstånd diagnostik förbättrar prestandan vid hälsotillstånd samlad bearbetning. 
+> 
+> Med den nya hälsomodellen blir sammanslagning av underordnade Hälsokriterier som överordnade/entiteten på health-villkor snabbare och därmed hälsotillståndet för de överordnade uppdateringarna till önskade eller aktuella tillstånd med mindre fördröjning. Du kan fortfarande filtrera health-villkor under den **prestanda** och **tillgänglighet** kategorier till skillnad från den föregående flik-baserade metoden för att välja antingen kategori i vyn.
+> 
+> Mer information om hälsotillstånd diagnostik upplevelse finns hälsotillstånd diagnostiken [avsnittet](#health-diagnostics) i den här artikeln. 
+> 
+> Den här uppdateringen kommer att förbättra följande: 
+> 
+> - Samla in hälsa för bearbetning med minskad fördröjning  
+> - Snabbare varnar vid hälsotillståndsändringar 
+> - Snabbare uppdatering av hälsotillståndet i aggregerad VM-vyn för alla virtuella datorer 
+> 
+> Det finns inga regression av någon funktionalitet som levereras i dag med funktionen Health i Azure Monitor för virtuella datorer.
+> 
+> Till följd av den här ändringen två upplevelser i hälsotillstånd diagnostik påverkas – ändringshistoriken för tillstånd kommer att återställas och föregående tillståndsändringar för health-villkor kan inte tillgänglig för granskning i kolumnen tillståndsändring i diagnostik hälsosidan. Om du är intresserad av historiska data för någon verksamhetskritiska kritiska virtuell dator, och du kan ta en skärmbild av kriterier hälsodata och motsvarande tillståndsändringar som referens. 
 
 ## <a name="monitoring-configuration-details"></a>Information om övervakning
 Det här avsnittet beskrivs standardkriteriet för hälsotillstånd som definierats för att övervaka Azure Windows och Linux-datorer. Alla health-villkor är förinställd på att aviseringen när det felaktiga villkoret uppfylls. 

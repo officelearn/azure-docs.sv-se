@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: bff1e8c111a8a50e15b6d316e422a641a778c73c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3e26365c4273611c81682a760695522575f3875d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775177"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225050"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
@@ -233,14 +233,46 @@ Följ dessa steg om du av misstag ansluten med hjälp av en ogiltig SAS-URL och 
 
 ## <a name="linux-dependencies"></a>Linux-beroenden
 
-Du kan behöva installera några beroenden manuellt för Linux-distributioner än Ubuntu 16.04. I allmänhet krävs följande paket:
+I allmänhet krävs följande paket för att köra Storage Explorer på Linux:
 
-* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
-* `libsecret`
+* [.NET Core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* `libgnome-keyring-common` och `libgnome-keyring-dev`
 * `libgconf-2-4`
-* Uppdaterade GCC
 
-Beroende på din distribution, kan det finnas andra paket som du behöver installera. Lagringsutforskaren [viktig](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) innehålla specifika åtgärder för vissa distributioner.
+Beroende på din distribution kan det finnas olika eller paket måste du installera.
+
+Lagringsutforskaren stöds officiellt på Ubuntu 18.04, 16.04 och 14.04. Installationssteg för en ren dator är följande:
+
+# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
+
+1. Ladda ned Storage Explorer
+2. Installera .NET Core Runtime, senaste verifierade versionen är: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-2.0.8) (om du redan har installerat en senare version, du kan behöva uppdatera Lagringsutforskaren, se nedan)
+3. Kör `sudo apt-get install libgconf-2-4`
+4. Kör `sudo apt install libgnome-keyring-common libgnome-keyring-dev`
+
+# <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
+
+1. Ladda ned Storage Explorer
+2. Installera .NET Core Runtime, senaste verifierade versionen är: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-2.0.8) (om du redan har installerat en senare version, du kan behöva uppdatera Lagringsutforskaren, se nedan)
+3. Kör `sudo apt install libgnome-keyring-dev`
+
+# <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
+
+1. Ladda ned Storage Explorer
+2. Installera .NET Core Runtime, senaste verifierade versionen är: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-2.0.8) (om du redan har installerat en senare version, du kan behöva uppdatera Lagringsutforskaren, se nedan)
+3. Kör `sudo apt install libgnome-keyring-dev`
+
+---
+
+### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Korrigeringar Storage Explorer för nyare versioner av .NET Core 
+Om du har en version av .NET Core är större än 2.0 installerat och som kör Lagringsutforskaren version 1.7.0 eller äldre, behöver du troligen att korrigera Storage Explorer genom att utföra följande steg:
+1. Hämta versionen 1.5.43 av StreamJsonRpc [från nuget](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Leta efter länken ”Hämta paketet” höger på sidan.
+2. När du laddar ned paketet, byter du dess filnamnstillägg från `.nupkg` till `.zip`
+3. Packa upp paketet
+4. Gå till `streamjsonrpc.1.5.43/lib/netstandard1.1/`
+5. Kopiera `StreamJsonRpc.dll` på följande platser i mappen Storage Explorer:
+    1. `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
+    2. `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
 ## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Öppna i Explorer från Azure portal fungerar inte
 

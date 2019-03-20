@@ -2,18 +2,18 @@
 title: Azure Container Instances och orkestrering av behållare
 description: Förstå hur Azure container instances interagera med behållarinitierare.
 services: container-instances
-author: seanmck
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 11/30/2018
-ms.author: seanmck
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 08bc344a20ade3d8bb0f7dd23a854fd03ddac006
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0a1e3c2facc10b68fe4b33d4cd0531f181b1e813
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845815"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838161"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances och behållarinitierare
 
@@ -25,16 +25,16 @@ Azure Container Instances erbjuder några av de grundläggande funktionerna för
 
 Standard definitionen av orchestration omfattar följande:
 
-- **Schemaläggning**: baserat på en behållaravbildning och en resursbegäran, hitta en lämplig dator som du vill köra behållaren.
-- **Tillhörighet/program-affinity**: ange att en uppsättning behållare ska köras i närheten varandra (för prestanda) eller tillräckligt långt ifrån varandra (för tillgänglighet).
-- **Hälsoövervakning**: se för behållaren fel och automatiskt omboka dem.
-- **Redundans**: hålla reda på vad som körs på varje dator och omboka behållare från datorer som inte fungerar till felfria noder.
-- **Skala**: lägga till eller ta bort behållarinstanser för att möta efterfrågan, antingen manuellt eller automatiskt.
-- **Nätverk**: Ange ett överlägg nätverk för att samordna behållare kan kommunicera över flera värddatorerna.
-- **Tjänstidentifiering**: aktivera behållare för att hitta varandra automatiskt, även när de flyttas mellan värddatorerna och ändra IP-adresser.
-- **Koordinerad programuppgraderingar**: hantera behållare uppgraderingar för att undvika driftavbrott och aktivera återställning om något går fel.
+- **Schemaläggning**: Baserat på en behållaravbildning och en resursbegäran, hitta en lämplig dator som du vill köra behållaren.
+- **Tillhörighet/program-affinity**: Ange att en uppsättning behållare ska köras i närheten varandra (för prestanda) eller tillräckligt långt ifrån varandra (för tillgänglighet).
+- **Hälsoövervakning**: Håll utkik efter fel för behållare och omboka dem automatiskt.
+- **Redundans**: Håll koll på vad som körs på varje dator och omboka behållare från datorer som inte fungerar till felfria noder.
+- **Skalning**: Lägg till eller ta bort behållarinstanser för att möta efterfrågan, antingen manuellt eller automatiskt.
+- **Nätverk**: Ange ett överlägg nätverk för samordning behållare kan kommunicera över flera värddatorerna.
+- **Tjänstidentifiering**: Aktivera behållare för att hitta varandra automatiskt, även när de flyttas mellan värddatorerna och ändra IP-adresser.
+- **Koordinerad programuppgraderingar**: Hantera behållare uppgraderingar för att undvika driftavbrott och aktivera återställning om något går fel.
 
-## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Orchestration med Azure Container Instances: en med lager
+## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Orchestration med Azure Container Instances: Ett lager
 
 Azure Container Instances möjliggör en överlappande tillvägagångssättet för orkestrering, eftersom alla schemaläggning och hanteringsfunktioner som krävs för att köra en enskild behållare, samtidigt som orchestrator-plattformar för att hantera flera behållare uppgifter ovanpå den.
 

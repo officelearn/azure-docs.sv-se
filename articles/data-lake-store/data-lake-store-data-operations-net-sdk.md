@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 929ce0d984e53586c46f15f21b9e5c90c6a34771
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 0a6cfc5ca9a0b788075f4472649a6e1bcdf87637
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402310"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119504"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Filsystemsåtgärder på Azure Data Lake Storage Gen1 med .NET SDK
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Kodavsnittet som finns tillgängligt [på GitHub](https://github.com/Azure-Sampl
       * `Microsoft.Azure.DataLake.Store` – I den här självstudien används v1.0.0.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` – I den här självstudien används v2.3.1.
     
-    Stäng **NuGet Package Manager**.
+      Stäng **NuGet Package Manager**.
 
 6. Öppna **Program.cs**, ta bort den befintliga koden och lägg sedan till följande instruktioner för att lägga till referenser till namnområden.
 
@@ -90,7 +90,7 @@ Kodavsnittet som finns tillgängligt [på GitHub](https://github.com/Azure-Sampl
 
 I de återstående avsnitten i artikeln kan du se hur du använder tillgängliga .NET-metoder för att utföra åtgärder som autentisering, ladda upp filer, osv.
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
 * Information om slutanvändarautentisering för programmet, se [slutanvändarautentisering med Data Lake Storage Gen1 med .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
 * Tjänst-till-tjänst-autentisering för programmet, se [tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).

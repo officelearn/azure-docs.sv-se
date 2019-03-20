@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/3/2018
 ms.author: pabouwer
-ms.openlocfilehash: 25a68f55eb9a6deb037029d5d8a984ce74f12be5
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: d85b830b63e2d52f3eeb5df8645edccfccf43c76
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791468"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138158"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installera och använda Istio i Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,7 @@ Den här artikeln separerar Istio installation vägledning i flera separata steg
 
 ## <a name="download-istio"></a>Ladda ned Istio
 
-Först ladda ned och extrahera den senaste versionen av Istio. Steg lite annorlunda för ett bash-gränssnitt på MacOS, Linux eller Windows-undersystem för Linux och ett PowerShell-gränssnitt. Välj ett av följande installationen steg för din miljö:
+Först ladda ned och extrahera den senaste versionen av Istio. Stegen är lite annorlunda för ett bash-gränssnitt på MacOS, Linux eller Windows-undersystem för Linux och ett PowerShell-gränssnitt. Välj ett av följande installationen steg för din miljö:
 
 * [Bash på MacOS, Linux eller Windows-undersystem för Linux](#bash)
 * [PowerShell](#powershell)
@@ -148,6 +148,9 @@ $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
 
 > [!IMPORTANT]
 > Kontrollera att du kört stegen i det här avsnittet från den översta mappen av Istio-versionen som du har hämtat och extraherat.
+
+> [!NOTE]
+> Version `1.0.6` och nyare av Istio Helm-diagrammet har större ändringar. Om du väljer för att installera den här versionen, måste du nu att manuellt skapa en hemlighet för Kiali. Du måste också manuellt skapa en hemlighet för Grafana om du har angett `grafana.security.enabled=true`. Se Helm-diagrammet Istio [README.md](https://github.com/istio/istio/tree/master/install/kubernetes/helm/istio#installing-the-chart) finns mer information om hur du skapar dessa hemligheter.
 
 Använd Helm för att installera komponenter för Istio i AKS-klustret. Installera Istio resurser i den `istio-system` namnområdet, och aktivera ytterligare alternativ för säkerhet och övervakning på följande sätt:
 

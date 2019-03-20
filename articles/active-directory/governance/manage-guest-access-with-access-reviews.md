@@ -16,12 +16,12 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fd3fd396333c00f8f1983250b732e69531d5d1d
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3bed8a5d20b50fd90922730c958cb1a36933776f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737561"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881052"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Hantera gäståtkomst med Azure AD-Åtkomstgranskningar
 
@@ -44,7 +44,7 @@ Du kan även ställa gästanvändare rätt att granska sin egen åtkomst. Du kan
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Skapa och utföra en åtkomstgranskning för gäster
 
-Första, som en global administratör eller användarkonto-administratör, gå till den [sidan med åtkomstgranskningar](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) så att åtkomstgranskningar är redo för din organisation. 
+Först som en global administratör eller Användaradministratör, går du till den [sidan med åtkomstgranskningar](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) så att åtkomstgranskningar är redo för din organisation.
 
 Azure AD kan flera scenarier för att granska gästanvändare.
 

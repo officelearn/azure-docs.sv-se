@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 1f1fbc49a42ec9b72ebe74a96ee099630d7416b1
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 06478cb3366054bd20239bf80f026562efd26232
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570670"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087405"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>OData-uttryckssyntax för filter och order by-satser i Azure Search
 
@@ -55,62 +55,62 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 ### <a name="filter-operators"></a>Filteroperatorerna  
 
--   Logiska operatorer (och, eller inte).  
+- Logiska operatorer (och, eller inte).  
 
--   Jämförelseuttryck (`eq, ne, gt, lt, ge, le`). Strängjämförelser är skiftlägeskänsliga.  
+- Jämförelseuttryck (`eq, ne, gt, lt, ge, le`). Strängjämförelser är skiftlägeskänsliga.  
 
--   Konstanter stöds [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM) typer (se [datatyper som stöds &#40;Azure Search&#41; ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) en lista över typer som stöds). Konstanterna samlingstyper stöds inte.  
+- Konstanter stöds [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM) typer (se [datatyper som stöds &#40;Azure Search&#41; ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) en lista över typer som stöds). Konstanterna samlingstyper stöds inte.  
 
--   Referenser till fältnamn. Endast `filterable` fält kan användas i filteruttryck.  
+- Referenser till fältnamn. Endast `filterable` fält kan användas i filteruttryck.  
 
--   `any` utan parametrar. Detta testar om ett fält av typen `Collection(Edm.String)` innehåller alla element.  
+- `any` utan parametrar. Detta testar om ett fält av typen `Collection(Edm.String)` innehåller alla element.  
 
--   `any` och `all` med stöd för begränsade lambda-uttryck. 
+- `any` och `all` med stöd för begränsade lambda-uttryck. 
     
-    -   `any/all` stöds på fält av typen `Collection(Edm.String)`. 
+  -   `any/all` stöds på fält av typen `Collection(Edm.String)`. 
     
-    -   `any` kan bara användas med enkla likhet uttryck eller en `search.in` funktion. Enkla uttryck består av en jämförelse mellan ett fält och ett exakt värde, t.ex. `Title eq 'Magna Carta'`.
+  -   `any` kan bara användas med enkla likhet uttryck eller en `search.in` funktion. Enkla uttryck består av en jämförelse mellan ett fält och ett exakt värde, t.ex. `Title eq 'Magna Carta'`.
     
-    -   `all` kan bara användas med enkla ojämlikhet uttryck eller en `not search.in`.   
+  -   `all` kan bara användas med enkla ojämlikhet uttryck eller en `not search.in`.   
 
--   Geospatiala funktioner `geo.distance` och `geo.intersects`. Den `geo.distance` funktionen returnerar avståndet mellan två punkter i kilometer, en som ett fält och en som en konstant skickas som en del av filtret. Den `geo.intersects` funktionen returnerar true om en viss tidpunkt som ligger inom en viss polygon, där det är ett fält och polygonen har angetts som en konstant som skickas som en del av filtret.  
+- Geospatiala funktioner `geo.distance` och `geo.intersects`. Den `geo.distance` funktionen returnerar avståndet mellan två punkter i kilometer, en som ett fält och en som en konstant skickas som en del av filtret. Den `geo.intersects` funktionen returnerar true om en viss tidpunkt som ligger inom en viss polygon, där det är ett fält och polygonen har angetts som en konstant som skickas som en del av filtret.  
 
-    Polygonen är en tvådimensionella yta som lagras som en sekvens med punkter definierar en avgränsar ringbuffertens (se exemplet nedan). Polygonen måste stängas, vilket innebär att först och sista punkt uppsättningar måste vara samma. [Punkterna i en polygon måste vara i motsols ordning](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+  Polygonen är en tvådimensionella yta som lagras som en sekvens med punkter definierar en avgränsar ringbuffertens (se exemplet nedan). Polygonen måste stängas, vilket innebär att först och sista punkt uppsättningar måste vara samma. [Punkterna i en polygon måste vara i motsols ordning](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
-    `geo.distance` Returnerar avståndet i kilometer i Azure Search. Detta skiljer sig från andra tjänster som stöder OData geospatiala åtgärder, som vanligtvis returnera avstånd i meter.  
+  `geo.distance` Returnerar avståndet i kilometer i Azure Search. Detta skiljer sig från andra tjänster som stöder OData geospatiala åtgärder, som vanligtvis returnera avstånd i meter.  
 
-    > [!NOTE]  
-    >  När du använder geo.distance i ett filter, måste du jämföra avståndet som returnerades av funktionen med ett konstant med `lt`, `le`, `gt`, eller `ge`. Operatorer `eq` och `ne` stöds inte när du jämför avstånd. Till exempel det här är en korrekt användning av geo.distance: `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`.  
+  > [!NOTE]  
+  >  När du använder geo.distance i ett filter, måste du jämföra avståndet som returnerades av funktionen med ett konstant med `lt`, `le`, `gt`, eller `ge`. Operatorer `eq` och `ne` stöds inte när du jämför avstånd. Till exempel det här är en korrekt användning av geo.distance: `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`.  
 
--   Den `search.in` funktion testar om ett visst strängfält är lika med ett av en specifik lista med värden. Det kan också användas i någon eller samtliga för att jämföra ett värde av ett strängfält samling med en specifik lista med värden. Likheten mellan fälten och varje värde i listan bestäms på ett skiftlägeskänsligt sätt, på samma sätt som för den `eq` operator. Därför ett uttryck som `search.in(myfield, 'a, b, c')` motsvarar `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, förutom att `search.in` resulterar i mycket bättre prestanda. 
+- Den `search.in` funktion testar om ett visst strängfält är lika med ett av en specifik lista med värden. Det kan också användas i någon eller samtliga för att jämföra ett värde av ett strängfält samling med en specifik lista med värden. Likheten mellan fälten och varje värde i listan bestäms på ett skiftlägeskänsligt sätt, på samma sätt som för den `eq` operator. Därför ett uttryck som `search.in(myfield, 'a, b, c')` motsvarar `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, förutom att `search.in` resulterar i mycket bättre prestanda. 
 
-    Den första parametern för den `search.in` funktionen är fältreferensen sträng (eller en variabel för intervallet över ett strängfält samling i fall där `search.in` används inuti en `any` eller `all` uttryck). Den andra parametern är en sträng som innehåller listan med värden, avgränsade med blanksteg och/eller kommatecken. Om du vill använda avgränsarna än blanksteg och kommatecken dina värden innehåller de tecken du kan ange ett valfritt tredje parameter ska `search.in`. 
+  Den första parametern för den `search.in` funktionen är fältreferensen sträng (eller en variabel för intervallet över ett strängfält samling i fall där `search.in` används inuti en `any` eller `all` uttryck). Den andra parametern är en sträng som innehåller listan med värden, avgränsade med blanksteg och/eller kommatecken. Om du vill använda avgränsarna än blanksteg och kommatecken dina värden innehåller de tecken du kan ange ett valfritt tredje parameter ska `search.in`. 
 
-    Den här tredje parametern är en sträng där varje tecken i strängen eller delmängd av den här strängen behandlas som avgränsare vid parsning av listan över värden i den andra parametern.
+  Den här tredje parametern är en sträng där varje tecken i strängen eller delmängd av den här strängen behandlas som avgränsare vid parsning av listan över värden i den andra parametern.
 
-    > [!NOTE]   
-    > Vissa scenarier kräver att jämföra ett fält mot ett stort antal konstanta värden. Till exempel kan implementera säkerhetsoptimering med filter kräva att jämföra dokumentfältet-ID: T mot en lista med ID som den begärande användaren beviljas läsbehörighet. I scenarier som detta rekommenderar vi starkt med hjälp av den `search.in` funktionen i stället för en mer komplicerad disjunktion av likhet uttryck. Till exempel använda `search.in(Id, '123, 456, ...')` i stället för `Id eq 123 or Id eq 456 or ....`. 
-    >
-    > Om du använder `search.in`, du kan förvänta dig under en sekund svarstid när den andra parametern innehåller en lista över hundratals eller tusentals värden. Observera att det finns ingen explicit gräns för hur många objekt du kan skicka till `search.in`, även om du fortfarande är begränsad av tillåtna storleken. Svarstiden kommer dock att växa när antalet värden växer.
+  > [!NOTE]   
+  > Vissa scenarier kräver att jämföra ett fält mot ett stort antal konstanta värden. Till exempel kan implementera säkerhetsoptimering med filter kräva att jämföra dokumentfältet-ID: T mot en lista med ID som den begärande användaren beviljas läsbehörighet. I scenarier som detta rekommenderar vi starkt med hjälp av den `search.in` funktionen i stället för en mer komplicerad disjunktion av likhet uttryck. Till exempel använda `search.in(Id, '123, 456, ...')` i stället för `Id eq 123 or Id eq 456 or ....`. 
+  >
+  > Om du använder `search.in`, du kan förvänta dig under en sekund svarstid när den andra parametern innehåller en lista över hundratals eller tusentals värden. Observera att det finns ingen explicit gräns för hur många objekt du kan skicka till `search.in`, även om du fortfarande är begränsad av tillåtna storleken. Svarstiden kommer dock att växa när antalet värden växer.
 
--   Den `search.ismatch` evaluerar sökfråga som en del av ett filteruttryck. Dokument som matchar sökfrågan returneras i resultatet. Följande överlagringar av den här funktionen är tillgängliga:
-    - `search.ismatch(search)`
-    - `search.ismatch(search, searchFields)`
-    - `search.ismatch(search, searchFields, queryType, searchMode)`
+- Den `search.ismatch` evaluerar sökfråga som en del av ett filteruttryck. Dokument som matchar sökfrågan returneras i resultatet. Följande överlagringar av den här funktionen är tillgängliga:
+  - `search.ismatch(search)`
+  - `search.ismatch(search, searchFields)`
+  - `search.ismatch(search, searchFields, queryType, searchMode)`
 
-    Där: 
+  Där: 
   
-    - `search`: sökfrågan (antingen [enkel](query-simple-syntax.md) eller [fullständig](query-lucene-syntax.md) frågesyntax). 
-    - `queryType`: ”enkla” eller ”full” standard ”Simple”. Anger vilka frågespråk som användes i den `search` parametern.
-    - `searchFields`: kommaavgränsad lista över sökbara fält att söka i, som standard alla sökbara fält i indexet.    
-    - `searchMode`: ”alla” eller ”alla” standard ”alla”. Anger om ett eller flera av sökvillkor måste matcha för att kunna räkna dokumentet som en matchning.
+  - `search`: sökfrågan (antingen [enkel](query-simple-syntax.md) eller [fullständig](query-lucene-syntax.md) frågesyntax). 
+  - `queryType`: ”enkla” eller ”full” standard ”Simple”. Anger vilka frågespråk som användes i den `search` parametern.
+  - `searchFields`: kommaavgränsad lista över sökbara fält att söka i, som standard alla sökbara fält i indexet.    
+  - `searchMode`: ”alla” eller ”alla” standard ”alla”. Anger om ett eller flera av sökvillkor måste matcha för att kunna räkna dokumentet som en matchning.
 
-    Alla ovanstående parametrar är likvärdiga med motsvarande [Sök parametrarna](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+  Alla ovanstående parametrar är likvärdiga med motsvarande [Sök parametrarna](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
--   Den `search.ismatchscoring` fungerar som den `search.ismatch` funktionen, returnerar true för dokument som matchar sökfrågan skickas som en parameter. Skillnaden mellan dem är att upplevelsen poäng dokument som matchar den `search.ismatchscoring` frågan kommer att bidra till den övergripande dokument poängen, medan i fallet med `search.ismatch`, dokumentet poängen ändras inte. Följande överlagringar av den här funktionen är tillgängliga med parametrar som är identiska med de av `search.ismatch`:
-    - `search.ismatchscoring(search)`
-    - `search.ismatchscoring(search, searchFields)`
-    - `search.ismatchscoring(search, searchFields, queryType, searchMode)`
+- Den `search.ismatchscoring` fungerar som den `search.ismatch` funktionen, returnerar true för dokument som matchar sökfrågan skickas som en parameter. Skillnaden mellan dem är att upplevelsen poäng dokument som matchar den `search.ismatchscoring` frågan kommer att bidra till den övergripande dokument poängen, medan i fallet med `search.ismatch`, dokumentet poängen ändras inte. Följande överlagringar av den här funktionen är tillgängliga med parametrar som är identiska med de av `search.ismatch`:
+  - `search.ismatchscoring(search)`
+  - `search.ismatchscoring(search, searchFields)`
+  - `search.ismatchscoring(search, searchFields, queryType, searchMode)`
 
   Den `search.ismatch` och `search.ismatchscoring` funktioner är fullständigt rätvinkliga med varandra och resten av filtret algebra. Det innebär att båda funktionerna kan användas i samma filteruttrycket. 
 

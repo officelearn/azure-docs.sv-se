@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3cd34bf67b0d796af71036e7d14834a061803973
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 2fecf300bb14132a2e02c81a8a0862adff6b46cc
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628092"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202766"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Kör Apache Sqoop jobb med hjälp av .NET SDK för Apache Hadoop i HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -110,7 +110,7 @@ HDInsight .NET SDK tillhandahåller klientbibliotek för .NET, så att det är l
 ## <a name="limitations"></a>Begränsningar
 Linux-baserade HDInsight visar följande begränsningar:
 
-* Massexport: Sqoop-koppling som används för att exportera data till Microsoft SQL Server eller Azure SQL Database stöder för närvarande inte bulkinfogningar.
+* Bulk export: Sqoop-koppling som används för att exportera data till Microsoft SQL Server eller Azure SQL Database stöder för närvarande inte bulkinfogningar.
 
 * Batchbearbetning: Med hjälp av den `-batch` växel, Sqoop utför flera infogningar i stället för batchbearbetning insert-åtgärder.
 
@@ -118,6 +118,5 @@ Linux-baserade HDInsight visar följande begränsningar:
 Nu har du lärt dig hur du använder Sqoop. Du kan läsa mer här:
 
 * [Använda Apache Oozie med HDInsight](../hdinsight-use-oozie.md): Använd Sqoop åtgärden i ett Oozie-arbetsflöde.
-* [Analysera flygförseningsdata med HDInsight](../hdinsight-analyze-flight-delay-data.md): Använda Apache Hive för att analysera flygförseningsdata och Använd sedan Sqoop för att exportera data till en Azure SQL database.
 * [Ladda upp data till HDInsight](../hdinsight-upload-data.md): Hitta andra metoder för att överföra data till HDInsight eller Azure Blob storage.
 

@@ -16,12 +16,12 @@ ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: eff27e296800f78303d085f471e4fda188b487ce
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: b1b11dc27b279173ede4498ca353aea4018ea8f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301867"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102442"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Publicera konfigurationsuppgifter för ASDK installation
 
@@ -172,7 +172,7 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 För distributioner med hjälp av Azure AD, måste du [aktivera flera innehavare](../azure-stack-enable-multitenancy.md#enable-multi-tenancy) för ASDK installationen.
 
-> [!NOTE]  
+> [!NOTE]
 > När administratören eller användaren konton från andra domäner än den som används för att registrera Azure Stack som används för att logga in på Azure Stack-portalen, domännamn som används för att registrera Azure Stack måste läggas till på portalen URL: en. Till exempel om Azure Stack har registrerats med fabrikam.onmicrosoft.com och det användarkonto som har loggat in är admin@contoso.com, URL: en du använder för att logga in på användarportalen: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 2b661968fd64f4d2a61bc59f9b99b1eea6b01f86
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 17893a37bbaf67014c9b34dd446af204b907ff24
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997272"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004979"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Skapa en anpassad avsökning för Azure Application Gateway (klassisk) med hjälp av PowerShell
 
@@ -32,7 +32,7 @@ ms.locfileid: "52997272"
 I den här artikeln får du till en anpassad avsökning i en befintlig application gateway med PowerShell. Anpassade avsökningar är användbara för program som har en specifik hälsokontrollsida eller för program som inte uppger ett lyckat svar på standardwebbprogrammet.
 
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Lär dig hur du [utför dessa steg med hjälp av Resource Manager-modellen](application-gateway-create-probe-ps.md).
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Lär dig hur du [utför dessa steg med hjälp av Resource Manager-modellen](application-gateway-create-probe-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -151,7 +151,7 @@ Konfigurationsparametrarna är:
 |Parameter|Beskrivning|
 |---|---|
 |**Namn** |Referensnamn för anpassad avsökning. |
-* **Protokoll** | Protokoll som används (möjliga värden är HTTP eller HTTPS).|
+| **Protokoll** | Protokoll som används (möjliga värden är HTTP eller HTTPS).|
 | **Värden** och **sökväg** | Fullständig URL-sökväg som anropas av application gateway kan fastställa hälsotillståndet för instansen. Exempel: Om du har en webbplats http://contoso.com/, och sedan anpassad avsökning kan konfigureras för ”http://contoso.com/path/custompath.htm” för avsökningen söker ha ett lyckat HTTP-svar.|
 | **Intervall** | Konfigurerar hälsoavsökning för intervall i sekunder.|
 | **Timeout** | Definierar avsökningen timeout-värde för en kontroll av HTTP-svar.|
@@ -161,18 +161,18 @@ Avsökningsnamnet refereras till i den \<BackendHttpSettings\> konfiguration fö
 
 ## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>Lägg till en anpassad avsökning i en befintlig Programgateway
 
-Ändra den aktuella konfigurationen av en application gateway kräver tre steg: hämta den aktuella XML-konfigurationsfilen, ändra om du vill ha en anpassad avsökning och konfigurera programgatewayen med de nya inställningarna för XML.
+Ändra den aktuella konfigurationen av en application gateway kräver tre steg: Hämta den aktuella XML-konfigurationsfilen, ändra om du vill ha en anpassad avsökning och konfigurera programgatewayen med de nya inställningarna för XML.
 
 1. Hämta XML-filen genom att använda `Get-AzureApplicationGatewayConfig`. Denna cmdlet exporterar konfigurations-XML som ska ändras för att lägga till någon avsökningsinställning.
 
-  ```powershell
-  Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
-  ```
+   ```powershell
+   Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+   ```
 
 1. Öppna XML-filen i en textredigerare. Lägg till en `<probe>` avsnittet efter `<frontendport>`.
 
-  ```xml
-<Probes>
+   ```xml
+   <Probes>
     <Probe>
         <Name>Probe01</Name>
         <Protocol>Http</Protocol>
@@ -182,12 +182,12 @@ Avsökningsnamnet refereras till i den \<BackendHttpSettings\> konfiguration fö
         <Timeout>15</Timeout>
         <UnhealthyThreshold>5</UnhealthyThreshold>
     </Probe>
-</Probes>
-  ```
+   </Probes>
+   ```
 
-  Lägg till avsökningsnamnet i avsnittet backendHttpSettings i XML-koden som visas i följande exempel:
+   Lägg till avsökningsnamnet i avsnittet backendHttpSettings i XML-koden som visas i följande exempel:
 
-  ```xml
+   ```xml
     <BackendHttpSettings>
         <Name>setting1</Name>
         <Port>80</Port>
@@ -196,9 +196,9 @@ Avsökningsnamnet refereras till i den \<BackendHttpSettings\> konfiguration fö
         <RequestTimeout>120</RequestTimeout>
         <Probe>Probe01</Probe>
     </BackendHttpSettings>
-  ```
+   ```
 
-  Spara XML-filen.
+   Spara XML-filen.
 
 1. Uppdatera application gateway-konfigurationen med den nya XML-filen med hjälp av `Set-AzureApplicationGatewayConfig`. Den här cmdleten uppdaterar din application gateway med den nya konfigurationen.
 

@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 82b3349afd10b585a10619229a2bc6d849d71524
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 44ee258567ca357687feb24337f2d5974e2532b0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247174"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57786455"
 ---
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -36,7 +36,7 @@ az storage account create \
 
 ## <a name="specify-storage-account-credentials"></a>Ange autentiseringsuppgifterna för lagringskontot
 
-Azure CLI behöver dina autentiseringsuppgifter för lagringskontot för de flesta kommandona i den här självstudien. Det finns flera alternativ för att göra det, och ett av de enklaste sätten att ange dem är att ställa in miljövariablerna `AZURE_STORAGE_ACCOUNT` och `AZURE_STORAGE_ACCESS_KEY`.
+Azure CLI behöver dina autentiseringsuppgifter för lagringskontot för de flesta kommandona i den här självstudien. Det finns flera alternativ för att göra det, och ett av de enklaste sätten att ange dem är att ställa in miljövariablerna `AZURE_STORAGE_ACCOUNT` och `AZURE_STORAGE_KEY`.
 
 Visa först dina lagringskontonycklar med kommandot [az storage account keys list](/cli/azure/storage/account/keys):
 
@@ -47,9 +47,9 @@ az storage account keys list \
     --output table
 ```
 
-Ange nu miljövariablerna `AZURE_STORAGE_ACCOUNT` och `AZURE_STORAGE_ACCESS_KEY`. Det kan du göra med Bash-gränssnittet med kommandot `export`:
+Ange nu miljövariablerna `AZURE_STORAGE_ACCOUNT` och `AZURE_STORAGE_KEY`. Det kan du göra med Bash-gränssnittet med kommandot `export`:
 
 ```bash
 export AZURE_STORAGE_ACCOUNT="mystorageaccountname"
-export AZURE_STORAGE_ACCESS_KEY="myStorageAccountKey"
+export AZURE_STORAGE_KEY="myStorageAccountKey"
 ```

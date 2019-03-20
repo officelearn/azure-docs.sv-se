@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: bb5dc4e01a872178af1bc7d5d57fc189424e7e9d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7add8c10fd3224b9c287ea4cc672191157f56a09
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554101"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124399"
 ---
 I följande tabell visas kvotinformation som är specifika för Azure Service Bus-meddelanden. Information om priser och andra kvoter för Service Bus finns i [priser för Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
 | Kvotnamn | Scope | Anteckningar | Värde |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Maximalt antal Basic eller Standard-namnområden per Azure-prenumeration |Namnområde |Efterföljande begäranden om ytterligare namnområden på Basic eller Standard avvisas av Azure-portalen. |100|
 | Maximalt antal Premium-namnområden per Azure-prenumeration |Namnområde |Efterföljande begäranden om ytterligare Premium-namnområden avvisas av portalen. |25 |
 | Storlek på kö eller ett ämne |Entitet |Definierats vid skapande av kön eller ämnet. <br/><br/> Efterföljande inkommande meddelanden avvisas och ett undantag tas emot av den anropande koden. |1, 2, 3, 4 eller 5 GB.<br /><br />I Premium-SKU och Standard-SKU med [partitionering](/azure/service-bus-messaging/service-bus-partitioning) aktiverad maxstorleken för kön eller ämnet är 80 GB. |
@@ -37,6 +37,6 @@ I följande tabell visas kvotinformation som är specifika för Azure Service Bu
 | Antal korrelationsfilter per ämne |Entitet |Efterföljande förfrågningar för att skapa ytterligare filter på ämnet avvisas och ett undantag tas emot av den anropande koden. |100 000 |
 | Storleken på SQL-filter eller åtgärder |Namnområde |Efterföljande förfrågningar för att skapa ytterligare filter avvisas och ett undantag tas emot av den anropande koden. |Maximal längd för Filtersträngen villkor: 1,024 (1 K).<br /><br />Maximal längd på regeln åtgärd sträng: 1,024 (1 K).<br /><br />Maximalt antal uttryck per Regelåtgärd: 32. |
 | Antal [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) regler per namnområde, kö eller ett ämne |Entiteten, namnområde |Efterföljande begäranden om skapande av ytterligare regler avvisas och ett undantag tas emot av den anropande koden. |Maximalt antal regler: 12. <br /><br /> Regler som är konfigurerade på en Service Bus-namnrymd gäller för alla köer och ämnen i det namnområdet. |
-| Antal meddelanden per transaktion | Transaktionen | Ytterligare inkommande meddelanden avvisas och ett undantag om ”det går inte att skicka fler än 100 meddelanden i en enda transaktion” tas emot av den anropande koden. | 100 <br /><br /> För både **Send()** och **SendAsync()** åtgärder. |
+| Antal meddelanden per transaktion | Transaktion | Ytterligare inkommande meddelanden avvisas och ett undantag om ”det går inte att skicka fler än 100 meddelanden i en enda transaktion” tas emot av den anropande koden. | 100 <br /><br /> För både **Send()** och **SendAsync()** åtgärder. |
 
 [Azure portal]: https://portal.azure.com

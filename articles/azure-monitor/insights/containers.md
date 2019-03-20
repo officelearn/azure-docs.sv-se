@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 58f16b0aa068c8b333ef4e7986bb49327b002fbb
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: e8afdfece258986f5dc4cc6f1c7e66aed24e0500
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195429"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092556"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Lösning för övervakning av behållare i Azure Monitor
 
@@ -100,19 +100,19 @@ Använd följande information för att installera och konfigurera lösningen.
 1. Lägg till lösning för övervakning av behållare till Log Analytics-arbetsytan från [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) eller genom att använda processen som beskrivs i [Lägg till övervakning lösningar från lösningsgalleriet](../../azure-monitor/insights/solutions.md).
 
 2. Installera och använda Docker med en Log Analytics-agenten. Baserat på ditt operativsystem och Docker orchestrator kan använda du följande metoder för att konfigurera ditt ombud.
-  - För fristående värdar:
-    - Installera på Linux operativsystem som stöds och kör Docker och sedan installera och konfigurera den [Log Analytics-agenten för Linux](../../azure-monitor/learn/quick-collect-linux-computer.md).  
-    - På CoreOS, kan du inte köra Log Analytics-agenten för Linux. I stället kan du köra en behållare version av Log Analytics-agenten för Linux. Granska Linux behållare-värdar, inklusive CoreOS eller Azure Government Linux behållare-värdar, inklusive CoreOS om du arbetar med behållare i Azure Government-molnet.
-    - Installera Docker-motorn och klienten i Windows Server 2016 och Windows 10, sedan en agent för att samla in information och skicka den till Azure Monitor. Granska [installera och konfigurera Windows behållarvärdar](#install-and-configure-windows-container-hosts) om du har en Windows-miljö.
-  - För dirigering av Docker flera värden:
-    - Om du har en Red Hat OpenShift-miljö kan du granska konfigurera en Log Analytics-agenten för Red Hat OpenShift.
-    - Om du har ett Kubernetes-kluster med hjälp av Azure Container Service:
+   - För fristående värdar:
+     - Installera på Linux operativsystem som stöds och kör Docker och sedan installera och konfigurera den [Log Analytics-agenten för Linux](../../azure-monitor/learn/quick-collect-linux-computer.md).  
+     - På CoreOS, kan du inte köra Log Analytics-agenten för Linux. I stället kan du köra en behållare version av Log Analytics-agenten för Linux. Granska Linux behållare-värdar, inklusive CoreOS eller Azure Government Linux behållare-värdar, inklusive CoreOS om du arbetar med behållare i Azure Government-molnet.
+     - Installera Docker-motorn och klienten i Windows Server 2016 och Windows 10, sedan en agent för att samla in information och skicka den till Azure Monitor. Granska [installera och konfigurera Windows behållarvärdar](#install-and-configure-windows-container-hosts) om du har en Windows-miljö.
+   - För dirigering av Docker flera värden:
+     - Om du har en Red Hat OpenShift-miljö kan du granska konfigurera en Log Analytics-agenten för Red Hat OpenShift.
+     - Om du har ett Kubernetes-kluster med hjälp av Azure Container Service:
        - Granska [konfiguration en Log Analytics Linux-agenten för Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
        - Granska [konfigurera en Log Analytics-Windows-agent för Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
        - Granska Använd Helm för att distribuera Log Analytics-agenten på Linux Kubernetes.
-    - Om du har ett Azure Container Service DC/OS-kluster kan du läsa mer på [övervaka ett Azure Container Service DC/OS-kluster med Azure Monitor](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
-    - Om du har en miljö på Docker Swarm-läge kan lära dig mer på Konfigurera Log Analytics-agenten för Docker Swarm.
-    - Om du har Service Fabric-kluster kan du läsa mer på [övervaka behållare med Azure Monitor](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
+     - Om du har ett Azure Container Service DC/OS-kluster kan du läsa mer på [övervaka ett Azure Container Service DC/OS-kluster med Azure Monitor](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
+     - Om du har en miljö på Docker Swarm-läge kan lära dig mer på Konfigurera Log Analytics-agenten för Docker Swarm.
+     - Om du har Service Fabric-kluster kan du läsa mer på [övervaka behållare med Azure Monitor](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Granska den [Docker-motorn på Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) artikeln för mer information om hur du installerar och konfigurerar Docker-motorer på datorer som kör Windows.
 
@@ -476,17 +476,17 @@ Om du vill använda helm för att distribuera Log Analytics-agenten på Linux Ku
     LAST DEPLOYED: Tue Sep 19 20:37:46 2017
     NAMESPACE: default
     STATUS: DEPLOYED
- 
+ 
     RESOURCES:
     ==> v1/Secret
     NAME            TYPE    DATA  AGE
     omsagent-msoms  Opaque  3     17m
- 
+ 
     ==> v1beta1/DaemonSet
     NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
     omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
-Mer information finns på [behållare lösning Helm-diagrammet](https://aka.ms/omscontainerhelm).
+   Mer information finns på [behållare lösning Helm-diagrammet](https://aka.ms/omscontainerhelm).
 
 ### <a name="install-and-configure-windows-container-hosts"></a>Installera och konfigurera Windows-behållare-värdar
 

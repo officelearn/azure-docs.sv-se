@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 61211db72928bebf0e1ea50cad6362337f66f0eb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c8d2ccc197eb8818cfe3fc54449ee982bbe0c087
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859629"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57844596"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Entitetstyper och deras syften i LUIS
 
@@ -201,7 +201,7 @@ Några av de här fördefinierade entiteter har definierats i öppen källkod [i
 
 ## <a name="regular-expression-entity"></a>Entitet för reguljära uttryck 
 
-Ett reguljärt uttryck som passar bäst för raw uttryck text. Det är inte skiftlägeskänslig och ignorerar kulturella variant.  Matchning med reguljära uttryck tillämpas efter ändringar av stavningskontroll på teckennivån, inte på token-nivå. Om det reguljära uttrycket är för komplext, till exempel med många hakparenteser kan du inte kan lägga till uttrycket i modellen. Använder en del men inte alla de [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) biblioteket. 
+Ett reguljärt uttryck som passar bäst för raw uttryck text. Det är inte skiftlägeskänslig och ignorerar kulturella variant.  Matchning med reguljära uttryck tillämpas efter ändringar av stavningskontroll på teckennivån, inte på token-nivå. Om det reguljära uttrycket är för komplext, till exempel med många hakparenteser kan du inte kan lägga till uttrycket i modellen. Använder en del men inte alla de [.NET Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) biblioteket. 
 
 Entiteten är ett bra passar när:
 

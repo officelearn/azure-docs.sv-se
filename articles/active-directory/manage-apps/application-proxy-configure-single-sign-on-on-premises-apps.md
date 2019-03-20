@@ -16,16 +16,16 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6f385cae99e5bb605b75f84e642e17e01d0f54
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: ef5679ba2a6a62955f5402e8bfaa4f1884df722d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792895"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840604"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML enkel inloggning för lokala program med Application Proxy (förhandsversion)
 
-Du kan tillhandahålla enkel inloggning (SSO) för lokala program som publicerats via programproxy som skyddas med SAML-autentisering. Med SAML enkel inloggning autentiserar Azure Active Directory (AD Azure) till programmet med hjälp av användarens Azure AD-konto. Azure AD kommunicerar information inloggning till programmet via en anslutningsprotokoll. Med SAML-baserad enkel inloggning, kan du mappa användare till specifika programroller baserat på regler som du definierar i SAML-anspråk.
+Du kan tillhandahålla enkel inloggning (SSO) till lokala program som är säkrade med SAML-autentisering och ge fjärråtkomst till programmen via programproxy. Med SAML enkel inloggning autentiserar Azure Active Directory (AD Azure) till programmet med hjälp av användarens Azure AD-konto. Azure AD kommunicerar information inloggning till programmet via en anslutningsprotokoll. Du kan också mappa användare till specifika programroller baserat på regler som du definierar i SAML-anspråk. Genom att aktivera programproxyn förutom SAML SSO har användarna extern åtkomst till programmet och en sömlös SSO-upplevelse.
 
 Programmen måste kunna använda SAML-token som utfärdas av **Azure Active Directory**. Den här konfigurationen gäller inte för program som använder en lokal identitetsprovider. I dessa scenarier vi rekommenderar att du granskar [resurser för att migrera program till Azure AD](migration-resources.md).
 
@@ -50,12 +50,12 @@ Ha följande i åtanke när du ska självstudien:
 1. Välj **SAML** som metod för enkel inloggning.
 1. I den **ange in enkel inloggning med SAML** , redigera den **grundläggande SAML-konfiguration** data och följ stegen i [RETUR SAML grundkonfiguration](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) att konfigurera SAML-baserad autentisering för programmet.
 
-    * Kontrollera att den **svars-URL** rot matchar eller är en sökväg under den **externa URL: en** för dina lokala program som du lagt till för fjärråtkomst via programproxy i Azure AD.
+   * Kontrollera att den **svars-URL** rot matchar eller är en sökväg under den **externa URL: en** för dina lokala program som du lagt till för fjärråtkomst via programproxy i Azure AD.
 
-    ![Ange grundläggande SAML-konfigurationsdata](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
+     ![Ange grundläggande SAML-konfigurationsdata](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
-    > [!NOTE]
-    > Om backend-applikationer förväntar sig den **svars-URL** för att vara den interna URL: en, måste du installera Mina appar säker inloggning tillägget på användarnas enheter. Det här tillägget omdirigeras automatiskt till lämplig Application Proxy-tjänsten. Om du vill installera tillägget, se [Mina appar skyddat inloggningstillägg](../user-help/active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+     > [!NOTE]
+     > Om backend-applikationer förväntar sig den **svars-URL** för att vara den interna URL: en, måste du installera Mina appar säker inloggning tillägget på användarnas enheter. Det här tillägget omdirigeras automatiskt till lämplig Application Proxy-tjänsten. Om du vill installera tillägget, se [Mina appar skyddat inloggningstillägg](../user-help/active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
 
 ## <a name="test-your-app"></a>Testa din app
 

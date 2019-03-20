@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 426a8f3df67ee00ded0591024447770e4cfedc32
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 11e92b4c6b8799cde489369a202f8f7c8c05ca6c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020718"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536002"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Självstudier: Skapa din första datafabrik med hjälp av Azure-portalen
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Pipelinen i den här självstudien har en aktivitet: en Azure HDInsight Hive-akt
 > 
 > En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (Schemaläggning och körning i Data Factory).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Läs [översikten av självstudien](data-factory-build-your-first-pipeline.md) och följ anvisningarna i avsnittet ”Nödvändiga komponenter”.
 
 Den här artikeln ger inte någon konceptuell översikt över Data Factory-tjänsten. Mer information om tjänsten finns i [Introduktion till Azure Data Factory](data-factory-introduction.md).  
@@ -53,7 +53,7 @@ En datafabrik kan ha en eller flera pipelines. En pipeline kan innehålla en ell
 
 Gör så här för att skapa en datafabrik:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Välj **Nytt** > **Data och analys** > **Data Factory**.
 
@@ -148,7 +148,7 @@ I det här steget ska du länka ett HDInsight-kluster på begäran till datafabr
 
     Följande tabell innehåller beskrivningar av de JSON-egenskaper som användes i kodfragmentet:
 
-   | Egenskap | Beskrivning |
+   | Egenskap  | Beskrivning |
    |:--- |:--- |
    | clusterSize |Anger HDInsight-klustrets storlek. |
    | timeToLive | Anger inaktivitetstiden för HDInsight-klustret innan det tas bort. |
@@ -162,7 +162,7 @@ I det här steget ska du länka ett HDInsight-kluster på begäran till datafabr
 
      c. HDInsight-klustret skapar en standardcontainer i den bloblagring du angav i JSON-egenskapen (**linkedServiceName**). HDInsight tar inte bort den här containern när klustret tas bort. Det här beteendet är avsiktligt. Med den länkade HDInsight-tjänsten på begäran skapas ett HDInsight-kluster varje gång en sektor bearbetas, såvida det inte finns ett befintligt aktivt kluster (**timeToLive**). Klustret tas bort automatiskt när bearbetningen är klar.
 
-     Allteftersom fler sektorer bearbetas kan du se många containrar i din bloblagring. Om du inte behöver dem för felsökning av jobben kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här containrarna följer ett mönster: ”adf**datafabrikensnamn**-**denlänkadetjänstensnamn**-datumtidsstämpel”. Använd verktyg som [Azure Storage Explorer](http://storageexplorer.com/) till att ta bort containrar i din bloblagring.
+     Allteftersom fler sektorer bearbetas kan du se många containrar i din bloblagring. Om du inte behöver dem för felsökning av jobben kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här containrarna följer ett mönster: ”adf**datafabrikensnamn**-**denlänkadetjänstensnamn**-datumtidsstämpel”. Använd verktyg som [Azure Storage Explorer](https://storageexplorer.com/) till att ta bort containrar i din bloblagring.
 
      Mer information finns i [Länkad HDInsight-tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
@@ -209,7 +209,7 @@ I det här steget skapar du datauppsättningar som ska representera in- och utda
     ```
     Följande tabell innehåller beskrivningar av de JSON-egenskaper som användes i kodfragmentet:
 
-   | Egenskap | Beskrivning |
+   | Egenskap  | Beskrivning |
    |:--- |:--- |
    | typ |Egenskapen type sätts till **AzureBlob** eftersom data finns i bloblagringen. |
    | linkedServiceName |Refererar till den AzureStorageLinkedService du skapade tidigare. |
@@ -435,7 +435,7 @@ I den här självstudien skapade du en datafabrik som bearbetar data genom att k
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du skapat en pipeline med en transformeringsaktivitet (HDInsight-aktivitet) som kör ett Hive-skript i ett HDInsight-kluster på begäran. Information om hur du använder en kopieringsaktivitet för att kopiera data från Blob Storage till en SQL-databas finns i [Självstudie: Kopiera data från Blob Storage till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 | Avsnitt | Beskrivning |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |I den här artikeln beskriver vi pipeliner och aktiviteter i Data Factory och hur du kan använda dem till att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för ditt scenario eller ditt företag. |

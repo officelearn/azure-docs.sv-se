@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: c6763580a6693020c497c500342ff3ae4dc840d4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 43b672569b398f636b2e02172428cf072febb156
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339236"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202460"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
@@ -57,7 +57,7 @@ Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten och seda
 
 * **Ambari (webb)** - https://&lt;klusternamn >. azurehdinsight.net
 
-    Autentisera med hjälp av kluster-administratörsanvändare och lösenord och sedan logga in på Ambari.
+    Autentisera med hjälp av kluster-administratörsanvändare och lösenord och logga sedan in på Ambari.
 
     Autentisering är klartext - alltid använda HTTPS för att säkerställa att anslutningen är säker.
 
@@ -114,7 +114,8 @@ När du använder Azure Storage eller Data Lake Storage kan behöver du inte gö
 
 I HDInsight, är lagringsresurser (Azure Blob Storage och Azure Data Lake Storage) fristående från beräkningsresurser. Därför kan du skapa HDInsight-kluster för att göra beräkningar som du behöver och tar bort klustret när arbetet är klart, under tiden att hålla dina filer sparas på ett säkert sätt i molnet minnet så länge du behöver.
 
-### <a name="uri-and-scheme"></a>URI: N och schema
+
+### <a name="URI-and-scheme"></a>URI: N och schema
 
 Vissa kommandon kan kräva att du kan ange schemat som en del av URI: N vid åtkomst till en fil. Till exempel måste Storm-HDFS-komponent du ange schemat. När du använder icke-standard storage (lagring har lagts till som ”ytterligare” lagringsutrymme i klustret), måste du alltid använda schemat som en del av URI: N.
 
@@ -248,7 +249,7 @@ Specifik information om att skala ditt HDInsight-kluster finns i:
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Hur installerar jag Hue (eller andra Hadoop-komponenterna)?
 
-HDInsight är en hanterad tjänst. Om Azure upptäcker ett problem med klustret, kan det ta bort noden misslyckas eller skapa en nod för att ersätta den. Du kan manuellt installera saker i klustret, är inte beständiga när åtgärden inträffar. Använd i stället [HDInsight-skriptåtgärder](hdinsight-hadoop-customize-cluster.md). Du kan använda en skriptåtgärd för att göra följande ändringar:
+HDInsight är en hanterad tjänst. Om Azure upptäcker ett problem med klustret, kan det ta bort noden misslyckas eller skapa en nod för att ersätta den. Du kan manuellt installera saker i klustret, är inte beständiga när åtgärden inträffar. Använd i stället [HDInsight-skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md). Du kan använda en skriptåtgärd för att göra följande ändringar:
 
 * Installera och konfigurera en tjänst eller webbplats.
 * Installera och konfigurera en komponent som kräver ändringar i konfigurationen på flera noder i klustret.
@@ -256,7 +257,6 @@ HDInsight är en hanterad tjänst. Om Azure upptäcker ett problem med klustret,
 Skriptåtgärder är Bash-skript. Skripten kör när klustret skapas och används för att installera och konfigurera ytterligare komponenter. Exempelskript tillhandahålls för att installera följande komponenter:
 
 * [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [Apache Solr](hdinsight-hadoop-solr-install-linux.md)
 
 Information om hur du utvecklar dina egna skriptåtgärder finns i [Utveckling av skriptåtgärder med HDInsight](hdinsight-hadoop-script-actions-linux.md).
 

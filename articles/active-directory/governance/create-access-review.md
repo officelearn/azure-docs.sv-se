@@ -15,12 +15,12 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ca27e89ad67b0f0755a7dda50572f3dcd857189
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c17078ea14a254f64a41751f2efffc16e2a1e821
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733937"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847390"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Skapa en åtkomstgranskning av grupper eller program i Azure AD-Åtkomstgranskningar
 
@@ -31,7 +31,7 @@ Den här artikeln beskriver hur du skapar en eller flera åtkomstgranskningar f�
 ## <a name="prerequisites"></a>Förutsättningar
 
 - [Åtkomstgranskningar aktiverat](access-reviews-overview.md)
-- Global administratör eller Användaradministratör för konto
+- Global administratör eller Användaradministratör
 
 ## <a name="create-one-or-more-access-reviews"></a>Skapa en eller flera åtkomstgranskningar
 
@@ -53,7 +53,7 @@ Den här artikeln beskriver hur du skapar en eller flera åtkomstgranskningar f�
 
 1. För att göra åtkomsten granska återkommande, ändra den **frekvens** från **en gång** till **veckovisa**, **månatliga**,  **Kvartalsvis** eller **årligen**, och använda den **varaktighet** skjutreglaget eller text om du vill definiera hur många dagar som varje granskning av serien med återkommande kommer att vara öppna för indata från granskare. Maximal varaktighet som du kan ange för den månatliga granskningen är till exempel 27 dagar att undvika överlappande granskningar.
 
-1. Använd den **slutet** inställningen för att specificera hur du avslutar återkommande åtkomst granska serien. Serien kan sluta på tre sätt: det körs kontinuerligt för att starta granskningar på obestämd tid tills ett visst datum eller efter ett angivet antal förekomster har slutförts. Du ett annat användarkonto-administratör eller en annan Global administratör kan stoppa serien när du har skapat genom att ändra datumet i **inställningar**, så att den slutar på det datumet.
+1. Använd den **slutet** inställningen för att specificera hur du avslutar återkommande åtkomst granska serien. Serien kan sluta på tre sätt: det körs kontinuerligt för att starta granskningar på obestämd tid tills ett visst datum eller efter ett angivet antal förekomster har slutförts. Du administratören för en annan eller en annan Global administratör kan stoppa serien när du har skapat genom att ändra datumet i **inställningar**, så att den slutar på det datumet.
 
 1. I den **användare** anger du de användare som använder granska gäller för. Åtkomstgranskningar kan vara medlemmar i en grupp eller användare som har tilldelats till ett program. Du kan ytterligare begränsa åtkomsten endast granskning till granskning gästanvändare som är medlemmar (eller tilldelats programmet), i stället för att granska alla användare som är medlemmar eller som har åtkomst till programmet.
 

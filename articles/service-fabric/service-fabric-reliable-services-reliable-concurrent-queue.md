@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: aljo
-ms.openlocfilehash: d4d399258ac1bd83fe4cfb46344576ca74e66f1e
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 6fefbd21a5c301111afdc27ec1d332d713c669ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805145"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119657"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introduktion till ReliableConcurrentQueue i Azure Service Fabric
 Tillförlitlig samtidiga kön är en kö för asynkron transaktionell och replikerade vilka funktioner hög samtidighet för sätta och ta bort från kön operations. Den är utformad för att tillhandahålla stora dataflöden och låg latens genom distributionsfrågebegränsningar strikt FIFO sorteringen tillhandahålls av [tillförlitlig kö](https://msdn.microsoft.com/library/azure/dn971527.aspx) och i stället tillhandahåller en mån sortering.
@@ -70,7 +70,7 @@ using (var txn = this.StateManager.CreateTransaction())
 Anta att uppgiften har slutförts och att det fanns inga samtidiga transaktioner ändra kön. Du kan förvänta sig kön ska innehålla objekten i någon av följande order:
 
 > 10, 20
-
+> 
 > 20, 10
 
 
@@ -165,7 +165,7 @@ Anta att objekten har tagits bort från kön i följande ordning:
 
 När vi avbryta transaktionen skulle objekten läggas till i sidhuvudet kön i någon av följande order:
 > 10, 20
-
+> 
 > 20, 10
 
 Detsamma gäller för alla fall där transaktionen inte har *genomförd*.

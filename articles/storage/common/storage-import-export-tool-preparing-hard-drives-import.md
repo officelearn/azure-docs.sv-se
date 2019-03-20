@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 7645694e9f2b90bfbe26ac3d0747791570f32d1b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 777e0aac46dbffb1e491874b5889667a888aadf5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510144"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898694"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Förbereda hårddiskar för ett importjobb
 
@@ -25,7 +25,7 @@ Verktyget WAImportExport är den enhet förberedelser och reparera verktyg som d
 
 - **Datorkonfiguration**
   - Windows 7, Windows Server 2008 R2 eller ett nyare Windows-operativsystem
-  - .NET framework 4 måste installeras. Se [vanliga frågor och svar](#faq) om hur du kontrollerar om .net Framework är installerat på datorn.
+  - .NET framework 4 måste installeras. Se [vanliga frågor och svar](#faq) om hur du kontrollerar om .NET Framework är installerat på datorn.
 - **Lagringskontonyckel** -du behöver minst en av kontonycklar för storage-konto.
 
 ### <a name="preparing-disk-for-import-job"></a>Förbereda disk för importjobb
@@ -151,12 +151,12 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 Om data inte passade in i enheter i InitialDriveset, använda en verktyget för att lägga till ytterligare enheter i samma session för kopiering. 
 
->[!NOTE] 
->Sessions-id måste matcha tidigare sessions-id. Journalfil måste matcha den som angetts i tidigare sessionen.
->
-```
-WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
-```
+> [!NOTE]
+> Sessions-id måste matcha tidigare sessions-id. Journalfil måste matcha den som angetts i tidigare sessionen.
+> 
+> ```
+> WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
+> ```
 
 **Exempel:**
 
@@ -364,7 +364,7 @@ Gå igenom följande steg för att kunna inaktivera TPM i BitLocker:<br/>
 
 Alla Microsoft .NET Framework-versioner är installerade i följande katalog: %windir%\Microsoft.NET\Framework\
 
-Navigera till den ovan nämnda delen på måldatorn där verktyget ska köras. Leta efter namnet på mappen som börjar med ”v4”. Avsaknad av sådana directory innebär .NET 4 inte är installerat på datorn. Du kan ladda ned .net 4 på datorn med hjälp av [Microsoft .NET Framework 4 (Webbinstallationsprogram)](https://www.microsoft.com/download/details.aspx?id=17851).
+Navigera till den ovan nämnda delen på måldatorn där verktyget ska köras. Leta efter namnet på mappen som börjar med ”v4”. Avsaknad av sådana directory innebär .NET 4 inte är installerat på datorn. Du kan ladda ned .NET 4 på datorn med hjälp av [Microsoft .NET Framework 4 (Webbinstallationsprogram)](https://www.microsoft.com/download/details.aspx?id=17851).
 
 ### <a name="limits"></a>Begränsningar
 

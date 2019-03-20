@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 0699686338a14ed6cc1ddcb076e14de86d0249d9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6c57dff2e0f0c1edb887ddd8f0e5ca206ba8b912
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438618"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110400"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Hantera kluster för ML-tjänster på Azure HDInsight
 
@@ -310,7 +310,7 @@ Om du vill installera R-paket på arbetsnoderna för klustret, måste du använd
 
    * För **namn**, ange ett namn för skriptåtgärden.
 
-    * För **Bash-skript-URI: N**, ange `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Det här är de skript som installerar ytterligare R-paket på arbetsnoden
+     * För **Bash-skript-URI: N**, ange `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Det här är de skript som installerar ytterligare R-paket på arbetsnoden
 
    * Markera kryssrutan för **Worker**.
 

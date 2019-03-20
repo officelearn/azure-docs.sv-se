@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 0b4e7165f30364ba61b583cf5d2f55e8826b9cf3
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 90004c27463a61de1b36eaea6754215f911f7483
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092133"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095865"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Säkerhet och dataskydd i Azure Data Box
 
@@ -75,16 +75,16 @@ Azure Data Box samlar in och visar personlig information i följande viktiga ins
 
 - **Orderdetaljer** – När ordern har skapats lagras leveransadressen, e-postadressen och kontaktuppgifterna för användare på Azure Portal. Informationen som sparas omfattar:
 
-    - Kontaktnamn
-    - Telefonnummer
-    - E-post
-    - Gatuadress
-    - Ort
-    - Postnummer
-    - Status
-    - Land/region
-    - Transportföretagets kontonummer
-    - Spårningsnummer för leveransen
+  - Kontaktnamn
+  - Telefonnummer
+  - E-post
+  - Gatuadress
+  - Ort
+  - Postnummer
+  - Status
+  - Land/region
+  - Transportföretagets kontonummer
+  - Spårningsnummer för leveransen
 
     Orderinformationen tas bort av Data Box-tjänsten när jobbet har slutförts eller när du tar bort ordern.
 
@@ -99,11 +99,11 @@ Följande säkerhetsriktlinjer implementeras i Data Box:
 
 |Riktlinjer   |Beskrivning   |
 |---------|---------|
-|[IEC 60529 IP52](http://www.iec.ch/)    | För skydd mot vatten och damm         |
+|[IEC 60529 IP52](https://www.iec.ch/)    | För skydd mot vatten och damm         |
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | För tålighet mot felaktiga transportsförhållanden          |
-|[NIST SP 800-147](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | För säker uppdatering av inbyggd programvara         |
+|[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | För säker uppdatering av inbyggd programvara         |
 |[FIPS 140-2 nivå 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | För dataskydd         |
-|[NIST SP 800-88r1](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | För datasanering         |
+|[NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | För datasanering         |
 
 ## <a name="next-steps"></a>Nästa steg
 

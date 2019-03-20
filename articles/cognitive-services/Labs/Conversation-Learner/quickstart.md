@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 82738d6d97dc2c14c83ed483c4a1d76604d0cd91
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 743b4d4888738579a023e879dc7b6e95cd23ccc7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545344"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994376"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Skapa en Konversationsdeltagare modell med hjälp av Node.js
 
@@ -78,35 +78,35 @@ Projektet Konversationsdeltagare består av ett SDK som du lägger till att din 
 
     Den här raden kör allmän tom roboten `cl-bot-01/src/app.ts`.
 
-3. Öppna webbläsaren till http://localhost:3978
+3. Öppna webbläsaren till `http://localhost:3978`
 
 Du kan använder nu Konversationsdeltagare och skapa och undervisar en Konversationsdeltagare-modell.  
 
 > [!NOTE]
-> Projektet Konversationsdeltagare är tillgängligt genom inbjudan via vid start.  Om http://localhost:3978/ui visar HTTP `403` fel, det innebär att ditt konto inte har blivit inbjudet.  . [Begära en inbjudan](https://aka.ms/conversation-learner-request-invite).
+> Projektet Konversationsdeltagare är tillgängligt genom inbjudan via vid start.  Om `http://localhost:3978/ui` visar HTTP `403` fel, det innebär att ditt konto inte har blivit inbjudet.  . [Begära en inbjudan](https://aka.ms/conversation-learner-request-invite).
 
 ## <a name="tutorials-demos-and-switching-between-bots"></a>Självstudier, demonstrationer och växla mellan robotar
 
 Anvisningarna ovan igång allmän tom roboten.  Att köra en självstudiekurs eller demonstrera bot i stället:
 
-1. Om du har Konversationsdeltagare webben öppna Användargränssnittet kan gå tillbaka till listan över modeller i http://localhost:3978/ui/home.
+1. Om du har Konversationsdeltagare webben öppna Användargränssnittet kan gå tillbaka till listan över modeller i `http://localhost:3978/ui/home`.
     
 2. Om en annan bot körs (t.ex. `npm start` eller `npm run demo-pizza`), stoppa den.  Du behöver inte att stoppa processen Användargränssnittet eller stänger webbläsaren.
 
 3. Kör en demo-robot från kommandoraden (steg 2 ovan).  Demonstrationer är:
 
-  ```bash
-  npm run tutorial-general
-  npm run tutorial-entity-detection
-  npm run tutorial-session-callbacks
-  npm run tutorial-api-calls
-  npm run tutorial-hybrid
-  npm run demo-password
-  npm run demo-pizza
-  npm run demo-storage
-  ```
+   ```bash
+   npm run tutorial-general
+   npm run tutorial-entity-detection
+   npm run tutorial-session-callbacks
+   npm run tutorial-api-calls
+   npm run tutorial-hybrid
+   npm run demo-password
+   npm run demo-pizza
+   npm run demo-storage
+   ```
 
-4. Om du inte redan, växla till Konversationsdeltagare webbgränssnittet i Chrome genom att läsa in http://localhost:3978/ui/home. 
+4. Om du inte redan, växla till Konversationsdeltagare webbgränssnittet i Chrome genom att läsa in `http://localhost:3978/ui/home`. 
 
 5. Klicka på ”Importera tutorials” och välj demo-modell i Användargränssnittet för konversationen Learner som motsvarar demon du igång.
 
@@ -114,7 +114,7 @@ Källfilerna för demonstrationerna finns i `cl-bot-01/src/demos`
 
 ## <a name="create-a-bot-which-includes-back-end-code"></a>Skapa en robot som innehåller backend-koden
 
-1. Om du har Konversationsdeltagare webben öppna Användargränssnittet kan gå tillbaka till listan över modeller i http://localhost:3978/ui/home.
+1. Om du har Konversationsdeltagare webben öppna Användargränssnittet kan gå tillbaka till listan över modeller i `http://localhost:3978/ui/home`.
     
 2. Om en bot körs (t.ex. `npm run demo-pizza`), stoppa den.  Du behöver inte att stoppa processen Användargränssnittet eller stänger webbläsaren.
 
@@ -127,7 +127,7 @@ Källfilerna för demonstrationerna finns i `cl-bot-01/src/demos`
     npm start
     ```
 
-5. Om du inte redan, växla till Konversationsdeltagare webbgränssnittet i Chrome genom att läsa in http://localhost:3978/ui/home. 
+5. Om du inte redan, växla till Konversationsdeltagare webbgränssnittet i Chrome genom att läsa in `http://localhost:3978/ui/home`. 
 
 6. Skapa en ny modell för Konversationsdeltagare i Användargränssnittet och starta undervisning.
 

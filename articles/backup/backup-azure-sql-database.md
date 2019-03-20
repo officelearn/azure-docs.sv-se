@@ -10,7 +10,7 @@ ms.date: 02/19/2018
 ms.author: raynew
 ms.openlocfilehash: b08d4e55deac4c9dd6a11fc9a278bdcfaa739627
 ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/20/2019
 ms.locfileid: "58224319"

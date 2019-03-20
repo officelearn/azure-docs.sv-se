@@ -1,17 +1,17 @@
 ---
 title: Index-typer i Azure Cosmos DB
 description: Översikt över index typer i Azure Cosmos DB
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/5/2018
-ms.author: rimman
-ms.openlocfilehash: f45663fd0f63537f87ee4466ad5f17cce0bed6a3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.date: 3/13/2019
+ms.author: mjbrown
+ms.openlocfilehash: 56c0fcb24ac5d255c6a36bcffd327df76f459963
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961728"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990556"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Index-typer i Azure Cosmos DB
 
@@ -19,30 +19,24 @@ Det finns flera alternativ där du konfigurerar indexeringsprincipen för en sö
 
 - **Datatyp:** Sträng, nummer, punkt, Polygon eller LineString (kan innehålla endast en post per datatypen per sökväg).
 
-- **Index-typ:** Hash (likhetsfrågor), intervallet (likhet, intervall eller ORDER BY-frågor) eller avstånds (rumsliga förfrågningar).
+- **Index-typ:** Intervall (likhet, intervall eller ORDER BY-frågor) eller avstånds (rumsliga förfrågningar).
 
-- **Precision:** Detta varierar från 1 till 8 för både strängar och nummer för ett Hash-index, och standardvärdet är 3. För ett intervall index är värdet för maximal precision-1. Det kan variera mellan 1 och 100 (maximal precision) för sträng eller numeriska värden.
+- **Precision:** För ett intervall index maximal precisionsvärdet är -1, vilket är standard.
 
 ## <a name="index-kind"></a>Index-typ
 
-Azure Cosmos DB stöder Hash-index och intervallsindex för varje sökväg som kan konfigureras för strängen eller talvärdet datatyper, eller båda.
+Azure Cosmos DB stöder intervallsindex för varje sökväg som kan konfigureras för strängen eller talvärdet datatyper, eller båda.
 
-- **Hash-index** stöder effektiv likhet och JOIN-frågor. De flesta användningar behöver Hash-index en högre precision än standardvärdet 3 byte. Datatypen kan vara en sträng eller en siffra.
-
-  > [!NOTE]
-  > Azure Cosmos-behållare stöder en ny indexlayout som inte längre använder typ för Hash-index. Om du anger en typ för Hash-index på indexprincip CRUD-begäranden på behållaren ska ignorera index-typ och svaret från behållaren innehåller endast index-typ intervall. Alla nya Cosmos-behållare använder den nya layouten för index som standard. 
-  
-- **Intervallsindex** stöder effektiv likhetsfrågor, omfångsfrågor (med hjälp av >, <>, =, < =,! =), och ORDER BY-frågor. ORDER By-frågor som standard även kräva maximala index precision (-1). Datatypen kan vara en sträng eller en siffra.
+- **Intervallsindex** stöder effektiv likhetsfrågor, JOIN-frågor, omfångsfrågor (med hjälp av >, <>, =, < =,! =), och ORDER BY-frågor. ORDER By-frågor som standard även kräva maximala index precision (-1). Datatypen kan vara en sträng eller en siffra.
 
 - **Spatialindexet** stöder effektiv spatial (inom och avståndet) frågor. Datatypen kan vara punkt, Polygon eller LineString. Azure Cosmos DB stöder också spatialindexet-typ för varje sökväg som kan anges för punkt, Polygon eller LineString-datatyper. Värdet på den angivna sökvägen måste vara ett giltigt GeoJSON-fragment som {”type”: ”Plats”, ”coordinates”: [0.0, 10.0]}. Azure Cosmos DB har stöd för automatisk indexering av Point och Polygon LineString-datatyper.
 
-Här följer exempel på frågor som Hash, intervallet, och rumsindex kan användas för att tillhandahålla:
+Här följer exempel på frågor som intervall och rumsindex kan användas för att tillhandahålla:
 
 | **Index-typ** | **Beskrivning/användningsfall** |
 | ---------- | ---------------- |
-| Hash  | Hash-över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj från samlingen-c WHERE c.prop = ”value”<br><br>Hash över/sammanställer / [] /? (eller / eller/sammanställer /) kan användas för att effektivt hantera följande frågor:<br><br>Välj tagg från samlingen c JOIN-tagg i c.props var taggen = 5  |
-| Intervall  | Variera över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj från samlingen-c WHERE c.prop = ”value”<br><br>Välj från samlingen-c WHERE c.prop > 5<br><br>Välj samling c ORDER BY c.prop   |
-| Spatial     | Variera över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj från samlingen c<br><br>WHERE ST_DISTANCE(c.prop, {"type": ”Plats”, ”coordinates”: [0.0, 10.0]}) < 40<br><br>Välj samling c där ST_WITHIN(c.prop, {"type": ”Hanteringsplats”,...}) --med indexering för punkter som aktiverats<br><br>Välj samling c där ST_WITHIN({"type": ”Polygon”,...}, c.prop)--med indexering för polygoner aktiverat.     |
+| Intervall      | Variera över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj från samlingen-c WHERE c.prop = ”value”<br><br>Välj från samlingen-c WHERE c.prop > 5<br><br>Välj samling c ORDER BY c.prop<br><br>Variera över/sammanställer / [] /? (eller / eller/sammanställer /) kan användas för att effektivt hantera följande frågor:<br><br>Välj tagg från samlingen c JOIN-tagg i c.props var taggen = 5  |
+| Spatial    | Variera över/prop /? (eller /) kan användas för att effektivt hantera följande frågor:<br><br>Välj samling c där ST_DISTANCE(c.prop, {"type": ”Plats”, ”coordinates”: [0.0, 10.0]}) < 40<br><br>Välj samling c där ST_WITHIN(c.prop, {"type": ”Hanteringsplats”,...}) --med indexering för punkter som aktiverats<br><br>Välj samling c där ST_WITHIN({"type": ”Polygon”,...}, c.prop)--med indexering för polygoner aktiverat. |
 
 ## <a name="default-behavior-of-index-kinds"></a>Standardbeteendet för index-typer
 

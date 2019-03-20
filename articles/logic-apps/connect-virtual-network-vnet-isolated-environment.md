@@ -8,20 +8,20 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/11/2019
-ms.openlocfilehash: c31d260c99707f4231a6833479517b9b69575d55
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.date: 03/12/2019
+ms.openlocfilehash: 8bbbe7a924c98c9628ce967892177599a1d13017
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778917"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855001"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till Azure-nätverk från Azure Logic Apps med hjälp av en integration service-miljö (ISE)
 
 > [!NOTE]
 > Den här funktionen är i [ *förhandsversion*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-För scenarier där dina logic apps och integrationskonton behöver åtkomst till en [Azure-nätverk](../virtual-network/virtual-networks-overview.md), skapa en [ *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). En ISE är en privat och isolerad miljö som använder dedikerade lagring och andra resurser åtskilda från den offentliga eller ”global” Logic Apps-tjänsten. Den här separationen minskar också påverkas som andra Azure-klienter kan ha på din apps prestanda. Din ISE *in* till till din Azure-nätverk, som sedan distribuerar Logic Apps-tjänsten till ditt virtuella nätverk. När du skapar ett logic app eller varje konto, Välj den här ISE som deras plats. Ditt logic app eller varje konto kan sedan direkt åtkomst till resurser, till exempel virtuella datorer (VM), servrar, system och tjänster i ditt virtuella nätverk.
+För scenarier där dina logic apps och integrationskonton behöver åtkomst till en [Azure-nätverk](../virtual-network/virtual-networks-overview.md), skapa en [ *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). En ISE är en privat och isolerad miljö som använder dedikerade lagringsutrymmen och andra resurser som är åtskilda från den offentliga eller ”global” Logic Apps-tjänsten. Den här separationen minskar också påverkas som andra Azure-klienter kan ha på din apps prestanda. Din ISE *in* till till din Azure-nätverk, som sedan distribuerar Logic Apps-tjänsten till ditt virtuella nätverk. När du skapar ett logic app eller varje konto, Välj den här ISE som deras plats. Ditt logic app eller varje konto kan sedan direkt åtkomst till resurser, till exempel virtuella datorer (VM), servrar, system och tjänster i ditt virtuella nätverk.
 
 ![Välj integreringstjänstmiljö](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
 
@@ -50,7 +50,7 @@ Läs mer om integreringstjänstmiljöer [åtkomst till Azure Virtual Network-res
 
   * Se till att det virtuella nätverket [tillgängliggör dessa portar](#ports) så att din ISE fungerar och är tillgänglig.
 
-* Att använda en eller flera anpassade DNS-servrar för att distribuera Azure-nätverk, [Konfigurera servrarna följa dessa riktlinjer](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) innan du distribuerar din ISE till det virtuella nätverket. I annat fall behöva varje gång du ändrar din DNS-server du också starta om din ISE som är en funktion som är tillgängliga i offentlig förhandsversion i ISE.
+* Om du vill använda anpassade DNS-servrar för Azure-nätverk, [konfigurera dessa servrar genom att följa dessa steg](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) innan du distribuerar din ISE till ditt virtuella nätverk. I annat fall behöva varje gång du ändrar din DNS-server du också starta om din ISE som är en funktion som är tillgängliga i offentlig förhandsversion i ISE.
 
 * Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -60,10 +60,10 @@ Läs mer om integreringstjänstmiljöer [åtkomst till Azure Virtual Network-res
 
 För att fungera korrekt och håll tillgänglig, måste din integration service-environment (ISE) ha specifika portar som är tillgängliga i det virtuella nätverket. Annars, om något av de här portarna är inte tillgänglig, du kan förlora åtkomst till din ISE som kan sluta fungera. När du använder en ISE i ett virtuellt nätverk ett vanligt installationsproblem har en eller flera blockerade portar. Den koppling som du använder kan också ha en egen portkraven för anslutningar mellan dina ISE och målsystemet. Till exempel om du kommunicera med en FTP-system med hjälp av FTP-anslutningen kontrollerar du den port som du använder på att FTP-system, till exempel port 21 för att skicka kommandon och är tillgänglig.
 
-För att styra inkommande och utgående trafik över det virtuella nätverkets undernät där du distribuerar din ISE kan du ställa in [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) för dessa undernät genom att lära dig [så här filtrerar nätverkstrafik mellan undernät](../virtual-network/tutorial-filter-network-traffic.md). Dessa tabeller beskrivs portarna i ditt virtuella nätverk som använder din ISE och där de portarna som får användas. Den [servicetagg](../virtual-network/security-overview.md#service-tags) representerar en grupp med IP-adressprefix som syfte att minska komplexiteten när du skapar säkerhetsregler. 
+Om du vill styra trafiken över det virtuella nätverkets undernät där du distribuerar din ISE kan du ställa in [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) för dessa undernät av [filtrerar nätverkstrafik mellan undernät](../virtual-network/tutorial-filter-network-traffic.md). Dessa tabeller beskrivs portarna i ditt virtuella nätverk som använder din ISE och där de portarna som får användas. Den [servicetagg](../virtual-network/security-overview.md#service-tags) representerar en grupp med IP-adressprefix som syfte att minska komplexiteten när du skapar säkerhetsregler.
 
 > [!IMPORTANT]
-> För intern kommunikation inom dina undernät kräver ISE att du öppnar alla portar i dessa undernät. 
+> För intern kommunikation inom dina undernät kräver ISE att du öppnar alla portar i dessa undernät.
 
 | Syfte | Riktning | Portar | Källtjänsttagg | Måltjänsttagg | Anteckningar |
 |---------|-----------|-------|--------------------|-------------------------|-------|
@@ -122,10 +122,10 @@ Listan med resultat väljer **Integreringstjänstmiljön (förhandsversion)**, o
 
    **Skapa undernät**
 
-   Din ISE kräver fyra *tom* undernät som *inte delegerad* till alla tjänster för att skapa resurser i din miljö. 
-   Du *kan inte ändra* undernätsadresserna när du har skapat din miljö. Varje undernät måste uppfylla följande kriterier:
+   För att skapa resurser i din miljö, måste din ISE fyra *tom* undernät som inte delegeras till alla tjänster. 
+   Du *kan* ändra undernätsadresserna när du har skapat din miljö. Varje undernät måste uppfylla följande kriterier:
 
-   * Använder ett namn som inte börjar med ett tal eller ett bindestreck.
+   * Har ett namn som börjar med ett alfabetiskt tecken eller ett understreck och inte har följande tecken: `<`, `>`, `%`, `&`, `\\`, `?`, `/`
 
    * Använder den [Classless Inter-Domain Routing CIDR-format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) och en klass B-adressutrymmet.
 
@@ -180,7 +180,7 @@ Listan med resultat väljer **Integreringstjänstmiljön (förhandsversion)**, o
 
 ### <a name="add-capacity"></a>Lägga till kapacitet
 
-Basenheten ISE har fast kapacitet, så om du behöver större dataflöde kan du lägga till fler skalningsenheter. Du kan välja att automatisk skalning baserat på prestandamått eller baserat på ett visst antal enheter. Om du väljer automatisk skalning baserat på mått du väljer bland olika kriterier och anger tröskelvärdet villkor i syfte att uppfylla dessa villkor.
+Basenheten ISE har fast kapacitet, så om du behöver större dataflöde kan du lägga till fler skalningsenheter. Du kan skala automatiskt baserat på prestandavärden eller baserat på ett antal bearbetningsenheter. Om du väljer automatisk skalning baserat på mått du väljer bland olika kriterier och anger tröskelvärdet villkor i syfte att uppfylla dessa villkor.
 
 1. Hitta din ISE i Azure-portalen.
 

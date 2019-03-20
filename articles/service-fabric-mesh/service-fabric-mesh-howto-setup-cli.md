@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: d28776b8501a1467a77cd0ad4225d1267d768052
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7b817eefc7a17966060eb7ca05e21f70f04d0878
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767824"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885461"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Konfigurera Service Fabric Mesh CLI
 Service Fabric Mesh-kommandoradsgränssnittet (CLI) krävs för att distribuera och hantera resurser lokalt och i Azure Service Fabric Mesh. 
@@ -55,7 +55,7 @@ Följ instruktionerna i [Konfigurera Service Fabric CLI](https://docs.microsoft.
 För att kunna använda Maven CLI måste följande vara installerat på datorn: 
 
 * [Java](https://www.azul.com/downloads/zulu/)
-* [Maven 3.](http://maven.apache.org/download.cgi)
+* [Maven 3.](https://maven.apache.org/download.cgi)
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * Azure Mesh CLI (az mesh) – För Azure Service Fabric Mesh som mål 
 * SFCTL (sfctl) – För lokala kluster som mål 

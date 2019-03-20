@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
 ms.author: monhaber
-ms.openlocfilehash: f90ad2707e42c4b5b2c4188d7f0f18bb9c5ea31b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ea738535ae9326109a7c3fdd0b5d0c4f4691fdf0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105034"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878638"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Skydda App Service med Azure Security Center
 Den här artikeln hjälper dig att använda Azure Security Center att övervaka och skydda dina program som körs på App Service.
@@ -68,4 +68,4 @@ I den här artikeln har du fått lära dig hur du använder övervakningsfunktio
 * [Apptjänster](security-center-virtual-machine-protection.md#app-services):  Visa en lista över App service-miljöer med health sammanfattningar.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Lär dig att övervaka hälsotillståndet för dina partnerlösningar.
 * [Vanliga frågor om Azure Security Center](security-center-faq.md): Här finns vanliga frågor om att använda tjänsten.
-* [Azures Säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
+* [Azures Säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.

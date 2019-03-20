@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 1e62495de35c8df4f446d371a0bbbcdc80c7118d
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 3b27fe0bec4ec23739e3cff02d6aed667f1d3e1d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650111"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226835"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migrera ett Apache HBase-kluster till en ny version
 
@@ -199,15 +199,21 @@ Följande scenario är för att uppgradera från HDInsight 3.4 till 3.6 (både l
 
     ![I Ambari, ändrar du behållarens namn](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
-8. Spara ändringarna.
-9. Starta om alla nödvändiga tjänster som anges av Ambari.
-10. Peka ditt program till det nya klustret.
+8. **Om du inte använder HBase-kluster med funktionen Förbättrad skriver, hoppar du över det här steget. Det krävs endast för HBase-kluster med förbättrad skriver funktionen.**
+   
+   Ändra hbase.rootdir sökvägen så att den pekar till en behållare för det ursprungliga klustret.
+
+    ![I Ambari, ändrar du behållarens namn för hbase rootdir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+    
+9. Spara ändringarna.
+10. Starta om alla nödvändiga tjänster som anges av Ambari.
+11. Peka ditt program till det nya klustret.
 
     > [!NOTE]  
     > Statisk DNS för ditt program ändras när du uppgraderar. I stället för att hårdkoda detta DNS, kan du konfigurera en CNAME-post i DNS-inställningarna för ditt domännamn som pekar på klustrets namn. Ett annat alternativ är att använda en konfigurationsfil för ditt program som du kan uppdatera utan att omdistribuera.
 
-11. Starta inmatningen för att se om allt fungerar som förväntat.
-12. Ta bort det ursprungliga klustret om du är nöjd med det nya klustret.
+12. Starta inmatningen för att se om allt fungerar som förväntat.
+13. Ta bort det ursprungliga klustret om du är nöjd med det nya klustret.
 
 ## <a name="next-steps"></a>Nästa steg
 

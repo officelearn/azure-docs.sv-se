@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fad3d77d15d78ffdaf1afca3675a82242b844778
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 03174e6336589f8aa49a7fc7197da1301ff54400
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730384"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009778"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Så här uppdaterar du Azure PowerShell-moduler i Azure Automation
 
@@ -58,27 +58,27 @@ Här följer några saker att beakta när du använder den här processen för a
 
 1. På sidan moduler i ditt Automation-konto är ett alternativ som heter **uppdatera Azure-moduler**. Det är alltid aktiverat.<br><br> ![Uppdatera Azure-moduler alternativ i moduler sidan](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
-  > [!NOTE]
-  > Innan du uppdaterar din Azure-moduler rekommenderar vi att du uppdaterar dem i ett test Automation-konto för att se till att fungerar dina befintliga skript som förväntat innan du uppdaterar din Azure-moduler.
-  >
-  > Den **uppdatera Azure-moduler** knappen är endast tillgänglig i det offentliga molnet. Det är inte tillgänglig i den [landsbaserade regioner](https://azure.microsoft.com/global-infrastructure/). Använd den **uppdatering AutomationAzureModulesForAccount** runbook för att uppdatera din Azure-moduler. Du kan ladda ned det från den [uppdatera Azure-moduler runbook databasen](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update). Mer information om hur du använder öppen källkod-runbook finns [uppdatera Azure-moduler med öppen källkod runbook](#open-source).
+   > [!NOTE]
+   > Innan du uppdaterar din Azure-moduler rekommenderar vi att du uppdaterar dem i ett test Automation-konto för att se till att fungerar dina befintliga skript som förväntat innan du uppdaterar din Azure-moduler.
+   >
+   > Den **uppdatera Azure-moduler** knappen är endast tillgänglig i det offentliga molnet. Det är inte tillgänglig i den [landsbaserade regioner](https://azure.microsoft.com/global-infrastructure/). Använd den **uppdatering AutomationAzureModulesForAccount** runbook för att uppdatera din Azure-moduler. Du kan ladda ned det från den [uppdatera Azure-moduler runbook databasen](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update). Mer information om hur du använder öppen källkod-runbook finns [uppdatera Azure-moduler med öppen källkod runbook](#open-source).
 
 2. Klicka på **uppdatera Azure-moduler**, ett meddelande om bekräftelse visas som frågar om du vill fortsätta.<br><br> ![Uppdatera Azure-moduler meddelande](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
 3. Klicka på **Ja** och uppdateringsprocessen modulen börjar. Uppdateringen tar ungefär 15-20 minuter för att uppdatera följande moduler:
 
-  * Azure
-  * Azure.Storage
-  * AzureRm.Automation
-  * AzureRm.Compute
-  * AzureRm.Profile
-  * AzureRm.Resources
-  * AzureRm.Sql
-  * AzureRm.Storage
+   * Azure
+   * Azure.Storage
+   * AzureRm.Automation
+   * AzureRm.Compute
+   * AzureRm.Profile
+   * AzureRm.Resources
+   * AzureRm.Sql
+   * AzureRm.Storage
 
-    Om modulerna som redan är uppdaterad, Slutför processen i några sekunder. När uppdateringen har slutförts meddelas du.<br><br> ![Uppdatera status för Azure-moduler](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
+     Om modulerna som redan är uppdaterad, Slutför processen i några sekunder. När uppdateringen har slutförts meddelas du.<br><br> ![Uppdatera status för Azure-moduler](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
-    .NET core AzureRm moduler (AzureRm.*. Kärnor) stöds inte i Azure Automation och kan inte importeras.
+     .NET core AzureRm moduler (AzureRm.*. Kärnor) stöds inte i Azure Automation och kan inte importeras.
 
 > [!NOTE]
 > Azure Automation använder de senaste modulerna i ditt Automation-konto när ett nytt schemalagt jobb körs.  
@@ -87,7 +87,7 @@ Om du använder cmdlets från dessa Azure PowerShell-moduler i dina runbooks du 
 
 ## <a name="known-issues"></a>Kända problem
 
-Det finns ett känt problem med uppdatering AzureRM-moduler i ett Automation-konto som tillhör en resursgrupp med det numeriska namn som börjar med 0. Om du vill uppdatera din Azure-moduler i ditt Automation-konto, måste den vara i en resursgrupp med ett alfanumeriskt namn. Resursgrupper med numeriska namn som börjar med 0 kan inte uppdatera AzureRM-moduler just nu.
+Det finns ett känt problem med uppdatering AzureRM-moduler i ett Automation-konto som tillhör en resursgrupp med det numeriska namn som börjar med 0. Om du vill uppdatera din Azure-moduler i ditt Automation-konto, måste den vara i en resursgrupp som har ett alfanumeriskt namn. Resursgrupper med numeriska namn som börjar med 0 kan inte uppdatera AzureRM-moduler just nu.
 
 ## <a name="next-steps"></a>Nästa steg
 

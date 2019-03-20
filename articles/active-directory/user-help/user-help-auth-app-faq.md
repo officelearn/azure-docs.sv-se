@@ -13,12 +13,12 @@ ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b73acefa3dcddfedbcaee841f9b3560ed10407d
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 83c071629ba18ab9f40ecec3b2e09290f57ad2fe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960419"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996561"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator-appen vanliga frågor och svar
 
@@ -27,6 +27,7 @@ Den här artikeln innehåller vanliga frågor och svar om Microsoft Authenticato
 Microsoft Authenticator-appen ersätts Azure Authenticator-appen och är den rekommenderade appen när du använder Azure Multi-Factor Authentication. Microsoft Authenticator-appen finns för [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) och [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+
 |Fråga|Lösning|
 |--------|--------|
 |Vilka data autentiseraren lagrar åt mig och hur kan jag ta bort det?|Microsoft Authenticator-appen samlar in tre typer av information:<ul><li>Kontoinformation som du anger när du lägger till ditt konto. Dessa data kan tas bort genom att ta bort ditt konto.</li><li>Loggar med diagnostikdata som finns endast i appen förrän du väljer att **skicka loggar** till Microsoft via appens **hjälpa** menyn. Dessa loggfiler innehåller personliga data, t.ex. e-postadresser (t.ex, alain@contoso.com), server/IP-adresser och enhetsdata (till exempel enhetens namn- och operativsystemets version), med de personuppgifter som är begränsad till information som behövs för att felsöka problem med appen. Du kan visa dessa loggfiler i appen när som helst för att se den information som samlas in. Om du skickar loggfilerna använda autentisering app-tekniker den för att felsöka problem som rapporteras av kunden.</li><li>Icke-personligt identifierbar information, sådana ”igång Lägg till konto flow/har lagts till kontot” eller ”meddelande godkänd”. Dessa data är en viktig del av våra tekniker beslut och hjälper oss att avgöra vilka funktioner är viktiga för dig och var förbättringar som behöver göras i form av uppdateringar för appar. Du, som en appanvändare kan se ett meddelande för den här datainsamlingen på första start av appen och informeras om att det kan vara inaktiverat på appens **inställningar** sidan. Du kan aktivera eller inaktivera den här inställningen när som helst.</li></ul>|
@@ -49,7 +50,7 @@ Microsoft Authenticator-appen ersätts Azure Authenticator-appen och är den rek
 |Varför är inte Microsoft Authenticator-appen för Apple Watch för tillhörande synkroniserar eller visas i min titta på?|Om appen inte visas på klockan, provar du följande: <ol><li>Kontrollera att klockan körs watchOS 4.0 eller senare.</li><li>Synkronisera klockan igen.</li></ol>|
 |Min Apple Watch tillhörande app har kraschat. Kan jag skicka Mina krasch-loggar så att du kan undersöka? |Du måste först kontrollera att du har valt att dela dina analyser med oss. Om du är en TestFlight-användare kan du redan har registrerat dig. Annars går du till **Inställningar > sekretess > Analytics** och välj både den **dela iPhone och titta på analys** och **filresursen med Apputvecklare** alternativ.<br><br>När du har registrerat dig kan du försöka återskapa din krascher så att loggarna kraschar ska skickas automatiskt till oss för undersökning. Men om du inte kan återskapa din krascher, manuellt kopiera loggfilerna och skicka dem till oss.<ol><li>Öppna klockappen på din telefon, gå till **Inställningar > Allmänt**, och klicka sedan på **kopia Watch Analytics**.</li><li>Hitta motsvarande kraschen under **Inställningar > sekretess > Analytics > analysdata**, och sedan manuellt kopiera hela texten.</li><li>Öppna Microsoft Authenticator-appen på telefonen och klistra in som kopierade text i den **filresursen med Apputvecklare** textrutan på den **skicka loggar** sidan.</li></ol>|
 |Vad är App Lock-funktionen och hur hjälper den för att skydda mig?|Om du vill skydda din enstaka lösenord, programinformation och app-inställningar kan aktivera du App Lock-funktionen i Microsoft Authenticator-appen. Aktivera App Lock från den **inställningar** skärmen i Microsoft Authenticator-appen innebär att du uppmanas att autentisera med hjälp av din PIN-kod eller biometriska varje gång du öppnar Microsoft Authenticator-appen. Den här funktionen ger extra skydd, hur du godkänner meddelanden i Microsoft Authenticator-appen ändras inte.<br><br>**Obs!**<br>Om du går tillbaka till Microsoft Authenticator-appen som körs på en Android-enhet i mindre än 30 sekunder, ombeds du inte att autentisera igen.|
-|Varför får jag meddelanden om min kontoaktivitet|För att ha du mer information om vad som händer med ditt personliga Microsoft-konto, skickar vi aktivitet meddelanden till din Microsoft Authenticator-app. Dessa meddelanden visas omedelbart efter det att något ändras detta bidrar till att hålla dig säkrare. Vi tidigare dessa meddelanden via e-post och SMS och har nu expanderat om du vill lägga till appen. Mer information om aviseringarna aktivitet finns i [vad händer om det finns en ovanlig inloggning till ditt konto](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in). Om du vill ändra var du får dina meddelanden, logga in på https://account.live.com/SecurityNotifications/Update.|
+|Varför får jag meddelanden om min kontoaktivitet|För att ha du mer information om vad som händer med ditt personliga Microsoft-konto, skickar vi aktivitet meddelanden till din Microsoft Authenticator-app. Dessa meddelanden visas omedelbart efter det att något ändras detta bidrar till att hålla dig säkrare. Vi tidigare dessa meddelanden via e-post och SMS och har nu expanderat om du vill lägga till appen. Mer information om aviseringarna aktivitet finns i [vad händer om det finns en ovanlig inloggning till ditt konto](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in). Om du vill ändra var du får dina meddelanden, logga in på https://account.live.com/SecurityNotifications/Update.
 
 
 ## <a name="next-steps"></a>Nästa steg

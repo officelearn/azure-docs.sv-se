@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8f549c20480e3866725717aa054af6653ab5a913
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 236e4e7079da792d055a8de148d03852ca1012ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344003"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877368"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 viktig information
 
@@ -180,9 +180,9 @@ Om du har skapat tillgångar eller kontofilter mellan 09/28 och 10/12 med Media 
 
 ## <a name="may-2018---preview"></a>Maj 2018 - förhandsversion
 
-### <a name="net-sdk"></a>.Net SDK
+### <a name="net-sdk"></a>.NET SDK
 
-Följande funktioner finns i .net SDK:
+Följande funktioner finns i .NET SDK:
 
 * **Omvandlar** och **jobb** att koda eller analysera medieinnehåll. Exempel finns i [Stream filer](stream-files-tutorial-with-api.md) och [analysera](analyze-videos-tutorial-with-api.md).
 * **Positionerare för direktuppspelning** för att publicera och strömning av innehåll till slutanvändarens enheter

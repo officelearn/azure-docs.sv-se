@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: 03cb9384beba1afcb97a765824e63e79ca34aa62
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 2762e5c4f2b67415a0e42e80a34ae5b34c57adc9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717226"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086589"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>ZIP-distribution för Azure Functions
 
@@ -51,13 +51,13 @@ Du kan dock ha skapat dina funktioner med hjälp av redigeraren i Azure-portalen
 
 + **Från Azure-portalen:**
 
-    1. Logga in på den [Azure-portalen](https://portal.azure.com), och gå sedan till din funktionsapp.
+  1. Logga in på den [Azure-portalen](https://portal.azure.com), och gå sedan till din funktionsapp.
 
-    2. På den **översikt** fliken **ladda ned appinnehåll**. Välj alternativ för nedladdning och välj sedan **hämta**.
+  2. På den **översikt** fliken **ladda ned appinnehåll**. Välj alternativ för nedladdning och välj sedan **hämta**.
 
-        ![Ladda ned funktionsapprojekt](./media/deployment-zip-push/download-project.png)
+      ![Ladda ned funktionsapprojekt](./media/deployment-zip-push/download-project.png)
 
-    Hämtade ZIP-filen är i rätt format ompubliceras till din funktionsapp använda .zip push-distribution. Portalen nedladdningen kan också lägga till de filer som behövs för att öppna din funktionsapp direkt i Visual Studio.
+     Hämtade ZIP-filen är i rätt format ompubliceras till din funktionsapp använda .zip push-distribution. Portalen nedladdningen kan också lägga till de filer som behövs för att öppna din funktionsapp direkt i Visual Studio.
 
 + **Med hjälp av REST API: er:**
 

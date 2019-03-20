@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: f929424746a4e83f20af635bebf6ca60ee6cb673
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ee91c9f152d72fbcc58cb4707af9420a57a1517b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993445"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224214"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Använda du en anpassad Docker-avbildning för Web App for Containers
 
@@ -526,6 +526,9 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 > [!NOTE]
 > `https://` krävs i *\<docker-registry-server-url>*.
 >
+> [!NOTE]
+> När du använder registret än dockerhub, `docker-custom-image-name` måste innehålla fullständigt kvalificerade domännamnet (FQDN) för ditt register.  
+> För Azure Container Registry ser de ut så här: `<azure-container-registry>.azurecr.io/mydockerimage`.
 
 Kommandot visar utdata som liknar följande JSON-sträng, som visar att konfigurationsändringen har genomförts:
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 797ac714d3205a271fe6590a3a320e1b9e2a073e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 908ae768ae471ab6f49452c99323c31d34772d45
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194741"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201862"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Hantera anpassade domännamn i Azure Active Directory
 
@@ -33,11 +33,11 @@ När katalogen har skapats är det ursprungliga domännamnet, t.ex contoso.onmic
 2. Välj **Azure Active Directory**.
 3. Välj **Egna domännamn**.
   
-   ![Öppna användarhantering](./media/domains-manage/add-custom-domain.png)
+   ![Öppna sidan för användarhantering](./media/domains-manage/add-custom-domain.png)
 4. Välj namnet på den domän som du vill ska vara den primära domänen.
 5. Välj den **göra primärt** kommando. Bekräfta valet när du tillfrågas.
   
-   ![Göra ett domännamn primärt](./media/domains-manage/make-primary-domain.png)
+   ![Skapa en domän som namnge primärt](./media/domains-manage/make-primary-domain.png)
 
 Du kan ändra det primära domännamnet för din katalog är en verifierad anpassad domän som inte är federerat. Ändra den primära domänen för din katalog, ändras inte användarnamnet för alla befintliga användare.
 
@@ -88,13 +88,13 @@ Ett fel returneras när:
 ### <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **F: Varför misslyckas domänborttagning med ett fel som anger att jag har lärt dig att Exchange-grupper på det här domännamnet?** <br>
-**A:** Idag vissa grupper som brevlåda säkerhetsgrupper och distribuerade listor har etablerats av Exchange och behöver rengöras manuellt i [Exchange Admin Center (UK)](https://outlook.office365.com/ecp/). Det kan kvarstående ProxyAddresses som förlitar sig på det anpassade domännamnet och måste uppdateras manuellt till ett annat domännamn. 
+**S:** Idag vissa grupper som brevlåda säkerhetsgrupper och distribuerade listor har etablerats av Exchange och behöver rengöras manuellt i [Exchange Admin Center (UK)](https://outlook.office365.com/ecp/). Det kan kvarstående ProxyAddresses som förlitar sig på det anpassade domännamnet och måste uppdateras manuellt till ett annat domännamn. 
 
-**F: Jag är inloggad som admin@contoso.com men jag kan inte ta bort domänen namnet ”contoso.com”?**<br>
-**A:** Du kan inte referera till det anpassade domännamnet som du försöker att ta bort i ditt användarkonto. Kontrollera att kontot som Global administratör använder den initiala standarddomännamnet (. onmicrosoft.com) som admin@contoso.onmicrosoft.com. Logga in med en annan Global administratör-konto som till exempel admin@contoso.onmicrosoft.com eller ett annat anpassat domännamn som ”fabrikam.com” där kontot som är admin@fabrikam.com.
+**F: Jag är inloggad som administratör\@contoso.com men jag kan inte ta bort domänen namnet ”contoso.com”?**<br>
+**S:** Du kan inte referera till det anpassade domännamnet som du försöker att ta bort i ditt användarkonto. Kontrollera att kontot som Global administratör använder den initiala standarddomännamnet (. onmicrosoft.com) som admin@contoso.onmicrosoft.com. Logga in med en annan Global administratör-konto som till exempel admin@contoso.onmicrosoft.com eller ett annat anpassat domännamn som ”fabrikam.com” där kontot som är admin@fabrikam.com.
 
 **F: Jag klickade på borttagningsknappen för domänen och se `In Progress` status för borttagningen. Hur lång tid tar det? Vad händer om den inte?**<br>
-**A:** Åtgärden ta bort domänen är en asynkron bakgrundsaktiviteten som byter namn på alla referenser till domännamnet. Det bör vara klart inom en minut. Om domänborttagning misslyckas, kontrollerar du att det inte finns:
+**S:** Åtgärden ta bort domänen är en asynkron bakgrundsaktiviteten som byter namn på alla referenser till domännamnet. Det bör vara klart inom en minut. Om domänborttagning misslyckas, kontrollerar du att det inte finns:
 
 * Appar som har konfigurerats på domännamnet med appIdentifierURI
 * Alla e-postaktiverad grupp som refererar till det anpassade domännamnet

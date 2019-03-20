@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 3d747f3b8f54dfefe7e96c378eddbce320bcc8f7
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 8dc3dcbe3a84a0c35c1e3fc6e367c63393bebb70
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215124"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003138"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Fjärrskrivbordstjänster är inte startar på en Azure VM
 
@@ -99,7 +99,8 @@ Använd Seriekonsolen för att felsöka problemet. Eller [reparera den virtuella
 
     |  Fel |  Förslag |
     |---|---|
-    |5 – ÅTKOMST NEKAD |Se [TermService tjänsten har stoppats på grund av ett felmeddelande om nekad](#termService-service-is-stopped-because-of-an-access-denied-problem). |   |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Se [TermService tjänsten inaktiveras](#termService-service-is-disabled).  |  
+    |5 – ÅTKOMST NEKAD |Se [TermService tjänsten har stoppats på grund av ett felmeddelande om nekad](#termService-service-is-stopped-because-of-an-access-denied-problem). |
+    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Se [TermService tjänsten inaktiveras](#termService-service-is-disabled).  |  
     |1058 - ERROR_SERVICE_DISABLED  |Se [TermService tjänsten kraschar eller låser sig](#termService-service-crashes-or-hangs).  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |[Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.|
     |1067 - ERROR_PROCESS_ABORTED  |Se [TermService tjänsten kraschar eller låser sig](#termService-service-crashes-or-hangs).  |
@@ -108,7 +109,7 @@ Använd Seriekonsolen för att felsöka problemet. Eller [reparera den virtuella
     |1070 - ERROR_SERVICE_START_HANG   | Se [TermService tjänsten kraschar eller låser sig](#termService-service-crashes-or-hangs). |
     |1077 - ERROR_SERVICE_NEVER_STARTED   | Se [TermService tjänsten inaktiveras](#termService-service-is-disabled).  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt. |
-    |1753   |[Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.   |   |5 – ÅTKOMST NEKAD |Se [TermService tjänsten har stoppats på grund av ett felmeddelande om nekad](#termService-service-is-stopped-because-of-an-access-denied-error). |
+    |1753   |[Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) att lösa problemet snabbt.   |
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>TermService tjänsten har stoppats på grund av ett problem med åtkomst nekad
 
@@ -205,7 +206,7 @@ Använd Seriekonsolen för att felsöka problemet. Eller [reparera den virtuella
 
 1. [Koppla OS-disk till virtuell återställningsdator](../windows/troubleshoot-recovery-disks-portal.md).
 2. Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn. Se till att den anslutna disken flaggas som **Online** i konsolen Diskhantering. Observera den enhetsbeteckning som är tilldelad till den anslutna OS-disken.
-3.  Öppna en upphöjd kommandotolk-instans (**kör som administratör**). Kör sedan följande skript. Vi förutsätter att den enhetsbeteckning som är tilldelad till den anslutna OS-disken är **F**. Ersätt den med lämpligt värde i den virtuella datorn. 
+3. Öppna en upphöjd kommandotolk-instans (**kör som administratör**). Kör sedan följande skript. Vi förutsätter att den enhetsbeteckning som är tilldelad till den anslutna OS-disken är **F**. Ersätt den med lämpligt värde i den virtuella datorn. 
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv

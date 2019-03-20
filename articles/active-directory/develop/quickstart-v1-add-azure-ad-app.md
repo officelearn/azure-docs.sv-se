@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc60f3ac785bede0f3a2e4d83cc98980b46868e2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 15e77767e16ce6ae02c6f1f93891d5acf4bfcb6f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167073"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119606"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v10-endpoint"></a>Snabbstart: Registrera en app med Azure Active Directory v1.0-slutpunkten
 
@@ -37,13 +37,13 @@ Den här snabbstarten visar hur du lägger till och registrerar ett program i Az
 > [!NOTE]
 > Registrerar du en ny app? Prova den nya upplevelsen **Appregistreringar (förhandsversion)** i Azure-portalen. Se [Registrera en app (förhandsversion)](quickstart-register-app.md) för att komma igång.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång ser du till att ha en Azure AD-klientorganisation som du kan använda för att registrera dina appar till. Om du inte redan har en klientorganisation kan du [läsa om hur du skaffar en](quickstart-create-new-tenant.md).
 
 ## <a name="register-a-new-application-using-the-azure-portal"></a>Registrera ett nytt program med hjälp av Azure-portalen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Om ditt konto ger dig tillgång till fler än en väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten.
 1. Välj **Appregistreringar** och välj sedan **Ny programregistrering**.
@@ -52,16 +52,16 @@ För att komma igång ser du till att ha en Azure AD-klientorganisation som du k
 
 1. När sidan **Skapa** visas anger du programmets registreringsinformation: 
 
-    - **Namn:** Ange ett beskrivande programnamn
-    - **Programtyp:**
-      - Välj **Internt** för [klientprogram](developer-glossary.md#client-application) som installeras lokalt på en enhet. Den här inställningen används för OAuth-offentliga [interna klienter](developer-glossary.md#native-client).
-      - Välj **Webbapp/API** för [klientprogram](developer-glossary.md#client-application) och [resurs/API-program](developer-glossary.md#resource-server) som är installerade på en säker server. Den här inställningen används för OAuth-konfidentiella [webbklienter](developer-glossary.md#web-client) och offentliga [användaragentbaserade klienter](developer-glossary.md#user-agent-based-client). Samma program kan även visa både en klient och resurs/API.
-    - **Inloggnings-URL:** För ”Webbapp/API”-program anger du appens bas-URL. Till exempel kan `http://localhost:31544` vara URL för en webbapp som körs på din lokala dator. Användare skulle då använda den här URL:en för att logga in till ett webbklientprogram. 
-    - **Omdirigerings-URI:** För ursprungliga appar anger du den URI som används av Azure AD för att returnera tokensvar. Ange ett värde som är specifikt för ditt program, till exempel `http://MyFirstAADApp`
+   - **Namn:** Ange ett beskrivande programnamn
+   - **Programtyp:**
+     - Välj **Internt** för [klientprogram](developer-glossary.md#client-application) som installeras lokalt på en enhet. Den här inställningen används för OAuth-offentliga [interna klienter](developer-glossary.md#native-client).
+     - Välj **Webbapp/API** för [klientprogram](developer-glossary.md#client-application) och [resurs/API-program](developer-glossary.md#resource-server) som är installerade på en säker server. Den här inställningen används för OAuth-konfidentiella [webbklienter](developer-glossary.md#web-client) och offentliga [användaragentbaserade klienter](developer-glossary.md#user-agent-based-client). Samma program kan även visa både en klient och resurs/API.
+   - **Inloggnings-URL:** För ”Webbapp/API”-program anger du appens bas-URL. Till exempel kan `http://localhost:31544` vara URL för en webbapp som körs på din lokala dator. Användare skulle då använda den här URL:en för att logga in till ett webbklientprogram. 
+   - **Omdirigerings-URI:** För ursprungliga appar anger du den URI som används av Azure AD för att returnera tokensvar. Ange ett värde som är specifikt för ditt program, till exempel `http://MyFirstAADApp`
 
-      ![Registrera ett nytt program – skapa](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
+     ![Registrera ett nytt program – skapa](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
 
-    Om du vill ha specifika exempel på webbprogram eller interna program kan du läsa **snabbstarterna** i dokumentationen.
+     Om du vill ha specifika exempel på webbprogram eller interna program kan du läsa **snabbstarterna** i dokumentationen.
 
 1. När det är klart väljer du **Skapa**.
 

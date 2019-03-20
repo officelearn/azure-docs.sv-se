@@ -15,12 +15,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb89d3eee87c0796bcd21914e719784756bc288e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 548ea67092a2cdb8cedeed869becd8933c08c5c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165747"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181800"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Få hjälp och öppna ett supportärende för Azure Active Directory
 Microsoft tillhandahåller global teknisk, förförsäljnings, fakturering och prenumerationsstöd för Azure Active Directory (AD Azure). Support fås både online och per telefon för Microsoft Azure betalda prenumerationer och provprenumerationer. Telefonsupport och faktureringssupport online är tillgänglig på andra språk. 
@@ -41,7 +41,7 @@ Om det inte går att hitta svar med hjälp av självhjälpsresurserna kan öppna
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-azure-portal"></a>Hur du öppnar ett supportärende för Azure AD i Azure portal
 
 > [!NOTE]
-> För fakturerings- eller prenumerationsproblem, måste du använda [Office 365-Administrationscenter](https://portal.office.com).
+> För fakturerings- eller prenumerationsproblem, måste du använda den [Microsoft 365 Administrationscenter](https://admin.microsoft.com).
 > 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) och öppna **Azure Active Directory**.
@@ -61,22 +61,21 @@ Om det inte går att hitta svar med hjälp av självhjälpsresurserna kan öppna
 8. Ange din kontaktinformation och välj **skapa**.
   ![problemet kategori självhjälp skärmbild](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
 
-### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-office-365-portal"></a>Hur du öppnar ett supportärende för Azure AD i Office 365-portalen
+### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Hur du öppnar ett supportärende för Azure AD i Microsoft 365 Administrationscenter
 
 > [!NOTE]
-> Support för Azure AD i Office 365 Administrationscenter erbjuds endast för administratörer.
+> Stöd för Azure AD på den [Microsoft 365 Administrationscenter](https://admin.microsoft.com) erbjuds endast för administratörer.
 > 
 
-1. Logga in på [Office 365-Administrationscenter](https://portal.office.com) med ett konto som har en Enterprise Mobility + Security (EMS)-licens.
+1. Logga in på den [Microsoft 365 Administrationscenter](https://admin.microsoft.com) med ett konto som har en Enterprise Mobility + Security (EMS)-licens.
 
-2. På den **Support** panelen, väljer **ny tjänstbegäran**: ![Office 365-portalen skärmbild](./media/active-directory-troubleshooting-support-howto/office-portal.png)
+2. På den **Support** panelen, väljer **ny tjänstbegäran**:
 
-3. På den **Supportöversikt** väljer **Identitetshantering** eller **hantering av användare och domän**: ![Azure AD support kategorier skärmbild](./media/active-directory-troubleshooting-support-howto/select-identity.png)
+3. På den **Supportöversikt** väljer **Identitetshantering** eller **hantering av användare och domän**:
 
 4. För **funktionen**, Välj Azure AD-funktionen som du vill ha support.
 
 5. För **symtom**, Välj en lämplig symtom, sammanfatta ditt problem och ange relevant information och välj sedan **nästa**.
-  ![Skärmbild för funktionen och symtom självhjälp](./media/active-directory-troubleshooting-support-howto/open-service-request.png)
 
 6. Välj en av självhjälpsresurserna som erbjuds eller välj **Ja, Fortsätt** eller **Nej, Avbryt begäran**.
 

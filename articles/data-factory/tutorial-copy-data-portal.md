@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 1aca53c876b6cc982c141d74cdf727f9c966adfe
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: a4041d7d2cc9d3fd42a541c316d8d739b3ab733d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233871"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539878"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Kopiera data från en Azure Blob Storage till en SQL-databas med Azure Data Factory
 I den här självstudiekursen skapar du en datafabrik med Azure Data Factory-användargränssnittet. Pipelinen i den här datafabriken kopierar data från Azure Blob Storage till en SQL-databas. Konfigurationsmönstret i den här självstudien gäller kopiering av ett filbaserat datalager till ett relationsdatalager. En lista över datakällor som stöds som källor och mottagare finns i tabellen över [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -35,7 +35,7 @@ I den här självstudien får du göra följande:
 > * Utlös pipelinen enligt ett schema.
 > * Övervaka pipelinen och aktivitetskörningarna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Storage-konto**. Du kan använda Blob Storage som *källa* för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett Azure Storage-konto](../storage/common/storage-quickstart-create-account.md).
 * **Azure SQL Database**. Du använder databasen som *mottagare* för datalagringen. Om du inte har en SQL-databas kan du läsa om hur du skapar en i [Skapa en SQL-databas](../sql-database/sql-database-get-started-portal.md).
@@ -53,7 +53,7 @@ Förbered nu Blob Storage och SQL-databasen för den här självstudien genom at
     Jane,Doe
     ```
 
-1. Skapa en container med namnet **adftutorial** i Blob Storage. Skapa en mapp som heter **input** i den här containern. Ladda sedan upp filen **emp.txt** till mappen **input**. Använd Azure-portalen eller verktyg som [Azure Storage Explorer](http://storageexplorer.com/) när du gör uppgifterna.
+1. Skapa en container med namnet **adftutorial** i Blob Storage. Skapa en mapp som heter **input** i den här containern. Ladda sedan upp filen **emp.txt** till mappen **input**. Använd Azure-portalen eller verktyg som [Azure Storage Explorer](https://storageexplorer.com/) när du gör uppgifterna.
 
 #### <a name="create-a-sink-sql-table"></a>Skapa en SQL-mottagartabell
 
@@ -176,7 +176,7 @@ I denna självstudie börjar du med att skapa pipelinen. Sedan skapar du länkad
 1. Gå till fliken **Mottagare** och välj **+ Nytt** för att skapa en datauppsättning för mottagare. 
 
     ![Datauppsättning för mottagare](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
-1. I fönstret **Ny datauppsättning** anger du ”SQL” i sökrutan för att filtrera anslutningar. Välj sedan **Azure SQL Database** och till sist **Slutför**. I dessa självstudier kopierar du data till en SQL-databas. 
+1. I den **ny datauppsättning** fönstret, ange ”SQL” i sökrutan för att filtrera kopplingarna och välj sedan **Azure SQL Database**, och välj sedan **Slutför**. I dessa självstudier kopierar du data till en SQL-databas. 
 
     ![Val av SQL-databas](./media/tutorial-copy-data-portal/select-azure-sql-dataset.png)
 1. På fliken **Allmänt** i fönstret **Egenskaper** anger du för **Namn** värdet **OutputSqlDataset**. 
@@ -232,7 +232,7 @@ Du kan felsöka en pipeline innan du publicerar artefakter (länkade tjänster, 
 
 1. Välj **Felsöka** i verktygsfält för att felsöka pipelinen. Du ser status för pipelinekörningen på fliken **Utdata** längst ned i fönstret. 
 
-1. När en pipeline körs med lyckat resultat väljer du **Publicera alla** i det översta verktygsfältet. Med den här åtgärden publicerar du enheter (datauppsättningar och pipelines) som du skapat i datafabriken.
+1. När pipelinen kan köra, i verktygsfältet högst upp väljer **publicera alla**. Med den här åtgärden publicerar du enheter (datauppsättningar och pipelines) som du skapat i datafabriken.
 
     ![Publicera](./media/tutorial-copy-data-portal/publish-button.png)
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7b0ae144cce1213b5476ba1cccc94d994ebeda60
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7b3b4e0886f561cc66e2c02e4ea354c86b34453c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464134"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904192"
 ---
 # <a name="heading"></a>Bearbeta Data i SQL Server-dator på Azure
 Det här dokumentet beskriver hur du utforska data och generera funktioner för data som lagras i en SQL Server-VM på Azure. Detta kan göras med Datatransformering med hjälp av SQL eller med ett programmeringsspråk som Python.
@@ -36,7 +36,7 @@ Vi beskriver data följande wrangling uppgifter i det här avsnittet med hjälp 
 Här följer några exempel SQL-skript som kan användas för att utforska datalager i SQL Server.
 
 > [!NOTE]
-> En praktiska exempel: du kan använda den [NYC Taxi datauppsättning](http://www.andresmh.com/nyctaxitrips/) och referera till IPNB benämnt [NYC Datatransformering med IPython Notebook och SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) en slutpunkt till slutpunkt genomgång.
+> En praktiska exempel: du kan använda den [NYC Taxi datauppsättning](https://www.andresmh.com/nyctaxitrips/) och referera till IPNB benämnt [NYC Datatransformering med IPython Notebook och SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) en slutpunkt till slutpunkt genomgång.
 > 
 > 
 
@@ -82,7 +82,7 @@ I följande exempel visas hur du skapar binned funktioner av diskretisering (med
 ### <a name="sql-featurerollout"></a>Lansera funktionerna från en enda kolumn
 I det här avsnittet visar vi hur du ska distribuera en enda kolumn i en tabell för att generera ytterligare funktioner. I exemplet förutsätter vi att det finns en latitud och longitud kolumn i tabellen som du vill generera funktioner.
 
-Här är en kort introduktion på latitud/longitud platsdata (resurstilldelas från stackoverflow [hur du använder det arbete du utfört latitud och longitud?](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). Detta är användbart att förstå innan du featurizing Platsfältet:
+Här är en kort introduktion på latitud/longitud platsdata (resurstilldelas från stackoverflow [hur du använder det arbete du utfört latitud och longitud?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). Detta är användbart att förstå innan du featurizing Platsfältet:
 
 * Tecknet talar om för oss om vi är norr eller söder, Öst eller Väst i världen.
 * Ett annat värde än noll hundratals siffra talar om för oss att vi använder longitud, latitud inte!
@@ -129,7 +129,7 @@ Följande formatet för anslutningssträngen kan användas för att ansluta till
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-Den [Pandas biblioteket](http://pandas.pydata.org/) tillhandahåller en omfattande uppsättning datastrukturer och verktyg för analys av data för datamanipulering för Python-programmering i Python. Koden nedan läser resultatet som returneras från en SQL Server-databas till en dataram Pandas:
+Den [Pandas biblioteket](https://pandas.pydata.org/) tillhandahåller en omfattande uppsättning datastrukturer och verktyg för analys av data för datamanipulering för Python-programmering i Python. Koden nedan läser resultatet som returneras från en SQL Server-databas till en dataram Pandas:
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)

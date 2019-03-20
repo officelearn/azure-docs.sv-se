@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 832d7306c7e397a92e92fb25018b5021e4ac87fb
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 02054824d62030b96f8353140aa49ee0fa5c2265
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672295"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864532"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad X.509-enhet med C#-enhets-SDK för IoT Hub Device Provisioning-tjänsten
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -35,7 +35,7 @@ Den här artikeln visar enskilda registreringar.
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>Förbereda utvecklingsmiljön 
 
-1. Kontrollera att du har [.Net Core 2.1 SDK eller senare](https://www.microsoft.com/net/download/windows) installerat på datorn. 
+1. Kontrollera att du har den [SDK för .NET Core 2.1 eller senare](https://www.microsoft.com/net/download/windows) installerat på datorn. 
 
 1. Kontrollera att `git` är installerat på datorn och har lagts till i de miljövariabler som är tillgängliga för kommandofönstret. Se [Git-klientverktyg för Software Freedom Conservancy](https://git-scm.com/download/) för att få den senaste versionen av `git`-verktyg att installera, vilket omfattar **Git Bash**, kommandoradsappen som du kan använda för att interagera med det lokala Git-lagret. 
 
@@ -77,15 +77,15 @@ Du kommer att använda exempelkoden från [Etablera enhetsklientexempel – X.50
 5. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Välj fliken **Enskilda registreringar** och klicka på knappen **Lägg till enskild registrering** längst upp. 
 
 6. Under panelen **Lägg till registrering** anger du följande information:
-    - Välj **X.509** som identitet för bestyrkande *mekanism*.
-    - Under *Primär .pem- eller .cer-certifikatfil* klickar du på *Välj en fil* för att välja certifikatfilen **certificate.cer** som skapades i föregående steg.
-    - Lämna **Enhets-ID** tomt. Enheten etableras med dess enhet-ID inställt på nätverksnamnet (CN) i X.509-certifikatet **iothubx509device1**. Det här är även namnet som används som registrerings-ID för posten för enskild registrering. 
-    - Du kan även ange följande information:
-        - Välj en IoT hub som är länkad till din etableringstjänst.
-        - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
-    - Klicka på knappen **Spara** när det är klart. 
+   - Välj **X.509** som identitet för bestyrkande *mekanism*.
+   - Under *Primär .pem- eller .cer-certifikatfil* klickar du på *Välj en fil* för att välja certifikatfilen **certificate.cer** som skapades i föregående steg.
+   - Lämna **Enhets-ID** tomt. Enheten etableras med dess enhet-ID inställt på nätverksnamnet (CN) i X.509-certifikatet **iothubx509device1**. Det här är även namnet som används som registrerings-ID för posten för enskild registrering. 
+   - Du kan även ange följande information:
+       - Välj en IoT hub som är länkad till din etableringstjänst.
+       - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
+   - Klicka på knappen **Spara** när det är klart. 
 
-    [![Lägga till en enskild registrering för X.509-attestering i portalen](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png#lightbox)
+     [![Lägga till en enskild registrering för X.509-attestering i portalen](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png#lightbox)
     
    Vid lyckad registrering visas X.509-registreringsposten som **iothubx509device1** under kolumnen *Registrerings-ID* på fliken *Enskilda registreringar*. 
 

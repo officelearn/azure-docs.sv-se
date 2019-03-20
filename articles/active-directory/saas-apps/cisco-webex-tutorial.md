@@ -1,63 +1,61 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Cisco Webex | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Cisco Webex.
+title: 'Självstudier: Azure Active Directory-integrering med Cisco Webex möten | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Cisco Webex möten.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 26704ca7-13ed-4261-bf24-fd6252e2072b
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 1/4/2019
+ms.date: 03/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bdd51ee6f3ef69289bad83e7cb344df41020ac8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 308f745489fba2e2b539a2f2615b65228565dcf9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871493"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850017"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Självstudier: Azure Active Directory-integrering med Cisco Webex
+# <a name="tutorial-azure-active-directory-integration-with-cisco-webex-meetings"></a>Självstudier: Azure Active Directory-integrering med Cisco Webex-möten
 
-Lär dig hur du integrerar Cisco Webex med Azure Active Directory (AD Azure) i den här självstudien.
-När du integrerar Cisco Webex med Azure AD får du följande fördelar:
+Lär dig hur du integrerar Cisco Webex möten med Azure Active Directory (AD Azure) i den här självstudien.
+Integrera Cisco Webex möten med Azure AD ger dig följande fördelar:
 
-* I Azure AD kan du styra vem som har åtkomst till Cisco Webex.
-* Du kan göra så att dina användare automatiskt loggas in på Cisco Webex (enkel inloggning) med sina Azure AD-konton.
+* Du kan styra i Azure AD som har åtkomst till Cisco Webex möten.
+* Du kan aktivera användarna att vara automatiskt inloggad till Cisco Webex-möten (Single Sign-On) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med Cisco Webex behöver du följande:
+Om du vill konfigurera Azure AD-integrering med Cisco Webex möten, behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Cisco Webex-prenumeration med enkel inloggning aktiverat
+* Cisco Webex möten med enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Cisco Webex har stöd för **SP**-initierad enkel inloggning
+* Har stöd för Cisco Webex möten **SP** -initierad SSO
 
-* Cisco Webex stöder **just-in-time**-användaretablering
+* Har stöd för Cisco Webex möten **Just In Time** etableringen av användare
 
-* Cisco Webex stöder **automatisk** användaretablering
+## <a name="adding-cisco-webex-meetings-from-the-gallery"></a>Att lägga till Cisco Webex möten från galleriet
 
-## <a name="adding-cisco-webex-from-the-gallery"></a>Lägga till Cisco Webex från galleriet
+För att konfigurera integrering av Cisco Webex möten i Azure AD, som du behöver lägga till Cisco Webex möten från galleriet i din lista över hanterade SaaS-appar.
 
-För att konfigurera integrering av Cisco Webex i Azure AD måste du lägga till Cisco Webex från galleriet i din lista över hanterade SaaS-appar.
+**Utför följande steg för att lägga till Cisco Webex möten från galleriet:**
 
-**Utför följande steg för att lägga till Cisco Webex från galleriet:**
-
-1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -69,31 +67,31 @@ För att konfigurera integrering av Cisco Webex i Azure AD måste du lägga till
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver du **Cisco Webex**, väljer **Cisco Webex** på resultatpanelen och klickar på **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver **Cisco Webex möten**väljer **Cisco Webex möten** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-     ![Cisco Webex i resultatlistan](common/search-new-app.png)
+     ![Cisco Webex möten i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Cisco Webex baserat på en testanvändare med namnet **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Cisco Webex upprättas.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Cisco Webex möten baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Cisco Webex möten ska upprättas.
 
-Konfigurera och testa enkel inloggning med Azure AD med Cisco Webex genom att slutföra följande byggblock:
+Om du vill konfigurera och testa Azure AD enkel inloggning med Cisco Webex möten, måste du utföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera enkel inloggning för Cisco Webex](#configure-cisco-webex-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera Cisco Webex möten enkel inloggning](#configure-cisco-webex-meetings-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Cisco Webex-testanvändare](#create-cisco-webex-test-user)** – för att ha en motsvarighet till Britta Simon i Cisco Webex som är länkad till Azure AD-representationen för användaren.
+5. **[Skapa Cisco Webex möten testanvändare](#create-cisco-webex-meetings-test-user)**  – du har en motsvarighet för Britta Simon i Cisco Webex möten som är länkad till en Azure AD-representation av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera enkel inloggning med Azure AD med Cisco Webex:
+Utför följande steg för att konfigurera Azure AD enkel inloggning med Cisco Webex möten:
 
-1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **Cisco Webex**-programintegrering och väljer **Enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **Cisco Webex möten** application integration markerar **enkel inloggning**.
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -101,29 +99,14 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med Cis
 
     ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. I ett annat webbläsarfönster loggar du in på företagswebbplatsen Cisco Webex som administratör.
-
-4. Klicka på **Settings** (Inställningar) på menyn till vänster.
-
-    ![Konfigurera enkel inloggning](./media/cisco-webex-tutorial/tutorial_cisco_webex_10.png)
-
-5. På inställningssidan rullar du nedåt och klickar på **Modify** (Ändra) under **Authentication** (Autentisering).
-
-    ![Konfigurera enkel inloggning](./media/cisco-webex-tutorial/tutorial_cisco_webex_14.png)
-
-6. Välj **Integrate a 3rd-party identity provider. (Avancerat)** (Integrera en tredjeparts identitetsprovider. (Avancerat)) och gå till nästa skärm.
-
-    ![Konfigurera enkel inloggning](./media/cisco-webex-tutorial/tutorial_cisco_webex_15.png)
-
-7. På sidan **Export Directory Metadata** (Exportera katalog för metadata) klickar du på **Download Metadata File** (Ladda ned metadatafil) för att ladda ned metadatafilen.
-
-    ![Konfigurera enkel inloggning](./media/cisco-webex-tutorial/tutorial_cisco_webex_16.png)
-
-8. På Azure-portalen går du till sidan **Konfigurera enkel inloggning med SAML** och klickar på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+3. På Azure-portalen går du till sidan **Konfigurera enkel inloggning med SAML** och klickar på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-9. I avsnittet **Grundläggande SAML-konfiguration** laddar du upp den nedladdade filen med **tjänstleverantörmetadata** och konfigurerar programmet med följande steg:
+4. I avsnittet **Grundläggande SAML-konfiguration** laddar du upp den nedladdade filen med **tjänstleverantörmetadata** och konfigurerar programmet med följande steg:
+
+    >[!Note]
+    >Du får Service Provider metadatafilen, som beskrivs senare i den **konfigurera Cisco Webex möten enkel inloggning** avsnittet av självstudiekursen. 
 
     a. Klicka på **Ladda upp metadatafil**.
 
@@ -135,28 +118,26 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med Cis
 
     c. När metadatafilen för tjänstleverantör har laddats upp fylls värdena för **Identifierare** och **Svars-URL** i automatiskt i avsnittet **Grundläggande SAML-konfiguration**:
 
-    ![Information om enkel inloggning med Cisco Webex-domänen och URL:er](common/sp-identifier-reply.png)
+    ![Cisco Webex möten domän och URL: er med enkel inloggning för information](common/sp-identifier-reply.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<SUBDOMAIN>.webex.com/`
+    I den **inloggnings-URL** textrutan klistra in värdet för **svars-URL** som hämtar fylls i automatiskt med SP metadata filuppladdningen.
 
-    > [!Note]
-    > Värdet för inloggnings-URL är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Cisco Webex-supporten](https://www.webex.co.in/support/support-overview.html) och be om det här värdet.
-
-10. Cisco Webex-programmet förväntar ett visst format för SAML-försäkran. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+5. Cisco Webex möten program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera**  för att lägga till attributen.
 
     ![image](common/edit-attribute.png)
 
-11. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
+6. Ta bort standardattribut från **användaranspråk** avsnittet och Cisco Webex möten program som förväntar få fler attribut som ska skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
     
     | Namn | Källattribut|
-    | ---------------| --------------- | --------- |
+    | ---------------|  --------- |
     |   förnamn    | user.givenname |
     |   lastname    | user.surname |
+    |   e-post       | user.mail |
     |   uid    | user.mail |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![image](common/new-save-attribute.png)
+    ![image](./media/cisco-webex-tutorial/tutorial-cisco-webex-addnewclaim.png)
 
     ![image](common/new-attribute-details.png)
 
@@ -172,11 +153,11 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med Cis
 
     g. Klicka på **Spara**.
 
-12. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
+7. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-13. I avsnittet **om att konfigurera Cisco Webex** kopierar du lämpliga URL:er enligt dina behov.
+8. På den **konfigurera Cisco Webex möten** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -186,15 +167,32 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med Cis
 
     c. Utloggnings-URL
 
-### <a name="configure-cisco-webex-single-sign-on"></a>Konfigurera enkel inloggning för Cisco Webex
+### <a name="configure-cisco-webex-meetings-single-sign-on"></a>Konfigurera Cisco Webex möten enkel inloggning
 
-1. Använd filbläddraren på administratörssidan på Cisco Webex-företagswebbplatsen för att hitta och ladda upp Azure AD-metadatafilen. Välj sedan **Require certificate signed by a certificate authority in Metadata (more secure)** (Kräv signerat certifikat av certifikatutfärdare i metadata (säkrare)) och fortsätt till nästa skärm. 
+1. Gå till [Cisco Molnhantering samarbete](https://www.webex.com/go/connectadmin) med dina autentiseringsuppgifter för administration.
 
-    ![Konfigurera enkel inloggning](./media/cisco-webex-tutorial/tutorial_cisco_webex_11.png)
+2. Gå till **säkerhetsinställningar** och gå till **Federerad Web SSO-konfiguration**.
+ 
+    ![Konfigurera enkel inloggning](./media/cisco-webex-tutorial/tutorial-cisco-webex-10.png)
 
-2. Välj **Test SSO Connection** (Testa den enkla inloggningen) och autentisera med Azure AD-inloggning när en ny webbläsarflik öppnas.
+3. På den **Federerad Web SSO-konfiguration** utför följande steg:
 
-3. Gå tillbaka till webbläsarfliken **Cisco Cloud Collaboration Management** (Ciscos samarbetshantering i molnet). Om testet lyckades väljer du **This test was successful. Enable Single Sign-On option** (Testet lyckades. Aktivera alternativet för enkel inloggning) och klicka på **Save** (Spara).
+    ![Konfigurera enkel inloggning](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
+
+    a. Skriv namnet på ditt protokoll i textrutan Federation-protokollet.
+
+    b. Klicka på **importera SAML-Metadata** länk för att ladda upp metadatafilen som du har hämtat från Azure-portalen.
+
+    c. Klicka på **exportera** knappen för att hämta Metadata för Service Provider-fil och ladda upp den i den **grundläggande SAML-konfiguration** avsnittet på Azure-portalen.
+
+    d. I den **AuthContextClassRef** textrutan typ `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified` och om du vill aktivera MFA med hjälp av Azure AD anger du de två värdena som `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport;urn:oasis:names:tc:SAML:2.0:ac:classes:X509`
+
+    e. Välj **automatiskt Kontoskapandet**.
+
+    >[!NOTE]
+    >För att aktivera **just-in-time** användaretablering du behöver kontrollera den **automatisk Kontoskapandet**. Utöver det ska SAML-tokenattribut skickas i SAML-svar.
+
+    f. Klicka på **Spara**. 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -214,24 +212,24 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska du göra det möjligt för Britta Simon att använda enkel inloggning i Azure genom att bevilja åtkomst till Cisco Webex.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Cisco Webex möten.
 
-1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Cisco Webex**.
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Cisco Webex möten**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **Cisco Webex** i listan över program.
+2. I listan med program väljer **Cisco Webex möten**.
 
-    ![Cisco Webex-länken i programlistan](common/all-applications.png)
+    ![Cisco Webex möten länken i listan med program](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -247,15 +245,15 @@ I det här avsnittet ska du göra det möjligt för Britta Simon att använda en
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-cisco-webex-test-user"></a>Skapa en testanvändare i Cisco Webex
+### <a name="create-cisco-webex-meetings-test-user"></a>Skapa Cisco Webex möten testanvändare
 
-I det här avsnittet ska du skapa en användare med namnet Britta Simon i Cisco Webex. Cisco Webex stöder just-in-time-etablering och automatisk användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i Cisco Webex skapas en ny när du försöker komma åt Cisco Webex.
+Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Cisco Webex möten. Har stöd för Cisco Webex möten **just-in-time** etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Cisco Webex möten, skapas en ny när du försöker komma åt Cisco Webex möten.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på Cisco Webex-panelen i åtkomstpanelen bör du automatiskt loggas in på Cisco Webex som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Cisco Webex möten på åtkomstpanelen, bör det vara loggas in automatiskt till Cisco Webex-möten som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

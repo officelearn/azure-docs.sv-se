@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63fdd60c4c462626cc43a7a453bddc0b020b92cf
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 760ad30daabee61300768b7c67824f39437ac87f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409898"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006949"
 ---
 # <a name="preview-azure-ad-password-protection-troubleshooting"></a>Förhandsversion: Felsökning av Azure AD-lösenordsskydd
 
@@ -63,13 +63,13 @@ Om startläget för KDS-tjänsten har konfigurerats på inaktiverad, måste den 
 
 Ett enkelt test för det här problemet är att starta tjänsten KDS via MMC tjänsthanteringskonsolen manuellt eller använda andra hanteringsverktyg för tjänsten (till exempel köra ”net start kdssvc” från en kommandotolk-konsol). Tjänsten KDS förväntas startas och körs.
 
-Den vanligaste orsaken är att Active Directory-domänkontrollantobjekt finns utanför standard Organisationsenheten domänkontrollanter. Den här konfigurationen stöds inte av tjänsten KDS och är inte en begränsning som införts av Azure AD-lösenordsskydd. Korrigering för det här villkoret är att flytta domänkontrollantobjekt till en plats under standard Organisationsenheten domänkontrollanter.
+De vanligaste grundorsaken till tjänsten KDS att det inte går att starta är där Active Directory-domänkontrollantobjekt befinner sig utanför standard Organisationsenheten domänkontrollanter. Den här konfigurationen stöds inte av tjänsten KDS och är inte en begränsning som införts av Azure AD-lösenordsskydd. Korrigering för det här villkoret är att flytta domänkontrollantobjekt till en plats under standard Organisationsenheten domänkontrollanter.
 
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Svaga lösenord tas emot, men får inte vara
 
 Det här problemet kan ha flera orsaker.
 
-1. DC-agenter kan inte hämtas en princip eller gick inte att dekryptera befintliga principer. Sök efter möjliga orsaker i senare avsnitt.
+1. DC-agenter kan inte hämta en princip eller gick inte att dekryptera befintliga principer. Sök efter möjliga orsaker i senare avsnitt.
 
 1. Lösenord för tvinga principläge är fortfarande inställd på granska. Om den här konfigurationen används kan du konfigurera om den att tvinga med hjälp av Azure AD-lösenordsskydd-portalen. Se [aktivera lösenordsskydd](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
 

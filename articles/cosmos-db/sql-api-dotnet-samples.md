@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 02/22/2017
 ms.author: sngun
-ms.openlocfilehash: 5d80c0a8464a9672859a3fbd305bbd4ab322b092
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: c777aba4c12acef18c1e53833e19b24839f13fb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037097"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993352"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: .NET-exempel för SQL API
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Du behöver också [Microsoft.Azure.DocumentDB NuGet-paketet](https://www.nuget.
 > 
 
 ## <a name="database-examples"></a>Databasexempel
-Metoden [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) i exempelprojektet DatabaseManagement visar hur du utför följande uppgifter.
+Metoden [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) i exempelprojektet DatabaseManagement visar hur du utför följande uppgifter. Läs mer om Azure Cosmos-databaserna innan du kör följande exempel, i [arbetar med databaser, behållare och objekt](databases-containers-items.md) konceptuella artikeln. 
 
 | Aktivitet | API-referens |
 | --- | --- |
@@ -59,7 +59,7 @@ Metoden [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/
 | [Ta bort en databas](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L118) |[DocumentClient.DeleteDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedatabaseasync.aspx) |
 
 ## <a name="collection-examples"></a>Samlingsexempel
-Metoden [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) för exempelprojektet CollectionManagement visar hur du utför följande uppgifter.
+Metoden [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) för exempelprojektet CollectionManagement visar hur du utför följande uppgifter. Läs om Azure Cosmos-samlingar innan du kör följande exempel i [arbetar med databaser, behållare och objekt](databases-containers-items.md) konceptuella artikeln. 
 
 | Aktivitet | API-referens |
 | --- | --- |
@@ -71,7 +71,7 @@ Metoden [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blo
 | [Ta bort en samling](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L175) |[DocumentClient.DeleteDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync.aspx) |
 
 ## <a name="document-examples"></a>Exempel på dokument
-Metoden [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) för exempelprojektet DocumentManagement visar hur du utför följande uppgifter.
+Metoden [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) för exempelprojektet DocumentManagement visar hur du utför följande uppgifter. Läs mer om Azure Cosmos-dokument innan du kör följande exempel, i [arbetar med databaser, behållare och objekt](databases-containers-items.md) konceptuella artikeln. 
 
 | Aktivitet | API-referens |
 | --- | --- |
@@ -87,13 +87,12 @@ Metoden [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob
 | [Läs dokument endast om dokumentet har ändrats](https://github.com/Azure/azure-documentdb-dotnet/blob/f2b11dec45a195ddeed333560ebba63055f5ed09/samples/code-samples/DocumentManagement/Program.cs#L442-L470) |[DocumentClient.AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx)<br>[Documents.Client.AccessConditionType](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accessconditiontype.aspx) |
 
 ## <a name="indexing-examples"></a>Indexeringsexempel
-Metoden [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) i exempelprojektet IndexManagement visar hur du utför följande uppgifter.
+Metoden [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) i exempelprojektet IndexManagement visar hur du utför följande uppgifter. Läs mer om indexering i Azure Cosmos DB innan du kör följande exempel, i [indexeringsprinciper](index-policy.md), [indexering typer](index-types.md), och [indexering sökvägar](index-paths.md) konceptuella artiklar. 
 
 | Aktivitet | API-referens |
 | --- | --- |
 | [Undanta ett dokument från indexet](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L125-L163) |[IndexingDirective.Exclude](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingdirective.aspx) |
 | [Använda manuell (istället för automatisk) indexering](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L171-L209) |[IndexingPolicy.Automatic](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.automatic.aspx) |
-| [Använda uppskjuten (istället för konsekvent) indexering](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L221-L238) |[IndexingMode.Lazy](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.indexingmode.aspx#P:Microsoft.Azure.Documents.IndexingPolicy.IndexingMode) |
 | [Undanta angivna dokumentsökvägar från indexet](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L248-L297) |[IndexingPolicy.ExcludedPaths](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.excludedpaths.aspx) |
 | [Tvinga en intervallsökning av en hash-indexerad sökväg](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L305-L340) |[FeedOptions.EnableScanInQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx) |
 | [Använda intervallindex i strängar](https://github.com/Azure/azure-documentdb-dotnet/blob/2e9a48b6a446b47dd6182606c8608d439b88b683/samples/code-samples/IndexManagement/Program.cs#L342-L405) |[IndexingPolicy.IncludedPaths](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.includedpaths.aspx)<br>[RangeIndex](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.rangeindex.aspx) |
@@ -102,7 +101,8 @@ Metoden [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8
 Mer information om indexering finns i [Azure Cosmos DB indexeringsprinciper](index-policy.md).
 
 ## <a name="geospatial-examples"></a>Geospatiala exempel
-Den geospatiala exempelfilen, [azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs), visar hur du utför följande uppgifter.  
+Den geospatiala exempelfilen, [azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs), visar hur du utför följande uppgifter.  Mer information om GeoJSON och geospatiala data innan du kör följande exempel finns [hur du använder geospatiala och GeoJSON platsdata](geospatial.md) konceptuella artikeln. 
+
 
 | Aktivitet | API-referens |
 | --- | --- |
@@ -116,7 +116,7 @@ Den geospatiala exempelfilen, [azure-documentdb-dotnet/samples/code-samples/Geos
 Mer information om att arbeta med geospatiala data finns i [Working with Geospatial data in Azure Cosmos DB](geospatial.md) (Arbeta med geospatiala data i Azure Cosmos DB).  
 
 ## <a name="query-examples"></a>Exempelfrågor
-Frågedokumentfilen, [azure-documentdb-dotnet/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs), visar hur du utför varje uppgift med SQL-frågegrammatiken, LINQ-leverantören med fråga och med Lambda.
+Frågedokumentfilen, [azure-documentdb-dotnet/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs), visar hur du utför varje uppgift med SQL-frågegrammatiken, LINQ-leverantören med fråga och med Lambda. Mer information om SQL-referens för frågor i Azure Cosmos DB innan du kör följande exempel finns [SQL-fråga exempel](how-to-sql-query.md) konceptuella artikeln. 
 
 | Aktivitet | API-referens |
 | --- | --- |
@@ -129,7 +129,7 @@ Frågedokumentfilen, [azure-documentdb-dotnet/samples/code-samples/Queries/Progr
 | [Fråga med mängdfunktioner](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs#L448-L496) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [Arbeta med underdokument](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L394-L419) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [Fråga med intradokumentkopplingar](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L421-L435) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
-| [Fråga med operatorer för sträng, matematik och matris](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L527-L552) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
+| [Fråga med sträng, matte och matris-operatorer](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L527-L552) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [Fråga med parametriserad SQL med SqlQuerySpec](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L140-L174) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx)<br>[SqlQuerySpec](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.sqlqueryspec.aspx) |
 | [Fråga med explicit sidindelning](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L554-L576) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [Fråga partitionerade samlingar parallellt](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L664-L734) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
@@ -138,7 +138,8 @@ Frågedokumentfilen, [azure-documentdb-dotnet/samples/code-samples/Queries/Progr
 Mer information om hur du skriver frågor finns i [SQL query within Azure Cosmos DB](how-to-sql-query.md) (SQL-fråga i Azure Cosmos DB).
 
 ## <a name="change-feed-examples"></a>Exempel på ändringsflöde 
-Ändringsflödesexemplet, [azure-documentdb-dotnet/samples/code-samples/ChangeFeed/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), visar hur du utför följande uppgifter. 
+Ändringsflödesexemplet, [azure-documentdb-dotnet/samples/code-samples/ChangeFeed/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), visar hur du utför följande uppgifter. Läs mer om ändringsflödet i Azure Cosmos DB innan du kör följande exempel, i [alternativ för att läsa ändringsflödet](read-change-feed.md) och [Change feed processor](change-feed-processor.md) konceptuella artiklar. 
+
 
 | Aktivitet | API-referens |
 | --- | --- |
@@ -148,7 +149,7 @@ Mer information om hur du skriver frågor finns i [SQL query within Azure Cosmos
 Exempel på ändringsflödesprocessor:  [Migreringsverktyget för ändringsflöde](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool) visar hur du använder ändringsflödesprocessorbiblioteket för att replikera data till en annan Cosmos DB-samling.   
 
 ## <a name="server-side-programming-examples"></a>Programmeringsexempel på serversidan
-Programmeringsfilen på serversidan, [azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), visar hur du utför följande uppgifter.
+Programmeringsfilen på serversidan, [azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), visar hur du utför följande uppgifter. Läs mer om programmering av serversidan i Azure Cosmos DB innan du kör följande exempel, i [lagrade procedurer, utlösare och användardefinierade funktioner](stored-procedures-triggers-udfs.md) konceptuella artikeln. 
 
 | Aktivitet | API-referens |
 | --- | --- |

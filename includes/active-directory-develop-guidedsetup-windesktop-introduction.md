@@ -4,22 +4,22 @@ description: ta med fil
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: d7f268618888eb1f3fcd98b13b67635d9e2d056d
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: bb28862ad6452eab3130eeb2dc0b4c269839d306
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988205"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203230"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Anropa Microsoft Graph API från en Windows-skrivbordsapp
 
@@ -32,7 +32,7 @@ När du har slutfört guiden för kommer ditt program att kunna anropa ett skydd
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Så här fungerar exempelapp som genererats av den här guiden
 
-![Så här fungerar den här guiden](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks.png)
+![Visar hur exempelappen genereras av den här självstudier fungerar](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks-updated.png)
 
 Exempelprogrammet som du skapar med den här guiden gör det möjligt för en Windows Desktop-program som frågar Microsoft Graph API eller ett webb-API som accepterar token från en Azure Active Directory v2.0-slutpunkten. Det här scenariot kan du lägga till en token på HTTP-förfrågningar via auktoriseringsrubriken. Microsoft Authentication Library (MSAL) hanterar tokenförvärv och förnyelse.
 

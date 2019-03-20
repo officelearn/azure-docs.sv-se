@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 045f2d12eb6836d14a09ea96c8eca3cad0e5246d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 551d0cd149c4d1555a40ccf0d7baeff97c6809c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458259"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863312"
 ---
 # <a name="collaborative-coding-with-git"></a>Samarbetsbaserad kodning med Git
 
@@ -36,7 +36,7 @@ Ange information för den här nya grenen som grennamnet, grundläggande Git-lag
 
 Ett bra tips är att skapa en Git-gren för arbetsobjekt för varje artikel. För varje aktivitet i arbetsobjektet skapa sedan en gren baserat på grenen historia. Ordna grenarna på så vis hierarkisk som motsvarar relationerna berättelse-aktivitet är användbart när du har flera personer som arbetar på olika berättelser om samma projekt eller om du har flera personer som arbetar med olika uppgifter av samma artikel. Konflikter kan arbetskostnaderna minimeras när varje medlem i gruppen fungerar på en annan gren och när varje medlem fungerar på olika koder eller andra artefakter när du delar en gren. 
 
-Följande bild visar den rekommenderade branchning strategin för TDSP. Du kanske inte behöver flera grenar som visas här, särskilt om du bara har en eller två personer som arbetar på samma projekt eller bara en person som fungerar på alla uppgifter i en artikel. Men att separera grenen utveckling från huvudgrenen är alltid en bra idé. Detta kan förhindra versionsgrenen störs av utveckling-aktiviteter. Fullständig beskrivning av Git gren modellen finns i [en lyckad Git branchning modellen](http://nvie.com/posts/a-successful-git-branching-model/).
+Följande bild visar den rekommenderade branchning strategin för TDSP. Du kanske inte behöver flera grenar som visas här, särskilt om du bara har en eller två personer som arbetar på samma projekt eller bara en person som fungerar på alla uppgifter i en artikel. Men att separera grenen utveckling från huvudgrenen är alltid en bra idé. Detta kan förhindra versionsgrenen störs av utveckling-aktiviteter. Fullständig beskrivning av Git gren modellen finns i [en lyckad Git branchning modellen](https://nvie.com/posts/a-successful-git-branching-model/).
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 

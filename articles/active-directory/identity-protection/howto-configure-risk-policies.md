@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dd988004112fa4f420af7d0149bde19fdc06bfc
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 1b578c0187f7b804b6261fec9d299f83d7dc1832
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958360"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015137"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Instruktioner: Konfigurera principer för risk i Azure Active Directory identity protection (uppdateras)
 
@@ -32,7 +32,9 @@ Azure AD upptäcker riskhändelser som indikatorer för potentiellt komprometter
 - Du kan konfigurera ett svar till i realtid riskhändelser som har identifierats under en användares inloggning med inloggningsrisk-principen. 
 - Du kan konfigurera ett svar till alla aktiva risker som har identifierats för en användare över tid med riskprincip för användare.  
 
-> [!VIDEO https://youtu.be/zEsbbik-BTE]
+> [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
+
+
 ## <a name="what-is-the-sign-in-risk-policy"></a>Vad är inloggningsrisk principen?
 
 Azure AD analyserar varje inloggning för en användare. Målet med analysen är att identifiera misstänkta åtgärder som kommer med inloggningen. Till exempel är inloggningen klar med hjälp av en anonym IP-adress eller är inloggning som initieras från en okänd plats? Systemet kan identifiera misstänkta åtgärderna är kallas även riskhändelser i Azure AD. Baserat på de riskhändelser som har identifierats under inloggning, Azure AD beräknar ett värde. Värdet som representerar sannolikheten (låg, medelhög och hög) att inloggningen inte utförs av behöriga användare. Sannolikheten kallas **risknivå för inloggning**.

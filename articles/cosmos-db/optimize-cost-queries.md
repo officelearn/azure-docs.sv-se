@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: e6814224827aac0da9c6faf5108ecf585bae7c35
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 80c9cd91efd14e3d4b4214bde089f73692568f76
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445389"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840196"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Optimera kostnader för frågan i Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Frågor som läser data från en eller flera partitioner medföra svarstider och
 
 När du har lagrat vissa data i dina Azure Cosmos-behållare, kan du använda Datautforskaren i Azure-portalen för att skapa och köra dina frågor. Du kan också få kostnaden för frågorna med hjälp av datautforskaren. Den här metoden ger dig en uppfattning om de faktiska kostnader som ingår i vanliga frågor och åtgärder som har stöd för ditt system.
 
-Du kan också få kostnaden för frågor via programmering med hjälp av SDK: erna. För att mäta arbetet med att alla åtgärder, till exempel som att skapa, uppdatera eller ta bort granska den `x-ms-request-charge` rubrik när du använder REST API. Om du använder .net eller Java-SDK på `RequestCharge` egenskapen är motsvarande egenskap att hämta kostnad för begäran och den här egenskapen finns i ResourceResponse eller FeedResponse.
+Du kan också få kostnaden för frågor via programmering med hjälp av SDK: erna. För att mäta arbetet med att alla åtgärder, till exempel som att skapa, uppdatera eller ta bort granska den `x-ms-request-charge` rubrik när du använder REST API. Om du använder .NET eller Java-SDK på `RequestCharge` egenskapen är motsvarande egenskap att hämta kostnad för begäran och den här egenskapen finns i ResourceResponse eller FeedResponse.
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -59,7 +59,7 @@ I vissa fall kan du se en sekvens med 200 429 svar och variabeln begäransenhete
 
 ## <a name="metrics-for-troubleshooting"></a>Mätvärden för felsökning
 
-Prestanda och dataflöde som används av frågor, användardefinierade funktioner (UDF) huvudsakligen beror på själva funktionen. Det enklaste sättet att ta reda på hur mycket tid körningen av frågan är i en användardefinierad funktion och antalet mediereserverade enheter används, är genom att aktivera mätvärden för frågan. Om du använder .net SDK, här är exempel fråga mätvärden som returneras av SDK:
+Prestanda och dataflöde som används av frågor, användardefinierade funktioner (UDF) huvudsakligen beror på själva funktionen. Det enklaste sättet att ta reda på hur mycket tid körningen av frågan är i en användardefinierad funktion och antalet mediereserverade enheter används, är genom att aktivera mätvärden för frågan. Om du använder .NET SDK, här är exempel fråga mätvärden som returneras av SDK:
 
 ```bash
 Retrieved Document Count                 :               1              

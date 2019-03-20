@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: aahi
-ms.openlocfilehash: e11e4a59e447a8befcfaedb7ddedbb9aabdfaa28
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 61cfb5fa78a735d2ef542c30b445f3200f256d7c
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330706"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226937"
 ---
 # <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av Node.js  
 <a name="HOLTop"></a>
@@ -24,11 +24,11 @@ Den här artikeln visar hur du [identifierar språk](#Detect), [analyserar attit
 
 Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk dokumentation för API:erna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-Du måste även ha [den slutpunkt och den åtkomstnyckel](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig vid registreringen. 
+Du måste även ha [den slutpunkt och den åtkomstnyckel](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig vid registreringen.
 
 <a name="Detect"></a>
 
@@ -36,11 +36,11 @@ Du måste även ha [den slutpunkt och den åtkomstnyckel](../How-tos/text-analyt
 
 API:et för språkidentifiering identifierar språket i ett textdokument, med metoden [Detect Language](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) (Identifiera språk).
 
-1. Skapa ett nytt Node.js-projekt i valfri IDE.
-2. Lägg till koden nedan.
-3. Ersätt värdet `accessKey` med en giltig åtkomstnyckel för din prenumeration.
+1. Skapa ett nytt Node.JS-projekt i din favorit-IDE eller en mapp på skrivbordet.
+2. Lägg till koden nedan till en ny `.js` fil.
+3. Ersätt den `accessKey` värde med en prenumerationsnyckel från din Text Analytics-resurs i Azure.
 4. Ersätt platsen i `uri` (för närvarande `westus`) till den region du har registrerat dig för.
-5. Kör programmet.
+5. Kör programmet från den IDE eller från kommandoraden, till exempel `npm start` eller `node detect.js`.
 
 ```javascript
 'use strict';
@@ -156,13 +156,13 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="analyze-sentiment"></a>Analysera sentiment
 
-API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) (Attityd). I följande exempel poängsätts två dokument, ett på engelska och ett annat på spanska.
+API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) (Attityd). Attitydanalys kan användas för att ta reda på vad kunderna tycker om ditt märke eller ämne genom att analysera rå text efter ledtrådar om positiv eller negativ attityd. I följande exempel ger poäng för två dokument, en på engelska och en annan på spanska.
 
-1. Skapa ett nytt Node.js-projekt i valfri IDE.
-2. Lägg till koden nedan.
-3. Ersätt värdet `accessKey` med en giltig åtkomstnyckel för din prenumeration.
+1. Skapa ett nytt Node.JS-projekt i din favorit-IDE eller en mapp på skrivbordet.
+2. Lägg till koden nedan till en ny `.js` fil.
+3. Ersätt den `accessKey` värde med en prenumerationsnyckel från din Text Analytics-resurs i Azure.
 4. Ersätt platsen i `uri` (för närvarande `westus`) till den region du har registrerat dig för.
-5. Kör programmet.
+5. Kör programmet från den IDE eller från kommandoraden, till exempel `npm start` eller `node sentiment.js`.
 
 ```javascript
 'use strict';
@@ -229,7 +229,8 @@ get_sentiments (documents);
 
 **Svar vid attitydanalys**
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
+Resultatet mäts som positivt om den får närmare 1.0 och negativt om det beräknas närmare 0,0.
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 
 ```json
 {
@@ -251,13 +252,13 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="extract-key-phrases"></a>Extrahera nyckelfraser
 
-API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
+API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). Extrahering av diskussionsämne används för att snabbt identifiera de viktigaste aspekterna av ett dokument eller text. I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
 
-1. Skapa ett nytt Node.js-projekt i valfri IDE.
-2. Lägg till koden nedan.
-3. Ersätt värdet `accessKey` med en giltig åtkomstnyckel för din prenumeration.
+1. Skapa ett nytt Node.JS-projekt i din favorit-IDE eller en mapp på skrivbordet.
+2. Lägg till koden nedan till en ny `.js` fil.
+3. Ersätt den `accessKey` värde med en prenumerationsnyckel från din Text Analytics-resurs i Azure.
 4. Ersätt platsen i `uri` (för närvarande `westus`) till den region du har registrerat dig för.
-5. Kör programmet.
+5. Kör programmet från den IDE eller från kommandoraden, till exempel `npm start` eller `node key-phrases.js`.
 
 ```javascript
 'use strict';
@@ -367,13 +368,13 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="identify-linked-entities"></a>Identifiera länkade entiteter
 
-API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). I följande exempel identifieras entiteter för engelska dokument.
+API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). [Entiteter](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extrahera ord i texten, som ”USA”, och sedan typ och/eller Wikipedia länk ger dig den här Ordfilter. Typen för ”USA” är `location`, medan en länk till Wikipedia är `https://en.wikipedia.org/wiki/United_States`.  I följande exempel identifieras entiteter för engelska dokument.
 
-1. Skapa ett nytt Node.js-projekt i valfri IDE.
-2. Lägg till koden nedan.
-3. Ersätt värdet `accessKey` med en giltig åtkomstnyckel för din prenumeration.
+1. Skapa ett nytt Node.JS-projekt i din favorit-IDE eller en mapp på skrivbordet.
+2. Lägg till koden nedan till en ny `.js` fil.
+3. Ersätt den `accessKey` värde med en prenumerationsnyckel från din Text Analytics-resurs i Azure.
 4. Ersätt platsen i `uri` (för närvarande `westus`) till den region du har registrerat dig för.
-5. Kör programmet.
+5. Kör programmet från den IDE eller från kommandoraden, till exempel `npm start` eller `node entities.js`.
 
 ```javascript
 'use strict';
@@ -440,7 +441,7 @@ get_entities (documents);
 
 **Svar vid entitetextrahering**
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 
 ```json
 {
@@ -605,7 +606,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Textanalys med Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Se även 
+## <a name="see-also"></a>Se också 
 
  [Översikt över Textanalys](../overview.md)  
  [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)

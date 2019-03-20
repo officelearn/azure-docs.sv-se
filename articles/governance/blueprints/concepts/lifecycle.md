@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c1e596516136240b1d1d08b4e8386e9cf5ef48e5
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 71a5233c6d5af21d7bc5430cda14e156e16d5cd4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819130"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001570"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Förstå livscykeln för en Azure-skiss
 
@@ -68,7 +68,7 @@ Varje version av en skiss är ett unikt objekt och kan vara individuellt **publi
 > [!NOTE]
 > Det går inte att ta bort en skiss som har aktiva uppgifter. Ta bort tilldelningar först och sedan ta bort den version som du vill ta bort.
 
-1. Välj **alla tjänster** i den vänstra rutan. Sök efter och välj **skisser**.
+1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
 1. Välj **skiss definitioner** från sidan till vänster och Använd filteralternativ för att hitta skissen som du vill ta bort en version av. Klicka på det för att öppna sidan Redigera.
 
@@ -103,8 +103,8 @@ Läs hur genom att läsa [uppdatera befintliga tilldelningar](../how-to/update-e
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Förstå hur du använder [statiska och dynamiska parametrar](parameters.md)
-- Lär dig hur du anpassar [sekvensordningen för en skiss](sequencing-order.md)
-- Lär dig hur du använder [resurslåsning för en skiss](resource-locking.md)
-- Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md)
-- Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md)
+- Förstå hur du använder [statiska och dynamiska parametrar](parameters.md).
+- Lär dig hur du anpassar [sekvensordningen för en skiss](sequencing-order.md).
+- Lär dig hur du använder [resurslåsning för en skiss](resource-locking.md).
+- Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md).
+- Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md).

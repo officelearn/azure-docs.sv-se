@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 953f2cdac41dcd610afbde39a318c0237b0b9099
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c9d707d1a76b3b5913d66745767df8e84362a192
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114747"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890866"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process i praktiken: med SQL Server
-I den här självstudien får du går igenom processen för att skapa och distribuera en maskininlärningsmodell med SQL Server och en datauppsättning som är allmänt tillgängliga – [NYC Taxi kommunikation](http://www.andresmh.com/nyctaxitrips/) datauppsättning. Proceduren följer en standard arbetsflöde för datavetenskap: mata in och utforska data, bygg funktioner för att förenkla inlärningen, och sedan skapa och distribuera en modell.
+I den här självstudien får du går igenom processen för att skapa och distribuera en maskininlärningsmodell med SQL Server och en datauppsättning som är allmänt tillgängliga – [NYC Taxi kommunikation](https://www.andresmh.com/nyctaxitrips/) datauppsättning. Proceduren följer en standard arbetsflöde för datavetenskap: mata in och utforska data, bygg funktioner för att förenkla inlärningen, och sedan skapa och distribuera en modell.
 
 ## <a name="dataset"></a>NYC Taxi sätts datauppsättning beskrivning
 NYC Taxi resedata är cirka 20GB komprimerat CSV-filer (~ 48GB okomprimerad), som består av mer än 173 miljoner enskilda kommunikation och priser betalda för varje resa. Hämtning och dropoff plats och tid, avidentifierade hack (drivrutin) licensnummer och medallion (taxi's unikt id) antalet innehåller varje resa-post. Informationen som täcker alla kommunikation i år 2013 och anges i följande två datauppsättningar för varje månad:
@@ -82,7 +82,7 @@ Du ställer in din Azure Data Science-miljö:
 Baserat på storleken på datauppsättningen och datakällplats valda Azure målmiljön kan det här scenariot är liknar [scenariot \#5: Stor datauppsättning i lokala filer, rikta SQL Server i Azure VM](plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>Hämta Data från offentliga källa
-Att hämta den [NYC Taxi kommunikation](http://www.andresmh.com/nyctaxitrips/) datauppsättning från dess offentlig plats, kan du använda någon av metoderna som beskrivs i [flytta Data till och från Azure Blob Storage](move-azure-blob.md) att kopiera data till din nya virtuella dator.
+Att hämta den [NYC Taxi kommunikation](https://www.andresmh.com/nyctaxitrips/) datauppsättning från dess offentlig plats, kan du använda någon av metoderna som beskrivs i [flytta Data till och från Azure Blob Storage](move-azure-blob.md) att kopiera data till din nya virtuella dator.
 
 Kopiera data med AzCopy:
 
@@ -622,8 +622,8 @@ Om du vill tar och sammanfattar, i den här genomgången i självstudien har du 
 Det här exemplet genomgång och dess tillhörande skript och IPython notebook(s) som delas av Microsoft under MIT-licensen. Kontrollera filen LICENSE.txt i katalogen på exempelkoden på GitHub för mer information.
 
 ### <a name="references"></a>Referenser
-• [Andrés Monroy NYC Taxi kommunikation hämtningssidan](http://www.andresmh.com/nyctaxitrips/)  
-• [FOILing NYC Taxitransport Resedata av Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+• [Andrés Monroy NYC Taxi kommunikation hämtningssidan](https://www.andresmh.com/nyctaxitrips/)  
+• [FOILing NYC Taxitransport Resedata av Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 • [NYC Taxi och Limousine kommissionen forskning och statistik](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sql-walkthrough/sql-walkthrough_26_1.png

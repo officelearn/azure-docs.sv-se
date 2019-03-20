@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd5d724583dd4682fb6c0b01e8ec11196936289b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 53f8ec8a6833446663d7f142deefd595eed13136
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211911"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116273"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Tjänst-till-tjänst anropar den användning som delegerad användaridentiteten i On-Behalf-Of-flöde
 
@@ -63,12 +63,12 @@ Registrera både mellannivå-tjänsten och klientprogrammet i Azure AD.
     1. Beroende på vilken typ av program, ange inloggnings URL eller omdirigerings-URL till en bas-URL.
     1. Välj **skapa** att skapa programmet.
 1. Generera en klienthemlighet innan du avslutar Azure-portalen.
-    1. Välj ditt program i Azure-portalen och välj **inställningar**.
-    1. Välj **nycklar** på menyn Inställningar och lägger till en nyckel med en nyckel varaktighet på antingen ett eller två år.
-    1. När du sparar den här sidan visar nyckelvärdet i Azure-portalen. Kopiera och spara nyckelvärdet på en säker plats.
+   1. Välj ditt program i Azure-portalen och välj **inställningar**.
+   1. Välj **nycklar** på menyn Inställningar och lägger till en nyckel med en nyckel varaktighet på antingen ett eller två år.
+   1. När du sparar den här sidan visar nyckelvärdet i Azure-portalen. Kopiera och spara nyckelvärdet på en säker plats.
 
-    > [!IMPORTANT]
-    > Du behöver för att konfigurera inställningar för program i din implementering. Värdet för nyckeln visas inte igen och den är inte ett hämtningsbart på annat sätt. Anteckna det så snart den är synlig i Azure-portalen.
+      > [!IMPORTANT]
+      > Du behöver för att konfigurera inställningar för program i din implementering. Värdet för nyckeln visas inte igen och den är inte ett hämtningsbart på annat sätt. Anteckna det så snart den är synlig i Azure-portalen.
 
 ### <a name="register-the-client-application"></a>Registrera klientprogrammet
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: jdial
-ms.openlocfilehash: 5689cdb2e9f8028f8e1e05a9b43cc00719701fce
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 19fdf2e7e1c7c56b6bfe8ddbf7329d3722f4e8de
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213916"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188619"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Azure-nätverk
 
@@ -52,7 +52,7 @@ Du kan använda följande verktyg för att skapa eller konfigurera ett virtuellt
 * En nätverkskonfigurationsfil (netcfg - för klassiska virtuella nätverk endast). Se den [konfigurera ett virtuellt nätverk med en nätverkskonfigurationsfil](virtual-networks-using-network-configuration-file.md) artikeln.
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Vilka adressintervall kan jag använda Mina virtuella nätverk?
-Alla IP-adressintervall som definierats i [RFC 1918](http://tools.ietf.org/html/rfc1918). Till exempel 10.0.0.0/16. Du kan inte lägga till följande-adressintervall:
+Alla IP-adressintervall som definierats i [RFC 1918](https://tools.ietf.org/html/rfc1918). Till exempel 10.0.0.0/16. Du kan inte lägga till följande-adressintervall:
 * 224.0.0.0/4 (Multicast)
 * 255.255.255.255/32 (Broadcast)
 * 127.0.0.0/8 (Loopback)
@@ -285,7 +285,7 @@ Nej. VNet-peering, lokal eller global, medför inte några bandbreddsbegränsnin
 ## <a name="virtual-network-tap"></a>Virtual Network TAP
 
 ### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>Vilka Azure-regioner är tillgängliga för virtuella nätverks-TAP?
-Developer förhandsversionen kan är funktionen tillgänglig i regionen västra centrala USA. Övervakade nätverksgränssnitt, ett TRYCK för den virtuella nätverksresursen och insamlare eller analytics-lösningen måste distribueras i samma region.
+Virtuellt nätverk TRYCK förhandsgranskning är tillgänglig i alla Azure-regioner. Övervakade nätverksgränssnitt, ett TRYCK för den virtuella nätverksresursen och insamlare eller analytics-lösningen måste distribueras i samma region.
 
 ### <a name="does-virtual-network-tap-support-any-filtering-capabilities-on-the-mirrored-packets"></a>Virtuellt nätverks-TAP stöder alla filtreringsfunktioner på de speglade paket?
 Filtreringsfunktioner stöds inte med förhandsversionen av trycker du på virtuellt nätverk. När en TRYCK-konfiguration har lagts till i ett nätverksgränssnitt en djup kopia av alla inkommande och utgående trafik i nätverksgränssnittet strömmas till trycker du på målet.
@@ -298,7 +298,7 @@ Ja. Samma virtuella nätverk trycker du på resursen kan användas för att aggr
 
 ### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>Finns det några prestandaöverväganden på produktionstrafik om jag aktiverar ett TRYCK konfiguration av virtuellt nätverk i ett nätverksgränssnitt?
 
-Virtuellt nätverk TRYCK är i förhandsversion. Det finns inga serviceavtal för förhandsversionen. Funktionen för bör inte användas för produktionsarbetsbelastningar. När en virtuell dators nätverkskort har aktiverats med en konfiguration av trycker du på används samma resurser på azure-värd allokeras till den virtuella datorn att skicka produktionstrafik för att utföra funktionen databasspegling och skicka de speglade paket. Välj rätt [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) storlek på virtuell dator så att det finns tillräckligt med resurser för den virtuella datorn att skicka produktionstrafik och speglade trafiken.
+Virtuellt nätverk TRYCK genomgår förhandsgranskning. Det finns inga serviceavtal för förhandsversionen. Funktionen för bör inte användas för produktionsarbetsbelastningar. När en virtuell dators nätverkskort har aktiverats med en konfiguration av trycker du på används samma resurser på azure-värd allokeras till den virtuella datorn att skicka produktionstrafik för att utföra funktionen databasspegling och skicka de speglade paket. Välj rätt [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) storlek på virtuell dator så att det finns tillräckligt med resurser för den virtuella datorn att skicka produktionstrafik och speglade trafiken.
 
 ### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>Är accelererat nätverk för [Linux](create-vm-accelerated-networking-cli.md) eller [Windows](create-vm-accelerated-networking-powershell.md) stöd med virtuell nätverks-TAP?
 
@@ -370,7 +370,7 @@ Borttagningen av Azure-tjänstkontot är en oberoende åtgärd och stöds även 
 När tjänstslutpunkter i virtuella nätverk är aktiverade, växlar källans IP-adresser av resurser i ditt virtuella nätverk undernät från att använda offentliga IPV4-adresser till de Azure-nätverk privata IP-adresser för trafik till Azure-tjänst. Observera att detta kan orsaka specifika IP-brandvägg som är inställda på offentlig IPV4-adress tidigare på Azure-tjänster till misslyckas. 
 
 ### <a name="does-service-endpoint-route-always-take-precedence"></a>Tar tjänstslutpunktsroutning alltid företräde?
-Tjänstslutpunkter lägga till en systemväg som åsidosätter BGP-vägar och ger en optimal routning för slutpunkt-tjänstens trafik. Slutpunkter tar alltid tjänsttrafiken direkt från ditt virtuella nätverk till tjänsten i Microsoft Azure-stamnätverket. Mer information om hur Azure väljer en väg finns i [virtuella Azure-trafikdirigering] (virtuell-nätverk-udr-overview.md).
+Tjänstslutpunkter lägga till en systemväg som åsidosätter BGP-vägar och ger en optimal routning för slutpunkt-tjänstens trafik. Slutpunkter tar alltid tjänsttrafiken direkt från ditt virtuella nätverk till tjänsten i Microsoft Azure-stamnätverket. Läs mer om hur Azure väljer en väg [virtuella Azure-trafikdirigering](virtual-networks-udr-overview.md).
  
 ### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>Hur fungerar NSG på ett undernät med tjänstslutpunkter?
 NSG: er måste tillåta utgående anslutning för att nå Azure-tjänsten. Om dina NSG: er har öppnats till all utgående Internettrafik, bör tjänstens slutpunkt trafik fungera. Du kan också begränsa den utgående trafiken till IP-adresser med enbart tjänsttaggarna-tjänsten.  

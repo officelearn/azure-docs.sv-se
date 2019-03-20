@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16763827c043d56ea9a3d461873dc78456cf678d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4df8f329a135683ea68896605a0a1c6f3ee45984
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164932"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084089"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Rubrikbaserad autentisering för enkel inloggning med Application Proxy och PingAccess
 
@@ -76,8 +76,8 @@ Följ dessa steg om du vill publicera din app. En mer detaljerad genomgång av s
 5. Fyll i de obligatoriska fälten med information om den nya appen. Använd följande riktlinjer för inställningar:
    - **Intern URL**: Normalt kan du ange den URL som tar dig till inloggningssidan för appens när du är i företagsnätverket. Anslutningen måste behandla PingAccess-proxy som förstasida i appen för det här scenariot. Använd det här formatet: `https://<host name of your PA server>:<port>`. Porten är 3000 som standard, men du kan konfigurera det i PingAccess.
 
-    > [!WARNING]
-    > För den här typen av enkel inloggning, den interna URL: en måste använda https och kan inte använda http.
+     > [!WARNING]
+     > För den här typen av enkel inloggning, den interna URL: en måste använda https och kan inte använda http.
 
    - **Förautentiseringsmetod**: Azure Active Directory
    - **Översätt URL i rubriker**: Nej
@@ -91,49 +91,49 @@ Följ dessa steg om du vill publicera din app. En mer detaljerad genomgång av s
 9. På bladet hantering väljer **enkel inloggning**.
 10. Välj **rubrikbaserad inloggning** från den nedrullningsbara menyn. Välj **Spara**.
 
-   >[!TIP]
-   >Om det här är första gången du använder rubrikbaserad enkel inloggning måste du installera PingAccess. Kontrollera din Azure-prenumeration associeras automatiskt med PingAccess-installationen genom att använda länken på den här sidan för enkel inloggning för att hämta PingAccess. Du kan öppna hämtningsplatsen nu eller kommer till den här sidan tillbaka senare. 
+    >[!TIP]
+    >Om det här är första gången du använder rubrikbaserad enkel inloggning måste du installera PingAccess. Kontrollera din Azure-prenumeration associeras automatiskt med PingAccess-installationen genom att använda länken på den här sidan för enkel inloggning för att hämta PingAccess. Du kan öppna hämtningsplatsen nu eller kommer till den här sidan tillbaka senare. 
 
-   ![Välj rubrikbaserad inloggning](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.PNG)
+    ![Välj rubrikbaserad inloggning](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.PNG)
 
 11. Stäng bladet för Enterprise-program eller rulla längst till vänster för att gå tillbaka till Azure Active Directory-menyn.
 12. Välj **Appregistreringar**.
 
-   ![Välj appregistreringar](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
+    ![Välj appregistreringar](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
 
 13. Välj den app som du just lade till, sedan **Svarswebbadresser**.
 
-   ![Välj svars-URL](./media/application-proxy-configure-single-sign-on-with-ping-access/reply-urls.png)
+    ![Välj svars-URL](./media/application-proxy-configure-single-sign-on-with-ping-access/reply-urls.png)
 
 14. Kontrollera om externa URL: en som tilldelats din app i steg 5 är i listan över svars-URL. Om den inte gör du det nu.
 15. På inställningsbladet väljer **behörigheter som krävs för**.
 
-  ![Välj behörigheter som krävs](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
+    ![Välj behörigheter som krävs](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
 
 16. Välj **Lägg till**. API: et, Välj **Windows Azure Active Directory**, sedan **Välj**. Behörighet, Välj **läsa och skriva alla program** och **logga in och läsa användarprofil**, sedan **Välj** och **klar**.  
 
-  ![Valda behörigheter](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
+    ![Valda behörigheter](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
 
 17. Bevilja behörigheter innan du stänger skärmen behörigheter. 
-![Bevilja behörigheter](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)
+    ![Bevilja behörigheter](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)
 
 ### <a name="collect-information-for-the-pingaccess-steps"></a>Samla in information för PingAccess-steg
 
 1. På bladet för din app-inställningar, väljer **egenskaper**. 
 
-  ![Välj egenskaper](./media/application-proxy-configure-single-sign-on-with-ping-access/properties.png)
+   ![Välj egenskaper](./media/application-proxy-configure-single-sign-on-with-ping-access/properties.png)
 
 2. Spara den **program-Id** värde. Detta används för klient-ID när du konfigurerar PingAccess.
 3. På inställningsbladet väljer **nycklar**.
 
-  ![Välj nycklar](./media/application-proxy-configure-single-sign-on-with-ping-access/Keys.png)
+   ![Välj nycklar](./media/application-proxy-configure-single-sign-on-with-ping-access/Keys.png)
 
 4. Skapa en nyckel genom att ange en nyckelbeskrivning och välja ett förfallodatum från den nedrullningsbara menyn.
 5. Välj **Spara**. Ett GUID som visas i den **värdet** fält.
 
-  Spara det här värdet nu, eftersom du inte längre att se den igen när du har stängt det här fönstret.
+   Spara det här värdet nu, eftersom du inte längre att se den igen när du har stängt det här fönstret.
 
-  ![Skapa en ny nyckel](./media/application-proxy-configure-single-sign-on-with-ping-access/create-keys.png)
+   ![Skapa en ny nyckel](./media/application-proxy-configure-single-sign-on-with-ping-access/create-keys.png)
 
 6. Stäng bladet registreringar eller rulla längst till vänster för att gå tillbaka till Azure Active Directory-menyn.
 7. Välj **egenskaper**.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: d409d451385ba1f88189b12cf372845e70a87429
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 5d4d591c465cae91c59e8f86ea9d3e421db0f952
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726378"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112117"
 ---
 # <a name="monitoring-metrics-for-front-door"></a>Övervakning av mått för ytterdörren
 
@@ -59,7 +59,7 @@ Så här visar du aktivitetsloggar:
 3. Välj önskat filtreringsomfång och klicka på **Använd**.
 
 ## <a name="diagnostic-logging"></a>Diagnostikloggar
-Diagnostikloggar innehåller omfattande information om åtgärder och fel som är viktiga för granskning, samt i felsökningssyfte. Diagnostikloggar skiljer sig från aktivitetsloggar. Aktivitetsloggar ger insikt i de åtgärder som vidtogs för dina Azure-resurser. Diagnostikloggar ger information om åtgärder som din resurs har vidtagit. Läs mer om [diagnostikloggar för Azure Monitor](..\azure-monitor\platform\diagnostic-logs-overview.md). 
+Diagnostikloggar innehåller omfattande information om åtgärder och fel som är viktiga för granskning, samt i felsökningssyfte. Diagnostikloggar skiljer sig från aktivitetsloggar. Aktivitetsloggar ger insikt i de åtgärder som vidtogs för dina Azure-resurser. Diagnostikloggar ger information om åtgärder som din resurs har vidtagit. Läs mer om [diagnostikloggar för Azure Monitor](../azure-monitor/platform/diagnostic-logs-overview.md). 
 
 Så här konfigurerar du diagnostikloggar för ytterdörren:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b3b011d9789cbb3dcd8557eda1473b7fd2609075
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fa5dfabeae829d52475d2e3cd6ccb123d8308c7c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454291"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013572"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Använd Azure storage-emulatorn för utveckling och testning
 
@@ -54,7 +54,7 @@ Första gången du kör storage-emulatorn har miljö för lokal lagring initiera
 Storage-emulatorn har installerats som standard att `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`.
 
 > [!TIP]
-> Du kan använda den [Microsoft Azure Lagringsutforskaren](http://storageexplorer.com) att arbeta med lokala lagringsemulatorresurser. Leta efter ”(utveckling)” under ”Lagringskonton” i trädet Lagringsutforskaren resurser när du har installerat och igång av storage-emulatorn.
+> Du kan använda den [Microsoft Azure Lagringsutforskaren](https://storageexplorer.com) att arbeta med lokala lagringsemulatorresurser. Leta efter ”(utveckling)” under ”Lagringskonton” i trädet Lagringsutforskaren resurser när du har installerat och igång av storage-emulatorn.
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>Initiera lagringsemulatorn för att använda en annan SQL-databas
@@ -64,15 +64,15 @@ Du kan använda kommandoradsverktyget för storage-emulatorn för att initiera s
 1. Öppna konsolfönstret Lagringsemulatorn enligt beskrivningen i den [Start- och initiera lagringsemulatorn](#start-and-initialize-the-storage-emulator) avsnittet.
 1. I konsolfönstret skriver du följande kommando, där `<SQLServerInstance>` är namnet på SQL Server-instansen. Om du vill använda LocalDB, ange `(localdb)\MSSQLLocalDb` som SQL Server-instansen.
 
-  `AzureStorageEmulator.exe init /server <SQLServerInstance>`
+   `AzureStorageEmulator.exe init /server <SQLServerInstance>`
 
-  Du kan också använda följande kommando, som riktar emulatorn för att använda standardinstansen för SQL Server:
+   Du kan också använda följande kommando, som riktar emulatorn för att använda standardinstansen för SQL Server:
 
-  `AzureStorageEmulator.exe init /server .`
+   `AzureStorageEmulator.exe init /server .`
 
-  Du kan också använda följande kommando, där återinitierar databasen till LocalDB standardinstansen:
+   Du kan också använda följande kommando, där återinitierar databasen till LocalDB standardinstansen:
 
-  `AzureStorageEmulator.exe init /forceCreate`
+   `AzureStorageEmulator.exe init /forceCreate`
 
 Mer information om dessa kommandon finns i [referens för Storage-emulatorn kommandoradsverktyget](#storage-emulator-command-line-tool-reference).
 
@@ -91,7 +91,7 @@ Mer information om anslutningssträngar finns i [konfigurera Azure Storage-anslu
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Vissa Azure storage, klientbiblioteken, till exempel Xamarin-klientbibliotek har endast stöd för autentisering med signatur för delad åtkomsttoken. Du kan skapa SAS-token med ett verktyg som de [Lagringsutforskaren](http://storageexplorer.com/) eller ett annat program som har stöd för autentisering med delad nyckel.
+Vissa Azure storage, klientbiblioteken, till exempel Xamarin-klientbibliotek har endast stöd för autentisering med signatur för delad åtkomsttoken. Du kan skapa SAS-token med ett verktyg som de [Lagringsutforskaren](https://storageexplorer.com/) eller ett annat program som har stöd för autentisering med delad nyckel.
 
 Du kan också generera en SAS-token med hjälp av Azure PowerShell. I följande exempel skapar en SAS-token med fullständig behörighet till en blobbehållare:
 
@@ -281,4 +281,4 @@ Ett fel har åtgärdats där lagringsemulatorn returnerade den `DataServiceVersi
 
 * Utvärdera lagringsemulatorn plattformsoberoende, community-underhålls öppen källkod [Azurite](https://github.com/arafato/azurite). 
 * [Azure Storage-exempel med hjälp av .NET](../storage-samples-dotnet.md) innehåller länkar till flera kodexempel som du kan använda när du utvecklar dina program.
-* Du kan använda den [Microsoft Azure Lagringsutforskaren](http://storageexplorer.com) att arbeta med resurser i din cloud Storage-konto och i storage-emulatorn.
+* Du kan använda den [Microsoft Azure Lagringsutforskaren](https://storageexplorer.com) att arbeta med resurser i din cloud Storage-konto och i storage-emulatorn.

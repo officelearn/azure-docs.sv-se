@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 24e2d7be0dfc32e499bc864f2fdf7e2b1c108969
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6c01232c9bdb685fbc54e5ebe1e1f9fa83073dc2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440224"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107805"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk
 Anslut till din Azure-SSIS integration runtime (IR) till en Azure-nätverk i följande scenarier: 
@@ -26,7 +26,7 @@ Anslut till din Azure-SSIS integration runtime (IR) till en Azure-nätverk i fö
 
 - Du är värd för katalogdatabasen SQL Server Integration Services (SSIS) i Azure SQL Database med virtuellt nätverk tjänstens slutpunkter/hanterad instans. 
 
- Azure Data Factory kan du ansluta Azure-SSIS integration runtime till ett virtuellt nätverk som skapats via den klassiska distributionsmodellen eller Azure Resource Manager-distributionsmodellen. 
+  Azure Data Factory kan du ansluta Azure-SSIS integration runtime till ett virtuellt nätverk som skapats via den klassiska distributionsmodellen eller Azure Resource Manager-distributionsmodellen. 
 
 > [!IMPORTANT]
 > Det klassiska virtuella nätverket används för närvarande längre, så Använd Azure Resource Manager-nätverk i stället.  Växla för att använda Azure Resource Manager-nätverk så snart som möjligt om du redan använder det klassiska virtuella nätverket.

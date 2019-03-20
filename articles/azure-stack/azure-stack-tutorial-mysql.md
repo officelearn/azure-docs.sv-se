@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 8fc3246c76d7d09ea4518b5c548d5dbe05cc7a84
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ff1b137fb6461c4ebd17451b89a180364d833d4e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164268"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116800"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Självstudier: Erbjud högtillgängliga MySQL-databaser
 
@@ -67,7 +67,7 @@ Använd stegen i det här avsnittet för att distribuera MySQL-Server-kluster me
 - Tre virtuella Linux-datorer som värd för MySQL-kluster
 
 1. 
-[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Välj **\+** **skapa en resurs** > **Compute**, och sedan **MySQL med replikering**.
 
@@ -168,7 +168,7 @@ När MySQL-klustret har skapats, konfigurerats och läggas till som en Azure Sta
 > Kör de här stegen från användarportalen för Azure Stack som en klientanvändare med en prenumeration att tillhandahålla funktioner för MySQL-Server (Microsoft.MySQLAdapter service).
 
 1. 
-[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
+   [!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Välj **\+** **skapa en resurs** > **Data \+ Storage**, och sedan **MySQL-databas** .<br><br>Ange den egenskapen databasinformation som krävs, inklusive namn, sortering, prenumeration för att använda och plats som ska användas för distributionen. 
 

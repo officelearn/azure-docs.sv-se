@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 3ca3222f47b6a728905f895007269e3c22acd66d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: cefde79cf8c544a6900b1efa5dbcefbc43638d40
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789950"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009963"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Förbereda nätverksmappning för haveriberedskap för virtuella Hyper-V-datorer till Azure
 
@@ -24,8 +24,8 @@ Den här artikeln hjälper dig att förstå och förbereda för nätverksmappnin
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Förbereda nätverksmappning för replikering till Azure
 
 När du replikerar till Azure mappar nätverksmappningen mellan Virtuella datornätverk i en VMM-källservern och rikta in Azure-nätverk. Mappning utför följande:
-    -  **Nätverksanslutning**– ser till att replikerade virtuella Azure-datorer är anslutna till den mappade nätverksenheten. Alla datorer som redundansväxlar i samma nätverk kan ansluta till varandra, även om de inte över i olika återställningsplaner.
-    - **Nätverksgateway**– om en nätverksgateway har konfigurerats på Azure-målnätverket kan virtuella datorer kan ansluta till andra lokala virtuella datorer.
+-  **Nätverksanslutning**– ser till att replikerade virtuella Azure-datorer är anslutna till den mappade nätverksenheten. Alla datorer som redundansväxlar i samma nätverk kan ansluta till varandra, även om de inte över i olika återställningsplaner.
+- **Nätverksgateway**– om en nätverksgateway har konfigurerats på Azure-målnätverket kan virtuella datorer kan ansluta till andra lokala virtuella datorer.
 
 Nätverksmappning fungerar på följande sätt:
 
@@ -105,7 +105,7 @@ Om målnätverket har flera undernät och ett av dessa undernät har samma namn 
 Om du vill se vad som händer när det gäller återställning efter fel (omvänd replikering), antar vi att VMNetwork1 NewYork är mappade till VMNetwork1 Chicago med följande inställningar.
 
 
-**VIRTUELL DATOR** | **Ansluten till VM-nätverk**
+**VM** | **Ansluten till VM-nätverk**
 ---|---
 VM1 | VMNetwork1-Network
 VM2 (replik av VM1) | VMNetwork1-Chicago

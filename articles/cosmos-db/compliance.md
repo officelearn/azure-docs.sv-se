@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: f1be314db7bfc4cbdfcc809eb3b1d985583739a4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c8a74df19c012613807d39fb3ee529173e82d5ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470152"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093270"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Efterlevnad i Azure Cosmos DB 
 
@@ -35,7 +35,7 @@ För att hjälpa kunder att uppfylla sina egna efterlevnad skyldigheter i regler
 Azure Cosmos DB utökar kontinuerligt dess certifieringstäckning. Azure Cosmos DB är för närvarande certifierad med följande certifikat:
 
 | **Globalt tillämpliga** | **Amerikanska myndigheter** | **Specifika bransch** | **Region eller land specifika** |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | CSA STAR-certifiering<br/><br/>CSA STAR attestering<br/><br/>ISO 20000-1:2011<br/><br/>ISO 22301:2012<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3| DoD SRG Level 2<br/><br/>FedRAMP Moderate<br/><br/>GxP (FDA 21 CFR Part 11)<br/><br/>| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australien IRAP oklassificerade<br/><br/>Tyskland C5<br/><br/>Singapore MTCS Level 3<br/><br/>Spanien ENS hög|
 
 Läs mer om var och en av dessa efterlevnadserbjudanden och hur de hjälpa dig i [översikt över Microsoft Azure-efterlevnad](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) sidan.

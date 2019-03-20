@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 5b2b3a3ec0e9aec603a69211a7493afc31e83283
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 9d789572abf0545eb51b357da091e5a1d712eab2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236557"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433815"
 ---
 # <a name="what-is-azure-cache-for-redis"></a>Vad är Azure Cache for Redis?
 
@@ -57,7 +57,7 @@ Basic | Cache för en enda nod. Den här nivån stöder flera minnesstorlekar (2
 
 Du kan skala upp din cache till en högre nivå i efterhand, när den redan har skapats. Det går inte att skala ned till en lägre nivå. Stegvisa skalningsanvisningar finns i [Skala Azure Cache for Redis](cache-how-to-scale.md) och [Automatisera en skalningsåtgärd](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-### <a name="feature-comparision"></a>Funktionsjämförelse
+### <a name="feature-comparison"></a>Jämför funktioner
 
 En detaljerad jämförelse av varje nivå finns på sidan med [prissättning för Azure Cache for Redis](https://azure.microsoft.com/pricing/details/cache/). Följande tabell beskriver några av de funktioner som stöds på respektive nivå:
 

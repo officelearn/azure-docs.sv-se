@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 445ddb3c580218e21410c961c614a8a9e29d21a0
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 2ea228a1db204170f947b5fe71f1865a4620b0f4
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328341"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549042"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Köra frågor mot en Azure Cosmos-container
 
@@ -32,7 +32,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
 
 Följande fråga har inget filter för partitionsnyckeln (`DeviceId`) och sprids till alla partitioner där den körs mot partitionens index. Om du vill köra en fråga över partitioner anger du `EnableCrossPartitionQuery` till true (eller `x-ms-documentdb-query-enablecrosspartition` i REST-API:et).
 
-Egenskapen EnablecrossPartitionQuery accepterar ett booleskt värde. Om värdet är true (sant) och om frågan inte har en partitionsnyckel skickar Azure Cosmos DB ut frågan över partitioner. Utskicket görs genom att enskilda frågor utfärdas till alla partitioner. För att läsa frågeresultatet ska klientprogrammen använda resultatet från FeedResponse och söka efter egenskapen ContinuationToken. Om du vill läsa alla resultat ska data fortsätta att itereras tills ContinuationToken är null. 
+Egenskapen EnableCrossPartitionQuery accepterar ett booleskt värde. Om värdet är true (sant) och om frågan inte har en partitionsnyckel skickar Azure Cosmos DB ut frågan över partitioner. Utskicket görs genom att enskilda frågor utfärdas till alla partitioner. Om du vill läsa frågeresultaten bör klientprogrammen använda resultaten från FeedResponse och Sök efter egenskapen ContinuationToken. Om du vill läsa alla resultat ska data fortsätta att itereras tills ContinuationToken är null. 
 
 ```csharp
 // Query across partition keys into a class called, DeviceReading

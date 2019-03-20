@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 7e5cf79613bdbd62427e99a0d1f2aa29ed8f85be
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: becf48320b346feea82944ed2f7e752125795d40
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245199"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999517"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Systemkrav för StorSimple Virtual Array
 ## <a name="overview"></a>Översikt
@@ -72,11 +72,11 @@ Följande programvarukrav finns för iSCSI-initierare som har åtkomst till din 
 
 | **Operativsystem som stöds** | **Version som krävs** | **Ytterligare krav/anteckningar** |
 | --- | --- | --- |
-| Windows Server |2008R2 SP1, 2012, 2012 R2 |StorSimple kan skapa tunt allokerade och helt allokerade volymer. Det går inte att skapa delvis allokerade volymer. StorSimple iSCSI-volymer stöds endast för: <ul><li>Enkla volymer på Windows-standarddiskar.</li><li>Windows NTFS för att formatera en volym.</li> |
+| Windows Server |2008R2 SP1, 2012, 2012R2 |StorSimple kan skapa tunt allokerade och helt allokerade volymer. Det går inte att skapa delvis allokerade volymer. StorSimple iSCSI-volymer stöds endast för: <ul><li>Enkla volymer på Windows-standarddiskar.</li><li>Windows NTFS för att formatera en volym.</li> |
 
 Följande krav är för SMB-klienter som har åtkomst till din StorSimple Virtual Array (konfigureras som en filserver).
 
-| **SMB-Version** |
+| **SMB Version** |
 | --- |
 | SMB 2.x |
 | SMB 3.0 |
@@ -125,12 +125,12 @@ Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, b
 | --- | --- |
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|StorSimple Device Manager-tjänst<br>Access Control Service<br>Azure Service Bus<br>Autentiseringstjänsten|
 | `http://*.backup.windowsazure.com` |Enhetsregistrering |
-| `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Återkallade certifikat |
+| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Återkallade certifikat |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage-konton och övervakning |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Microsoft Update-servrar<br> |
+| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft Update-servrar<br> |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |
 | `https://*.partners.extranet.microsoft.com/*` |Supportpaket |
-| `http://*.data.microsoft.com ` |Telemetritjänsten i Windows, finns i den [uppdatering för customer experience och diagnostiktelemetri](https://support.microsoft.com/en-us/kb/3068708) |
+| `https://*.data.microsoft.com ` |Telemetritjänsten i Windows, finns i den [uppdatering för customer experience och diagnostiktelemetri](https://support.microsoft.com/en-us/kb/3068708) |
 
 ## <a name="next-steps"></a>Nästa steg
 * [Förbereda portalen för att distribuera StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)

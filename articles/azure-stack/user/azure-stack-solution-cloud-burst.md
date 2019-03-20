@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a8c4ef5df586c87862ea8e1634e9a72356401d0b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bcb538cf2e546e4913ccb223e143c2343e114de7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247433"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896202"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Självstudier: Skapa molnöverskridande skalning lösningar med Azure
 
@@ -128,7 +128,7 @@ Azure Repos
 
 1. Logga in på Azure-Pipelines för att bekräfta möjligheten att skapa skapa definitioner.
 
-2. Lägg till **- r win10-x64** kod. Detta är nödvändigt att utlösa en självständig distribution med .net Core.
+2. Lägg till **- r win10-x64** kod. Detta är nödvändigt att utlösa en självständig distribution med .NET Core.
 
     ![Alternativ text](media/azure-stack-solution-cloud-burst/image4.png)
 
@@ -266,7 +266,7 @@ Nu när information om slutpunkten finns är Pipelines Azure till Azure Stack-an
 
 Använd [Azure Resource Manager-mallar som web](https://azure.microsoft.com/resources/templates/) kod från Azure-databaser för att distribuera till båda molnen.
 
-### <a name="add-code-to-a-azure-repos-project"></a>Lägg till kod i ett projekt i Azure-lagringsplatser
+### <a name="add-code-to-an-azure-repos-project"></a>Lägg till kod i ett projekt med Azure-lagringsplatser
 
 1.  Logga in på Azure-databaser med ett konto som har behörighet för projektet skapas på Azure Stack. Nästa skärmdump visar hur du ansluter till HybridCICD-projektet.
 
@@ -286,7 +286,7 @@ Använd [Azure Resource Manager-mallar som web](https://azure.microsoft.com/reso
 
 2.  Navigera till den **skapa webbprogram** sidan för projektet.
 
-3.  I **argument**, lägga till **- r win10-x64** kod. Detta krävs för att utlösa en självständig distribution med .net Core.
+3.  I **argument**, lägga till **- r win10-x64** kod. Detta är nödvändigt att utlösa en självständig distribution med .NET Core.
 
 4.  Kör versionen. Den [självständigt distributionsbuild](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) processen ska publicera artefakter som kan köras på Azure och Azure Stack.
 

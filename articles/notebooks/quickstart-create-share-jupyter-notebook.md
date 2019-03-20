@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 584d59592158ccf542dbb05486b159a5e34ffbc3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3f03202d0f4416b3bf08a33e5d997d7149eda9f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759110"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104411"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Snabbstart: Skapa och dela en notebook-fil
 
@@ -34,12 +34,12 @@ ms.locfileid: "57759110"
 
 1. I den **Skapa nytt projekt** popup-fönstret som visas, ange eller ange följande information och välj sedan **skapa**:
 
-    - **Projektnamnet**: Hello World i Python
-    - **Projektet ID**: hello-world – python
-    - **Offentliga projekt**: (avmarkerad)
-    - **Skapa en README.md**: (avmarkerad)
+   - **Projektnamnet**: Hello World i Python
+   - **Projektet ID**: hello-world – python
+   - **Offentliga projekt**: (avmarkerad)
+   - **Skapa en README.md**: (avmarkerad)
 
-    ![Nya projekt popup-fönster med ifyllt information](media/quickstarts/new-project-popup.png)
+     ![Nya projekt popup-fönster med ifyllt information](media/quickstarts/new-project-popup.png)
 
 1. Efter en liten stund navigerar du till det nya projektet i Azure-anteckningsböcker. Lägg till en anteckningsbok i projektet genom att välja den **+ ny** listrutan (som kan visas bara **+**), sedan välja **Notebook**:
 

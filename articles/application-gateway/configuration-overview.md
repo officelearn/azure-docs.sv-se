@@ -7,20 +7,20 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: absha
-ms.openlocfilehash: 702101039c03b30bb8883ef0308fe68c5567a0c4
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
-ms.translationtype: MT
+ms.openlocfilehash: 7bc3ea054056ac67cf0a116fb1538bc1483ab4d4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57733321"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223537"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway-konfiguration
 
 Programgateway består av flera komponenter som kan konfigureras på olika sätt för att utföra olika scenarier. Den här artikeln beskriver hur varje komponent som ska konfigureras.
 
-![application-gateway-components](.\media\configuration-overview\configuration-overview1.png)
+![application-gateway-components](./media/configuration-overview/configuration-overview1.png)
 
-På bilden ovan illustrerar konfigurationen av ett program med 3 lyssnare. Första två är lyssnare för flera platser för http://acme.com/* och http://fabrikam.com/* respektive. Båda lyssnar på port 80. Den tredje lyssnaren är en grundläggande lyssnare med från slutpunkt till slutpunkt SSL-avslutning. 
+På bilden ovan illustrerar konfigurationen av ett program med 3 lyssnare. Första två är lyssnare för flera platser för `http://acme.com/*` och `http://fabrikam.com/*`respektive. Båda lyssnar på port 80. Den tredje lyssnaren är en grundläggande lyssnare med från slutpunkt till slutpunkt SSL-avslutning. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -83,10 +83,9 @@ En lyssnare är en logisk enhet som söker efter inkommande anslutningsbegärand
 
 Du kan välja mellan [grundläggande eller multisite lyssnare](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#types-of-listeners) när du skapar en ny lyssnare. 
 
-- Om du är värd för en enda plats bakom en Programgateway, väljer du grundläggande lyssnare. Lär dig [hur du skapar en Programgateway med med grundläggande lyssnare](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
+- Om du är värd för en enda plats bakom en Programgateway, väljer du grundläggande lyssnare. Lär dig [hur du skapar en Programgateway med grundläggande lyssnare](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- Om du konfigurerar mer än ett webbprogram eller flera underdomäner i samma överordnade domän på samma application gateway-instans, väljer du lyssnare för flera platser. För lyssnare för flera platser behöver du dessutom ange ett värdnamn. Det beror på att Application Gateway förlitar sig på HTTP 1.1 värdhuvuden för att vara värd för flera webbplatser på samma offentliga IP-adress och port.![1551057450710](C:\Users\absha\AppData\Roaming\Typora\typora-user-images\1551057450710.png)
-
+- Om du konfigurerar mer än ett webbprogram eller flera underdomäner i samma överordnade domän på samma application gateway-instans, väljer du lyssnare för flera platser. För lyssnare för flera platser behöver du dessutom ange ett värdnamn. Det beror på att Application Gateway förlitar sig på HTTP 1.1 värdhuvuden för att vara värd för flera webbplatser på samma offentliga IP-adress och port.
 
 > [!NOTE]
 > När det gäller v1-SKU: er bearbetas lyssnare i den ordning som de visas. Därför om en grundläggande lyssnare matchar en inkommande begäran bearbetas först. Lyssnare för flera platser bör därför konfigureras innan en grundläggande lyssnare så att trafik dirigeras till rätt serverdel.
@@ -195,7 +194,7 @@ Information om funktionen för omdirigering finns i [översikt över Mappomdirig
 
   - ##### <a name="listener"></a>Lyssnare
 
-    Välja lyssnare som omdirigering av mål underlättar vid omdirigering från en lyssnare till en annan lyssnaren på gatewayen. Den här inställningen är obligatorisk när du vill aktivera HTTP till HTTPS-omdirigering, d.v.s. omdirigerings-trafik från käll-lyssnaren som söker efter de inkommande HTTP-begäranden till lyssnare inom ramen för mål som söker efter inkommande HTTPS-begäranden. Du kan också välja frågesträngen och sökväg i den ursprungliga begäran som ska ingå i begäran vidarebefordras till målet för omdirigering.![application-gateway-components](.\media\configuration-overview\configure-redirection.png)
+    Välja lyssnare som omdirigering av mål underlättar vid omdirigering från en lyssnare till en annan lyssnaren på gatewayen. Den här inställningen är obligatorisk när du vill aktivera HTTP till HTTPS-omdirigering, d.v.s. omdirigerings-trafik från käll-lyssnaren som söker efter de inkommande HTTP-begäranden till lyssnare inom ramen för mål som söker efter inkommande HTTPS-begäranden. Du kan också välja frågesträngen och sökväg i den ursprungliga begäran som ska ingå i begäran vidarebefordras till målet för omdirigering.![application-gateway-components](./media/configuration-overview/configure-redirection.png)
 
     Mer information om HTTP till HTTPS-omdirigering finns i [HTTP till HTTP-omdirigering med hjälp av portalen](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal), [HTTP till HTTP-omdirigering med hjälp av PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell), [HTTP till HTTP-omdirigering med CLI](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
 
@@ -277,7 +276,7 @@ Om du äger en anpassad domän och har mappat befintligt anpassat DNS-namn till 
 
 ### <a name="host-name-override"></a>Åsidosätt för värd-namn
 
-Den här funktionen ersätter den *värden* rubrik i den inkommande begäran på application gateway till värdnamn som du anger här. Exempel: om www.contoso.com har angetts som den **värdnamn** inställningen, den ursprungliga begäran https://appgw.eastus.cloudapp.net/path1 kommer att ändras till https://www.contoso.com/path1 när begäran vidarebefordras till backend-servern. 
+Den här funktionen ersätter den *värden* rubrik i den inkommande begäran på application gateway till värdnamn som du anger här. Till exempel om www\.contoso.com har angetts som den **värdnamn** inställningen, den ursprungliga begäran https://appgw.eastus.cloudapp.net/path1 kommer att ändras till https://www.contoso.com/path1 när begäran vidarebefordras till backend-servern. 
 
 ## <a name="backend-pool"></a>Serverdelspool
 

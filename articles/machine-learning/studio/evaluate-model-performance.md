@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: f5e7a923ed5eb692f5fb05082c73b969081c739b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 37ab56c377bc53a7300b51ffc709ea8d1b9d6f9b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821002"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891594"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Så här utvärderar du modellens prestanda i Azure Machine Learning Studio
 
@@ -83,7 +83,7 @@ När experimentet har körts kan du inspektera utvärderingsresultaten genom att
 Figur 4. Korsvalidering resultatet av en regressionsmodell.
 
 ## <a name="evaluating-a-binary-classification-model"></a>Utvärderar en binär Klassificeringsmodell
-I ett scenario med binär klassificering en målvariabel har bara två möjliga resultat, till exempel: {0, 1} eller {FALSKT, SANT}, {negativt, positivt}. Anta att du får en datauppsättning som är olämpligt för barn anställda med några demografiska och anställning variabler och att du uppmanas att förutsäga inkomstnivå, en binär variabel med värdena {”< = 50 K” ”, > 50 K”}. Med andra ord klassen negativt representerar de medarbetare som gör mindre än eller lika med 50 K per år och klassen positivt representerar alla andra anställda. Som i scenariot regression skulle vi tränar en modell, bedöma vissa data och utvärdera resultaten. Den största skillnaden här är valet av mått beräknar Azure Machine Learning Studio- och utdata. För att visa intäkter på förutsägelse scenario kan vi använder den [vuxet](http://archive.ics.uci.edu/ml/datasets/Adult) datauppsättning för att skapa ett experiment i Studio och utvärdera prestanda för en tvåklassförhöjt logistic regression-modellen, ett vanligt binär klassificerare.
+I ett scenario med binär klassificering en målvariabel har bara två möjliga resultat, till exempel: {0, 1} eller {FALSKT, SANT}, {negativt, positivt}. Anta att du får en datauppsättning som är olämpligt för barn anställda med några demografiska och anställning variabler och att du uppmanas att förutsäga inkomstnivå, en binär variabel med värdena {”< = 50 K” ”, > 50 K”}. Med andra ord klassen negativt representerar de medarbetare som gör mindre än eller lika med 50 K per år och klassen positivt representerar alla andra anställda. Som i scenariot regression skulle vi tränar en modell, bedöma vissa data och utvärdera resultaten. Den största skillnaden här är valet av mått beräknar Azure Machine Learning Studio- och utdata. För att visa intäkter på förutsägelse scenario kan vi använder den [vuxet](https://archive.ics.uci.edu/ml/datasets/Adult) datauppsättning för att skapa ett experiment i Studio och utvärdera prestanda för en tvåklassförhöjt logistic regression-modellen, ett vanligt binär klassificerare.
 
 ### <a name="creating-the-experiment"></a>Skapa experimentet
 Lägg till följande moduler i din arbetsyta i Azure Machine Learning Studio:
@@ -133,7 +133,7 @@ Figur 8. Cross-validerar en binär Klassificeringsmodell.
 Figur 9. Korsvalidering resultatet av en binär klassificerare.
 
 ## <a name="evaluating-a-multiclass-classification-model"></a>Utvärdering av en modell för multiklass-baserad klassificering
-I det här experimentet använder vi den populära [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris") datauppsättning som innehåller instanser av 3 olika typer (klasser) av iris anläggning. Det finns 4 funktionen värden (sepal längd och bredd och petal längd och bredd) för varje instans. I de föregående experiment vi tränas och testas modeller med samma datauppsättningar. Här kan vi använder den [dela Data] [ split] modul för att skapa 2 delmängder av data, träna på först och bedöma och utvärdera på andra. Iris-datauppsättningen är offentligt tillgängligt på den [UCI Machine Learning databasen](http://archive.ics.uci.edu/ml/index.html), och kan hämtas med hjälp av en [importera Data] [ import-data] modulen.
+I det här experimentet använder vi den populära [Iris](https://archive.ics.uci.edu/ml/datasets/Iris "Iris") datauppsättning som innehåller instanser av 3 olika typer (klasser) av iris anläggning. Det finns 4 funktionen värden (sepal längd och bredd och petal längd och bredd) för varje instans. I de föregående experiment vi tränas och testas modeller med samma datauppsättningar. Här kan vi använder den [dela Data] [ split] modul för att skapa 2 delmängder av data, träna på först och bedöma och utvärdera på andra. Iris-datauppsättningen är offentligt tillgängligt på den [UCI Machine Learning databasen](https://archive.ics.uci.edu/ml/index.html), och kan hämtas med hjälp av en [importera Data] [ import-data] modulen.
 
 ### <a name="creating-the-experiment"></a>Skapa experimentet
 Lägg till följande moduler i din arbetsyta i Azure Machine Learning Studio:

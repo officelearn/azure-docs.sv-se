@@ -2,111 +2,31 @@
 title: Analysera din arbetsbelastning – Azure SQL Data Warehouse | Microsoft Docs
 description: Tekniker för att analysera fråga prioritering för arbetsbelastningen i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kevinvngo
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
-ms.date: 04/17/2018
-ms.author: kevin
-ms.reviewer: igorstan
-ms.openlocfilehash: 9025eccabcbf7052131fee741a1e1f6a2139366b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.subservice: workload management
+ms.date: 03/13/2019
+ms.author: rortloff
+ms.reviewer: jrasnick
+ms.openlocfilehash: 7b5ca738ef71e25dfe5e71a1983d701bb8868fe5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476765"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896814"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analysera din arbetsbelastning i Azure SQL Data Warehouse
-Tekniker för att analysera fråga prioritering för arbetsbelastningen i Azure SQL Data Warehouse.
 
-## <a name="workload-groups"></a>Arbetsbelastningsgrupper 
-SQL Data Warehouse implementerar resursklasser med hjälp av arbetsbelastningsgrupper. Det finns totalt åtta arbetsbelastningsgrupper som styr beteendet för resursklasser över olika DWU-storlekar. För alla DWU använder SQL Data Warehouse bara fyra av åtta arbetsbelastningsgrupper. Den här metoden är naturligt eftersom varje arbetsbelastningsgruppen är tilldelad till en av fyra resursklasser: smallrc mediumrc, largerc, eller xlargerc. Vikten av att förstå arbetsbelastningsgrupper som är några av de här arbetsbelastningsgrupper som har angetts till högre *vikten*. Prioritet används för CPU schemaläggning. Frågor som körs med hög prioritet får tre gånger så mycket CPU-cykler än frågor som körs med medelhög prioritet. Därför avgör samtidighet fack mappningar också processorprioritet. När en fråga förbrukar 16 eller flera platser, körs den som hög prioritet.
+Tekniker för att analysera din arbetsbelastning i Azure SQL Data Warehouse.
 
-I följande tabell visar vikten mappningar för varje arbetsbelastningsgruppen.
+## <a name="resource-classes"></a>Resursklasser
 
-### <a name="workload-group-mappings-to-concurrency-slots-and-importance"></a>Arbetsbelastningen gruppmappningar samtidighetsfack och prioritet
-
-| Arbetsbelastningsgrupper | Mappning av samtidighet fack | MB / Distribution (elasticitet) | MB / Distribution (beräkning) | Vikten mappning |
-|:---------------:|:------------------------:|:------------------------------:|:---------------------------:|:------------------:|
-| SloDWGroupC00   | 1                        |    100                         | 250                         | Medel             |
-| SloDWGroupC01   | 2                        |    200                         | 500                         | Medel             |
-| SloDWGroupC02   | 4                        |    400                         | 1000                        | Medel             |
-| SloDWGroupC03   | 8                        |    800                         | 2000                        | Medel             |
-| SloDWGroupC04   | 16                       |  1,600                         | 4000                        | Hög               |
-| SloDWGroupC05   | 32                       |  3,200                         | 8000                        | Hög               |
-| SloDWGroupC06   | 64                       |  6,400                         | 16,000                      | Hög               |
-| SloDWGroupC07   | 128                      | 12,800                         | 32,000                      | Hög               |
-| SloDWGroupC08   | 256                      | 25,600                         | 64,000                      | Hög               |
-
-<!-- where are the allocation and consumption of concurrency slots charts? --> Den **allokering och användning av samtidighetsfack** diagrammet visar en DW500 använder 1, 4, 8 eller 16 samtidighetsfack för smallrc, mediumrc, largerc eller xlargerc, respektive. Du kan söka efter de här värdena i föregående diagram för att hitta vikten för varje resursklass.
-
-### <a name="dw500-mapping-of-resource-classes-to-importance"></a>DW500 mappning av resursklasser betydelse
-| Resursklass | Arbetsbelastningsgrupp | Samtidighetsfack används | MB / Distribution | Prioritet |
-|:-------------- |:-------------- |:----------------------:|:-----------------:|:---------- |
-| smallrc        | SloDWGroupC00  | 1                      | 100               | Medel     |
-| mediumrc       | SloDWGroupC02  | 4                      | 400               | Medel     |
-| largerc        | SloDWGroupC03  | 8                      | 800               | Medel     |
-| xlargerc       | SloDWGroupC04  | 16                     | 1,600             | Hög       |
-| staticrc10     | SloDWGroupC00  | 1                      | 100               | Medel     |
-| staticrc20     | SloDWGroupC01  | 2                      | 200               | Medel     |
-| staticrc30     | SloDWGroupC02  | 4                      | 400               | Medel     |
-| staticrc40     | SloDWGroupC03  | 8                      | 800               | Medel     |
-| staticrc50     | SloDWGroupC03  | 16                     | 1,600             | Hög       |
-| staticrc60     | SloDWGroupC03  | 16                     | 1,600             | Hög       |
-| staticrc70     | SloDWGroupC03  | 16                     | 1,600             | Hög       |
-| staticrc80     | SloDWGroupC03  | 16                     | 1,600             | Hög       |
-
-## <a name="view-workload-groups"></a>Visa arbetsbelastningsgrupper
-Följande fråga visar information om minne resurstilldelningen ur resursstyrningen. Det här är användbart för att analysera active och historisk användning av arbetsbelastningsgrupper när du felsöker.
-
-```sql
-WITH rg
-AS
-(   SELECT  
-     pn.name                                AS node_name
-    ,pn.[type]                              AS node_type
-    ,pn.pdw_node_id                         AS node_id
-    ,rp.name                                AS pool_name
-    ,rp.max_memory_kb*1.0/1024              AS pool_max_mem_MB
-    ,wg.name                                AS group_name
-    ,wg.importance                          AS group_importance
-    ,wg.request_max_memory_grant_percent    AS group_request_max_memory_grant_pcnt
-    ,wg.max_dop                             AS group_max_dop
-    ,wg.effective_max_dop                   AS group_effective_max_dop
-    ,wg.total_request_count                 AS group_total_request_count
-    ,wg.total_queued_request_count          AS group_total_queued_request_count
-    ,wg.active_request_count                AS group_active_request_count
-    ,wg.queued_request_count                AS group_queued_request_count
-    FROM    sys.dm_pdw_nodes_resource_governor_workload_groups wg
-    JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools rp    
-            ON  wg.pdw_node_id  = rp.pdw_node_id
-            AND wg.pool_id      = rp.pool_id
-    JOIN    sys.dm_pdw_nodes pn
-            ON    wg.pdw_node_id    = pn.pdw_node_id
-    WHERE   wg.name like 'SloDWGroup%'
-    AND     rp.name    = 'SloDWPool'
-)
-SELECT  pool_name
-,       pool_max_mem_MB
-,       group_name
-,       group_importance
-,       (pool_max_mem_MB/100)*group_request_max_memory_grant_pcnt AS max_memory_grant_MB
-,       node_name
-,       node_type
-,       group_total_request_count
-,       group_total_queued_request_count
-,       group_active_request_count
-,       group_queued_request_count
-FROM    rg
-ORDER BY
-        node_name
-,       group_request_max_memory_grant_pcnt
-,       group_importance
-;
-```
+SQL Data Warehouse ger resursklasser för att tilldela systemresurser till frågor.  Mer information om resursklasser finns [resursklasser arbetsbelastning resurshantering](resource-classes-for-workload-management.md).  Frågor väntar om resursklass som tilldelats en fråga behöver fler resurser än vad som är tillgängliga.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Köade fråga identifiering och andra DMV: er
+
 Du kan använda den `sys.dm_pdw_exec_requests` DMV att identifiera frågor som väntar i kö samtidighet. Frågor som väntar på ett fack för samtidighet har statusen **pausats**.
 
 ```sql
@@ -186,7 +106,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-Den `sys.dm_pdw_resource_waits` DMV visar endast resurs-väntar som används av en viss fråga. Väntetid för resursen endast mäter den tid som väntar på resurser som ska tillhandahållas, till skillnad från signal väntetid, vilket är den tid det tar för de underliggande SQL-servrarna att schemalägga frågan till Processorn.
+Den `sys.dm_pdw_resource_waits` DMV visar wait-information för en viss fråga. Resursen väntetid tidsmått den väntar på resurser tillhandahållas. Signal väntetid är den tid det tar för de underliggande SQL-servrarna att schemalägga frågan till Processorn.
 
 ```sql
 SELECT  [session_id]
@@ -204,12 +124,13 @@ FROM    sys.dm_pdw_resource_waits
 WHERE    [session_id] <> SESSION_ID()
 ;
 ```
+
 Du kan också använda den `sys.dm_pdw_resource_waits` DMV beräkna hur många samtidighetsfack har beviljats.
 
 ```sql
-SELECT  SUM([concurrency_slots_used]) as total_granted_slots 
-FROM    sys.[dm_pdw_resource_waits] 
-WHERE   [state]           = 'Granted' 
+SELECT  SUM([concurrency_slots_used]) as total_granted_slots
+FROM    sys.[dm_pdw_resource_waits]
+WHERE   [state]           = 'Granted'
 AND     [resource_class] is not null
 AND     [session_id]     <> session_id()
 ;
@@ -230,6 +151,5 @@ FROM    sys.dm_pdw_wait_stats w
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 Mer information om hur du hanterar databasanvändare och säkerhet finns i [skydda en databas i SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md). Mer information om hur större resursklasser kan förbättra kvaliteten för grupperade columnstore-index, finns i [bygga om index för att förbättra segmentkvaliteten](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
-
-

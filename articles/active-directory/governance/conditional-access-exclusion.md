@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75ff08111e96fd4b210dfeb09db521856f4f5e52
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a197a6c27b337d7aa97667dc07b1059e82050549
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727510"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892733"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Använd Azure AD-Åtkomstgranskningar att hantera användare som undantas från principer för villkorlig åtkomst
 
@@ -102,7 +102,7 @@ Vi beskriver två exempel där du kan använda åtkomstgranskningar för att han
 Vi antar att du har en villkorlig åtkomstprincip som blockerar åtkomsten från vissa länder. Den innehåller en grupp som är undantagna från principen. Här är en rekommenderad åtkomstgranskning där medlemmar i gruppen granskas.
 
 > [!NOTE]
-> Rollen Global administratör eller Användaradministratör konto krävs för att skapa åtkomstgranskningar.
+> En Global administratör eller användarrollen för administratör krävs för att skapa åtkomstgranskningar.
 
 1. Granskningen ska återkomma varje vecka.
 

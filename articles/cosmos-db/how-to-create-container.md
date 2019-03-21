@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 445d9f220a215eb17436d52f637b57bd3492aaae
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a509710b5d67aefc599b7e7250754aadd7ad9587
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864782"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113171"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Skapa en Azure Cosmos-container
 
@@ -21,11 +21,11 @@ I den här artikeln beskrivs olika sätt att skapa en container (samling, tabell
 
 ### <a id="portal-sql"></a>SQL-API
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. [Skapa ett nytt Azure Cosmos DB-konto](create-sql-api-dotnet.md#create-a-database-account) eller välj ett befintligt konto.
 
-1. Öppna fönsterrutan **Datautforskaren** och välj **Ny samling**. Ange därefter följande information:
+1. Öppna fönsterrutan **Data Explorer** och välj **Ny samling**. Ange därefter följande information:
 
    * Ange om du skapar en ny databas eller använder en befintlig.
    * Ange ett samlings-ID.
@@ -37,11 +37,11 @@ I den här artikeln beskrivs olika sätt att skapa en container (samling, tabell
 
 ### <a id="portal-mongodb"></a>API för Azure Cosmos DB för MongoDB
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. [Skapa ett nytt Azure Cosmos DB-konto](create-mongodb-dotnet.md#create-a-database-account) eller välj ett befintligt konto.
 
-1. Öppna fönsterrutan **Datautforskaren** och välj **Ny samling**. Ange därefter följande information:
+1. Öppna fönsterrutan **Data Explorer** och välj **Ny samling**. Ange därefter följande information:
 
    * Ange om du skapar en ny databas eller använder en befintlig.
    * Ange ett samlings-ID.
@@ -54,7 +54,7 @@ I den här artikeln beskrivs olika sätt att skapa en container (samling, tabell
 
 ### <a id="portal-cassandra"></a>API för Cassandra
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. [Skapa ett nytt Azure Cosmos DB-konto](create-cassandra-dotnet.md#create-a-database-account) eller välj ett befintligt konto.
 
@@ -73,7 +73,7 @@ I den här artikeln beskrivs olika sätt att skapa en container (samling, tabell
 
 ### <a id="portal-gremlin"></a>Gremlin-API
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. [Skapa ett nytt Azure Cosmos DB-konto](create-graph-dotnet.md#create-a-database-account) eller välj ett befintligt konto.
 
@@ -90,7 +90,7 @@ I den här artikeln beskrivs olika sätt att skapa en container (samling, tabell
 
 ### <a id="portal-table"></a>Tabell-API
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. [Skapa ett nytt Azure Cosmos DB-konto](create-table-dotnet.md#create-a-database-account) eller välj ett befintligt konto.
 
@@ -198,7 +198,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 ```
 
 > [!Note]
-MongoDB-kabelprotokollet har inga begäransenheter. Skapa en ny samling med dataflöde genom att använda Azure-portalen eller SQL-API.
+> MongoDB-kabelprotokollet har inga begäransenheter. Skapa en ny samling med dataflöde genom att använda Azure-portalen eller SQL-API.
 
 ### <a id="dotnet-cassandra"></a>API för Cassandra
 

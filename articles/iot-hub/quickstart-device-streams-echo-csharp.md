@@ -8,18 +8,20 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 7b3a8ac0500652b8c4250b4bc3b4f5514b62c4aa
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: 0b39943b318afd6f9aabd6ab0711651d64e975cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816950"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121612"
 ---
 # <a name="quickstart-communicate-to-device-applications-in-c-via-iot-hub-device-streams-preview"></a>Snabbstart: Kommunicera med enhetsprogram i C# via IoT Hub-enhetsströmmar (förhandsversion)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
+
+Microsoft Azure IoT Hub stöder för närvarande enheten strömmar som en [förhandsgranskningsfunktion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [IoT Hub-enhetsströmmar](./iot-hub-device-streams-overview.md) gör att tjänst- och enhetsprogram kan kommunicera på ett säkert och brandväggsvänligt sätt. Den här snabbstarten omfattar två C#-program som utnyttjar enhetsströmmar för att skicka data fram och tillbaka (echo).
 
@@ -27,7 +29,12 @@ ms.locfileid: "56816950"
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
+
+Förhandsgranskning av enheten strömmar är för närvarande stöds endast för IoT-hubbar som har skapats i följande regioner:
+
+  - **USA, centrala**
+  - **USA, centrala – EUAP**
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med C#. Du måste ha .NET Core SDK 2.1.0 eller senare på utvecklingsdatorn.
 
@@ -79,7 +86,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
    **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --hub-name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
     Anteckna det returnerade värdet, som ser ut så här:
@@ -140,7 +147,7 @@ dotnet run "<DeviceConnectionString>"
 dotnet run <DeviceConnectionString>
 ```
 
-I slutet av det sista steget initierar programmet på tjänstsidan en dataström till enheten, och när den har upprättats skickas en strängbuffert till tjänsten via dataströmmen. I det här exemplet returnerar programmet på tjänstsidan helt enkelt tillbaka samma data till enheten, vilket demonstrerar lyckad dubbelriktad kommunikation mellan de två programmen. Se bilden nedan.
+I slutet av det sista steget initierar programmet på tjänstsidan en dataström till enheten, och när den har upprättats skickas en strängbuffert till tjänsten via dataströmmen. I det här exemplet ekar på tjänstsidan programmet bara tillbaka samma data på enheten, vilket demonstrerar lyckad dubbelriktad kommunikation mellan de två programmen. Se bilden nedan.
 
 Konsolens utdata på enhetssidan: ![alternativ text](./media/quickstart-device-streams-echo-csharp/device-console-output.png "Konsolens utdata på enhetssidan")
 

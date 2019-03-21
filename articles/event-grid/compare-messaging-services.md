@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/30/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 0a71b88f6ad85cbd76f9bc789e87ad5b032418c9
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: d2daa23a22fae6ba420a146599c0c0ba659a94f2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297114"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540813"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Välj mellan Azure-meddelandetjänster – Event Grid, Event Hubs och Service Bus
 
@@ -34,7 +34,7 @@ Det finns en viktig skillnad mellan tjänster som levererar en händelse och tj�
 
 En händelse är ett enkelt meddelande om ett villkor eller en statusändring. Utgivaren av händelsen har ingen förväntan om hur händelsen ska hanteras. Händelsekonsumenten avgör vad man gör med meddelandet. Händelser kan vara diskreta enheter eller ingå i en serie.
 
-Diskreta händelser rapporterar statusändringar och har handlingsbarhet. För att gå vidare behöver konsumenten endast veta att något hände. Händelsedata innehåller information om vad som har hänt, men har inte de data som utlöste händelsen. Till exempel meddelar en händelse konsumenten att en fil har skapats. De kan innehålla allmän information om filen, men innehåller inte själva filen. Diskreta händelser är idealiska för [serverlösa](http://azure.com/serverless) lösningar som behöver vara skalbara.
+Diskreta händelser rapporterar statusändringar och har handlingsbarhet. För att gå vidare behöver konsumenten endast veta att något hände. Händelsedata innehåller information om vad som har hänt, men har inte de data som utlöste händelsen. Till exempel meddelar en händelse konsumenten att en fil har skapats. De kan innehålla allmän information om filen, men innehåller inte själva filen. Diskreta händelser är idealiska för [serverlösa](https://azure.com/serverless) lösningar som behöver vara skalbara.
 
 Seriehändelser rapporterar ett tillstånd och går att analysera. Händelserna är tidssorterade och överlappande. Konsumenten måste ha den sekventiella händelseserien för att kunna analysera vad hände.
 
@@ -44,7 +44,7 @@ Ett meddelande är rådata som genereras av en tjänst och som ska förbrukas el
 
 ## <a name="comparison-of-services"></a>Jämförelse av tjänster
 
-| Tjänst | Syfte | Typ | När du ska använda detta |
+| Tjänst | Syfte | Type | När du ska använda detta |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | Reaktiv programmering | Händelsedistribution (diskret) | Reagera på statusändringar |
 | Event Hubs | Pipeline för stordata | Händelseströmning (serie) | Telemetri och distribuerade strömmande data |

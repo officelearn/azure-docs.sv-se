@@ -4,17 +4,17 @@ description: Beskriver hur resource principdefinitionen används av Azure Policy
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: e3f2b60af574bc1d4e6633ce47b6cdf51e8e6d3e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 35cb5c286b9c9657c37dcede7f51082b5c48ef99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308422"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894435"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -101,7 +101,7 @@ En parameter har följande egenskaper som används i principdefinitionen:
   - `displayName`: Det egna namnet som visas i portalen för parametern.
   - `strongType`: (Valfritt) Används när du tilldelar principdefinitionen via portalen. Innehåller en kontext medveten lista. Mer information finns i [strongType](#strongtype).
 - `defaultValue`: (Valfritt) Anger värdet för parametern i en tilldelning om inget värde anges. Krävs när du uppdaterar en befintlig principdefinition som är tilldelad.
-- `allowedValues`: (Valfritt) Innehåller en lista med värden som parametern accepterar under tilldelning.
+- `allowedValues`: (Valfritt) Innehåller en matris med värden som parametern accepterar under tilldelning.
 
 Exempelvis kan definiera du en principdefinition för att begränsa de platser där resurser kan distribueras. En parameter för den principdefinitionen kan vara **allowedLocations**. Den här parametern används av varje tilldelning av principdefinitionen för att begränsa de godkända värdena. Användning av **strongType** ger en förbättrad upplevelse när du har slutfört tilldelningen via portalen:
 
@@ -289,6 +289,9 @@ I följande exempel `concat` används för att skapa en fält-sökning för tagg
 Villkor kan även skapas med hjälp av **värdet**. **värdet** kontrollerar villkor mot [parametrar](#parameters), [stöds Mallfunktioner](#policy-functions), eller litteraler.
 **värdet** paras ihop med alla stöds [villkor](#conditions).
 
+> [!WARNING]
+> Om resultatet av en _mallfunktionen_ inträffar ett fel misslyckas för utvärdering av principen. En misslyckad utvärdering är en implicit **neka**. Mer information finns i [undvika mall fel](#avoiding-template-failures).
+
 #### <a name="value-examples"></a>Värdet exempel
 
 Den här principen regelexempel använder **värdet** att jämföra resultatet av den `resourceGroup()` funktionen och den returnerade **namn** egenskap till en **som** villkor för `*netrg`. Regeln nekar en resurs inte av den `Microsoft.Network/*` **typ** i valfri resursgrupp vars namn slutar med `*netrg`.
@@ -328,6 +331,44 @@ Den här principen regelexempel använder **värdet** att kontrollera om resulta
     }
 }
 ```
+
+#### <a name="avoiding-template-failures"></a>Undvik mall-fel
+
+Användning av _Mallfunktioner_ i **värdet** möjliggör många komplexa kapslade funktioner. Om resultatet av en _mallfunktionen_ inträffar ett fel misslyckas för utvärdering av principen. En misslyckad utvärdering är en implicit **neka**. Ett exempel på en **värdet** som misslyckas i vissa scenarion:
+
+```json
+{
+    "policyRule": {
+        "if": {
+            "value": "[substring(field('name'), 0, 3)]",
+            "equals": "abc"
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
+}
+```
+
+Principregeln exemplet ovan använder [substring()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) att jämföra de första tre tecknen i **namn** till **abc**. Om **namn** är kortare än tre tecken i `substring()` funktionen resulterar i ett fel. Det här felet gör att principen ska bli en **neka** effekt.
+
+Använd i stället de [if()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) funktionen för att kontrollera om de första tre tecknen i **namn** lika **abc** utan att tillåta en **namn** kortare än tre tecken kan orsaka ett fel:
+
+```json
+{
+    "policyRule": {
+        "if": {
+            "value": "[if(greaterOrEquals(length(field('name')), 3), substring(field('name'), 0, 3), 'not starting with abc')]",
+            "equals": "abc"
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
+}
+```
+
+Med den ändrade principregeln `if()` kontrollerar längden på **namn** innan du försöker hämta en `substring()` på ett värde med färre än tre tecken. Om **namn** är för kort, värdet ”inte börjar med abc” returneras i stället och jämfört med **abc**. En resurs med ett kort namn som inte börjar med **abc** fortfarande misslyckas principregeln, men inte längre orsakar ett fel under utvärderingen.
 
 ### <a name="effect"></a>Verkan
 
@@ -443,70 +484,60 @@ Flera av de alias som är tillgängliga har en version som visas som ett ”norm
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-Det första exemplet används för att utvärdera hela matrisen där den **[\*]** alias utvärderar varje element i matrisen.
-
-Nu ska vi titta på en regel som ett exempel. Den här principen ska **neka** ett storage-konto som har konfigurerats ipRules och om **ingen** av ipRules har värdet ”127.0.0.1”.
+'Normal' alias representerar fältet som ett enda värde. Det här fältet är exakt matchning jämförelse scenarier när samtliga värden måste vara exakt som de definierats några och inte mindre. Med hjälp av **ipRules**, ett exempel skulle verifiera att det finns en exakt uppsättning regler, inklusive antalet regler och för varje regel. Regeln exempel söker efter exakt både **192.168.1.1** och **10.0.4.1** med _åtgärd_ av **Tillåt** i **ipRules** att tillämpa den **effectType**:
 
 ```json
 "policyRule": {
     "if": {
-        "allOf": [{
+        "allOf": [
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "exists": "true"
+            },
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "Equals": [
+                    {
+                        "action": "Allow",
+                        "value": "192.168.1.1"
+                    },
+                    {
+                        "action": "Allow",
+                        "value": "10.0.4.1"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effectType')]"
+    }
+}
+```
+
+Den **[\*]** alias gör det möjligt att jämföra med värdet för varje element i matrisen och specifika egenskaper för varje element. Den här metoden gör det möjligt att jämföra element egenskaperna för ”om inget av”, ”om någon av”, eller ”om alla av ' scenarier. Med hjälp av **ipRules [\*]**, ett exempel skulle verifierar som varje _åtgärd_ är _neka_, men inte oroa dig över hur många regler finns, eller vilka IP-Adressen _värdet_ är. Regeln exempel söker efter alla matchningar av **ipRules [\*] .value** till **10.0.4.1** och tillämpar den **effectType** endast om det inte finns minst en matchning:
+
+```json
+"policyRule": {
+    "if": {
+        "allOf": [
+            {
                 "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
                 "exists": "true"
             },
             {
                 "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-                "notEquals": "127.0.0.1"
+                "notEquals": "10.0.4.1"
             }
         ]
     },
     "then": {
-        "effect": "deny",
+        "effect": "[parameters('effectType')]"
     }
 }
 ```
 
-Den **ipRules** matrisen är på följande sätt för det här exemplet:
-
-```json
-"ipRules": [{
-        "value": "127.0.0.1",
-        "action": "Allow"
-    },
-    {
-        "value": "192.168.1.1",
-        "action": "Allow"
-    }
-]
-```
-
-Här är hur det här exemplet har bearbetats:
-
-- `networkAcls.ipRules` -Kontrollera att matrisen är icke-null. Utvärderas SANT, så utvärdering fortsätter.
-
-  ```json
-  {
-    "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-    "exists": "true"
-  }
-  ```
-
-- `networkAcls.ipRules[*].value` -Kontrollerar _värdet_ -egenskapen i den **ipRules** matris.
-
-  ```json
-  {
-    "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-    "notEquals": "127.0.0.1"
-  }
-  ```
-
-  - Varje element kommer att behandlas som en matris.
-
-    - ”127.0.0.1”! = ”127.0.0.1” utvärderas som false.
-    - ”127.0.0.1”! = ”192.168.1.1” utvärderas som true.
-    - Minst en _värdet_ -egenskapen i den **ipRules** matris som utvärderas som false, så utvärdering slutar.
-
-Som ett villkor som utvärderas till false, den **neka** effekt utlöses inte.
+Mer information finns i [utvärderar den [\*] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Initiativ
 

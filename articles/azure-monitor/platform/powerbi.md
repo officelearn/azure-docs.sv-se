@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: 623968467da775c55adf006a84a16ba46bd21d1d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 53e24a6874a1e43b0de07893a6ace3a44b81d373
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887462"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110179"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importera Azure Monitor log-data till Power BI
 
@@ -60,11 +60,11 @@ Power BI Desktop är ett program som gör att du kan skapa datauppsättningar oc
 ## <a name="publish-to-power-bi"></a>Publicera till Powerbi
 När du publicerar till Power BI, skapas en datauppsättning och en rapport.  Om du skapar en rapport i Power BI Desktop, kommer sedan detta att publiceras med dina data.  Annars kan du sedan en tom rapport skapas.  Du kan ändra rapporten i Power BI eller skapa en ny baseras på datauppsättningen.
 
-8. Skapa en rapport som baseras på dina data.  Använd [Power BI Desktop-dokumentationen](https://docs.microsoft.com/power-bi/desktop-report-view) om du inte är bekant med den.  När du är redo att skicka den till Power BI, klickar du på **publicera**.  När du uppmanas, Välj ett mål i Power BI-kontot.  Om du inte har ett specifikt mål i åtanke, använda **Min arbetsyta**.
+1. Skapa en rapport som baseras på dina data.  Använd [Power BI Desktop-dokumentationen](https://docs.microsoft.com/power-bi/desktop-report-view) om du inte är bekant med den.  När du är redo att skicka den till Power BI, klickar du på **publicera**.  När du uppmanas, Välj ett mål i Power BI-kontot.  Om du inte har ett specifikt mål i åtanke, använda **Min arbetsyta**.
 
     ![Publicera Power BI Desktop](media/powerbi/desktop-publish.png)
 
-3. När publiceringen är klar klickar du på **öppna i Power BI** att öppna Power BI med din nya datauppsättning.
+1. När publiceringen är klar klickar du på **öppna i Power BI** att öppna Power BI med din nya datauppsättning.
 
 
 ### <a name="configure-scheduled-refresh"></a>Konfigurera schemalagd uppdatering

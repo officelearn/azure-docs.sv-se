@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c51f1d47a5412e77b7113fccfd2e9a54e1d2ff7f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 274675c3b9f04877f5665efbcbf7951a5bbb0e27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730213"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833188"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Vanliga frågor om Azure Active Directory-rapporter
 
@@ -29,13 +29,13 @@ Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active 
 
 ## <a name="getting-started"></a>Komma igång 
 
-**F: Jag använder den https://graph.windows.net/&lt; klientnamn&gt;/reports/ endpoint API: er till pull Azure AD-gransknings- och integrerad programanvändning rapporterar i vår rapporteringssystem programmässigt. Vad ska jag växla till?**
+**F: Jag använder den `https://graph.windows.net/<tenant-name>/reports/` slutpunkt för API: er till pull Azure AD-gransknings- och integrerad programanvändning rapporterar i vår rapporteringssystem programmässigt. Vad ska jag växla till?**
 
 **S:** Leta upp den [API-referens](https://developer.microsoft.com/graph/) att se hur du kan [använda API: erna för att komma åt aktivitetsrapporter](concept-reporting-api.md). Den här slutpunkten har två rapporter (**Audit** och **inloggningar**) som ger alla data som du fick i den gamla API-slutpunkten. Den här nya slutpunkten har också en inloggningar rapport med Azure AD Premium-licens som du kan använda för att hämta appanvändning, användning av enhet och logga in användarinformation.
 
 ---
 
-**F: Jag använder den https://graph.windows.net/&lt; klientnamn&gt;/reports/ endpoint API: er för att hämta Azure AD-säkerhetsrapporter (vissa typer av identifieringar, till exempel läckta autentiseringsuppgifter eller inloggningar från anonyma IP-adresser) till våra reporting system programmässigt. Vad ska jag växla till?**
+**F: Jag använder den `https://graph.windows.net/<tenant-name>/reports/` endpoint API: er för att hämta Azure AD-säkerhetsrapporter (vissa typer av identifieringar, till exempel läckta autentiseringsuppgifter eller inloggningar från anonyma IP-adresser) till vår rapporteringssystem programmässigt. Vad ska jag växla till?**
 
 **S:** Du kan använda den [Identity Protection riskhändelser API](../identity-protection/graph-get-started.md) till säkerhetsidentifieringar för åtkomst via Microsoft Graph. Detta nya format ger större flexibilitet i hur du kan fråga efter data med avancerade filter, valda fält och mycket mer och standardiserar riskhändelser till en typ för enklare integrering till siem-servrar och andra verktyg för insamling av data. Eftersom data är i ett annat format, kan du ersätta en ny fråga för dina gamla frågor. Dock [nya API: et använder Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), vilket är Microsoft-standarden för dessa API: er som O365 eller Azure AD. Så att arbetet som krävs kan antingen utöka dina aktuella investeringar i MS Graph eller hjälp kan du börja dig vid övergången till den här nya standard-plattformen.
 
@@ -89,7 +89,7 @@ Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active 
 
 **F: Kan jag få information från aktivitetsloggen i Office 365 via Azure portal?**
 
-**S:** Om du vill ha en fullständig överblick över aktivitetsloggarna i Office 365 bör du gå till administrationscentret för Office 365 för att hämta information om dem, även om aktivitetsloggarna i Office 365 och aktivitetsloggarna i Azure AD delar många katalogresurser.
+**S:** Även om aktiviteten i Office 365 och Azure AD delar en massa directory-resurser, om du vill att en fullständig överblick över aktivitetsloggarna Office 365 bör du gå till den [Microsoft 365 Administrationscenter](https://admin.microsoft.com) att hämta aktivitetsloggen i Office 365 information.
 
 ---
 
@@ -140,24 +140,27 @@ Den här artikeln innehåller svar på vanliga frågor och svar om Azure Active 
 **F: Hur kommer jag igång?**
 
 **S:** Så här kommer du igång:
-    * Gå till rapporten inloggningar i den [Azure-portalen](https://portal.azure.com). 
-    * Klicka på inloggning som du vill felsöka.
-    * Navigera till den **villkorlig åtkomst** fliken. Här kan visa du alla principer som påverkas inloggningen och resultatet för varje princip. 
+
+* Gå till rapporten inloggningar i den [Azure-portalen](https://portal.azure.com).
+* Klicka på inloggning som du vill felsöka.
+* Navigera till den **villkorlig åtkomst** fliken. Här kan visa du alla principer som påverkas inloggningen och resultatet för varje princip. 
     
 **F: Vilka är de möjliga värdena för statusen för villkorlig åtkomst?**
 
 **S:** Statusen för villkorlig åtkomst kan ha följande värden:
-    * **Tillämpas inte**: Det innebär att det fanns ingen CA-princip med användaren och appen i omfånget. 
-    * **Lyckade**: Det innebär att det var en CA-princip med användaren och appen i omfånget och CA-principer har uppfylls. 
-    * **Fel**: Det innebär att det var en CA-princip med användaren och appen i omfånget och principer för CA: N inte har uppfyllts. 
+
+* **Tillämpas inte**: Det innebär att det fanns ingen CA-princip med användaren och appen i omfånget. 
+* **Success**: Det innebär att det var en CA-princip med användaren och appen i omfånget och CA-principer har uppfylls. 
+* **Fel**: Det innebär att det var en CA-princip med användaren och appen i omfånget och principer för CA: N inte har uppfyllts. 
     
 **F: Vilka är de möjliga värdena för villkorlig åtkomst princip resultatet?**
 
 **S:** Principer för villkorlig åtkomst kan ha följande resultat:
-    * **Lyckade**: Principen uppfylldes har.
-    * **Fel**: Principen uppfylldes inte.
-    * **Tillämpas inte**: Det kan bero på Principvillkor inte uppfyllde.
-    * **Inte aktiverad**: Detta beror på principen i inaktiverat tillstånd. 
+
+* **Success**: Principen uppfylldes har.
+* **Fel**: Principen uppfylldes inte.
+* **Tillämpas inte**: Det kan bero på Principvillkor inte uppfyllde.
+* **Inte aktiverad**: Detta beror på principen i inaktiverat tillstånd. 
     
 **F: På principnamnet i rapporten för alla logga in matchar inte namnet på principen i CA: N. Varför?**
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: c3cb9b7988269f394615b6498bbe7af5bb0ab1e1
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 1e55552e238e16f2221b138b6e12afa5635d2ab2
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743365"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202681"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Använd Azure Storage signaturer för delad åtkomst för att begränsa åtkomsten till data i HDInsight
 
@@ -163,7 +163,7 @@ Ett exempel på hur du skapar ett HDInsight-kluster som använder SAS som ingår
     Connect-AzureRmAccount
     ```
 
-    När du uppmanas logga in med kontot för din Azure-prenumeration.
+    När du uppmanas, kan du logga in med kontot för din Azure-prenumeration.
 
     Om ditt konto är associerad med flera Azure-prenumerationer, kan du behöva använda `Select-AzureRmSubscription` att välja den prenumeration som du vill använda.
 
@@ -200,7 +200,7 @@ Om du har ett befintligt Linux-baserade kluster kan du lägga till SAS till den 
 4. Expandera den **anpassad core-site** avsnittet och rulla till slutet och välj sedan den **Lägg till egenskap...**  länk. Använd följande värden för den **nyckel** och **värdet** fält:
 
    * **Nyckeln**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
-   * **Värdet**: SAS som returneras av den C# eller Python-program som du körde tidigare
+   * **Värde**: SAS som returneras av den C# eller Python-program som du körde tidigare
 
      Ersätt **CONTAINERNAME** med behållarens namn som du använde med C# eller SAS-programmet. Ersätt **STORAGEACCOUNTNAME** med namnet du använde.
 
@@ -219,13 +219,7 @@ Om du har ett befintligt Linux-baserade kluster kan du lägga till SAS till den 
 
 ## <a name="test-restricted-access"></a>Testa begränsad åtkomst
 
-Kontrollera att du har begränsad åtkomst genom att använda följande metoder:
-
-* För **Windows-baserade** HDInsight-kluster kan använda Fjärrskrivbord för att ansluta till klustret. Mer information finns i [Anslut till HDInsight med hjälp av RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
-
-    När du är ansluten, Använd den **Hadoop kommandoradsverktyget** ikon på skrivbordet för att öppna en kommandotolk.
-
-* För **Linux-baserade** HDInsight-kluster kan använda SSH för att ansluta till klustret. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+Kontrollera att du har begränsad åtkomst genom att använda SSH för att ansluta till klustret. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 När du är ansluten till klustret, Använd följande steg för att verifiera att du kan endast Läs- och objekt för SAS-lagringskontot:
 
@@ -288,7 +282,7 @@ När du är ansluten till klustret, Använd följande steg för att verifiera at
 
 **Orsak**: Det här felet kan inträffa om du använder ett lösenord för admin/HTTP-användare för klustret, eller (för Linux-baserade kluster) för SSH-användaren.
 
-**Lösning**: Använda ett lösenord som uppfyller följande kriterier:
+**Upplösning**: Använda ett lösenord som uppfyller följande kriterier:
 
 * Måste vara minst 10 tecken långt.
 * Måste innehålla minst en siffra.

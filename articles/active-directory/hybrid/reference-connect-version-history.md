@@ -16,12 +16,12 @@ ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd90cd18be1fdbac5948fb076a3358b070bad8eb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 840ea818c7c2e197f1ab65f4bd61067bf5e51283
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455080"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57836988"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -149,7 +149,7 @@ Azure AD Connect uppgradera misslyckas om SQL alltid på tillgänglighet har kon
 
 ### <a name="fixed-issues"></a>Åtgärdade problem 
 
-- Ett fel har åtgärdats där AAD Connect-servern skulle visa hög CPU-användning efter uppgraderingen till .net 4.7.2
+- Ett fel har åtgärdats där AAD Connect-servern skulle visa hög CPU-användning efter uppgraderingen till .NET 4.7.2
 - Ett fel som skulle periodvis producerar ett felmeddelande visas för ett automatiskt löst SQL deadlock problem har åtgärdats
 - Åtgärdat problem med flera för Regelredigeraren synkronisering och synkronisering av Service Manager  
 - Ett fel har åtgärdats där Azure AD Connect inte kan få inställningsinformation för registret
@@ -180,12 +180,12 @@ Nya funktioner och förbättringar
 - Konfiguration för tillbakaskrivning av enhet hanteras nu endast i den Azure AD Connect-guiden.
 - En ny PowerShell-modul kallas ADSyncTools.psm1 har lagts till som kan användas för att felsöka anslutningsproblem med SQL och olika andra verktyg för felsökning. Läs mer om modulen ADSyncTools [här](tshoot-connect-tshoot-sql-connectivity.md). 
 - En ny ytterligare uppgift ”konfigurera Enhetsalternativ” har lagts till. Du kan använda för att konfigurera följande två åtgärder: 
-    -   **Hybrid Azure AD-anslutning**: Om din miljö har ett lokalt AD-fotavtryck och du vill dra nytta av funktionerna i Azure Active Directory kan du implementera Hybrid Azure AD-anslutna enheter. Det är enheter som är anslutna både till din lokala Active Directory och din Azure Active Directory.
-    -   **Tillbakaskrivning av enhet**: Tillbakaskrivning av enhet som används för att aktivera villkorlig åtkomst baserat på enheter till AD FS (2012 R2 eller senare) skyddade enheter
+  - **Hybrid Azure AD-anslutning**: Om din miljö har ett lokalt AD-fotavtryck och du vill dra nytta av funktionerna i Azure Active Directory kan du implementera Hybrid Azure AD-anslutna enheter. Det är enheter som är anslutna både till din lokala Active Directory och din Azure Active Directory.
+  - **Tillbakaskrivning av enhet**: Tillbakaskrivning av enhet som används för att aktivera villkorlig åtkomst baserat på enheter till AD FS (2012 R2 eller senare) skyddade enheter
 
-   >[!NOTE] 
-   > - Möjlighet att aktivera tillbakaskrivning av enheter från anpassa synkroniseringsalternativ nedtonade. 
-   > -  PowerShell-modulen för ADPrep är föråldrad med den här versionen.
+    >[!NOTE] 
+    > - Möjlighet att aktivera tillbakaskrivning av enheter från anpassa synkroniseringsalternativ nedtonade. 
+    > -  PowerShell-modulen för ADPrep är föråldrad med den här versionen.
 
 
 
@@ -415,7 +415,7 @@ Status: Oktober 19-2017
 
 * Åtgärdat ett problem med den *ändra användarinloggning* aktivitet i Azure AD Connect-guiden:
 
-   * Problemet uppstår när du har en befintlig Azure AD Connect-distribution med Lösenordssynkronisering **inaktiverad**, och du försöker ange metoden användare logga in som *direktautentisering*. När ändringen används aktiverar till att guiden både direktautentisering och Lösenordssynkronisering. Med den här snabbkorrigeringen kan guiden inte längre Lösenordssynkronisering.
+  * Problemet uppstår när du har en befintlig Azure AD Connect-distribution med Lösenordssynkronisering **inaktiverad**, och du försöker ange metoden användare logga in som *direktautentisering*. När ändringen används aktiverar till att guiden både direktautentisering och Lösenordssynkronisering. Med den här snabbkorrigeringen kan guiden inte längre Lösenordssynkronisering.
 
   * Synkronisering av lösenord var tidigare en förutsättning för att aktivera direktautentisering. När du anger att användaren loggar in metod som *direktautentisering*, guiden skulle aktivera både direktautentisering och Lösenordssynkronisering. Lösenordssynkronisering har nyligen tagits bort som en förutsättning. Som en del av Azure AD Connect version 1.1.557.0 kan en ändring har gjorts till Azure AD Connect att inte aktivera Lösenordssynkronisering när du ställer in användaren logga in metod som *direktautentisering*. Ändringen har dock endast tillämpats på Azure AD Connect-installationen. Med den här snabbkorrigeringen samma ändring gäller även de *ändra användarinloggning* uppgift.
   
@@ -436,7 +436,7 @@ Status: Oktober 19-2017
 * Har lagts till logik för att förenkla de steg som krävs för att konfigurera Azure AD Connect med Microsoft-molnet för Tyskland. Tidigare var behöver du uppdatera särskilda registernycklar på Azure AD Connect-servern att fungera korrekt med Microsoft-molnet för Tyskland, enligt beskrivningen i den här artikeln. Nu kan kan Azure AD Connect identifieras automatiskt om din klient i Microsoft-molnet för Tyskland baseras på de globala autentiseringsuppgifterna som angetts under installationen.
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
->[!NOTE]
+> [!NOTE]
 > Obs! Synkroniseringstjänsten har ett WMI-gränssnitt som du kan utveckla din egen anpassade scheduler. Det här gränssnittet är nu inaktuellt och kommer att tas bort från framtida versioner av Azure AD Connect levererats efter den 30 juni 2018. Kunder som vill anpassa synkroniseringsschema ska använda den [inbyggda scheduler (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
 
 #### <a name="fixed-issues"></a>Åtgärdade problem
@@ -642,7 +642,7 @@ Det problem som uppstår är att den **synkronisera alla domäner och organisati
 
 * Azure AD Connect nu stöder tillbakaskrivning av Exchange Online **cloudPublicDelegates** attributet lokala AD **publicDelegates** attribut. Detta gör scenariot där en Exchange Online-postlåda kan tilldelas SendOnBehalfTo rättigheter för användare med lokala Exchange-postlåda. Stöd för den här funktionen, en ny synkroniseringsregel av out of box ”ut till AD – tillbakaskrivning av användare Exchange Hybrid PublicDelegates” har lagts till. Den här synkroniseringsregel läggs endast till Azure AD Connect när Exchange-Hybrid-funktionen är aktiverad.
 
-*   Azure AD Connect nu stöder synkronisering av den **altRecipient** attribut från Azure AD. För att stödja den här ändringen, har följande out-of-box Synkroniseringsregler uppdaterats med det obligatoriska attributflödet:
+* Azure AD Connect nu stöder synkronisering av den **altRecipient** attribut från Azure AD. För att stödja den här ändringen, har följande out-of-box Synkroniseringsregler uppdaterats med det obligatoriska attributflödet:
   * I från AD – användaren Exchange
   * På AAD – användaren ExchangeOnline
   
@@ -1186,9 +1186,9 @@ Utgiven: Oktober 2014
 
 Om du redan har installerats för Azure AD Sync, finns ytterligare ett steg du måste vidta om du har ändrat något av synkroniseringsreglerna som out-of-box. När du har uppgraderat till 1.0.470.1023 släpp synkroniseringen regler som du har ändrat dupliceras. För varje ändrad synkroniseringsregel gör du följande:
 
-1.  Leta upp synkroniseringsregel du har ändrat och notera ändringarna.
-* Ta bort synkroniseringsregel.
-* Leta upp den nya sync-regeln som skapats av Azure AD Sync och tillämpa ändringarna.
+1. Leta upp synkroniseringsregel du har ändrat och notera ändringarna.
+1. Ta bort synkroniseringsregel.
+1. Leta upp den nya sync-regeln som skapats av Azure AD Sync och tillämpa ändringarna.
 
 **Behörigheter för Active Directory-konto**
 

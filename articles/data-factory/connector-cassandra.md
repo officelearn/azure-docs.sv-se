@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1347012971d53728d978f378e30684311c88828b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 743dad6032547f8f535543413adff416efb56ac0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022292"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998388"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Kopiera data från Cassandra med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-cassandra-connector.md)
 > * [Aktuell version](connector-cassandra.md)
 
@@ -132,7 +132,7 @@ Om du vill kopiera data från Cassandra, ange typ av datakälla i kopieringsakti
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **CassandraSource** | Ja |
-| DocumentDB |Använd anpassad fråga för att läsa data. |SQL-92 fråga eller CQL-fråga. Se [CQL referens](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>När du använder SQL-fråga, ange **keyspace name.table namn** som representerar den tabell som du vill fråga. |Nej (om ”tableName” och ”keyspace” i datauppsättningen har angetts). |
+| DocumentDB |Använd anpassad fråga för att läsa data. SQL-92 fråga eller CQL-fråga. Se [CQL referens](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>När du använder SQL-fråga, ange **keyspace name.table namn** som representerar den tabell som du vill fråga. |Nej (om ”tableName” och ”keyspace” i datauppsättningen har angetts). |
 | consistencyLevel |Konsekvensnivån som anger hur många kopior måste svara på en läsbegäran innan det returneras data till klientprogrammet. Cassandra kontrollerar det angivna antalet repliker för data för att tillgodose läsförfrågan. Se [konfigurera datakonsekvens](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) mer information.<br/><br/>Tillåtna värden är: **EN**, **två**, **tre**, **KVORUM**, **alla**, **LOCAL_QUORUM**, **EACH_QUORUM**, och **LOCAL_ONE**. |Nej (standard är `ONE`) |
 
 **Exempel:**
@@ -173,20 +173,20 @@ När du kopierar data från Cassandra, används följande mappningar från Cassa
 
 | Cassandra-datatypen | Data factory tillfälliga datatyp |
 |:--- |:--- |
-| ASCII |Sträng |
+| ASCII |String |
 | BIGINT |Int64 |
-| BLOB |Byte] |
+| BLOB |Byte[] |
 | BOOLESKT VÄRDE |Boolesk |
-| DECIMALTAL |Decimal |
-| DOUBLE-VÄRDE |Double-värde |
-| FLYTTAL |Enkel |
-| INET |Sträng |
+| DECIMAL |Decimal |
+| DOUBLE-VÄRDE |Double |
+| FLYTTAL |Single |
+| INET |String |
 | INT |Int32 |
-| TEXT |Sträng |
+| TEXT |String |
 | TIDSSTÄMPEL |DateTime |
-| TIMEUUID |GUID |
-| UUID |GUID |
-| VARCHAR |Sträng |
+| TIMEUUID |Guid |
+| UUID |Guid |
+| VARCHAR |String |
 | VARINT |Decimal |
 
 > [!NOTE]
@@ -212,8 +212,8 @@ Till exempel är följande ”ExampleTable” en Cassandra-databastabell som inn
 
 | pk_int | Värde | Visa lista | Karta | StringSet |
 | --- | --- | --- | --- | --- |
-| 1 |”exempelvärde 1” |["1", "2", "3"] |{”S1”: ”a”, ”S2”: ”b”} |{”A”, ”B”, ”C”} |
-| 3 |”exempelvärde 3” |["100", "101", "102", "105"] |{”S1”: ”t”} |{”A”, ”E”} |
+| 1 |”exempelvärde 1” |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
+| 3 |”exempelvärde 3” |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
 
 Drivrutinen skulle generera flera virtuella tabeller som representerar en enda tabell. Sekundärnyckelskolumnerna i virtuella tabeller refererar till primärnyckelskolumnerna i verkliga tabellen och anger vilka verkliga tabellrad som den virtuella tabellraden motsvarar.
 
@@ -248,7 +248,7 @@ Följande tabeller visar de virtuella tabeller som renormera data från listan o
 | 1 |S2 |b |
 | 3 |S1 |t |
 
-**Tabell ”ExampleTable_vt_StringSet”:**
+**Table "ExampleTable_vt_StringSet":**
 
 | pk_int | StringSet_value |
 | --- | --- |

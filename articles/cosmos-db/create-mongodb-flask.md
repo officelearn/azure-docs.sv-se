@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 24c47acd028aa767d1f02dd7c4119692eeac479a
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: 35159a1630c7f1268119cd55cc6e0ac99dfd7b5f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587029"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119215"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Snabbstart: Skapa en Python-app med hjälp av Azure Cosmos DB:s API för MongoDB
 
@@ -30,17 +30,17 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 
 Den här snabbstartsguiden använder följande [Flask-exempel](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) och visar hur du kan bygga en enkel att göra-app i Flask med [Azure Cosmos DB-emulatorn](local-emulator.md) och Azure Cosmos DB:s API för MongoDB.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Hämta [Azure Cosmos DB-emulatorn](local-emulator.md). Emulatorn stöds för tillfället endast på Windows. Exemplet visar hur du kan använda exemplet med en produktionsnyckel från Azure, vilket går att göra på valfri plattform.
 
 - Om du inte redan har Visual Studio Code installerat kan du snabbt installera [VS-kod](https://code.visualstudio.com/Download) för din plattform (Windows, Mac, Linux).
 
 - Tänk på att lägga till Python-språkstöd genom att installera ett av de populära Python-tilläggen.
-    1. Välj ett tillägg.
-    2. Installera tillägget genom att skriva in `ext install` i kommandopaletten `Ctrl+Shift+P`.
+  1. Välj ett tillägg.
+  2. Installera tillägget genom att skriva in `ext install` i kommandopaletten `Ctrl+Shift+P`.
 
-    Exemplen i det här dokumentet använder Don Jayamannes populära [Python-tillägg](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) med fullständiga funktioner.
+     Exemplen i det här dokumentet använder Don Jayamannes populära [Python-tillägg](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) med fullständiga funktioner.
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 

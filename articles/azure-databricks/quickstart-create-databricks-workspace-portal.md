@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 1c8f280d58d12df33b687fa9c09712176987cdd1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: 1e0e5deea8602b3da16074155e69c952227b8609
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259553"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117684"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 
@@ -74,11 +74,11 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
     Godkänn alla övriga standardvärden, förutom följande:
 
-    * Ange ett namn för klustret.
-    * För den här artikeln skapar du ett kluster med körningen **4.0**.
-    * Se till att markera kryssrutan **Avsluta efter \_\_ minuters inaktivitet**. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
+   * Ange ett namn för klustret.
+   * För den här artikeln skapar du ett kluster med körningen **4.0**.
+   * Se till att markera kryssrutan **Avsluta efter \_\_ minuters inaktivitet**. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
     
-    Välj **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
+     Välj **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
 
 Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
@@ -89,12 +89,12 @@ Ladda ned en JSON-exempeldatafil och spara den i Azure-bloblagring.
 1. Ladda ned den här JSON-exempeldatafilen [från GitHub](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) till din lokala dator. Högerklicka och spara som för att spara rådatafilen lokalt.
 
 2. Om du inte redan har ett lagringskonto skapar du ett.
-    - I Azure-portalen väljer du **Skapa en resurs**. Välj kategorin **Lagring** och välj **Lagringskonton**
-    - Ange ett unikt namn för lagringskontot.
-    - Välj **Kontotyp**: **Blob Storage**
-    - Välj ett namn på **Resursgrupp**. Använd samma resursgrupp där du skapade Databricks-arbetsytan.
+   - I Azure-portalen väljer du **Skapa en resurs**. Välj kategorin **Lagring** och välj **Lagringskonton**
+   - Ange ett unikt namn för lagringskontot.
+   - Välj **Kontotyp**: **Blob Storage**
+   - Välj ett namn på **Resursgrupp**. Använd samma resursgrupp där du skapade Databricks-arbetsytan.
     
-    Mer information finns i [Skapa ett Azure Blob Storage-konto](../storage/common/storage-quickstart-create-account.md).
+     Mer information finns i [Skapa ett Azure Blob Storage-konto](../storage/common/storage-quickstart-create-account.md).
 
 3. Skapa en lagringscontainer i Blob Storage-kontot och ladda upp json-exempelfilen till containern. Du kan använda Azure-portalen eller [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) för att ladda upp filen.
 
@@ -130,21 +130,21 @@ Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfig
 
     I följande kodfragment ersätter du `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}` och `{YOUR STORAGE ACCOUNT ACCESS KEY}` med lämpliga värden för ditt Azure Storage-konto. Klistra in följande kodfragment i en tom cell och tryck sedan på SKIFT+RETUR för att köra kodcellen.
 
-    * **Montera lagringskontot med DBFS (rekommenderas)**. I det här kodfragmentet monteras sökvägen för Azure Storage-kontot till `/mnt/mypath`. Det innebär att när du framöver får åtkomst till Azure Storage-kontot behöver du inte ange den fullständiga sökvägen. Det räcker med att du använder `/mnt/mypath`.
+   * **Montera lagringskontot med DBFS (rekommenderas)**. I det här kodfragmentet monteras sökvägen för Azure Storage-kontot till `/mnt/mypath`. Det innebär att när du framöver får åtkomst till Azure Storage-kontot behöver du inte ange den fullständiga sökvägen. Det räcker med att du använder `/mnt/mypath`.
 
-          dbutils.fs.mount(
-            source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
-            mountPoint = "/mnt/mypath",
-            extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
+         dbutils.fs.mount(
+           source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
+           mountPoint = "/mnt/mypath",
+           extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
 
-    * **Direkt åtkomst till lagringskontot**
+   * **Direkt åtkomst till lagringskontot**
 
-          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
+         spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-    Anvisningar om hur du hämtar nyckeln för lagringskontot finns i [Hantera dina lagringsåtkomstnycklar](../storage/common/storage-account-manage.md#access-keys).
+     Anvisningar om hur du hämtar nyckeln för lagringskontot finns i [Hantera dina lagringsåtkomstnycklar](../storage/common/storage-account-manage.md#access-keys).
 
-    > [!NOTE]
-    > Du kan även använda Azure Data Lake Store med ett Spark-kluster på Azure Databricks. Instruktioner finns i [Använda Data Lake Store med Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).
+     > [!NOTE]
+     > Du kan även använda Azure Data Lake Store med ett Spark-kluster på Azure Databricks. Instruktioner finns i [Använda Data Lake Store med Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084).
 
 4. Kör en SQL-instruktion för att skapa en temporär tabell med data från exempel-JSON-datafilen **small_radio_json.json**. I följande kodfragment ersätter du platshållarens värden med din containers namn och namnet på ditt lagringskonto. Klistra in följande kodfragment i en kodcell och tryck sedan på SKIFT+RETUR. I kodfragmentet anger `path` platsen för exempel-JSON-filen som du laddade upp till ditt Azure Storage-konto.
 
@@ -183,12 +183,12 @@ Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfig
 
     ![Anpassa stapeldiagram](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Anpassa stapeldiagram")
 
-    * Ställ in **Nycklar** på **kön**.
-    * Ställ in **Seriegrupperingar** på **nivå**.
-    * Ställ in **Värden** på **nivå**.
-    * Ställ in **Sammansättning** på **COUNT** (Antal).
+   * Ställ in **Nycklar** på **kön**.
+   * Ställ in **Seriegrupperingar** på **nivå**.
+   * Ställ in **Värden** på **nivå**.
+   * Ställ in **Sammansättning** på **COUNT** (Antal).
 
-    Klicka på **Verkställ**.
+     Klicka på **Verkställ**.
 
 9. Utdata visar den visuella representationen som visas i följande skärmbild:
 

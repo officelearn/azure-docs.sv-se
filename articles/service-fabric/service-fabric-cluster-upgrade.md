@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: f19693853672b6274265c95b851f478b4f3ef4a2
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: a3778a0b0e5b4b59eb29cb67c0596d9636eb3ccb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961898"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58166709"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Uppgradera och uppdaterar ett Azure Service Fabric-kluster
 
@@ -101,8 +101,6 @@ Många olika konfigurationsinställningar kan anpassas i ett kluster, till exemp
 ## <a name="patch-the-os-in-the-cluster-nodes"></a>Uppdatera Operativsystemet på klusternoderna
 Patch orchestration application (POA) är ett Service Fabric-program som automatiserar operativsystemet uppdatering i Service Fabric-kluster utan avbrott. Den [Patch Orchestration Application för Windows](service-fabric-patch-orchestration-application.md) eller [Patch Orchestration-program för Linux](service-fabric-patch-orchestration-application-linux.md) kan distribueras på klustret för att installera uppdateringar på ett dirigerat sätt samtidigt som tjänsterna tillgänglig hela tiden. 
 
-## <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>OS-uppgraderingar på de virtuella datorer som ingår i klustret
-Om du måste uppgradera den OS-avbildningen på de virtuella datorerna i klustret, måste du göra det en virtuell dator i taget. Du ansvarar för den här uppgraderingen--det finns för närvarande ingen automatisering för detta.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du anpassar några av de [service fabric-kluster fabric-inställningar](service-fabric-cluster-fabric-settings.md)

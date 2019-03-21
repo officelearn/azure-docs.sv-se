@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 53cc987d13479fc0d9276ec80f33a163a2a6ded7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: f7f235ce709fd81c4bb4c367774b4a96cd920e13
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817039"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120354"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Självstudie: Skydda artefakter i Azure Resource Manager-malldistributioner
 
@@ -126,11 +126,11 @@ En blobcontainer krävs innan du kan ladda upp filer.
 3. Välj **Generera blob-SAS-token och URL**.
 4. Skapa en kopia av **Blob-SAS-URL**. I mitten av URL:en finns filnamnet **SQLDatabaseExtension.bacpac**.  Filnamnet delar in URL:en i tre delar:
 
-    - **Plats för artefakt**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Se till att platsen slutar med ett ”/”.
-    - **BACPAC-filnamn**: SQLDatabaseExtension.bacpac.
-    - **SAS-token för artefaktplats**: Se till att token föregås av ett ”?”.
+   - **Plats för artefakt**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Se till att platsen slutar med ett ”/”.
+   - **BACPAC-filnamn**: SQLDatabaseExtension.bacpac.
+   - **SAS-token för artefaktplats**: Se till att token föregås av ett ”?”.
 
-    Du behöver dessa tre värden i [Distribuera mallen](#deploy-the-template).
+     Du behöver dessa tre värden i [Distribuera mallen](#deploy-the-template).
 
 ## <a name="open-an-existing-template"></a>Öppna en befintlig mall
 
@@ -146,13 +146,13 @@ I den här sessionen ändrar du den mall som du skapade i [Självstudie: Importe
 
     Det finns fem resurser som definieras i mallen:
 
-    * `Microsoft.Sql/servers`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers).
-    * `Microsoft.SQL/servers/securityAlertPolicies`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies).
-    * `Microsoft.SQL/servers/filewallRules`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
-    * `Microsoft.SQL/servers/databases`.  Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
-    * `Microsoft.SQL/server/databases/extensions`.  Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
+   * `Microsoft.Sql/servers`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers).
+   * `Microsoft.SQL/servers/securityAlertPolicies`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies).
+   * `Microsoft.SQL/servers/filewallRules`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
+   * `Microsoft.SQL/servers/databases`.  Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+   * `Microsoft.SQL/server/databases/extensions`.  Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
 
-    Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
+     Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
 4. Välj **Arkiv**>**Spara som** för att spara en kopia av filen till den lokala datorn med namnet **azuredeploy.json**.
 
 ## <a name="edit-the-template"></a>Redigera mallen

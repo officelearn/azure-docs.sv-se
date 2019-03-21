@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6f7eaa91faabfea7bb951eb9863ffecd2f5499
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: be7094db14f53af939ded2313823bf2749e59a46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182382"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183160"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Vad är gruppbaserad licensiering i Azure Active Directory?
 
@@ -49,7 +49,7 @@ Här är de viktigaste funktionerna i gruppbaserad licensiering:
 
 - Alla Microsoft-molntjänster som kräver licensiering på användarnivå stöds. Det här stödet innehåller alla Office 365-produkter, Enterprise Mobility + Security och Dynamics 365.
 
-- Gruppbaserad licensiering är för närvarande bara tillgängligt via [Azure Portal](https://portal.azure.com). Om du främst använder andra hanteringsportaler för användar- och grupphantering, till exempel Office 365-portalen kan du fortsätta att göra det. Men du bör använda Azure Portal för att hantera licenser på gruppnivå.
+- Gruppbaserad licensiering är för närvarande bara tillgänglig via den [Azure-portalen](https://portal.azure.com). Om du främst använder andra hanteringsportaler för användare och grupphantering, till exempel den [Microsoft 365 Administrationscenter](https://admin.microsoft.com), du kan fortsätta att göra detta. Men du bör använda Azure Portal för att hantera licenser på gruppnivå.
 
 - Azure AD hanterar automatiskt licensändringar som uppstår vid ändringar av gruppmedlemskap. Licensändringarna börjar normalt att tillämpas inom några minuter efter en ändring av gruppmedlemskapet.
 

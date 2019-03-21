@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: fa07ebf3dbf3e5d3e5f4e96cdf4b77a3710c1d1e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 56620dc1d3e315caa3e259715ed84a539b91356d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448330"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888595"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Security ram: Autentisering | Åtgärder 
+
 | Produkt/tjänst | Artikel |
 | --------------- | ------- |
 | **Webbprogram**    | <ul><li>[Överväg att använda en standard autentiseringsmekanism för att autentisera till webbprogram](#standard-authn-web-app)</li><li>[Program måste hantera misslyckade autentiseringsscenarier på ett säkert sätt](#handle-failed-authn)</li><li>[Aktivera steg upp eller anpassad autentisering](#step-up-adaptive-authn)</li><li>[Se till att administrationsgränssnitt på rätt sätt är låsta](#admin-interface-lockdown)</li><li>[Implementera har glömt lösenord funktioner på ett säkert sätt](#forgot-pword-fxn)</li><li>[Se till att lösenord och principen tillämpas](#pword-account-policy)</li><li>[Implementera kontroller för att förhindra användarnamn uppräkning](#controls-username-enum)</li></ul> |
@@ -338,7 +339,7 @@ Den `<netMsmqBinding/>` element i WCF-konfigurationsfilen nedan instruerar WCF a
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [Autentisering och auktorisering i ASP.NET Web API](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [extern autentiseringstjänster med ASP.NET webb-API (C#)](http://www.asp.net/web-api/overview/security/external-authentication-services) |
+| **Referenser**              | [Autentisering och auktorisering i ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [extern autentiseringstjänster med ASP.NET webb-API (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
 | **Steg** | <p>Autentisering är den process där en entitet bevisar sin identitet, vanligtvis via autentiseringsuppgifter, till exempel ett användarnamn och lösenord. Det finns flera autentiseringsprotokoll tillgängliga som kan betraktas. Vissa av dem anges nedan:</p><ul><li>Klientcertifikat</li><li>Windows-baserad</li><li>Formulärbaserad</li><li>Federation - AD FS</li><li>Federation - Azure AD</li><li>Federation - Identitetsserver</li></ul><p>Länkarna i referensavsnittet innehåller detaljer om hur var och en av autentiseringsscheman kan implementeras för att skydda ett webb-API.</p>|
 
 ## <a id="authn-aad"></a>Använd standard autentiseringsscenarier som stöds av Azure Active Directory
@@ -489,7 +490,7 @@ await deviceClient.SendEventAsync(message);
     var connectionString = 'HostName=<HostName>DeviceId=<DeviceId>SharedAccessKey=<SharedAccessKey>';
     var client = clientFromConnectionString(connectionString);
     ```
-#### <a name="sas-token"></a>SAS-token
+  #### <a name="sas-token"></a>SAS-token
 * Hämtar genereras internt när du använder symmetrisk nyckel, men vi kan skapa och använda det uttryckligen samt
 * Definiera ett protokoll: `var Http = require('azure-iot-device-http').Http;`
 * Skapa en sas-token:
@@ -506,7 +507,7 @@ await deviceClient.SendEventAsync(message);
     var base64UriEncoded = encodeURIComponent(base64signature);
     // construct authorization string
     var token = "SharedAccessSignature sr=" + resourceUri + "%2fdevices%2f"+deviceName+"&sig="
-    + base64UriEncoded + "&se=" + expires;
+  + base64UriEncoded + "&se=" + expires;
     if (policyName) token += "&skn="+policyName;
     return token;
     ```
@@ -514,7 +515,7 @@ await deviceClient.SendEventAsync(message);
     ```javascript
     Client.fromSharedAccessSignature(sas, Http); 
     ```
-#### <a name="certificates"></a>Certifikat
+  #### <a name="certificates"></a>Certifikat
 * Generera ett självsignerat signerade X509 certifikat med valfritt verktyg, till exempel OpenSSL för att generera en .cert och .key-filer för att lagra certifikatet och nyckeln för respektive
 * Etablera en enhet som accepterar säker anslutning med hjälp av certifikat.
     ```javascript

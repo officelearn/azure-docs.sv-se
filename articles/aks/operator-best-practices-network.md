@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 680e3990afa3ed08c69402e9e5403cb9a6f3266a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: aaa16245fada7fbccdd0865d973de2fa19970989
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175463"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176590"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Metodtips för nätverksanslutning och säkerhet i Azure Kubernetes Service (AKS)
 
@@ -116,7 +116,7 @@ En ingress-kontrollant som distribuerar trafiken till tjänster och program är 
 
 ![En brandvägg för webbaserade program (WAF), till exempel Azure App Gateway kan skydda och distribuera trafik för AKS-kluster](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-En brandvägg för webbaserade program (WAF) ger ett extra säkerhetslager genom att filtrera inkommande trafik. Den öppna OWASP Web Application Security Project () innehåller en uppsättning regler för att se upp för attacker som skriptkörning över flera webbplatser eller cookie förgiftning. [Azure Application Gateway] [ app-gateway] är en WAF som kan integreras med AKS-kluster för att tillhandahålla dessa säkerhetsfunktioner innan trafiken når dina AKS-kluster och program. Andra lösningar från tredje part kan du också utföra dessa funktioner, så att du kan fortsätta att använda befintliga investeringar eller expertis i en viss produkt.
+En brandvägg för webbaserade program (WAF) ger ett extra säkerhetslager genom att filtrera inkommande trafik. Den öppna OWASP Web Application Security Project () innehåller en uppsättning regler för att se upp för attacker som skriptkörning över flera webbplatser eller cookie förgiftning. [Azure Application Gateway] [ app-gateway] (för närvarande i förhandsversion i AKS) är en WAF som kan integreras med AKS-kluster tillhandahåller dessa säkerhetsfunktioner innan trafiken når dina AKS-kluster och program. Andra lösningar från tredje part kan du också utföra dessa funktioner, så att du kan fortsätta att använda befintliga investeringar eller expertis i en viss produkt.
 
 Load balancer eller ingående resurser fortsätter att köras i AKS-klustret att ytterligare förfina fördelning av trafik. App Gateway kan hanteras centralt som en ingress-kontrollant med en resursdefinition. Du kommer igång [skapa en Application Gateway Ingress-kontrollant][app-gateway-ingress].
 
@@ -124,7 +124,7 @@ Load balancer eller ingående resurser fortsätter att köras i AKS-klustret att
 
 **Bästa praxis riktlinjer** -använda nätverksprinciper för att tillåta eller neka trafik till poddar. Som standard tillåts all trafik mellan poddar i ett kluster. Definiera regler som begränsar pod kommunikation för förbättrad säkerhet.
 
-Nätverksprincip är en Kubernetes-funktion som låter dig styra trafikflödet mellan poddar. Du kan välja att tillåta eller neka trafik baserat på inställningar, till exempel tilldelade etiketter, namnområde eller trafik port. Användning av nätverksprinciper ger ett molnbaserade sätt att styra flödet av trafik. Då poddar skapas dynamiskt i ett AKS-kluster, kan de nödvändiga nätverksprinciperna tillämpas automatiskt. Använd inte Azure nätverkssäkerhetsgrupper för att kontrollera pod-pod-trafik, använda nätverksprinciper.
+Nätverksprincip (för närvarande i förhandsversion i AKS) är en Kubernetes-funktion som låter dig styra trafikflödet mellan poddar. Du kan välja att tillåta eller neka trafik baserat på inställningar, till exempel tilldelade etiketter, namnområde eller trafik port. Användning av nätverksprinciper ger ett molnbaserade sätt att styra flödet av trafik. Då poddar skapas dynamiskt i ett AKS-kluster, kan de nödvändiga nätverksprinciperna tillämpas automatiskt. Använd inte Azure nätverkssäkerhetsgrupper för att kontrollera pod-pod-trafik, använda nätverksprinciper.
 
 Om du vill använda principen för nätverk, måste funktionen aktiveras när du skapar ett AKS-kluster. Du kan inte aktivera principen för nätverk i ett befintligt AKS-kluster. Planera framåt och se till att du aktiverar nätverksprincip i kluster och använda dem vid behov.
 

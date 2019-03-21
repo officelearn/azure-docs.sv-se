@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: eb924bcfe3e2545cf6666a19bbb3494c11bc3a48
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 28a7de1b43d793641237197aea841022996b07e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060952"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994040"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Komma igång med Azure Queue storage och Visual Studio-anslutna tjänster (cloud services-projekt)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -32,7 +32,7 @@ Den **Lägg till Connected Services** åtgärden installerar lämpligt NuGet-pak
 * Se [Kom igång med Azure Queue storage med hjälp av .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) mer information om manipulera köer i kod.
 * Se [dokumentation om Storage](https://azure.microsoft.com/documentation/services/storage/) allmän information om Azure Storage.
 * Se [dokumentation om Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/) allmän information om Azure-molntjänster.
-* Se [ASP.NET](http://www.asp.net) för mer information om programmering i ASP.NET-program.
+* Se [ASP.NET](https://www.asp.net) för mer information om programmering i ASP.NET-program.
 
 Azure Queue Storage är en tjänst för att lagra stora mängder meddelanden som kan nås från var som helst i världen via autentiserade anrop med HTTP eller HTTPS. Ett enda kömeddelande kan vara upp till 64 KB stort och en kö kan innehålla miljontals meddelanden, upp till den totala kapacitetsgränsen för ett lagringskonto.
 
@@ -57,7 +57,7 @@ För att komma åt köer i Visual Studio Cloud Services-projekt, måste du inklu
         // Get a reference to a queue named "messageQueue"
         CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
-**Obs:** använda alla koden ovan framför kod som i följande exempel.
+**Obs!** Använd all ovanstående kod framför kod som i följande exempel.
 
 ## <a name="create-a-queue-in-code"></a>Skapa en kö i kod
 Om du vill skapa kön i kod, ska du lägga till ett anrop till **CreateIfNotExists**.

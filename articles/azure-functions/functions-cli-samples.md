@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 01/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 99ea221dcd236d3e8c42aec25d651b5fda2ae1d1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: ba0ecda0ec24bf0a07acbf1bf5bfef494c3eabdd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887437"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57836937"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI-exempel
 
@@ -34,7 +34,7 @@ Följande tabell inkluderar länkar till bash-skript för Azure Functions som an
 | | |
 |**Kontinuerlig distribution**||
 | [Distribuera från GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Skapa en funktionsapp som distribueras från en GitHub-lagringsplats.  |
-| [Distribuera från Azure DevOps](scripts/functions-cli-create-function-app-vsts-continuous.md) | Skapa en funktionsapp som distribueras från en Azure DevOp-lagringsplats.  |
+| [Distribuera från Azure DevOps](scripts/functions-cli-create-function-app-vsts-continuous.md) | Skapa en funktionsapp som distribueras från en Azure DevOps-lagringsplats.  |
 | | |
 |**Konfigurera app**||
 | [Mappa en anpassad domän till en funktionsapp](scripts/functions-cli-configure-custom-domain.md) | Definiera en anpassad domän för dina funktioner.  |

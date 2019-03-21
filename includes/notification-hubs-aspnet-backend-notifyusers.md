@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 9a94f76e2d1fe930d2d6d43e81a756f0cb15d23d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 8413044beff68390dbccdf16c4477e113a85f81b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453077"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124983"
 ---
 ## <a name="create-the-webapi-project"></a>Skapa ett WebAPI-projekt
 
@@ -55,7 +55,7 @@ Skapa en ny ASP.NET-WebAPI-serverdel genom att göra följande:
     * Välj en app service-plan som du redan har skapat.
     * Välj **Skapa en ny app service-plan**, och skapa sedan en.
 
-  Du behöver ingen databas för den här självstudiekursen. När du har valt app service-plan väljer du **OK** för att skapa projektet.
+   Du behöver ingen databas för den här självstudiekursen. När du har valt app service-plan väljer du **OK** för att skapa projektet.
 
     ![Konfigurera Microsoft Azure Web App-fönstret][B5]
 
@@ -84,9 +84,9 @@ I det här avsnittet skapar du en ny meddelandehanterarklass med namnet **Authen
    * Begäran använder *grundläggande* autentisering.
    * Strängen för användarnamn och lösenordssträngen är samma sträng.
 
-  I annat fall avvisas begäran. Den här begäran är inte en riktig autentiserings- och auktoriseringsmetod. Det är bara ett enkelt exempel för den här självstudien.
+   I annat fall avvisas begäran. Den här begäran är inte en riktig autentiserings- och auktoriseringsmetod. Det är bara ett enkelt exempel för den här självstudien.
 
-  Om meddelandebegäran autentiseras och godkänns av `AuthenticationTestHandler`, kopplas användaren med den grundläggande autentiseringen till den aktuella begäran i [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Senare används användarinformationen i HttpContext av en annan kontrollant (RegisterController) för att lägga till en [tagg](https://msdn.microsoft.com/library/azure/dn530749.aspx) till meddelanderegistreringsbegäran.
+   Om meddelandebegäran autentiseras och godkänns av `AuthenticationTestHandler`, kopplas användaren med den grundläggande autentiseringen till den aktuella begäran i [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Senare används användarinformationen i HttpContext av en annan kontrollant (RegisterController) för att lägga till en [tagg](https://msdn.microsoft.com/library/azure/dn530749.aspx) till meddelanderegistreringsbegäran.
 
     ```csharp
     public class AuthenticationTestHandler : DelegatingHandler

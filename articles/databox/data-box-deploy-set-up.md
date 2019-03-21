@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: alkohli
-ms.openlocfilehash: e7c58978c7d6542887854c5a1996b15252fdb025
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: b601ad5936820e2c237b7b9d37d9af73aa468bbc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982411"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895761"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Självstudier: Kabelansluta och ansluta till Azure Data Box
 
@@ -25,7 +25,7 @@ I den här guiden får du lära dig att:
 > * Kabelansluta Data Box
 > * Ansluta till Data Box
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrollera att:
 
@@ -40,7 +40,7 @@ Innan du börjar ska du kontrollera att:
     - Vara ansluten till höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10 GbE anslutning inte är tillgänglig kan en 1 GbE datalänk användas, men då påverkas kopieringshastigheten. 
 6. Du måste ha tillgång till en plan yta där du kan placera Data Box. Om du vill placera enheten på en standardrackhylla måste du ha en 7U-plats i datacenterracket. Du kan placera enheten liggande eller stående i racket.
 7. Du har skaffat följande kablar för att ansluta Data Box till värddatorn.
-    - En eller flera 10-GbE SFP+ Twinax-kopparkablar eller SFP+-fiberoptikkablar (använd med DATA 1- och DATA 2-nätverksgränssnitt). Data Box har Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T-adaptrar med PCI Express 3.0-nätverksgränssnitt. Därmed bör kablar som är kompatibla med det här gränssnittet fungera. Till exempel användes en CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M-kabel för intern testning.
+    - En eller flera 10-GbE SFP+ Twinax-kopparkablar eller SFP+-fiberoptikkablar (använd med DATA 1- och DATA 2-nätverksgränssnitt). Data Box har Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T-adaptrar med PCI Express 3.0-nätverksgränssnitt. Därmed bör kablar som är kompatibla med det här gränssnittet fungera. Till exempel användes en CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M-kabel för intern testning. Mer information finns i den [listan över stöds kablar och växlar från Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - En RJ-45 CAT 6-nätverkskabel (använd med MGMT-nätverksgränssnitt)
     - En RJ-45 CAT 6A- eller en RJ-45 CAT 6-nätverkskabel (använd med DATA 3-nätverksgränssnitt konfigurerat som 10 Gbps respektive 1 Gbps)
 
@@ -83,10 +83,10 @@ Konfigurera din enhet med hjälp av följande steg via det lokala webbgränssnit
     
 7. Ange det enhetslösenord som du har fått från Azure-portalen i det föregående steget för att logga in på det lokala webbgränssnittet för enheten. Klicka på **Logga in**.
 8. På **instrumentpanelen** kontrollerar du att nätverksgränssnitten är konfigurerade. 
-    - Om DHCP har aktiverats i din miljö konfigureras nätverksgränssnitten automatiskt. 
-    - Om DHCP inte har aktiverats går du till **Ställ in nätverksgränssnitt** och tilldelar statiska IP-adresser, om det behövs.
+   - Om DHCP har aktiverats i din miljö konfigureras nätverksgränssnitten automatiskt. 
+   - Om DHCP inte har aktiverats går du till **Ställ in nätverksgränssnitt** och tilldelar statiska IP-adresser, om det behövs.
 
-    ![Instrumentpanel för enhet](media/data-box-deploy-set-up/data-box-dashboard-1.png)
+     ![Instrumentpanel för enhet](media/data-box-deploy-set-up/data-box-dashboard-1.png)
 
 När datanätverksgränssnitten har konfigurerats kan du även använda IP-adressen för något av DATA 1–DATA 3-gränssnitten för att komma åt det lokala webbgränssnittet på `https://<IP address of a data network interface>`. 
 

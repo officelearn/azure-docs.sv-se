@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 25fdce2381cc6dd65559a2450a42de5389589863
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7c4bd326c597b8e989dfc7aac5239ddb2d38376a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197335"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884781"
 ---
 # <a name="saas-application-storefront-details-tab"></a>Fliken för SaaS-program Storefront-information
 
@@ -37,7 +37,7 @@ I följande tabell beskriver vad butik som du kan ange för erbjudandet.
 |  **Erbjudandet fält**   |  **Beskrivning**  |
 |  ---------------   |  ---------------  |
 |      Sammanfattning av erbjudandet              |        Sammanfattning av ditt erbjudande förslagsvärde. Den visas på söksidan för ditt erbjudande. Det bör vara högst 100 tecken.           |
-|      Beskrivning av erbjudande              |      Beskrivningen som ska visas på detaljsidan för ditt program. Högsta tillåtna antalet är 1300 tecken. Du kan använda grundläggande HTML-taggar för att formatera innehållet. Till exempel &lt;p&gt;, &lt;h1&gt;, &lt;h2&gt;, och &lt;li&gt;. Om du vill se hur den formaterade beskrivningen visas, använda ett online i realtid HTML-verktyg som http://htmledit.squarefree.com             |
+|      Beskrivning av erbjudande              |      Beskrivningen som ska visas på detaljsidan för ditt program. Högsta tillåtna antalet är 1300 tecken. Du kan använda grundläggande HTML-taggar för att formatera innehållet. Till exempel &lt;p&gt;, &lt;h1&gt;, &lt;h2&gt;, och &lt;li&gt;. Om du vill se hur den formaterade beskrivningen visas, använda ett online i realtid HTML-verktyg som https://htmledit.squarefree.com             |
 |          Branscher          |        Välj branscher som ditt erbjudande är bäst anpassad efter. Om din app är kopplad till flera olika branscher, kan du välja högst två.           |
 |          Föreslås kategorier (Max 3)         |        Välj kategorier som ditt erbjudande är bäst anpassad efter. Du kan välja högst tre kategorier.           |
 |           Appversion         |        Ange det lägre versionsnumret för ditt program.           |
@@ -94,4 +94,4 @@ Ange följande information:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Fliken kontakter](./cpp-contacts-tab.md)
+[Fliken Kontakter](./cpp-contacts-tab.md)

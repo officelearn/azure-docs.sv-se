@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef3a0143b2fd536332cdae8ea0bb50cc0a93e6e9
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 1d2faefd8443383e7afff8e3729bf6f1cf25c3a7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430443"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887041"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenarier, begränsningar och kända problem med hjälp av grupper för att hantera licensiering i Azure Active Directory
 
@@ -63,7 +63,7 @@ I det här exemplet ändrar en användare och inställd på värdet av sina exte
 
 > [!WARNING]
 > Var försiktig när du ändrar en befintlig grupp medlemskapsregel. När en regel har ändrats, medlemskap i gruppen kommer att omprövas och användare som matchar den nya regeln inte längre kommer att tas bort (användare som fortfarande matchar den nya regeln inte påverkas under den här processen). Användarna får sina licenser som tas bort under processen vilket kan resultera i förlust av tjänsten eller i vissa fall förlust av data.
-
+> 
 > Om du har en stor dynamisk grupp som du lita på för licenstilldelning kan du överväga att verifiera alla omfattande ändringar på en mindre testgrupp innan du tillämpar dem i gruppen huvudsakliga.
 
 ## <a name="multiple-groups-and-multiple-licenses"></a>Flera grupper och flera licenser
@@ -90,23 +90,23 @@ Direkt tilldelade licenser kan tas bort och påverkar inte ärvda licenser. Öve
 
 1. Första gången användaren ärver licensen som endast från den *E3 bastjänster* grupp, vilket gör att fyra service-planer som visas:
 
-  ![Skärmbild av E3-gruppen aktiverat tjänster](./media/licensing-group-advanced/e3-group-enabled-services.png)
+   ![Skärmbild av E3-gruppen aktiverat tjänster](./media/licensing-group-advanced/e3-group-enabled-services.png)
 
 2. Du kan välja **tilldela** direkt tilldela en E3-licens till användaren. I detta fall använder ska du inaktivera alla service-planer utom Yammer Enterprise:
 
-  ![Skärmbild som visar hur du tilldelar en licens direkt till en användare](./media/licensing-group-advanced/assign-license-to-user.png)
+   ![Skärmbild som visar hur du tilldelar en licens direkt till en användare](./media/licensing-group-advanced/assign-license-to-user.png)
 
 3. Därför kan användaren fortfarande använder bara en licens E3. Men direkttilldelning gör det möjligt för Yammer företagstjänst för den användaren. Du kan se vilka tjänster är aktiverade som gruppmedlemskap kontra direkttilldelning:
 
-  ![Skärmbild av ärvt jämfört med direkt uppgift](./media/licensing-group-advanced/direct-vs-inherited-assignment.png)
+   ![Skärmbild av ärvt jämfört med direkt uppgift](./media/licensing-group-advanced/direct-vs-inherited-assignment.png)
 
 4. När du använder direkttilldelning tillåts följande åtgärder:
 
-  - Yammer Enterprise kan stängas av på användarobjektet direkt. Den **på/av** växling i bilden har aktiverats för den här tjänsten, till skillnad från andra knapparna för tjänsten. Eftersom tjänsten är aktiverad direkt på användaren, kan den ändras.
-  - Du kan aktivera ytterligare tjänster också som en del av direkt tilldelad licens.
-  - Den **ta bort** knappen kan användas för att ta bort direct-licensen från användaren. Du kan se att användaren bara har nu ärvda grupplicens och endast de ursprungliga tjänsterna förbli aktiverat:
+   - Yammer Enterprise kan stängas av på användarobjektet direkt. Den **på/av** växling i bilden har aktiverats för den här tjänsten, till skillnad från andra knapparna för tjänsten. Eftersom tjänsten är aktiverad direkt på användaren, kan den ändras.
+   - Du kan aktivera ytterligare tjänster också som en del av direkt tilldelad licens.
+   - Den **ta bort** knappen kan användas för att ta bort direct-licensen från användaren. Du kan se att användaren bara har nu ärvda grupplicens och endast de ursprungliga tjänsterna förbli aktiverat:
 
-    ![Skärmbild som visar hur du tar bort direkt uppgift](./media/licensing-group-advanced/remove-direct-license.png)
+     ![Skärmbild som visar hur du tar bort direkt uppgift](./media/licensing-group-advanced/remove-direct-license.png)
 
 ## <a name="managing-new-services-added-to-products"></a>Hantera nya tjänster läggs till produkter
 När Microsoft lägger till en ny tjänst i en produkt, aktiveras den som standard i alla grupper som du har tilldelat produktlicensen. Användare i din klient som prenumererar på meddelanden om produktförändringar får e-postmeddelanden förväg meddelar dem om kommande-tillägg.
@@ -122,15 +122,15 @@ Här är ett exempel på hur den här processen kan se ut:
 3. Gå till den [ **Azure Active Directory > licenser > alla produkter** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) bladet och välj *Office 365 Enterprise E5*och välj sedan **licensierade grupper** att visa en lista över alla grupper med den här produkten.
 
 4. Klicka på den grupp du vill granska (i det här fallet *O365 E5 - Exchange endast*). Då öppnas det **licenser** fliken. När du klickar på licensen som E5 öppnas ett blad som listar alla aktiverade tjänster.
-> [!NOTE]
-> Den *Microsoft Stream* service har lagts till och aktiveras i den här gruppen utöver automatiskt den *Exchange Online* service:
+   > [!NOTE]
+   > Den *Microsoft Stream* service har lagts till och aktiveras i den här gruppen utöver automatiskt den *Exchange Online* service:
 
-  ![Skärmbild av ny tjänst som lagts till i en grupplicens](./media/licensing-group-advanced/manage-new-services.png)
+   ![Skärmbild av ny tjänst som lagts till i en grupplicens](./media/licensing-group-advanced/manage-new-services.png)
 
 5. Om du vill inaktivera den nya tjänsten i den här gruppen klickar du på den **på/av** växla bredvid tjänsten och klicka på den **spara** för att bekräfta ändringen. Azure AD kommer nu att bearbeta alla användare i gruppen för att tillämpa ändringen; alla nya användare som lagts till i gruppen har inte den *Microsoft Stream* aktiverad.
 
-  > [!NOTE]
-  > Användare kan fortfarande ha tjänsten aktiveras via vissa andra licenstilldelning (en annan grupp som de är medlemmar i eller en direkta licenstilldelningen).
+   > [!NOTE]
+   > Användare kan fortfarande ha tjänsten aktiveras via vissa andra licenstilldelning (en annan grupp som de är medlemmar i eller en direkta licenstilldelningen).
 
 6. Om det behövs, utför du samma steg för andra grupper med den här produkten som tilldelats.
 
@@ -141,7 +141,7 @@ Du kan använda ett PowerShell-skript för att kontrollera om användarna har en
 
 2. `Get-MsolAccountSku` kan användas för att identifiera alla etablerade produktlicenser i klienten.
 
-  ![Skärmbild av cmdleten Get-Msolaccountsku](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
+   ![Skärmbild av cmdleten Get-Msolaccountsku](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
 3. Använd den *AccountSkuId* värde för den licens som du är intresserad av i med [den här PowerShell.skript](licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). Detta genererar en lista över användare som har denna licens med information om hur licensen som tilldelas.
 
@@ -159,8 +159,8 @@ Du kan använda [Azure AD-granskningsloggar](../reports-monitoring/concept-audit
 
 1. Ange den **aktivitet** filtrera till *ange grupplicens* och klicka på **tillämpa**.
 2. Resultatet innehåller alla fall av licenser ställs in eller ändras på grupper.
->[!TIP]
-> Du kan också skriva namnet på gruppen i den *Target* filter för att begränsa resultaten.
+   >[!TIP]
+   > Du kan också skriva namnet på gruppen i den *Target* filter för att begränsa resultaten.
 
 3. Klicka på ett objekt i listvyn för att se information om vad som har ändrats. Under *ändrade egenskaper* både gamla och nya värdena för licenstilldelningen anges.
 
@@ -173,23 +173,23 @@ Här är ett exempel på gruppen licensändringar, med information:
 När en licens ändras i en grupp, startar Azure AD att tillämpa ändringarna för alla användare.
 
 1. Om du vill se när grupper startade bearbetning, ange den **aktivitet** filtrera till *börja tillämpa gruppbaserad licens för användare*. Observera att aktören för åtgärden är *Microsoft Azure AD gruppbaserad licensiering* -ett systemkonto som används för att köra alla ändringar av licens.
->[!TIP]
-> Klicka på ett objekt i listan för att se den *ändrade egenskaper* field: den visar licensändringar som har hämtas för bearbetning. Detta är användbart om du gjort flera ändringar i en grupp och du inte är säker på vilken som bearbetades.
+   >[!TIP]
+   > Klicka på ett objekt i listan för att se den *ändrade egenskaper* field: den visar licensändringar som har hämtas för bearbetning. Detta är användbart om du gjort flera ändringar i en grupp och du inte är säker på vilken som bearbetades.
 
 2. På samma sätt, om du vill se när grupper bearbetats, använda filtervärdet *Slutför tillämpning av gruppbaserad licens för användare*.
->[!TIP]
-> I det här fallet den *ändrade egenskaper* fältet innehåller en sammanfattning av resultaten – detta är användbart för att snabbt kontrollera om bearbetning resulterade i fel. Exempel på utdata:
-> ```
-Modified Properties
-...
-Name : Result
-Old Value : []
-New Value : [Users successfully assigned licenses: 6, Users for whom license assignment failed: 0.];
-> ```
+   > [!TIP]
+   > I det här fallet den *ändrade egenskaper* fältet innehåller en sammanfattning av resultaten – detta är användbart för att snabbt kontrollera om bearbetning resulterade i fel. Exempel på utdata:
+   > ```
+   > Modified Properties
+   > ...
+   > Name : Result
+   > Old Value : []
+   > New Value : [Users successfully assigned licenses: 6, Users for whom license assignment failed: 0.];
+   > ```
 
 3. Om du vill se en komplett logg för hur en grupp har bearbetats, inklusive alla användarändringar, ange följande filter:
-  - **Initierad av (aktör)**: ”Microsoft Azure AD gruppbaserad licensiering”
-  - **Datumintervall** (valfritt): anpassade intervall för när du vet att en specifik grupp igång och bearbetats
+   - **Initierad av (aktör)**: ”Microsoft Azure AD gruppbaserad licensiering”
+   - **Datumintervall** (valfritt): anpassade intervall för när du vet att en specifik grupp igång och bearbetats
 
 Detta exempel på utdata visas i början av bearbetning, alla resulterande användarändringar och slutdatumet för bearbetning.
 
@@ -220,7 +220,7 @@ Om du använder gruppbaserad licensiering, är det en bra idé att bekanta dig m
 
 - När licenser tilldelas eller ändras för en stor grupp (till exempel 100 000 användare), kan det påverka prestanda. Mer specifikt mängden ändringar som genereras av Azure AD-automation kan ge försämrade prestanda för dina katalogsynkronisering mellan Azure AD och lokala system.
 
-- Om du använder dynamiska grupper för att hantera dina användares medlemskap kontrollerar du att användaren är medlem i gruppen, vilket är nödvändigt för licenstilldelning. Om inte [kontrollerar du bearbetningsstatusen för medlemskapsregeln](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule) för den dynamiska gruppen. 
+- Om du använder dynamiska grupper för att hantera dina användares medlemskap kontrollerar du att användaren är medlem i gruppen, vilket är nödvändigt för licenstilldelning. Om inte [kontrollerar du bearbetningsstatusen för medlemskapsregeln](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule) för den dynamiska gruppen. 
 
 - I vissa situationer med hög belastning, kan det ta lång tid att bearbeta licensändringar för grupper eller Medlemskapsändringar i grupper med befintliga licenser. Om du ser ändringarna ta mer än 24 timmar att bearbeta grupp storleken på 60K användare eller mindre,. [öppna ett supportärende](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) för att vi ska undersöka. 
 

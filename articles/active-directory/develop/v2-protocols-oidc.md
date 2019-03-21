@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d94e64af362ef9698350b8231718cc841731f7e5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6c20ae6acaf600cdde6e168c6db96deb7a28e9fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162840"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112712"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 och OpenID Connect-protokoll
 
@@ -105,7 +105,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Klicka på länken nedan för att köra den här begäran. När du har loggat in webbläsaren kommer att omdirigeras till https://localhost/myapp/, med en ID-token i adressfältet. Observera att denna begäran använder `response_mode=fragment` (endast i demonstrationssyfte). Vi rekommenderar att du använder `response_mode=form_post`.
+> Klicka på länken nedan för att köra den här begäran. När du har loggat in webbläsaren kommer att omdirigeras till `https://localhost/myapp/`, med en ID-token i adressfältet. Observera att denna begäran använder `response_mode=fragment` (endast i demonstrationssyfte). Vi rekommenderar att du använder `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
 | Parameter | Tillstånd | Beskrivning |
@@ -178,7 +178,7 @@ I följande tabell beskrivs felkoder som kan returneras i de `error` -parametern
 
 Bara tar emot en id_token är inte tillräckliga för att autentisera användaren. Du måste verifiera den id_token signatur och verifiera anspråken i token enligt krav för din app. V2.0-slutpunkten använder [JSON Web token (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) och kryptering med offentlig nyckel att signera token och kontrollera att de är giltiga.
 
-Du kan välja att verifiera den `id_token` i klienten kod, men en vanlig metod är att skicka den `id_token` till backend-servern och utföra valideringen det. När du har verifierat signaturen för id_token, finns det några anspråk uppmanas du att verifiera. Se den [ `id_token` referens](id-tokens.md) mer information inklusive [verifierar token](id-tokens.md#validating-an-idtoken) och [viktig Information om signering nyckel förnya](active-directory-signing-key-rollover.md). Vi rekommenderar att du utnyttjar ett bibliotek för parsning och validera token: det finns minst en tillgänglig för de flesta språk och plattformar.
+Du kan välja att verifiera den `id_token` i klienten kod, men en vanlig metod är att skicka den `id_token` till backend-servern och utföra valideringen det. När du har verifierat signaturen för id_token, finns det några anspråk uppmanas du att verifiera. Se den [ `id_token` referens](id-tokens.md) mer information inklusive [verifierar token](id-tokens.md#validating-an-id_token) och [viktig Information om signering nyckel förnya](active-directory-signing-key-rollover.md). Vi rekommenderar att du utnyttjar ett bibliotek för parsning och validera token: det finns minst en tillgänglig för de flesta språk och plattformar.
 <!--TODO: Improve the information on this-->
 
 Du kan också välja att validera ytterligare anspråk beroende på ditt scenario. Vissa vanliga verifieringar är:
@@ -235,7 +235,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 ```
 
 > [!TIP]
-> Klicka på länken nedan för att köra den här begäran. När du har loggat in webbläsaren omdirigeras till https://localhost/myapp/, med ett ID-token och koden i adressfältet. Observera att denna begäran använder `response_mode=fragment` endast i demonstrationssyfte. Vi rekommenderar att du använder `response_mode=form_post`.
+> Klicka på länken nedan för att köra den här begäran. När du har loggat in webbläsaren omdirigeras till `https://localhost/myapp/`, med ett ID-token och koden i adressfältet. Observera att denna begäran använder `response_mode=fragment` endast i demonstrationssyfte. Vi rekommenderar att du använder `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
@@ -279,4 +279,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 En beskrivning av felkoder och rekommenderade klientens svar finns i [felkoder för slutpunkt-auktoriseringsfel](#error-codes-for-authorization-endpoint-errors).
 
-När du har en auktoriseringskod och ett ID-token kan du logga in användaren och få åtkomst-token för deras räkning. Om du vill registrera användare i, måste du verifiera ID-token [exakt enligt](id-tokens.md#validating-an-idtoken). Om du vill få åtkomst-token, följer du stegen som beskrivs i [OAuth code flow-dokumentation](v2-oauth2-auth-code-flow.md#request-an-access-token).
+När du har en auktoriseringskod och ett ID-token kan du logga in användaren och få åtkomst-token för deras räkning. Om du vill registrera användare i, måste du verifiera ID-token [exakt enligt](id-tokens.md#validating-an-id_token). Om du vill få åtkomst-token, följer du stegen som beskrivs i [OAuth code flow-dokumentation](v2-oauth2-auth-code-flow.md#request-an-access-token).

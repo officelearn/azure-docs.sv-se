@@ -1,6 +1,6 @@
 ---
 title: Nyckelvärdeslagring för Azure App Configuration | Microsoft Docs
-description: En översikt över hur konfigurationsdata lagras i Azure App Configuration
+description: En översikt över hur konfigurationsdata lagras i Azure-Appkonfiguration
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -12,36 +12,36 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: f04067358b0b2bae745727a5dd7a1f5554f9f70e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 352bc20bb4082dd14b810a6afe85653cfd67e7e1
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884987"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224477"
 ---
 # <a name="key-value-store"></a>Nyckelvärdeslagring
 
-Azure App Configuration lagrar konfigurationsdata som nyckel/värde-par, ett enkelt men flexibelt sätt att representera olika typer av programinställningar som utvecklare är bekanta med.
+Konfiguration av Azure lagrar konfigurationsdata som nyckel / värde-par. Nyckel / värde-par är ett enkelt men flexibelt sätt som representerar olika typer av programinställningar som utvecklare är bekant med.
 
 ## <a name="keys"></a>Nycklar
 
-Nycklar fungerar som namn för nyckel/värde-par och används för att lagra och hämta motsvarande värden. Det är vanligt att organisera nycklar i en hierarkisk namnrymd med en teckenavgränsare (till exempel `/` eller `:`) baserat på en konvention som passar bäst för ditt program. App Configuration behandlar nycklar som en helhet. De parsar inte nycklar för att ta reda på hur deras namn är strukturerade eller för att framtvinga någon regel på dem.
+Nycklar fungerar som namn för nyckel / värde-par och används för att lagra och hämta motsvarande värden. Det är vanligt att organisera nycklar i ett hierarkiskt namnområde med hjälp av en avgränsaren, till exempel `/` eller `:`. Använd en konvention som passar bäst för ditt program. App Configuration behandlar nycklar som en helhet. Den parsa inte nycklar för att ta reda på hur deras namn är strukturerade eller framtvinga Standardregeln på dem.
 
-Användningen av konfigurationsarkiv i programramverk kan kräva specifika namngivningskonventioner för nyckelvärden. Exempelvis definierar Spring Cloud-ramverket för Java `Environment`-resurser som ger inställningar till ett Spring-program till att parametriseras av variabler såsom *programnamn* och *profil*. Nycklar för Spring Clould-relaterade konfigurationsdata börjar vanligtvis med dessa två element separerade med en avgränsare.
+Användningen av konfiguration av lagra inom ramverk för programmet kan avgöra specifika filnamnen för nyckelvärden. Till exempel Java's Spring Cloud-ramverket definierar `Environment` resurser som skicka inställningar till en Spring-program till parameteriseras via variabler som omfattar *programnamn* och *profil*. Nycklar för Spring Cloud-relaterade konfigurationsdata börjar vanligtvis med dessa två element avgränsade med en avgränsare.
 
-Nycklar som lagras i App Configuration är skiftlägeskänsliga, Unicode-baserade strängar. Nycklarna *app1* och *App1* skiljer sig i ett appkonfigurationsarkiv. Ha detta i åtanke när du använder konfigurationsinställningar i ett program, eftersom vissa ramverk hanterar konfigurationsnycklar utan skiftlägeskänslighet. Till exempel behandlar konfigurationssystemet för ASP.NET Core nycklar som icke-skiftlägeskänsliga strängar. För att undvika oväntat beteende vid frågekörning mot App Configuration i ett ASP.NET Core-program bör nycklar som endast skiljs åt med skiftläge inte användas.
+Nycklar som lagras i App Configuration är skiftlägeskänsliga, Unicode-baserade strängar. Nycklarna *app1* och *App1* skiljer sig i ett appkonfigurationsarkiv. Tänk på detta när du använder konfigurationsinställningar i ett program, eftersom vissa ramverk hantera konfigurationsnycklar case-insensitively. Till exempel behandlar konfigurationssystemet för ASP.NET Core nycklar som icke-skiftlägeskänsliga strängar. För att undvika oväntade beteenden när du frågar Appkonfiguration i ett ASP.NET Core-program kan inte använda nycklar som endast skiljer skiftläge.
 
-Du kan använda valfria Unicode-tecken i nyckelnamn som anges i App Configuration förutom `*`, `,` och `\`, som är reserverade. Om du behöver använda ett reserverat tecken måste du undanta det med hjälp av `\{Reserved Character}`. Det finns en sammanlagd storleksgräns på 10K tecken i ett nyckel/värde-par. Detta inkluderar alla tecken i nyckeln, dess värde samt alla tillhörande valfria attribut. Inom den här gränsen kan du ha många hierarkiska nivåer för nycklar.
+Du kan använda valfria unicode-tecken i nyckelnamn som angetts i konfiguration av undantag för `*`, `,`, och `\`. Följande tecken är reserverade. Om du vill inkludera ett reserverat tecken måste du hoppa över det med hjälp av `\{Reserved Character}`. Det finns en kombinerad storleksgräns på 10 000 tecken på ett nyckel / värde-par. Den här gränsen gäller alla tecken i nyckeln, dess värde och alla tillhörande valfria attribut. Inom den här gränsen kan du ha många hierarkiska nivåer för nycklar.
 
-### <a name="designing-key-namespaces"></a>Utforma nyckelnamnrymder
+### <a name="design-key-namespaces"></a>Utforma nyckeln namnområden
 
-Det finns två generella metoder för namngivning av nycklar som används för konfigurationsdata: platt eller hierarkisk. De här metoderna är mycket lika vad gäller programanvändning, men den senare erbjuder flera fördelar:
+Det finns två generella metoder för namngivning av nycklar som används för konfigurationsdata: platt eller hierarkisk. Dessa metoder är liknande ur ett programs synvinkel för användning, men hierarkisk naming erbjuder flera fördelar:
 
-* Enklare att läsa. I stället för en lång sekvens av tecken fungerar avgränsare i ett hierarkiskt nyckelnamn som blanksteg i en mening och ger naturlig radbrytningar mellan ord.
+* Enklare att läsa. I stället för en lång sekvens av tecken fungerar avgränsare i en hierarkisk nyckelnamn som blanksteg i en mening. Du får även naturlig radbrytningar mellan ord.
 * Enklare att hantera. En nyckelnamnshierarki representerar logiska grupper med konfigurationsdata.
-* Enklare att använda. Det är enklare att skriva en fråga som mönstermatchar nycklar i en hierarkisk struktur och bara hämtar en del av konfigurationsdata. Dessutom har många nyare programmeringsramverk inbyggt stöd för hierarkiska konfigurationsdata så att ditt program kan använda specifika konfigurationsuppsättningar.
+* Enklare att använda. Det är enklare att skriva en fråga som mönstermatchar nycklar i en hierarkisk struktur och bara hämtar en del av konfigurationsdata. Dessutom har många nyare programming ramverk inbyggt stöd för hierarkisk konfigurationsdata så att ditt program kan göra användning av specifika uppsättningar av konfiguration.
 
-Du kan organisera nycklar i App Configuration hierarkiskt på många sätt. Du kan betrakta sådana nycklar som [URI:er](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier). Varje hierarkisk nyckel är en *resurssökväg* som består av en eller flera komponenter som ansluts med avgränsare. Du kan välja vilket tecken som ska användas som avgränsare baserat på dina behov vad gäller program, programmeringsspråk eller ramverk. Du kan använda flera avgränsare för olika nycklar i App Configuration.
+Du kan organisera nycklar i App Configuration hierarkiskt på många sätt. Se sådana nycklar som [URI: er](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier). Varje hierarkisk nyckel är en resurs *sökväg* består av en eller flera komponenter som är sammankopplade med avgränsare. Välj vilka tecken som ska användas som avgränsare baserat på vilka dina program, programmeringsspråk eller framework behov. Använda flera avgränsare för olika nycklar i Appkonfiguration.
 
 Här är flera exempel på hur du kan strukturera nyckelnamnen i en hierarki:
 
@@ -65,44 +65,44 @@ Här är flera exempel på hur du kan strukturera nyckelnamnen i en hierarki:
         AppName:Production:Region1:DB:Endpoint
         AppName:Production:Region2:DB:Endpoint
 
-### <a name="versioning-key-values"></a>Versionshantering för nyckelvärden
+### <a name="version-key-values"></a>Version nyckelvärden
 
-Som tillval kan nyckelvärden i App Configuration ha attributet **label** (etikett). Etiketter används för att skilja mellan nyckelvärden med samma nyckel. En nyckel som heter *app1* med etiketterna *v1* och *v2* bildar två separata nyckelvärden i ett appkonfigurationsarkiv. Som standard är etiketten för ett nyckelvärde tomt (eller `null`).
+Nyckelvärden i konfiguration av kan du kan också ha en etikettattribut. Etiketter för att skilja mellan värden med samma nyckel. En nyckel *app1* med etiketter *v1* och *v2* utgör två separata värden i en appbutik för konfigurationen. Som standard ett nyckelvärde etikett är tomt, eller `null`.
 
-App Configuration versionshanterar inte nyckelvärden automatiskt när de ändras. Du kan använda etiketter som ett sätt att skapa flera versioner av ett nyckelvärde. Exempelvis kan du ange ett programversionsnummer eller ett Git-inchecknings-ID i etiketter för att identifiera nyckelvärden som är associerade med en viss programvaruversion.
+Konfiguration av inte automatiskt version nyckelvärden som de har ändrats. Använda etiketter som ett sätt att skapa flera versioner av ett nyckelvärde. Exempelvis kan du ange ett versionsnummer för programmet eller Git genomförande-ID i etiketter att identifiera viktiga värden som är associerade med en viss programvara-version.
 
-Du kan använda valfria Unicode-tecken i etiketter förutom `*`, `,` och `\`, som är reserverade. Om du behöver använda ett reserverat tecken måste du undanta det med hjälp av `\{Reserved Character}`.
+Du kan använda valfria unicode-tecken i etiketter utom för `*`, `,`, och `\`. Följande tecken är reserverade. För att inkludera ett reserverat tecken, måste du undanta den med hjälp av `\{Reserved Character}`.
 
-### <a name="querying-key-values"></a>Frågekörning för nyckelvärden
+### <a name="query-key-values"></a>Fråga nyckelvärden
 
-Varje nyckelvärde identifieras unikt genom sin nyckel plus en etikett som kan vara `null`. Du kan köra frågor mot ett appkonfigurationsarkiv för nyckelvärden genom att ange ett mönster. Appkonfigurationsarkivet returnerar alla nyckelvärden som matchar mönstret och deras motsvarande värden och attribut. Du kan använda följande nyckelmönster i REST API-anrop till App Configuration:
+Varje nyckelvärdet identifieras unikt genom dess nyckel plus en etikett som kan vara `null`. Du kan fråga en appbutik konfiguration för värden genom att ange ett mönster. Konfigurationsarkivets app returnerar alla nyckelvärden som matchar mönstret och deras motsvarande värden och attribut. Använd följande viktiga mönster i REST API-anrop till Appkonfiguration:
 
 | Nyckel | |
 |---|---|
 | `key` utelämnas eller `key=*` | Matchar alla nycklar |
-| `key=abc` | Matchar nyckelnamnet **abc** exakt. |
+| `key=abc` | Nyckelnamn för matchningar **abc** exakt |
 | `key=abc*` | Matchar nyckelnamn som börjar med **abc** |
 | `key=*abc` | Matchar nyckelnamn som slutar med **abc** |
 | `key=*abc*` | Matchar nyckelnamn som innehåller **abc** |
-| `key=abc,xyz` | Matchar nyckelnamnet **abc** eller **xyz**, begränsat till 5 CSV:er |
+| `key=abc,xyz` | Matchar nyckeln namn **abc** eller **xyz**begränsat till fem CSV: er |
 
-Du kan även inkludera följande etikettmönster:
+Du kan även inkludera följande etikett mönster:
 
 | Label (Etikett) | |
 |---|---|
-| `label` utelämnas eller `label=*` | Matchar valfri etikett, inklusive `null` |
-| `label=%00` | Matchningar etiketten `null`. |
+| `label` utelämnas eller `label=*` | Matchar alla, vilket innefattar `null` |
+| `label=%00` | Matchningar `null` etikett |
 | `label=1.0.0` | Matchar etiketten **1.0.0** exakt |
 | `label=1.0.*` | Matchar etiketter som börjar med **1.0.** |
 | `label=*.0.0` | Matchar etiketter som slutar med **.0.0** |
 | `label=*.0.*` | Matchar etiketter som innehåller **.0.** |
-| `label=%00,1.0.0` | Matchar etiketten `null` eller **1.0.1**, begränsat till 5 CSV:er |
+| `label=%00,1.0.0` | Matchar etiketter `null` eller **1.0.1**begränsat till fem CSV: er |
 
 ## <a name="values"></a>Värden
 
-Värden som tilldelas till nycklar är också Unicode-strängar. Du kan använda alla Unicode-tecken för värden. Det finns en valfri användardefinierad **innehållstyp** som är associerad med varje värde. Du kan använda det här attributet för att lagra information (till exempel kodningsschema) om ett värde som hjälper programmet att behandla det korrekt.
+Värden som tilldelas till nycklar är också Unicode-strängar. Du kan använda alla Unicode-tecken för värden. Det finns en valfri användardefinierad innehållstyp som är associerade med varje värde. Använd det här attributet för att lagra information, till exempel en kodningsschema om ett värde som bidrar till att dina program att behandla den korrekt.
 
-Konfigurationsdata som lagras i ett appkonfigurationsarkiv, däribland alla nycklar och värden, krypteras i vila och under överföring. App Configuration är dock inte en ersättningslösning för Azure Key Vault. Du bör inte lagra programhemligheter i den.
+Som lagras i en appbutik för konfigurationen som innehåller alla nycklar och värden, krypteras i vila och under överföring. Konfiguration av är inte en lösning för ersättning för Azure Key Vault. Inte lagra programhemligheter i den.
 
 ## <a name="next-steps"></a>Nästa steg
 

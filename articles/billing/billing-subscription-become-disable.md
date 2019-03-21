@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: 19895ef706ab5a5ec0aa390465ce260e68d71d78
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 2da6a5c93d4bf4fcf8763be47b9eb629b930e3b3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903119"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843481"
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Varför är min Azure-prenumeration inaktiverad och hur jag återaktivera den?
 
@@ -36,7 +36,7 @@ När du registrerar dig för ett kostnadsfritt Azure-konto kan du få en kostnad
 Azure-prenumerationer med kredit som kostnadsfri utvärderingsversion och Visual Studio Enterprise har utgiftsgränser på dem. Det innebär att du kan bara använda tjänster upp till den inkluderade krediten. När din användning når utgiftsgränsen, inaktiveras Azure prenumerationen under återstoden av den aktuella faktureringsperioden. Din prenumeration har inaktiverats för att skydda dig från att av misstag ådrar sig några kostnader för användning utöver den krediten som ingår i prenumerationen. Om du vill ta bort din utgiftsgräns, se [ta bort utgiftsgränsen i Kontocenter](billing-spending-limit.md#remove).
 
 > [!NOTE] 
-> Om du har en kostnadsfri utvärderingsprenumeration och du tar bort utgiftsgränsen, konverterar din prenumeration till betala per användning i slutet av den kostnadsfria utvärderingsversionen. Du behåller din kredit för fullständig 30 dagar efter att du har skapat prenumerationen. Du kan också ha tillgång till kostnadsfria tjänster i 12 månader.
+> Om du har en kostnadsfri utvärderingsprenumeration och du tar bort utgiftsgränsen, konverterar din prenumeration till betala per användning i slutet av den kostnadsfria utvärderingsversionen. Du behåller din kredit för fullständig 30 dagar efter att du har skapat prenumerationen. Du har även tillgång till kostnadsfria tjänster i 12 månader.
 
 Om du vill övervaka och hantera faktureringen för Azure, se [att undvika oväntade kostnader med Azure-fakturering och kostnadshantering](billing-getting-started.md).
 
@@ -63,4 +63,4 @@ För andra typer av prenumerationer [supporten](https://portal.azure.com/?#blade
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).

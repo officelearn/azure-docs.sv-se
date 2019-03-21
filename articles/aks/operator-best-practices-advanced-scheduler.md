@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 1534a3f010183cd91c444b577d26e3f21e296d27
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 27c9c872f4dfb82b4a1389189d62c4e1f06ee272
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57434327"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175989"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Metodtips för avancerade scheduler funktioner i Azure Kubernetes Service (AKS)
 
@@ -39,10 +39,10 @@ Kubernetes-Schemaläggaren kan använda taints och tolerations för att begräns
 När du distribuerar en pod till ett AKS-kluster, schemalägger Kubernetes endast poddar på noder där en toleration justeras med färg. Anta att du har en nodepool i AKS-kluster för noder med GPU stöder till exempel. Du kan definiera namn, till exempel *gpu*, sedan ett värde för schemaläggning. Om det här värdet anges till *NoSchedule*, Kubernetes-Schemaläggaren kan inte schemalägga poddar på noden om poden inte definierar lämpliga toleration.
 
 ```console
-kubectl taint node aks-nodepool1 gpu:NoSchedule
+kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
 ```
 
-Med en färg som tillämpas på noderna, därefter anger du en toleration i pod-specifikationen som tillåter schemaläggning på noderna. Följande exempel definierar den `key: gpu` och `effect: NoSchedule` ska kunna hanteras den färg som tillämpas på noden i föregående steg:
+Med en färg som tillämpas på noderna, därefter anger du en toleration i pod-specifikationen som tillåter schemaläggning på noderna. Följande exempel definierar den `sku: gpu` och `effect: NoSchedule` ska kunna hanteras den färg som tillämpas på noden i föregående steg:
 
 ```yaml
 kind: Pod
@@ -61,9 +61,9 @@ spec:
       cpu: 4.0
       memory: 16Gi
   tolerations:
-  - key: "gpu"
+  - key: "sku"
     operator: "Equal"
-    value: "value"
+    value: "gpu"
     effect: "NoSchedule"
 ```
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 5d0b53590e901cfa1686a71c3f0dda7fb771b56b
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: a3c0e94e213b861714bfc5f38e20e4d9a1de3a19
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990313"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107924"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Förfina grupper med beroendemappning för grupp
 
@@ -94,18 +94,18 @@ När du har installerat agenter på alla datorer i gruppen kan du visualisera be
 1. I Azure Migrate-projektet under **hantera**, klickar du på **grupper**, och välj gruppen.
 2. På gruppsidan **Visa beroenden**, för att öppna beroendekarta för gruppen.
 3. Beroendekarta för gruppen visar följande information:
-    - Inkommande (klienter) och utgående (servrar) TCP-anslutningar till/från alla datorer som ingår i gruppen
-        - Beroende datorer som inte har MMA och beroendeagenter agenten installerad är grupperade efter portnummer
-        - Beroende datorer som har MMA och beroendeagenten installerat visas som separata rutor
-    - Processer som körs på datorn, som du kan expandera varje datorrutan för att visa processer
-    - Egenskaper som fullständigt kvalificerade namn, operativsystem, MAC-adress osv på varje dator som du kan klicka på varje datorrutan för att visa den här informationen
+   - Inkommande (klienter) och utgående (servrar) TCP-anslutningar till/från alla datorer som ingår i gruppen
+       - Beroende datorer som inte har MMA och beroendeagenter agenten installerad är grupperade efter portnummer
+       - Beroende datorer som har MMA och beroendeagenten installerat visas som separata rutor
+   - Processer som körs på datorn, som du kan expandera varje datorrutan för att visa processer
+   - Egenskaper som fullständigt kvalificerade namn, operativsystem, MAC-adress osv på varje dator som du kan klicka på varje datorrutan för att visa den här informationen
 
      ![Visa gruppberoenden](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
 3. Om du vill visa mer detaljerade beroenden, klickar du på tidsintervall om du vill ändra den. Intervallet är en timme som standard. Du kan ändra tidsintervallet eller ange start- och slutdatum och varaktighet.
 
-    > [!NOTE]
-      Beroendevisualisering Användargränssnittet stöder för närvarande inte valet av ett tidsintervall som är längre än en timme. Använd Azure Monitor loggar [frågedata beroende](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) över en längre period.
+   > [!NOTE]
+   >    Beroendevisualisering Användargränssnittet stöder för närvarande inte valet av ett tidsintervall som är längre än en timme. Använd Azure Monitor loggar [frågedata beroende](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) över en längre period.
 
 4. Kontrollera beroende datorer den process som körs på varje dator och identifiera de datorer som ska läggas till eller tas bort från gruppen.
 5. Använd Ctrl + klicka för att välja datorer på kartan för att lägga till eller ta bort dem från gruppen.

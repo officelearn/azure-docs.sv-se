@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 3541a5b33aa0bb98d9381b51caefc63b6aa677ad
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: cb5d6474a0c830933c712e1008015b5220617c96
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377556"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850912"
 ---
 # <a name="handling-event-grid-events"></a>Hantera Event Grid-händelser
 
@@ -24,26 +24,9 @@ Media Services-händelser tillåta program att reagera på olika händelser (til
 
 Tillgänglighet för Media Services-händelser är knuten till Event Grid [tillgänglighet](../../event-grid/overview.md) och blir tillgängliga i andra regioner som Event Grid.  
 
-## <a name="available-media-services-events"></a>Tillgängliga Media Services-händelser
+## <a name="media-services-events-and-schemas"></a>Media Services-händelser och scheman
 
-Händelserutnät använder [händelseprenumerationer](../../event-grid/concepts.md#event-subscriptions) händelsen skicka meddelanden till prenumeranter.  Händelseprenumerationer för Media Services kan för närvarande kan innehålla följande händelser:  
-
-|Händelsenamn|Beskrivning|
-|----------|-----------|
-| Microsoft.Media.JobStateChange| Utlöses när en tillståndet för jobbet ändringarna. |
-| Microsoft.Media.LiveEventConnectionRejected | Kodarens anslutningsförsöket. |
-| Microsoft.Media.LiveEventEncoderConnected | Kodaren upprättar anslutningen med live-händelse. |
-| Microsoft.Media.LiveEventEncoderDisconnected | Kodaren kopplar från. |
-| Microsoft.Media.LiveEventIncomingDataChunkDropped | Media-servern avslutar datagruppen eftersom den är för sent eller har ett överlappande tidsstämpel (tidsstämpel av nya data-segmentet är mindre än sluttiden tidigare datagruppen). |
-| Microsoft.Media.LiveEventIncomingStreamReceived | Media-servern tar emot första data-segmentet för varje spår i stream eller anslutning. |
-| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Media-server identifierar ljud och video strömmar är inte synkroniserade. Använda som en varning eftersom användarupplevelsen inte påverkas. |
-| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Media-server identifierar någon av de två videoflöden som kommer från externa kodaren är inte synkroniserade. Använda som en varning eftersom användarupplevelsen inte påverkas. |
-| Microsoft.Media.LiveEventIngestHeartbeat | Publicerade var 20: e sekund för varje spår när direktsändningen körs. Tillhandahåller mata in hälsoöversikt. |
-| Microsoft.Media.LiveEventTrackDiscontinuityDetected | Media-server identifierar avbrott i den inkommande kursen. |
-
-## <a name="event-schema"></a>Händelseschema
-
-Media Services-händelser innehåller all information du behöver för att svara på ändringar i dina data.  Du kan identifiera en Media Services-händelse eftersom egenskapen händelsetyp börjar med ”Microsoft.Media”.
+Händelserutnät använder [händelseprenumerationer](../../event-grid/concepts.md#event-subscriptions) händelsen skicka meddelanden till prenumeranter. Media Services-händelser innehåller all information du behöver för att svara på ändringar i dina data. Du kan identifiera en Media Services-händelse eftersom egenskapen händelsetyp börjar med ”Microsoft.Media”.
 
 Mer information finns i [Media Services Händelsescheman](media-services-event-schemas.md).
 

@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: e56ab4d74b54e1da8b07de6081766c8669bfb68a
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 2ffc9055f23b8221a6f711f741b6146545ff0821
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576641"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895744"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Distribuera en Azure Machine Learning Studio-webbtjänst
 
@@ -93,17 +93,17 @@ RRS testsidan visar indata, utdata och eventuella globala parametrar som du har 
 
 Om du vill testa med RRS, ange lämpliga värden för indata från visningsläge listan och klicka på **testa Request-Response**. Din förutsagda resultaten som visas i utdatakolumnen till vänster.
 
-![Distribuera webbtjänsten](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
+![Ange lämpliga värden för att testa din webbtjänst](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
 Om du vill testa din BES, klickar du på **Batch**. På sidan Batch test klickar du på Bläddra under dina indata och välj en CSV-fil med lämpliga exempelvärden. Om du inte har en CSV-fil och du har skapat din förutsägbart experiment med Machine Learning Studio, kan du hämta datauppsättningen för din förutsägelseexperiment och använda den.
 
 Öppna Machine Learning Studio om du vill hämta datauppsättningen. Öppna din förutsägelseexperiment och högerklicka på indata för experimentet. På snabbmenyn väljer **datauppsättning** och välj sedan **hämta**.
 
-![Distribuera webbtjänsten](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
+![Hämta datauppsättningen från Studio-arbetsyta](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
 Klicka på **Test**. Status för batchkörning jobbet visas till höger under **Test batchjobb**.
 
-![Distribuera webbtjänsten](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
+![Testa ditt jobb för batchkörning med web service-portalen](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
 
 <!--![Test the web service](./media/publish-a-machine-learning-web-service/figure-3.png)-->
 
@@ -161,7 +161,7 @@ Nu när förutsägbart experiment har förberetts tillräckligt, kan du distribu
 
 För att distribuera din förutsägelseexperiment, klickar du på **kör** längst ned i experimentet arbetsytan och klicka sedan på **distribuera webbtjänsten**. Webbtjänsten har ställts in och du är placerade i instrumentpanelen för webbtjänsten.
 
-![Distribuera webbtjänsten](./media/publish-a-machine-learning-web-service/figure-2.png)
+![Distribuera webbtjänsten i Studio](./media/publish-a-machine-learning-web-service/figure-2.png)
 
 ### <a name="test-your-classic-web-service"></a>Testa din klassisk webbtjänst
 
@@ -181,7 +181,7 @@ Du kan ange en beskrivning för indata, utdata och web tjänstparametrar genom a
 
 Du kan aktivera loggning för att diagnostisera eventuella fel som du ser när din webbtjänst används. Mer information finns i [aktivera loggning för Machine Learning Studio-webbtjänster](web-services-logging.md).
 
-![Konfigurera webbtjänsten](./media/publish-a-machine-learning-web-service/figure-4.png)
+![Aktivera loggning i webbportalen för tjänster](./media/publish-a-machine-learning-web-service/figure-4.png)
 
 Du kan också konfigurera slutpunkter för webbtjänsten i portalen Azure Machine Learning Web Services liknar det sätt som visas tidigare i avsnittet nya web service. Alternativen skiljer sig, du kan lägga till eller ändra tjänstbeskrivning, aktivera loggning och aktivera exempeldata för att testa.
 
@@ -218,7 +218,6 @@ Ett alternativ för att uppdatera din webbtjänst är att träna modellen progra
 * Mer information om hur du förbereder din modell, för att distribuera finns [hur du förbereder din modell för distribution i Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md).
 
 * Du kan använda REST-API:et och komma åt webbtjänsten på flera sätt. Se [hur du använder en Azure Machine Learning Studio-webbtjänst](consume-web-services.md).
-
 
 <!-- internal links -->
 [Skapa ett träningsexperiment]: #create-a-training-experiment

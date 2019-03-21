@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6a45d6366ef3c581c00b084b7ea2e4095eaaba3f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: cd0bceae770182e778410d8065d34dfeed055acc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538127"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993261"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Skapa en Node.js-chattprogram med Socket.IO på en Azure-molntjänst
 
@@ -62,7 +62,7 @@ För det här projektet ska vi använda chatt-exempel från den [Socket.IO GitHu
 
 1. Skapa en lokal kopia av databasen med hjälp av den **klona** knappen. Du kan också använda den **ZIP** för att ladda ned projektet.
    
-   ![En webbläsare fönstret visa https://github.com/LearnBoost/socket.io/tree/master/examples/chat, med ikonen ZIP hämta markerat][chat-example-view]
+   ![En webbläsare fönstret visa https://github.com/LearnBoost/socket.io/tree/master/examples/chat, med ikonen ZIP hämta markerat](./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png)
 2. Navigera katalogstrukturen på den lokala lagringsplatsen tills du kommer till den **exempel\\chatt** directory. Kopiera innehållet i den här katalogen till den **C:\\nod\\chatapp\\WorkerRole1** katalog som skapades tidigare.
    
    ![Explorer visar innehållet i exemplen\\chatt directory extraheras från arkivet][chat-contents]
@@ -84,7 +84,11 @@ Vi måste göra några mindre ändringar innan du testar programmet i Azure-emul
          var port = process.env.PORT || 3000;         //Updated
 3. Öppna server.js i anteckningar eller redigeringsprogram du föredrar för att säkerställa att programmet lyssnar på rätt port, och sedan ändra följande rad genom att ersätta **3000** med **process.env.port** enligt nedan:
    
-       App.listen (3000, funktionen () {//Original       app.listen (process.env.port, funktionen () {//Updated var ADR = app.address();       Console.log (”app som lyssnar på http://' + addr.address +” ”: + addr.port);     });
+       //app.listen(3000, function () {            //Original
+       app.listen(process.env.port, function () {  //Updated
+         var addr = app.address();
+         console.log('   app listening on http://' + addr.address + ':' + addr.port);
+       });
 
 När du har sparat ändringarna **server.js**, Använd följande steg för att installera moduler som krävs och testa programmet i Azure-emulatorn:
 
@@ -105,12 +109,9 @@ När du har sparat ändringarna **server.js**, Använd följande steg för att i
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
    
    > [!NOTE]
-   > Om du stöter på problem med att starta emulatorn, t.ex.:      Start-AzureEmulator: Ett oväntat fel uppstod.  Information: Påträffade ett oväntat fel Kommunikationsobjekt System.ServiceModel.Channels.ServiceChannel, inte kan användas för kommunikation eftersom den har statusen Faulted.
-   
-      installera om AzureAuthoringTools v 2.7.1 och AzureComputeEmulator v 2.7 – Kontrollera att versionen matchar.
-   >
-   >
-
+   > Om du stöter på problem med att starta emulatorn, t.ex.: Start-AzureEmulator: Ett oväntat fel uppstod.  Information: Påträffade ett oväntat fel Kommunikationsobjekt System.ServiceModel.Channels.ServiceChannel, inte kan användas för kommunikation eftersom den har statusen Faulted.
+   > 
+   > installera om AzureAuthoringTools v 2.7.1 och AzureComputeEmulator v 2.7 – Kontrollera att versionen matchar.
 
 2. Öppna en webbläsare och gå till **http://127.0.0.1**.
 3. När webbläsarfönstret öppnas, ange ett smeknamn och sedan tryck på RETUR.

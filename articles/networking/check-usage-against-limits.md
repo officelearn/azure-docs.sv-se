@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: 56434e12e1d5eec34e8848d71a018147f1e161f6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 54050c4c20b6ebb35f198775448f51ee8cdc533b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777268"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117650"
 ---
 # <a name="check-resource-usage-against-limits"></a>Kontrollera resursanvändningen mot gränser
 
@@ -34,16 +34,16 @@ I den här artikeln du lär dig att se hur många av varje typ av resurs som du 
 4. Välj namnet på den prenumeration som du vill visa användningsinformation för.
 5. Under **inställningar**väljer **användning + kvoter**.
 6. Du kan välja följande alternativ:
-    - **Resurstyper**: Du kan välja alla typer av resurser eller Välj vilken typ av resurser som du vill visa.
-    - **Providers**: Du kan välja alla resursprovidrar eller välj **Compute**, **nätverk**, eller **Storage**.
-    - **Platser**: Du kan välja alla Azure-platser eller välja specifika platser.
-    - Du kan välja för att visa alla resurser eller de resurser där minst en distribueras.
+   - **Resurstyper**: Du kan välja alla typer av resurser eller Välj vilken typ av resurser som du vill visa.
+   - **Providers**: Du kan välja alla resursprovidrar eller välj **Compute**, **nätverk**, eller **Storage**.
+   - **Platser**: Du kan välja alla Azure-platser eller välja specifika platser.
+   - Du kan välja för att visa alla resurser eller de resurser där minst en distribueras.
 
-    Exempel på följande bild visar alla nätverksresurser med minst en resurs som är distribuerad i östra USA:
+     Exempel på följande bild visar alla nätverksresurser med minst en resurs som är distribuerad i östra USA:
 
-        ![View usage data](./media/check-usage-against-limits/view-usage.png)
+       ![Visa användningsdata](./media/check-usage-against-limits/view-usage.png)
 
-    Du kan sortera kolumner genom att välja kolumnens rubrik. Gränserna som visas är gränserna för din prenumeration. Om du vill utöka en standardgräns väljer **begäran öka**, Slutför och skicka in supportbegäran. Alla resurser har en maxgräns som visas i Azure [gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). Om din aktuella gränsen är redan det maximala antalet, kan inte gränsen ökas.
+     Du kan sortera kolumner genom att välja kolumnens rubrik. Gränserna som visas är gränserna för din prenumeration. Om du vill utöka en standardgräns väljer **begäran öka**, Slutför och skicka in supportbegäran. Alla resurser har en maxgräns som visas i Azure [gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). Om din aktuella gränsen är redan det maximala antalet, kan inte gränsen ökas.
 
 ## <a name="powershell"></a>PowerShell
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: d4293bf6a375f3e1a26c0c4fb50fcdc7bb5b8e8e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bf1ff4391e65fea68ac019be8fde8709fb4422b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243864"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181358"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes grundläggande begrepp för Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Du kan skapa och köra moderna och smidig mikrotjänstbaserade program som har n
 
 Som en öppen plattform kan Kubernetes du skapa program med din önskade programmeringsspråk, operativsystem, bibliotek eller meddelanden bus. Befintliga kontinuerlig integrering och leverans (CI/CD) kan integreras med Kubernetes att schemalägga och distribuera versioner.
 
-Azure Kubernetes Service (AKS) är en hanterad Kubernetes-tjänst som minskar komplexiteten för distribution och core hanteringsuppgifter, inklusive samordna uppgraderingar. Huvudservrar för AKS-kluster som hanteras av Azure-plattformen och du betalar bara för AKS-noder som kör dina program. AKS bygger på öppen källkod Azure Kubernetes Service Engine (aks-motor).
+Azure Kubernetes Service (AKS) är en hanterad Kubernetes-tjänst som minskar komplexiteten för distribution och core hanteringsuppgifter, inklusive samordna uppgraderingar. Huvudservrar för AKS-kluster som hanteras av Azure-plattformen och du betalar bara för AKS-noder som kör dina program. AKS bygger på öppen källkod Azure Kubernetes Service Engine ([aks-engine][aks-engine]).
 
 ## <a name="kubernetes-cluster-architecture"></a>Arkitektur för Kubernetes-kluster
 

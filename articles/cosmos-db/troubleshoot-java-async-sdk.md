@@ -9,12 +9,12 @@ ms.author: moderakh
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 86e5a0a0cf4c820efdcc65505d11e2fb0c198f0b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 0a2bbb33182fcdef3cc6ed7ff213557f90be4544
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039851"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880083"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Felsöka problem när du använder Async Java-SDK med Azure Cosmos DB SQL API-konton
 Den här artikeln beskriver vanliga problem, lösningar, diagnos och verktyg när du använder den [Java Async SDK](sql-api-sdk-async-java.md) med Azure Cosmos DB SQL API-konton.
@@ -150,6 +150,40 @@ Det här felet är ett fel på serversidan. Det anger du förbrukat det etablera
 ### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Går inte att ansluta till Azure Cosmos DB-emulator
 
 Azure Cosmos DB-emulatorn HTTPS-certifikatet är självsignerat. Importera emulatorn certifikatet till en Java-TrustStore för SDK att arbeta med emulatorn. Mer information finns i [exportera Azure Cosmos DB-emulatorcertifikat](local-emulator-export-ssl-certificates.md).
+
+### <a name="dependency-conflict-issues"></a>Konflikt beroendeproblem
+
+```console
+Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()Lrx/Single;
+```
+
+Ovanstående undantaget föreslår att du har ett beroende på en äldre version av RxJava lib (t.ex. 1.2.2). Vår SDK är beroende av RxJava 1.3.8 som innehåller API: er som är inte tillgänglig i tidigare version av RxJava. 
+
+Lösningen för sådana issuses är att identifiera vilka andra beroende ger i RxJava 1.2.2 undanta transitiv beroendet av RxJava 1.2.2 och Tillåt CosmosDB SDK ta med den nya versionen.
+
+Att identifiera vilka bibliotek som ger dig i RxJava 1.2.2, kör du följande kommando bredvid projekt pom.xml-filen:
+```bash
+mvn dependency:tree
+```
+Mer information finns i den [maven beroende trädet guiden](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
+
+När du har identifierat RxJava 1.2.2 är transitiva beroende på vilka andra beroende på ditt projekt, du kan ändra beroenden på som lib i pom-filen och utelämna RxJava transitiv beroende den:
+
+```xml
+<dependency>
+  <groupId>${groupid-of-lib-which-brings-in-rxjava1.2.2}</groupId>
+  <artifactId>${artifactId-of-lib-which-brings-in-rxjava1.2.2}</artifactId>
+  <version>${version-of-lib-which-brings-in-rxjava1.2.2}</version>
+  <exclusions>
+    <exclusion>
+      <groupId>io.reactivex</groupId>
+      <artifactId>rxjava</artifactId>
+    </exclusion>
+  </exclusions>
+</dependency>
+```
+
+Mer information finns i den [undanta transitiv beroende guiden](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html).
 
 
 ## <a name="enable-client-sice-logging"></a>Aktivera loggning för klient-SDK

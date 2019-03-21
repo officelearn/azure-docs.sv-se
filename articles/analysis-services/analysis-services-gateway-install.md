@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 01af5052d8b092d10609769f211d6ffcde03cf8e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: bd4c024e14e70b5937d85e9917340d25f552096d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190382"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110876"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installera och konfigurera en lokal datagateway
 
@@ -23,7 +23,7 @@ En lokal datagateway krävs när en eller flera Azure Analysis Services-servrar 
 
 **Minimikrav:**
 
-* .NET 4.5 framework
+* .NET 4.5 Framework
 * 64-bitars version av Windows 7 / Windows Server 2008 R2 (eller senare)
 
 **Rekommenderat:**
@@ -90,19 +90,19 @@ När du har installerat och registrerat din gateway, måste du skapa en resurs f
 
 2. I **skapa anslutningsgatewayen**, anger dessa inställningar:
 
-    * **Namn**: Ange ett namn för din gatewayresursen. 
+   * **Namn**: Ange ett namn för din gatewayresursen. 
 
-    * **Prenumeration**: Välj den Azure-prenumerationen ska associeras med din gateway-resurs. 
+   * **Prenumeration**: Välj den Azure-prenumerationen ska associeras med din gateway-resurs. 
    
-      Standard-prenumerationen baseras på Azure-konto som du använde för att logga in.
+     Standard-prenumerationen baseras på Azure-konto som du använde för att logga in.
 
-    * **Resursgrupp**: Skapa en resursgrupp eller välj en befintlig resursgrupp.
+   * **Resursgrupp**: Skapa en resursgrupp eller välj en befintlig resursgrupp.
 
-    * **Plats**: Välj den region som du har registrerat din gateway på.
+   * **Plats**: Välj den region som du har registrerat din gateway på.
 
-    * **Installationsnamn**: Om din gateway-installation inte redan är markerat, Välj den gateway som registrerats. 
+   * **Installationsnamn**: Om din gateway-installation inte redan är markerat, Välj den gateway som registrerats. 
 
-    När du är klar klickar du på **skapa**.
+     När du är klar klickar du på **skapa**.
 
 ## <a name="connect-servers"></a>Anslut servrar till gateway-resurs
 
@@ -121,6 +121,6 @@ Klart! Om du behöver öppna portar eller göra en felsökning kan du kolla in [
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantera Analysis Services](analysis-services-manage.md)   
+* [Manage Analysis Services](analysis-services-manage.md)   
 * [Hämta data från Azure Analysis Services](analysis-services-connect.md)   
 * [Använda gateway för datakällor på ett virtuellt Azure-nätverk](analysis-services-vnet-gateway.md)

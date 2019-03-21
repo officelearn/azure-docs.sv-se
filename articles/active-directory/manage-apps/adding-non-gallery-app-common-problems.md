@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a07ca553aee2a6267af5a33836e85b2a12d8ae3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c53675c27276fdcf403ca5a6add5d86fc38e410a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182297"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842475"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Problem med att lägga till en icke-galleriprogram
 
@@ -46,20 +46,20 @@ Om du behöver hjälp med att lära dig om anpassade program i [dokumentbibliote
 
 Du kan se information om alla portal-meddelande genom att följa stegen nedan:
 
-1.  Klicka på den **meddelanden** ikonen (klockan) uppe till höger på Azure portal
+1. Klicka på den **meddelanden** ikonen (klockan) uppe till höger på Azure portal
 
-2.  Välj något meddelande i en **fel** tillstånd (de med ett rött (!) bredvid dem).
+2. Välj något meddelande i en **fel** tillstånd (de med ett rött (!) bredvid dem).
 
    >[!NOTE]
    >Du kan klicka på aviseringar i en **lyckade** eller **pågår** tillstånd.
    >
    >
 
-4.  Använd informationen under **meddelandeinformation** att förstå mer information om problemet.
+4. Använd informationen under **meddelandeinformation** att förstå mer information om problemet.
 
-5.  Om du fortfarande behöver hjälp kan du också dela information med en supporttekniker eller produktgruppen för att få hjälp med problemet.
+5. Om du fortfarande behöver hjälp kan du också dela information med en supporttekniker eller produktgruppen för att få hjälp med problemet.
 
-6.  Klicka på den **ikonen för kopiera** till höger om den **kopiera fel** textrutan att kopiera alla meddelandeinformation att dela med en support eller produkt grupp-tekniker.
+6. Klicka på den **ikonen för kopiera** till höger om den **kopiera fel** textrutan att kopiera alla meddelandeinformation att dela med en support eller produkt grupp-tekniker.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Få hjälp genom att skicka information om meddelande till en supporttekniker
 
@@ -71,63 +71,63 @@ Se följande beskrivningar för mer information om meddelanden.
 
 ### <a name="essential-notification-items"></a>Viktigt meddelande objekt
 
--   **Rubrik** – beskrivande rubrik för meddelanden
-   *  Exempel – **proxyinställningarna för programmet**
+- **Rubrik** – beskrivande rubrik för meddelanden
+  *  Exempel – **proxyinställningarna för programmet**
 
--   **Beskrivning av** – beskrivning av vad som hänt på grund av åtgärden
+- **Beskrivning av** – beskrivning av vad som hänt på grund av åtgärden
 
-   *  Exempel – **interna URL: en som angetts används redan av ett annat program**
+  *  Exempel – **interna URL: en som angetts används redan av ett annat program**
 
--   **Meddelande-ID** – unikt ID för meddelandet
+- **Meddelande-ID** – unikt ID för meddelandet
 
-   *  Exempel – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+  *  Exempel – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **ID för klientbegäran** – specifik begäran-ID som gjorts av din webbläsare
+- **ID för klientbegäran** – specifik begäran-ID som gjorts av din webbläsare
 
-   *  Exempel – **302fd775-3329-4670-a9f3-bea37004f0bc**
+  *  Exempel – **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **Tid UTC för stämpel** – tidsstämpeln som aviseringen inträffade, i UTC
+- **Tid UTC för stämpel** – tidsstämpeln som aviseringen inträffade, i UTC
 
-   *  Exempel – **2017-03-23T19:50:43.7583681Z**
+  *  Exempel – **2017-03-23T19:50:43.7583681Z**
 
--   **Internt transaktions-ID** – internt ID vi kan använda för att kontrollera felet i våra system
+- **Internt transaktions-ID** – internt ID vi kan använda för att kontrollera felet i våra system
 
-   *  Exempel – **71a2f329-ca29-402f-aa72-bc00a7aca603**
+  *  Exempel – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** – den användare som utförde åtgärden
+- **UPN** – den användare som utförde åtgärden
 
-   *  Exempel – **tperkins@f128.info**
+  *  Exempel – **tperkins\@f128.info**
 
--   **Klient-ID** – unikt ID för den klient som den användare som utförde åtgärden var medlem av
+- **Klient-ID** – unikt ID för den klient som den användare som utförde åtgärden var medlem av
 
-   *  Exempel – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+  *  Exempel – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **Objekt-ID för användaren** – unikt ID för den användare som utförde åtgärden
+- **Objekt-ID för användaren** – unikt ID för den användare som utförde åtgärden
 
- *  Exempel – **17f84be4-51f8-483a-b533-383791227a99**
+  *  Exempel – **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>Detaljerat meddelande objekt
 
--   **Visningsnamn** – **(kan vara tom)** en mer detaljerad visningsnamn för felet
+- **Visningsnamn** – **(kan vara tom)** en mer detaljerad visningsnamn för felet
 
   *  Exempel – **proxyinställningarna för programmet**
 
--   **Status för** – specifika status för meddelandet
+- **Status för** – specifika status för meddelandet
 
-   *  Exempel – **misslyckades**
+  *  Exempel – **misslyckades**
 
--   **Objekt-ID** – **(kan vara tom)** objekt-ID som åtgärden utfördes
+- **Objekt-ID** – **(kan vara tom)** objekt-ID som åtgärden utfördes
 
-   *  Exempel – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
+  *  Exempel – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
--   **Information om** – detaljerad beskrivning av vad som hänt på grund av åtgärden
+- **Information om** – detaljerad beskrivning av vad som hänt på grund av åtgärden
 
-   *  Exempel – **interna URL: en ”https://bing.com/' är ogiltig eftersom den inte redan används**
+  *  Exempel – **interna URL: en `https://bing.com/` är ogiltig eftersom den inte redan används**
 
--   **Kopiera fel** – klickar du på den **kopieringsikonen** till höger om den **Kopieringsfel** textrutan att kopiera alla meddelandeinformation att dela med en grupp för support eller produkt 
--   tekniker
+- **Kopiera fel** – klickar du på den **kopieringsikonen** till höger om den **Kopieringsfel** textrutan att kopiera alla meddelandeinformation att dela med en grupp för support eller produkt 
+- tekniker
 
-   *  Exempel ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+  *  Exempel ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 
 

@@ -10,16 +10,19 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 0c31d895c453a8272c337b78f01dc8342a4d0765
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 115e2d6b041ecc3f38a2a6438d90777da9660221
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672516"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996470"
 ---
-# <a name="monitor-docker-applications-in-application-insights"></a>Övervaka Docker-program i Application Insights
+# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Övervaka Docker-program i Application Insights (inaktuell)
+
+> [!NOTE]
+> Den här lösningen är inaktuell. Mer information om våra befintliga investeringar i behållarövervakning rekommenderar vi checka ut [Azure Monitor för behållare](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
 Livscykelhändelser och prestanda-räknare från [Docker](https://www.docker.com/) behållare kan vara läggas till på Application Insights. Installera den [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) bild i en behållare i värden och den visar prestandaräknare för värden, samt för andra avbildningar.
 
@@ -30,9 +33,6 @@ När du kör den [Application Insights bild](https://hub.docker.com/r/microsoft/
 * Livscykel telemetri om alla behållare som körs på värd - starta, stoppa och så vidare.
 * Prestandaräknare för alla behållare. Processor, minne, nätverksanvändning och mer.
 * Om du [installerat Application Insights SDK för Java](../../azure-monitor/app/java-get-started.md) i appar som körs i behållare, all telemetri till apparna har ytterligare egenskaper som identifierar den behållare och värd-datorn. Om du har instanser av en app som körs på flera värden, kan du till exempel enkelt filtrera apptelemetrin av värden.
-
-> [!NOTE]
-> Den här lösningen är inaktuell. Mer information om våra befintliga investeringar i behållarövervakning rekommenderar vi checka ut [Azure Monitor för behållare](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
 ## <a name="set-up-your-application-insights-resource"></a>Konfigurera Application Insights-resursen
 

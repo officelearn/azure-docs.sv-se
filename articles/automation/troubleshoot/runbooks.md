@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 77f6a48402aef5b493b115d2137ccb6a507050b7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b34a1716d077aeead572c60d0c6b9bcad60a5b1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760213"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005434"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med runbooks
 
@@ -133,7 +133,7 @@ Om du vill använda ett certifikat med cmdlet: ar för klassiska Azure-modellen 
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Vanliga fel när du arbetar med runbooks
 
-###<a name="child-runbook-object"></a>Underordnad runbook returnerar fel när utdataströmmen innehåller objekt i stället för enkla datatyper
+### <a name="child-runbook-object"></a>Underordnad runbook returnerar fel när utdataströmmen innehåller objekt i stället för enkla datatyper
 
 #### <a name="issue"></a>Problem
 
@@ -303,7 +303,7 @@ Det här felet inträffar på grund av något av följande problem:
 
 3. Modulen inkompatibel. Det här felet kan inträffa om modulberoenden inte är rätt och om de inte är, din runbook returnerar vanligtvis ett ”kommando inte hittas” eller ”det går inte att binda parametern” meddelande.
 
-4. Din runbook försökte anropa en en körbar fil eller underprocess i en runbook som körs i en Azure sandbox. Det här scenariot stöds inte i Azure sandbox-miljöer.
+4. Din runbook försökte anropa en körbar fil eller subprocess i en runbook som körs i en Azure sandbox. Det här scenariot stöds inte i Azure sandbox-miljöer.
 
 #### <a name="resolution"></a>Lösning
 
@@ -463,7 +463,7 @@ Webhooken som du försöker anropa är antingen inaktiverat eller har upphört a
 
 Om webhooken har inaktiverats kan återaktivera du webhooken via Azure portal. När en webhook har upphört att gälla, måste webhooken tas bort och återskapas. Du kan bara [förnya en webhook](../automation-webhooks.md#renew-webhook) om den inte har redan gått ut.
 
-### <a name="429"></a>Scenario: 429: Begäranhastigheten är för närvarande för stor. Försök igen
+### <a name="429"></a>Scenario: 429: Begärandehastigheten är för närvarande för hög. Försök igen
 
 #### <a name="issue"></a>Problem
 

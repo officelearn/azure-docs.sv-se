@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a00c9cb0ce1bd8a6f36070e81df1185ef23a307
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 450fcbcdfab8e90728fbbbd0068123768f3cef4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201779"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993309"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>Självstudier: Azure Active Directory-integrering med socker CRM
 
@@ -114,6 +114,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     ![Konfigurera enkel inloggning](./media/sugarcrm-tutorial/tutorial_sugarcrm_url.png)
 
     I textrutan **Inloggnings-URL** anger du en URL med följande mönster:
+    
     | |
     |--|
     | `https://<companyname>.sugarondemand.com` |
@@ -148,7 +149,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
    
     ![Administration](./media/sugarcrm-tutorial/ic795890.png "Administration")
 
-1. I den **SAML-autentisering** avsnittet, utför följande steg:
+1. Gör följande i avsnittet **SAML-autentisering**:
    
     ![SAML-autentisering](./media/sugarcrm-tutorial/ic795891.png "SAML-autentisering")  
  
@@ -275,7 +276,7 @@ När du klickar på panelen socker CRM i åtkomstpanelen du bör få automatiskt
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

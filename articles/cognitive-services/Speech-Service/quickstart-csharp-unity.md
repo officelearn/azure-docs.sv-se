@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 0978db31f4aa8caa273c63c2f55d5146b19dea26
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: cdde9f0ec69bec48ae0fb747db0cc49e81920817
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878021"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57872589"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Snabbstart: Taligenkänning med Speech SDK för Unity (betaversion)
 
@@ -29,7 +29,7 @@ Om du inte är bekant med Unity rekommenderar vi att du läser [användarhandbok
 > Speech SDK för Unity är för närvarande i betaversion.
 > Den har stöd för Windows x86 och x64 (fristående skrivbordsprogram eller Universell Windows-plattform) samt Android (ARM32/64, x86).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra det här projektet behöver du:
 
@@ -63,12 +63,12 @@ För att slutföra det här projektet behöver du:
 Vi lägger till ett minimalt användargränssnitt i scenen som består av en knapp för att utlösa taligenkänning och ett textfält för att visa resultatet.
 
 * I [hierarkifönstret](https://docs.unity3d.com/Manual/Hierarchy.html) (som standard finns till vänster) visas en exempelscen som Unity skapade med det nya projektet.
-* Klicka på knappen **Skapa** längst upp i hierarkifönstret och välj **Användargränssnitt** > **Knapp**.
+* Klicka på den **skapa** överst i fönstret hierarkin och välj **UI** > **knappen**.
 * Detta skapar tre spelobjekt som visas i hierarkifönstret: ett **knappobjekt** som är kapslat i ett **arbetsyteobjekt** samt ett **EventSystem**-objekt.
-* [Navigera i scenvyn](https://docs.unity3d.com/Manual/SceneViewNavigation.html) så att du får en bra vy över arbetsytan och knappen i [scenvyn](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
+* [Navigera-scen vyn](https://docs.unity3d.com/Manual/SceneViewNavigation.html) så att du har en bra överblick över arbetsytan och knappen i den [scen visa](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
 * Klicka på **knappobjektet** i hierarkifönstret för att visa dess inställningar i fönstret [Inspector](https://docs.unity3d.com/Manual/UsingTheInspector.html) (Inspektör, som standard till höger).
 * Ange egenskaperna **Pos X** och **Pos Y** till **0** så att knappen centreras i mitten av arbetsytan.
-* Klicka på knappen **Skapa** längst upp i hierarkifönstret och välj **Användargränssnitt** > **Text** för att skapa ett textfält.
+* Klicka på den **skapa** överst i fönstret hierarki igen och välj **UI** > **Text** att skapa ett textfält.
 * Klicka på **textobjektet** i hierarkifönstret för att visa dess inställningar i fönstret [Inspector](https://docs.unity3d.com/Manual/UsingTheInspector.html) (Inspektör, som standard till höger).
 * Ange egenskaperna **Pos X** och **Pos Y** till **0** respektive **120**, och ange egenskaperna **Bredd** och **Höjd** till **240** respektive **120** så att textfältet och knappen inte överlappar.
 
@@ -82,14 +82,14 @@ När du är klar bör användargränssnittet ut ungefär som på den här skärm
 
 1. Redigera skriptet genom att dubbelklicka på det.
 
-  > [!NOTE]
-  > Du kan konfigurera vilken kodredigerare som startas under **Redigera** > **Inställningar**. Se [användarhandboken för Unity](https://docs.unity3d.com/Manual/Preferences.html).
+   > [!NOTE]
+   > Du kan konfigurera vilken kodredigerare som startas under **Redigera** > **Inställningar**. Se [användarhandboken för Unity](https://docs.unity3d.com/Manual/Preferences.html).
 
 1. Ersätt all kod med följande:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-unity/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Leta upp och ersätt strängen `YourSubscriptionKey` med din Speech Service-prenumerationsnyckel.
+1. Leta upp och ersätta strängen `YourSubscriptionKey` med din prenumerationsnyckel för Speech Services.
 
 1. Leta upp och ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration. Om du till exempel använder den kostnadsfria utvärderingsversionen är regionen `westus`.
 
@@ -97,19 +97,19 @@ När du är klar bör användargränssnittet ut ungefär som på den här skärm
 
 1. När du är tillbaka i Unity Editor måste skriptet läggas till som en komponent i ett av spelobjekten.
 
-  * Klicka på **arbetsyteobjektet** i hierarkifönstret. Då öppnas dess inställningar i fönstret [Inspector](https://docs.unity3d.com/Manual/UsingTheInspector.html) (Inspektör, som standard till höger).
-  * Klicka på knappen **Lägg till komponent** i fönstret Inspector (Inspektör) och sök sedan efter det HelloWorld-skript som vi skapade ovan och lägg till det.
-  * Observera att Hello World-komponenten har två oinitierade egenskaper, **Output Text** (Utdatatext) och **Start Reco Button** (Knappen Börja spela in), som matchar offentliga egenskaper i klassen `HelloWorld`.
-    För att koppla dem klickar du på objektväljaren (den lilla cirkelikonen till höger om egenskapen) och väljer de textobjekt och knappobjekt som du skapade tidigare.
+   * Klicka på **arbetsyteobjektet** i hierarkifönstret. Detta öppnar inställningen i den [Inspector fönstret](https://docs.unity3d.com/Manual/UsingTheInspector.html) (som standard till höger).
+   * Klicka på knappen **Lägg till komponent** i fönstret Inspector (Inspektör) och sök sedan efter det HelloWorld-skript som vi skapade ovan och lägg till det.
+   * Observera att Hello World-komponenten har två oinitierade egenskaper, **Output Text** (Utdatatext) och **Start Reco Button** (Knappen Börja spela in), som matchar offentliga egenskaper i klassen `HelloWorld`.
+     För att koppla dem klickar du på objektväljaren (den lilla cirkelikonen till höger om egenskapen) och väljer de textobjekt och knappobjekt som du skapade tidigare.
 
-    > [!NOTE]
-    > Knappen har även ett kapslat textobjekt. Se till att du inte oavsiktligen väljer det för textutdata (eller byt namn på ett av de textobjekt som använder fältet Namn på i fönstret Inspector (Inspektör) för att undvika en sådan förväxling).
+     > [!NOTE]
+     > Knappen har även ett kapslat textobjekt. Se till att du inte oavsiktligen väljer det för textutdata (eller byt namn på ett av de textobjekt som använder fältet Namn på i fönstret Inspector (Inspektör) för att undvika en sådan förväxling).
 
 ## <a name="run-the-application-in-the-unity-editor"></a>Köra programmet i Unity Editor
 
 * Tryck på knappen **Play** (Spela upp) i verktygsfältet i Unity Editor (under menyraden).
 
-* När appen har startats klickar du på knappen och talar in en fras eller mening på engelska i datorns mikrofon. Ditt tal överförs till Speech-tjänsten och transkriberas till text som visas i fönstret.
+* När appen har startats klickar du på knappen och talar in en fras eller mening på engelska i datorns mikrofon. Ditt tal överförs till Speech Services och transkriberas till text som visas i fönstret.
 
   [![Skärmbild med den snabbstart som körs i Unity-spelfönstret](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
 
@@ -127,7 +127,7 @@ Se vår [exempellagringsplats](https://aka.ms/csspeech/samples) i mappen quickst
 > [!div class="nextstepaction"]
 > [Utforska C#-exempel på GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
 - [Anpassa språkmodeller](how-to-customize-language-model.md)

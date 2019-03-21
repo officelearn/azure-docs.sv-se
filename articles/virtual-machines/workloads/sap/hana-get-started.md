@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 561eff75ef4268acd3f737f7aaa92ccaacfda7f3
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 635f519239ad00df8672472bcb6c54e6b8a59927
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328732"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001700"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Snabbstart: Manuell installation av en instans SAP HANA på Azure Virtual Machines
 ## <a name="introduction"></a>Introduktion
@@ -49,7 +49,7 @@ Vilka typer av virtuella Azure-datorer som kan användas för produktionsscenari
 För mer information om VM-konfiguration och drift läser dokumentet [konfigurationer för SAP HANA-infrastruktur och åtgärder på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
 Hög tillgänglighet för SAP HANA, se [SAP HANA, hög tillgänglighet för Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
 
-Om du vill hämta en instans av SAP HANA eller S/4HANA eller BW/4HANA-system som distribuerats i mycket snabbt, bör du överväga användning av [SAP Cloud Appliance Library](http://cal.sap.com). Det finns mer information om hur du distribuerar till exempel ett S/4HANA-system via SAP CAL på Azure i [den här guiden](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h). Allt du behöver är en Azure-prenumeration och en SAP-användare som kan registreras med SAP Cloud Appliance Library.
+Om du vill hämta en instans av SAP HANA eller S/4HANA eller BW/4HANA-system som distribuerats i mycket snabbt, bör du överväga användning av [SAP Cloud Appliance Library](https://cal.sap.com). Det finns mer information om hur du distribuerar till exempel ett S/4HANA-system via SAP CAL på Azure i [den här guiden](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h). Allt du behöver är en Azure-prenumeration och en SAP-användare som kan registreras med SAP Cloud Appliance Library.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 ### <a name="sap-hana-backup"></a>SAP HANA-säkerhetskopia
@@ -70,7 +70,7 @@ Information om operativsystem som stöds av SAP HANA, finns i [SAP Support Obs! 
 För ytterligare SAP-dokumentationen om SAP HANA och olika Linux-operativsystem, se:
 
 * [SAP Support Obs! #171356 - SAP-program på Linux:  Allmän Information](https://launchpad.support.sap.com/#/notes/1984787)
-* [SAP Support Obs! #1944799 – SAP HANA riktlinjer för Installation av operativsystemet SLES](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
+* [SAP Support Obs! #1944799 – SAP HANA riktlinjer för Installation av operativsystemet SLES](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
 * [SAP Support-kommentar #2205917 – SAP HANA-Databasobjekt rekommenderade OS-inställningar för SLES 12 för SAP-program](https://launchpad.support.sap.com/#/notes/2205917/E)
 * [SAP Support-kommentar #1984787 - SUSE Linux Enterprise Server 12:  Installationsinformation](https://launchpad.support.sap.com/#/notes/1984787)
 * [SAP Support-kommentar #1391070 - UUID för Linux-lösningar](https://launchpad.support.sap.com/#/notes/1391070)
@@ -195,7 +195,7 @@ Utifrån den [lagringskrav för SAP HANA TDI](https://www.sap.com/documents/2015
 | --- | --- | --- | --- | --- | --- |
 | GS5 | 448 GB | 2 x P30 | 1 x P20 | 1 x P10 | 1 x P10 | 
 
-I den föreslagna diskkonfigurationen placeras HANA datavolym och loggvolymen på samma uppsättning Azure premium storage-diskar stripe med LVM eller MDADM. Du behöver inte definiera alla RAID-nivå för redundans eftersom Azure Premium Storage behåller tre bilder på diskarna för redundans. För att säkerställa att du konfigurerar tillräckligt med lagringsutrymme, finns det [lagringskrav för SAP HANA TDI](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) och [Update Guide och SAP HANA Server Installation](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Även överväga annan virtuell hårddisk (VHD) dataflöde volymer av olika Azure premium storage-diskar som beskrivs i [högpresterande Premium Storage och hanterade diskar för virtuella datorer](../../windows/disks-types.md). 
+I den föreslagna diskkonfigurationen placeras HANA datavolym och loggvolymen på samma uppsättning Azure premium storage-diskar stripe med LVM eller MDADM. Du behöver inte definiera alla RAID-nivå för redundans eftersom Azure Premium Storage behåller tre bilder på diskarna för redundans. För att säkerställa att du konfigurerar tillräckligt med lagringsutrymme, finns det [lagringskrav för SAP HANA TDI](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) och [Update Guide och SAP HANA Server Installation](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Även överväga annan virtuell hårddisk (VHD) dataflöde volymer av olika Azure premium storage-diskar som beskrivs i [högpresterande Premium Storage och hanterade diskar för virtuella datorer](../../windows/disks-types.md). 
 
 Du kan lägga till mer premium-lagringsdiskar HANA DBMS virtuella datorer för att lagra säkerhetskopior av transaktionsloggen.
 
@@ -251,7 +251,7 @@ Det är inte obligatoriskt att strukturera ditt filsystem på det här sättet. 
 
 Om SAP HANA DB VM under installationen av databasen när du använder SAPinst (SWPM) och **vanliga** installationsalternativ, allt installeras under /hana och /usr/sap. Standardplatsen för SAP HANA-loggsäkerhetskopiering är under /usr/sap. Igen, eftersom det är viktigt att förhindra att filsystemet rot slut på lagringsutrymme och se till att det finns tillräckligt med ledigt utrymme under /hana och /usr/sap innan du installerar SAP HANA med hjälp av SWPM.
 
-En beskrivning av standard filsystemet layouten för SAP HANA, finns i den [Update Guide och SAP HANA Server Installation](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm).
+En beskrivning av standard filsystemet layouten för SAP HANA, finns i den [Update Guide och SAP HANA Server Installation](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm).
 
 ![Ytterligare filsystem som skapats på SAP applikationsserver-dator](./media/hana-get-started/image009.jpg)
 
@@ -403,7 +403,7 @@ Mer information om verktyget HANA HDBLCM finns:
 
 * [Välja rätt SAP HANA HDBLCM för uppgiften](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)
 * [Hanteringsverktyg för SAP HANA-livscykel](https://www.tutorialspoint.com/sap_hana_administration/sap_hana_administration_lifecycle_management.htm)
-* [Guide för uppdatering och SAP HANA serverinstallation](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
+* [Guide för uppdatering och SAP HANA serverinstallation](https://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
 
 Att undvika problem med en grupp-ID: T standardinställningen för den `\<HANA SID\>adm user` (som skapats av verktyget HDBLCM) definiera en ny grupp med namnet `sapsys` med hjälp av grupp-ID `1001` innan du installerar SAP HANA via HDBLCM:
 

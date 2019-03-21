@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7eb18b5560e849796770ce9d24574d7a3d0db262
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b35c5073f2b19523010528800c2a989d5de5b448
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716148"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848021"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitetsplanering för HDInsight-kluster
 
@@ -71,9 +71,9 @@ Du kan benchmark klusterkapacitet och öka storleken som anges för att faststä
 
 VM-storlek och typ bestäms av CPU-belastningen ström, RAM-storleken och svarstid för nätverk:
 
-* PROCESSOR: VM-storleken avgör hur många kärnor. Fler kärnor, desto större grad av parallell beräkning varje nod kan uppnå. Vissa typer av virtuella datorer har också snabbare kärnor.
+* CPU: VM-storleken avgör hur många kärnor. Fler kärnor, desto större grad av parallell beräkning varje nod kan uppnå. Vissa typer av virtuella datorer har också snabbare kärnor.
 
-* RAM-MINNE: VM-storleken avgör också mängden RAM-minne tillgängligt på den virtuella datorn. Ha tillräckligt med minne för att passa informationen för arbetsbelastningar som lagrar data i minnet för bearbetning i stället för att läsa från disken, se till att dina arbetarnoder.
+* RAM: VM-storleken avgör också mängden RAM-minne tillgängligt på den virtuella datorn. Ha tillräckligt med minne för att passa informationen för arbetsbelastningar som lagrar data i minnet för bearbetning i stället för att läsa från disken, se till att dina arbetarnoder.
 
 * Nätverk: För de flesta klustertyper av är data som bearbetas av klustret inte på den lokala disken, men i en extern storage-tjänst, till exempel Data Lake Storage eller Azure Storage. Överväg att nätverkets bandbredd och dataflödet mellan noden VM och storage-tjänsten. Nätverkets bandbredd tillgänglig för en virtuell dator ökar vanligtvis med större storlekar. Mer information finns i [Virtuella datorer översikt](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 
@@ -109,15 +109,15 @@ När du har fastställt din målklustret VM-storlek, skala och typ, kan du kontr
 1. Klicka på **hjälp och Support** längst ned till vänster på sidan.
 1. Klicka på **ny supportbegäran**.
 1. På den **ny supportbegäran** sidan under **grunderna** väljer du följande alternativ:
-    - **Typ av problem**: **Begränsningar för tjänsten och -prenumeration (kvoter)**
-    - **Prenumeration**: den prenumeration som du vill ändra
-    - **Typ av kvot**: **HDInsight**
+   - **Typ av problem**: **Begränsningar för tjänsten och -prenumeration (kvoter)**
+   - **Prenumeration**: den prenumeration som du vill ändra
+   - **Typ av kvot**: **HDInsight**
     
-    ![Skapa en supportbegäran om att öka kärnkvoten för HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
+     ![Skapa en supportbegäran om att öka kärnkvoten för HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
 1. Klicka på **Nästa**.
 1. På den **information** , ange en beskrivning av problemet, Välj problemets allvarlighetsgrad och välj önskad kontaktmetod.
-1. Klicka på **nästa: Granska + skapa**.
+1. Klicka på **Nästa: Granska + skapa**.
 1. På den **granska + skapa** fliken **skapa**.
 
 > [!NOTE]  
@@ -125,7 +125,7 @@ När du har fastställt din målklustret VM-storlek, skala och typ, kan du kontr
 
 Du kan [kontakta supporten för att öka kvoten](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-Men det finns vissa fast kvotgränser, till exempel en enskild Azure-prenumeration kan ha högst 10 000 kärnor. Mer information om dessa begränsningar finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
+Men det finns vissa fast kvotgränser, till exempel en enskild Azure-prenumeration kan ha högst 10 000 kärnor. Mer information om dessa begränsningar finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
 ## <a name="next-steps"></a>Nästa steg
 

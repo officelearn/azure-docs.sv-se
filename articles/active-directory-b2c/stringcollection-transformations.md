@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 58773dded162ea51ccc6e502bbbdd4e13965c1d6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c312433832f7402eaff8b40c4e0a2a61397f6f87
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203496"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123512"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection anspråk omvandlingar
 
@@ -52,10 +52,10 @@ Följande anspråkstransformering lägger till den **e-post** ClaimType till **o
 ### <a name="example"></a>Exempel
 
 - Inkommande anspråk:
-    - **samlingen**: [”someone@outlook.com”]
-    - **item**: "admin@contoso.com"
+  - **samlingen**: [”someone@outlook.com”]
+  - **item**: "admin@contoso.com"
 - Utgående anspråk: 
-    - **samlingen**: [”someone@outlook.com” ”,admin@contoso.com”]
+  - **samlingen**: [”someone@outlook.com” ”,admin@contoso.com”]
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
@@ -86,11 +86,11 @@ Använd detta omvandling för att lägga till ett strängvärde till en ny eller
 ### <a name="example"></a>Exempel
 
 - Inkommande anspråk:
-    - **samlingen**: [”someone@outlook.com”]
+  - **samlingen**: [”someone@outlook.com”]
 - Indataparametrar 
-    - **item**: "admin@contoso.com"
+  - **item**: "admin@contoso.com"
 - Utgående anspråk:
-    - **samlingen**: [”someone@outlook.com” ”,admin@contoso.com”]
+  - **samlingen**: [”someone@outlook.com” ”,admin@contoso.com”]
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection
 
@@ -117,7 +117,7 @@ I följande exempel läser den **otherMails** anspråk och returnerar det först
 ### <a name="example"></a>Exempel
 
 - Inkommande anspråk:
-    - **samlingen**: [”someone@outlook.com” ”,someone@contoso.com”]
+  - **samlingen**: [”someone@outlook.com” ”,someone@contoso.com”]
 - Utgående anspråk: 
-    - **extractedItem**”:someone@outlook.com”
+  - **extractedItem**”:someone@outlook.com”
 

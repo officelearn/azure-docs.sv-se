@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 196d08f47ddfdbb86b8e96ae0e5ca3d3e3e5917e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886772"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896236"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge
 
@@ -47,7 +47,7 @@ I det här avsnittet skapar du en ny build-pipeline. Konfigurera pipeline kan k�
 >
 >Mer information finns i [skapa en build-pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
 
-1. Logga in på din Azure DevOps-organisation ( **https://dev.azure.com/{your organisation} /**) och öppna projektet som innehåller din lagringsplats för IoT Edge-lösning.
+1. Logga in på din Azure DevOps-organisation (**https:\//dev.azure.com/{your organisation} /**) och öppna projektet som innehåller din lagringsplats för IoT Edge-lösning.
 
    För den här artikeln har vi skapat en databas som heter **IoTEdgeRepo**. Databasen innehåller **IoTEdgeSolution** som har kod för en modul med namnet **filtermodule**. 
 
@@ -69,13 +69,13 @@ I det här avsnittet skapar du en ny build-pipeline. Konfigurera pipeline kan k�
 
 4. När du har skapat din pipeline, tas du till pipeline-redigeringsprogrammet. Välj rätt agentpoolen baserat på din målplattform i din pipeline-beskrivning: 
     
-    * Om du vill bygga dina moduler i plattformen amd64 för Linux-behållare kan du välja **finns Ubuntu 1604**
+   * Om du vill bygga dina moduler i plattformen amd64 för Linux-behållare kan du välja **finns Ubuntu 1604**
 
-    * Om du vill bygga dina moduler i plattformen amd64 för Windows 1809 behållare kan du behöva [ställer in lokal agent på Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
+   * Om du vill bygga dina moduler i plattformen amd64 för Windows 1809 behållare kan du behöva [ställer in lokal agent på Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
 
-    * Om du vill bygga dina moduler i plattformen arm32v7 för Linux-behållare kan du behöva [ställer in lokal agent på Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
+   * Om du vill bygga dina moduler i plattformen arm32v7 för Linux-behållare kan du behöva [ställer in lokal agent på Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
     
-    ![Konfigurera build-agentpoolen](./media/how-to-ci-cd/configure-env.png)
+     ![Konfigurera build-agentpoolen](./media/how-to-ci-cd/configure-env.png)
 
 5. Din pipeline är förkonfigurerad med ett jobb som heter **agentjobbet 1**. Klicka på plustecknet (**+**) att lägga till tre uppgifter i jobbet: **Azure IoT Edge** två gånger, och **publicera skapa artefakter** när. (Håll muspekaren över namnet på varje uppgift att se den **Lägg till** knappen.)
 
@@ -158,11 +158,11 @@ Skapa en ny pipeline och konfigurera sin första steget för kvalitet assurance 
 
 10. Välj den nya Azure IoT Edge-aktiviteten och konfigurera den med följande värden:
 
-   * **Visningsnamn**: Visningsnamnet uppdateras automatiskt när fältet åtgärd ändras. 
-   * **Åtgärd**: Använd listrutan för att välja **distribuera till IoT Edge-enhet**. Visningsnamn för aktiviteten så att den matchar uppdateras automatiskt när du ändrar Åtgärdsvärdet för.
-   * **Azure-prenumeration**: Välj den prenumeration som innehåller din IoT-hubb.
-   * **IoT-hubbnamn**: Välj din IoT-hubb. 
-   * **Välj en eller flera enhet**: Välj om du vill releasepipeline ska distribueras till en eller flera enheter. 
+    * **Visningsnamn**: Visningsnamnet uppdateras automatiskt när fältet åtgärd ändras. 
+    * **Åtgärd**: Använd listrutan för att välja **distribuera till IoT Edge-enhet**. Visningsnamn för aktiviteten så att den matchar uppdateras automatiskt när du ändrar Åtgärdsvärdet för.
+    * **Azure-prenumeration**: Välj den prenumeration som innehåller din IoT-hubb.
+    * **IoT-hubbnamn**: Välj din IoT-hubb. 
+    * **Välj en eller flera enhet**: Välj om du vill releasepipeline ska distribueras till en eller flera enheter. 
       * Om du distribuerar till en enda enhet, anger du den **enhets-ID för IoT Edge**. 
       * Om du distribuerar till flera enheter, kan du ange enheten **rikta villkor**. Målvillkoret har ett filter för att matcha en uppsättning Edge-enheter i IoT Hub. Om du vill använda taggar för enheten som villkoret måste du uppdatera dina motsvarande enheter taggar med enhetstvillingen i IoT Hub. Uppdatera den **distributions-ID för IoT Edge** och **IoT Edge-distributionsprioritet** i de avancerade inställningarna. Läs mer om hur du skapar en distribution för flera enheter, [automatisk förstå IoT Edge-distributioner](module-deployment-monitoring.md).
 

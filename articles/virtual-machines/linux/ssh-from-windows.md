@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 247d09e58ded2de12fb7cc6b5a036b695e715077
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0ac62a99f5735647f67917d441645e30444b3818
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298661"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005674"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Hur du använder SSH-nycklar med Windows på Azure
 
@@ -37,9 +37,9 @@ Windows-datorer har inte alltid likvärdig SSH-kommandon som är installerad. De
 
 Andra vanliga Windows SSH klienter du kan installera lokalt ingår i följande paket:
 
-* [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
+* [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [Git för Windows](https://git-for-windows.github.io/)
-* [MobaXterm](http://mobaxterm.mobatek.net/)
+* [MobaXterm](https://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
 
 Du kan också använda de SSH-verktyg som är tillgängligt i Bash i den [Azure Cloud Shell](../../cloud-shell/overview.md). 
@@ -62,7 +62,7 @@ Mer bakgrundsinformation och information finns i den [snabb](mac-create-ssh-keys
 
 ### <a name="create-ssh-keys-with-puttygen"></a>Skapa SSH-nycklar med PuTTYgen
 
-Om du föredrar att använda ett GUI-baserade verktyg för att skapa SSH-nycklar kan du använda PuTTYgen nyckelgenerator, ingår i den [PuTTY hämtningspaketet](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
+Om du föredrar att använda ett GUI-baserade verktyg för att skapa SSH-nycklar kan du använda PuTTYgen nyckelgenerator, ingår i den [PuTTY hämtningspaketet](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
 
 Skapa ett SSH-RSA-nyckelpar med PuTTYgen:
 
@@ -110,7 +110,7 @@ Om den virtuella datorn använder just-in-time-åtkomstprincip, måste du begär
 
 ### <a name="connect-with-putty"></a>Ansluta med PuTTY
 
-Om du har installerat den [PuTTY hämtningspaketet](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) och tidigare genererade en PuTTY privata nyckeln (.ppk)-fil, kan du ansluta till en Linux VM med PuTTY.
+Om du har installerat den [PuTTY hämtningspaketet](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) och tidigare genererade en PuTTY privata nyckeln (.ppk)-fil, kan du ansluta till en Linux VM med PuTTY.
 
 1. Starta PuTTy.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 4441797eb41dc909a98be3c42931140e71e36f80
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: fe925ed408f64424de8da98f6e182a06a41bf015
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270359"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075057"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Självstudie: Skapa en Node.js-konsolapp med JavaScript SDK för att hantera Azure Cosmos DB SQL API-data
 
@@ -40,7 +40,7 @@ I den här kursen ska du:
 > * Lägga till objekt i containern.
 > * Utföra grundläggande åtgärder på objekten, containern och databasen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Se till att du har följande resurser:
 
@@ -338,7 +338,7 @@ Nu har du koden för att initiera Azure Cosmos DB-klienten och det är dags att 
 Sedan skapar du en container i Azure Cosmos DB-kontot så att du kan lagra och köra frågor mot data. 
 
 > [!WARNING]
-Att skapa en container påverkar prissättningen. Besök [prissättningssidan](https://azure.microsoft.com/pricing/details/cosmos-db/) så att du vet vad du kan förvänta dig.
+> Att skapa en container påverkar prissättningen. Besök [prissättningssidan](https://azure.microsoft.com/pricing/details/cosmos-db/) så att du vet vad du kan förvänta dig.
 
 En container kan skapas med hjälp av antingen `createIfNotExists` eller create-funktionen (skapa) i **Containers**-klassen (Containrar).  En container består av objekt (som i fallet med SQL-API:et är JSON-dokument) och associerad JavaScript-programlogik.
 
@@ -462,7 +462,7 @@ Ett objekt kan skapas med hjälp av funktionen create-funktionen (skapa) i klass
    /**
    * Create family item if it does not exist
    */
-  async function createFamilyItem(itemBody) {
+   async function createFamilyItem(itemBody) {
      try {
          // read the item to see if it exists
          const { item } = await client.database(databaseId).container(containerId).item(itemBody.id).read();
@@ -612,9 +612,9 @@ Azure Cosmos DB har stöd för borttagning av JSON-objekt.
 1. Kopiera och klistra in funktionen **deleteFamilyItem** under funktionen **replaceFamilyItem**.
 
    ```javascript
-  /**
-  * Delete the item by ID.
-  */
+   /**
+   * Delete the item by ID.
+   */
    async function deleteFamilyItem(itemBody) {
       await client.database(databaseId).container(containerId).item(itemBody.id).delete(itemBody);
       console.log(`Deleted item:\n${itemBody.id}\n`);

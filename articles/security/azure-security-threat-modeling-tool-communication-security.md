@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 3f4e87e5602b3c77178ab5bc842705cfedf64af2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8534f30c17208e77adfa47ea41506a3a61d3548d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448381"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897307"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Security ram: Communication Security | Mitigations 
 | Produkt/tjänst | Artikel |
@@ -146,7 +146,7 @@ Den här regeln fungerar genom att returnera ett HTTP-statuskoden 301 (permanent
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [OWASP HTTP strikt transportsäkerhet Lathund](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
-| **Steg** | <p>HTTP strikt Transport Security (HSTS) är en valbar säkerhetsförbättring som anges av ett webbprogram med hjälp av en särskild svarshuvudet. När en webbläsare som stöds får den här rubriken som webbläsaren förhindrar all kommunikation som skickas via HTTP till den angivna domänen och i stället skickar all kommunikation via HTTPS. Det förhindrar även att HTTPS klicka dig igenom anvisningarna i webbläsare.</p><p>Om du vill implementera HSTS har följande svarshuvudet konfigureras för en webbplats globalt, antingen i kod eller i konfigurationen. Strikt Transport Security: max-age = 300; includeSubDomains HSTS löser följande hot:</p><ul><li>Användaren bokmärken eller manuellt typer http://example.com och lyder under en man-in-the-middle-angripare: HSTS omdirigerar automatiskt HTTP-begäranden till HTTPS för måldomänen</li><li>Webbprogram som är avsedd att vara helt och hållet HTTPS oavsiktligt innehåller HTTP länkar eller tillhandahåller innehåll över HTTP: HSTS omdirigerar automatiskt HTTP-begäranden till HTTPS för måldomänen</li><li>En man-in-the-middle-angripare försöker komma åt trafik från en victim-användare som använder ett ogiltigt certifikat och hopes användaren accepterar ogiltigt certifikat: HSTS tillåter inte en användare åsidosätta meddelandet ogiltigt certifikat</li></ul>|
+| **Steg** | <p>HTTP strikt Transport Security (HSTS) är en valbar säkerhetsförbättring som anges av ett webbprogram med hjälp av en särskild svarshuvudet. När en webbläsare som stöds får den här rubriken som webbläsaren förhindrar all kommunikation som skickas via HTTP till den angivna domänen och i stället skickar all kommunikation via HTTPS. Det förhindrar även att HTTPS klicka dig igenom anvisningarna i webbläsare.</p><p>Om du vill implementera HSTS har följande svarshuvudet konfigureras för en webbplats globalt, antingen i kod eller i konfigurationen. Strikt Transport Security: max-age = 300; includeSubDomains HSTS löser följande hot:</p><ul><li>Användaren bokmärken eller manuellt typer https://example.com och lyder under en man-in-the-middle-angripare: HSTS omdirigerar automatiskt HTTP-begäranden till HTTPS för måldomänen</li><li>Webbprogram som är avsedd att vara helt och hållet HTTPS oavsiktligt innehåller HTTP länkar eller tillhandahåller innehåll över HTTP: HSTS omdirigerar automatiskt HTTP-begäranden till HTTPS för måldomänen</li><li>En man-in-the-middle-angripare försöker komma åt trafik från en victim-användare som använder ett ogiltigt certifikat och hopes användaren accepterar ogiltigt certifikat: HSTS tillåter inte en användare åsidosätta meddelandet ogiltigt certifikat</li></ul>|
 
 ## <a id="sqlserver-validation"></a>Se till att SQL server-kryptering och certifikatet anslutningsverifiering
 
@@ -339,7 +339,7 @@ string GetData(int value);
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | MVC5, MVC6 |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [Tvingande SSL i en webb-API-kontroll](http://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
+| **Referenser**              | [Tvingande SSL i en webb-API-kontroll](https://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
 | **Steg** | Om ett program har en HTTPS- och en HTTP-bindning, kan klienter fortfarande använda HTTP på webbplatsen. Om du vill förhindra detta använder du ett filter för åtgärden så att förfrågningar till skyddade API: er är alltid över HTTPS.|
 
 ### <a name="example"></a>Exempel 

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 61f536ee5eb27982bd63daf0b278e6c7a836fe08
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 4d60f6752bf369e875c350823f76854408fcb806
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390747"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000602"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>SAP HANA stora instanser hög tillgänglighet och katastrofåterställning recovery på Azure 
 
@@ -33,9 +33,9 @@ Hög tillgänglighet och katastrofåterställning (DR) är viktiga aspekter av k
 
 Microsoft stöder vissa funktioner för hög tillgänglighet av SAP HANA med stora HANA-instanser. Dessa funktioner är:
 
-- **Lagringsreplikering**: storage-system kan du replikera alla data till en annan stora HANA-instansen stämpel i en annan Azure-region. SAP HANA fungerar oberoende av den här metoden. Den här funktionen är disaster recovery standardmekanismen erbjuds för stora HANA-instanser.
-- **HANA-systemreplikering**: den [replikering av alla data i SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) till ett separat SAP HANA-system. Återställningstid minimeras via replikering av data med jämna mellanrum. SAP HANA stöder asynkrona, synkron i minnet och synkrona lägen. Synkront läge används endast för SAP HANA-system som ligger inom samma datacenter eller mindre än 100 km från varandra. Med den aktuella designen av stora HANA-instansen stämplar kan HANA-systemreplikering användas för hög tillgänglighet inom en region. HANA-systemreplikering kräver en tredje parts omvänd proxy eller Routning komponent för konfigurationer med katastrofåterställning i en annan Azure-region. 
-- **Värdbaserad automatisk redundans**: en lokal fault-lösning för SAP HANA som är ett alternativ till HANA-systemreplikering. Om huvudnoden blir otillgänglig kan du konfigurera en eller flera vänteläge SAP HANA-noder i skalbara läge och SAP HANA växlar automatiskt över till en standby-nod.
+- **Lagringsreplikering**: Storage-system kan du replikera alla data till en annan stora HANA-instansen stämpel i en annan Azure-region. SAP HANA fungerar oberoende av den här metoden. Den här funktionen är disaster recovery standardmekanismen erbjuds för stora HANA-instanser.
+- **HANA-systemreplikering**: Den [replikering av alla data i SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) till ett separat SAP HANA-system. Återställningstid minimeras via replikering av data med jämna mellanrum. SAP HANA stöder asynkrona, synkron i minnet och synkrona lägen. Synkront läge används endast för SAP HANA-system som ligger inom samma datacenter eller mindre än 100 km från varandra. Med den aktuella designen av stora HANA-instansen stämplar kan HANA-systemreplikering användas för hög tillgänglighet inom en region. HANA-systemreplikering kräver en tredje parts omvänd proxy eller Routning komponent för konfigurationer med katastrofåterställning i en annan Azure-region. 
+- **Värdbaserad automatisk redundans**: En lokal fault-lösning för SAP HANA som är ett alternativ till HANA-systemreplikering. Om huvudnoden blir otillgänglig kan du konfigurera en eller flera vänteläge SAP HANA-noder i skalbara läge och SAP HANA växlar automatiskt över till en standby-nod.
 
 SAP HANA på Azure (stora instanser) erbjuds i två Azure-regioner i fyra geopolitiska områden (USA, Australien, Europa och Japan). Två regioner inom en geopolitisk område som är värdar för stora HANA-instansen stämplar är anslutna till separat dedikerat nätverk kretsar. De används för replikering av ögonblicksbilder av lagring för att tillhandahålla disaster recovery-metoder. Replikeringen upprättas inte som standard men har angetts för kunder som order funktioner för haveriberedskap. Storage-replikering är beroende av användningen av storage-ögonblicksbilder för stora HANA-instanser. Det går inte att välja en Azure-region som en DR-region som ligger i ett annat område i geopolitisk. 
 
@@ -44,7 +44,7 @@ I följande tabell visar för närvarande stöds hög tillgänglighet och katast
 | Scenariot som stöd i stora HANA-instanser | Alternativ för hög tillgänglighet | Haveriberedskapsalternativ | Kommentarer |
 | --- | --- | --- | --- |
 | Enkel nod | Inte tillgängligt. | Dedikerat DR-installationen.<br /> Installationen av Multipurpose DR. | |
-| Värdbaserad automatisk redundans: skala ut (med eller utan standby)<br /> inklusive 1 + 1 | Möjligt med vänteläge tar rollen active.<br /> HANA styr växeln rollen. | Dedikerat DR-installationen.<br /> Installationen av Multipurpose DR.<br /> Synkronisering av DR med hjälp av storage-replikering. | HANA volymuppsättningar är kopplade till alla noder.<br /> DR-plats måste ha samma antal noder. |
+| Värden automatisk redundans: Skala ut (med eller utan standby)<br /> inklusive 1 + 1 | Möjligt med vänteläge tar rollen active.<br /> HANA styr växeln rollen. | Dedikerat DR-installationen.<br /> Installationen av Multipurpose DR.<br /> Synkronisering av DR med hjälp av storage-replikering. | HANA volymuppsättningar är kopplade till alla noder.<br /> DR-plats måste ha samma antal noder. |
 | HANA-systemreplikering | Möjligt med primär eller sekundär installationen.<br /> Sekundär flyttar till primär roll i fall redundans.<br /> HANA-systemreplikering och OS styra redundans. | Dedikerat DR-installationen.<br /> Installationen av Multipurpose DR.<br /> Synkronisering av DR med hjälp av storage-replikering.<br /> DR med hjälp av HANA-systemreplikering är ännu inte möjligt utan komponenter från tredje part. | Separat uppsättning volymer som är kopplade till varje nod.<br /> Endast volymerna på sekundär replik i produktionsplatsen replikeras till DR-plats.<br /> En uppsättning volymer krävs på DR-plats. | 
 
 En dedikerad DR-konfiguration är där stora HANA-instansen-enhet i DR-plats inte används för att köra andra arbetsbelastning eller icke-produktionssystem. Enheten är passivt och distribueras endast om en katastrof redundansväxling körs. Den här konfigurationen är dock inte ett önskade alternativ för många kunder.
@@ -59,9 +59,9 @@ En multipurpose DR-konfiguration är där en produktionsarbetsbelastning körs i
 
 Du hittar mer information om hög tillgänglighet för SAP HANA i följande SAP-artiklar: 
 
-- [SAP HANA hög tillgänglighet – White Paper](http://go.sap.com/documents/2016/05/f8e5eeba-737c-0010-82c7-eda71af511fa.html)
-- [Administrationsguide för SAP HANA](http://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf)
-- [SAP HANA Academy-Video på SAP HANA-Systemreplikering](http://scn.sap.com/community/hana-in-memory/blog/2015/05/19/sap-hana-system-replication)
+- [SAP HANA hög tillgänglighet – White Paper](https://go.sap.com/documents/2016/05/f8e5eeba-737c-0010-82c7-eda71af511fa.html)
+- [Administrationsguide för SAP HANA](https://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf)
+- [SAP HANA Academy-Video på SAP HANA-Systemreplikering](https://scn.sap.com/community/hana-in-memory/blog/2015/05/19/sap-hana-system-replication)
 - [SAP Support Obs! #1999880 – vanliga frågor och svar på SAP HANA-Systemreplikering](https://apps.support.sap.com/sap/support/knowledge/preview/en/1999880)
 - [SAP Support Obs! #2165547 – SAP HANA tillbaka upp och återställa i SAP HANA System Replication miljö](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3231363535343726)
 - [SAP Support Obs! #1984882 – med hjälp av SAP HANA-Systemreplikering för maskinvara Exchange med minst/nedtid](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3139383438383226)
@@ -86,7 +86,7 @@ Utöver föregående kraven för en disaster recovery-installation med stora HAN
 - Ordna ytterligare lagringsutrymme på webbplatsen DR för var och en av SAP HANA på Azure (stora instanser) SKU: er som du vill återställa i katastrofåterställningsplatsen. Köpa mer lagringsutrymme kan du allokera lagringsvolymer. Du kan allokera volymer som är målet för storage-replikering från din Azure-region i produktionsmiljön i den Azure-region för haveriberedskap.
 - I fall där du har konfigurerat för HSR på primära och du konfigurerar lagring baserat replikering till DR-plats, måste du köpa extra lagringsutrymme i DR-plats så både primära och sekundära noder data replikeras till DR-plats.
 
- **Nästa steg**
+  **Nästa steg**
 - Se [säkerhetskopiering och återställning](hana-backup-restore.md).
 
 

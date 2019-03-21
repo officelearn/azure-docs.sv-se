@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8581510f16896df74f814e501648374d984945e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 30b187676f0c1fb03b7124d93b3991b0e32d61ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039341"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848957"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimera prestanda och tillförlitlighet i Azure Functions
 
@@ -84,7 +84,7 @@ Funktioner i en funktionsapp delar resurser. Till exempel delas minne. Om du anv
 
 Var noga med vad du läser in i dina funktionsappar i produktion. Minne är ett genomsnitt över varje funktion i appen.
 
-Om du har en delad sammansättning som refereras i flera .net-funktioner kan du placera den i en vanlig delad mapp. Om du använder C#-skript (.csx) referera till sammansättningen med en instruktion som liknar följande exempel: 
+Om du har en delad sammansättning som refereras i flera .NET-funktioner kan du placera den i en vanlig delad mapp. Om du använder C#-skript (.csx) referera till sammansättningen med en instruktion som liknar följande exempel: 
 
     #r "..\Shared\MyAssembly.dll". 
 

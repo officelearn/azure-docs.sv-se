@@ -1,5 +1,5 @@
 ---
-title: 'Lägg till flera VPN-gateway plats-till-plats-anslutningar till ett virtuellt nätverk: Azure Portal: Resource Manager | Microsoft Docs'
+title: 'Lägg till flera VPN-gateway plats-till-plats-anslutningar till ett virtuellt nätverk: Azure Portal: Resource Manager| Microsoft Docs'
 description: Lägg till flera platser S2S-anslutningar till en VPN-gateway som har en befintlig anslutning
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: a814834be3225764c3b6f237bd515ca087f975a7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 4b9f007e00d0912687b723bd4f7e747da893948d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873129"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998828"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Lägg till en plats-till-plats-anslutning till ett virtuellt nätverk med en befintlig anslutning för VPN-gateway
 
@@ -52,7 +52,7 @@ Kontrollera följande:
 * Du har en extern offentlig IP-adress för VPN-enheten. Den här IP-adressen får inte finnas bakom en NAT.
 
 ## <a name="part1"></a>Del 1 – konfigurera en anslutning
-1. Navigera till [Azure-portalen](http://portal.azure.com) från en webbläsare och logga in med ditt Azure-konto vid behov.
+1. Navigera till [Azure-portalen](https://portal.azure.com) från en webbläsare och logga in med ditt Azure-konto vid behov.
 2. Klicka på **alla resurser** och leta upp din **virtuell nätverksgateway** från listan över resurser och klicka på den.
 3. På den **virtuell nätverksgateway** klickar du på **anslutningar**.
    
@@ -62,7 +62,7 @@ Kontrollera följande:
     ![Lägg till anslutningsknappen](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Lägg till knappen för anslutning")<br>
 5. På den **Lägg till anslutning** fyller du i följande fält:
    
-   * **Namn:** namnet som du vill ge till platsen du skapar anslutningen till.
+   * **Namn:** Det namn som du vill ge till den plats som du skapar anslutningen till.
    * **Anslutningstyp:** Välj **plats-till-plats (IPsec)**.
      
      ![Lägg till anslutningssidan](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Lägg till sida")<br>
@@ -76,9 +76,9 @@ Kontrollera följande:
     ![Skapa lokala gateway-sidan](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "skapa lokal nätverksgateway")<br>
 3. På den **skapa lokal nätverksgateway** fyller du i följande fält:
    
-   * **Namn:** namnet som du vill ge till den lokala gateway-resursen.
-   * **IP-adress:** offentliga IP-adress för VPN-enhet på den plats som du vill ansluta till.
-   * **Adressutrymme:** adressutrymmet som du vill att de dirigeras till den lokala nätverksplatsen.
+   * **Namn:** Namnet som du vill ge till den lokala gateway-resursen.
+   * **IP-adress:** Offentliga IP-adress för VPN-enhet på den plats som du vill ansluta till.
+   * **Adressutrymme:** Adressutrymmet som du vill att de dirigeras till den lokala nätverksplatsen.
 4. Klicka på **OK** på den **skapa lokal nätverksgateway** sidan för att spara ändringarna.
 
 ## <a name="part3"></a>Del 3 – lägga till den delade nyckeln och skapa anslutningen

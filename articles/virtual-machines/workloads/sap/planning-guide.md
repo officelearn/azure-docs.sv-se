@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 873339750f4d9aa06607f1ba3ad3b97ea5ef68f3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b2ca3d42fd5facb226fd3ddea8c48decaafade85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883733"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009499"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuella datorer, planering och implementering av SAP NetWeaver
 
@@ -156,7 +156,7 @@ ms.locfileid: "56883733"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -170,7 +170,7 @@ ms.locfileid: "56883733"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -452,7 +452,7 @@ Läs [i den här artikeln] [ vpn-gateway-create-site-to-site-rm-powershell] för
 >
 
 ### <a name="supported-os-and-database-releases"></a>OS- och databas-versioner som stöds
-* Microsoft-serverprogramvara stöds för Azure Virtual Machine-tjänsterna visas i den här artikeln: <http://support.microsoft.com/kb/2721672>.
+* Microsoft-serverprogramvara stöds för Azure Virtual Machine-tjänsterna visas i den här artikeln: <https://support.microsoft.com/kb/2721672>.
 * Operativsystem som system versioner, database system-versioner som stöds på Azure Virtual Machine-tjänsterna tillsammans med SAP-program finns dokumenterade i SAP-kommentar [1928533].
 * SAP-program och versioner som stöds på Azure Virtual Machine-tjänsterna som finns dokumenterade i SAP-kommentar [1928533].
 * Endast 64-bitars-avbildningar stöds om du vill köra som gäst virtuella datorer i Azure för SAP-scenarier. Därför stöds endast 64-bitars SAP-program och databaser.
@@ -579,7 +579,7 @@ De flesta Azure VM-familjer certifierad via SAP är fungerar med Premium Storage
 
 Om du checkar ut en del av de virtuella datorerna i DS-serien i [i den här artikeln (Linux)] [ virtual-machines-sizes-linux] och [i den här artikeln (Windows)][virtual-machines-sizes-windows], Tänk på att Det finns data volym begränsningar för Premium Storage-diskar på Granulariteten för VM-nivå. Olika DS-serien eller GS-seriens virtuella datorer måste du också ha olika begränsningar när det kommer till antalet datadiskar som kan monteras. Dessa gränser dokumenteras i artikeln som nämns ovan samt. Men i princip innebär det att du, om du exempelvis monterar 32 x P30 diskar till en enda DS14 virtuell dator inte kan få 32 x maximalt dataflöde för en P30-disk. I stället begränsar maximalt dataflöde på VM-nivå som beskrivs i artikeln dataflödet.
 
-Mer information om Premium Storage finns här: <http://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2>
+Mer information om Premium Storage finns här: <https://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2>
 
 #### <a name="azure-storage-accounts"></a>Azure Storage-konton
 
@@ -751,7 +751,7 @@ Som en ungefärlig beslutsträd att bestämma om ett SAP-system som passar in i 
 
 **Steg 1**: Den viktigaste informationen är att börja med SAP-krav för ett visst SAP-system. SAP-krav måste delas in den DBMS och SAP-program delen, även om SAP-system är redan distribueras lokalt i en nivå 2-konfiguration. För befintliga system SAP relaterad till maskinvara som används ofta fastställt eller beräknat baserat på befintliga SAP prestandamått. Resultaten finns här: <https://sap.com/about/benchmark.html>.
 För nyligen distribuerade SAP-system, bör du har gått igenom en storlek Övning som bestämmer SAP-kraven i systemet.
-Se även den här bloggen och bifogade dokumentet för SAP storlek på Azure: <http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
+Se även den här bloggen och bifogade dokumentet för SAP storlek på Azure: <https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
 **Steg 2**: För befintliga system ska i/o-volym och i/o-åtgärder per sekund på DBMS-servern mätas. För nyligen planerad system bör storlek Övning för det nya systemet även ge grov idéer av i/o-kraven på DBMS-sida. Om du är osäker, måste du så småningom att genomföra en Proof of Concept.
 
@@ -801,7 +801,7 @@ Mer detaljerade anvisningar om hur du installerar, uppdatera och konfigurera Azu
 
 Kundupplevelsen har hittills varit att PowerShell (PS) är däremot mer kraftfulla verktyget för att distribuera virtuella datorer och skapa anpassade steg i distributionen av virtuella datorer. Alla kunder som kör SAP-instanser i Azure använder PS-cmdletar för att komplettera hanteringsuppgifter de i Azure-portalen eller använder även PS-cmdletar exklusivt för att hantera sina distributioner i Azure. Eftersom Azure-specifika cmdletar delar samma namngivningskonvention som över 2 000 Windows-relaterade cmdlets, är en enkel åtgärd för Windows-administratörer kan använda dessa cmdletar.
 
-Se exempel här: <http://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
+Se exempel här: <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
 [comment]: <> (MShermannd TODO Beskriver nya CLI-kommando när testas )
 Distribution av Azure Monitoring-tillägg för SAP (finns i kapitlet [Övervakningslösningen för Azure för SAP] [ planning-guide-9.1] i det här dokumentet) är bara kan utföras via PowerShell eller CLI. Därför är det obligatoriskt att installera och konfigurera PowerShell eller CLI när du distribuerar eller administrera ett SAP NetWeaver-system i Azure.  
@@ -1007,7 +1007,7 @@ Under tiden för hämtningen kan inte virtuella hårddiskar eller hanterade disk
 
 #### <a name="powershell"></a>PowerShell
 
-  * Ladda ned en hanterad Disk  
+* Ladda ned en hanterad Disk  
   Du måste först få åtkomst till den underliggande blobben för den hanterade disken. Du kan sedan kopiera underliggande bloben till ett nytt lagringskonto och ladda ned bloben från det här lagringskontot.
 
   ```powershell
@@ -1022,7 +1022,7 @@ Under tiden för hämtningen kan inte virtuella hårddiskar eller hanterade disk
   Revoke-AzureRmDiskAccess -ResourceGroupName <resource group> -DiskName <disk name>
   ```
 
-  * Ladda ned en virtuell Hårddisk  
+* Ladda ned en virtuell Hårddisk  
   När SAP-system har stoppats och den virtuella datorn är avstängd, kan du använda PowerShell-cmdleten Save-AzureRmVhd på den lokala målet för att ladda ned VHD-diskarna till den lokala miljön. Om du vill göra det, måste URL: en för den virtuella Hårddisken som du hittar i ”storage avsnittet” Azure-portalen (du behöver att navigera till Lagringskontot och behållaren där den virtuella Hårddisken har skapats) och du behöver veta var den virtuella Hårddisken ska kopieras till.
 
   Du kan sedan använda kommandot genom att definiera parametern SourceUri som en URL för den virtuella Hårddisken ska ladda ned och LocalFilePath som den fysiska platsen för den virtuella Hårddisken (inklusive filnamnet). Kommandot kunde se ut:
@@ -1034,7 +1034,7 @@ Under tiden för hämtningen kan inte virtuella hårddiskar eller hanterade disk
   Mer information om cmdleten Save-AzureRmVhd finns här <https://docs.microsoft.com/powershell/module/azurerm.compute/save-azurermvhd>.
 
 #### <a name="azure-cli"></a>Azure CLI
-  * Ladda ned en hanterad Disk  
+* Ladda ned en hanterad Disk  
   Du måste först få åtkomst till den underliggande blobben för den hanterade disken. Du kan sedan kopiera underliggande bloben till ett nytt lagringskonto och ladda ned bloben från det här lagringskontot.
   ```
   az disk grant-access --ids "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>" --duration-in-seconds 3600
@@ -1042,7 +1042,7 @@ Under tiden för hämtningen kan inte virtuella hårddiskar eller hanterade disk
   az disk revoke-access --ids "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>"
   ```
 
-  * Ladda ned en virtuell Hårddisk   
+* Ladda ned en virtuell Hårddisk   
   När SAP-system har stoppats och den virtuella datorn är avstängd, du kan använda Azure CLI-kommando _azure storage blob download_ på den lokala målet att ladda ned den virtuella Hårddisken diskar tillbaka till den lokala miljön. För att kunna göra det behöver du namnet och en behållare för den virtuella Hårddisken som du hittar i Storage avsnitt av Azure portal (du behöver att navigera till Lagringskontot och behållaren där den virtuella Hårddisken har skapats) och du behöver veta var den virtuella Hårddisken ska kopiera g till.
 
   Du kan sedan använda kommandot genom att definiera parametrar blob och behållare på den virtuella Hårddisken att ladda ned och målet som fysiska platsen för den virtuella Hårddisken (inklusive filnamnet). Kommandot kunde se ut:
@@ -1084,11 +1084,11 @@ az disk create --source "/subscriptions/<subscription id>/resourceGroups/<resour
 
 ##### <a name="azure-storage-tools"></a>Azure Storage-verktyg
 
-* <http://storageexplorer.com/>
+* <https://storageexplorer.com/>
 
 Professionella utgåvor av Azure Storage-Utforskare finns här:
 
-* <http://www.cerebrata.com/>
+* <https://www.cerebrata.com/>
 * <http://clumsyleaf.com/products/cloudxplorer>
 
 Kopia av en virtuell Hårddisk själva i ett lagringskonto är en process som tar bara några sekunder (liknar SAN-maskinvaran skapa ögonblicksbilder med lazy kopia och kopiering vid skrivning). När du har en kopia av VHD-filen kan du koppla den till en virtuell dator eller använda den som en bild för att bifoga kopior av den virtuella Hårddisken till virtuella datorer.
@@ -1326,7 +1326,7 @@ Se arkitektur skillnaden mellan klassiska modellen och ARM enligt beskrivningen 
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>Konfigurationen av SAP-System och SAP GUI-anslutning via internet
 
-Den här artikeln som beskriver information till det här avsnittet finns på: <http://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+Den här artikeln som beskriver information till det här avsnittet finns på: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
 
 #### <a name="changing-firewall-settings-within-vm"></a>Ändra brandväggsinställningar på virtuell dator
 
@@ -1644,7 +1644,7 @@ I tabellen nedan vanliga SAP visas kommunikationsportar. Är tillräckliga för 
 
 *) sid = SAP-System-ID
 
-Mer detaljerad information om portar som krävs för olika SAP-produkter eller tjänster efter SAP-produkter finns här <http://scn.sap.com/docs/DOC-17124>.
+Mer detaljerad information om portar som krävs för olika SAP-produkter eller tjänster efter SAP-produkter finns här <https://scn.sap.com/docs/DOC-17124>.
 Med det här dokumentet, bör du kunna öppna dedikerade portar i VPN-enhet krävs för specifika SAP-produkter och -scenarier.
 
 Andra säkerhetsmetoder när du distribuerar virtuella datorer i ett sådant scenario kan vara att skapa en [Nätverkssäkerhetsgrupp] [ virtual-networks-nsg] att definiera regler för åtkomst.
@@ -1718,7 +1718,7 @@ Remote Desktop Services förmåga att ge användare åtkomst till sina enheter f
 - - -
 > ![Windows][Logo_Windows] Windows
 >
-> Mer information om utskrift med Windows finns här: <http://technet.microsoft.com/library/jj590748.aspx>.
+> Mer information om utskrift med Windows finns här: <https://technet.microsoft.com/library/jj590748.aspx>.
 >
 >
 
@@ -1729,7 +1729,7 @@ SAP ändrings- och Transport System (Proportionerlig) måste konfigureras för a
 
 ##### <a name="configuring-the-transport-domain"></a>Konfigurera Transport-domänen
 
-Konfigurera din Transport-domän på datorn som du angav som domänkontrollant Transport enligt beskrivningen i [konfigurerar domänkontrollanten Transport](http://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm). En systemanvändare TMSADM kommer att skapas och nödvändiga RFC-mål ska skapas. Du kan kontrollera dessa RFC-anslutningar med transaktionen SM59. Värdnamnsmatchning måste aktiveras i transport-domän.
+Konfigurera din Transport-domän på datorn som du angav som domänkontrollant Transport enligt beskrivningen i [konfigurerar domänkontrollanten Transport](https://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm). En systemanvändare TMSADM kommer att skapas och nödvändiga RFC-mål ska skapas. Du kan kontrollera dessa RFC-anslutningar med transaktionen SM59. Värdnamnsmatchning måste aktiveras i transport-domän.
 
 Anvisningar:
 
@@ -1742,12 +1742,12 @@ Anvisningar:
 
 Sekvens med bland annat ett SAP-system i en domän för transport ser ut så här:
 
-* Gå till transportsystem (klient 000) och anropa transaktion STM på DEV-system i Azure. Välj andra konfiguration från dialogrutan och fortsätter med inkludera System i domänen. Ange den domänkontrollant som målvärden ([inklusive SAP-system i domänen Transport](http://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0c17acc11d1899e0000e829fbbd/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm)). Systemet väntar nu som ska ingå i transport-domänen.
+* Gå till transportsystem (klient 000) och anropa transaktion STM på DEV-system i Azure. Välj andra konfiguration från dialogrutan och fortsätter med inkludera System i domänen. Ange den domänkontrollant som målvärden ([inklusive SAP-system i domänen Transport](https://help.sap.com/erp2005_ehp_04/helpdata/en/44/b4a0c17acc11d1899e0000e829fbbd/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm)). Systemet väntar nu som ska ingå i transport-domänen.
 * Av säkerhetsskäl måste du sedan gå tillbaka till domänkontrollanten för att bekräfta din begäran. Välj Systemöversikt och Godkänn av systemet väntar. Bekräfta sedan Kommandotolken och konfigurationen som ska distribueras.
 
 Den här SAP-system innehåller nu information om alla de andra SAP-system i transport-domän. Dessa data för det nya systemet SAP skickas till alla andra SAP-system på samma gång, och SAP-system har angetts i profilen för transport av kontrollprogrammet transport. Kontrollera om RFC: er och åtkomst till Transportkatalogen av domänen fungerar.
 
-Fortsätta med konfigurationen av transportsystemet som vanligt som beskrivs i dokumentationen [ändrings- och Transport System](http://help.sap.com/saphelp_nw70ehp3/helpdata/en/48/c4300fca5d581ce10000000a42189c/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm).
+Fortsätta med konfigurationen av transportsystemet som vanligt som beskrivs i dokumentationen [ändrings- och Transport System](https://help.sap.com/saphelp_nw70ehp3/helpdata/en/48/c4300fca5d581ce10000000a42189c/content.htm?frameset=/en/44/b4a0b47acc11d1899e0000e829fbbd/frameset.htm).
 
 Anvisningar:
 
@@ -1759,13 +1759,13 @@ Anvisningar:
 
 I plats-till-plats anslutna mellan lokala vara scenarier, fördröjning mellan lokala och Azure fortfarande betydande. Om vi följa de för att transportera objekt via system för utveckling och testning till produktion eller Tänk dig tillämpa transporter eller supportpaket på olika system, som du Tänk på att, beroende på platsen för central transport-katalog några av systemen uppstår lång svarstid för läsning eller skrivning av data i transportkatalogen centrala. Situationen liknar SAP-landskap konfigurationer där olika system sprids via olika datacenter med betydande avståndet mellan datacentra.
 
-För att undvika sådana svarstid och har de system som fungerar snabbt med att läsa eller skriva till eller från Transportkatalogen, som du kan ställa in två STM transport domäner (en för en lokal och en med system i Azure och länka transport-domäner. Kontrollera den här dokumentationen som beskriver principerna bakom detta begrepp i SAP-Proportionerlig: <http://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm>.
+För att undvika sådana svarstid och har de system som fungerar snabbt med att läsa eller skriva till eller från Transportkatalogen, som du kan ställa in två STM transport domäner (en för en lokal och en med system i Azure och länka transport-domäner. Kontrollera den här dokumentationen som beskriver principerna bakom detta begrepp i SAP-Proportionerlig: <https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm>.
 
 Anvisningar:
 
-* Konfigurera en transport domän på varje plats (lokalt och Azure) med hjälp av transaktionen STM <http://help.sap.com/saphelp_nw70ehp3/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm>
+* Konfigurera en transport domän på varje plats (lokalt och Azure) med hjälp av transaktionen STM <https://help.sap.com/saphelp_nw70ehp3/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm>
 * Länka domänerna med en länk för domänen och bekräfta länken mellan de två domänerna.
-  <http://help.sap.com/saphelp_nw73ehp1/helpdata/en/a3/139838280c4f18e10000009b38f8cf/content.htm>
+  <https://help.sap.com/saphelp_nw73ehp1/helpdata/en/a3/139838280c4f18e10000009b38f8cf/content.htm>
 * Distribuera konfigurationen av det länkade systemet.
 
 #### <a name="rfc-traffic-between-sap-instances-located-in-azure-and-on-premises-cross-premises"></a>RFC trafik mellan SAP-instanser i Azure och lokalt (mellan lokala)
@@ -1827,14 +1827,14 @@ Installationen av en SAP-Portal i en Azure-dator skiljer sig inte från en på p
 
 En särskild distributionsscenariot av vissa kunder är direkt exponering av SAP Enterprise Portal till Internet när den virtuella värden är ansluten till företagets nätverk via plats-till-plats VPN-tunnel eller ExpressRoute. Du måste se till att specifika portar är öppna och inte blockeras av brandvägg eller nätverket säkerhetsgrupp för sådana situationer. 
 
-Den inledande URI är http (s):`<Portalserver`>: 5XX00/irj där porten som bildas av 50000 plus (Systemnumber rubrikrad? 100). Standard portal URI SAP systemet 00 är `<dns name`>.`<azure region` >.Cloudapp.azure.com:PublicPort/irj. Mer information, har du en titt på <http://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
+Den inledande URI är http (s):`<Portalserver`>: 5XX00/irj där porten som bildas av 50000 plus (Systemnumber rubrikrad? 100). Standard portal URI SAP systemet 00 är `<dns name`>.`<azure region` >.Cloudapp.azure.com:PublicPort/irj. Mer information, har du en titt på <https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
 
 ![Konfiguration av tjänstslutpunkt][planning-guide-figure-2800]
 
 Om du vill anpassa URL och/eller portar för din SAP Enterprise Portal kontrollerar du den här dokumentationen:
 
-* [Ändra Portal-URL](http://wiki.scn.sap.com/wiki/display/EP/Change+Portal+URL)
-* [Ändra standardportnumren, Portal-portnummer](http://wiki.scn.sap.com/wiki/display/NWTech/Change+Default++port+numbers%2C+Portal+port+numbers)
+* [Ändra Portal-URL](https://wiki.scn.sap.com/wiki/display/EP/Change+Portal+URL)
+* [Ändra standardportnumren, Portal-portnummer](https://wiki.scn.sap.com/wiki/display/NWTech/Change+Default++port+numbers%2C+Portal+port+numbers)
 
 ## <a name="high-availability-ha-and-disaster-recovery-dr-for-sap-netweaver-running-on-azure-virtual-machines"></a>Hög tillgänglighet (HA) och Disaster Recovery (DR) för SAP NetWeaver på Azure virtuella datorer som körs
 
@@ -1856,7 +1856,7 @@ Vi kan avgränsa diskussion om SAP hög tillgänglighet i Azure i två delar:
 
 och hur den kan kombineras med Azure-infrastrukturen hög tillgänglighet.
 
-Hög tillgänglighet för SAP i Azure har vissa skillnader i jämförelse med hög tillgänglighet för SAP i en lokal fysisk eller virtuell miljö. Följande dokument från SAP beskriver vanliga hög tillgänglighet för SAP-konfigurationer i virtualiserade miljöer på Windows: <http://scn.sap.com/docs/DOC-44415>. Det finns ingen sapinst-integrerade SAP-HA konfiguration för Linux som om det finns för Windows. Om SAP hög tillgänglighet lokalt för Linux finns mer information här: <http://scn.sap.com/docs/DOC-8541>.
+Hög tillgänglighet för SAP i Azure har vissa skillnader i jämförelse med hög tillgänglighet för SAP i en lokal fysisk eller virtuell miljö. Följande dokument från SAP beskriver vanliga hög tillgänglighet för SAP-konfigurationer i virtualiserade miljöer på Windows: <https://scn.sap.com/docs/DOC-44415>. Det finns ingen sapinst-integrerade SAP-HA konfiguration för Linux som om det finns för Windows. Om SAP hög tillgänglighet lokalt för Linux finns mer information här: <https://scn.sap.com/docs/DOC-8541>.
 
 ### <a name="azure-infrastructure-high-availability"></a>Hög tillgänglighet för Azure-infrastrukturen
 
@@ -1877,7 +1877,7 @@ Det finns två typer av händelser i Azure-plattformen som kan påverka tillgän
 * Planerat underhåll är periodiska uppdateringar av Microsoft den underliggande Azure-plattformen att förbättra tillförlitligheten, prestanda och säkerhet för den plattformsinfrastruktur som dina virtuella datorer som körs på.
 * Oplanerat underhållshändelser inträffar när ett fel i maskinvaran eller fysiska infrastrukturen som den virtuella datorn har uppstått på något sätt. Det kan vara lokala nätverksfel, lokala diskfel eller andra fel på racknivå. När sådant fel upptäcks migrerar Azure-plattformen automatiskt den virtuella datorn från den felaktiga fysiska servern som är värd för den virtuella datorn till en felfri fysisk server. Den här typen av händelser kan också göra att den virtuella datorn startas om, men det är ovanligt.
 
-Mer information finns i den här dokumentationen: <http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
+Mer information finns i den här dokumentationen: <https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
 
 #### <a name="azure-storage-redundancy"></a>Azure Storage Redundancy
 
@@ -1885,7 +1885,7 @@ Data i Microsoft Azure Storage-konto replikeras alltid för att säkerställa h�
 
 Eftersom Azure Storage är att ha tre bilder av data som standard, RAID5 eller RAID1 över flera Azure-diskar är inte nödvändigt.
 
-Mer information finns i den här artikeln: <http://azure.microsoft.com/documentation/articles/storage-redundancy/>
+Mer information finns i den här artikeln: <https://azure.microsoft.com/documentation/articles/storage-redundancy/>
 
 #### <a name="utilizing-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-sap-applications"></a>Använda Azure-infrastrukturen omstart av virtuella datorer för att uppnå högre tillgänglighet för SAP-program
 
@@ -1944,7 +1944,7 @@ Distribuera några SAP programserverinstanser i sina dedikerade virtuella datore
 
 ![Hög tillgänglighet för SAP-programservrar i Azure][planning-guide-figure-3000]
 
-Mer information finns i den här dokumentationen: <http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
+Mer information finns i den här dokumentationen: <https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
 
 #### <a name="high-availability-for-sap-central-services-on-azure"></a>Hög tillgänglighet för SAP Central Services på Azure
 
@@ -2004,7 +2004,7 @@ I start-profilen för SAP ABAP och/eller Java-instans.
 
 Se ytterligare information om autostart för SAP-instanser här:
 
-* [Starta/Stoppa SAP tillsammans med din Unix Server Starta/Stoppa](http://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
+* [Starta/Stoppa SAP tillsammans med din Unix Server Starta/Stoppa](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
 * [Starta och stoppa Hanteringsagenter för SAP NetWeaver](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
 * [Så här aktiverar du automatisk Start av HANA-databas](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
 
@@ -2047,7 +2047,7 @@ Andra virtuella datorer i SAP-system kan säkerhetskopieras med hjälp av Azure 
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Det finns ingen motsvarighet till Windows VSS i Linux. Endast filkonsekvent säkerhetskopiering är därför möjligt men inte programkonsekventa säkerhetskopior. SAP DBMS-säkerhetskopieringen ska göras med hjälp av DBMS-funktioner. Filsystem som omfattar alla SAP-relaterade data kan sparas, till exempel använder tar som beskrivs här: <http://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
+> Det finns ingen motsvarighet till Windows VSS i Linux. Endast filkonsekvent säkerhetskopiering är därför möjligt men inte programkonsekventa säkerhetskopior. SAP DBMS-säkerhetskopieringen ska göras med hjälp av DBMS-funktioner. Filsystem som omfattar alla SAP-relaterade data kan sparas, till exempel använder tar som beskrivs här: <https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
 >
 >
 
@@ -2055,7 +2055,7 @@ Andra virtuella datorer i SAP-system kan säkerhetskopieras med hjälp av Azure 
 
 Sedan Mid 2014 aktivera tillägg till olika komponenterna för Hyper-V, System Center och Azure användningen av Azure som DR-plats för virtuella datorer som körs lokalt baserat på Hyper-V.
 
-En blogg med information om hur du distribuerar den här lösningen dokumenteras här: <http://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx>.
+En blogg med information om hur du distribuerar den här lösningen dokumenteras här: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx>.
 
 ## <a name="summary"></a>Sammanfattning
 

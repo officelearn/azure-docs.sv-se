@@ -7,18 +7,23 @@ manager: vijayts
 keywords: Återställ säkerhetskopia. Så här återställer du; återställningspunkt;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/18/2019
+ms.date: 03/19/2019
 ms.author: geg
-ms.openlocfilehash: 26856ac77f169d76c8bcbee7efd707c9881e4876
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 44b8d57af83f53c73868a84104da7a7f72cb1e81
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105819"
+ms.locfileid: "58202596"
 ---
 # <a name="restore-azure-vms"></a>Återställa virtuella Azure-datorer
 
 Den här artikeln beskrivs hur du återställer Azure VM-data från återställningspunkter som lagras i [Azure Backup](backup-overview.md) Recovery Services-valv.
+
+För att återställa en virtuell dator Kontrollera att du har de nödvändiga [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) behörighet.
+
+> [!NOTE]
+> Om du inte har [RABAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) behörighet som du kan utföra [återställa disk](backup-azure-arm-restore-vms.md#create-new-restore-disks) och skapa virtuell dator med [distribuera mall](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) funktionen.
 
 ### <a name="restore-options"></a>Återställningsalternativ
 

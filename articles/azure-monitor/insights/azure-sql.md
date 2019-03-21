@@ -10,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 991032a603844e697c122d8a26923f4c95a4a78c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 66ab1fa9779aa378c4153adc0da81b3d172e1320
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778798"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170232"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsversion)
 
@@ -66,9 +66,13 @@ Sidan ovan innehåller också anvisningar om hur du aktiverar stöd för överva
 
 ## <a name="using-the-solution"></a>Använda lösningen
 
-När du lägger till lösningen till din arbetsyta, Azure SQL Analytics-panel har lagts till din arbetsyta och den visas i Översikt. Panelen visar antal Azure SQL-databaser, elastiska pooler, hanterade instanser och databaser i hanterade instanser som lösningen tar emot diagnostiktelemetri från.
+När du lägger till lösningen till din arbetsyta, Azure SQL Analytics-panel har lagts till din arbetsyta och den visas i Översikt. Välj Visa sammanfattning länk för att läsa in panelen innehållet.
 
-![Azure SQL Analytics-ikonen](./media/azure-sql/azure-sql-sol-tile.png)
+![Sammanfattningspanel för Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile-01.png)
+
+När lästs in, visar panelen antalet Azure SQL-databaser, elastiska pooler, hanterade instanser och databaser i hanterade instanser som lösningen tar emot diagnostiktelemetri från.
+
+![Azure SQL Analytics-ikonen](./media/azure-sql/azure-sql-sol-tile-02.png)
 
 Lösningen innehåller två separata vyer – en för övervakning av Azure SQL-databaser och elastiska pooler och andra vyn för att övervaka Managed Instance och databaser i hanterade instanser.
 

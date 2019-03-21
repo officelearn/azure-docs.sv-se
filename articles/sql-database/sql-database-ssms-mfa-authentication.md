@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/08/2018
-ms.openlocfilehash: 1f26fb101c9940a51ffb4fb7e1b48a51b943599a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 938d1b820bbc85824138d77b81b0f922fd494d0d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663748"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003374"
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Universell autentisering med SQL Database och SQL Data Warehouse (SSMS-stöd för MFA)
 Azure SQL Database och Azure SQL Data Warehouse stöder anslutningar från SQL Server Management Studio (SSMS) med hjälp av *Active Directory Universal-autentisering*. 
@@ -46,7 +46,7 @@ Azure AD-användare som stöds för Azure AD B2B-scenarier som gästanvändare (
 - SSMS version 17,2 har stöd för DacFx-guiden för Export/extrahera/distribuera Data database. När en viss användare autentiseras via dialogrutan den inledande autentiseringen med Universal-autentisering måste guiden DacFx-funktioner på samma sätt som för alla andra autentiseringsmetoder.
 - Tabelldesign SSMS stöder inte universell autentisering.
 - Det finns inga ytterligare programvarukrav för Active Directory Universal-autentisering, förutom att du måste använda en version som stöds av SSMS.  
-- Active Directory Authentication Library (ADAL)-version för universell autentisering har uppdaterats till den senaste tillgängliga utgivna ADAL.dll 3.13.9-versionen. Se [Active Directory Authentication Library 3.14.1](http://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
+- Active Directory Authentication Library (ADAL)-version för universell autentisering har uppdaterats till den senaste tillgängliga utgivna ADAL.dll 3.13.9-versionen. Se [Active Directory Authentication Library 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
 
 
 ## <a name="next-steps"></a>Nästa steg

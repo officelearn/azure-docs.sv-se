@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95465fdc17131c996fa242d028addbab4191628c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d1bb62c9a11971f72a6c96c4652b136c19812cb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191120"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839329"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Självstudier: Azure Active Directory-integrering med EverBridge
 
@@ -127,22 +127,22 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 5. Så här konfigurerar du den **EverBridge** programmet som **EverBridge medlem Portal**på den **grundkonfiguration SAML** avsnittet, utför följande steg:
 
-    * Om du vill konfigurera programmet i **IDP** initierade läge:
+   * Om du vill konfigurera programmet i **IDP** initierade läge:
 
-        ![EverBridge domän och URL: er med enkel inloggning för information](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
+       ![EverBridge domän och URL: er med enkel inloggning för information](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
 
-        * I textrutan **Identifierare** anger du en URL med följande mönster: `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
+       * I textrutan **Identifierare** anger du en URL med följande mönster: `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
 
-        * I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
+       * I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
 
-    * Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
+   * Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-        ![EverBridge domän och URL: er med enkel inloggning för information](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
+       ![EverBridge domän och URL: er med enkel inloggning för information](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
 
-        * I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
+       * I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
 
-    > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och URL: en inloggning. Kontakta [EverBridge supportteamet](mailto:support@everbridge.com) att hämta dessa värden.
+     > [!NOTE]
+     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och URL: en inloggning. Kontakta [EverBridge supportteamet](mailto:support@everbridge.com) att hämta dessa värden.
 
 6. På den **SAML-signeringscertifikat** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att ladda ned **Federation Metadata XML** och spara för metadatafilen på datorn.
 
@@ -152,7 +152,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
@@ -164,21 +164,21 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 9. Klicka på menyn längst upp i **inställningar** fliken och markera **enkel inloggning** under **Security**.
    
-    ![Konfigurera enkel inloggning](./media/everbridge-tutorial/tutorial_everbridge_002.png)
+     ![Konfigurera enkel inloggning](./media/everbridge-tutorial/tutorial_everbridge_002.png)
    
-    a. I den **namn** textrutan skriver du namnet på ID-providern (till exempel: namnet på ditt företag).
+     a. I den **namn** textrutan skriver du namnet på ID-providern (till exempel: namnet på ditt företag).
    
-    b. I den **API-namn** textrutan skriver du namnet på API: et.
+     b. I den **API-namn** textrutan skriver du namnet på API: et.
    
-    c. Klicka på **Välj fil** knappen för att ladda upp metadatafilen som du har hämtat från Azure-portalen.
+     c. Klicka på **Välj fil** knappen för att ladda upp metadatafilen som du har hämtat från Azure-portalen.
    
-    d. I SAML identitet plats, väljer **identitet är i NameIdentifier-elementet i instruktionen ämne**.
+     d. I SAML identitet plats, väljer **identitet är i NameIdentifier-elementet i instruktionen ämne**.
    
-    e. I den **inloggnings-URL för identitetsprovider** textrutan klistra in värdet för **inloggnings-URL** som du har kopierat från Azure-portalen.
+     e. I den **inloggnings-URL för identitetsprovider** textrutan klistra in värdet för **inloggnings-URL** som du har kopierat från Azure-portalen.
    
-    f. I den Provider initierade begära Tjänstbindning, väljer **omdirigering för HTTP**.
+     f. I den Provider initierade begära Tjänstbindning, väljer **omdirigering för HTTP**.
 
-    g. Klicka på **Spara**
+     g. Klicka på **Spara**
 
 10. Att konfigurera enkel inloggning på **EverBridge** programmet som **EverBridge medlem Portal**, du behöver skicka de hämtade **XML-Metadata för Federation** till [ Everbridge supportteamet](mailto:support@everbridge.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
@@ -200,7 +200,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    b. I den **användarnamn** skriver **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
@@ -244,7 +244,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

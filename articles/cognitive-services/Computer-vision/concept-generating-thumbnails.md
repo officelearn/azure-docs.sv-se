@@ -8,21 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8881a0c5e809dc75d1b9f4b6f6bd3af7142333cb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cea8522a9f3eb8fa98821c1cb08d92a9524d5ce4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884638"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876807"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Generera beskärs av smarta miniatyrbilder med visuellt innehåll
 
 En miniatyr är en mindre representation av en avbildning. Miniatyrer används för att representera bilder och andra data på ett mer prisvärt och layout eget sätt. API för visuellt innehåll används smart beskärning, tillsammans med ändrar storlek på bilden, för att skapa intuitiva miniatyrer för en viss avbildning.
 
 Algoritmen för visuellt skapa miniatyrbilder fungerar på följande sätt:
+
 1. Ta bort störande element från avbildningen och identifiera de _intresseområde_&mdash;delar av bilden där de viktigaste objekten visas.
 1. Beskär bilden baserat på den identifierade _intresseområde_.
 1. Ändra höjd-/ breddförhållandet så att den passar target miniatyrbilder.

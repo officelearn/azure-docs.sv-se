@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8897651c963b0036bc2ac3d8cdb06a52d6f52ba1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 7e9795be75fe80d83104101a5a41f96c46269bbd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188044"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863652"
 ---
 # <a name="preview--azure-ad-password-protection-agent-version-history"></a>Förhandsversion:  Versionshistorik för Azure AD-lösenordsskydd agent
 
@@ -24,6 +24,24 @@ ms.locfileid: "56188044"
 | --- |
 | Azure AD-lösenordsskydd är en funktion i offentliga förhandsversionen av Azure Active Directory. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
+
+## <a name="121160"></a>1.2.116.0
+
+Utgivningsdatum: 3/13/2019
+
+* Cmdlet Get-AzureADPasswordProtectionProxy Get-AzureADPasswordProtectionDCAgent: och nu version av rapporten och den aktuella Azure-klienten med följande begränsningar:
+  * Programvaruversion och Azure klientdata är endast tillgänglig för DC-agenter och proxyservrar som kör version 1.2.116.0 eller senare.
+  * Azure-klientdata kanske inte rapporteras förrän en omregistrering (eller förnyelse) av proxyn eller skog har uppstått.
+* Proxy-tjänsten kräver nu att .NET 4.7 är installerad.
+  * .NET 4.7 bör vara installerad på en helt uppdaterade Windows-Server. Om detta inte är fallet, hämta och kör installationsprogrammet som finns på [The .NET Framework 4.7 offline installationsprogrammet för Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  * På Server Core-system kan det vara nödvändigt att skicka flaggan /q till .NET 4.7 installationsprogrammet för att den ska lyckas.
+* Proxy-tjänst har nu stöd för automatisk uppgradering. Automatisk uppgradering använder Microsoft Azure AD Connect-agenten uppdateringstjänsten som är installerade sida-vid-sida med Proxy-tjänsten. Automatisk uppgradering är aktiverat som standard.
+* Automatisk uppgradering kan aktiveras eller inaktiveras med hjälp av cmdleten Set-AzureADPasswordProtectionProxyConfiguration. Den aktuella inställningen kan efterfrågas med hjälp av cmdleten Get-AzureADPasswordProtectionProxyConfiguration.
+* Binärfilerna för DC-Agenttjänsten har bytt namn till AzureADPasswordProtectionDCAgent.exe.
+* Binärfilerna för Proxy-tjänsten har bytt namn till AzureADPasswordProtectionProxy.exe. Brandväggsregler kan behöva anpassas om en brandvägg från tredje part används.
+  * Obs: om en HTTP-proxy-konfigurationsfilen användes i tidigare Proxy installerar, måste den ändras (från *proxyservice.exe.config* till *AzureADPasswordProtectionProxy.exe.config*) efter denna uppgradera.
+* Alla kontroller med begränsade funktioner har tagits bort från DC-agenten.
+* Mindre felkorrigeringar och förbättringar av loggning.
 
 ## <a name="12650"></a>1.2.65.0
 

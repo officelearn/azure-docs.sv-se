@@ -16,12 +16,12 @@ ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 63de39fa97850c1df72bdcd964ed670e4e8b0608
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0b75085754a66fabf07076282c977acd7f10a556
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767200"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992317"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker cmdlet-referens
 
@@ -299,6 +299,7 @@ I det här exemplet distributions- eller support-teamet får beredskapsrapporten
 > -RegionName
 
 Anger namn på Azure Stack-distributioner område.
+
 |  |  |
 |----------------------------|--------------|
 |Ange:                       |String        |
@@ -310,6 +311,7 @@ Anger namn på Azure Stack-distributioner område.
 > -FQDN
 
 Anger Azure Stack-distributioner externa FQDN, även ett alias som ExternalFQDN och ExternalDomainName.
+
 |  |  |
 |----------------------------|--------------|
 |Ange:                       |String        |
@@ -321,6 +323,7 @@ Anger Azure Stack-distributioner externa FQDN, även ett alias som ExternalFQDN 
 > -IdentitySystem
 
 Anger respektive Azure Stack-distributioner identitetssystem giltiga värden, AAD eller ADFS, för Azure Active Directory och Active Directory Federation Services.
+
 |  |  |
 |----------------------------|--------------|
 |Ange:                       |String        |
@@ -333,6 +336,7 @@ Anger respektive Azure Stack-distributioner identitetssystem giltiga värden, AA
 > -PfxPassword
 
 Anger lösenordet som associeras med certifikat PFX-filer.
+
 |  |  |
 |----------------------------|---------|
 |Ange:                       |SecureString |
@@ -344,6 +348,7 @@ Anger lösenordet som associeras med certifikat PFX-filer.
 > -PaaSCertificates
 
 Anger hash-tabellen som innehåller sökvägar och lösenord till PaaS-certifikat.
+
 |  |  |
 |----------------------------|---------|
 |Ange:                       |Hash-tabell |
@@ -355,6 +360,7 @@ Anger hash-tabellen som innehåller sökvägar och lösenord till PaaS-certifika
 > -DeploymentDataJSONPath
 
 Anger Azure Stack-distribution data JSON-konfigurationsfil. Den här filen skapas för distribution.
+
 |  |  |
 |----------------------------|---------|
 |Ange:                       |String   |
@@ -366,6 +372,7 @@ Anger Azure Stack-distribution data JSON-konfigurationsfil. Den här filen skapa
 > -PfxPath
 
 Anger sökvägen till ett problematiska certifikat som kräver import/export-rutin att åtgärda, som anges av certifikatsverifiering i det här verktyget.
+
 |  |  |
 |----------------------------|---------|
 |Ange:                       |String   |
@@ -377,6 +384,7 @@ Anger sökvägen till ett problematiska certifikat som kräver import/export-rut
 > -ExportPFXPath  
 
 Anger målsökvägen för filen PFX från import/export-rutin.  
+
 |  |  |
 |----------------------------|---------|
 |Ange:                       |String   |
@@ -388,6 +396,7 @@ Anger målsökvägen för filen PFX från import/export-rutin.
 > -Subject
 
 Anger en ordnad ordlista med ämnet för den certifikat begäran generationen.
+
 |  |  |
 |----------------------------|---------|
 |Ange:                       |OrderedDictionary   |
@@ -415,6 +424,7 @@ Anger den SAN-typ av certifikatförfrågan. Giltiga värden MultipleCSR, SingleC
 > -OutputRequestPath
 
 Anger sökvägen för begäran certifikatfiler, katalogen måste finnas.
+
 |  |  |
 |----------------------------|---------|
 |Ange:                       |String   |
@@ -426,6 +436,7 @@ Anger sökvägen för begäran certifikatfiler, katalogen måste finnas.
 > -AADServiceAdministrator
 
 Anger tjänstadministratör för Azure Active Directory som ska användas för Azure Stack-distributioner.
+
 |  |  |
 |----------------------------|---------|
 |Ange:                       |PSCredential   |
@@ -437,6 +448,7 @@ Anger tjänstadministratör för Azure Active Directory som ska användas för A
 > -AADDirectoryTenantName
 
 Anger namnet för Azure Active Directory som ska användas för Azure Stack-distributioner.
+
 |  |  |
 |----------------------------|---------|
 |Ange:                       |String   |
@@ -448,6 +460,7 @@ Anger namnet för Azure Active Directory som ska användas för Azure Stack-dist
 > -AzureEnvironment
 
 Anger en instans av Azure-tjänster som innehåller konton, kataloger och prenumerationer som ska användas för Azure Stack-distribution och registrering.
+
 |  |  |
 |----------------------------|---------|
 |Ange:                       |String   |
@@ -460,6 +473,7 @@ Anger en instans av Azure-tjänster som innehåller konton, kataloger och prenum
 > -RegistrationAccount
 
 Anger det registrerings-konto som ska användas för Azure Stack-registrering.
+
 |  |  |
 |----------------------------|---------|
 |Ange:                       |String   |
@@ -471,6 +485,7 @@ Anger det registrerings-konto som ska användas för Azure Stack-registrering.
 > -RegistrationSubscriptionID
 
 Anger registrerings-ID för prenumerationen som ska användas för Azure Stack-registrering.
+
 |  |  |
 |----------------------------|---------|
 |Ange:                       |Guid     |
@@ -482,6 +497,7 @@ Anger registrerings-ID för prenumerationen som ska användas för Azure Stack-r
 > -ReportPath
 
 Anger sökvägen för beredskapsrapporten, aktuell katalog- och standard rapportnamn som standard.
+
 |  |  |
 |----------------------------|---------|
 |Ange:                       |String   |
@@ -527,6 +543,7 @@ Anger om PaaS-tjänster/värdnamn ska läggas till certifikat-begäranden.
 > -ReportSections
 
 Anger om du endast vill visa rapporten Sammanfattning utesluter detalj.
+
 |  |  |
 |----------------------------|---------|
 |Ange:                       |String   |
@@ -539,6 +556,7 @@ Anger om du endast vill visa rapporten Sammanfattning utesluter detalj.
 > -Sammanfattning
 
 Anger om du endast vill visa rapporten Sammanfattning utesluter detalj.
+
 |  |  |
 |----------------------------|------------------|
 |Ange:                       |SwitchParameter   |
@@ -550,6 +568,7 @@ Anger om du endast vill visa rapporten Sammanfattning utesluter detalj.
 > -CleanReport
 
 Tar bort tidigare historik för körning och verifiering och skriver verifieringar till en ny rapport.
+
 |  |  |
 |----------------------------|------------------|
 |Ange:                       |SwitchParameter   |
@@ -574,6 +593,7 @@ Anger anpassad sökväg för att spara beredskap JSON-rapporten och detaljerad l
 > -Confirm
 
 Frågar efter bekräftelse innan du kör cmdlet: en.
+
 |  |  |
 |----------------------------|------------------|
 |Ange:                       |SwitchParameter   |
@@ -586,6 +606,7 @@ Frågar efter bekräftelse innan du kör cmdlet: en.
 > -WhatIf
 
 Visar vad som skulle hända om cmdleten kördes. Cmdleten körs inte.
+
 |  |  |
 |----------------------------|------------------|
 |Ange:                       |SwitchParameter   |
@@ -594,3 +615,4 @@ Visar vad som skulle hända om cmdleten kördes. Cmdleten körs inte.
 |Standardvärde:              |False             |
 |Acceptera indata från pipeline:      |False             |
 |Acceptera jokertecken: |False             |
+

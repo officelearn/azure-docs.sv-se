@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: d3f8e5ac1f85483d04da99744809f4bc72295024
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d8344177fc5895451cf876f5aa581baa1fed52e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266202"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001864"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Utforska Java spårningsloggar i Application Insights
 Om du använder Logback eller Log4J (version 1.2 eller v2.0) för att analysera och du kan ha spårningsloggarna skickas automatiskt till Application Insights kan du utforska och söka i dem.
@@ -158,7 +158,7 @@ Nu när du har konfigurerat ditt projekt för att skicka loggspårningar till Ap
 
 Undantag som skickats via tangenttryckningar visas på portalen som Undantagstelemetri.
 
-![Öppna sökning i Application Insights-portalen](./media/java-trace-logs/10-diagnostics.png)
+![Öppna sökning i Application Insights-portalen](./media/java-trace-logs/01-diagnostics.png)
 
 ## <a name="next-steps"></a>Nästa steg
 [Diagnostiksökning][diagnostic]

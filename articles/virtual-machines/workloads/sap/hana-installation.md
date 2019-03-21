@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5bdf23d1a2142e5c83ceeb72a79ca4fbea65d09c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5b6c636366d494901a34078100290084298de686
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534284"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999834"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Installera och konfigurera SAP HANA (stora instanser) på Azure
 
@@ -96,11 +96,11 @@ Nedan följer ytterligare och användbart SAP på SUSE-relaterade länkar:
 
 - [SAP HANA på SUSE Linux-plats](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)
 - [Metodtips för SAP: Placera replikeringen – SAP NetWeaver på SUSE Linux Enterprise 12](https://www.suse.com/docrepcontent/container.jsp?containerId=9113)
-- [ClamSAP – SLES virusskydd för SAP](http://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (inklusive SLES 12 för SAP-program)
+- [ClamSAP – SLES virusskydd för SAP](https://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (inklusive SLES 12 för SAP-program)
 
 Följande är SAP support anteckningar som kan användas för att implementera SAP HANA på SLES 12:
 
-- [SAP support Obs! #1944799 – SAP HANA-riktlinjer för installation av operativsystemet SLES](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
+- [SAP support Obs! #1944799 – SAP HANA-riktlinjer för installation av operativsystemet SLES](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
 - [SAP support-kommentar #2205917 – SAP HANA-Databasobjekt rekommenderade OS-inställningar för SLES 12 för SAP-program](https://launchpad.support.sap.com/#/notes/2205917/E)
 - [SAP support-kommentar #1984787 – SUSE Linux Enterprise Server 12: installationsinformation](https://launchpad.support.sap.com/#/notes/1984787)
 - [SAP support Obs! #171356 – SAP-program på Linux:  Allmän information](https://launchpad.support.sap.com/#/notes/1984787)
@@ -143,7 +143,7 @@ Mer information om Ethernet-information om arkitekturen finns i den [HLI stöds 
 
 ## <a name="storage"></a>Storage
 
-Lagringslayout för SAP HANA på Azure (stora instanser) har konfigurerats av SAP HANA på Azure service-hantering via SAP rekommenderade riktlinjer. Dessa riktlinjer finns dokumenterade i den [lagringskrav för SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper om. 
+Lagringslayout för SAP HANA på Azure (stora instanser) har konfigurerats av SAP HANA på Azure service-hantering via SAP rekommenderade riktlinjer. Dessa riktlinjer finns dokumenterade i den [lagringskrav för SAP HANA](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper om. 
 
 Ungefärlig storlek på olika volymer med olika HANA stora instanser SKU: erna dokumenteras i [SAP HANA (stora instanser) översikt och arkitektur på Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -207,10 +207,10 @@ Lagring som används i stora HANA-instanser har en filstorleksbegränsningen. De
 > [!IMPORTANT]
 > För att förhindra HANA försöker öka datafiler utöver 16 TB gränsen för filstorlek för lagring av stora HANA-instansen, måste du ange följande parametrar i konfigurationsfilen för SAP HANA global.ini
 > 
-- datavolume_striping=true
-- datavolume_striping_size_gb = 15000
-- Se även SAP anteckning [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
-- Tänk på SAP-kommentar [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
+> - datavolume_striping=true
+> - datavolume_striping_size_gb = 15000
+> - Se även SAP anteckning [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+> - Tänk på SAP-kommentar [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
 Med SAP HANA 2.0 är hdbparam framework inaktuell. Därför måste parametrarna anges med hjälp av SQL-kommandon. Mer information finns i [SAP-kommentar #2399079: Eliminering av hdbparam i HANA 2](https://launchpad.support.sap.com/#/notes/2399079).

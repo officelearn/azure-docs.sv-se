@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 1eaeef9b-4479-4a9f-b1b2-bc13b857c75c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c65f8e023e087c3ca49e0d53f5760fbcd9a5f4d9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 395d3887e35d6e9c043d4d947b605e71eb58bd6b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869215"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897341"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iprova"></a>Självstudier: Azure Active Directory-katalogintegrering med iProva
 
@@ -34,7 +34,7 @@ Du får följande fördelar när du integrerar iProva med Azure AD:
 Mer information om SaaS-appintegrering (Programvara som en tjänst) med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna konfigurera Azure AD-integrering med iProva behöver du följande:
 
@@ -221,14 +221,14 @@ I det här avsnittet skapar du en testanvändare i Azure-portalen med namnet Bri
 
     a. I fältet **Namn** anger du ett namn såsom **BrittaSimon**.
   
-    b. I rutan **Användarnamn** anger du *yourname@yourcompanydomain.extension*. 
+    b. I den **användarnamn** anger *dittnamn\@yourcompanydomain.extension*. 
     Ett exempel är BrittaSimon@contoso.com.
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
 
     d. Välj **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att bevilja åtkomst till iProva.
 
@@ -266,14 +266,14 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. Välj **Lägg till**.
 
-6. I rutan **Användarnamn** anger du *brittasimon@yourcompanydomain.extension*. 
+6. I den **användarnamn** anger *brittasimon\@yourcompanydomain.extension*. 
     Ett exempel är BrittaSimon@contoso.com.
 
 7. I rutan **Fullständigt namn** anger du ett fullständigt namn såsom **BrittaSimon**.
 
 8. Välj alternativet **Inget lösenord (använd enkel inloggning)**.
 
-9. I rutan **E-postadress** anger du *yourname@yourcompanydomain.extension*. 
+9. I den **e-postadress** anger *dittnamn\@yourcompanydomain.extension*. 
    Ett exempel är BrittaSimon@contoso.com.
 
 10. Rulla ned till slutet av sidan och välj **Slutför**.

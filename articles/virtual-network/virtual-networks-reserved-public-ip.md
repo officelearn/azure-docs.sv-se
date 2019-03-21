@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: bd2b28a7f8d0a765e10ffa58b5a72b4bd5bc47b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 543135db8df69db7e0e6182c9d52b9c956ee80b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228189"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996978"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>Reserverade IP-adresser (klassisk distribution)
 
@@ -28,7 +28,7 @@ ms.locfileid: "51228189"
 Förhindra att IP-adresser ändras, kan du reservera en IP-adress. Reserverade IP-adresser kan endast användas som en VIP, se till att IP-adressen för Molntjänsten förblir detsamma även när resurser stängdes av eller Stoppad (frigjord). Du kan dessutom konvertera befintliga dynamiska IP-adresser används som en VIP-adress till en reserverad IP-adress.
 
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Lär dig att reservera en statisk offentlig IP-adress med hjälp av den [Resource Manager-distributionsmodellen](virtual-network-ip-addresses-overview-arm.md).
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser:  [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Lär dig att reservera en statisk offentlig IP-adress med hjälp av den [Resource Manager-distributionsmodellen](virtual-network-ip-addresses-overview-arm.md).
 
 Mer information om IP-adresser i Azure den [IP-adresser](virtual-network-ip-addresses-overview-classic.md) artikeln.
 
@@ -83,7 +83,7 @@ Förväntad utdata:
     OperationStatus      : Succeeded
 
 >[!NOTE]
->När du skapar en reserverad IP-adress med PowerShell kan ange du inte en resursgrupp för att skapa den reserverade IP-Adressen i. Azure platser som den i en resursgrupp med namnet *standard-nätverk* automatiskt. Om du skapar en reserverad IP med hjälp av den [Azure-portalen](http://portal.azure.com), du kan ange valfri resursgrupp som du väljer. Om du skapar den reserverade IP-Adressen i en resursgrupp än *standard-nätverk* dock när du refererar till den reserverade IP-Adressen med kommandon som `Get-AzureReservedIP` och `Remove-AzureReservedIP`, måste du referera till namnet  *Gruppera Resursgruppsnamn-reserverade ip-namn*.  Exempel: Om du skapar en reserverad IP med namnet *myReservedIP* i en resursgrupp med namnet *myResourceGroup*, måste du referera till namnet på den reserverade IP-Adressen som *grupp myResourceGroup myReservedIP*.   
+>När du skapar en reserverad IP-adress med PowerShell kan ange du inte en resursgrupp för att skapa den reserverade IP-Adressen i. Azure platser som den i en resursgrupp med namnet *standard-nätverk* automatiskt. Om du skapar en reserverad IP med hjälp av den [Azure-portalen](https://portal.azure.com), du kan ange valfri resursgrupp som du väljer. Om du skapar den reserverade IP-Adressen i en resursgrupp än *standard-nätverk* dock när du refererar till den reserverade IP-Adressen med kommandon som `Get-AzureReservedIP` och `Remove-AzureReservedIP`, måste du referera till namnet  *Gruppera Resursgruppsnamn-reserverade ip-namn*.  Exempel: Om du skapar en reserverad IP med namnet *myReservedIP* i en resursgrupp med namnet *myResourceGroup*, måste du referera till namnet på den reserverade IP-Adressen som *grupp myResourceGroup myReservedIP*.   
 
 
 När en IP-adress är reserverat fortfarande det kopplad till prenumerationen tills du tar bort den. Ta bort en reserverad IP-adress enligt följande:

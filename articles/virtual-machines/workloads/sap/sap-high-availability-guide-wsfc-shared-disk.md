@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91a72a4244e3cae081fe9a962bbb80d3ce19822d
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 608965160f4abb57ccdfe8b8256fef971754b4d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113230"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000307"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -39,7 +39,7 @@ ms.locfileid: "39113230"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [ha-guide]:sap-high-availability-guide.md
@@ -210,9 +210,9 @@ Azure Load Balancer-tjänsten tillhandahåller en *intern belastningsutjämnare*
 
 Distribuera den interna belastningsutjämnaren i resursgruppen som innehåller noder i klustret. Konfigurera sedan alla nödvändiga port vidarebefordra regler med hjälp av avsökningen portar för den interna belastningsutjämnaren. Klienter kan ansluta via virtuella värdnamnet. DNS-servern löser klustrets IP-adress och interna hanterar belastningsutjämnarporten vidarebefordran till den aktiva noden i klustret.
 
-![Bild 1: Konfiguration i Azure utan en delad disk för Windows-redundanskluster][sap-ha-guide-figure-1001]
+![Bild 1: Konfigurationen i Azure utan en delad disk för Windows-redundanskluster][sap-ha-guide-figure-1001]
 
-_**Bild 1:** konfiguration i Azure utan en delad disk för Windows Server-redundansklustring_
+_**Bild 1:** Konfigurationen i Azure utan en delad disk för Windows Server-redundansklustring_
 
 ### <a name="sap-ascsscs-ha-with-cluster-shared-disks"></a>SAP ASCS/SCS hög tillgänglighet med klusterdelade diskar
 I Windows innehåller en SAP ASCS/SCS-instans SAP central services, SAP-meddelandeservern, sätta serverprocesser och SAP globala värdfiler. Global värd för filer som SAP lagringsfiler central för hela SAP-system.
@@ -221,19 +221,19 @@ En SAP ASCS/SCS-instans har följande komponenter:
 
 * SAP central services:
     * Två processer, ett meddelande och sätta server och en < ASCS/SCS virtuellt värdnamn >, som används för att få åtkomst till dessa två processer.
-    * Filen struktur: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<antal instanser\>
+    * Filstruktur: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<antal instanser\>
 
 
 * SAP globala värdfiler:
-    * Filen struktur: S:\usr\sap\\&lt;SID&gt;\SYS\....
-    * Filresurs sapmnt, vilket ger åtkomst till de här globala S:\usr\sap\\&lt;SID&gt;\SYS\... filer med hjälp av följande UNC-sökväg:
+  * Filstruktur: S:\usr\sap\\&lt;SID&gt;\SYS\...
+  * Filresurs sapmnt, vilket ger åtkomst till de här globala S:\usr\sap\\&lt;SID&gt;\SYS\... filer med hjälp av följande UNC-sökväg:
 
-     \\\\< ASCS/SCS virtuellt värdnamn > \sapmnt\\&lt;SID&gt;\SYS\....
+    \\\\< ASCS/SCS virtuellt värdnamn > \sapmnt\\&lt;SID&gt;\SYS\....
 
 
 ![Bild 2: Processer, filstruktur och globala värden sapmnt filresurs för en SAP ASCS/SCS-instans][sap-ha-guide-figure-8001]
 
-_**Bild 2:** processer, filstruktur och globala värden sapmnt filresurs för en SAP ASCS/SCS-instans_
+_**Bild 2:** Processer, filstruktur och globala värden sapmnt filresurs för en SAP ASCS/SCS-instans_
 
 I en miljö med hög tillgänglighet klustra SAP ASCS/SCS-instanser. Vi använder *klustrade delade diskar* (enheten S, i vårt exempel), för att placera SAP ASCS/SCS och SAP globala vara värd för filer.
 
@@ -266,9 +266,9 @@ Skapa en delad diskresurs för ett kluster:
 
 Hämta mer information om [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/).
 
-![Bild 5: Konfiguration i Azure med SIOS DataKeeper för Windows Server-redundansklustring][sap-ha-guide-figure-1002]
+![Bild 5: Konfigurationen i Azure med SIOS DataKeeper för Windows Server-redundansklustring][sap-ha-guide-figure-1002]
 
-_**Bild 5:** konfiguration i Azure med SIOS DataKeeper för Windows-redundanskluster_
+_**Bild 5:** Konfigurationen i Azure med SIOS DataKeeper för Windows-redundanskluster_
 
 > [!NOTE]
 > Du behöver inte delade diskar för hög tillgänglighet med vissa DBMS-produkter som SQL Server. SQL Server AlwaysOn replikerar DBMS data och loggfiler filer från den lokala disken på en klusternod till den lokala disken för en annan klusternod. I det här fallet behöver klusterkonfigurationen Windows inte en delad disk.

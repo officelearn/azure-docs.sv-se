@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6c85060e3ca566cbf9fe51904fa9bf62322075a5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d11dfcb66a545cbecc80b6bdad558ca6d328ed2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436229"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999672"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrera dina distributioner av OMS till Azure
 
@@ -61,11 +61,11 @@ För datorer som ska uppdateras, väljer du den sparade sökningen som används 
 | --- | --- |
 |Namn |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Välj **Linux** eller **Windows**.|
-|Datorer som ska uppdateras |Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Läs om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md) |
+|Datorer som ska uppdateras |Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md) |
 |Uppdatera klassificeringar|Välj de uppdateringsklassificeringar som du behöver. CentOS stöder inte det direkt.|
 |Uppdateringar som ska uteslutas|Ange uppdateringarna som ska uteslutas. För Windows, ange KB-artikel utan den **KB** prefix. Ange paketnamnet för Linux, eller Använd ett jokertecken.  |
-|Schemainställningar|Välj tid att starta och välj sedan antingen **när** eller **återkommande** för upprepningen.|| Underhållsperiod |Antal minuter som angetts för uppdateringar. Värdet får inte vara mindre än 30 minuter eller mer än 6 timmar. |
-| Underhållsperiod |Antal minuter som angetts för uppdateringar. Värdet kan inte vara mindre än 30 minuter och högst 6 timmar |
+|Schemainställningar|Välj tid att starta och välj sedan antingen **när** eller **återkommande** för upprepningen. | 
+| Underhållsperiod |Antal minuter som angetts för uppdateringar. Värdet får inte vara mindre än 30 minuter eller mer än 6 timmar. |
 | Starta om kontroll| Anger hur omstarter ska hanteras.</br>De tillgängliga alternativen är:</br>Starta om vid behov (standard)</br>Starta alltid om</br>Starta aldrig om</br>Endast omstart – uppdateringar installeras inte|
 
 Klicka på **schemalagda uppdateringsdistributioner** att visa status för den nyligen skapade uppdateringsdistributionen.

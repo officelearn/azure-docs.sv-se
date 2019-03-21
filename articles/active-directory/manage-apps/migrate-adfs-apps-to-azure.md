@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/02/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d43a8a316ff28d2cdb9e231057aea3de85d7d444
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f2739b5d2d944ea9a8b8cefdcc741abc8a2b632a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205587"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113409"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Flytta program från AD FS till Azure AD 
 
@@ -99,7 +99,7 @@ Migreringen börjar med att utvärdera hur programmet är konfigurerat lokalt oc
 |Appkonfigurationselement|Beskrivning|Plats i AD FS-konfigurationen|Motsvarande plats i Azure AD-konfiguration|SAML-tokenelement|
 |-----|-----|-----|-----|-----|
 |Inloggnings-URL för appen|Webbadress till programmets inloggningssida. Det är här som användaren loggar in på appen i ett SP-initierat SAML-flöde.|Gäller inte|I Azure AD konfigureras inloggnings-URL:en i Azure-portalen i programmets egenskaper för **Enkel inloggning** som inloggnings-URL.</br></br>(Du kanske måste välja **Visa avancerade URL-inställningar** för att kunna se inloggnings-URL:en.)|Gäller inte|
-|Appens svars-URL|Appens webbadress ur identitetsproviderns (IdP) perspektiv. Hit skickas användare och token när användaren har loggat in på IdP:n.</br></br> Detta kallas ibland för ”slutpunkt för SAML-intygsmottagare”.|Den finns i appens AD FS-förlitande partsförtroende. Högerklicka på den förlitande parten, välj **Egenskaper** och välj sedan fliken **Slutpunkter**.|I Azure AD konfigureras svars-URL:en i Azure-portalen i programmets egenskaper för **Enkel inloggning** som svars-URL.</br></br>(Du kanske måste välja **Visa avancerade URL-inställningar** för att kunna se svars-URL:en.)|Mappas till **Mål**-elementet i SAML-token.</br></br> Exempelvärde: https://contoso.my.salesforce.com|
+|Appens svars-URL|Appens webbadress ur identitetsproviderns (IdP) perspektiv. Hit skickas användare och token när användaren har loggat in på IdP:n.</br></br> Detta kallas ibland för ”slutpunkt för SAML-intygsmottagare”.|Den finns i appens AD FS-förlitande partsförtroende. Högerklicka på den förlitande parten, välj **Egenskaper** och välj sedan fliken **Slutpunkter**.|I Azure AD konfigureras svars-URL:en i Azure-portalen i programmets egenskaper för **Enkel inloggning** som svars-URL.</br></br>(Du kanske måste välja **Visa avancerade URL-inställningar** för att kunna se svars-URL:en.)|Mappas till **Mål**-elementet i SAML-token.</br></br> Exempelvärde: `https://contoso.my.salesforce.com`|
 |Appens webbadress för utloggning|URL dit begäranden om ”utloggningsrensning” skickas när en användare loggar ut från en app, vilket loggar ut alla andra appar som IdP:n har loggat in användaren på.|Den finns i AD FS-hantering under **Förlitande partsförtroenden**. Högerklicka på den förlitande parten, välj **Egenskaper** och välj sedan fliken **Slutpunkter**.|Ej tillämpligt. Azure AD stöder inte ”enkel utloggning”, vilket innebär utloggning från alla appar. Den loggar bara ut användaren från själva Azure AD.|Gäller inte|
 |Appidentifierare|Appens identifierare ur IdP:ns perspektiv. Inloggningens URL-värde används ofta för identifierare (men inte alltid).</br></br> Ibland kallar appen detta för ”Entitets-ID”.|I AD FS är detta den förlitande partens ID. Högerklicka på det förlitande partsförtroendet, välj **Egenskaper** och sedan fliken **Identifierare**.|I Azure AD konfigureras identifieraren i Azure-portalen i programmets egenskaper för **Enkel inloggning** som identifierare under **Domän och URL:er**. (Du kan behöva markera kryssrutan **Visa avancerade URL-inställningar**.)|Motsvarar elementet **Målgrupp** i SAML-token.|
 |Federationsmetadata för appen|Platsen för appens federationsmetadata. IdP:n använder den till att automatiskt uppdatera specifika konfigurationsinställningar, som t.ex. slutpunkter eller krypteringscertifikat.|URL:en för appens federationsmetadata finns i appens AD FS-förlitande partsförtroende. Högerklicka på förtroendet, välj **Egenskaper** och sedan fliken **Övervakning**.|Ej tillämpligt. Azure AD stöder inte konsumerande appars federationsmetadata direkt.|Gäller inte|

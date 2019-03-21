@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: 15b7bae6116d05e7bf4cd76a1ba1b93bb127fef8
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: d4b8fd6ccb3fc7cb2627d4bd3e103239181e4d9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313100"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994393"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du stöd för Virtual Network för Premium Azure Cache för Redis
 Azure Redis-Cache har olika cachefunktioner som ger flexibilitet i valet av cachestorlek och funktioner, inklusive funktioner på Premiumnivå som klustring, persistence och stöd för virtuella nätverk. Ett virtuellt nätverk är ett privat nätverk i molnet. När en Azure-Cache för Redis-instans är konfigurerad med ett virtuellt nätverk, är inte offentligt adresserbar och kan bara kommas åt från virtuella datorer och program i det virtuella nätverket. Den här artikeln beskriver hur du konfigurerar virtual network-stöd för premium Azure Cache för Redis-instans.
@@ -106,7 +106,7 @@ När Azure Cache för Redis finns i ett virtuellt nätverk, används portarna i 
 
 Det finns sju krav för utgående port.
 
-- Om önskad all utgående anslutningar till internet kan göras via en klients lokala granskning enheten.
+- Alla utgående anslutningar till internet kan göras via en klient är en lokal granskning enheten.
 - Tre av portarna som dirigerar trafik till Azure-slutpunkter vilka Azure Storage och Azure DNS.
 - Återstående portintervall och för intern kommunikation för Redis-undernät. Inga undernät NSG-regler måste anges för intern kommunikation för Redis-undernät.
 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: yushwang
-ms.openlocfilehash: d13e0ea365b25bc17ff2d23dfaf86bc057774744
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: f7ee53c10c6597dbf98f8f85fc31fe789137471e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415501"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996317"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Ladda ned konfigurationsskript för VPN-enheten för S2S VPN-anslutningar
 
@@ -53,7 +53,7 @@ Skapa en Azure VPN-gateway och lokal nätverksgateway en anslutningsresurs anslu
 
 När anslutningsresursen har skapats följer du anvisningarna nedan för att ladda ned konfigurationsskript för VPN-enheten:
 
-1. Från en webbläsare, navigerar du till den [Azure-portalen](http://portal.azure.com) vid behov, logga in med ditt Azure-konto
+1. Från en webbläsare, navigerar du till den [Azure-portalen](https://portal.azure.com) vid behov, logga in med ditt Azure-konto
 2. Gå till connection-resursen som du skapade. Du hittar listan över alla anslutningsresurser som genom att klicka på ”alla tjänster”, och sedan ”nätverk” och ”-anslutningar”.
 
     ![Connection-list](./media/vpn-gateway-download-vpndevicescript/connectionlist.png)

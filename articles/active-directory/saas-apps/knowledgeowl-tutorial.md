@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f53742de3242fb3b60a15d436ec6cd842aa429
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c8c86ad6e4b11f21c648083fac35e15eec7658c1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184005"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995502"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Självstudier: Azure Active Directory-integrering med KnowledgeOwl
 
@@ -110,6 +110,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![KnowledgeOwl domän och URL: er med enkel inloggning för information](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url.png)
 
     a. I textrutan **Identifierare (entitets-ID)** skriver du en URL med följande mönster:
+
     |||
     |-|-|
     | `https://app.knowledgeowl.com/sp`|
@@ -117,6 +118,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     |||
 
     b. I textrutan **Svars-URL** anger du en URL med följande mönster:
+
     |||
     |-|-|
     | `https://subdomain.knowledgeowl.com/help/saml-login`|
@@ -132,6 +134,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![KnowledgeOwl domän och URL: er med enkel inloggning för information](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url1.png)
 
     I textrutan **Inloggnings-URL** anger du en URL med följande mönster:
+    
     |||
     |-|-|
     | `https://subdomain.knowledgeowl.com/help/saml-login`|
@@ -185,29 +188,29 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. Klicka på **inställningar** och välj sedan **Security**.
 
-    ![KnowledgeOwl konfiguration](./media/knowledgeowl-tutorial/configure1.png)
+     ![KnowledgeOwl konfiguration](./media/knowledgeowl-tutorial/configure1.png)
 
 1. Bläddra till **SAML SSO-integrering** och utför följande steg:
     
-    ![KnowledgeOwl konfiguration](./media/knowledgeowl-tutorial/configure2.png)
+     ![KnowledgeOwl konfiguration](./media/knowledgeowl-tutorial/configure2.png)
 
-    a. Välj **aktivera SAML SSO**.
+     a. Välj **aktivera SAML SSO**.
 
-    b. Kopiera den **SP entitets-ID** värde och klistra in den i den **identifierare (entitets-ID)** i den **KnowledgeOwl domän och URL: er** avsnittet på Azure portal.
+     b. Kopiera den **SP entitets-ID** värde och klistra in den i den **identifierare (entitets-ID)** i den **KnowledgeOwl domän och URL: er** avsnittet på Azure portal.
 
-    c. Kopiera den **SP inloggnings-URL** värde och klistra in den i den **inloggnings-URL och svars-URL** textrutor i den **KnowledgeOwl domän och URL: er** avsnittet på Azure portal.
+     c. Kopiera den **SP inloggnings-URL** värde och klistra in den i den **inloggnings-URL och svars-URL** textrutor i den **KnowledgeOwl domän och URL: er** avsnittet på Azure portal.
 
-    d. I den **IdP entityID** textrutan klistra in den **SAML entitets-ID** värde, som du har kopierat från Azure-portalen.
+     d. I den **IdP entityID** textrutan klistra in den **SAML entitets-ID** värde, som du har kopierat från Azure-portalen.
 
-    e. I den **inloggnings-URL för IDP: N** textrutan klistra in den **SAML enkel inloggning för tjänst-URL** värde, som du har kopierat från Azure-portalen.
+     e. I den **inloggnings-URL för IDP: N** textrutan klistra in den **SAML enkel inloggning för tjänst-URL** värde, som du har kopierat från Azure-portalen.
 
-    f. I den **utloggnings-URL för IDP: N** textrutan klistra in den **URL: en för utloggning** värde, som du har kopierat från Azure portal
+     f. I den **utloggnings-URL för IDP: N** textrutan klistra in den **URL: en för utloggning** värde, som du har kopierat från Azure portal
 
-    g. Ladda upp nedladdade certifikatet från Azure portal genom att klicka på den **överför certifikat för IDP: N**.
+     g. Ladda upp nedladdade certifikatet från Azure portal genom att klicka på den **överför certifikat för IDP: N**.
 
-    h. Klicka på **kartan SAML-attribut** att mappa attribut och utför följande steg:
+     h. Klicka på **kartan SAML-attribut** att mappa attribut och utför följande steg:
     
-    ![KnowledgeOwl konfiguration](./media/knowledgeowl-tutorial/configure3.png)
+     ![KnowledgeOwl konfiguration](./media/knowledgeowl-tutorial/configure3.png)
 
     * Ange `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` till den **SSO-ID** textrutan
     * Ange `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` till den **användarnamn/e-post** textrutan.
@@ -215,9 +218,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     * Ange `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` till den **efternamn** textrutan.
     * Klicka på **Spara**
 
-    i. Klicka på **Spara** längst ned på sidan.
+      i. Klicka på **Spara** längst ned på sidan.
 
-    ![KnowledgeOwl konfiguration](./media/knowledgeowl-tutorial/configure4.png)
+      ![KnowledgeOwl konfiguration](./media/knowledgeowl-tutorial/configure4.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -296,7 +299,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

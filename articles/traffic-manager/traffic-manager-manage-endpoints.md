@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: ea7b5b087a5cfb2a3eefaef7336de4a6acf7f116
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0832010707fc9b5d5f435aac29940db6905d18d7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777540"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009298"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Lägga till, inaktivera, aktivera eller ta bort slutpunkter
 
@@ -29,7 +29,7 @@ Du kan också inaktivera enskilda slutpunkter som ingår i en Traffic Manager-pr
 
 ## <a name="to-add-a-cloud-service-or-an-app-service-endpoint-to-a-traffic-manager-profile"></a>För att lägga till en molntjänst eller en apptjänstslutpunkt till en Traffic Manager-profil
 
-1. Logga in på [Azure Portal](http://portal.azure.com) från en webbläsare.
+1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare.
 2. Leta efter namnet på **Traffic Manager-profilen** som du vill modifiera och klicka sedan på Traffic Manager-profilen i resultaten som visas.
 3. Klicka på **Slutpunkter** på bladet **Traffic Manager-profil** i avsnittet **Inställningar**.
 4. Klicka på **Lägg till** på bladet **Slutpunkter** som visas.
@@ -49,7 +49,7 @@ Du kan också inaktivera enskilda slutpunkter som ingår i en Traffic Manager-pr
 
 ## <a name="to-disable-an-endpoint"></a>Så här inaktiverar du en slutpunkt
 
-1. Logga in på [Azure Portal](http://portal.azure.com) från en webbläsare.
+1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare.
 2. Leta efter namnet på **Traffic Manager-profilen** som du vill modifiera och klicka sedan på Traffic Manager-profilen i resultaten som visas.
 3. Klicka på **Slutpunkter** på bladet **Traffic Manager-profil** i avsnittet **Inställningar**. 
 4. Klicka på den slutpunkt som du vill inaktivera och sedan på bladet **Slutpunkt** som visas klickar du på **Redigera**.
@@ -58,7 +58,7 @@ Du kan också inaktivera enskilda slutpunkter som ingår i en Traffic Manager-pr
 
 ## <a name="to-enable-an-endpoint"></a>Så här aktiverar du en slutpunkt
 
-1. Logga in på [Azure Portal](http://portal.azure.com) från en webbläsare.
+1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare.
 2. Leta efter namnet på **Traffic Manager-profilen** som du vill modifiera och klicka sedan på Traffic Manager-profilen i resultaten som visas.
 3. Klicka på **Slutpunkter** på bladet **Traffic Manager-profil** i avsnittet **Inställningar**. 
 4. Klicka på den slutpunkt som du vill inaktivera och sedan på bladet **Slutpunkt** som visas klickar du på **Redigera**.
@@ -67,7 +67,7 @@ Du kan också inaktivera enskilda slutpunkter som ingår i en Traffic Manager-pr
 
 ## <a name="to-delete-an-endpoint"></a>Ta bort en slutpunkt
 
-1. Logga in på [Azure Portal](http://portal.azure.com) från en webbläsare.
+1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare.
 2. Leta efter namnet på **Traffic Manager-profilen** som du vill modifiera och klicka sedan på Traffic Manager-profilen i resultaten som visas.
 3. Klicka på **Slutpunkter** på bladet **Traffic Manager-profil** i avsnittet **Inställningar**. 
 4. Klicka på den slutpunkt som du vill inaktivera och sedan på bladet **Slutpunkt** som visas klickar du på **Redigera**.

@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
-ms.author: jeffgilb
+ms.date: 03/13/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2c726675d799a8bb5f9ed1d1dd595aa7f4700036
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 03/13/2019
+ms.openlocfilehash: 06bafbcf3e668ba17b1245b9352e942e02569997
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774608"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852380"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Kapacitetsplanering för Azure App Service-serverroller i Azure Stack
 
@@ -93,9 +93,17 @@ När du bestämmer dig antalet delade webbarbetsroller ska använda, granska des
 
    Information om att lägga till flera arbetsinstanser finns i [att lägga till fler arbetsroller](azure-stack-app-service-add-worker-roles.md).
 
+### <a name="additional-considerations-for-dedicated-workers-during-upgrade-and-maintenance"></a>Ytterligare överväganden för dedikerade arbetare under uppgraderingen och underhåll
+
+Under uppgraderingen och underhåll av de anställda kan utför Azure App Service i Azure Stack Underhåll på 20% av varje arbetarnivån åt gången.  Molnadministratörer måste därför alltid ha en pool med 20% av lediga arbetare per arbetarnivån så förlust av tjänsten under uppgraderingen och underhåll inte drabbas av sina klienter.  Till exempel om du har 10 arbetare i en arbetarnivå bör du kontrollera att 2 är lediga så att uppgraderingen och underhåll, om samtliga 10 arbetare blir allokerat du bör skala arbetarnivån upp för att upprätthålla en pool med lediga arbetare. Under uppgraderingen och underhåll Azure App Service kommer att flytta arbetsbelastningar till lediga arbeten för att säkerställa att arbetsbelastningar fortsätter att fungera men om det finns några lediga anställda som är tillgängliga under uppgradera sedan det kommer att risken för klientarbetsbelastning driftstopp.  För delade arbetare behöver kunder inte etablera fler arbeten när tjänsten kommer att fördela klient program i tillgängliga arbeten automatiskt, för hög tillgänglighet men det finns ett minimikrav för två arbetare i det här -nivå.
+
+Cloud administratörerna kan övervaka sina worker nivån allokering i området Administration i App Service i Azure Stack-administrationsportalen.  Gå till App Service och välj sedan Arbetarnivåer i det vänstra fönstret.  Tabellen Arbetarnivåer visar namn på arbetarnivå, storlek, avbildning som används, antalet tillgängliga arbetare (tilldelats), totalt antal arbeten i varje nivå och det övergripande tillståndet för arbetarnivån.
+
+![App Service-Administration - Arbetarnivåer][1]
+
 ## <a name="file-server-role"></a>Filserverrollen
 
-För filserverrollen, kan du använda en fristående filserver för utveckling och testning; till exempel när du distribuerar Azure App Service på Azure Stack Development Kit (ASDK) du kan använda den här mallen: https://aka.ms/appsvconmasdkfstemplate. För produktion bör du använda en förkonfigurerad Windows-filserver eller en förkonfigurerad icke-Windows server.
+För filserverrollen, kan du använda en fristående filserver för utveckling och testning; till exempel när du distribuerar Azure App Service på Azure Stack Development Kit (ASDK) du kan använda detta [mallen](https://aka.ms/appsvconmasdkfstemplate).  För produktion bör du använda en förkonfigurerad Windows-filserver eller en förkonfigurerad icke-Windows server.
 
 Filserverrollen upplevelser beräkningsintensiva disk-i/o i produktionsmiljöer. Eftersom den innehåller alla filer som innehåll och program för webbplatser för användare, bör du konfigurera en av följande resurser för den här rollen före:
 
@@ -105,10 +113,13 @@ Filserverrollen upplevelser beräkningsintensiva disk-i/o i produktionsmiljöer.
 - Icke-Windows-filserverklustret
 - NAS (Network Attached Storage)-enhet
 
-Mer information finns i [etablera en filserver](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
+Se följande artikel för mer information [etablera en filserver](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Se följande artikel för mer information:
 
 [Innan du sätter igång med App Service i Azure Stack](azure-stack-app-service-before-you-get-started.md)
+
+<!--Image references-->
+[1]: ./media/azure-stack-app-service-capacity-planning/worker-tier-allocation.png

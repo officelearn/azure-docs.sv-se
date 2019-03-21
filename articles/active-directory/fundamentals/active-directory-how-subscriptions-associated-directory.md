@@ -8,40 +8,48 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 03/13/2019
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a116355c8140d30f8297cde067a82f37f72e02a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 262f46b3d0b61923352f3ff98b08cb5e4f6d5e75
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165866"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993902"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Koppla eller lägga till en Azure-prenumeration till din Azure Active Directory-klient
-Azure-prenumerationen har en förtroenderelation med Azure Active Directory (Azure AD), vilket innebär att prenumerationen litar på Azure AD för att autentisera användare, tjänster och enheter. Flera prenumerationer kan lita på samma Azure AD-katalog, men varje prenumeration kan bara lita på en enskild katalog.
+
+En Azure-prenumeration har en förtroenderelation med Azure Active Directory (Azure AD), vilket innebär att prenumerationen litar på Azure AD för att autentisera användare, tjänster och enheter. Flera prenumerationer kan lita på samma Azure AD-katalog, men varje prenumeration kan bara lita på en enskild katalog.
 
 Om din prenumeration går ut kan du förlora åtkomsten till alla de övriga resurser som är associerade med prenumerationen. Azure AD-katalog finns dock kvar i Azure, så att du kan associera och hantera kataloganvändarna med Azure-prenumeration.
 
-Alla användare har en enda ”” arbetskatalog för autentisering. Användarna kan även vara gäster i andra kataloger. Du kan se hem och Gäst kataloger för varje användare i Azure AD.
+Alla användare har en enda *home* katalogen för autentisering. Användarna kan även vara gäster i andra kataloger. Du kan se hem och Gäst kataloger för varje användare i Azure AD.
 
->[!Important]
->Alla [rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/role-assignments-portal.md) användare med tilldelad åtkomst, tillsammans med alla prenumerationsadministratörer förlorar åtkomst när prenumerationen katalogändringar. Dessutom om du har några nyckelvalv, kommer de också att påverkas av prenumeration flytten. Om du vill åtgärda som du måste [ändra klient-ID för nyckelvalvet](../../key-vault/key-vault-subscription-move-fix.md) innan du återuppta åtgärder.
-
+> [!Important]
+> När du associerar en prenumeration på en annan katalog, användare som har tilldelats med hjälp av roller [rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/role-assignments-portal.md) förlorar sin åtkomst. Klassiska prenumerationens administratörer (tjänstadministratören och Medadministratörer) kommer också att förlora åtkomst.
 
 ## <a name="before-you-begin"></a>Innan du börjar
+
 Innan du kan koppla eller lägga till din prenumeration, måste du utföra följande uppgifter:
 
-- Logga in med ett konto som:
-    - Har **RBAC ägare** åtkomst till prenumerationen.
+1. Granska följande lista över ändringar och hur du kan påverkas:
 
+    - Användare som har tilldelats med hjälp av RBAC förlorar sin åtkomst
+    - Tjänstadministratören och Medadministratörer förlorar åtkomst
+    - Om du har några nyckelvalv, de är otillgänglig och du behöver åtgärda dem när detta har gjorts
+    - Om du har en registrerad Azure Stack, måste du omregistrera när detta har gjorts
+
+1. Logga in med ett konto som:
+    - Har en [ägare](../../role-based-access-control/built-in-roles.md#owner) rolltilldelning för prenumerationen. Information om hur du tilldelar rollen ägare finns i [hantera åtkomst till Azure-resurser med RBAC och Azure portal](../../role-based-access-control/role-assignments-portal.md).
     - Det finns i både den aktuella katalogen som är associerat med prenumerationen och i den nya katalogen som är där du vill associera prenumerationen framöver. Läs mer om att få åtkomst till en annan katalog [hur lägger Azure Active Directory-administratörer till B2B-samarbetare?](../b2b/add-users-administrator.md).
 
-- Kontrollera att du inte använder en Azure Cloud Service Providers (CSP)-prenumeration (MS-AZR - 0145P, MS - AZR - 0146P, MS - AZR - 159P), en Microsoft Internal-prenumeration (MS-AZR - 0015P) eller en Microsoft Imagine-prenumeration (MS-AZR - 0144P).
+1. Kontrollera att du inte använder en Azure Cloud Service Providers (CSP)-prenumeration (MS-AZR - 0145P, MS - AZR - 0146P, MS - AZR - 159P), en Microsoft Internal-prenumeration (MS-AZR - 0015P) eller en Microsoft Imagine-prenumeration (MS-AZR - 0144P).
     
 ## <a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>Så här lägger du till en befintlig prenumeration i din Azure AD-katalog
+
 1. Logga in och välj den prenumeration som du vill använda från den [prenumerationssidan i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 2. Välj **ändra katalog**.
@@ -61,6 +69,14 @@ Innan du kan koppla eller lägga till din prenumeration, måste du utföra följ
     ![Katalogsidan mellan aktiviteter](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
 Ändra prenumerationskatalogen är en åtgärd på servicenivå, så att det inte påverkar faktureringsägarskapet för prenumerationen. Kontoadministratören kan ändå ändra tjänstadministratör från den [Kontocenter](https://account.azure.com/subscriptions). Om du vill ta bort den ursprungliga katalogen måste du överför prenumerationsfaktureringen ägarskap till en ny kontoadministratör Mer information om att överföra faktureringsägarskapet finns i [Överför ägarskapet för en Azure-prenumeration till ett annat konto](../../billing/billing-subscription-transfer.md). 
+
+## <a name="post-association-steps"></a>Association steg efter
+
+När du har associerat en prenumeration på en annan katalog, kan det finnas ytterligare steg som du måste utföra om du vill återuppta åtgärder.
+
+1. Om du har alla viktiga valv, måste du ändra nyckelvalv klient-ID. Mer information finns i [ändra en nyckelvalvsklient-ID efter en prenumerationsflytt](../../key-vault/key-vault-subscription-move-fix.md).
+
+1. Om du har registrerat ett Azure Stack med hjälp av den här prenumerationen måste du omregistrera. Mer information finns i [registrera Azure Stack med Azure](../../azure-stack/azure-stack-registration.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

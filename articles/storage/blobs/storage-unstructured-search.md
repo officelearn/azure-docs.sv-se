@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/13/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 42c67d73ee776488fbe932676f61cb7166c2984b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: acf01788a1ac8ed8ca476941c402801abfbd8adf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599850"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011316"
 ---
 # <a name="tutorial-search-unstructured-data-in-cloud-storage"></a>Självstudier: Sök efter ostrukturerade data i molnlagringen
 
@@ -35,11 +35,11 @@ I den här självstudiekursen får du lära du dig att:
 > * Skapa en indexerare
 > * Använda söktjänsten för att söka i en container
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Varje lagringskonto måste tillhöra en Azure-resursgrupp. En resursgrupp är en logisk container där Azure-resurserna grupperas. När du skapar ett lagringskonto kan du antingen skapa en ny resursgrupp eller använda en befintlig resursgrupp. I den här självstudien skapas en ny resursgrupp.
 
-Logga in på [Azure-portalen](http://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -63,7 +63,7 @@ För den här självstudien använder du en enskild container att lagra de textf
 
 5. Klicka på **OK** för att skapa containern.
 
-  ![Ostrukturerad sökning](media/storage-unstructured-search/storageactinfo.png)
+   ![Ostrukturerad sökning](media/storage-unstructured-search/storageactinfo.png)
 
 ## <a name="upload-the-example-data"></a>Ladda upp exempeldata
 
@@ -77,7 +77,7 @@ Nu när du har en container kan du ladda upp dina exempeldata till den.
 
 4. Välj **Ladda upp** för att påbörja uppladdningsprocessen.
 
-  ![Ostrukturerad sökning](media/storage-unstructured-search/upload.png)
+   ![Ostrukturerad sökning](media/storage-unstructured-search/upload.png)
 
 Uppladdningsprocessen kan ta en stund.
 
@@ -107,7 +107,7 @@ För den här självstudien använder du en söktjänst för att söka i de text
 
 8. Välj **Skapa** för att skapa söktjänsten.
 
-  ![Ostrukturerad sökning](media/storage-unstructured-search/createsearch2.png)
+   ![Ostrukturerad sökning](media/storage-unstructured-search/createsearch2.png)
 
 ## <a name="connect-your-search-service-to-your-container"></a>Ansluta din söktjänst till containern
 
@@ -127,13 +127,13 @@ Nu när du har en söktjänst kan du koppla den till ditt blob storage. Det här
 
 2. Eftersom de blobar du använder är textfiler ställer du in **Parsningsläge** på **Text**.
 
-  ![Ostrukturerad sökning](media/storage-unstructured-search/datasources.png)
+   ![Ostrukturerad sökning](media/storage-unstructured-search/datasources.png)
 
 3. Välj **Lagringscontainer** för att lista tillgängliga lagringskonton.
 
 4. Välj ditt lagringskonto och välj sedan den container som du skapade tidigare.
 
-  ![Ostrukturerad sökning](media/storage-unstructured-search/datacontainer.png)
+   ![Ostrukturerad sökning](media/storage-unstructured-search/datacontainer.png)
 
 5. Klicka på **Välj** för att återgå till **Ny datakälla** och välj **OK** för att fortsätta.
 
@@ -147,7 +147,7 @@ Nu när du har en söktjänst kan du koppla den till ditt blob storage. Det här
 
 3. Markera kryssrutan för attributet **Hämtningsbar** under **metadata_storage_name**.
 
-  ![Ostrukturerad sökning](media/storage-unstructured-search/valuestoselect.png)
+   ![Ostrukturerad sökning](media/storage-unstructured-search/valuestoselect.png)
 
 4. Välj **OK** så öppnas **Skapa en indexerare**.
 
@@ -172,7 +172,7 @@ Kolumnen **FIELD NAME** (FÄLTNAMN) innehåller parametrarna. Följande tabell i
 
 1. Ange ett namn i fältet **Namn** och välj **OK**.
 
-  ![Ostrukturerad sökning](media/storage-unstructured-search/exindexer.png)
+   ![Ostrukturerad sökning](media/storage-unstructured-search/exindexer.png)
 
 2. Du kommer tillbaka till **Importera data**. Välj **OK** för att slutföra anslutningsprocessen.
 
@@ -186,19 +186,19 @@ Följande steg visar var du hittar sökutforskaren och ger dig några exempelfr�
 
 1. Gå till alla resurser och leta upp din nyligen skapade söktjänst.
 
-  ![Ostrukturerad sökning](media/storage-unstructured-search/exampleurl.png)
+   ![Ostrukturerad sökning](media/storage-unstructured-search/exampleurl.png)
 
 2. Öppna indexet genom att välja det.
 
-  ![Ostrukturerad sökning](media/storage-unstructured-search/overview.png)
+   ![Ostrukturerad sökning](media/storage-unstructured-search/overview.png)
 
 3. Välj **Sökutforskaren** för att öppna sökutforskaren, där du kan köra live-frågor mot dina data.
 
-  ![Ostrukturerad sökning](media/storage-unstructured-search/indexespane.png)
+   ![Ostrukturerad sökning](media/storage-unstructured-search/indexespane.png)
 
 4. Välj **Sök** medan frågesträngsfältet är tomt. En tom fråga returnerar *alla* data från dina blobar.
 
-  ![Ostrukturerad sökning](media/storage-unstructured-search/emptySearch.png)
+   ![Ostrukturerad sökning](media/storage-unstructured-search/emptySearch.png)
 
 ### <a name="perform-a-full-text-search"></a>Utför en fulltextsökning
 

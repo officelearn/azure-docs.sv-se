@@ -8,24 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1a02862d3ea2e17cfa25a2a2d96e1454699ae7f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ba132adc6b0fd2b8423a7bce30ad6d52fccc898e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166291"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858209"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Snabbstart: Använd PHP för att anropa API för webbsökning i Bing  
 
-Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få ett JSON-svar. Det här enkla .Node.js-programmet skickar en sökfråga till API:et och visar svaret. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få ett JSON-svar. Den här Node.js-program skickar en sökbegäran-API: et och visas svaret. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
+
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
-* [PHP 5.6.x](http://php.net/downloads.php) eller senare
+* [PHP 5.6.x](https://php.net/downloads.php) eller senare
 * En prenumerationsnyckel  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
@@ -34,11 +35,11 @@ Här följer några saker som du behöver innan du kör den här snabbstarten:
 
 Innan vi sätter igång letar du upp `php.ini` och avkommenterar den här raden:
 
-```
-;extension=php_openssl.dll
+```php
+; extension=php_openssl.dll
 ```
 
-## <a name="create-a-project-and-define-variables"></a>Skapa ett projekt och definiera variabler  
+## <a name="create-a-project-and-define-variables"></a>Skapa ett projekt och definiera variabler
 
 Skapa ett nytt PHP-projekt i valfri IDE eller redigeringsprogram. Glöm inte att lägga till de inledande och avslutande taggarna `<?php` och `?>`.
 

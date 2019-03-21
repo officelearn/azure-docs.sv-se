@@ -11,24 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/06/2019
-ms.openlocfilehash: 25a76133bfecfb08c1e413efea93f1466926c533
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: MT
+ms.date: 03/14/2019
+ms.openlocfilehash: 37dcde3d55ce704c7a5dbb6d7757420ba8c393f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569220"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885109"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Resursgränser för enskilda databaser med hjälp av den DTU-baserade inköpsmodellen
 
 Den här artikeln innehåller detaljerade resursgränser för enskilda databaser i Azure SQL Database med hjälp av den DTU-baserade inköpsmodellen.
 
-DTU-baserade inköpschef modellen resursgränser för elastiska pooler, se [DTU-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md). VCore-baserade resursbegränsningar finns [vCore-baserade resursbegränsningar - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md). Läs mer om de olika modellerna för inköp, [köpa modeller och tjänstnivåer](sql-database-purchase-models.md).
-
-> [!IMPORTANT]
-> Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+DTU-baserade inköpschef modellen resursgränser för elastiska pooler, se [DTU-baserade resursbegränsningar - elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md). VCore-baserade resursbegränsningar finns [vCore-baserade resursbegränsningar - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md). Läs mer om de olika modellerna för inköp, [köpa modeller och tjänstnivåer](sql-database-purchase-models.md).
 
 ## <a name="single-database-storage-sizes-and-compute-sizes"></a>Databas: Lagringsstorlekar och storlekar
 
@@ -86,7 +81,9 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 |||||||
 
 > [!IMPORTANT]
-> Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom: Kina, östra; Kina, norra; Tyskland, centrala; Tyskland, nordöstra; USA, västra centrala; US DoD-regioner samt US Government Central. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i [Aktuella begränsningar för P11–P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom: Kina, östra; Kina, norra; Tyskland, centrala; Tyskland, nordöstra; USA, västra centrala; US DoD-regioner samt US Government Central. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i aktuella begränsningar för sidan 11-15.  
+> [!NOTE]
+> För `tempdb` begränsningar, finns i [tempdb gränser](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 
 ## <a name="next-steps"></a>Nästa steg
 

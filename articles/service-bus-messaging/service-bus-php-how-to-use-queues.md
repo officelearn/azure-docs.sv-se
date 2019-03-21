@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: aschhab
-ms.openlocfilehash: 996fcbe350f14bb22b8927d9d19f63636b1d7894
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 9915392f7bb12b31dce6e141383a48b69c6f70a9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585517"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842778"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>Hur du använder Service Bus-köer med PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -34,7 +34,7 @@ Den här guiden visar hur du använder Service Bus-köer. Exemplen är skrivna i
 Det enda kravet för att skapa en PHP-program som har åtkomst till Azure Blob-tjänsten är refererar till klasser i den [Azure SDK för PHP](../php-download-sdk.md) från i din kod. Du kan använda alla utvecklingsverktyg för att skapa ditt program eller anteckningar.
 
 > [!NOTE]
-> PHP-installationen måste också ha den [OpenSSL tillägget](http://php.net/openssl) installerat och aktiverat.
+> PHP-installationen måste också ha den [OpenSSL tillägget](https://php.net/openssl) installerat och aktiverat.
 > 
 > 
 
@@ -225,6 +225,6 @@ Mer information, även på den [PHP Developer Center](https://azure.microsoft.co
 
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[require_once]: http://php.net/require_once
+[require_once]: https://php.net/require_once
 
 

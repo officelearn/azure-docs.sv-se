@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0a583a75b72286718b34b84e67ee5aff34726be0
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: 13049018042183a4960c81af65b35fcfa6d4c50d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818246"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447037"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Windows-dator med SQL Server 2017 i Azure Portal
 
@@ -100,7 +100,7 @@ Konfigurera följande alternativ i fönstret **SQL Server-inställningar**.
 
 1. Välj **Offentlig (Internet)** i listrutan **SQL-anslutning**. Detta möjliggör SQL Server-anslutningar via Internet.
 
-1. Ändra **porten** till **1401** för att undvika att använda ett välkänt portnamn i ett offentligt scenario.
+1. Ändra den **Port** till **1401** att undvika att använda ett välkänt portnamn i offentliga scenario.
 
 1. Klicka på **Aktivera** under **SQL-autentisering**. SQL-inloggningen konfigureras till samma användarnamn och lösenord som du konfigurerade för den virtuella datorn.
 

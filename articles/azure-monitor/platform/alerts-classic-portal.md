@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.openlocfilehash: 3e5fa15bbd6890bc6f36c97aadf3aeaa980b5031
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 65064707374ba76701566e061b77bfd6cdf520ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310326"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833393"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera klassiska måttaviseringar med Azure Monitor
 
@@ -35,7 +35,7 @@ Klassiska måttaviseringar i Azure Monitor är ett sätt att få ett meddelande 
 
 6. Välj **e-ägare...**  om du vill att administratörer och medadministratörer för att ta emot e-postaviseringar när aviseringen utlöses.
 
-7. Om du vill skicka meddelanden till ytterligare e-postadresser när aviseringen utlöses, lägga till dem i den **administratören email(s)** fält. Avgränsa flera e-postmeddelanden med semikolon, i följande format:  *email@contoso.com;email2@contoso.com*
+7. Om du vill skicka meddelanden till ytterligare e-postadresser när aviseringen utlöses, lägga till dem i den **administratören email(s)** fält. Avgränsa flera e-postmeddelanden med semikolon, i följande format: *e-post\@contoso.com;email2\@contoso.com*
 
 8. Placera i en giltig URI i den **Webhook** om du vill att den ska anropas när aviseringen utlöses.
 
@@ -127,7 +127,7 @@ Detta avsnitt visar hur du använder PowerShell kommandon skapa, visa och hanter
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Klassiska Varningsregler kan inte längre skapas via PowerShell. Skapa en varningsregel som du behöver använda den nya [”Lägg till AzMetricAlertRule'](https://docs.microsoft.com/powershell/module/az.insights/add-azmetricalertrule?view=azurermps-6.13.0) kommando.
+8. Klassiska Varningsregler kan inte längre skapas via PowerShell. Skapa en varningsregel som du behöver använda den nya [”Lägg till AzMetricAlertRule'](/powershell/module/az.monitor/add-azmetricalertrule) kommando.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 09084f71eda611c4b638a339d0d837e77e2639b9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 92a7c1a45655f8804aa1f81b1a77ebf7cd5197e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432319"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122173"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka prestanda i Azure App Service
 I den [Azure-portalen](https://portal.azure.com) du kan konfigurera övervakning av programprestanda för dina webbappar, mobila serverdelar och API-appar i [Azure App Service](../../app-service/overview.md). [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) instrumenterar din app så att den skickar telemetri om sina aktiviteter till Application Insights-tjänsten, där informationen lagras och analyseras. Där kan du använda diagram med mätvärden och sökverktyg för att diagnostisera problem, förbättra prestanda och utvärdera användningen.
@@ -38,25 +38,25 @@ Om du för närvarande kör en app service i Azure måste du redan tillgång til
 
    * Välja att skapa en ny resurs, såvida inte du redan har konfigurerat en Application Insights-resurs för det här programmet. 
 
-    > [!NOTE]
-    > När du klickar på **OK** att skapa den nya resursen som du kommer att uppmanas att **tillämpa övervakningsinställningar**. Att välja **Fortsätt** länkar nya Application Insights-resursen till app service, gör du så kommer också **utlösa en omstart av app service**. 
+     > [!NOTE]
+     > När du klickar på **OK** att skapa den nya resursen som du kommer att uppmanas att **tillämpa övervakningsinställningar**. Att välja **Fortsätt** länkar nya Application Insights-resursen till app service, gör du så kommer också **utlösa en omstart av app service**. 
 
-    ![Instrumentera din webbapp](./media/azure-web-apps/create-resource.png)
+     ![Instrumentera din webbapp](./media/azure-web-apps/create-resource.png)
 
 2. Du kan välja hur du vill att application insights för att samla in data per plattform för ditt program när du har angett vilken resurs som ska användas. Övervaka ASP.NET-app är på som standard med två olika nivåer för insamling av.
 
     ![Välj alternativ per plattform](./media/azure-web-apps/choose-options-new.png)
 
-    * .NET **grundläggande samling** nivå erbjuder grundläggande enkelinstanser APM-funktioner.
+   * .NET **grundläggande samling** nivå erbjuder grundläggande enkelinstanser APM-funktioner.
     
-    * .NET **rekommenderas samling** nivå:
-        * Lägger till trender för processor, minne och i/o-användning.
-        * Korrelerar micro-tjänster över begäran/beroende gränser.
-        * Samlar in användningstrender och gör det möjligt för korrelation från tillgänglighetsresultat med transaktioner.
-        * Samlar in undantag som ohanterat av värdprocessen.
-        * Förbättrar precisionen för APM-måtten under belastning, när sampling används.
+   * .NET **rekommenderas samling** nivå:
+       * Lägger till trender för processor, minne och i/o-användning.
+       * Korrelerar micro-tjänster över begäran/beroende gränser.
+       * Samlar in användningstrender och gör det möjligt för korrelation från tillgänglighetsresultat med transaktioner.
+       * Samlar in undantag som ohanterat av värdprocessen.
+       * Förbättrar precisionen för APM-måtten under belastning, när sampling används.
     
-    .NET core erbjuder **rekommenderas samling** eller **inaktiverad** för .NET Core 2.0 och 2.1.
+     .NET core erbjuder **rekommenderas samling** eller **inaktiverad** för .NET Core 2.0 och 2.1.
 
 3. **Instrumentera din apptjänst** när Application Insights har installerats.
 
@@ -67,9 +67,9 @@ Om du för närvarande kör en app service i Azure måste du redan tillgång til
    * Välj Inställningar > Programinställningar
    * Under Appinställningar lägger du till ett nytt nyckel/värde-par:
 
-    Nyckel: `APPINSIGHTS_JAVASCRIPT_ENABLED`
+     Nyckel: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-    Värde:`true`
+     Värde:`true`
    * **Spara** inställningarna och **starta om** din app.
 
 4. Utforska övervakningsdata för din app genom att välja **inställningar** > **Programinsikter** > **visa mer i Application Insights**.

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: b8995436677c195317b9ac304fe8c52cc2fcfc80
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: b9b4af353e5bbd36f1f8d7468c38542a0fabda85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602077"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112185"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Använda Azure Kubernetes-tjänst med Apache Kafka på HDInsight
 
@@ -81,17 +81,17 @@ Om du inte redan har ett AKS-kluster, kan du använda en av följande dokument a
 
 5. Välj det virtuella nätverket för att konfigurera peer-kopplingen mellan det HDInsight-nätverket och nätverket för AKS-klustret, och välj sedan __Peerings__. Välj __+ Lägg till__ och Använd följande värden för att fylla i formuläret:
 
-    * __Namn__: Ange ett unikt namn för den här peering-konfigurationen.
-    * __Virtuellt nätverk__: Använd det här fältet för att välja det virtuella nätverket för den **AKS-kluster**.
+   * __Namn__: Ange ett unikt namn för den här peering-konfigurationen.
+   * __Virtuellt nätverk__: Använd det här fältet för att välja det virtuella nätverket för den **AKS-kluster**.
 
-    Lämnar du alla andra fält på standardvärdet och välj sedan __OK__ att konfigurera peer-kopplingen.
+     Lämnar du alla andra fält på standardvärdet och välj sedan __OK__ att konfigurera peer-kopplingen.
 
 6. Om du vill konfigurera peering mellan ett AKS-klusternätverk och HDInsight-nätverk, Välj den __AKS kluster virtuellt nätverk__, och välj sedan __Peerings__. Välj __+ Lägg till__ och Använd följande värden för att fylla i formuläret:
 
-    * __Namn__: Ange ett unikt namn för den här peering-konfigurationen.
-    * __Virtuellt nätverk__: Använd det här fältet för att välja det virtuella nätverket för den __HDInsight-kluster__.
+   * __Namn__: Ange ett unikt namn för den här peering-konfigurationen.
+   * __Virtuellt nätverk__: Använd det här fältet för att välja det virtuella nätverket för den __HDInsight-kluster__.
 
-    Lämnar du alla andra fält på standardvärdet och välj sedan __OK__ att konfigurera peer-kopplingen.
+     Lämnar du alla andra fält på standardvärdet och välj sedan __OK__ att konfigurera peer-kopplingen.
 
 ## <a name="install-apache-kafka-on-hdinsight"></a>Installera Apache Kafka på HDInsight
 

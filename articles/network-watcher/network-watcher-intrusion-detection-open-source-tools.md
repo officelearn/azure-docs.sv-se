@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 9d77952a96bff6cc2d50ecbd4bde7e499f20de6d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 41b039c6598334d49b9ddb0608d7ad2ae045b223
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420041"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901278"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Utföra intrångsidentifiering för nätverk med Network Watcher och verktyg för öppen källkod
 
@@ -39,7 +39,7 @@ Båda verktyg för öppen källkod kan ställas in på en virtuell dator i Azure
 
 ### <a name="install-suricata"></a>Installera Suricata
 
-Alla andra metoder för installation, besök http://suricata.readthedocs.io/en/latest/install.html
+Alla andra metoder för installation, besök https://suricata.readthedocs.io/en/latest/install.html
 
 1. Kör följande kommandon i kommandoradsterminal för den virtuella datorn:
 
@@ -58,7 +58,7 @@ I det här skedet har vi inte några regler för Suricata ska köras. Du kan ska
 Hämta regeluppsättningen och kopiera dem till katalogen:
 
 ```
-wget http://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
+wget https://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
 tar zxf emerging.rules.tar.gz
 sudo cp -r rules /etc/suricata/
 ```
@@ -218,7 +218,7 @@ Ytterligare anvisningar för installation elastiska sökning, referera till sida
 
 För ytterligare instruktioner om hur du installerar Logstash avser den [officiella dokumentationen](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
 
-### <a name="install-kibana"></a>Installera Kibana
+### <a name="install-kibana"></a>Install Kibana
 
 1. Kör följande kommandon för att installera Kibana:
 
@@ -265,11 +265,11 @@ Exempelinstrumentpanelen innehåller flera visualiseringar Suricata avisering lo
 
 1. Antal aviseringar – det totala antalet aviseringar som utlöses av den RuleSet-metod
 
-    ![bild 5][5]
+    ![image 5][5]
 
 1. Översta 20 källans/målets IP-adresser/portar – diagram som visar de översta 20 IP-adresser och portar som aviseringar har utlösts på. Du kan filtrera nedåt i specifika IP-adresser/portar att se hur många och vilka typer av aviseringar som utlöses.
 
-    ![bild 6][6]
+    ![image 6][6]
 
 1. Aviseringssammanfattning – en tabell som sammanställer specifik information om varje enskild avisering. Du kan anpassa den här tabellen för att visa andra parametrar av intresse för varje avisering.
 

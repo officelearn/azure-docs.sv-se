@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b81129ada4710eff58d50bf998802e8ac1b2788
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1a674748e9e95828436df25222f6daad881e0487
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191069"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109145"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Atlassians Jira och växer samman administratörshandboken för Azure Active Directory
 
@@ -110,33 +110,33 @@ Följande bild visar konfigurationsskärmen i både Jira och växer samman:
 
 ![Plugin-programmet konfigurationsskärmen](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-*   **Metadata-URL**: URL till hämta federationsmetadata från Azure AD.
+* **Metadata-URL**: URL till hämta federationsmetadata från Azure AD.
 
-*   **Identifierare**: Den URL som Azure AD använder för att verifiera källan för begäran. Det mappas till den **identifierare** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*< domän: port >*/.
+* **Identifierare**: Den URL som Azure AD använder för att verifiera källan för begäran. Det mappas till den **identifierare** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*< domän: port >*/.
 
-*   **Svars-URL**: Svars-URL i din identitetsprovider (IdP) som initierar SAML-inloggningen. Det mappas till den **svars-URL** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*< domän: port >*/plugins/servlet/saml/auth.
+* **Svars-URL**: Svars-URL i din identitetsprovider (IdP) som initierar SAML-inloggningen. Det mappas till den **svars-URL** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*< domän: port >*/plugins/servlet/saml/auth.
 
-*   **Inloggnings-URL**: Inloggnings-URL: en i IDP: N som initierar SAML-inloggningen. Det mappas till den **inloggning** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*< domän: port >*/plugins/servlet/saml/auth.
+* **Inloggnings-URL**: Inloggnings-URL: en i IDP: N som initierar SAML-inloggningen. Det mappas till den **inloggning** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*< domän: port >*/plugins/servlet/saml/auth.
 
-*   **IdP entitets-ID**: Entitets-ID som IDP: N använder. Den här rutan fylls när metadata-URL har åtgärdats.
+* **IdP entitets-ID**: Entitets-ID som IDP: N använder. Den här rutan fylls när metadata-URL har åtgärdats.
 
-*   **Inloggnings-URL**: Logga in URL: en från IDP: N. Den här rutan är ifylld från Azure AD när metadata-URL har åtgärdats.
+* **Inloggnings-URL**: Logga in URL: en från IDP: N. Den här rutan är ifylld från Azure AD när metadata-URL har åtgärdats.
 
-*   **URL för utloggning**: URL för utloggning från IDP: N. Den här rutan är ifylld från Azure AD när metadata-URL har åtgärdats.
+* **URL för utloggning**: URL för utloggning från IDP: N. Den här rutan är ifylld från Azure AD när metadata-URL har åtgärdats.
 
-*   **X.509-certifikat**: Din IdP X.509-certifikat. Den här rutan är ifylld från Azure AD när metadata-URL har åtgärdats.
+* **X.509-certifikat**: Din IdP X.509-certifikat. Den här rutan är ifylld från Azure AD när metadata-URL har åtgärdats.
 
-*   **Knappen inloggningsnamn**: Namnet på knappen Logga in som organisationen vill att användarna ska se på sidan logga in.
+* **Knappen inloggningsnamn**: Namnet på knappen Logga in som organisationen vill att användarna ska se på sidan logga in.
 
-*   **SAML-ID användarplatser**: Den plats där användar-ID Jira eller växer samman förväntas i SAML-svar. Det kan vara i **NameID** eller i en anpassade attributets namn.
+* **SAML-ID användarplatser**: Den plats där användar-ID Jira eller växer samman förväntas i SAML-svar. Det kan vara i **NameID** eller i en anpassade attributets namn.
 
-*   **Attributnamn**: Namnet på attributet som där användar-ID förväntas.
+* **Attributnamn**: Namnet på attributet som där användar-ID förväntas.
 
-*   **Aktivera Start sfär identifiering**: Valet att göra om företaget använder Active Directory Federation Services (AD FS) - baserad inloggning - i.
+* **Aktivera Start sfär identifiering**: Valet att göra om företaget använder Active Directory Federation Services (AD FS) - baserad inloggning - i.
 
-*   **Domännamn**: Domännamnet är om inloggning AD FS-baserade.
+* **Domännamn**: Domännamnet är om inloggning AD FS-baserade.
 
-*   **Aktivera enkel utloggning**: Valet för att göra om du vill logga ut från Azure AD när en användare loggar ut från Jira eller växer samman.
+* **Aktivera enkel utloggning**: Valet för att göra om du vill logga ut från Azure AD när en användare loggar ut från Jira eller växer samman.
 
 ## <a name="troubleshooting"></a>Felsökning
 

@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 90af443621ec47400779bdc1689fc07be558e4b8
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
-ms.translationtype: HT
+ms.openlocfilehash: 695056be67294c6a0787bad61bf5ee00378275b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164548"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111437"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-projects"></a>Skapa en CI/CD-pipeline för Python med Azure DevOps Projects
 
@@ -64,7 +64,7 @@ Web App for Containers är det distributionsmål som är standard. Det programra
 
     ![Instrumentpanelsvy](_img/azure-devops-project-python/dashboardnopreview.png) 
     
- DevOps Projects konfigurerar automatiskt en CI-version och versionsutlösare. Nu är du redo att samarbeta med ett team på en Python-app med en CI/CD-process som automatiskt distribuerar ditt senaste arbete till din webbplats.
+   DevOps Projects konfigurerar automatiskt en CI-version och versionsutlösare. Nu är du redo att samarbeta med ett team på en Python-app med en CI/CD-process som automatiskt distribuerar ditt senaste arbete till din webbplats.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Genomför ändringar i koden och kör CI/CD
 
@@ -102,7 +102,7 @@ En webbläsarflik visar bygg-pipelinen för det nya projektet.
 
 1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
 
-1. Ändra på din bygg-pipeline till något mer beskrivande, välj **Spara och köa** och sedan **Spara**.
+1. Ändra på din bygg-pipeline till något mer beskrivande och välj alternativet för att **spara och placera i kö**. Välj sedan **Spara**.
 
 1. Under ditt bygg-pipelinenamn väljer du **Historik**.  
         Du kan se en spårningslogg över de senaste ändringarna för versionen.  Azure DevOps spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.

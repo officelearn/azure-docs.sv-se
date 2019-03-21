@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/01/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c2006b025c4bcf54ee2ab131e0d6a105f9f4e9f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fa740a558015b28e6d3fa7245c9041dc4167f832
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178183"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110366"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Självstudier: Konfigurera BlueJeans för automatisk användaretablering
 
@@ -107,9 +107,9 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 5. Under den **administratörsautentiseringsuppgifter** avsnittet, ange den **Admin Username**, och **adminlösenord** för BlueJeans-kontot. Exempel på dessa värden är:
 
-    *   I den **Admin Username** fältet, fylla i användarnamnet för administratörskontot på BlueJeans-klienten. Exempel: admin@contoso.com.
+   * I den **Admin Username** fältet, fylla i användarnamnet för administratörskontot på BlueJeans-klienten. Exempel: admin@contoso.com.
 
-    *   I den **adminlösenord** fältet, fylla det lösenord som motsvarar administratörens användarnamn.
+   * I den **adminlösenord** fältet, fylla det lösenord som motsvarar administratörens användarnamn.
 
 6. För att fylla i fälten som visas i steg 5, klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till BlueJeans. Om anslutningen misslyckas, kontrollera BlueJeans-kontot har administratörsbehörighet och försök igen.
 

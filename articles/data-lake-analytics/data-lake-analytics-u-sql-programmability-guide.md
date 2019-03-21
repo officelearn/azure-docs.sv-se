@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: eca1379c4f721a0201b01f149b581859c49c6540
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f0f5a4ee5206201cca20e705011126e6cf472a1a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234381"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835460"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL-Programmeringsguide
 
@@ -133,7 +133,7 @@ Som tidigare nämnts, U-SQL körs koden i ett 64-bitars (x 64)-format. Så se ti
 
 Var och en överförs sammansättningen DLL-filen och resursfil, t.ex en annan runtime, en intern sammansättning eller en konfigurationsfil får vara högst 400 MB. Den totala storleken på distribuerade resurser, antingen via DISTRIBUERA RESURSEN eller via referenser till sammansättningar och deras ytterligare filer får inte överskrida 3 GB.
 
-Observera slutligen att varje U-SQL-databas får bara innehålla en version av alla angivna sammansättningen. Om du behöver både version 7 och version 8 av NewtonSoft Json.Net-biblioteket, måste du registrera dem i två olika databaser. Varje skript kan bara hänvisa till en version av en viss sammansättningen DLL-filen. I detta avseende följer U-SQL C# sammansättningen hanterings- och versionshantering semantiken.
+Observera slutligen att varje U-SQL-databas får bara innehålla en version av alla angivna sammansättningen. Om du behöver både version 7 och version 8 av NewtonSoft Json.NET-biblioteket, måste du registrera dem i två olika databaser. Varje skript kan bara hänvisa till en version av en viss sammansättningen DLL-filen. I detta avseende följer U-SQL C# sammansättningen hanterings- och versionshantering semantiken.
 
 ## <a name="use-user-defined-functions-udf"></a>Använda användardefinierade funktioner: UDF
 U-SQL-användardefinierade funktioner eller UDF, programmerar rutiner som accepterar parametrar, utföra en åtgärd (till exempel en komplicerad beräkning) och returnera resultatet av den åtgärden som ett-värde. Returvärdet för UDF kan endast vara en enskild skalär. U-SQL-UDF kan anropas i grundläggande U-SQL-skript som andra C# skalära funktioner.

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 2e5b90f36a6dc5c88db3f6f449c911d22de680b1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e9bf06ba058078fc5012410bdd75ef90ff6c93d4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976808"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899017"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Ställ in konfigurationsservern för haveriberedskap för fysiska servrar till Azure
 
@@ -22,7 +22,7 @@ Den här artikeln beskriver hur du ställer in din lokala miljö att börja repl
 ## <a name="prerequisites"></a>Förutsättningar
 
 Artikeln förutsätter att du redan har:
-- En Recovery Services-valv i den [Azure-portalen](http://portal.azure.com "Azure-portalen").
+- En Recovery Services-valv i den [Azure-portalen](https://portal.azure.com "Azure-portalen").
 - En fysisk dator som du vill installera konfigurationsservern.
 - Om du har inaktiverat TLS 1.0 på datorn där du installerar configuration server kan du kontrollera att TLs 1.2 är aktiverat och att .NET Framework 4.6 eller senare har installerats på datorn (med stark kryptografi inaktiverad). [Läs mer](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
@@ -36,7 +36,7 @@ I följande tabell visas de minimikraven på maskinvara, programvara och nätver
 ## <a name="choose-your-protection-goals"></a>Välja skyddsmål
 
 1. I Azure-portalen går du till den **återställningstjänster** valv bladet och välj ditt valv.
-2. I den **Resource** menyn för valvet klickar du på **komma igång** > **Site Recovery** > **steg 1: Förbereda infrastrukturen** > **skyddsmål**.
+2. I den **Resource** menyn för valvet klickar du på **komma igång** > **Site Recovery** > **steg 1: Förbered infrastrukturen** > **Skyddsmål**.
 
     ![Välja mål](./media/physical-azure-set-up-source/choose-goals.png)
 3. I **skyddsmål**väljer **till Azure** och **inte virtualiserad/övrigt**, och klicka sedan på **OK**.
@@ -47,7 +47,7 @@ I följande tabell visas de minimikraven på maskinvara, programvara och nätver
 
 1. I **Förbered källa**, om du inte har en konfigurationsserver, klickar du på **+ konfigurationsserver** att lägga till ett.
 
-  ![Konfigurera källan](./media/physical-azure-set-up-source/plus-config-srv.png)
+   ![Konfigurera källan](./media/physical-azure-set-up-source/plus-config-srv.png)
 2. I den **Lägg till Server** bladet kontrollerar du att **konfigurationsservern** visas i **servertyp**.
 4. Ladda ned installationsfilen enhetliga installationsprogrammet för Site Recovery.
 5. Ladda ned valvregistreringsnyckeln. Du behöver Registreringsnyckeln när du kör enhetliga installationsprogrammet. Nyckeln är giltig i fem dagar efter att du har genererat den.

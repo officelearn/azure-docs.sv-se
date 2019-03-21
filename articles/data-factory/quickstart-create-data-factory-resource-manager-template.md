@@ -3,21 +3,20 @@ title: Skapa en Azure-datafabrik med hjälp av en Resource Manager-mall | Micros
 description: I de här självstudierna skapar du ett exempel på en Azure Data Factory-pipeline med hjälp av en Azure Resource Manager-mall.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 02/20/2019
-ms.author: douglasl
-ms.openlocfilehash: c3a9864a901d44d0c84c6946c55e5dc2c700cbac
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: 1d4eb3d2978be98d81b42dd66a75b21563c23a1a
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447607"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576658"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Självstudier: Skapa en Azure-datafabrik med hjälp av en Azure Resource Manager-mall
 
@@ -34,7 +33,9 @@ I den här snabbstarten får du se hur du skapar en Azure Data Factory med en Az
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
 
@@ -51,7 +52,7 @@ Skapa en JSON-fil med namnet **ADFTutorialARM.json** i mappen **C:\ADFTutorial**
 ```json
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "parameters": {
         "dataFactoryName": {
             "type": "string",
@@ -328,7 +329,7 @@ Skapa en JSON-fil med namnet **ADFTutorialARM-Parameters.json** som innehåller 
 Kör följande kommando i PowerShell för att distribuera Data Factory-entiteter med hjälp av Resource Manager-mallen som du skapade tidigare i den här snabbstarten.
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
 ```
 
 Du ser utdata som liknar följande exempel:
@@ -368,9 +369,9 @@ Med mallen kan du distribuera följande Data Factory-entiteter:
 - Pipeline med en kopieringsaktivitet
 - Utlösare för att utlösa pipelinen
 
-Den distribuerade utlösaren har stoppats. Ett sätt att starta utlösaren är att använda PowerShell-cmdleten **Start-AzureRmDataFactoryV2Trigger**. Följande procedur innehåller detaljerade anvisningar:
+Den distribuerade utlösaren har stoppats. Ett sätt att starta utlösaren är att använda den **Start AzDataFactoryV2Trigger** PowerShell-cmdlet. Följande procedur innehåller detaljerade anvisningar:
 
-1. I PowerShell-fönstret skapar du en variabel som anger namnet på resursgruppen. Kopiera följande kommando till PowerShell-fönstret och tryck på RETUR. Om du har angett ett annat resursgruppnamn för kommandot New-AzureRmResourceGroupDeployment uppdaterar du värdet här.
+1. I PowerShell-fönstret skapar du en variabel som anger namnet på resursgruppen. Kopiera följande kommando till PowerShell-fönstret och tryck på RETUR. Om du har angett ett annat resursgruppnamn för kommandot New-AzResourceGroupDeployment, uppdaterar du värdet här.
 
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -388,7 +389,7 @@ Den distribuerade utlösaren har stoppats. Ett sätt att starta utlösaren är a
 4. Hämta **utlösarens status** genom att köra följande PowerShell-kommando när du har angett namnet på din datafabrik och utlösare:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
     Här är exempel på utdata:
@@ -405,7 +406,7 @@ Den distribuerade utlösaren har stoppats. Ett sätt att starta utlösaren är a
 5. **Starta utlösaren**. Utlösaren kör pipelinen som definieras i mallen per timme. Om du utförde kommandot klockan 14:23 kör utlösaren pipelinen klockan 15 för första gången. Sedan körs pipelinen varje timme till sluttiden du angav för utlösaren.
 
     ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
     Här är exempel på utdata:
@@ -416,10 +417,10 @@ Den distribuerade utlösaren har stoppats. Ett sätt att starta utlösaren är a
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
     True
     ```
-6. Bekräfta att utlösaren har startats genom att köra kommandot Get-AzureRmDataFactoryV2Trigger igen.
+6. Bekräfta att utlösaren har startats genom att köra kommandot Get-AzDataFactoryV2Trigger igen.
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
     Här är exempel på utdata:
@@ -466,7 +467,7 @@ Den distribuerade utlösaren har stoppats. Ett sätt att starta utlösaren är a
 8. Stoppa utlösaren när du ser en lyckad/misslyckad körning. Utlösaren kör pipelinen en gång i timmen. Pipelinen kopierar samma fil från indatamappen till utdatamappen för varje körning. Kör följande kommando i PowerShell-fönstret om du vill stoppa utlösaren.
     
     ```powershell
-    Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
+    Stop-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
@@ -604,7 +605,7 @@ Du definierar en pipeline som kopierar data från Azure-blobdatamängden till Az
 
 #### <a name="trigger"></a>Utlösare
 
-Du definierar en utlösare som kör pipelinen en gång per timme. Den distribuerade utlösaren har stoppats. Starta utlösaren med cmdleten **Start-AzureRmDataFactoryV2Trigger**. Mer information om utlösare finns i artikeln om [pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md#triggers).
+Du definierar en utlösare som kör pipelinen en gång per timme. Den distribuerade utlösaren har stoppats. Starta utlösaren med hjälp av den **Start AzDataFactoryV2Trigger** cmdlet. Mer information om utlösare finns i artikeln om [pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md#triggers).
 
 ```json
 {
@@ -647,11 +648,11 @@ I självstudien skapade du en mall för att definiera Data Factory-entiteter och
 Exempel:
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
 
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
 
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
 ```
 
 Observera att det första kommandot använder parameterfilen för utvecklingsmiljön, det andra för testmiljön och det tredje för produktionsmiljön.

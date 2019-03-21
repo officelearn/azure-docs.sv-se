@@ -1,6 +1,6 @@
 ---
 title: Hantera Azure Data Lake Analytics med hjälp av Azure .NET SDK
-description: Den här artikeln beskriver hur du använder Azure .net SDK för att skriva appar som hanterar Data Lake Analytics-jobb, datakällor och användare.
+description: Den här artikeln beskriver hur du använder Azure .NET SDK för att skriva appar som hanterar Data Lake Analytics-jobb, datakällor och användare.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,12 +9,12 @@ ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: e1e4628a1c777ecc54fdf9a26b334a10b7ab8cb3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3827c9e0b3e51a7a179a7db7fac0152d799a63f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810598"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835823"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Hantera Azure Data Lake Analytics en .NET-app
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]

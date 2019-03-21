@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d4075f644ed1ce42479e35544f0e1442488f78eb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b0b5e817d5e39dd7800a1482d40c56db5f2be6ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29958919"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109427"
 ---
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Starta i det övre vänstra hörnet, klickar du på **skapar du en resurs** > **Compute** > **Windows Server 2016 Datacenter**.
+2. Börja i det övre vänstra hörnet och klicka på **skapa en resurs** > **Compute** > **Windows Server 2016 Datacenter**.
 
     ![Gå till Azure VM-avbildningarna på portalen](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
 
@@ -33,7 +33,7 @@ På bladet Grundläggande inställningar anger du administrativ information för
 
 2. Ange ett **användarnamn** och ett starkt **lösenord** som ska användas för att skapa ett lokalt konto på den virtuella datorn. Det lokala kontot används för att logga in på och hantera den virtuella datorn. I exemplet är _azureuser_ användarnamnet.
 
- Lösenordet måste innehålla mellan 8 och 123 tecken och uppfylla tre av följande fyra komplexitetskrav: en gemen, en versal, en siffra och ett specialtecken. Läs mer om [krav för användarnamn och lösenord](../articles/virtual-machines/windows/faq.md).
+   Lösenordet måste innehålla mellan 8 och 123 tecken och uppfylla tre av följande fyra komplexitetskrav: en gemen, en versal, en siffra och ett specialtecken. Läs mer om [krav för användarnamn och lösenord](../articles/virtual-machines/windows/faq.md).
 
 3. **Prenumeration** är valfritt. En vanlig inställning är ”Betala per användning”.
 

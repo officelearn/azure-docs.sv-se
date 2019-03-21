@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a1e5643c9d5f6fc2492dd52ccd07606a47d21b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8fc326c1ba529bc394a5ce5a059e3fe91baa7a9a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190525"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124091"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Kända problem och lösningar med SCIM 2.0-protokollet kompatibiliteten för Azure AD-användare Provisioning-tjänsten
 
@@ -59,36 +59,36 @@ Ja. Följ anvisningarna nedan om du redan använder den här instansen av progra
  
 1. Logga in på Azure-portalen på https://portal.azure.com.
 2. I den **Azure Active Directory > företagsprogram** avsnitt av Azure-portalen, leta upp och välj ditt befintliga SCIM-program.
-3.  I den **egenskaper** avsnittet för din befintliga SCIM-app, kopiera den **objekt-ID**.
-4.  I ett nytt webbläsarfönster, går du till https://developer.microsoft.com/graph/graph-explorer och logga in som administratör för Azure AD-klient där din app har lagts till.
+3. I den **egenskaper** avsnittet för din befintliga SCIM-app, kopiera den **objekt-ID**.
+4. I ett nytt webbläsarfönster, går du till https://developer.microsoft.com/graph/graph-explorer och logga in som administratör för Azure AD-klient där din app har lagts till.
 5. I Graph-testaren kör du kommandot nedan för att hitta ID: T för din Etableringsjobbet. Ersätt ”[objekt-id]” med ägar-ID (objekt-ID) som kopieras från det tredje steget-tjänsten.
  
- `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
+   `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
- ![Hämta jobb](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "hämta jobb") 
+   ![Hämta jobb](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "hämta jobb") 
 
 
 6. Kopiera den fullständiga ”ID”-sträng som börjar med ”customappsso” eller ”scim” i resultaten.
 7. Kör kommandot nedan för att hämta attributmappning konfigurationen, så att du kan göra en säkerhetskopia. Använda samma [objekt-id] som innan. Ersätt [jobb-id] med etablering jobb-ID som kopieras från det sista steget.
  
- `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
+   `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
- ![Hämta schemat](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "hämta schemat") 
+   ![Hämta schemat](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "hämta schemat") 
 
 8. Kopiera JSON-utdata från det sista steget och spara den till en textfil. Innehåller alla anpassade attribut-mappningar som du har lagts till din gamla app och ska vara ungefär några tusen rader med JSON.
 9. Kör kommandot nedan för att ta bort etablering jobbet:
  
- `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
+   `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
 
 10. Kör kommandot nedan för att skapa ett nytt etablering jobb som har de senaste korrigeringarna i tjänsten.
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
- `{   templateId: "scim"   } `
+    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
+    `{   templateId: "scim"   } `
    
 11. I resultatet av det sista steget, kopierar du den fullständiga ”ID”-sträng som börjar med ”scim”. Du kan också ansöka igen din gamla attributmappningar genom att köra kommandot nedan och Ersätt [ny-jobb-id] med den nya jobb-ID som du kopierade och ange JSON-utdata från steg #7 som begärandetexten.
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
- `{   <your-schema-json-here>   }`
+    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
+    `{   <your-schema-json-here>   }`
 
 12. Gå tillbaka till första webbläsarfönstret och välj den **etablering** fliken för ditt program.
 13. Kontrollera konfigurationen och sedan starta etablering jobbet. 
@@ -97,15 +97,15 @@ Ja. Följ anvisningarna nedan om du redan använder den här instansen av progra
 
 Ja. Om du hade kodade ett program till det gamla beteende som gällde före korrigeringar och behöver för att distribuera en ny instans av det, följer du proceduren nedan. Den här proceduren beskriver hur du använder Microsoft Graph API och Microsoft Graph API-explorer för att skapa en SCIM-Etableringsjobbet som uppvisar gamla beteenden.
  
-1.  Logga in på Azure-portalen på https://portal.azure.com.
+1. Logga in på Azure-portalen på https://portal.azure.com.
 2. i den **Azure Active Directory > företagsprogram > Skapa program** avsnitt av Azure portal, skapa en ny **icke-galleriet** program.
-3.  I den **egenskaper** delen av den nya anpassa appen, kopiera den **objekt-ID**.
-4.  I ett nytt webbläsarfönster, går du till https://developer.microsoft.com/graph/graph-explorer och logga in som administratör för Azure AD-klient där din app har lagts till.
+3. I den **egenskaper** delen av den nya anpassa appen, kopiera den **objekt-ID**.
+4. I ett nytt webbläsarfönster, går du till https://developer.microsoft.com/graph/graph-explorer och logga in som administratör för Azure AD-klient där din app har lagts till.
 5. I Graph-testaren kör du kommandot nedan för att initiera etableringskonfiguration för din app.
-Ersätt ”[objekt-id]” med ägar-ID (objekt-ID) som kopieras från det tredje steget-tjänsten.
+   Ersätt ”[objekt-id]” med ägar-ID (objekt-ID) som kopieras från det tredje steget-tjänsten.
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
- `{   templateId: "customappsso"   }`
+   `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
+   `{   templateId: "customappsso"   }`
  
 6. Gå tillbaka till första webbläsarfönstret och välj den **etablering** fliken för ditt program.
 7. Slutför konfiguration för användaretablering, som vanligt.

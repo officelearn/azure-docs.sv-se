@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: d27b508362193b79d7464ae49683479b2f8fc7ba
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: 0efbabf658210c733a7a7f201cb4a36f63456b28
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991251"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835358"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Kom igång med att leverera innehåll på begäran med hjälp av REST  
 
@@ -41,7 +41,7 @@ Följande krävs för att börja utveckla med Media Services med REST API: er.
 * Ett Azure-konto. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
 * Förståelse för hur du utvecklar med Media Services REST API. Mer information finns i [Media Services REST API-översikt](media-services-rest-how-to-use.md).
-* Ett program som kan skicka HTTP-begäranden och svar. Den här självstudien används [Fiddler](http://www.telerik.com/download/fiddler).
+* Ett program som kan skicka HTTP-begäranden och svar. Den här självstudien används [Fiddler](https://www.telerik.com/download/fiddler).
 
 Följande aktiviteter visas i den här snabbstarten.
 
@@ -331,7 +331,7 @@ Om detta lyckas, returneras följande svar:
 När du har AccessPolicy och positionerare som anger laddas den faktiska filen upp till en Azure blob storage-behållare med hjälp av Azure Storage REST-API: er. Du måste överföra filerna som blockblobar. Sidblobar stöds inte av Azure Media Services.  
 
 > [!NOTE]
-> Du måste lägga till filnamnet för den fil du vill ladda upp till lokaliseraren **sökväg** värdet som tas emot i föregående avsnitt. Till exempel, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> Du måste lägga till filnamnet för den fil du vill ladda upp till lokaliseraren **sökväg** värdet som tas emot i föregående avsnitt. Till exempel `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`.
 >
 >
 
@@ -408,7 +408,7 @@ Om detta lyckas, returneras följande:
 
 När du matar in tillgångar i Media Services, media kan kodas, användas med transmux, förses med vattenstämpel och så vidare innan de skickas till klienter. Dessa aktiviteter schemaläggs och körs mot flera bakgrundsrollinstanser för höga prestanda och tillgänglighet. De här aktiviteterna kallas jobb och varje jobb består av atomiska uppgifter som gör det faktiska arbetet i tillgångsfilen (Mer information finns i [jobbet](https://docs.microsoft.com/rest/api/media/operations/job), [uppgift](https://docs.microsoft.com/rest/api/media/operations/task) beskrivningar).
 
-Som tidigare nämnts, när du arbetar med Azure Media Services som ett av de vanligaste scenarierna att leverera strömning med anpassad bithastighet till dina klienter. Media Services kan dynamiskt Paketera en uppsättning MP4-filer med anpassningsbar bithastighet till något av följande format: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
+Som tidigare nämnts, när du arbetar med Azure Media Services som ett av de vanligaste scenarierna att leverera strömning med anpassad bithastighet till dina klienter. Media Services kan dynamiskt paketera en uppsättning MP4-filer med anpassningsbar bithastighet till något av följande format: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 
 Följande avsnitt visar hur du skapar ett jobb som innehåller ett kodningsjobb. Uppgiften anger att omkodning av mezzaninfilen till en uppsättning med anpassningsbar bithastighet MP4s med **Media Encoder Standard**. Avsnittet visar också hur du övervakar jobbet bearbetningsförlopp. När jobbet har slutförts, skulle du kunna skapa lokaliserare som behövs för att få åtkomst till dina tillgångar.
 
@@ -459,7 +459,7 @@ Följande kod begär den kodaren id.
     }
 
 ### <a name="create-a-job"></a>Skapa ett jobb
-Varje jobb kan ha en eller flera aktiviteter beroende på vilken typ av bearbetning som du vill utföra. Via REST-API kan du skapa jobb och deras relaterade uppgifter i ett av två sätt: Aktiviteter kan vara definierats internt via navigeringsegenskapen uppgifter på jobbet entiteter eller OData-batch-bearbetning. Media Services SDK använder batch-bearbetning. För läsbarhet av kodexemplen i den här artikeln är dock uppgifter definierats internt. Information om batchbearbetning finns [Open Data Protocol (OData) gruppbearbetning](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Varje jobb kan ha en eller flera aktiviteter beroende på vilken typ av bearbetning som du vill utföra. Via REST-API kan du skapa jobb och deras relaterade uppgifter i ett av två sätt: Aktiviteter kan vara definierats internt via navigeringsegenskapen uppgifter på jobbet entiteter eller OData-batch-bearbetning. Media Services SDK använder batch-bearbetning. För läsbarhet av kodexemplen i den här artikeln är dock uppgifter definierats internt. Information om batchbearbetning finns [Open Data Protocol (OData) gruppbearbetning](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
 I följande exempel visas hur du skapar och publicerar ett jobb med en åtgärd ange för att koda en video med en viss upplösning och kvalitet. Avsnittet följande dokumentation innehåller listan över alla de [uppgift förinställningar](https://msdn.microsoft.com/library/mt269960) stöds av Media Encoder Standard processorn.  
 
@@ -817,8 +817,6 @@ När du har AccessPolicy och positionerare som angetts kan du ladda ned filer me
 
 > [!NOTE]
 > Du måste lägga till filnamnet för den fil som du vill ladda ned till lokaliseraren **sökväg** värdet som tas emot i föregående avsnitt. Till exempel, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
->
->
 
 Mer information om hur du arbetar med Azure storage-blobbar finns i [REST-API för Blob Service](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
@@ -912,7 +910,7 @@ För att strömma MPEG DASH, lägger du till (format = mpd-time-csf) när den �
 
 
 ## <a id="play"></a>Spela upp ditt innehåll
-Strömma videon med hjälp av [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+Strömma videon med hjälp av [Azure Media Services Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 Om du vill testa den progressiva nedladdningen, klistra du in en URL i en webbläsare (till exempel Internet Explorer, Chrome, Safari).
 

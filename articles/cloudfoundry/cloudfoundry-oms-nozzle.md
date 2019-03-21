@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 2038ce62e252260dda73813df97a68ee4b3fff61
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6220aebdef6970f3d5f7017e4ae48f6f409ae0ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548906"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111471"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Distribuera Azure Log Analytics Nozzle för Cloud Foundry systemövervakning
 
@@ -73,10 +73,10 @@ Mer information finns i [Kom igång med Azure Monitor-loggar](https://docs.micro
 #### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Skapa Log Analytics-arbetsytan via mallen övervakning från Azure Marketplace:
 
 1. Öppna Azure-portalen.
-2. Klicka på tecknet ”+” eller ”skapa en resurs” i det övre vänstra hörnet.
-3. Skriv ”Cloud Foundry” i sökfönstret och välj ”Cloud Foundry lösning för övervakning av”.
-4. I Cloud Foundry övervakning lösning front mallsidan har lästs in, klicka på ”Skapa” om du vill starta bladet mall.
-5. Ange de obligatoriska parametrarna:
+1. Klicka på tecknet ”+” eller ”skapa en resurs” i det övre vänstra hörnet.
+1. Skriv ”Cloud Foundry” i sökfönstret och välj ”Cloud Foundry lösning för övervakning av”.
+1. I Cloud Foundry övervakning lösning front mallsidan har lästs in, klicka på ”Skapa” om du vill starta bladet mall.
+1. Ange de obligatoriska parametrarna:
     * **Prenumeration**: Välj en Azure-prenumeration för Log Analytics-arbetsytan, vanligtvis samma med Cloud Foundry-distribution.
     * **Resursgrupp**: Välj en befintlig resursgrupp eller skapa en ny nyckel för Log Analytics-arbetsytan.
     * **Plats för resursgruppen**: Välj platsen för resursgruppen.
@@ -84,7 +84,7 @@ Mer information finns i [Kom igång med Azure Monitor-loggar](https://docs.micro
     * **OMS_Workspace_Region**: Välj platsen för arbetsytan.
     * **OMS_Workspace_Pricing_Tier**: Välj Log Analytics-arbetsytan SKU. Se den [priser vägledning](https://azure.microsoft.com/pricing/details/log-analytics/) referens.
     * **Juridiska villkor**: Juridiska villkor klicka på ”Skapa” för att acceptera de juridiska villkor.
-- När alla parametrar anges, klickar du på ”Skapa” om du vill distribuera mallen. När distributionen är klar visas status på fliken meddelande.
+1. När alla parametrar anges, klickar du på ”Skapa” om du vill distribuera mallen. När distributionen är klar visas status på fliken meddelande.
 
 
 ## <a name="deploy-the-nozzle"></a>Distribuera Nozzle

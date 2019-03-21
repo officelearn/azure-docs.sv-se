@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.openlocfilehash: 9d941c36499f851f20c41fa6dd01faf14e4192ba
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 808c2f38be875e70b4f52698b7a6278aa781a6ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992778"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124104"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Offline uppdatering av Azure App Service i Azure Stack
 
@@ -97,14 +97,14 @@ Om du vill uppgradera App Service i en frånkopplad miljö måste du först skap
 7. På nästa sida:
 
    1. Klicka på den **Connect** knappen bredvid den **Azure Stack-prenumerationer** box.
-        * Om du använder Azure Active Directory (AD Azure), anger du det Azure AD-administratörskonto och lösenord som du angav när du har distribuerat Azure Stack. Klicka på **logga In**.
-        * Om du använder Active Directory Federation Services (AD FS), ange ditt administratörskonto. Till exempel _cloudadmin@azurestack.local_. Ange ditt lösenord och klicka på **logga In**.
+      * Om du använder Azure Active Directory (AD Azure), anger du det Azure AD-administratörskonto och lösenord som du angav när du har distribuerat Azure Stack. Klicka på **logga In**.
+      * Om du använder Active Directory Federation Services (AD FS), ange ditt administratörskonto. Till exempel _cloudadmin@azurestack.local_. Ange ditt lösenord och klicka på **logga In**.
    2. I den **Azure Stack-prenumerationer** väljer den **standard Providerprenumeration**.
    3. I den **platser för Azure Stack** väljer du den plats som motsvarar den region som du distribuerar till. Välj exempelvis **lokala** om din distribution till Azure Stack Development Kit.
    4. Om en befintlig App Service-distribution har identifierats vara sedan resurskontot grupp och lagring fylls och nedtonat.
    5. Klicka på **nästa** att granska sammanfattningen av uppgraderingen.
 
-    ![App Service-Installation identifierades][4]
+      ![App Service-Installation identifierades][4]
 
 8. På sidan Sammanfattning:
    1. Kontrollera de val du gjort. Använd för att göra ändringar i **föregående** knappar för att gå till föregående sidor.

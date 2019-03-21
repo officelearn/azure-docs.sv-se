@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 3454f9eecf1f06391b21bc7a3dcd89b7f8e78853
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 13746779d37f6faa6d25f73d6c78523f174b658c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105363"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835256"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ Om du vill installera SDK och det tillhörande runtime-paketet via kommandoradsv
 2. Lägga till Service Fabric-repon i listan med källor.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
+    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
 
 3. Lägg till `dotnet`-repon i listan med källor.
@@ -162,7 +162,7 @@ När du har uppdaterat källorna kan du installera SDK. Installera Service Fabri
 sudo apt-get install servicefabricsdkcommon
 ```
 
->   [!TIP]
+> [!TIP]
 >   Följande kommandon automatiserar godkännandet av licensen för Service Fabric-paket:
 >   ```bash
 >   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
@@ -219,7 +219,7 @@ Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa Service Fa
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
     nvm install node
     ```
-2. Installera [Yeoman](http://yeoman.io/)-mallgeneratorn från npm på datorn.
+2. Installera [Yeoman](https://yeoman.io/)-mallgeneratorn från npm på datorn.
 
     ```bash
     npm install -g yo
@@ -276,7 +276,7 @@ Du kan installera Eclipse-pluginprogrammet för Service Fabric i Eclipse IDE fö
 
 2. Om du vill installera Service Fabric-plugin-programmet väljer du **Hjälp** > **Installera ny programvara**.
 
-3. I rutan **Work with** (Arbeta med) skriver du **http://dl.microsoft.com/eclipse**.
+3. I rutan **Work with** (Arbeta med) skriver du **https://dl.microsoft.com/eclipse**.
 
 4. Välj **Lägg till**.
 

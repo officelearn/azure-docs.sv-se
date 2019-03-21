@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 2f5f57f0978adbdf33ed4ce25ba9b32247ea0484
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: dcfb50c58f1205a5ab31c3fc6b9b22fdb503e4ec
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455984"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588966"
 ---
 # <a name="what-is-the-azure-face-api"></a>Vad är Azure Ansikts-API?
 
@@ -26,12 +26,12 @@ Ansikts-API:et innehåller flera funktioner, som beskrivs i följande avsnitt. F
 
 Ansikts-API:et kan identifiera ansikten i en bild och returnera rektangelkoordinaterna för ansiktenas placering. Alternativt kan ansiktsavkänning extrahera en serie ansiktsrelaterade attribut som hållning, huvudhållning, kön, ålder, känsla, ansiktsbehåring och glasögon.
 
+> [!NOTE] 
+> Ansiktsavkänningsfunktionen är också tillgänglig genom [API:et för visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) men om du vill utföra ytterligare åtgärder med ansiktsinformation ska du använda Ansikts-API (den här tjänsten).
+
 ![En bild av en kvinna och en man, med rektanglar ritade kring deras ansikten och visad ålder och kön](./Images/Face.detection.jpg)
 
-> [!NOTE] 
-> Ansiktsavkänningsfunktionen är också tillgänglig genom [API:et för visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) men om du vill utföra ytterligare åtgärder med ansiktsinformation ska du använda Ansikts-API (den här tjänsten). 
-
-Mer information om ansiktsavkänning finns i [API:et för identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Mer information om ansiktsigenkänning finns i den [Ansiktsigenkänning instruktionsguide](face-api-how-to-topics/howtodetectfacesinimage.md), eller bläddra dig fram den [identifiera API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) referensdokumentation.
 
 ## <a name="face-verification"></a>Ansiktsverifiering
 

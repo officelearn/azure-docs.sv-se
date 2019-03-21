@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: c4b20b4007a4824ee2dea0e1b22f1ea886218885
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 888f4dedf2fda0f54297d42a5f813abf73ded748
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453617"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121527"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifiera ExpressRoute-anslutning
 Den här artikeln hjälper dig att kontrollera och felsökning av ExpressRoute-anslutningar. ExpressRoute, som utökar ett lokalt nätverk till Microsoft-molnet över en privat anslutning som är från en anslutningsleverantör, omfattar följande tre separata nätverkszoner:
@@ -51,7 +51,7 @@ Om anslutningsmodeller samplacering av molnet Exchange eller Ethernet-anslutning
 
 Om alla-till-alla (IPVPN) anslutning modellen används PEs (msee: N riktar sig mot) (4) skulle upprätta BGP-peering med msee (5). Vägar skulle sedan spridas till kundnätverk via IPVPN providernätverket.
 
->[!NOTE]
+> [!NOTE]
 >För hög tillgänglighet för ExpressRoute-anslutningar kräver Microsoft ett redundant par med BGP-sessioner mellan msee (5) och PE-msee (4). Ett redundant par med nätverkssökvägar rekommenderas också mellan kundens nätverk och PE CEs. Dock kan en enda CE-enhet (2) vara ansluten till en eller flera PEs (3) i alla-till-alla (IPVPN) anslutning modellen.
 >
 >
@@ -82,8 +82,8 @@ I ExpressRoute-Essentials *krets status* anger status för kretsen på Microsoft
 
 För en ExpressRoute-krets ska fungera, den *krets status* måste vara *aktiverad* och *Providerstatus* måste vara *etablerad*.
 
->[!NOTE]
->Om den *krets status* är inte aktiverad, kontakta [Microsoft Support][Support]. Om den *Providerstatus* har inte etablerats kontakta tjänstleverantören.
+> [!NOTE]
+> Om den *krets status* är inte aktiverad, kontakta [Microsoft Support][Support]. Om den *Providerstatus* har inte etablerats kontakta tjänstleverantören.
 >
 >
 
@@ -131,8 +131,8 @@ För att bekräfta om en ExpressRoute-krets fungerar, särskilt uppmärksam på 
     CircuitProvisioningState         : Enabled
     ServiceProviderProvisioningState : Provisioned
 
->[!NOTE]
->Om den *CircuitProvisioningState* är inte aktiverad, kontakta [Microsoft Support][Support]. Om den *Korsanslutningens* har inte etablerats kontakta tjänstleverantören.
+> [!NOTE]
+> Om den *CircuitProvisioningState* är inte aktiverad, kontakta [Microsoft Support][Support]. Om den *Korsanslutningens* har inte etablerats kontakta tjänstleverantören.
 >
 >
 
@@ -159,8 +159,8 @@ En exempelsvaret är:
 
 För att bekräfta om en ExpressRoute-krets fungerar, särskilt uppmärksam på följande fält: ServiceProviderProvisioningState : Etablerade Status: Enabled
 
->[!NOTE]
->Om den *Status* är inte aktiverad, kontakta [Microsoft Support][Support]. Om den *Korsanslutningens* har inte etablerats kontakta tjänstleverantören.
+> [!NOTE]
+> Om den *Status* är inte aktiverad, kontakta [Microsoft Support][Support]. Om den *Korsanslutningens* har inte etablerats kontakta tjänstleverantören.
 >
 >
 
@@ -169,8 +169,8 @@ När tjänstleverantören har slutförts etableringen ExpressRoute-kretsen kan k
 
 ### <a name="verification-via-the-azure-portal"></a>Verifiering via Azure portal
 
->[!NOTE]
->Om nivå 3 tillhandahålls av leverantören och peerings är tomma i portalen, uppdaterar du konfigurationen krets med hjälp av uppdateringsknappen på portalen. Den här åtgärden gäller rätt routningskonfiguration på din krets. 
+> [!NOTE]
+> Om nivå 3 tillhandahålls av leverantören och peerings är tomma i portalen, uppdaterar du konfigurationen krets med hjälp av uppdateringsknappen på portalen. Den här åtgärden gäller rätt routningskonfiguration på din krets. 
 >
 >
 
@@ -180,8 +180,8 @@ I Azure-portalen, status för en ExpressRoute-krets kan kontrolleras genom att v
 
 I föregående exempel, som anges Azure är privat peering routning kontext aktiverad, medan Azure offentlig och Microsoft peering routning kontexter inte har aktiverats. En aktiverades peering kontext skulle också ha primära och sekundära point-to-point (krävs för BGP)-undernät som visas. Den/30-undernät används för IP-adressen för gränssnittet för msee och PE msee. 
 
->[!NOTE]
->Om en peer-koppling inte är aktiverad, kan du kontrollera om de primära och sekundära undernäten som tilldelats matchar konfigurationen på PE msee. Om inte, om du vill ändra konfigurationen på msee: N routrar, referera till [skapa och ändra routning för en ExpressRoute-krets][CreatePeering]
+> [!NOTE]
+> Om en peer-koppling inte är aktiverad, kan du kontrollera om de primära och sekundära undernäten som tilldelats matchar konfigurationen på PE msee. Om inte, om du vill ändra konfigurationen på msee: N routrar, referera till [skapa och ändra routning för en ExpressRoute-krets][CreatePeering]
 >
 >
 
@@ -230,9 +230,8 @@ Om en peer-koppling har konfigurerats, skulle det finnas ett felmeddelande. Ett 
             + FullyQualifiedErrorId : Microsoft.Azure.Commands.Network.GetAzureExpressRouteCircuitPeeringConfigCommand
 
 
-<p/>
->[!NOTE]
->Om en peer-koppling inte är aktiverad, kan du kontrollera om de primära och sekundära undernäten som tilldelats matchar konfigurationen på den länkade PE-MSEE. Kontrollera också om rätt *VlanId*, *AzureASN*, och *PeerASN* används på msee och om dessa värden som mappar till de som används på den länkade PE-MSEE. Om du väljer MD5-hash ska den delade nyckeln vara samma på nyckelpar msee: N och PE msee: N. Om du vill ändra konfigurationen på msee: N routrar, referera till [skapa och ändra routning för en ExpressRoute-krets] [CreatePeering].  
+> [!NOTE]
+> Om en peer-koppling inte är aktiverad, kan du kontrollera om de primära och sekundära undernäten som tilldelats matchar konfigurationen på den länkade PE-MSEE. Kontrollera också om rätt *VlanId*, *AzureASN*, och *PeerASN* används på msee och om dessa värden som mappar till de som används på den länkade PE-MSEE. Om du väljer MD5-hash ska den delade nyckeln vara samma på nyckelpar msee: N och PE msee: N. Om du vill ändra konfigurationen på msee: N routrar, referera till [skapa och ändra routning för en ExpressRoute-krets][CreatePeering].  
 >
 >
 
@@ -266,21 +265,20 @@ Om du vill hämta konfigurationsinformationen för Microsoft-peering, använder 
 
     Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 
->[!IMPORTANT]
->Om layer 3-peerings har ställts in av tjänsteleverantören, ställa in ExpressRoute-peerkopplingar via portalen eller PowerShell skriver över tjänstinställningar för providern. När du återställer providern sida peering-inställningar kräver stöd för tjänstleverantören. Endast ändra ExpressRoute-peerkopplingar om det är säkert att tjänstleverantören tillhandahåller layer 2-tjänster!
+> [!IMPORTANT]
+> Om layer 3-peerings har ställts in av tjänsteleverantören, ställa in ExpressRoute-peerkopplingar via portalen eller PowerShell skriver över tjänstinställningar för providern. När du återställer providern sida peering-inställningar kräver stöd för tjänstleverantören. Endast ändra ExpressRoute-peerkopplingar om det är säkert att tjänstleverantören tillhandahåller layer 2-tjänster!
 >
 >
 
-<p/>
->[!NOTE]
->Om en peer-koppling inte är aktiverad, kan du kontrollera om de primära och sekundära peer-undernät som tilldelats matchar konfigurationen på den länkade PE-MSEE. Kontrollera också om rätt *VlanId*, *AzureAsn*, och *PeerAsn* används på msee och om dessa värden som mappar till de som används på den länkade PE-MSEE. Om du vill ändra konfigurationen på msee: N routrar, referera till [skapa och ändra routning för en ExpressRoute-krets] [CreatePeering].
+> [!NOTE]
+> Om en peer-koppling inte är aktiverad, kan du kontrollera om de primära och sekundära peer-undernät som tilldelats matchar konfigurationen på den länkade PE-MSEE. Kontrollera också om rätt *VlanId*, *AzureAsn*, och *PeerAsn* används på msee och om dessa värden som mappar till de som används på den länkade PE-MSEE. Om du vill ändra konfigurationen på msee: N routrar, referera till [skapa och ändra routning för en ExpressRoute-krets][CreatePeering].
 >
 >
 
 ## <a name="validate-arp-between-microsoft-and-the-service-provider"></a>Verifiera ARP mellan Microsoft och tjänstleverantören
 Det här avsnittet använder PowerShell (klassisk)-kommandon. Om du har använt PowerShell Azure Resource Manager-kommandon, kan du kontrollera att du har åtkomst för administratör/medadministratör till prenumerationen. Felsöka med Azure Resource Manager kommandon finns i den [komma ARP-tabeller i distributionsmodellen för Resource Manager] [ ARP] dokumentet.
 
->[!NOTE]
+> [!NOTE]
 >Både Azure-portalen och Azure Resource Managers PowerShell-kommandon kan användas för att få ARP. Om det uppstår fel med Azure Resource Managers PowerShell-kommandon, bör klassiska PowerShell-kommandon fungera som klassisk PowerShell kommandon fungerar också med Azure Resource Manager ExpressRoute-kretsar.
 >
 >
@@ -303,8 +301,8 @@ I följande exempel visas svaret i kommandot för en peer-koppling inte finns.
 
     ARP Info:
        
->[!NOTE]
->Granska följande information om ARP-tabell inte har IP-adresserna för de gränssnitt som mappats till MAC-adresser:
+> [!NOTE]
+> Granska följande information om ARP-tabell inte har IP-adresserna för de gränssnitt som mappats till MAC-adresser:
 >1. Om den första IP-adressen för/30 undernät som har tilldelats för länken mellan msee: N-PR och msee: N används på gränssnittet pullförfrågan msee: N. Azure använder alltid den andra IP-adressen för msee.
 >2. Kontrollera om kunden (C-tagg) och VLAN tjänsttaggar (S-tagg) matchar både på nyckelpar msee: N-PR och msee: N.
 >
@@ -313,7 +311,7 @@ I följande exempel visas svaret i kommandot för en peer-koppling inte finns.
 ## <a name="validate-bgp-and-routes-on-the-msee"></a>Verifiera BGP och vägar på den msee: N
 Det här avsnittet använder PowerShell (klassisk)-kommandon. Om du har använt PowerShell Azure Resource Manager-kommandon, kan du kontrollera att du har åtkomst för administratör/medadministratör till prenumerationen.
 
->[!NOTE]
+> [!NOTE]
 >Både Azure-portalen och Azure Resource Managers PowerShell-kommandon kan användas för att hämta information om BGP. Om det uppstår fel med Azure Resource Managers PowerShell-kommandon, bör klassiska PowerShell-kommandon fungera som klassisk PowerShell kommandon fungerar också med Azure Resource Manager ExpressRoute-kretsar.
 >
 >
@@ -331,14 +329,13 @@ Ett exempel på ett svar är:
 
 I föregående exempel visas är kommandot användbart för att fastställa hur länge routning sammanhanget har upprättats. Den anger också antalet route-prefix som annonseras av peering routern.
 
->[!NOTE]
->Om tillståndet är i aktivt eller inaktivt, kontrollera om de primära och sekundära peer-undernät som tilldelats matchar konfigurationen på den länkade PE-MSEE. Kontrollera också om rätt *VlanId*, *AzureAsn*, och *PeerAsn* används på msee och om dessa värden som mappar till de som används på den länkade PE-MSEE. Om du väljer MD5-hash ska den delade nyckeln vara samma på nyckelpar msee: N och PE msee: N. Om du vill ändra konfigurationen på msee: N routrar, referera till [skapa och ändra routning för en ExpressRoute-krets][CreatePeering].
+> [!NOTE]
+> Om tillståndet är i aktivt eller inaktivt, kontrollera om de primära och sekundära peer-undernät som tilldelats matchar konfigurationen på den länkade PE-MSEE. Kontrollera också om rätt *VlanId*, *AzureAsn*, och *PeerAsn* används på msee och om dessa värden som mappar till de som används på den länkade PE-MSEE. Om du väljer MD5-hash ska den delade nyckeln vara samma på nyckelpar msee: N och PE msee: N. Om du vill ändra konfigurationen på msee: N routrar, referera till [skapa och ändra routning för en ExpressRoute-krets][CreatePeering].
 >
 >
 
-<p/>
->[!NOTE]
->Om vissa mål inte kan nås via en viss peering, kontrollerar du i routningstabellen för msee: erna som hör till viss peering kontexten. Om ett matchande prefix (kan vara NATed IP) finns i routningstabellen och kontrollera sedan om det finns brandväggar/NSG/ACL: er på sökvägen och om de att trafiken.
+> [!NOTE]
+> Om vissa mål inte kan nås via en viss peering, kontrollerar du i routningstabellen för msee: erna som hör till viss peering kontexten. Om ett matchande prefix (kan vara NATed IP) finns i routningstabellen och kontrollera sedan om det finns brandväggar/NSG/ACL: er på sökvägen och om de att trafiken.
 >
 >
 

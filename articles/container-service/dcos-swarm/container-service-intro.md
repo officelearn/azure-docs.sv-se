@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 348bde94bc01e00777603af8ac078d5e319d732c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 25b6f2b1e79cb6efdcb9d7ee0e956648673e48c0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001984"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57528873"
 ---
 # <a name="deprecated-introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>(INAKTUELL) Introduktion till värdlösningar med Dockerbehållare med Azure Container Service 
 
@@ -38,7 +38,7 @@ Om du vill börja använda Azure Container Service distribuerar du ett Azure Con
 Med Azure Container Service kan du välja mellan Docker Swarm, DC/OS och Kubernetes för dirigering. Hur du distribuerar programmet beror på ditt val av dirigering.
 
 ### <a name="using-dcos"></a>Använda DC/OS
-DC/OS är ett distribuerat operativsystem som baseras på Apache Mesos distribuerade systemkernel. Apache Mesos finns i Apache Software Foundation och listar några av de [största namnen inom IT](http://mesos.apache.org/documentation/latest/powered-by-mesos/) som användare och bidragsgivare.
+DC/OS är ett distribuerat operativsystem som baseras på Apache Mesos distribuerade systemkernel. Apache Mesos finns i Apache Software Foundation och listar några av de [största namnen inom IT](https://mesos.apache.org/documentation/latest/powered-by-mesos/) som användare och bidragsgivare.
 
 ![Azure Container Service konfigurerat för DC/OS visar agenter och huvudnoder.](media/acs-intro/dcos.png)
 

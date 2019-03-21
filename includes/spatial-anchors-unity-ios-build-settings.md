@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: ea01900926f0a2e9b3481b64a191a58e04839513
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: acf904ec061351996f57be3d12f7dcce019378e7
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752960"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57588182"
 ---
 Öppna Unity och öppna projektet i mappen `Unity`.
 
@@ -17,7 +17,7 @@ ms.locfileid: "56752960"
 
 I avsnittet **Plattform** väljer du **iOS**.
 
-Välj **Switch Platform** (Växla plattform) för att ändra plattformen till **iOS**.
+Välj **Switch Platform** (Växla plattform) för att ändra plattformen till **iOS**. Unity kan be dig att installera komponenter för iOS-supporten om de saknas.
 
 ![Unity-bygginställningar](./media/spatial-anchors-unity/unity-ios-build-settings.png)
 

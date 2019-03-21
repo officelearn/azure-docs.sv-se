@@ -11,12 +11,12 @@ ms.service: genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 10/29/2018
-ms.openlocfilehash: 01f4cca8e177d8f9c9325a7920eb7e72c005bbd6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 78084e6beac7b390b1ea1afe888030c5224856b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760951"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078065"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -73,8 +73,8 @@ Det finns tre obligatoriska argument:
                 Bases Processed : 1,348,613,600 (1 GBase)
         ```
 
- > [!NOTE]
- >  Du kan också inkludera sökvägen till konfigurationsfilen istället för direkt att ange URL och nyckel. Om du använder de här argumenten i kommandoraden samt konfigurationsfilen blir har kommandoradsargument som högre prioritet.  
+  > [!NOTE]
+  >  Du kan också inkludera sökvägen till konfigurationsfilen istället för direkt att ange URL och nyckel. Om du använder de här argumenten i kommandoraden samt konfigurationsfilen blir har kommandoradsargument som högre prioritet.  
 
 För arbetsflöde-ID 1001 och config.txt-fil som placeras i samma sökväg som msgen körbara startar ser kommandot ut så här:
 
@@ -116,7 +116,7 @@ De här felen är användare som är användbara. Microsoft Genomics-tjänsten u
 
 | Typ av fil | Felkod | Felmeddelande                                                                           | Rekommenderade steg för felsökning                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Alla          | 701        | Läs [readId] har [numberOfBases] baser, men gränsen är [maxReadLength]           | Den vanligaste orsaken till det här felet är skadade filer vilket leder till sammanslagning av två läsningar. Kontrollera dina indatafiler. |                                |
+| Alla          | 701        | Läs [readId] har [numberOfBases] baser, men gränsen är [maxReadLength]           | Den vanligaste orsaken till det här felet är skadade filer vilket leder till sammanslagning av två läsningar. Kontrollera dina indatafiler. |
 | BAM          | 200        |   Det går inte att läsa filen [yourFileName].                                                                                       | Kontrollera formatet på BAM-fil. Skicka arbetsflödet igen med en korrekt formaterad fil.                                                                           |
 | BAM          | 201        |  Det går inte att läsa BAM-fil [filnamn].                                                                                      |Kontrollera formatet på BAM-fil.  Skicka arbetsflödet med en korrekt formaterad fil.                                                                            |
 | BAM          | 202        | Det går inte att läsa BAM-fil [filnamn]. För små och saknas filhuvudet.                                                                                        | Kontrollera formatet på BAM-fil.  Skicka arbetsflödet med en korrekt formaterad fil.                                                                            |

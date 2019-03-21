@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: f1e905b0b67048a10f6eb455d77275375a99dbd0
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 805abec84b26a6b2b9af3dfe318f877f4edb9547
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245413"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080904"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Beräkna den totala faktureringsstorleken på en blob-container
 
@@ -101,17 +101,17 @@ Här följer analysen:
 * För varje block med metadata som lagras lägger du till namnets längd (lagras som ASCII) samt längden på strängvärdet.
 
 * För blockblobarna:
-    * 8 byte för blocklistan.
-    * Antalet block gånger block-ID-storleken i byte.
-    * Storleken på data i alla incheckade och ej incheckade block.
+  * 8 byte för blocklistan.
+  * Antalet block gånger block-ID-storleken i byte.
+  * Storleken på data i alla incheckade och ej incheckade block.
 
     >[!NOTE]
     >När ögonblicksbilder används innehåller den här storleken bara unika data för den här grundläggande bloben eller ögonblicksbloben. Om de ej incheckade blocken inte används efter en vecka samlas de upp som skräp. Efter det räknas de inte mot fakturering.
 
 * För sidblobar:
-    * Antalet flera ej efterföljande sidintervall med data gånger 12 byte. Detta är antalet unika sidintervall som du ser när du anropar **GetPageRanges**-API:et.
+  * Antalet flera ej efterföljande sidintervall med data gånger 12 byte. Detta är antalet unika sidintervall som du ser när du anropar **GetPageRanges**-API:et.
 
-    * Storleken på data i byte för alla lagrade sidor.
+  * Storleken på data i byte för alla lagrade sidor.
 
     >[!NOTE]
     >När ögonblicksbilder används omfattar den här storleken bara unika sidor för den grundläggande blob eller ögonblicksblob som räknas.

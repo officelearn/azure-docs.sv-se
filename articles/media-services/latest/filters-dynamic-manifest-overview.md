@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: juliako
-ms.openlocfilehash: 5290901348bb139140f1ad6d2ee50b9ddd88b297
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 57007674e11271e6a3d5bdf660531d01b1eff82c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214443"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861442"
 ---
 # <a name="dynamic-manifests"></a>Dynamiska manifest
 
@@ -52,7 +52,7 @@ REST-exempel finns i [överföra, koda och strömma filer med REST](stream-files
 
 ### <a name="monitor-the-bitrate-of-a-video-stream"></a>Övervaka bithastigheten av en videoström
 
-Du kan använda den [Demonstrationssida för Azure Media Player](http://aka.ms/amp) att övervaka bithastigheten av en videoström. Demo-sidan visar diagnostik information i den **diagnostik** fliken:
+Du kan använda den [Demonstrationssida för Azure Media Player](https://aka.ms/amp) att övervaka bithastigheten av en videoström. Demo-sidan visar diagnostik information i den **diagnostik** fliken:
 
 ![Azure Media Player-diagnostik][amp_diagnostics]
 

@@ -17,12 +17,12 @@ ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 0fb3e9cd193e570a965d6bbd3e16c86dc39de350
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: e8d3653049b0160fac155ebc49329c17cb27224f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984281"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014388"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>Distribuera ASDK från kommandoraden
 ASDK är en miljö för testning och utveckling som du kan distribuera för att utvärdera och demonstrera Azure Stack-funktioner och tjänster. Om du vill hämta den måste drift, att förbereda miljön maskinvara och köra några skript (det kan ta flera timmar). Efter det kan du logga in på portalerna administratörs- och att börja använda Azure Stack.
@@ -138,6 +138,7 @@ Om din miljö inte har DHCP-aktiverat, måste du inkludera de här parametrarna 
 ```
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>ASDK InstallAzureStackPOC.ps1 valfria parametrar
+
 |Parameter|Krävs/valfritt|Beskrivning|
 |-----|-----|-----|
 |AdminPassword|Krävs|Anger det lokala administratörskontot och alla andra användarkonton för alla virtuella datorer som skapas som en del av development kit distribution. Det här lösenordet måste matcha det aktuella lösenordet för lokal administratör på värden.|

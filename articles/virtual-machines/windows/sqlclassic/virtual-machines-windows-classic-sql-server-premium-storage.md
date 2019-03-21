@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8686e2c518bb2dc778c120350657aa54c856aec6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: be96aaa69fc1d59bdfa8079eff99c13c1e92c736
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440326"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905128"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Använd Azure Premium Storage med SQL Server på virtuella datorer
 
@@ -140,17 +140,17 @@ För varje disk, använder du följande steg:
 Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 ```
 
-2. Observera DiskName och LUN.
+1. Observera DiskName och LUN.
 
     ![DisknameAndLUN][2]
-3. Fjärrskrivbord till den virtuella datorn. Gå till **Datorhantering** | **Enhetshanteraren** | **diskenheter**. Titta på egenskaperna för var och en av de ”Microsoft virtuella diskar”
+1. Fjärrskrivbord till den virtuella datorn. Gå till **Datorhantering** | **Enhetshanteraren** | **diskenheter**. Titta på egenskaperna för var och en av de ”Microsoft virtuella diskar”
 
     ![VirtualDiskProperties][3]
-4. LUN-numret här är en referens till LUN-numret som du anger när du ansluter den virtuella Hårddisken till den virtuella datorn.
-5. För den ”Microsoft Virtual Disk” gå till den **information** fliken i den **egenskapen** listan, gå till **drivrutinen nyckeln**. I den **värdet**, Obs den **förskjutning**, vilket är 0002 i följande skärmbild. 0002 anger PhysicalDisk2 som refererar till lagringspoolen.
+1. LUN-numret här är en referens till LUN-numret som du anger när du ansluter den virtuella Hårddisken till den virtuella datorn.
+1. För den ”Microsoft Virtual Disk” gå till den **information** fliken i den **egenskapen** listan, gå till **drivrutinen nyckeln**. I den **värdet**, Obs den **förskjutning**, vilket är 0002 i följande skärmbild. 0002 anger PhysicalDisk2 som refererar till lagringspoolen.
 
     ![VirtualDiskPropertyDetails][4]
-6. Dumpa ut de associera diskarna för varje lagringspool:
+1. Dumpa ut de associera diskarna för varje lagringspool:
 
 ```powershell
 Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
@@ -750,7 +750,7 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 12
 
 ##### <a name="client-application-settings"></a>Inställningar för program
 
-Om din SQL-klientprogrammet har stöd för .net 4.5 SQLClient, därefter kan du använda ”MULTISUBNETFAILOVER = TRUE” nyckelord. Det här nyckelordet tillämpas eftersom de ger snabbare anslutning till SQL Always On Availability Group under redundansväxlingen. Den räknar upp via alla IP-adresser som är associerade med Always On-lyssnaren parallellt och utför en mer aggressivt TCP återförsök anslutningshastighet under en redundansväxling.
+Om din SQL-klientprogrammet har stöd för .NET 4.5 SQLClient så kan du använda ”MULTISUBNETFAILOVER = TRUE” nyckelord. Det här nyckelordet tillämpas eftersom de ger snabbare anslutning till SQL Always On Availability Group under redundansväxlingen. Den räknar upp via alla IP-adresser som är associerade med Always On-lyssnaren parallellt och utför en mer aggressivt TCP återförsök anslutningshastighet under en redundansväxling.
 
 Mer information om de tidigare inställningarna finns i [MultiSubnetFailover nyckelord och associerade funktioner](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Se även [SqlClient stöd för hög tillgänglighet, Haveriberedskap](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
 
@@ -973,7 +973,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #SET Azure ACLs or Network Security Groups & Windows FWs
 
-#http://msdn.microsoft.com/library/azure/dn495192.aspx
+#https://msdn.microsoft.com/library/azure/dn495192.aspx
 
 ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 ```
@@ -1218,7 +1218,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #SET ACLs or Azure Network Security Groups & Windows FWs
 
-#http://msdn.microsoft.com/library/azure/dn495192.aspx
+#https://msdn.microsoft.com/library/azure/dn495192.aspx
 ```
 
 #### <a name="step-23-test-failover"></a>Steg 23: Redundanstest

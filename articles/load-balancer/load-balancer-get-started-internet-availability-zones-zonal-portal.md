@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 0a746ace4806495b17462b506f030811247240e2
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: c81ff5ea330c4c0ba26a92a3b5399cfa961e4b2b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247199"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856866"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-portal"></a>Skapa en Standardbelastningsutjämnare med zonindelad klientdel med hjälp av Azure portal
 
@@ -36,7 +36,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-load-balancer-with-zonal-frontend-ip-address"></a>Skapa en belastningsutjämnare med zonindelad klientdelens IP-adress
 
-1. Från en webbläsare navigerar du till Azure portal: [ http://portal.azure.com ](http://portal.azure.com) och logga in med ditt Azure-konto.
+1. Från en webbläsare navigerar du till Azure portal: [ https://portal.azure.com ](https://portal.azure.com) och logga in med ditt Azure-konto.
 2. Längst upp till vänster på skärmen Välj **skapa en resurs** > **nätverk** > **belastningsutjämnare.**
 3. I den **skapa belastningsutjämnare** sidan under **namn** typ **myLoadBalancer**.
 4. Under **Typ** väljer du **Offentlig**.
@@ -46,8 +46,8 @@ Logga in på Azure Portal på https://portal.azure.com.
 >[!NOTE] 
 > Offentligt IP som skapats i det här steget är av Standard-SKU som standard.
 
-7. För **resursgrupp**, klickar du på **Skapa nytt**, och skriv sedan **myResourceGroupZLB** som namnet på resursgruppen.
-8. För **plats**väljer **Västeuropa**, och klicka sedan på **OK**. Nu startar distributionen av lastbalanseraren. Distributionen tar några minuter att slutföra.
+1. För **resursgrupp**, klickar du på **Skapa nytt**, och skriv sedan **myResourceGroupZLB** som namnet på resursgruppen.
+1. För **plats**väljer **Västeuropa**, och klicka sedan på **OK**. Nu startar distributionen av lastbalanseraren. Distributionen tar några minuter att slutföra.
 
     ![Skapa zonredundant Standardbelastningsutjämnare med Azure portal](./media/load-balancer-get-started-internet-availability-zones-zonal-portal/load-balancer-zonal-frontend.png)
 

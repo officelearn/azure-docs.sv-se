@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 0377f192ea9bc6502065fa037704ec8461ce1447
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7d07b0a098aad472b1b4f0b9810e5b63ac3c48a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311126"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007461"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Arbeta med anslutningsproblem för SQL-databas och tillfälliga fel
 
@@ -356,7 +356,7 @@ Här följer några länkar till information om EntLib60:
 
 - Kostnadsfria hämtning: [Utvecklarens Guide till Microsoft Enterprise Library, 2nd edition](https://www.microsoft.com/download/details.aspx?id=41145).
 - Bästa praxis: [Allmänna riktlinjer för återförsök](../best-practices-retry-general.md) har en utmärkt detaljerad beskrivning av logik för omprövning.
-- Ladda ned NuGet: [Enterprise Library - tillfälliga fel Handling Application Block 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
+- Ladda ned NuGet: [Enterprise Library - tillfälliga fel Handling Application Block 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 8d6f7c36745f8c1a6fdbf8d4a0058e297fef0409
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: a4710e2afc1688d83ff1c6da3ba36693584f16d3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110599"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871806"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>Snabbstart: Översätta tal med Speech SDK för C++
 
@@ -23,7 +23,7 @@ I den här snabbstarten skapar du ett enkelt C++-program som registrerar använd
 
 En fullständig lista över språk som är tillgängliga för talöversättning finns i [språkstöd](language-support.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
@@ -67,7 +67,7 @@ Ytterligare exempel, till exempel att läsa tal från en ljudfil och mata ut öv
 > [!div class="nextstepaction"]
 > [Utforska C++-exempel på GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
 - [Anpassa språkmodeller](how-to-customize-language-model.md)

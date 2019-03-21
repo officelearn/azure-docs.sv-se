@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 0dced367f62ab97d62cd4b11758e13a05278442e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 0cf83180647c142c9db2a1229674de96fec6a6bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099266"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087541"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrera Azure Active Directory med Azure Kubernetes Service
 
@@ -40,47 +40,47 @@ Första Azure AD-programmet används för att hämta en Azure AD medlemskap i an
 
 1. Välj **Azure Active Directory** > **Appregistreringar** > **Ny programregistrering**.
 
-  Ge programmet ett namn, Välj **webbapp / API** som programtyp, och ange något formaterad URI-värde för **inloggnings-URL**. Välj **skapa** när du är klar.
+   Ge programmet ett namn, Välj **webbapp / API** som programtyp, och ange något formaterad URI-värde för **inloggnings-URL**. Välj **skapa** när du är klar.
 
-  ![Skapa Azure AD-registrering](media/aad-integration/app-registration.png)
+   ![Skapa Azure AD-registrering](media/aad-integration/app-registration.png)
 
 2. Välj **Manifest** och redigera den `groupMembershipClaims` värde att `"All"`.
 
-  Spara uppdateringarna när du är klar.
+   Spara uppdateringarna när du är klar.
 
-  ![Uppdatera medlemskap för alla](media/aad-integration/edit-manifest.png)
+   ![Uppdatera medlemskap för alla](media/aad-integration/edit-manifest.png)
 
 3. Tillbaka på Azure AD-programmet väljer **inställningar** > **nycklar**.
 
-  Lägg till en nyckelbeskrivning, väljer en tidsgräns för förfallodatum och väljer **spara**. Anteckna värdet för nyckeln. När distribuera en Azure AD aktiverats AKS-kluster kan det här värdet kallas den `Server application secret`.
+   Lägg till en nyckelbeskrivning, väljer en tidsgräns för förfallodatum och väljer **spara**. Anteckna värdet för nyckeln. När distribuera en Azure AD aktiverats AKS-kluster kan det här värdet kallas den `Server application secret`.
 
-  ![Hämta den privata nyckeln för program](media/aad-integration/application-key.png)
+   ![Hämta den privata nyckeln för program](media/aad-integration/application-key.png)
 
 4. Gå tillbaka till Azure AD-programmet väljer **inställningar** > **nödvändiga behörigheter** > **Lägg till**  >   **Välj en API** > **Microsoft Graph** > **Välj**.
 
-  ![Välj graph API](media/aad-integration/graph-api.png)
+   ![Välj graph API](media/aad-integration/graph-api.png)
 
 5. Under **PROGRAMBEHÖRIGHETER** sätt en bock bredvid **läsa katalogdata**.
 
-  ![Ange program graph-behörigheter](media/aad-integration/read-directory.png)
+   ![Ange program graph-behörigheter](media/aad-integration/read-directory.png)
 
 6. Under **DELEGERADE BEHÖRIGHETER**, markera kryssrutan bredvid **logga in och läsa användarprofil** och **läsa katalogdata**. Spara uppdateringarna när klar.
 
-  ![Ange program graph-behörigheter](media/aad-integration/delegated-permissions.png)
+   ![Ange program graph-behörigheter](media/aad-integration/delegated-permissions.png)
 
-  Välj **Done** (Klar).
+   Välj **Done** (Klar).
 
 7. Välj *Microsoft Graph* från listan över API: er, Välj **bevilja behörigheter**. Det här steget misslyckas om det aktuella kontot inte är en administratör.
 
-  ![Ange program graph-behörigheter](media/aad-integration/grant-permissions.png)
+   ![Ange program graph-behörigheter](media/aad-integration/grant-permissions.png)
 
-  När behörigheterna har beviljats har, visas följande meddelande i portalen:
+   När behörigheterna har beviljats har, visas följande meddelande i portalen:
 
-  ![Meddelande om lyckad behörigheter](media/aad-integration/permissions-granted.png)
+   ![Meddelande om lyckad behörigheter](media/aad-integration/permissions-granted.png)
 
 8. Gå tillbaka till programmet och anteckna den **program-ID**. När du distribuerar ett Azure AD-aktiverade AKS-kluster kan det här värdet kallas den `Server application ID`.
 
-  ![Hämta program-ID](media/aad-integration/application-id.png)
+   ![Hämta program-ID](media/aad-integration/application-id.png)
 
 ## <a name="create-client-application"></a>Skapa klientprogram
 
@@ -88,27 +88,27 @@ Andra Azure AD-programmet används när du loggar in med Kubernetes CLI (kubectl
 
 1. Välj **Azure Active Directory** > **Appregistreringar** > **Ny programregistrering**.
 
-  Ge programmet ett namn, Välj **interna** som programtyp, och ange något formaterad URI-värde för **omdirigerings-URI**. Välj **skapa** när du är klar.
+   Ge programmet ett namn, Välj **interna** som programtyp, och ange något formaterad URI-värde för **omdirigerings-URI**. Välj **skapa** när du är klar.
 
-  ![Skapa AAD-registrering](media/aad-integration/app-registration-client.png)
+   ![Skapa AAD-registrering](media/aad-integration/app-registration-client.png)
 
 2. Azure AD-programmet väljer **inställningar** > **nödvändiga behörigheter** > **Lägg till** > **väljer en API: et** och Sök efter namnet på serverprogram som skapats i det sista steget i det här dokumentet.
 
-  ![Konfigurera behörigheter för programmet](media/aad-integration/select-api.png)
+   ![Konfigurera behörigheter för programmet](media/aad-integration/select-api.png)
 
 3. Markera kryssrutan bredvid den och klicka på **Välj**.
 
-  ![Välj program för AKS AAD serverslutpunkt](media/aad-integration/select-server-app.png)
+   ![Välj program för AKS AAD serverslutpunkt](media/aad-integration/select-server-app.png)
 
-  Välj **klar**
+   Välj **klar**
 
 4. Välj din API-server i listan och välj sedan **bevilja behörigheter**:
 
-  ![Bevilja behörigheter](media/aad-integration/grant-permissions-client.png)
+   ![Bevilja behörigheter](media/aad-integration/grant-permissions-client.png)
 
 5. Tillbaka på AD-program, anteckna den **program-ID**. När du distribuerar ett Azure AD-aktiverade AKS-kluster kan det här värdet kallas den `Client application ID`.
 
-  ![Hämta program-ID](media/aad-integration/application-id-client.png)
+   ![Hämta program-ID](media/aad-integration/application-id-client.png)
 
 ## <a name="get-tenant-id"></a>Hämta klientorganisations-ID
 

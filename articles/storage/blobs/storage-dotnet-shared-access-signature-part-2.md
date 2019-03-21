@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 9c5f32bb1b4f335fab11f0fd865421f2eec5eee9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5dcb9f16b589b8332d5fcf35c9d8b4cd914460f2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244920"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012541"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Signaturer för delad åtkomst, del 2: Skapa och använda en SAS med Blob storage
 
@@ -33,7 +33,7 @@ I den här självstudiekursen skapar vi två konsolprogram som visar hur du skap
 **Programmet 2**: Klientprogrammet. Åtkomst till behållare och blobnamn resurser med hjälp av signaturer för delad åtkomst som skapats med det första programmet. Använder endast de delade åtkomstsignaturer åtkomst-behållaren och blob-resurser – sker *inte* inkluderar åtkomstnyckel för lagringskontot.
 
 ## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>Del 1: Skapa ett konsolprogram för att generera delade åtkomstsignaturer
-Kontrollera först att du har Azure Storage-klientbiblioteket för .NET som installeras. Du kan installera den [NuGet-paketet](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet-paketet") som innehåller den senaste sammansättningarna för klientbiblioteket. Det här är den rekommenderade metoden för att säkerställa att du har de senaste korrigeringarna. Du kan också hämta klientbiblioteket som en del av den senaste versionen av den [Azure SDK för .NET](https://azure.microsoft.com/downloads/).
+Kontrollera först att du har Azure Storage-klientbiblioteket för .NET som installeras. Du kan installera den [NuGet-paketet](https://nuget.org/packages/WindowsAzure.Storage/ "NuGet-paketet") som innehåller den senaste sammansättningarna för klientbiblioteket. Det här är den rekommenderade metoden för att säkerställa att du har de senaste korrigeringarna. Du kan också hämta klientbiblioteket som en del av den senaste versionen av den [Azure SDK för .NET](https://azure.microsoft.com/downloads/).
 
 Skapa ett nytt Windows-konsolprogram i Visual Studio och ge den namnet **GenerateSharedAccessSignatures**. Lägg till referenser till [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) och [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) genom att använda någon av följande metoder:
 

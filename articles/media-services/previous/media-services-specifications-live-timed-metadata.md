@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: johndeu;
-ms.openlocfilehash: 89a19d53046afd8d2b16b23508e952989091c8d2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: a953f4b77f896d3943cd996abf8c1fc1306ee9d7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005275"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57882004"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Signalering av Metadata med tidsgräns i liveuppspelning 
 
@@ -120,6 +120,7 @@ Rutan ”moov' ska innehålla en **TrackHeaderBox (tkhd)** rutan enligt definiti
 | **Fältnamn** | **Fälttyp**          | **Krävs?** | **Beskrivning**                                                                                                |
 |----------------|-------------------------|---------------|----------------------------------------------------------------------------------------------------------------|
 | varaktighet       | 64-bitars heltal utan tecken | Krävs      | BÖR vara 0, eftersom rutan spåra har noll exempel och den totala varaktigheten för exempel i rutan spåra är 0. |
+
 -------------------------------------
 
 Rutan ”moov' ska innehålla en **HandlerBox (hdlr)** enligt definitionen i [ISO-14496-12] med följande begränsningar:
@@ -127,6 +128,7 @@ Rutan ”moov' ska innehålla en **HandlerBox (hdlr)** enligt definitionen i [IS
 | **Fältnamn** | **Fälttyp**          | **Krävs?** | **Beskrivning**   |
 |----------------|-------------------------|---------------|-------------------|
 | handler_type   | 32-bitars heltal utan tecken | Krävs      | SKA vara ”metadata”. |
+
 -------------------------------------
 
 Rutan 'stsd' ska innehålla en MetaDataSampleEntry ruta med ett kodning namn som definierats i [ISO-14496-12].  För SCTE 35 meddelanden ska kodning namnet ”scte”.
@@ -225,11 +227,11 @@ Tidsinställda metadata för Apple HTTP Live Streaming (HLS) kan bäddas in list
 
 | **Attributnamn** | **Typ**                      | **Krävs?**                             | **Beskrivning**                                                                                                                                                                                                                                                                      |
 |--------------------|-------------------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| LÅT DIG LEDAS                | sträng inom citattecken                 | Krävs                                  | Meddelandet kodade som en base64-sträng som beskrivs i [IETF RFC 4648](http://tools.ietf.org/html/rfc4648). Detta är base64-kodad splice_info_section() för [SCTE 35] meddelanden.                                                                                                |
+| LÅT DIG LEDAS                | sträng inom citattecken                 | Krävs                                  | Meddelandet kodade som en base64-sträng som beskrivs i [IETF RFC 4648](https://tools.ietf.org/html/rfc4648). Detta är base64-kodad splice_info_section() för [SCTE 35] meddelanden.                                                                                                |
 | TYP               | sträng inom citattecken                 | Krävs                                  | En URN eller en URL som anger meddelande-schema. För [SCTE 35] tar typen särskilda värdet ”scte35”.                                                                                                                                |
 | ID                 | sträng inom citattecken                 | Krävs                                  | En unik identifierare för händelsen. Om det ID: T inte anges när meddelandet matas genererar Azure Media Services ett unikt id.                                                                                                                                          |
 | VARAKTIGHET           | decimal flyttalsnummer | Krävs                                  | Varaktighet för händelsen. Om det är okänd, vara värdet 0. Enheterna är factional sekunder.                                                                                                                                                                                           |
-| FÖRFLUTEN TID            | decimal flyttalsnummer | Valfritt, men krävs för skjutfönster | När signalen upprepas för ett skjutfönster presentation, måste det här fältet vara presentation tiden som har förflutit sedan händelsen påbörjades. Enheterna är fraktionell. Det här värdet kan överskrida den ursprungliga angivna varaktigheten splice eller segment. |
+| FÖRFLUTEN            | decimal flyttalsnummer | Valfritt, men krävs för skjutfönster | När signalen upprepas för ett skjutfönster presentation, måste det här fältet vara presentation tiden som har förflutit sedan händelsen påbörjades. Enheterna är fraktionell. Det här värdet kan överskrida den ursprungliga angivna varaktigheten splice eller segment. |
 | TIME               | decimal flyttalsnummer | Krävs                                  | Presentation-tid för händelse. Enheterna är fraktionell.                                                                                                                                                                                                                    |
 
 
@@ -292,7 +294,7 @@ Noll eller flera händelsen finns även i EventStream-elementet och de har följ
 | presentation_time   | 64-bitars heltal utan tecken | Valfri      | MÅSTE vara mediet presentation tid för händelse i förhållande till början av perioden. Presentation starttid och varaktighet ska justeras med Stream åtkomst punkter (SAP) av typen 1 eller 2, enligt definitionen i [ISO-14496-12] bilaga. |
 | varaktighet            | 32-bitars heltal utan tecken | Valfri      | Varaktighet för händelsen. Detta måste utelämnas om varaktigheten är okänt.                                                                                                                                                 |
 | id                  | 32-bitars heltal utan tecken | Valfri      | Identifierar den här instansen av meddelandet. Meddelanden med motsvarande semantik bör ha samma värde. Om det ID: T inte anges när meddelandet matas genererar Azure Media Services ett unikt id.             |
-| Händelsen elementvärde | sträng                  | Krävs      | Händelsemeddelandet som en base64-sträng som beskrivs i [IETF RFC 4648](http://tools.ietf.org/html/rfc4648).                                                                                                                   |
+| Händelsen elementvärde | sträng                  | Krävs      | Händelsemeddelandet som en base64-sträng som beskrivs i [IETF RFC 4648](https://tools.ietf.org/html/rfc4648).                                                                                                                   |
 
 #### <a name="xml-syntax-and-example-for-dash-manifest-mpd-signaling"></a>XML-Syntax och exempel för DASH manifest (MPD) signal
 
@@ -396,7 +398,7 @@ Smooth Streaming mata in kräver att Media Data Box (mdat) måste innehålla den
 
 **[MS-SSTR]**  [”Microsoft Smooth Streaming-protokollet”, den 15 maj 2014](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
 
-**[AMF0]**  [”Åtgärd meddelande Format AMF0”](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
+**[AMF0]**  [”Åtgärd meddelande Format AMF0”](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 
 **[LIVE FMP4]**  [Specifikation för azure Media Services fragmenterad MP4 Live-inmatning](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)
 

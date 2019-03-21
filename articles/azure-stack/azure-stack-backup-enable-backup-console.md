@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 1585eb460cc5f8ae437ee59a596dc7a854a108e7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 98f793b7d94cd554d426a0eec30d8bb4553d3d81
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995738"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105411"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Aktivera säkerhetskopiering för Azure Stack från administrationsportalen
 Aktivera infrastruktur Backup-tjänsten via administrationsportalen så att Azure Stack kan generera infrastruktur säkerhetskopieringar. Maskinvara-partner kan använda dessa säkerhetskopior för att återställa din miljö med molnåterställning i händelse av [ett oåterkalleligt fel](./azure-stack-backup-recover-data.md). Syftet med molnet är att säkerställa att dina operatörer och användare kan logga in igen på portalen när återställningen är klar. Användarna har sina prenumerationer som återställts, inklusive behörigheter för rollbaserad åtkomst och roller, ursprungliga planer, erbjudanden, och tidigare definierad beräkning, lagring, nätverkskvoter och Key Vault-hemligheter.
@@ -67,12 +67,15 @@ Administratörer och användare ansvarar för att säkerhetskopiera och återst�
             -FilePath c:\certs\AzSIBCCert.cer 
     ```
 
-    > [!Note]  
-    > **1901 och senare**: Azure Stack accepterar ett certifikat för att kryptera säkerhetskopierade data för infrastruktur. Se till att lagra certifikatet med den offentliga och privata nyckeln på en säker plats. Av säkerhetsskäl rekommenderas inte att du använder certifikatet med de offentliga och privata nycklarna så här konfigurerar du inställningar för säkerhetskopiering. Mer information om hur du hanterar livscykeln för det här certifikatet finns i [infrastruktur Backup-tjänsten metodtips](azure-stack-backup-best-practices.md).
+   > [!Note]
+   > **1901 och senare**: Azure Stack accepterar ett certifikat för att kryptera säkerhetskopierade data för infrastruktur. Se till att lagra certifikatet med den offentliga och privata nyckeln på en säker plats. Av säkerhetsskäl rekommenderas inte att du använder certifikatet med de offentliga och privata nycklarna så här konfigurerar du inställningar för säkerhetskopiering. Mer information om hur du hanterar livscykeln för det här certifikatet finns i [infrastruktur Backup-tjänsten metodtips](azure-stack-backup-best-practices.md).
+   > 
+   > **1811 eller tidigare**: Azure Stack accepterar en symmetrisk nyckel för att kryptera säkerhetskopierade data för infrastruktur. Använd den [New-AzsEncryptionKey64 cmdlet för att skapa en nyckel](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). När du har uppgraderat från 1811 till 1901 behåller säkerhetskopieringsinställningar krypteringsnyckeln. Rekommendationen är att uppdatera inställningar för att använda ett certifikat. Viktiga stöd för kryptering är nu föråldrad. Du har minst 3 versioner att uppdatera inställningarna för att använda ett certifikat. 
 
 10. Välj **OK** att spara dina inställningar för säkerhetskopiering controller.
 
 ![Azure Stack - inställningarna för säkerhetskopiering-domänkontrollanter](media/azure-stack-backup/backup-controller-settings-certificate.png)
+
 
 ## <a name="start-backup"></a>Starta Säkerhetskopiering
 Om du vill starta en säkerhetskopiering klickar du på **Säkerhetskopiera nu** att starta en säkerhetskopiering på begäran. En säkerhetskopiering på begäran kan inte ändra tiden för nästa schemalagda säkerhetskopiering. När uppgiften har slutförts kan du bekräfta inställningarna i **Essentials**:
@@ -115,7 +118,7 @@ Nya säkerhetskopior börjar använda den offentliga nyckeln i det nya certifika
 ![Azure Stack – visa certifikatets tumavtryck](media/azure-stack-backup/encryption-settings-thumbprint.png)
 
 ### <a name="backwards-compatibility-mode"></a>Bakåtkompatibilitet kompatibilitetsläge
-Om du har konfigurerat säkerhetskopiering innan du uppdaterar till 1901 överförs inställningarna med densamma. I det här fallet krypteringsnyckeln stöds för bakåtkompatibilitet kompatibilitet. Du har alternativet Uppdatera krypteringsnyckeln eller växlar för att använda ett certifikat. Du har tre versioner att fortsätta uppdatera krypteringsnyckeln. Använd den här gången med övergången till ett certifikat. 
+Om du har konfigurerat säkerhetskopiering innan du uppdaterar till 1901 överförs inställningarna med densamma. I det här fallet krypteringsnyckeln stöds för bakåtkompatibilitet kompatibilitet. Du har alternativet Uppdatera krypteringsnyckeln eller växlar för att använda ett certifikat. Du har minst tre versioner att fortsätta uppdatera krypteringsnyckeln. Använd den här gången med övergången till ett certifikat. Skapa en ny nyckel kryptering med den [cmdlet New-AzsEncryptionKeyBase64](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
 
 ![Azure Stack – med hjälp av krypteringsnyckeln i läget för bakåtkompatibilitet](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
 

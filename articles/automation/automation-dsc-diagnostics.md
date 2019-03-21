@@ -9,16 +9,19 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7eb841a0f4a34e708734cf433fac82ab35ef35b6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8898280e887392591873f1fc832bfd0c105689fe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451305"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097294"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Vidarebefordra Azure Automation-Tillståndskonfiguration rapporterar data till Azure Monitor-loggar
 
-Azure Automation State Configuration skicka Desired State Configuration (DSC) noddata status till Log Analytics-arbetsytan. Kompatibilitetsstatus för syns i Azure portal eller med PowerShell, för noder och för enskilda DSC-resurser i nodkonfigurationer. Med Azure Monitor-loggar kan du:
+Azure Automation State Configuration behåller noddata status i 30 dagar.
+Du kan skicka status noddata till Log Analytics-arbetsytan om du vill behålla dessa data under en längre period.
+Kompatibilitetsstatus för syns i Azure portal eller med PowerShell, för noder och för enskilda DSC-resurser i nodkonfigurationer.
+Med Azure Monitor-loggar kan du:
 
 - Hämta information om kompatibilitet för hanterade noder och enskilda resurser
 - Utlös ett e-post eller en avisering baserat på status för uppdateringskompatibilitet
@@ -44,23 +47,23 @@ Om du vill börja importera data från Azure Automation DSC i Azure Monitor-logg
 1. Logga in på ditt Azure-konto i PowerShell. Se [logga in med Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
 1. Hämta den _ResourceId_ av ditt automation-konto genom att köra följande PowerShell-kommando: (om du har fler än ett automation-konto väljer du den _ResourceID_ för det konto som du vill konfigurera).
 
-  ```powershell
-  # Find the ResourceId for the Automation Account
-  Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
-  ```
+   ```powershell
+   # Find the ResourceId for the Automation Account
+   Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
+   ```
 
 1. Hämta den _ResourceId_ av Log Analytics-arbetsytan genom att köra följande PowerShell-kommando: (om du har fler än en arbetsyta väljer du den _ResourceID_ för den arbetsyta som du vill konfigurera).
 
-  ```powershell
-  # Find the ResourceId for the Log Analytics workspace
-  Get-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
-  ```
+   ```powershell
+   # Find the ResourceId for the Log Analytics workspace
+   Get-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
+   ```
 
 1. Kör följande PowerShell-kommando ersätter `<AutomationResourceId>` och `<WorkspaceResourceId>` med den _ResourceId_ värden från var och en av de här stegen:
 
-  ```powershell
-  Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories 'DscNodeStatus'
-  ```
+   ```powershell
+   Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories 'DscNodeStatus'
+   ```
 
 Om du vill sluta importera data från Azure Automation-Tillståndskonfiguration i Azure Monitor-loggar, kör du följande PowerShell-kommando:
 

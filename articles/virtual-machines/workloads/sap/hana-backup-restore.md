@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e71e4ea56bfe467e03be59d6a855272baafc4235
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 04da80cd5c30d0556dc681b7bff412391aa2bcda
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822739"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107737"
 ---
 # <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
@@ -47,7 +47,7 @@ SAP HANA på Azure (stora instanser) erbjuder två alternativ för säkerhetskop
 
 - Infrastruktur för säkerhetskopiering och återställningsfunktionen. Du kan också säkerhetskopiera och återställa kärnfunktioner där den underliggande infrastrukturen med SAP HANA på Azure (stora instanser). Det här alternativet uppfyller behovet av säkerhetskopieringar och snabb återställning. Resten av det här avsnittet adresser säkerhetskopiering och återställning av funktionerna som erbjuds med stora HANA-instanser. Det här avsnittet beskriver också relation säkerhetskopiering och återställning måste katastrofen recovery-funktionerna som erbjuds av stora HANA-instanser.
 
->   [!NOTE]
+> [!NOTE]
 >   Den ögonblicksbild-teknik som används av den underliggande infrastrukturen med stora HANA-instanser har ett beroende på SAP HANA-ögonblicksbilder. SAP HANA-ögonblicksbilder fungerar då inte tillsammans med flera innehavare av behållare för SAP HANA-databas för flera innehavare. Om bara en klient har distribuerats, SAP HANA-ögonblicksbilder fungerar och den här metoden kan användas.
 
 ## <a name="using-storage-snapshots-of-sap-hana-on-azure-large-instances"></a>Med hjälp av ögonblicksbilder av lagring av SAP HANA på Azure (stora instanser)
@@ -641,44 +641,44 @@ Följande visar hur du förbereder för begäran:
 
 1. Stänga av HANA-instans.
 
- ![Stäng av HANA-instans](./media/hana-overview-high-availability-disaster-recovery/image7-shutdown-hana.png)
+   ![Stäng av HANA-instans](./media/hana-overview-high-availability-disaster-recovery/image7-shutdown-hana.png)
 
 1. Demontera datavolymerna på varje nod för HANA-databas. Om datavolymerna är fortfarande monterade för operativsystemet, misslyckas återställningen av ögonblicksbilden.
- ![Avmontera datavolymerna på varje nod för HANA-databas](./media/hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
+   ![Avmontera datavolymerna på varje nod för HANA-databas](./media/hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
 
 1. Öppna en supportförfrågan för Azure och innehåller instruktioner för återställning av en specifik ögonblicksbild.
 
- - Under återställningen: SAP HANA på Azure Service Management kan be dig att delta i ett konferenssamtal så samordning, verifiering och bekräfta att rätt storage-ögonblicksbilder har återställts. 
+   - Under återställningen: SAP HANA på Azure Service Management kan be dig att delta i ett konferenssamtal så samordning, verifiering och bekräfta att rätt storage-ögonblicksbilder har återställts. 
 
- - Efter återställningen: SAP HANA på Azure Service Management meddelar dig när lagring ögonblicksbild har återställts.
+   - Efter återställningen: SAP HANA på Azure Service Management meddelar dig när lagring ögonblicksbild har återställts.
 
 1. När återställningsprocessen har slutförts, montera om alla datavolymer.
 
- ![Montera om alla datavolymer](./media/hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
+   ![Montera om alla datavolymer](./media/hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
 
 1. Välj återställningsalternativ SAP HANA-Studio, om de inte automatiskt kommer när du återansluter till HANA-Databasobjekt via SAP HANA-Studio. I följande exempel visas en återställning till den senaste HANA ögonblicksbilden. Storage-ögonblicksbilder bäddar in en HANA-ögonblicksbilder. Om du återställer till den senaste ögonblicksbilden för lagring bör den vara senaste HANA-ögonblicksbilder. (Om du återställer till en äldre storage-ögonblicksbilder, du måste hitta HANA-ögonblicksbilder baserat på den tid som storage ögonblicksbilden togs.)
 
- ![Välj Återställ alternativ för SAP HANA-Studio](./media/hana-overview-high-availability-disaster-recovery/image10-recover-options-a.png)
+   ![Välj Återställ alternativ för SAP HANA-Studio](./media/hana-overview-high-availability-disaster-recovery/image10-recover-options-a.png)
 
 1. Välj **återställa databasen till en specifik data säkerhetskopierings- eller ögonblicksbild**.
 
- ![Fönstret Välj återställningstyp](./media/hana-overview-high-availability-disaster-recovery/image11-recover-options-b.png)
+   ![Fönstret Välj återställningstyp](./media/hana-overview-high-availability-disaster-recovery/image11-recover-options-b.png)
 
 1. Välj **ange säkerhetskopiering utan katalog**.
 
- ![Fönstret Ange Säkerhetskopians plats](./media/hana-overview-high-availability-disaster-recovery/image12-recover-options-c.png)
+   ![Fönstret Ange Säkerhetskopians plats](./media/hana-overview-high-availability-disaster-recovery/image12-recover-options-c.png)
 
 1. I den **måltypen** väljer **ögonblicksbild**.
 
- ![Ange att säkerhetskopiera till Återställ fönster](./media/hana-overview-high-availability-disaster-recovery/image13-recover-options-d.png)
+   ![Ange att säkerhetskopiera till Återställ fönster](./media/hana-overview-high-availability-disaster-recovery/image13-recover-options-d.png)
 
 1. Välj **Slutför** att starta återställningsprocessen.
 
- ![Välj ”Slutför” om du vill påbörja återställningsprocessen](./media/hana-overview-high-availability-disaster-recovery/image14-recover-options-e.png)
+    ![Välj ”Slutför” om du vill påbörja återställningsprocessen](./media/hana-overview-high-availability-disaster-recovery/image14-recover-options-e.png)
 
 1. HANA-databas har återställts och återställt till HANA-ögonblicksbilder som ingår i storage-ögonblicksbilder.
 
- ![HANA-databas återställs och återställas till HANA-ögonblicksbild](./media/hana-overview-high-availability-disaster-recovery/image15-recover-options-f.png)
+    ![HANA-databas återställs och återställas till HANA-ögonblicksbild](./media/hana-overview-high-availability-disaster-recovery/image15-recover-options-f.png)
 
 ### <a name="recover-to-the-most-recent-state"></a>Återställ till det senaste tillståndet
 
@@ -691,23 +691,23 @@ Följande process återställer HANA-ögonblicksbilder som ingår i storage-ögo
 
 1. Välj **återställa databasen till det senaste tillståndet**.
 
- ![Välj ”återställa databasen till det senaste tillståndet”](./media/hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
+   ![Välj ”återställa databasen till det senaste tillståndet”](./media/hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
 
 1. Ange platsen för de senaste HANA säkerhetskopieringarna. Platsen måste innehålla alla de HANA säkerhetskopieringarna av transaktionsloggen från HANA-ögonblicksbilder till det senaste tillståndet.
 
- ![Ange platsen för de senaste HANA loggsäkerhetskopior](./media/hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
+   ![Ange platsen för de senaste HANA loggsäkerhetskopior](./media/hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
 
 1. Välj en säkerhetskopia som bas som du vill återställa databasen från. I det här exemplet är HANA ögonblicksbilden i skärmbilden HANA-ögonblicksbilder som användes i storage-ögonblicksbilder. 
 
- ![Välj en säkerhetskopia som bas som du vill återställa databasen från](./media/hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
+   ![Välj en säkerhetskopia som bas som du vill återställa databasen från](./media/hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
 
 1. Rensa den **Använd Delta säkerhetskopior** markerar du kryssrutan om deltan inte finns mellan tiden för HANA-ögonblicksbilder och det senaste tillståndet.
 
- ![Avmarkera kryssrutan ”Använd Delta säkerhetskopior” om det finns inga deltan](./media/hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
+   ![Avmarkera kryssrutan ”Använd Delta säkerhetskopior” om det finns inga deltan](./media/hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
 
 1. I fönstret Sammanfattning Välj **Slutför** att starta återställningen.
 
- ![Klicka på ”Slutför” i fönstret Sammanfattning](./media/hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
+   ![Klicka på ”Slutför” i fönstret Sammanfattning](./media/hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
 
 ### <a name="recover-to-another-point-in-time"></a>Återställa till en annan tidpunkt
 Om du vill återställa till en tidpunkt mellan HANA-ögonblicksbilder (ingår i storage-ögonblicksbilder) och ett som är senare än HANA ögonblicksbild point-in-time-återställning, utför du följande steg:

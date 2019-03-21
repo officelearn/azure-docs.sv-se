@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 729287cfcc557e167a70d6f69a5b2b34909df836
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d7f047d784796b9e7c59d95863aa74b3f72da324
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180988"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995623"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Självstudier: Azure Active Directory-integrering med SilkRoad liv Suite
 
@@ -114,12 +114,14 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<subdomain>.silkroad-eng.com/Authentication/`
 
     b. I textrutan **Identifierare** anger du en URL med följande mönster: 
+
     | |
     |--|
     | `https://<subdomain>.silkroad-eng.com/Authentication/SP` |
     | `https://<subdomain>.silkroad.com/Authentication/SP` |
 
     c. I textrutan **Svars-URL** anger du en URL med följande mönster: 
+    
     | |
     |--|
     | `https://<subdomain>.silkroad-eng.com/Authentication/` |
@@ -275,7 +277,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

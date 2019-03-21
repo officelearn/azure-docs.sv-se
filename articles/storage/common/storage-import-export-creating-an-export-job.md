@@ -8,44 +8,44 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 33234c03a3e691a95e61f825a0351cf481431294
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: e0513bc18f1cf14beb4c1becfc1835235a5ddc96
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731402"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092233"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Skapa ett exportjobb för tjänsten Azure Import/Export
 Skapa ett exportjobb för Microsoft Azure Import/Export-tjänsten med hjälp av REST-API omfattar följande steg:
 
--   Välja blobbar som ska exporteras.
+- Välja blobbar som ska exporteras.
 
--   Hämta en leveransplats.
+- Hämta en leveransplats.
 
--   Skapa export-jobbet.
+- Skapa export-jobbet.
 
--   Leverera dina tom enheter till Microsoft via en stöds operatör-tjänst.
+- Leverera dina tom enheter till Microsoft via en stöds operatör-tjänst.
 
--   Det export-jobbet uppdateras med paketinformationen.
+- Det export-jobbet uppdateras med paketinformationen.
 
--   Ta emot enheterna från Microsoft.
+- Ta emot enheterna från Microsoft.
 
- Se [med hjälp av tjänsten Windows Azure Import/Export för att överföra Data till Blob Storage](storage-import-export-service.md) för en översikt över Import/Export-tjänsten och en genomgång som visar hur du använder den [Azure-portalen](https://portal.azure.com/) att skapa och Hantera importera och exportera jobb.
+  Se [med hjälp av tjänsten Windows Azure Import/Export för att överföra Data till Blob Storage](storage-import-export-service.md) för en översikt över Import/Export-tjänsten och en genomgång som visar hur du använder den [Azure-portalen](https://portal.azure.com/) att skapa och Hantera importera och exportera jobb.
 
 ## <a name="selecting-blobs-to-export"></a>Välja blobbar som ska exporteras
  Om du vill skapa ett exportjobb, behöver du ange en lista över blobar som du vill exportera från ditt lagringskonto. Det finns ett par olika sätt att välja blobbar exporteras:
 
--   Du kan använda en relativ blobbsökväg för att välja en enda blob och alla dess ögonblicksbilder.
+- Du kan använda en relativ blobbsökväg för att välja en enda blob och alla dess ögonblicksbilder.
 
--   Du kan använda en relativ blobbsökväg för att välja en enda blob, exklusive dess ögonblicksbilder.
+- Du kan använda en relativ blobbsökväg för att välja en enda blob, exklusive dess ögonblicksbilder.
 
--   Du kan använda en relativ blob och sökvägen till en ögonblicksbild-tid för att välja en enskild ögonblicksbild.
+- Du kan använda en relativ blob och sökvägen till en ögonblicksbild-tid för att välja en enskild ögonblicksbild.
 
--   Du kan använda ett blob-prefix för att välja alla blobar och ögonblicksbilder med det angivna prefixet.
+- Du kan använda ett blob-prefix för att välja alla blobar och ögonblicksbilder med det angivna prefixet.
 
--   Du kan exportera alla blobar och ögonblicksbilder i lagringskontot.
+- Du kan exportera alla blobar och ögonblicksbilder i lagringskontot.
 
- Läs mer om hur du anger BLOB-och exportera den [placera jobbet](/rest/api/storageimportexport/jobs) igen.
+  Läs mer om hur du anger BLOB-och exportera den [placera jobbet](/rest/api/storageimportexport/jobs) igen.
 
 ## <a name="obtaining-your-shipping-location"></a>Hämta din plats för leverans
 Innan du skapar ett exportjobb, måste du skaffa ett endash platsnamn och adress genom att anropa den [få plats](https://portal.azure.com) eller [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list) igen. `List Locations` Returnerar en lista över platser och deras e-postadresser. Du kan välja en plats från den returnerade listan och skicka dina hårddiskar till adressen. Du kan också använda den `Get Location` åtgärden att hämta leveransadressen för en specifik plats direkt.

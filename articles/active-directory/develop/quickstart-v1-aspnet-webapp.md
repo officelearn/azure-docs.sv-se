@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb235ab96ed8a85cbe44dd672dff004dd0a7310
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 73d762e5bb358964b439d1dc6027abc01332da21
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185324"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007622"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft till en ASP.NET-webbapp
 
@@ -34,7 +34,7 @@ När du är klar med den här snabbstarten kommer ditt program att acceptera inl
 > [!NOTE]
 > Om du vill lägga till inloggning för personliga konton förutom arbets- och skolkonton, kan du använda [v2.0-slutpunkten](azure-ad-endpoint-comparison.md). Mer information finns i [den här ASP.NET-självstudien om v2.0-slutpunkten](tutorial-v2-asp-webapp.md) samt [i den här artikeln](active-directory-v2-limitations.md) som förklarar de aktuella begränsningarna i v2.0-slutpunkten.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
@@ -146,7 +146,8 @@ Skapa en ny vy i Visual Studio för att lägga till inloggningsknappen och visa 
 
     [!code-html[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
 
-<!--start-collapse--> Den här sidan lägger till en inloggningsknapp i SVG-format med en svart bakgrund:<br/>![Logga in med Microsoft](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> För fler inloggningsknappar går du till [Varumärkesriktlinjer för program](howto-add-branding-in-azure-ad-apps.md).
+<!--start-collapse-->
+Den här sidan lägger till en knapp för inloggning i SVG-format med en svart bakgrund:<br/>![Logga in med Microsoft](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> För fler inloggningsknappar går du till [Varumärkesriktlinjer för program](howto-add-branding-in-azure-ad-apps.md).
 <!--end-collapse-->
 
 ## <a name="step-7-display-users-claims-by-adding-a-controller"></a>Steg 7: Visa användarens anspråk genom att lägga till en kontrollant
@@ -287,7 +288,7 @@ Välj hyperlänken för att se användarens anspråk. Den här åtgärden leder 
 
  Du bör se en tabell som innehåller de grundläggande egenskaperna för den inloggade användaren:
 
-| Egenskap | Värde | Beskrivning |
+| Egenskap  | Värde | Beskrivning |
 |---|---|---|
 | Namn | {User Full Name} | Användarens förnamn och efternamn |
 | Användarnamn | <span>user@domain.com</span> | Användarnamnet som används för att identifiera den inloggade användaren |
@@ -300,7 +301,7 @@ Dessutom ser du en tabell med alla användaranspråk i autentiseringsbegäran. E
 
 I det här steget ska du testa att komma åt anspråkskontrollanten som en anonym användare:<br/>
 Välj länken för att logga ut användaren och slutför utloggningsprocessen.<br/>
-Skriv http://localhost:{port}/claims i webbläsaren för att få åtkomst till kontrollanten som skyddas med `[Authorize]`-attributet
+Skriv `http://localhost:{port}/claims` i webbläsaren för att få åtkomst till kontrollanten som skyddas med `[Authorize]`-attributet
 
 #### <a name="expected-results"></a>Förväntat resultat
 

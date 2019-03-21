@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52d3e058c7e604a31493bf3b1972b39c9922fd90
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e5ce628716e9e8d0094f678c3d67dcfad9e24ada
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163523"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860541"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Självstudier: Azure Active Directory-integrering med Proxyclick
 
@@ -214,11 +214,11 @@ Om du vill aktivera Azure AD-användare att logga in på Proxyclick, måste de e
 
     ![Lägga till medarbetare](./media/proxyclick-tutorial/user3.png)
 
-    a. I den **e-post** textrutan typ e-postadressen för användaren som **brittasimon@contoso.com**.
+    a. I den **e-post** textrutan typ e-postadressen för användaren som **brittasimon\@contoso.com**.
 
-    b. I den **Förnamn** textrutan Ange först namnet på användaren som Britta.
+    b. I textrutan **Förnamn** skriver du förnamnet på användaren som Britta.
 
-    c. I den **efternamn** textrutan anger efternamn för användaren som Simon.
+    c. I textrutan **Efternamn** skriver du efternamnet som Simon.
 
     d. Klicka på **Lägg till användare**.
 
@@ -261,7 +261,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

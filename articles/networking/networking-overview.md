@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 56e203a212a4e0e81922336f72fd58ef3cb7dc64
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: c37e2357038e4f711b015fda80a0de8c4dbd9498
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983514"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880933"
 ---
 # <a name="azure-networking"></a>Azure-nätverk
 
@@ -149,7 +149,7 @@ Azure tillhandahåller följande verktyg för att övervaka och hantera nätverk
 
 Du kan distribuera och konfigurera Azure-nätverksresurser med någon av följande verktyg:
 
-- **Azure-portalen:** Ett grafiskt användargränssnitt som körs i en webbläsare. Öppna [Azure-portalen](http://portal.azure.com).
+- **Azure-portalen:** Ett grafiskt användargränssnitt som körs i en webbläsare. Öppna [Azure-portalen](https://portal.azure.com).
 - **Azure PowerShell:** Kommandoradsverktyg för hantering av Azure från Windows-datorer. Läs mer om Azure PowerShell genom att läsa den [översikt över Azure PowerShell](/powershell/azure/overview?view=azurermps-3.8.0?toc=%2fazure%2fnetworking%2ftoc.json) artikeln.
 - **Azure-kommandoradsgränssnittet (CLI):** Kommandoradsverktyg för hantering av Azure från Linux, macOS och Windows-datorer. Läs mer om Azure CLI genom att läsa den [översikt över Azure CLI](/cli/azure/get-started-with-azure-cli?toc=%2fazure%2fnetworking%2ftoc.json) artikeln.
 - **Azure Resource Manager-mallar:** En fil (i JSON-format) som definierar infrastrukturen och konfigurationen av en Azure-lösning. Genom att använda en mall kan du distribuera lösningen flera gånger under dess livscykel och vara säker på att dina resurser distribueras konsekvent. Mer information om att skapa mallar i [bästa praxis för att skapa mallar](../azure-resource-manager/resource-manager-template-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json) artikeln. Mallar kan distribueras med Azure-portalen, CLI eller PowerShell. Om du vill komma igång med mallar direkt kan distribuera någon av de många förkonfigurerade mallarna i den [Azure-Snabbstartsmallar](https://azure.microsoft.com/resources/templates/?term=network) biblioteket. 

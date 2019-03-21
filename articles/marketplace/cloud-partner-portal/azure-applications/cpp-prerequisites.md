@@ -3,7 +3,7 @@ title: Krav för Azure Application-erbjudande | Microsoft Docs
 description: Krav för att publicera ett Azure-program erbjuder på Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
-author: dan-wesley
+author: v-miclar
 manager: Patrick.Butler
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,20 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: b3f978635127ef6aabb123d1c95b76ed06fccbbf
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: df127eec662f8598246f276ef9b1608ae3021512
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097798"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007158"
 ---
 # <a name="azure-application-prerequisites"></a>Krav för Azure-program
 
-Den här artikeln beskriver de tekniska och affärsmässiga krav för att publicera ett erbjudande om hanterat program på Azure Marketplace.  Om du inte redan har gjort det, visa videon [mallar för att skapa lösningar och hanterade program för Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
+Den här artikeln beskriver de tekniska och affärsmässiga krav för att publicera ett erbjudande om hanterat program på Azure Marketplace.  Om du inte redan har gjort det, kan du granska följande källor till information:
+- Beroende på din SKU-typ, antingen [Azure-program: Lösningsmallen erbjuder publicera Guide](../../marketplace-solution-templates.md) eller [Azure-program: Erbjudande om hanterat program publicera Guide](../../marketplace-managed-apps.md)
+- [Att skapa mallar för lösningar och hanterade program för Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) video
 
 
 ## <a name="technical-requirements"></a>Tekniska krav
@@ -33,7 +35,7 @@ De tekniska kraven är följande:
 *   Azure Resource Manager-mallar för mer information finns i [förstå strukturen och syntaxen för Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates). Den här artikeln beskriver strukturen för en Azure Resource Manager-mall. Den anger de olika avsnitten i en mall och egenskaperna som är tillgängliga i dessa avsnitt. Mallen består av JSON och uttryck som du kan använda för att skapa värden för din distribution. 
 * Azure Quickstart-mallar.<br> Mer information finns i:
 
-  * [Azure-Snabbstartsmallar](https://azure.microsoft.com/documentation/templates/). Få mer gjort genom att distribuera Azure-resurser via resurshanteraren i Azure med mallar som communityt har bidragit med. Med Azure Resource Manager kan du etablera dina program med hjälp av en deklarativ mall. I samma mall kan du distribuera flera tjänster tillsammans med deras beroenden. Du använder samma mall till att upprepade gånger distribuera ditt program i varje fas av programmets livscykel.
+  * [Azure-snabbstartmallar](https://azure.microsoft.com/documentation/templates/). Få mer gjort genom att distribuera Azure-resurser via resurshanteraren i Azure med mallar som communityt har bidragit med. Med Azure Resource Manager kan du etablera dina program med hjälp av en deklarativ mall. I samma mall kan du distribuera flera tjänster tillsammans med deras beroenden. Du använder samma mall till att upprepade gånger distribuera ditt program i varje fas av programmets livscykel.
   * [GitHub: Azure Resource Manager-Snabbstartsmallar](https://github.com/azure/azure-quickstart-templates). Den här lagringsplatsen innehåller alla tillgängliga Azure Resource Manager-mallar som tillförts av communityn. En mall för sökbart index hålls på https://azure.microsoft.com/en-us/documentation/templates/.
 * Skapa UI-Definition<br>
 Mer information finns i [skapa Azure portal användargränssnittet för det hanterade programmet](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview). Den här artikeln beskriver grundläggande begrepp i filen createUiDefinition.json. Azure-portalen använder den här filen för att generera användargränssnittet för att skapa ett hanterat program.
@@ -43,7 +45,7 @@ Mer information finns i [skapa Azure portal användargränssnittet för det hant
 
 Affärskraven omfattar följande procedur, avtalsenliga och juridiska skyldigheter:
 
-* Du måste vara ett registrerat moln Marketplace Publisher. Om du inte är registrerad, följer du stegen i artikeln bli en Cloud Marketplace-utgivare.
+* Du måste vara ett registrerat moln Marketplace Publisher. Om du inte är registrerad, följer du stegen i artikeln [blir molnet Marketplace utgivare](../../become-publisher.md).
 
 >[!NOTE]
 >Du bör använda samma konto för registrering av Microsoft Developer Center för att logga in på partnerportalen i molnet. Du bör ha endast en Microsoft-konto för alla dina Azure Marketplace-erbjudanden. Det här kontot får inte vara specifika för enskilda tjänster eller erbjudanden.
@@ -65,8 +67,8 @@ Om du vill publicera ett nytt erbjudande för Azure-program, måste du uppfylla 
   * En rubrik
   * En beskrivning (i HTML-format)
   * En logotyp (i PNG-format) och fasta bildstorleken i den här: 40 x 40 bildpunkter, 90 x 90 bildpunkter, 115 x 115 bildpunkter och 255 x 115 bildpunkter.
-* En *användningsvillkoren* och en *sekretesspolicy*
-* Dokumentation
+* En *användningsvillkor* och en *sekretesspolicy* dokument
+* Dokumentation om Application
 * Supportkontakter
 
 

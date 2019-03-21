@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7fcf08c36d8babd0a318ed5b912823c344f4ce64
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9e1dde57dc1903e87704bd55fb0b942b7cc349e5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549960"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010584"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiera data från Amazon Redshift med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -126,7 +126,7 @@ För att kopiera data från Amazon Redshift, ange typ av datakälla i kopierings
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **AmazonRedshiftSource** | Ja |
-| DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: Välj * från MyTable. |Nej (om ”tableName” i datauppsättningen har angetts) |
+| DocumentDB |Använd anpassad fråga för att läsa data. Till exempel: Välj * från MyTable. |Nej (om ”tableName” i datauppsättningen har angetts) |
 | redshiftUnloadSettings | Egenskapsgruppen när du använder Amazon Redshift-AVLASTNING. | Nej |
 | s3LinkedServiceName | Refererar till en Amazon S3 att-ska använda som en tillfällig lagring genom att ange ett namn för den länkade tjänsten av typen ”AmazonS3”. | Ja om du använder FRÅNKOPPLING |
 | bucketName | Ange S3-bucket för att lagra tillfälliga data. Om du inte genererar Data Factory-tjänsten den automatiskt.  | Ja om du använder FRÅNKOPPLING |
@@ -219,7 +219,7 @@ När du kopierar data från Amazon Redshift, används följande mappningar från
 | VERKLIGA |Single |
 | SMALLINT |Int16 |
 | TEXT |String |
-| TIMESTAMP |DateTime |
+| TIDSSTÄMPEL |DateTime |
 | VARCHAR |String |
 
 ## <a name="next-steps"></a>Nästa steg

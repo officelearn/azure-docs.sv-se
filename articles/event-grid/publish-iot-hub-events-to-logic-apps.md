@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 7c5030a80ead7e84526e01aa3a8a4a75ee2b276a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.openlocfilehash: 9c84e1a62ad8b67e398c62074c390711f4b0be28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135023"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080005"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Självstudie: Skicka e-postmeddelanden om Azure IoT Hub-händelser med hjälp av Logic Apps
 
@@ -25,7 +25,7 @@ Med Azure Event Grid kan du reagera på händelser i IoT Hub genom att utlösa �
 
 Den här artikeln går igenom en exempelkonfiguration som använder IoT Hub och Event Grid. Du lär dig hur du konfigurerar en Azure-logikapp att skicka ett e-postmeddelande varje gång en enhet läggs till i din IoT-hubb. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett e-postkonto från valfri e-postleverantör som stöds av Azure Logic Apps, t.ex. Office 365 Outlook, Outlook.com eller Gmail. Det här e-postkontot används för att skicka händelsemeddelandena. En fullständig lista över Logic App-anslutningsprogram som stöds finns i [Översikt över anslutningsappar](https://docs.microsoft.com/connectors/)
 * Ett aktivt Azure-konto. Om du inte redan har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
@@ -162,14 +162,14 @@ I det här avsnittet ska du konfigurera din IoT-hubb så att den publicerar hän
    ![Skapa ny händelseprenumeration](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. Skapa händelseprenumerationen med följande värden: 
-    * **Händelsetyp**: Avmarkera Prenumerera på alla händelsetyper och välj **En enhet har skapats** på menyn.
-    * **Information om slutpunkten**: Välj slutpunktstypen **Webhook** och klicka på den valda slutpunkten. Klistra in den webbadress som du kopierade från logikappen och bekräfta valet.
+   * **Händelsetyp**: Avmarkera Prenumerera på alla händelsetyper och välj **En enhet har skapats** på menyn.
+   * **Information om slutpunkten**: Välj slutpunktstypen **Webhook** och klicka på den valda slutpunkten. Klistra in den webbadress som du kopierade från logikappen och bekräfta valet.
 
-    ![webbadress till vald slutpunkt](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
+     ![webbadress till vald slutpunkt](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-    * **Information om händelseprenumeration**: Ange ett beskrivande namn och välj **Event Grid-schema**
+   * **Information om händelseprenumeration**: Ange ett beskrivande namn och välj **Event Grid-schema**
 
-  När du är klar bör formuläret likna det i följande exempel: 
+   När du är klar bör formuläret likna det i följande exempel: 
 
     ![Exempelformulär för händelseprenumeration](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
@@ -177,8 +177,8 @@ I det här avsnittet ska du konfigurera din IoT-hubb så att den publicerar hän
 
 6. Skapa följande filter:
 
-  * **Ämne börjar med**: Ange `devices/Building1_` för att filtrera fram enhetshändelser i byggnad 1.
-  * **Ämne slutar med**: Ange `_Temperature` för att filtrera fram enhetshändelser relaterade till temperatur.
+   * **Ämne börjar med**: Ange `devices/Building1_` för att filtrera fram enhetshändelser i byggnad 1.
+   * **Ämne slutar med**: Ange `_Temperature` för att filtrera fram enhetshändelser relaterade till temperatur.
 
 5. Spara händelseprenumerationen genom att välja **Skapa**.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: d3154e137aec8dcedcb066e2c9aab046b5a7b6e0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: d726006d3ecce69f129b1576c7c6d12833582873
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108831"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081998"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Självstudier: Reagera på säkerhetsincidenter
 Security Center analyserar kontinuerligt dina hybridmolnarbetsbelastningar med avancerad analys och hotinformation för att varna dig om skadlig aktivitet. Dessutom kan du integrera varningar från andra säkerhetsprodukter och -tjänster i Security Center och skapa anpassade varningar utifrån dina egna indikatorer eller intelligenskällor. När en varning har genererats krävs snabba åtgärder för att undersöka och åtgärda. I den här självstudien får du lära dig hur man:
@@ -45,28 +45,28 @@ Security Center tillhandahåller en enhetlig vy över alla säkerhetsvarningar. 
 
 1. På Security Center-huvudmenyn under **IDENTIFIERING** väljer du **Säkerhetsvarningar**:
 
-  ![Säkerhetsaviseringar](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
+   ![Säkerhetsaviseringar](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
 
 2. I listan över varningar klickar du på en säkerhetsincident för att läsa mer om incidenten. En säkerhetsincident är en samling varningar. **Säkerhetsincident har identifierats** öppnas.
 
-  ![Säkerhetsincident](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+   ![Säkerhetsincident](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
 3. På den här skärmen ser du en beskrivning av säkerhetsincidenten överst och listan med varningar som ingår i incidenten. Klicka på den varning du vill titta närmare på för att visa mer information.
 
-  ![Säkerhetsincident](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+   ![Säkerhetsincident](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
-  Typen av varning kan variera. Läs [Förstå säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) för mer information om typen av varning och potentiella åtgärder. För varningar som kan avfärdas säkert kan du högerklicka på varningen och välja alternativet **Stäng**:
+   Typen av varning kan variera. Läs [Förstå säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) för mer information om typen av varning och potentiella åtgärder. För varningar som kan avfärdas säkert kan du högerklicka på varningen och välja alternativet **Stäng**:
 
-  ![Varning](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
+   ![Varning](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
 
 4. Om rotorsaken och omfånget för den skadliga aktiviteten är okänd fortsätter du till nästa steg för att undersöka närmare.
 
 ## <a name="investigate-an-alert-or-incident"></a>Undersöka en varning eller ett hot
 1. På sidan **Säkerhetsvarning** klickar du på knappen **Starta undersökning** (om du redan har börjat ändras namnet till **Fortsätt undersökningen**).
 
-  ![Undersökning](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
+   ![Undersökning](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
 
-  Undersökningskartan är en grafisk representation av de entiteter som är anslutna till säkerhetsvarningen eller incidenten. Om du klickar på en entitet på kartan visas information om den entiteten, som nya entiteter, och kartan expanderar. Egenskaperna för entiteten som är vald på kartan är markerade i rutan på höger sida. Informationen som är tillgänglig på varje flik varierar beroende på vald entitet. Under undersökningsprocessen bör du granska all relevant information för att bättre förstå angriparens tillvägagångssätt.
+   Undersökningskartan är en grafisk representation av de entiteter som är anslutna till säkerhetsvarningen eller incidenten. Om du klickar på en entitet på kartan visas information om den entiteten, som nya entiteter, och kartan expanderar. Egenskaperna för entiteten som är vald på kartan är markerade i rutan på höger sida. Informationen som är tillgänglig på varje flik varierar beroende på vald entitet. Under undersökningsprocessen bör du granska all relevant information för att bättre förstå angriparens tillvägagångssätt.
 
 2. Om du behöver mer bevis eller om du ytterligare måste undersöka entiteter som hittades vid undersökningen fortsätter du till nästa steg.
 

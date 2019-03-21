@@ -15,12 +15,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d5463b495620e441ad5371b5859c9ab543e0e7c6
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: dc146c6e8877a99570aab25d198ba365abbe7c86
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874672"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078184"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack-registrering
 Du kan registrera din Azure Stack Development Kit (ASDK)-installation med Azure kan du hämta marketplace från Azure och du ställer in handelsdata rapporterar tillbaka till Microsoft. Registrering krävs för att stödja fullständig Azure Stack-funktioner, inklusive marketplace syndikering. Registrering krävs så att du kan testa viktiga Azure Stack-funktioner som marketplace-syndikering och användningsrapportering. När du har registrerat Azure Stack rapporteras användning till Azure commerce. Du kan se den prenumeration som du använde för registrering. ASDK användare debiteras dock inte för eventuell användning av rapporterar.
@@ -38,7 +38,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 Kontrollera utdata returnerar **FullLanguageMode**. Om något annat språkläge returneras, registreringen måste köras på en annan dator eller språkläget måste anges till **FullLanguageMode** innan du fortsätter.
 
-Azure AD-kontot som används för registreringen måste ha åtkomst till Azure-prenumerationen och har behörighet att skapa program med identiteter och tjänstens huvudnamn i katalogen som är associerade med den aktuella prenumerationen. Vi rekommenderar att du registrerar Azure Stack med Azure med lägsta behörighet administration av [skapar ett tjänstkonto som ska användas för registrering](..\azure-stack-registration-role.md) i stället för autentiseringsuppgifterna för global administratör.
+Azure AD-kontot som används för registreringen måste ha åtkomst till Azure-prenumerationen och har behörighet att skapa program med identiteter och tjänstens huvudnamn i katalogen som är associerade med den aktuella prenumerationen. Vi rekommenderar att du registrerar Azure Stack med Azure med lägsta behörighet administration av [skapar ett tjänstkonto som ska användas för registrering](../azure-stack-registration-role.md) i stället för autentiseringsuppgifterna för global administratör.
 
 ## <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 Följ dessa steg för att registrera ASDK med Azure.

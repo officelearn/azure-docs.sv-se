@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 44b0f8b3d11b737ad88f7d33b036b52d24b70e33
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: dec0b8bcd5a0e0d20ead5b149405e3716589ba53
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960335"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995721"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installera och konfigurera Fjärrskrivbord för att ansluta till en Linux-VM i Azure
 Linux-datorer (VM) i Azure hanteras vanligtvis från kommandoraden med hjälp av en secure shell (SSH)-anslutning. När nya till Linux, eller för snabb felsökning scenarier kan det vara enklare användning av fjärrskrivbord. Den här artikeln beskriver hur du installerar och konfigurerar en Skrivbordsmiljö ([xfce](https://www.xfce.org)) och fjärrskrivbord ([xrdp](http://www.xrdp.org)) för din Linux-VM med hjälp av Resource Manager-distributionsmodellen.
@@ -103,7 +103,7 @@ När de har autentiserat, xfce Skrivbordsmiljö läsa in och se ut ungefär så 
 
 ![xfce Skrivbordsmiljö via xrdp](./media/use-remote-desktop/xfce-desktop-environment.png)
 
-Om din lokala RDP-klient använder autentisering på nätverksnivå (NLA), kan du behöva inaktivera anslutningsinställningen. XRDP stöder för närvarande inte NLA. Du kan också titta på alternativa RDP-lösningar som har stöd för NLA, till exempel [FreeRDP](http://www.freerdp.com).
+Om din lokala RDP-klient använder autentisering på nätverksnivå (NLA), kan du behöva inaktivera anslutningsinställningen. XRDP stöder för närvarande inte NLA. Du kan också titta på alternativa RDP-lösningar som har stöd för NLA, till exempel [FreeRDP](https://www.freerdp.com).
 
 
 ## <a name="troubleshoot"></a>Felsöka

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 67a0b476-2305-4157-8658-2ec3625850d5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 627275855f231f5a4336075df3864448325127f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0a62aa573d49ccdd237e692b63a6fda0dd83d52a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211877"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888305"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Självstudier: Azure Active Directory-integrering med Palo Alto Networks Captive Portal
 
@@ -36,7 +36,7 @@ Läs mer om SaaS-appintegrering (programvara som en tjänst) med Azure AD i [Enk
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att integrera Azure AD med Palo Alto Networks Captive Portal behöver du följande:
 
@@ -105,12 +105,12 @@ Först aktiverar du enkel inloggning med Azure AD i Azure-portalen:
 
     ![Fönstret Grundläggande SAML-konfiguration för Palo Alto Networks Captive Portal](common/idp-intiated.png)
 
-    1. För **Identifierare** anger du en URL som har mönstret `https://<customer_firewall_host_name>/SAML20/SP`.
+   1. För **Identifierare** anger du en URL som har mönstret `https://<customer_firewall_host_name>/SAML20/SP`.
 
-    2. För **Svars-URL** anger du en URL som har mönstret `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
+   2. För **Svars-URL** anger du en URL som har mönstret `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
 
-    > [!NOTE]
-    > Uppdatera platshållarvärdena i det här steget med den faktiska identifieraren och svars-URL:erna. Hämta de faktiska värdena genom att kontakta [kundsupporten för Palo Alto Networks Captive Portal](https://support.paloaltonetworks.com/support).
+      > [!NOTE]
+      > Uppdatera platshållarvärdena i det här steget med den faktiska identifieraren och svars-URL:erna. Hämta de faktiska värdena genom att kontakta [kundsupporten för Palo Alto Networks Captive Portal](https://support.paloaltonetworks.com/support).
 
 5. I avsnittet **SAML-signeringscertifikat** letar du upp **XML:en med federationsmetadata** och väljer **Ladda ned** intill det. Spara den nedladdade filen till datorn.
 
@@ -158,13 +158,13 @@ Skapa sedan en testanvändare med namnet *Britta Simon* i Azure-portalen:
 
     1. För **Namn** anger du **BrittaSimon**.
   
-    2. För **Användarnamn** anger du **BrittaSimon@\<din_företagsdomän\>**. Till exempel **BrittaSimon@contoso.com**.
+    2. För **användarnamn**, ange **BrittaSimon\@\<your_company_domain\>**. Till exempel **BrittaSimon\@contoso.com**.
 
     3. För **Lösenord** anger du ett lösenord. Vi rekommenderar att du antecknar det lösenord du anger. Du kan markera kryssrutan **Visa lösenord** för att visa lösenordet.
 
     4. Välj **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 Sedan beviljar du åtkomst till Palo Alto Networks Captive Portal så att Britta Simon kan använda enkel inloggning med Azure:
 

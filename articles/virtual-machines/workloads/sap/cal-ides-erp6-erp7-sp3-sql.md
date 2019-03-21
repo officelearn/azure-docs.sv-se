@@ -16,17 +16,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: eb5d731fbef22c70aaf970bf64aa90361e47a542
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 413e449f005d288f66da0257f5b800733e58eb94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194206"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011270"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Distribuera SAP IDES EHP7 SP3 för SAP ERP 6.0 på Azure
 Den här artikeln beskriver hur du distribuerar en SAP IDES datorn som kör SQL Server och operativsystemet Windows Azure via SAP Cloud Appliance Library (SAP CAL) 3.0. Skärmbilderna visar processen. Följ samma steg för att distribuera en annan lösning.
 
-Starta med SAP CAL, gå till den [SAP Cloud Appliance Library](https://cal.sap.com/) webbplats. SAP har också en blogg om nya [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
+Starta med SAP CAL, gå till den [SAP Cloud Appliance Library](https://cal.sap.com/) webbplats. SAP har också en blogg om nya [SAP Cloud Appliance Library 3.0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
 > [!NOTE]
 > Du kan använda Azure Resource Manager-distributionsmodellen utöver den mindre prioriterad klassiska distributionsmodellen från och med den 29 maj 2017 för att distribuera SAP CAL. Vi rekommenderar att du använder den nya Resource Manager-distributionsmodellen och bortse från den klassiska distributionsmodellen.
@@ -46,8 +46,8 @@ När du har loggat in till SAP CAL första sidan vanligtvis leder dig till den *
     
     c. Ge SAP CAL-behörighet för att distribuera till din Azure-prenumeration.
 
-    > [!NOTE]
-    Nästa steg visar hur du skapar ett SAP CAL-konto för Resource Manager-distributioner. Om du redan har ett SAP CAL-konto som är länkad till den klassiska distributionsmodellen du *behöver* att följa stegen nedan för att skapa ett nytt SAP CAL-konto. Nytt SAP CAL-konto måste du distribuerar i Resource Manager-modellen.
+   > [!NOTE]
+   >  Nästa steg visar hur du skapar ett SAP CAL-konto för Resource Manager-distributioner. Om du redan har ett SAP CAL-konto som är länkad till den klassiska distributionsmodellen du *behöver* att följa stegen nedan för att skapa ett nytt SAP CAL-konto. Nytt SAP CAL-konto måste du distribuerar i Resource Manager-modellen.
 
 1. Att skapa en ny SAP CAL-konto, den **konton** sidan visas två alternativ för Azure: 
 
@@ -91,7 +91,7 @@ Du skapat har ett SAP CAL-konto som kan:
 - Distribuera SAP-system i din Azure-prenumeration.
 
 > [!NOTE]
-Innan du kan distribuera SAP IDES lösningen bygger på Windows och SQL Server, kan du behöva registrera dig för en SAP CAL-prenumeration. I annat fall lösningen kan visas som **låst** på översiktssidan.
+> Innan du kan distribuera SAP IDES lösningen bygger på Windows och SQL Server, kan du behöva registrera dig för en SAP CAL-prenumeration. I annat fall lösningen kan visas som **låst** på översiktssidan.
 
 ### <a name="deploy-a-solution"></a>Distribuera en lösning
 1. När du har konfigurerat ett SAP CAL-konto, Välj **The SAP IDES lösning på Windows och SQL Server** lösning. Klicka på **skapa instans**, och bekräfta användning och allmänna villkor. 

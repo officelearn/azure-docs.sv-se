@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16caf8b6fd48b5dca676b1c8ee046ad01264ca03
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 561d7f5b28775e5f431d35d956cff6f800cc11b2
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211435"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294526"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Hur användare i din organisation kan bjuda in gästanvändare till en app
 
@@ -36,15 +37,15 @@ När en app har konfigurerats för självbetjäning, använda programägare sina
 1. Öppna din åtkomstpanelen genom att gå till `https://myapps.microsoft.com`.
 2. Peka på appen, Välj ellipserna (**...** ), och välj sedan **hantera app**.
  
-   ![Åtkomstpaneler hantera app](media/add-users-iw/access-panel-manage-app.png)
+   ![Skärmbild som visar de hantera app undermenyn för Salesforce-appen](media/add-users-iw/access-panel-manage-app.png)
  
 3. Överst i listan över användare, Välj **+**.
    
-   ![Åtkomstpanelen Lägg till en användare](media/add-users-iw/access-panel-manage-app-add-user.png)
+   ![Skärmbild som visar på plustecknet för att lägga till medlemmar till appen](media/add-users-iw/access-panel-manage-app-add-user.png)
    
 4. I den **lägga till medlemmar** sökrutan, Skriv e-postadress för gästanvändare. Du kan också lägga till ett välkomstmeddelande.
    
-   ![Få åtkomst till panelen inbjudan](media/add-users-iw/access-panel-invitation.png)
+   ![Skärmbild som visar Lägg till medlemmar fönstret för att lägga till en gäst](media/add-users-iw/access-panel-invitation.png)
    
 5. Välj **Lägg till** att skicka en inbjudan till gästanvändaren. När du har skickat inbjudan läggs användarkontot automatiskt till i katalogen som gäst.
 
@@ -55,19 +56,19 @@ När en app har konfigurerats för självbetjäning kan programägare kan bjuda 
 2. Öppna din åtkomstpanelen genom att gå till `https://myapps.microsoft.com`.
 3. Välj den **grupper** app.
    
-   ![Få åtkomst till panelen grupper appen](media/add-users-iw/access-panel-groups.png)
+   ![Skärmbild som visar appen grupper i åtkomstpanelen](media/add-users-iw/access-panel-groups.png)
    
 4. Under **grupper som jag äger**, Välj den grupp som har åtkomst till appen som du vill dela.
    
-   ![Åtkomstpanelen grupper jag äger](media/add-users-iw/access-panel-groups-i-own.png)
+   ![Skärmbild som visar var du vill välja en grupp under de grupper som jag äger](media/add-users-iw/access-panel-groups-i-own.png)
    
 5. Överst i listan över gruppmedlemmar, Välj **+**.
    
-   ![Åtkomstpanelen grupper Lägg till medlem](media/add-users-iw/access-panel-groups-add-member.png)
+   ![Skärmbild som visar på plustecknet för att lägga till medlemmar i gruppen](media/add-users-iw/access-panel-groups-add-member.png)
    
 6. I den **lägga till medlemmar** sökrutan, Skriv e-postadress för gästanvändare. Du kan också lägga till ett välkomstmeddelande.
    
-   ![Få åtkomst till panelen grupp inbjudan](media/add-users-iw/access-panel-invitation.png)
+   ![Skärmbild som visar Lägg till medlemmar fönstret för att lägga till en gäst](media/add-users-iw/access-panel-invitation.png)
    
 7. Välj **Lägg till** att skicka inbjudan till gästanvändaren automatiskt. När du har skickat inbjudan läggs användarkontot automatiskt till i katalogen som gäst.
 

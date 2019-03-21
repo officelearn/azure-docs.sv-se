@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 70e1b2b20c4846626121dec190dff220a154b81b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: c55fa3a1e4126e651f846d2980aee5cab54cff53
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341359"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550643"
 ---
 # <a name="sample---allowed-region-locations"></a>Exempel – Tillåtna regionplatser
 
@@ -53,7 +53,7 @@ Det JSON som definierar principparametrarna, som används av Azure CLI och Azure
 
 ## <a name="parameters"></a>Parametrar
 
-|Namn |Typ |Fält |Beskrivning |
+|Namn |Type |Fält |Beskrivning |
 |---|---|---|---|
 |listOfAllowedLocations |Matris |platser |Listan över tillåtna platser|
 
@@ -75,7 +75,7 @@ I den här exempelparametern tillåts endast platserna _USA, östra 2_ eller _US
 
 ## <a name="azure-portal"></a>Azure Portal
 
-[![Distribuera till Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
+[![Distribuera till Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
 [![Distribuera till Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell

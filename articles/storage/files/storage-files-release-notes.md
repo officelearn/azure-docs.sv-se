@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 3/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: f2f109b6861e54cc613fd06f26983897f7c1a9bb
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 063699f016c3e165dfb07d17c26e7f29a13c81f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727135"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118620"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Viktig information för Azure File Sync-agenten
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Dina Windows Server-installationer omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS). Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -55,7 +55,7 @@ Följande viktiga information gäller 5.0.2.0 av Azure File Sync-agenten (gavs u
 ### <a name="improvements-and-issues-that-are-fixed"></a>Förbättringar och problem som åtgärdas
 
 - Stöd för Azure Government-molnet
-    - Vi har lagt till förhandsversion av stöd för Azure Government-molnet. Detta kräver en vit angiven prenumeration och en särskild agent-hämtning från Microsoft. För att få åtkomst till förhandsversionen kan du maila direkt [ AzureFiles@microsoft.com ](mailto:AzureFiles@microsoft.com).
+  - Vi har lagt till förhandsversion av stöd för Azure Government-molnet. Detta kräver en vit angiven prenumeration och en särskild agent-hämtning från Microsoft. För att få åtkomst till förhandsversionen kan du maila direkt [ AzureFiles@microsoft.com ](mailto:AzureFiles@microsoft.com).
 - Stöd för Datadeduplicering
     - Datadeduplicering stöds nu helt med molnlagringsnivåer aktiverade på Windows Server 2016 och Windows Server 2019. Aktivera deduplicering på en volym med molnlagringsnivåer aktiverad kan du Cachelagra flera filer på plats utan att behöva etablera mer lagringsutrymme.
 - Stöd för offline-dataöverföring (t.ex. via Data Box)

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/28/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cb0822380fd375c111f8acb8b28132727a7c048
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8ee74c5caed04d2626fea27d3419d0b0d685d675
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188315"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840349"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Självstudier: Azure Active Directory-integrering med bröstknappar SAML SSO
 
@@ -112,6 +112,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     ![Bröstknappar SAML SSO-domän och URL: er med enkel inloggning för information](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_url.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster:
+    
     | |
     |--|
     | `https://<customername>.insigniails.com/ils` |
@@ -217,7 +218,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

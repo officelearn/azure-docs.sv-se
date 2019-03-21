@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: e3933fb593dfafc6ecc641d7c19741b7c0882c00
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.openlocfilehash: 36d0a976b73fe5b6f89755ce790b919468744179
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878378"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091655"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Uppdateringar av tjänsten i Azure Site Recovery
 Som en organisation måste du ta reda på hur du ska skydda data och appar/arbetsbelastningar som körs när planerade och oplanerade avbrott inträffar. Azure Site Recovery bidrar till din BCDR-strategi genom att hålla appar som körs på virtuella datorer och fysiska servrar tillgängliga om en plats kraschar. Site Recovery replikerar arbetsbelastningar som körs på virtuella datorer och fysiska servrar så att de fortfarande är tillgängliga på en sekundär plats om den primära platsen inte är tillgänglig. Den återställer arbetsbelastningar till den primära platsen när den är igång och körs igen.
@@ -108,7 +108,7 @@ Innan du fortsätter med uppdateringar som avser [Site Recovery-supportmeddeland
 En omstart rekommenderas efter varje uppgradering av mobilitetsagenten för att se till att alla senaste ändringarna har lästs in på källdatorn. Det är dock **inte obligatoriska**. Om skillnaden mellan agentversion under senaste omstart och aktuella versionen är större än 4, är det obligatoriskt med en omstart. Se följande tabell detaljerad förklaring.
 
 |**Agentversion under senaste omstart** | **Uppgradera till** | **Starta är om obligatorisk?**|
-|---------|---------|---------|--------|
+|---------|---------|---------|
 |9.16 |  9.18 | Ej obligatoriskt|
 |9.16 | 9.19 | Ej obligatoriskt|
 | 9.16 | 9.20 | Ej obligatoriskt

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 8c55b9b9ce6e98e91e7c6a712e0a9dbca0964512
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 31ccf14c82f6248c74d6af932fe9e338d26d2747
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985518"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57964294"
 ---
 Varje klientdator som du ansluter till ett virtuellt nätverk med punkt-till-plats-anslutning måste ha ett klientcertifikat installerat. Du kan generera det från rotcertifikatet och installera det på varje klientdator. Om du inte installerar ett giltigt klientcertifikat misslyckas autentiseringen när klienten försöker ansluta till det virtuella nätverket.
 
@@ -22,7 +22,7 @@ Du kan generera klientcertifikat på följande sätt:
 
 - **Företagscertifikat:**
 
-  - Om du använder en lösning för företagscertifikat genererar du ett klientcertifikat med det allmänna namnvärdesformatet *name@yourdomain.com*. Använd det här formatet i stället för formatet *domännamn\användarnamn*.
+  - Om du använder en företagscertifikatlösning genererar du ett klientcertifikat med det vanliga namnvärdeformatet *namn\@Dindomän.com*. Använd det här formatet i stället för formatet *domännamn\användarnamn*.
   - Se till att klientcertifikatet baseras på en användarcertifikatmall där *Klientautentisering* är den första posten i användningslistan. Du kan kontrollera certifikatet genom att dubbelklicka på det och visa **Förbättrad nyckelanvändning** på fliken **Information**.
 
 - **Självsignerat rotcertifikat:** Följ anvisningarna i någon av följande P2S-certifikatartiklar så att de klientcertifikat som du skapar är kompatibla med P2S-anslutningar. Med anvisningarna i de angivna artiklarna skapas ett kompatibelt klientcertifikat: 

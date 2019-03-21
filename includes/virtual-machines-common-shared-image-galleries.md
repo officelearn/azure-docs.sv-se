@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/09/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: f8122f35ac6d604908fc31dcece7dfb53dd50286
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 8c7da8d04b456642b158dda77d9c745891aa18e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985515"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58052085"
 ---
 Delade bildgalleriet är en tjänst som hjälper dig att skapa struktur och organisation runt dina anpassade hanterade VM-avbildningar. Med hjälp av en delad bildgalleriet kan du dela dina avbildningar till olika användare, tjänstens huvudnamn eller AD-grupper i din organisation. Delade bilder kan replikeras till flera regioner, för snabbare skalning av dina distributioner.
 
@@ -128,18 +128,18 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
  
  A. Följ stegen nedan för att lista alla delade bildgalleriet resurser över prenumerationer som du har åtkomst till på Azure portal:
 
- 1. Öppna [Azure-portalen](https://portal.azure.com).
- 1. Gå till **alla resurser**.
- 1. Välj alla prenumerationer som du vill visa en lista över alla resurser.
- 1. Leta efter resurser av typen **privat galleri**.
+1. Öppna [Azure-portalen](https://portal.azure.com).
+1. Gå till **alla resurser**.
+1. Välj alla prenumerationer som du vill visa en lista över alla resurser.
+1. Leta efter resurser av typen **privat galleri**.
  
- Om du vill se bild definitioner och avbildningsversioner, bör du också välja **Visa dolda typer**.
+   Om du vill se bild definitioner och avbildningsversioner, bör du också välja **Visa dolda typer**.
  
- Om du vill visa alla bildgalleriet för delade resurser över prenumerationer som du har behörighet att använda följande kommando i Azure CLI:
+   Om du vill visa alla bildgalleriet för delade resurser över prenumerationer som du har behörighet att använda följande kommando i Azure CLI:
 
- ```bash
- az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
- ```
+   ```bash
+   az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
+   ```
 
 
 **F.** Hur gör jag för att dela mina avbildningar mellan prenumerationer?
@@ -155,9 +155,9 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 
  Scenario 2: Om du har en ohanterad generaliserad avbildning kan du skapa en hanterad avbildning från den och skapar sedan en avbildningsdefinitionen och versionsnumret för avbildningen från den. 
 
- Scenario 3: Om du har en virtuell Hårddisk i ditt lokala filsystem, måste du överföra den virtuella Hårddisken och skapa en hanterad avbildning kan du skapa och bild definitions- och versionsnumret för avbildningen från den. 
-    - Om den virtuella Hårddisken är av en virtuell Windows-dator, se [överföra en generaliserad virtuell Hårddisk](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
-    - Om den virtuella Hårddisken är för en Linux VM, se [överföra en virtuell Hårddisk](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
+ Scenario 3: Om du har en virtuell Hårddisk i ditt lokala filsystem, måste du överföra den virtuella Hårddisken och skapa en hanterad avbildning kan du skapa och bild definitions- och versionsnumret för avbildningen från den.
+- Om den virtuella Hårddisken är av en virtuell Windows-dator, se [överföra en generaliserad virtuell Hårddisk](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
+- Om den virtuella Hårddisken är för en Linux VM, se [överföra en virtuell Hårddisk](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
 
 **F.** Kan jag skapa en Avbildningsversion från en särskild disk?

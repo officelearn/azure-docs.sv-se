@@ -14,12 +14,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 855cf81dbf24b0662048f69061ca85b72ff5f670
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 12e36c49d8c4db60302d4b72dfa81ea4aceec77b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171255"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107397"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Programproxy och Qlik Sense 
 Azure Active Directory-programproxy och Qlik Sense samarbetar tillsammans för att kontrollera att du enkelt kan använda Application Proxy för att tillhandahålla fjärråtkomst för din Qlik Sense-distribution.  
@@ -41,13 +41,13 @@ Följ dessa steg om du vill publicera din app. En mer detaljerad genomgång av s
 2. Välj **Azure Active Directory** > **företagsprogram**. 
 3. Välj **Lägg till** överst på bladet. 
 4. Välj **lokala program**. 
-5.       Fyll i de obligatoriska fälten med information om den nya appen. Använd följande riktlinjer för inställningar: 
-    - **Intern URL**: Det här programmet ska ha en intern URL som är den URL som QlikSense själva. Till exempel **https&#58;//demo.qlikemm.com:4244** 
-    - **Förautentiseringsmetod**: Azure Active Directory (rekommenderas men krävs inte) 
-1.       Välj **Lägg till** längst ned på bladet. Programmet har lagts till och snabb start-menyn öppnas. 
-2.       Snabb start-menyn, Välj **tilldela en användare för att testa**, och Lägg till minst en användare till programmet. Kontrollera att det här testkontot har åtkomst till dina lokala program. 
-3.       Välj **tilldela** att spara Användartilldelning test. 
-4.       (Valfritt) På bladet hantering väljer du enkel inloggning. Välj **Kerberos-begränsad delegering** från listrutan och Fyll i de obligatoriska fälten baserat på Qlik-konfigurationen. Välj **Spara**. 
+5. Fyll i de obligatoriska fälten med information om den nya appen. Använd följande riktlinjer för inställningar: 
+   - **Intern URL**: Det här programmet ska ha en intern URL som är den URL som QlikSense själva. Till exempel **https&#58;//demo.qlikemm.com:4244** 
+   - **Förautentiseringsmetod**: Azure Active Directory (rekommenderas men krävs inte) 
+1. Välj **Lägg till** längst ned på bladet. Programmet har lagts till och snabb start-menyn öppnas. 
+2. Snabb start-menyn, Välj **tilldela en användare för att testa**, och Lägg till minst en användare till programmet. Kontrollera att det här testkontot har åtkomst till dina lokala program. 
+3. Välj **tilldela** att spara Användartilldelning test. 
+4. (Valfritt) På bladet hantering väljer du enkel inloggning. Välj **Kerberos-begränsad delegering** från listrutan och Fyll i de obligatoriska fälten baserat på Qlik-konfigurationen. Välj **Spara**. 
 
 ### <a name="application-2"></a>Program #2: 
 Följ samma steg för programmet #1, med följande undantag: 

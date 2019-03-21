@@ -14,36 +14,38 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 44ae922b182874eef378d4868fb278c3c76252db
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: d5e1e5989f9902d9ab8dcc3e6c2b9d2a71f12df9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884420"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224387"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Självstudier: Använda dynamisk konfiguration i en ASP.NET Core-app
 
-ASP.NET Core har ett modulärt konfigurationssystem som kan läsa konfigurationsdata från olika källor samt hantera ändringar i farten utan att göra så att ett program startar om. Det har stöd för bindning av konfigurationsinställningar till starkt typifierade .NET-klasser och inmatning av dem i din kod med hjälp av de olika `IOptions<T>`-mönstren. Ett av dessa mönster, specifikt `IOptionsSnapshot<T>`, ger automatisk återinläsning av programmets konfiguration när underliggande data ändras. Du kan mata in `IOptionsSnapshot<T>` i kontrollanter i ditt program för att få åtkomst till den senaste konfiguration som lagras i Azure App Configuration. Du kan dessutom konfigurera App Configuration ASP.NET Core-klientbiblioteket till att kontinuerligt övervaka och hämta eventuella ändringar i ett appkonfigurationsarkiv via avsökning med regelbundna intervall som du definierar.
+ASP.NET Core har en modulär konfigurationssystemet som kan läsa konfigurationsdata från olika källor. Den kan hantera ändringar i farten utan att orsaka ett program för att starta om. ASP.NET Core stöder bindning av konfigurationsinställningar till starkt typifierad .NET-klasser. Det lägger in dem i din kod med hjälp av de olika `IOptions<T>` mönster. En av dessa mönster specifikt `IOptionsSnapshot<T>`automatiskt hämtar programmets konfiguration när underliggande data ändras. 
 
-Den här självstudien visar hur du kan implementera dynamiska konfigurationsuppdateringar i koden. Den bygger på den webbapp som introducerades i snabbstarterna. Slutför avsnittet om att [skapa en ASP.NET Core-app med App Configuration](./quickstart-aspnet-core-app.md) först innan du fortsätter.
+Du kan mata in `IOptionsSnapshot<T>` i kontrollanter i ditt program för att få åtkomst till den senaste konfiguration som lagras i Azure App Configuration. Du kan också ställa in App Configuration ASP.NET Core-klientbibliotek för att kontinuerligt övervaka och hämta ändringar i en appbutik konfiguration. Du definierar jämna intervall för avsökningen.
 
-Du kan använda valfritt kodredigeringsprogram för att slutföra stegen i den här snabbstarten. [Visual Studio Code](https://code.visualstudio.com/) är dock ett utmärkt alternativ som är tillgängligt på Windows-, macOS- och Linux-plattformar.
+Den här självstudien visar hur du kan implementera dynamiska konfigurationsuppdateringar i koden. Den bygger på den webbapp som introducerades i snabbstarterna. Innan du fortsätter Slutför [skapa en ASP.NET Core-app med Appkonfiguration](./quickstart-aspnet-core-app.md) första.
+
+Du kan använda valfri Kodredigerare för att utföra stegen i den här snabbstarten. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ som är tillgänglig på Windows, macOS och Linux-plattformar.
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Konfigurera programmet till att uppdatera konfigurationen som svar på ändringar i ett appkonfigurationsarkiv
-> * Mata in den senaste konfigurationen i programmets kontrollanter
+> * Konfigurera programmet till att uppdatera konfigurationen som svar på ändringar i en appbutik för konfigurationen.
+> * Mata in den senaste konfigurationen i ditt programs domänkontrollanter.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Slutför den här snabbstarten genom att installera [.NET Core SDK](https://dotnet.microsoft.com/download).
+Om du vill göra den här snabbstarten måste du installera den [.NET Core SDK](https://dotnet.microsoft.com/download).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="reload-data-from-app-configuration"></a>Läsa in data på nytt från App Configuration
 
-1. Öppna *Program.cs* och uppdatera metoden `CreateWebHostBuilder` genom att lägga till metoden `config.AddAzureAppConfiguration()`.
+1. Öppna Program.cs och uppdatera den `CreateWebHostBuilder` metoden genom att lägga till den `config.AddAzureAppConfiguration()` metoden.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -59,9 +61,9 @@ Slutför den här snabbstarten genom att installera [.NET Core SDK](https://dotn
             .UseStartup<Startup>();
     ```
 
-    Den andra parametern i metoden `.Watch` är det avsökningsintervall då ASP.NET-klientbiblioteket kör frågor mot ett appkonfigurationsarkiv för att kontrollera om det har skett några ändringar av den specifika konfigurationsinställningen.
+    Den andra parametern i den `.Watch` metoden är avsökningsintervallet som ASP.NET-klientbiblioteket frågar en appbutik konfiguration. Klientbiblioteket kontrollerar specifik Konfigurationsinställningen för att se om några ändringar har uppstått.
 
-2. Lägg till en *Settings.cs*-fil som definierar och implementerar en ny `Settings`-klass.
+2. Lägg till en Settings.cs-fil som definierar och implementerar en ny `Settings` klass.
 
     ```csharp
     namespace TestAppConfig
@@ -76,7 +78,7 @@ Slutför den här snabbstarten genom att installera [.NET Core SDK](https://dotn
     }
     ```
 
-3. Öppna *Startup.cs* och uppdatera metoden `ConfigureServices` för att binda konfigurationsdata till klassen `Settings`.
+3. Öppna Startup.cs och uppdatera den `ConfigureServices` metod för att binda konfigurationsdata till den `Settings` klass.
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -95,7 +97,7 @@ Slutför den här snabbstarten genom att installera [.NET Core SDK](https://dotn
 
 ## <a name="use-the-latest-configuration-data"></a>Använda senaste konfigurationsdata
 
-1. Öppna *HomeController.cs* i katalogen *Controllers*, uppdatera klassen `HomeController` till att ta emot `Settings` via beroendeinmatning och använda dess värden.
+1. Öppna HomeController.cs i katalogen domänkontrollanter. Uppdatera den `HomeController` klassen för att ta emot `Settings` via beroendeinmatning och kontrollera användning av dess värden.
 
     ```csharp
     public class HomeController : Controller
@@ -118,7 +120,7 @@ Slutför den här snabbstarten genom att installera [.NET Core SDK](https://dotn
     }
     ```
 
-2. Öppna *Index.cshtml* i katalogen *Views* > *Home* och ersätt dess innehåll med följande:
+2. Öppna Index.cshtml i vyerna > Home directory och Ersätt innehållet med följande skript:
 
     ```html
     <!DOCTYPE html>
@@ -143,21 +145,21 @@ Slutför den här snabbstarten genom att installera [.NET Core SDK](https://dotn
 
 ## <a name="build-and-run-the-app-locally"></a>Skapa och köra appen lokalt
 
-1. För att skapa en appversion med .NET Core CLI, kör du följande kommando i kommandogränssnittet:
+1. Om du vill skapa appen med hjälp av .NET Core CLI kör du följande kommando i Kommandotolken:
 
         dotnet build
 
-2. När versionen har slutförts, kör du följande kommando för att köra webbappen lokalt:
+2. När bygget har slutförts kör du följande kommando för att köra webbappen lokalt.
 
         dotnet run
 
-3. Starta ett webbläsarfönster och gå till `http://localhost:5000`, som är standard-URL för den webapp som hanteras lokalt.
+3. Öppna ett webbläsarfönster och gå till `http://localhost:5000`, vilket är standard-URL för web-app som finns lokalt.
 
     ![Snabbstart av lokal app](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. Logga in på [Azure-portalen](https://aka.ms/azconfig/portal) och klicka på **Alla resurser** och den instans av appkonfigurationsarkiv som du skapade i snabbstarten.
+4. Logga in på [Azure Portal](https://aka.ms/azconfig/portal). Välj **alla resurser**, och välj den app configuration store-instansen som du skapade i snabbstarten.
 
-5. Klicka på **Key/Value Explorer** (Utforskare för nyckel/värde) och uppdatera värdena för följande nycklar:
+5. Välj **nyckel/värde-Explorer**, och uppdatera värdena för följande nycklar:
 
     | Nyckel | Värde |
     |---|---|
@@ -175,7 +177,7 @@ Slutför den här snabbstarten genom att installera [.NET Core SDK](https://dotn
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lagt till en hanterad Azure-tjänstidentitet för att effektivisera åtkomsten till App Configuration och förbättra hanteringen av autentiseringsuppgifter för din app. Om du vill lära dig mer om att använda App Configuration fortsätter du till Azure CLI-exemplen.
+I den här självstudien har du lagt till en hanterad Azure-tjänstidentitet för att effektivisera åtkomsten till App Configuration och förbättra hanteringen av autentiseringsuppgifter för din app. Om du vill veta mer om hur du använder Appkonfiguration, fortsätter du att Azure CLI-exempel.
 
 > [!div class="nextstepaction"]
 > [CLI-exempel](./cli-samples.md)

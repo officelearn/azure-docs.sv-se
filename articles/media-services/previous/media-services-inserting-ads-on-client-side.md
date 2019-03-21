@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: cc5f3f729acca1f7aa23a7714300c1b581c6f7f8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c3c2101576f9b0d0c7908e62bd5cc1d6e6eeb0b2
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993902"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189809"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Infoga annonser på klientsidan
 Den här artikeln innehåller information om hur du infogar olika typer av annonser på klientsidan.
@@ -51,7 +51,7 @@ Varje player framework fungerar på olika sätt och var och en kommer att tas up
 En stor fil anger vilka ad eller annonser att visa. Följande XML är ett exempel på en stor fil för en linjär ad:
 
 ```xml
-    <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
+    <VAST version="2.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
       <Ad id="115571748">
         <InLine>
           <AdSystem version="2.0 alpha">Atlas</AdSystem>
@@ -99,7 +99,7 @@ Linjär ad beskrivs i den <**linjär**> element. Den anger hur länge av ad, sp�
 Linjär annonser kan visas i en angiven ordning. Gör detta genom att lägga till ytterligare <Ad> element till VAST filen och ange vilken ordning med hjälp av attributet sekvens. I följande exempel illustrerar detta:
 
 ```xml
-    <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
+    <VAST version="2.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
       <Ad id="1" sequence="0">
         <InLine>
           <AdSystem version="2.0 alpha">Atlas</AdSystem>
@@ -180,7 +180,7 @@ En VMAP-fil kan du ange när ad radbrytningar inträffar, hur lång tid varje br
       <vmap:AdBreak breakType="linear" breakId="mypre" timeOffset="start">
         <vmap:AdSource allowMultipleAds="true" followRedirects="true" id="1">
           <vmap:VASTData>
-            <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
+            <VAST version="2.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
               <Ad id="115571748">
                 <InLine>
                   <AdSystem version="2.0 alpha">Atlas</AdSystem>
@@ -188,7 +188,7 @@ En VMAP-fil kan du ange när ad radbrytningar inträffar, hur lång tid varje br
                   <Description>Unknown</Description>
                   <Survey></Survey>
                   <Error></Error>
-                  <Impression id="Atlas"><![CDATA[http://view.atdmt.com/000/sview/115571748/direct;ai.201582527;vt.2/01/634364885739970673]]></Impression>
+                  <Impression id="Atlas"><![CDATA[https://view.atdmt.com/000/sview/115571748/direct;ai.201582527;vt.2/01/634364885739970673]]></Impression>
                   <Creatives>
                     <Creative id="video" sequence="0" AdID="">
                       <Linear>
@@ -282,7 +282,7 @@ Mer information om den <**TrackingEvents**>-elementet och dess underordnade finn
 En MAST-fil kan du ange utlösare som definierar när ett ad visas. Följande är ett exempel MAST-fil som innehåller utlösare för en i förväg sammanslagning ad, en mellannivå sammanslagning ad och en ad efter distributionen.
 
 ```xml
-    <MAST xsi:schemaLocation="http://openvideoplayer.sf.net/mast http://openvideoplayer.sf.net/mast/mast.xsd" xmlns="http://openvideoplayer.sf.net/mast" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <MAST xsi:schemaLocation="http://openvideoplayer.sf.net/mast http://openvideoplayer.sf.net/mast/mast.xsd" xmlns="http://openvideoplayer.sf.net/mast" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
       <triggers>
         <trigger id="preroll" description="preroll every item"  >
           <startConditions>
@@ -405,7 +405,7 @@ Det här exemplet använder AdSchedulerPlugin för att definiera när du vill vi
     </mmppf:MediaPlayer>
 ```
 
-Läs mer om AdSchedulerPlugin [annonserar i Player Framework på Windows 8 och Windows Phone 8](http://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
+Läs mer om AdSchedulerPlugin [annonserar i Player Framework på Windows 8 och Windows Phone 8](https://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
 
 ### <a name="adschedulingpage"></a>AdSchedulingPage
 Det här exemplet använder också AdSchedulerPlugin. Det schemalägger tre annonser, en före distributionen ad, en mellannivå sammanslagning ad och en ad efter distributionen. URI som VAST för varje annons har angetts i en <RemoteAdSource> element.
@@ -595,7 +595,7 @@ I följande exempel visas hur du schemalägger annonser med hjälp av en VMAP-fi
     // How to schedule an Ad using VMAP.
     //First download the VMAP manifest
 
-    if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVMAP.xml"]])
+    if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"https://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVMAP.xml"]])
             {
                 [self logFrameworkError];
             }
@@ -619,7 +619,7 @@ I följande exempel visas hur du schemalägger en sen bindning stora ad.
     adLinearTime.startTime = 13;
     adLinearTime.duration = 0;
     // Specify the URI of the VAST file
-    NSString *vastAd1=@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml";
+    NSString *vastAd1=@"https://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml";
     // Create an AdInfo object
      AdInfo *vastAdInfo1 = [[[AdInfo alloc] init] autorelease];
     // set URL to VAST file
@@ -645,7 +645,7 @@ I följande exempel visas hur du schemalägger en sen bindning stora ad.
 ```csharp
     //Example:4 Schedule an early binding VAST ad
     //Download the VAST file
-    if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]])
+    if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"https://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]])
     {
         [self logFrameworkError];
     }

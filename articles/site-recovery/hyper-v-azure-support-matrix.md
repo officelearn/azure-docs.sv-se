@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 325df38cfea0c87cda8b7fb5ab37dca4a6a529fd
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: 84b1cfd54f5ff9e6a29c975622847e3ae6304bf8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315681"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107159"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Stöd matrix för haveriberedskap för lokala Hyper-V-datorer till Azure
 
@@ -91,7 +91,7 @@ Accelererat nätverk | Nej | Nej
 ## <a name="hyper-v-host-storage"></a>Lagring för Hyper-V-värd
 
 **Storage** | **Hyper-V med Virtual Machine Manager** | **Hyper-V utan att Virtual Machine Manager**
---- | --- | --- | ---
+--- | --- | --- 
 NFS | Ej tillämpligt | Ej tillämpligt
 SMB 3.0 | Ja | Ja
 SAN (ISCSI) | Ja | Ja
@@ -180,7 +180,7 @@ Flytta lagring, nätverk, virtuella Azure-datorer mellan resursgrupper<br/><br/>
 Om du vill kontrollera din distribution är kompatibla med inställningarna i den här artikeln genom att kontrollera att du kör den senaste providern och agentversioner.
 
 **Namn** | **Beskrivning** | **Detaljer**
---- | --- | --- | --- | ---
+--- | --- | --- 
 Azure Site Recovery-providern | Samordnar kommunikationen mellan lokala servrar och Azure <br/><br/> Hyper-V med Virtual Machine Manager: Installerad på Virtual Machine Manager-servrar<br/><br/> Hyper-V utan att Virtual Machine Manager: Installerad på Hyper-V-värdar| Senaste versionen: 5.1.2700.1 (tillgängligt från Azure portal)<br/><br/> [Senaste funktionerna och korrigeringarna](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Microsoft Azure Recovery Services-agenten | Samordnar replikering mellan Hyper-V-datorer och Azure<br/><br/> Installerad på den lokala Hyper-V-servrar (med eller utan Virtual Machine Manager) | Senaste agenten som är tillgängliga från portalen
 

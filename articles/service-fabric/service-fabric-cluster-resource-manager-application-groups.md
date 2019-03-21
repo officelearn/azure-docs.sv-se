@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e4f446ff67408ef390ba817de935c286c5b2a47e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 94ae233f8591c43afa1bb73c3e17964922967d36
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727612"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123036"
 ---
 # <a name="introduction-to-application-groups"></a>Introduktion till programgrupper
 Service Fabric Cluster Resource Manager hanterar vanligtvis klusterresurser genom att sprida belastningen (representeras [mått](service-fabric-cluster-resource-manager-metrics.md)) jämnt i hela klustret. Service Fabric hanterar kapaciteten för noderna i klustret och klustret som helhet via [kapacitet](service-fabric-cluster-resource-manager-cluster-description.md). Mått och kapacitetsbehov fungerar bra för många arbetsbelastningar, men mönster som använder olika Service Fabric-programinstanser ibland hämta ytterligare krav. Till exempel vilja:
@@ -36,6 +36,7 @@ Det enklaste användningsfallet för programkapacitet är när en programinstans
 Följande bild visar en programinstans med och utan ett maximalt antal noder som har definierats:
 
 <center>
+
 ![Programinstans som definierar högsta antalet noder][Image1]
 </center>
 
@@ -117,6 +118,7 @@ Kombinera **MinimumNodes** och **NodeReservationCapacity** garanterar en minsta 
 Låt oss titta på ett exempel på kapacitetsreservationen:
 
 <center>
+
 ![Programinstanser definiera reserverad kapacitet][Image2]
 </center>
 

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.custom: seodec18
-ms.openlocfilehash: a14f568e2485e59cb3e567eb9ee5c5eb20b02afc
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: f5cc06ba1a326d262c1437a941306b4d4a648260
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198430"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101235"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Skapa en referensdatauppsättning för miljön för Time Series Insights med hjälp av Azure portal
 
@@ -82,19 +82,19 @@ Referensdata är inte ansluten retroaktivt. Det innebär att endast nuvarande oc
  
 13. Namnge datamängd, genom att fylla i den **datauppsättningsnamnet** fältet ovanför rutnätet.
 
-   ![Namn på datauppsättning.](media/add-reference-data-set/name_reference_dataset.png)
+    ![Namn på datauppsättning.](media/add-reference-data-set/name_reference_dataset.png)
 
 14. Ange den **primärnyckel** kolumn i datauppsättningen, genom att välja listrutan ovan datarutnätet.
 
-   ![Markera kolumnerna som är viktiga.](media/add-reference-data-set/set_primary_key.png)
+    ![Markera kolumnerna som är viktiga.](media/add-reference-data-set/set_primary_key.png)
 
-   Alternativt kan du välja den **+** för att lägga till en sekundär nyckelkolumn som en sammansatt primärnyckel. Om du vill ångra valet kan du välja tomt värde från listrutan att ta bort den sekundära nyckeln.
+    Alternativt kan du välja den **+** för att lägga till en sekundär nyckelkolumn som en sammansatt primärnyckel. Om du vill ångra valet kan du välja tomt värde från listrutan att ta bort den sekundära nyckeln.
 
-15.  Om du vill överföra data, Välj den **överför rader** knappen.
+15. Om du vill överföra data, Välj den **överför rader** knappen.
 
-   ![Ladda upp](media/add-reference-data-set/upload_rows.png)
+    ![Ladda upp](media/add-reference-data-set/upload_rows.png)
 
-   Sidan bekräftar den slutförda ladda upp och visa meddelandet **har laddats upp datauppsättningen**.
+    Sidan bekräftar den slutförda ladda upp och visa meddelandet **har laddats upp datauppsättningen**.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Hantera referensdata](time-series-insights-manage-reference-data-csharp.md) programmässigt.

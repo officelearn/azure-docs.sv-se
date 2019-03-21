@@ -8,18 +8,18 @@ ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: ae1e71170952a2f05e371de68b519eba522e3298
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: f6e44b21a2a2e174ffa49073fdeb8cc96910a69e
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318724"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295087"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Exportera data till Azure Blob Storage
 
 *Det här avsnittet gäller för administratörer.*
 
-Den här artikeln aktivitetsgruppsrapport djupare i hur du använder funktionen löpande export i Azure IoT Central regelbundet exportera data till din **Azure Blob storage-konto**. Du kan exportera **mätningar av**, **enheter**, och **enheten mallar** till filer i Apache Avro-format. Exporterade data kan användas för analys av kalla sökvägen som utbildning modeller i Azure Machine Learning eller långsiktig trendanalys i Microsoft Power BI.
+Den här artikeln beskriver hur du använder funktionen löpande export i Azure IoT Central regelbundet exportera data till din **Azure Blob storage-konto**. Du kan exportera **mätningar av**, **enheter**, och **enheten mallar** till filer i Apache Avro-format. Exporterade data kan användas för analys av kalla sökvägen som utbildning modeller i Azure Machine Learning eller långsiktig trendanalys i Microsoft Power BI.
 
 > [!Note]
 > Igen när du aktiverar löpande dataexport, får du endast data från det ögonblick då och uppåt. För närvarande går inte att hämta data under en tid när löpande dataexport var inaktiverat. Om du vill behålla fler historiska data, aktivera löpande dataexport tidigt.
@@ -29,12 +29,75 @@ Den här artikeln aktivitetsgruppsrapport djupare i hur du använder funktionen 
 
 - Du måste vara administratör i din IoT Central-App
 
+
+## <a name="set-up-export-destination"></a>Konfigurera exportera
+
+Följ dessa steg om du inte har ett befintligt lagringsutrymme för att exportera till:
+
+## <a name="create-storage-account"></a>Skapa lagringskonto
+
+1. Skapa en [nytt lagringskonto i Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Du kan läsa mer i [Azure Storage-docs](https://aka.ms/blobdocscreatestorageaccount).
+2. Kontotyp, Välj **generella** eller **Blob-lagring**.
+3. Välj en prenumeration. 
+
+    > [!Note] 
+    > Nu kan du exportera data till andra prenumerationer som är **inte samma** som programmets användningsbaserad IoT Central. Du ansluter med en anslutningssträng i det här fallet.
+
+4. Skapa en behållare i ditt storage-konto. Gå till ditt lagringskonto. Under **Blobtjänsten**väljer **Bläddra efter Blobar**. Välj **+ behållare** överst för att skapa en ny behållare
+
+
+## <a name="set-up-continuous-data-export"></a>Konfigurera löpande dataexport
+
+Nu när du har en lagringsplats för att exportera data till följer du dessa steg för att konfigurera löpande dataexport. 
+
+1. Logga in på ditt IoT Central-program.
+
+2. I den vänstra menyn väljer du **löpande Export av Data**.
+
+    > [!Note]
+    > Om du inte ser löpande Export av Data på den vänstra menyn kan är du inte administratör i din app. Kontakta en administratör att ställa in export av data.
+
+    ![Skapa ny cde Event Hub](media/howto-export-data/export_menu.PNG)
+
+3. Välj den **+ ny** knappen uppe till höger. Välj **Azure Blob Storage** som mål för exporten. 
+
+    > [!NOTE] 
+    > Det maximala antalet exporter per app är fem. 
+
+    ![Skapa ny löpande dataexport](media/howto-export-data/export_new.PNG)
+
+4. I den nedrullningsbara listrutan väljer du din **Lagringskonto namnområde**. Du kan också välja alternativet sist i listan som **ange en anslutningssträng**. 
+
+    > [!NOTE] 
+    > Du ser bara Lagringskonton namnområden i den **samma prenumeration som din IoT Central-app**. Om du vill exportera till ett mål utanför den här prenumerationen kan du välja **ange en anslutningssträng** och finns i steg 5.
+
+    > [!NOTE] 
+    > 7 dagars utvärderingsversion appar, det enda sättet att konfigurera kontinuerlig data exportera är i via en anslutningssträng. Det beror på att 7 dagars utvärderingsversion appar inte har en associerad Azure-prenumeration.
+
+    ![Skapa ny cde Event Hub](media/howto-export-data/export-create-blob.png)
+
+5. (Valfritt) Om du har valt **ange en anslutningssträng**, en ny ruta visas där du kan klistra in anslutningssträngen. Att hämta anslutningssträngen för din:
+    - Storage-konto, gå till lagringskontot i Azure-portalen.
+        - Under **inställningar**väljer **åtkomstnycklar**
+        - Kopiera anslutningssträngen key1 och key2-anslutningssträng
+ 
+6. Välj en behållare i nedrullningsbara listrutan.
+
+7. Under **Data som ska exporteras**, ange varje typ av data som ska exporteras genom att ställa in typen **på**.
+
+6. Se till att aktivera löpande dataexport genom **dataexport** är **på**. Välj **Spara**.
+
+  ![Konfigurera löpande dataexport](media/howto-export-data/export-list-blob.png)
+
+7. Efter ett par minuter visas dina data i ditt valda mål.
+
+
 ## <a name="export-to-azure-blob-storage"></a>Exportera till Azure Blob Storage
 
 Mått, enheter och mallar enhetsdata exporteras till ditt storage-konto en gång per minut, med varje fil som innehåller batch med ändringar sedan senast exporterade filen. Exporterade data är i [Apache Avro](https://avro.apache.org/docs/current/index.html) formatera och kommer att exporteras i till tre mappar. Standardsökvägarna i ditt storage-konto är:
-    - Meddelanden: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-    - Enheter: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-    - Mallar för enheten: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+- Meddelanden: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+- Enheter: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+- Mallar för enheten: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
 ### <a name="measurements"></a>Mått
 

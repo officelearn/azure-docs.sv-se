@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: monhaber
-ms.openlocfilehash: 8662539257422289053e75beeadd07c63d8d3f4d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6e8c10ecb85addf2ef6a995e3c0b8ac611343cfa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106641"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110349"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Självstudier: Skydda dina resurser med Azure Security Center
 Security Center begränsar din exponering för hot med kontroller för åtkomst och program för att blockera skadlig aktivitet. JIT-åtkomst (just-in-time) till virtuella datorer (VM) minskar din exponering för attacker genom att du kan neka beständig åtkomst till virtuella datorer. Istället tillhandahåller du kontrollerad och granskad åtkomst till virtuella datorer enbart när det behövs. Anpassningsbara programkontroller hjälper till att skydda virtuella datorer mot skadlig programvara genom att kontrollera vilka program du kan köra på dina virtuella datorer. Security Center använder Machine Learning för att analysera processerna som körs i den virtuella datorn och hjälper dig att tillämpa vitlisteregler med den här intelligensen.
@@ -43,30 +43,30 @@ Hanteringsportar behöver inte vara öppna hela tiden. De behöver endast vara �
 
 1. På huvudmenyn i Security Center väljer du **Just-in-time-åtkomst till virtuell dator** under **Avancerat molnskydd**.
 
-  ![Just-in-time-åtkomst till virtuell dator][1]
+   ![Just-in-time-åtkomst till virtuell dator][1]
 
-  **Just-in-time-åtkomst till virtuell dator** ger information om dina virtuella datorers status:
+   **Just-in-time-åtkomst till virtuell dator** ger information om dina virtuella datorers status:
 
-  - **Konfigurerad** – Virtuella datorer som har konfigurerats för att stödja Just-in-time-åtkomst till virtuella datorer.
-  - **Rekommenderas** – Virtuella datorer som kan stödja Just-in-time-åtkomst till virtuell dator men som inte har konfigurerats för det.
-  - **Ingen rekommendation** – Orsaker som kan orsaka att en virtuell dator inte rekommenderas är:
+   - **Konfigurerad** – Virtuella datorer som har konfigurerats för att stödja Just-in-time-åtkomst till virtuella datorer.
+   - **Rekommenderas** – Virtuella datorer som kan stödja Just-in-time-åtkomst till virtuell dator men som inte har konfigurerats för det.
+   - **Ingen rekommendation** – Orsaker som kan orsaka att en virtuell dator inte rekommenderas är:
 
-    - Saknad NSG – Just-in-time-lösningen kräver att det finns en NSG.
-    - Klassisk virtuell dator – Security Centers just-in-time-åtkomst till virtuell dator stöder för närvarande bara virtuella datorer som har distribuerats via Azure Resource Manager.
-    - Övrigt – En virtuell dator i den här kategorin om just-in-time-lösningen är avstängd i säkerhetsprincipen för prenumerationen eller resursgruppen, eller om den virtuella datorn saknar en offentlig IP-adress och inte har någon NSG.
+     - Saknad NSG – Just-in-time-lösningen kräver att det finns en NSG.
+     - Klassisk virtuell dator – Security Centers just-in-time-åtkomst till virtuell dator stöder för närvarande bara virtuella datorer som har distribuerats via Azure Resource Manager.
+     - Övrigt – En virtuell dator i den här kategorin om just-in-time-lösningen är avstängd i säkerhetsprincipen för prenumerationen eller resursgruppen, eller om den virtuella datorn saknar en offentlig IP-adress och inte har någon NSG.
 
 2. Välj en rekommenderad virtuell dator och klicka på alterantivet för att **aktivera JIT på 1 virtuell dator** för att konfigurera en just-in-time-princip för den virtuella datorn:
 
-  Du kan spara standardportarna som Security Center rekommenderar eller så kan du lägga till och konfigurera en ny port som du vill aktivera just-in-time-lösningen på. I den här självstudien ska vi lägga till en port genom att välja **Lägg till**.
+   Du kan spara standardportarna som Security Center rekommenderar eller så kan du lägga till och konfigurera en ny port som du vill aktivera just-in-time-lösningen på. I den här självstudien ska vi lägga till en port genom att välja **Lägg till**.
 
-  ![Lägga till portkonfiguration][2]
+   ![Lägga till portkonfiguration][2]
 
 3. Under **Lägg till portkonfiguration** identifierar du:
 
-  - Porten
-  - Protokolltypen
-  - Tillåtna käll-IP-adresser – Tillåtna IP-intervall för att få åtkomst vid en godkänd förfrågan
-  - Maximal begärandetid – den maximala tidsperioden som en specifik port kan öppnas under
+   - Porten
+   - Protokolltypen
+   - Tillåtna käll-IP-adresser – Tillåtna IP-intervall för att få åtkomst vid en godkänd förfrågan
+   - Maximal begärandetid – den maximala tidsperioden som en specifik port kan öppnas under
 
 4. Välj **OK** för att spara.
 
@@ -79,22 +79,22 @@ Den här funktionen är endast tillgänglig för Windows-datorer.
 
    ![Anpassningsbara programkontroller][3]
 
-  Avsnittet **Resursgrupper** innehåller tre flikar:
+   Avsnittet **Resursgrupper** innehåller tre flikar:
 
-  - **Konfigurerade**: lista med resursgrupper som innehåller de virtuella datorer som konfigurerades med programkontroll.
-  - **Rekommenderas**: lista med resursgrupper som programkontroll rekommenderas för.
-  - **Ingen rekommendation**: lista med resursgrupper som innehåller virtuella datorer utan någon rekommendation för programkontroll. Till exempel virtuella datorer där program alltid byts ut och inte har uppnått ett stabilt tillstånd.
+   - **Konfigurerade**: lista med resursgrupper som innehåller de virtuella datorer som konfigurerades med programkontroll.
+   - **Rekommenderas**: lista med resursgrupper som programkontroll rekommenderas för.
+   - **Ingen rekommendation**: lista med resursgrupper som innehåller virtuella datorer utan någon rekommendation för programkontroll. Till exempel virtuella datorer där program alltid byts ut och inte har uppnått ett stabilt tillstånd.
 
 2. Markera fliken **Rekommenderas** för att visa en lista över resursgrupper med rekommendationer för programkontroll.
 
-  ![Rekommendationer för programkontroll][4]
+   ![Rekommendationer för programkontroll][4]
 
 3. Välj en resursgrupp för att öppna alternativet **Skapa regler för programkontroll**. I **Välj virtuella datorer** läser du listan med rekommenderade virtuella datorer och avmarkerar dem du inte vill använda programkontroll för. I **Välj processer för reglerna för lista över tillåtna** läser du listan med rekommenderade virtuella datorer och avmarkerar dem du inte vill använda. Listan innehåller:
 
-  - **NAMN**: den fullständiga programsökvägen
-  - **PROCESSER**: antalet program som finns på varje sökväg
-  - **GEMENSAM**: "Ja" betyder att dessa processer har körts på de flesta virtuella datorer i den här resursgruppen
-  - **EXPLOATERBAR**: en varningsikon anger om programmet skulle kunna användas av en angripare för att kringgå listan med tillåtna program. Vi rekommenderar att du granskar programmen innan du godkänner dem.
+   - **NAMN**: den fullständiga programsökvägen
+   - **PROCESSER**: antalet program som finns på varje sökväg
+   - **GEMENSAM**: "Ja" betyder att dessa processer har körts på de flesta virtuella datorer i den här resursgruppen
+   - **EXPLOATERBAR**: en varningsikon anger om programmet skulle kunna användas av en angripare för att kringgå listan med tillåtna program. Vi rekommenderar att du granskar programmen innan du godkänner dem.
 
 4. När du är färdig med dina val klickar du på **Skapa**.
 

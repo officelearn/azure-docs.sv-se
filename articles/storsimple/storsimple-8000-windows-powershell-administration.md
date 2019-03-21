@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 449c65d0ed746664b75bf8775dda695f569b3eb0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e6053ef9b5e1fc113e3bd3057d627347f285cd99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228393"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003131"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Använda Windows PowerShell för StorSimple för att administrera din enhet
 
@@ -47,7 +47,7 @@ Du kan komma åt Windows PowerShell för StorSimple med någon av följande meto
 
 ## <a name="connect-to-windows-powershell-for-storsimple-via-the-device-serial-console"></a>Ansluta till Windows PowerShell för StorSimple via enhetens seriekonsol
 
-Du kan [ladda ned PuTTY](http://www.putty.org/) eller liknande programvara för terminalemulering att ansluta till Windows PowerShell för StorSimple. Du måste konfigurera PuTTY speciellt utformade för att få åtkomst till Microsoft Azure StorSimple-enheten. Följande avsnitt innehåller detaljerade anvisningar om hur du konfigurerar PuTTy och ansluta till enheten. Olika menyalternativen i seriekonsolen beskrivs också.
+Du kan [ladda ned PuTTY](https://www.putty.org/) eller liknande programvara för terminalemulering att ansluta till Windows PowerShell för StorSimple. Du måste konfigurera PuTTY speciellt utformade för att få åtkomst till Microsoft Azure StorSimple-enheten. Följande avsnitt innehåller detaljerade anvisningar om hur du konfigurerar PuTTy och ansluta till enheten. Olika menyalternativen i seriekonsolen beskrivs också.
 
 ### <a name="putty-settings"></a>PuTTY-inställningar
 
@@ -62,7 +62,7 @@ Se till att du använder följande inställningar för PuTTY för att ansluta ti
    | --- | --- |
    | BACKSTEG |Control-? (127) |
    | Start- och slutdatum nycklar |Standard |
-   | Funktionstangenter och tangentbordet |ESC [n ~ |
+   | Funktionstangenter och tangentbordet |ESC[n~ |
    | Ursprungligt tillstånd för markören nycklar |Normal |
    | Ursprungligt tillstånd för numeriska tangentbordet |Normal |
    | Aktivera funktioner för extra tangentbord |CTRL + ALT + skiljer sig från AltGr |
@@ -110,8 +110,8 @@ Du kan välja mellan följande inställningar:
    * Tillämpa uppdateringar
    * Installera snabbkorrigeringar
 
-    > [!NOTE]
-    > Detta är alternativet som rekommenderas om du har glömt administratörslösenord för enheten och kan inte ansluta via 1 eller 2.
+     > [!NOTE]
+     > Detta är alternativet som rekommenderas om du har glömt administratörslösenord för enheten och kan inte ansluta via 1 eller 2.
 
 4. **Ändra språk** det här alternativet kan du ändra visningsspråket på Windows PowerShell-gränssnittet. De språk som stöds är engelska, japanska, ryska, franska, Sydkorea, spanska, italienska, tyska, kinesiska och portugisiska (Brasilien).
 
@@ -159,7 +159,7 @@ I följande tabell visas en sammanfattning av alla vanliga administrationsuppgif
 
 I Windows PowerShell för StorSimple är cmdlet hjälp tillgänglig. En aktuell version av den här hjälpen finns även tillgänglig, som du kan använda för att uppdatera hjälp på datorn.
 
-Få hjälp i det här gränssnittet är ungefär som i Windows PowerShell och de flesta av hjälp-relaterade cmdlets fungerar. Du kan hitta hjälp för Windows PowerShell online i TechNet-biblioteket: [med Windows PowerShell-skript](https://go.microsoft.com/fwlink/?LinkID=108518).
+Få hjälp i det här gränssnittet är ungefär som i Windows PowerShell och de flesta av hjälp-relaterade cmdlets fungerar. Du hittar hjälp för Windows PowerShell online i TechNet-biblioteket: [Köra skript med Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=108518).
 
 Här följer en kort beskrivning av typerna av hjälp för det här Windows PowerShell-gränssnittet, inklusive hur du uppdaterar hjälp.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7f09db1f37617519926955daf0c29c13993dbf80
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3282afb87672ba25294e65ea1474a9e06df03362
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728462"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871070"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Få insyn i klienttäckande för Azure Security Center
 Den här artikeln hjälper dig att komma igång genom att göra flera åtgärder och maximerar fördelarna Azure Security Center tillhandahåller. Utför dessa åtgärder kan du få insyn i alla Azure-prenumerationer som är länkade till din Azure Active Directory-klient och effektivt sätt hantera din organisations säkerhetsposition i stor skala genom att tillämpa säkerhetsprinciper på flera prenumerationer på ett aggregative sätt.
@@ -38,7 +38,7 @@ En detaljerad översikt över hanteringsgrupper finns i den [organisera dina res
 Du kan ordna prenumerationer till hanteringsgrupper och tillämpa styrningsprinciper för av hanteringsgrupper. Alla prenumerationer i en hanteringsgrupp ärver automatiskt de principer som tillämpas på hanteringsgruppen. Medan hanteringsgrupper inte behövs för att integrera Security Center, rekommenderar vi starkt att du skapar minst en hanteringsgrupp så hanteringsgruppen rot har skapats. När gruppen har skapats, kommer alla prenumerationer i Azure AD-klienten att länkas till den. Anvisningar för PowerShell och mer information finns i [skapa hanteringsgrupper för resurs- och organisation](../azure-resource-manager/management-groups-create.md).
 
  
-1. Logga in på [Azure Portal](http://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **alla tjänster** > **hanteringsgrupper**.
 3. Välj på huvudsidan **ny hanteringsgrupp.** 
 
@@ -51,7 +51,7 @@ Du kan ordna prenumerationer till hanteringsgrupper och tillämpa styrningsprinc
 5.  Välj **spara**
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Visa hantering av grupper i Azure portal
-1. Logga in på den [Azure-portalen](http://portal.azure.com).
+1. Logga in på den [Azure-portalen](https://portal.azure.com).
 2. Om du vill visa hanteringsgrupper, Välj **alla tjänster** huvudmenyn i Azure.
 3. Under **Allmänt**väljer **Hanteringsgrupper**.
 
@@ -77,7 +77,7 @@ En Azure Active Directory-klientadministratör har inte direkt åtkomst till Azu
 
    - När du ställer in växeln på Ja, har du tilldelats rollen Administratör för användaråtkomst i Azure RBAC vid rotscopet (/). Detta ger dig behörighet att tilldela roller i alla Azure-prenumerationer och hanteringsgrupper som är associerade med den här Azure AD-katalog. Den här växeln är endast tillgänglig för användare som har tilldelats rollen Global administratör i Azure AD.
 
-  - När du ställer in växeln på Nej tas rollen Administratör för användaråtkomst i Azure RBAC bort från ditt konto. Du kan inte längre tilldela roller i alla Azure-prenumerationer och hanteringsgrupper som är associerade med den här Azure AD-katalog. Du kan visa och hantera den Azure-prenumerationer och hanteringsgrupper som du har beviljats åtkomst.
+   - När du ställer in växeln på Nej tas rollen Administratör för användaråtkomst i Azure RBAC bort från ditt konto. Du kan inte längre tilldela roller i alla Azure-prenumerationer och hanteringsgrupper som är associerade med den här Azure AD-katalog. Du kan visa och hantera den Azure-prenumerationer och hanteringsgrupper som du har beviljats åtkomst.
 
 4. Klicka på **spara** att spara dina inställningar.
 
@@ -181,8 +181,8 @@ Du kan lägga till prenumerationer till den hanteringsgrupp som du skapade. De h
 
 4. Upprepa steg 1 till 3 tills du har lagt till alla prenumerationer i omfånget.
 
- > [!NOTE]
- > Av hanteringsgrupper kan innehålla både prenumerationer och underordnade hanteringsgrupper. När du tilldelar en användare en RBAC-roll till den överordnade gruppen för hantering av ärvs åtkomst av underordnade hanteringsgruppen prenumerationer. Principer som angetts på överordnad hanteringsgrupp är också ärvs av underordnade. 
+   > [!NOTE]
+   > Av hanteringsgrupper kan innehålla både prenumerationer och underordnade hanteringsgrupper. När du tilldelar en användare en RBAC-roll till den överordnade gruppen för hantering av ärvs åtkomst av underordnade hanteringsgruppen prenumerationer. Principer som angetts på överordnad hanteringsgrupp är också ärvs av underordnade. 
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln lärde du dig att få insyn i klienttäckande för Azure Security Center. I följande artiklar kan du lära dig mer om Security Center:

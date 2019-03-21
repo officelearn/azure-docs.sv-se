@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 02/15/2019
-ms.openlocfilehash: 6ec32a40cea4f95d9225134cfb36d4930245d1c5
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: HT
+ms.openlocfilehash: e306245da2c76560ad447358fa1a57e491c370ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750607"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855698"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Självstudier: Extrahera, transformera och läsa in data med hjälp av Azure Databricks
 
@@ -40,7 +40,11 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+> [!Note]
+> Den här självstudien inte kan utföras med hjälp av **Azure kostnadsfria Testprenumerationen**.
+> Om du vill använda ett kostnadsfritt konto för att skapa Azure Databricks-klustret ska du innan du skapar klustret gå till din profil och ändra prenumerationen till **betala per användning**. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
+     
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför de här uppgifterna innan du startar självstudien:
 
@@ -50,7 +54,7 @@ Slutför de här uppgifterna innan du startar självstudien:
 
 * Skapa ett Azure Blob Storage-konto och en container i det. Få dessutom åtkomst till lagringskontot genom att hämta åtkomstnyckeln. Gå till [Snabbstart: Skapa ett Azure Blob Storage-konto](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-* Skapa ett Azure Data Lake Storage Gen2-lagringskonto. Se [Skapa ett Azure Data Lake Storage Gen2-konto](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+* Skapa ett Azure Data Lake Storage Gen2-lagringskonto. Se [skapa ett konto för Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
 *  Skapa ett huvudnamn för tjänsten. Se [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
@@ -63,7 +67,7 @@ Slutför de här uppgifterna innan du startar självstudien:
 
    * När du utför stegen i avsnittet [Hämta värden för att logga in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) i artikeln klistrar du in värdena för klient-ID, program-ID och autentiseringsnyckel i en textfil. Du kommer att behöva dem snart.
 
-* Logga in på [Azure-portalen](https://portal.azure.com/).
+* Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="gather-the-information-that-you-need"></a>Samla in den information som du behöver
 
@@ -93,7 +97,7 @@ I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
 
 2. Ange följande värden under **Azure Databricks-tjänst** för att skapa en Databricks-tjänst:
 
-    |Egenskap  |Beskrivning  |
+    |Egenskap   |Beskrivning  |
     |---------|---------|
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan.        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |

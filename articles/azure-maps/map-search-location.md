@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 555fcc8998f954d222753194fc08bdf4a113d59c
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 8ae6c8a20a05df723d3f6b394e0639f218896a85
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570954"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845145"
 ---
 # <a name="show-search-results-on-the-map"></a>Visa sökresultat på kartan
 
@@ -33,7 +33,7 @@ Andra kodblocket skapar en **SubscriptionKeyCredentialPolicy** att autentisera H
 
 Det tredje kodblocket skapar en datakälla objekt med den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klassen och Lägg till sökresultat. En [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) använder text eller ikoner för att rendera platsbaserad data och är inneslutna i den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som symboler på kartan.  En symbol layer skapas och datakällan har lagts till symbol-lager, som sedan läggs till i kartan.
 
-Fjärde kodblocket använder den [SearchFuzzy](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchfuzzy-string--searchgetsearchfuzzyoptionalparams-) -metod i den [tjänstemodulen](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2). Du kan utföra en fri form textsökning via den [hämta Fuzzy Search rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) att söka efter orienteringspunkt. Fuzzy API för Get-sökning kan hantera valfri kombination av fuzzy indata. En samling med GeoJSON-funktionen från svaret extraheras sedan med hjälp av den **geojson.getFeatures()** metod och läggs till datakällan, vilket gör automatiskt de data som renderas på kartan via symbol-lagret.
+Fjärde kodblocket använder den [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams) -metod i den [tjänstemodulen](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2). Du kan utföra en fri form textsökning via den [hämta Fuzzy Search rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) att söka efter orienteringspunkt. Fuzzy API för Get-sökning kan hantera valfri kombination av fuzzy indata. En samling med GeoJSON-funktionen från svaret extraheras sedan med hjälp av den **geojson.getFeatures()** metod och läggs till datakällan, vilket gör automatiskt de data som renderas på kartan via symbol-lagret.
 
 Senaste kodblocket justerar kamera gränser för kartan med hjälp av kartans [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) egenskapen.
 

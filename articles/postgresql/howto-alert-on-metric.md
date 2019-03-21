@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.openlocfilehash: a999553d7ba26daba674534b1656e90ad0de4f5f
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 7211ffddf82b38ca27b776ecfd12bca25ebbb0f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243975"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121952"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Använda Azure portal för att konfigurera aviseringar i mått för Azure Database för PostgreSQL 
 
@@ -60,21 +60,21 @@ Du kan konfigurera och få information om Varningsregler med:
 
 10. Konfigurera en **e-post/SMS/Push/röst** åtgärdstyp.
     
-   Välj ”e-post Azure Resource Manager roll” välja Prenumerationsägare, deltagare och läsare för att ta emot meddelanden.
+    Välj ”e-post Azure Resource Manager roll” välja Prenumerationsägare, deltagare och läsare för att ta emot meddelanden.
    
-   Du kan också ange en giltig URI i den **Webhook** fältet om du vill att den anropas när aviseringen utlöses.
+    Du kan också ange en giltig URI i den **Webhook** fältet om du vill att den anropas när aviseringen utlöses.
 
-   Välj **OK** när du är klar.
+    Välj **OK** när du är klar.
 
-   ![Åtgärdsgrupp](./media/howto-alert-on-metric/10-action-group-type.png)
+    ![Åtgärdsgrupp](./media/howto-alert-on-metric/10-action-group-type.png)
 
 11. Ange varningsregelns namn, beskrivning och allvarlighetsgrad.
 
-   ![Åtgärdsgrupp](./media/howto-alert-on-metric/11-name-description-severity.png) 
+    ![Åtgärdsgrupp](./media/howto-alert-on-metric/11-name-description-severity.png) 
 
 12. Välj **skapa varningsregel** att skapa aviseringen.
 
-   Inom några minuter, aviseringen är aktiv och utlöser som det beskrivits.
+    Inom några minuter, aviseringen är aktiv och utlöser som det beskrivits.
 
 ## <a name="manage-your-alerts"></a>Hantera aviseringar
 När du har skapat en avisering kan du markera den och göra följande:

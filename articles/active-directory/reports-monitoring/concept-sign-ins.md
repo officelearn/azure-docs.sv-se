@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b958a8d7aa8566c62d5fdaf6b5b51064e4e5123
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32720669ae9d8941abce4429471c13608a18cbc5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183755"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294900"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -149,7 +149,7 @@ Om du lägger till ytterligare fält i inloggningsvyn läggs de automatiskt till
 
 ## <a name="download-sign-in-activities"></a>Ladda ned inloggningsaktivitet
 
-Du kan [ladda ned inloggningsdata](quickstart-download-sign-in-report.md) om du vill arbeta med dem utanför Azure-portalen. Klicka på **hämta** ger dig möjlighet att skapa en CSV- eller JSCON fil för de senaste 250 000 posterna.  
+Du kan [ladda ned inloggningsdata](quickstart-download-sign-in-report.md) om du vill arbeta med dem utanför Azure-portalen. Klicka på **hämta** ger dig möjlighet att skapa en CSV eller JSON-fil för de senaste 250 000 posterna.  
 
 ![Ladda ned](./media/concept-sign-ins/71.png "Ladda ned")
 
@@ -214,7 +214,7 @@ Din startpunkt för denna data är rapporten över de tre främsta programmen i 
 
 ![Inloggningsaktivitet](./media/concept-sign-ins/10.png "inloggningsaktivitet")
 
-Diagram över programanvändning visar veckovisa sammanställning av inloggningar för dina tre främsta program under en given tidsperiod. Standardvärdet för tidsperioden är 30 dagar.
+De app användning graph veckovisa sammanställningar av inloggningar för dina topp 3-program i en viss tidsperiod. Standardvärdet för tidsperioden är 30 dagar.
 
 ![Inloggningsaktivitet](./media/concept-sign-ins/47.png "inloggningsaktivitet")
 

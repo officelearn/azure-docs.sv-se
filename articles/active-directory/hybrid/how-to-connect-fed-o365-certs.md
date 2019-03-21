@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 037c5210f73899483bebf131efce0d5f61a847c2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fae036a0860ddb5ee2776f7ed4734492741907f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200368"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177729"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Förnya federationscertifikat för Office 365 och Azure Active Directory
 ## <a name="overview"></a>Översikt
@@ -36,7 +36,7 @@ Den här artikeln innehåller ytterligare information för att hantera certifika
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>Standardkonfigurationen för AD FS för certifikat för tokensignering
 Token-signering och token dekryptera certifikat är vanligtvis självsignerade certifikat och är bra för ett år. Som standard AD FS innehåller en automatisk förnyelse process som kallas **AutoCertificateRollover**. Om du använder AD FS 2.0 eller senare, Office 365 och Azure AD automatiskt uppdaterar dina certifikat innan den upphör.
 
-### <a name="renewal-notification-from-the-office-365-portal-or-an-email"></a>Förnyelse-meddelande från Office 365-portalen eller ett e-postmeddelande
+### <a name="renewal-notification-from-the-microsoft-365-admin-center-or-an-email"></a>Förnyelse-meddelande från Administrationscenter för Microsoft 365 eller ett e-postmeddelande
 > [!NOTE]
 > Om du har fått ett e-postmeddelande eller en portal-meddelande visas som ber dig att förnya certifikatet för Office, se [hantera ändringar i certifikat för tokensignering](#managecerts) att kontrollera om du behöver vidta några åtgärder. Microsoft är medveten om ett eventuellt problem som kan leda till meddelanden för förnyelse av certifikat som skickas, även om ingen åtgärd krävs.
 >
@@ -44,8 +44,8 @@ Token-signering och token dekryptera certifikat är vanligtvis självsignerade c
 
 Azure AD försöker övervaka federationsmetadata och uppdatera certifikaten för tokensignering, som anges av dessa metadata. 30 dagar före förfallodatum för certifikat för tokensignering Azure AD som kontrollerar om nya certifikat är tillgängliga genom att avsöka federationsmetadata.
 
-* Om den kan har avsöka federationsmetadata och hämta de nya certifikaten, utfärdas utan e-postmeddelande eller en varning i Office 365-portalen för användaren.
-* Om det går inte att hämta nya certifikat för tokensignering, skickar antingen eftersom federationsmetadata kan inte nås eller är inte aktiverat för automatisk certifikatförnyelse, Azure AD ett e-postmeddelande och en varning i Office 365-portalen.
+* Om den kan har avsöka federationsmetadata och hämta de nya certifikaten, utfärdas utan e-postmeddelande eller en varning i Microsoft 365 Administrationscenter för användaren.
+* Om det går inte att hämta nya certifikat för tokensignering, skickar antingen eftersom federationsmetadata kan inte nås eller är inte aktiverat för automatisk certifikatförnyelse, Azure AD ett e-postmeddelande och en varning i Microsoft 365 Administrationscenter.
 
 ![Office 365 portal-meddelande](./media/how-to-connect-fed-o365-certs/notification.png)
 

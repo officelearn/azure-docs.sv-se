@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: d3a6b8389d44d3ad92f9305124884d97fa293429
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 1464d1ca8fcf1ad5a955d69aa76caec9aa568dad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447125"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886125"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Snabbstart: Taligenkänning med Speech SDK för Python
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Den här artikeln visar hur du använder taltjänsten via Speech SDK för Python. Den visar hur du kan känna igen tal från mikrofonens indata.
+Den här artikeln visar hur du använder Taltjänster via tal SDK för Python. Den visar hur du kan känna igen tal från mikrofonens indata.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumerationsnyckel för tjänsten Speech. [Skaffa en kostnadsfritt](get-started.md).
+* En Azure-prenumeration-nyckel för Speech Services. [Skaffa en kostnadsfritt](get-started.md).
 * [Python 3.5 eller senare](https://www.python.org/downloads/).
-* Python Speech SDK-paketet är tillgängligt för dessa operativsystem: 
+* Python Speech SDK-paketet är tillgängligt för dessa operativsystem:
     * Windows: x64 och x86.
     * Mac: Mac OS X version 10.12 eller senare.
     * Linux: Ubuntu 16.04 eller 18.04 på x64.
@@ -50,11 +50,11 @@ Det här kommandot installerar Python-paketet från [PyPI](https://pypi.org/) f�
 pip install azure-cognitiveservices-speech
 ```
 
-## <a name="support-and-updates"></a>Support och uppdateringar 
+## <a name="support-and-updates"></a>Support och uppdateringar
 
 Uppdateringar av Python Speech SDK-paketet distribueras via PyPI och visas i [Viktig information](./releasenotes.md).
 Om en ny version är tillgänglig kan du uppdatera till den med kommandot `pip install --upgrade azure-cognitiveservices-speech`.
-Kontrollera vilken version som är installerad genom att granska variabeln `azure.cognitiveservices.speech.__version__`. 
+Kontrollera vilken version som är installerad genom att granska variabeln `azure.cognitiveservices.speech.__version__`.
 
 Om du har problem eller saknar en funktion kan du ta en titt på [alternativen för support och hjälp](./support.md).
 
@@ -68,7 +68,7 @@ Du kan kopiera [exempelkoden](#sample-code) till en källfil från den här snab
 python quickstart.py
 ```
 
-Eller så kan du ladda ned den här snabbstartssjälvstudien som en [Jupyter](https://jupyter.org) Notebook från [exempellagringsplatsen för Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) och köra den som en notebook-fil. 
+Eller så kan du ladda ned den här snabbstartssjälvstudien som en [Jupyter](https://jupyter.org) Notebook från [exempellagringsplatsen för Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) och köra den som en notebook-fil.
 
 ### <a name="sample-code"></a>Exempelkod
 
@@ -86,13 +86,13 @@ Eller så kan du ladda ned den här snabbstartssjälvstudien som en [Jupyter](ht
 1. Från Visual Studio Code väljer du ikonen **Arkiv**. Öppna sedan den mapp du skapade.
 
    ![Öppna en mapp](media/sdk/qs-python-vscode-python-open-folder.png)
-   
+
 1. Skapa en ny Python-källfil `speechsdk.py` genom att välja den nya filikonen.
 
    ![Skapa en fil](media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Kopiera, klistra in och spara [Python-koden](#sample-code) till den nyskapade filen.
-1. Infoga prenumerationsinformationen för taltjänsten.
+1. Infoga Speech Services prenumerationsinformationen.
 1. Om en Python-tolk har valts visas den på statusfältets vänstra sida, längst ner i fönstret.
    Annars kan du ta fram en lista över tillgängliga Python-tolkar. Öppna kommandopaletten (Ctrl + Skift + P) och ange **Python: Välj tolk**. Välj en som passar.
 1. Du kan installera Speech SDK Python-paketet i Visual Studio Code. Gör det om det inte är installerat än för Python-tolken som du valt.

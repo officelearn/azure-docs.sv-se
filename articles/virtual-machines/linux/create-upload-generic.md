@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: 3aa2803550c445e0b30ff998cf3adb779515e487
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e032f9a9772232d3a57a9672dc6c601354ecad43
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235980"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105530"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Information om icke-godkända distributioner
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -144,10 +144,10 @@ Om det krävs en anpassad kernel, rekommenderar vi en ny kernel-version (till ex
 Följande korrigeringar måste inkluderas i kerneln. Den här listan får inte vara klar för alla distributioner.
 
 * [ata_piix: Skjut upp diskar till Hyper-V-drivrutiner som standard](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
-* [storvsc: konto för transit paket i sökvägen för återställning](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
+* [storvsc: Konto för transit paket i sökvägen för återställning](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
 * [storvsc: undvika användningen av WRITE_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
-* [storvsc: inaktivera skriva samma för RAID och drivrutiner för nätverkskort för virtuell värd](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
-* [storvsc: NULL-markören avreferera-korrigering](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
+* [storvsc: Inaktivera skriva samma för RAID och drivrutiner för nätverkskort för virtuell värd](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
+* [storvsc: NULL-pekare avreferera-korrigering](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 * [storvsc: ring buffer fel kan resultera i i/o-låsning](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
 * [scsi_sysfs: skydda mot dubbla körningen av __scsi_remove_device](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
@@ -160,7 +160,7 @@ Den [Azure Linux Agent](../extensions/agent-linux.md) `waagent` etablerar en Lin
 * I vissa fall kanske Azure Linux Agent inte är kompatibla med NetworkManager. Många av de RPM/Deb-paket som tillhandahålls av distributioner konfigurera NetworkManager som en konflikt i waagent-paket. I dessa fall kan avinstalleras NetworkManager när du installerar Linux-agenten.
 * Azure Linux Agent måste vara vid eller över den [lägsta version som stöds](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
-## <a name="general-linux-system-requirements"></a>Systemkrav för allmänna Linux
+## <a name="general-linux-system-requirements"></a>General Linux System Requirements
 
 1. Ändra i kernel boot line i GRUB eller GRUB2 för att inkludera följande parametrar, så att alla konsolmeddelanden skickas till den första seriella porten. Dessa meddelanden kan hjälpa Azure support med felsökning av problem.
     ```  
@@ -172,13 +172,13 @@ Den [Azure Linux Agent](../extensions/agent-linux.md) `waagent` etablerar en Lin
     ```
     Grafiska och tyst start är inte användbart i en molnmiljö, där vi vill att alla loggar som skickas till den seriella porten. Den `crashkernel` alternativet kanske vänster som konfigureras vid behov, men Observera att den här parametern minskar mängden tillgängligt minne på den virtuella datorn med minst 128 MB, vilket kan vara problematiskt för mindre VM-storlekar.
 
-2. Installera Azure Linux-agenten.
+1. Installera Azure Linux-agenten.
   
     Azure Linux Agent krävs för att etablera en Linux-avbildning på Azure.  Många distributioner ange agenten som en RPM- eller Deb-paketet (paketet kallas vanligtvis WALinuxAgent eller walinuxagent).  Agenten kan också installeras manuellt genom att följa stegen i den [Linux-agenten Guide](../extensions/agent-linux.md).
 
-3. Kontrollera att SSH-servern är installerad och konfigurerad för att starta när datorn startas.  Den här konfigurationen används vanligtvis som standard.
+1. Kontrollera att SSH-servern är installerad och konfigurerad för att starta när datorn startas.  Den här konfigurationen används vanligtvis som standard.
 
-4. Skapa inte växlingsutrymme på OS-disken.
+1. Skapa inte växlingsutrymme på OS-disken.
   
     Azure Linux Agent kan automatiskt konfigurera växlingsutrymme använder den lokala resursdisk som är kopplad till den virtuella datorn när du har etablerat på Azure. Den lokala resurs disken är en *tillfälliga* disk och kan tömmas när Virtuellt datorn avetableras. Ändra följande parametrar i /etc/waagent.conf när du har installerat Azure Linux Agent (steg 2 ovan).
     ```  
@@ -188,15 +188,15 @@ Den [Azure Linux Agent](../extensions/agent-linux.md) `waagent` etablerar en Lin
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: Set this to your desired size.
     ```
-* Kör följande kommandon för att avetablera den virtuella datorn.
+1. Kör följande kommandon för att avetablera den virtuella datorn.
   
-    ```
-    sudo waagent -force -deprovision
-    export HISTSIZE=0
-    logout
-    ```  
-  > [!NOTE]
-  > På Virtualbox kan du se följande fel efter att ha kört `waagent -force -deprovision` som säger `[Errno 5] Input/output error`. Det här felmeddelandet är inte viktigt och kan ignoreras.
+     ```
+     sudo waagent -force -deprovision
+     export HISTSIZE=0
+     logout
+     ```  
+   > [!NOTE]
+   > På Virtualbox kan du se följande fel efter att ha kört `waagent -force -deprovision` som säger `[Errno 5] Input/output error`. Det här felmeddelandet är inte viktigt och kan ignoreras.
 
 * Stäng av den virtuella datorn och överför den virtuella Hårddisken till Azure.
 

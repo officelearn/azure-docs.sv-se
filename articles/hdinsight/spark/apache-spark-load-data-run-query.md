@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 11/06/2018
-ms.openlocfilehash: 4dd9634d5d5e6ce749a4ee563903b07e22bc45ee
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: ddcde2956da774e687c1e587649e65b79003bf3a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652340"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448994"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Självstudier: Läsa in data och köra frågor i ett Apache Spark-kluster i Azure HDInsight
 
@@ -27,7 +27,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför [Skapa ett Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
@@ -83,7 +83,7 @@ När tabellen har skapats kan du köra en interaktiv fråga på datan.
 
 10. I menyn **Arkiv** i anteckningsboken väljer du **Spara och kontrollpunkt**. 
 
-11. Om du ska starta [nästa självstudie](apache-spark-use-bi-tools.md) direkt kan du lämna anteckningsboken öppen. Om inte, stänger du ned anteckningsboken för att frigöra resurserna i klustret: I menyn **Arkiv** i anteckningsboken väljer du **Stäng och stoppa**.
+11. Om du ska starta [nästa självstudie](apache-spark-use-bi-tools.md) direkt kan du lämna anteckningsboken öppen. Om den inte stänga ned anteckningsboken för att frigöra klusterresurserna: från den **filen** menyn i anteckningsboken och väljer **Stäng och stoppa**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

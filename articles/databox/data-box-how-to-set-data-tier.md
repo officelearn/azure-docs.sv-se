@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: 91cabd6601ca8d0c0eabfdb5726d4bd6b37492a6
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: dc84d5850656a0898fba328b652d86f3d8995bef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216145"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118382"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Använda Azure Data Box för att skicka data till lämplig Azure Storage blob-nivå
 
@@ -109,8 +109,8 @@ Följande steg beskriver hur du kan ange blob-nivå till arkivet med hjälp av A
     >> }
     PS C:\WINDOWS\system32>
     ```
-> [!TIP]
-> Om du vill att data att arkivera på mata in genom att ange standardlagringsnivån för kontot till frekvent. Om den standardlagringsnivån är lågfrekvent, sedan finns det en 30-dagars tidig borttagning av särskilda avgifter om informationen flyttas till arkivet omedelbart.
+   > [!TIP]
+   > Om du vill att data att arkivera på mata in genom att ange standardlagringsnivån för kontot till frekvent. Om den standardlagringsnivån är lågfrekvent, sedan finns det en 30-dagars tidig borttagning av särskilda avgifter om informationen flyttas till arkivet omedelbart.
 
 ## <a name="next-steps"></a>Nästa steg
 

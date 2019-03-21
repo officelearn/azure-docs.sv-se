@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: magoedte
-ms.openlocfilehash: 878abe79754c3286b77aef744d1bc4973a8af841
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 40e6d6ff6ea8748b525642e5507c80590b322b7a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729404"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110111"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Tjänstkarta-integrering med System Center Operations Manager
 
@@ -67,11 +67,11 @@ Om du vill konfigurera Service Map integration, gör du följande:
 
     Servern för att integrationen ska skapa ett diagram över distribuerade program för en server, måste vara:
 
-    * Hanteras av Operations Manager
-    * Hanteras av Tjänstkarta
-    * Visas i gruppen Service Map-servrar
+   * Hanteras av Operations Manager
+   * Hanteras av Tjänstkarta
+   * Visas i gruppen Service Map-servrar
 
-    ![Gruppen för Operations Manager-konfiguration](media/service-map-scom/scom-config-group.png)
+     ![Gruppen för Operations Manager-konfiguration](media/service-map-scom/scom-config-group.png)
 
 6. Valfritt: Välj resurspool Management-servern kan kommunicera med Log Analytics och klickar sedan på **lägger du till arbetsytan**.
 

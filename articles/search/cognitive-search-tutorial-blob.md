@@ -1,5 +1,5 @@
 ---
-title: Självstudie om att anropa API:er för kognitiv sökning – Azure Search
+title: 'Självstudie för att anropa Cognitive Services API: er i en pipeline för fulltextindexering – Azure Search'
 description: I den här självstudien går vi igenom ett exempel på dataextrahering, naturliga språk och AI-bearbetning av bilder via Azure Search-indexering för dataextrahering och transformering.
 manager: pablocas
 author: luiscabrer
@@ -7,19 +7,19 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 03/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 410e5d618e1deb1887329bea41e2cd3c6d795e58
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c888c134054f50bc8ab17d17524a4f89d5081dfc
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075858"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259626"
 ---
-# <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Självstudie: Lär dig att anropa API:er för kognitiv sökning (förhandsversion)
+# <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Självstudier: Anropa API: er med Cognitive Services i ett Azure Search indexering pipeline (förhandsversion)
 
-I den här självstudien har du lärt dig mekaniken bakom att programmera databerikande i Azure Search med *kognitiva kunskaper*. Kognitiva kunskaper är behandling av naturligt språk (NLP) och bildanalysåtgärder som extraherar text och textrepresentationer av en avbildning, identifiering av språk, enheter, viktiga fraser och mycket mer. Slutresultatet är omfattande ytterligare innehåll i ett Azure Search-index som skapats av en pipeline för en kognitiv sökindexeringspipeline. 
+I den här självstudien har du lärt dig mekaniken bakom att programmera databerikande i Azure Search med *kognitiva kunskaper*. Kunskaper backas upp av språkbearbetning (NLP) och avbildning analysmöjligheter i Cognitive Services. Via kompetens sammansättning och konfiguration, för att extrahera text och text som representerar en bild eller skannade dokument. Du kan också identifiera språk, entiteter, nyckelfraser och mycket mer. Slutresultatet är omfattande ytterligare innehåll i ett Azure Search-index som skapats av en AI-driven indexering av pipeline. 
 
 I den här självstudien gör du REST API-anrop för att utföra följande uppgifter:
 
@@ -59,7 +59,7 @@ Börja med att registrera dig för Azure Search-tjänsten.
 
 1. För Resursgrupp skapar du en resursgrupp som ska innehålla alla resurser som du skapar i den här självstudien. På så sätt blir det enklare att rensa resurserna när du är klar med självstudien.
 
-1. För plats rekommenderar vi att välja en region som ligger nära dina data och andra molnappar.
+1. För plats, väljer du en region som ligger nära dina data och andra molnappar.
 
 1. För Prisnivå kan du skapa en **kostnadsfri** tjänst för användning med självstudier och snabbstarter. För djupare analys med egna data väljer du en [betaltjänst](https://azure.microsoft.com/pricing/details/search/) som **Basic** eller **Standard**. 
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fd01fdd3f7f8803dc7221bd0bd6c993120a83d44
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: MT
+ms.openlocfilehash: ee6c05b2da4347ed034ae6e7318d6f5d90ea7884
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330899"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099652"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hur du etablerar en Windows SQL Server-dator i Azure portal
 
@@ -178,7 +178,7 @@ Om du föredrar att inte aktivera anslutningar till databasmotorn via Internet v
 
 I allmänhet kan du förbättra säkerheten genom att välja den mest restriktiva anslutningen som ditt scenario medger. Men alla alternativ kan skyddas med regler för nätverkssäkerhetsgrupper och SQL/Windows-autentisering. Du kan redigera nätverkssäkerhetsgruppen när den virtuella datorn har skapats. Mer information finns i [Säkerhetsöverväganden för SQL Server på Azure Virtual Machines](virtual-machines-windows-sql-security.md).
 
-### <a name="authentication"></a>Autentisering
+### <a name="authentication"></a>Authentication
 
 Om du kräver SQL Server-autentisering klickar du på **Aktivera** under **SQL-autentisering**.
 
@@ -247,7 +247,7 @@ Följande tabell innehåller de parametrar som krävs för att konfigurera Azure
 
 | PARAMETER | BESKRIVNING | EXEMPEL |
 | --- | --- | --- |
-| **Key Vault-URL** |Platsen för nyckelvalvet. |https://contosokeyvault.vault.azure.net/ |
+| **Key Vault-URL** |Platsen för nyckelvalvet. |<https://contosokeyvault.vault.azure.net/> |
 | **Huvudnamn** |Azure Active Directory-tjänstens huvudnamn. Det här namnet kallas också för klient-ID:t. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **Huvudhemlighet** |Azure Active Directory-tjänstens huvudhemlighet. Den här hemligheten kallas även för klienthemligheten. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
 | **Namn på autentiseringsuppgifter** |**Namn på autentiseringsuppgift**: AKV-integreringen skapar autentiseringsuppgifter på SQL Server så att den virtuella datorn ska ha åtkomst till nyckelvalvet. Välj ett namn för autentiseringsuppgifterna. |mycred1 |

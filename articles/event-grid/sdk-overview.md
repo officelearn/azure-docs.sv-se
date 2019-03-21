@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 53a1f50647e05b71afe6accb85f8a90cd8b7e253
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7f05665f4bcc5449c1a81fa24582b333b0a944e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470417"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173761"
 ---
 # <a name="event-grid-sdks-for-management-and-publishing"></a>Event Grid-SDK: er för hantering och publicering
 
@@ -46,4 +46,4 @@ Dataplanet med hjälp av SDK: er kan du skicka händelser till avsnitt genom att
 * Till exempel program finns i [Event Grid-kodexempel](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid).
 * En introduktion till Event Grid finns i [vad är Event Grid?](overview.md)
 * Event Grid-kommandon i Azure CLI finns i [Azure CLI](/cli/azure/eventgrid).
-* Event Grid-kommandon i PowerShell finns i [PowerShell](/powershell/module/azurerm.eventgrid).
+* Event Grid-kommandon i PowerShell finns i [PowerShell](/powershell/module/az.eventgrid).

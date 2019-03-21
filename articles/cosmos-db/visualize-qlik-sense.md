@@ -7,12 +7,12 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 4b37b6cd35526d6a76625dd03d1325f1688e698e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4532962b6fd9f40fad625ab000116e5a617682e5
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044475"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258794"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Ansluta Qlik Sense till Azure Cosmos DB och visualisera dina data
 
@@ -42,9 +42,9 @@ Kontrollera att du har följande resurser som är redo innan du följer anvisnin
 
 * Ladda ned den [videospel data](https://www.kaggle.com/gregorut/videogamesales), dessa exempeldata är CSV-format. Du kan lagra dessa data i en Cosmos DB-konto och visualisera den i Qlik Sense.
 
-* Skapa ett Azure Cosmos DB SQL API-konto med hjälp av stegen som beskrivs i [skapa ett konto](create-sql-api-dotnet.md#create-a-database-account) avsnittet i snabbstartsartikeln.
+* Skapa ett Azure Cosmos DB SQL API-konto med hjälp av stegen som beskrivs i [skapa ett konto](create-sql-api-dotnet.md#create-account) avsnittet i snabbstartsartikeln.
 
-* [Skapa en databas och en samling](create-sql-api-dotnet.md#add-a-collection) – du kan använda värdet samling dataflöde till 1000 RU/s. 
+* [Skapa en databas och en samling](create-sql-api-dotnet.md#create-collection-database) – du kan använda värdet samling dataflöde till 1000 RU/s. 
 
 * Läsa in videospel försäljning exempeldata till ditt Cosmos DB-konto. Du kan importera data med hjälp av Migreringsverktyget för Azure Cosmos DB-data, kan du göra en [sekventiella](import-data.md#SQLSeqTarget) eller en [massimport](import-data.md#SQLBulkTarget) av data. Det tar cirka 3 – 5 minuter för data som ska importeras till Cosmos DB-konto.
 

@@ -4,225 +4,195 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 53b6a928-e8a4-4cf1-9952-50cd3f013b7c
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/09/2018
+ms.topic: tutorial
+ms.date: 03/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28ea99f7e672339e45730e80294455931573d62a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2e67aa6a2e072a1f140cc725720f095f7d93b49a
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170008"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189078"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insider-track"></a>Självstudier: Azure Active Directory-integrering med Insider-spår
 
 I den här självstudien får du lära dig hur du integrerar Insider spåra med Azure Active Directory (AD Azure).
-
 Integrera Insider spåra med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Insider spåra.
-- Du kan aktivera användarna att automatiskt få loggat in på Insider spåra (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan styra i Azure AD som har åtkomst till Insider spåra.
+* Du kan aktivera användarna att vara automatiskt inloggad till Insider spår (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Insider-spår, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En Insider spåra enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Insider spåra enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Insider spåra från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+
+* Har stöd för Insider spåra **SP** -initierad SSO
 
 ## <a name="adding-insider-track-from-the-gallery"></a>Att lägga till Insider spåra från galleriet
+
 För att konfigurera integrering av Insider spåra i Azure AD, som du behöver lägga till Insider spåra från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Insider spåra från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
-    
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
 4. I sökrutan skriver **Insider spåra**väljer **Insider spåra** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Insider spåra i resultatlistan](./media/insidertrack-tutorial/tutorial_insidertrack_addfromgallery.png)
+     ![Insider spåra i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Insider spåra baserat på en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Insider spåra är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Insider spåra upprättas.
-
-I Insider spåra tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Insider spåra baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Insider spåra upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Insider-spår, måste du utföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-3. **[Skapa en testanvändare Insider spåra](#create-an-insider-track-test-user)**  – du har en motsvarighet för Britta Simon i Insider-kurs som är länkad till en Azure AD-representation av användaren.
+2. **[Konfigurera enkel inloggning för Insider-spåra](#configure-insider-track-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+5. **[Skapa Insider spåra testanvändare](#create-insider-track-test-user)**  – du har en motsvarighet för Britta Simon i Insider-kurs som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i Insider Track-programmet.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Insider-spår:**
+Utför följande steg för att konfigurera Azure AD enkel inloggning med Insider-spår:
 
-1. I Azure-portalen på den **Insider spåra** program integration-sidan klickar du på **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **Insider spåra** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/insidertrack-tutorial/tutorial_insidertrack_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-3. På den **Insider spåra domän och URL: er** avsnittet, utför följande steg:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Insider spåra domän och URL: er med enkel inloggning för information](./media/insidertrack-tutorial/tutorial_insidertrack_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<companyname>/InsiderTrack.Portal.<companyname>/Sso/`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    > [!NOTE] 
-    > Inloggnings-URL-värdet är inte verkliga. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Insider spåra klienten supportteamet](https://cytecsolutions.com/contact/) att hämta det här värdet.
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    ![Insider spåra domän och URL: er med enkel inloggning för information](common/sp-signonurl.png)
 
-    ![Länk för hämtning av certifikat](./media/insidertrack-tutorial/tutorial_insidertrack_certificate.png) 
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<companyname>/InsiderTrack.Portal.<companyname>/Sso/`
 
-5. Klicka på **spara** knappen.
+    > [!NOTE]
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Insider spåra klienten supportteamet](https://cytecsolutions.com/contact/) att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/insidertrack-tutorial/tutorial_general_400.png)
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-6. På den **Insider spåra Configuration** klickar du på **konfigurera Insider spåra** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-    ![Insider spåra konfiguration](./media/insidertrack-tutorial/tutorial_insidertrack_configure.png) 
+6. På den **konfigurera Insider spåra** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
 
-7. Att konfigurera enkel inloggning på **Insider spåra** sida, som du behöver skicka de hämtade **XML-Metadata, URL: en för utloggning, SAML entitets-ID,** och **SAML enkel inloggning för tjänst-URL** till [Insider spåra supportteamet](https://cytecsolutions.com/contact/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-insider-track-single-sign-on"></a>Konfigurera enkel inloggning för Insider-spår
+
+Att konfigurera enkel inloggning på **Insider spåra** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [Insider spåra support-teamet ](https://cytecsolutions.com/contact/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/insidertrack-tutorial/create_aaduser_01.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/insidertrack-tutorial/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    ![Knappen Lägg till](./media/insidertrack-tutorial/create_aaduser_03.png)
-
-4. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/insidertrack-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-an-insider-track-test-user"></a>Skapa en Insider spåra testanvändare
-
-I det här avsnittet skapar du en användare som kallas Britta Simon i Insider spåra. Arbeta med [Insider spåra supportteamet](https://cytecsolutions.com/contact/) att lägga till användare i Insider Track-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning om du beviljar åtkomst till Insider spår.
 
-![Tilldela rollen][200] 
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Insider spåra**.
 
-**Om du vill tilldela Insider spåra Britta Simon utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 2. I listan med program väljer **Insider spåra**.
 
-    ![Länken Insider spåra i listan med program](./media/insidertrack-tutorial/tutorial_insidertrack_app.png)  
+    ![Länken Insider spåra i listan med program](common/all-applications.png)
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Länken ”användare och grupper”][202]
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Fönstret Lägg till tilldelning][203]
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-insider-track-test-user"></a>Skapa Insider spåra testanvändare
+
+I det här avsnittet skapar du en användare som kallas Britta Simon i Insider spåra. Arbeta med [Insider spåra supportteamet](https://cytecsolutions.com/contact/) att lägga till användare i Insider Track-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Insider spåra i åtkomstpanelen du bör få automatiskt loggat in på Insider Track-programmet.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen Insider spåra i åtkomstpanelen, bör det vara loggas in automatiskt till Insider spår som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/insidertrack-tutorial/tutorial_general_01.png
-[2]: ./media/insidertrack-tutorial/tutorial_general_02.png
-[3]: ./media/insidertrack-tutorial/tutorial_general_03.png
-[4]: ./media/insidertrack-tutorial/tutorial_general_04.png
-
-[100]: ./media/insidertrack-tutorial/tutorial_general_100.png
-
-[200]: ./media/insidertrack-tutorial/tutorial_general_200.png
-[201]: ./media/insidertrack-tutorial/tutorial_general_201.png
-[202]: ./media/insidertrack-tutorial/tutorial_general_202.png
-[203]: ./media/insidertrack-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

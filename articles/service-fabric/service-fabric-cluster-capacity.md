@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 5fb8f54f50d821e53ec260c67ad5cf56c7f5671b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 82910f7b29789fa777f6deb2c185c57e847e1c88
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816546"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109264"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-kluster kapacitetsplanering
 För alla Produktionsdistribution är kapacitetsplanering ett viktigt steg. Här är några av de objekt som du måste väga in som en del av den här processen.
@@ -82,16 +82,16 @@ Hållbarhetsnivån används för att ange de behörigheter som dina virtuella da
 
 > [!WARNING]
 > Nodtyper som körs med Brons hållbarhet hämta _saknad behörighet_. Det innebär att infrastruktur för jobb som påverkar din tillståndslösa arbetsbelastningar inte kommer stoppas eller fördröjd, vilket kan påverka dina arbetsbelastningar. Använd endast Brons för nodtyper som kör endast tillståndslösa arbetsbelastningar. Kör Silver eller ovan rekommenderas för produktionsarbetsbelastningar. 
-
+> 
 > Oavsett eventuella hållbarhetsnivå [frigörs](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) åtgärden på den Virtuella Datorskalningsuppsättningen förstör klustret
 
 **Fördelarna med att använda Silver eller Gold hållbarhet nivåer**
- 
+ 
 - Minskar antalet steg i en skala in-åtgärd (det vill säga noden inaktivering och ta bort ServiceFabricNodeState kallas automatiskt).
 - Minskar risken för dataförlust på grund av en kundinitierade plats VM SKU ändring eller de Azure-infrastrukturen åtgärder.
 
 **Nackdelarna med att använda Silver eller Gold hållbarhet nivåer**
- 
+ 
 - Distributioner till VM-skalningsuppsättning ställa in och andra relaterade Azure-resurser kan fördröjas, kan tar för lång tid eller blockeras helt och hållet av problem i klustret eller på infrastrukturnivå. 
 - Ökar antalet [Livscykelhändelser för repliken](service-fabric-reliable-services-lifecycle.md) (till exempel primära växlingar) på grund av automatiserad noden avaktiveringar under Azure-infrastrukturen.
 - Tar noder ur för tidsperioder när programuppdateringar för Azure-plattformen eller maskinvaruunderhåll aktiviteter som utförs. Du kan se noder med status inaktiveras/inaktiverad under dessa aktiviteter. Detta minskar kapaciteten för klustret tillfälligt, men bör inte påverka tillgängligheten för dina kluster eller ett program.

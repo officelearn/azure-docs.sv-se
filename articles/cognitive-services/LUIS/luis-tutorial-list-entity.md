@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: fc6d68e862f6a2f3c95f5ca6d130e42c96649eb1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 929dc7a86d141446a2070b046c6febfda4a07f0f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874642"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092573"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Använd en entitet i listan för att öka entitet identifiering 
 Den här självstudien visar hur du använder en [lista entitet](luis-concept-entity-types.md) att öka entitet identifiering. Lista enheter behöver inte märkta som de är en exakt matchning av villkor.  
@@ -23,9 +23,9 @@ Den här självstudien visar hur du använder en [lista entitet](luis-concept-en
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-* Skapa en entitet i listan 
-* Lägg till normaliserade värden och synonymer
-* Verifiera förbättrad enhetens identifiering
+> * Skapa en entitet i listan 
+> * Lägg till normaliserade värden och synonymer
+> * Verifiera förbättrad enhetens identifiering
 
 ## <a name="prerequisites"></a>Förutsättningar
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: b4359a90bb511b538499848effea7be22a23fac0
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 62a2da72a2659b95e4da41de67da4c609b8f049e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570631"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835590"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Felsöka problem med Azure till Azure VM-replikering
 
@@ -79,7 +79,7 @@ Eftersom SuSE Linux använder symlinks för att underhålla en lista över certi
 
 4. Hämta certifikatet om Baltimore rot-CA-certifikat inte hittas.  
 
-    ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
+    ``# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
 5. Kontrollera om det finns DigiCert_Global_Root_CA-certifikat.
 
@@ -158,12 +158,12 @@ För Site Recovery-replikering till arbete, utgående anslutning till specifika 
 - **Möjlig orsak** </br>
   - Det går inte att upprätta anslutning till site recovery-slutpunkter på grund av DNS-matchningsfel.
   - Detta visas oftare vid nytt skydd när du har misslyckats under den virtuella datorn men DNS-servern kan inte nås från regionen för Haveriberedskap.
-  
+
 - **Lösning**
    - Om du använder anpassade DNS Se till att är DNS-servern tillgänglig från regionen för Haveriberedskap. Kontrollera om du har en anpassad DNS går du till den virtuella datorn > Disaster Recovery-nätverket > DNS-servrar. Försök att öppna DNS-servern från den virtuella datorn. Om den inte är tillgänglig sedan när du gör det tillgängligt genom att antingen växling över DNS-server eller skapa verksamhetsspecifika plats mellan DR-nätverk och DNS.
-  
+
     ![COM-fel](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
- 
+
 
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problem 2: Konfiguration av site Recovery misslyckades (151196)
 - **Möjlig orsak** </br>
@@ -172,10 +172,10 @@ För Site Recovery-replikering till arbete, utgående anslutning till specifika 
 - **Lösning**
   - Azure Site Recovery krävs åtkomst till Office 365-IP-intervall för autentisering.
     Om du använder Azure Network security group (NSG) regler/brandväggsproxy för att styra utgående nätverksanslutning på den virtuella datorn, kontrollerar du att du tillåter kommunikation till IP-intervall för O365. Skapa en [Azure Active Directory (AAD) tjänsttagg](../virtual-network/security-overview.md#service-tags) baserat NSG-regel för att tillåta åtkomst till alla IP-adresser för AAD
-        - Om nya adresser läggs till Azure Active Directory (AAD) i framtiden, måste du skapa nya NSG-regler.
->[!NOTE]
-> Om de virtuella datorerna bakom **Standard** intern belastningsutjämnare och det skulle inte ha åtkomst till O365 IP-adresser, dvs login.micorsoftonline.com som standard. Antingen ändra det till **grundläggande** interna typ av belastningsutjämnare eller skapa ut bundna åtkomst som vi nämnde i [article] (https://aka.ms/lboutboundrulescli).
->
+      - Om nya adresser läggs till Azure Active Directory (AAD) i framtiden, måste du skapa nya NSG-regler.
+
+> [!NOTE]
+> Om de virtuella datorerna bakom **Standard** intern belastningsutjämnare och det skulle inte ha åtkomst till O365 IP-adresser, dvs login.micorsoftonline.com som standard. Antingen ändra det till **grundläggande** interna typ av belastningsutjämnare eller skapa ut bundna åtkomst enligt den [artikeln](https://aka.ms/lboutboundrulescli).
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problem 3: Konfiguration av site Recovery misslyckades (151197)
 - **Möjlig orsak** </br>
@@ -183,24 +183,24 @@ För Site Recovery-replikering till arbete, utgående anslutning till specifika 
 
 - **Lösning**
   - Azure Site Recovery krävs för åtkomst till [Site Recovery IP-intervall](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) beroende på regionen. Kontrollera att som krävs för ip-intervall som är tillgängliga från den virtuella datorn.
-    
+
 
 ### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>Problem 4: A2A-replikeringen misslyckades när nätverkstrafiken som går via en lokal proxyserver (151072)
- - **Möjlig orsak** </br>
-   - De anpassade proxyinställningarna är ogiltiga och mobilitetstjänstagenten för ASR identifieras inte automatiskt proxyinställningar från Internet Explorer
+- **Möjlig orsak** </br>
+  - De anpassade proxyinställningarna är ogiltiga och mobilitetstjänstagenten för ASR identifieras inte automatiskt proxyinställningar från Internet Explorer
 
 
- - **Lösning**
-   1.   Mobilitetstjänstagenten identifierar proxyinställningar från Internet Explorer på Windows och /etc/environment i Linux.
-   2.  Om du föredrar att ställa in proxy endast för ASR-Mobilitetstjänsten kan ange du proxyinformationen i ProxyInfo.conf som finns på:</br>
-       - ``/usr/local/InMage/config/`` på ***Linux***
-       - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` på ***Windows***
-   3.   ProxyInfo.conf ska ha rätt proxyinställningar har följande INI-format.</br>
-                   *[proxy]*</br>
-                   *Adress =http://1.2.3.4*</br>
-                   *Port = 567*</br>
-   4. ASR mobilitetstjänstagenten stöder endast ***oautentiserade proxyservrar***.
- 
+- **Lösning**
+  1. Mobilitetstjänstagenten identifierar proxyinställningar från Internet Explorer på Windows och /etc/environment i Linux.
+  2. Om du föredrar att ställa in proxy endast för ASR-Mobilitetstjänsten kan ange du proxyinformationen i ProxyInfo.conf som finns på:</br>
+     - ``/usr/local/InMage/config/`` på ***Linux***
+     - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` på ***Windows***
+  3. ProxyInfo.conf ska ha rätt proxyinställningar har följande INI-format.</br>
+                *[proxy]*</br>
+                *Adress =http://1.2.3.4*</br>
+                *Port = 567*</br>
+  4. ASR mobilitetstjänstagenten stöder endast ***oautentiserade proxyservrar***.
+
 
 ### <a name="fix-the-problem"></a>Åtgärda problemet
 Godkänna [de URL: erna](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) eller [krävs för IP-intervall](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), följer du stegen i den [vägledningsdokumentet nätverk om](site-recovery-azure-to-azure-networking-guidance.md).
@@ -281,6 +281,7 @@ Om du vill aktivera replikering på den virtuella datorn, Etableringsstatus mås
 
 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM +/ fel i tjänsten Volume Shadow Copy (felkod 151025)
+
 **Felkod** | **Möjliga orsaker** | **Rekommendationer**
 --- | --- | ---
 151025<br></br>**Meddelandet**: Det gick inte att installera Site recovery-tillägget | -, COM + System Application-tjänsten är inaktiverad.</br></br>-'Volume Shadow Copy-tjänsten är inaktiverad.| Ange ”COM + System Application” och ”Volume Shadow Copy-tjänster till automatiskt eller manuellt startläge.
@@ -304,31 +305,31 @@ GRUB-konfigurationsfilerna (”/ boot/grub/menu.lst” ”, / boot/grub/grub.cfg
 
 
 - Följande rad är GRUB-fil **/boot/grub2/grub.cfg**. <br>
-*linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+  *linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
 
 
 - Följande rad är GRUB-fil **/boot/grub/menu.lst**
-*kernel /boot/vmlinuz-3.0.101-63-default **rot = / dev/sda2** **återuppta = / dev/sda1 ** stänker = tyst crashkernel = 256M-:128M showopts vga = 0x314*
+  *kernel /boot/vmlinuz-3.0.101-63-default **rot = / dev/sda2** **återuppta = / dev/sda1 ** stänker = tyst crashkernel = 256M-:128M showopts vga = 0x314*
 
 Om du upptäcker fetstil strängen ovan, innehåller GRUB faktiska enhetsnamn för parametrar ”rot” och ”återuppta” istället för UUID.
- 
+
 **Så här åtgärdar du:**<br>
 Enhetsnamn ska ersättas med motsvarande UUID.<br>
 
 
 1. Hitta UUID för enheten genom att köra kommandot ”blkid <device name>”. Exempel:<br>
-```
-blkid /dev/sda1 
-```<br>
-```/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap" ```<br>
-```blkid /dev/sda2```<br> 
-```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
-```<br>
+   ```
+   blkid /dev/sda1 
+   ```<br>
+   ```/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap" ```<br>
+   ```blkid /dev/sda2```<br> 
+   ```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+   ```<br>
 
 
 
 1. Now replace the device name with its UUID in the format like "root=UUID=<UUID>". For example, if we replace the device names with UUID for root and resume parameter mentioned above in the files "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub: then the lines in the files looks like. <br>
-*kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+   *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 1. Restart the protection again
 
 ## Enable protection failed as device mentioned in the GRUB configuration doesn't exist(error code 151124)
@@ -338,14 +339,14 @@ The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/bo
 Few examples: </br>
 
 1. The following line is from the GRUB file **"/boot/grub2/grub.cfg"** on RHEL7. </br>
-*linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet LANG=en_US.UTF-8*</br>
-Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
+   *linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M\@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet LANG=en_US.UTF-8*</br>
+   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
 1. The following line is from the GRUB file **"/etc/default/grub"** on RHEL7 </br>
- *GRUB_CMDLINE_LINUX="crashkernel=auto **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet"*</br>
-Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
+   *GRUB_CMDLINE_LINUX="crashkernel=auto **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet"*</br>
+   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
 1. The following line is from the GRUB file **"/boot/grub/menu.lst"** on RHEL6 </br>
-*kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=rootvg/lv_root  KEYBOARDTYPE=pc KEYTABLE=us rd_LVM_LV=rootvg/lv_swap rd_NO_DM rhgb quiet* </br>
- Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".<br>
+   *kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=rootvg/lv_root  KEYBOARDTYPE=pc KEYTABLE=us rd_LVM_LV=rootvg/lv_swap rd_NO_DM rhgb quiet* </br>
+   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".<br>
 
 **How to Fix:**<br>
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79ab1f046e5ab6c5b777e9253dd21e47fa9d593a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c922e0ef005b0e0b22af32f52d8bf28aff0e9515
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187941"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998695"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Konfigurera hanterade identiteter för Azure-resurser på en VM-skalningsuppsättning med Azure portal
 
@@ -59,7 +59,7 @@ För att aktivera hanterad systemtilldelad identitet på en skalningsuppsättnin
 
 3. Under **systemtilldelad**, **Status**väljer **på** och klicka sedan på **spara**:
 
-   ![Skärmbild av konfiguration av sidan](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](./Media/MSI-Qs-Configure-Portal-Windows-vmss/Create-Windows-vmss-Portal-Configuration-Blade.PNG#lightbox)  
+   ![Skärmbild av konfiguration av sidan](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png) 
 
 ### <a name="remove-system-assigned-managed-identity-from-a-virtual-machine-scale-set"></a>Ta bort systemtilldelade hanterad identitet från en VM-skalningsuppsättning
 
@@ -73,7 +73,7 @@ Om du har en skalningsuppsättning för virtuella datorer som inte längre behö
 
    ![Skärmbild av konfiguration av sidan](./media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)
 
-## <a name="user-assigned-managed-identity"></a>Användartilldelade hanterad identitet
+## <a name="user-assigned-managed-identity"></a>Användartilldelad hanterad identitet
 
 I det här avsnittet får lära du att lägga till och ta bort en hanterad Användartilldelad identitet från en VM-skalningsuppsättning med Azure portal.
 

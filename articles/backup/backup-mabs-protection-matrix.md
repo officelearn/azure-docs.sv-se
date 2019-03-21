@@ -9,12 +9,12 @@ ms.date: 11/13/2018
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: e7bcd5438738399d187bc158948364a44c46348c
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 050e3032d47b8215ae1aef8492c247031275ab86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652424"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094651"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Skyddsöversikt för Azure Backup Server
 
@@ -23,7 +23,7 @@ Den här artikeln visar de olika servrar och arbetsbelastningar som du kan skydd
 ## <a name="protection-support-matrix"></a>Supportmatris för skydd
 
 |Arbetsbelastning|Version|Azure Backup Server</br> installation|Azure Backup</br> Server V3|Azure Backup</br> Server V2|Skydd och återställning|
-|------------|-----------|---------------|--------------|---------------|-----------------|---------------------------|
+|------------|-----------|---------------|--------------|---------------|-----------------|
 |Klientdatorer (64-bitars och 32-bitars)|Windows 10|Fysisk server<br /><br />Virtuell Hyper-V-dator<br /><br />Virtuell VMware-dator|Y|Y|Volym, resurs, mapp, filer, deduplicerade volymer<br /><br />Skyddade volymer måste vara NTFS. FAT och FAT32 stöds inte.<br /><br />Volymer måste vara minst 1 GB. DPM använder Volume Shadow Copy Service (VSS) för att ta dataögonblicksbilden och ögonblicksbilden fungerar bara om volymen är minst 1 GB.|
 |Klientdatorer (64-bitars och 32-bitars)|Windows 8.1|Fysisk server<br /><br />Virtuell Hyper-V-dator|Y|Y|Filer<br /><br />Skyddade volymer måste vara NTFS. FAT och FAT32 stöds inte.<br /><br />Volymer måste vara minst 1 GB. DPM använder Volume Shadow Copy Service (VSS) för att ta dataögonblicksbilden och ögonblicksbilden fungerar bara om volymen är minst 1 GB.|
 |Klientdatorer (64-bitars och 32-bitars)|Windows 8.1|Windows-dator i VMWare (skyddar arbetsbelastningar som körs i Windows-dator i VMWare)|Y|Y|Volym, resurs, mapp, filer, deduplicerade volymer<br /><br />Skyddade volymer måste vara NTFS. FAT och FAT32 stöds inte.<br /><br />Volymer måste vara minst 1 GB. DPM använder Volume Shadow Copy Service (VSS) för att ta dataögonblicksbilden och ögonblicksbilden fungerar bara om volymen är minst 1 GB.|

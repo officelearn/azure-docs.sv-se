@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2187d0e986a173e1b8dc37fd0abdfa3bfd9e9505
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 64aebaedd9221b2570b66bdb8550bff36b54492c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168996"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084767"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Självstudier: Azure Active Directory-integrering med SpringCM
 
@@ -200,7 +200,7 @@ Om du vill aktivera Azure Active Directory-användare att logga in på SpringCM,
    
     ![Skapa användare](./media/spring-cm-tutorial/ic797054.png "Skapa användare")
 
-1. Klicka på **skapa användare**.
+1. Klicka på **Skapa användare**.
 
 1. Välj en **användarrollen**.
 
@@ -212,9 +212,9 @@ Om du vill aktivera Azure Active Directory-användare att logga in på SpringCM,
 
 1. Klicka på **Spara**.
 
-  >[!NOTE]
-  >Du kan använda alla andra SpringCM användare konto verktyg för att skapa eller API: er som tillhandahålls av SpringCM att etablera AAD-användarkonton.  
-  > 
+   >[!NOTE]
+   >Du kan använda alla andra SpringCM användare konto verktyg för att skapa eller API: er som tillhandahålls av SpringCM att etablera AAD-användarkonton.  
+   > 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
@@ -249,14 +249,14 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 ### <a name="testing-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
- 
+ 
 När du klickar på panelen SpringCM i åtkomstpanelen du bör få automatiskt loggat in på ditt SpringCM program.
 
 Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

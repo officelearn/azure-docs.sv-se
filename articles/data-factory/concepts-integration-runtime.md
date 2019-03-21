@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 82885c00557c85fefcf221789263632e21bd77da
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: ab6da597457fa94c171a1e2547c1d48cf35cd0f9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344037"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893058"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime i Azure Data Factory
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att ge olika nätverksmiljöer integrationsfunktioner:
@@ -51,7 +51,7 @@ Följande diagram visar hur olika IR-körningar kan användas i kombination för
 En Azure Integration Runtime kan:
 
 - Köra kopieringsaktivitet mellan molndatalager
-- Skicka följande transformeringsaktiviteter i offentligt nätverk: HDInsight Hive-aktivitet, HDInsight Pig-aktivitet, HDInsight MapReduce-aktivitet, HDInsight Spark-aktivitet, HDInsight-strömningsaktivitet, Machine Learning-batchkörningsaktivitet, Machine Learning-resursuppdateringsaktiviteter, lagringsprocedur-aktivitet Data Lake Analytics U-SQL-aktivitet, .net-anpassad aktivitet, Web-aktivitet, Lookup-aktivitet och GetMetaData-aktivitet.
+- Skicka följande transformeringsaktiviteter i offentligt nätverk: HDInsight Hive-aktivitet, HDInsight Pig-aktivitet, HDInsight MapReduce-aktivitet, HDInsight Spark-aktivitet, HDInsight-strömningsaktivitet, Machine Learning-batchkörningsaktivitet, Machine Learning-resursuppdateringsaktiviteter, lagringsprocedur-aktivitet Data Lake Analytics U-SQL-aktivitet, .NET-anpassad aktivitet, Web-aktivitet, Lookup-aktivitet och GetMetaData-aktivitet.
 
 ### <a name="azure-ir-network-environment"></a>Azure IR-nätverksmiljö
 Azure Integration Runtime stöder anslutning till datalager och beräkningstjänster i offentligt nätverk med offentligt tillgängliga slutpunkter. Använd Integration Runtime med egen värd för Azure Virtual Network-miljön.
@@ -69,7 +69,7 @@ Information om hur du skapar och konfigurerar Azure IR finns i How to create and
 En IR med egen värd kan:
 
 - Köra kopieringsaktivitet mellan molndatalager och ett datalager i privat nätverk.
-- Skicka följande transformeringsaktiviteter mot beräkningsresurser i lokalt eller Azure Virtual Network: HDInsight Hive-aktivitet (BYOC ta med din egen kluster), HDInsight Pig-aktivitet (BYOC), HDInsight MapReduce-aktivitet (BYOC), HDInsight Spark-aktivitet (BYOC), HDInsight Streaming-aktivitet (BYOC), Machine Learning-batchkörningsaktivitet, Machine Learning Uppdatera resursaktiviteter, lagringsprocedur-aktivitet, Data Lake Analytics U-SQL-aktivitet, .net-anpassad aktivitet, Lookup-aktivitet och GetMetaData-aktivitet.
+- Skicka följande transformeringsaktiviteter mot beräkningsresurser i lokalt eller Azure Virtual Network: HDInsight Hive-aktivitet (BYOC ta med din egen kluster), HDInsight Pig-aktivitet (BYOC), HDInsight MapReduce-aktivitet (BYOC), HDInsight Spark-aktivitet (BYOC), HDInsight Streaming-aktivitet (BYOC), Machine Learning-batchkörningsaktivitet, Machine Learning Uppdatera resursaktiviteter, lagringsprocedur-aktivitet, Data Lake Analytics U-SQL-aktivitet, .NET-anpassad aktivitet, Lookup-aktivitet och GetMetaData-aktivitet.
 
 > [!NOTE] 
 > Använda Integration Runtime med egen värd för att stödja datalager som kräver egen drivrutin, till exempel SAP Hana, MySQL osv.  Mer information finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

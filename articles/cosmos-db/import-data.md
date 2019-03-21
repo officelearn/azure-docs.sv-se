@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 02/22/2019
 ms.author: dech
-ms.openlocfilehash: c2020688359fafe6cf39dacc84c84ea79251ddbb
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e23b65904d16fbd2d8ffe0412603699a9e36aa7e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733358"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099533"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Migrera data till Azure Cosmos DB med hjälp av migreringsverktyget
 
@@ -58,7 +58,7 @@ Datamigreringsverktyget är en lösning med öppen källkod som importerar data 
 
 ## <a id="Install"></a>Installation
 
-Källkoden för migreringsverktyget finns i GitHub på [den här lagringsplatsen](https://github.com/azure/azure-documentdb-datamigrationtool). Du kan ladda ned och kompilera lösningen lokalt, eller [ladda ned en förkompilerad binär kod](http://aka.ms/csdmtool) och sedan köra något av följande:
+Källkoden för migreringsverktyget finns i GitHub på [den här lagringsplatsen](https://github.com/azure/azure-documentdb-datamigrationtool). Du kan ladda ned och kompilera lösningen lokalt, eller [ladda ned en förkompilerad binär kod](https://aka.ms/csdmtool) och sedan köra något av följande:
 
 * **Dtui.exe**: Grafisk gränssnittsversion av verktyget
 * **Dt.exe**: Kommandoradsversion av verktyget
@@ -195,7 +195,7 @@ På samma sätt som med SQL-källan kan egenskapen för kapslade avgränsare anv
 
 Observera alias som t.ex. DomainInfo.Domain_Name och RedirectInfo.Redirecting. När du anger den kapslade avgränsaren '.', skapar importverktyget underdokumenten DomainInfo och RedirectInfo under importen. Här är ett exempel på ett resulterande dokument i Azure Cosmos DB:
 
-*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "https://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "<https://www.ACUS.GOV>" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
 Importverktyget försöker härleda typinformationen för värden utan citattecken i CSV-filer (värden inom citattecken behandlas alltid som strängar).  Typer identifieras i följande ordning: nummer, datetime, booleskt värde.  
 

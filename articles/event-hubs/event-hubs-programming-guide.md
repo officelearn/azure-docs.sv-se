@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ab067d09d1e161e463922eeae90fe3b46e887150
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e96abfbdbd9394d27fbffbcb64aa9cbfabbbcb69
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544298"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835443"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Programmeringsguide för Händelsehubbar i Azure
 Den här artikeln beskriver några vanliga scenarier i skriva kod med Azure Event Hubs. Den förutsätter att du har en grundläggande förståelse av händelsehubbar. En konceptuell översikt av händelsehubbar finns på [Översikt av händelsehubbar](event-hubs-what-is-event-hubs.md).
@@ -26,7 +26,6 @@ Du kan skicka händelser till en händelsehubb antingen med hjälp av HTTP POST 
 När du använder de .NET-hanterade API:erna är de primära konstruktionerna för att publicera data i händelsehubbar klasserna [EventHubClient][] och [EventData][]. [EventHubClient][] innehåller kommunikationskanalen AMQP som händelser skickas till händelsehubben. Den [EventData][] klass representerar en händelse och används för att publicera meddelanden till en händelsehubb. Den här klassen innehåller brödtexten, vissa metadata och rubrikinformation om händelsen. Andra egenskaper läggs till i [EventData][] objekt när den går igenom en event hub.
 
 ## <a name="get-started"></a>Kom igång
-
 .NET-klasser som har stöd för Händelsehubbar finns i den [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet-paketet. Du kan installera med hjälp av Visual Studio Solution explorer eller [Pakethanterarkonsolen](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) i Visual Studio. Om du vill göra det kör du följande kommando i [Package Manager-konsol](https://docs.nuget.org/docs/start-here/using-the-package-manager-console)-fönstret:
 
 ```shell
@@ -99,7 +98,6 @@ En enskild batch får inte överskrida gränsen på 1 MB för en händelse. Dess
 Du skicka händelser till en händelsehubb asynkront. Skicka asynkront ökar den hastighet som en klient kan skicka händelser. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) returnerar en [uppgift](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) objekt. Du kan använda den [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) klass på klienten för att styra klienten antal försök.
 
 ## <a name="event-consumers"></a>Händelsekonsumenter
-
 Klassen [EventProcessorHost][] bearbetar data från händelsehubbar. Du bör använda den här implementeringen när du skapar händelseläsare på .NET-plattformen. [EventProcessorHost][] ger en trådsäker, flerprocessig, säker körningsmiljö för implementeringar av händelseprocessorer som också ger hantering av kontrollpunkter och hantering av partitionsleasing.
 
 Om du vill använda klassen [EventProcessorHost][] kan du implementera [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor). Det här gränssnittet innehåller fyra metoder:
@@ -110,6 +108,9 @@ Om du vill använda klassen [EventProcessorHost][] kan du implementera [IEventPr
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
 Om du vill starta händelsebearbetning instansiera [EventProcessorHost][], ger lämpliga parametrar för din händelsehubb. Exempel:
+
+> [!NOTE]
+> EventProcessorHost och dess relaterade klasser finns i den **Microsoft.Azure.EventHubs.Processor** paketet. Lägg till paketet i Visual Studio-projektet genom att följa instruktionerna i [i den här artikeln](event-hubs-dotnet-framework-getstarted-receive-eph.md#add-the-event-hubs-nuget-package) eller genom att följande kommando i den [Pakethanterarkonsolen](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) fönster:`Install-Package Microsoft.Azure.EventHubs.Processor`.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

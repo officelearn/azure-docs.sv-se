@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 2bbe69d114df61f6ca01add0b3459220d59d83e0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 29ad35b30e7f75259b9c4d0174c16c6c9c40a917
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880523"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852562"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Självstudier: Skapa en Azure Database for MariaDB-databas med hjälp av Azure-portalen
 
@@ -90,7 +90,7 @@ Hämta värden för **servernamnet** (fullständigt kvalificerat) och **inloggni
 
    ![Serveregenskaper](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-I vårt exempel är servernamnet **mydemoserver.mariadb.database.azure.com** och inloggningsnamnet för serveradministratören är **myadmin@mydemoserver**.
+I vårt exempel är servernamnet **mydemoserver.mariadb.database.azure.com** och inloggningsnamnet för serveradministratören är **myadmin\@mydemoserver**.
 
 ## <a name="connect-to-the-server-by-using-mysql"></a>Anslut till servern med mysql
 

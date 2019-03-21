@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: cd2eb3ba1d3207f4f210aa259e938bb42b44d37a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 647923ce87e66314d7a95beb88cc842230f28774
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535458"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077079"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(INAKTUELL) Mikrotjänster av canary release med Vamp på ett Azure Container Service DC/OS-kluster
 
@@ -62,12 +62,12 @@ Vamp kräver Elasticsearch för insamling av mått och aggregering. Du kan anvä
 
 2. Välj **JSON-läget** från den **distribuera ny tjänst** popup.
 
-  ![Välj JSON-läge](./media/container-service-dcos-vamp-canary-release/02_deploy_service_json_mode.png)
+   ![Välj JSON-läge](./media/container-service-dcos-vamp-canary-release/02_deploy_service_json_mode.png)
 
 3. Klistra in följande JSON. Den här konfigurationen kör behållaren med 1 GB RAM-minne och en grundläggande kontroll på Elasticsearch-port.
   
-  ```JSON
-  {
+   ```JSON
+   {
     "id": "elasticsearch",
     "instances": 1,
     "cpus": 0.2,
@@ -89,40 +89,40 @@ Vamp kräver Elasticsearch för insamling av mått och aggregering. Du kan anvä
         "maxConsecutiveFailures": 0
       }
     ]
-  }
-  ```
+   }
+   ```
   
 
 3. Klicka på **Distribuera**.
 
-  DC/OS distribuerar Elasticsearch-behållaren. Du kan följa förloppet på den **Services** sidan.  
+   DC/OS distribuerar Elasticsearch-behållaren. Du kan följa förloppet på den **Services** sidan.  
 
-  ![distribuera e? Elasticsearch](./media/container-service-dcos-vamp-canary-release/03_deply_elasticsearch.png)
+   ![distribuera e? Elasticsearch](./media/container-service-dcos-vamp-canary-release/03_deply_elasticsearch.png)
 
 ### <a name="deploy-vamp"></a>Distribuera Vamp
 
 När Elasticsearch rapporterar som **kör**, du kan lägga till Vamp DC/OS Universe-paketet. 
 
 1. Gå till **Universe** och Sök efter **vamp**. 
-  ![Vamp på DC/OS universe](./media/container-service-dcos-vamp-canary-release/04_universe_deploy_vamp.png)
+   ![Vamp på DC/OS universe](./media/container-service-dcos-vamp-canary-release/04_universe_deploy_vamp.png)
 
 2. Klicka på **installera** bredvid vamp paketera och välj **avancerade installationen**.
 
 3. Bläddra nedåt och ange följande elasticsearch-url: `http://elasticsearch.marathon.mesos:9200`. 
 
-  ![Ange URL: en för Elasticsearch](./media/container-service-dcos-vamp-canary-release/05_universe_elasticsearch_url.png)
+   ![Ange URL: en för Elasticsearch](./media/container-service-dcos-vamp-canary-release/05_universe_elasticsearch_url.png)
 
 4. Klicka på **granska och installera**, klicka sedan på **installera** att starta distributionen.  
 
-  DC/OS distribuerar alla nödvändiga komponenter för Vamp. Du kan följa förloppet på den **Services** sidan.
+   DC/OS distribuerar alla nödvändiga komponenter för Vamp. Du kan följa förloppet på den **Services** sidan.
   
-  ![Distribuera Vamp som universe paket](./media/container-service-dcos-vamp-canary-release/06_deploy_vamp.png)
+   ![Distribuera Vamp som universe paket](./media/container-service-dcos-vamp-canary-release/06_deploy_vamp.png)
   
 5. När distributionen är klar kan du komma åt Vamp-Användargränssnittet:
 
-  ![Vamp-tjänsten på DC/OS](./media/container-service-dcos-vamp-canary-release/07_deploy_vamp_complete.png)
+   ![Vamp-tjänsten på DC/OS](./media/container-service-dcos-vamp-canary-release/07_deploy_vamp_complete.png)
   
-  ![Vamp UI](./media/container-service-dcos-vamp-canary-release/08_vamp_ui.png)
+   ![Vamp UI](./media/container-service-dcos-vamp-canary-release/08_vamp_ui.png)
 
 
 ## <a name="deploy-your-first-service"></a>Distribuera din första tjänst
@@ -139,11 +139,11 @@ Det här scenariot använder ett monolitiskt exempelprogram som kallas [ **sava*
 
 3. Klistra in följande skissen YAML. Den här skissen innehåller ett kluster med endast en tjänst-variant som vi ändra i ett senare steg:
 
-  ```YAML
-  name: sava                        # deployment name
-  gateways:
+   ```YAML
+   name: sava                        # deployment name
+   gateways:
     9050: sava_cluster/webport      # stable endpoint
-  clusters:
+   clusters:
     sava_cluster:               # cluster to create
      services:
         -
@@ -152,7 +152,7 @@ Det här scenariot använder ett monolitiskt exempelprogram som kallas [ **sava*
             deployable: magneticio/sava:1.0.0
             ports:
               webport: 8080/http # cluster endpoint, used for canary releasing
-  ```
+   ```
 
 4. Klicka på **Spara**. Vamp initierar distributionen.
 
@@ -202,9 +202,9 @@ Att sammanfoga den nya sava 1.1-tjänsten med distributionen som körs:
 
 2. Klicka på **Lägg till** och klistra in följande skissen YAML: Den här skissen beskriver en ny tjänst-variant (sava: 1.1.0) ska distribueras i det befintliga klustret (sava_cluster).
 
-  ```YAML
-  name: sava:1.1.0      # blueprint name
-  clusters:
+   ```YAML
+   name: sava:1.1.0      # blueprint name
+   clusters:
     sava_cluster:       # cluster to update
       services:
         -
@@ -213,17 +213,17 @@ Att sammanfoga den nya sava 1.1-tjänsten med distributionen som körs:
             deployable: magneticio/sava:1.1.0    
             ports:
               webport: 8080/http # cluster endpoint to update
-  ```
+   ```
   
 3. Klicka på **Spara**. Skissen lagras och visas på den **skisser** sidan.
 
 4. Öppna åtgärdsmenyn på sava: 1.1 skissen och klicka på **koppla till**.
 
-  ![Vamp UI - skisser](./media/container-service-dcos-vamp-canary-release/20_sava110_mergeto.png)
+   ![Vamp UI - skisser](./media/container-service-dcos-vamp-canary-release/20_sava110_mergeto.png)
 
 5. Välj den **sava** distribution och klickar på **sammanfoga**.
 
-  ![Vamp UI - merge skissen till distribution](./media/container-service-dcos-vamp-canary-release/21_sava110_merge.png)
+   ![Vamp UI - merge skissen till distribution](./media/container-service-dcos-vamp-canary-release/21_sava110_merge.png)
 
 Vamp distribuerar den nya sava: 1.1.0 service varianten som beskrivs i skissen tillsammans med sava: 1.0.0 i den **sava_cluster** för distributionen som körs. 
 
@@ -241,11 +241,11 @@ Med båda versionerna av sava som distribueras i samma kluster, ändra fördelni
 
 2. Ange viktfördelningen till 50% / 50% och klickar på **spara**.
 
-  ![Vamp UI - gateway vikt skjutreglaget](./media/container-service-dcos-vamp-canary-release/24_sava_cluster_webport_weight.png)
+   ![Vamp UI - gateway vikt skjutreglaget](./media/container-service-dcos-vamp-canary-release/24_sava_cluster_webport_weight.png)
 
 3. Gå tillbaka till webbläsaren och uppdatera sidan sava några gånger. Sava programmet nu växlar mellan en sava: 1.0-sida och en sava: 1.1-sida.
 
-  ![Alternerande sava1.0 och sava1.1 tjänster](./media/container-service-dcos-vamp-canary-release/25_sava_100_101.png)
+   ![Alternerande sava1.0 och sava1.1 tjänster](./media/container-service-dcos-vamp-canary-release/25_sava_100_101.png)
 
 
   > [!NOTE]
@@ -264,23 +264,23 @@ Du kan skapa ett villkor för att filtrera alla Firefox-användare och dirigera 
 
 2. Ange villkoret **användaragent == Firefox** och klicka på ![Vamp gränssnitt – spara](./media/container-service-dcos-vamp-canary-release/vamp_ui_save.png).
 
-  Vamp lägger till på villkoret med en standardvärdet 0%. Om du vill börja filtrera trafik, måste du justera styrkan villkor.
+   Vamp lägger till på villkoret med en standardvärdet 0%. Om du vill börja filtrera trafik, måste du justera styrkan villkor.
 
 3. Klicka på ![Vamp gränssnitt – redigera](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) att ändra den **STYRKA** tillämpas på villkoret.
  
 4. Ange den **STYRKA** till 100% och klickar på ![Vamp gränssnitt – spara](./media/container-service-dcos-vamp-canary-release/vamp_ui_save.png) att spara.
 
-  Vamp nu skickar all trafik som matchar villkoret (alla Firefox användare) till sava: 1.0.0.
+   Vamp nu skickar all trafik som matchar villkoret (alla Firefox användare) till sava: 1.0.0.
 
-  ![Vamp UI – Använd villkor till gateway](./media/container-service-dcos-vamp-canary-release/26_apply_condition.png)
+   ![Vamp UI – Använd villkor till gateway](./media/container-service-dcos-vamp-canary-release/26_apply_condition.png)
 
 5. Slutligen kan du justera gateway vikten för att skicka alla återstående trafik (alla icke-Firefox användare) till den nya sava: 1.1.0. Klicka på ![Vamp gränssnitt – redigera](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) bredvid **vikt** och ange viktfördelningen så 100% dirigeras till route sava/sava_cluster/sava:1.1.0/webport.
 
-  All trafik som inte filtreras med villkoret omdirigeras nu till den nya sava: 1.1.0.
+   All trafik som inte filtreras med villkoret omdirigeras nu till den nya sava: 1.1.0.
 
 6. Öppna två olika webbläsare (en Firefox och en annan webbläsare) och tjänsten sava från både om du vill se filtret fungerar i praktiken. Alla Firefox-begäranden skickas till sava: 1.0.0, medan alla andra webbläsare dirigeras till sava: 1.1.0.
 
-  ![Vamp gränssnitt – filtrera trafik](./media/container-service-dcos-vamp-canary-release/27_filter_traffic.png)
+   ![Vamp gränssnitt – filtrera trafik](./media/container-service-dcos-vamp-canary-release/27_filter_traffic.png)
 
 ## <a name="summing-up"></a>Addera
 

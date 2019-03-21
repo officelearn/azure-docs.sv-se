@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 4947977fbed2b4fe4bd47adcc4de6516090573ad
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: c1f5dd329f34d64478d605c21d229d8c75a99300
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661317"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260157"
 ---
 # <a name="add-map-controls-to-azure-maps"></a>Lägg till karta kontroller i Azure Maps
 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du lägger till kartan kontroller på en karta. Du o
 
 Det första kodblocket anger prenumerationsnyckeln och skapar en Kartobjekt utan att ange förväg format. Se [skapa en karta](./map-create.md) anvisningar om hur du skapar en karta.
 
-Zoomkontrollen lägger till möjligheten att zooma in och ut på kartan. Andra kodblocket skapar ett Zoomkontroll-objekt med hjälp av atlas [ZoomControl](/javascript/api/azure-maps-control/atlas.controls.zoomcontrol) och läggs till i kartan med hjälp av kartans [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) metod. Zoomkontrollen ligger inom kartan **händelselyssnaren** så laddas när kartan har lästs in helt.
+Zoomkontrollen lägger till möjligheten att zooma in och ut på kartan. Andra kodblocket skapar ett Zoomkontroll-objekt med hjälp av atlas [ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) och läggs till i kartan med hjälp av kartans [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) metod. Zoomkontrollen ligger inom kartan **händelselyssnaren** så laddas när kartan har lästs in helt.
 
 ## <a name="add-pitch-control"></a>Lägg till försäljningsargument kontroll
 
@@ -35,7 +35,7 @@ Zoomkontrollen lägger till möjligheten att zooma in och ut på kartan. Andra k
 
 Det första kodblocket anger prenumerationsnyckeln och skapar en Kartobjekt utan att ange förväg format. Se [skapa en karta](./map-create.md) anvisningar om hur du skapar en karta.
 
-Försäljningsargument kontroll lägger till möjligheten att ändra lutning på kartan. Andra kodblocket skapar ett försäljningsargument Control-objekt med hjälp av atlas [PitchControl](/javascript/api/azure-maps-control/atlas.controls.pitchcontrol) och läggs till i kartan med hjälp av kartans [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) metod. Försäljningsargument kontrollen är i kartan **händelselyssnaren** så laddas när kartan har lästs in helt.
+Försäljningsargument kontroll lägger till möjligheten att ändra lutning på kartan. Andra kodblocket skapar ett försäljningsargument Control-objekt med hjälp av atlas [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) och läggs till i kartan med hjälp av kartans [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) metod. Försäljningsargument kontrollen är i kartan **händelselyssnaren** så laddas när kartan har lästs in helt.
 
 ## <a name="add-compass-control"></a>Lägg till kompass kontroll
 
@@ -44,7 +44,7 @@ Försäljningsargument kontroll lägger till möjligheten att ändra lutning på
 
 Det första kodblocket anger prenumerationsnyckeln och skapar en Kartobjekt utan att ange förväg format. Se [skapa en karta](./map-create.md) anvisningar om hur du skapar en karta.
 
-Andra kodblocket skapar ett kompass Control-objekt med hjälp av atlas [kompass kontroll](/javascript/api/azure-maps-control/atlas.controls.compasscontrol). Det ger också kompass kontrollen på kartan med hjälp av kartans [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) metod. Kompass kontrollen är i kartan **händelselyssnaren** så laddas när kartan har lästs in helt.
+Andra kodblocket skapar ett kompass Control-objekt med hjälp av atlas [kompass kontroll](/javascript/api/azure-maps-control/atlas.control.compasscontrol). Det ger också kompass kontrollen på kartan med hjälp av kartans [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) metod. Kompass kontrollen är i kartan **händelselyssnaren** så laddas när kartan har lästs in helt.
 
 ## <a name="a-map-with-all-controls"></a>En karta med alla kontroller
 
@@ -53,13 +53,13 @@ Andra kodblocket skapar ett kompass Control-objekt med hjälp av atlas [kompass 
 
 Det första kodblocket anger prenumerationsnyckeln och skapar en Kartobjekt utan att ange förväg format. Se [skapa en karta](./map-create.md) anvisningar om hur du skapar en karta.
 
-Andra kodblocket skapar ett kompass Control-objekt med hjälp av atlas [CompassControl](/javascript/api/azure-maps-control/atlas.controls.compasscontrol) och läggs till i kartan med hjälp av kartans [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) metod.
+Andra kodblocket skapar ett kompass Control-objekt med hjälp av atlas [CompassControl](/javascript/api/azure-maps-control/atlas.control.compasscontrol) och läggs till i kartan med hjälp av kartans [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) metod.
 
-Det tredje kodblocket skapar ett Zoomkontroll-objekt med hjälp av atlas [ZoomControl](/javascript/api/azure-maps-control/atlas.controls.zoomcontrol) och läggs till i kartan med hjälp av kartans [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) metod.
+Det tredje kodblocket skapar ett Zoomkontroll-objekt med hjälp av atlas [ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) och läggs till i kartan med hjälp av kartans [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) metod.
 
-Fjärde kodblocket skapar ett försäljningsargument Control-objekt med hjälp av atlas [PitchControl](/javascript/api/azure-maps-control/atlas.controls.pitchcontrol) och läggs till i kartan med hjälp av kartans [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) metod.
+Fjärde kodblocket skapar ett försäljningsargument Control-objekt med hjälp av atlas [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) och läggs till i kartan med hjälp av kartans [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) metod.
 
-Det sista blocket kod skapar ett Style väljare-objekt med hjälp av atlas [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) och läggs till i kartan med hjälp av kartans [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) metod. Alla objekt kontroll har lagts till i kartan **händelselyssnaren** så att de laddar när kartan har lästs in helt.
+Det sista blocket kod skapar ett Style väljare-objekt med hjälp av atlas [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) och läggs till i kartan med hjälp av kartans [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) metod. Alla objekt kontroll har lagts till i kartan **händelselyssnaren** så att de laddar när kartan har lästs in helt.
 
 Ordningen på objekten kontroll i skriptet avgör den ordning som de visas på kartan. Du kan ändra deras inbördes ordning i skriptet om du vill ändra ordningen på kontrollerna på kartan.
 

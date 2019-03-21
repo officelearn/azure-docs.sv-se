@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/3/2019
 ms.author: rkarlin
-ms.openlocfilehash: 52b347aef240f2338aedff2c2a1a3cd53743dc27
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 5a25ba889ebde750937f88e447123263a82d5627
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114271"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896831"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrera säkerhetslösningar i Azure Security Center
 Det här dokumentet hjälper dig att hantera säkerhetslösningar som redan är anslutna till Azure Security Center och lägga till nya.
@@ -34,7 +34,7 @@ Med Security Center är det enkelt att aktivera integrerade säkerhetslösningar
 Integrerade säkerhetslösningar omfattar för närvarande följande:
 
 - Brandvägg för webbaserade program ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/products.html) och [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
-- Nästa generations brandvägg ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) och [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) och [Palo Alto Networks](https://www.paloaltonetworks.com/products))
+- Nästa generations brandvägg ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](https://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) och [Cisco](https://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) och [Palo Alto Networks](https://www.paloaltonetworks.com/products))
 - Sårbarhetsbedömning ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) och [Rapid7](https://www.rapid7.com/products/insightvm/))
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Azure-säkerhetslösningar som distribueras från Security Center ansluts automa
 
 3. På menyn i Security Center väljer du **Säkerhetslösningar**.
 
-  ![Security Center – Översikt](./media/security-center-partner-integration/overview.png)
+   ![Security Center – Översikt](./media/security-center-partner-integration/overview.png)
 
 Under **Säkerhetslösningar** kan du se information om hälsostatus för integrerade Azure-säkerhetslösningar och utföra grundläggande hanteringsåtgärder. Du kan även ansluta andra typer av datakällor för säkerhet, t.ex. Azure Active Directory Identity Protection-aviseringar och brandväggsloggar i Common Event Format (CEF).
 
@@ -82,12 +82,12 @@ Status för en partnerlösning kan vara:
 >
 >
 
-2. Välj **visa** för ytterligare information och alternativ, vilket inkluderar:
+1. Välj **visa** för ytterligare information och alternativ, vilket inkluderar:
 
-  - **Lösningskonsol**. Öppnar hanteringsupplevelse för den här lösningen.
-  - **Länka VM**. Öppnas bladet länka program. Här kan du ansluta resurser till partnerlösningen.
-  - **Ta bort lösningen**.
-  - **Konfigurera**.
+   - **Lösningskonsol**. Öppnar hanteringsupplevelse för den här lösningen.
+   - **Länka VM**. Öppnas bladet länka program. Här kan du ansluta resurser till partnerlösningen.
+   - **Ta bort lösningen**.
+   - **Konfigurera**.
 
    ![Partnerlösningsinformation](./media/security-center-partner-solutions/partner-solutions-detail.png)
 

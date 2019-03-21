@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73c921df493eeda25c50047e861d3d30e6dc52a8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 73e5b081e85726a1fc78d92996846faa18ce616a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456490"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897630"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
 
@@ -257,13 +257,13 @@ I det här steget ska du skapa en säkerhetsgrupp för integrering med obegräns
     ![CreateSecurity grupp](./media/workday-inbound-tutorial/wd_isu_03.png "CreateSecurity grupp")
 2. Slutför den **skapa säkerhetsgrupp** uppgift. 
 
-  * Det finns två typer av säkerhetsgrupper i Workday:
-    * **Obegränsad:** Alla medlemmar i gruppen kan komma åt alla data-instanser som skyddas av gruppen.
-    * **Begränsad:** Alla medlemmar i gruppen säkerhet har sammanhangsberoende åtkomst till en delmängd av data-instanser (rader) som gruppen har åtkomst till.
-  * Kontakta din partner för integrering av Workday att välja lämpliga säkerhetsgruppstypen för integrering.
-  * När du vet vilken grupp, Välj **integrering Systemsäkerhetsgrupp (obegränsat)** eller **integrering Systemsäkerhetsgrupp (Constrained)** från den **typen Backups säkerhetsgrupp**  listrutan.
+   * Det finns två typer av säkerhetsgrupper i Workday:
+     * **Obegränsad:** Alla medlemmar i gruppen kan komma åt alla data-instanser som skyddas av gruppen.
+     * **Begränsad:** Alla medlemmar i gruppen säkerhet har sammanhangsberoende åtkomst till en delmängd av data-instanser (rader) som gruppen har åtkomst till.
+   * Kontakta din partner för integrering av Workday att välja lämpliga säkerhetsgruppstypen för integrering.
+   * När du vet vilken grupp, Välj **integrering Systemsäkerhetsgrupp (obegränsat)** eller **integrering Systemsäkerhetsgrupp (Constrained)** från den **typen Backups säkerhetsgrupp**  listrutan.
 
-    ![CreateSecurity grupp](./media/workday-inbound-tutorial/wd_isu_04.png "CreateSecurity grupp")
+     ![CreateSecurity grupp](./media/workday-inbound-tutorial/wd_isu_04.png "CreateSecurity grupp")
 
 3. När den säkerhetsgruppen har skapats, visas en sida där du kan tilldela medlemmar till gruppen. Lägg till ny integration systemanvändaren som skapades i föregående steg i den här säkerhetsgruppen. Om du använder *begränsad* säkerhetsgruppen, du måste också välja lämplig organisationens omfång.
 
@@ -286,11 +286,11 @@ I det här steget ska du ge ”domain security” principbehörigheter för work
    * *Worker Data: Aktuell Personal Information*
    * *Worker Data: Företag titel på Worker profil*
 
-    ![Domän-säkerhetsprinciper](./media/workday-inbound-tutorial/wd_isu_07.png "domän säkerhetsprinciper")  
+     ![Domän-säkerhetsprinciper](./media/workday-inbound-tutorial/wd_isu_07.png "domän säkerhetsprinciper")  
 
-    ![Domän-säkerhetsprinciper](./media/workday-inbound-tutorial/wd_isu_08.png "domän säkerhetsprinciper") 
+     ![Domän-säkerhetsprinciper](./media/workday-inbound-tutorial/wd_isu_08.png "domän säkerhetsprinciper") 
 
-    Klicka på **OK**.
+     Klicka på **OK**.
 
 3. I den rapport som visas, väljer du ellipsen (...) visas bredvid **externa Kontoetablering** och klicka på menyalternativet **domän -> Redigera principen säkerhetsbehörigheter**
 
@@ -428,7 +428,7 @@ När du har distribuerat .NET 4.7.1+ kan du ladda ned den **[lokala etableringsa
 
 8. Slutför den **administratörsautentiseringsuppgifter** avsnittet på följande sätt:
 
-   * **Administratören Username** – ange användarnamnet för system-kontot Workday-integrering med klientens domännamn tillagt. Det bör se ut ungefär som: **username@tenant_name**
+   * **Administratören Username** – ange användarnamnet för system-kontot Workday-integrering med klientens domännamn tillagt. Det bör se ut ungefär så: **användarnamn\@tenant_name**
 
    * **Adminlösenord –** anger du lösenordet för kontot system Workday-integrering
 
@@ -438,8 +438,8 @@ När du har distribuerat .NET 4.7.1+ kan du ladda ned den **[lokala etableringsa
 
    * **Active Directory-behållare –** ange behållaren DN där agenten ska skapa användarkonton som standard.
         Exempel: *OU = standardanvändare, OU = Users, DC = contoso, DC = test*
-> [!NOTE]
-> Den här inställningen kommer endast betydelse för användaren kontoskapningar om den *parentDistinguishedName* attributet har inte konfigurerats på attributmappningarna. Den här inställningen används inte för användarsökning eller uppdaterar åtgärder. Hela domänen sub trädet ingår i omfånget för search-åtgärd.
+     > [!NOTE]
+     > Den här inställningen kommer endast betydelse för användaren kontoskapningar om den *parentDistinguishedName* attributet har inte konfigurerats på attributmappningarna. Den här inställningen används inte för användarsökning eller uppdaterar åtgärder. Hela domänen sub trädet ingår i omfånget för search-åtgärd.
 
    * **E-postmeddelande –** ange din e-postadress och markera kryssrutan ”Skicka e-post om fel uppstår”.
 
@@ -477,11 +477,11 @@ I det här avsnittet konfigurerar du hur informationen flödar från Workday til
 > [!TIP]
 > När du konfigurerar appen etablering för första gången behöver du testa och verifiera dina attributmappningar och uttryck för att se till att den ger du det önskade resultatet. Microsoft rekommenderar att du använder omfånget filtrerar **omfång för källobjekt** att testa din mappningar med några få testa användare från Workday. När du har verifierat att mappningarna fungerar och du kan ta bort filtret eller gradvis expanderas för att inkludera fler användare.
 
-3. I den **åtgärder för målobjekt** fältet du globalt filtrera vilka åtgärder som utförs på Active Directory. **Skapa** och **uppdatering** är de vanligaste.
+1. I den **åtgärder för målobjekt** fältet du globalt filtrera vilka åtgärder som utförs på Active Directory. **Skapa** och **uppdatering** är de vanligaste.
 
-4. I den **attributmappningar** avsnittet, kan du definiera hur enskilda Workday attribut mappar till Active Directory-attribut.
+1. I den **attributmappningar** avsnittet, kan du definiera hur enskilda Workday attribut mappar till Active Directory-attribut.
 
-5. Klicka på en befintlig attributmappning att uppdatera den, eller klicka på **Lägg till ny mappning** längst ned på skärmen för att lägga till nya mappningar. En enskild attributmappning har stöd för dessa egenskaper:
+1. Klicka på en befintlig attributmappning att uppdatera den, eller klicka på **Lägg till ny mappning** längst ned på skärmen för att lägga till nya mappningar. En enskild attributmappning har stöd för dessa egenskaper:
 
       * **Mappningstyp**
 
@@ -508,7 +508,7 @@ I det här avsnittet konfigurerar du hur informationen flödar från Workday til
 
          * **Endast när skapas** -tillämpa den här mappningen endast på åtgärder för skapande av användare
 
-6. Om du vill spara din mappningar, klickar du på **spara** överst i avsnittet attribut mappar.
+1. Om du vill spara din mappningar, klickar du på **spara** överst i avsnittet attribut mappar.
 
    ![Azure Portal](./media/workday-inbound-tutorial/wd_2.png)
 
@@ -524,8 +524,8 @@ I det här avsnittet konfigurerar du hur informationen flödar från Workday til
 | ---------- | ---------- | ---------- | ---------- |
 | **WorkerID**  |  EmployeeID | **Ja** | Skrivna på enbart skapa |
 | **PreferredNameData**    |  CN    |   |   Skrivna på enbart skapa |
-| **SelectUniqueValue (ansluta till (”@”, ansluta till (””., \[FirstName\], \[LastName\]), ”contoso.com”), ansluta till (”@”, ansluta till (””., Mid (\[FirstName\], 1, 1), \[LastName\]), ”contoso.com”), ansluta till (”@”, ansluta till (””., Mid (\[FirstName\], 1, 2), \[LastName\]), ”contoso.com”))**   | userPrincipalName     |     | Skrivna på enbart skapa 
-| **Ersätt(Mid(Ersätt(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Skrivna på enbart skapa |
+| **SelectUniqueValue (ansluta till (”\@”, ansluta till (””., \[FirstName\], \[LastName\]), ”contoso.com”), ansluta till (”\@”, ansluta till (””., Mid (\[FirstName\], 1, 1 (), \[LastName\]), ”contoso.com”), ansluta till (”\@”, ansluta till (””., Mid (\[FirstName\], 1, 2), \[LastName\]), ”contoso.com”))**   | userPrincipalName     |     | Skrivna på enbart skapa 
+| **Ersätt(Mid(Ersätt(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\ \\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Skrivna på enbart skapa |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | Skapa och uppdatera |
 | **Förnamn**   | givenName       |     |    Skapa och uppdatera |
 | **Efternamn**   |   SN   |     |  Skapa och uppdatera |
@@ -677,7 +677,7 @@ Följ dessa instruktioner för att konfigurera tillbakaskrivning av användare e
 
 8. Slutför den **administratörsautentiseringsuppgifter** avsnittet på följande sätt:
 
-   * **Administratören Username** – ange användarnamnet för system-kontot Workday-integrering med klientens domännamn tillagt. Bör se ut ungefär som: *username@contoso4*
+   * **Administratören Username** – ange användarnamnet för system-kontot Workday-integrering med klientens domännamn tillagt. Bör likna: *användarnamn\@contoso4*
 
    * **Adminlösenord –** anger du lösenordet för kontot system Workday-integrering
 
@@ -1226,7 +1226,7 @@ Om du vill göra den här ändringen, måste du använda [Workday Studio](https:
 
 7. Ange **åtgärden** till **Get_Workers**
 
-8.  Klicka på lilla **konfigurera** länkarna begäran/svar-fönster för att ställa in dina Workday-autentiseringsuppgifter. Kontrollera **autentisering**, och ange användarnamn och lösenord för system för Workday integrationskontot. Se till att formatera användarnamnet som name@tenant, och lämna den **WS-Security UsernameToken** alternativ som valts.
+8.  Klicka på lilla **konfigurera** länkarna begäran/svar-fönster för att ställa in dina Workday-autentiseringsuppgifter. Kontrollera **autentisering**, och ange användarnamn och lösenord för system för Workday integrationskontot. Se till att formatera användarnamnet som namn\@klient- och lämna den **WS-Security UsernameToken** alternativ som valts.
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 

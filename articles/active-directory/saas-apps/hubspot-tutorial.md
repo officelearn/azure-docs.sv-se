@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26fd70b80dd512b530d367d57cd9fc04ec28f27b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8bbb307654d4aaf753a4a3284875dee4f5707f2a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211707"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901748"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Självstudier: Azure Active Directory-integrering med HubSpot
 
@@ -187,7 +187,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
@@ -215,7 +215,7 @@ När det gäller HubSpot är etablering en manuell aktivitet.
 
     ![Konfigurera enkel inloggning](./media/hubspot-tutorial/user2.png)
 
-5. Ange e-postadress för användaren som **brittasimon@contoso.com** i den **Lägg till e-addess(es)** textrutan och klicka på **nästa**.
+5. Ange e-postadress för användaren som **brittasimon\@contoso.com** i den **Lägg till e-addess(es)** textrutan och klicka på **nästa**.
 
     ![Konfigurera enkel inloggning](./media/hubspot-tutorial/user3.png)
 
@@ -263,7 +263,7 @@ Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen]
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

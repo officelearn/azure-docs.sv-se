@@ -17,12 +17,12 @@ ms.author: negoe
 ms.reviewer: negoe,andret,saeeda,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a487c233e7bb71f05c6f2181d9c822ca508a583c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4feaf97de7b833514113af6c91b3745be0503eff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192956"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113690"
 ---
 # <a name="national-clouds"></a>Nationella moln
 
@@ -44,10 +44,10 @@ I följande tabell visas de grundläggande URL: er för Azure Active Directory (
 
 | Nationella moln | Azure AD-portalen slutpunkt
 | --- | --- |
-| Azure AD för amerikanska myndigheter |https://portal.azure.us
-|Azure AD Germany |https://portal.microsoftazure.de
-|Azure AD-Kina som drivs av 21Vianet |https://portal.azure.cn
-|Azure AD (tjänsten för global)|https://portal.azure.com 
+| Azure AD för amerikanska myndigheter |`https://portal.azure.us`
+|Azure AD Germany |`https://portal.microsoftazure.de`
+|Azure AD-Kina som drivs av 21Vianet |`https://portal.azure.cn`
+|Azure AD (tjänsten för global)|`https://portal.azure.com` 
 
 ## <a name="azure-ad-authentication-endpoints"></a>Azure AD-autentisering-slutpunkter
 
@@ -78,8 +78,8 @@ Lär dig hur du anropar Microsoft Graph API: er i nationell molnmiljö genom att
 
 
 
->[!IMPORTANT]
-Vissa tjänster och funktioner som finns i vissa områden av tjänsten för global kanske inte tillgänglig i alla nationella moln. Att ta reda på vilka tjänster som är tillgängliga går du till [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
+> [!IMPORTANT]
+> Vissa tjänster och funktioner som finns i vissa områden av tjänsten för global kanske inte tillgänglig i alla nationella moln. Att ta reda på vilka tjänster som är tillgängliga går du till [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
 
 ## <a name="next-steps"></a>Nästa steg
 

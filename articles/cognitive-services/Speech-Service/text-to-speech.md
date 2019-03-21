@@ -1,72 +1,80 @@
 ---
-title: Om text till tal-Speech Service
+title: Text till tal med Azure Speech Services
 titleSuffix: Azure Cognitive Services
-description: 'Text till tal-API: et erbjuder mer än 75 röster i mer än 45 språk och nationella inställningar. Om du vill använda standard rösttyper, behöver du bara ange voice-namn med några andra parametrar när du anropar Speech-tjänsten.'
+description: Text till tal från Azure Speech Services är en REST-baserad tjänst som gör det möjligt för dina program, verktyg eller enheter att konvertera text till naturlig människoliknande syntetiskt tal. Välj från standard- och neural röster eller skapa din egen anpassade röst unik för din produkt eller varumärke. 75 + standard röster är tillgängliga i mer än 45 språk och nationella inställningar och 5 neural röster är tillgängliga i 4 språk och nationella inställningar.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0836ae4a9041db27cfed35dd0f1fc0df6e541aff
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 05028704c08ebd06f9b9e4e3f45c5137eb1e6b58
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859342"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226920"
 ---
-# <a name="about-the-text-to-speech-api"></a>Om text till tal-API:
+# <a name="what-is-text-to-speech"></a>Vad är text till tal?
 
-Den **text till tal** API för (text till tal-) konverterar indata text till tal för naturlig standardrösttyper (kallas även *talsyntes*).
+Text till tal från Azure Speech Services är en REST-baserad tjänst som gör det möjligt för dina program, verktyg eller enheter att konvertera text till naturlig människoliknande syntetiskt tal. Välja mellan standard och neural röster eller skapa egna [anpassade röst](#custom-voice-fonts) unik för din produkt eller varumärke. 75 + standard röster är tillgängliga i mer än 45 språk och nationella inställningar och 5 neural röster är tillgängliga i 4 språk och nationella inställningar. En fullständig lista finns i [språk som stöds](language-support.md#text-to-speech).
 
-Ditt program skickar HTTP POST-förfrågningar för att generera tal, text till tal-API: et. Där texten är syntetiskt till mänskliga standardrösttyper tal och returneras som en ljudfil. En mängd olika röster och språk som stöds.
-
-Scenarier i vilka tal syntes används är:
-
-* *Förbättra tillgängligheten:* **text till tal** teknik kan innehållsägare och utgivare att svara på de olika sätt interagera med sitt innehåll. Personer med visual nedskrivningar eller läsa svårigheter uppskattar att kunna använda innehåll aurally. Röst utdata också gör det enklare för personer som gillar textinnehåll, till exempel newspapers eller bloggar på mobila enheter när du roamar eller utöva.
-
-* *Svara i scenarier för flerprogramskörning:* **text till tal** gör det möjligt för personer att absorbera viktig information snabbt och bekvämt vid körning eller annars utanför en praktisk läsning av miljö. Navigering är en vanlig tillämpning i det här området.
-
-* *Förbättra learning med flera lägen:* Olika personer Lär dig bästa på olika sätt. Utbildning online experter har visat att tillsammans att tillhandahålla röst- och text kan underlätta information att lära sig och behålla.
-
-* *Leverera intuitiva robotar eller assistenter:* Möjligheten att prata kan vara en del av en intelligent chattrobot eller virtuella assistenter. Fler och fler företag utvecklar chatt robotar för att tillhandahålla engagerade service upplevelser för sina kunder. Röst lägger till en annan dimension genom att låta robotens svar tas emot aurally (till exempel av telefon).
-
-## <a name="voice-support"></a>Stöd för röst
-
-Microsofts **text till tal** tjänsten erbjuder mer än 75 röster i mer än 45 språk och nationella inställningar. Om du vill använda dessa standard ”rösttyper”, behöver du bara ange voice-namn med några andra parametrar när du anropar tjänstens REST API. Mer information om språk som stöds, språk och röster finns [språk som stöds](language-support.md#text-to-speech).
-
-> [!IMPORTANT]
-> Kostnader för olika för standard, anpassade och neural röster. Mer information finns i [priser](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+Text till tal tekniken kan skapare av innehåll kan interagera med användarna på olika sätt. Text till tal kan förbättra tillgängligheten genom att förse användarna med möjlighet att interagera med innehållet hörbart. Om användaren har en visual nedskrivningar learning funktionshinder, eller kräver navigeringsinformation samtidigt, kan text till tal förbättra en befintlig upplevelse. Text till tal är också en värdefull tillägg för röst robotar och virtuella assistenter.
 
 ### <a name="neural-voices"></a>Neural röster
 
-Neural text till tal kan användas för att göra interaktion med chattrobotar och virtuella assistenter mer naturligt och engagerande och konverterar digitala texter, till exempel e-böcker till audiobooks och förbättra navigering i bilen system. Med människoliknande naturlig prosody och rensa rörlighet ord har Neural text till tal kraftigt sänkt lyssnande utmattning när du interagerar med AI-system. Läs mer om neural röster [språk som stöds](language-support.md#text-to-speech).
+Neural röster kan användas för att göra interaktion med chattrobotar och virtuella assistenter mer naturligt och engagerande och konverterar digitala texter, till exempel e-böcker till audiobooks och förbättra navigering i bilen system. Med människoliknande naturlig prosody och rensa rörlighet ord minska Neural röster avsevärt lyssnande utmattning när du interagerar med AI-system. Läs mer om neural röster [språk som stöds](language-support.md#text-to-speech).
 
 ### <a name="custom-voices"></a>Anpassade röster
 
-Rösten anpassning kan du skapa en identifierbara, en av en typ ton för ditt varumärke: en *rösttyp.* För att skapa din rösttyp du gör en studio-registrering och ladda upp de associerade skript som träningsdata. Tjänsten skapar sedan en unik röst modell koll på inspelningen. Du kan använda sin rösttyp för att syntetisera tal. Mer information finns i [anpassade rösttyper](how-to-customize-voice-font.md).
+Röst anpassning kan du skapa en identifierbara, en av en typ ton för ditt varumärke. För att skapa din anpassad rösttyp du gör en studio-registrering och ladda upp de associerade skript som träningsdata. Tjänsten skapar sedan en unik röst modell koll på inspelningen. Du kan använda den här anpassad rösttyp för att syntetisera tal. Mer information finns i [anpassade röster](how-to-customize-voice-font.md).
 
-## <a name="api-capabilities"></a>API-funktioner
+## <a name="core-features"></a>Kärnfunktioner
 
-Många av funktionerna i den **text till tal** API, särskilt när det gäller anpassning, är tillgängliga via REST. I följande tabell sammanfattas funktionerna för varje metod för att komma åt API: et. En fullständig lista över funktioner och API-information, se [Swagger referens](https://westus.cris.ai/swagger/ui/index).
+Den här tabellen anger de grundläggande funktionerna för text till tal:
 
-| Användningsfall | REST | SDK:er |
-|-----|-----|-----|----|
-| Ladda upp datauppsättningar för röst-anpassning | Ja | Nej |
-| Skapa och hantera modeller för röst-teckensnitt | Ja | Nej |
-| Skapa och hantera distributioner av röst teckensnitt | Ja | Nej |
-| Skapa och hantera röst teckensnitt tester| Ja | Nej |
-| Hantera prenumerationer | Ja | Nej |
+| Användningsfall | SDK | REST |
+|----------|-----|------|
+| Konvertera text till tal. | Nej | Ja |
+| Ladda upp datauppsättningar för röst-anpassning. | Nej | Ja\* |
+| Skapa och hantera modeller för röst-teckensnitt. | Nej | Ja\* |
+| Skapa och hantera distributioner av röst teckensnitt. | Nej | Ja\* |
+| Skapa och hantera röst teckensnitt tester. | Nej | Ja\* |
+| Hantera prenumerationer. | Nej | Ja\* |
+
+\* *De här tjänsterna är tillgängliga med hjälp av cris.ai-slutpunkt. Se [Swagger referens](https://westus.cris.ai/swagger/ui/index).*
 
 > [!NOTE]
-> API: et implementerar de nätverksbegränsningar API-begäranden till 25 per 5 sekunder. Meddelandehuvudena informerar begränsningar.
+> Text till tal slutpunkten implementerar begränsning som begränsar begäranden till 25 per 5 sekunder. När begränsning inträffar, kommer du att meddelas via meddelandehuvudena.
+
+## <a name="get-started-with-text-to-speech"></a>Kom igång med text till tal
+
+Vi erbjuder snabbstarter som utformats för att du köra kod i mindre än 10 minuter. Den här tabellen innehåller en lista med text till tal snabbstarter ordnade efter språk.
+
+| Snabbstart | Plattform | API-referens |
+|------------|----------|---------------|
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Bläddra](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Fönstret macOS, Linux | [Bläddra](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+| [Python](quickstart-python-text-to-speech.md) | Fönstret macOS, Linux | [Bläddra](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+
+## <a name="sample-code"></a>Exempelkod
+
+Exempelkod för text till tal är tillgänglig på GitHub. De här exemplen omfattar text till tal-konvertering i mest populära programmeringsspråk.
+
+* [Text till tal-exempel (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+
+## <a name="reference-docs"></a>Referensdokument
+
+* [Speech SDK](speech-sdk-reference.md)
+* [Tal enheter SDK](speech-devices-sdk.md)
+* [REST-API: Speech-to-text](rest-speech-to-text.md)
+* [REST-API: Text till tal](rest-text-to-speech.md)
+* [REST-API: Batch transkription och anpassning](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skaffa en kostnadsfri Speech Services-prenumeration](https://azure.microsoft.com/try/cognitive-services/)
-* [Snabbstart: Omvandla text till tal, Python](quickstart-python-text-to-speech.md)
-* [Snabbstart: Omvandla text till tal, .NET Core](quickstart-dotnet-text-to-speech.md)
-* [REST API-referens](rest-apis.md)
+* [Skaffa en kostnadsfri Speech Services-prenumeration](get-started.md)
+* [Skapa anpassade rösttyper](how-to-customize-voice-font.md)

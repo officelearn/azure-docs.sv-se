@@ -18,12 +18,12 @@ ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36a2fc9d1ab364d44bd5dd6e7930e5d8ae3fb78d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7d9935b5605bc09f000a81e7616e807a0e194e12
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204754"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295546"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Kom igång med Azure Active Directory Identity Protection och Microsoft Graph
 
@@ -166,7 +166,7 @@ För att autentisera, skicka en post-begäran till `https://login.microsoft.com`
 
 - _typ av beviljande ”:**client_credentials**”
 
--  resurs ”:**https://graph.microsoft.com**”
+-  resursen: `https://graph.microsoft.com`
 
 - client_id: \<klient-ID\>
 
@@ -246,7 +246,7 @@ https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>
 
 
 
-# <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 Grattis, du har skapat just ditt första anrop till Microsoft Graph!  
 Nu kan du fråga identitet riskhändelser och använda data men du vill.

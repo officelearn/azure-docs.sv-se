@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: e1013047bb66581e7f9d26854f2cd91655c8bd93
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a249cf96981957de2c445079c0172b9c0c2ce543
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810090"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111896"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Använd Seriekonsol för att komma åt GRUB och enanvändarläge
 GRUB är GRand Unified startprogrammet. Från GRUB kan du ändra din startkonfiguration starta i enanvändarläge, bland annat.
@@ -172,7 +172,7 @@ Du tas automatiskt bort i nödfall shell om SLES inte kan starta på vanligt sä
 1. Leta efter raden kernel den börjar med `linux`
 1. Lägg till `systemd.unit=emergency.target` i slutet av raden
 1. Tryck på Ctrl + X för att starta om med de här inställningarna och ange vid akutfall shell
-> Observera att du kommer att tas bort i nödfall shell med en _skrivskyddad_ filsystem. Om du vill göra alla ändringar i alla filer, kommer du behöva montera filsystemet med läs-och skrivbehörighet. Gör detta genom att ange `mount -o remount,rw /` i gränssnittet
+   > Observera att du kommer att tas bort i nödfall shell med en _skrivskyddad_ filsystem. Om du vill göra alla ändringar i alla filer, kommer du behöva montera filsystemet med läs-och skrivbehörighet. Gör detta genom att ange `mount -o remount,rw /` i gränssnittet
 
 ## <a name="access-for-oracle-linux"></a>Åtkomst för Oracle Linux
 Som Red Hat Enterprise Linux kräver enanvändarläge i Oracle Linux mycket GRUB och rotanvändaren är aktiverat. 

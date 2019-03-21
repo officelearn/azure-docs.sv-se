@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: 61bec775fc8be963ee6fd0768a297420e6eb7ab2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b948835b1a15eee391c6902d18229ec4926b66ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761590"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095219"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Självstudier: Skapa en QnA-roboten med Azure Bot Service v3
 
@@ -90,12 +90,12 @@ Roboten svarar med ”ange QnAKnowledgebaseId och QnASubscriptionKey i Appinstä
 
 1. Få din kunskapsbas-ID och värd-url för slutpunktsnyckeln från inställningsfliken i kunskapsbasen i QnA Maker-portalen.
 
-    - Logga in på [QnA Maker](https://qnamaker.ai)
-    - Gå till din kunskapsbas
-    - Välj den **inställningar** fliken
-    - **Publicera** kunskapsbasen, om inte redan gjort det.
+   - Logga in på [QnA Maker](https://qnamaker.ai)
+   - Gå till din kunskapsbas
+   - Välj den **inställningar** fliken
+   - **Publicera** kunskapsbasen, om inte redan gjort det.
 
-    ![QnA Maker-värden](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
+     ![QnA Maker-värden](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 
 ## <a name="test-the-bot"></a>Testa roboten
 

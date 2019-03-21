@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 8cf977f9c5bbf10c6a4d862a29fda98d3ce71844
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0af6e87d3e0b4b3b40b63db07384d4a33a9d43e1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755704"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998960"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Konfigurera Oracle ASM på en virtuell Linux-dator för Azure  
 
@@ -90,7 +90,7 @@ ssh <publicIpAddress>
 
 Utför följande steg för att installera Oracle ASM. 
 
-Läs mer om hur du installerar Oracle ASM [Oracle ASMLib hämtningar för Oracle Linux 6](http://www.oracle.com/technetwork/server-storage/linux/asmlib/ol6-1709075.html).  
+Läs mer om hur du installerar Oracle ASM [Oracle ASMLib hämtningar för Oracle Linux 6](https://www.oracle.com/technetwork/server-storage/linux/asmlib/ol6-1709075.html).  
 
 1. Du måste logga in som rot för att kunna fortsätta med ASM-installation:
 
@@ -104,7 +104,7 @@ Läs mer om hur du installerar Oracle ASM [Oracle ASMLib hämtningar för Oracle
     yum list | grep oracleasm 
     yum -y install kmod-oracleasm.x86_64 
     yum -y install oracleasm-support.x86_64 
-    wget http://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm 
+    wget https://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm 
     yum -y install oracleasmlib-2.0.12-1.el6.x86_64.rpm 
     rm -f oracleasmlib-2.0.12-1.el6.x86_64.rpm
    ```
@@ -336,24 +336,24 @@ Den här självstudien standardanvändaren är *grid* och standardgruppen är *a
 
 10. Ändra behörigheter för mappen:
 
-   ```bash
-   chmod -R 775 /opt 
-   chown grid:oinstall /opt 
-   chown oracle:oinstall /dev/sdc1 
-   chown oracle:oinstall /dev/sdd1 
-   chown oracle:oinstall /dev/sde1 
-   chown oracle:oinstall /dev/sdf1 
-   chmod 600 /dev/sdc1 
-   chmod 600 /dev/sdd1 
-   chmod 600 /dev/sde1 
-   chmod 600 /dev/sdf1
-   ```
+    ```bash
+    chmod -R 775 /opt 
+    chown grid:oinstall /opt 
+    chown oracle:oinstall /dev/sdc1 
+    chown oracle:oinstall /dev/sdd1 
+    chown oracle:oinstall /dev/sde1 
+    chown oracle:oinstall /dev/sdf1 
+    chmod 600 /dev/sdc1 
+    chmod 600 /dev/sdd1 
+    chmod 600 /dev/sde1 
+    chmod 600 /dev/sdf1
+    ```
 
 ## <a name="download-and-prepare-oracle-grid-infrastructure"></a>Ladda ned och förbereda infrastrukturen för Oracle-rutnät
 
 Om du vill hämta och Förbered Grid infrastruktur för Oracle-programvara, gör du följande:
 
-1. Ladda ned Oracle Grid infrastruktur från den [Oracle ASM hämtningssidan](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
+1. Ladda ned Oracle Grid infrastruktur från den [Oracle ASM hämtningssidan](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
 
    Under nedladdningen benämnt **Oracle Database 12c version 1 Grid infrastruktur (12.1.0.2.0) för Linux x86-64**, ladda ned två ZIP-filer.
 
@@ -402,7 +402,7 @@ Om du vill hämta och Förbered Grid infrastruktur för Oracle-programvara, gör
 ## <a name="prepare-your-local-client-and-vm-to-run-x11"></a>Förbereda lokal klient och virtuell dator för att köra x11
 Konfigurera Oracle ASM kräver ett grafiskt gränssnitt för att slutföra installationen och konfigurationen. Vi använder x11 protokoll för att underlätta installationen. Om du använder ett klientsystem (Mac eller Linux) som redan har X11 funktioner aktiverat och konfigurerat – du kan hoppa över det här konfigurations- och exklusiva till Windows-datorer. 
 
-1. [Ladda ned PuTTY](http://www.putty.org/) och [hämta Xming](https://xming.en.softonic.com/) till din Windows-dator. Du behöver att slutföra installationen av båda dessa program med standardvärden innan du fortsätter.
+1. [Ladda ned PuTTY](https://www.putty.org/) och [hämta Xming](https://xming.en.softonic.com/) till din Windows-dator. Du behöver att slutföra installationen av båda dessa program med standardvärden innan du fortsätter.
 
 2. När du har installerat PuTTY, öppna Kommandotolken, ändra till mappen PuTTY (till exempel c:\Program\Microsoft Files\PuTTY) och kör `puttygen.exe` för att generera en nyckel.
 

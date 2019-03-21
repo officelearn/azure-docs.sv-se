@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
-ms.openlocfilehash: 64d16073062c0fd7f0b97a64950ceab9efc0eacf
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.openlocfilehash: 5aeb84e5086fb0cf5c30e175ad419ee70bed55ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984891"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075193"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Snabbstart: Skapa en enkel databas i Azure SQL Database med Azure-portalen
 
@@ -42,8 +42,8 @@ Så här skapar du en enkel SQL-databas som innehåller AdventureWorksLT-exempel
    - **Resursgrupp**: Välj **Skapa ny**, skriv *myResourceGroup* och välj **OK**.
    - **Välj källa**: Välj **Sample (AdventureWorksLT)** i den nedrullningsbara listrutan.
 
-    > [!IMPORTANT]
-    > Se till att välja data för **Sample (AdventureWorksLT)** så att du enkelt kan följa den här och andra snabbstarter för Azure SQL-databas som använder dessa data.
+     > [!IMPORTANT]
+     > Se till att välja data för **Sample (AdventureWorksLT)** så att du enkelt kan följa den här och andra snabbstarter för Azure SQL-databas som använder dessa data.
   
    ![Skapa en enkel databas](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -67,7 +67,7 @@ Så här skapar du en enkel SQL-databas som innehåller AdventureWorksLT-exempel
    > [!NOTE]
    > I den här snabbstarten används den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md), men den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) är också tillgänglig.
    > [!IMPORTANT]
-   > Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom: Kina, östra; Kina, norra; Tyskland, centrala; Tyskland, nordöstra; USA, västra centrala; US DoD-regioner samt US Government Central. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i [Aktuella begränsningar för P11–P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom: Kina, östra; Kina, norra; Tyskland, centrala; Tyskland, nordöstra; USA, västra centrala; US DoD-regioner samt US Government Central. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i [Aktuella begränsningar för P11–P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 8. För den här snabbstarten väljer du tjänstnivån **Standard** och använder sedan skjutreglaget för att välja **10 DTU:er (S0)** och **1** GB lagring.
 9. Välj **Använd**.  
@@ -76,9 +76,9 @@ Så här skapar du en enkel SQL-databas som innehåller AdventureWorksLT-exempel
 
 10. I formuläret **SQL Database** väljer du **Skapa** för att distribuera och etablera resursgruppen, servern och databasen.
 
-   Distributionen tar några minuter. Du kan välja **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
+    Distributionen tar några minuter. Du kan välja **Aviseringar** i verktygsfältet för att övervaka distributionsprocessen.
 
-   ![Avisering](./media/sql-database-get-started-portal/notification.png)
+    ![Avisering](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="query-the-database"></a>Fråga databasen
 

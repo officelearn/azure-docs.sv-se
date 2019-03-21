@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: f9f4dacc8aac2fc47002b65798c8367e354bb69c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d2651bc47f262a45a05217585eb00cbc721c01a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240549"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58165785"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Hantera tillgångar och relaterade entiteter med Media Services .NET SDK
 > [!div class="op_single_selector"]
@@ -201,7 +201,7 @@ Läs mer om alternativen för att leverera tillgångar [leverera tillgångar med
 ```
 
 ## <a name="list-all-access-policies"></a>Lista över alla åtkomstprinciper
-I Media Services kan du definiera en åtkomstprincip för en tillgång eller dess filer. En åtkomstprincip definierar behörigheter för en fil eller en tillgång (vilken typ av åtkomst och varaktighet). I Media Services-koden definiera du vanligtvis en åtkomstprincip genom att skapa ett IAccessPolicy-objekt och koppla det till en befintlig tillgång. Sedan kan du skapa en ILocator-objektet, vilket låter dig ge direktåtkomst till tillgångar i Media Services. Visual Studio-projekt som medföljer den här dokumentationen-serien innehåller flera kodexempel som visar hur du skapar och tilldelar åtkomstprinciper och positionerare till tillgångar.
+I Media Services kan du definiera en åtkomstprincip för en tillgång eller dess filer. En åtkomstprincip definierar behörigheter för en fil eller en tillgång (vilken typ av åtkomst och varaktighet). I Media Services-koden definiera du vanligtvis en åtkomstprincip genom att skapa ett IAccessPolicy-objekt och koppla det till en befintlig tillgång. Sedan kan du skapa ett ILocator-objekt, som låter dig ge direktåtkomst till tillgångar i Media Services. Visual Studio-projekt som medföljer den här dokumentationen-serien innehåller flera kodexempel som visar hur du skapar och tilldelar åtkomstprinciper och positionerare till tillgångar.
 
 I följande kodexempel visar hur du listar alla åtkomstprinciper på servern och visar vilken typ av behörigheter som hör till var. En annan bra sätt att visa åtkomstprinciper är att lista alla ILocator objekt på servern och sedan för varje positionerare du visa en lista med dess associerade åtkomstprincip via egenskapen AccessPolicy.
 

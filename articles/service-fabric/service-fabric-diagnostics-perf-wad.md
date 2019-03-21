@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 12ea25b9f1b9f13c153348c285ee6641a69909f0
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 0ab14d41c149ec6e0ce76d24afb0e88a6af53935
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823186"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884565"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Övervakning av programprestanda med Windows Azure Diagnostics-tillägget
 
@@ -192,15 +192,15 @@ Här är ett exempel på en konfiguration med räknaren för de *Total processor
  >[!NOTE]
  >Även om du kan använda `*` om du vill ange grupper av prestandaräknare som namnges på samma sätt skicka räknare via en mottagare (till Application Insights) kräver att de deklareras individuellt. 
 
-4. När du har lagt till lämplig prestandaräknare som behöver samlas in, måste du uppgradera din klusterresursen så att de här ändringarna i ditt kluster som körs. Spara den ändrade `template.json` och öppna PowerShell. Du kan uppgradera ditt kluster med hjälp av `New-AzureRmResourceGroupDeployment`. Anropet kräver namnet på resursgruppen och uppdaterade mallfilen parameterfilen och uppmanar Resource Manager för att göra lämpliga ändringar i de resurser som du har uppdaterat. När du är inloggad på ditt konto och är i rätt prenumeration, använder du följande kommando med uppgraderingen:
+1. När du har lagt till lämplig prestandaräknare som behöver samlas in, måste du uppgradera din klusterresursen så att de här ändringarna i ditt kluster som körs. Spara den ändrade `template.json` och öppna PowerShell. Du kan uppgradera ditt kluster med hjälp av `New-AzureRmResourceGroupDeployment`. Anropet kräver namnet på resursgruppen och uppdaterade mallfilen parameterfilen och uppmanar Resource Manager för att göra lämpliga ändringar i de resurser som du har uppdaterat. När du är inloggad på ditt konto och är i rätt prenumeration, använder du följande kommando med uppgraderingen:
 
     ```sh
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. När uppgraderingen har slutförts ska lansera (tar mellan 15-45 minuter beroende på om det är den första distributionen och storleken på din resursgrupp) WAD samla in prestandaräknare och skicka dem till tabellen med namnet WADPerformanceCountersTable i lagringskontot som associerats med klustret. Se dina prestandaräknare i Application Insights genom [lägger till AI-mottagare i Resource Manager-mall](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
+1. När uppgraderingen har slutförts ska lansera (tar mellan 15-45 minuter beroende på om det är den första distributionen och storleken på din resursgrupp) WAD samla in prestandaräknare och skicka dem till tabellen med namnet WADPerformanceCountersTable i lagringskontot som associerats med klustret. Se dina prestandaräknare i Application Insights genom [lägger till AI-mottagare i Resource Manager-mall](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
 
 ## <a name="next-steps"></a>Nästa steg
 * Samla in mer prestandaräknare för klustret. Se [prestandamått](service-fabric-diagnostics-event-generation-perf.md) för en lista över räknare som du bör samla in.
 * [Använd övervakning och diagnostik med en virtuell Windows-dator och Azure Resource Manager-mallar](../virtual-machines/windows/extensions-diagnostics-template.md) göra ytterligare ändringar i din `WadCfg`, inklusive hur du konfigurerar ytterligare lagringskonton för att skicka diagnostikdata.
-* Gå till den [WadCfg builder](http://azure.github.io/azure-diagnostics-tools/config-builder/) att skapa en mall från början och kontrollera att din syntax är korrekt.
+* Gå till den [WadCfg builder](https://azure.github.io/azure-diagnostics-tools/config-builder/) att skapa en mall från början och kontrollera att din syntax är korrekt.

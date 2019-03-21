@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: dcfe744cc8ca6f3b3cd201898a79fcce3f24f8d5
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: c21fa3cf819f48dcda46f2d444ed52bc2eb9ae3d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639924"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113528"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Hämta signatur för delad åtkomst URI för VM-avbildning
 
@@ -44,33 +44,33 @@ SAS-Webbadressen kan skapas på två vanliga sätt med hjälp av följande verkt
 
 Använd följande steg för att generera en SAS-URI med Azure CLI.
 
-1.  Ladda ned och installera den [Microsoft Azure CLI](https://azure.microsoft.com/documentation/articles/xplat-cli-install/).  Versioner är tillgängliga för Windows, macOS och olika Linux-distributioner. 
-2.  Skapa en PowerShell-fil (`.ps1` filnamnstillägget), kopiera in följande kod och spara den lokalt.
+1. Ladda ned och installera den [Microsoft Azure CLI](https://azure.microsoft.com/documentation/articles/xplat-cli-install/).  Versioner är tillgängliga för Windows, macOS och olika Linux-distributioner. 
+2. Skapa en PowerShell-fil (`.ps1` filnamnstillägget), kopiera in följande kod och spara den lokalt.
 
-    ``` powershell
-    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
-    ```
+   ``` powershell
+   az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
+   ```
     
-3.  Redigera filen för att ange följande parametervärden.  Datum måste anges i UTC-datum/tid-format, till exempel `10-25-2016T00:00:00Z`.
-    - `<account-name>` -Ditt Azure storage-kontonamn
-    - `<account-key>` -Ditt Azure storage-kontonyckel
-    - `<vhd-name>` -Ditt namn på virtuell Hårddisk
-    - `<start-date>` -Permission startdatum för VHD-åtkomst. Ange ett datum en dag före aktuellt datum. 
-    - `<expiry-date>` -Permission utgångsdatumet för VHD-åtkomst.  Ange ett datum minst tre veckor efter det aktuella datumet. 
+3. Redigera filen för att ange följande parametervärden.  Datum måste anges i UTC-datum/tid-format, till exempel `10-25-2016T00:00:00Z`.
+   - `<account-name>` -Ditt Azure storage-kontonamn
+   - `<account-key>` -Ditt Azure storage-kontonyckel
+   - `<vhd-name>` -Ditt namn på virtuell Hårddisk
+   - `<start-date>` -Permission startdatum för VHD-åtkomst. Ange ett datum en dag före aktuellt datum. 
+   - `<expiry-date>` -Permission utgångsdatumet för VHD-åtkomst.  Ange ett datum minst tre veckor efter det aktuella datumet. 
  
-    I följande exempel visar rätt parametervärden (när detta skrivs).
+   I följande exempel visar rätt parametervärden (när detta skrivs).
 
-    ``` powershell
-        az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
-    ```
+   ``` powershell
+       az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
+   ```
  
 4. Spara ändringarna i det här PowerShell-skriptet.
 5. Kör det här skriptet använder administrativa privilegier för att generera en *SAS anslutningssträngen* för åtkomst till nivån-behållare.  Du kan använda två sätt:
-    - Kör skriptet från konsolen.  Till exempel i Windows, Skriv genom att klicka på skript och välj **kör som administratör**.
-    - Kör skriptet från en PowerShell-Skriptredigerare, som den [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise), med administratörsprivilegier. 
-  Följande visar en SAS-anslutningssträng som genereras inom den här redigeraren. 
+   - Kör skriptet från konsolen.  Till exempel i Windows, Skriv genom att klicka på skript och välj **kör som administratör**.
+   - Kör skriptet från en PowerShell-Skriptredigerare, som den [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise), med administratörsprivilegier. 
+     Följande visar en SAS-anslutningssträng som genereras inom den här redigeraren. 
 
-    ![SAS-URI-generation i PowerShell ISE](./media/publishvm_032.png)
+     ![SAS-URI-generation i PowerShell ISE](./media/publishvm_032.png)
 
 6. Kopiera strängen för SAS-anslutning och spara den till en textfil på en säker plats.  Du kommer att redigera den här strängen för att lägga till den associerade VHD-platsinformationen till det för att skapa den slutgiltiga SAS-URI. 
 7. Gå till blob-lagringen som innehåller den virtuella Hårddisken som är associerade med den nyligen skapade URI i Azure-portalen.
@@ -102,11 +102,11 @@ Använd följande steg för att generera en SAS-URI med Microsoft Azure Storage 
     ![Hämta SAS-objekt i Azure Explorer](./media/publishvm_034.png)
 
 6. Den **signatur för delad åtkomst** dialogrutan visas. Ange värden för följande fält:
-    - **Starttid** -behörighet startdatum för VHD-åtkomst. Ange ett datum som är en dag före aktuellt datum.
-    - **Förfallotiden** -behörigheten upphör att gälla för VHD-åtkomst.  Ange ett datum minst tre veckor efter det aktuella datumet.
-    - **Behörigheter** – Välj den `Read` och `List` behörigheter. 
+   - **Starttid** -behörighet startdatum för VHD-åtkomst. Ange ett datum som är en dag före aktuellt datum.
+   - **Förfallotiden** -behörigheten upphör att gälla för VHD-åtkomst.  Ange ett datum minst tre veckor efter det aktuella datumet.
+   - **Behörigheter** – Välj den `Read` och `List` behörigheter. 
 
-    ![SAS-dialog i Azure Explorer](./media/publishvm_035.png)
+     ![SAS-dialog i Azure Explorer](./media/publishvm_035.png)
 
 7. Klicka på **skapa** att skapa den associerade SAS-URI för den här virtuella Hårddisken.  Dialogrutan visar nu information om den här åtgärden. 
 8. Kopiera den **URL** värde och spara den till en textfil på en säker plats. 

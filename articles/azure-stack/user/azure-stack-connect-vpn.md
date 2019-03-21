@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 03/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: d2766416c84233281e55ff6f8be8519b7aadfb8c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d35ab3f477f327cb85cd8dfebd255542489debdc
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763562"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286150"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Ansluta Azure Stack till Azure med VPN
 
@@ -92,8 +92,7 @@ Skapa först till nätverksresurser för Azure. Följande instruktioner visar hu
 5. Om du vill välja ett virtuellt nätverk, Välj **virtuellt nätverk**. Välj sedan **AzureVnet** i listan.
 6. Välj **Offentlig IP-adress**. När den **Välj offentlig IP-adress** avsnittet öppnas, Välj **Skapa ny**.
 7. I **namn**, typ **Azure-GW-PiP**, och välj sedan **OK**.
-8. Som standard för **VPN-typ**, **routningsbaserad** har valts. Behåll den **routningsbaserad** VPN-typ.
-9. Verifiera att **Prenumeration** och **Plats** stämmer. Du kan fästa resursen på instrumentpanelen. Välj **Skapa**.
+8. Verifiera att **Prenumeration** och **Plats** stämmer. Du kan fästa resursen på instrumentpanelen. Välj **Skapa**.
 
 ### <a name="create-the-local-network-gateway-resource"></a>Skapa gateway-resursen lokalt nätverk
 

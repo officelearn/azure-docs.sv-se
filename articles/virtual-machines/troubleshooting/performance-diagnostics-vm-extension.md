@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 415cf34a8b19400091807005e1e9943aa025f244
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980031"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002729"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Prestanda för Azure Diagnostics VM-tillägg för Windows
 
@@ -89,7 +89,7 @@ Följande JSON visar schemat för Azure VM Diagnostics-tillägget prestanda. Det
 
 Följ dessa instruktioner för att installera tillägget på Windows-datorer:
 
-1. Logga in på [Azure Portal](http://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj den virtuella datorn där du vill installera det här tillägget.
 
     ![Skärmbild av Azure portal med virtuella datorer som är markerat](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
@@ -112,7 +112,7 @@ Följ dessa instruktioner för att installera tillägget på Windows-datorer:
 ## <a name="remove-the-extension"></a>Ta bort tillägget
 Följ dessa steg om du vill ta bort tillägget från en virtuell dator:
 
-1. Logga in på den [Azure-portalen](http://portal.azure.com), Välj den virtuella datorn från vilken du vill ta bort tillägget och välj sedan den **tillägg** bladet. 
+1. Logga in på den [Azure-portalen](https://portal.azure.com), Välj den virtuella datorn från vilken du vill ta bort tillägget och välj sedan den **tillägg** bladet. 
 2. Välj den (**...** ) för prestanda Diagnostics-tillägg-posten i listan och välj **avinstallera**.
 
     ![Skärmbild av tillägg bladet avinstalleras markerat](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
@@ -125,7 +125,7 @@ Azure virtual machine-tillägg kan distribueras med Azure Resource Manager-malla
 
 ```
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {

@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: e2f0fb6333f3786b29c2a7516e46a4599d6e89ed
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 36b60b3784739a884b887a29f3dd53c61c44cd6f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961017"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57851354"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Spara och konfigurera din API Management-tjänstkonfigurationen med Git
 
@@ -53,9 +53,9 @@ Om du vill visa och konfigurera dina inställningar för Git, kan du klicka på 
 ![Aktivera GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Alla hemligheter som inte är definierade som egenskaper kommer att lagras i databasen och blir kvar i dess historik tills du inaktiverar och återaktiverar Git-åtkomst. Det ger en säker plats för att hantera konstant strängvärden, inklusive hemligheter, för alla API-konfiguration och principer, så att du inte behöver lagra dem direkt i din principrapporter egenskaperna. Mer information finns i [hur du använder egenskaper i Azure API Management-principer](api-management-howto-properties.md).
-> 
-> 
+> Hemligheter som inte har definierats som heter värden kommer att lagras i databasen och finns kvar i dess historik tills du inaktiverar och återaktiverar Git-åtkomst. Namngivna värden är en säker plats för att hantera konstant strängvärden, inklusive hemligheter, för alla API-konfiguration och principer, så att du inte behöver lagra dem direkt i din principrapporter. Mer information finns i [hur du använder med namnet värden i Azure API Management-principer](api-management-howto-properties.md).
+>
+>
 
 Information om att aktivera eller inaktivera Git-åtkomst med hjälp av REST-API finns i [aktivera eller inaktivera Git-åtkomst med hjälp av REST-API](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
 
@@ -73,13 +73,13 @@ Information om hur du utför den här åtgärden med hjälp av REST-API finns i 
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Klona lagringsplatsen till din lokala dator
 
-Om du vill klona en lagringsplats, måste URL: en till din lagringsplats, ett användarnamn och ett lösenord. För att få användarnamn och andra autentiseringsuppgifter, klickar du på **autentiseringsuppgifter för åtkomst** överst på sidan.  
- 
+Om du vill klona en lagringsplats, måste URL: en till din lagringsplats, ett användarnamn och ett lösenord. För att få användarnamn och andra autentiseringsuppgifter, klickar du på **autentiseringsuppgifter för åtkomst** överst på sidan.
+
 Om du vill skapa ett lösenord du först kontrollera att den **Förfallohändelser** är inställd på önskad utgångsdatum och förfallotid och klicka sedan på **generera**.
 
 > [!IMPORTANT]
 > Anteckna det här lösenordet. När du lämnar den här sidan visas inte lösenordet igen.
-> 
+>
 
 I följande exempel används Git Bash-verktyget från [Git för Windows](https://www.git-scm.com/downloads) men du kan använda valfri Git-verktyg som du är bekant med.
 
@@ -164,20 +164,20 @@ Varje mapp kan innehålla en eller flera filer och i vissa fall en eller flera m
 | Filtyp | Syfte |
 | --- | --- |
 | JSON |Konfigurationsinformation om respektive entiteten |
-| HTML |Beskrivningar av entiteten, som ofta visas i developer-portalen |
+| html |Beskrivningar av entiteten, som ofta visas i developer-portalen |
 | xml |Principrapporter |
-| CSS |Formatmallar för anpassning av utvecklare |
+| css |Formatmallar för anpassning av utvecklare |
 
 Dessa filer kan skapas, tas bort, redigera och hanteras på det lokala filsystemet och ändringarna distribueras tillbaka till din API Management-tjänstinstans.
 
 > [!NOTE]
 > Följande entiteter finns inte i Git-lagringsplats och kan inte konfigureras med Git.
-> 
-> * Användare
-> * Prenumerationer
-> * Egenskaper
+>
+> * [Användare](https://docs.microsoft.com/en-us/rest/api/apimanagement/user)
+> * [Prenumerationer](https://docs.microsoft.com/en-us/rest/api/apimanagement/subscription)
+> * [Namngivna värden](https://docs.microsoft.com/en-us/rest/api/apimanagement/property)
 > * Developer portal enheter än format
-> 
+>
 
 ### <a name="root-api-management-folder"></a>rotmapp för api-hantering
 Roten `api-management` mappen innehåller en `configuration.json` -fil som innehåller översta information om tjänstinstansen i följande format.
@@ -223,7 +223,7 @@ Den slutliga inställningen `$ref-policy`, mappar till den globala principfilen 
 ### <a name="apis-folder"></a>API: er för mappen
 Den `apis` mappen innehåller en mapp för varje API i tjänstinstansen, som innehåller följande objekt.
 
-* `apis\<api name>\configuration.json` -Detta är konfigurationen för API: et och innehåller information om URL: en för backend-tjänsten och åtgärderna. Det här är samma information som skulle returneras om du anropar [hämta ett visst API](https://docs.microsoft.com/rest/api/apimanagement/api/get) med `export=true` i `application/json` format.
+* `apis\<api name>\configuration.json` -Detta är konfigurationen för API: et och innehåller information om URL: en för backend-tjänsten och åtgärderna. Det här är samma information som skulle returneras om du anropar [hämta ett visst API](https://docs.microsoft.com/rest/api/apimanagement/apis/get) med `export=true` i `application/json` format.
 * `apis\<api name>\api.description.html` -Detta är beskrivningen av API: et och motsvarar den `description` egenskapen för den [API-entiteten](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
 * `apis\<api name>\operations\` – den här mappen innehåller `<operation name>.description.html` filer som mappar till åtgärder i API: et. Varje fil innehåller en beskrivning av en enda åtgärd i API: T, som mappar till den `description` egenskapen för den [åtgärden entitet](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) i REST-API.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 0f3bdaaa038dcd0ef2a0ad6466cbb7a09ec7c2bc
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 4cfe8b02697fe8234c29995a611cb99a89e2e54b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312451"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080989"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Skapa en programgateway med hjälp av Azure Resource Manager-mallen
 
@@ -55,16 +55,16 @@ Du kan hämta den befintliga Azure Resource Manager-mallen för att skapa ett vi
 1. Öppna filen som du sparade och titta på innehållet under **parametrar** i rad
 1. Azure Resource Manager-mallens parametrar fungerar som platshållare för värden som kan anges under distributionen.
 
-  | Parameter | Beskrivning |
-  | --- | --- |
-  | **subnetPrefix** |CIDR-blocket för programgatewayens undernät. |
-  | **applicationGatewaySize** | Storleken på programgatewayen.  WAF tillåter endast medelstora och stora. |
-  | **backendIpaddress1** |IP-adressen för den första webbservern. |
-  | **backendIpaddress2** |IP-adressen för den andra webbservern. |
-  | **wafEnabled** | Inställning för att avgöra om WAF är aktiverad.|
-  | **wafMode** | Läget för brandväggen för webbaserade program.  Tillgängliga alternativ är **dataförlustskydd** eller **identifiering**.|
-  | **wafRuleSetType** | RuleSet-typ för WAF.  OWASP är för närvarande det enda alternativet som stöds. |
-  | **wafRuleSetVersion** |RuleSet-version. OWASP CRS 2.2.9 och 3.0 finns för närvarande alternativ som stöds. |
+   | Parameter | Beskrivning |
+   | --- | --- |
+   | **subnetPrefix** |CIDR-blocket för programgatewayens undernät. |
+   | **applicationGatewaySize** | Storleken på programgatewayen.  WAF tillåter endast medelstora och stora. |
+   | **backendIpaddress1** |IP-adressen för den första webbservern. |
+   | **backendIpaddress2** |IP-adressen för den andra webbservern. |
+   | **wafEnabled** | Inställning för att avgöra om WAF är aktiverad.|
+   | **wafMode** | Läget för brandväggen för webbaserade program.  Tillgängliga alternativ är **dataförlustskydd** eller **identifiering**.|
+   | **wafRuleSetType** | RuleSet-typ för WAF.  OWASP är för närvarande det enda alternativet som stöds. |
+   | **wafRuleSetVersion** |RuleSet-version. OWASP CRS 2.2.9 och 3.0 finns för närvarande alternativ som stöds. |
 
 1. Kontrollera innehållet i **resurser** och Lägg märke till följande egenskaper:
 
@@ -77,44 +77,44 @@ Du kan hämta den befintliga Azure Resource Manager-mallen för att skapa ett vi
 1. Spara filen i en lokal mapp på datorn.
 1. Öppna filen som du sparade och ändra parametrarnas värden. Använd följande värden för att distribuera programgatewayen från vårt scenario.
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "addressPrefix": {
-            "value": "10.0.0.0/16"
-            },
-            "subnetPrefix": {
-            "value": "10.0.0.0/28"
-            },
-            "applicationGatewaySize": {
-            "value": "WAF_Medium"
-            },
-            "capacity": {
-            "value": 2
-            },
-            "backendIpAddress1": {
-            "value": "10.0.1.10"
-            },
-            "backendIpAddress2": {
-            "value": "10.0.1.11"
-            },
-            "wafEnabled": {
-            "value": true
-            },
-            "wafMode": {
-            "value": "Detection"
-            },
-            "wafRuleSetType": {
-            "value": "OWASP"
-            },
-            "wafRuleSetVersion": {
-            "value": "3.0"
-            }
-        }
-    }
-    ```
+     ```json
+     {
+         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+         "contentVersion": "1.0.0.0",
+         "parameters": {
+             "addressPrefix": {
+             "value": "10.0.0.0/16"
+             },
+             "subnetPrefix": {
+             "value": "10.0.0.0/28"
+             },
+             "applicationGatewaySize": {
+             "value": "WAF_Medium"
+             },
+             "capacity": {
+             "value": 2
+             },
+             "backendIpAddress1": {
+             "value": "10.0.1.10"
+             },
+             "backendIpAddress2": {
+             "value": "10.0.1.11"
+             },
+             "wafEnabled": {
+             "value": true
+             },
+             "wafMode": {
+             "value": "Detection"
+             },
+             "wafRuleSetType": {
+             "value": "OWASP"
+             },
+             "wafRuleSetVersion": {
+             "value": "3.0"
+             }
+         }
+     }
+     ```
 
 1. Spara filen. Du kan testa JSON-mallen och parametermallen med hjälp av webbaserade JSON-verifieringsverktyg som [JSlint.com](https://www.jslint.com/).
 

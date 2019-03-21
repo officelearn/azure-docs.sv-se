@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/04/2019
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 4f67158c0de8cdd161bce269059af6d421bb68b5
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: MT
+ms.openlocfilehash: 2d7dc6eb5ee77804f0c8c87ee2e5a5dd1d0dc30a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340356"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57841131"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Riktlinjer för att flytta från Media Services v2 till v3
 
@@ -72,6 +72,7 @@ Om du har en videotjänst som har utvecklats i dag ovanpå den [äldre Media Ser
     * Live-händelse ersätter kanal.<br/>Live-händelser som fakturering baseras på livekanal mätare. Mer information finns i [fakturering](live-event-states-billing.md) och [priser](https://azure.microsoft.com/pricing/details/media-services/).
     * Live utdata ersätter programmet.
 * Live utdata behöver inte uttryckligen startas, de börjar vid skapandet och avbryts när tas bort. Program som fungerade inte på samma sätt i v2-API: er som de hade startas när du har skapat.
+*  Om du vill ha information om ett jobb som du behöver veta Transform-namnet som har skapats för jobbet. 
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Funktionen avstånd till v2 API: er
 
@@ -98,6 +99,7 @@ I följande tabell visas kodskillnaderna mellan v2 och v3 för vanliga scenarier
 |Skapa en tillgång och överföra en fil |[v2 .NET-exempel](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[v3 .NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Skicka ett jobb|[v2 .NET-exempel](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[v3 .NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Visar hur du först skapa en transformering och sedan skicka ett jobb.|
 |Publicera en tillgång med AES-kryptering |1. Create ContentKeyAuthorizationPolicyOption<br/>2. Create ContentKeyAuthorizationPolicy<br/>3. Create AssetDeliveryPolicy<br/>4. Skapa tillgång och överföra innehåll eller skicka jobb och Använd utdatatillgången<br/>5. Associera AssetDeliveryPolicy med tillgången<br/>6. Skapa ContentKey<br/>7. Koppla ContentKey till tillgången<br/>8. Skapa AccessPolicy<br/>9. Skapa positionerare<br/><br/>[v2 .NET-exempel](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Skapa innehåll viktiga princip<br/>2. Skapa tillgång<br/>3. Ladda upp innehåll eller använder tillgången som JobOutput<br/>4. Skapa positionerare för direktuppspelning<br/><br/>[v3 .NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|Hämta jobbinformation och hantera jobb |[Hantera jobb med v2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[Hantera jobb med v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
 
 ## <a name="known-issues"></a>Kända problem
 

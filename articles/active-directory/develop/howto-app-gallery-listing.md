@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5622c179b6eb767f4c608e8c36c2ba154aac0906
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 4cda09a6b407621e595b0cb8ed9103b1fbbd5cc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594703"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097965"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Anvisningar: Visa ditt program i Azure Active Directory-programgalleriet
 
@@ -83,12 +83,12 @@ Om du vill visa ett program i Azure AD-appgalleri, måste du först att implemen
     * Om du vill lägga till dina program i listan i galleriet med hjälp av OpenID Connect, Välj **OpenID Connect och OAuth 2.0** precis som ovan.
     * Om du har några frågor om åtkomst kan du kontakta den [enkel inloggning för Azure AD-integrering Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** eller **WS-Fed**: Om appen stöder SAML 2.0, kan du integrera det direkt med en Azure AD-klient med hjälp av den [anvisningar för att lägga till ett anpassat program](../active-directory-saas-custom-apps.md).
+- **SAML 2.0** eller **WS-Fed**: Om appen stöder SAML 2.0, kan du integrera det direkt med en Azure AD-klient med hjälp av den [anvisningar för att lägga till ett anpassat program](../active-directory-saas-custom-apps.md).
 
-    ![Tidslinje för att visa en lista över SAML 2.0 eller WS-Fed program i galleriet](./media/howto-app-gallery-listing/saml.png)
+  ![Tidslinje för att visa en lista över SAML 2.0 eller WS-Fed program i galleriet](./media/howto-app-gallery-listing/saml.png)
 
-    * Om du vill lägga till dina program i listan i galleriet med **SAML 2.0** eller **WS-Fed**väljer **SAMl 2.0/WS-Fed** precis som ovan.
-    * Om du har några frågor om åtkomst kan du kontakta den [enkel inloggning för Azure AD-integrering Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+  * Om du vill lägga till dina program i listan i galleriet med **SAML 2.0** eller **WS-Fed**väljer **SAMl 2.0/WS-Fed** precis som ovan.
+  * Om du har några frågor om åtkomst kan du kontakta den [enkel inloggning för Azure AD-integrering Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="implementing-sso-using-password-sso"></a>Implementera SSO med hjälp av enkel inloggning med lösenord
 

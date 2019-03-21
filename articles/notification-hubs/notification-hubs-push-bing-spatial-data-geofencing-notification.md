@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 7b01ee726d8417e34645e743497a02455fbe709c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 9baeb1c21252f8b7f7b24debde48108532d9865c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453159"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118314"
 ---
 # <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Självstudier: Skicka platsbaserade push-meddelanden med Azure Notification Hub och Bing Spatial Data
 
@@ -35,7 +35,7 @@ I den här självstudien gör du följande:
 > * Konfigurera serverdelen
 > * Testa push-meddelanden i appen Universal Windows Platform (UWP)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * [Visual Studio 2015 Update 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) eller senare ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409)).
@@ -63,12 +63,12 @@ I den här självstudien gör du följande:
 
     ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. Gör följande på sidan **Överför en datakälla**:
-    1. Välj **pipe** som **Dataformat**.
-    2. Bläddra och välj den `NotificationHubGeofence.pipe`-fil som du skapade i föregående steg.
-    3. Välj knappen **Ladda upp**.
+   1. Välj **pipe** som **Dataformat**.
+   2. Bläddra och välj den `NotificationHubGeofence.pipe`-fil som du skapade i föregående steg.
+   3. Välj knappen **Ladda upp**.
 
-    > [!NOTE]
-    > Du kan uppmanas att ange en ny nyckel för **huvudnyckel**n. Denna skiljer sig från **frågenyckeln**. Du behöver bara skapa en ny nyckel via instrumentpanelen och uppdatera överföringssidan för datakällan.
+      > [!NOTE]
+      > Du kan uppmanas att ange en ny nyckel för **huvudnyckel**n. Denna skiljer sig från **frågenyckeln**. Du behöver bara skapa en ny nyckel via instrumentpanelen och uppdatera överföringssidan för datakällan.
 6. När du har laddat upp datafilen måste du se till att publicera datakällan. Välj **Datakällor** -> **Hantera datakällor** som du gjorde tidigare.
 7. Markera datakällan i listan och välj **Publicera** i kolumnen **Åtgärder**.
 
@@ -112,11 +112,11 @@ I den här självstudien gör du följande:
     ```
     Få det att fungera genom att ange följande parametrar:
 
-    * **Datakällans ID** och **Datakällnamn** – I Bing Maps API innehåller datakällorna flera bucketgrupperade metadata, som platser och öppettider.  
-    * **Entitetsnamn** – Den entitet som du vill använda som referenspunkt för meddelandet.
-    * **Bing Maps API-nyckel** – Den nyckel som du fick tidigare när du skapade Bing Dev Center-kontot.
+   * **Datakällans ID** och **Datakällnamn** – I Bing Maps API innehåller datakällorna flera bucketgrupperade metadata, som platser och öppettider.  
+   * **Entitetsnamn** – Den entitet som du vill använda som referenspunkt för meddelandet.
+   * **Bing Maps API-nyckel** – Den nyckel som du fick tidigare när du skapade Bing Dev Center-kontot.
 
-    Nu när datakällan är redo kan du börja jobba med UWP-appen.
+     Nu när datakällan är redo kan du börja jobba med UWP-appen.
 2. Aktivera platstjänster för ditt program. Det gör du genom att öppna `Package.appxmanifest`-filen i **Solution Explorer**.
 
     ![](./media/notification-hubs-geofence/vs-package-manifest.png)

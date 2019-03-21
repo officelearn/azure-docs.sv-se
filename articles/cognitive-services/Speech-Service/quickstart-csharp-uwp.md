@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: f29848098a99352e4e9e7a3caac4d074ebcb24b0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 26d6e5e53968a88eaccff863b4affee6057f5952
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878518"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903308"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i en UWP-app med hjälp av Speech SDK
 
@@ -27,7 +27,7 @@ I den här artikeln ska du utveckla ett C#-baserat UWP-program (Universal Window
 > [!NOTE]
 > Med Universell Windows Platform kan du utveckla appar som körs på valfri enhet som stöder Windows 10, inklusive datorer, Xbox, Surface Hub och andra enheter.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
@@ -68,7 +68,7 @@ För den här snabbstarten krävs:
 
     ![Skärmbild av behörighetsbegäran](media/sdk/qs-csharp-uwp-10-access-prompt.png "Starta appen i felsökningsläge")
 
-1. Välj **Speech recognition with microphone input** (Taligenkänning med mikrofonindata) och tala in en fras eller mening på engelska i enhetens mikrofon. Ditt tal överförs till Speech-tjänsten och transkriberas till text som visas i fönstret.
+1. Välj **Speech recognition with microphone input** (Taligenkänning med mikrofonindata) och tala in en fras eller mening på engelska i enhetens mikrofon. Ditt tal överförs till Speech Services och transkriberas till text som visas i fönstret.
 
     ![Skärmbild av användargränssnittet för taligenkänning](media/sdk/qs-csharp-uwp-11-ui-result.png)
 
@@ -77,7 +77,7 @@ För den här snabbstarten krävs:
 > [!div class="nextstepaction"]
 > [Utforska C#-exempel på GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Översätta tal](how-to-translate-speech-csharp.md)
 - [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)

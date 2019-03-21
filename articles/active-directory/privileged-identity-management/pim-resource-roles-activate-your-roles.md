@@ -15,12 +15,12 @@ ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6bf5ae22fe8bf06d29c8c812a18cffcef14865c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b574e538c407040518f3905f8fbd9fa91d5dd067
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550812"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002051"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Aktivera Mina roller för Azure-resurs i PIM
 
@@ -36,9 +36,13 @@ När du behöver utföra på en Azure-resurs-roll kan du begära aktivering med 
 
 1. Öppna **Azure AD Privileged Identity Management**. Information om hur du lägger till PIM-panelen på instrumentpanelen finns i [börja använda PIM](pim-getting-started.md).
 
-1. Klicka på **Mina roller** att se en lista över dina berättigade Azure AD-katalogroller och Azure-resursroller.
+1. Klicka på **Mina roller**.
 
     ![Azure AD-katalogroller och Azure-resursroller - Mina roller](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
+
+1. Klicka på **Azure-resursroller** att se en lista över dina berättigade Azure-resursroller.
+
+   ![Azure-resursroller](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
 
 1. I den **Azure-resursroller** listan, hitta den roll som du vill aktivera.
 

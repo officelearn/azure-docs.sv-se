@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: b8f343c2293df6a1dec808addf8881c27514fc06
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 19637a1fe49550d0ed7aea7e3a596f1f77f5984b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436663"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082049"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Använda Azure anpassade skript-tillägget Version 2 med Linux-datorer
 Anpassat skript-tillägget Version 2 laddar ned och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfigurationen efter distribution, Programvaruinstallation eller andra konfigurationshantering/uppgifter. Du kan hämta skript från Azure Storage eller en annan tillgänglig Internetplats eller du kan ange dem till tillägget-körningen. 
@@ -124,7 +124,7 @@ De här objekten ska behandlas som känsliga data och anges i den skyddade Konfi
 ### <a name="property-value-details"></a>Information om egenskapen
 * `skipDos2Unix`: (valfritt, booleskt) hoppa över dos2unix konvertering av skriptbaserade fil-URL: er eller skript.
 * `timestamp` (valfritt, 32-bitars heltal) Använd det här fältet bara för att utlösa en omkörning av skriptet genom att ändra värdet för det här fältet.  Alla heltalsvärde är godtagbara. Det får endast vara skiljer sig från det tidigare värdet.
- * `commandToExecute`: (**krävs** om skriptet inte har angetts sträng) startpunktsskriptet att köra. Använd det här fältet i stället om kommandot innehåller hemligheter som lösenord.
+  * `commandToExecute`: (**krävs** om skriptet inte har angetts sträng) startpunktsskriptet att köra. Använd det här fältet i stället om kommandot innehåller hemligheter som lösenord.
 * `script`: (**krävs** om commandToExecute inte har angetts sträng) en base64-kodat (och eventuellt gzip'ed) skript som körs av/bin/sh.
 * `fileUris`: (valfritt, Strängmatrisen) URL: er för filer som ska hämtas.
 * `storageAccountName`: (valfritt, string) namnet på lagringskontot. Om du anger autentiseringsuppgifter för lagringskontot, alla `fileUris` måste vara URL: er för Azure-BLOB.

@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: fd6ecb6cb45aef399a137c9eac2c8c6f845b610b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: f8f3da82d5c8747398882fd589e3ff91aaaa9739
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872496"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849218"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Vad är tjänsten Azure Machine Learning?
 
@@ -32,10 +32,10 @@ Prognoser eller förutsägelser från maskininlärning kan göra appar och enhet
 
 Tjänsten Azure Machine Learning tillhandahåller en molnbaserad miljö som du kan använda för att förbereda data och träna, testa, distribuera, hantera och spåra maskininlärningsmodeller.
 
-[![Azure Machine Learning Service-arbetsflöde](./media/overview-what-is-azure-ml/aml.png)] (./media/overview-what-is-azure-ml/aml.png#lightbox)
+[![Azure Machine Learning-tjänstens arbetsflöde](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Azure Machine Learning-tjänsten har fullständigt stöd för tekniker med öppen källkod. Du kan därför använda tiotusentals Python-paket som är baserade på öppen källkod med komponenter för maskininlärning. Exempel är PyTorch, TensorFlow och scikit-learn.
-Stöd för omfattande verktyg gör det enkelt att interaktivt utforska och förbereda data och sedan utveckla och testa modeller. Exempel är [Jupyter-anteckningsböcker](http://jupyter.org) eller tillägget [Azure Machine Learning för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview).
+Stöd för omfattande verktyg gör det enkelt att interaktivt utforska och förbereda data och sedan utveckla och testa modeller. Exempel är [Jupyter-anteckningsböcker](https://jupyter.org) eller tillägget [Azure Machine Learning för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview).
 Tjänsten Azure Machine Learning innehåller även funktioner som [automatiserar modellgenereringen och modeljusteringen](tutorial-auto-train-models.md) så att du enkelt och effektivt kan skapa modeller med hög precision.
 
 Genom att använda tjänsten Azure Machine Learning kan du börja träna på den lokala datorn och sedan skala ut till molnet. Tack vare de många tillgängliga [beräkningsmålen](how-to-set-up-training-targets.md), däribland Azure Machine Learning Compute och [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), och med [tjänster för finjustering av avancerade hyperparametrar](how-to-tune-hyperparameters.md) kan du skapa bättre modeller snabbare genom att använda hela styrkan från molnet.
@@ -56,7 +56,7 @@ Du kan välja bland många maskininlärningskomponenter som är tillgängliga i 
 - <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
 - <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
-- <a href="http://mxnet.io" target="_blank">MXNet</a>
+- <a href="https://mxnet.io" target="_blank">MXNet</a>
 
 Azure Machine Learning-tjänsten kan även träna och justera en modell automatiskt.
 Ett exempel finns i [Träna en regressionsmodell med automatiserad maskininlärning](tutorial-auto-train-models.md).
@@ -81,7 +81,7 @@ Använd Machine Learning-tjänsten om du arbetar i en Python-miljö och vill ha 
 
 ## <a name="free-trial"></a>Kostnadsfri utvärderingsversion
 
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) i dag.
+Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
 Du får krediter som du kan använda för att köpa Azure-tjänster. När de är slut kan du behålla kontot och använda [kostnadsfria Azure-tjänster](https://azure.microsoft.com/free/). Ditt kreditkort debiteras aldrig om du inte specifikt ändrar dina inställningar och ber om debitering. Du kan även [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), vilket ger dig krediter varje månad som du kan använda för Azure-betaltjänster.
 
@@ -92,7 +92,7 @@ Du får krediter som du kan använda för att köpa Azure-tjänster. När de är
 - Följ de fullständiga självstudierna: 
   + [Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md) 
   + [Förbereda data och använda automatiserad maskininlärning för att automatiskt träna en regressionsmodell](tutorial-data-prep.md)
-  
+
 - Förbered dina data med hjälp av [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk).
 
 - Lär dig mer om [pipelines för maskininlärning](/azure/machine-learning/service/concept-ml-pipelines) för att skapa, optimera och hantera dina maskininlärningsscenarier.

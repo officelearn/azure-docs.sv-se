@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 62a3169257001f64e3103cc079e544449ac59663
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 27ebe827e97c8361c7f93a125f09aa9e339a6a14
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328392"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087116"
 ---
 # <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS-bot i Node.js med Bot Framework 3.x och Azure Web app-robot
 
@@ -45,16 +45,16 @@ Roboten besvarar avsikter från HomeAutomation domänen som finns i LUIS-app. F�
     ![Välj web app-robot att starta processen att skapa resurs](./media/luis-tutorial-node-bot/bot-service-selection.png)
 
 3. I den **Robottjänst** bladet anger du nödvändig information och väljer **skapa**. Detta skapar och distribuerar bot service och LUIS-app till Azure. Om du vill använda [tal promotor](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), granska [region krav](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming) innan du skapar din robot. 
-    * Ange **appnamn** till din robot namn. Namnet används som underdomänen när din robot distribueras till molnet (exempelvis mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
-    * Välj prenumerationen [resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service-plan och [plats](https://azure.microsoft.com/regions/).
-    * För **Bot mallen**väljer:
-        * **SDK v3**
-        * **Node.js**
-        * **Språkförståelse**
-    * Välj den **LUIS platsen**. Det här är redigeringen [region] [ LUIS] appen skapas i.
-    * Markera kryssrutan bekräftelse för juridiskt meddelande. Villkoren i juridiskt meddelande är lägre än kryssrutan.
+   * Ange **appnamn** till din robot namn. Namnet används som underdomänen när din robot distribueras till molnet (exempelvis mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+   * Välj prenumerationen [resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service-plan och [plats](https://azure.microsoft.com/regions/).
+   * För **Bot mallen**väljer:
+       * **SDK v3**
+       * **Node.js**
+       * **Språkförståelse**
+   * Välj den **LUIS platsen**. Det här är redigeringen [region] [ LUIS] appen skapas i.
+   * Markera kryssrutan bekräftelse för juridiskt meddelande. Villkoren i juridiskt meddelande är lägre än kryssrutan.
 
-    ![Bot Service-bladet](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
+     ![Bot Service-bladet](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
 
 
 4. Bekräfta att bot-tjänsten har distribuerats.
@@ -247,7 +247,8 @@ Läs mer om [Bot Framework](https://dev.botframework.com/) och [3.x](https://git
 
 ## <a name="next-steps"></a>Nästa steg
 
-<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.--> Du kan försöka att lägga till andra avsikter som hjälp, Avbryt och hälsning, LUIS-app. Sedan lägger du till dialogrutor för nya avsikter och testa dem med hjälp av roboten. 
+<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.-->
+Du kan försöka att lägga till andra avsikter som hjälp, Avbryt och hälsning, LUIS-app. Sedan lägger du till dialogrutor för nya avsikter och testa dem med hjälp av roboten. 
 
 <!-- 
 > [!NOTE] 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jamesbak
-ms.openlocfilehash: 566af5d42b1b5b778db0a2014b238657ace7db5c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: cdb89b552d0e328e6685e2bd62ea135e15e4b074
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672635"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013445"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Självstudier: Extrahera, transformera och läsa in data med hjälp av Apache Hive i Azure HDInsight
 
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Ett Azure Data Lake Storage Gen2-lagringskonto som har konfigurerats för HDInsight**
 
@@ -58,6 +58,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
    | Filtrera år |2013 |
    | Filtrera period |Januari |
    | Fält |Year, FlightDate, Reporting_Airline, IATA_CODE_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   
    Rensa alla andra fält.
 
 3. Välj **Ladda ned**. Du får en .zip-fil med de datafält du valde.

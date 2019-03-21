@@ -12,12 +12,12 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: 4e7aa9931ffb268f787882729341fbe860255f70
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: c8cab3c723b7e507b0f3b05b933cca9e2c24fb39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767867"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075483"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – Ansluta till Cosmos DB med hjälp av Mongoose
 
@@ -34,7 +34,7 @@ I den här delen av självstudien får du göra följande:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Innan du börjar med den här självstudien bör du slutföra stegen i [del 4](tutorial-develop-mongodb-nodejs-part4.md).
 
@@ -56,35 +56,35 @@ Mongoose är ett bibliotek för modellering av objektdata (ODM) för MongoDB och
 
 1. Kopiera följande kod till filen **mongo.js**. Koden innehåller följande funktioner:
 
-    * Kräver Mongoose.
-    * Åsidosätter Mongo-löftet att använda det grundläggande löftet som är inbyggt i ES6/ES2015 och senare versioner.
-    * Anropar en env-fil som du kan använda för att konfigurera vissa saker beroende på om du arbetar med mellanlagring, produktion eller utveckling. Du skapar den filen i nästa avsnitt.
-    * Inkluderar MongoDB-anslutningssträngen, som anges i env-filen.
-    * Skapar en anslutningsfunktion som anropar Mongoose.
+   * Kräver Mongoose.
+   * Åsidosätter Mongo-löftet att använda det grundläggande löftet som är inbyggt i ES6/ES2015 och senare versioner.
+   * Anropar en env-fil som du kan använda för att konfigurera vissa saker beroende på om du arbetar med mellanlagring, produktion eller utveckling. Du skapar den filen i nästa avsnitt.
+   * Inkluderar MongoDB-anslutningssträngen, som anges i env-filen.
+   * Skapar en anslutningsfunktion som anropar Mongoose.
 
-    ```javascript
-    const mongoose = require('mongoose');
-    /**
+     ```javascript
+     const mongoose = require('mongoose');
+     /**
      * Set to Node.js native promises
-     * Per http://mongoosejs.com/docs/promises.html
+     * Per https://mongoosejs.com/docs/promises.html
      */
-    mongoose.Promise = global.Promise;
+     mongoose.Promise = global.Promise;
 
-    const env = require('./env/environment');
+     const env = require('./env/environment');
 
-    // eslint-disable-next-line max-len
-    const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
+     // eslint-disable-next-line max-len
+     const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
 
-    function connect() {
+     function connect() {
      mongoose.set('debug', true);
      return mongoose.connect(mongoUri, { useMongoClient: true });
-    }
+     }
 
-    module.exports = {
-      connect,
-      mongoose
-    };
-    ```
+     module.exports = {
+     connect,
+     mongoose
+     };
+     ```
     
 1. I Explorer-fönstret, under **server**, skapar du en mapp med namnet **environment**. I mappen **environment** skapar du en fil med namnet **environment.js**.
 

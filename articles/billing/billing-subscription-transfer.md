@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 153b75d4477d61637732e6c2da614113656c4ea4
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 6d8baa5f10aeba179ef141cfea86fded8cf44dfc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902541"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878218"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Överföra ägarskapet för en Azure-prenumeration till ett annat konto
 
@@ -70,7 +70,7 @@ ms.locfileid: "54902541"
 
 ## <a name="transfer-subscription-ownership-for-enterprise-agreement-ea-customers"></a>Överföra äganderätten till prenumerationen för kunder med Enterprise Agreement (EA)
 
-Enterprise-administratör kan överföra ägarskapet för prenumerationer i en registrering. Kom igång genom att se [överföra ägarskap för kontot](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) i EA-portalen.
+Enterprise-administratören kan överföra ägarskapet för prenumerationer i en registrering. Kom igång genom att se [överföra ägarskap för kontot](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) i EA-portalen.
 
 ## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Nästa steg efter att du godkänt ägarskapet för prenumerationen
 
@@ -174,4 +174,4 @@ Om du inte kan överföra äganderätten till prenumerationen kan du migrera din
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).

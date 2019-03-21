@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 02d72ed5fcfb84796dfd4b967819c331bb384610
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4e8649096d4f7de49c9cf0d569422919f865bb3b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759976"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094100"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 
@@ -125,7 +125,7 @@ HDInsight-klustrets möjlighet att komma åt filer i Data Lake Storage Gen2 styr
 
 Azure-tjänster har två typer av hanterade identiteter: systemtilldelade och användaren tilldelas. HDInsight använder användartilldelade hanterade identiteter för att komma åt Data Lake Storage Gen2. En hanterad Användartilldelad identitet skapas som en fristående Azure-resurs. När den skapas skapar Azure en identitet i den Azure AD-klientorganisation som är betrodd av den prenumeration som används. När identiteten har skapats kan den tilldelas till en eller flera tjänstinstanser i Azure.
 
-Livscykeln för en användartilldelad identitet hanteras separat från livscykeln för de Azure-tjänstinstanser som den är tilldelad till. Läs mer om hanterade identiteter, [gör hanterade identiteter för Azure-resurser arbete?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka).
+Livscykeln för en användartilldelad identitet hanteras separat från livscykeln för de Azure-tjänstinstanser som den är tilldelad till. Läs mer om hanterade identiteter, [gör hanterade identiteter för Azure-resurser arbete?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work).
 
 ### <a name="how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services"></a>Hur ställer jag in behörigheter för Azure AD-användare att fråga data i Data Lake Storage Gen2 med hjälp av Hive- eller andra tjänster?
 

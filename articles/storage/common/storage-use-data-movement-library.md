@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: fd64376f68a177f12b2105ae0974eeeeefa94f4b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 966518f17392e6158089cb5b6df96f41674fed41
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460088"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996146"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Överföra Data med Microsoft Azure Storage Data Movement Library
 
@@ -193,7 +193,7 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 
 Den här koden ber oss om sökvägen till en lokal fil, namnet på en ny eller befintlig behållare och namnet på en ny blob. Den `TransferManager.UploadAsync` metoden utför uppladdningen med den här informationen.
 
-Tryck på `F5` att köra programmet. Du kan kontrollera att överföringen uppstod genom att visa ditt lagringskonto med den [Microsoft Azure Lagringsutforskaren](http://storageexplorer.com/).
+Tryck på `F5` att köra programmet. Du kan kontrollera att överföringen uppstod genom att visa ditt lagringskonto med den [Microsoft Azure Lagringsutforskaren](https://storageexplorer.com/).
 
 ## <a name="set-number-of-parallel-operations"></a>Ange antalet parallella åtgärder
 En bra funktion som erbjuds av Data Movement Library är möjligheten att ange antalet parallella åtgärder för att öka dataflödet för överföring. Som standard anger Data Movement Library antalet parallella åtgärder som 8 * antal kärnor på datorn.

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: c251a159ec28d7fb03009ebcdc84056da739f937
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: MT
+ms.openlocfilehash: bf7a8ea00fe94e6896c097b8e27c22c0831f71da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587437"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008649"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Vanliga frågor: Azure till Azure replikering
 
@@ -26,6 +26,7 @@ Den här artikeln innehåller svar på vanliga frågor om hur du distribuerar ha
 1.  **[Konsekvens](#multi-vm-consistency)** 
 1.  **[Återställningsplan](#recovery-plan)** 
 1.  **[Återaktivering av skydd och återställning efter fel](#reprotection-and-failback)** 
+2.  **[Kapacitet](#capacity)**
 1.  **[Säkerhet](#security)** 
 
 
@@ -35,7 +36,7 @@ Den här artikeln innehåller svar på vanliga frågor om hur du distribuerar ha
 Granska [priserna för Azure Site Recovery](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) information.
 ### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Hur fungerar den kostnadsfria nivån för Azure Site Recovery?
 Varje instans som skyddas med Azure Site Recovery är kostnadsfri under de första 31 dagarna med skydd. Från och med den 32:a dagen debiteras skydd för instansen med de priser som anges ovan.
-###<a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Förekommer det några andra avgifter för Azure under de första 31 dagarna?
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Förekommer det några andra avgifter för Azure under de första 31 dagarna?
 Ja, även om Azure Site Recovery är kostnadsfritt under de första 31 dagarna för en skyddad instans kan du komma att debiteras för Azure Storage, lagringstransaktioner och dataöverföring. En återställd virtuell dator kan också debiteras för Azure-beräkningsavgifter. Hämta fullständig information om priser [här](https://azure.microsoft.com/pricing/details/site-recovery)
 
 ### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>Vad är bästa praxis för att konfigurera Site Recovery på Azure Virtual Machines?
@@ -117,7 +118,7 @@ Följande skärmbild illustrerar exemplet. I skärmbilden:
 1. För tid som är mindre än den senaste timmen, finns det återställningspunkter med en frekvens på 5 minuter.
 2. För tiden efter den senaste timmen behåller Site endast 1 återställningspunkt.
 
-  ![Lista över genererade återställningspunkter](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
+   ![Lista över genererade återställningspunkter](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
 
 
 ### <a name="how-far-back-can-i-recover"></a>Hur långt tillbaka kan jag återställa?
@@ -220,7 +221,12 @@ Det beror på situationen. Till exempel om källregionen VM finns synkroniseras 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Hur mycket tid har det tar att återställa efter felet?
 När återaktiveringen av skyddet liknar tiden för återställning efter fel vanligtvis tid för redundans från den primära regionen till en sekundär region. 
 
-## <a name="a-namesecuritysecurity"></a><a name="security">Säkerhet
+## <a name="capacity"></a>Kapacitet
+### <a name="does-site-recovery-work-with-reserved-instance"></a>Fungerar Site Recovery med reserverad instans?
+Ja, du kan köpa [reservera instanser](https://azure.microsoft.com/pricing/reserved-vm-instances/) i DR region och ASR redundans åtgärder använder dem för. </br> Det krävs ingen ytterligare konfiguration från kunderna.
+
+
+## <a name="security"></a>Säkerhet
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Skickas replikeringsdata till Site Recovery-tjänsten?
 Nej, Site Recovery komma åt inte replikerade data och den har inte någon information om vad som körs på dina virtuella datorer. Endast de metadata som behövs för att samordna replikeringen och redundansen skickas till Site Recovery-tjänsten.  
 Site Recovery är ISO 27001: 2013, 27018, HIPAA, DPA certifierade och håller på att SOC2 och FedRAMP JAB-utvärderingar.

@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 96040d6caeb1541eec78e57973dd9089b5a107ed
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: f3534f3001de1c3e58f0be3fb7bc9639b7dfcd03
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671853"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295437"
 ---
-# <a name="install-and-run-containers"></a>Installera och köra containrar
+# <a name="install-and-run-face-containers"></a>Installera och köra Ansikts-behållare
 
 Ansikte ger en standardiserad Linux-behållare för Docker, med namnet ansikte, som identifierar ansikten i bilder och identifierar attribut, inklusive ansiktslandmärken (till exempel och rörliga och ögon), kön, ålder och andra dator-förväntad ansiktsdrag. Förutom identifiering Kontrollera ansikte om två ansikten i samma bild eller olika bilder är samma med hjälp av ett förtroenderesultat eller jämföra ansikten mot en databas för att se om en likartade eller identiska ansikte finns redan. Det kan även sortera liknande ansikten i grupper, med hjälp av delade visual egenskaper.
 
@@ -48,11 +48,12 @@ Du måste uppfylla följande krav innan du kan använda Ansikts-API-behållare:
 
 I följande tabell beskrivs de minsta och rekommenderade processorkärnor och minne för att allokera för varje Ansikts-API-behållare.
 
-| Container | Minimum | Rekommenderas |
-|-----------|---------|-------------|
-|Ansikte | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |
+| Container | Minimum | Rekommenderas | TPS<br>(Lägsta, högsta)|
+|-----------|---------|-------------|--|
+|Ansikte | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |10, 20|
 
-Varje kärna måste vara minst 2,6 GHz (gigahertz) eller snabbare.
+* Varje kärna måste vara minst 2,6 GHz (gigahertz) eller snabbare.
+* TPS - transaktioner per sekund
 
 Kärnor och minne som motsvarar den `--cpus` och `--memory` inställningar som används som en del av den `docker run` kommando.
 
@@ -117,7 +118,7 @@ Mer [exempel](./face-resource-container-config.md#example-docker-run-commands) a
 
 Behållaren innehåller REST-baserade frågan förutsägelse endpoint API: er. 
 
-Använd värden https://localhost:5000, för behållaren API: er.
+Använd värden `https://localhost:5000`, för behållaren API: er.
 
 ## <a name="stop-the-container"></a>Stoppa behållaren
 

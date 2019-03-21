@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: 65ecaaea09c28c31d76f31dc447108273b379f9e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1ab799ef7eb9d7c591e76ab9180d4e3f4ba6ba59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811672"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007274"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Använda Blob storage från iOS
 
@@ -124,7 +124,7 @@ Varje blobb i Azure Storage måste finnas i en behållare. I följande exempel v
 }
 ```
 
-Du kan bekräfta att det fungerar genom att titta på den [Microsoft Azure Lagringsutforskaren](http://storageexplorer.com) och verifiera att *newcontainer* finns i listan över behållare för ditt lagringskonto.
+Du kan bekräfta att det fungerar genom att titta på den [Microsoft Azure Lagringsutforskaren](https://storageexplorer.com) och verifiera att *newcontainer* finns i listan över behållare för ditt lagringskonto.
 
 ## <a name="set-container-permissions"></a>Ange behörigheter för behållare
 Behörigheter för en behållare som är konfigurerade för **privata** åtkomst som standard. Behållare ger dock några olika alternativ för åtkomst till behållare:
@@ -203,7 +203,7 @@ I följande exempel visas hur du överför en blockblob från en NSString. Om en
 }
 ```
 
-Du kan bekräfta att det fungerar genom att titta på den [Microsoft Azure Lagringsutforskaren](http://storageexplorer.com) och kontrollera att behållaren, *containerpublic*, innehåller blob, *sampleblob*. I det här exemplet använde vi en offentlig behållare, så att du kan också kontrollera att det här programmet fungerade genom att gå till BLOB-URI:
+Du kan bekräfta att det fungerar genom att titta på den [Microsoft Azure Lagringsutforskaren](https://storageexplorer.com) och kontrollera att behållaren, *containerpublic*, innehåller blob, *sampleblob*. I det här exemplet använde vi en offentlig behållare, så att du kan också kontrollera att det här programmet fungerade genom att gå till BLOB-URI:
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
@@ -378,10 +378,10 @@ I följande exempel visar hur du tar bort en behållare.
 Nu när du har lärt dig hur du använder Blob Storage från iOS, kan du följa dessa länkar om du vill veta mer om iOS-klientbibliotek och Storage-tjänsten.
 
 * [Azure Storage-klientbibliotek för iOS](https://github.com/azure/azure-storage-ios)
-* [Azure Storage iOS referensdokumentation](http://azure.github.io/azure-storage-ios/)
+* [Azure Storage iOS referensdokumentation](https://azure.github.io/azure-storage-ios/)
 * [REST-API för Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure Storage Teamblogg](https://blogs.msdn.com/b/windowsazurestorage)
 
-Om du har frågor om det här biblioteket passa på att publicera till vår [MSDN Azure-forumet](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) eller [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+Om du har frågor om det här biblioteket passa på att publicera till vår [MSDN Azure-forumet](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Om du har förslag på funktioner för Azure Storage kan du publicera till [Azure Storage-Feedback](https://feedback.azure.com/forums/217298-storage/).
 

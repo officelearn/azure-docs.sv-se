@@ -3,8 +3,8 @@ title: ta med fil
 description: ta med fil
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,16 +12,16 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/19/2018
-ms.author: andret
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: d3f2efc0ae3dcf9bdcae3f82258b28b761944487
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 4c4870dc0f5a423288e6cb561b985501414e8525
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988528"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203665"
 ---
-## <a name="test-your-code"></a>Testa din kod
+## <a name="test-your-code"></a>Testa koden
 
 Om du vill testa ditt program i Visual Studio trycker du på **F5** köra projektet. I webbläsaren öppnas http://<span></span>localhost: {portplatsen} och du ser den **logga in med Microsoft** knappen. Välj knappen för att börja logga in.
 
@@ -48,7 +48,7 @@ När du bläddrar du till vyn controller, bör du se en tabell som innehåller d
 |**Namn** |Användarens fullständiga namn | Användaren förnamn och efternamn.
 |**Användarnamn** |Användaren<span>@domain.com</span> | Det användarnamn som används för att identifiera användaren.
 |**Ämne** |Subjekt |En sträng som unikt identifierar användaren på webben.|
-|**Klient-ID** |GUID | En **guid** som unikt representerar användarens Azure AD-organisation.|
+|**Klient-ID** |Guid | En **guid** som unikt representerar användarens Azure AD-organisation.|
 
 Dessutom bör du se en tabell med alla anspråk som finns i autentiseringsbegäran. Mer information finns i den [lista över anspråk som finns i en Azure AD-ID-Token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
@@ -80,9 +80,9 @@ Som standard när du skapar programmet som skapats av den här guiden programmet
 
 Om du vill begränsa användarnas inloggning åtkomst för ditt program, finns flera alternativ:
 
-#### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Alternativ 1: Hindra användare från att endast en organisations Active Directory-instans för att logga in på ditt program (en enda klient)
+#### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Alternativ 1: Begränsa inloggningen till ditt program till en enda organisations Active Directory-instans (en enda innehavare)
 
-Det här alternativet är ett vanligt scenario för *LOB-program*: Om du vill att programmet ska godkänna inloggningar från konton som tillhör en viss Azure Active Directory-instans (inklusive *gästkonton*instansens) gör du följande:
+Det här alternativet är ett vanligt scenario för *LOB-program*: Om du vill att programmet ska godkänna inloggningar från konton som tillhör en viss Azure Active Directory-instans (inklusive *gästkonton* instansens) gör du följande:
 
 1. I den **web.config** filen, ändrar du värdet för den `Tenant` parametern från `Common` till klientnamnet för organisationen, till exempel `contoso.onmicrosoft.com`.
 2. I din [OWIN-startklass](#configure-the-authentication-pipeline), ange den `ValidateIssuer` argumentet för `true`.

@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
-ms.openlocfilehash: a59de5fad7f457fffcc36ed55fd5862bc9329a1d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 2830772dd69ac94c2b8373936665b9445f9f5f10
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037165"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431214"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Utveckla ett webbprogram i Python Flask med Azure Cosmos DB
 
@@ -36,7 +36,7 @@ I den här självstudien om databaser tar vi upp följande:
 
 Genom att följa den här självstudien skapar du en enkel röstningsapp där du kan delta i en omröstning.
 
-![Skärmdump av det omröstningsprogram som skapats i denna självstudie om databaser](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
+![Skärmbild av röstningsprogrammet som skapats av den här database-självstudier](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 
 ## <a name="database-tutorial-prerequisites"></a>Förutsättningar för självstudien om databaser
 Innan du följer anvisningarna i den här artikeln bör du se till att du har följande installerat:
@@ -52,7 +52,7 @@ Innan du följer anvisningarna i den här artikeln bör du se till att du har f�
 > [!IMPORTANT]
 > Om du installerar Python 2.7 för första gången ska du på skärmen Customize Python 2.7.13 välja **Add python.exe to Path** (Lägg till python.exe till sökväg).
 > 
-> ![Skärmdump av skärmen Customize Python 2.7.11 där du ska välja Lägg till python.exe i sökväg](./media/sql-api-python-application/cosmos-db-python-install.png)
+> ![Skärmbild av skärmen Customize Python 2.7.11 där du måste välja Lägg till python.exe till sökväg](./media/sql-api-python-application/cosmos-db-python-install.png)
 > 
 > 
 
@@ -75,13 +75,13 @@ Nu går vi igenom hur du skapar en ny Python Flask-webbapp från grunden.
    
     Har du inte använt Python Flask tidigare? Det är ett utvecklingsramverk för webbappar som hjälper dig att skapa webbappar i Python snabbare.
    
-    ![Skärmdump av fönstret Nytt projekt i Visual Studio med Python markerat till vänster, Python Flask-webbprojekt valt i mitten och namnet tutorial i rutan Namn.](./media/sql-api-python-application/image9.png)
+    ![Skärmbild av fönstret nytt projekt i Visual Studio med Python markerat till vänster, Python Flask-webbprojekt valt i mitten och namnet tutorial i rutan namn.](./media/sql-api-python-application/image9.png)
 4. I fönstret **Python-verktyg för Visual Studio** klickar du på **Installera i virtuell miljö**. 
    
-    ![Skärmdump av databasen tutorial – fönstret Python-verktyg för Visual Studio](./media/sql-api-python-application/python-install-virtual-environment.png)
+    ![Skärmbild av databasen tutorial – Python Tools för Visual Studio-fönstret](./media/sql-api-python-application/python-install-virtual-environment.png)
 5. I fönstret **Add Virtual Environment** (Lägg till virtuell miljö) väljer du Python 2.7 eller Python 3.5 i rutan Select an interpreter (Välj en interpretator), godkänner de andra standardinställningarna och klickar sedan på **Create** (Skapa). Då konfigureras den nödvändiga virtuella Python-miljön för projektet.
    
-    ![Skärmdump av databasen tutorial – fönstret Python-verktyg för Visual Studio](./media/sql-api-python-application/image10_A.png)
+    ![Skärmbild av databasen tutorial – Python Tools för Visual Studio-fönstret](./media/sql-api-python-application/image10_A.png)
    
     Utdatafönstret visar `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.` när miljön har installerats.
 
@@ -105,7 +105,7 @@ När projektet har konfigurerats måste du lägga till nödvändiga Flask-paket 
 2. Spara filen **requirements.txt**. 
 3. Högerklicka på **env** i Solution Explorer och klicka på **Install from requirements.txt**.
    
-    ![Skärmdump som visar env (Python 2.7) vald med Install från requirements.txt markerat i listan](./media/sql-api-python-application/cosmos-db-python-install-from-requirements.png)
+    ![Skärmbild som visar env (Python 2.7) vald med Install från requirements.txt markerat i listan](./media/sql-api-python-application/cosmos-db-python-install-from-requirements.png)
    
     Efter installationen visar utdatafönstret följande:
    
@@ -344,22 +344,22 @@ def vote():
     ```
 6. När du har lagt till alla filer bör Solution Explorer se ut så här:
    
-    ![Skärmdump av Visual Studio Solution Explorer-fönstret](./media/sql-api-python-application/cosmos-db-python-solution-explorer.png)
+    ![Skärmbild av Visual Studio Solution Explorer-fönstret](./media/sql-api-python-application/cosmos-db-python-solution-explorer.png)
 
 ## <a name="step-4-run-your-web-application-locally"></a>Steg 4: Kör webbappen lokalt
 1. Bygg lösningen genom att trycka på **Ctrl**+**Skift**+**B**.
 2. När den har byggts startar du webbplatsen genom att trycka på **F5**. Du bör se nedanstående på skärmen.
    
-    ![Skärmbild av Python + Azure Cosmos DB-röstninsgprogrammet i en webbläsare](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
+    ![Skärmbild av Python + Azure Cosmos DB-Röstninsgprogrammet i en webbläsare](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 3. Skapa databasen genom att klicka på **Skapa/rensa röstningsdatabasen**.
    
-    ![Skärmdump av sidan Skapa i webbappen – utvecklingsdetaljer](./media/sql-api-python-application/cosmos-db-python-run-create-page.png)
+    ![Skärmbild av sidan Skapa i webbappen – utvecklingsdetaljer](./media/sql-api-python-application/cosmos-db-python-run-create-page.png)
 4. Klicka sedan på **Rösta** och välj ett alternativ.
    
-    ![Skärmdump av webbappen med en röstningsfråga](./media/sql-api-python-application/cosmos-db-vote.png)
+    ![Skärmbild av webbprogrammet med en röstningsfråga](./media/sql-api-python-application/cosmos-db-vote.png)
 5. För varje röst du lägger ökas den aktuella räknaren.
    
-    ![Skärmdump som visar sidan Röstningsresultat](./media/sql-api-python-application/cosmos-db-voting-results.png)
+    ![Skärmbild av resultatet av sidan röstningsresultat](./media/sql-api-python-application/cosmos-db-voting-results.png)
 6. Stoppa felsökningen av projektet genom att trycka på SKIFT + F5.
 
 ## <a name="step-5-deploy-the-web-application-to-azure"></a>Steg 5: Distribuera webbappen till Azure
@@ -388,13 +388,13 @@ Nu när hela programmet fungerar korrekt mot Azure Cosmos DB lokalt är det dags
 
 5. Spara filerna och högerklicka sedan på projektet i Solution Explorer (kontrollera att det inte fortfarande körs lokalt). Välj **Publicera**.  
    
-     ![Skärmdump som visar tutorial markerad i Solution Explorer med alternativet Publicera markerat](./media/sql-api-python-application/image20.png)
+     ![Skärmbild av tutorial markerad i Solution Explorer med alternativet Publicera markerat](./media/sql-api-python-application/image20.png)
 6. I dialogrutan **Publish** (Publicera) väljer du **Microsoft Azure App Service** och sedan **Create New** (Skapa nytt). Klicka sedan på **Publish** (publicera).
    
-    ![Skärmbild som visar fönstret Publicera till webben med Microsoft Azure App Service markerat](./media/sql-api-python-application/cosmos-db-python-publish.png)
+    ![Skärmbild av fönstret Publicera till webben med Microsoft Azure App Service markerat](./media/sql-api-python-application/cosmos-db-python-publish.png)
 7. I dialogrutan **Create App Service** (Skapa apptjänst) anger du namnet på webbappen och **Subscription** (Prenumeration), **Resource Group** (Resursgrupp) samt **App Service Plan** och klickar sedan på **Create** (Skapa).
    
-    ![Skärmdump av fönstret Microsoft Azure-webbappar](./media/sql-api-python-application/cosmos-db-python-create-app-service.png)
+    ![Skärmbild av fönstret Microsoft Azure Web Apps-fönstret](./media/sql-api-python-application/cosmos-db-python-create-app-service.png)
 8. Efter några sekunder kopierar Visual Studio klart filerna till servern och visar ”The page cannot be displayed because an internal server error has occurred.” (Sidan kan inte visas eftersom ett internt serverfel har inträffat) på sidan `http://<your app service>.azurewebsites.net/`.
 
 9. I Azure-portalen öppnar du ditt nya App Service-konto. På navigeringsmenyn rullar du ned till avsnittet **Development Tools** (Utvecklingsverktyg), väljer **Extensions** (Tillägg) och klickar sedan på **+ Add** (+ Lägg till).

@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: a95b781d0d08cdca96cf4e98ac9dce43da535d13
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a3ccf76b2722c04a9353fcc7020ff1387bc454c6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888567"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125155"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Installera en uppdatering från Azure Portal
 
@@ -35,7 +35,7 @@ ms.locfileid: "55888567"
    * **Hälsokontroller för maskinvarukomponenter** för att verifiera att alla maskinvarukomponenter på StorSimple-enheten är felfria.
    * **DATA 0-kontroller** för att verifiera att DATA 0 är aktiverat på enheten. Om inte det här gränssnittet är aktiverat måste du aktivera det och sedan försöka igen.
 
-    Uppdateringen hämtas och installeras bara om alla kontroller har slutförts. Du får ett meddelande när kontrollerna pågår. Om föruppdateringskontrollen misslyckas, sedan visas med orsakerna till felet. Åtgärda problemen och försök sedan igen. Du kan behöva kontakta Microsofts support om du inte kan lösa dessa problem själv.
+     Uppdateringen hämtas och installeras bara om alla kontroller har slutförts. Du får ett meddelande när kontrollerna pågår. Om föruppdateringskontrollen misslyckas, sedan visas med orsakerna till felet. Åtgärda problemen och försök sedan igen. Du kan behöva kontakta Microsofts support om du inte kan lösa dessa problem själv.
 
 7. När föruppdateringskontrollen har slutförts, skapas ett uppdateringsjobb. Du får ett meddelande när uppdateringsjobbet har skapats.
    
@@ -53,5 +53,5 @@ ms.locfileid: "55888567"
 
 10. När jobbet har slutförts, går du till den **Enhetsinställningar > enhetsuppdateringar**. Programvaruversionen ska nu uppdateras.
 
-    ![Uppdatera skapande av jobb](./media/storsimple-8000-install-update4-via-portal/update9.png)
+   ![Uppdatera skapande av jobb](./media/storsimple-8000-install-update4-via-portal/update9.png)
 

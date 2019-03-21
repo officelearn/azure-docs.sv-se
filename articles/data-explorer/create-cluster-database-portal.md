@@ -8,14 +8,23 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 02/21/2019
-ms.openlocfilehash: e87f9b4905abec2c00ed238445b3e36e41cfa2f6
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 1aaaba58b4af90891caf98708f7e280f7eea6e70
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674879"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285828"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas
+
+> [!div class="op_single_selector"]
+> * [Portal](create-cluster-database-portal.md)
+> * [CLI](create-cluster-database-cli.md)
+> * [PowerShell](create-cluster-database-powershell.md)
+> * [C#](create-cluster-database-csharp.md)
+> * [Python](create-cluster-database-python.md)
+>  
+
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. I den här snabbstarten skapar du ett kluster och en databas.
 
@@ -23,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-kont
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-cluster"></a>Skapa ett kluster
 

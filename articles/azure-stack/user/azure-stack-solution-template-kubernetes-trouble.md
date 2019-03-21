@@ -5,21 +5,21 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabvrigg
+ms.date: 03/20/2019
 ms.reviewer: waltero
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 6a5efce2f50a25902b33f2cb85d470a280000305
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.lastreviewed: 03/20/2019
+ms.openlocfilehash: 01a9405c98160149782ab2cf248f64818d631dde
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002059"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293795"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Felsöka ditt Kubernetes-distribution till Azure Stack
 
@@ -66,8 +66,8 @@ Följande diagram visar den allmänna processen för att distribuera klustret.
 
     Skriptet utför följande uppgifter:
     - Installerar etcd, Docker och Kubernetes resurser, till exempel kubelet. etcd är en distribuerad nyckelvärde som gör det möjligt att lagra data i ett kluster med datorer. Docker har stöd för utan ben operativsystemet på servernivå virtualizations kallas behållare. Kubelet är noden agenten som körs på varje nod i Kubernetes.
-    - Ställer in etcd-tjänsten.
-    - Ställer in kubelet-tjänsten.
+    - Ställer in den **etcd** service.
+    - Ställer in den **kubelet** service.
     - Startar kubelet. Detta omfattar följande steg:
         1. Startar tjänsten API.
         2. Startar tjänsten controller.
@@ -77,9 +77,9 @@ Följande diagram visar den allmänna processen för att distribuera klustret.
 7. Hämta och kör det anpassade skripttillägget.
 
 7. Kör skriptet agent. Det anpassade skriptet för agenten har följande uppgifter:
-    - Installerar etcd
-    - Ställer in kubelet-tjänsten
-    - Ansluter till Kubernetes-kluster
+    - Installerar **etcd**.
+    - Ställer in den **kubelet** service.
+    - Ansluter till Kubernetes-klustret.
 
 ## <a name="steps-for-troubleshooting"></a>Anvisningar för att felsöka
 
@@ -119,66 +119,52 @@ När du distribuerar ett Kubernetes-kluster kan granska du distributionsstatusen
 
     Varje objekt har en statusikon av grönt eller rött.
 
-## <a name="get-logs-from-a-vm"></a>Hämta loggar från en virtuell dator
+## <a name="review-deployment-logs"></a>Granska distributionsloggar
 
-För att generera loggarna måste ansluta till Virtuella huvuddatorn för klustret, öppna en bash-kommandotolk och köra ett skript. Master VM finns i klusterresursgruppen och har namnet `k8s-master-<sequence-of-numbers>`. 
+Om Azure Stack-portalen inte innehåller tillräckligt med information för dig att felsöka eller lösa distributionsfel, är nästa steg att fördjupa dig i loggarna för klustret. Om du vill hämta distributionsloggarna manuellt, vanligtvis måste du ansluta till en av klustrets master virtuella datorerna. En enklare metod för alternativ är att ladda ned och kör följande [Bash-skript](https://aka.ms/AzsK8sLogCollectorScript) tillhandahålls av Azure Stack-teamet. Det här skriptet ansluts till DVM och klustrets virtuella datorer, samlar in information om vilka och klustret loggar och hämtas de tillbaka till din arbetsstation.
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-Du behöver en bash fråga på den dator som används för att hantera Azure Stack. Använd bash för att köra skript som har åtkomst till loggarna. Du kan använda som installeras med Git bash-Kommandotolken på en Windows-dator. Om du vill hämta den senaste versionen av git, se [Git hämtar](https://git-scm.com/downloads).
+Du behöver ett Bash-Kommandotolken på den dator som du använder för att hantera Azure Stack. På en Windows-dator, du kan få en Bash fråga genom att installera [Git för Windows](https://git-scm.com/downloads). När du har installerat leta efter _Git Bash_ på start-menyn.
 
-### <a name="get-logs"></a>Hämta loggar
+### <a name="retrieving-the-logs"></a>Hämtar loggarna
 
-Om du vill hämta loggar, gör du följande:
+Följ stegen nedan för att samla in och hämta loggar för klustret:
 
-1. Öppna en bash-Kommandotolken. Om du använder Git på en Windows-dator, kan du öppna en bash-Kommandotolken från följande sökväg: `c:\programfiles\git\bin\bash.exe`.
-2. Kör följande bash-kommandon:
+1. Öppna en Bash-Kommandotolken. En Windows-dator, öppna _Git Bash_ eller köra: `C:\Program Files\Git\git-bash.exe`.
+
+2. Ladda ned log insamlaren skriptet genom att köra följande kommandon i Bash-Kommandotolken:
 
     ```Bash  
     mkdir -p $HOME/kuberneteslogs
     cd $HOME/kuberneteslogs
     curl -O https://raw.githubusercontent.com/msazurestackworkloads/azurestack-gallery/master/diagnosis/getkuberneteslogs.sh
-    sudo chmod 744 getkuberneteslogs.sh
+    chmod 744 getkuberneteslogs.sh
     ```
 
-    > [!Note]  
-    > På Windows, behöver du inte köra `sudo`. I stället kan du bara använda `chmod 744 getkuberneteslogs.sh`.
-
-3. I samma session, kör du följande kommando med parametrar uppdateras så att den matchar din miljö:
-
-    ```Bash  
-    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmd-host 192.168.102.37
-    ```
-
-4. Granska parametrarna och ange värden baserat på din miljö.
+3. Leta efter informationen som krävs av skriptet och kör den:
 
     | Parameter           | Beskrivning                                                                                                      | Exempel                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -d, --vmd-host       | Den offentliga IP-Adressen eller det fullständiga Domännamnet för DVM. VM-namnet börjar med `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
-    | -f, --force | Fråga inte innan du laddar upp den privata nyckeln. | |
-    | -i, --identity-file | RSA filen för privat nyckel att ansluta den Kubernetes-Virtuellt huvuddatorn. Nyckeln måste börja med: <br>`-----BEGIN RSA PRIVATE KEY-----` | C:\data\id_rsa.pem                                                        |
-    | -h, --help  | Skriva ut kommandoanvändning `getkuberneteslogs.sh` skript. | |
-    | m-,--värd för överordnad Server          | Den offentliga IP-Adressen eller det fullständigt kvalificerade domännamnet (FQDN) för Kubernetes-kluster huvudservern VM. VM-namnet börjar med `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
-    | -u, --user          | Användarnamn för Kubernetes-kluster huvudservern VM. Du kan ange det här namnet när du konfigurerar marketplace-objekt.                                                                    | azureuser                                                                     |
+    | -d, --vmd-host      | Den offentliga IP-Adressen eller det fullständigt kvalificerade domännamnet (FQDN) av DVM. Virtuella datornamn som börjar med `vmd-`. | IP: 192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external |
+    | -h, --help  | Skriva ut kommandoanvändning. | |
+    | -i, --identity-file | Den privata nyckelfilen RSA har överförts till marketplace-objekt när du skapar Kubernetes-klustret. Krävs för att fjärrsupport i Kubernetes-noderna. | C:\data\id_rsa.pem (Putty)<br>~/.ssh/id_rsa (SSH)
+    | m-,--värd för överordnad Server   | Den offentliga IP-Adressen eller det fullständigt kvalificerade domännamnet (FQDN) för ett Kubernetes-huvudnod. Virtuella datornamn som börjar med `k8s-master-`. | IP: 192.168.102.37<br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -u, --user          | Användarnamnet som skickades till marketplace-objekt när du skapar Kubernetes-klustret. Behövde fjärrsupport i Kubernetes-noderna | azureuser (standardvärde) |
 
 
-
-
-   När du lägger till parametervärden kan det se ut ungefär som följande kod:
+   När du lägger till dina parametervärden kommandot kan se ut ungefär så här:
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
      ```
 
-    En lyckad körning skapar loggarna.
+4. Efter ett par minuter skriptets utdata insamlade loggar till en katalog med namnet `KubernetesLogs_{{time-stamp}}`. Där finns en katalog för varje virtuell dator som tillhör klustret.
 
-    ![Genererade loggar](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-generated-logs.png)
+    Log insamlaren skriptet också leta efter fel i loggfilerna och inkludera felsökning om det händer att hitta ett känt problem. Kontrollera att du kör den senaste versionen av skript för att öka risken för att söka efter kända problem.
 
-
-1. Hämta loggarna i mappar som har skapats av kommandot. Kommandot skapar nya mappar och tidsstämpel för dem.
-    - KubernetesLogs*YYYY-MM-DD-XX-XX-XX-XXX*
-        - Dvmlogs
-        - Acsengine-kubernetes-dvm.log
+> [!Note]  
+> Kolla in den här GitHub [databasen](https://github.com/msazurestackworkloads/azurestack-gallery/tree/master/diagnosis) att lära dig mer om log insamlaren skriptet.
 
 ## <a name="next-steps"></a>Nästa steg
 

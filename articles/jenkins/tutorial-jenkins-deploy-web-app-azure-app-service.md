@@ -8,16 +8,16 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: b0f909bb7f4b59e083f0ef1c8a19c11d5d9fb312
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 90f89f9ffb1d55e7621c87f168375251c78d9730
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821311"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533501"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Självstudie: Distribuera från GitHub till Azure App Service med kontinuerlig integrering och distribution i Jenkins
 
-Den här självstudien distribueras en Java-webbexempelapp från GitHub till [Azure App Service i Linux](/azure/app-service/containers/app-service-linux-intro) genom att konfigurera kontinuerlig integrering (CI) och kontinuerlig distribution (CD) i Jenkins. När du uppdaterar appen genom att push-överföra incheckningar till GitHub skapar och publicerar Jenkins om din app automatiskt till Azure App Service. Exempelappen i den här självstudien har utvecklats med hjälp av [Spring Boot](http://projects.spring.io/spring-boot/)-ramverket. 
+Den här självstudien distribueras en Java-webbexempelapp från GitHub till [Azure App Service i Linux](/azure/app-service/containers/app-service-linux-intro) genom att konfigurera kontinuerlig integrering (CI) och kontinuerlig distribution (CD) i Jenkins. När du uppdaterar appen genom att push-överföra incheckningar till GitHub skapar och publicerar Jenkins om din app automatiskt till Azure App Service. Exempelappen i den här självstudien har utvecklats med hjälp av [Spring Boot](https://projects.spring.io/spring-boot/)-ramverket. 
 
 ![Översikt](media/tutorial-jenkins-deploy-web-app-azure-app-service/overview.png)
 
@@ -37,7 +37,7 @@ I den här självstudien får du utföra följande uppgifter:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande objekt:
 
@@ -162,7 +162,7 @@ Följande utdata genereras av kommandot **`create-for-rbac`**:
 
    ![Lägga till autentiseringsuppgifter för tjänstens huvudnamn](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-service-principal-credentials.png)
 
-   | Egenskap | Värde | Beskrivning | 
+   | Egenskap  | Värde | Beskrivning | 
    |----------|-------|-------------| 
    | **Prenumerations-ID** | <*yourAzureSubscription-ID*> | GUID-värde för din Azure-prenumeration <p>**Tips!** Om du inte kan ditt Azure-prenumerations-ID kan du köra följande Azure CLI-kommando från kommandoraden eller i Cloud Shell och sedan använda GUID-värdet `id`: <p>`az account list` | 
    | **Klient-ID** | <*yourAzureServicePrincipal-ID*> | `appId` GUID-värdet som tidigare har skapats för Azure-tjänstens huvudnamn | 
@@ -193,7 +193,7 @@ I Jenkins skapar du pipeline-jobbet för att skapa och distribuera din app.
 
    1. I rutan för **egenskapsinnehåll** som visas lägger du till dessa miljövariabler och deras värden. 
 
-      ```text
+      ```ini
       AZURE_CRED_ID=yourAzureServicePrincipalName
       RES_GROUP=yourWebAppAzureResourceGroupName
       WEB_APP=yourWebAppName
@@ -212,7 +212,7 @@ Nu ska du skapa de filer som Jenkins använder för att skapa och distribuera di
 1. I din GitHub-förgrenings `src/main/resources/`-mapp skapar du den här appkonfigurationsfilen med namnet `web.config`, som innehåller den här XML-filen, men byter ut `$(JAR_FILE_NAME)` mot `gs-spring-boot-0.1.0.jar`:
 
    ```xml
-   <?xml version="1.0" encoding="UTF-8">
+   <?xml version="1.0" encoding="UTF-8"?>
    <configuration>
       <system.webServer>
          <handlers>
@@ -225,7 +225,7 @@ Nu ska du skapa de filer som Jenkins använder för att skapa och distribuera di
 
 1. I rotmappen för GitHub-förgreningsmappen skapar du det här build and deployment-skriptet med namnet `Jenkinsfile`, som innehåller den här texten ([källkoden i GitHub finns här](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/doc/resources/jenkins/Jenkinsfile-webapp-se)):
 
-   ```text  
+   ```groovy
    node {
       stage('init') {
          checkout scm

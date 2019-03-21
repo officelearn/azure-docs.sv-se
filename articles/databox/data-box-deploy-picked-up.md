@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: f658b8a0530b0031f0ad22ce3c09ea7cc212430b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 72d6ce58a986ddd0d0976d99de5ca3426d78f0b9
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107077"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287170"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Självstudier: Skicka tillbaka Azure Data Box och verifiera datauppladdning till Azure
 
@@ -43,7 +43,13 @@ Innan du börjar ska du kontrollera att:
 
 1. Kontrollera att enheten är avstängd och kablarna har tagits bort. Rulla upp strömkabeln som levererades med enheten och placera kabeln säkert på baksidan av enheten.
 2. Kontrollera att adressetiketten visas på E-ink-skärmen och boka hämtning hos ett transportföretag. Om etiketten är skadad, tappas bort eller inte visas på skärmen för E-ink kontaktar du Microsoft-supporten. Om Support föreslår så går du till **översikt > ladda ned adressetikett** i Azure-portalen. Ladda ned en adressetikett och fäst den på enheten. 
-3. Om du returnerar enheten bokar du upphämtning med UPS. Om du vill schemalägga en upphämtning ringer du din lokala UPS (landspecifikt kostnadsfritt nummer) eller lämnar din Data Box på din närmaste samlingsplats.
+3. Om du returnerar enheten bokar du upphämtning med UPS. Så här schemalägger en hämtning:
+
+    - Anropa den lokala UPS (landsspecifika kostnadsfritt nummer).
+    - Citera omvänd leveransen spårnings-ID som visas i E-ink-skärmen eller din utskrivna etikett i dina anrop.
+    - Om du inte är av citattecken Spårningsnumret, kräver UPS att betala en extra avgift under hämtning.
+
+    I stället för schemaläggning för upphämtningen släpper du ut den närmaste samlingsplats Data Box.
 4. Nära Data Box-enheten hämtas och skannas av transportföretaget uppdateras orderstatusen i portalen till **hämtad**. Du får också ett spårnings-ID.
 
 ## <a name="verify-data-upload-to-azure"></a>Kontrollera datauppladdning till Azure

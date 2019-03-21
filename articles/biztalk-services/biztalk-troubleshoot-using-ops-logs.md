@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: f69035202a3358af38ebaf8e94abdd3b030e633f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e58a62761284e0671c0083d41f5dde4c13b32fe2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256076"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108264"
 ---
-# <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services: Felsöka med hjälp av åtgärdsloggar
+# <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services: Felsök med hjälp av åtgärdsloggar
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="what-are-the-operation-logs"></a>Vilka är de Åtgärdsloggar
@@ -39,7 +39,7 @@ ms.locfileid: "51256076"
 ## <a name="view-biztalk-services-operation-logs"></a>Visa loggar för BizTalk Services
 1. I portalen, väljer **hanteringstjänster**, och välj sedan den **Åtgärdsloggar** fliken.
 2. Du kan filtrera loggarna baserat på olika parametrar som prenumerationen, datumintervall, typ av tjänst (t.ex. BizTalk Services), namn eller status för åtgärden (lyckades, misslyckades).
-3. Välj bockmarkeringen för att visa den filtrerade listan. Följande bild visar aktiviteter relaterade till testbiztalkservice: ![visa loggar][ViewLogs] 
+3. Välj bockmarkeringen för att visa den filtrerade listan. Följande bild visar aktiviteter relaterade till testbiztalkservice: ![Visa loggar][ViewLogs] 
 4. Om du vill visa mer om en viss åtgärd, Välj raden och klicka på **information** i Aktivitetsfältet längst ned på sidan.
 
 ## <a name="bizops"></a>Åtgärder som spåras med hjälp av Azure-hanteringstjänster
@@ -67,9 +67,9 @@ I följande tabell visas vilka åtgärder som spåras med hjälp av Azure-hanter
 * [Säkerhetskopiera BizTalk-tjänst](https://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [Återställa BizTalk-tjänst från en säkerhetskopia](https://go.microsoft.com/fwlink/p/?LinkID=325582)
 * [BizTalk Services: Developer, Basic, Standard och Premium diagram över utgåvor](https://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: etablering](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: Etablering](https://go.microsoft.com/fwlink/p/?LinkID=302280)
 * [BizTalk Services: Etablering av statusdiagram](https://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [BizTalk Services: Flikarna instrumentpanel, Övervakare och skalning](https://go.microsoft.com/fwlink/p/?LinkID=302281)
 * [BizTalk Services: Begränsning](https://go.microsoft.com/fwlink/p/?LinkID=302282)
 * [BizTalk Services: Utfärdarens namn och nyckel](https://go.microsoft.com/fwlink/p/?LinkID=303941)
 * [Hur gör jag för att börja använda Azure BizTalk Services SDK?](https://go.microsoft.com/fwlink/p/?LinkID=302335)

@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3ce24100a0780f313a00b80129601f4e8f344bde
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.openlocfilehash: 4d1a9ae622de103b459d256cb48c5823f5866a3b
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189775"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294084"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Innehållsskydd med dynamisk kryptering
 
@@ -199,6 +199,13 @@ Resurserna som ska krypteras av kryptering för lagring på serversidan för att
 |[Storage Client Side Encryption](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Client side encryption som erbjuds av Azure storage, nyckel som hanteras av kunden i Key Vault|Stöds inte|
 
 <sup>1</sup> i Media Services v3 lagringskryptering (AES-256-kryptering) är bara stöds för bakåtkompatibilitet när dina tillgångar skapades med Media Services v2. Vilket innebär att v3 fungerar med befintliga lagring krypteras tillgångar, men tillåter inte skapandet av nya.
+
+## <a name="troubleshoot"></a>Felsöka
+
+Om du får den `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` fel, kontrollera att du anger lämplig princip för direktuppspelning.
+
+Om det uppstår fel som slutar med `_NOT_SPECIFIED_IN_URL`, se till att du anger krypteringsformat i URL: en. Till exempel .../manifest (format = m3u8-cmaf kryptering = cbcs aapl). Se [Streaming protokoll och krypteringstyper](#streaming-protocols-and-encryption types).
+
 
 ## <a name="next-steps"></a>Nästa steg
 

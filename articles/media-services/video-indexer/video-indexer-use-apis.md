@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: dc3e654e741fd1a326c83e51c72284f41ad74798
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6a7d79d8a9328eaf0808c79ed359299e1ec37d1a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988059"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862734"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Självstudier: Använda Video Indexer-API:et
 
@@ -23,7 +23,7 @@ ms.locfileid: "55988059"
 
 Video Indexer konsoliderar olika AI-tekniker (artificiell intelligens) för ljud och video som erbjuds av Microsoft i en integrerad tjänst, vilket förenklar utvecklingen. API:erna är utformade så att utvecklare kan fokusera på att använda AI-medietekniker utan att behöva fundera på skalning, global räckvidd, tillgänglighet och tillförlitlighet för molnplattformen. Du kan använda API:t för att ladda upp filer, få detaljerade videoinsikter, få URL:er till insikts- och spelarwidgetar så att du kan bädda in dem i ett program, och andra uppgifter.
 
-När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med betalalternativet skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till Azure Media Services-kontot. 
+När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med betald alternativet kan du skapa en Video Indexer-konto som är [är ansluten till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till Azure Media Services-kontot. 
 
 Den här artikeln visar hur utvecklarna kan dra nytta av [Video Indexer-API:t](https://api-portal.videoindexer.ai/).
 
@@ -33,10 +33,10 @@ Den här artikeln visar hur utvecklarna kan dra nytta av [Video Indexer-API:t](h
     
     ![Logga in](./media/video-indexer-use-apis/video-indexer-api01.png)
 
-    > [!Important]
-    > * Du måste använda samma provider som du använde när du registrerade dig för Video Indexer.
-    > * Personliga Google- och Microsoft-konton (Outlook/Live) kan bara användas för utvärderingskonton. Konton som är anslutna till Azure kräver Azure AD.
-    > * Det kan bara finnas ett aktivt konto per e-postadress. Om en användare försöker logga in med user@gmail.com för LinkedIn och därefter med user@gmail.com för Google visas en felsida i det senare fallet om att användaren redan finns.
+   > [!Important]
+   > * Du måste använda samma provider som du använde när du registrerade dig för Video Indexer.
+   > * Personliga Google- och Microsoft-konton (Outlook/Live) kan bara användas för utvärderingskonton. Konton som är anslutna till Azure kräver Azure AD.
+   > * Det kan bara finnas ett aktivt konto per e-postadress. Om en användare försöker logga in med user@gmail.com för LinkedIn och därefter med user@gmail.com för Google visas en felsida i det senare fallet om att användaren redan finns.
 
 2. Prenumerera.
 
@@ -72,7 +72,7 @@ Du kan göra det lättare genom att använda **Auktoriserings**-API:t > **GetAcc
 
 Åtkomsttoken upphör att gälla efter 1 timme. Kontrollera att din åtkomsttoken är giltig innan du använder åtgärds-API:t. Om den upphör att gälla anropar du auktoriserings-API:t igen för att få en ny åtkomsttoken.
  
-Du kan börja integrera med API:t. Se [den detaljerade beskrivningen av varje Video Indexer-REST API](http://api-portal.videoindexer.ai/).
+Du kan börja integrera med API:t. Se [den detaljerade beskrivningen av varje Video Indexer-REST API](https://api-portal.videoindexer.ai/).
 
 ## <a name="location"></a>Plats
 

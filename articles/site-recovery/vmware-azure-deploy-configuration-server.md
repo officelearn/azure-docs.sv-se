@@ -8,19 +8,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
-ms.openlocfilehash: 3f500abe0ea37b35236547824c655adc1a4c4d93
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ef0e29217e03b3c5d1b2880a6ce755c6cc02ceba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448840"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004451"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
 Du distribuerar en lokal konfigurationsserver när du använder [Azure Site Recovery](site-recovery-overview.md) för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure. Den configuration server koordinater kommunikationen mellan lokala VMware- och Azure. Den hanterar också replikering av data. Den här artikeln vägleder dig igenom de steg som krävs för att distribuera configuration server när du replikerar virtuella VMware-datorer till Azure. [Följ den här artikeln](physical-azure-set-up-source.md) om du vill ställa in en konfigurationsserver för fysisk serverreplikering.
 
->[!TIP]
-Du kan lära dig om rollen för konfigurationsservern som en del av Azure Site Recovery-arkitekturen [här](vmware-azure-architecture.md).
+> [!TIP]
+> Du kan lära dig om rollen för konfigurationsservern som en del av Azure Site Recovery-arkitekturen [här](vmware-azure-architecture.md).
 
 ## <a name="deployment-of-configuration-server-through-ova-template"></a>Distribution av konfigurationsservern med OVA-mallen
 
@@ -46,7 +46,7 @@ Du behöver en användare med **något av följande** behörighet i AAD (Azure A
    1. Gå till Azure Active Directory > användarinställningar
    1. Under ** appregistreringar ”,” användare kan registrera program ”ska väljas som” Ja ”.
 
-    ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
+      ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
 > Active Directory Federation Services(ADFS) är **stöds inte**. Använd ett konto som hanteras via [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
@@ -70,11 +70,11 @@ Om du replikerar mer än en VMware VM läsa [överväganden vid kapacitetsplaner
 3. I **Lägg till server** kontrollerar du att **Konfigurationsserver för VMware** visas i **Servertyp**.
 4. Ladda ned mallen Open Virtualization program (OVA) för konfigurationsservern.
 
-  > [!TIP]
->Du kan också hämta den senaste versionen av konfigurationsservermallen direkt från [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+   > [!TIP]
+   >Du kan också hämta den senaste versionen av konfigurationsservermallen direkt från [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
->[!NOTE]
-Licensnumret du fått med OVA mall är en utvärderingslicens som är giltig i 180 dagar. Efter måste denna period kunden aktivera windows med en upphandlade licens.
+> [!NOTE]
+> Licensnumret du fått med OVA mall är en utvärderingslicens som är giltig i 180 dagar. Efter måste denna period kunden aktivera windows med en upphandlade licens.
 
 ## <a name="import-the-template-in-vmware"></a>Importera mallen i VMware
 
@@ -136,6 +136,7 @@ Om du vill lägga till ett extra nätverkskort i konfigurationsservern, lägger 
     |Kan jag hämta och installera MySQL manuellt?     |  Ja. Ladda ned MySQL-program och placera den i mappen **C:\Temp\ASRSetup**, installerar manuellt. Nu när du godkänner licensvillkoren > Klicka på **ladda ned och installera**, portalen säger *redan installerat*. Du kan gå vidare till nästa steg.       |
     |Kan jag undvika att ladda ned MySQL online?     |   Ja. Placera din MySQL-installationsprogrammet i mappen **C:\Temp\ASRSetup**. Acceptera villkoren > Klicka på **ladda ned och installera**, portalen använder du lägger till installationsprogrammet och installerar programmet. Du kan fortsätta till nästa steg efter installationen.    |
     |Jag vill hämta och installera MySQL via Azure Site Recovery     |  Godkänn licensavtalet och klicka på **ladda ned och installera**. Du kan sedan fortsätta till nästa steg efter installationen.       |
+
 5. I **Verifiera installationskonfiguration** verifieras förutsättningarna innan du fortsätter.
 6. I **Konfigurera vCenter Server/vSphere ESXi-server** anger du FQDN eller IP-adress för vCenter-servern eller vSphere-värden där de virtuella datorer som du vill replikera är placerade. Ange porten som servern lyssnar på. Ange ett eget namn som ska användas för VMware-servern i valvet.
 7. Ange de autentiseringsuppgifter som ska användas av konfigurationsservern för att ansluta till VMware-servern. Site Recovery använder dessa autentiseringsuppgifter för att automatiskt identifiera virtuella VMware-datorer som är tillgängliga för replikering. Välj **lägga till**, och sedan **fortsätta**. De autentiseringsuppgifter som anges här sparas lokalt.

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e964e00cd326d924a77a53348942f91ebbdbdea4
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 9d29608ded920b14af1be6d4d68ab1d77c3c8cb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630168"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099162"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Använda Apache Spark Structured Streaming med Apache Kafka och Azure Cosmos DB
 
@@ -52,19 +52,19 @@ Du kan skapa ett Azure-nätverk, Kafka och Spark-kluster manuellt, men det är e
 
     Den här mallen skapar följande resurser:
 
-    * En Kafka på HDInsight 3.6-klustret.
+   * En Kafka på HDInsight 3.6-klustret.
 
-    * En Apache Spark på HDInsight 3.6-klustret.
+   * En Apache Spark på HDInsight 3.6-klustret.
 
-    * Ett virtuellt Azure-nätverk som innehåller HDInsight-klustren.
+   * Ett virtuellt Azure-nätverk som innehåller HDInsight-klustren.
 
-        > [!NOTE]  
-        > Det virtuella nätverket som skapas av mallen använder adressutrymmet 10.0.0.0/16.
+       > [!NOTE]  
+       > Det virtuella nätverket som skapas av mallen använder adressutrymmet 10.0.0.0/16.
 
-    * En Azure Cosmos DB SQL API-databas.
+   * En Azure Cosmos DB SQL API-databas.
 
-    > [!IMPORTANT]  
-    > Anteckningsboken för Structured Streaming som används i det här exemplet kräver Apache Spark i HDInsight 3.6. Om du använder en tidigare version av Apache Spark i HDInsight får du ett felmeddelande när du använder anteckningsboken.
+     > [!IMPORTANT]  
+     > Anteckningsboken för Structured Streaming som används i det här exemplet kräver Apache Spark i HDInsight 3.6. Om du använder en tidigare version av Apache Spark i HDInsight får du ett felmeddelande när du använder anteckningsboken.
 
 2. Använd följande information för att fylla i posterna i den **anpassad distribution** avsnittet:
    

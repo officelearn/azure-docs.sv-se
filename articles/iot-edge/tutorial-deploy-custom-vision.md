@@ -9,12 +9,12 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6acdbdf5ed5312dc9bc9aa5120bad6e7cf0935b7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 7a5a92635114be87e59fe8f779c36d4c401a1427
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075836"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087167"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Självstudie: Utföra bildklassificering på gränsen med Custom Vision Service
 
@@ -22,17 +22,22 @@ Azure IoT Edge kan göra din IoT-lösning effektivare genom att flytta arbetsbel
 
 Till exempel kan Custom Vision på en IoT Edge-enhet avgöra om det förekommer mer eller mindre trafik än normalt på en motorväg eller huruvida det finns lediga platser på en viss sträcka i ett parkeringshus. Dessa insikter kan delas med en annan tjänst i åtgärdssyfte. 
 
-
 I den här guiden får du lära dig att: 
 
 > [!div class="checklist"]
+>
 > * Skapa en bildklassificerare med Custom Vision.
 > * Utveckla en IoT Edge-modul som kör frågor mot Custom Vision-webbservern på din enhet.
 > * Skicka resultaten från bildklassificeraren till IoT Hub.
 
+<center>
+
+![Diagram - självstudie arkitektur mellanlagra och distribuera klassificerare](./media/tutorial-deploy-custom-vision/custom-vision-architecture.png)
+</center>
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 En Azure IoT Edge-enhet:
 
@@ -43,7 +48,7 @@ Molnresurser:
 
 * En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på standardnivå i Azure. 
 * Ett containerregister. I den här kursen används [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/). 
-    * Känn till autentiseringsuppgifterna för ditt containerregisters [administratörskonto](../container-registry/container-registry-authentication.md#admin-account).
+* Känn till autentiseringsuppgifterna för ditt containerregisters [administratörskonto](../container-registry/container-registry-authentication.md#admin-account).
 
 Utvecklingsresurser:
 

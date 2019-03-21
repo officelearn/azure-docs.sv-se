@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 06c878d3b3ad2fe3144d5e55c1a01880ddcab62c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 055daebb28131268e517845a47d4c39aba90f201
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312213"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871219"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Skapa en Log Analytics-arbetsyta med Azure PowerShell
 
@@ -46,6 +46,8 @@ Om du väljer att installera och använda PowerShell lokalt kräver den här sj�
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 Skapa en arbetsyta med [New AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). I följande exempel skapas en arbetsyta med namnet *TestWorkspace* i resursgruppen *Lab* i den *eastus* plats med hjälp av en Resource Manager-mall från din lokala datorn. JSON-mallen har konfigurerats för att bara efterfråga du namnet på arbetsytan och anger ett standardvärde för de andra parametrarna som sannolikt skulle användas som en standardkonfiguration i din miljö. 
+
+Information om regioner som stöds finns i [regioner Log Analytics är tillgängligt i](https://azure.microsoft.com/regions/services/) och Sök efter Azure Monitor från den **söka efter en produkt** fält. 
 
 Följande parametrar anger ett standardvärde:
 
@@ -114,7 +116,7 @@ Följande parametrar anger ett standardvärde:
     }
     ```
 
-2. Redigera mallen så att den uppfyller dina krav.  Granska [Microsoft.OperationalInsights/workspaces mall](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referens till att lära dig vilka egenskaper och värden som stöds. 
+2. Redigera mallen så att den uppfyller dina krav. Granska [Microsoft.OperationalInsights/workspaces mall](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referens till att lära dig vilka egenskaper och värden som stöds. 
 3. Spara filen som **deploylaworkspacetemplate.json** till en lokal mapp.   
 4. Nu är det dags att distribuera den här mallen. Använd följande kommandon från mappen som innehåller mallen:
 

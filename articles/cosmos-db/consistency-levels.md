@@ -5,25 +5,25 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/27/2018
-ms.openlocfilehash: cbe7b0e243f34d9b48e837c1211b5a186946f69f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 03/18/2019
+ms.openlocfilehash: b43fe513b15d55ee595acaa6733d96cdb58f4e83
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903716"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294520"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Konsekvensnivåer i Azure Cosmos DB
 
-Distribuerade databaser som förlitar sig på replikering för hög tillgänglighet, svarstider, eller båda, se grundläggande förhållandet mellan läsningskontinuitet jämfört med tillgänglighet, svarstid och dataflöde. De flesta kommersiellt distribuerade databaser Ställ utvecklare kan välja mellan två extrem konsekvensmodeller: stark konsekvens och slutlig konsekvens. Den [linjärbarhetsgaranti](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) eller stark konsekvensmodell är data programmabilitys guld skyddsnivå. Men den lägger till en brant priset för högre svarstid (i stabilt tillstånd) och minskad tillgänglighet (vid fel). Å andra sidan, eventuell konsekvens ger högre tillgänglighet och bättre prestanda, men är svåra att programmerar program. 
+Distribuerade databaser som förlitar sig på replikering för hög tillgänglighet, svarstider, eller båda, se grundläggande förhållandet mellan läsningskontinuitet jämfört med tillgänglighet, svarstid och dataflöde. De flesta kommersiellt distribuerade databaser Ställ utvecklare kan välja mellan två extrem konsekvensmodeller: *stark* konsekvens och *slutlig* konsekvens. Den  [linjärbarhetsgaranti](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) eller stark konsekvensmodell är data programmabilitys guld skyddsnivå. Men den lägger till en kostnad av högre svarstid (i stabilt tillstånd) och minskad tillgänglighet (vid fel). Å andra sidan, eventuell konsekvens ger högre tillgänglighet och bättre prestanda, men gör det svårt att programmerar program. 
 
-Azure Cosmos DB närmar sig datakonsekvens som ett spektrum av alternativ i stället för två extremval. Stark konsekvens och slutlig konsekvens är placerade i slutet, men det finns många konsekvensval längs spektrumet. Utvecklare kan använda dessa alternativ för att se exakt val och detaljerade nackdelar med avseende på hög tillgänglighet eller prestanda. 
+Azure Cosmos DB närmar sig datakonsekvens som ett spektrum av alternativ i stället för två extremval. Stark konsekvens och slutlig konsekvens är i slutet av spektrumet, men det finns många konsekvensval längs spektrumet. Utvecklare kan använda dessa alternativ för att se exakt val och detaljerade nackdelar med avseende på hög tillgänglighet och prestanda. 
 
-Med Azure Cosmos DB kan utvecklare välja mellan fem väldefinierade konsekvensmodeller på konsekvensspektrumet. Från starkast till svagast, modellerna är stark, begränsad föråldring, session, enhetligt prefix och slutlig. Modeller är väldefinierade och intuitivt. De kan användas för den specifika verkliga scenarier. Varje modellen ger [tillgänglighet och prestanda kompromisser](consistency-levels-tradeoffs.md) och backas upp av omfattande serviceavtal. Följande bild visar olika konsekvensnivåer som ett spektrum.
+Med Azure Cosmos DB kan utvecklare välja mellan fem väldefinierade konsekvensmodeller på konsekvensspektrumet. Från starkast till mer restriktiva modellerna inkluderar *stark*, *begränsad föråldring*, *session*, *konsekvent prefix*, och *slutlig* konsekvens. Modeller är väl definierade och intuitiv och kan användas för den specifika verkliga scenarier. Varje modellen ger [tillgänglighet och prestanda kompromisser](consistency-levels-tradeoffs.md) och backas upp av att serviceavtalen. Följande bild visar de olika konsekvensnivåerna som ett spektrum.
 
 ![Konsekvens som ett spektrum](./media/consistency-levels/five-consistency-levels.png)
 
-Konsekvensnivåerna är regionsoberoende. Konsekvensnivå på ditt Azure Cosmos-konto är korrekt för alla läsåtgärder oavsett den region där läsningar och skrivningar behandlas, antalet regioner som associeras med ditt Azure Cosmos-konto, eller om ditt konto har konfigurerats med en en eller flera Skriv-regioner.
+Konsekvensnivåerna är regionsoberoende och garanterat för alla åtgärder oavsett den region där läsningar och skrivningar behandlas, antalet regioner som associeras med ditt Azure Cosmos-konto, eller om ditt konto har konfigurerats med en enda eller flera Skriv-regioner.
 
 ## <a name="scope-of-the-read-consistency"></a>Omfånget för läsningskontinuitet
 

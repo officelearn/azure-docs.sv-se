@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: ddf40538fc3d6e39fe48ff49311f86314008b4ce
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3c078f7246140ee966f1d202d2248758dde49059
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994765"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888476"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Security ram: Auktorisering | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -27,23 +27,23 @@ ms.locfileid: "52994765"
 | **Datorn Förtroendegräns** | <ul><li>[Kontrollera att rätt ACL: er är konfigurerade för att begränsa obehörig åtkomst till data på enheten](#acl-restricted-access)</li><li>[Se till att känsliga användarspecifika programinnehållet lagras i användarprofilens katalog](#sensitive-directory)</li><li>[Se till att distribuerade program körs med de lägsta privilegierna](#deployed-privileges)</li></ul> |
 | **Webbprogram** | <ul><li>[Framtvinga sekventiella steg ordning vid bearbetning av business logic-flöden](#sequential-logic)</li><li>[Implementera begränsar mekanism för att förhindra uppräkning frekvensbegränsningen](#rate-enumeration)</li><li>[Kontrollera att rätt behörighet är på plats och principen lägsta privilegier följs](#principle-least-privilege)</li><li>[Logik och resurs åtkomst auktorisering affärsbeslut får inte baseras på den inkommande begäranparametrar](#logic-request-parameters)</li><li>[Kontrollera innehållet och resurser är inte uppräkningsbara eller tillgängliga öppet via kraftfullt surfning](#enumerable-browsing)</li></ul> |
 | **Databas** | <ul><li>[Se till att minst Privilegierade konton som används för att ansluta till databasservern](#privileged-server)</li><li>[Implementera säkerhet på radnivå RLS att hindra klienter från åtkomst till varandras data](#rls-tenants)</li><li>[Sysadmin-rollen bör bara ha giltiga nödvändiga användare](#sysadmin-users)</li></ul> |
-| **IoT-molnet Gateway** | <ul><li>[Ansluta till Molngatewayen med lägsta behörighet token](#cloud-least-privileged)</li></ul> |
-| **Azure-Händelsehubb** | <ul><li>[Använda en skicka behörighet för endast SAS-nyckel för att skapa enhetstoken](#sendonly-sas)</li><li>[Använd inte åtkomsttokens som ger direktåtkomst till Händelsehubben](#access-tokens-hub)</li><li>[Ansluta till Event Hub med SAS-nycklar som har den lägsta behörigheten som krävs](#sas-minimum-permissions)</li></ul> |
+| **IoT Cloud Gateway** | <ul><li>[Ansluta till Molngatewayen med lägsta behörighet token](#cloud-least-privileged)</li></ul> |
+| **Azure Event Hub** | <ul><li>[Använda en skicka behörighet för endast SAS-nyckel för att skapa enhetstoken](#sendonly-sas)</li><li>[Använd inte åtkomsttokens som ger direktåtkomst till Händelsehubben](#access-tokens-hub)</li><li>[Ansluta till Event Hub med SAS-nycklar som har den lägsta behörigheten som krävs](#sas-minimum-permissions)</li></ul> |
 | **Azure Document DB** | <ul><li>[Använd resurstokens för att ansluta till Azure Cosmos DB när det är möjligt](#resource-docdb)</li></ul> |
 | **Azure Förtroendegräns** | <ul><li>[Aktivera detaljerad åtkomsthantering för Azure-prenumeration med RBAC](#grained-rbac)</li></ul> |
 | **Service Fabric-Förtroendegräns** | <ul><li>[Begränsa åtkomsten för klientens till klusteråtgärder med RBAC](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Utföra security modellering och använda på fältnivå om det behövs](#modeling-field)</li></ul> |
-| **Dynamics CRM-portalen** | <ul><li>[Utföra security modellering av portalen konton med tanke på att säkerhetsmodell för portalen skiljer sig från resten av CRM](#portal-security)</li></ul> |
+| **Dynamics CRM Portal** | <ul><li>[Utföra security modellering av portalen konton med tanke på att säkerhetsmodell för portalen skiljer sig från resten av CRM](#portal-security)</li></ul> |
 | **Azure Storage** | <ul><li>[Ge detaljerad behörighet på ett intervall med enheter i Azure Table Storage](#permission-entities)</li><li>[Aktivera rollbaserad åtkomstkontroll (RBAC) till Azure storage-konto med Azure Resource Manager](#rbac-azure-manager)</li></ul> |
 | **Mobila klienten** | <ul><li>[Implementera implicit uppbrytning eller rota identifiering](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[Svag Class Reference i WCF](#weak-class-wcf)</li><li>[WCF-implementera auktorisering kontroll](#wcf-authz)</li></ul> |
 | **Webb-API** | <ul><li>[Implementera rätt auktoriseringsmekanism i ASP.NET Web API](#authz-aspnet)</li></ul> |
 | **IoT-enheter** | <ul><li>[Utför auktoriseringskontroller i enheten om den har stöd för olika åtgärder som kräver olika behörighetsnivåer](#device-permission)</li></ul> |
-| **IoT-fält-Gateway** | <ul><li>[Utför auktoriseringskontroller i fält-Gateway om det har stöd för olika åtgärder som kräver olika behörighetsnivåer](#field-permission)</li></ul> |
+| **IoT Field Gateway** | <ul><li>[Utför auktoriseringskontroller i fält-Gateway om det har stöd för olika åtgärder som kräver olika behörighetsnivåer](#field-permission)</li></ul> |
 
 ## <a id="acl-restricted-access"></a>Kontrollera att rätt ACL: er är konfigurerade för att begränsa obehörig åtkomst till data på enheten
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Datorn Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -54,7 +54,7 @@ ms.locfileid: "52994765"
 
 ## <a id="sensitive-directory"></a>Se till att känsliga användarspecifika programinnehållet lagras i användarprofilens katalog
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Datorn Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -65,7 +65,7 @@ ms.locfileid: "52994765"
 
 ## <a id="deployed-privileges"></a>Se till att distribuerade program körs med de lägsta privilegierna
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Datorn Förtroendegräns | 
 | **SDL fas**               | Distribution |  
@@ -76,7 +76,7 @@ ms.locfileid: "52994765"
 
 ## <a id="sequential-logic"></a>Framtvinga sekventiella steg ordning vid bearbetning av business logic-flöden
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -87,7 +87,7 @@ ms.locfileid: "52994765"
 
 ## <a id="rate-enumeration"></a>Implementera begränsar mekanism för att förhindra uppräkning frekvensbegränsningen
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -98,7 +98,7 @@ ms.locfileid: "52994765"
 
 ## <a id="principle-least-privilege"></a>Kontrollera att rätt behörighet är på plats och principen lägsta privilegier följs
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -109,7 +109,7 @@ ms.locfileid: "52994765"
 
 ## <a id="logic-request-parameters"></a>Logik och resurs åtkomst auktorisering affärsbeslut får inte baseras på den inkommande begäranparametrar
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -128,7 +128,7 @@ Nu en möjlig angripare inte kan ändra och ändra programmet igen eftersom iden
 
 ## <a id="enumerable-browsing"></a>Kontrollera innehållet och resurser är inte uppräkningsbara eller tillgängliga öppet via kraftfullt surfning
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -139,7 +139,7 @@ Nu en möjlig angripare inte kan ändra och ändra programmet igen eftersom iden
 
 ## <a id="privileged-server"></a>Se till att minst Privilegierade konton som används för att ansluta till databasservern
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -150,11 +150,11 @@ Nu en möjlig angripare inte kan ändra och ändra programmet igen eftersom iden
 
 ## <a id="rls-tenants"></a>Implementera säkerhet på radnivå RLS att hindra klienter från åtkomst till varandras data
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | SQL Azure, OnPrem |
+| **Tillämpliga tekniker** | Sql Azure, OnPrem |
 | **Attribut**              | SQL-Version - V12, SQL-Version - MsSQL2016 |
 | **Referenser**              | [Säkerhet för SQL Server på radnivå (RLS)](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
 | **Steg** | <p>Säkerhet på radnivå ger kunder möjlighet att styra åtkomsten till rader i en databastabell baserat på egenskaperna för användaren som kör en fråga (t.ex. grupmedlemskap eller körningskontext).</p><p>Säkerhet på radnivå (RLS) förenklar design och kodning av säkerheten i ditt program. RLS låter dig implementera begränsningar för dataåtkomst för raden. Därmed får medarbetare endast tillgång till de datarader som är relevanta för deras avdelning, eller kunder får endast dataåtkomst till data som berör deras företag.</p><p>Logiken för begränsning av är placerad på databasnivån i stället för in från data i en annan programnivå. Databasen tillämpas åtkomstbegränsningarna varje gång den dataåtkomsten görs från valfri nivå. Detta gör säkerhetssystemet mer tillförlitlig och stabil genom att minska ytan på säkerhetssystemet.</p><p>|
@@ -163,7 +163,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="sysadmin-users"></a>Sysadmin-rollen bör bara ha giltiga nödvändiga användare
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -174,9 +174,9 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="cloud-least-privileged"></a>Ansluta till Molngatewayen med lägsta behörighet token
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
-| **Komponent**               | IoT-molnet Gateway | 
+| **Komponent**               | IoT Cloud Gateway | 
 | **SDL fas**               | Distribution |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gateway - valet i Azure IoT Hub |
@@ -185,7 +185,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="sendonly-sas"></a>Använda en skicka behörighet för endast SAS-nyckel för att skapa enhetstoken
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure händelsehubb | 
 | **SDL fas**               | Utveckla |  
@@ -196,7 +196,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="access-tokens-hub"></a>Använd inte åtkomsttokens som ger direktåtkomst till Händelsehubben
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure händelsehubb | 
 | **SDL fas**               | Utveckla |  
@@ -207,7 +207,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="sas-minimum-permissions"></a>Ansluta till Event Hub med SAS-nycklar som har den lägsta behörigheten som krävs
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure händelsehubb | 
 | **SDL fas**               | Utveckla |  
@@ -218,7 +218,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="resource-docdb"></a>Använd resurstokens för att ansluta till Cosmos DB när det är möjligt
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Document DB | 
 | **SDL fas**               | Utveckla |  
@@ -229,7 +229,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="grained-rbac"></a>Aktivera detaljerad åtkomsthantering för Azure-prenumeration med RBAC
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Förtroendegräns | 
 | **SDL fas**               | Utveckla |  
@@ -240,18 +240,18 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="cluster-rbac"></a>Begränsa åtkomsten för klientens till klusteråtgärder med RBAC
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Service Fabric-Förtroendegräns | 
 | **SDL fas**               | Distribution |  
 | **Tillämpliga tekniker** | Generisk |
-| **Attribut**              | Miljö - Azure |
+| **Attribut**              | Environment - Azure |
 | **Referenser**              | [Rollbaserad åtkomstkontroll för Service Fabric-klienter](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security-roles/) |
 | **Steg** | <p>Azure Service Fabric stöder två typer av olika åtkomstkontroll för klienter som är anslutna till ett Service Fabric-kluster: administratör och användare. Åtkomstkontroll kan du Klusteradministratören att begränsa åtkomsten till vissa klusteråtgärder för olika grupper av användare, vilket gör att klustret säkrare.</p><p>Administratörer har fullständig åtkomst till funktioner för hantering (inklusive Läs-och skrivbehörighet). Användare, har som standard bara läsbehörighet till funktioner för hantering (till exempel frågefunktioner) och möjligheten att lösa program och tjänster.</p><p>Du kan ange två klientroller (administratör och klienten) vid tidpunkten för klustret har skapats genom att tillhandahålla separata certifikat för varje.</p>|
 
 ## <a id="modeling-field"></a>Utföra security modellering och använda på fältnivå om det behövs
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM | 
 | **SDL fas**               | Utveckla |  
@@ -262,9 +262,9 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="portal-security"></a>Utföra security modellering av portalen konton med tanke på att säkerhetsmodell för portalen skiljer sig från resten av CRM
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
-| **Komponent**               | Dynamics CRM-portalen | 
+| **Komponent**               | Dynamics CRM Portal | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
@@ -273,7 +273,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="permission-entities"></a>Ge detaljerad behörighet på ett intervall med enheter i Azure Table Storage
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL fas**               | Utveckla |  
@@ -284,7 +284,7 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="rbac-azure-manager"></a>Aktivera rollbaserad åtkomstkontroll (RBAC) till Azure storage-konto med Azure Resource Manager
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL fas**               | Utveckla |  
@@ -295,22 +295,22 @@ Observera att RLS som en databasfunktion för out-of the box-är gäller endast 
 
 ## <a id="rooting-detection"></a>Implementera implicit uppbrytning eller rota identifiering
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
-| **Komponent**               | Mobila klienten | 
+| **Komponent**               | Mobile Client | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
-| **Steg** | <p>Programmet bör skydda egna data i konfigurationen och användardata i fallet om telefon är rotad eller jailbroken. Rota/upplåsta större innebär obehörig åtkomst, vilka normala användarna inte utföra på sina egna telefoner. Programmet bör därför ha implicita identifieringslogik vid programstart av, att identifiera om telefonen har blivit rotad.</p><p>Identifieringslogiken kan vara helt enkelt få åtkomst till filer som normalt endast rotanvändare kan komma åt, till exempel:</p><ul><li>/system/App/superuser.APK</li><li>' / sbin/su</li><li>/system/bin/su</li><li>/system/xbin/su</li><li>/data/Local/xbin/su</li><li>/data/Local/bin/su</li><li>/system/SD/xbin/su</li><li>/system/bin/Failsafe/su</li><li>/data/Local/su</li></ul><p>Om programmet kan komma åt någon av dessa filer, anger att programmet körs som rotanvändare.</p>|
+| **Steg** | <p>Programmet bör skydda egna data i konfigurationen och användardata i fallet om telefon är rotad eller jailbroken. Rota/upplåsta större innebär obehörig åtkomst, vilka normala användarna inte utföra på sina egna telefoner. Programmet bör därför ha implicita identifieringslogik vid programstart av, att identifiera om telefonen har blivit rotad.</p><p>Identifieringslogiken kan vara helt enkelt få åtkomst till filer som normalt endast rotanvändare kan komma åt, till exempel:</p><ul><li>/system/app/Superuser.apk</li><li>/sbin/su</li><li>/system/bin/su</li><li>/system/xbin/su</li><li>/data/Local/xbin/su</li><li>/data/Local/bin/su</li><li>/system/sd/xbin/su</li><li>/system/bin/Failsafe/su</li><li>/data/Local/su</li></ul><p>Om programmet kan komma åt någon av dessa filer, anger att programmet körs som rotanvändare.</p>|
 
 ## <a id="weak-class-wcf"></a>Svag Class Reference i WCF
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Generisk NET Framework 3 |
+| **Tillämpliga tekniker** | Generic, NET Framework 3 |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [spikning Nordirland](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Steg** | <p>Systemet använder en svag klassreferens, vilket gör att en angripare att köra kod. Programmet refererar till en användardefinierad klass som inte identifieras unikt. När .NET har lästs in den här svagt identifierade klassen söker inläsaren för CLR-typ för klassen på följande platser i angiven ordning:</p><ol><li>Om sammanställningen av typen är känd söker inläsaren den konfigurationsfilen omdirigerings-platser, GAC, aktuella sammansättningen med konfigurationsinformation och programmets baskatalog</li><li>Om sammansättningen är okänt söker inläsaren den aktuella sammansättningen, mscorlib och den plats som returneras av händelsehanteraren TypeResolve</li><li>Den här CLR-sökordningen kan ändras med krokar som mekanismen för vidarebefordran av typen och händelsen AppDomain.TypeResolve</li></ol><p>Om en angripare utnyttjar sökordningen CLR genom att skapa en annan klass med samma namn och placera den på en annan plats att CLR laddas först CLR kommer oavsiktligt köra angripare anger-kod</p>|
@@ -343,11 +343,11 @@ Den `<behaviorExtensions/>` element i WCF-konfigurationsfilen nedan instruerar W
 
 ## <a id="wcf-authz"></a>WCF-implementera auktorisering kontroll
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Generisk NET Framework 3 |
+| **Tillämpliga tekniker** | Generic, NET Framework 3 |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [spikning Nordirland](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Steg** | <p>Den här tjänsten använder inte en kontroll för auktorisering. När en klient anropar en viss WCF-tjänst, ger WCF olika för auktorisering som verifierar att anroparen har behörighet att köra metoden tjänsten på servern. Om auktoriseringskontroller inte har aktiverats för WCF-tjänster, kan en autentiserad användare få eskalering.</p>|
@@ -391,13 +391,13 @@ return result;
 
 ## <a id="authz-aspnet"></a>Implementera rätt auktoriseringsmekanism i ASP.NET Web API
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Allmän och MVC5 |
+| **Tillämpliga tekniker** | Generic, MVC5 |
 | **Attribut**              | Inte aktuellt, identitets-Provider – ADFS, identitetsprovider – Azure AD |
-| **Referenser**              | [Autentisering och auktorisering i ASP.NET webb-API](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
+| **Referenser**              | [Autentisering och auktorisering i ASP.NET webb-API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) |
 | **Steg** | <p>Rollinformation för vilka programanvändare kan härledas från Azure AD eller AD FS anspråk om programmet är beroende av dem som identitetsprovider eller själva programmet kanske har angett en sådan. I någon av dessa fall, bör anpassad auktorisering implementeringen verifiera rollen användarinformation.</p><p>Rollinformation för vilka programanvändare kan härledas från Azure AD eller AD FS anspråk om programmet är beroende av dem som identitetsprovider eller själva programmet kanske har angett en sådan. I någon av dessa fall, bör anpassad auktorisering implementeringen verifiera rollen användarinformation.</p>
 
 ### <a name="example"></a>Exempel
@@ -442,7 +442,7 @@ public class CustomController : ApiController
 
 ## <a id="device-permission"></a>Utför auktoriseringskontroller i enheten om den har stöd för olika åtgärder som kräver olika behörighetsnivåer
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enheter | 
 | **SDL fas**               | Utveckla |  
@@ -453,9 +453,9 @@ public class CustomController : ApiController
 
 ## <a id="field-permission"></a>Utför auktoriseringskontroller i fält-Gateway om det har stöd för olika åtgärder som kräver olika behörighetsnivåer
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
-| **Komponent**               | IoT-fält-Gateway | 
+| **Komponent**               | IoT Field Gateway | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |

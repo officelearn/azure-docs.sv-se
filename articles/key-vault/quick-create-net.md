@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 8127a7a10c117edaefc4a215366990d847a165ec
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 346d97e6e3dad6ebacaae6c789137df4f33e2e72
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238291"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316395"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en .NET-webbapp
 
@@ -36,7 +36,7 @@ Innan du fortsätter rekommenderar vi att du läser avsnittet om [grundbegreppen
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * I Windows:
   * [Visual Studio 2017 version 15.7.3 eller senare](https://www.microsoft.com/net/download/windows) med följande arbetsbelastningar:
@@ -171,7 +171,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 ```
 
-Nu när du kör programmet bör ditt hemliga värde hämtas. I det föregående kommandot ger du identiteten för App Service behörighet att utföra åtgärderna **get** (hämta) och **list** (lista) i ditt nyckelvalv.
+Nu när du kör programmet bör ditt hemliga värde hämtas. I det föregående kommandot du håller identiteten för appen service behörighet att utföra **hämta** och **lista** åtgärder på nyckelvalvet.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 Ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när du inte längre behöver dem. Det gör du genom att markera resursgruppen för den virtuella datorn och välja **Ta bort**.

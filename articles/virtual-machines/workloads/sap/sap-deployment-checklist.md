@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 67083a8214724659765922047c1f0ccd6da87b9d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 520d417abe27887fad03257c52521c25602009eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884936"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096018"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>SAP-arbetsbelastningar på Azure checklista för planering och distribution 
 
@@ -87,76 +87,76 @@ I den här fasen planeras en migrering av SAP-arbetsbelastningar till offentliga
  
 Piloten kan köras före eller parallellt till projektet planering och förberedelser. Fasen kan också användas för att testa metoder och design som gjorts i fasen av planering och förberedelser. Pilotfasen kan stretchas till en verklig bevis på koncept. Vi rekommenderar att konfigurera och verifiera en fullständig hr/DR-lösning samt säkerhetsdesign under en pilotdistribution. I vissa fall kunden kan skalbarhet tester också utföras i det här steget. Andra kunder använder distribution av SAP sandbox-system som pilotfasen. Så vi förutsätter att du har identifierat ett system som du vill migrera till Azure, i syfte att köra ett pilotprojekt.
 
-1.  Optimera dataöverföring i Azure. Mycket beroende på kunden fall överföring via [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) från en lokal var snabbaste om Express-kretsen har tillräckligt med bandbredd. Med andra kunder kommit gå via internet fram till att vara snabbare
-2.  Vid en SAP heterogena migreringen som inbegriper en export och import av databasdata, testa, och optimera exportera och importera faser. För stora migreringar som rör SQL-Server som målplattform, rekommendationer finns [här](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). Du kan vidta metod för migrering Övervakare/SWPM om du inte behöver en uppgradering av kombinerade versionen eller [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) när du kombinerar migrering med en uppgradering för SAP-versionen och uppfyller vissa käll- och DBMS-plattform kombinationer som beskrivs i exempelvis [databasen migrering alternativet DMO () av SUMMAN 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152). 
-    1.  Exportera till källa, Export filuppladdning till Azure och importera prestanda.  Maximera överlapp mellan export och import
-    2.  Utvärdera mängden databas mellan mål- och mål-plattformen för att avspegla i infrastruktur-storlek    
-    3.  Validera och optimera Tidsinställning 
-3.  Teknisk verifiering 
-    1.  VM-typer
-        1.  Verifiera resurserna på SAP support anteckningar, SAP HANA maskinvara directory och SAP PAM igen för att se till att det fanns inga ändringar i virtuella datorer som stöds för Azure, OS-versioner som stöds för dessa typer av virtuella datorer och SAP och DBMS-versioner som stöds
-        2.  Validera igen storleksändringar av ditt program och infrastruktur som du distribuerar på Azure. När det gäller flytta befintliga program har du ofta kan härleda nödvändiga SAP från infrastrukturen som du använder och [SAP benchmark webbsidan](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) och jämför den med SAP-siffror som visas i SAP support-kommentar [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Håll också [i den här artikeln](https://blogs.msdn.microsoft.com/saponsqlserver/2018/11/04/saps-ratings-on-azure-vms-where-to-look-and-where-you-can-get-confused/) i åtanke
-        3.  Utvärdera och testa storleksändring av virtuella datorer i Azure avseende största genomflödet och nätverkets dataflöde av olika VM-typer som du valde i planeringsfasen. Data kan hittas i:
-            1.  [Storlekar för Windows-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Det är viktigt att tänka på de **maximalt icke cachelagrat diskgenomflöde** för storleksändring
-            2.  [Storlekar för Linux-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) är det viktigt att tänka på de **maximalt icke cachelagrat diskgenomflöde** för storleksändring
-    2.  Storage
-        1.  Använd Azure Premium Storage för virtuella datorer i databasen
-        2.  Använd [Azure hanterade diskar](https://azure.microsoft.com/services/managed-disks/)
-        3.  Använd Azure Write Accelerator för DBMS loggenheter med M-serien. Tänk på Write accelerator gränser och användning enligt beskrivningen i [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)
-        4.  De olika DBMS-typerna, kontrollera den [allmän SAP DBMS dokumentationen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) och specifika dokumentationen DBMS allmän dokumentet pekar du
-        5.  För SAP HANA, mer information finns dokumenterade i [konfigurationer för SAP HANA-infrastruktur och åtgärder på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
-        6.  Aldrig montera Azure datadiskar till en virtuell Linux-dator med hjälp av enhets-ID. Använd istället universell unik identifierare (UUID). Var försiktig när du använder grafiska verktyg för att montera en Azure-datadiskar, till exempel. Kontrollera posterna i/etc/fstab att se till att diskarna är monterade med UUID
-            1.  Mer information finns [här](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk)
-    3.  Nätverk
-        1.  Testa och utvärdera din VNet-infrastruktur och distribution av dina SAP-program på en eller i olika Azure-nätverk
-            1.  Utvärdera metoden med nav och eker-arkitektur för virtuellt nätverk eller microsegmentation inom en enda Azure-nätverk som baseras på
-                1.  Kostnaderna på grund av datautbyte mellan [peer-kopplade virtuella Azure-nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Kostnaderna Kontrollera [prisinformation för Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network/)
-                2.  Utnyttja fast koppla för peering mellan Azure-nätverk för jämförelse med ändringen NSG för att isolera ett undernät i ett virtuellt nätverk i de fall där program eller virtuella datorer som finns i ett undernät för det virtuella nätverket blev en säkerhetsrisk
-                3.  Central loggning och granskning av nätverkstrafik mellan en lokal och världen utanför virtuellt datacenter som du har byggt upp i Azure
-            2.  Utvärdera och testa datasökväg mellan SAP-programnivån och SAP DBMS-lager. 
-                1.  Alla placeringen av [Azure virtuella nätverksinstallationer](https://azure.microsoft.com/solutions/network-appliances/) i kommunikationsvägen mellan SAP-program och DBMS-lager med en SAP NetWeaver, Hybris eller S/4HANA SAP system stöds inte alls
-                2.  Placera SAP-programnivån och SAP DBMS i olika Azure-nätverk inte peer-kopplade stöds inte
-                3.  [Azure ASG och NSG-regler](https://docs.microsoft.com/azure/virtual-network/security-overview) stöds för att definiera vägar mellan SAP-programnivån och SAP DBMS-lager
-            3.  Se till att [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) aktiveras på virtuella datorer som används på SAP-programnivån och SAP DBMS-lagret. Tänk på att olika nivåer för OS behövs för att stödja Accelererat nätverk i Azure:
-                1.  Windows Server 2012 R2 eller senare versioner
-                2.  SUSE Linux 12 SP3 eller senare versioner
-                3.  RHEL 7.4 eller senare versioner
-                4.  Oracle Linux 7.5. Använder RHCKL-kernel kan måste versionen vara 3.10.0-862.13.1.el7. Med hjälp av Oracle-UEK är kernel-version 5 obligatoriskt
-            4.   Testa och utvärdera Nätverksfördröjningen mellan SAP-programnivån VM och DBMS VM enligt SAP support-kommentar [#500235](https://launchpad.support.sap.com/#/notes/500235) och SAP support-kommentar [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Utvärdera resultaten med nätverket svarstid vägledning för SAP support anteckning [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Svarstiden i nätverk ska vara i intervallet måttliga och bra. Undantag gäller för trafik mellan virtuella datorer och stora HANA-instansen enheter enligt beskrivningen [här](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance)
-            5.   Se till att ILB-distributioner är konfigurerat att använda direkt Serverreturnering. Den här inställningen kommer att minska svarstiden i fall där Azure Ilb används för konfigurationer med hög tillgänglighet i DBMS-lager
-    4.   Hög tillgänglighet och disaster recovery-distributioner. 
-        1.   Om du har distribuerat SAP-programnivån utan att definiera en viss Azure-Tillgänglighetszon kan du se till att alla virtuella datorer som kör SAP dialogrutan instans eller mellanprogram instanser av en enda SAP-system har distribuerats i en [Tillgänglighetsuppsättning](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). 
-            1.   Om du inte behöver hög tillgänglighet för SAP Central Services och DBMS kan kan dessa virtuella datorer distribueras till samma Tillgänglighetsuppsättning som SAP-programnivån
-        2.   Om du skyddar SAP Central Services och DBMS-lagret för hög tillgänglighet med passiva repliker, har de två noderna för SAP Central Services i en separat Tillgänglighetsuppsättning och noden två DBMS i en annan Tillgänglighetsuppsättning
-        3.   Om du distribuerar till Azure Availability Zones kan du utnyttja Tillgänglighetsuppsättningar. Men du behöver se till att du distribuerar de aktiva och passiva Central Services-noderna i två olika Tillgänglighetszoner, som visar den minsta svarstiden mellan zoner.
-            1.   Tänk på att du behöver använda [Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) för fall av upprätta Windows eller Pacemaker redundanskluster för DBMS och SAP Central Services lagret i olika Tillgänglighetszoner. [Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) kan inte användas för zonindelade distributioner 
-    5.   Timeout-inställningar
-        1.   Kontrollera SAP NetWeaver developer spåren för de olika SAP-instanserna och se till att inga anslutning radbrytningar mellan sätta server och SAP arbetsprocesser anges. Dessa anslutning radbrytningar kan undvikas genom att ange dessa två registerparametrar:
-            1.   HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime = 120000 – Se även [i den här artikeln](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10))
-            2.   HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveInterval = 120000 – Se även [i den här artikeln](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)) 
-        2.   För att undvika GUI timeout mellan en lokal distribuerat SAP-GUI-gränssnitt och SAP programskikt distribueras i Azure, kontrollera om följande parametrar är inställda i default.pfl eller profilen för instans:
-            1.   rdisp/keepalive_timeout = 3600
-            2.   rdisp/keepalive = 20
-        3.   Om du använder en konfiguration för Windows-redundanskluster, se till att tid att reagera på inte svarar noder är korrekt för Azure. Microsoft-artikeln [justering tröskelvärden för Failover-kluster nätverk](https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/) visar en lista över parametrar och hur de påverkar sensitivities för redundans. Dessa två parametrar ska anges med värden för parametrarna:
-            1.   SameSubNetDelay = 2
-            2.   SameSubNetThreshold = 15
-4.   Testa din hög tillgänglighet och katastrofåterställning återställningsproceduren
-    1.   Simulera felväxling genom att stänga av virtuella datorer (Windows gästoperativsystem) eller placera operativsystem i panik läge (Linux gästoperativsystem) för att ta reda på om din redundanskonfigurationer som fungerar som avsett. 
-    2.   Mät de tid det tar för att köra en redundans. Om tiderna tar för lång tid bör:
-        1.   För SUSE Linux, använda uppstår enheter i stället för Azure-agenten hägna in snabbare redundans
-        2.   För SAP HANA om inläsning av data tar för lång tid du distribuera mer bandbredd för lagring
-    3.   Testa backup/restore-sekvensen och val av tidpunkt och justera vid behov. Se till att inte bara säkerhetskopieringstider är tillräckliga. Också testa återställning och utför tidsinställningen på återställning aktiviteter. Se till att återställningen går är inom dina RTO-serviceavtal om din RTO är beroende av en databas eller VM återställningen
-    4.   Testa i regionen DR-funktioner och arkitektur
-5.  Säkerhetskontroller
-    1.  Testa giltigheten hos Azure-roll baserad åtkomst (RBAC)-arkitektur som du har implementerat. Målet är att avgränsa och begränsa åtkomst och behörighet för olika team. Till exempel ska SAP-Basis teammedlemmar kunna distribuera virtuella datorer och tilldela diskar från Azure storage till en viss Azure-nätverk. Men SAP bas-teamet inte ska kunna skapa egna virtuella nätverk eller ändra inställningarna för befintliga virtuella nätverk. Å andra sidan bör medlemmar i teamet nätverk inte kunna distribuera virtuella datorer i virtuella nätverk där SAP-programmet och DBMS virtuella datorer körs. Eller medlemmar i teamet nätverk ska kunna ändra attribut för virtuella datorer eller ta bort virtuella datorer eller diskar.  
-    2.  Kontrollera [NSG och ASC](https://docs.microsoft.com/azure/virtual-network/security-overview) regler fungerar som förväntat och skärma av den skyddade resurser
-    3.  Se till att alla resurser som ska krypteras är krypterad. Definiera och köra processer för att säkerhetskopiera certifikat, lagra, och kommer åt certifikaten och återställa de krypterade entiteterna. 
-    4.  Använd [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) och/eller för OS-diskar där möjligt från ett operativsystem stöder synvinkel
-    5.  Kontrollera att inte för många nivåer av kryptering har använts. Gör den begränsade klokt att använda Azure Disk encryption och viktigaste sedan någon av metoderna DBMS Transparent databaskryptering på
-6.  Testning av prestanda
-    1.  Jämför översta 10 online-rapporter för aktuella implementeringen i SAP baserat på SAP-spårning och mätning av faktisk användning, om tillämpligt 
-    2.  Jämför översta 10 batch-jobb för aktuella implementeringen i SAP baserat på SAP-spårning och mätning av faktisk användning, om tillämpligt 
-    3.  I SAP baserat på SAP-spårning och mätning av faktisk användning, jämför dataöverföringar via gränssnitt i SAP-system. Fokusera på gränssnitt där du vet att överföringen kommer nu mellan olika platser, som kommer från lokalt till Azure 
+1. Optimera dataöverföring i Azure. Mycket beroende på kunden fall överföring via [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) från en lokal var snabbaste om Express-kretsen har tillräckligt med bandbredd. Med andra kunder kommit gå via internet fram till att vara snabbare
+2. Vid en SAP heterogena migreringen som inbegriper en export och import av databasdata, testa, och optimera exportera och importera faser. För stora migreringar som rör SQL-Server som målplattform, rekommendationer finns [här](https://blogs.msdn.microsoft.com/saponsqlserver/2017/05/08/sap-osdb-migration-to-sql-server-faq-v6-2-april-2017/). Du kan vidta metod för migrering Övervakare/SWPM om du inte behöver en uppgradering av kombinerade versionen eller [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) när du kombinerar migrering med en uppgradering för SAP-versionen och uppfyller vissa käll- och DBMS-plattform kombinationer som beskrivs i exempelvis [databasen migrering alternativet DMO () av SUMMAN 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152). 
+   1.  Exportera till källa, Export filuppladdning till Azure och importera prestanda.  Maximera överlapp mellan export och import
+   2.  Utvärdera mängden databas mellan mål- och mål-plattformen för att avspegla i infrastruktur-storlek    
+   3.  Validera och optimera Tidsinställning 
+3. Teknisk verifiering 
+   1. VM-typer
+      1.  Verifiera resurserna på SAP support anteckningar, SAP HANA maskinvara directory och SAP PAM igen för att se till att det fanns inga ändringar i virtuella datorer som stöds för Azure, OS-versioner som stöds för dessa typer av virtuella datorer och SAP och DBMS-versioner som stöds
+      2.  Validera igen storleksändringar av ditt program och infrastruktur som du distribuerar på Azure. När det gäller flytta befintliga program har du ofta kan härleda nödvändiga SAP från infrastrukturen som du använder och [SAP benchmark webbsidan](https://www.sap.com/dmc/exp/2018-benchmark-directory/#/sd) och jämför den med SAP-siffror som visas i SAP support-kommentar [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Håll också [i den här artikeln](https://blogs.msdn.microsoft.com/saponsqlserver/2018/11/04/saps-ratings-on-azure-vms-where-to-look-and-where-you-can-get-confused/) i åtanke
+      3.  Utvärdera och testa storleksändring av virtuella datorer i Azure avseende största genomflödet och nätverkets dataflöde av olika VM-typer som du valde i planeringsfasen. Data kan hittas i:
+          1.  [Storlekar för Windows-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Det är viktigt att tänka på de **maximalt icke cachelagrat diskgenomflöde** för storleksändring
+          2.  [Storlekar för Linux-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) är det viktigt att tänka på de **maximalt icke cachelagrat diskgenomflöde** för storleksändring
+   2. Storage
+      1.  Använd Azure Premium Storage för virtuella datorer i databasen
+      2.  Använd [Azure hanterade diskar](https://azure.microsoft.com/services/managed-disks/)
+      3.  Använd Azure Write Accelerator för DBMS loggenheter med M-serien. Tänk på Write accelerator gränser och användning enligt beskrivningen i [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)
+      4.  De olika DBMS-typerna, kontrollera den [allmän SAP DBMS dokumentationen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) och specifika dokumentationen DBMS allmän dokumentet pekar du
+      5.  För SAP HANA, mer information finns dokumenterade i [konfigurationer för SAP HANA-infrastruktur och åtgärder på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
+      6.  Aldrig montera Azure datadiskar till en virtuell Linux-dator med hjälp av enhets-ID. Använd istället universell unik identifierare (UUID). Var försiktig när du använder grafiska verktyg för att montera en Azure-datadiskar, till exempel. Kontrollera posterna i/etc/fstab att se till att diskarna är monterade med UUID
+          1.  Mer information finns [här](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk)
+   3. Nätverk
+      1.  Testa och utvärdera din VNet-infrastruktur och distribution av dina SAP-program på en eller i olika Azure-nätverk
+          1.  Utvärdera metoden med nav och eker-arkitektur för virtuellt nätverk eller microsegmentation inom en enda Azure-nätverk som baseras på
+              1.  Kostnaderna på grund av datautbyte mellan [peer-kopplade virtuella Azure-nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Kostnaderna Kontrollera [prisinformation för Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network/)
+              2.  Utnyttja fast koppla för peering mellan Azure-nätverk för jämförelse med ändringen NSG för att isolera ett undernät i ett virtuellt nätverk i de fall där program eller virtuella datorer som finns i ett undernät för det virtuella nätverket blev en säkerhetsrisk
+              3.  Central loggning och granskning av nätverkstrafik mellan en lokal och världen utanför virtuellt datacenter som du har byggt upp i Azure
+          2.  Utvärdera och testa datasökväg mellan SAP-programnivån och SAP DBMS-lager. 
+              1.  Alla placeringen av [Azure virtuella nätverksinstallationer](https://azure.microsoft.com/solutions/network-appliances/) i kommunikationsvägen mellan SAP-program och DBMS-lager med en SAP NetWeaver, Hybris eller S/4HANA SAP system stöds inte alls
+              2.  Placera SAP-programnivån och SAP DBMS i olika Azure-nätverk inte peer-kopplade stöds inte
+              3.  [Azure ASG och NSG-regler](https://docs.microsoft.com/azure/virtual-network/security-overview) stöds för att definiera vägar mellan SAP-programnivån och SAP DBMS-lager
+          3.  Se till att [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) aktiveras på virtuella datorer som används på SAP-programnivån och SAP DBMS-lagret. Tänk på att olika nivåer för OS behövs för att stödja Accelererat nätverk i Azure:
+              1.  Windows Server 2012 R2 eller senare versioner
+              2.  SUSE Linux 12 SP3 eller senare versioner
+              3.  RHEL 7.4 eller senare versioner
+              4.  Oracle Linux 7.5. Använder RHCKL-kernel kan måste versionen vara 3.10.0-862.13.1.el7. Med hjälp av Oracle-UEK är kernel-version 5 obligatoriskt
+          4.   Testa och utvärdera Nätverksfördröjningen mellan SAP-programnivån VM och DBMS VM enligt SAP support-kommentar [#500235](https://launchpad.support.sap.com/#/notes/500235) och SAP support-kommentar [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Utvärdera resultaten med nätverket svarstid vägledning för SAP support anteckning [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Svarstiden i nätverk ska vara i intervallet måttliga och bra. Undantag gäller för trafik mellan virtuella datorer och stora HANA-instansen enheter enligt beskrivningen [här](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance)
+          5.   Se till att ILB-distributioner är konfigurerat att använda direkt Serverreturnering. Den här inställningen kommer att minska svarstiden i fall där Azure Ilb används för konfigurationer med hög tillgänglighet i DBMS-lager
+   4. Hög tillgänglighet och disaster recovery-distributioner. 
+      1. Om du har distribuerat SAP-programnivån utan att definiera en viss Azure-Tillgänglighetszon kan du se till att alla virtuella datorer som kör SAP dialogrutan instans eller mellanprogram instanser av en enda SAP-system har distribuerats i en [Tillgänglighetsuppsättning](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). 
+         1.   Om du inte behöver hög tillgänglighet för SAP Central Services och DBMS kan kan dessa virtuella datorer distribueras till samma Tillgänglighetsuppsättning som SAP-programnivån
+      2. Om du skyddar SAP Central Services och DBMS-lagret för hög tillgänglighet med passiva repliker, har de två noderna för SAP Central Services i en separat Tillgänglighetsuppsättning och noden två DBMS i en annan Tillgänglighetsuppsättning
+      3. Om du distribuerar till Azure Availability Zones kan du utnyttja Tillgänglighetsuppsättningar. Men du behöver se till att du distribuerar de aktiva och passiva Central Services-noderna i två olika Tillgänglighetszoner, som visar den minsta svarstiden mellan zoner.
+         1.   Tänk på att du behöver använda [Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) för fall av upprätta Windows eller Pacemaker redundanskluster för DBMS och SAP Central Services lagret i olika Tillgänglighetszoner. [Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) kan inte användas för zonindelade distributioner 
+   5. Timeout-inställningar
+      1. Kontrollera SAP NetWeaver developer spåren för de olika SAP-instanserna och se till att inga anslutning radbrytningar mellan sätta server och SAP arbetsprocesser anges. Dessa anslutning radbrytningar kan undvikas genom att ange dessa två registerparametrar:
+         1.   HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime = 120000 – Se även [i den här artikeln](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10))
+         2.   HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveInterval = 120000 – Se även [i den här artikeln](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)) 
+      2. För att undvika GUI timeout mellan en lokal distribuerat SAP-GUI-gränssnitt och SAP programskikt distribueras i Azure, kontrollera om följande parametrar är inställda i default.pfl eller profilen för instans:
+         1.   rdisp/keepalive_timeout = 3600
+         2.   rdisp/keepalive = 20
+      3. Om du använder en konfiguration för Windows-redundanskluster, se till att tid att reagera på inte svarar noder är korrekt för Azure. Microsoft-artikeln [justering tröskelvärden för Failover-kluster nätverk](https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/) visar en lista över parametrar och hur de påverkar sensitivities för redundans. Dessa två parametrar ska anges med värden för parametrarna:
+         1.   SameSubNetDelay = 2
+         2.   SameSubNetThreshold = 15
+4. Testa din hög tillgänglighet och katastrofåterställning återställningsproceduren
+   1. Simulera felväxling genom att stänga av virtuella datorer (Windows gästoperativsystem) eller placera operativsystem i panik läge (Linux gästoperativsystem) för att ta reda på om din redundanskonfigurationer som fungerar som avsett. 
+   2. Mät de tid det tar för att köra en redundans. Om tiderna tar för lång tid bör:
+      1.   För SUSE Linux, använda uppstår enheter i stället för Azure-agenten hägna in snabbare redundans
+      2.   För SAP HANA om inläsning av data tar för lång tid du distribuera mer bandbredd för lagring
+   3. Testa backup/restore-sekvensen och val av tidpunkt och justera vid behov. Se till att inte bara säkerhetskopieringstider är tillräckliga. Också testa återställning och utför tidsinställningen på återställning aktiviteter. Se till att återställningen går är inom dina RTO-serviceavtal om din RTO är beroende av en databas eller VM återställningen
+   4. Testa i regionen DR-funktioner och arkitektur
+5. Säkerhetskontroller
+   1.  Testa giltigheten hos Azure-roll baserad åtkomst (RBAC)-arkitektur som du har implementerat. Målet är att avgränsa och begränsa åtkomst och behörighet för olika team. Till exempel ska SAP-Basis teammedlemmar kunna distribuera virtuella datorer och tilldela diskar från Azure storage till en viss Azure-nätverk. Men SAP bas-teamet inte ska kunna skapa egna virtuella nätverk eller ändra inställningarna för befintliga virtuella nätverk. Å andra sidan bör medlemmar i teamet nätverk inte kunna distribuera virtuella datorer i virtuella nätverk där SAP-programmet och DBMS virtuella datorer körs. Eller medlemmar i teamet nätverk ska kunna ändra attribut för virtuella datorer eller ta bort virtuella datorer eller diskar.  
+   2.  Kontrollera [NSG och ASC](https://docs.microsoft.com/azure/virtual-network/security-overview) regler fungerar som förväntat och skärma av den skyddade resurser
+   3.  Se till att alla resurser som ska krypteras är krypterad. Definiera och köra processer för att säkerhetskopiera certifikat, lagra, och kommer åt certifikaten och återställa de krypterade entiteterna. 
+   4.  Använd [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) och/eller för OS-diskar där möjligt från ett operativsystem stöder synvinkel
+   5.  Kontrollera att inte för många nivåer av kryptering har använts. Gör den begränsade klokt att använda Azure Disk encryption och viktigaste sedan någon av metoderna DBMS Transparent databaskryptering på
+6. Testning av prestanda
+   1.  Jämför översta 10 online-rapporter för aktuella implementeringen i SAP baserat på SAP-spårning och mätning av faktisk användning, om tillämpligt 
+   2.  Jämför översta 10 batch-jobb för aktuella implementeringen i SAP baserat på SAP-spårning och mätning av faktisk användning, om tillämpligt 
+   3.  I SAP baserat på SAP-spårning och mätning av faktisk användning, jämför dataöverföringar via gränssnitt i SAP-system. Fokusera på gränssnitt där du vet att överföringen kommer nu mellan olika platser, som kommer från lokalt till Azure 
 
 
 ## <a name="non-production-phase"></a>Icke-produktion fas 

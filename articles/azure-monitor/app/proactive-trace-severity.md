@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: mbullwin
-ms.openlocfilehash: a593e42ed87ab985d4f4584ed6b73109716120bf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 10b909fd5239546047aa4696a1f6a68a703778c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028993"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001234"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>Försämring i spårningen allvarlighetsgrad-förhållande (förhandsversion)
 
@@ -26,7 +26,7 @@ Spårningar används mycket i program, eftersom de hjälper uppgift att berätta
 Den här funktionen kräver några särskilda inställningar, förutom att konfigurera spårningsloggning för din app (se hur du konfigurerar en trace log-lyssnare för [.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-trace-logs) eller [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-trace-logs)). Den är aktiv när din app genererar mycket undantagstelemetri.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>När ska jag den här typen av meddelande för smart identifiering?
-Du kan få den här typen av meddelande om förhållandet mellan ”good” spår (spårningar som loggas med en nivå av *Info* eller *utförlig*) och ”dåliga” spårningar (spårningar som loggas med en nivå av *varning*, * Fel, eller *oåterkalleligt fel*) är att försämras under en viss dag, jämfört med grundregel beräknad under de senaste sju dagarna.
+Du kan få den här typen av meddelande om förhållandet mellan ”good” spår (spårningar som loggas med en nivå av *Info* eller *utförlig*) och ”dåliga” spårningar (spårningar som loggas med en nivå av *varning*, *Fel*, eller *oåterkalleligt fel*) är att försämras under en viss dag, jämfört med grundregel beräknad under de senaste sju dagarna.
 
 ## <a name="does-my-app-definitely-have-a-problem"></a>Min app definitivt finns det ett problem?
 Nej, ett meddelande innebär inte att din app definitivt finns ett fel. Även om förhållandet mellan ”good” och ”dåliga” spårningar försämrade kan tyda på ett problem med programmet, kan den här ändringen i förhållande vara ofarliga. Till exempel kanske ökningen på grund av ett nytt flöde i program som sänder mer ”dåliga” spårningar än befintliga flöden).

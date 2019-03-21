@@ -10,12 +10,12 @@ ms.topic: overview
 ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: 47b48d940bb86ac5392ab7845aa8c34b146f116a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: f0104bdc4b5ea5c5c6333e12b95defafb34665b3
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170436"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295512"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Vad är Azure Stream Analytics?
 
@@ -79,7 +79,7 @@ Som en molntjänst är Stream Analytics optimerad för kostnad. Det innebär ing
 ## <a name="mission-critical-ready"></a>Redo för verksamhetskritiskt
 Azure Stream Analytics är tillgängligt i flera regioner över hela världen och är utformat för att köra verksamhetskritiska arbetsbelastningar genom att stödja kraven för tillförlitlighet, säkerhet och efterlevnad.
 ### <a name="reliability"></a>Tillförlitlighet
-Azure Stream Analytics garanterar händelsebearbetning exakt en gång och leverans av händelser minst en gång, så inga händelser går förlorade. Bearbetning exakt en gång garanteras med valda utdata enligt beskrivningen i [Garantier för händelseleverans](https://docs.microsoft.com/en-us/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics). Azure Stream Analytics har inbyggda återställningsfunktioner om det inte går att leverera en händelse. Dessutom ger Stream Analytics inbyggda kontrollpunkter för att upprätthålla jobbets tillstånd och ger upprepningsbara resultat.
+Azure Stream Analytics garanterar händelsebearbetning exakt en gång och leverans av händelser minst en gång, så inga händelser går förlorade. Exakt-när bearbetningen är korrekt med valda enligt beskrivningen i [händelse Leveransgarantier](https://docs.microsoft.com/en-us/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics). Azure Stream Analytics har inbyggda återställningsfunktioner om det inte går att leverera en händelse. Dessutom ger Stream Analytics inbyggda kontrollpunkter för att upprätthålla jobbets tillstånd och ger upprepningsbara resultat.
 
 Som hanterad tjänst garanterar Stream Analytics händelsebearbetning med 99,9 % tillgänglighet på minutnivå. Mer information finns på sidan [SLA för Stream Analytics](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/). 
 

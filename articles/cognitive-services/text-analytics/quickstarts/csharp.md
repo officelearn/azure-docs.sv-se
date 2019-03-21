@@ -10,46 +10,45 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
-ms.openlocfilehash: 9b56104934c1ddcc60222c988efdf173ca33d77b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: bc4553df239dbb8b62a31414539b10998cd74f02
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871017"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189656"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av C#
 <a name="HOLTop"></a>
 
-Den här artikeln visar hur du identifierar språk, analyserar sentiment extraherar nyckelfraser med hjälp av  [API:er för textanalys](//go.microsoft.com/fwlink/?LinkID=759711)  med C#. Koden har skrivits för att fungera med ett .Net Core-program med minimala referenser till externa bibliotek, så du kan även köra det på Linux eller MacOS.
+Den här artikeln visar hur du identifierar språk, analyserar sentiment extraherar nyckelfraser med hjälp av  [API:er för textanalys](//go.microsoft.com/fwlink/?LinkID=759711)  med C#. Koden har skrivits för att arbeta med en .NET Core-App med minimal referenser till externa bibliotek, så du kan också köra den på Linux eller MacOS.
 
 Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk dokumentation för API:erna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 Du måste även ha [slutpunkten och åtkomstnyckeln](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig vid registreringen.
-
 
 ## <a name="install-the-nuget-sdk-package"></a>Installera NuGet SDK-paketet
 1. Skapa en ny konsollösning i Visual Studio.
 1. Högerklicka på lösningen och klicka på **Hantera NuGet-paket för lösningen**
 1. Markera kryssrutan **Inkludera förhandsversion**.
 1. Välj fliken **Bläddra** sök efter **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**
-1. Välj NuGet-paketet och installera det.
+1. Välj NuGet-paketet och installera det. Du kan behöva v2.8.0 för nu (3-18-2019), i motsats till v3.0.0, tills ett fel i programvaran har lösts.
 
 > [!Tip]
 >  Du skulle kunna anropa [HTTP-slutpunkterna](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) direkt från C#, men Microsoft.Azure.CognitiveServices.Language SDK gör det mycket enklare att anropa tjänsten utan att behöva bry sig om serialisering och avserialisering av JSON.
 >
 > Några användbara länkar:
-> - [SDK Nuget-sidan](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+> - [SDK Nuget-sidan](<https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics>)
 > - [SDK-kod](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
-
 ## <a name="call-the-text-analytics-api-using-the-sdk"></a>Anropa API för textanalys med hjälp av SDK
+
 1. Ersätt Program.cs med koden nedan. Det här programmet demonstrerar funktionerna i API för textanalys i tre avsnitt (språkextrahering, nyckelfrasextrahering och sentimentanalys).
 1. Ersätt `Ocp-Apim-Subscription-Key`-huvudvärdet med en giltig åtkomstnyckel för din prenumeration.
-1. Ersätt platsen i `Endpoint` med den slutpunkt som du har registrerat dig för. Du hittar slutpunkten under resursen på Azure-portalen. Slutpunkten börjar vanligtvis med ”https://[region].api.cognitive.microsoft.com”, och här innehåller den endast protokollet och värdnamnet.
+1. Ersätt regionen i `Endpoint`. Du kan hitta din slutpunkt i översiktsavsnittet för din Text Analytics-resurs i den [Azure-portalen](<https://ms.portal.azure.com>). Inkludera endast den här delen av din slutpunkt: ”https://[region].api.cognitive.microsoft.com”.
 1. Kör programmet.
 
 ```csharp
@@ -222,7 +221,7 @@ Document ID: 3 , Sentiment Score: 1.00
 > [!div class="nextstepaction"]
 > [Textanalys med Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
  [Översikt över Textanalys](../overview.md) [Vanliga frågor och svar](../text-analytics-resource-faq.md)
 

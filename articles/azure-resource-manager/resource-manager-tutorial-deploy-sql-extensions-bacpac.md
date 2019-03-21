@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6c146a99be369f92a72717ad1ec4b79bddafe28c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: 40c7e00ad5271457904fc3273fdb633b0c7a8016
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819334"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085073"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Självstudie: Importera SQL BACPAC-filer med Azure Resource Manager-mallar
 
@@ -65,11 +65,11 @@ Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I st�
 
     Det finns tre resurser som definieras i mallen:
 
-    * `Microsoft.Sql/servers`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
-    * `Microsoft.SQL/servers/securityAlertPolicies`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies).
-    * `Microsoft.SQL.servers/databases`.  Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+   * `Microsoft.Sql/servers`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
+   * `Microsoft.SQL/servers/securityAlertPolicies`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies).
+   * `Microsoft.SQL.servers/databases`.  Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
 
-    Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
+     Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
 4. Välj **Arkiv**>**Spara som** för att spara en kopia av filen till den lokala datorn med namnet **azuredeploy.json**.
 
 ## <a name="edit-the-template"></a>Redigera mallen

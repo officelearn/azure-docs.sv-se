@@ -9,12 +9,12 @@ ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 002a3e3817b663807154fab595489a6fb640105d
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: fa703defdda17a69aec99d3fbe479e9867781d68
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472610"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175593"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Snabbstart: Dirigera anpassade händelser till en webbslutpunkt med PowerShell och Event Grid
 
@@ -24,20 +24,22 @@ När du är klar kan se du att händelsedata som har skickats till webbappen.
 
 ![Visa resultat](./media/custom-event-quickstart-powershell/view-result.png)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-Den här artikeln kräver att du kör den senaste versionen av Azure PowerShell. Om du behöver installera eller uppgradera kan du läsa [Installera och konfigurera Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+Den här artikeln kräver att du kör den senaste versionen av Azure PowerShell. Om du behöver installera eller uppgradera kan du läsa [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
 Event Grid-ämnen är Azure-resurser och måste placeras i en Azure-resursgrupp. Resursgruppen är en logisk samling där Azure-resurser distribueras och hanteras.
 
-Skapa en resursgrupp med kommandot [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).
+Skapa en resursgrupp med kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 I följande exempel skapas en resursgrupp med namnet *gridResourceGroup* på platsen *westus2*.
 
 ```powershell-interactive
-New-AzureRmResourceGroup -Name gridResourceGroup -Location westus2
+New-AzResourceGroup -Name gridResourceGroup -Location westus2
 ```
 
 [!INCLUDE [event-grid-register-provider-powershell.md](../../includes/event-grid-register-provider-powershell.md)]
@@ -49,7 +51,7 @@ Ett event grid-ämne tillhandahåller en användardefinierad slutpunkt där du p
 ```powershell-interactive
 $topicname="<your-topic-name>"
 
-New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location westus2 -Name $topicname
+New-AzEventGridTopic -ResourceGroupName gridResourceGroup -Location westus2 -Name $topicname
 ```
 
 ## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
@@ -61,7 +63,7 @@ Ersätt `<your-site-name>` med ett unikt namn för din webbapp. Webbappnamnet m�
 ```powershell-interactive
 $sitename="<your-site-name>"
 
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -ResourceGroupName gridResourceGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" `
   -siteName $sitename `
@@ -81,7 +83,7 @@ Slutpunkten för ditt webbprogram måste innehålla suffixet `/api/updates/`.
 ```powershell-interactive
 $endpoint="https://$sitename.azurewebsites.net/api/updates"
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -EventSubscriptionName demoViewerSub `
   -Endpoint $endpoint `
   -ResourceGroupName gridResourceGroup `
@@ -97,8 +99,8 @@ Visa ditt webbprogram igen och observera att en händelse för verifieringen av 
 Nu ska vi utlösa en händelse och se hur Event Grid distribuerar meddelandet till slutpunkten. Först måste vi ta fram URL och nyckel för ämnet.
 
 ```powershell-interactive
-$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicname).Endpoint
-$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicname
+$endpoint = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicname).Endpoint
+$keys = Get-AzEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicname
 ```
 
 Låt oss skapa exempelhändelsedata att skicka till det anpassade ämnet för att förenkla den här artikeln. Ett program eller en Azure-tjänst skulle vanligtvis skicka sådana händelsedata. I följande exempel används en Hashtable för att konstruera händelsedata `htbody` som sedan konverteras till korrekt JSON-nyttolastobjekt `$body`:
@@ -158,7 +160,7 @@ Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt
 Om du planerar att fortsätta arbeta med den här händelsen eller händelsevisningsappen ska du inte rensa upp bland de resurser som skapades i den här artikeln. I annat fall kan du använda kommandona nedan för att ta bort alla resurser som har skapats i den här artikeln.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name gridResourceGroup
+Remove-AzResourceGroup -Name gridResourceGroup
 ```
 
 ## <a name="next-steps"></a>Nästa steg

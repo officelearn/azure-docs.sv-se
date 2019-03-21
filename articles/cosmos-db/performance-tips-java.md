@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: 747f58ba5062bd8bcc3995bbfa73cea49e8ddc4b
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: a3f194150d1ce452f79db273266d3c9d77e560fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892906"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094743"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Prestandatips för Azure Cosmos DB och Java
 
@@ -36,25 +36,25 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
    1. [Gateway (standard)](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode)
    2. [DirectHttps](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode)
 
-    Gateway-läge stöds på alla SDK-plattformar och är konfigurerad standard.  Om programmet körs inifrån ett företagsnätverk med strikta brandväggsbegränsningar, är Gateway det bästa valet eftersom det använder HTTPS-standardport och en enda slutpunkt. Prestanda-Nackdelen är dock att Gateway-läge innebär att en ytterligare ett hopp varje gång som data har lästs eller skrivits till Azure Cosmos DB. Därför erbjuder bättre prestanda på grund av färre nätverkssteg i DirectHttps läge. 
+      Gateway-läge stöds på alla SDK-plattformar och är konfigurerad standard.  Om programmet körs inifrån ett företagsnätverk med strikta brandväggsbegränsningar, är Gateway det bästa valet eftersom det använder HTTPS-standardport och en enda slutpunkt. Prestanda-Nackdelen är dock att Gateway-läge innebär att en ytterligare ett hopp varje gång som data har lästs eller skrivits till Azure Cosmos DB. Därför erbjuder bättre prestanda på grund av färre nätverkssteg i DirectHttps läge. 
 
-    Java SDK använder HTTPS som transport-protokoll. HTTPS använder SSL för den inledande autentiseringen och kryptering av trafik. När du använder Java SDK, måste endast HTTPS-port 443 är öppna. 
+      Java SDK använder HTTPS som transport-protokoll. HTTPS använder SSL för den inledande autentiseringen och kryptering av trafik. När du använder Java SDK, måste endast HTTPS-port 443 är öppna. 
 
-    ConnectionMode konfigureras under konstruktionen av DocumentClient-instansen med parametern ConnectionPolicy. 
+      ConnectionMode konfigureras under konstruktionen av DocumentClient-instansen med parametern ConnectionPolicy. 
 
-    ```Java
-    public ConnectionPolicy getConnectionPolicy() {
+      ```Java
+      public ConnectionPolicy getConnectionPolicy() {
         ConnectionPolicy policy = new ConnectionPolicy();
         policy.setConnectionMode(ConnectionMode.DirectHttps);
         policy.setMaxPoolSize(1000);
         return policy;
-    }
+      }
         
-    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-    DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
-    ```
+      ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+      DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
+      ```
 
-    ![Bild av principen för Azure Cosmos DB](./media/performance-tips-java/connection-policy.png)
+      ![Bild av principen för Azure Cosmos DB](./media/performance-tips-java/connection-policy.png)
 
    <a id="same-region"></a>
 2. **Samordna klienter i samma Azure-region för prestanda**
@@ -147,7 +147,7 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
     ```             
 
     Kostnad för begäran som returnerades i det här sidhuvudet är en del av det tilldelade dataflödet. Till exempel om du har 2000 etablerade RU/s och om den föregående frågan returnerar 1000 1KB-dokument, kostnaden för åtgärden är 1 000. Inom en sekund godkänner servern därför bara två sådana begäranden innan hastighet som begränsar efterföljande förfrågningar. Mer information finns i [programbegäran](request-units.md) och [begäran enhet Kalkylatorn](https://www.documentdb.com/capacityplanner).
-<a id="429"></a>
+   <a id="429"></a>
 1. **Hantera hastighet begränsar/begärandehastighet för stor**
 
     När en klient försöker överskrida reserverat dataflöde för ett konto, finns det inga prestandaförsämring på servern och ingen användning av dataflödeskapacitet utöver nivån som är reserverade. Servern kommer sluta på begäran med RequestRateTooLarge (HTTP-statuskod 429) och returnera den [x-ms-återförsök-efter-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) huvud som anger hur lång tid i millisekunder som användaren måste vänta innan ett nytt försök begäran.

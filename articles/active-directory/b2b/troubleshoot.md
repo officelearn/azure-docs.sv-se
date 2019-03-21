@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e66c694d2bfb5497712bcf81c4d50a8e68fdcef9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: af106650f6e1d139ec7af2c8d243dc50f2e963fc
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122528"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293966"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Felsökning av Azure Active Directory B2B-samarbete
 
@@ -38,7 +38,7 @@ Du kan aktivera den här funktionen med hjälp av inställningen ”ShowPeoplePi
 
 Om du får ett meddelande om att du inte har behörighet att bjuda in användare, verifiera att ditt användarkonto har behörighet att bjuda in extern användare under användarinställningar:
 
-![Inställningar för externa användare](media/troubleshoot/external-user-settings.png)
+![Skärmbild som visar inställningar för externa användare](media/troubleshoot/external-user-settings.png)
 
 Om du nyligen har ändrat dessa inställningar eller tilldelat rollen Gästinbjudare till en användare kan det finnas en fördröjning på 15 – 60 minuter innan ändringarna träder i kraft.
 
@@ -50,7 +50,7 @@ Vanliga fel är:
 
 När du bjuder in användare vars organisation använder Azure Active Directory, men där användarens konto inte finns (till exempel användaren finns inte i Azure AD-contoso.com). Administratören för contoso.com kan ha en princip på plats som förhindrar att användare håller på att skapas. Du måste kontrollera med administratören för att bestämma om externa användare. Den externa användaren administratör kan behöva tillåta e-verifierad användare inom sin domän (finns i den här [artikeln](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) på e-verifierat användarna).
 
-![Felmeddelande om den här klienten inte att e-postverifierade användare som ska läggas till](media/troubleshoot/allow-email-verified-users.png)
+![Felmeddelande om klienten inte att e-postverifierade användare](media/troubleshoot/allow-email-verified-users.png)
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>Extern användare finns inte redan i en federerad domän
 

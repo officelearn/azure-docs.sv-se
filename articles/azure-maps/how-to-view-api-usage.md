@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f8977a0a50103b3c2935ee27a69a53e636f5aecb
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d14088ed940ab83be29756a26f8612704bb9aebd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580403"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079886"
 ---
 # <a name="view-azure-maps-api-usage"></a>Visa Azure Maps-API-användning
 
@@ -37,10 +37,10 @@ Fortsätta till nästa avsnitt om du vill anpassa dessa diagram för din specifi
 
 4. På den **mått** fönstret, välja mellan något av följande:
 
-    1. **Tillgänglighet** – som visar den *genomsnittlig* API tillgänglighet under en viss tidsperiod.
-    2. **Användning** – som visar hur användningen *antal* för ditt konto.
+   1. **Tillgänglighet** – som visar den *genomsnittlig* API tillgänglighet under en viss tidsperiod.
+   2. **Användning** – som visar hur användningen *antal* för ditt konto.
 
-    ![Fönstret för Azure Maps-mått](media/how-to-view-api-usage/portal-metrics.png)
+      ![Fönstret för Azure Maps-mått](media/how-to-view-api-usage/portal-metrics.png)
 
 5. Du kan sedan välja den *tidsintervall* genom att klicka på **senaste 24 timmarna (automatisk)**. Tidsintervallet anges som standard till 24 timmar. När du klickar på, visas alla valbara tidsintervall. Du kan välja den *tidskornighet* och väljer att visa tiden som *lokala* eller *GMT* i samma listrutan. Klicka på **Verkställ**.
 

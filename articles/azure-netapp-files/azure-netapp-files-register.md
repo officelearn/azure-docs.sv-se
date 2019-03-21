@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: b-juche
-ms.openlocfilehash: dc24165d3a5ee4d72c259753edd4028752828dce
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 86c016a5dbcc0d78378e59bc6b3606ddf2c54f64
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772299"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122343"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registrera för Azure NetApp Files
 Innan du använder Azure NetApp filer behöver du skicka en begäran om att registrera i Azure NetApp Files-tjänsten.  Efter registreringen registrerar du dig för att använda tjänsten.
@@ -61,7 +61,7 @@ För att kunna använda tjänsten behöver du registrera Azure-resursprovidern f
     
         az provider show --namespace Microsoft.NetApp
 
-  Utdata från kommandot visas på följande sätt:
+   Utdata från kommandot visas på följande sätt:
    
         {
         "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",

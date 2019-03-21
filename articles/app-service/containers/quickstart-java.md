@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: e4ae0c944323f18876ffcd1ee5c21aa29e9806cc
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: HT
+ms.openlocfilehash: 4b95c75b863cdc86dd8a1ebe8347b77b637b110c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650826"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999112"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Snabbstart: Skapa en Java-app i App Service i Linux
 
@@ -55,25 +55,18 @@ Lägg sedan till följande plugin-definition i `<build>`-elementet i filen `pom.
     <!--*************************************************-->
     <!-- Deploy to Tomcat in App Service Linux           -->
     <!--*************************************************-->
-      
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
         <version>1.5.3</version>
         <configuration>
-            <!-- Specify v2 schema -->
-            <schemaVersion>v2</schemaVersion>
             <!-- App information -->
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
    
             <!-- Java Runtime Stack for App on Linux-->
-            <runtime>
-                <os>linux</os>
-                <javaVersion>jre8</javaVersion>
-                <webContainer>tomcat 8.5</webContainer>
-            </runtime>
+            <linuxRuntime>tomcat 8.5-jre8</linuxRuntime> 
         </configuration>
     </plugin>
 </plugins>
@@ -115,7 +108,8 @@ När distributionen är klar bläddrar du till den distribuerade tillämpningen 
 I den här snabbstarten använde du Maven för att skapa en Java-app, konfigurerade [Maven-plugin-programmet för Azure Web Apps ](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) och distribuerade sedan en webbarkivpaketerad Java-app till App Service i Linux. Mer information om hur du hanterar Java-program i App Service för Linux finns i nedanstående självstudier och instruktionsartiklar.
 
 - [Självstudier: Distribuera en Java-företagsapp med PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
-- [Konfigurera en Tomcat-datakälla](app-service-linux-java.md#connecting-to-data-sources)
+- [Konfigurera en Tomcat-datakälla](app-service-linux-java.md#tomcat)
 - [CI/CD med Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
 - [Konfigurera verktyg för övervakning av programprestanda](how-to-java-apm-monitoring.md)
+- [Java developer's guide för App Service på Linux](app-service-linux-java.md)
 

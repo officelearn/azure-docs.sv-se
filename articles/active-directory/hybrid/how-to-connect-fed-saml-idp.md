@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b82c2261e949c724b1310ee43c6f3fe29766945
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8b5eb46b845bebbb81dce6aadb9d97af08955df3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531019"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096953"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Använda en SAML 2.0-identitetsprovider (IdP) för enkel inloggning på
 
@@ -30,16 +30,16 @@ Det här dokumentet innehåller information om hur du använder en SAML 2.0 komp
 
 Microsoft stöder den här inloggning som integreringen av en Microsoft-molntjänst som Office 365, med korrekt konfigurerade SAML 2.0-profil-baserade IDP: N. SAML 2.0 identitetsleverantörer är produkter från tredje part och därför Microsoft tillhandhåller inte support för att distribuera, konfiguration, råd om dem om felsökning. En gång korrekt konfigurerad, integrering med SAML 2.0-identitetsprovider kan testas för korrekt konfiguration med hjälp av Microsoft Connectivity Analyzer Tool, som beskrivs i detalj nedan. Mer information om din SAML 2.0 SP-Lite profil-baserade identitetsprovider be organisationen som angetts för den.
 
->[!IMPORTANT]
->Endast en begränsad uppsättning klienter är tillgängliga i det här scenariot inloggning med identitetsleverantörer för SAML 2.0, bland annat:
-
->- Webbaserade klienter, till exempel Outlook Web Access och SharePoint Online
-- E-post-omfattande klienter som använder grundläggande autentisering och en metod för åtkomst av stöds Exchange IMAP-, POP, Active Sync, MAPI osv (förbättrad klientprotokollet slutpunkt krävs för distribution), inklusive:
-    - Microsoft Outlook 2010/Outlook 2013/Outlook 2016, Apple iPhone (olika iOS-versioner)
-    - Olika Google Android-enheter
-    - Windows Phone 7, Windows Phone 7.8 och Windows Phone 8.0
-    - E-postklient för Windows 8 och Windows 8.1 e-postklient
-    - Windows 10 e-postklient
+> [!IMPORTANT]
+> Endast en begränsad uppsättning klienter är tillgängliga i det här scenariot inloggning med identitetsleverantörer för SAML 2.0, bland annat:
+> 
+> - Webbaserade klienter, till exempel Outlook Web Access och SharePoint Online
+> - E-post-omfattande klienter som använder grundläggande autentisering och en metod för åtkomst av stöds Exchange IMAP-, POP, Active Sync, MAPI osv (förbättrad klientprotokollet slutpunkt krävs för distribution), inklusive:
+>     - Microsoft Outlook 2010/Outlook 2013/Outlook 2016, Apple iPhone (olika iOS-versioner)
+>     - Olika Google Android-enheter
+>     - Windows Phone 7, Windows Phone 7.8 och Windows Phone 8.0
+>     - E-postklient för Windows 8 och Windows 8.1 e-postklient
+>     - Windows 10 e-postklient
 
 Alla klienter är inte tillgängliga i det här scenariot inloggning med din SAML 2.0-identitetsprovider. Lync 2010-klientversionen är till exempel inte kunna logga in på tjänsten med din SAML 2.0-identitetsprovider som konfigurerats för enkel inloggning.
 
@@ -194,7 +194,7 @@ Följande procedur beskriver hur du konverterar en befintlig domän som standard
 Läs mer om ”Set-MsolDomainAuthentication”: [ https://technet.microsoft.com/library/dn194112.aspx ](https://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
->Du måste köra användning ”$ecpUrl =”https://WS2012R2-0.contoso.com/PAOS”” bara om du har konfigurerat ett ECP-tillägg för din identitetsprovider. Exchange Online-klienter, exklusive Outlook Web Application (OWA) förlitar sig på ett INLÄGG baserat active slutpunkt. Om din SAML 2.0 STS implementerar en aktiv slutpunkt som liknar Shibboleth's ECP implementering av en aktiv slutpunkt kan det vara möjligt för dessa omfattande klienter kan interagera med Exchange Online-tjänsten.
+>Du måste köra Använd `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` endast om du har konfigurerat ett ECP-tillägg för din identitetsprovider. Exchange Online-klienter, exklusive Outlook Web Application (OWA) förlitar sig på ett INLÄGG baserat active slutpunkt. Om din SAML 2.0 STS implementerar en aktiv slutpunkt som liknar Shibboleth's ECP implementering av en aktiv slutpunkt kan det vara möjligt för dessa omfattande klienter kan interagera med Exchange Online-tjänsten.
 
 När federation har konfigurerats du kan gå tillbaka till ”icke-federerade” (eller ”hanterad”), men den här ändringen tar upp till två timmar att slutföra och måste tilldela nya slumpmässigt lösenord för molnbaserad inloggning till varje användare. Växla tillbaka till ”hanterad” kan krävas i vissa situationer för att återställa ett fel i dina inställningar. Läs mer på domänen konvertering: [ https://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 

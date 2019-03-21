@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b23b2c46098fb53a3a08ff86c46cc6b6c9b936bb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 17dd2a8cf58066fda7f82ba53b048df8e9b89da8
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228580"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285255"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Skydda ett fristående kluster i Windows genom att använda X.509-certifikat
 Den här artikeln beskriver hur du skyddar kommunikationen mellan de olika noderna i ditt fristående Windows-kluster. Det beskriver också hur du autentiserar klienter som ansluter till det här klustret genom att använda X.509-certifikat. Autentisering säkerställer att endast behöriga användare kan få åtkomst till klustret och distribuerade program och utföra administrativa uppgifter. Certifikatsäkerhet ska aktiveras på klustret när klustret har skapats.  
@@ -175,7 +175,7 @@ Här är en exempelkonfiguration kluster där klustret, server och klientcertifi
         "storeType": "FileShare",
         "IsEncrypted": "false",
         "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
-        }
+        },
         "security": {
             "metadata": "The Credential type X509 indicates this cluster is secured by using X509 certificates. The thumbprint format is d5 ec 42 3b 79 cb e5 07 fd 83 59 3c 56 b9 d5 31 24 25 42 64.",
             "ClusterCredentialType": "X509",

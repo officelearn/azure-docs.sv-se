@@ -8,13 +8,13 @@ author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 23cce4d846cdf183f41b25663ba21d3bf1d27013
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 03/18/2019
+ms.openlocfilehash: 0fbe56ceeeba71bcbb5ef358cd66de15e36508fc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791008"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58165104"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testa logic apps med fingerade data genom att ställa in statisk resultat
 
@@ -67,9 +67,7 @@ Till exempel om du ställer in statisk resultat för Outlook 365 skicka e-post-�
 
    ![Ikon som visar aktiverat statiska resultat](./media/test-logic-apps-mock-data-static-results/static-results-enabled.png)
 
-   När logikappen körs i din logikapp körningshistorik, den **Statiska resultat** kolumn visar om en specifik körning innehåller åtgärder som har statiska resultat som är aktiverad, till exempel:
-
-   ![Körningshistorik - statisk resultat kolumn](./media/test-logic-apps-mock-data-static-results/run-history.png)
+   Du hittar tidigare körningar som använder fingerade data [hitta körningar som använder statiska resultat](#find-runs-mock-data) senare i det här avsnittet.
 
 <a name="reuse-sample-outputs"></a>
 
@@ -79,7 +77,7 @@ Om din logikapp har en tidigare kan kör med utdata som du kan återanvända som
 
 1. Om du inte redan har gjort i den [Azure-portalen](https://portal.azure.com), öppna logikappen i Logic Apps Designer.
 
-1. På huvudmenyn för din logikapp, Välj **översikt**. 
+1. På huvudmenyn för din logikapp, Välj **översikt**.
 
 1. I den **Körningshistorik** sektionen, Välj den logikappskörningen om du vill.
 
@@ -106,6 +104,26 @@ Om din logikapp har en tidigare kan kör med utdata som du kan återanvända som
    ![JSON-läget](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
 
 1. När du är klar väljer du **Klar**. Eller, om du vill återgå till designern, välja **växel redigeringsläget** (![Välj ”växel redigeringsläget”](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
+
+<a name="find-runs-mock-data"></a>
+
+## <a name="find-runs-that-use-static-results"></a>Hitta körningar som använder statiska resultat
+
+Logikappens körnings identifierar körningar där åtgärderna som använder statiska resultat. Följ dessa steg för att hitta dessa körs:
+
+1. På huvudmenyn för din logikapp, Välj **översikt**. 
+
+1. I den högra rutan under **Körningshistorik**, hitta den **statiska resultat** kolumn. 
+
+   Alla körningar som innehåller åtgärder med resultat har den **Statiska resultat** kolumnen **aktiverad**, till exempel:
+
+   ![Körningshistorik - statisk resultat kolumn](./media/test-logic-apps-mock-data-static-results/run-history.png)
+
+1. Om du vill visa åtgärder som använder statiska resultat, Välj det kör som du vill var den **Statiska resultat** kolumn har angetts till **aktiverad**.
+
+   Åtgärder som använder statiska resultat visa test bägaren (![ikonen för statiska resultat](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)) ikonen, till exempel:
+
+   ![Körningshistorik - åtgärder som använder statiska resultat](./media/test-logic-apps-mock-data-static-results/static-results-enabled-run-details.png)
 
 ## <a name="disable-static-results"></a>Inaktivera statisk resultat
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: a78e5c411c03aaff07818c4e45183f8eff40492d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 334537e77d5f291dc38e008af7fed9a4ea973265
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211363"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108856"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Konfigurera IP-adresser för att ansluta till virtuella Azure-datorer efter redundans
 
@@ -49,8 +49,8 @@ Nu ska vi titta på ett exempel för redundans till Azure med ett fiktivt föret
 - Woodgrove Bank är värd för sina appar i en lokal plats. De ha sina mobila appar på Azure.
 - Det finns VPN plats-till-plats-anslutning mellan sina lokala edge-nätverk och virtuella Azure-nätverket. På grund av VPN-anslutningen visas det virtuella nätverket i Azure som ett tillägg till det lokala nätverket.
 - Woodgrove vill replikera lokala arbetsbelastningar till Azure med Site Recovery.
- - Woodgrove har appar som är beroende av hårdkodad IP-adresser, så att de behöver för att behålla IP-adresser för apparna efter redundansväxlingen till Azure.
- - Resurser som körs i Azure använder IP-adressintervallet 172.16.1.0/24 172.16.2.0/24.
+  - Woodgrove har appar som är beroende av hårdkodad IP-adresser, så att de behöver för att behålla IP-adresser för apparna efter redundansväxlingen till Azure.
+  - Resurser som körs i Azure använder IP-adressintervallet 172.16.1.0/24 172.16.2.0/24.
 
 ![Innan du undernätet redundans](./media/site-recovery-network-design/network-design7.png)
 

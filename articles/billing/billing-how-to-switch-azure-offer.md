@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: 6e0339808d65cd5b4acd7b77284ccedf7cdf1989
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: bbdcbdc7ef288eeeb279c7e5e59baee492e1f292
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902133"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835284"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Ändra din betala per användning för Azure-prenumeration till ett annat erbjudande
 
@@ -55,7 +55,7 @@ Som en [användningsbaserad](https://azure.microsoft.com/offers/ms-azr-0003p/) -
 1. Klicka på **Växla till ett annat erbjudande**. Knappen är bara tillgänglig om du använder Betala per användning och har gjort din första faktureringsperiod.
 
    ![Lägg märke till knappen Växla erbjudande till höger på sidan](./media/billing-how-to-switch-azure-offer/switchbutton.png)
-1. **Välj önskat erbjudande** från listan över erbjudanden prenumerationen kan växlas till. Den här listan varierar beroende på deras medlemskap som ditt konto är associerad med. Om inget är tillgängligt kontrollerar du den [lista över tillgängliga erbjudanden som du kan växla till](#whats-supported) och kontrollera att du har rätt medlemskap. 
+1. **Välj önskat erbjudande** från listan över erbjudanden prenumerationen kan växlas till. Den här listan varierar beroende på vilka medlemskap ditt konto är associerat med. Om inget är tillgängligt kontrollerar du den [lista över tillgängliga erbjudanden som du kan växla till](#whats-supported) och kontrollera att du har rätt medlemskap. 
 
    ![Välj ett erbjudande som du vill växla till](./media/billing-how-to-switch-azure-offer/selectoffer.png)
 1. Beroende på erbjudandet du växlar till, kan du se om effekten av att växla. Gå igenom listan noggrant och följ instruktionerna innan du fortsätter.
@@ -78,7 +78,7 @@ Ett Azure-erbjudande är den *typ* för Azure-prenumerationen du har. Till exemp
 
 Du kanske inte ser den **växla till ett annat erbjudande** om:
 
-* Du inte är på [användningsbaserad](https://azure.microsoft.com/offers/ms-azr-0003p/). För närvarande endast prenumerationer med användningsbaserad betalning kan konverteras till ett annat erbjudande.
+* Du inte är på [användningsbaserad](https://azure.microsoft.com/offers/ms-azr-0003p/). För närvarande kan endast Betala per användning-prenumerationer konverteras till ett annat erbjudande.
   * Om du använder [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/), Lär dig hur du [uppgradering till betala per användning](billing-upgrade-azure-subscription.md).
   * Att byta erbjudande från en annan prenumeration [supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 * Du är kvar på din första faktureringsperiod; Du måste vänta tills din första faktureringsperiod avslutas innan du kan växla erbjudanden.
@@ -116,4 +116,4 @@ På den dag du växla, genereras en faktura för alla utestående debiteringar. 
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).

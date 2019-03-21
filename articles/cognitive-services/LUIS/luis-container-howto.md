@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 19206278f838b77954c28e95e9171a857ba1338a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1cf5fb00e9f1a202fe7ad46253f916e3e6bee7a7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670670"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295580"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS docker-behållare
  
@@ -46,15 +46,14 @@ För att kunna köra LUIS-behållare, måste du ha följande:
 
 Den här behållaren har stöd för minsta och rekommenderade värden för inställningarna:
 
-|Inställning| Minimum | Rekommenderas |
-|-----------|---------|-------------|
-|Kärnor<BR>`--cpus`|1 kärna|1 kärna|
-|Minne<BR>`--memory`|2 GB|4 GB|
-|Transaktioner per sekund<BR>(TPS)|20 TPS|40 TPS|
+|Container| Minimum | Rekommenderas | TPS<br>(Lägsta, högsta)|
+|-----------|---------|-------------|--|
+|LUIS|1 kärna, 2 GB minne|1 kärna, 4 GB minne|20,40|
 
-Varje kärna måste vara minst 2,6 GHz (gigahertz) eller snabbare.
+* Varje kärna måste vara minst 2,6 GHz (gigahertz) eller snabbare.
+* TPS - transaktioner per sekund
 
-Den `--cpus` och `--memory` inställningarna används som en del av den `docker run` kommando.
+Kärnor och minne som motsvarar den `--cpus` och `--memory` inställningar som används som en del av den `docker run` kommando.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Hämta behållaravbildningen med `docker pull`
 
@@ -102,7 +101,7 @@ Inkommande avbildningskatalog kan innehålla den **produktion**, **mellanlagring
 
 |Pakettyp|Fråge-API-slutpunkt|Fråga tillgänglighet|Paketets filnamn format|
 |--|--|--|--|
-|Tränas|Get, Post|Endast behållaren|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
+|Tränad|Get, Post|Endast behållaren|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
 |Mellanlagring|Get, Post|Azure och behållare|`{APPLICATION_ID}_STAGING.gz`|
 |Produktion|Get, Post|Azure och behållare|`{APPLICATION_ID}_PRODUCTION.gz`|
 
@@ -259,7 +258,7 @@ Använd värden `https://localhost:5000`, för behållaren API: er.
 |Pakettyp|Metod|Routa|Frågeparametrar|
 |--|--|--|--|
 |Publicerad|[Hämta](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [inlägg](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/ luis/v2.0/apps/{appId}?|q={q}<br>& mellanlagring<br>[&timezoneOffset]<br>[& utförlig]<br>[&log]<br>|
-|Tränas|Get, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[& utförlig]<br>[&log]|
+|Tränad|Get, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[& utförlig]<br>[&log]|
 
 Frågeparametrarna konfigurera hur och vad returneras i svaret på frågan:
 

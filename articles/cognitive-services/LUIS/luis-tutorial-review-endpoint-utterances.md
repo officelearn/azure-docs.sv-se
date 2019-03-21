@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 25841971a2e7921c89c63032e8fd48bc528263aa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 118ac858103776e880e7304199279a7d50ad71b1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878189"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112287"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Självstudier: Åtgärda osäkra förutsägelser genom att granska slutpunktsyttranden
 I den här självstudien kommer vi att förbättra förutsägelserna i dina appar genom att verifiera eller korrigera yttranden som tas emot via HTTP-slutpunkten för LUIS och som LUIS inte kan fastställa säkert. I vissa yttranden kan avsikten behöva verifieras och i vissa kan du behöva verifiera entiteter. Du bör granska yttranden vid slutpunkter inom ramen för det schemalagda underhållet av LUIS. 
@@ -135,8 +135,8 @@ Prova ett yttrande som liknar det korrigerade yttrandet.
 
 2. Gå till slutet av URL:en i adressen och ange `Are there any natural language processing jobs in my department right now?`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. 
 
-  ```json
-  {
+   ```json
+   {
     "query": "are there any natural language processing jobs in my department right now?",
     "topScoringIntent": {
       "intent": "GetJobInformation",
@@ -228,11 +228,11 @@ Prova ett yttrande som liknar det korrigerade yttrandet.
       "label": "positive",
       "score": 0.8251864
     }
-  }
-  }
-  ```
+   }
+   }
+   ```
 
-  Den korrekta avsikten förutsades med en hög poäng och entiteten **Job** (Jobb) identifieras som `natural language processing`. 
+   Den korrekta avsikten förutsades med en hög poäng och entiteten **Job** (Jobb) identifieras som `natural language processing`. 
 
 ## <a name="can-reviewing-be-replaced-by-adding-more-utterances"></a>Går det att ersätta granskning genom att lägga till fler yttranden? 
 Du undrar kanske varför man inte bara kan lägga till fler exempelyttranden. Vad är syftet med att granska slutpunktsyttranden? I en riktig LUIS-app kommer slutpunktsyttranden från användare med ordval och ordningsföljd som du inte har använt än. Om du hade använt samma ordval och ordningsföljd skulle den ursprungliga förutsägelsen ha haft ett högre procenttal. 

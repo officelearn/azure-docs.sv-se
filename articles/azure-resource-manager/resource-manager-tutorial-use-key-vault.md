@@ -10,22 +10,24 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/26/2019
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 1390a3be20dd1fc66bb04939f9ce41139db3cb2e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 50882fc383d4dfab85b5afb919b24c7940eb5ee0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873278"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122749"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Självstudie: Integrera Azure Key Vault vid malldistribution i Resource Manager
 
 Lär dig hur du hämtar hemligheter från Azure Key Vault och skickar hemligheterna som parametrar under Resource Manager-distributionen. Värdet exponeras aldrig eftersom du bara refererar till dess nyckelvalvs-ID. Mer information finns i [Använd Azure Key Vault för att skicka säkra parametervärden under distributionen](./resource-manager-keyvault-parameter.md)
 
 I självstudien [Ange resursdistributionsordning](./resource-manager-tutorial-create-templates-with-dependent-resources.md) skapar du en virtuell dator, ett virtuellt nätverk och några andra beroende resurser. I den här självstudien anpassar du mallen för att hämta den virtuella datorns administratörslösenord från ett nyckelvalv.
+
+![Resource Manager mall Key Vault-integrering diagram](./media/resource-manager-tutorial-use-key-vault/resource-manager-template-key-vault-diagram.png)
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -143,13 +145,13 @@ Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I st�
 3. Välj **Öppna** för att öppna filen. Det är samma scenario som används i [Självstudie: Skapa Azure Resource Manager-mallar med beroende resurser](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
 4. Det finns fem resurser som definieras av mallen:
 
-    * `Microsoft.Storage/storageAccounts`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-    * `Microsoft.Network/publicIPAddresses`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-    * `Microsoft.Network/virtualNetworks`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-    * `Microsoft.Network/networkInterfaces`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-    * `Microsoft.Compute/virtualMachines`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * `Microsoft.Storage/storageAccounts`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+   * `Microsoft.Network/publicIPAddresses`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+   * `Microsoft.Network/virtualNetworks`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+   * `Microsoft.Network/networkInterfaces`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+   * `Microsoft.Compute/virtualMachines`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
-    Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
+     Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
 5. Välj **Arkiv**>**Spara som** för att spara en kopia av filen till den lokala datorn med namnet **azuredeploy.json**.
 6. Upprepa steg 1–4 för att öppna följande URL och spara sedan filen som **azuredeploy.parameters.json**.
 

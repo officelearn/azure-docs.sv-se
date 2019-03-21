@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: 132cbecdad8303414f15ff3f18caaccd6d430ded
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: ef39c09d4fc411937fdd6f4b5b5aec491efd0c5f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154947"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994555"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Konfigurera viktad trafikroutningsmetod i Traffic Manager
 
@@ -27,7 +27,7 @@ Ett vanligt trafik routning metoden mönster är att tillhandahålla en uppsätt
 
 ## <a name="to-configure-the-weighted-traffic-routing-method"></a>Konfigurera viktad metod för trafikroutning
 
-1. Logga in på [Azure Portal](http://portal.azure.com) från en webbläsare. Om du inte redan har ett konto kan du [registrera dig för en kostnadsfri utvärderingsmånad](https://azure.microsoft.com/free/). 
+1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare. Om du inte redan har ett konto kan du [registrera dig för en kostnadsfri utvärderingsmånad](https://azure.microsoft.com/free/). 
 2. I portalens sökfältet söker du efter den **Traffic Manager-profiler** och klicka sedan på namnet på profilen som du vill konfigurera routningsmetod för.
 3. I den **Traffic Manager-profil** bladet, kontrollera att både molntjänster och webbplatser som du vill ska ingå i din konfiguration finns.
 4. I den **inställningar** klickar du på **Configuration**, och i den **Configuration** bladet gör du följande:

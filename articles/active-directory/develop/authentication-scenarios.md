@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b0d2c12a4e2088964e397b1bc499fa4adfdff3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 172bc96857c6aa0ab19fd4f1a13870dd493100bf
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244563"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295716"
 ---
 # <a name="what-is-authentication"></a>Vad är autentisering?
 
@@ -79,7 +79,7 @@ Azure AD representerar program enligt en specifik modell som har utformats för 
 
 I Azure AD beskriver ett **programobjekt** ett program som en abstrakt entitet. Utvecklare kan arbeta med program. I utvecklingsarbetet använder Azure AD ett angivet programobjekt som en skiss för att skapa ett **huvudnamn för tjänsten**, som representerar en konkret instans av ett program i en katalog eller klientorganisation. Det är tjänstens huvudnamn som definierar vad appen faktiskt kan göra i en specifik målkatalog, vilka som kan använda den, vilka resurser den har åtkomst till och så vidare. Azure AD skapar ett huvudnamn för tjänsten utifrån ett programobjekt genom **medgivande**.
 
-I följande diagram visas ett förenklat etableringsflöde för Azure AD som drivs av medgivande.
+I följande diagram visas ett förenklat etableringsflöde för Azure AD som drivs av medgivande.  I den finns två klienter (A och B), där klient A äger programmet och klient B instansiera programmet via ett huvudnamn för tjänsten.  
 
 ![Förenklat etableringsflöde som drivs av medgivande](./media/authentication-scenarios/simplified-provisioning-flow-consent.png)
 
@@ -87,14 +87,14 @@ I det här etableringsflödet sker följande:
 
 |   |   |
 |---|---|
-| 1 | En användare från B försöker logga in med appen |
+| 1 | En användare från klient B försöker logga in med appen |
 | 2 | Autentiseringsuppgifterna hämtas och verifieras |
 | 3 | Användaren uppmanas att godkänna att appen får åtkomst till klientorganisation B |
-| 4 | Azure AD använder programobjektet i A som skiss för att skapa ett huvudnamn för tjänstens i B |
+| 4 | Azure AD använder programobjektet i en som underlag för att skapa ett huvudnamn för tjänsten i klient B |
 | 5 | Användaren får begärd token |
 |   |   |
 
-Du kan upprepa den här processen så många gånger du vill för andra klientorganisationer (C, D och så vidare). Katalog A behåller skissen för appen (programobjektet). Användare och administratörer för alla andra klientorganisationer där appen får medgivande behåller kontrollen över vad programmet tillåts göra genom motsvarande tjänsthuvudobjekt i varje klientorganisation. Mer information finns i [Program- och tjänsthuvudobjekt i Azure AD](app-objects-and-service-principals.md).
+Du kan upprepa den här processen så många gånger du vill för andra klientorganisationer (C, D och så vidare). Klient A behåller skissen för appen (programobjektet). Användare och administratörer för alla andra klientorganisationer där appen får medgivande behåller kontrollen över vad programmet tillåts göra genom motsvarande tjänsthuvudobjekt i varje klientorganisation. Mer information finns i [Program- och tjänsthuvudobjekt i Azure AD](app-objects-and-service-principals.md).
 
 ## <a name="claims-in-azure-ad-security-tokens"></a>Anspråk i säkerhetstoken för Azure AD
 
@@ -109,7 +109,7 @@ Anspråk som finns i alla angivna säkerhetstoken beror på typen av token, på 
 
 En kort beskrivning av varje typ av anspråk som genereras av Azure AD finns i tabellen nedan. Mer detaljerad information finns i [åtkomsttoken](access-tokens.md) och [ID-token](id-tokens.md) som utfärdas av Azure AD.
 
-| Begär | Beskrivning |
+| Begäran | Beskrivning |
 | --- | --- |
 | Program-ID:t | Identifierar programmet som använder token. |
 | Målgrupp | Identifierar mottagarresursen som token är avsedd för. |
@@ -125,7 +125,7 @@ En kort beskrivning av varje typ av anspråk som genereras av Azure AD finns i t
 | Namn | Innehåller ett läsbart värde som identifierar subjektet för token. |
 | Objekt-ID | Innehåller en oföränderlig, unik identifierare för subjektet i Azure AD. |
 | Roller | Innehåller egna namn på Azure AD-programroller som användaren har beviljats. |
-| Omfång | Anger de behörigheter som beviljats för klientprogrammet. |
+| Scope | Anger de behörigheter som beviljats för klientprogrammet. |
 | Subjekt | Anger huvudnamnet som token kontrollerar information om. |
 | Klient-ID:t | Innehåller ett oföränderlig, unik identifierare för katalogklientorganisationen som har utfärdat token. |
 | Tokenlivstid | Definierar tidsintervallet då token är giltig. |

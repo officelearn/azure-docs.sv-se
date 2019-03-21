@@ -9,12 +9,12 @@ ms.service: storage
 custom: jenkins
 ms.date: 07/31/2018
 ms.subservice: common
-ms.openlocfilehash: 2aeab9be28a61f4e185be7192e7965cbf02bfed9
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 8ea80d557185f4489a96384b77ddd2519e7bd049
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791995"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992200"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Använda Azure Storage med en lösning för kontinuerlig integrering av Jenkins
 
@@ -40,7 +40,7 @@ Fördelar med att använda Blob service som värd för din smidig utveckling byg
   
     Om du för närvarande inte har en Jenkins CI-lösning kan du köra ett Jenkins CI-lösning med hjälp av följande metod:
   
-  1. Ladda ned jenkins.war från på en Java-aktiverad dator <http://jenkins-ci.org>.
+  1. Ladda ned jenkins.war från på en Java-aktiverad dator <https://jenkins-ci.org>.
   2. I Kommandotolken som öppnas till den mapp som innehåller jenkins.war, kör du:
      
       `java -jar jenkins.war`
@@ -48,7 +48,7 @@ Fördelar med att använda Blob service som värd för din smidig utveckling byg
   3. Öppna i webbläsaren, `http://localhost:8080/` att öppna Jenkins-instrumentpanelen som du använder för att installera och konfigurera Azure Storage-plugin-programmet.
      
       När en typisk Jenkins CI-lösning skulle ställas in att köras som en tjänst som körs på Jenkins-war på kommandoraden räcker för den här självstudiekursen.
-* Ett Azure-konto. Du kan registrera dig för ett Azure-konto på <http://www.azure.com>.
+* Ett Azure-konto. Du kan registrera dig för ett Azure-konto på <https://www.azure.com>.
 * Ett Azure-lagringskonto. Om du inte redan har ett lagringskonto kan du skapa en med hjälp av stegen i [skapa ett Lagringskonto](../common/storage-quickstart-create-account.md).
 * Liknar processen med Jenkins CI-lösning rekommenderas men krävs inte, eftersom följande innehåll kommer att använda ett grundläggande exempel för att visa de steg som krävs när du använder Blob service som databas för Jenkins CI skapa artefakter.
 
@@ -118,7 +118,7 @@ Följande steg illustrerar om du vill konfigurera ett byggsteg för att hämta o
 1. I den **skapa** avsnittet i väljer jobbkonfigurationen **Lägg till byggsteg** och välj **ladda ned från Azure Blob storage**.
 2. För **lagringskontonamn**, Välj lagringskontot som du använder.
 3. För **behållarnamn**, ange namnet på behållaren som innehåller de blobar som du vill hämta. Du kan använda miljövariabler.
-4. För **blobnamnet**, ange blobnamnet på. Du kan använda miljövariabler. Du kan också använda en asterisk som jokertecken när du har angett den första bokstaven i blobnamnet. Till exempel **projekt\***  anger alla blobbar vars namn börjar på **projekt**.
+4. För **blobnamnet**, ange blobnamnet på. Du kan använda miljövariabler. Du kan också använda en asterisk som jokertecken när du har angett den första bokstaven i blobnamnet. Till exempel **projekt\\*** anger alla blobbar vars namn börjar på **projekt**.
 5. [Valfritt] För **hämtningssökvägen**, ange sökvägen på Jenkins-datorn där du vill ladda ned filer från Azure blob storage. Miljövariabler kan också användas. (Om du inte anger ett värde för **hämtningssökvägen**, hämtas filer från Azure blob storage till arbetsytan för jobbets.)
 
 Om du har ytterligare objekt som du vill ladda ned från Azure blob storage kan skapa du ytterligare byggsteg.

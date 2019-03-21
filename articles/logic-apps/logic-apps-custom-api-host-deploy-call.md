@@ -10,18 +10,18 @@ ms.reviewer: klam, stepsic, LADocs
 ms.topic: article
 ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
-ms.openlocfilehash: e95b20a12fafa9d1dbcbd641ce1c9f2674314489
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: a9049ba1fbd7d3bdce061d277f6a7a02d9b1e4b7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606443"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880072"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Distribuera och anropa anpassade API: er från arbetsflöden i Azure Logic Apps
 
 När du [skapa anpassade API: er](./logic-apps-create-api-app.md) för användning i logikapparbetsflöden, måste du distribuera dina API: er innan du kan anropa dem. Du kan distribuera dina API: er som [webbappar](../app-service/overview.md), men överväga att distribuera dina API: er som [API apps](../app-service/app-service-web-tutorial-rest-api.md), som gör ditt jobb enklare när du skapar, köra och förbruka API: er i molnet och lokalt. Du behöver ändra någon kod i dina API: er – distribuera bara din kod till en API-app. Du kan vara värd för dina API: er på [Azure App Service](../app-service/overview.md), en platform-as-a-service (PaaS) som tillhandahåller mycket skalbar och enkelt API som är värd för.
 
-Även om den bästa upplevelsen kan du anropa API: er från en logikapp, lägga till [OpenAPI (tidigare Swagger) metadata](http://swagger.io/specification/) som beskriver ditt API: s åtgärder och parametrar. OpenAPI-filen kan ditt API integrera enkelt och fungerar bättre med logic apps.
+Även om den bästa upplevelsen kan du anropa API: er från en logikapp, lägga till [OpenAPI (tidigare Swagger) metadata](https://swagger.io/specification/) som beskriver ditt API: s åtgärder och parametrar. OpenAPI-filen kan ditt API integrera enkelt och fungerar bättre med logic apps.
 
 ## <a name="deploy-your-api-as-a-web-app-or-api-app"></a>Distribuera ditt API som en webbapp eller en API-app
 

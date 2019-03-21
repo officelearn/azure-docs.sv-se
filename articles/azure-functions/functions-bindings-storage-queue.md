@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: f54bec9c328893d1d579bff3313f126dbc1178de
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ea2d51487999be2e7412e102b3381d8994e1e4c4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728037"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295325"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindningar för Azure Functions
 
@@ -160,7 +160,6 @@ module.exports = async function (context, message) {
     context.log('Node.js queue trigger function processed work item', message);
     // OR access using context.bindings.<name>
     // context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
-    context.log('queueTrigger =', context.bindingData.queueTrigger);
     context.log('expirationTime =', context.bindingData.expirationTime);
     context.log('insertionTime =', context.bindingData.insertionTime);
     context.log('nextVisibleTime =', context.bindingData.nextVisibleTime);
@@ -176,7 +175,7 @@ Den [användning](#trigger---usage) förklaras `myQueueItem`, som är namngiven 
 ### <a name="trigger---java-example"></a>Utlösare - Java-exemplet
 
 Java-exemplet nedan visar en queue storage-utlösare-funktioner som loggar utlösta meddelande placeras i kö `myqueuename`.
- 
+
  ```java
  @FunctionName("queueprocessor")
  public void run(
@@ -190,7 +189,7 @@ Java-exemplet nedan visar en queue storage-utlösare-funktioner som loggar utlö
  ```
 
 ## <a name="trigger---attributes"></a>Utlösare - attribut
- 
+
 I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attribut för att konfigurera en kö-utlösare:
 
 * [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs)
@@ -218,7 +217,7 @@ I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attr
       ....
   }
   ```
- 
+
   Ett komplett exempel finns i [utlösare – C#-exempel](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
@@ -253,14 +252,14 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |---------|---------|----------------------|
 |**typ** | Saknas| Måste anges till `queueTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
 |**riktning**| Saknas | I den *function.json* bara fil. Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
-|**Namn** | Saknas |Namnet på variabeln som innehåller nyttolasten för objekt i kö i funktionskoden.  | 
-|**Könamn** | **Könamn**| Namnet på kön att söka. | 
+|**Namn** | Saknas |Namnet på variabeln som innehåller nyttolasten för objekt i kö i funktionskoden.  |
+|**Könamn** | **Könamn**| Namnet på kön att söka. |
 |**anslutning** | **Anslutning** |Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Utlösare - användning
- 
+
 Få åtkomst till meddelandedata i C# och C#-skript, genom att använda en metodparameter som `string paramName`. I C#-skript, `paramName` har värdet som angetts i den `name` egenskapen för *function.json*. Du kan binda till någon av följande typer:
 
 * Objekt - Functions-körning deserializes en JSON-nyttolast i en instans av en godtyckligt klass som definierats i din kod. 
@@ -306,9 +305,7 @@ Kö-utlösare förhindrar automatiskt en funktion från att bearbeta ett kömedd
 
 ## <a name="trigger---hostjson-properties"></a>Utlösare - host.json egenskaper
 
-Den [host.json](functions-host-json.md#queues) filen innehåller inställningar som styr beteendet för kö-utlösare.
-
-[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
+Den [host.json](functions-host-json.md#queues) filen innehåller inställningar som styr beteendet för kö-utlösare. Se den [host.json inställningar](#hostjson-settings) information om tillgängliga inställningar.
 
 ## <a name="output"></a>Resultat
 
@@ -370,7 +367,7 @@ Här är den *function.json* fil:
     }
   ]
 }
-``` 
+```
 
 Den [configuration](#output---configuration) förklaras de här egenskaperna.
 
@@ -431,7 +428,7 @@ Här är den *function.json* fil:
     }
   ]
 }
-``` 
+```
 
 Den [configuration](#output---configuration) förklaras de här egenskaperna.
 
@@ -466,13 +463,13 @@ module.exports = function(context) {
        result.setValue(message + " has been added.");
        return message;
  }
- ```
+```
 
 I den [Java functions runtime-biblioteket](/java/api/overview/azure/functions/runtime), använda den `@QueueOutput` anteckning om parametrar vars värde skulle skrivas till Queue storage.  Parametertypen ska vara `OutputBinding<T>`, där T är alla interna Java-typer av en POJO.
 
 
 ## <a name="output---attributes"></a>Utdata - attribut
- 
+
 I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs).
 
 Attributet som gäller för en `out` parametern eller returvärdet för funktionen. Attributets konstruktorn tar namnet på kön som du ser i följande exempel:
@@ -509,14 +506,14 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |---------|---------|----------------------|
 |**typ** | Saknas | Måste anges till `queue`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
 |**riktning** | Saknas | Måste anges till `out`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
-|**Namn** | Saknas | Namnet på variabeln som representerar kön i funktionskoden. Ange `$return` att referera till returvärde för funktion.| 
-|**Könamn** |**Könamn** | Köns namn. | 
+|**Namn** | Saknas | Namnet på variabeln som representerar kön i funktionskoden. Ange `$return` att referera till returvärde för funktion.|
+|**Könamn** |**Könamn** | Köns namn. |
 |**anslutning** | **Anslutning** |Namnet på en appinställning som innehåller lagringsanslutningssträngen ska användas för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av det här namnet. Exempel: Om du ställer in `connection` till ”MyStorage” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyStorage”. Om du lämnar `connection` tom funktionskörningen använder standard Storage anslutningssträngen i appinställningen som heter `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Utdata - användning
- 
+
 I C# och C#-skript, skriver du ett enda kömeddelande genom att använda en metodparameter som `out T paramName`. I C#-skript, `paramName` har värdet som angetts i den `name` egenskapen för *function.json*. Du kan använda metoden returtypen i stället för en `out` parametern och `T` kan vara något av följande typer:
 
 * Ett objekt som serializable som JSON
@@ -564,16 +561,16 @@ Det här avsnittet beskrivs de globala konfigurationsinställningarna som är ti
         }
     }
 }
-```  
+```
 
 
 |Egenskap   |Standard | Beskrivning |
-|---------|---------|---------| 
-|maxPollingInterval|00:00:02|Den längsta tiden mellan kön avsöker. Minimum är 00:00:00.100 (100 ms). | 
-|visibilityTimeout|00:00:00|Det går inte att tidsintervall mellan försök vid bearbetning av ett meddelande. | 
-|batchSize|16|Antal Kömeddelanden som Functions-körning hämtar samtidigt och bearbetar parallellt. När antalet bearbetas kommer ned till den `newBatchThreshold`, körningen får en annan batch och påbörjar bearbetningen av dessa meddelanden. Så det maximala antalet samtidiga meddelanden som bearbetas per funktion är `batchSize` plus `newBatchThreshold`. Den här gränsen gäller separat för varje funktion som utlöses av kön. <br><br>Om du vill undvika parallell körning för meddelanden som tas emot i en kö kan du ange `batchSize` till 1. Den här inställningen eliminerar dock samtidighet bara så länge som din funktionsapp körs på en enskild virtuell dator (VM). Om funktionsappen skalas ut till flera virtuella datorer, kan varje virtuell dator kör en instans av varje funktion som utlöses av kön.<br><br>Maximalt `batchSize` är 32. | 
-|maxDequeueCount|5|Antal gånger att försöka bearbetar ett meddelande innan du flyttar den till skadliga kön.| 
-|newBatchThreshold|batchSize/2|När antalet meddelanden som bearbetades samtidigt hamnar till det här talet, hämtar körningen en annan batch.| 
+|---------|---------|---------|
+|maxPollingInterval|00:00:02|Den längsta tiden mellan kön avsöker. Minimum är 00:00:00.100 (100 ms). |
+|visibilityTimeout|00:00:00|Det går inte att tidsintervall mellan försök vid bearbetning av ett meddelande. |
+|batchSize|16|Antal Kömeddelanden som Functions-körning hämtar samtidigt och bearbetar parallellt. När antalet bearbetas kommer ned till den `newBatchThreshold`, körningen får en annan batch och påbörjar bearbetningen av dessa meddelanden. Så det maximala antalet samtidiga meddelanden som bearbetas per funktion är `batchSize` plus `newBatchThreshold`. Den här gränsen gäller separat för varje funktion som utlöses av kön. <br><br>Om du vill undvika parallell körning för meddelanden som tas emot i en kö kan du ange `batchSize` till 1. Den här inställningen eliminerar dock samtidighet bara så länge som din funktionsapp körs på en enskild virtuell dator (VM). Om funktionsappen skalas ut till flera virtuella datorer, kan varje virtuell dator kör en instans av varje funktion som utlöses av kön.<br><br>Maximalt `batchSize` är 32. |
+|maxDequeueCount|5|Antal gånger att försöka bearbetar ett meddelande innan du flyttar den till skadliga kön.|
+|newBatchThreshold|batchSize/2|När antalet meddelanden som bearbetades samtidigt hamnar till det här talet, hämtar körningen en annan batch.|
 
 ## <a name="next-steps"></a>Nästa steg
 

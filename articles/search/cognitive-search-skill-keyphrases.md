@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f3c8fd3043f20ab34dda1f4e3762e3ebc4bb6ae1
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 422b97414142c36669ed449a21c6045fd774581a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749893"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902662"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Nyckeln diskussionsämne kognitiva kunskaper
 
@@ -38,12 +38,14 @@ Den maximala storleken för en post ska vara 50 000 tecken enligt `String.Length
 ## <a name="skill-parameters"></a>Färdighet parametrar
 
 Parametrar är skiftlägeskänsliga.
+
 | Indata                | Beskrivning |
 |---------------------|-------------|
 | defaultLanguageCode | (Valfritt) Språkkoden som ska användas för dokument som inte uttryckligen anger språk.  Om Standardspråkkod inte är angivna, engelska ska (en) användas som Standardspråkkod. <br/> Se [fullständig lista över språk som stöds](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
 | maxKeyPhraseCount   | (Valfritt) Det maximala antalet viktiga fraser för att producera. |
 
 ## <a name="skill-inputs"></a>Färdighet indata
+
 | Indata     | Beskrivning |
 |--------------------|-------------|
 | text | Texten som ska analyseras.|

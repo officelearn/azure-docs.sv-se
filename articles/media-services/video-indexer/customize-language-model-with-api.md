@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 5f77857c82846fe9c3d2ad4f5f82572d18401691
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c2c722331c95e72bae5605606564a2083e2802e3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003609"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075040"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Anpassa en språkmodell med API: er för Video Indexer
 
@@ -306,7 +306,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |fileId|sträng|Ja|ID för den fil som ska uppdateras (genereras när filen har laddats upp när skapandet eller uppdatering av språkmodellen)|
 |accessToken|sträng|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
 |fileName|sträng|Nej|Namn för att uppdatera filnamnet för att|
-|aktivera|boolesk|Nej|Uppdatera om den här filen är aktiverad (SANT) eller inaktiverad (FALSKT) i språkmodellen||
+|aktivera|boolesk|Nej|Uppdatera om den här filen är aktiverad (SANT) eller inaktiverad (FALSKT) i språkmodellen|
 
 ### <a name="request-body"></a>Begärandetext
 

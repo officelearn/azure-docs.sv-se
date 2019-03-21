@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 90b6798f7b7ab3acc552135c73bb1e491e4a0111
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 85296b4549d7c9499b8d0b815ddf1cd2e85e2b1b
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835528"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259592"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfiguration och av hanteringsproblem för Azure Cloud Services: Vanliga frågor och svar (FAQ)
 
@@ -109,7 +109,7 @@ Du kan automatisera den här uppgiften med hjälp av ett startskript (batch/cmd/
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>Vad är syftet med ”Microsoft Azure Service Management för MachineKey” certifikatet?
 
-Det här certifikatet används för att kryptera datornycklar på webbroller i Azure. Om du vill veta mer, Kolla in det här dokumentet [https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731].
+Det här certifikatet används för att kryptera datornycklar på webbroller i Azure. Om du vill veta mer, Kolla in [rekommendationen](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
 
 Mer information finns i följande artiklar:
 - [Hur du konfigurerar och köra startåtgärder för en molntjänst](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)

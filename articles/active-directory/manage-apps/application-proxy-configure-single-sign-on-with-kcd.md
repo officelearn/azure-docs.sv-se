@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: celested
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b82f32477efb2e45eb95651dd21ccd2ae3095e7c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5c7744ba4ca37a2a496c75a50f274be9bf431cc5
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431317"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286592"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos-begränsad delegering för enkel inloggning till dina appar med Application Proxy
 
@@ -37,7 +37,7 @@ Det här diagrammet beskriver flödet när en användare försöker komma åt et
 1. Användaren anger URL: en för att komma åt programmet på plats via programproxy.
 2. Programproxyn omdirigerar begäran till Azure AD-autentiseringstjänster till preauthenticate. Nu kan gäller Azure AD alla tillämpliga autentisering och auktoriseringsprinciper, till exempel multifaktorautentisering. Om användaren har verifierats, Azure AD skapar en token och skickar det till användaren.
 3. Användaren skickar token till Application Proxy.
-4. Programproxyn verifierar token och hämtar User Principal Name (UPN) från den och skickar sedan begäran, UPN och Service Principal Name (SPN) till anslutningstjänsten via en autentiserad dually säker kanal.
+4. Programproxyn verifierar token och hämtar User Principal Name (UPN) från den och sedan anslutningen hämtar UPN och det namnet SPN (Service Principal) via en autentiserad dually säker kanal.
 5. Anslutningen utför Kerberos-begränsad delegering (KCD)-förhandling med lokala AD, Personifiera användare för att få en Kerberos-token för programmet.
 6. Active Directory skickar Kerberos-token för programmet till anslutningstjänsten.
 7. Kopplingen skickar den ursprungliga begäran till programservern, med hjälp av Kerberos-token som togs emot från AD.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: cf566811f1e5fe7fde20d148e68417acf6d42f54
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0955d95ebfd9e1f72ed1da577bf3520a70b71624
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073830"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008325"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Konfigurera framtvingad tunneling med den klassiska distributionsmodellen
 
@@ -28,7 +28,7 @@ Tvingad tunneltrafik kan du omdirigera eller ”tvinga” all internetriktad tra
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-Den här artikeln beskriver hur du konfigurerar Tvingad tunneltrafik för virtuella nätverk som skapats med den klassiska distributionsmodellen. Tvingad tunneltrafik kan konfigureras med hjälp av PowerShell, inte via portalen. Om du vill konfigurera Tvingad tunneltrafik för distributionsmodellen i Resource Manager väljer du klassiska artikeln från listan följande:
+Den här artikeln beskriver hur du konfigurerar Tvingad tunneltrafik för virtuella nätverk som skapats med den klassiska distributionsmodellen. Tvingad tunneltrafik kan konfigureras med hjälp av PowerShell, inte via portalen. Välj Resource Manager-artikeln i följande listrutan om du vill konfigurera Tvingad tunneltrafik för distributionsmodellen i Resource Manager:
 
 > [!div class="op_single_selector"]
 > * [PowerShell – Klassisk](vpn-gateway-about-forced-tunneling.md)
@@ -41,9 +41,9 @@ Tvingad tunneltrafik i Azure konfigureras via virtuella nätverk användardefini
 
 * Varje virtuellt nätverksundernät har en inbyggd, system-routningstabell. Routningstabellen system har följande tre grupper av vägar:
 
-  * **Lokala virtuella nätverket vägar:** direkt till målets virtuella datorer i samma virtuella nätverk.
-  * **Lokala vägar:** till Azure VPN-gateway.
-  * **Standardvägen:** direkt till Internet. Paket som är avsedd för de privata IP-adresser som inte omfattas av de föregående två vägarna tas bort.
+  * **Lokala virtuella nätverket vägar:** Direkt till målets virtuella datorer i samma virtuella nätverk.
+  * **Lokala vägar:** Azure VPN-gatewayen.
+  * **Standardvägen:** Direkt till Internet. Paket som är avsedd för de privata IP-adresser som inte omfattas av de föregående två vägarna tas bort.
 * Med lanseringen av användardefinierade vägar kan du skapa en routningstabell för att lägga till en standardväg och sedan associera routningstabellen till din VNet-undernät för att aktivera Tvingad tunneltrafik på dessa undernät.
 * Du måste ange en ”standardwebbplats” mellan de över flera lokala platserna anslutna till det virtuella nätverket.
 * Tvingad tunneltrafik måste vara associerad med ett virtuellt nätverk som har en VPN-gateway för dynamisk routning (inte en statisk gateway).

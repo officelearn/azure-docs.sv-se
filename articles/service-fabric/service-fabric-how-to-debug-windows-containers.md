@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
 ms.author: aljo, mikhegn
-ms.openlocfilehash: 10a2c48023ff8377600a0fdcdf4990a453392e80
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 9fe66e40376d9098244a1268fe9884cd416a36c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805925"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113579"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Anvisningar: Felsöka Windows-behållare i Azure Service Fabric med Visual Studio 2017
 
@@ -35,19 +35,19 @@ Du kan felsöka .NET-program i behållare med Visual Studio 2017 uppdatering 7 (
 1. Kontrollera Docker för Windows-tjänst körs innan du fortsätter med nästa steg.
 
 1. För att stödja DNS-matchning mellan behållare, måste du konfigurera klustret för lokal utveckling med namnet på datorn. De här stegen är också nödvändigt om du vill adresstjänster via omvänd proxy.
-    1. Öppna PowerShell som administratör
-    2. Navigera till installationsmappen för SDK-kluster, vanligtvis `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
-    3. Kör skript `DevClusterSetup.ps1`
+   1. Öppna PowerShell som administratör
+   2. Navigera till installationsmappen för SDK-kluster, vanligtvis `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
+   3. Kör skript `DevClusterSetup.ps1`
 
-       ``` PowerShell
-         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1
-       ```
+      ``` PowerShell
+        C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1
+      ```
 
-    > [!NOTE]
-    > Du kan använda den `-CreateOneNodeCluster` att konfigurera ett kluster med en nod. Standard skapas ett lokala kluster med fem noder.
-    >
+      > [!NOTE]
+      > Du kan använda den `-CreateOneNodeCluster` att konfigurera ett kluster med en nod. Standard skapas ett lokala kluster med fem noder.
+      >
 
-    Läs mer om DNS-tjänsten i Service Fabric i [DNS-tjänsten i Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). Läs mer om hur du använder Service Fabric omvänd proxy från tjänster som körs i en behållare i [omvänd proxy särskild hantering för tjänster som körs i behållare](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
+      Läs mer om DNS-tjänsten i Service Fabric i [DNS-tjänsten i Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). Läs mer om hur du använder Service Fabric omvänd proxy från tjänster som körs i en behållare i [omvänd proxy särskild hantering för tjänster som körs i behållare](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
 
 ### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>Kända begränsningar när du felsöker behållare i Service Fabric
 

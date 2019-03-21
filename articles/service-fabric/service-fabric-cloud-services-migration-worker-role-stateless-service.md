@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4eed3825d52fe52025077980e21f3763cc5751ac
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: f23f29d15c4c8f05551b20d42b92dda5632cde08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049957"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078745"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guide för att konvertera webb- och Worker-roller till tillståndslös Service Fabric-tjänster
 Den här artikeln beskriver hur du migrerar dina Cloud Services Web och Worker-roller till tillståndslös Service Fabric-tjänster. Det här är den enklaste migreringsvägen från Cloud Services till Service Fabric för program vars övergripande arkitekturen kommer att vara ungefär detsamma.
@@ -43,7 +43,7 @@ Liknar Worker-roll, en Webbroll också representerar en tillståndslös arbetsbe
 | --- | --- | --- |
 | ASP.NET Web Forms |Nej |Konvertera till ASP.NET Core 1 MVC |
 | ASP.NET MVC |Med migrering |Uppgradera till ASP.NET Core 1 MVC |
-| ASP.NET Webb-API |Med migrering |Använda lokal server eller ASP.NET Core 1 |
+| ASP.NET Web API |Med migrering |Använda lokal server eller ASP.NET Core 1 |
 | ASP.NET Core 1 |Ja |Gäller inte |
 
 ## <a name="entry-point-api-and-lifecycle"></a>Posten punkt API och livscykelhantering
@@ -51,7 +51,7 @@ Worker-roll och Service Fabric-tjänsten för liknande startpunkter för API: er
 
 | **Startpunkt** | **Worker-roll** | **Service Fabric-tjänst** |
 | --- | --- | --- |
-| Bearbetning |`Run()` |`RunAsync()` |
+| Bearbetar |`Run()` |`RunAsync()` |
 | VM start |`OnStart()` |Gäller inte |
 | VM stop |`OnStop()` |Gäller inte |
 | Öppna lyssnaren för klientbegäranden |Gäller inte |<ul><li> `CreateServiceInstanceListener()` för tillståndslösa</li><li>`CreateServiceReplicaListener()` för tillståndskänslig</li></ul> |
@@ -81,7 +81,7 @@ namespace WorkerRole1
 
 ```
 
-### <a name="service-fabric-stateless-service"></a>Tillståndslös Service Fabric-tjänst
+### <a name="service-fabric-stateless-service"></a>Service Fabric Stateless Service
 ```csharp
 
 using System.Collections.Generic;
@@ -110,8 +110,8 @@ Båda har en primär ”kör” åsidosättning där du vill börja bearbetning.
 
 Det finns flera viktiga skillnader mellan livscykel och livslängden för Worker-roller och Service Fabric-tjänster:
 
-* **Livscykel:** den största skillnaden är att en Arbetsroll är en virtuell dator och så livscykeln är kopplad till den virtuella datorn, vilket innefattar händelser för när den virtuella datorn startar och stoppar. En Service Fabric-tjänst har en livscykel som är separat från VM-livscykeln, så att den inte omfattar händelser för när värden VM eller datorn startar och stoppar, eftersom de inte är relaterade.
-* **Livstid:** en Worker-rollinstans kommer Papperskorgen om den `Run` metoden avslutas. Den `RunAsync` -metod i en Service Fabric-tjänst men kan köra slutförandet och tjänstinstansen kommer vara igång. 
+* **Livscykel:** Den största skillnaden är att en Arbetsroll är en virtuell dator och så livscykeln är kopplad till den virtuella datorn, vilket innefattar händelser för när den virtuella datorn startar och stoppar. En Service Fabric-tjänst har en livscykel som är separat från VM-livscykeln, så att den inte omfattar händelser för när värden VM eller datorn startar och stoppar, eftersom de inte är relaterade.
+* **Livstid:** En Worker-rollinstans kommer Papperskorgen om den `Run` metoden avslutas. Den `RunAsync` -metod i en Service Fabric-tjänst men kan köra slutförandet och tjänstinstansen kommer vara igång. 
 
 Service Fabric tillhandahåller en startpunkt för installationen av valfritt kommunikation för tjänster som lyssnar efter klientbegäranden. Startpunkten för både RunAsync och kommunikation är valfritt åsidosättningar i Service Fabric-tjänster - tjänsten kan välja att bara lyssna kundernas begäranden eller endast köra en loop för bearbetning eller båda - vilket är anledningen till RunAsync-metod kan avsluta utan att starta om tjänstinstansen, eftersom den kan fortsätta att lyssna efter klientbegäranden.
 
@@ -209,10 +209,10 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 Startåtgärder är åtgärder som vidtas innan ett program startar. Normalt används en startåtgärd för att köra installationsprogrammet skript med utökade privilegier. Både molntjänster och Service Fabric stöder startåtgärder. Den största skillnaden är att i Cloud Services, en startåtgärd är knutna till en virtuell dator eftersom det är en del av en rollinstans medan i Service Fabric en startåtgärd är knuten till en tjänst som inte är kopplat till en viss virtuell dator.
 
 | Service Fabric | Cloud Services |
-| --- | --- | --- |
+| --- | --- |
 | Plats för konfiguration |ServiceDefinition.csdef |
 | Behörigheter |”begränsad” eller ”utökad” |
-| Ordningsföljd |”enkel”, ”BITS” och ”förgrunden” |
+| Ordningsföljd |"simple", "background", "foreground" |
 
 ### <a name="cloud-services"></a>Cloud Services
 I Cloud Services konfigureras en startpunkt för start per roll i ServiceDefinition.csdef. 

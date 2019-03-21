@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8225f5a093724c00dcc336d5dc2195f4addc998b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: f0972e840fab3c624616ba8aa70bae74be5b1dc2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237832"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090482"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Snabbstart: Skapa en ASP.NET-webbapp 
 
@@ -32,7 +32,7 @@ I den här snabbstarten får du veta hur du skapar och distribuerar en ASP.NET-w
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna utföra den här snabbstarten måste du installera [Visual Studio 2017](https://www.visualstudio.com/downloads/) med följande miljöer:
 * ASP.NET och webbutveckling
@@ -74,9 +74,9 @@ Nu ska skapa du cachen för appen.
 
 #### <a name="to-edit-the-cachesecretsconfig-file"></a>Redigera filen *CacheSecrets.config*
 
-3. Skapa en fil med namnet *CacheSecrets.config* på datorn. Placera den på en plats där den inte checkas in med källkoden för exempelprogrammet. För den här snabbstarten finns filen *CacheSecrets.config* i *C:\AppSecrets\CacheSecrets.config*.
+1. Skapa en fil med namnet *CacheSecrets.config* på datorn. Placera den på en plats där den inte checkas in med källkoden för exempelprogrammet. För den här snabbstarten finns filen *CacheSecrets.config* i *C:\AppSecrets\CacheSecrets.config*.
 
-4. Redigera filen *CacheSecrets.config*. Lägg sedan till följande innehåll:
+1. Redigera filen *CacheSecrets.config*. Lägg sedan till följande innehåll:
 
     ```xml
     <appSettings>
@@ -84,14 +84,14 @@ Nu ska skapa du cachen för appen.
     </appSettings>
     ```
 
-5. Ersätt `<cache-name>` med din cachens värdnamn.
+1. Ersätt `<cache-name>` med din cachens värdnamn.
 
-6. Ersätt `<access-key>` med primärnyckeln för cachen.
+1. Ersätt `<access-key>` med primärnyckeln för cachen.
 
     > [!TIP]
     > Du kan använda den sekundära åtkomstnyckeln under nyckelrotation som en alternativ nyckel medan du återskapar den primära åtkomstnyckeln.
->
-7. Spara filen.
+   >
+1. Spara filen.
 
 ## <a name="update-the-mvc-application"></a>Uppdatera MVC-appen
 

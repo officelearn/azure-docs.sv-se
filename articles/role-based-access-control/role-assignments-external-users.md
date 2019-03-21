@@ -16,19 +16,19 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 770a5e61f549a10c8b313ed4d137f56dda45769e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 91548a4df4a77623978ea4bcb214b76427c026a6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343868"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012018"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Hantera åtkomst till Azure-resurser för externa användare med RBAC
 
 Rollbaserad åtkomstkontroll (RBAC) gör bättre säkerhetshantering för stora organisationer och för små och medelstora företag att arbeta med externa samarbetspartner, leverantörer eller freelancers som behöver åtkomst till specifika resurser i din miljö, men inte nödvändigtvis för hela infrastruktur eller eventuella faktureringsrelaterade scope. RBAC kan flexibiliteten i ägande en Azure-prenumeration som hanteras av administratörskontot (administratörsrollen för tjänsten på en prenumerationsnivå) och har flera användare bjuds in för att arbeta i samma prenumeration, men utan några administrativa rättigheter för den .
 
 > [!NOTE]
-> Office 365-prenumerationer eller Azure Active Directory-licenser (till exempel: Åtkomst till Azure Active Directory) som etablerats från Office 365 Admin center är inte kvalificerade för att använda RBAC.
+> Office 365-prenumerationer eller Azure Active Directory-licenser (till exempel: Åtkomst till Azure Active Directory) som etablerats från Microsoft 365 Administrationscenter är inte kvalificerade för att använda RBAC.
 
 ## <a name="assign-rbac-roles-at-the-subscription-scope"></a>Tilldela RBAC-roller prenumerationsområde
 

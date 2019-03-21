@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: 2b9426043619887d99003677fd6e8488cb56cce2
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 01f6da4f5ad6b618c444949fce8d2b7aa3367e17
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241076"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075773"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Övervakning och bearbetning av säkerhetshändelser i Azure Security Center
 Instrumentpanelen för händelser innehåller en översikt av antalet säkerhetshändelser som samlas in över tid och en lista över viktiga händelser som kan kräva din uppmärksamhet.  
@@ -57,30 +57,30 @@ Den **instrumentpanelen för händelser** innehåller en översikt över hur må
 1. Under den **Security Center** Huvudmeny väljer **händelser**.
 2. Den **instrumentpanelen för händelser** Väljaren kan öppna. Om du har endast en arbetsyta, visas inte den här Väljaren. Om du har fler än en arbetsyta måste välja en arbetsyta för att visa information om den bearbetade händelse. Välj en arbetsyta i listan om du har fler än en arbetsyta.
 
-  ![Arbetsytans lista][3]
+   ![Arbetsytans lista][3]
 
 3. Den **instrumentpanelen för händelser** öppnas där du kan se händelsedetaljerna för den valda arbetsytan. Du kan visa viktiga händelser och alla händelser enligt typ.  I det här exemplet har vi valt **viktiga händelser**.
 
-  ![Viktig händelse][4]
+   ![Viktig händelse][4]
 
 4. Du kan fråga efter mer data under arbetsytan genom att välja en händelsetyp. I det här exemplet har vi valt **SecurityEvent**.
 
-  ![Att välja en händelsetyp][5]
+   ![Att välja en händelsetyp][5]
 
 5. **Loggsöknings-** öppnas med mer information om hur händelsetyp.
 
-  ![Loggsökning][6]
+   ![Loggsökning][6]
 
 ## <a name="add-a-notable-event"></a>Lägg till en viktig händelse
 Security Center tillhandahåller out-of the box viktiga händelser. Du kan lägga till viktiga händelser baserat på din egen fråga med hjälp av den [Kusto-frågespråket](../log-analytics/log-analytics-search-reference.md). Vi återkommer till den **instrumentpanelen för händelser** att lägga till en viktig händelse.
 
 1. Välj **Lägg till viktig händelse**.
 
-  ![Lägg till en viktig händelse][7]
+   ![Lägg till en viktig händelse][7]
 
 2. **Lägg till anpassad viktig händelse** öppnas.  Under **visningsnamn**, ange ett namn för din viktig händelse. Under **sökfråga**, ange din fråga för händelsen.
 
-  ![Ange din fråga][8]
+   ![Ange din fråga][8]
 
 4. Välj **OK**.
 
@@ -104,19 +104,19 @@ Om arbetsytan raden:
 1. Välj en arbetsyta som **kräver uppdatering**.
 2. **Sök efter uppgraderingen** öppnas. Välj **uppgradera nu**.
 
-  ![Uppgradera nu][10]
+   ![Uppgradera nu][10]
 
 ## <a name="upgrade-to-security-centers-standard-tier"></a>Uppgradera till standardnivån i Security Center
 1. Välj en arbetsyta med **uppgradera planera**.
 2. **Instrumentpanelen för händelser** öppnas. Välj **försök händelser instrumentpanelen**.
 
-  ![Testa instrumentpanelen][11]
+   ![Testa instrumentpanelen][11]
 
 3. Under **registrering för avancerad säkerhet**, Välj den arbetsyta som du uppgraderar.
 4. Under **priser**väljer **Standard**.
 5. Välj **Spara**.
 
-  ![Uppgradera till Standard-nivån][12]
+   ![Uppgradera till Standard-nivån][12]
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln beskrivs hur du använder instrumentpanelen för Security Center-händelse. Mer information om hur instrumentpanelen fungerar och för att skriva din egen händelsefrågor, se:

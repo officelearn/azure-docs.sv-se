@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be95a75e7cdcaa11ef3e90093ef52c5615608eac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4d74b122f3b5567e8291ec5f3ff4e1dda7ff68f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458031"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835024"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Skapa funktioner för data i ett Hadoop-kluster med hjälp av Hive-frågor
 Det här dokumentet visar hur du skapar funktioner för data som lagras i ett Azure HDInsight Hadoop-kluster med hjälp av Hive-frågor. De här Hive-frågor använder inbäddade Hive User-Defined funktioner (UDF), skript som tillhandahålls.
 
 Nödvändiga åtgärder för att skapa funktioner kan vara minnesintensiva. Prestanda för Hive-frågor blir mer kritiska i sådana fall och kan förbättras genom att justera vissa parametrar. Justering av dessa parametrar beskrivs i det sista avsnittet.
 
-Exempel på de frågor som visas är specifika för den [NYC Taxi Resedata](http://chriswhong.com/open-data/foil_nyc_taxi/) scenarier finns också i [GitHub-lagringsplatsen](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). De här frågorna har dataschema som angetts redan och är redo att skickas för att köra. I det sista avsnittet diskuteras också parametrar som användare kan justera så att prestanda för Hive-frågor kan förbättras.
+Exempel på de frågor som visas är specifika för den [NYC Taxi Resedata](https://chriswhong.com/open-data/foil_nyc_taxi/) scenarier finns också i [GitHub-lagringsplatsen](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). De här frågorna har dataschema som angetts redan och är redo att skickas för att köra. I det sista avsnittet diskuteras också parametrar som användare kan justera så att prestanda för Hive-frågor kan förbättras.
 
 Den här uppgiften är ett steg i den [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
@@ -130,7 +130,7 @@ Fälten som används i den här frågan är GPS-koordinater för hämtning och d
         and dropoff_latitude between 30 and 90
         limit 10;
 
-De matematiska formler som beräknar avståndet mellan två GPS-koordinater kan hittas på den <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">flyttbar typ skript</a> plats, med Peter Lapisu. I den här Javascript, funktionen `toRad()` är bara *lat_or_lon*pi/180 *, som konverterar grader till radianer. Här kan *lat_or_lon* är latitud och longitud. Eftersom Hive inte ger funktionen `atan2`, men innehåller funktionen `atan`, `atan2` funktion implementeras av `atan` funktion i Hive frågan ovan med hjälp av definitionen i <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+De matematiska formler som beräknar avståndet mellan två GPS-koordinater kan hittas på den <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">flyttbar typ skript</a> plats, med Peter Lapisu. I den här Javascript, funktionen `toRad()` är bara *lat_or_lon*pi/180, som konverterar grader till radianer. Här kan *lat_or_lon* är latitud och longitud. Eftersom Hive inte ger funktionen `atan2`, men innehåller funktionen `atan`, `atan2` funktion implementeras av `atan` funktion i Hive frågan ovan med hjälp av definitionen i <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Skapa arbetsyta](./media/create-features-hive/atan2new.png)
 
@@ -161,11 +161,11 @@ Standardinställning för Hive-kluster är kanske inte lämpligt för Hive-fråg
    
     Normalt standardvärdet:
     
-    - *mapred.min.split.size* är 0, för
-    - *mapred.Max.split.size* är **Long.MAX** samt för 
-    - *DFS.block.size* är 64 MB.
+   - *mapred.min.split.size* är 0, för
+   - *mapred.Max.split.size* är **Long.MAX** samt för 
+   - *DFS.block.size* är 64 MB.
 
-    Som vi kan se, beroende på datastorleken, justera parametrarna genom att ”inställningen” dem kan vi justera antalet Mappningskomponenter används.
+     Som vi kan se, beroende på datastorleken, justera parametrarna genom att ”inställningen” dem kan vi justera antalet Mappningskomponenter används.
 
 4. Här följer några fler **avancerade alternativ** för att optimera prestanda för Hive. Dessa kan du ange det minne som allokerats för att mappa och minska uppgifter och kan vara användbart i justera prestanda. Tänk på att den *mapreduce.reduce.memory.mb* får inte vara större än den fysiska minnesstorleken på varje arbetsnod i Hadoop-kluster.
    

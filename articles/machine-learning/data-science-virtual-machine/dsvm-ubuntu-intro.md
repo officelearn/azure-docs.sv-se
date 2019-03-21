@@ -16,25 +16,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: 206e50107e52d631cb33b7cb8dcc03474dd27e64
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 92f9fcc8a10f90c0886667f33f3c7d4dec09bc8e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456422"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884684"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Etablera den virtuella datorn för datavetenskap för Linux (Ubuntu)
 
 Den virtuella datorn för datavetenskap för Linux är en Ubuntu-baserad VM-avbildning som gör det enkelt att komma igång med machine learning, inklusive djupinlärning på Azure. Deep learning-verktyg är:
 
-  * [Caffe](http://caffe.berkeleyvision.org/): Ett ramverk för djupinlärning som skapats för hastighet, expressivity och modularitet
+  * [Caffe](https://caffe.berkeleyvision.org/): Ett ramverk för djupinlärning som skapats för hastighet, expressivity och modularitet
   * [Caffe2](https://github.com/caffe2/caffe2): En plattformsoberoende version av Caffe
   * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): Verktyget för programvara från Microsoft Research för djupinlärning
   * [H2O](https://www.h2o.ai/): En öppen källkod stordataplattform och grafiskt användargränssnitt
   * [Keras](https://keras.io/): Ett övergripande neural network API i Python för TensorFlow, Microsoft Cognitive Toolkit och Theano
-  * [MXNet](http://mxnet.io/): En flexibla, effektiva deep learning-biblioteket med många språkbindningar
+  * [MXNet](https://mxnet.io/): En flexibla, effektiva deep learning-biblioteket med många språkbindningar
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits): Ett grafiskt system som förenklar vanliga uppgifter för djupinlärning
-  * [PyTorch](http://pytorch.org/): Ett övergripande Python-bibliotek med stöd för dynamisk nätverk
+  * [PyTorch](https://pytorch.org/): Ett övergripande Python-bibliotek med stöd för dynamisk nätverk
   * [TensorFlow](https://www.tensorflow.org/): Ett bibliotek för öppen källkod för maskinintelligens från Google
   * [Theano](http://deeplearning.net/software/theano/): Ett Python-bibliotek för att definiera, optimera och effektivt utvärderar matematiska uttryck som involverar flerdimensionella matriser
   * [Torch](http://torch.ch/): Ett vetenskapliga databehandling ramverk med brett stöd för machine learning-algoritmer
@@ -120,7 +120,7 @@ Du kan komma åt Ubuntu DSVM på tre sätt:
 
 ### <a name="ssh"></a>SSH
 
-När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH. Använda de autentiseringsuppgifter som du skapade i den **grunderna** avsnittet i steg 3 för text shell-gränssnittet. I Windows kan du ladda ned ett SSH-klientverktyg som [Putty](http://www.putty.org). Du kan använda X11 vidarebefordran på Putty eller installera X2Go klienten om du föredrar en grafisk desktop (X Windows System).
+När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH. Använda de autentiseringsuppgifter som du skapade i den **grunderna** avsnittet i steg 3 för text shell-gränssnittet. I Windows kan du ladda ned ett SSH-klientverktyg som [Putty](https://www.putty.org). Du kan använda X11 vidarebefordran på Putty eller installera X2Go klienten om du föredrar en grafisk desktop (X Windows System).
 
 > [!NOTE]
 > Klienten X2Go presterade bättre än X11 vidarebefordran i testet. Vi rekommenderar att du använder X2Go-klienten för ett grafiskt gränssnitt för fjärrskrivbord.
@@ -130,7 +130,7 @@ När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH
 ### <a name="x2go"></a>X2Go
 Linux VM är redan upprättad med X2Go server och redo att ta emot klientanslutningar. Slutför följande procedur på klienten för att ansluta till Linux VM grafiska skrivbordet:
 
-1. Ladda ned och installera klienten för din klientplattform från X2Go [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Ladda ned och installera klienten för din klientplattform från X2Go [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 1. Kör X2Go-klienten och välj **ny Session**. Det öppnar en konfiguration med flera flikar. Ange följande konfigurationsparametrar:
    * **Sessionen fliken**:
      * **Värden**: Värdnamn eller IP-adressen för din Linux virtuell dator för datavetenskap.
@@ -205,7 +205,7 @@ R är ett av de mest populära språk för dataanalys och maskininlärning. Om d
 
 Starta R-konsolen, skriver du bara **R** i gränssnittet. Detta tar dig till en interaktiv miljö. Du använder vanligtvis en redigerare som Emacs eller vi hjälper dig för att utveckla ditt R-program, och sedan köra skript i R. Med RStudio har du ett fullständigt grafiskt IDE-miljö för att utveckla ditt R-program.
 
-Det finns också ett R-skript att installera den [översta 20 R-paket](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) om du vill. Det här skriptet kan köras när du är i det interaktiva gränssnittet R, som du kan ange (som tidigare nämnts) genom att skriva **R** i gränssnittet.  
+Det finns också ett R-skript att installera den [översta 20 R-paket](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) om du vill. Det här skriptet kan köras när du är i det interaktiva gränssnittet R, som du kan ange (som tidigare nämnts) genom att skriva **R** i gränssnittet.  
 
 ### <a name="python"></a>Python
 Anaconda Python är installerat med Python 2.7 och 3,5 miljöer. 2.7 miljön kallas _rot_, och 3,5 miljön kallas _py35_. Den här distributionen innehåller grundläggande Python tillsammans med ungefär 300 av de mest populära analyspaket matematiska, teknik och data. 
@@ -276,7 +276,7 @@ Du kan stoppa Hadoop-relaterade tjänster när du inte behöver dem genom att k�
 ### <a name="ides-and-editors"></a>IDE: er och redigeringsprogram
 Du kan välja mellan flera kod redigerare. Detta inkluderar vi/VIM, Emacs, RStudio pycharm med IntelliJ. IntelliJ, RStudio och PyCharm finns grafiska redigerare du måste vara inloggad på ett grafiskt skrivbord kan använda dem. Dessa redigerare har skrivbord och programtjänster menyn genvägar att starta dem.
 
-**VIM** och **Emacs** är textbaserade redigerare. Vi har installerat ett tillägg-paket som heter Emacs talar statistik (ESS) som underlättar arbetet med R i redigeraren Emacs Emacs. Mer information finns på [ESS](http://ess.r-project.org/).
+**VIM** och **Emacs** är textbaserade redigerare. Vi har installerat ett tillägg-paket som heter Emacs talar statistik (ESS) som underlättar arbetet med R i redigeraren Emacs Emacs. Mer information finns på [ESS](https://ess.r-project.org/).
 
 **LaTex** har installerats via texlive-package tillsammans med tillägget Emacs [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) paket, vilket förenklar redigering LaTex dokument inom Emacs.  
 

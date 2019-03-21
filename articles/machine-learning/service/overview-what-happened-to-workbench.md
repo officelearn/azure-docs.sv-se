@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ebc9b83c3aa135c90f18ff982621e862cb01d72
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 5ff065816e287e0d4e37cdea9a7770c9ff806520
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879621"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890754"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Vad hände med Azure Machine Learning Workbench?
 
@@ -60,7 +60,7 @@ Körhistorik kallas nu **experiment**. Du kan samla in modellens experiment och 
 
 Portalens instrumentpanel för arbetsytor stöds endast i webbläsarna Microsoft Edge, Chrome och Firefox:
 
-[![Onlineportalen](./media/overview-what-happened-to-workbench/image001.png)] (./media/overview-what-happened-to-workbench/image001.png#lightbox)
+[![Online-portal](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
 Börja träna dina modeller och spåra körhistorik med hjälp av nya CLI och SDK. Hur du gör visas i [Självstudie: träna modeller med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).
 
@@ -68,7 +68,7 @@ Börja träna dina modeller och spåra körhistorik med hjälp av nya CLI och SD
 
 Dina befintliga dataförberedelsefiler kan inte överföras till den senaste versionen eftersom vi inte längre har Machine Learning Workbench. Däremot kan du fortfarande förbereda datauppsättningar av valfri storlek för modellering.   
 
-Med datamängder oavsett storlek kan du använda [Azure Machine Learning-SDK för dataförberedelse](http://aka.ms/data-prep-sdk) för att snabbt förbereda dina data före modellering genom att skriva Python-kod. 
+Med datamängder oavsett storlek kan du använda [Azure Machine Learning-SDK för dataförberedelse](https://aka.ms/data-prep-sdk) för att snabbt förbereda dina data före modellering genom att skriva Python-kod. 
 
 Du kan följa [den här självstudien](tutorial-data-prep.md) för att lära dig mer om hur du använder Azure Machine Learning SDK för dataförberedelse.
 
@@ -84,7 +84,7 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 Lär dig hur du kommer igång i [Python med huvudsaklig SDK](quickstart-create-workspace-with-python.md) med hjälp av [Azure Portal](quickstart-get-started.md).
 
 ## <a name="what-about-my-registered-models-and-images"></a>Vad händer med mina registrerade modeller och bilder?
- 
+
 De modeller som du registrerade i ditt gamla modellregister måste migreras till din nya arbetsyta om du vill fortsätta att använda dem. För att migrera dina modeller hämtar du modellerna och registrerar dem på nytt i den nya arbetsytan. 
 
 Bilder som du skapade i ditt gamla avbildningsregister måste återskapas i den nya arbetsytan om du vill fortsätta att använda dem. Du kan återskapa dessa bilder genom att följa avsnittet [Konfigurera och skapa avbildning](how-to-deploy-and-where.md#configureimage). 
@@ -109,7 +109,7 @@ Genom att använda den nya Python SDK:n i den senaste versionen kan du interager
 
 I den senaste versionen har tillägget bytt namn till Azure Machine Learning för Visual Studio Code. Det har även utökats och förbättrats för att fungera med föregående nya funktioner.
 
-[![Azure Machine Learning för Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)] (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
+[![Azure Machine Learning för Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)](./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## <a name="what-about-domain-packages"></a>Vad gäller för domänpaket?
 

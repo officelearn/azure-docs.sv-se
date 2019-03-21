@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 03/20/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f8941f84e85f330713cb4b263f2154acb80b520c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 51be74d0adbd5ce75234be2a5b7c99fcd36ca91c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532415"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295274"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -65,6 +65,7 @@ Om du har skapat ett Batch-konto med poolallokeringsläget inställt **användar
 | [Samtidiga uppgifter](batch-parallel-node-tasks.md) per compute-nod | 4 x antalet kärnor för noden |
 | [Program](batch-application-packages.md) per Batch-konto | 20 |
 | Programpaket per program | 40 |
+| Programpaket per pool | 10 |
 | Maximal aktiviteternas livslängd | 180 dagar<sup>1</sup> |
 
 <sup>1</sup> högsta livstid för en uppgift, från när den läggs till i jobbet tills den slutförs, är 180 dagar. Slutförda uppgifter bevaras i 7 dagar. Data för uppgifter som inte slutförts inom den maximala livstiden är inte tillgängliga.

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4c431b149edb0677585da3c84e37d64873478ccf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 905d084b46919ad945cf44f5517b95d5321ee3de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432744"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116206"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopieringsdata till och från Azure SQL Data Warehouse med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -197,28 +197,28 @@ Om kraven inte uppfylls, Azure Data Factory kontrollerar du inställningarna och
 1. **Käll-länkade tjänst** är av typen: **AzureStorage** eller **AzureDataLakeStore med autentisering av tjänstens huvudnamn**.
 2. Den **indatauppsättningen** är av typen: **AzureBlob** eller **AzureDataLakeStore**, och formatet skriver `type` egenskaper är **OrcFormat**, **ParquetFormat**, eller **TextFormat** med följande konfigurationer:
 
-    1. `rowDelimiter` måste vara **\n**.
-    2. `nullValue` anges till **tom sträng** (””), eller `treatEmptyAsNull` är inställd på **SANT**.
-    3. `encodingName` anges till **utf-8**, vilket är **standard** värde.
-    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, och `skipLineCount` har inte angetts.
-    5. `compression` kan vara **ingen komprimering**, **GZip**, eller **Deflate**.
+   1. `rowDelimiter` måste vara **\n**.
+   2. `nullValue` anges till **tom sträng** (””), eller `treatEmptyAsNull` är inställd på **SANT**.
+   3. `encodingName` anges till **utf-8**, vilket är **standard** värde.
+   4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, och `skipLineCount` har inte angetts.
+   5. `compression` kan vara **ingen komprimering**, **GZip**, eller **Deflate**.
 
-    ```JSON
-    "typeProperties": {
-        "folderPath": "<blobpath>",
-        "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "<any delimiter>",
-            "rowDelimiter": "\n",
-            "nullValue": "",
-            "encodingName": "utf-8"
-        },
-        "compression": {
-            "type": "GZip",
-            "level": "Optimal"
-        }
-    },
-    ```
+      ```JSON
+      "typeProperties": {
+       "folderPath": "<blobpath>",
+       "format": {
+           "type": "TextFormat",
+           "columnDelimiter": "<any delimiter>",
+           "rowDelimiter": "\n",
+           "nullValue": "",
+           "encodingName": "utf-8"
+       },
+       "compression": {
+           "type": "GZip",
+           "level": "Optimal"
+       }
+      },
+      ```
 
 3. Det finns inga `skipHeaderLineCount` inställningen **BlobSource** eller **AzureDataLakeStore** för kopieringsaktiviteten i pipelinen.
 4. Det finns inga `sliceIdentifierColumnName` inställningen **SqlDWSink** för kopieringsaktiviteten i pipelinen. (PolyBase garanterar att alla data har uppdaterats eller ingenting har uppdaterats under en enda körning. Få **repeterbarhet**, kan du använda `sqlWriterCleanupScript`).

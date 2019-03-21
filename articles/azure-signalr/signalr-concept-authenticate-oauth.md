@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 8c66b603bd8c974bcaa63ee2aad58f7fd8fe04e6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7660e1405598676599cab30467d22ac979438deb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57555246"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003692"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service-autentisering
 
@@ -61,9 +61,9 @@ För att kunna slutföra den här självstudien behöver du följande:
     | Inställningsnamn | Föreslaget värde | Beskrivning |
     | ------------ | --------------- | ----------- |
     | Programnamn | *Azure SignalR-chatt* | GitHub-användaren ska kunna känna igen och lita på den app som används för att autentisera.   |
-    | Hemsides-URL | *http://localhost:5000/home* | |
+    | Hemsides-URL | `http://localhost:5000/home` | |
     | Programbeskrivning | *Ett chattrumsexempel med Azure SignalR Service med GitHub-autentisering* | En praktisk beskrivning av programmet som hjälper dina programanvändare att förstå kontexten för autentiseringen som används. |
-    | URL-adress för återanrop av auktorisering | *http://localhost:5000/signin-github* | Den här inställningen är den viktigaste inställningen för OAuth-programmet. Det är motringnings-URL:en som GitHub returnerar användaren till efter en lyckad autentisering. I den här självstudien måste du använda standard-motringnings-URL:en för *AspNet.Security.OAuth.GitHub*-paketet, */signin-github*.  |
+    | URL-adress för återanrop av auktorisering | `http://localhost:5000/signin-github` | Den här inställningen är den viktigaste inställningen för OAuth-programmet. Det är motringnings-URL:en som GitHub returnerar användaren till efter en lyckad autentisering. I den här självstudien måste du använda standard-motringnings-URL:en för *AspNet.Security.OAuth.GitHub*-paketet, */signin-github*.  |
 
 4. När den nya OAuth-appregistreringen är klar lägger du till *klient-ID* och *klienthemlighet* till Secret Manager med följande kommandon. Ersätt *Your_GitHub_Client_Id* och *Your_GitHub_Client_Secret* med OAuth-appens värden.
 

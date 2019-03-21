@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: ae057feb70d9ddb2c2dae10bae20eca1b613f76f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c96710d6dcca9f5ef99b3a02a0bc875d433f814d
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996977"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257439"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Spela upp ditt innehåll med befintliga spelare
 Azure Media Services har stöd för många populära strömmande format, till exempel Smooth Streaming, HTTP Live Streaming och MPEG-Dash. Det här avsnittet hänvisar till befintliga spelare som du kan använda för att testa dina strömmar.
@@ -31,12 +31,12 @@ Klicka på önskad video (se till att det var [publicerade](media-services-porta
 
 Vissa förutsättningar gäller:
 
-* **MEDIA SERVICES-INNEHÅLLSSPELAREN** spelar upp från strömningsslutpunkten som är standard. Använd en annan spelare om du vill spela upp från en strömningsslutpunkt som inte är standard. Till exempel [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* **MEDIA SERVICES-INNEHÅLLSSPELAREN** spelar upp från strömningsslutpunkten som är standard. Använd en annan spelare om du vill spela upp från en strömningsslutpunkt som inte är standard. Till exempel [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ![AMSPlayer][AMSPlayer]
 
 ### <a name="azure-media-player"></a>Azure Media Player
-Använd [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) att spela upp ditt innehåll (rensa eller skyddade) i något av följande format:
+Använd [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html) att spela upp ditt innehåll (rensa eller skyddade) i något av följande format:
 
 * Smooth Streaming
 * MPEG DASH
@@ -45,17 +45,17 @@ Använd [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer
 
 ### <a name="flash-player"></a>Flash Player
 #### <a name="aes-encrypted-with-token"></a>AES-krypterad med Token
-[http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
+[https://aestoken.azurewebsites.net](https://aestoken.azurewebsites.net)
 
 ### <a name="silverlight-players"></a>Silverlight-spelare
 
 #### <a name="playready-with-token"></a>PlayReady med Token
-[http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)
+[https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
 
 ### <a name="dash-players"></a>DASH-spelare
-[http://dashplayer.azurewebsites.net](http://dashplayer.azurewebsites.net)
+[https://dashplayer.azurewebsites.net](https://dashplayer.azurewebsites.net)
 
-[http://dashif.org](http://dashif.org)
+[https://dashif.org](https://dashif.org)
 
 ### <a name="other"></a>Annat
 Så här testar HLS-webbadresser som du kan också använda:

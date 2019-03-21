@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 6db9a5b65fc2723af2eae006ad81716e23e52133
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860532"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57975499"
 ---
 # <a name="interpret-method"></a>tolka metod
 
@@ -37,9 +37,11 @@ Namn     | Värde | Krävs?  | Beskrivning
 **antal**    | Tal | Nej<br>standard: 10 | Maximalt antal tolkningar för att returnera.         
 **offset**   | Tal | Nej<br>standard: 0  | Index för den första tolkningen ska returneras. Till exempel *count = 2 & örskjutning = 0* returnerar tolkningar 0 och 1. *Antal = 2 & örskjutning = 2* returnerar tolkningar 2 och 3.       
 **timeout**  | Tal | Nej<br>standard: 1000 | Tidsgräns i millisekunder. Endast tolkningar hittades före tidsgränsen har gått ut returneras.
+
 <br>
   
 ## <a name="response-json"></a>Svar (JSON)
+
 Namn     | Beskrivning
 ---------|---------
 **Fråga** |Den *fråga* parametern från begäran.
@@ -54,6 +56,7 @@ Namn     | Beskrivning
 **avbröts** | SANT om uppnåddes för begäran.
 
 <br>
+
 #### <a name="example"></a>Exempel:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers by jaime&complete=1&count=2

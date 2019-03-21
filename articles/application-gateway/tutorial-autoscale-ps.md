@@ -2,18 +2,18 @@
 title: 'Självstudie: Skapa en zonredundant programgateway för automatisk skalning med en reserverad IP-adress – Azure PowerShell'
 description: I den här självstudien får du lära dig hur du skapar en zonredundant programgateway för automatisk skalning med en reserverad IP-adress med hjälp av Azure PowerShell.
 services: application-gateway
-author: amitsriva
+author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 2/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: dd6cc65fca98bc435a8cfea575ba10e3cff376be
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 616a710237c31ef2b4a19c3e1e61838164a78530
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424684"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308575"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Självstudie: Skapa en application gateway som förbättrar åtkomsten till webbprogrammet
 
@@ -25,6 +25,7 @@ Om du är IT-administratör som arbetar med att förbättra webbappmåtkomst kan
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
+> * Skapa ett självsignerat certifikat
 > * Skapa ett virtuellt nätverk för autoskalning
 > * Skapa en reserverad offentlig IP-adress
 > * Konfigurera infrastrukturen för din application gateway
@@ -34,15 +35,17 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Den här självstudien kräver att du kör Azure PowerShell lokalt. Du måste ha Azure PowerShell-modulen version 6.9.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Den här självstudien kräver att du kör Azure PowerShell lokalt. Du måste ha Azure PowerShell-Modulversion 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 ```azurepowershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -Subscription "<sub name>"
+Connect-AzAccount
+Select-AzSubscription -Subscription "<sub name>"
 ```
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
@@ -50,10 +53,41 @@ Skapa en resursgrupp på en av de tillgängliga platserna.
 
 ```azurepowershell
 $location = "East US 2"
-$rg = "<rg name>"
+$rg = "AppGW-rg"
 
 #Create a new Resource Group
-New-AzureRmResourceGroup -Name $rg -Location $location
+New-AzResourceGroup -Name $rg -Location $location
+```
+
+## <a name="create-a-self-signed-certificate"></a>Skapa ett självsignerat certifikat
+
+I produktion bör du importera ett giltigt certifikat som är signerat av en betrodd provider. I den här självstudiekursen skapar du ett självsignerat certifikat med [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Du kan använda [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) med det tumavtryck som returnerades och exportera en pfx-fil från certifikatet.
+
+```powershell
+New-SelfSignedCertificate `
+  -certstorelocation cert:\localmachine\my `
+  -dnsname www.contoso.com
+```
+
+Du bör se något som liknar det här resultatet:
+
+```
+PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
+
+Thumbprint                                Subject
+----------                                -------
+E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
+```
+
+Använd tumavtrycket till att skapa pfx-filen:
+
+```powershell
+$pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
+
+Export-PfxCertificate `
+  -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 `
+  -FilePath c:\appgwcert.pfx `
+  -Password $pwd
 ```
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
@@ -62,9 +96,9 @@ Skapa ett virtuellt nätverk med ett dedikerat undernät för en programgateway 
 
 ```azurepowershell
 #Create VNet with two subnets
-$sub1 = New-AzureRmVirtualNetworkSubnetConfig -Name "AppGwSubnet" -AddressPrefix "10.0.0.0/24"
-$sub2 = New-AzureRmVirtualNetworkSubnetConfig -Name "BackendSubnet" -AddressPrefix "10.0.1.0/24"
-$vnet = New-AzureRmvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg `
+$sub1 = New-AzVirtualNetworkSubnetConfig -Name "AppGwSubnet" -AddressPrefix "10.0.0.0/24"
+$sub2 = New-AzVirtualNetworkSubnetConfig -Name "BackendSubnet" -AddressPrefix "10.0.1.0/24"
+$vnet = New-AzvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg `
        -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $sub1, $sub2
 ```
 
@@ -74,7 +108,7 @@ Ange allokeringsmetoden för PublicIPAddress som **Statisk**. En virtuell IP-adr
 
 ```azurepowershell
 #Create static public IP
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP" `
+$pip = New-AzPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP" `
        -location $location -AllocationMethod Static -Sku Standard
 ```
 
@@ -83,10 +117,10 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP" `
 Hämta information för resursgruppen, undernätet och IP-adressen i ett lokalt objekt för att skapa informationen om programgatewayens IP-konfiguration.
 
 ```azurepowershell
-$resourceGroup = Get-AzureRmResourceGroup -Name $rg
-$publicip = Get-AzureRmPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP"
-$vnet = Get-AzureRmvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg
-$gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork $vnet
+$resourceGroup = Get-AzResourceGroup -Name $rg
+$publicip = Get-AzPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP"
+$vnet = Get-AzvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg
+$gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork $vnet
 ```
 
 ## <a name="configure-the-infrastructure"></a>Konfigurera infrastrukturen
@@ -94,26 +128,26 @@ $gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNe
 Konfigurera IP-konfigurationen, IP-konfigurationen för klientsidan, serverdelspoolen, HTTP-inställningarna, certifikatet, porten, lyssnaren och regeln i samma format som den befintliga standardprogramgatewayen. Den nya SKU:n följer samma objektmodell som standard-SKU:n.
 
 ```azurepowershell
-$ipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name "IPConfig" -Subnet $gwSubnet
-$fip = New-AzureRmApplicationGatewayFrontendIPConfig -Name "FrontendIPCOnfig" -PublicIPAddress $publicip
-$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name "Pool1" `
+$ipconfig = New-AzApplicationGatewayIPConfiguration -Name "IPConfig" -Subnet $gwSubnet
+$fip = New-AzApplicationGatewayFrontendIPConfig -Name "FrontendIPCOnfig" -PublicIPAddress $publicip
+$pool = New-AzApplicationGatewayBackendAddressPool -Name "Pool1" `
        -BackendIPAddresses testbackend1.westus.cloudapp.azure.com, testbackend2.westus.cloudapp.azure.com
-$fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "SSLPort" -Port 443
-$fp02 = New-AzureRmApplicationGatewayFrontendPort -Name "HTTPPort" -Port 80
+$fp01 = New-AzApplicationGatewayFrontendPort -Name "SSLPort" -Port 443
+$fp02 = New-AzApplicationGatewayFrontendPort -Name "HTTPPort" -Port 80
 
-$securepfxpwd = ConvertTo-SecureString -String "scrap" -AsPlainText -Force
-$sslCert01 = New-AzureRmApplicationGatewaySslCertificate -Name "SSLCert" -Password $securepfxpwd `
-            -CertificateFile "D:\Networking\ApplicationGateway\scrap.pfx"
-$listener01 = New-AzureRmApplicationGatewayHttpListener -Name "SSLListener" `
+$securepfxpwd = ConvertTo-SecureString -String "Azure123456!" -AsPlainText -Force
+$sslCert01 = New-AzApplicationGatewaySslCertificate -Name "SSLCert" -Password $securepfxpwd `
+            -CertificateFile "c:\appgwcert.pfx"
+$listener01 = New-AzApplicationGatewayHttpListener -Name "SSLListener" `
              -Protocol Https -FrontendIPConfiguration $fip -FrontendPort $fp01 -SslCertificate $sslCert01
-$listener02 = New-AzureRmApplicationGatewayHttpListener -Name "HTTPListener" `
+$listener02 = New-AzApplicationGatewayHttpListener -Name "HTTPListener" `
              -Protocol Http -FrontendIPConfiguration $fip -FrontendPort $fp02
 
-$setting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting1" `
+$setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting1" `
           -Port 80 -Protocol Http -CookieBasedAffinity Disabled
-$rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "Rule1" -RuleType basic `
+$rule01 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule1" -RuleType basic `
          -BackendHttpSettings $setting -HttpListener $listener01 -BackendAddressPool $pool
-$rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleType basic `
+$rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleType basic `
          -BackendHttpSettings $setting -HttpListener $listener02 -BackendAddressPool $pool
 ```
 
@@ -124,14 +158,14 @@ Nu kan du ange konfigurationen för automatisk skalning för programgatewayen. T
 * **Läget för bestämd kapacitet**. I det här läget skalas inte programgatewayen automatiskt och körs med en fast skalningsenhetskapacitet.
 
    ```azurepowershell
-   $sku = New-AzureRmApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2 -Capacity 2
+   $sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2 -Capacity 2
    ```
 
 * **Läget för automatisk skalning**. I det här läget skalas programgatewayen automatiskt baserat på programmets trafikmönster.
 
    ```azurepowershell
-   $autoscaleConfig = New-AzureRmApplicationGatewayAutoscaleConfiguration -MinCapacity 2
-   $sku = New-AzureRmApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
+   $autoscaleConfig = New-AzApplicationGatewayAutoscaleConfiguration -MinCapacity 2
+   $sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
    ```
 
 ## <a name="create-the-application-gateway"></a>Skapa programgatewayen
@@ -139,7 +173,7 @@ Nu kan du ange konfigurationen för automatisk skalning för programgatewayen. T
 Skapa programgatewayen och inkludera redundanszoner och konfigurationen för automatisk skalning.
 
 ```azurepowershell
-$appgw = New-AzureRmApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
+$appgw = New-AzApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
   -ResourceGroupName $rg -Location $location -BackendAddressPools $pool `
   -BackendHttpSettingsCollection $setting -GatewayIpConfigurations $ipconfig `
   -FrontendIpConfigurations $fip -FrontendPorts $fp01, $fp02 `
@@ -149,15 +183,15 @@ $appgw = New-AzureRmApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Använd Get-AzureRmPublicIPAddress till att hämta den offentliga IP-adressen för programgatewayen. Kopiera den offentliga IP-adressen eller DNS-namnet och klistra in det i webbläsarens adressfält.
+Använd Get-AzPublicIPAddress för att hämta den offentliga IP-adressen för application gateway. Kopiera den offentliga IP-adressen eller DNS-namnet och klistra in det i webbläsarens adressfält.
 
-`Get-AzureRmPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP`
+`Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP`
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Utforska först de resurser som har skapats med application gateway. När du inte behöver dem längre kan du använda kommandot `Remove-AzureRmResourceGroup` för att ta bort resursgruppen, programgatewayen och alla relaterade resurser.
+Utforska först de resurser som har skapats med application gateway. När du inte behöver dem längre kan du använda kommandot `Remove-AzResourceGroup` för att ta bort resursgruppen, programgatewayen och alla relaterade resurser.
 
-`Remove-AzureRmResourceGroup -Name $rg`
+`Remove-AzResourceGroup -Name $rg`
 
 ## <a name="next-steps"></a>Nästa steg
 

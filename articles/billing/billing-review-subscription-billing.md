@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: erikre
-ms.openlocfilehash: 3a487b56c3ce81f3a13add767a9bf7ad59cf79cd
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 15725989ef786f94421eddf647f101e3e73633fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315953"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890771"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Granska prenumerationsärenden med hjälp av REST API: er
 
@@ -92,7 +92,7 @@ Varje objekt i **värdet** representerar ett information om användningen av en 
 |**meterDetails** | Detaljerad information om hur du använder. |
 |**nextLink**| När värdet anger en URL för nästa ”page” av information. Tom när sidan är den sista. |
 
-Det här exemplet är förkortas; Se [lista användningsinformation](https://docs.microsoft.com/rest/api/consumption/usagedetails/listbybillingperiod#usagedetailslistresult) för en fullständig beskrivning av varje svarsfält.
+Det här exemplet är förkortas; Se [lista användningsinformation](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod) för en fullständig beskrivning av varje svarsfält.
 
 Andra statuskoder indikerar fel. I dessa fall kan förklarar objektet response varför begäran misslyckades.
 

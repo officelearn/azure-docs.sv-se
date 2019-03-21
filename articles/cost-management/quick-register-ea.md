@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: 7a3ed93814407df8f3adfe7d16ba50258fcb323e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 9f8ef97042d3ff5bbebc299ae212be8ed6c3b25b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082347"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096800"
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Registrera ett Azure Enterprise-avtal och visa kostnadsdata
 
@@ -36,9 +36,9 @@ Azure Cost Management innehåller liknande funktioner som Cloudyn. Azure Cost Ma
 4. På utvärderingsregistreringssidan på Cloudyn-portalen anger du namnet på ditt företag och väljer sedan **Azure Enterprise Enrollment Administrator**.  
 5. Ange API-nyckeln för Enterprise Portal-registreringen. Om du inte har nyckeln tillgänglig kan du klicka på länken [Enterprise Portal](https://ea.azure.com) och göra så här:  
     ![Klistra in din API-nyckel på fliken Fakturering](./media/quick-register-ea/trial-reg.png)
-  1. Logga in på webbplatsen för Azure Enterprise och klicka på **Rapporter**, klicka på **API-åtkomstnyckel** och kopiera sedan den primära nyckeln.  
+   1. Logga in på webbplatsen för Azure Enterprise och klicka på **Rapporter**, klicka på **API-åtkomstnyckel** och kopiera sedan den primära nyckeln.  
     ![Exempel på en API-nyckel för EA på EA-portalen](./media/quick-register-ea/ea-key.png)
-  3. Gå tillbaka till registreringssidan och klistra in API-nyckeln.
+   3. Gå tillbaka till registreringssidan och klistra in API-nyckeln.
 6. Godkänn användningsvillkoren och validera sedan nyckeln. Klicka på **Nästa** för att tillåta att Cloudyn samlar in Azure-resursdata. Data som samlas in omfattar information om användning, prestanda, fakturering och taggar från dina prenumerationer.  
     ![Exempel på en lyckad validering av en API-nyckel för EA](./media/quick-register-ea/ea-key-validated.png)
 7. Under **Invite other stakeholders** (Bjud in andra intressenter) kan du lägga till användare genom att ange deras e-postadresser. Klicka på **Nästa** när du är klar. Beroende på storleken på Azure-registreringen kan det ta upp till 24 timmar innan all faktureringsinformation läggs till i Cloudyn.

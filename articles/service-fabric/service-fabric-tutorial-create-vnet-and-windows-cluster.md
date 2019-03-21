@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4ce9ffd1f89f64bd9788b2754b85ea9b765b540c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: ade7f86bc5a00c079a7ccbe719ae46043d692047
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902969"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225152"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Självstudier: Distribuera ett Service Fabric-kluster som kör Windows till en Azure-nätverk
 
@@ -31,23 +31,26 @@ I den här självstudien beskrivs ett produktionsscenario. Om du vill skapa ett 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Skapa ett virtuellt nätverk i Azure med hjälp av PowerShell.
-> * Skapa ett nyckelvalv och ladda upp ett certifikat.
-> * Konfigurera Azure Active Directory-autentisering.
-> * Skapa ett säkert Service Fabric-kluster i Azure PowerShell.
-> * Skydda klustret med ett X.509-certifikat.
-> * Ansluta till klustret med hjälp av PowerShell.
-> * Ta bort ett kluster.
+> * skapa ett VNET i Azure med PowerShell
+> * skapa ett nyckelvalv och ladda upp ett certifikat
+> * Konfigurera Azure Active Directory-autentisering
+> * Konfigurera diagnostik insamling
+> * Konfigurera EventStore-tjänsten
+> * Konfigurera Azure Monitor-loggar
+> * skapa ett säkert Service Fabric-kluster i Azure med PowerShell
+> * skydda klustret med ett X.509-certifikat
+> * Ansluta till klustret med PowerShell
+> * ta bort ett kluster.
 
 I den här självstudieserien får du lära du dig att:
-
 > [!div class="checklist"]
-> * Skapa ett säkert kluster i Azure.
-> * [Skala ett kluster in eller ut](service-fabric-tutorial-scale-cluster.md).
-> * [Uppgradera körningen för ett kluster](service-fabric-tutorial-upgrade-cluster.md).
-> * [Ta bort ett kluster](service-fabric-tutorial-delete-cluster.md).
+> * skapa ett säkert kluster i Azure
+> * [Övervaka ett kluster](service-fabric-tutorial-monitor-cluster.md)
+> * [skala upp eller ned ett kluster](service-fabric-tutorial-scale-cluster.md)
+> * [uppgradera körningen för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
+> * [Ta bort ett kluster](service-fabric-tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar den här självstudien:
 
@@ -154,7 +157,7 @@ Parameterfilen [azuredeploy.parameters.json][parameters] deklarerar många värd
 |clusterName|mysfcluster123| Namnet på klustret. Får endast innehålla bokstäver och siffror. Längden ska vara mellan 3 och 23 tecken.|
 |location|southcentralus| Klustrets placering. |
 |certificateThumbprint|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets SHA1-tumavtrycksvärde. Till exempel ”6190390162C988701DB5676EB81083EA608DCCF3”.</p> |
-|certificateUrlValue|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil. </p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets webbadress. Exempel: "<https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346>".</p>|
+|certificateUrlValue|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil. </p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets webbadress. Exempel: "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i källans nyckelvärde. Till exempel ”/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”.</p>|
 
 ## <a name="set-up-azure-active-directory-client-authentication"></a>Konfigurera Azure Active Directory-klientautentisering
@@ -264,6 +267,336 @@ Lägg till parametervärdena i parameterfilen [azuredeploy.parameters.json][para
 },
 "aadClientApplicationId": {
 "value": "7a8f3b37-cc40-45cc-9b8f-57b8919ea461"
+}
+```
+<a id="configurediagnostics" name="configurediagnostics_anchor"></a>
+
+## <a name="configure-diagnostics-collection-on-the-cluster"></a>Konfigurera diagnostik samling på klustret
+När du kör ett Service Fabric-kluster, är det en bra idé att samla in loggar från alla noder i en central plats. Med loggarna på en central plats hjälper dig att analysera och felsöka problem i ditt kluster eller problem i program och tjänster som körs i klustret.
+
+Ett sätt att överföra och samla in loggar är att använda tillägget Azure Diagnostics SÄKERHETSSPECIFIKA som överför loggar till Azure Storage och har också möjlighet att skicka loggarna till Azure Application Insights eller Event Hubs. Du kan också använda en extern process för att läsa händelser från storage och placera dem i en produkt för analysis-plattformen, till exempel Azure Monitor-loggar eller en annan lösning för parsning av loggen.
+
+Om du följer den här självstudien diagnostik samling har redan konfigurerats i den [mall][template].
+
+Om du har ett befintligt kluster som inte har distribuerats diagnostik kan du lägga till eller uppdatera det. via mallen kluster. Ändra Resource Manager-mallen som används för att skapa det befintliga klustret eller ladda ned mallen från portalen. Ändra filen template.json genom att utföra följande uppgifter:
+
+Lägg till en ny storage-resurs i resursavsnittet i mallen:
+```json
+"resources": [
+...
+{
+  "apiVersion": "2015-05-01-preview",
+  "type": "Microsoft.Storage/storageAccounts",
+  "name": "[parameters('applicationDiagnosticsStorageAccountName')]",
+  "location": "[parameters('computeLocation')]",
+  "sku": {
+    "accountType": "[parameters('applicationDiagnosticsStorageAccountType')]"
+  },
+  "tags": {
+    "resourceType": "Service Fabric",
+    "clusterName": "[parameters('clusterName')]"
+  }
+},
+...
+]
+```
+
+Lägg sedan till parametrar för lagringskontonamn och typ avsnittet parametrar i mallen. Ersätt platshållaren lagringskontonamnet text hamnar här med namnet på storage-konto som du vill.
+
+```json
+"parameters": {
+...
+"applicationDiagnosticsStorageAccountType": {
+    "type": "string",
+    "allowedValues": [
+    "Standard_LRS",
+    "Standard_GRS"
+    ],
+    "defaultValue": "Standard_LRS",
+    "metadata": {
+    "description": "Replication option for the application diagnostics storage account"
+    }
+},
+"applicationDiagnosticsStorageAccountName": {
+    "type": "string",
+    "defaultValue": "**STORAGE ACCOUNT NAME GOES HERE**",
+    "metadata": {
+    "description": "Name for the storage account that contains application diagnostics data from the cluster"
+    }
+},
+...
+}
+```
+
+Lägg sedan till den **IaaSDiagnostics** tillägg-matris med-tillägget i **VirtualMachineProfile** egenskapen för varje **Microsoft.Compute/virtualMachineScaleSets** resursen i klustret.  Om du använder den [exempelmallen][template], det finns tre VM-skalningsuppsättningar (ett för varje nod i klustret).
+
+```json
+"apiVersion": "2018-10-01",
+"type": "Microsoft.Compute/virtualMachineScaleSets",
+"name": "[variables('vmNodeType1Name')]",
+"properties": {
+    ...
+    "virtualMachineProfile": {
+        "extensionProfile": {
+            "extensions": [
+                {
+                    "name": "[concat(parameters('vmNodeType0Name'),'_Microsoft.Insights.VMDiagnosticsSettings')]",
+                    "properties": {
+                        "type": "IaaSDiagnostics",
+                        "autoUpgradeMinorVersion": true,
+                        "protectedSettings": {
+                        "storageAccountName": "[parameters('applicationDiagnosticsStorageAccountName')]",
+                        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName')),'2015-05-01-preview').key1]",
+                        "storageAccountEndPoint": "https://core.windows.net/"
+                        },
+                        "publisher": "Microsoft.Azure.Diagnostics",
+                        "settings": {
+                        "WadCfg": {
+                            "DiagnosticMonitorConfiguration": {
+                            "overallQuotaInMB": "50000",
+                            "EtwProviders": {
+                                "EtwEventSourceProviderConfiguration": [
+                                {
+                                    "provider": "Microsoft-ServiceFabric-Actors",
+                                    "scheduledTransferKeywordFilter": "1",
+                                    "scheduledTransferPeriod": "PT5M",
+                                    "DefaultEvents": {
+                                    "eventDestination": "ServiceFabricReliableActorEventTable"
+                                    }
+                                },
+                                {
+                                    "provider": "Microsoft-ServiceFabric-Services",
+                                    "scheduledTransferPeriod": "PT5M",
+                                    "DefaultEvents": {
+                                    "eventDestination": "ServiceFabricReliableServiceEventTable"
+                                    }
+                                }
+                                ],
+                                "EtwManifestProviderConfiguration": [
+                                {
+                                    "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+                                    "scheduledTransferLogLevelFilter": "Information",
+                                    "scheduledTransferKeywordFilter": "4611686018427387904",
+                                    "scheduledTransferPeriod": "PT5M",
+                                    "DefaultEvents": {
+                                    "eventDestination": "ServiceFabricSystemEventTable"
+                                    }
+                                }
+                                ]
+                            }
+                            }
+                        },
+                        "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountName')]"
+                        },
+                        "typeHandlerVersion": "1.5"
+                    }
+                }
+            ...
+            ]
+        }
+    }
+}
+```
+<a id="configureeventstore" name="configureeventstore_anchor"></a>
+
+## <a name="configure-the-eventstore-service"></a>Konfigurera tjänsten EventStore
+EventStore-tjänsten är ett alternativ för övervakning i Service Fabric. EventStore ger ett sätt att förstå tillståndet för dina kluster eller arbetsbelastningar vid en viss tidpunkt. EventStore är en tillståndskänslig Service Fabric-tjänst som underhåller händelser från klustret. Händelsen exponeras via Service Fabric Explorer, REST och API: er. EventStore frågar klustret direkt för att få diagnostikdata för entiteter i ditt kluster och bör användas för att:
+
+* Diagnostisera problem på utveckling eller testning eller som du kan använda en övervakningspipelinen
+* Bekräfta att hanteringsåtgärder som du vidtar i ditt kluster bearbetas korrekt
+* En ”ögonblicksbild” av hur Service Fabric interagerar med en viss enhet
+
+
+
+Om du vill aktivera tjänsten EventStore på ditt kluster, lägger du till följande till den **fabricSettings** egenskapen för den **Microsoft.ServiceFabric/clusters** resurs:
+
+```json
+"apiVersion": "2018-02-01",
+"type": "Microsoft.ServiceFabric/clusters",
+"name": "[parameters('clusterName')]",
+"properties": {
+    ...
+    "fabricSettings": [
+        ...
+        {
+            "name": "EventStoreService",
+            "parameters": [
+                {
+                "name": "TargetReplicaSetSize",
+                "value": "3"
+                },
+                {
+                "name": "MinReplicaSetSize",
+                "value": "1"
+                }
+            ]
+        }
+    ]
+}
+```
+<a id="configureloganalytics" name="configureloganalytics_anchor"></a>
+
+## <a name="set-up-azure-monitor-logs-for-the-cluster"></a>Konfigurera Azure Monitor-loggar för klustret
+
+Azure Monitor-loggar är vår rekommendation att övervaka klustret händelser. Om du vill konfigurera Azure Monitor-loggar för att övervaka ditt kluster, måste du ha [diagnostik som är aktiverade för att visa klusternivå händelser](#configure-diagnostics-collection-on-the-cluster).  
+
+Arbetsytan måste vara anslutna till diagnostikdata som kommer från ditt kluster.  Den här loggdata som lagras i den *applicationDiagnosticsStorageAccountName* storage-konto i WADServiceFabric * EventTable och WADWindowsEventLogsTable WADETWEventTable tabeller.
+
+Lägg till Azure Log Analytics-arbetsytan och lägga till lösning till arbetsytan:
+
+```json
+"resources": [
+    ...
+    {
+        "apiVersion": "2015-11-01-preview",
+        "location": "[parameters('omsRegion')]",
+        "name": "[parameters('omsWorkspacename')]",
+        "type": "Microsoft.OperationalInsights/workspaces",
+        "properties": {
+            "sku": {
+                "name": "Free"
+            }
+        },
+        "resources": [
+            {
+                "apiVersion": "2015-11-01-preview",
+                "name": "[concat(variables('applicationDiagnosticsStorageAccountName'),parameters('omsWorkspacename'))]",
+                "type": "storageinsightconfigs",
+                "dependsOn": [
+                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]",
+                    "[concat('Microsoft.Storage/storageAccounts/', variables('applicationDiagnosticsStorageAccountName'))]"
+                ],
+                "properties": {
+                    "containers": [],
+                    "tables": [
+                        "WADServiceFabric*EventTable",
+                        "WADWindowsEventLogsTable",
+                        "WADETWEventTable"
+                    ],
+                    "storageAccount": {
+                        "id": "[resourceId('Microsoft.Storage/storageaccounts/', variables('applicationDiagnosticsStorageAccountName'))]",
+                        "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('applicationDiagnosticsStorageAccountName')),'2015-06-15').key1]"
+                    }
+                }
+            },
+            {
+                "apiVersion": "2015-11-01-preview",
+                "type": "datasources",
+                "name": "sampleWindowsPerfCounter",
+                "dependsOn": [
+                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]"
+                ],
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "Memory",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "Available MBytes"
+                }
+            },
+            {
+                "apiVersion": "2015-11-01-preview",
+                "type": "datasources",
+                "name": "sampleWindowsPerfCounter2",
+                "dependsOn": [
+                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]"
+                ],
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "Service Fabric Service",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "Average milliseconds per request"
+                }
+            }
+        ]
+    },
+    {
+        "apiVersion": "2015-11-01-preview",
+        "location": "[parameters('omsRegion')]",
+        "name": "[variables('solution')]",
+        "type": "Microsoft.OperationsManagement/solutions",
+        "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]"
+        ],
+        "properties": {
+            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]"
+        },
+        "plan": {
+            "name": "[variables('solution')]",
+            "publisher": "Microsoft",
+            "product": "[Concat('OMSGallery/', variables('solutionName'))]",
+            "promotionCode": ""
+        }
+    }
+]
+```
+
+Lägg sedan till parametrar
+```json
+"parameters": {
+    ...
+    "omsWorkspacename": {
+        "type": "string",
+        "defaultValue": "mysfomsworkspace",
+        "metadata": {
+            "description": "Name of your OMS Log Analytics Workspace"
+        }
+    },
+    "omsRegion": {
+        "type": "string",
+        "defaultValue": "West Europe",
+        "allowedValues": [
+            "West Europe",
+            "East US",
+            "Southeast Asia"
+        ],
+        "metadata": {
+            "description": "Specify the Azure Region for your OMS workspace"
+        }
+    }
+}
+```
+
+Lägg sedan till variabler:
+```json
+"variables": {
+    ...
+    "solution": "[Concat('ServiceFabric', '(', parameters('omsWorkspacename'), ')')]",
+    "solutionName": "ServiceFabric"
+}
+```
+
+Lägg till Log Analytics-agenttillägg för varje VM-skalningsuppsättning som anges i klustret och Anslut agenten till Log Analytics-arbetsytan. På så sätt kan samla in diagnostikdata om behållare, program och prestandaövervakning. Genom att lägga till det som ett tillägg till VM scale set resursen, garanterar Azure Resource Manager att det installeras på varje nod, även när skala klustret.
+
+```json
+"apiVersion": "2018-10-01",
+"type": "Microsoft.Compute/virtualMachineScaleSets",
+"name": "[variables('vmNodeType1Name')]",
+"properties": {
+    ...
+    "virtualMachineProfile": {
+        "extensionProfile": {
+            "extensions": [
+                {
+                    "name": "[concat(variables('vmNodeType0Name'),'OMS')]",
+                    "properties": {
+                        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+                        "type": "MicrosoftMonitoringAgent",
+                        "typeHandlerVersion": "1.0",
+                        "autoUpgradeMinorVersion": true,
+                        "settings": {
+                            "workspaceId": "[reference(resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename')), '2015-11-01-preview').customerId]"
+                        },
+                        "protectedSettings": {
+                            "workspaceKey": "[listKeys(resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename')),'2015-11-01-preview').primarySharedKey]"
+                        }
+                    }
+                }
+            ...
+            ]
+        }
+    }
 }
 ```
 
@@ -383,8 +716,21 @@ De andra artiklarna i självstudieserien använder klustret du har skapat. Om du
 
 Gå vidare till följande självstudie och lär dig hur du skalar ditt kluster.
 
+> [!div class="checklist"]
+> * skapa ett VNET i Azure med PowerShell
+> * skapa ett nyckelvalv och ladda upp ett certifikat
+> * Konfigurera Azure Active Directory-autentisering
+> * Konfigurera diagnostik insamling
+> * Konfigurera EventStore-tjänsten
+> * Konfigurera Azure Monitor-loggar
+> * skapa ett säkert Service Fabric-kluster i Azure med PowerShell
+> * skydda klustret med ett X.509-certifikat
+> * Ansluta till klustret med PowerShell
+> * ta bort ett kluster.
+
+Fortsätt sedan till följande självstudie och lär dig hur du övervakar kluster.
 > [!div class="nextstepaction"]
-> [Skala ett kluster](service-fabric-tutorial-scale-cluster.md)
+> [Övervaka ett kluster](service-fabric-tutorial-monitor-cluster.md)
 
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json

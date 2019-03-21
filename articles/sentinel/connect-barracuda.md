@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 8cfe902ff8a679dfeaee49cbf0631530e53cf0d4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 453af401f3b6120345cbe489fbfc323eca464ade
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240192"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092284"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Ansluta din Barracuda-installation 
 
@@ -30,8 +30,8 @@ ms.locfileid: "57240192"
 Barracuda Web Application Firewall (WAF)-anslutningsappen kan du enkelt ansluta dina Barracuda-loggar med din Azure Sentinel, att visa instrumentpaneler, skapa anpassade varningar och förbättra undersökningen. Detta ger dig en överblick över nätverket och förbättrar din säkerhetsfunktioner för åtgärden. Azure Sentinel drar nytta av den interna integreringen mellan **Barracuda** och Microsoft Azure OMS och ger sömlös integrering. 
 
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > - Data lagras i den geografiska platsen för arbetsytan där du kör Azure Sentinel.
 
 ## <a name="configure-and-connect-barracuda-waf"></a>Konfigurera och ansluta Barracuda WAF

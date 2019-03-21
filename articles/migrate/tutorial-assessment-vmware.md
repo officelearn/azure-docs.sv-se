@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7ad5f22b0604cb9de38f7990c88d760df97098d9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: dc2fb3faddc8af30edd66b926259c05580d9872a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235843"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104530"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Utforska och utvärdera lokala virtuella VMware-datorer för migrering till Azure
 
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - **VMware**: De virtuella datorer som du planerar att migrera måste hanteras av vCenter Server som kör version 5.5, 6.0, 6.5 eller 6.7. Du måste dessutom ha en ESXi-värd som kör version 5.5 eller senare för att kunna distribuera den virtuella insamlardatorn.
 - **vCenter Server-konto**: Du behöver ett skrivskyddat konto för att få åtkomst till vCenter Server. Azure Migrate använder kontot till att identifiera de lokala virtuella datorerna.
@@ -179,16 +179,16 @@ Importera den nedladdade filen till vCenter Server.
 3. På skrivbordet klickar du på genvägen **Kör insamlare**.
 4. Klicka på **Sök efter uppdateringar** i det översta fältet i UI-insamlaren och kontrollera att insamlaren körs med den senaste versionen. Du kan annars ladda ner det senaste uppgraderingspaketet från länken och uppdatera insamlaren.
 5. I Azure Migrate Collector öppnar du **Set up prerequisites** (Ange förutsättningar).
-    - Välj det Azure-moln som du planerar att migrera (Azure Global eller Azure Government).
-    - Acceptera licensvillkoren och läs informationen från tredje part.
-    - Insamlaren kontrollerar att den virtuella datorn har Internetåtkomst.
-    - Om den virtuella datorn har åtkomst till Internet via en proxy, klickar du på **Proxyinställningar** där du anger proxyadress och lyssningsport. Ange autentiseringsuppgifter om proxyn kräver autentisering. [Lär dig mer](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) om kraven för Internetanslutning och den [lista över URL:er](https://docs.microsoft.com/azure/migrate/concepts-collector) som insamlaren använder.
+   - Välj det Azure-moln som du planerar att migrera (Azure Global eller Azure Government).
+   - Acceptera licensvillkoren och läs informationen från tredje part.
+   - Insamlaren kontrollerar att den virtuella datorn har Internetåtkomst.
+   - Om den virtuella datorn har åtkomst till Internet via en proxy, klickar du på **Proxyinställningar** där du anger proxyadress och lyssningsport. Ange autentiseringsuppgifter om proxyn kräver autentisering. [Lär dig mer](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) om kraven för Internetanslutning och den [lista över URL:er](https://docs.microsoft.com/azure/migrate/concepts-collector) som insamlaren använder.
 
-      > [!NOTE]
-      > Proxyadressen måste anges i formatet http://ProxyIPAddress eller http://ProxyFQDN. Endast HTTP-proxy stöds. Om du har en spärrande proxy kan Internetanslutningen misslyckas om du inte har importerat proxycertifikatet. [Läs mer](https://docs.microsoft.com/azure/migrate/concepts-collector) om hur du kan åtgärda detta genom att importera proxycertifikatet som ett betrott certifikat på den virtuella datorn för insamling.
+     > [!NOTE]
+     > Proxyadressen måste anges i formatet <http://ProxyIPAddress> eller <http://ProxyFQDN>. Endast HTTP-proxy stöds. Om du har en spärrande proxy kan Internetanslutningen misslyckas om du inte har importerat proxycertifikatet. [Läs mer](https://docs.microsoft.com/azure/migrate/concepts-collector) om hur du kan åtgärda detta genom att importera proxycertifikatet som ett betrott certifikat på den virtuella datorn för insamling.
 
-    - Insamlaren kontrollerar att insamlingstjänsten körs. Tjänsten installeras som standard på den virtuella insamlardatorn.
-    - Ladda ned och installera VMware PowerCLI.
+   - Insamlaren kontrollerar att insamlingstjänsten körs. Tjänsten installeras som standard på den virtuella insamlardatorn.
+   - Ladda ned och installera VMware PowerCLI.
 
 6. Gör följande i **Specify vCenter Server details** (Ange vCenter Server-information):
     - Ange namn (FQDN) eller IP-adress för vCenter-servern.

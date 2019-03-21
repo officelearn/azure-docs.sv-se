@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: 8cd4cf12390ff29754b55d2827ea4750e7123a27
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: db62c1ec03ae9005f33a09010486b04ac6976742
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730477"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005904"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Övervaka prestanda med Query Store
 
@@ -36,8 +36,8 @@ Query Store är en valbar funktion så att den inte är aktiv som standard på e
 4. Ange värdet till `TOP` och **spara**.
 
 Så här aktiverar du vänta statistik i din fråga Store: 
-5. Sök efter den `pgms_wait_sampling.query_capture_mode` parametern.
-6. Ange värdet till `ALL` och **spara**.
+1. Sök efter den `pgms_wait_sampling.query_capture_mode` parametern.
+1. Ange värdet till `ALL` och **spara**.
 
 
 Du kan också ange dessa parametrar med Azure CLI.
@@ -87,6 +87,7 @@ Här följer några exempel på hur du kan få fler insikter om din arbetsbelast
 När Query Store är aktiverat sparas data i windows för 15 minuters aggregering, upp till 500 olika frågor per fönster. 
 
 Följande alternativ är tillgängliga för att konfigurera Query Store-parametrar.
+
 | **Parametern** | **Beskrivning** | **Standard** | **Adressintervall**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | Anger vilka instruktioner spåras. | inga | Ingen, uppifrån, alla |
@@ -95,6 +96,7 @@ Följande alternativ är tillgängliga för att konfigurera Query Store-parametr
 | pg_qs.track_utility | Anger om verktygskommandon spåras | på | på, av |
 
 Följande alternativ gäller specifikt för att vänta statistik.
+
 | **Parametern** | **Beskrivning** | **Standard** | **Adressintervall**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | Anger vilket uttryck spåras för vänta statistik. | inga | Ingen, alla|

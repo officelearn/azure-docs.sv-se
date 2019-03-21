@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: a624540e95d054ef5edadfada29fa13cd47419d6
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: b3ab3552ad1b9bdd14a3d07cd426f8c0bc9dc865
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848877"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759244"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-powershell"></a>Köra din första Resource Graph-fråga med hjälp av Azure PowerShell
 
@@ -79,8 +79,8 @@ Nu när Azure PowerShell-modulen har lagts till i din valda miljö är det dags 
    Search-AzGraph -Query 'project name, type | limit 5 | order by name asc'
    ```
 
-  > [!NOTE]
-  > Om du kör den här frågan flera kommer den, precis som den första frågan, sannolikt att resultera i olika resurser vid varje begäran. Ordningen på frågekommandona är viktig. I det här exemplet kommer `order by` efter `limit`. Det begränsar först frågeresultaten och sorterar sedan dem.
+   > [!NOTE]
+   > Om du kör den här frågan flera kommer den, precis som den första frågan, sannolikt att resultera i olika resurser vid varje begäran. Ordningen på frågekommandona är viktig. I det här exemplet kommer `order by` efter `limit`. Det begränsar först frågeresultaten och sorterar sedan dem.
 
 1. Uppdatera frågan till att först `order by` **Namn**-egenskapen och sedan sätta en `limit` för de fem främsta resultaten:
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 1db3fbbd39418504f98469c7b4999c5a91b5d6de
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: e6e20db39be8a6e60833bf5c4f9b6a34a9ead461
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342198"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013036"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Självstudier: Skapa och hantera budgetar för Azure
 
@@ -53,7 +53,9 @@ Läs mer om att tilldela behörighet till Cost Management-data, [tilldela åtkom
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Skapa en budget i Azure portal
 
-Du kan skapa en Azure-prenumeration budget under en månad, kvartal eller årlig. Styra innehållet i Azure portal anger om du skapar en budget för en prenumeration eller för en resursgrupp. Till exempel i Azure-portalen går du till **prenumerationer** &gt; Välj en prenumeration &gt; **budgetar**. I det här exemplet är budget som du skapar för den prenumeration du valde. Om du vill skapa en budget för en resursgrupp, navigerar du till **resursgrupper** > Välj en resursgrupp > **budgetar**...
+Du kan skapa en Azure-prenumeration budget under en månad, kvartal eller årlig. Styra innehållet i Azure portal anger om du skapar en budget för en prenumeration eller för en hanteringsgrupp.
+
+Om du vill skapa eller visa en budget, öppna det önskade omfånget i Azure portal och väljer **budgetar** på menyn. Till exempel Gå till **prenumerationer**, Välj en prenumeration i listan och välj sedan **budgetar** på menyn. Använd den **omfång** pill att växla till ett annat omfång, t.ex. en hanteringsgrupp i din budget. Mer information om scope finns [förstå och arbeta med omfattningar](understand-work-scopes.md).
 
 När du har skapat din budget visar de en enkel vy över dina aktuella utgifter mot dessa.
 

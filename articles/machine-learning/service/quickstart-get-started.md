@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: quickstart
-ms.reviewer: sgilley
-author: hning86
-ms.author: haining
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9d441ed408f9c9348ba091178cf6ce84d67abb3a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: a7665066a28343f1d2ca46d5210b210f8f103abd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672941"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57896678"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Snabbstart: Använda Azure-portalen för att komma igång med Azure Machine Learning
 
@@ -25,8 +24,8 @@ Använd Azure-portalen för att skapa en Azure Machine Learning-arbetsyta. Den h
 I den här snabbstarten utför du följande åtgärder:
 
 * Skapa en arbetsyta i din Azure-prenumeration.
-* Prova den med Python i en Jupyter-anteckningsbok och logga värden över flera iterationer.
-* Visa de loggade värdena på din arbetsyta.
+* Prova med Python i en Jupyter-anteckningsbok. Anteckningsboken innehåller kod för att beräkna pi och loggar fel vid varje iteration. 
+* Visa loggade felvärdena i din arbetsyta.
 
 Följande Azure-resurser läggs automatiskt till din arbetsyta när de är regionalt tillgängliga:
 
@@ -37,7 +36,7 @@ Följande Azure-resurser läggs automatiskt till din arbetsyta när de är regio
 
 De resurser som du skapar kan användas som förutsättningar för andra självstudier och instruktionsartiklar om Machine Learning-tjänsten. Som med andra Azure-tjänster finns det begränsningar för vissa resurser som är associerade med Machine Learning. Ett exempel är storleken på beräkningskluster. Läs mer om [standardgränserna och hur du ökar kvoten](how-to-manage-quotas.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) idag.
+Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) idag.
 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta 
@@ -65,11 +64,11 @@ Det här exemplet visar hur arbetsytan kan hjälpa dig att hålla reda på infor
 
 1. På arbetsytans sida väljer du **Utforska din Azure Machine Learning-tjänstarbetsyta**.
 
- ![Utforska arbetsytan](./media/quickstart-get-started/explore_aml.png)
+   ![Utforska arbetsytan](./media/quickstart-get-started/explore_aml.png)
 
 1. Välj **Öppna Azure Notebooks** för att testa ditt första experiment i Azure Notebooks.  Azure Notebooks är en separat tjänst som gör att du kan kör Jupyter-anteckningsböcker kostnadsfritt i molnet.  När du använder den här länken till tjänsten läggs information om hur du ansluter till din arbetsyta till i det bibliotek som du skapar i Azure Notebooks.
 
- ![Öppna Azure Notebooks](./media/quickstart-get-started/explore_ws.png)
+   ![Öppna Azure Notebooks](./media/quickstart-get-started/explore_ws.png)
 
 1. Logga in på Azure Notebooks.  Kontrollera att du loggar in med samma konto som du använde för att logga in på Azure-portalen. Din organisation kan kräva [administratörens godkännande](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) innan du kan logga in.
 
@@ -79,7 +78,7 @@ Det här exemplet visar hur arbetsytan kan hjälpa dig att hålla reda på infor
 
 1. Välj **Klona**.
 
- ![Klona ett bibliotek](./media/quickstart-get-started/clone.png)
+   ![Klona ett bibliotek](./media/quickstart-get-started/clone.png)
 
 1. Om du ser att projektstatusen har stoppats klickar du på **Run on Free Computer** (Kör på kostnadsfri dator) för att använda den kostnadsfria anteckningsboksservern.
 

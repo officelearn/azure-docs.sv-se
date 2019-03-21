@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: f2d8d070a8adbe7992795b06722427da2830cb50
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e3f6a160f57a4432f91c395a2e0dd664bc8f323d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253688"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106550"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Skala för återställning efter fel med ytterligare processervrar
 
@@ -24,8 +24,8 @@ Som standard när du replikerar virtuella VMware-datorer eller fysiska servrar t
 
 Kontrollera att du har utfört [kapacitetsplanering](site-recovery-plan-capacity-vmware.md) för VMware-replikering. Detta hjälper dig att identifiera hur och när du ska distribuera ytterligare processervrar.
 
->[!NOTE]
-Användning av klonade Process Server komponent stöds inte. Följ stegen nedan för varje PS-utskalning.
+> [!NOTE]
+> Användning av klonade Process Server komponent stöds inte. Följ stegen nedan för varje PS-utskalning.
 
 ### <a name="sizing-requirements"></a>Storlekskraven 
 
@@ -56,11 +56,11 @@ Hämta installationsfilen för processervern enligt följande:
 3. Välj configuration server att granska nedåt i server-information. Klicka sedan på **+ Processervern**.
 4. I **lägga till processerver** >  **Välj där du vill distribuera processervern**väljer **distribuera en skalbar Processerver lokalt**.
 
-  ![Lägg till servrar sida](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
+   ![Lägg till servrar sida](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 1. Klicka på **ladda ned Microsoft Azure Site Recovery ett enhetligt installationsprogram**. Då hämtas den senaste versionen av installationsfilen.
 
-  > [!WARNING]
-  Processerverversionen för installation måste vara samma som, eller tidigare än, configuration server-version du har som körs. Ett enkelt sätt att kontrollera versionskompatibiliteten är att använda samma installationsprogram som senast användes för att installera eller uppdatera konfigurationsservern.
+   > [!WARNING]
+   > Processerverversionen för installation måste vara samma som, eller tidigare än, configuration server-version du har som körs. Ett enkelt sätt att kontrollera versionskompatibiliteten är att använda samma installationsprogram som senast användes för att installera eller uppdatera konfigurationsservern.
 
 ## <a name="install-from-the-ui"></a>Installera från Användargränssnittet
 

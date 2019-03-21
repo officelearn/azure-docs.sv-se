@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: c126516f6a792a4e778e4b0f75b6a31960139ba8
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: MT
+ms.openlocfilehash: 93c19bc39f64df21dfa9db2490ab2103aba8191d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570019"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086113"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Hantera Azure Blob storage livscykel (förhandsversion)
 
@@ -100,7 +100,7 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```
 
 > [!NOTE]
-Om du aktiverar brandväggsregler för ditt lagringskonto, blockeras livscykeln för hantering av begäranden. Du kan låsa upp dessa begäranden genom att ange undantag. Mer information finns i avsnittet undantag i [konfigurera brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Om du aktiverar brandväggsregler för ditt lagringskonto, blockeras livscykeln för hantering av begäranden. Du kan låsa upp dessa begäranden genom att ange undantag. Mer information finns i avsnittet undantag i [konfigurera brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ## <a name="policy"></a>Princip
 
@@ -190,7 +190,7 @@ I förhandsversionen är giltiga filter:
 | Filternamn | Filtertyp | Anteckningar | Obligatorisk |
 |-------------|-------------|-------|-------------|
 | blobTypes   | En matris med fördefinierade enum-värden. | Förhandsversionen endast stöd för `blockBlob`. | Ja |
-| prefixMatch | En matris med strängar för prefix som ska matcha. En sträng med prefixet måste börja med ett behållarnamn. Exempel: Om du vill matcha alla blobar under ”https://myaccount.blob.core.windows.net/container1/foo/..”. för en regel i prefixMatch är `container1/foo`. | Om du inte definierar prefixMatch gäller reglerna för alla blobbar i kontot. | Nej |
+| prefixMatch | En matris med strängar för prefix som ska matcha. En sträng med prefixet måste börja med ett behållarnamn. Exempel: Om du vill matcha alla blobar under ”<https://myaccount.blob.core.windows.net/container1/foo/>...” för en regel i prefixMatch är `container1/foo`. | Om du inte definierar prefixMatch gäller reglerna för alla blobbar i kontot. | Nej |
 
 ### <a name="rule-actions"></a>Regelåtgärder
 
@@ -204,8 +204,8 @@ I förhandsversion stöder livscykelhantering lagringsnivåer och borttagning av
 | tierToArchive | Stöd för blobar för närvarande på frekvent eller lågfrekvent nivå | Stöds inte |
 | delete        | Stöds                                   | Stöds     |
 
->[!NOTE] 
-Om du definierar mer än en åtgärd på samma blob gäller livscykelhantering den billigaste åtgärden blob. Till exempel åtgärden `delete` är billigare än åtgärd `tierToArchive`. Åtgärden `tierToArchive` är billigare än åtgärd `tierToCool`.
+> [!NOTE]
+> Om du definierar mer än en åtgärd på samma blob gäller livscykelhantering den billigaste åtgärden blob. Till exempel åtgärden `delete` är billigare än åtgärd `tierToArchive`. Åtgärden `tierToArchive` är billigare än åtgärd `tierToCool`.
 
 I förhandsversion baseras åtgärd körning villkor på ålder. Grundläggande blobbar använda det senaste ändringsdatum för att spåra ålder och blob-ögonblicksbilder används tiden för skapandet av ögonblicksbild för att spåra ålder.
 

@@ -1,5 +1,5 @@
 ---
-title: Fråga efter ett index i kod med hjälp av .NET SDK – Azure Search
+title: Fråga efter data till ett Azure Search-index i C# (.NET SDK) – Azure Search
 description: C#-kodexempel för att skapa en sökfråga i Azure Search. Lägg till sökparametrar för att filtrera och sortera sökresultaten.
 author: heidisteen
 manager: cgronlun
@@ -8,49 +8,35 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/19/2017
-ms.custom: seodec2018
-ms.openlocfilehash: 98a857ca0d3ecabc9deebcb177e3548ab02fd3b3
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: HT
+ms.date: 03/20/2019
+ms.openlocfilehash: 6bb170a5f3353288ab9c393e01b7a0902361913b
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201457"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287017"
 ---
-# <a name="query-your-azure-search-index-using-the-net-sdk"></a>Skicka frågor till ditt Azure Search-index med hjälp av .NET-SDK
-> [!div class="op_single_selector"]
-> * [Översikt](search-query-overview.md)
-> * [Portalen](search-explorer.md)
-> * [NET](search-query-dotnet.md)
-> * [REST](search-create-index-rest-api.md)
-> 
-> 
+# <a name="quickstart-3---query-an-azure-search-index-in-c"></a>Snabbstart: 3 – fråga ett Azure Search-index iC#
 
-Den här artikeln beskriver hur du skickar frågor mot ett index med hjälp av [Azure Search .NET SDK](https://aka.ms/search-sdk).
+Den här artikeln visar hur du frågar [ett Azure Search-index](search-what-is-an-index.md) med C# och [.NET SDK](https://aka.ms/search-sdk). Söka dokument i indexet utförs genom att utföra dessa uppgifter:
 
-Innan du påbörjar den här genomgången bör du redan ha [skapat ett Azure Search-index](search-what-is-an-index.md) och [fyllt det med data](search-what-is-data-import.md).
+> [!div class="checklist"]
+> * Skapa en [ `SearchIndexClient` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) objekt för att ansluta till ett search-index med skrivskyddad behörighet.
+> * Skapa en [ `SearchParameters` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters?view=azure-dotnet) objekt som innehåller definitionen för söka och filtrera.
+> * Anropa den `Documents.Search` metoden på `SearchIndexClient` att skicka frågor till ett index.
 
-> [!NOTE]
-> All exempelkod i den här artikeln är skriven i C#. Du hittar den fullständiga källkoden [på GitHub](https://aka.ms/search-dotnet-howto). Du kan läsa om [Azure Search .NET SDK](search-howto-dotnet-sdk.md) och få en mer detaljerad genomgång av exempelkoden.
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="identify-your-azure-search-services-query-api-key"></a>Identifiera API-frågenyckeln för Azure Search-tjänsten
-Nu när du har skapat ett Azure Search-index är du nästan redo att skicka frågor med hjälp av .NET SDK. Först måste du skaffa en av API-frågenycklarna som genererades för söktjänsten som du etablerade. .NET SDK skickar den här API-nyckeln vid varje begäran till tjänsten. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
+[Läsa in ett Azure Search-index](search-import-data-dotnet.md) med exempeldata hotell.
 
-1. Om du vill hitta din tjänsts API-nycklar kan du logga in på [Azure Portal](https://portal.azure.com/)
-2. Gå till Azure Search-tjänstens blad
-3. Klicka på nyckelikonen
+Hämta en frågenyckel som används för skrivskyddad åtkomst till dokument. Fram till nu har du använt en administrations-API-nyckel så att du kan skapa objekt och innehåll på en söktjänst. Men query-stöd i appar, rekommenderar vi använder en frågenyckel. Anvisningar finns i [skapa en frågenyckel](search-security-api-keys.md#create-query-keys).
 
-Tjänsten har *administratörsnycklar* och *frågenycklar*.
+## <a name="create-a-client"></a>Skapa en klient
+Skapa en instans av den `SearchIndexClient` klassen så att du kan ge den en frågenyckel för skrivskyddad åtkomst (till skillnad från de skrivbehörighet rättigheter på den `SearchServiceClient` används i den förra lektionen).
 
-* Dina primära och sekundära *administratörsnycklar* ger fullständig behörighet för alla åtgärder, inklusive möjligheten att hantera tjänsten, skapa och ta bort index, indexerare och datakällor. Det finns två nycklar så att du kan fortsätta att använda den sekundära nyckeln om du bestämmer dig för att återskapa den primära nyckeln och tvärtom.
-* Dina *frågenycklar* beviljar läsbehörighet till index och dokument och distribueras vanligen till klientprogram som skickar sökförfrågningar.
+Den här klassen har flera konstruktorer. Du tar din söktjänstens namn, ett indexnamn och ett [ `SearchCredentials` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials?view=azure-dotnet) objekt som parametrar. `SearchCredentials` omsluter din API-nyckel.
 
-Du kan använda en av din frågenycklar för att skicka frågor till ett index. Administratörsnycklarna kan även användas för frågor, men du bör använda en frågenyckel i programkoden eftersom detta bättre överensstämmer med [principen om lägsta behörighet](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
-
-## <a name="create-an-instance-of-the-searchindexclient-class"></a>Skapa en instans av klassen SearchIndexClient
-Om du vill skicka frågor med Azure Search .NET SDK måste du skapa en instans av klassen `SearchIndexClient`. Den här klassen har flera konstruktorer. Den som du vill använda har namnet på din söktjänst, ett indexnamn och ett `SearchCredentials`-objekt som parametrar. `SearchCredentials` omsluter din API-nyckel.
-
-Koden nedan skapar en ny `SearchIndexClient` för indexet ”hotels” (skapas i [Skapa ett Azure Search-index med .NET SDK](search-create-index-dotnet.md)) med värdena för söktjänstens namn och API-nyckel som lagras i programmets konfigurationsfil (`appsettings.json` i fall med [provapplikation](https://aka.ms/search-dotnet-howto)):
+Koden nedan skapar en ny `SearchIndexClient` för indexet ”hotels” med värdena för söktjänstens namn och api-nyckel som lagras i programmets konfigurationsfil (`appsettings.json` för den [exempelprogrammet](https://aka.ms/search-dotnet-howto)):
 
 ```csharp
 private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)
@@ -63,18 +49,18 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 }
 ```
 
-`SearchIndexClient` har en `Documents`-egenskap. Den här egenskapen tillhandahåller alla metoder som du behöver för att skicka frågor mot Azure Search-index.
+`SearchIndexClient` har en [ `Documents` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient.documents?view=azure-dotnet) egenskapen. Den här egenskapen tillhandahåller alla metoder som du behöver för att skicka frågor mot Azure Search-index.
 
-## <a name="query-your-index"></a>Skicka frågor mot ditt index
+## <a name="construct-searchparameters"></a>Konstruera SearchParameters
 Det är enkelt att söka med .NET SDK. Du anropar bara `Documents.Search`-metoden för din `SearchIndexClient`. Den här metoden stöder några parametrar, inklusive söktexten, tillsammans med ett `SearchParameters`-objekt som kan användas för att ytterligare förfina frågan.
 
-#### <a name="types-of-queries"></a>Typer av frågor
+### <a name="types-of-queries"></a>Typer av frågor
 De två viktigaste [frågetyperna](search-query-overview.md#types-of-queries) som du använder är `search` och `filter`. En `search`-fråga söker efter en eller flera termer i alla *sökbara* fält i ditt index. En `filter`-fråga utvärderar ett booleskt uttryck i alla *filtrerbara* fält i ett index. Du kan använda sökningar och filter tillsammans eller separat.
 
 Både sökningar och filtreringar utförs med hjälp av metoden `Documents.Search`. En sökfråga kan skickas i parametern `searchText`, medan ett filteruttryck kan skickas i `Filter`-egenskapen för klassen `SearchParameters`. Om du vill filtrera utan sökning skickar du bara `"*"` för `searchText`-parametern. Om du vill söka utan filtrering lämnar du bara `Filter`-egenskapen odefinierad eller väljer att inte skicka den i en `SearchParameters`-instans över huvud taget.
 
-#### <a name="example-queries"></a>Exempelfrågor
-Följande exempelkod visar hur du kan skicka frågor mot ”hotels”-indexet som beskrivs i [Skapa ett Azure Search-index med .NET SDK](search-create-index-dotnet.md#DefineIndex) på några olika sätt. Observera att dokumenten som returneras med sökresultaten är instanser av `Hotel`-klassen som definierades i [Dataimport i Azure Search med .NET SDK](search-import-data-dotnet.md#HotelClass). Exempelkoden utnyttjar en `WriteDocuments`-metod för att mata ut sökresultaten till konsolen. Den här metoden beskrivs i nästa avsnitt.
+### <a name="example-queries"></a>Exempelfrågor
+Följande exempelkod visar några olika sätt att fråga indexet ”hotels” som definierats i [skapa ett Azure Search-index i C# ](search-create-index-dotnet.md#DefineIndex). Observera att dokumenten som returneras med sökresultaten är instanser av den `Hotel` klassen som definierades i [importera data till ett Azure Search-index i C# ](search-import-data-dotnet.md#construct-indexbatch). Exempelkoden utnyttjar en `WriteDocuments`-metod för att mata ut sökresultaten till konsolen. Den här metoden beskrivs i nästa avsnitt.
 
 ```csharp
 SearchParameters parameters;
@@ -145,7 +131,7 @@ private static void WriteDocuments(DocumentSearchResult<Hotel> searchResults)
 }
 ```
 
-Så här ser resultatet ut för frågorna i det förra avsnittet, under antagandet att ”hotels”-indexet har fyllts med exempeldata från [Dataimport i Azure Search med .NET SDK](search-import-data-dotnet.md):
+Här är vad resultatet som ut för frågorna i avsnittet ovan, förutsatt att ”Hotels” fyllts med exempeldata:
 
 ```
 Search the entire index for the term 'budget' and return only the hotelName field:
@@ -167,5 +153,8 @@ Search the entire index for the term 'motel':
 ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
 ```
 
-Exempelkoden ovan använder konsolen för att mata ut sökresultat. Du behöver också visa sökresultat i ditt eget program. Ett exempel på hur du kan visa sökresultat i en ASP.NET MVC-baserad webbapp finns i [det här exemplet på GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample).
+Exempelkoden ovan använder konsolen för att mata ut sökresultat. Du behöver också visa sökresultat i ditt eget program. Ett exempel på hur du kan visa sökresultat i en ASP.NET MVC-baserad webbapp finns i den [DotNetSample projekt](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample) på GitHub.
 
+## <a name="next-steps"></a>Nästa steg
+
+Om du inte redan gjort det, kan du granska exempelkoden i [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) på GitHub, tillsammans med [hur du använder Azure Search från .NET-program ](search-howto-dotnet-sdk.md) mer detaljerade beskrivningar av exempelkoden. 

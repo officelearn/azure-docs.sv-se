@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 7/24/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 73b8dfd741543560cd6ebf26178618a70bdae5f6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: b4d75c7a6db89b19d88cddcc564fd4e6a9ad0f49
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992780"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770468"
 ---
 # <a name="tutorial-create-an-azure-dns-private-zone-using-azure-powershell"></a>Självstudier: Skapa en privat Azure DNS-zon med hjälp av Azure PowerShell
 
@@ -53,7 +53,7 @@ New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 
 ## <a name="create-a-dns-private-zone"></a>Skapa en privat DNS-zon
 
-Du skapar en DNS-zon med hjälp av `New-AzDnsZone` -cmdleten med värdet *Private* för parametern **ZoneType**. I följande exempel skapas en DNS-zon med namnet **contoso.local** i resursgruppen som heter **MyAzureResourceGroup** och det gör DNS-zonen tillgänglig för det virtuella nätverket som heter **MyAzureVnet**.
+Du skapar en DNS-zon med hjälp av `New-AzDnsZone` -cmdleten med värdet *Private* för parametern **ZoneType**. I följande exempel skapas en DNS-zon med namnet **private.contoso.com** i resursgruppen med namnet **MyAzureResourceGroup** och gör DNS-zon som är tillgängliga för det virtuella nätverk som kallas  **MyAzureVnet**.
 
 Om parametern **ZoneType** utelämnas skapas zonen som en offentlig zon. Med andra ord krävs den om du vill skapa en privat zon. 
 
@@ -66,7 +66,7 @@ $vnet = New-AzVirtualNetwork `
   -AddressPrefix 10.2.0.0/16 `
   -Subnet $backendSubnet
 
-New-AzDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup `
+New-AzDnsZone -Name private.contoso.com -ResourceGroupName MyAzureResourceGroup `
    -ZoneType Private `
    -RegistrationVirtualNetworkId @($vnet.Id)
 ```
@@ -118,10 +118,10 @@ Det här kan ta några minuter.
 
 ## <a name="create-an-additional-dns-record"></a>Skapa en ytterligare DNS-post
 
-Du skapar postuppsättningar med hjälp av cmdleten `New-AzDnsRecordSet`. I följande exempel skapas en post med det relativa namnet **db** i DNS-zonen **contoso.local** i resursgruppen **MyAzureResourceGroup**. Postuppsättningens fullständigt kvalificerade namn är **db.contoso.local**. Posttypen är ”A” med IP-adressen ”10.2.0.4”, och TTL är 3600 sekunder.
+Du skapar postuppsättningar med hjälp av cmdleten `New-AzDnsRecordSet`. I följande exempel skapas en post med det relativa namnet **db** i DNS-zonen **private.contoso.com**, i resursgruppen **MyAzureResourceGroup**. Det fullständigt kvalificerade namnet på postuppsättningen är **db.private.contoso.com**. Posttypen är ”A” med IP-adressen ”10.2.0.4”, och TTL är 3600 sekunder.
 
 ```azurepowershell
-New-AzDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
+New-AzDnsRecordSet -Name db -RecordType A -ZoneName private.contoso.com `
    -ResourceGroupName MyAzureResourceGroup -Ttl 3600 `
    -DnsRecords (New-AzDnsRecordConfig -IPv4Address "10.2.0.4")
 ```
@@ -131,13 +131,13 @@ New-AzDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
 Om du vill visa en lista med DNS-poster i din zon kör du:
 
 ```azurepowershell
-Get-AzDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyAzureResourceGroup
+Get-AzDnsRecordSet -ZoneName private.contoso.com -ResourceGroupName MyAzureResourceGroup
 ```
 Kom ihåg att du inte automatiskt kommer att se den skapade A-posten för dina två virtuella testdatorer.
 
 ## <a name="test-the-private-zone"></a>Testa den privata zonen
 
-Nu kan du testa namnmatchning för din privata zon **contoso.local**.
+Nu kan du testa namnmatchning för din **private.contoso.com** privat zon.
 
 ### <a name="configure-vms-to-allow-inbound-icmp"></a>Konfigurera virtuella datorer för att tillåta inkommande ICMP
 
@@ -156,13 +156,13 @@ Upprepa för myVM02.
 
 1. Från Windows PowerShell-kommandotolken för myVM02 pingar du myVM01 med hjälp av det automatiskt registrerade värddatornamnet:
    ```
-   ping myVM01.contoso.local
+   ping myVM01.private.contoso.com
    ```
    Du bör se utdata som liknar följande:
    ```
-   PS C:\> ping myvm01.contoso.local
+   PS C:\> ping myvm01.private.contoso.com
 
-   Pinging myvm01.contoso.local [10.2.0.4] with 32 bytes of data:
+   Pinging myvm01.private.contoso.com [10.2.0.4] with 32 bytes of data:
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time=1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
@@ -176,13 +176,13 @@ Upprepa för myVM02.
    ```
 2. Nu pingar du det **db**-namn som du skapade tidigare:
    ```
-   ping db.contoso.local
+   ping db.private.contoso.com
    ```
    Du bör se utdata som liknar följande:
    ```
-   PS C:\> ping db.contoso.local
+   PS C:\> ping db.private.contoso.com
 
-   Pinging db.contoso.local [10.2.0.4] with 32 bytes of data:
+   Pinging db.private.contoso.com [10.2.0.4] with 32 bytes of data:
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128

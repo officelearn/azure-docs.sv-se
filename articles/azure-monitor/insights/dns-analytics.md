@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 6e3c456b3ee92f30b3b152a39faf3f1fe483013f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: fdc3c42da7f3d2290806a8cd00d7c90d16f3b87d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876610"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103935"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in information om DNS-infrastrukturen med förhandsversionen av DNS Analytics-lösning
 
@@ -66,7 +66,7 @@ Klicka på instrumentpanelen för lösningen **Configuration** att öppna sidan 
 
 - **Godkänd domännamn**. Lösningen bearbetar inte sökning-frågor. Den upprätthåller en lista över tillåtna domännamnssuffix. Sökning-frågor som matchar de domännamn som matchar domännamnssuffixen i den här listan bearbetas inte av lösningen. Icke-bearbetning av listan över godkända domännamn som hjälper dig för att optimera data som skickas till Azure Monitor. Standardlistan över tillåtna objekt omfattar populära offentliga domännamn, t.ex www.google.com och www.facebook.com. Du kan visa listan över slutförts genom att bläddra.
 
- Du kan ändra listan för att lägga till alla domänens namnsuffix som du vill visa sökning insikter för. Du kan också ta bort alla domänens namnsuffix som du inte vill visa sökning insikter för.
+  Du kan ändra listan för att lägga till alla domänens namnsuffix som du vill visa sökning insikter för. Du kan också ta bort alla domänens namnsuffix som du inte vill visa sökning insikter för.
 
 - **Tröskelvärde för pratsam klient**. DNS-klienter som överskrider tröskelvärdet för antalet uppslagsförfrågningar är markerade på den **DNS-klienter** bladet. Standardtröskeln är 1 000. Du kan redigera tröskelvärdet.
 

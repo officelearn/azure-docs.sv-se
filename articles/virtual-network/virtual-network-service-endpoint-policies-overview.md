@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: a5df9215aec0b6c774b37f17b699e91ef813754d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 619b9b68a5c4e897642e1f84c25c2822d8291400
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771081"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104496"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Principer för tjänstslutpunkter för virtuella nätverk (förhandsversion)
 
@@ -158,11 +158,11 @@ Det finns ingen centraliserad loggning för tjänstslutpunktsprinciper. Se [logg
 - Åtkomst nekas för konton som anges i slutpunktsprinciperna
   - Nätverkssäkerhetsgrupper och brandväggsfiltrering blockerar kanske åtkomst
   - Om borttagning/återtillämpning av principen leder till anslutningsförlust:
-   - Kontrollera huruvida Azure-tjänsten är konfigurerad för att tillåta åtkomst från det virtuella nätverket över slutpunkter eller om standardprincipen för resursen är inställd på *Tillåt alla*.
+    - Kontrollera huruvida Azure-tjänsten är konfigurerad för att tillåta åtkomst från det virtuella nätverket över slutpunkter eller om standardprincipen för resursen är inställd på *Tillåt alla*.
       > [!NOTE]      
       > Tjänstresurser behöver inte säkras mot virtuella nätverk för att få åtkomst via slutpunktsprinciper. Som bästa praxis för säkerhet rekommenderar vi dock att tjänstresurser säkras mot dina betrodda nätverk, till exempel dina virtuella Azure-nätverk, via tjänstslutpunkter, och körs lokalt via en IP-brandvägg.
   
-   - Verifiera att tjänstdiagnostiken visar trafiken över slutpunkter.
+    - Verifiera att tjänstdiagnostiken visar trafiken över slutpunkter.
     - Kontrollera om flödesloggarna för nätverkssäkerhetsgruppen visar åtkomsten och att lagringsloggarna visar åtkomsten som förväntat över tjänstslutpunkter.
     - Kontakta Azure-supporten.
 - Åtkomst nekas för konton som inte anges i tjänstslutpunktsprinciperna

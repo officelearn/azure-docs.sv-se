@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: ba268806dccb7c2671825c794383396a2ff20299
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d86264b632daa09a899fae28e73e117b16322617
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548821"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121969"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Kopiera data från SAP ECC med Azure Data Factory
 
@@ -160,9 +160,9 @@ För att kopiera data från SAP ECC, ange typ av datakälla i kopieringsaktivite
 När du kopierar data från SAP ECC används följande mappningar från OData-datatyper för SAP ECC-data till Azure Data Factory tillfälliga-datatyper. Se [Schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md) vill veta mer om hur kopieringsaktiviteten mappar källtypen schema och data till mottagaren.
 
 | OData-datatypen | Data factory tillfälliga datatyp |
-|:--- |:--- |:--- |
+|:--- |:--- |
 | Edm.Binary | String |
-| Edm.Boolean | Bool |
+| Edm.Boolean | Booleskt |
 | Edm.Byte | String |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |

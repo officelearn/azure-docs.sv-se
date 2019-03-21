@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
-ms.openlocfilehash: cd3fdec0e50d64af28306034e6e1086e67526b7d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b67fcb82bdcc94d7faeceedb7420a869e6578cad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251061"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007333"
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>Installera uppdatering 0.4 på StorSimple Virtual Array
 
@@ -48,7 +48,7 @@ Utför följande steg för att hämta programuppdateringen från Microsoft Updat
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Ladda ned uppdateringen eller snabbkorrigeringen
 
-1. Starta Internet Explorer och navigera till [ http://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
+1. Starta Internet Explorer och navigera till [ https://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
 
 2. Om det här är första gången du använder Microsoft Update Catalog på den här datorn klickar du på **Installera** när du uppmanas att installera tillägget för Microsoft Update Catalog.
 

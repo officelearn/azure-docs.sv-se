@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 34f1b023b2ea2451f3308666d156278e92afb4aa
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d1cff1011e190e5fbb2874657cbdfbdc68bde0c0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565980"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084403"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Med hjälp av programmets hälsotillstånd anger tillägg med VM-skalningsuppsättning
 Övervakning av programmets hälsotillstånd är ett viktigt signal för att hantera och uppgradera din distribution. Azure VM-skalningsuppsättningar har stöd för [löpande uppgraderingar](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) inklusive [automatiska uppgraderingar av OS-avbildning](virtual-machine-scale-sets-automatic-upgrade.md), som förlitar sig på hälsoövervakning av enskilda instanser att uppgradera din distribution .
@@ -64,7 +64,7 @@ Följande JSON visar schemat för tillägget programmets hälsotillstånd. Till�
 ### <a name="property-values"></a>Egenskapsvärden
 
 | Namn | Värdet / exempel | Datatyp
-| ---- | ---- | ---- | ----
+| ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | datum |
 | utgivare | `Microsoft.ManagedServices` | sträng |
 | typ | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | sträng |

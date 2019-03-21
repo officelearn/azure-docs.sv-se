@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 5a36a1e955bf79654ae9e5cc01564a47e1a13a05
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ae8dc263e08528c6e3b3bae8c779162c96d51f43
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545049"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100793"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Ansluta MXChip IoT DevKit till Azure IoT lösningsacceleratorn för fjärrövervakning
 
@@ -76,8 +76,8 @@ En aktiv Azure-prenumeration. Om du inte har någon kan registrera du via någon
 
 3. Anslut DevKit till din dator. VS Code automatiskt identifierar din DevKit och öppnas på följande sidor:
 
-  * DevKit startsidan.
-  * Arduino-exempel: Praktiska exempel att komma igång med DevKit.
+   * DevKit startsidan.
+   * Arduino-exempel: Praktiska exempel att komma igång med DevKit.
 
 4. Expandera vänster **ARDUINO exempel** bläddrar du till **exempel för MXCHIP AZ3166 > AzureIoT**, och välj **RemoteMonitoring**. Ett nytt VS Code-fönster öppnas med en projektmapp, till exempel i den.
 

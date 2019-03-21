@@ -4,15 +4,15 @@ description: Läs mer om olika sätt att logga och övervaka data som lagras i A
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 2a08097b42f395bd0009353635cabbd264c3c421
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d75eb87bff812589e4d3a3a14079ddaaf368a588
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992098"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259779"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Diagnostisk loggning i Azure Cosmos DB 
 
@@ -24,7 +24,7 @@ När du börjar använda en eller flera Azure Cosmos DB-databaser, kanske du vil
 
 Innan vi pratar om hur du övervakar dina Azure Cosmos DB-konto, ska vi tydliggöra några saker om loggning och övervakning. Det finns olika typer av loggar på Azure-plattformen. Det finns [Azure-aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure-mått](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), händelser, övervakning av pulsslag, åtgärdsloggar och så vidare. Det finns en mängd olika loggar. Du kan se den fullständiga listan med loggar i [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/) i Azure-portalen. 
 
-Följande bild visar de olika typerna av Azure-loggar som är tillgängliga:
+Följande bild visar de olika slags Azure loggar som är tillgängliga:
 
 ![Olika typer av Azure-loggar](./media/logging/azurelogging.png)
 
@@ -67,7 +67,7 @@ Azure diagnostikloggar genereras av en resurs och tillhandahåller omfattande, f
 
 Om du vill aktivera diagnostikloggning, måste du ha följande resurser:
 
-* En befintlig Azure Cosmos DB-konto, databas och behållare. Anvisningar om hur du skapar dessa resurser finns i [skapa ett databaskonto med hjälp av Azure portal](create-sql-api-dotnet.md#create-a-database-account), [Azure CLI-exempel](cli-samples.md), eller [PowerShell-exempel](powershell-samples.md).
+* En befintlig Azure Cosmos DB-konto, databas och behållare. Anvisningar om hur du skapar dessa resurser finns i [skapa ett databaskonto med hjälp av Azure portal](create-sql-api-dotnet.md#create-account), [Azure CLI-exempel](cli-samples.md), eller [PowerShell-exempel](powershell-samples.md).
 
 Om du vill aktivera Diagnostisk loggning i Azure-portalen, gör du följande:
 
@@ -99,27 +99,23 @@ Om du vill aktivera mått och diagnostikloggning med hjälp av Azure CLI, använ
 - Använd följande kommando om du vill aktivera lagring av diagnostiska loggar i ett lagringskonto:
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
+   az monitor diagnostic-settings create --name DiagStorage --resource <resourceId> --storage-account <storageAccountName> --logs '[{"category": "QueryRuntimeStatistics", "enabled": true, "retentionPolicy": {"enabled": true, "days": 0}}]'
    ```
 
-   Den `resourceId` är namnet på Azure Cosmos DB-kontot. Den `storageId` är namnet på lagringskontot som du vill skicka loggarna.
+   Den `resource` är namnet på Azure Cosmos DB-kontot. Resursen är i formatet ”/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/ < Azure_Cosmos_account_name >” den `storage-account` är namnet på lagringskontot som du Om du vill skicka loggarna. Du kan logga andra loggar genom att uppdatera kategorin parametervärden till ”MongoRequests” eller ”DataPlaneRequests”. 
 
 - Om du vill aktivera strömning av diagnostiska loggar till en händelsehubb, Använd följande kommando:
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+   az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --event-hub-rule <eventHubRuleID> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
-   Den `resourceId` är namnet på Azure Cosmos DB-kontot. Den `serviceBusRuleId` är en sträng med det här formatet:
-
-   ```azurecli-interactive
-   {service bus resource ID}/authorizationrules/{key name}
-   ```
+   Den `resource` är namnet på Azure Cosmos DB-kontot. Den `event-hub-rule` är den event hub-regel-ID 
 
 - Använd följande kommando om du vill aktivera skicka diagnostikloggar till Log Analytics-arbetsyta:
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
+   az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --workspace <resource id of the log analytics workspace> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
 Du kan kombinera dessa parametrar om du vill aktivera flera Utdataalternativ för.

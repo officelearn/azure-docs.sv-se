@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: f12f5f1f7791fa09b07c3035db65f2f488f36d7f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 93ba17c58dfcb5955bafbcc63655778903f60c18
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776588"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076351"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan användas smidigt i Windows och Windows Server. Den här artikeln beskriver överväganden för att använda en Azure-filresurs med Windows och Windows Server.
@@ -303,5 +303,5 @@ När du har skapat den här registernyckeln måste du starta om servern för att
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure Files finns på följande länkar:
 - [Planera för en Azure Files-distribution](storage-files-planning.md)
-* [Vanliga frågor och svar](../storage-files-faq.md)
-* [Felsökning i Windows](storage-troubleshoot-windows-file-connection-problems.md)      
+- [Vanliga frågor och svar](../storage-files-faq.md)
+- [Felsökning i Windows](storage-troubleshoot-windows-file-connection-problems.md)      

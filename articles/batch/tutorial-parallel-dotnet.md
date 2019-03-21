@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 9db223075284b02de1cf3de8cfa7a0b5aa35f286
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: a6fe5b0452771cd2e618d1a08cb2f4af52e3cc0d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754228"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538698"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Självstudier: Köra en parallell arbetsbelastning med Azure Batch med hjälp av .NET API:et
 
@@ -31,11 +31,11 @@ Använd Azure Batch för att effektivt köra storskaliga parallella program och 
 > * övervaka körningen av uppgiften
 > * hämta utdatafilerna.
 
-I den här självstudien konverterar du MP4-mediefiler parallellt till MP3-format med verktyget [ffmpeg](http://ffmpeg.org/) som har öppen källkod. 
+I den här självstudien konverterar du MP4-mediefiler parallellt till MP3-format med verktyget [ffmpeg](https://ffmpeg.org/) som har öppen källkod. 
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Visual Studio 2017](https://www.visualstudio.com/vs) eller [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) för Linux, macOS eller Windows.
 

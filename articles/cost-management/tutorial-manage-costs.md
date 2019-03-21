@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 02ff1822bab0abb4850541135a6ea51ea0e7119f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: df4994475bf10fa902a2902b69b231821601d33b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083571"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58174349"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Självstudie: Hantera kostnader med hjälp av Cloudyn
 
@@ -23,7 +23,7 @@ Du hanterar kostnader och skapar showback-rapporter i Cloudyn genom att allokera
 
 Till exempel kanske du vill få ersättning för ingenjörskostnader. Du måste kunna visa ingenjörsteamet att du behöver ett specifikt belopp baserat på resurskostnader. Du kan visa en rapport med alla förbrukade resurser som är taggade med *engineering*.
 
-I den här artikeln används taggar och kategorier ibland synonymt. Kategorier är en bred samling och kan vara många saker. De kan bestå av affärsenheter, kostnadsställen, webbtjänster eller något annat som är taggat. Taggar är namn/värde-par som gör det möjligt att kategorisera resurser och visa och hantera sammanställd faktureringsinformation genom att tillämpa samma tagg på flera resurser och resursgrupper. I tidigare versioner av Azure-portalen kallades ett *taggnamn* för en *nyckel*. Taggar skapas för och lagras av en enda Azure-prenumeration. Taggar i AWS består av nyckel/värde-par. Eftersom både Azure och AWS har använt termen *nyckel*, används den termen i Cloudyn. Category Manager använder nycklar (taggnamn) för att sammanfoga taggar.
+I den här artikeln används taggar och kategorier ibland synonymt. Kategorier är en bred samling och kan vara många saker. De kan bestå av affärsenheter, kostnadsställen, webbtjänster eller något annat som är taggat. Taggar är namn/värde-par som gör det möjligt att kategorisera resurser och att visa och hantera konsolideras faktureringsinformation genom att tillämpa samma tagg på flera resurser och resursgrupper. I tidigare versioner av Azure-portalen kallades ett *taggnamn* för en *nyckel*. Taggar skapas för och lagras av en enda Azure-prenumeration. Taggar i AWS består av nyckel/värde-par. Eftersom både Azure och AWS har använt termen *nyckel*, används den termen i Cloudyn. Category Manager använder nycklar (taggnamn) för att sammanfoga taggar.
 
 I den här guiden får du lära dig att:
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha ett Azure-konto.
 - Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.

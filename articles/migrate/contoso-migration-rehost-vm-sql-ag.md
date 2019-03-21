@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 84a2ef60c9f6aa4270c3fc4f83327070b298b8b2
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 535ba0049e91e09de3d1dcf05fc8ede80ef403ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697195"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088068"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso-migrering: Ange ny värd för en lokal app på Azure virtuella datorer och SQL Server AlwaysOn-tillgänglighetsgrupp
 
@@ -704,10 +704,10 @@ Contoso security-teamet granskar Azure virtuella datorer WEBVM, SQLAOG1 och SQLA
 ## <a name="bcdr"></a>BCDR
 
  Contoso utförs följande åtgärder för affärskontinuitet och haveriberedskap (BCDR):
- - Skydda data: Contoso säkerhetskopierar data på WEBVM, SQLAOG1 och SQLAOG2 virtuella datorer med Azure Backup-tjänsten. [Läs mer].
-(https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-- Contoso också lära dig om hur du använder Azure Storage för säkerhetskopiering av SQL Server direkt till blob storage. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-use-storage-sql-server-backup-restore).
-- Håll appar igång: Contoso replikerar appen virtuella datorer i Azure till en sekundär region med hjälp av Site Recovery. [Läs mer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
+- Skydda data: Contoso säkerhetskopierar data på WEBVM, SQLAOG1 och SQLAOG2 virtuella datorer med Azure Backup-tjänsten. [Läs mer].
+  (https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+  - Contoso också lära dig om hur du använder Azure Storage för säkerhetskopiering av SQL Server direkt till blob storage. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-use-storage-sql-server-backup-restore).
+  - Håll appar igång: Contoso replikerar appen virtuella datorer i Azure till en sekundär region med hjälp av Site Recovery. [Läs mer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
 
 
 ### <a name="licensing-and-cost-optimization"></a>Licensierings- och optimering

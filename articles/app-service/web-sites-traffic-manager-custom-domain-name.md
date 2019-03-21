@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5431372abb9a1157b322a8af4a07ba5fa15d8e8e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b207d9e3123245e5cb7dddb625f7488886591ae5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720469"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089870"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Konfigurera ett anpassat domännamn för en webbapp i Azure App Service med Traffic Manager
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -56,11 +56,9 @@ Om du vill associera din anpassade domän med en webbapp i Azure App Service, m�
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
 Medan egenskaperna för varje domänleverantör variera du mappa *från* ditt domännamn (till exempel **contoso.com**) *till* Traffic Manager-domännamn ( **Contoso.trafficmanager.NET**) som är integrerade med ditt webbprogram.
-   
+
 > [!NOTE]
-> Om en post används redan och du måste binda förebyggande syfte dina appar till den, kan du skapa en ytterligare CNAME-post. Till exempel för att binda förebyggande syfte **www.contoso.com** till din webbapp, skapa en CNAME-post från **awverify.www** till **contoso.trafficmanager.net**. Du kan sedan lägga till ”www.contoso.com” till din Webbapp utan att ändra CNAME-post ”www”. Mer information finns i [skapa DNS-poster för en webbapp i en anpassad domän][CREATEDNS].
-> 
-> 
+> Om en post används redan och du måste binda förebyggande syfte dina appar till den, kan du skapa en ytterligare CNAME-post. Till exempel för att binda förebyggande syfte **www\.contoso.com** till din webbapp, skapa en CNAME-post från **awverify.www** till **contoso.trafficmanager.net**. Du kan sedan lägga till ”www\.contoso.com” i din Webbapp utan att ändra CNAME-post ”www”. Mer information finns i [skapa DNS-poster för en webbapp i en anpassad domän][CREATEDNS].
 
 När du är klar med att lägga till eller ändra DNS-posterna i din domänleverantör, kan du spara ändringarna.
 

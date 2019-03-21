@@ -17,12 +17,12 @@ ms.date: 08/30/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9011a7b49aa4085c7ea05e0b320eba834b8da73d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4dc6993586063c9c99a287c51d799b44f921768d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004196"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286099"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Installera Azure AD Connect med en befintlig ADSync-databas
 Azure AD Connect kräver en SQL Server-databas för att lagra data. Du kan använda standard SQL Server 2012 Express LocalDB som installerats med Azure AD Connect, eller så kan du använda din egen fullständiga versionen av SQL. Tidigare, när du har installerat Azure AD Connect, en ny databas med namnet ADSync alltid skapades. Med Azure AD Connect version 1.1.613.0 (eller efter) har du möjlighet att installera Azure AD Connect genom att peka till en befintlig ADSync-databas.
@@ -59,7 +59,7 @@ Viktig information att ta Observera av innan du fortsätter:
 1.  Ladda ned Azure AD Connect-installationsprogrammet (AzureADConnect.MSI) till Windows server. Dubbelklicka på Azure AD Connect-installationsprogrammet för att starta installationen av Azure AD Connect.
 2.  När MSI-installationen är klar startar Azure AD Connect-guiden med installationsläget Express. Stäng fönstret genom att klicka på ikonen Avsluta.
 ![Välkommen](./media/how-to-connect-install-existing-database/db1.png)
-3.  Starta en ny kommandotolk eller PowerShell-session. Navigera till mappen <drive>\Program\Microsoft Azure AD Connect. Kör kommandot .\AzureADConnect.exe /useexistingdatabase för att starta Azure AD Connect-guiden i läget ”Använd befintlig databas”.
+3.  Starta en ny kommandotolk eller PowerShell-session. Gå till mappen ”C:\Program Files\Microsoft Azure Active Directory Connect”. Kör kommandot .\AzureADConnect.exe /useexistingdatabase för att starta Azure AD Connect-guiden i läget ”Använd befintlig databas”.
 
 > [!NOTE]
 > Växeln **/UseExistingDatabase** endast när databasen innehåller redan data från en tidigare installation av Azure AD Connect. Till exempel återställt när du flyttar från en lokal databas till en fullständig SQL Server-databas eller när Azure AD Connect-servern har byggts om och du en SQL-säkerhetskopia av ADSync-databas från en tidigare installation av Azure AD Connect. Det vill säga den inte innehåller några data från en tidigare installation av Azure AD Connect, hoppa över detta steg om databasen är tom.

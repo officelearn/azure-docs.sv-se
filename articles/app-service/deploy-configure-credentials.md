@@ -10,18 +10,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/22/2018
-ms.author: cephalin
+ms.date: 03/10/2019
+ms.author: cephalin;byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d89197fad8354b0bae41ab67b9bb1dfac0a179eb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: df874ab77c88f05b048b1f9d10873943b7bebf36
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820305"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884395"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Konfigurera autentiseringsuppgifter för distribution för Azure App Service
-[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) stöder två typer av autentiseringsuppgifter för [lokal Git-distribution](deploy-local-git.md) och [FTP/S distribution](deploy-ftp.md). Det är inte samma som din Azure Active Directory-autentiseringsuppgifter.
+[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) stöder två typer av autentiseringsuppgifter för [lokal Git-distribution](deploy-local-git.md) och [FTP/S distribution](deploy-ftp.md). De här autentiseringsuppgifterna är inte samma som din Azure Active Directory-autentiseringsuppgifter.
 
 * **Användarnivå autentiseringsuppgifter**: en uppsättning autentiseringsuppgifter för hela Azure-konto. Den kan användas för att distribuera till App Service för en app i alla prenumerationer som Azure-kontot har behörighet att komma åt. Det är en standarduppsättning som visas i portalen GUI (som den **översikt** och **egenskaper** för appens [resurssida](../azure-resource-manager/manage-resources-portal.md#manage-resources)). När en användare beviljas åtkomst till appen via rollbaserad åtkomstkontroll (RBAC) eller coadmin behörigheter kan användaren använda sina egna användarnivå autentiseringsuppgifter förrän åtkomst har återkallats. Dela inte dessa autentiseringsuppgifter med andra Azure-användare.
 
@@ -53,6 +53,12 @@ och *FTP* användarnamn för distribution i din app **egenskaper**.
 > Azure visar inte ditt distributionslösenord på användarnivå. Om du glömmer lösenordet kan återställa du dina autentiseringsuppgifter genom att följa stegen i det här avsnittet.
 >
 >  
+
+## <a name="use-user-level-credentials-with-ftpftps"></a>Använd användarnivå autentiseringsuppgifter med FTP/FTPS
+
+Autentisering till en FTP/FTPS-slutpunkt som använder användarnivå autentiseringsuppgifter requirers ett användarnamn i formatet: `<app-name>\<user-name>`
+
+Eftersom användarnivå autentiseringsuppgifter är länkade till användaren och inte en specifik resurs, måste användarnamnet vara i formatet att dirigera åtgärden logga in till rätt app-slutpunkten.
 
 ## <a name="appscope"></a>Hämta och återställa appnivå autentiseringsuppgifter
 Hämta autentiseringsuppgifterna som app-nivå:

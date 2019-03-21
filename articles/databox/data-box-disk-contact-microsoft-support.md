@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 763dfbc3813a63ffbc91180de1d5b518cef2a46d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d62ad37e6bbe9c89ef803cefc43f373e287a7af7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470170"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100453"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Öppna ett supportärende för Azure Data Box 
 
@@ -55,14 +55,14 @@ Utför följande steg för att skapa en supportbegäran om:
 
 4. I **ny supportbegäran**, klickar du på **steg 3 kontaktinformation**. I **kontaktinformation**, gör följande:
 
-    1. I den **Kontaktalternativ**, ange önskad kontaktmetod (telefon eller e-post) och språk. Svarstiden väljs automatiskt baserat på ditt prenumerationsavtal.
-    2. I den **kontaktinformation**, ange ditt namn, e-post, valfritt kontakt, land. Välj **spara kontaktändringar för framtida supportförfrågningar**.
-    3. Klicka på **Skapa**.
+   1. I den **Kontaktalternativ**, ange önskad kontaktmetod (telefon eller e-post) och språk. Svarstiden väljs automatiskt baserat på ditt prenumerationsavtal.
+   2. I den **kontaktinformation**, ange ditt namn, e-post, valfritt kontakt, land. Välj **spara kontaktändringar för framtida supportförfrågningar**.
+   3. Klicka på **Skapa**.
    
-        ![Kontaktinformation](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
+       ![Kontaktinformation](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 
-    Microsoft Support använder denna information för att nå ut till dig för ytterligare information, diagnos och lösning.
-När du har skickat din begäran om kontaktar en supporttekniker dig så snart som möjligt för att fortsätta med din begäran.
+      Microsoft Support använder denna information för att nå ut till dig för ytterligare information, diagnos och lösning.
+      När du har skickat din begäran om kontaktar en supporttekniker dig så snart som möjligt för att fortsätta med din begäran.
 
 ## <a name="manage-a-support-request"></a>Hantera supportärenden
 

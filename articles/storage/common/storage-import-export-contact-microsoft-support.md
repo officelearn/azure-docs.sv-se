@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: alkohli;
 ms.subservice: common
-ms.openlocfilehash: 1494ccea1580d7415c6c86f14682ca59ad7124d5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b01c8a3fe9b0c0856dceb5c05f449504ce8c75d6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459908"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120371"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Öppna ett supportärende för en Import/Export-jobb
 
@@ -57,14 +57,14 @@ Utför följande steg för att skapa en supportbegäran om:
 
 4. I **ny supportbegäran**, klickar du på **steg 3 kontaktinformation**. I **kontaktinformation**, gör följande:
 
-    1. I den **Kontaktalternativ**, ange önskad kontaktmetod (telefon eller e-post) och språk. Svarstiden väljs automatiskt baserat på ditt prenumerationsavtal.
-    2. Ange ditt namn, e-post, valfritt kontakt, land i kontaktinformationen. Välj den **spara kontaktändringar för framtida supportförfrågningar** kryssrutan.
-    3. Klicka på **Skapa**.
+   1. I den **Kontaktalternativ**, ange önskad kontaktmetod (telefon eller e-post) och språk. Svarstiden väljs automatiskt baserat på ditt prenumerationsavtal.
+   2. Ange ditt namn, e-post, valfritt kontakt, land i kontaktinformationen. Välj den **spara kontaktändringar för framtida supportförfrågningar** kryssrutan.
+   3. Klicka på **Skapa**.
    
-        ![Kontaktinformation](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
+       ![Kontaktinformation](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 
-    Microsoft Support använder den här informationen för att kontakta dig för ytterligare information, diagnos och lösning.
-När du har skickat din begäran om kontaktar en supporttekniker dig så snart som möjligt för att fortsätta med din begäran.
+      Microsoft Support använder den här informationen för att kontakta dig för ytterligare information, diagnos och lösning.
+      När du har skickat din begäran om kontaktar en supporttekniker dig så snart som möjligt för att fortsätta med din begäran.
 
 ## <a name="manage-a-support-request"></a>Hantera supportärenden
 

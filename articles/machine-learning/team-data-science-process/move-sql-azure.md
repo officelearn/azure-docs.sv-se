@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/04/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 291872ca25b8674528b47e695c0d5135296e3451
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d1634552522a3d1056f9af29386b6ae32754cae0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472753"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834094"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Flytta data till en Azure SQL Database för Azure Machine Learning
 
@@ -39,7 +39,7 @@ Procedurerna som beskrivs här kräver att du har:
 * Åtkomst till en **Azure SQL Database**. Om du måste konfigurera en Azure SQL Database, [komma igång med Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) innehåller information om hur du etablerar en ny instans av en Azure SQL Database.
 * Installerat och konfigurerat **Azure PowerShell** lokalt. Anvisningar finns i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
-**Data**: Migrering processer är visas med hjälp av den [NYC Taxi datauppsättning](http://chriswhong.com/open-data/foil_nyc_taxi/). NYC Taxi-datauppsättning innehåller information om resedata och mässor och är tillgängligt på Azure blob-lagring: [NYC Taxiinformation](http://www.andresmh.com/nyctaxitrips/). Ett exempel och en beskrivning av dessa filer finns i [NYC Taxi och RETUR datauppsättning beskrivning](sql-walkthrough.md#dataset).
+**Data**: Migrering processer är visas med hjälp av den [NYC Taxi datauppsättning](https://chriswhong.com/open-data/foil_nyc_taxi/). NYC Taxi-datauppsättning innehåller information om resedata och mässor och är tillgängligt på Azure blob-lagring: [NYC Taxiinformation](https://www.andresmh.com/nyctaxitrips/). Ett exempel och en beskrivning av dessa filer finns i [NYC Taxi och RETUR datauppsättning beskrivning](sql-walkthrough.md#dataset).
 
 Du kan anpassa de förfaranden som beskrivs här till en uppsättning med dina egna data eller följer du stegen som beskrivs med hjälp av NYC Taxi-datauppsättningen. Om du vill överföra NYC Taxi-datauppsättning till din lokala SQL Server-databas, följer du proceduren som beskrivs i [Bulk importera Data till SQL Server-databas](sql-walkthrough.md#dbload). Dessa instruktioner är för en SQL Server på en Azure-dator, men proceduren för att ladda upp till en lokal SQL Server är samma.
 

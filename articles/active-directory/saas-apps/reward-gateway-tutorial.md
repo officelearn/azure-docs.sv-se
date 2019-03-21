@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85c2dcfb6ff1ba0bb122a0bf9aae5f01a4085f29
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 34e0e9b83dabfb5b389030248f1787e1e8ef9dd4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817056"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840672"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Självstudier: Azure Active Directory-integrering med utmärkelse Gateway
 
@@ -114,6 +114,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning](./media/reward-gateway-tutorial/tutorial_rewardgateway_url.png)
 
     a. I textrutan **Identifierare** anger du en URL med följande mönster:
+
     | |
     |--|
     | `https://<companyname>.rewardgateway.com` |
@@ -122,6 +123,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `https://<companyname>.rewardgateway.com.au/` |
 
     b. I textrutan **Svars-URL** anger du en URL med följande mönster:
+    
     | |
     |--|
     |  `https://<companyname>.rewardgateway.com/Authentication/EndLogin?idp=<Unique Id>` |
@@ -219,7 +221,7 @@ När du klickar på panelen utmärkelse Gateway i åtkomstpanelen du bör få au
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar om projektet Akustik
+title: Vanliga och frågor svar om projektet Akustik
 titlesuffix: Azure Cognitive Services
 description: Den här sidan innehåller svar på frågor och svar ofta om projektet Akustik, inklusive hämta anvisningarna och skapa processen.
 services: cognitive-services
@@ -7,25 +7,29 @@ author: kegodin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: conceptual
+ms.topic: resources
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 12dda5d7af1236ec2d7eddbe025b8fdba47d7bca
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: MT
+ms.openlocfilehash: c43c81d42a39bda504b02eb6c053a16a2cf53aec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881082"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138056"
 ---
-# <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+# <a name="project-acoustics-frequently-asked-questions"></a>Vanliga och frågor svar om projektet Akustik
 
 ## <a name="what-is-project-acoustics"></a>Vad är Project Acoustics?
 
-Projektet Akustik Unity-plugin-programmet är ett Akustik system som beräknar ljud wave beteende före körning, som statiska belysning. Molnet har wave tungrodda fysik beräkningar, så körningskostnaden CPU är låg.  
+Projektet Akustik uppsättning plugin-program är ett Akustik system som beräknar ljud wave beteende före körning, som statiska belysning. Molnet har wave tungrodda fysik beräkningar, så körningskostnaden CPU är låg.  
 
 ## <a name="where-can-i-download-the-plugin"></a>Var kan jag hämta plugin-programmet?
 
-Om du är intresserad av att utvärdera akustikplugin-programmet registrerar du dig [här](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) för att delta i Designer-förhandsversionen.
+Du kan ladda ned projektet Akustik från den [projekt Akustik Download Center-sidan](https://www.microsoft.com/en-us/download/details.aspx?id=57346).
+
+## <a name="does-project-acoustics-support-x-platform"></a>Har stöd för projektet Akustik <x> plattform?
+
+Projektstöd Akustik plattform utvecklas baserat på kundernas behov. Kontakta oss på den [projekt Akustik forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics) att fråga om stöd för ytterligare plattformar.
 
 ## <a name="is-azure-used-at-runtime"></a>Används Azure vid körning?
 
@@ -45,17 +49,17 @@ Nej. Systemet kan mata in detaljerad nivå geometri direkt. Det kommer att voxel
  
 ## <a name="whats-in-the-runtime-lookup-table"></a>Vad ingår i uppslagstabellen?
 
-ACE-filen är en tabell med akustiska parametrar mellan ett stort antal par för källa och lyssnare plats.
+ACE-filen innehåller en tabell över akustiska parametrar mellan ett stort antal källa och lyssnare plats par samt voxelized scen geometri som används för parametern interpolation.
  
-## <a name="can-it-handle-moving-sources"></a>Kan den hantera glidande källor?
+## <a name="can-project-acoustics-handle-moving-sources"></a>Kan hantera projekt Akustik glidande källor?
 
-Ja, den **Microsoft Acoustics** Unity spatializer plugin-programmet konsultationer uppslagstabell på varje ljud bearbetning skalstreck med de aktuella platserna för käll- och lyssnaren. Den spatializer DSP uppdaterar smidigt parametrarna akustiska bearbetning på varje skalstreck.
+Ja, projekt Akustik konsultationer uppslagstabellen och uppdaterar ljud DSP på varje skalstreck så att den kan hantera flytta källor och lyssnaren.
  
-## <a name="can-it-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>Kan den hantera dynamiska geometri? Stänga dörrar? Väggar blåses direkt?
+## <a name="can-project-acoustics-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>Projektet Akustik kan hantera dynamiska geometri? Stänga dörrar? Väggar blåses direkt?
 
-Nej. Akustiska parametrarna är förberäknade baserat på statisk tillstånd för en game nivå. Vi föreslår att du lämnar dörren geometri utanför Akustik och sedan tillämpa ytterligare ocklusion baserat på tillståndet för förstörbara och Lös spel objekt som använder etablerad teknik.
+Nej. Akustiska parametrarna är förberäknade baserat på statisk tillstånd för en game nivå. Vi rekommenderar att lämna dörren geometri utanför Akustik och sedan tillämpa ytterligare ocklusion baserat på status för förstörbara och Lös spel objekt med hjälp av upprättas tekniker.
  
-## <a name="does-it-handle-materials"></a>Hanterar det material?
+## <a name="does-project-acoustics-use-acoustic-materials"></a>Använder projekt Akustik akustiska material?
 
 Ja. Material som hämtas från de fysiska samband namnen på din nivå Driver absorptivity.
  
@@ -65,12 +69,12 @@ Avsökningar är ett urval av möjliga player platser. Varje avsökning represen
  
 ## <a name="why-spend-so-much-compute-in-the-cloud-what-does-it-buy-me"></a>Varför lägga så mycket beräkning i molnet? Vad den köpa mig?
 
-Projektet Akustik ger korrekta och tillförlitliga akustiska parametrar även för extremt komplexa-miljöer, hänsyn tas till hela arkitekturen. Får du smidig är spärrat/hinder utan manuellt arbete och dynamiska eko variation utan att rita volymer. Allt medan återstående lätta på CPU under körning.
+Projektet Akustik ger korrekta och tillförlitliga akustiska parametrar även för extremt komplexa-miljöer, hänsyn tas till hela arkitekturen. Får du smidig ocklusion och hinder och dynamiska eko variation utan manuellt arbete för att rita volymer. Allt medan återstående lätta på CPU under körning.
 
 ## <a name="what-exactly-happens-during-baking"></a>Vad händer exakt under ”gräddning”?
 
-Är den potentiella player platser att generera en uppsättning jämnt fördelade ”avsökning” exempel positioner. En ändamålet för en nivå består av oberoende aktiviteter för varje avsökning: Anses cuboid ”simulering Region” inriktade på avsökningen och har en detaljerad wave-simulering i den regionen med upp till 25 cm-upplösning.
+En ändamålet består av akustiska wave simuleringar cuboid simulering regioner som är inriktade på varje lyssnare avsökningen.
 
 ## <a name="next-steps"></a>Nästa steg
-* Utforska den [exempel scen](sample-walkthrough.md)
+* Prova den [projekt Akustik Unity exemplen](unity-quickstart.md) eller [Unreal exemplen](unreal-quickstart.md)
 

@@ -6,18 +6,21 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/4/2019
+ms.date: 03/19/2019
 ms.author: sogup
-ms.openlocfilehash: 0eb19ba8278df2d77466e5be13731723557e85a8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0bc1ab0586d1a591464711fb0652f81fb082e6c3
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082083"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199252"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Flytta ett Recovery Services-valv i Azure-prenumerationer och resursgrupper (begränsad offentlig förhandsversion)
 
 Den här artikeln förklarar hur du flyttar ett Recovery Services-valv som konfigurerats för Azure Backup för Azure-prenumerationer eller till en annan resursgrupp i samma prenumeration. Du kan använda Azure portal eller PowerShell för att flytta ett Recovery Services-valv.
+
+> [!NOTE]
+> Om du vill flytta ett Recovery Services-valv och dess kopplade resurser till en annan resursgrupp, bör du först [registrera datakälla prenumerationen](#register-the-source-subscription-to-move-your-recovery-services-vault).
 
 ## <a name="prerequisites-for-moving-a-vault"></a>Förutsättningar för att flytta ett valv
 
@@ -37,7 +40,7 @@ Den här artikeln förklarar hur du flyttar ett Recovery Services-valv som konfi
 -   Om du flyttar ett valv som innehåller VM säkerhetskopierade data mellan prenumerationer, måste du flytta dina virtuella datorer till samma prenumeration och Använd samma målresursgruppen för att fortsätta säkerhetskopieringar.<br>
 
 > [!NOTE]
-> 
+>
 > Recovery Services-valv som konfigurerats för användning med **Azure Site Recovery** kan inte flytta ännu. Om du har konfigurerat virtuella datorer (Azure IaaS, Hyper-V, VMware) eller fysiska datorer för disaster recovery med hjälp av den **Azure Site Recovery**, flyttåtgärden kommer att blockeras. Resursen flytta funktionen för Site Recovery-tjänsten är inte tillgänglig ännu.
 
 ## <a name="register-the-source-subscription-to-move-your-recovery-services-vault"></a>Registrera datakälla prenumerationen för att flytta ditt Recovery Services-valv

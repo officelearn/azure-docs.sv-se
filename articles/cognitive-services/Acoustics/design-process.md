@@ -1,7 +1,7 @@
 ---
-title: Översikt över designen för projektet Akustik
+title: Designbegrepp för akustiksimulering
 titlesuffix: Azure Cognitive Services
-description: Det här dokumentet beskriver hur du express design avsikt i alla tre faser av projektet Akustik arbetsflödet.
+description: Den här konceptuell översikt förklarar hur projekt Akustik införlivar akustiska simuleringen till ljud designprocessen.
 services: cognitive-services
 author: kegodin
 manager: nitinme
@@ -10,87 +10,56 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: bb5f309a96feac2caea85fbe81b7216eecfc4b79
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: MT
+ms.openlocfilehash: dd27b660dfdd1f4bcec89291b10fd87750ad4c49
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873945"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136164"
 ---
-# <a name="design-process-overview"></a>Processöversikt för design
-Du kan uttrycka design avsikt i alla tre faser av projektet Akustik arbetsflödet: förväg skapa scen konfiguration, ljudkälla placering och efter ändamålet design. Processen kräver mindre markup som är associerade med placera eko volymer samtidigt som du behåller designer kontroll över hur en scen låter.
+# <a name="project-acoustics-design-process-concepts"></a>Projektet Akustik designbegrepp Process
 
-## <a name="pre-bake-design"></a>Skapa förväg design
-Före ändamålet scen installationsprocessen skapar scen och metadata som används för ljud wave-simulering, som omfattar att välja vilket scen element ska delta i simuleringen att tillhandahålla occlusions, reflektioner och genljudet. Metadata för scenen är valet av akustiska material för varje scen-element. Akustiska material styra mängden ljud energi som visas från varje ytan.
+Den här konceptuell översikt förklarar hur projekt Akustik inkluderar fysiska akustiska simulering i ljud designprocessen.
 
-Absorptionskoefficient standard för alla ytor är 0.04, vilket är reflekterar. Du kan uppnå dess estetiska egenskaper och spelupplevelsen genom att justera absorptionskoefficient av olika material i hela scenen, som är särskilt framstående till lyssnare när de hör övergångar från ett område från scenen till en annan. Till exempel förbättrar övergång från ett mörkt reverberant rum till en klar, icke-reverberant utomhus scen effekten av övergången. Finjustera absorptionskoefficient på högre utomhus scen material för att uppnå detta.
+## <a name="sound-design-with-audio-dsp-parameters"></a>Bra design med ljud DSP-parametrar
 
-Genljudet tidpunkten för ett visst material i ett rum är relaterat till dess absorptionskoefficient, med de flesta material med absorption värden i intervallet 0,01 0.20 omvänt. Material med absorptionskoefficient utanför det här intervallet är mycket absorberande.
+3D-interaktiva rubriker uppnå sina visst ljud med hjälp av digitala ljudsignalen bearbetning (DSP) block i en motor för ljud. Dessa block-intervallet i allt från enkla blanda, genljudet, eko, fördröjning, Utjämning, komprimering och begränsar, och andra effekter. Att välja, ordna och ställa in parametrar på effekterna ansvarar ljud designern, som skapar en ljud graf som ger dess estetiska egenskaper och spelupplevelse målen i miljön.
 
-![Eko graf](media/ReverbTimeGraph.png)
+I en interaktiv rubrik, när ljud och lyssnare flyttar i hela 3D-utrymmet, hur parametrarna efter behov ändra villkor? Ljud designern ordnar ofta volymer under hela utrymmet som är programmerade för att utlösa parametern ändringar för att uppnå ändringar i genljudet effekter, till exempel eller ankor ljud av sammansättning som lyssnaren flyttar från en del av scenen till en annan. Akustik system är också tillgängliga som kan automatisera vissa av dessa effekter.
 
-Den [ändamålet Användargränssnittet igenom](bake-ui-walkthrough.md) beskriver före ändamålet kontroller i detalj.
+3D-rubriker använda belysning och kinematiska fysik-system som motiveras av fysik men designer justeras att uppnå en blandning av introduktion och spelupplevelse mål. Ett visuellt designverktyg Ange inte enskilda pixelvärden, men i stället justerar 3D-modeller, material och ljus transportsystem som är alla fysiskt-baserade att byta ut visual estetik och CPU-kostnader. Vad skulle vara motsvarande processen för ljud? Projektet Akustik är ett första steg i att utforska av den här frågan. Först ska vi pratar vad det innebär att transportera akustiska energi genom ett blanksteg.
 
-## <a name="sound-source-placement"></a>Ljudkälla placering
-Visa voxels och avsökning punkter vid körning kan hjälpa att felsöka problem med ljud källor som fastnat i voxelized geometri. Aktivera voxel grid och avsökning pekar visning, klickar du på motsvarande kryssrutan Gizmos menyn uppe till höger i vyn scen. Om ljudkällan inuti en vägg voxel måste du flytta den till en air voxel.
+![eko zoner](media/reverb-zones-altspace.png)
 
-![Gizmos menyn](media/GizmosMenu.png)  
+## <a name="impulse-responses-acoustically-connecting-two-points-in-space"></a>Impuls svar: Akustiskt ansluter två punkter i utrymmet
 
-Voxel visningen kan avgöra om visuella komponenter i spelet har en transformering som tillämpas. I så fall gäller samma transformering för värd för GameObject den **Akustik Manager**.
+Om du är bekant med ljud design kan kanske du är bekant med akustiska impuls svar. Ett akustiska impuls svar modeller transport av ett ljud från en källa till en lyssnare. Ett impuls svar kan därför avbilda var intressant effekten av utrymme Akustik, till exempel är spärrat och genljudet. Impuls svar har också vissa kraftfulla egenskaper som tillåter ljud DSP-effekter att skala. Att lägga till två ljud signaler tillsammans och bearbetning med ett impuls svar ger samma resultat som tillämpar impuls svaret separat på varje signal och lägga till resultatet. Akustiska spridning och impuls svar beror inte också på ljudet bearbetas bara på scenen som modelleras och platserna som käll- och lyssnaren. Ett impuls svar reduceras kort sagt så att scenens effekt på ljud spridning.
 
-### <a name="voxel-size-discrepancies"></a>Voxel storlek avvikelser
-Du kanske märker att storleken på voxels som används för att illustrera som från scenen nät som deltar i Akustik ändamålet är olika i designvyerna tid och runtime. Detta påverkar inte kvalitet/Granulariteten för din valda simulering frekvens men är i stället en biproduct av runtime voxelized scenen. Vid körning är simulering voxels ”förfinade” för att stödja interpolering mellan källplatser. Detta kan också design tid placeringen av ljud källor närmare scen-nät än simulering voxel storlek tillåter – eftersom datakällor i en voxel som innehåller ett akustiskt behandlade nät inte ska du göra något ljud.
+Ett impuls svar samlar in alla intressanta rummet akustiska effekt, och vi kan använda den för ljud effektivt med ett filter och vi kan få impuls svar mätning eller simulering. Men vad händer om vi inte riktigt vill Akustik så att den matchar fysiken exakt, men i stället mold känslomässig kraven från en scen att det? Men pixelvärden, ett impuls svar är liksom bara en lista över tusentals siffror, hur kan vi eventuellt justera dem efter aesthetic behov? Och om vi vill ha är spärrat/hinder som varierar smidigt vid överföring via dörrar eller bakom hinder, hur många impuls svar vi behöver att få en jämn inverkan? Vad händer om källan flyttar snabbt? Hur vi interpolera?
 
-Här följer två bilder som visar skillnaden mellan design (före ändamålet) voxels och runtime (efter ändamålet) voxels som visualiseras av Unity-plugin-programmet:
+Det låter svårt att använda simulering och impuls svar för vissa aspekter av Akustik i interaktiva titlar. Men vi kan skapa ett ljud transportsystem som stöder designer justeringar om vi kan ansluta vårt impuls svar från simulering med vår välbekanta ljud DSP effekt parametrar.
 
-Utforma tid voxels:
+## <a name="connecting-simulation-to-audio-dsp-with-parameters"></a>Ansluta simulering till ljud DSP med parametrar
 
-![VoxelsDesignTime](media/VoxelsDesignTime.png)
+En impuls svaret innehåller varje intressanta (och varje ointressanta) akustiska effekt. Ljud DSP-block, kan när deras har angetts korrekt, rendera intressanta akustiska effekt. Det är bara en fråga för att mäta ljud DSP-parametrar från ett impuls svar för att använda akustiska simulering för att driva ett ljud DSP-block för att automatisera ljud transport i ett 3D-scenen. Det här måttet är välkänt för vissa vanliga och viktiga akustiska effekter, inklusive ocklusion, hinder, portalling och genljudet.
 
-Runtime voxels:
+Men om simuleringen är ansluten direkt till ljud DSP-parametrar, där är designer justering? Vad vi får? Bra, får vi en betydande mängd minne igen genom att kasta impuls svar och behålla några DSP-parametrar. Och för att ge designern del ström över slutresultatet, behöver vi bara hitta ett sätt att infoga designer mellan simuleringen och ljud DSP.
 
-![VoxelsRuntime](media/VoxelsRuntime.png)
+![impuls svarsparametrar](media/acoustic-parameters.png)
 
-Beslutet om huruvida voxel nät korrekt representerar arkitektur/strukturella scen nät ska göras med hjälp av design läge voxels inte förfinade voxels runtime visualiseringen.
+## <a name="sound-design-by-transforming-audio-dsp-parameters-from-simulation"></a>Bra design genom att omvandla ljud DSP-parametrar från simulering
 
-## <a name="post-bake-design"></a>Skapa efter design
-Ändamålet resultaten lagras i filen ACE som är spärrat och genljudet parametrar för alla käll-listener plats par i hela scenen. Den här fysiskt korrekt resultat kan användas för ditt projekt som- och är en utmärkt utgångspunkt för designen. Efter ändamålet designprocessen anger regler för hur du transformerar ändamålet resultatet parametrarna vid körning.
+Fundera över hur din solglasögonföretag har i din vy över hela världen. Ljus dag, kan glasögon minska skiner till något mer bekväm. I ett mörkt rum, kan du inte att kunna se något alls. Glasögon anger inte en viss nivå av ljusstyrka i alla situationer. de göra behöver allt mörkare.
 
-### <a name="distance-based-attenuation"></a>Avståndet-baserade dämpning
-Ljudet DSP tillhandahålls av den **Microsoft Acoustics** Unity spatializer plugin-programmet respekterar de per källkod avståndet-baserade dämpning bygger i Unity-redigeraren. Kontroller för avståndet-baserade dämpning finns i den **ljud källa** komponent finns i den **Inspector** med ljud datakällor under **3D-ljudinställningar**:
+Om vi använder simulering för att driva vår ljud DSP med hjälp av parametrarna är spärrat och genljudet kan vi lägga till ett filter efter simulatorn kan justera de parametrar som DSP-ser ”. Filtret inte tillämpa en viss nivå av ocklusion eller eko pilslut längd mycket som solglasögonföretag inte ge varje plats samma ljusstyrka. Filtret att varje occluder occlude mindre. Eller occlude mer. Genom att lägga till och justera filter för en parameter för 'göra mörkare' ocklusion, skulle stora, öppna rum fortfarande påverkar lite till inte är spärrat, medan dörrar skulle öka från ett medium till en stark ocklusion effekt samtidigt som företaget behåller jämnhet gäller övergångar att tillhandahåller simuleringen.
 
-![Avståndet dämpning](media/distanceattenuation.png)
+I den här paradigm ändras i designer-uppgiften väljer akustiska parametrar för varje fall till att välja och justera filter att tillämpa de viktigaste DSP-parametrarna som kommer från simulering. Det höjer i designer aktiviteter från smal frågor för att ställa in smooth övergår till högre funderingar intensiteten av ocklusion och genljudet effekter och förekomsten av datakällor av sammansättning. Naturligtvis när situationen kräver är ett filter som är tillgängliga helt enkelt gå tillbaka till välja DSP-parametrar för en viss källa på en specifik situation.
 
-Akustik utför beräkning i en ”simulering region” heldag player-platsen. Om en bra källa är långt från spelare, utanför den här regionen för simulering, påverkas endast geometri i rutan ljud spridning (till exempel orsakar ocklusion) som fungerar förhållandevis bra när occluders är i närheten av spelaren. Men i fall kan när spelaren är i öppet område men occluders närmar sig avlägsna ljudkälla ljudet bli orealistiskt disoccluded. Vår Föreslagen lösning är att säkerställa i sådana fall att ljud dämpning ligger till 0 på ungefär 45 m, standardavståndet spelaren vid gränsen till rutan.
+## <a name="sound-design-in-project-acoustics"></a>Bra design i projektet Akustik
 
-### <a name="tuning-scene-parameters"></a>Justering scenparametrar
-Om du vill justera parametrarna för alla källor, klicka på kanalen remsans i Unity's **ljud Mixer**, och justera parametrarna på den **projekt Akustik Mixer** effekt.
+Projektet Akustik paketet integrerar var och en av de komponenter som beskrivs ovan: en simulator, en kodare som extraherar parametrar och bygger Akustik tillgången, ljud-DSP och ett urval av filter. Bra design med projekt Akustik innebär välja parametrar för de filter som justerar parametrarna är spärrat och genljudet härleds från simulering och tillämpas på ljud-DSP med dynamiska kontroller som visas i Redigeraren för spel och ljud-motorn.
 
-![Mixer-anpassning](media/MixerParameters.png)
-
-* **Wetness justera** -justerar eko-kraften i dB från alla källor i scenen baserat på käll-listener avstånd. Positiva värden göra ett ljud mer reverberant medan negativa värden göra ett ljud mer torr.
-* **RT60 skala** – Multiplicerande skalära för eko tid.
-* **Använd panorering** -kontroller om ljud returneras som binaural (0) eller multichannel panorering (1). Vilket värde som helst förutom 1 anger binaural. Binaural utdata spatialized med HRTFs för användning med hörlurar och multichannel utdata är spatialized med VBAP för användning med flerkanals omge talare system. Om du använder flera panner måste du markera högtalarläge som matchar dina Enhetsinställningar, finns under **Projektinställningar** > **ljud**.
-
-![SpeakerMode](media/SpeakerMode.png)
-
-### <a name="tuning-source-parameters"></a>Justering källparametrar
-Koppla den **AcousticsAdjust** skriptet till en datakälla kan justering parametrar för den här källan. Om du vill koppla skriptet, klickar du på **Lägg till komponent** längst ned på den **Inspector** panelen och gå till **skript > Akustik justera**. Skriptet har sex kontroller:
-
-![AcousticsAdjust](media/AcousticsAdjust.png)
-
-* **Aktivera Akustik** – styr om Akustik tillämpas på den här källan. När alternativet är avmarkerat källan ska vara spatialized med HRTFs eller panorering men det finns inga Akustik. Det innebär att inga hinder och är spärrat dynamisk genljudet parametrar, t.ex nivå och decay tid. Genljudet används fortfarande med ett fast nivå och decay tid.
-* **Ocklusion** -gäller en multiplikator för ocklusion dB-nivån beräknas av Akustik-system. Om den här multiplikatorn är större än 1, är spärrat vara överdrivna när värden mindre än 1 är spärrat effekten mer diskreta och kontrollera värdet 0 inaktiverar ocklusion.
-* **Överföring (dB)** -ange dämpning (i dB) på grund av överföring via geometri. Ange det här reglaget till den lägsta nivån att inaktivera överföringen. Akustik spatializes inledande torr ljud som inkommer runt scen geometri (portaling). Överföringen ger ett ytterligare torr ankomst spatialized i linje med för att se riktning. Observera att tillämpas också avståndet dämpning kurvan för källan.
-* **Wetness (dB)** -justerar eko-kraften i dB enligt avståndet från källan. Positiva värden göra ett ljud mer reverberant medan negativa värden göra ett ljud mer torr. Klicka på kontrollen kurvan (gröna linjen) att ta fram kurvan redigeraren. Ändra kurvan genom vänsterklicka för att lägga till punkterna och dra dessa datapunkter för att skapa funktionen som du vill. X-axeln är avståndet från källan och y-axeln är eko justering i dB. Mer information om hur du redigerar kurvor finns i den här [Unity manuell](https://docs.unity3d.com/Manual/EditingCurves.html). Om du vill återställa kurvan till standard, högerklicka på **Wetness** och välj **återställa**.
-* **Decay skala** -justerar en multiplikator för decay-tid. Om resultatet ändamålet anger en decay tid på 750 millisekunder, men det här värdet anges till 1.5, är decay-tiden som tillämpas på källan 1,125 millisekunder.
-* **Outdoorness** -additiva justering på systemet Akustik uppskattning av hur ”utomhus” genljudet på en källa bör ljud. Ange det här värdet till 1 gör en källa alltid ljud helt utomhus när ange den till -1 gör en källa ljud inne.
-
-Olika källor kan kräva olika inställningar att uppnå vissa dess estetiska egenskaper eller spelupplevelse effekter. Dialogrutan är ett exempel som möjligt. Mänskliga ensa är mer attuned genljudet i tal, medan dialogrutan ofta måste vara begriplig för spel. Du kan ta hänsyn till detta utan att göra dialogrutan icke-diegetic genom att flytta den **Wetness** nedåt, justera den **Perceptuell avståndet tänja** parameter som beskrivs nedan, som att lägga till några  **Överföringen** för vissa torr ljud boost sprider via väggar och/eller minska den **ocklusion** från 1 till har flera ljud som tas emot via portaler.
-
-Koppla den **AcousticsAdjustExperimental** skriptet till en datakälla kan ytterligare experimentella justering parametrar för den här källan. Om du vill koppla skriptet, klickar du på **Lägg till komponent** längst ned på den **Inspector** panelen och gå till **skript > Akustik justera experimentella**. Det finns för närvarande en experimentell kontroll:
-
-![AcousticsAdjustExperimental](media/AcousticsAdjustExperimental.png)
-
-* **Perceptuell avståndet tänja** -använda en exponentiell förvrängning avståndet används för att beräkna förhållandet torr igång. Akustik beräknas våt nivåer i hela utrymmet som kan variera smidigt med avståndet och ger Perceptuell avståndet tips. Skev värden som är större än 1 exaggerate detta genom att öka avståndet-relaterade genljudet nivåer, vilket gör ljudet ”avlägsna”. Avståndet-baserade genljudet förvrängning värden mindre än 1 Kontrollera ändra mer diskreta, och det bra mer ”aktuella”.
+## <a name="next-steps"></a>Nästa steg
+* Prova att använda en design paradigm med hjälp av den [projekt Akustik Snabbstart för Unity](unity-quickstart.md) eller [projekt Akustik Snabbstart för Unreal](unreal-quickstart.md)
+* Utforska den [projekt Akustik utforma kontroller för Unity](unity-workflow.md) eller [projekt Akustik utforma kontroller för Unreal](unreal-workflow.md)
 

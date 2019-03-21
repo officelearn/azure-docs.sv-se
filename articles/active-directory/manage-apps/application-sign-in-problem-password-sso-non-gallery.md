@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad844f208045c22afb2a22f7b167c6ecd1632d81
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 11411a780333268e19d53ea2bd472fe36bc0eb62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173848"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088374"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problem med inloggning till ett program för Azure AD-Galleriprogram som konfigurerats för lösenord för enkel inloggning
 
@@ -120,25 +120,25 @@ Du att kunna se programmets konfigurationsruta efter en kort period.
 
 Följ stegen nedan om du vill konfigurera enkel inloggning för ett program:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
-5.  Klicka på **alla program** att visa en lista över alla dina program.
+5. Klicka på **alla program** att visa en lista över alla dina program.
 
    * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
 
-6.  Välj det program som du vill konfigurera enkel inloggning
+6. Välj det program som du vill konfigurera enkel inloggning
 
-7.  När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7. När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
 
-8.  Välj läget **lösenordsbaserad inloggning.**
+8. Välj läget **lösenordsbaserad inloggning.**
 
-9.  Ange den **inloggnings-URL**. Det här är URL: en där användare anger sina användarnamn och lösenord för inloggning. Kontrollera att inloggningen fält är synliga på URL: en.
+9. Ange den **inloggnings-URL**. Det här är URL: en där användare anger sina användarnamn och lösenord för inloggning. Kontrollera att inloggningen fält är synliga på URL: en.
 
 10. Tilldela användare till programmet.
 
@@ -148,25 +148,25 @@ Följ stegen nedan om du vill konfigurera enkel inloggning för ett program:
 
 Följ stegen nedan om du vill tilldela en eller flera användare till ett program direkt:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
-5.  Klicka på **alla program** att visa en lista över alla dina program.
+5. Klicka på **alla program** att visa en lista över alla dina program.
 
    * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
 
-6.  Välj det program som du vill tilldela en användare i listan.
+6. Välj det program som du vill tilldela en användare i listan.
 
-7.  När programmet har lästs in klickar du på **användare och grupper** från programmets vänstra navigeringsmenyn.
+7. När programmet har lästs in klickar du på **användare och grupper** från programmets vänstra navigeringsmenyn.
 
-8.  Klicka på den **Lägg till** knappen ovanpå den **användare och grupper** listan för att öppna den **Lägg till tilldelning** fönstret.
+8. Klicka på den **Lägg till** knappen ovanpå den **användare och grupper** listan för att öppna den **Lägg till tilldelning** fönstret.
 
-9.  Klicka på den **användare och grupper** selector från den **Lägg till tilldelning** fönstret.
+9. Klicka på den **användare och grupper** selector från den **Lägg till tilldelning** fönstret.
 
 10. Ange den **fullständigt namn** eller **e-postadress** för den användare som du vill tilldela till den **Sök efter namn eller e-postadress** sökrutan.
 

@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 7237a9a6a99b57401af40512a6d2e21a3fe49e53
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: c37e41bce481fff5e172687907cce527c10ae006
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159493"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225016"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Skapa loopar som Upprepa arbetsflödesåtgärder eller bearbeta matriser i Azure Logic Apps
 
@@ -58,7 +58,7 @@ Det här exemplet logikappen skickar en daglig sammanfattning för en webbplats 
 
       ![Välj ”Lägg till en åtgärd”](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
-   1. Under sökrutan väljer **alla**. I sökrutan skriver du ”för var och en” som filter. Välj den här åtgärden från åtgärdslistan över: **För varje - kontroll**
+   1. Under sökrutan väljer du **Alla**. I sökrutan skriver du ”för var och en” som filter. Välj den här åtgärden från åtgärdslistan över: **För varje - kontroll**
 
       ![Lägg till ”för var och en” loop](media/logic-apps-control-flow-loops/select-for-each.png)
 
@@ -166,9 +166,10 @@ Kl. 8:00:00 varje dag, inkrementerar den här exempellogikapp en variabel tills 
 > De här stegen används Office 365 Outlook, men du kan använda valfri e-postleverantör som har stöd för Logic Apps. 
 > [Kontrollera listan med anslutningsappar här](https://docs.microsoft.com/connectors/). Om du använder en annan e-postkonto, de allmänna stegen desamma, men Användargränssnittet kan skilja. 
 
-1. Skapa en tom logikapp. I Logic App Designer under sökrutan väljer **alla**. Sök efter ”återkommande”. Välj den här utlösaren från listan över utlösare: **Upprepning - schema**
+1. Skapa en tom logikapp. I Logic App Designer under sökrutan väljer **alla**. Sök efter ”återkommande”. 
+   Välj den här utlösaren från listan över utlösare: **Upprepning - schema**
 
-   ![Lägg till ”--upprepningsschemat” utlösare](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
+   ![Add "Recurrence - Schedule" trigger](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
 
 1. Ange när utlösaren aktiveras genom att ange intervall, frekvens och timme på dagen. Om du vill ange timmen, Välj **visa avancerade alternativ**.
 
@@ -181,7 +182,8 @@ Kl. 8:00:00 varje dag, inkrementerar den här exempellogikapp en variabel tills 
    | **Vid dessa timmar** | 8 |
    ||| 
 
-1. Under utlösaren väljer **nytt steg**. Sök efter ”variabler” och välj den här åtgärden: **Initiera variabel - variabler**
+1. Under utlösaren väljer **nytt steg**. 
+   Sök efter ”variabler” och välj den här åtgärden: **Initiera variabel - variabler**
 
    ![Lägg till ”initiera variabel - variabler” åtgärd](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
@@ -198,48 +200,50 @@ Kl. 8:00:00 varje dag, inkrementerar den här exempellogikapp en variabel tills 
 
 1. Under den **initieras variabeln** åtgärd, Välj **nytt steg**. 
 
-1. Under sökrutan väljer **alla**. Sök efter ”till” och välj den här åtgärden: **Tills - kontroll**
+1. Under sökrutan väljer du **Alla**. Sök efter ”till” och välj den här åtgärden: **Tills - kontroll**
 
    ![Lägg till ”Until”-loop](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
 
-1. Skapa Loopens avsluta-villkor genom att välja den **gränsen** variabeln och **är lika med** operator. Ange **10** som Jämförelsevärde.
+1. Skapa Loopens avsluta-villkor genom att välja den **gränsen** variabeln och **är lika med** operator. 
+   Ange **10** som Jämförelsevärde.
 
    ![Skapa avsluta-villkor för att stoppa loop](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
 
 1. I den här slingan väljer **Lägg till en åtgärd**. 
 
-1. Under sökrutan väljer **alla**. Sök efter ”variabler” och välj den här åtgärden: **Öka variabeln - variabler**
+1. Under sökrutan väljer du **Alla**. Sök efter ”variabler” och välj den här åtgärden: **Öka variabeln - variabler**
 
    ![Lägg till åtgärd för att öka variabeln](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
 1. För **namn**väljer den **gränsen** variabeln. För **värdet**, ange ”1”. 
 
-   ![Öka ”gräns” med 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
+     ![Öka ”gräns” med 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
 1. Utanför och under loopen, välja **nytt steg**. 
 
-1. Under sökrutan väljer **alla**. Hitta och Lägg till en åtgärd som skickar e-post, till exempel: 
+1. Under sökrutan väljer du **Alla**. 
+     Hitta och Lägg till en åtgärd som skickar e-post, till exempel: 
 
-   ![Lägg till åtgärd som skickar e-postmeddelande](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
+     ![Lägg till åtgärd som skickar e-postmeddelande](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
 1. Logga in på ditt e-postkonto om du uppmanas att göra det.
 
 1. Ange e-postmeddelandet åtgärdens egenskaper. Lägg till den **gränsen** variabeln till ämnet. På så sätt kan du bekräfta variabelns aktuella värde uppfyller dina angivna villkor, till exempel:
 
-    ![Konfigurera postegenskaper för e](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
+      ![Konfigurera postegenskaper för e](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-    | Egenskap  | Värde | Beskrivning |
-    | -------- | ----- | ----------- | 
-    | **Till** | *<email-address@domain>* | mottagarens e-postadress. För att testa, använda din egen e-postadress. | 
-    | **Ämne** | Aktuellt värde för ”gräns” är **gräns** | Ange postämnet för e. Det här exemplet, se till att du inkluderar den **gränsen** variabeln. | 
-    | **Brödtext** | <*e-postinnehåll*> | Ange e-meddelandeinnehåll som du vill skicka. För det här exemplet anger du den text som du vill. | 
-    |||| 
+      | Egenskap  | Värde | Beskrivning |
+      | -------- | ----- | ----------- | 
+      | **Till** | *<email-address\@domain>* | mottagarens e-postadress. För att testa, använda din egen e-postadress. | 
+      | **Ämne** | Aktuellt värde för ”gräns” är **gräns** | Ange postämnet för e. Det här exemplet, se till att du inkluderar den **gränsen** variabeln. | 
+      | **Brödtext** | <*email-content*> | Ange e-meddelandeinnehåll som du vill skicka. För det här exemplet anger du den text som du vill. | 
+      |||| 
 
 1. Spara din logikapp. För att manuellt testa din logikapp på verktygsfältet för appdesignern väljer **kör**.
 
-    När din logik börjar köras, kan du få ett e-postmeddelande med innehåll som du angav:
+      När din logik börjar köras, kan du få ett e-postmeddelande med innehåll som du angav:
 
-    ![Mottagen e-post](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
+      ![Mottagen e-post](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
 ## <a name="prevent-endless-loops"></a>Förhindra oändliga slingor
 

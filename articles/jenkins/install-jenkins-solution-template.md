@@ -8,21 +8,21 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 6/7/2017
-ms.openlocfilehash: 69ab376e9c4924babcb249a1d80f6f0d0a846f20
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 6bc0d8a1e938f2b8a97cab486d4679bfc445f6fb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079025"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004073"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Skapa en Jenkins-server på en virtuell Azure Linux-dator från Azure Portal
 
 Den här snabbstarten visar hur du installerar [Jenkins](https://jenkins.io) på en virtuell Ubuntu Linux-dator med verktygen och plugin-programmen som är konfigurerade för att fungera med Azure. När du är klar körs en Jenkins-server i Azure och skapar en Java-exempelapp från [GitHub](https://github.com).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration
-* Åtkomst till SSH på datorns kommandorad (som Bash-gränssnitt eller [PuTTY](http://www.putty.org/))
+* Åtkomst till SSH på datorns kommandorad (som Bash-gränssnitt eller [PuTTY](https://www.putty.org/))
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +43,7 @@ Konfigurera tunneln med kommandot `ssh` på sidan från kommandoraden. Detta ers
 ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
 ```
 
-När du har startat tunneln navigerar du till http://localhost:8080/ på den lokala datorn. 
+När du har startat tunneln navigerar du till `http://localhost:8080/` på den lokala datorn. 
 
 Skaffa det initiala lösenordet genom att köra följande kommando på kommandoraden när du är ansluten via SSH till den virtuella Jenkins-datorn.
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 831b17eefb971a5ed617e5cb30730ce23c87e374
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 3e5d1546c658631911f25c43e94275f00c7a5140
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340466"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901890"
 ---
 # <a name="set-up-security-info-preview-to-use-security-questions"></a>Konfigurera säkerhetsinformation (förhandsversion) kan använda säkerhetsfrågor
 Du kan följa stegen nedan för att lägga till metoden för återställning av lösenord. När du har konfigurerat detta första gången kan du gå tillbaka till den **säkerhetsinformation** sidan för att lägga till, uppdatera eller ta bort din säkerhetsinformation.
@@ -31,10 +31,12 @@ Beroende på inställningarna för din organisation kanske du kan välja och sva
 
 Om du använder säkerhetsfrågor, bör du använda dem tillsammans med en annan metod. Säkerhetsfrågor kan vara mindre säkert än andra metoder, eftersom vissa kanske vet svaren på dina frågor.
 
->[!Note]
->Säkerhetsfrågor lagras säkert och privat på ett användarobjekt i katalogen och kan endast besvaras av dig under registreringen. Det går inte för administratören att läsa eller ändra din frågorna och svaren.
-
->Om du inte ser säkerhetsalternativ för frågor, är det möjligt att din organisation tillåter inte att du kan använda säkerhetsfrågor för verifiering. Om så är fallet, måste du välja en annan metod eller kontakta administratören för mer hjälp.
+> [!Note]
+> Säkerhetsfrågor lagras säkert och privat på ett användarobjekt i katalogen och kan endast besvaras av dig under registreringen. Det går inte för administratören att läsa eller ändra din frågorna och svaren.
+> 
+> Om du inte ser säkerhetsalternativ för frågor, är det möjligt att din organisation tillåter inte att du kan använda säkerhetsfrågor för verifiering. Om så är fallet, måste du välja en annan metod eller kontakta administratören för mer hjälp.
+> 
+> Administratörskonton får inte använda säkerhetsfrågor som en metod för lösenordsåterställning. Om du är inloggad som ett administratörskonto för nivån visas inte dessa alternativ.
 
 ### <a name="to-set-up-your-security-questions"></a>Du ställer in dina säkerhetsfrågor
 

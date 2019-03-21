@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 4df8a12581b5d71a76964ca1e3d40c6c53185f67
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 28060637db47b42db66f706815066d498032ec11
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860328"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258725"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Etablera dataflöde i en Azure Cosmos-container
 
@@ -19,9 +19,9 @@ I den här artikeln beskrivs hur du etablerar dataflödet för en container (sam
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>Etablera dataflöde med hjälp av Azure-portalen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
-1. [Skapa ett nytt Azure Cosmos DB-konto](create-sql-api-dotnet.md#create-a-database-account) eller välj ett befintligt konto.
+1. [Skapa ett nytt Azure Cosmos DB-konto](create-sql-api-dotnet.md#create-account) eller välj ett befintligt konto.
 
 1. Öppna fönsterrutan **Data Explorer** och välj **Ny samling**. Ange därefter följande information:
 

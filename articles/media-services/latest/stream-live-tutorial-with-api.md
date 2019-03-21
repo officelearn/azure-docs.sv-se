@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 394efd023382f9153a6869944a8a3a815203f9dd
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 410955936e07b79128e1892d72644eaeb18ee036
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338605"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863771"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Självstudier: Strömma live med Media Services v3 med hjälp av .NET
 
@@ -33,12 +33,12 @@ Självstudien visar hur du:
 > [!div class="checklist"]
 > * Ladda ned exempelappen som beskrivs i avsnittet
 > * Granska den kod som utför du liveuppspelningen
-> * Titta på händelsen med [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) på http://ampdemo.azureedge.net
+> * Titta på händelsen med [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) på https://ampdemo.azureedge.net
 > * Rensa resurser
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att kunna genomföra självstudien.
 
@@ -81,9 +81,9 @@ Om du vill börja använda API:er för Media Services med .NET, måste du skapa 
 
 ### <a name="create-a-live-event"></a>Skapa en livehändelse
 
-Det här avsnittet visar hur du skapar en **pass-through**-typ av livehändelse (LiveEventEncodingType inställd på None). Om du vill skapa en livehändelse som är aktiverad för livekodning anger du LiveEventEncodingType till **Standard**. 
-
-Vissa andra saker som du kan ange när du skapar en livehändelsen är:
+Det här avsnittet visar hur du skapar en **pass-through**-typ av livehändelse (LiveEventEncodingType inställd på None). Mer information om de tillgängliga typerna av Live-händelser finns i [Live händelsetyper](live-events-outputs-concept.md#live-event-types). 
+ 
+Det finns några saker som du anger när du skapar live-händelse:
 
 * Media Services-plats 
 * Strömningsprotokollet för livehändelsen (för närvarande stöds protokollen RTMP och Smooth Streaming).<br/>Du kan inte ändra protokollalternativ när livehändelsen eller dess associerade liveutdata körs. Om du behöver olika protokoll får du skapa separata livehändelser för varje strömningsprotokoll.  
@@ -166,7 +166,7 @@ Följande kod visar hur du rensar ditt konto från alla livehändelser:
 
 ## <a name="watch-the-event"></a>Titta på händelsen
 
-Om du vill titta på händelsen kopierar du strömnings-URL:en som du fick när du körde koden som beskrivs i Skapa en positionerare för direktuppspelning och använd en valfri spelare. Du kan använda [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) för att testa din dataström på http://ampdemo.azureedge.net. 
+Om du vill titta på händelsen kopierar du strömnings-URL:en som du fick när du körde koden som beskrivs i Skapa en positionerare för direktuppspelning och använd en valfri spelare. Du kan använda [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) för att testa din dataström på https://ampdemo.azureedge.net. 
 
 Livehändelser konverterar automatiskt händelser till innehåll-på-begäran när de stoppas. Även efter att du stoppat och tagit bort händelsen skulle användarna kunna strömma ditt arkiverade innehåll som en video på begäran så länge du inte tar bort tillgången. En tillgång kan inte tas bort om den används av en händelse. Händelsen måste tas bort först. 
 

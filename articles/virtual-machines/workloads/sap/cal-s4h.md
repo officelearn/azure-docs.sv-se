@@ -16,21 +16,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: a99fb959ae1ac1434bedffd782a7c4e0a302d361
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c59fcf43cb4767f1d95d769dfce4d5c8755e45ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431427"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990484"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Distribuera SAP S/4HANA eller BW/4HANA på Azure
 Den här artikeln beskriver hur du distribuerar S/4HANA på Azure med SAP Cloud Appliance Library (SAP CAL) 3.0. Följ samma steg för att distribuera andra SAP HANA-baserade lösningar som BW/4HANA.
 
 > [!NOTE]
-Mer information om SAP CAL går du till den [SAP Cloud Appliance Library](https://cal.sap.com/) webbplats. SAP har också en blogg om den [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
-
+> Mer information om SAP CAL går du till den [SAP Cloud Appliance Library](https://cal.sap.com/) webbplats. SAP har också en blogg om den [SAP Cloud Appliance Library 3.0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
+> 
 > [!NOTE]
-Du kan använda Azure Resource Manager-distributionsmodellen utöver den mindre prioriterad klassiska distributionsmodellen från och med den 29 maj 2017 för att distribuera SAP CAL. Vi rekommenderar att du använder den nya Resource Manager-distributionsmodellen och bortse från den klassiska distributionsmodellen.
+> Du kan använda Azure Resource Manager-distributionsmodellen utöver den mindre prioriterad klassiska distributionsmodellen från och med den 29 maj 2017 för att distribuera SAP CAL. Vi rekommenderar att du använder den nya Resource Manager-distributionsmodellen och bortse från den klassiska distributionsmodellen.
 
 ## <a name="step-by-step-process-to-deploy-the-solution"></a>Steg för steg hur du distribuerar lösningen
 
@@ -49,8 +49,8 @@ Den **lösningar** visar några av de tillgängliga SAP CAL HANA-baserade lösni
 
     c. Ge SAP CAL-behörighet för att distribuera till din Azure-prenumeration.
 
-    > [!NOTE]
-    Nästa steg visar hur du skapar ett SAP CAL-konto för Resource Manager-distributioner. Om du redan har ett SAP CAL-konto som är länkad till den klassiska distributionsmodellen du *behöver* att följa stegen nedan för att skapa ett nytt SAP CAL-konto. Nytt SAP CAL-konto måste du distribuerar i Resource Manager-modellen.
+   > [!NOTE]
+   >  Nästa steg visar hur du skapar ett SAP CAL-konto för Resource Manager-distributioner. Om du redan har ett SAP CAL-konto som är länkad till den klassiska distributionsmodellen du *behöver* att följa stegen nedan för att skapa ett nytt SAP CAL-konto. Nytt SAP CAL-konto måste du distribuerar i Resource Manager-modellen.
 
 1. Skapa ett nytt SAP CAL-konto. Den **konton** sidan visas tre alternativ för Azure: 
 
@@ -96,10 +96,10 @@ Du skapat har ett SAP CAL-konto som kan:
 Nu kan du börja distribuera S/4HANA i din användarprenumeration i Azure.
 
 > [!NOTE]
-Innan du fortsätter kan du avgöra om du har Azure vCPU-kvoter för virtuella datorer i Azure H-serien. För tillfället använder SAP CAL H-serien virtuella datorer i Azure för att distribuera några SAP HANA-baserade lösningar. Din Azure-prenumeration kanske inte har någon H-serien vCPU-kvoter för H-serien. I så fall kan du behöva kontakta Azure-supporten om du vill ha en kvot på minst 16 virtuella processorer H-serien.
-
+> Innan du fortsätter kan du avgöra om du har Azure vCPU-kvoter för virtuella datorer i Azure H-serien. För tillfället använder SAP CAL H-serien virtuella datorer i Azure för att distribuera några SAP HANA-baserade lösningar. Din Azure-prenumeration kanske inte har någon H-serien vCPU-kvoter för H-serien. I så fall kan du behöva kontakta Azure-supporten om du vill ha en kvot på minst 16 virtuella processorer H-serien.
+> 
 > [!NOTE]
-När du distribuerar en lösning på Azure i SAP CAL, kanske du upptäcker att du kan välja endast en Azure-region. Du måste köpa en prenumeration på CAL från SAP för att distribuera till Azure-regioner än den som föreslås av SAP CAL. Du även behöva öppna ett meddelande med SAP har din CAL-konto som är aktiverade för att leverera i Azure-regioner än de som ursprungligen föreslås.
+> När du distribuerar en lösning på Azure i SAP CAL, kanske du upptäcker att du kan välja endast en Azure-region. Du måste köpa en prenumeration på CAL från SAP för att distribuera till Azure-regioner än den som föreslås av SAP CAL. Du även behöva öppna ett meddelande med SAP har din CAL-konto som är aktiverade för att leverera i Azure-regioner än de som ursprungligen föreslås.
 
 ### <a name="deploy-a-solution"></a>Distribuera en lösning
 

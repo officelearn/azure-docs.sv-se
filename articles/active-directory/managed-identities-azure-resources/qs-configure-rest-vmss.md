@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d208cab8b39b777fea7809be418613f17751b1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b35470daf8ef037a72516690c75980a6d07e8e29
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170294"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097174"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Konfigurera hanterade identiteter för Azure-resurser på en VM-skalningsuppsättning med hjälp av REST API-anrop
 
@@ -72,7 +72,7 @@ För att skapa en VM-skalningsuppsättning med systemtilldelade hanterad identit
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Hämta en ägar-åtkomsttoken som du ska använda i nästa steg i auktoriseringshuvudet för att skapa din VM-skalningsuppsättning med en automatiskt genererad hanterad identitet.
+3. Hämta en ägar-åtkomsttoken som du ska använda i nästa steg i auktoriseringshuvudet för att skapa din VM-skalningsuppsättning med en automatiskt genererad hanterad identitet.
 
    ```azurecli-interactive
    az account get-access-token
@@ -81,23 +81,23 @@ För att skapa en VM-skalningsuppsättning med systemtilldelade hanterad identit
 4. Skapa en VM-skalningsuppsättning med CURL för att anropa Azure Resource Manager REST-slutpunkten. I följande exempel skapas en VM-skalningsuppsättning med namnet *myVMSS* i den *myResourceGroup* med en automatiskt genererad hanterad identitet, vilket identifieras i begärandetexten med värdet `"identity":{"type":"SystemAssigned"}`. Ersätt `<ACCESS TOKEN>` med värdet du fick i föregående steg när du har begärt en ägar-token för åtkomst och `<SUBSCRIPTION ID>` värde som passar din miljö.
 
    ```bash   
-  curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
-  ```
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   ```
 
    ```HTTP
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-  **Begärandehuvuden**
+   **Begärandehuvuden**
 
-  |Begärandehuvud  |Beskrivning  |
-  |---------|---------|
-  |*Innehållstyp*     | Krävs. Ange `application/json`.        |
-  |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
+   |Begärandehuvud  |Beskrivning  |
+   |---------|---------|
+   |*Innehållstyp*     | Krävs. Ange `application/json`.        |
+   |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken. | 
 
-  **Brödtext i begäran**
+   **Brödtext i begäran**
 
-  ```JSON
+   ```JSON
     {
        "sku":{
           "tier":"Standard",
@@ -158,7 +158,7 @@ För att skapa en VM-skalningsuppsättning med systemtilldelade hanterad identit
           }
        }
     }  
-  ```  
+   ```  
 
 ### <a name="enable-system-assigned-managed-identity-on-a-existing-virtual-machine-scale-set"></a>Aktivera systemtilldelade hanterad identitet på en befintlig skalningsuppsättning för virtuella datorer
 
@@ -313,7 +313,7 @@ Om du vill inaktivera en systemtilldelade identiteter på en befintlig VM-skalni
 
    Ta bort systemtilldelade hanterad identitet från en skalningsuppsättning för virtuella datorer som har användartilldelade hanterade identiteter genom att ta bort `SystemAssigned` från den `{"identity":{"type:" "}}` värdet medan den `UserAssigned` värde och `userAssignedIdentities` ordlista värden om du använder **API-versionen 2018-06-01**. Om du använder **API-versionen 2017-12-01** eller tidigare, Behåll den `identityIds` matris.
 
-## <a name="user-assigned-managed-identity"></a>Användartilldelade hanterad identitet
+## <a name="user-assigned-managed-identity"></a>Användartilldelad hanterad identitet
 
 Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identitet på en VM-skalningsuppsättning med CURL för att göra anrop till Azure Resource Manager REST-slutpunkten i det här avsnittet.
 
@@ -331,7 +331,7 @@ Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identite
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Hämta en ägar-åtkomsttoken som du ska använda i nästa steg i auktoriseringshuvudet för att skapa din VM-skalningsuppsättning med en automatiskt genererad hanterad identitet.
+3. Hämta en ägar-åtkomsttoken som du ska använda i nästa steg i auktoriseringshuvudet för att skapa din VM-skalningsuppsättning med en automatiskt genererad hanterad identitet.
 
    ```azurecli-interactive
    az account get-access-token

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 3d9106fb682a370e18fc78d35ca31662bae44524
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: 228d7b6994c67f9e14424624d264061634d80f27
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310649"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080073"
 ---
 # <a name="about-the-collector-appliance"></a>Om insamlingsprogrammet
 
@@ -85,22 +85,22 @@ Insamlaren måste klara några nödvändiga kontroller för att säkerställa at
 - IP-adressen/FQDN för proxyservern bör anges som *http://IPaddress* eller *http://FQDN*.
 - Endast HTTP-proxy stöds. HTTPS-baserade proxyservrar stöds inte av insamlaren.
 - Om proxyservern är en spärrande proxy, måste du importera proxy-certifikatet för VM-insamlaren.
-    1. I den Virtuella insamlardatorn, går du till **Start-menyn** > **hantera datorcertifikat**.
-    2. I verktyget certifikat under **certifikat – lokal dator**, hitta **betrodda utgivare** > **certifikat**.
+  1. I den Virtuella insamlardatorn, går du till **Start-menyn** > **hantera datorcertifikat**.
+  2. I verktyget certifikat under **certifikat – lokal dator**, hitta **betrodda utgivare** > **certifikat**.
 
-        ![Certifikat-verktyget](./media/concepts-intercepting-proxy/certificates-tool.png)
+      ![Certifikat-verktyget](./media/concepts-intercepting-proxy/certificates-tool.png)
 
-    3. Kopiera proxy-certifikatet till den Virtuella insamlardatorn. Du kan behöva hämta den från din nätverksadministratör.
-    4. Dubbelklicka för att öppna certifikatet och klicka på **installera certifikat**.
-    5. I guiden Importera certifikat > Store plats, Välj **lokal dator**.
+  3. Kopiera proxy-certifikatet till den Virtuella insamlardatorn. Du kan behöva hämta den från din nätverksadministratör.
+  4. Dubbelklicka för att öppna certifikatet och klicka på **installera certifikat**.
+  5. I guiden Importera certifikat > Store plats, Välj **lokal dator**.
 
-    ![Plats för certifikatarkiv](./media/concepts-intercepting-proxy/certificate-store-location.png)
+     ![Plats för certifikatarkiv](./media/concepts-intercepting-proxy/certificate-store-location.png)
 
-    6. Välj **placera alla certifikat i nedanstående arkiv** > **Bläddra** > **betrodda utgivare**. Klicka på **Slutför** att importera certifikatet.
+  6. Välj **placera alla certifikat i nedanstående arkiv** > **Bläddra** > **betrodda utgivare**. Klicka på **Slutför** att importera certifikatet.
 
-    ![Certifikatarkivet](./media/concepts-intercepting-proxy/certificate-store.png)
+     ![Certifikatarkivet](./media/concepts-intercepting-proxy/certificate-store.png)
 
-    7. Kontrollera att certifikatet har importerats som förväntat och kontrollera att internet-anslutning kravkontrollen fungerar som förväntat.
+  7. Kontrollera att certifikatet har importerats som förväntat och kontrollera att internet-anslutning kravkontrollen fungerar som förväntat.
 
 
 ### <a name="urls-for-connectivity"></a>URL: er för anslutning

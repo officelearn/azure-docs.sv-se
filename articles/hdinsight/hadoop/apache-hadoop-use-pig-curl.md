@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 653d3e357e3a02659a225b4e26c386ca54b6288f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 52ad40a2521f21efee3b9f98b46c2e2e6343b656
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715434"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098312"
 ---
 # <a name="run-apache-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Kör Apache Pig-jobb med Apache Hadoop på HDInsight med hjälp av REST
 
@@ -58,8 +58,8 @@ Lär dig hur du kör Apache Pig Latin-jobb genom att göra REST-begäranden till
 
     De parametrar som används i det här kommandot är följande:
 
-    * **-u**: Användarnamn och lösenord som används för att autentisera begäran
-    * **-G**: Anger att den här begäran är en GET-begäran
+   * **-u**: Användarnamn och lösenord som används för att autentisera begäran
+   * **-G**: Anger att den här begäran är en GET-begäran
 
      I början av URL: en, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, är samma för alla förfrågningar. Sökvägen, **/status**, indikerar att förfrågan är att returnera statusen för WebHCat (även kallat Templeton) för servern.
 
@@ -71,18 +71,18 @@ Lär dig hur du kör Apache Pig Latin-jobb genom att göra REST-begäranden till
 
     De parametrar som används i det här kommandot är följande:
 
-    * **-d**: Eftersom `-G` används inte begäran som standard POST-metoden. `-d` Anger de datavärden som skickas med begäran.
+   * **-d**: Eftersom `-G` används inte begäran som standard POST-metoden. `-d` Anger de datavärden som skickas med begäran.
 
-    * **User.name**: Den användare som kör kommandot
-    * **köra**: Pig Latin-uttryck för att köra
-    * **statusdir**: Katalogen som status för det här jobbet skrivs till
+   * **User.name**: Den användare som kör kommandot
+   * **köra**: Pig Latin-uttryck för att köra
+   * **statusdir**: Katalogen som status för det här jobbet skrivs till
 
-    > [!NOTE]  
-    > Observera att blanksteg i satser i Pig Latin har ersatts av den `+` tecken när det används med Curl.
+     > [!NOTE]  
+     > Observera att blanksteg i satser i Pig Latin har ersatts av den `+` tecken när det används med Curl.
 
-    Det här kommandot ska returnera ett jobb-ID som kan användas för att kontrollera status för jobbet, till exempel:
+     Det här kommandot ska returnera ett jobb-ID som kan användas för att kontrollera status för jobbet, till exempel:
 
-        {"id":"job_1415651640909_0026"}
+       {"id":"job_1415651640909_0026"}
 
 3. Använd följande kommando för att kontrollera status för jobbet
 

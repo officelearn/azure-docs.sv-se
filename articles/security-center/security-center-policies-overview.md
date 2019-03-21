@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: f61f5ebf4c0658ff846421682d50ea346c699e01
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 818b3e3b464ecbe8d55367ab5318436a14567263
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107938"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108771"
 ---
 # <a name="security-center-settings"></a>Security Center-inställningar
 Den här artikeln innehåller en översikt över inställningar i Security Center.
@@ -51,6 +51,6 @@ I den här artikeln har du lärt dig om säkerhetsprinciper i Azure Security Cen
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md): Lär dig att övervaka hälsotillståndet för dina Azure-resurser.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md): Lär dig att hantera och åtgärda säkerhetsaviseringar.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Lär dig att övervaka hälsotillståndet för dina partnerlösningar.
-- [Datasäkerhet i Azure Security Center](security-center-data-security.md): Lär dig hur Security Center hanterar och skyddar data.
+* [Datasäkerhet i Azure Security Center](security-center-data-security.md): Lär dig hur Security Center hanterar och skyddar data.
 * [Vanliga frågor om Azure Security Center](security-center-faq.md): Få svar på vanliga frågor om att använda tjänsten.
 * [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/): Få de senaste nyheterna i Azure-säkerhet och information.

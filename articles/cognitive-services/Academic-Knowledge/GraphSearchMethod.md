@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: f6c2fbe5daeb114d6a5ea77c9823f1fa5bfe8425
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5d47b938560fb1bd15adfe1a1c2d35b7359d47a3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864476"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57977419"
 ---
 # <a name="graph-search-method"></a>Sökmetod
 
@@ -29,6 +29,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 <br>
 
 ## <a name="request-parameters"></a>Parametrar för begäran  
+
 Namn     | Värde | Krävs?  | Beskrivning
 -----------|-----------|---------|--------
 **mode**       | Textsträngen | Ja | Namnet på det läge som du vill använda. Värdet är antingen *json* eller *lambda*.
@@ -45,7 +46,9 @@ För den *json* search, brödtexten INLÄGGET är ett JSON-objekt. JSON-objektet
 För den *lambda* search, POST brödtexten är en vanlig textsträng. Brödtexten för POST är en LIKQ lambda frågesträng, vilket är en enda C#-instruktion (se den [specifikation av frågesträngen](LambdaSearchSyntax.md) för *lambda* Sök). 
 
 <br>
+
 ## <a name="response-json"></a>Svar (JSON)
+
 Namn | Beskrivning
 -------|-----   
 **Resultat** | En matris med 0 eller fler entiteter som matchar frågeuttrycket. Varje entitet innehåller värdena för attribut som begärs. Det här fältet är tillgänglig om begäran har behandlats.
@@ -55,6 +58,7 @@ Namn | Beskrivning
 Om en fråga inte kan bearbetas inom _800 ms_, ett _timeout_ fel returneras. 
 
 <br>
+
 #### <a name="example"></a>Exempel:
 
 ##### <a name="json-search"></a>JSON-sökning

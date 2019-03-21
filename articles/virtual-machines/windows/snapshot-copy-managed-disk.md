@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 1015e6774dac1258820e3ca4b3d06786046a8554
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: dea8547905cb558cb0be7dc23f89099773e84ff0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980864"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074786"
 ---
 # <a name="create-a-snapshot"></a>Skapa en ögonblicksbild
 
@@ -48,41 +48,41 @@ Följande steg visar hur du kopierar VHD-disken, skapa ögonblicksbild konfigura
 
 1. Ange vissa parametrar: 
 
- ```azurepowershell-interactive
-$resourceGroupName = 'myResourceGroup' 
-$location = 'eastus' 
-$vmName = 'myVM'
-$snapshotName = 'mySnapshot'  
-```
+   ```azurepowershell-interactive
+   $resourceGroupName = 'myResourceGroup' 
+   $location = 'eastus' 
+   $vmName = 'myVM'
+   $snapshotName = 'mySnapshot'  
+   ```
 
 2. Hämta den virtuella datorn:
 
- ```azurepowershell-interactive
-$vm = get-azvm `
+   ```azurepowershell-interactive
+   $vm = get-azvm `
    -ResourceGroupName $resourceGroupName 
    -Name $vmName
-```
+   ```
 
 3. Skapa ögonblicksbild-konfigurationen. I det här exemplet är ögonblicksbilden av OS-disken:
 
- ```azurepowershell-interactive
-$snapshot =  New-AzSnapshotConfig 
+   ```azurepowershell-interactive
+   $snapshot =  New-AzSnapshotConfig 
    -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
    -Location $location 
    -CreateOption copy
-```
+   ```
    
    > [!NOTE]
    > Om du vill lagra dina ögonblicksbild i zonen flexibel lagring, skapar du den i en region som har stöd för [tillgänglighetszoner](../../availability-zones/az-overview.md) och inkludera den `-SkuName Standard_ZRS` parametern.   
    
 4. Ta ögonblicksbilden:
 
- ```azurepowershell-interactive
-New-AzSnapshot 
+   ```azurepowershell-interactive
+   New-AzSnapshot 
    -Snapshot $snapshot 
    -SnapshotName $snapshotName 
    -ResourceGroupName $resourceGroupName 
-```
+   ```
 
 
 ## <a name="next-steps"></a>Nästa steg

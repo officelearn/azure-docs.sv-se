@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 50ed230993f1df07b463297605a144830476803d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 083bdf9c5aec640fbbd7757b307ac47178e0b14b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540319"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076147"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager endpoint monitoring
 
@@ -40,7 +40,7 @@ Om du vill konfigurera slutpunktsövervakning, måste du ange följande inställ
 
 ## <a name="how-endpoint-monitoring-works"></a>Så här fungerar slutpunktsövervakning
 
-Om protokollet övervakning har angetts som HTTP eller HTTPS, gör en GET-begäran till slutpunkten via protokollet, porten och relativ sökväg som anges i avsöknings Traffic Manager-agenten. Om den får tillbaka ett svar med 200 OK, eller någon av svar som konfigurerats i den ** förväntat statuskod * intervall ** och sedan att slutpunkten anses vara felfritt. Om svaret är ett annat värde, eller, om inget svar tas emot inom tidsgränsen för angivna måste Traffic Manager-avsökning agent försöker igen enligt inställningen ska tolereras antalet fel (inget nytt försök görs om den här inställningen är 0). Om antalet på varandra följande fel är högre än inställningen ska tolereras antalet fel, sedan markeras att slutpunkten som felaktig. 
+Om protokollet övervakning har angetts som HTTP eller HTTPS, gör en GET-begäran till slutpunkten via protokollet, porten och relativ sökväg som anges i avsöknings Traffic Manager-agenten. Om den får tillbaka ett svar med 200 OK, eller någon av svar som konfigurerats i den **förväntat statuskod \*intervall**, och sedan att slutpunkten anses vara felfritt. Om svaret är ett annat värde, eller, om inget svar tas emot inom tidsgränsen för angivna måste Traffic Manager-avsökning agent försöker igen enligt inställningen ska tolereras antalet fel (inget nytt försök görs om den här inställningen är 0). Om antalet på varandra följande fel är högre än inställningen ska tolereras antalet fel, sedan markeras att slutpunkten som felaktig. 
 
 Om övervakning protokollet är TCP, initierar avsöknings Traffic Manager-agenten en TCP-anslutningsbegäran med hjälp av den angivna porten. Om slutpunkten som svarar på begäran med ett svar för att upprätta anslutningen, att hälsokontrollen har markerats som ett lyckat test och avsöknings Traffic Manager-agenten återställer TCP-anslutningen. Om svaret är ett annat värde, eller om inget svar tas emot inom den angivna tiden har angetts, Traffic Manager-avsökning agent försöker igen enligt inställningen ska tolereras antalet fel (inget nytt försök görs om den här inställningen är 0). Om antalet på varandra följande fel är högre än inställningen ska tolereras antalet fel, sedan att slutpunkten har ett dåligt.
 

@@ -11,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 1/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: da1e4cf1780ffdfedb0e194fbd721277db90e45c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 32dc55927f614a91c390a417595b7a00c16e9386
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821327"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847957"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Övervaka dina Azure Machine Learning-modeller med Application Insights
 
@@ -30,7 +30,7 @@ I den här artikeln får du lära dig hur du ställer in Azure Application Insig
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) i dag.
+* Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
 * En lokal katalog som innehåller dina skript och Azure Machine Learning-SDK för Python installerat en Azure Machine Learning-arbetsyta. Information om hur du hämtar dessa krav finns i [så här konfigurerar du en utvecklingsmiljö](how-to-configure-environment.md).
 * En tränad modell för maskininlärning för distribution till Azure Kubernetes Service (AKS) eller Azure Container-instans (ACI). Om du inte har någon kan se den [träningsmodell bild klassificering](tutorial-train-models-with-aml.md) självstudien.

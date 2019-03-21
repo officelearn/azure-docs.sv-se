@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3ff7e754a55e15a8fa8a32f846efbbbe5025e46e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 973c0aa3bd187e963f15adbe34955d6bc9fa612d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297867"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102085"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Skapa och exportera certifikat till punkt-till-plats-anslutningar med hjälp av MakeCert
 
@@ -28,16 +28,16 @@ Medan vi rekommenderar att du använder den [steg för Windows 10 PowerShell](vp
 Följande steg visar hur du skapar ett självsignerat certifikat med hjälp av MakeCert. De här stegen är inte distributionsmodellen specifika. De är giltiga för både Resource Manager och klassisk.
 
 1. Ladda ned och installera [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
-2. Efter installationen kan du vanligtvis hittar du verktyget makecert.exe under den här sökvägen ”: C:\Program Files (x86) \Windows Kits\10\bin\<arch >'. Även om det är möjligt att den har installerats på en annan plats. Öppna en kommandotolk som administratör och navigera till platsen för verktyget MakeCert. Du kan använda följande exempel justera för rätt plats:
+2. Efter installationen kan hittar du vanligtvis du verktyget makecert.exe under den här sökvägen: ”C:\Program filer (x86) \Windows Kits\10\bin\<arch >'. Även om det är möjligt att den har installerats på en annan plats. Öppna en kommandotolk som administratör och navigera till platsen för verktyget MakeCert. Du kan använda följande exempel justera för rätt plats:
 
-  ```cmd
-  cd C:\Program Files (x86)\Windows Kits\10\bin\x64
-  ```
+   ```cmd
+   cd C:\Program Files (x86)\Windows Kits\10\bin\x64
+   ```
 3. Skapa och installera ett certifikat i det personliga certifikatarkivet på datorn. I följande exempel skapas en motsvarande *.cer* fil som du överför till Azure när du konfigurerar P2S. Ersätt ”P2SRootCert” och namnet ”P2SRootCert.cer” med namnet som du vill använda för certifikatet. Certifikatet finns i din ”certifikat – aktuell användare\personligt\certifikat”.
 
-  ```cmd
-  makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
-  ```
+   ```cmd
+   makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
+   ```
 
 ## <a name="cer"></a>Exportera den offentliga nyckeln (.cer)
 
@@ -61,14 +61,14 @@ I följande steg vägleder dig genom att generera ett klientcertifikat från ett
  
 1. Öppna en kommandotolk som administratör på samma dator som du använde för att skapa ett självsignerat certifikat.
 2. Ändra och köra exemplet för att generera ett klientcertifikat.
-  * Ändra *”P2SRootCert”* till namnet på den självsignerat rotcertifikat som du genererar klientcertifikat från. Kontrollera att du använder namnet på rotcertifikatet, vilket är det den ”CN =' värdet var som du angav när du skapade självsignerat rotcertifikat.
-  * Ändra *P2SChildCert* till namn som du vill generera ett klientcertifikat för att vara.
+   * Ändra *”P2SRootCert”* till namnet på den självsignerat rotcertifikat som du genererar klientcertifikat från. Kontrollera att du använder namnet på rotcertifikatet, vilket är det den ”CN =' värdet var som du angav när du skapade självsignerat rotcertifikat.
+   * Ändra *P2SChildCert* till namn som du vill generera ett klientcertifikat för att vara.
 
-  Om du kör följande exempel utan att ändra den är resultatet ett klientcertifikat med namnet P2SChildcert i ditt personliga certifikatarkiv som har genererats från rotcertifikatet P2SRootCert.
+   Om du kör följande exempel utan att ändra den är resultatet ett klientcertifikat med namnet P2SChildcert i ditt personliga certifikatarkiv som har genererats från rotcertifikatet P2SRootCert.
 
-  ```cmd
-  makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
-  ```
+   ```cmd
+   makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
+   ```
 
 ### <a name="clientexport"></a>Exportera ett klientcertifikat
 

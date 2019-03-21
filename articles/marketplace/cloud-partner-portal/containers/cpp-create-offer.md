@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 71a69a8c299d4469c151102b0dbd5cdb70c296ec
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 3b2a34a5ed2c6b57bfce0b9a4cf35cdf14cff9c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979830"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900088"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Skapa ett nytt erbjudande för behållare med partnerportalen i molnet
 
@@ -34,7 +34,7 @@ Den här artikeln beskriver hur du skapar och publicerar en post för container-
 
 ## <a name="new-offer-form"></a>Nytt erbjudande formulär 
 
-Logga in på den [Cloud Partner Portal](http://cloudpartner.azure.com/), och välj sedan **+ nytt erbjudande** på den vänstra menyraden. På ikonen nytt erbjuda meny, Välj **behållare** att visa den **nytt erbjudande** formar och starta processen med att definiera tillgångar till en ny behållare.
+Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com/), och välj sedan **+ nytt erbjudande** på den vänstra menyraden. På ikonen nytt erbjuda meny, Välj **behållare** att visa den **nytt erbjudande** formar och starta processen med att definiera tillgångar till en ny behållare.
 
 ![Välj behållare alternativ för nytt erbjudande](./media/azure-container-offer.png)
 

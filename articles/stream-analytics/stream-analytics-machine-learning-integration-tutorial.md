@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: d90439e498e8812551d9e2994165f1714d3bdaab
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093343"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109315"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Utföra attitydanalyser genom att använda Azure Stream Analytics och Azure Machine Learning
 Den här artikeln beskriver hur du snabbt konfigurera ett enkelt Azure Stream Analytics-jobb som integrerar Azure Machine Learning. Du kan använda en Machine Learning sentiment analysmodell från Cortana Intelligence Gallery att analysera textdata och avgöra sentimentresultatet i realtid. Med Cortana Intelligence Suite kan du utföra den här uppgiften utan att oroa krångla för att skapa en sentiment analysmodell.
@@ -145,7 +145,7 @@ Jobbet hämtar indata från CSV-filen som du tidigare laddade upp till blob stor
 
    ![Inställningar för nya Stream Analytics-jobbindata](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-4. Klicka på **Spara**.
+1. Klicka på **Spara**.
 
 ### <a name="configure-the-job-output"></a>Konfigurera jobbutdata
 Jobbet skickar resultaten till samma blob storage där den hämtar indata. 

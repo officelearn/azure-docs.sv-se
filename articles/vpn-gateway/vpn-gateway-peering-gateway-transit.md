@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 91e2a4f49ba52ccbae8838400d54e0f483ca5039
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 05b25a524894248152114ca9c756d4a0f8944ad8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780532"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199638"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Konfigurera VPN-gatewayöverföring för peer-kopplade virtuella nätverk
 
@@ -37,8 +37,8 @@ Två scenarier beskrivs i det här dokumentet:
 1. Båda virtuella nätverken använder Resource Manager-distributionsmodellen
 2. Det virtuella ekernätverket bygger på den klassiska modellen och det virtuella navnätverket med gateway använder Resource Manager-modellen
 
-> [!IMPORTANT]
-> Gatewayöverföring stöds för närvarande inte med global peer-koppling av virtuella nätverk.
+> [!IMPORTANT]  
+> Gatewayöverföring stöds för närvarande med global vnet-peering i en förhandsversion. Förhandsgranskningen är tillgänglig i alla Azure-regioner, Kina-molnområden och Government cloud-regioner, men inte mellan moln. Det krävs ingen lista över tillåtna. Du kan testa förhandsversion via CLI, PowerShell, mallar eller API: et. Portal stöds inte i förhandsversionen. 
 
 ## <a name="requirements"></a>Krav
 
@@ -129,13 +129,13 @@ Add-AzVirtualNetworkPeering `
 Stegen liknar dem i Resource Manager-exemplet, förutom att åtgärderna bara tillämpas på det virtuella nätverket Hub-RM.
 
 1. Skapa eller uppdatera peer-kopplingen för de virtuella nätverken, från Hub-RM till Spoke-RM, på Azure Portal. Gå till den virtuella nätverksresursen Hub-RM, klicka på ”Peering-sessioner” och sedan på ”Lägg till”:
-    - Ange alternativet ”Klassisk” för distributionsmodellen för virtuella nätverk
-    - Välj det virtuella nätverket ”Spoke-RM” i motsvarande prenumeration
-    - Kontrollera att ”Tillåt åtkomst till virtuellt nätverk” är ”Aktiverat”
-    - Ange alternativet ”**Tillåt gatewayöverföring**”
-    - Klicka på ”OK”.
+   - Ange alternativet ”Klassisk” för distributionsmodellen för virtuella nätverk
+   - Välj det virtuella nätverket ”Spoke-RM” i motsvarande prenumeration
+   - Kontrollera att ”Tillåt åtkomst till virtuellt nätverk” är ”Aktiverat”
+   - Ange alternativet ”**Tillåt gatewayöverföring**”
+   - Klicka på ”OK”.
 
-    ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
+     ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
 
 2. Om peer-kopplingen redan har skapats navigerar du till peer-resursen och aktiverar sedan alternativet ”**Tillåt gatewayöverföring**”, som du ser i skärmbilden i steg (1)
 

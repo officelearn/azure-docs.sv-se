@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43fa8148fff1389982d967b2e69f4a9425841c91
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014914"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295631"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Element i B2B-samarbete e-postinbjudan - Azure Active Directory
 
 Postinbjudningar är en kritisk komponent för att ge partner ombord som användare i B2B-samarbetet i Azure AD. Du kan använda dem för att öka mottagarens förtroende. Du kan lägga till giltighet och sociala bevis till e-post att kontrollera att mottagaren känns bekväm med att välja den **börjar** knappen för att tacka ja till inbjudan. Det här förtroendet är en nyckel som innebär att minska friktionen för delning. Och du vill se e-postmeddelandet se bra ut!
 
-![Inbjudan av e-post med Azure AD B2b](media/invitation-email-elements/invitation-email.png)
+![Skärmbild som visar e-postinbjudan B2B](media/invitation-email-elements/invitation-email.png)
 
 ## <a name="explaining-the-email"></a>Förklarar e-postmeddelandet
 Nu ska vi titta på några få av e-postmeddelandet så att du vet hur du bäst för att använda deras funktioner.
@@ -51,12 +51,12 @@ Visningsnamn för den inbjudaren ingår i e-postmeddelandet. Och dessutom om du 
 
 Om du ännu inte har konfigurerat din profilbild visas en ikon med den inbjudaren initialer i stället för bilden:
 
-  ![Visa den inbjudaren initialer](media/invitation-email-elements/inviters-initials.png)
+  ![Skärmbild som visar inbjudan med avsändaren initialer visas](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>Innehåll
 Texten innehåller meddelandet att avsändaren composes när [bjuda in en gästanvändare till den katalog, en grupp eller en app](add-users-administrator.md) eller [med hjälp av inbjudan API](customize-invitation-api.md). Det är ett textområde så att den inte bearbetar HTML-taggar av säkerhetsskäl.
 
-  ![Bild av e-postmeddelandets brödtext](media/invitation-email-elements/invitation-email-body.png)
+  ![Skärmbild som visar innehållet i e-postinbjudan](media/invitation-email-elements/invitation-email-body.png)
 
 ### <a name="footer-section"></a>Sidfotsavsnittet
 Sidfoten innehåller Microsoft företagets varumärke och gör att mottagaren kan veta om e-postmeddelandet har skickats från ett oövervakat alias. 
@@ -65,12 +65,12 @@ Specialfall:
 
 - Avsändaren har inte en e-postadress i bjuder in innehavare
 
-  ![Bild av inbjudaren har inte en e-postadress i bjuder in innehavare](media/invitation-email-elements/inviter-no-email.png)
+  ![Skärmbild när en inbjudaren inte har e-post i bjuder in innehavare](media/invitation-email-elements/inviter-no-email.png)
 
 
 - Mottagaren behöver inte lösa in inbjudan
 
-  ![När mottagaren inte behöver lösa in inbjudan](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
+  ![Skärmbild när mottagaren inte behöver lösa in inbjudan](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
 ## <a name="how-the-language-is-determined"></a>Hur bestäms språket
 Det språk som presenteras för gästanvändaren i e-postinbjudan bestäms av följande inställningar. De här inställningarna visas i prioritetsordning. Om en inställning inte är konfigurerat anger Nästa inställning i listan över språk. 

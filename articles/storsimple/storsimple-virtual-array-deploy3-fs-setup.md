@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f699e40a4a31b6d57b12a43ae307806d3f010015
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a931b303e40e41bc23e8b586e1d37e600625b1a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267189"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881069"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Distribuera StorSimple Virtual Array - Set konfigurera som filserver via Azure-portalen
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -129,15 +129,15 @@ Utför följande steg i den [Azure-portalen](https://portal.azure.com/) att slut
     ![Konfigurera en filserver](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
 3. Klicka på **konfigurera** i kommandofältet. Gör det öppnas den **konfigurera** bladet. I den **konfigurera** bladet gör du följande:
    
-    1. Namnet på filservern fylls i automatiskt.
+   1. Namnet på filservern fylls i automatiskt.
     
-    2. Kontrollera att molnlagringskryptering anges till **aktiverad**. Detta kommer att kryptera alla data som skickas till molnet. 
+   2. Kontrollera att molnlagringskryptering anges till **aktiverad**. Detta kommer att kryptera alla data som skickas till molnet. 
     
-    3. En 256-bitars AES-nyckel används med den anpassade nyckeln för kryptering. Ange en nyckel med 32 tecken och sedan registrera nyckeln för att bekräfta det. Anteckna nyckeln i en nyckelhanteringsapp för framtida bruk.
+   3. En 256-bitars AES-nyckel används med den anpassade nyckeln för kryptering. Ange en nyckel med 32 tecken och sedan registrera nyckeln för att bekräfta det. Anteckna nyckeln i en nyckelhanteringsapp för framtida bruk.
     
-    4. Klicka på **konfigurera nödvändiga inställningar** att ange autentiseringsuppgifter för lagringskonto som ska användas med enheten. Klicka på **Lägg till ny** om det finns inga autentiseringsuppgifter för lagringskonto konfigurerats. **Se till att storage-konto som du använder stöder blockblobar. Sidblobar stöds inte.** Mer information om [blockerar blobar och sidblobar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+   4. Klicka på **konfigurera nödvändiga inställningar** att ange autentiseringsuppgifter för lagringskonto som ska användas med enheten. Klicka på **Lägg till ny** om det finns inga autentiseringsuppgifter för lagringskonto konfigurerats. **Se till att storage-konto som du använder stöder blockblobar. Sidblobar stöds inte.** Mer information om [blockerar blobar och sidblobar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
-    ![Konfigurera en filserver](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
+      ![Konfigurera en filserver](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. I den **lägga till en lagringskontouppgifter** bladet gör du följande: 
 
     1. Välj aktuell prenumeration om lagringskontot tillhör samma prenumeration som tjänsten. Ange andra är lagringen konto ligger utanför tjänstprenumeration. 
@@ -175,26 +175,26 @@ Skapa en resurs genom att utföra stegen nedan på [Azure-portalen](https://port
    ![Lägga till en resurs](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs15m.png)
 2. Ange följande inställningar för resursen:
 
-    1. Ett unikt namn för din resurs. Namnet måste vara en sträng som innehåller 3 till 127 tecken.
+   1. Ett unikt namn för din resurs. Namnet måste vara en sträng som innehåller 3 till 127 tecken.
     
-    2. En valfri **beskrivning** för resursen. Beskrivningen kan du identifiera resurs-ägare.
+   2. En valfri **beskrivning** för resursen. Beskrivningen kan du identifiera resurs-ägare.
     
-    3. En **typ** för resursen. Typen kan vara **Nivåindelad** eller **lokalt fixerade**, nivåer med standardvärdet. För arbetsbelastningar som kräver lokala garantier, Låg fördröjning och högre prestanda, väljer en **lokalt fixerade** dela. All övrig data, Välj en **Nivåindelad** dela.
-    En lokalt Fäst resurs etableras tjockt och garanterar att primärdata på resursen är lokalt på enheten och inte läcker över till molnet. En nivåindelad resurs är å andra sidan tunt etablerad. När du skapar en nivåindelad resurs är 10% av utrymmet är etablerad på den lokala nivån och 90% av utrymmet som har etablerats i molnet. Till exempel om du har etablerat en volym på 1 TB, 100 GB skulle finnas i det lokala utrymmet och 900 GB skulle användas i molnet när de data-nivåerna. Detta innebär i sin tur att du inte kan etablera en nivåindelad resurs om du kör utanför det lokala utrymmet på enheten.
+   3. En **typ** för resursen. Typen kan vara **Nivåindelad** eller **lokalt fixerade**, nivåer med standardvärdet. För arbetsbelastningar som kräver lokala garantier, Låg fördröjning och högre prestanda, väljer en **lokalt fixerade** dela. All övrig data, Välj en **Nivåindelad** dela.
+      En lokalt Fäst resurs etableras tjockt och garanterar att primärdata på resursen är lokalt på enheten och inte läcker över till molnet. En nivåindelad resurs är å andra sidan tunt etablerad. När du skapar en nivåindelad resurs är 10% av utrymmet är etablerad på den lokala nivån och 90% av utrymmet som har etablerats i molnet. Till exempel om du har etablerat en volym på 1 TB, 100 GB skulle finnas i det lokala utrymmet och 900 GB skulle användas i molnet när de data-nivåerna. Detta innebär i sin tur att du inte kan etablera en nivåindelad resurs om du kör utanför det lokala utrymmet på enheten.
    
-    4. I den **Ange standard fullständig behörighet** fältet, tilldela behörigheter till användaren eller gruppen som har åtkomst till den här resursen. Ange namnet på användaren eller användargruppen i *john@contoso.com* format. Vi rekommenderar att du använder en användargrupp (i stället för en enskild användare) för att tillåta admin-behörighet att komma åt dessa resurser. När du har tilldelat behörigheterna här kan du sedan använda Utforskaren till att ändra dessa behörigheter.
+   4. I den **Ange standard fullständig behörighet** fältet, tilldela behörigheter till användaren eller gruppen som har åtkomst till den här resursen. Ange namnet på användaren eller användargruppen i *john\@contoso.com* format. Vi rekommenderar att du använder en användargrupp (i stället för en enskild användare) för att tillåta admin-behörighet att komma åt dessa resurser. När du har tilldelat behörigheterna här kan du sedan använda Utforskaren till att ändra dessa behörigheter.
    
-    5. Klicka på **Lägg till** resursen ska skapas. 
+   5. Klicka på **Lägg till** resursen ska skapas. 
     
-        ![Lägga till en resurs](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
+       ![Lägga till en resurs](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
    
-        Du får ett meddelande om att resursen skapas.
+       Du får ett meddelande om att resursen skapas.
    
-        ![Lägga till en resurs](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
+       ![Lägga till en resurs](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
    
-    När resursen har skapats med de angivna inställningarna i **resurser** bladet uppdateras för att återspegla den nya resursen. Som standard aktiveras övervakning och säkerhetskopiering för resursen.
+      När resursen har skapats med de angivna inställningarna i **resurser** bladet uppdateras för att återspegla den nya resursen. Som standard aktiveras övervakning och säkerhetskopiering för resursen.
    
-    ![Lägga till en resurs](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
+      ![Lägga till en resurs](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
 ## <a name="step-4-connect-to-the-share"></a>Steg 4: Ansluta till resursen
 Du kommer nu att behöva ansluta till en eller flera resurser som du skapade i föregående steg. Utföra dessa steg på Windows Server-värd är ansluten till din StorSimple Virtual Array.

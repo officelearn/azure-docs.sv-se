@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe781802309ad0945eaee23c35dda1617e47ae06
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a898b5b235099109fcfeaaa4d647493e54caf57e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727357"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853179"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problem med att lägga till en Azure AD-galleriprogram
 
@@ -73,41 +73,41 @@ Se följande beskrivningar för mer information om meddelanden.
 
 ### <a name="essential-notification-items"></a>Viktigt meddelande objekt
 
--   **Rubrik** – beskrivande rubrik för meddelanden
+- **Rubrik** – beskrivande rubrik för meddelanden
 
   * Exempel – **proxyinställningarna för programmet**
 
--   **Beskrivning av** – beskrivning av vad som hänt på grund av åtgärden
+- **Beskrivning av** – beskrivning av vad som hänt på grund av åtgärden
 
-    -   Exempel – **interna URL: en som angetts används redan av ett annat program**
+  -   Exempel – **interna URL: en som angetts används redan av ett annat program**
 
--   **Meddelande-ID** – unikt ID för meddelandet
+- **Meddelande-ID** – unikt ID för meddelandet
 
-    -   Exempel – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+  -   Exempel – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **ID för klientbegäran** – specifik begäran-ID som gjorts av din webbläsare
+- **ID för klientbegäran** – specifik begäran-ID som gjorts av din webbläsare
 
-    -   Exempel – **302fd775-3329-4670-a9f3-bea37004f0bc**
+  -   Exempel – **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **Tid UTC för stämpel** – tidsstämpeln som aviseringen inträffade, i UTC
+- **Tid UTC för stämpel** – tidsstämpeln som aviseringen inträffade, i UTC
 
-    -   Exempel – **2017-03-23T19:50:43.7583681Z**
+  -   Exempel – **2017-03-23T19:50:43.7583681Z**
 
--   **Internt transaktions-ID** – internt ID vi kan använda för att kontrollera felet i våra system
+- **Internt transaktions-ID** – internt ID vi kan använda för att kontrollera felet i våra system
 
-    -   Exempel – **71a2f329-ca29-402f-aa72-bc00a7aca603**
+  -   Exempel – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** – den användare som utförde åtgärden
+- **UPN** – den användare som utförde åtgärden
 
-    -   Exempel – **tperkins@f128.info**
+  -   Exempel – **tperkins\@f128.info**
 
--   **Klient-ID** – unikt ID för den klient som den användare som utförde åtgärden var medlem av
+- **Klient-ID** – unikt ID för den klient som den användare som utförde åtgärden var medlem av
 
-    -   Exempel – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+  -   Exempel – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **Objekt-ID för användaren** – unikt ID för den användare som utförde åtgärden
+- **Objekt-ID för användaren** – unikt ID för den användare som utförde åtgärden
 
-    -   Exempel – **17f84be4-51f8-483a-b533-383791227a99**
+  -   Exempel – **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>Detaljerat meddelande objekt
 
@@ -125,7 +125,7 @@ Se följande beskrivningar för mer information om meddelanden.
 
 -   **Information om** – detaljerad beskrivning av vad som hänt på grund av åtgärden
 
-    -   Exempel – **interna URL: en ”https://bing.com/' är ogiltig eftersom den inte redan används**
+    -   Exempel – **interna URL: en `https://bing.com/` är ogiltig eftersom den inte redan används**
 
 -   **Kopiera fel** – klickar du på den **kopieringsikonen** till höger om den **Kopieringsfel** textrutan att kopiera alla meddelandeinformation att dela med en grupp för support eller produkt 
 -   tekniker

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ca7f5d47d75e80a583b6613eb36fd3da9c61d707
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 28b6732745947043847ce944243bc87398e159fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761488"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892155"
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Överföra filer till ett Media Services-konto med hjälp av tjänsten Aspera Server On Demand på Azure 
 
@@ -89,44 +89,44 @@ När du är inloggad på Azure Marketplace kan du köpa Aspera On Demand för Az
 
     Skärmbilden nedan visar hur åtkomst skapas. 
 
-   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
+    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
 
     Skärmbilden nedan visar gränssnitt för användningsrapportering i portalen. 
 
-   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
+    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
 
 ## <a name="upload-files-with-aspera"></a>Överföra filer med Aspera
 
 1. Hämta och installera Aspera-klientprogrammet:
     
-    * [Plugin-program för webbläsare](http://downloads.asperasoft.com/connect2/)
-    * [Rich-klient](http://downloads.asperasoft.com/en/downloads/2)
+    * [Plugin-program för webbläsare](https://downloads.asperasoft.com/connect2/)
+    * [Rich-klient](https://downloads.asperasoft.com/en/downloads/2)
 
 2. Gör din första överföring. Innan du kan använda Aspera-klienten med Aspera-överföringstjänsten måste du göra följande: 
 
-    1. Skapa en åtkomstnyckel med Aspera-portalen.  
-    2. Hämta, installera och licensiera Aspera-klienten (programmet finns på Aspera-portalen).  
+   1. Skapa en åtkomstnyckel med Aspera-portalen.  
+   2. Hämta, installera och licensiera Aspera-klienten (programmet finns på Aspera-portalen).  
 
-    >[!NOTE]
-    >Läs konfigurationsinformationen i handboken för Aspera-klienten.
+      >[!NOTE]
+      >Läs konfigurationsinformationen i handboken för Aspera-klienten.
     
-    3. Hämta information om lagringskontot som är associerat med ditt Azure Media-konto via [Azure Portal](https://portal.azure.com/). Du behöver namn och nyckel samt namnet på lagringsblobcontainern som du vill placera innehållet i. 
+   3. Hämta information om lagringskontot som är associerat med ditt Azure Media-konto via [Azure Portal](https://portal.azure.com/). Du behöver namn och nyckel samt namnet på lagringsblobcontainern som du vill placera innehållet i. 
 
-        * Så här hämtar du lagringsinformation från portalen: Leta reda på lagringskontot, klicka på Åtkomstnycklar och kopiera namnet och nyckeln för ditt konto.
-        * Så här hämtar du containernamnet: Leta reda på lagringskontot, välj **Blobar** och välj namnet på den container som du vill överföra innehållet till. 
+       * Så här hämtar du lagringsinformation från portalen: Leta reda på lagringskontot, klicka på Åtkomstnycklar och kopiera namnet och nyckeln för ditt konto.
+       * Så här hämtar du containernamnet: Leta reda på lagringskontot, välj **Blobar** och välj namnet på den container som du vill överföra innehållet till. 
 
-    Nedan visas en skärmbild på **Connection Manager** för Aspera-klienten. Där måste du ange Azure-lagringstyp, autentiseringsuppgifter och blobcontainern.
+      Nedan visas en skärmbild på **Connection Manager** för Aspera-klienten. Där måste du ange Azure-lagringstyp, autentiseringsuppgifter och blobcontainern.
 
-    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
+      ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
 
 ## <a name="resources"></a>Resurser
 
 Följande resurser har nämns i den här artikeln. 
 
-* [Ansluta plugin-program för webbläsare](http://downloads.asperasoft.com/connect2/)
-* [Anslutningsguide](http://downloads.asperasoft.com/en/documentation/8)
-* [Aspera-klient](http://downloads.asperasoft.com/en/downloads/2)
-* [Klientguide](http://downloads.asperasoft.com/en/documentation/2)
+* [Ansluta plugin-program för webbläsare](https://downloads.asperasoft.com/connect2/)
+* [Anslutningsguide](https://downloads.asperasoft.com/en/documentation/8)
+* [Aspera-klient](https://downloads.asperasoft.com/en/downloads/2)
+* [Klientguide](https://downloads.asperasoft.com/en/documentation/2)
 
 ## <a name="next-steps"></a>Nästa steg
 

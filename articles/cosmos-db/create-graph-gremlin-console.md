@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: b431d1b739342c54cbc218efdfded1ee516ecaa7
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: 06601fbad43b3daf00e06efbe95a092e76559e36
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586400"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849830"
 ---
-# <a name="quickstart-create-query-and-traverse-a-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Snabbstart: Skapa, köra frågor mot och bläddra i en Azure Cosmos DB-grafdatabas med hjälp av Gremlin-konsolen
+# <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Snabbstart: Skapa, söka och bläddra i en Azure Cosmos DB-grafdatabas med Gremlin-konsolen
 
 > [!div class="op_single_selector"]
 > * [Gremlin-konsol](create-graph-gremlin-console.md)
@@ -81,13 +81,13 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 
 se till att omsluta värdet för värdparametern inom hakparenteser []. 
 
-3. I terminalen, kör `bin/gremlin.bat` eller `bin/gremlin.sh` för att starta [Gremlin-konsolen](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
-4. I terminalen, kör `:remote connect tinkerpop.server conf/remote-secure.yaml` för att ansluta till din apptjänst.
+1. I terminalen, kör `bin/gremlin.bat` eller `bin/gremlin.sh` för att starta [Gremlin-konsolen](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
+1. I terminalen, kör `:remote connect tinkerpop.server conf/remote-secure.yaml` för att ansluta till din apptjänst.
 
     > [!TIP]
     > Om felet `No appenders could be found for logger` visas kontrollerar du att du har uppdaterat serialiserarvärdet i filen remote-secure.yaml på det sätt som beskrivs i steg 2. 
 
-5. Kör sedan `:remote console` för att omdirigera alla kommandon till fjärrservern.
+1. Kör sedan `:remote console` för att omdirigera alla kommandon till fjärrservern.
 
    > [!NOTE]
    > Om du inte kör kommandot `:remote console` men vill omdirigera alla konsolkommandon till fjärrservern bör du lägga till prefixet `:>` till kommandot och till exempel köra kommandot som `:> g.V().count()`. Det här prefixet är en del av kommandot och är viktigt när du använder Gremlin-konsolen med Azure Cosmos DB. Om du utesluter det här prefixet instrueras konsolen att köra kommandot lokalt, ofta mot en InMemory-graf. Med det här prefixet beordrar `:>` konsolen att köra fjärrkommandon, i det här fallet mot Azure Cosmos DB (antingen localhost-emulatorn eller en Azure-instans).

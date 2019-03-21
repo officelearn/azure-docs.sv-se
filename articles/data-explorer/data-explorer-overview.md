@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: bb173981e3f06c923fa7357eb64777493bd17b8c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 33169448b5b1e4496f42d157cb77134b90804fa6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958277"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433186"
 ---
 # <a name="what-is-azure-data-explorer"></a>Vad är Azure Data Explorer?
 
-Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Den hjälper dig att hantera de många dataströmmar som modern programvara skapar, så att du kan samla in, lagra och analysera data. Azure Data Explorer är perfekt för att analysera stora volymer av olikartade data från olika datakällor, till exempel webbplatser, program, IoT-enheter med mera. Dessa data används för diagnostik, övervakning, rapportering, maskininlärning och ytterligare analysfunktioner. Azure Data Explorer gör det enkelt att mata in dessa data och låter dig utföra komplexa ad hoc-frågor på data på några sekunder.
+Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Den hjälper dig att hantera de många dataströmmar som modern programvara skapar, så att du kan samla in, lagra och analysera data. Azure Data Explorer är perfekt för att analysera stora volymer av olikartade data från olika datakällor, till exempel webbplatser, program, IoT-enheter med mera. Dessa data används för diagnostik, övervakning, rapportering, maskininlärning och ytterligare analysfunktioner. Azure Data Explorer gör det enkelt att mata in dessa data och låter dig utföra komplexa ad hoc-frågor på data i sekunder.
 
 ## <a name="what-makes-azure-data-explorer-unique"></a>Vad gör Azure Data Explorer unikt?
 
@@ -53,7 +53,7 @@ Arbetet i Azure Data Explorer följer vanligtvis det här mönstret:
 
 ## <a name="query-experience"></a>Frågor
 
-En fråga i Azure Data Explorer är en skrivskyddad begäran att bearbeta data och returnera resultatet av bearbetningen, utan att modifiera data eller metadata. Du fortsätter att finjustera dina frågor tills du är klar med din analys. Med Azure Data Explorer blir den här processen enkel eftersom du kan köra mycket snabba ad hoc-frågor.
+En fråga i Azure Data Explorer är en skrivskyddad begäran att bearbeta data och returnera resultatet av bearbetningen, utan att modifiera data eller metadata. Du fortsätter att finjustera dina frågor tills du är klar med din analys. Azure Data Explorer är den här processen enkel på grund av sin erfarenhet av mycket snabb ad hoc-frågor.
 
 Azure Data Explorer kan hantera stora mängder strukturerade, halvstrukturerade, (JSON-liknande kapslade typer av data) och ostrukturerade data (fritext) lika bra. Det gör att du kan söka efter specifika sökord, leta efter specifika händelser och utföra måttberäkningar i strukturerade data. Azure Data Explorer överbryggar klyftorna mellan ostrukturerade textloggar och strukturerade tal och mått genom att extrahera värden vid körning från fält med fritext. Utforskning av data förenklas genom en kombination av snabb textindexering, kolumnarkiv och tidsserieåtgärder.
 

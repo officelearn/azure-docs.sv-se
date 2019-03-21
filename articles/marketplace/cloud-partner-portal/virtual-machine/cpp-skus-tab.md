@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 4ecc259d40cdcba93a484f27e27191e967f10ff1
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: e05813297707165d59d1b1ed969b54fb0f433277
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639927"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848098"
 ---
 # <a name="virtual-machine-skus-tab"></a>Fliken för VM-SKU: er
 
@@ -45,8 +45,8 @@ I följande tabell beskrivs syftet, innehåll, och formatering av de här fälte
 
 |  **Fält**       |     **Beskrivning**                                                          |
 |  ---------       |     ---------------                                                          |
-|  *SKU-inställningar*   |  |
-| **SKU-ID**       | Identifierare för denna SKU.  Det här namnet med högst 50 tecken, som består av gemena alfanumeriska tecken eller bindestreck (-), men får inte sluta med ett bindestreck.  Det kan inte ändras när erbjudandet har publicerats.  |
+|  *SKU Settings*   |  |
+| **SKU ID**       | Identifierare för denna SKU.  Det här namnet med högst 50 tecken, som består av gemena alfanumeriska tecken eller bindestreck (-), men får inte sluta med ett bindestreck.  Det kan inte ändras när erbjudandet har publicerats.  |
 |  *SKU-information*   |  |
 | **Rubrik**        | Eget namn för erbjudandet för visning i marketplace. Högst 50 tecken. |
 | **Sammanfattning**      | Kortfattad beskrivning av erbjudandet för visning i marketplace. Högst 100 tecken. |
@@ -63,7 +63,7 @@ I följande tabell beskrivs syftet, innehåll, och formatering av de här fälte
 | **Eget namn** | Operativsystemets namn som ska visas för kunder.  |
 | **Rekommenderade storlekar för Virtuella datorer** | Gör det möjligt för val av upp till sex storlekar som rekommenderas i en standardiserad lista.  Även om de här rekommendationerna visas på en framträdande plats för potentiella kunder, kan de ange vilken storlek som är kompatibel med lösningen avbildningen. | 
 | **Öppna portar**| Portar öppna och protokoll för att ge stöd för SKU.  Dessa konfigurationer måste matcha det virtuella nätverket som du har konfigurerat för det virtuella nätverket av VM-lösningen. De här inställningarna ska börja gälla under distribution av virtuella datorer. Portinställningar kan dock ändras när du har publicerat en SKU. Mer information finns i [hur du öppnar portar till en virtuell dator med Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal). <br/>Följande nätverk standardmappningar läggs till i alla virtuella datorer. &emsp; Windows: 3389 -> 3389 TCP, 5986 -> 5986 TCP; &emsp; Linux: 22 -> 22, TCP (SSH). |
-| **Disk-Version**  | Associerade lösning VM, anges av disk versionsnummer och Webbadress till disk. Disken måste vara i [sémantickou verzi](http://semver.org/) format: `<major>.<minor>.<patch>`.  URL: en är signaturen för delad åtkomst URI: N som skapats för det virtuella Hårddisken för operativsystemet.  Även om du kan lägga till upp till åtta versioner per SKU, visas endast det högsta disk versionsnumret för en SKU: N på Azure Marketplace. De andra versionerna kommer endast att vara synliga via API: er.  <!--TD: Add more specific link to API --> <br/> Den **ny datadisk** accordion avsnittet kan du ansluta upp till 15 datadiskar till den virtuella datorn.  När du publicerar en SKU med en viss VM-version och associerade datadiskar, kan inte den här konfigurationen ändras.  Om ytterligare VM-versioner läggs till i SKU: N, måste de också stöder samma antal datadiskar. <br/> Om du inte har skapat din Azure-baserad VM-avbildningar kan du lägga till uppdatera det här fältet senare.  Information om hur du skapar den associerade VM-resursen finns i avsnittet [Create VM för tekniska resurser](./cpp-create-technical-assets.md).  
+| **Disk-Version**  | Associerade lösning VM, anges av disk versionsnummer och Webbadress till disk. Disken måste vara i [sémantickou verzi](https://semver.org/) format: `<major>.<minor>.<patch>`.  URL: en är signaturen för delad åtkomst URI: N som skapats för det virtuella Hårddisken för operativsystemet.  Även om du kan lägga till upp till åtta versioner per SKU, visas endast det högsta disk versionsnumret för en SKU: N på Azure Marketplace. De andra versionerna kommer endast att vara synliga via API: er.  <!--TD: Add more specific link to API --> <br/> Den **ny datadisk** accordion avsnittet kan du ansluta upp till 15 datadiskar till den virtuella datorn.  När du publicerar en SKU med en viss VM-version och associerade datadiskar, kan inte den här konfigurationen ändras.  Om ytterligare VM-versioner läggs till i SKU: N, måste de också stöder samma antal datadiskar. <br/> Om du inte har skapat din Azure-baserad VM-avbildningar kan du lägga till uppdatera det här fältet senare.  Information om hur du skapar den associerade VM-resursen finns i avsnittet [Create VM för tekniska resurser](./cpp-create-technical-assets.md).  
 |  |  |
 
 <!-- TD: The CPP UX warning msg indicates that underscores are also supported in these SKU IDs. I suspect this might be true for other identifiers. --> 

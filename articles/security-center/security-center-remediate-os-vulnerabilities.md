@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: f3764e5f4a5d6bbc3d6988321a2d7648012825ae
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: f4558c6fdb1e5e4f0ffb7a4b4fdb1ab62eb4cfa9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242249"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121289"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Åtgärda säkerhetskonfigurationer i Azure Security Center
 Azure Security Center analyserar dagligen operativsystemet (OS) på dina virtuella datorer (VM) och en konfiguration som kan göra de virtuella datorerna och datorer som är mer sårbara för angrepp. Security Center rekommenderar att du löser säkerhetsproblem när Operativsystemets konfiguration matchar inte de rekommendera säkerhetsreglerna för konfiguration och den rekommenderar konfigurationsändringar för att åtgärda dessa sårbarheter.
@@ -31,34 +31,34 @@ Läs mer om vilka konfigurationer som övervakas, den [lista över rekommenderad
 
 Det här exemplet beskriver ”åtgärda säkerhetskonfigurationer” rekommendationen under **Compute och appar**.
 1. I Security Center, i den vänstra rutan väljer **Compute och appar**.  
-  Den **Compute och appar** öppnas.
+   Den **Compute och appar** öppnas.
 
    ![Åtgärda säkerhetskonfigurationer][1]
 
 2. Välj **åtgärda säkerhetskonfigurationer**.  
-  Den **säkerhetskonfigurationer** öppnas.
+   Den **säkerhetskonfigurationer** öppnas.
 
    ![Fönstret ”säkerhetskonfigurationer”][2]
 
-  Överst på instrumentpanelen visar:
+   Överst på instrumentpanelen visar:
 
-  - **Misslyckade regler efter allvarlighetsgrad**: Det totala antalet regler att Operativsystemets konfiguration misslyckades mellan dina virtuella datorer och datorer, indelade efter allvarlighetsgrad.
-  - **Misslyckade regler efter typ**: Det totala antalet regler att Operativsystemets konfiguration misslyckades mellan dina virtuella datorer och datorer, indelade efter typen.
-  - **Windows-regler som inte**: Det totala antalet regler som misslyckades på grund av din Windows OS-konfigurationer.
-  - **Linux-regler som inte**: Det totala antalet regler som misslyckades på grund av Linux OS-konfigurationer.
+   - **Misslyckade regler efter allvarlighetsgrad**: Det totala antalet regler att Operativsystemets konfiguration misslyckades mellan dina virtuella datorer och datorer, indelade efter allvarlighetsgrad.
+   - **Misslyckade regler efter typ**: Det totala antalet regler att Operativsystemets konfiguration misslyckades mellan dina virtuella datorer och datorer, indelade efter typen.
+   - **Windows-regler som inte**: Det totala antalet regler som misslyckades på grund av din Windows OS-konfigurationer.
+   - **Linux-regler som inte**: Det totala antalet regler som misslyckades på grund av Linux OS-konfigurationer.
 
-  Den nedre delen av instrumentpanelen visas alla misslyckade regler för dina virtuella datorer och datorer och allvarlighetsgraden för saknad uppdatering. Listan innehåller följande element:
+   Den nedre delen av instrumentpanelen visas alla misslyckade regler för dina virtuella datorer och datorer och allvarlighetsgraden för saknad uppdatering. Listan innehåller följande element:
 
-  - **CCEID**: Den unika identifieraren CCE för regeln. Security Center använder Common Configuration Enumeration (CCE) för att tilldela unika identifierare till konfigurationsregler.
-  - **Namn**: Namnet på den misslyckade regeln.
-  - **Regeltyp**: Den *registernyckeln*, *säkerhetsprincip*, *granskningsprincip*, eller *IIS* regeltyp.
-  - **Nej. VM: ar och datorer**: Det totala antalet virtuella datorer och datorer som misslyckade regeln gäller för.
-  - **Regeln allvarlighetsgrad**: Värdet för CCE *kritisk*, *viktigt*, eller *varning*.
-  - **tillstånd**: Det aktuella tillståndet för rekommendationen:
+   - **CCEID**: Den unika identifieraren CCE för regeln. Security Center använder Common Configuration Enumeration (CCE) för att tilldela unika identifierare till konfigurationsregler.
+   - **Namn**: Namnet på den misslyckade regeln.
+   - **Regeltyp**: Den *registernyckeln*, *säkerhetsprincip*, *granskningsprincip*, eller *IIS* regeltyp.
+   - **Nej. VM: ar och datorer**: Det totala antalet virtuella datorer och datorer som misslyckade regeln gäller för.
+   - **Regeln allvarlighetsgrad**: Värdet för CCE *kritisk*, *viktigt*, eller *varning*.
+   - **tillstånd**: Det aktuella tillståndet för rekommendationen:
 
-    - **Öppna**: Rekommendationen har inte utförts än.
-    - **Pågår**: Rekommendationen håller på att resurserna och ingen åtgärd krävs av dig.
-    - **Löst**: Rekommendationen har tillämpats. När problemet har lösts, inaktiveras posten.
+     - **Öppna**: Rekommendationen har inte utförts än.
+     - **Pågår**: Rekommendationen håller på att resurserna och ingen åtgärd krävs av dig.
+     - **Löst**: Rekommendationen har tillämpats. När problemet har lösts, inaktiveras posten.
 
 3. Om du vill visa information om en regel som inte, väljer du den i listan.
 
@@ -79,17 +79,17 @@ Det här exemplet beskriver ”åtgärda säkerhetskonfigurationer” rekommenda
    - **Regeln åtgärden**: Regelåtgärd som används av Security Center under analysen av dina Virtuella Operativsystemets konfiguration mot regeln.
 
 4. Överst i fönstret detaljerad vy väljer **Search**.  
-  Sök öppnas en lista över arbetsytor som har virtuella datorer och datorer med matchningsfel för valda security-konfigurationer. Val av arbetsyta visas bara om den valda regeln gäller för flera virtuella datorer som är anslutna till olika arbetsytor.
+   Sök öppnas en lista över arbetsytor som har virtuella datorer och datorer med matchningsfel för valda security-konfigurationer. Val av arbetsyta visas bara om den valda regeln gäller för flera virtuella datorer som är anslutna till olika arbetsytor.
 
    ![Listade arbetsytor][4]
 
 5. Välj en arbetsyta.  
-  En sökfråga för Azure Monitor-loggar öppnas filtrerade till arbetsytan med säkerhet konfigurationer matchningsfel.
+   En sökfråga för Azure Monitor-loggar öppnas filtrerade till arbetsytan med säkerhet konfigurationer matchningsfel.
 
    ![Arbetsyta med OS-säkerhetsproblem][5]
 
 6. Välj en dator i listan.  
-  En ny sökresultat öppnas med information som filtrerad endast för den datorn.
+   En ny sökresultat öppnas med information som filtrerad endast för den datorn.
 
    ![Detaljerad information om den valda datorn][6]
 

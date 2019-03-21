@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: f24d601fc3b589daf22788ad0d05eb74a7b51f0a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 524ca96687e9395b65ec513326ad0fd4f7c6d429
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156773"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57528915"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Självstudier: Ta emot meddelanden från dina Azure Digital Twins-utrymmen med hjälp av Logic Apps
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Integrera händelser med Azure Event Grid.
 > * Meddela händelser med Logic App.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien förutsätter att du har [konfigurerat](tutorial-facilities-setup.md) och [etablerat](tutorial-facilities-udf.md) Azure Digital Twins-konfigurationen. Innan du fortsätter bör du kontrollera att du har:
 
@@ -47,7 +47,7 @@ I det här avsnittet konfigurerar du en [Event Grid](../event-grid/overview.md) 
 
 [Event Grid-ämnen](../event-grid/concepts.md#topics) tillhandahåller ett gränssnitt för att dirigera händelser som genereras av den användardefinierade funktionen. 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Välj **Skapa en resurs** i fönstret till vänster. 
 
@@ -196,7 +196,7 @@ Om du vill sluta få dessa e-postmeddelanden går du till din logikappresurs i p
 
 Om du inte vill utforska Azure Digital Twins nu kan du ta bort resurser som du har skapat i den här självstudien:
 
-1. På den vänstra menyn i [Azure-portalen](http://portal.azure.com) väljer du **Alla resurser**, väljer din Digital Twins-resursgrupp och **Ta bort**.
+1. På den vänstra menyn i [Azure-portalen](https://portal.azure.com) väljer du **Alla resurser**, väljer din Digital Twins-resursgrupp och **Ta bort**.
 
     > [!TIP]
     > Om det inträffade problem när du skulle ta bort Digital Twins-instansen finns det nu en tjänstuppdatering som åtgärdar det. Försök att ta bort instansen igen.

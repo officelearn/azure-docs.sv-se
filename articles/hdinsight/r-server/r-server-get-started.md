@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: dce345c39918e7471531710051797c848a3c7cde
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 474048bc9f31e4630110ea099f3e0b375ad74e51
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444080"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087592"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Komma igång med ML-tjänster på Azure HDInsight
 
@@ -79,16 +79,16 @@ Om du väljer att installera RStudio Server Community Edition som en del av ditt
         https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
 * **Alternativ 2** – använda Azure-portalen.
-Från portalen:
+  Från portalen:
   1. Välj **alla tjänster** menyn till vänster.
   2. Under **ANALYTICS**väljer **HDInsight-kluster**.
   3. Välj klusternamnet från den **HDInsight-kluster** sidan.
   4. Från **ML tjänster instrumentpaneler**väljer **R Studio server**. 
 
-    ![Ange inställningarna för lagringskontot för HDInsight](./media/r-server-get-started/r-studio-server-dashboard.png)
+     ![Ange inställningarna för lagringskontot för HDInsight](./media/r-server-get-started/r-studio-server-dashboard.png)
 
-   > [!IMPORTANT]  
-   > Oavsett vilken metod du väljer måste du autentisera dig två gånger när du loggar in för första gången.  I den första autentiseringsprompten anger du *klusteradministratörens användar-id* och *lösenord*. I den andra autentiseringsprompten anger du *SSH användar-id* och *lösenord*. Efterföljande log-inloggningar kräver endast SSH-autentiseringsuppgifter.
+     > [!IMPORTANT]  
+     > Oavsett vilken metod du väljer måste du autentisera dig två gånger när du loggar in för första gången.  I den första autentiseringsprompten anger du *klusteradministratörens användar-id* och *lösenord*. I den andra autentiseringsprompten anger du *SSH användar-id* och *lösenord*. Efterföljande log-inloggningar kräver endast SSH-autentiseringsuppgifter.
 
 När du är ansluten, bör din skärm likna följande skärmbild:
 

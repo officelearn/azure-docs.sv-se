@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: trinadhk
-ms.openlocfilehash: fcb5941c56eda19f9c524a2c078a76483426b862
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 2ba94963238cd5ee96df5c178a072addc5ddd75e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267002"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082933"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper att skydda hybridsäkerhetskopieringar som använder Azure Backup
 Frågor om säkerhetsproblem, t.ex. skadlig kod, utpressningstrojaner och intrång, ökar. Dessa säkerhetsproblem kan vara kostsamma när det gäller både pengar och data. För att skydda mot sådana attacker, ger Azure Backup nu säkerhetsfunktioner för att skydda hybridsäkerhetskopieringar. Den här artikeln beskriver hur du aktiverar och använder dessa funktioner med hjälp av ett Azure Recovery Services-agenten och Azure Backup Server. Dessa funktioner:
@@ -82,7 +82,7 @@ Kontroller har lagts till att se till att endast giltiga användare kan utföra 
 Som en del av att lägga till ett extra lager av autentisering för kritiska åtgärder kan du uppmanas att ange en säkerhetskod när du utför **stoppa skydd med borttagningsdata** och **ändra lösenfras** åtgärder.
 
 > [!NOTE]
-
+> 
 > För närvarande säkerhetskoden stöds inte för **stoppa skydd med borttagningsdata** för DPM och MABS.
 
 Att ta emot den här PIN-kod:

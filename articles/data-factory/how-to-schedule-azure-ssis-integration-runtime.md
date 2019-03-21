@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: fe38ffd5e9e57c0357417144e733311f3b14ea83
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0b84f02d11e278950e4e44874e7b1af9da58f83f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448347"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092454"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Så här startar och stoppar Azure-SSIS Integration Runtime enligt ett schema
 Den här artikeln beskriver hur du schemalägger startas och stoppas av Azure-SSIS Integration Runtime (IR) med hjälp av Azure Data Factory (ADF). Azure-SSIS IR är ADF-beräkningsresurs som dedikerade för att köra SQL Server Integration Services (SSIS)-paket. Kör Azure-SSIS IR har ingen associerad kostnad till den. Därför vanligtvis du kör din IR endast när du behöver att köra SSIS-paket i Azure och stoppa din IR när du inte behöver den längre. Du kan använda ADF User Interface (UI) / app eller Azure PowerShell för att [manuellt starta eller stoppa din IR](manage-azure-ssis-integration-runtime.md)).
@@ -72,11 +72,11 @@ Om du skapar en tredje utlösare som är schemalagda att köras varje dag vid mi
 9. Klicka på **Skapa**.
 10. På Azure-instrumentpanelen visas följande panel med statusen: **Distribuera Data Factory**. 
 
-   ![panelen distribuerar datafabrik](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
+    ![panelen distribuerar datafabrik](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
    
 11. När datafabriken har skapats, kan du se din ADF-sida som visas nedan.
    
-   ![Datafabrikens startsida](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
+    ![Datafabrikens startsida](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
    
 12. Klicka på **författare och Övervakare** att starta Användargränssnittet för ADF/app på en separat flik.
 
@@ -189,21 +189,21 @@ Du kan använda skript som i följande exempel för att övervaka pipelines och 
 
 1. Hämta status för en pipeline-körning.
 
-  ```powershell
-  Get-AzDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
-  ```
+   ```powershell
+   Get-AzDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
+   ```
 
 2. Få information om en utlösare.
 
-  ```powershell
-  Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
-  ```
+   ```powershell
+   Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
+   ```
 
 3. Hämta status för en utlösarkörning.
 
-  ```powershell
-  Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
-  ```
+   ```powershell
+   Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
+   ```
 
 ## <a name="create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir"></a>Skapa och schemalägga Azure Automation-runbook som börjar/slutar Azure-SSIS IR
 

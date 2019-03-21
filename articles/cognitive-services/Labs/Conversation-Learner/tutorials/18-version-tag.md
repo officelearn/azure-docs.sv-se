@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 99b4712373423d30dc83408cc80eccc93b342c10
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5073d3ab967c4c4e1b90636c247839875a6aa0d7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206008"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086317"
 ---
 # <a name="how-to-use-version-tagging"></a>Hur du använder Version taggning
 
@@ -67,9 +67,9 @@ Vi skapar en enda åtgärd för Version 1.
 
 Nu ska vi tagga detta som ”Version 1” av modellen.
 
-4. Klicka på ”inställningar” i den vänstra panelen och sedan klicka på den ![](../media/tutorial18_version_tags.PNG)”Version taggar”-ikonen för att visa den `New Tag` knappen som du på.
+1. Klicka på ”inställningar” i den vänstra panelen och sedan klicka på den ![](../media/tutorial18_version_tags.PNG)”Version taggar”-ikonen för att visa den `New Tag` knappen som du på.
     - Ge den namnet ”Version 1”
-4. I ”Live taggen” nedrullningsbar listruta väljer ”Version 1”.  
+1. I ”Live taggen” nedrullningsbar listruta väljer ”Version 1”.  
     - Nu använder kanaler med den här Bot ”Version 1” av vår modell.
     - Entiteter, åtgärder och träna dialogrutor med den här Version 1-modellen kan inte längre ändras.
     - Om du väljer ”Version 1” som ”redigera taggen” kommer endast att kunna se modellen och redigera den inte.

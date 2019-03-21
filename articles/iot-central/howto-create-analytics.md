@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 19dbddc635041d0e5cf617cbe20713abc07cefaf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 05915e2059e45c002a9dfa71a538ed6391caa157
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775755"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078337"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Hur du använder analytics för att analysera dina enhetsdata
 
@@ -30,7 +30,7 @@ Du måste välja en **enhetsuppsättning**, lägga till en **filter** (valfritt)
 * **Filter:** Du kan du lägga till filter till din söktjänst för att få fram dina data. Du kan lägga till upp till 10 filter i taget. Hitta till exempel de som har haft temperatur gå överstiger 60 grader inom alla kylskåp i Oakland.
 * **Tidsperiod:** Som standard ska vi hämta data från de senaste 10 minuterna. Du kan ändra det här värdet till något av de fördefinierade tidsintervall eller välja en anpassad tidsperiod.
 
- ![Analytics-fråga](media/howto-create-analytics/analytics-query.png)
+  ![Analytics-fråga](media/howto-create-analytics/analytics-query.png)
 
 ## <a name="visualizing-your-data"></a>Visualisera dina data
 
@@ -51,7 +51,7 @@ Du har olika sätt att ändra frågeresultatet efter dina behov för visualiseri
 * **Visa rutnät för:** Resultaten är tillgängliga i tabellformat, så att du kan visa det specifika värdet för varje datapunkt. Den här vyn även uppfyller hjälpmedelsstandarder.
 * **Visa diagram:** Dina resultat visas i ett linjersformat för att identifiera uppåt eller nedåt trender och avvikelser.
 
- ![Visar rutnätsvyn för analys](media/howto-create-analytics/analytics-showgrid.png)
+  ![Visar rutnätsvyn för analys](media/howto-create-analytics/analytics-showgrid.png)
 
 Zooma låter dig till startsidan i på dina data. Om du hittar en tidsperiod som du vill fokusera på i din resultatuppsättning, använder du markören hämta det område som du vill zooma in och använda tillgängliga kontroller för att utföra någon av följande åtgärder:
 
@@ -59,7 +59,7 @@ Zooma låter dig till startsidan i på dina data. Om du hittar en tidsperiod som
 * **Zooma ut:** Den här kontrollen kan du zooma ut en nivå från din senaste zoomning. Till exempel om du har zoomning säkerhetskopiera i dina data tre gånger, Zooma ut tar du ett steg i taget.
 * **Zooma återställning:** När du har utfört olika nivåer av zoomning, kan du använda zoomkontrollen för återställning för att återgå till din ursprungliga resultatuppsättningen.
 
- ![Utföra zoomning på dina data](media/howto-create-analytics/analytics-zoom.png)
+  ![Utföra zoomning på dina data](media/howto-create-analytics/analytics-zoom.png)
 
 Du kan ändra linjeformatet för att uppfylla dina behov. Det finns fyra alternativ:
 
@@ -68,7 +68,7 @@ Du kan ändra linjeformatet för att uppfylla dina behov. Det finns fyra alterna
 * **Steg:** Rad mellan varje punkt i diagrammet är ett steg.
 * **Punktdiagram:** Alla punkter ritas utan rader ansluta dem i diagrammet.
 
- ![Olika tillgängliga typer i Analytics](media/howto-create-analytics/analytics-linetypes.png)
+  ![Olika tillgängliga typer i Analytics](media/howto-create-analytics/analytics-linetypes.png)
 
 Slutligen kan du ordna dina data på y-axeln genom att välja ett av tre lägen:
 
@@ -76,7 +76,7 @@ Slutligen kan du ordna dina data på y-axeln genom att välja ett av tre lägen:
 * **Ostaplade:** Ett diagram för varje mått ritas mot en y-axeln, men värdena för y-axeln ändras baserat på det markerade måttet. Ostaplade diagram är användbara när du vill täcka över flera mått och vill se mönster över dessa åtgärder för samma tidsintervall.
 * **Delade y-axeln:** Alla diagram delar samma y-axeln och ändra värdena för axeln inte. Delade y-axeln diagram är användbara när du vill titta på ett enda mått vid uppdelning med delning av data.
 
- ![Ordna data på y-axeln med annan visualisering lägen](media/howto-create-analytics/analytics-yaxis.png)
+  ![Ordna data på y-axeln med annan visualisering lägen](media/howto-create-analytics/analytics-yaxis.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

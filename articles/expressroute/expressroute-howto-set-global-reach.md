@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 171bf94bbccd45b9be995977c9ec2a26a75d9602
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 8ea3b3580cb70d0453a5ec6a38f6063788ebf7f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403489"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082032"
 ---
 # <a name="configure-expressroute-global-reach"></a>Konfigurera ExpressRoute Global Reach
 
@@ -38,11 +38,11 @@ Innan du börjar konfigurationen måste du kontrollera följande:
 
 1. Logga in på ditt Azure-konto och välj den prenumeration som du vill använda för att starta konfigurationen.
 
-  [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
+   [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 2. Identifiera ExpressRoute-kretsar som du vill använda. Du kan aktivera ExpressRoute Global räckvidd mellan två ExpressRoute-kretsar så länge de befinner dig i de länder/regioner som stöds och har skapats på olika peering-platser. 
 
-  * Om din prenumeration äger både kretsar kan välja du antingen krets för att köra konfigurationen i följande avsnitt.
-  * Om två kretsar finns i olika Azure-prenumerationer, behöver tillstånd från en Azure-prenumeration. Sedan skickar du in auktoriseringsnyckeln när du kör kommandot konfiguration i andra Azure-prenumeration.
+   * Om din prenumeration äger både kretsar kan välja du antingen krets för att köra konfigurationen i följande avsnitt.
+   * Om två kretsar finns i olika Azure-prenumerationer, behöver tillstånd från en Azure-prenumeration. Sedan skickar du in auktoriseringsnyckeln när du kör kommandot konfiguration i andra Azure-prenumeration.
 
 ## <a name="enable-connectivity"></a>Aktivera anslutning
 
@@ -52,27 +52,27 @@ Aktivera anslutning mellan ditt lokala nätverk. Det finns olika uppsättningar 
 
 1. Använd följande kommandon för att hämta krets 1 och 2-kretsen. Två kretsar är i samma prenumeration.
 
-  ```azurepowershell-interactive
-  $ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
-  $ckt_2 = Get-AzExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
-  ```
+   ```azurepowershell-interactive
+   $ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
+   $ckt_2 = Get-AzExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
+   ```
 2. Kör följande kommando mot krets 1 och skicka i privata peering-ID för kretsen 2. Tänk på följande när du kör kommandot:
 
-  * Privat peering ID ska se ut ungefär som i följande exempel: 
+   * Privat peering ID ska se ut ungefär som i följande exempel: 
 
-    ```
-    /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
-    ```
-  * *-AddressPrefix* måste vara ett/29 IPv4-undernät, till exempel ”10.0.0.0/29”. Vi använder IP-adresser i det här undernätet för att upprätta en anslutning mellan de två ExpressRoute-kretsarna. Du bör inte använda adresserna i det här undernätet i din Azure-nätverk eller i ditt lokala nätverk.
+     ```
+     /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
+     ```
+   * *-AddressPrefix* måste vara ett/29 IPv4-undernät, till exempel ”10.0.0.0/29”. Vi använder IP-adresser i det här undernätet för att upprätta en anslutning mellan de två ExpressRoute-kretsarna. Du bör inte använda adresserna i det här undernätet i din Azure-nätverk eller i ditt lokala nätverk.
 
-    ```azurepowershell-interactive
-    Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix '__.__.__.__/29'
-    ```
+     ```azurepowershell-interactive
+     Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix '__.__.__.__/29'
+     ```
 3. Spara konfigurationen på kretsen 1 på följande sätt:
 
-  ```azurepowershell-interactive
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
-  ```
+   ```azurepowershell-interactive
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
+   ```
 
 När den föregående åtgärden har slutförts ska har du anslutning mellan ditt lokala nätverk på båda sidorna via två ExpressRoute-kretsarna.
 
@@ -82,23 +82,23 @@ Om två kretsar inte finns i samma Azure-prenumeration, måste auktorisering. I 
 
 1. Generera en auktoriseringsnyckel.
 
-  ```azurepowershell-interactive
-  $ckt_2 = Get-AzExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
-  Add-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $ckt_2 -Name "Name_for_auth_key"
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_2
-  ```
+   ```azurepowershell-interactive
+   $ckt_2 = Get-AzExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
+   Add-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $ckt_2 -Name "Name_for_auth_key"
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_2
+   ```
 
-  Anteckna privat peering ID för kretsen 2, samt auktoriseringsnyckeln.
+   Anteckna privat peering ID för kretsen 2, samt auktoriseringsnyckeln.
 2. Kör följande kommando mot krets 1. Skicka i privata peering-ID för kretsen 2 och auktoriseringsnyckeln för.
 
-  ```azurepowershell-interactive
-  Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering "circuit_2_private_peering_id" -AddressPrefix '__.__.__.__/29' -AuthorizationKey '########-####-####-####-############'
-  ```
+   ```azurepowershell-interactive
+   Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering "circuit_2_private_peering_id" -AddressPrefix '__.__.__.__/29' -AuthorizationKey '########-####-####-####-############'
+   ```
 3. Spara konfigurationen på kretsen 1.
 
-  ```azurepowershell-interactive
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
-  ```
+   ```azurepowershell-interactive
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
+   ```
 
 När den föregående åtgärden har slutförts ska har du anslutning mellan ditt lokala nätverk på båda sidorna via två ExpressRoute-kretsarna.
 

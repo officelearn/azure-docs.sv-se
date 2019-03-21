@@ -2,21 +2,21 @@
 title: 'Självstudier: Använda Azure Database Migration Service till att migrera MongoDB till Azure Cosmos DB:s API för MongoDB online | Microsoft Docs'
 description: Lär dig att migrera från MongoDB lokalt till Azure Cosmos DB:s API för MongoDB online genom att använda Azure Database Migration Service.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/27/2019
-ms.openlocfilehash: 06e76b8eed283c6ef09f38e876c60b05477cf0ce
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: dd14ec4f4b6395e5733f4f17165e94ca7e77f883
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985826"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008642"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms-preview"></a>Självstudier: Migrera MongoDB till Azure Cosmos DB:s API för MongoDB online med DMS (förhandsversion)
 Du kan använda Azure Database Migration Service till att utföra en onlinemigrering (minimal avbrottstid) av databaser från en lokal instans eller en molninstans av MongoDB till Azure Cosmos DB:s API för MongoDB.
@@ -41,10 +41,19 @@ I den här självstudien migrerar du en datamängd i MongoDB på en virtuell Azu
 
 I den här artikeln beskrivs en onlinemigrering från MongoDB till Azure Cosmos DB:s API för MongoDB. Läs mer i [Migrera MongoDB till Azure Cosmos DB:s API för MongoDB offline med DMS](tutorial-mongodb-cosmos-db.md) om offlinemigrering.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 För att slutföra den här kursen behöver du:
 - [Skapa ett Azure Cosmos DB-API för MongoDB-konto](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
 - Skapa ett virtuellt Azure-nätverk för Azure Database Migration Service genom att använda Azure Resource Manager-distributionsmodellen, som ger plats-till-plats-anslutning för dina lokala källservrar genom att använda [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+
+    > [!NOTE]
+    > Under installationen av virtuellt nätverk, om du använder ExpressRoute med nätverks-peering till Microsoft, lägger du till följande tjänst [slutpunkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) till undernätet där tjänsten ska etableras:
+    > - Mål-database-slutpunkten (till exempel SQL-slutpunkten och Cosmos DB-slutpunkt)
+    > - Slutpunkt för lagring
+    > - Service bus-slutpunkt
+    >
+    > Den här konfigurationen är nödvändigt eftersom Azure Database Migration Service saknar Internetanslutning.
+
 - Kontrollera att dina VNET-regler för nätverkssäkerhetsgruppen inte blockerar följande kommunikationsportar: 443, 53, 9354, 445 och 12000. Mer information om trafikfiltrering för Azure VNET NSG finns i artikeln om att [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Ändra källserverns brandvägg så att Azure Database Migration Service kommer åt MongoDB-källservern, med standardinställningen TCP-port 27017.
 - När du använder en brandväggsinstallation framför dina källdatabaser kanske du måste lägga till brandväggsregler för att tillåta Azure Database Migration Service att komma åt källdatabaserna för migrering.
@@ -117,20 +126,20 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 1. På sidan **Källinformation** anger du anslutningsinformationen för MongoDB-källservern.
 
     Det finns tre lägen för att ansluta till en datakälla:
-       * **Standardläge** som accepterar ett fullständigt kvalificerat domännamn eller en IP-adress, portnummer och autentiseringsuppgifter för anslutningen.
-       * **Anslutningssträngsläge** som tar emot en MongoDB-anslutningssträng som beskrivs i artikeln [URI-anslutningssträngens format](https://docs.mongodb.com/manual/reference/connection-string/).
-       * **Data från Azure-lagring** som tar emot en blobcontainers SAS-URL. Välj **Bloben innehåller BSON-dumpar** om blobcontainern innehåller BSON-dumpar som producerats av MongoDB:s [bsondump-verktyg](https://docs.mongodb.com/manual/reference/program/bsondump/) och avmarkera den om containern innehåller JSON-filer.
+   * **Standardläge** som accepterar ett fullständigt kvalificerat domännamn eller en IP-adress, portnummer och autentiseringsuppgifter för anslutningen.
+   * **Anslutningssträngsläge** som tar emot en MongoDB-anslutningssträng som beskrivs i artikeln [URI-anslutningssträngens format](https://docs.mongodb.com/manual/reference/connection-string/).
+   * **Data från Azure-lagring** som tar emot en blobcontainers SAS-URL. Välj **Bloben innehåller BSON-dumpar** om blobcontainern innehåller BSON-dumpar som producerats av MongoDB:s [bsondump-verktyg](https://docs.mongodb.com/manual/reference/program/bsondump/) och avmarkera den om containern innehåller JSON-filer.
 
-      Om du väljer det här alternativet ska du se till att anslutningssträngen för lagringskontot har följande format:
+     Om du väljer det här alternativet ska du se till att anslutningssträngen för lagringskontot har följande format:
 
-    ```
-    https://blobnameurl/container?SASKEY
-    ```
-      Baserat på typdumpsinformationen i Azure Storage bör du även beakta följande detalj.
+     ```
+     https://blobnameurl/container?SASKEY
+     ```
+     Baserat på typdumpsinformationen i Azure Storage bör du även beakta följande detalj.
 
-      * För BSON-dumpar måste data i blob-containern vara i bsondump-format, så att datafilerna placeras i mappar som namnges efter de innehållande databaserna i formatet collection.bson. Metadatafiler (om sådana finns) bör namnges med formatet *samling*.metadata.json.
+     * För BSON-dumpar måste data i blob-containern vara i bsondump-format, så att datafilerna placeras i mappar som namnges efter de innehållande databaserna i formatet collection.bson. Metadatafiler (om sådana finns) bör namnges med formatet *samling*.metadata.json.
 
-      * För JSON-dumpar måste filerna i blob-containern placeras i mappar som namnges efter de innehållande databaserna. I varje databasmapp måste datafiler placeras i en undermapp som heter ”data” och namnges med formatet *samling*.json. Metadatafiler (om sådana finns) måste placeras i en undermapp som heter ”metadata” och namnges med samma format, *samling*.json. Metadatafilerna måste vara i samma format som det som skapas av verktyget MongoDB bsondump.
+     * För JSON-dumpar måste filerna i blob-containern placeras i mappar som namnges efter de innehållande databaserna. I varje databasmapp måste datafiler placeras i en undermapp som heter ”data” och namnges med formatet *samling*.json. Metadatafiler (om sådana finns) måste placeras i en undermapp som heter ”metadata” och namnges med samma format, *samling*.json. Metadatafilerna måste vara i samma format som det som skapas av verktyget MongoDB bsondump.
 
    Du kan även använda IP-adressen i situationer då DNS-namnmatchning inte är möjlig.
 
@@ -155,7 +164,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
     Om strängen **Skapa** visas bredvid namnet på databasen, betyder det att Azure Database Migration Service inte kunde hitta måldatabasen och att tjänsten kommer att skapa databasen åt dig.
 
-    I det här läget i migreringen kan du ange dataflödets RU, om delat dataflöde önskas för databasen. I Cosmos DB kan du etablera dataflöden på databasnivå eller separat för varje samling. Dataflödet mäts i [enheter för programbegäran](https://docs.microsoft.com/azure/cosmos-db/request-units) (RU:er). Mer information om [Azure Cosmos DB-prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/).
+    I detta läge i migreringen, om du vill dela dataflöde på databasen, ange ett dataflöde RU. I Cosmos DB kan du etablera dataflöden på databasnivå eller separat för varje samling. Dataflödet mäts i [enheter för programbegäran](https://docs.microsoft.com/azure/cosmos-db/request-units) (RU:er). Mer information om [Azure Cosmos DB-prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
     ![Mappa till måldatabaser](media/tutorial-mongodb-to-cosmosdb-online/dms-map-target-databases1.png)
 

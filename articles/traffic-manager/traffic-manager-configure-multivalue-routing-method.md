@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 40b266c92a86006746ab5341ac5fa1d785ee6032
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: de7288e2062fdfab363c46749b34c7afcacbb6e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197176"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094811"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Konfigurera routningsmetoden för flera värden i Traffic Manager
 
@@ -49,7 +49,7 @@ Skapa en Traffic Manager-profil som dirigerar användartrafik som genom att skic
     | Plats                | Inställningen refererar till platsen för resursgruppen och har ingen inverkan på Traffic Manager-profilen som distribueras globalt.                              |
    |        |           | 
   
-  ![Skapa en Traffic Manager-profil](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
+   ![Skapa en Traffic Manager-profil](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Lägga till Traffic Manager-slutpunkter
 
@@ -61,13 +61,13 @@ Lägg till två IP-adresser som externa slutpunkter till Flervärden är Traffic
 
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
-    | Typ                    | Extern slutpunkt                                   |
+    | Type                    | Extern slutpunkt                                   |
     | Namn           | myEndpoint1                                        |
     | Fullständigt kvalificerat domännamn (FQDN) eller IP           | Ange den offentliga IP-adressen för den slutpunkt som du vill lägga till den här Traffic Manager-profil                         |
     |        |           |
 
 4. Upprepa steg 2 och 3 för att lägga till en annan slutpunkt med namnet *myEndpoint2*, för **fullständigt kvalificerade domännamnet (FQDN) eller IP-**, ange den offentliga IP-adressen för den andra slutpunkten.
-5.  När båda slutpunkterna har lagts till visas de i **Traffic Manager-profilen** tillsammans med sin övervakningsstatus, som är **Online**.
+5. När båda slutpunkterna har lagts till visas de i **Traffic Manager-profilen** tillsammans med sin övervakningsstatus, som är **Online**.
 
    ![Lägga till en Traffic Manager-slutpunkt](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  

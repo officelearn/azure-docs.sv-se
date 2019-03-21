@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 12/07/2018
-ms.openlocfilehash: 6509db136524d90db11b83acb701bda71c541060
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 54a7f308163cb2463554da32f0fae8b897c0742f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882628"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080547"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Självstudie: Sentimentanalys på strömmade data med hjälp av Azure Databricks
 
@@ -41,7 +41,11 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+> [!Note]
+> Den här självstudien inte kan utföras med hjälp av **Azure kostnadsfria Testprenumerationen**.
+> Om du vill använda ett kostnadsfritt konto för att skapa Azure Databricks-klustret ska du innan du skapar klustret gå till din profil och ändra prenumerationen till **betala per användning**. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar med den här självstudien måste du uppfylla följande krav:
 - Ett Event Hubs-namnområde.
@@ -97,11 +101,11 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
     Godkänn alla övriga standardvärden, förutom följande:
 
-    * Ange ett namn för klustret.
-    * För den här artikeln skapar du ett kluster med körningen **4.0 (beta)**.
-    * Se till att markera kryssrutan **Avsluta efter \_\_ minuters inaktivitet**. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
+   * Ange ett namn för klustret.
+   * För den här artikeln skapar du ett kluster med körningen **4.0 (beta)**.
+   * Se till att markera kryssrutan **Avsluta efter \_\_ minuters inaktivitet**. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
 
-    Välj **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
+     Välj **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
 
 ## <a name="create-a-twitter-application"></a>Skapa ett Twitter-program
 
@@ -125,16 +129,16 @@ Spara de värden som du hämtade för Twitter-programmet. Du behöver dem senare
 
 I den här självstudien använder du Twitter-API:er för att skicka tweets till Event Hubs. Du använder också [Apache Spark Event Hubs-anslutningsprogram](https://github.com/Azure/azure-event-hubs-spark) för att läsa och skriva data till Azure Event Hubs. Använd dessa API:er som en del av klustret, lägg till dem som bibliotek i Azure Databricks och koppla dem sedan till ditt Spark-kluster. Följande anvisningar visar hur du lägger till biblioteket i mappen **Delade** på arbetsytan.
 
-1.  I Azure Databricks-arbetsytan väljer du **Arbetsyta** och högerklickar sedan på **Delade**. I snabbmenyn väljer du **Skapa** > **Bibliotek**.
+1. I Azure Databricks-arbetsytan väljer du **Arbetsyta** och högerklickar sedan på **Delade**. I snabbmenyn väljer du **Skapa** > **Bibliotek**.
 
-    ![Dialogrutan Lägg till bibliotek](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-option.png "Dialogrutan Lägg till bibliotek")
+   ![Dialogrutan Lägg till bibliotek](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-option.png "Dialogrutan Lägg till bibliotek")
 
 2. På sidan Nytt bibliotek väljer du som **Källa** **Maven-koordinat**. I **Koordinat** anger du koordinaten för det paket som du vill lägga till. Här är Maven-koordinaterna för de bibliotek som används i självstudien:
 
-    * Spark Event Hubs-anslutningsprogram – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`
-    * Twitter-API – `org.twitter4j:twitter4j-core:4.0.6`
+   * Spark Event Hubs-anslutningsprogram – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`
+   * Twitter-API – `org.twitter4j:twitter4j-core:4.0.6`
 
-    ![Ange Maven-koordinater](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "Ange Maven-koordinater")
+     ![Ange Maven-koordinater](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "Ange Maven-koordinater")
 
 3. Välj **Skapa bibliotek**.
 
@@ -152,7 +156,7 @@ I den här självstudien använder du Twitter-API:er för att skicka tweets till
 
 I den här självstudien använder du [API:er för textanalys i Microsoft Cognitive Services](../cognitive-services/text-analytics/overview.md) till att köra sentimentanalys på en ström av tweets nästan i realtid. Innan du använder API:erna behöver du skapa ett Microsoft Cognitive Services-konto i Azure och hämta en åtkomstnyckel för att kunna använda API:er för textanalys.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 2. Välj **+ Skapa en resurs**.
 
@@ -164,13 +168,13 @@ I den här självstudien använder du [API:er för textanalys i Microsoft Cognit
 
     ![Skapa Cognitive Services-konto](./media/databricks-sentiment-analysis-cognitive-services/create-cognitive-services-account.png "Skapa Cognitive Services-konto")
 
-    - Ange ett namn på Cognitive Services-kontot.
-    - Välj den Azure-prenumeration som kontot skapas under.
-    - Välj en Azure-plats.
-    - Välj en prisnivå för tjänsten. Läs mer om prissättningen för Cognitive Services på [sidan med priser](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    - Ange om du vill skapa en ny resursgrupp eller välja en befintlig.
+   - Ange ett namn på Cognitive Services-kontot.
+   - Välj den Azure-prenumeration som kontot skapas under.
+   - Välj en Azure-plats.
+   - Välj en prisnivå för tjänsten. Läs mer om prissättningen för Cognitive Services på [sidan med priser](https://azure.microsoft.com/pricing/details/cognitive-services/).
+   - Ange om du vill skapa en ny resursgrupp eller välja en befintlig.
 
-    Välj **Skapa**.
+     Välj **Skapa**.
 
 5. När kontot har skapats går du till fliken **Översikt** och väljer **Visa åtkomstnycklar**.
 

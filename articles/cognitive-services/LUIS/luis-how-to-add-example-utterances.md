@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 16bff038b21658d29f3ab5a4b135af7f8a9e640c
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 1dac87ae07fac6a997cfd8e83c1e47ff39a91a83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593938"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096698"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Lägga till en entitet till exempel yttranden 
 
@@ -165,7 +165,7 @@ Se [Lägg till mönster från befintliga uttryck på avsikten eller entitet](lui
 
 ### <a name="add-patternany-entity"></a>Lägg till pattern.any entitet
 
-Om du lägger till entiteterna pattern.any LUIS-appen kan inte du märka yttranden med dessa entiteter. De är endast giltiga i ett mönster. Läs mer om pattern.any entiteter och hur du lägger till dem i [Lägg till entiteter](luis-how-to-add-entities.md#add-patternany-entities).
+Om du lägger till entiteterna pattern.any LUIS-appen kan inte du märka yttranden med dessa entiteter. De är endast giltiga i ett mönster. Läs mer om pattern.any entiteter och hur du lägger till dem i [Lägg till entiteter](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities).
 
 ## <a name="train-your-app-after-changing-model-with-utterances"></a>Träna din app när du har ändrat modell med yttranden
 

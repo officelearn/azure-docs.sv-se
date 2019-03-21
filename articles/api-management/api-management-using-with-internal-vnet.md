@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 04712b1ba1eccd71dcfcc9012ebcbdfcbdcd2404
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d8cea95fbfb76f1dd1891045309a35aa1d0a8ab0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773695"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099492"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Med Azure API Management-tjänsten med ett internt virtuellt nätverk
 Med Azure Virtual Networks, kan Azure API Management hantera API: er som är inte tillgänglig på internet. Ett antal VPN-tekniker är tillgängliga för att upprätta anslutningen. API Management kan distribueras i två huvudlägen i ett virtuellt nätverk:
@@ -108,11 +108,11 @@ Om du använder en anpassad DNS-server i ett virtuellt nätverk kan du också sk
 
 ### <a name="access-on-custom-domain-names"></a>Åtkomst på anpassade domännamn
 
-   1. Om du inte vill få åtkomst till API Management-tjänsten med standard-värdnamn, kan du ställa in anpassade domännamn för alla dina tjänstslutpunkter som visas i följande bild:
+1. Om du inte vill få åtkomst till API Management-tjänsten med standard-värdnamn, kan du ställa in anpassade domännamn för alla dina tjänstslutpunkter som visas i följande bild:
 
    ![Konfigurera en anpassad domän för API Management][api-management-custom-domain-name]
 
-   2. Du kan sedan skapa poster i DNS-servern för att få åtkomst till de slutpunkter som endast är tillgängliga från i det virtuella nätverket.
+2. Du kan sedan skapa poster i DNS-servern för att få åtkomst till de slutpunkter som endast är tillgängliga från i det virtuella nätverket.
 
 ## <a name="routing"> </a> Routning
 + Belastningsutjämnade privat virtuell IP-adress från undernätets intervall kommer reserveras och används för att få åtkomst till API Management-tjänstslutpunkter från det virtuella nätverket.

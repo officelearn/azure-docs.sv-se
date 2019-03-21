@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01e91797fea785d5e5e065bc77c102254a32ca5f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: bdce3e557a7b9ad76b2a4bfe533d1272832ea72f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670289"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088884"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Azure Active Directory B2B-samarbetskod och PowerShell-exempel
 
@@ -25,10 +26,10 @@ Du kan massinbjuda externa användare till en organisation från e-postadresser 
 
 1. Förbered .CSV-filen skapa en ny CSV-fil och namnge den invitations.csv. I det här exemplet sparas filen i C:\data och innehåller följande information:
   
-  Namn                  |  InvitedUserEmailAddress
-  --------------------- | --------------------------
-  Gmail B2B-inbjuden     | b2binvitee@gmail.com
-  Outlook B2B-inbjuden   | b2binvitee@outlook.com
+   Namn                  |  InvitedUserEmailAddress
+   --------------------- | --------------------------
+   Gmail B2B-inbjuden     | b2binvitee@gmail.com
+   Outlook B2B-inbjuden   | b2binvitee@outlook.com
 
 
 2. Hämta den senaste Azure AD PowerShell För att använda de nya cmdletarna så måste du installera den uppdaterade Azure AD PowerShell-modulen som du kan hämta från [Powershell-modulens versionssida](https://www.powershellgallery.com/packages/AzureADPreview)
@@ -42,12 +43,12 @@ Du kan massinbjuda externa användare till en organisation från e-postadresser 
 
 4. Kör PowerShell-cmdleten
 
-  ```powershell
-  $invitations = import-csv C:\data\invitations.csv
-  $messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
-  $messageInfo.customizedMessageBody = "Hey there! Check this out. I created an invitation through PowerShell"
-  foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InvitedUserDisplayName $email.Name -InviteRedirectUrl https://wingtiptoysonline-dev-ed.my.salesforce.com -InvitedUserMessageInfo $messageInfo -SendInvitationMessage $true}
-  ```
+   ```powershell
+   $invitations = import-csv C:\data\invitations.csv
+   $messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
+   $messageInfo.customizedMessageBody = "Hey there! Check this out. I created an invitation through PowerShell"
+   foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InvitedUserDisplayName $email.Name -InviteRedirectUrl https://wingtiptoysonline-dev-ed.my.salesforce.com -InvitedUserMessageInfo $messageInfo -SendInvitationMessage $true}
+   ```
 
 Den här cmdleten skickar en inbjudan till e-postadresserna i invitations.csv. Ytterligare funktioner för den här cmdleten inkluderar:
 - Anpassad text i e-postmeddelandet
@@ -60,170 +61,170 @@ Här visar vi hur du anropar inbjudan API:et i appspecifikt läge för att hämt
 ```csharp
 namespace SampleInviteApp
 {
-    using System;
-    using System.Linq;
-    using System.Net.Http;
-    using System.Net.Http.Headers;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using Newtonsoft.Json;
-    class Program
-    {
-        /// <summary>
-        /// Microsoft graph resource.
-        /// </summary>
-        static readonly string GraphResource = "https://graph.microsoft.com";
- 
-        /// <summary>
-        /// Microsoft graph invite endpoint.
-        /// </summary>
-        static readonly string InviteEndPoint = "https://graph.microsoft.com/v1.0/invitations";
- 
-        /// <summary>
-        ///  Authentication endpoint to get token.
-        /// </summary>
-        static readonly string EstsLoginEndpoint = "https://login.microsoftonline.com";
- 
-        /// <summary>
-        /// This is the tenantid of the tenant you want to invite users to.
-        /// </summary>
-        private static readonly string TenantID = "";
- 
-        /// <summary>
-        /// This is the application id of the application that is registered in the above tenant.
-        /// The required scopes are available in the below link.
-        /// https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/invitation_post
-        /// </summary>
-        private static readonly string TestAppClientId = "";
- 
-        /// <summary>
-        /// Client secret of the application.
-        /// </summary>
-        private static readonly string TestAppClientSecret = @"";
- 
-        /// <summary>
-        /// This is the email address of the user you want to invite.
-        /// </summary>
-        private static readonly string InvitedUserEmailAddress = @"";
- 
-        /// <summary>
-        /// This is the display name of the user you want to invite.
-        /// </summary>
-        private static readonly string InvitedUserDisplayName = @"";
- 
-        /// <summary>
-        /// Main method.
-        /// </summary>
-        /// <param name="args">Optional arguments</param>
-        static void Main(string[] args)
-        {
-            Invitation invitation = CreateInvitation();
-            SendInvitation(invitation);
-        }
- 
-        /// <summary>
-        /// Create the invitation object.
-        /// </summary>
-        /// <returns>Returns the invitation object.</returns>
-        private static Invitation CreateInvitation()
-        {
-            // Set the invitation object.
-            Invitation invitation = new Invitation();
-            invitation.InvitedUserDisplayName = InvitedUserDisplayName;
-            invitation.InvitedUserEmailAddress = InvitedUserEmailAddress;
-            invitation.InviteRedirectUrl = "https://www.microsoft.com";
-            invitation.SendInvitationMessage = true;
-            return invitation;
-        }
- 
-        /// <summary>
-        /// Send the guest user invite request.
-        /// </summary>
-        /// <param name="invitation">Invitation object.</param>
-        private static void SendInvitation(Invitation invitation)
-        {
-            string accessToken = GetAccessToken();
- 
-            HttpClient httpClient = GetHttpClient(accessToken);
- 
-            // Make the invite call. 
-            HttpContent content = new StringContent(JsonConvert.SerializeObject(invitation));
-            content.Headers.Add("ContentType", "application/json");
-            var postResponse = httpClient.PostAsync(InviteEndPoint, content).Result;
-            string serverResponse = postResponse.Content.ReadAsStringAsync().Result;
-            Console.WriteLine(serverResponse);
-        }
- 
-        /// <summary>
-        /// Get the HTTP client.
-        /// </summary>
-        /// <param name="accessToken">Access token</param>
-        /// <returns>Returns the Http Client.</returns>
-        private static HttpClient GetHttpClient(string accessToken)
-        {
-            // setup http client.
-            HttpClient httpClient = new HttpClient();
-            httpClient.Timeout = TimeSpan.FromSeconds(300);
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-            httpClient.DefaultRequestHeaders.Add("client-request-id", Guid.NewGuid().ToString());
-            Console.WriteLine(
-                "CorrelationID for the request: {0}",
-                httpClient.DefaultRequestHeaders.GetValues("client-request-id").Single());
-            return httpClient;
-        }
- 
-        /// <summary>
-        /// Get the access token for our application to talk to microsoft graph.
-        /// </summary>
-        /// <returns>Returns the access token for our application to talk to microsoft graph.</returns>
-        private static string GetAccessToken()
-        {
-            string accessToken = null;
- 
-            // Get the access token for our application to talk to microsoft graph.
-            try
-            {
-                AuthenticationContext testAuthContext =
-                    new AuthenticationContext(string.Format("{0}/{1}", EstsLoginEndpoint, TenantID));
-                AuthenticationResult testAuthResult = testAuthContext.AcquireTokenAsync(
-                    GraphResource,
-                    new ClientCredential(TestAppClientId, TestAppClientSecret)).Result;
-                accessToken = testAuthResult.AccessToken;
-            }
-            catch (AdalException ex)
-            {
-                Console.WriteLine("An exception was thrown while fetching the token: {0}.", ex);
-                throw;
-            }
- 
-            return accessToken;
-        }
- 
-        /// <summary>
-        /// Invitation class.
-        /// </summary>
-        public class Invitation
-        {
-            /// <summary>
-            /// Gets or sets display name.
-            /// </summary>
-            public string InvitedUserDisplayName { get; set; }
- 
-            /// <summary>
-            /// Gets or sets display name.
-            /// </summary>
-            public string InvitedUserEmailAddress { get; set; }
- 
-            /// <summary>
-            /// Gets or sets a value indicating whether Invitation Manager should send the email to InvitedUser.
-            /// </summary>
-            public bool SendInvitationMessage { get; set; }
- 
-            /// <summary>
-            /// Gets or sets invitation redirect URL
-            /// </summary>
-            public string InviteRedirectUrl { get; set; }
-        }
-    }
+    using System;
+    using System.Linq;
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Newtonsoft.Json;
+    class Program
+    {
+        /// <summary>
+        /// Microsoft graph resource.
+        /// </summary>
+        static readonly string GraphResource = "https://graph.microsoft.com";
+ 
+        /// <summary>
+        /// Microsoft graph invite endpoint.
+        /// </summary>
+        static readonly string InviteEndPoint = "https://graph.microsoft.com/v1.0/invitations";
+ 
+        /// <summary>
+        ///  Authentication endpoint to get token.
+        /// </summary>
+        static readonly string EstsLoginEndpoint = "https://login.microsoftonline.com";
+ 
+        /// <summary>
+        /// This is the tenantid of the tenant you want to invite users to.
+        /// </summary>
+        private static readonly string TenantID = "";
+ 
+        /// <summary>
+        /// This is the application id of the application that is registered in the above tenant.
+        /// The required scopes are available in the below link.
+        /// https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/invitation_post
+        /// </summary>
+        private static readonly string TestAppClientId = "";
+ 
+        /// <summary>
+        /// Client secret of the application.
+        /// </summary>
+        private static readonly string TestAppClientSecret = @"";
+ 
+        /// <summary>
+        /// This is the email address of the user you want to invite.
+        /// </summary>
+        private static readonly string InvitedUserEmailAddress = @"";
+ 
+        /// <summary>
+        /// This is the display name of the user you want to invite.
+        /// </summary>
+        private static readonly string InvitedUserDisplayName = @"";
+ 
+        /// <summary>
+        /// Main method.
+        /// </summary>
+        /// <param name="args">Optional arguments</param>
+        static void Main(string[] args)
+        {
+            Invitation invitation = CreateInvitation();
+            SendInvitation(invitation);
+        }
+ 
+        /// <summary>
+        /// Create the invitation object.
+        /// </summary>
+        /// <returns>Returns the invitation object.</returns>
+        private static Invitation CreateInvitation()
+        {
+            // Set the invitation object.
+            Invitation invitation = new Invitation();
+            invitation.InvitedUserDisplayName = InvitedUserDisplayName;
+            invitation.InvitedUserEmailAddress = InvitedUserEmailAddress;
+            invitation.InviteRedirectUrl = "https://www.microsoft.com";
+            invitation.SendInvitationMessage = true;
+            return invitation;
+        }
+ 
+        /// <summary>
+        /// Send the guest user invite request.
+        /// </summary>
+        /// <param name="invitation">Invitation object.</param>
+        private static void SendInvitation(Invitation invitation)
+        {
+            string accessToken = GetAccessToken();
+ 
+            HttpClient httpClient = GetHttpClient(accessToken);
+ 
+            // Make the invite call. 
+            HttpContent content = new StringContent(JsonConvert.SerializeObject(invitation));
+            content.Headers.Add("ContentType", "application/json");
+            var postResponse = httpClient.PostAsync(InviteEndPoint, content).Result;
+            string serverResponse = postResponse.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(serverResponse);
+        }
+ 
+        /// <summary>
+        /// Get the HTTP client.
+        /// </summary>
+        /// <param name="accessToken">Access token</param>
+        /// <returns>Returns the Http Client.</returns>
+        private static HttpClient GetHttpClient(string accessToken)
+        {
+            // setup http client.
+            HttpClient httpClient = new HttpClient();
+            httpClient.Timeout = TimeSpan.FromSeconds(300);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            httpClient.DefaultRequestHeaders.Add("client-request-id", Guid.NewGuid().ToString());
+            Console.WriteLine(
+                "CorrelationID for the request: {0}",
+                httpClient.DefaultRequestHeaders.GetValues("client-request-id").Single());
+            return httpClient;
+        }
+ 
+        /// <summary>
+        /// Get the access token for our application to talk to microsoft graph.
+        /// </summary>
+        /// <returns>Returns the access token for our application to talk to microsoft graph.</returns>
+        private static string GetAccessToken()
+        {
+            string accessToken = null;
+ 
+            // Get the access token for our application to talk to microsoft graph.
+            try
+            {
+                AuthenticationContext testAuthContext =
+                    new AuthenticationContext(string.Format("{0}/{1}", EstsLoginEndpoint, TenantID));
+                AuthenticationResult testAuthResult = testAuthContext.AcquireTokenAsync(
+                    GraphResource,
+                    new ClientCredential(TestAppClientId, TestAppClientSecret)).Result;
+                accessToken = testAuthResult.AccessToken;
+            }
+            catch (AdalException ex)
+            {
+                Console.WriteLine("An exception was thrown while fetching the token: {0}.", ex);
+                throw;
+            }
+ 
+            return accessToken;
+        }
+ 
+        /// <summary>
+        /// Invitation class.
+        /// </summary>
+        public class Invitation
+        {
+            /// <summary>
+            /// Gets or sets display name.
+            /// </summary>
+            public string InvitedUserDisplayName { get; set; }
+ 
+            /// <summary>
+            /// Gets or sets display name.
+            /// </summary>
+            public string InvitedUserEmailAddress { get; set; }
+ 
+            /// <summary>
+            /// Gets or sets a value indicating whether Invitation Manager should send the email to InvitedUser.
+            /// </summary>
+            public bool SendInvitationMessage { get; set; }
+ 
+            /// <summary>
+            /// Gets or sets invitation redirect URL
+            /// </summary>
+            public string InviteRedirectUrl { get; set; }
+        }
+    }
 }
 ```
 

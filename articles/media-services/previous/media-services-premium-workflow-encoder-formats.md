@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: a24448507fa16a48ab3522c3307261d989d773ee
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: MT
+ms.openlocfilehash: 9c507bf1526bbee78d519362fc51453803820d57
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895032"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108400"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Media Encoder Premium Workflow format och -codec
 
@@ -26,8 +26,6 @@ ms.locfileid: "55895032"
 > Premium-kodare frågor kan e- mepd@microsoft.com.
 > 
 > Media Encoder Premium Workflow mediebearbetare som beskrivs i det här avsnittet är inte tillgänglig i Kina. 
-> 
-> 
 
 Det här dokumentet innehåller en lista över inkommande och utgående filformat och codec-enheter som stöds av den offentliga förhandsversionen av den **Media Encoder Premium Workflow** kodare.
 

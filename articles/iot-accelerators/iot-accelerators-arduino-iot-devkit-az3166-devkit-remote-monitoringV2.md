@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: 0f444a4ce41a700af4c55795bca95dbbf95003a4
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 3551d088c1d02715bf9ace09d7eb0048bc10111e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750029"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105258"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Anslut en enhet med IoT DevKit till lösningsacceleratorn för fjärrövervakning
 
@@ -40,7 +40,7 @@ För att slutföra stegen i den här självstudien måste du först göra följa
 
 1. Hitta **fjärrövervakning** och klicka på **öppna exemplet**. En ny VS Code-fönstret öppnas med projektmappen:
 
-  ![IoT Workbench, Välj exempel för fjärrövervakning](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-example.png)
+   ![IoT Workbench, Välj exempel för fjärrövervakning](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-example.png)
 
 ## <a name="configure-the-device"></a>Konfigurera enheten
 
@@ -99,11 +99,11 @@ Du kan ändra färg på en DevKit-led: ar med den **LedColor** metod:
 
 1. Konfigurera jobb med hjälp av följande värden och klicka på **tillämpa**:
 
-    * Välj jobb: **Metoden Kör**
-    * Metodnamn: **LedColor**
-    * Jobbnamnet: **ChangeLedColor**
+   * Välj jobb: **Metoden Kör**
+   * Metodnamn: **LedColor**
+   * Jobbnamnet: **ChangeLedColor**
 
-    ![Jobbinställningar](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
+     ![Jobbinställningar](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-change-color.png)
 
 1. Efter några sekunder ändras färgen på RGB-LED (under knappen A) på din DevKit
 

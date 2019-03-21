@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2018
-ms.openlocfilehash: 830a7ef1f25ea52959baf992274b5f7711b646b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f48c3c9691170df6d460bfe9a6da0e02e4be32c3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165418"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077708"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>Ladda ned och extrahera Azure Stack Development Kit (ASDK)
 När du har säkerställt att värddatorn development kit uppfyller de grundläggande kraven för att installera ASDK, är nästa steg att ladda ned och extrahera ASDK distributionspaketet för att få Cloudbuilder.vhdx.
@@ -29,15 +29,15 @@ När du har säkerställt att värddatorn development kit uppfyller de grundläg
 ## <a name="download-the-asdk"></a>Ladda ned ASDK
 1. Kontrollera att datorn uppfyller följande krav innan du startar hämtning:
 
-  - Datorn måste ha minst 60 GB ledigt utrymme på fyra separata, identiska logiska hårddiskar dessutom att operativsystemdisken.
-  - [.NET framework 4.6 (eller en senare version)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) måste vara installerad.
+   - Datorn måste ha minst 60 GB ledigt utrymme på fyra separata, identiska logiska hårddiskar dessutom att operativsystemdisken.
+   - [.NET framework 4.6 (eller en senare version)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) måste vara installerad.
 
 2. [Gå till sidan komma igång](https://azure.microsoft.com/overview/azure-stack/try/?v=try) där du kan hämta Azure Stack Development Kit, ange din information och klicka sedan på **skicka**.
 3. Ladda ned och kör den [distribution av förutsättningar för Azure Stack Development Kit](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409) kravkontrollen skript. Det här skriptet för fristående går igenom vilka förutsättningar kontroller som utförs av installationsprogrammet för Azure Stack Development Kit. Den gör det möjligt att bekräfta att du uppfyller kraven på maskinvara och programvara innan du laddar ned större paketet för Azure Stack Development Kit.
 4. Under **ladda ned programvaran**, klickar du på **Azure Stack Development Kit**.
 
-  > [!NOTE]
-  > ASDK download (AzureStackDevelopmentKit.exe) är cirka 10GB.
+   > [!NOTE]
+   > ASDK download (AzureStackDevelopmentKit.exe) är cirka 10GB.
 
 ## <a name="extract-the-asdk"></a>Extrahera ASDK
 1. När nedladdningen är klar klickar du på **kör** att starta ASDK Self-Extractor (AzureStackDevelopmentKit.exe).

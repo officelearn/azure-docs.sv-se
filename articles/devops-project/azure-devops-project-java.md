@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4f3f82f329e3ac8774978f6116629a4928c142ad
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.openlocfilehash: 38be92a006ae6dbb7a550d2d91d886df820fb883
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261334"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093573"
 ---
 # <a name="create-a-cicd-pipeline-for-java-with-azure-devops-projects"></a>Skapa en CI/CD-pipeline för Java med Azure DevOps Projects
 
@@ -65,7 +65,7 @@ Java-exemplet innehåller ett val av flera programramverk.
 
     ![Instrumentpanelsvy](_img/azure-devops-project-java/dashboardnopreview.png) 
     
- DevOps Projects konfigurerade automatiskt en CI-version och versionsutlösare.  Nu är du redo att samarbeta med ett team på en Java-app med en CI/CD-process som automatiskt distribuerar ditt senaste arbete till din webbplats.
+   DevOps Projects konfigurerade automatiskt en CI-version och versionsutlösare.  Nu är du redo att samarbeta med ett team på en Java-app med en CI/CD-process som automatiskt distribuerar ditt senaste arbete till din webbplats.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Genomför ändringar i koden och kör CI/CD
 
@@ -104,7 +104,7 @@ Versionen utför olika uppgifter som att hämta källor från Git-lagringsplatse
 
 1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
 
-1. Ändra på din bygg-pipeline till något mer beskrivande, välj **Spara och köa** och sedan **Spara**.
+1. Ändra på din bygg-pipeline till något mer beskrivande och välj alternativet för att **spara och placera i kö**. Välj sedan **Spara**.
 
 1. Under ditt bygg-pipelinenamn väljer du **Historik**.   
 I fönsterrutan **Historik** ser du en spårningslogg över de senaste ändringarna för versionen.  Azure Pipelines spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
@@ -130,7 +130,7 @@ Den här versionspipelinen har en aktiverad CD-utlösare som kör en distributio
 1. Till vänster väljer du **Uppgifter**.   
 Uppgifter är de aktiviteter som distributionsprocessen utför. I det här exemplet skapades en uppgift för att distribuera till Azure App-tjänsten.
 
-1. Till höger väljer du **Visa versioner**.  
+1. Till höger väljer du alternativet för att **visa versioner**.  
 Den här vyn visar en historik över versioner.
 
 1. Välj ellipsen (...) bredvid en av versionerna och välj **Öppna**.  

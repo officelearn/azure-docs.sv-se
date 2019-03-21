@@ -4,17 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: aa58890f74c7c667189fa10c009769de043227c4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f00da12519f21410f773afb96a5e9a83c56166d9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457841"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58051999"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Vanliga fel vid migrering från klassiskt läge till Azure Resource Manager-läge
 I den här artikeln visas vanliga fel och åtgärder under migrering av IaaS-resurser från Azures klassiska distributionsmodell till Azure Resource Manager-stacken.
 
 ## <a name="list-of-errors"></a>Lista över fel
+
 | Felsträng | Åtgärd |
 | --- | --- |
 | Internt serverfel |I vissa fall är det här ett tillfälligt fel som försvinner vid ett nytt försök. Om felet kvarstår kan du [kontakta Azure-supporten](../articles/azure-supportability/how-to-create-azure-support-request.md) så att plattformsloggarna kan undersökas. <br><br> **Obs!** När incidenten spåras av supportteamet, försök inte någon självhantering minskning eftersom det kan få oönskade konsekvenser för din miljö. |

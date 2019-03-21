@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: 88bb87dea4508ba41ee97a127fc60c531f2bfcab
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 5b76d7393e78b464227e93a4c7c8a3f22ccc169e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958361"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092539"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Snabbstart: Skapa en grafdatabas i Azure Cosmos DB med hjälp av Python och Azure-portalen
 
@@ -222,17 +222,17 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
 12. Nu kan vi koppla ihop Rakesh och Ashley. Se till att **ashley** är markerat i listan **Resultat** och klicka sedan på redigeringsknappen bredvid **Mål** nere till höger. Du kan behöva bredda fönstret för att se området **Egenskaper**.
 
-   ![Ändra mål för ett hörn i en graf](./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Ändra mål för ett hörn i en graf](./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. I rutan **Mål** skriver du *rakesh* och i rutan **Edge label**  (Kantetikett) skriver du *känner* och klickar sedan på kryssmarkeringen.
 
-   ![Lägg till en anslutning mellan Ashley och Rakesh i datautforskaren](./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png)
+    ![Lägg till en anslutning mellan Ashley och Rakesh i datautforskaren](./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png)
 
 14. Markera nu **rakesh** i resultatlistan och se att Ashley och Rakesh är anslutna. 
 
-   ![Två hörn anslutna i datautforskaren](./media/create-graph-python/azure-cosmosdb-graph-explorer.png)
+    ![Två hörn anslutna i datautforskaren](./media/create-graph-python/azure-cosmosdb-graph-explorer.png)
 
-   Då är delen om att skapa resurser slutförd i den här självstudien. Du kan fortsätta att lägga till hörn i diagrammet, ändra befintliga hörn eller ändra frågorna. Vi ska nu titta på de mått som Azure Cosmos DB tillhandahåller, och sedan ska vi rensa resurserna. 
+    Då är delen om att skapa resurser slutförd i den här självstudien. Du kan fortsätta att lägga till hörn i diagrammet, ändra befintliga hörn eller ändra frågorna. Vi ska nu titta på de mått som Azure Cosmos DB tillhandahåller, och sedan ska vi rensa resurserna. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 

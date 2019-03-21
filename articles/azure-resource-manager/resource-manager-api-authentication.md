@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: a81c1d20e0f7b58c132a5ece04f05d6740c2308f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 138367eb7eb0d4be2e0a7bec57d1bce551a5e829
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267001"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107060"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Använda Resource Manager-autentisering-API för att få åtkomst till prenumerationer
 
@@ -234,7 +234,8 @@ Du bara har en åtkomsttoken för Azure Resource Manager - du behöver en ny åt
 <a id="app-azure-ad-graph" />
 
 ### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>Hämta app-begränsad åtkomsttoken för Azure AD Graph API
-För att autentisera din app och hämta en token till Azure AD Graph API, utfärda en Tokenbegäran för klientens autentiseringsuppgifter bevilja OAuth2.0-flöde till Azure AD-token-slutpunkten (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
+
+För att autentisera din app och hämta en token till Azure AD Graph API, utfärda en Tokenbegäran för klientens autentiseringsuppgifter bevilja OAuth2.0-flöde till Azure AD-token-slutpunkten (**https:\//login.microsoftonline.com/{directory_domain_name}/OAuth2/Token** ).
 
 Den [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) metod i ASP.net MVC-exempelprogrammet hämtar en app-begränsad åtkomst-token för Graph API med Active Directory Authentication Library för .NET.
 

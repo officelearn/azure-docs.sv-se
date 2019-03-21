@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 5d7b798c66ec6512c8badcccbf36d6f2f0d50e3b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2401c74b55df78014a2f642b5166b4cf0017d87d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882955"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076215"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Prestandajusteringsvägledning för Storm på HDInsight och Azure Data Lake Storage Gen2
 
@@ -23,7 +23,7 @@ Förstå de faktorer som ska beaktas när du finjustera prestanda för en Azure 
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Ett konto med Azure Data Lake Storage Gen2**. Anvisningar för hur du skapar ett finns i [snabbstarten: Skapa en lagrings-konto för analytiska](data-lake-storage-quickstart-create-account.md).
-* **Azure HDInsight-kluster** med åtkomst till ett Data Lake Storage Gen2-konto. Se [Använd Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Kontrollera att du aktivera Fjärrskrivbord för klustret.
+* **Azure HDInsight-kluster** med åtkomst till ett Data Lake Storage Gen2-konto. Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2). Kontrollera att du aktivera Fjärrskrivbord för klustret.
 * **Köra ett Storm-kluster på Data Lake Storage Gen2**. Mer information finns i [Storm på HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
 * **Riktlinjer för Data Lake Storage Gen2 för prestandajustering**.  Allmänna prestanda begrepp, se [Data Lake Storage Gen2 justering Prestandavägledning](data-lake-storage-performance-tuning-guidance.md).   
 
@@ -78,7 +78,7 @@ Du kan ändra följande inställningar för att justera kanal.
 
 - **Max spout väntande: topology.max.spout.pending**. Den här inställningen anger antalet tupplar i kan vara flygning (har ännu inte bekräftas på alla noder i topologin) per kanal tråd när som helst.
 
- En bra beräkning göra är att beräkna storleken på var och en av dina tupplar. Ta sedan reda på hur mycket minne en kanal trådar har. Den totala mängden minne som allokerats till en tråd, dividerat med det här värdet bör ge dig den övre gränsen för högsta spout väntar på parametern.
+  En bra beräkning göra är att beräkna storleken på var och en av dina tupplar. Ta sedan reda på hur mycket minne en kanal trådar har. Den totala mängden minne som allokerats till en tråd, dividerat med det här värdet bör ge dig den övre gränsen för högsta spout väntar på parametern.
 
 Standard Data Lake Storage Gen2 Storm bult har en storlek synkronisering principparametern (fileBufferSize) som kan användas för att finjustera den här parametern.
 

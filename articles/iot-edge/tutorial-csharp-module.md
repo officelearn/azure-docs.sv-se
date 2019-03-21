@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 21f59ad03f2ff91b3c33675b0994b7f565bf5031
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: f4afd83e31cf724e734b4e86045f8404e65753c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563209"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088034"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Självstudie: Utveckla en C# IoT Edge-modul och distribuera till den simulerade enheten
 
@@ -34,7 +34,7 @@ IoT Edge-modulen du skapar i den här självstudien filtrerar temperaturdata som
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 En Azure IoT Edge-enhet:
 
@@ -99,7 +99,7 @@ Skapa en C#-lösningsmall som du kan anpassa med din egen kod.
    | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen eller acceptera standardnamnet **EdgeSolution**. |
    | Välj modulmall | Välj **C#-modul**. |
    | Ange ett modulnamn | Ge modulen namnet **CSharpModule**. |
-   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen fylls i från det namn du angav i föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. <br><br>Den slutliga avbildningslagringsplatsen ser ut så här: \<registry name\>.azurecr.io/csharpmodule. |
+   | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen fylls i baserat på det namn du angav i föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. <br><br>Den slutliga avbildningslagringsplatsen ser ut så här: \<registry name\>.azurecr.io/csharpmodule. |
  
    ![Ange lagringsplatsen för Docker-avbildningen](./media/tutorial-csharp-module/repository.png)
 
@@ -277,15 +277,15 @@ Miljöfilen lagrar autentiseringsuppgifterna för containerregistret och delar d
 
 10. Lägg till **CSharpModule**-modultvillingen till distributionsmanifestet. Infoga följande JSON-innehåll längst ned i avsnittet **modulesContent** efter **$edgeHub**-modultvillingen: 
 
-   ```json
+    ```json
        "CSharpModule": {
            "properties.desired":{
                "TemperatureThreshold":25
            }
        }
-   ```
+    ```
 
-   ![Lägga till modultvilling till distributionsmall](./media/tutorial-csharp-module/module-twin.png)
+    ![Lägga till modultvilling till distributionsmall](./media/tutorial-csharp-module/module-twin.png)
 
 11. Spara filen deployment.template.json.
 
@@ -309,7 +309,7 @@ Den fullständiga adressen med tagg för containeravbildningen finns i den integ
 
 >[!TIP]
 >Om du får ett fel när du försöker skapa och överföra modulen gör du följande kontroller:
->* Loggade du in på Docker i Visual Studio Code med autentiseringsuppgifter från ditt containerregister? Dessa autentiseringsuppgifter skiljer sig från dem som du använder för att logga in på Azure-portalen.
+>* Loggade du in på Docker i Visual Studio Code med autentiseringsuppgifter från ditt containerregister? Dessa autentiseringsuppgifter är inte samma som uppgifterna du använder för att logga in i Azure Portal.
 >* Stämmer containerlagringsplatsen? Öppna **moduler** > **cmodule** > **module.json** och leta upp fältet **lagringsplats**. Avbildningslagringsplatsen ska se ut så här: **\<registernamn\>.azurecr.io/csharpmodule**. 
 >* Bygger du samma typ av containrar som utvecklingsdatorn kör? Visual Studio Code använder som standard Linux amd64-containrar. Om din utvecklingsdator kör Windows-containrar eller Linux arm32v7-containrar uppdaterar du plattformen i det blå statusfältet längst ned i VS Code-fönstret så att den matchar din containerplattform.
 

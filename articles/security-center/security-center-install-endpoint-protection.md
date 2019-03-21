@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: c2cb4c2f1154be56b7237a6cb12c87fcc3e00467
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6d9c5b080c491d3a6f35f591c69d4c39989b22a8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455878"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099805"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Hantera problem med endpoint protection med Azure Security Center
 Azure Security Center övervakar statusen för skydd mot skadlig kod och rapporterar detta under Endpoint protection problem-bladet. Security Center visar problem, till exempel identifierade hot och otillräckligt skydd, vilket kan göra att dina virtuella datorer (VM) och datorer sårbar för program mot skadlig kod hot. Med hjälp av informationen under **problem med Endpoint protection**, du kan identifiera en plan för att åtgärda eventuella problem som identifieras.
@@ -30,15 +30,15 @@ Security Center-rapporter på följande problem med endpoint protection:
 - Slutpunktsskydd har inte installerats på Azure-datorer – en stöds program mot skadlig kod installeras inte på dessa icke-Azure-datorer.
 - Endpoint protection health:
 
-   - Inaktuell signatur – en lösning för program mot skadlig kod installeras på dessa virtuella datorer och datorer, men lösningen har inte de senaste signaturerna för program mot skadlig kod.
-   - Inget realtidsskydd – en lösning för program mot skadlig kod installeras på dessa virtuella datorer och datorer, men den inte är konfigurerad för skydd i realtid.   Tjänsten kan ha inaktiverats eller Security Center kan inte hämta statusen eftersom lösningen inte stöds. Se [partnerintegration](security-center-partner-integration.md) för en lista med lösningar som stöds.
-   - Rapporterar inte – en lösning för program mot skadlig kod har installerats men inte rapporterar data.
-   - Okänd – en lösning för program mot skadlig kod har installerats men dess status är okänd eller rapporterar ett okänt fel.
+  - Inaktuell signatur – en lösning för program mot skadlig kod installeras på dessa virtuella datorer och datorer, men lösningen har inte de senaste signaturerna för program mot skadlig kod.
+  - Inget realtidsskydd – en lösning för program mot skadlig kod installeras på dessa virtuella datorer och datorer, men den inte är konfigurerad för skydd i realtid.   Tjänsten kan ha inaktiverats eller Security Center kan inte hämta statusen eftersom lösningen inte stöds. Se [partnerintegration](security-center-partner-integration.md) för en lista med lösningar som stöds.
+  - Rapporterar inte – en lösning för program mot skadlig kod har installerats men inte rapporterar data.
+  - Okänd – en lösning för program mot skadlig kod har installerats men dess status är okänd eller rapporterar ett okänt fel.
 
-   > [!NOTE]
-   > Se [integrera säkerhetslösningar](security-center-partner-integration.md#integrated-azure-security-solutions) en lista över säkerhetslösningar för endpoint protection integreras med Security Center.
-   >
-   >
+    > [!NOTE]
+    > Se [integrera säkerhetslösningar](security-center-partner-integration.md#integrated-azure-security-solutions) en lista över säkerhetslösningar för endpoint protection integreras med Security Center.
+    >
+    >
 
 ## <a name="implement-the-recommendation"></a>Implementera rekommendationen
 Problem med endpoint protection presenteras som en rekommendation i Security Center.  Om din miljö är sårbar för program mot skadlig kod hot, den här rekommendationen visas under **rekommendationer** och under **Compute**. Se den **Endpoint protection utfärdar instrumentpanelen**, du måste följa beräkning arbetsflödet.

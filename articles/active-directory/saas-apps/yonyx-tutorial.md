@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d08b1f3889136fadee68b3aa95d879b0495bddb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fce7653770d0fb3134f266137e167125b9161865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198426"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097601"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Självstudier: Azure Active Directory-integrering med Yonyx interaktiva guider
 
@@ -174,8 +174,8 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Yonyx interaktiva guider om det inte finns ännu.
 
->[!NOTE]
->Om du vill skapa en användare manuellt kan du behöva kontakta supportteamet Yonyx interaktiva guider via <mailto:support@yonyx.com>. 
+> [!NOTE]
+> Om du vill skapa en användare manuellt kan du behöva kontakta supportteamet Yonyx interaktiva guider via <mailto:support@yonyx.com>. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
@@ -217,7 +217,7 @@ Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen]
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: quickstart
-ms.date: 12/4/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: e61975d81fd5920feb5fd47845c67d0aa5293ae6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 7a2c300e30050e7e46a2b2c724258539df85e410
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962019"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093430"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Snabbstart: Skapa en Azure DNS-zon och registrera med Azure CLI
 
@@ -38,20 +38,20 @@ az group create --name MyResourceGroup --location "East US"
 
 En DNS-zon skapas med hjälp av kommandot `az network dns zone create`. Om du vill se hjälpen för det här kommandot skriver du `az network dns zone create -h`.
 
-Exemplet nedan skapar en DNS-zon som heter *contoso.com* i resursgruppen med namnet *MyResourceGroup*. Använd exemplet när du vill skapa en DNS-zon, och ersätt värdena med dina egna.
+I följande exempel skapas en DNS-zon med namnet *contoso.xyz* i resursgruppen *MyResourceGroup*. Använd exemplet när du vill skapa en DNS-zon, och ersätt värdena med dina egna.
 
 ```azurecli
-az network dns zone create -g MyResourceGroup -n contoso.com
+az network dns zone create -g MyResourceGroup -n contoso.xyz
 ```
 
 ## <a name="create-a-dns-record"></a>Skapa en DNS-post
 
 Skapa en DNS-post genom att använda kommandot `az network dns record-set [record type] add-record`. Hjälp om A-poster finns i `azure network dns record-set A add-record -h`.
 
-I följande exempel skapas en post med det relativa namnet ”www” i resursgruppen ”MyResourceGroup” i DNS-zonen ”contoso.com”. Postuppsättningens fullständigt kvalificerade namn är ”www.contoso.com”. Postens typ är ”A”, IP-adressen är ”1.2.3.4” och en standard-TTL på 3600 sekunder (1 timme) används.
+I följande exempel skapas en post med det relativa namnet ”www” i DNS-zonen ”contoso.xyz” i resursgruppen ”MyResourceGroup”. Det fullständigt kvalificerade namnet på postuppsättningen är ”www.contoso.xyz”. Posttypen är ”A”, med IP-adress ”10.10.10.10” och en standard-TTL på 3 600 sekunder (1 timme).
 
 ```azurecli
-az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
+az network dns record-set a add-record -g MyResourceGroup -z contoso.xyz -n www -a 10.10.10.10
 ```
 
 ## <a name="view-records"></a>Visa poster
@@ -59,41 +59,43 @@ az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www 
 Om du vill visa en lista med DNS-poster i din zon kör du:
 
 ```azurecli
-az network dns record-set list -g MyResourceGroup -z contoso.com
+az network dns record-set list -g MyResourceGroup -z contoso.xyz
 ```
 
-## <a name="update-name-servers"></a>Uppdatera namnservrar
+## <a name="test-the-name-resolution"></a>Testa namnmatchningen
 
-När du är nöjd med konfigurationen av DNS-zonen och DNS-posterna måste du konfigurera ditt domännamn att använda Azure DNS-namnservrarna så att andra användare på Internet kan hitta dina DNS-poster.
+Nu när du har en DNS-testzon med en ”A”-testpost kan du testa namnmatchningen med ett verktyg som heter *nslookup*. 
 
-Namnservrarna för din zon anges av `az network dns zone show`-kommandot. Använd JSON-utdata (se följande exempel) om du vill se namnservernamnen.
+**Så här testar du DNS-namnmatchning:**
 
-```azurecli
-az network dns zone show -g MyResourceGroup -n contoso.com -o json
+1. Kör följande cmdlet för att hämta listan över namnservrarna för zonen:
 
-{
-  "etag": "00000003-0000-0000-b40d-0996b97ed101",
-  "id": "/subscriptions/a385a691-bd93-41b0-8084-8213ebc5bff7/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com",
-  "location": "global",
-  "maxNumberOfRecordSets": 5000,
-  "name": "contoso.com",
-  "nameServers": [
-    "ns1-01.azure-dns.com.",
-    "ns2-01.azure-dns.net.",
-    "ns3-01.azure-dns.org.",
-    "ns4-01.azure-dns.info."
-  ],
-  "numberOfRecordSets": 3,
-  "resourceGroup": "myresourcegroup",
-  "tags": {},
-  "type": "Microsoft.Network/dnszones"
-}
-```
+   ```azurecli
+   az network dns record-set ns show --resource-group MyResourceGroup --zone-name contoso.xyz --name @
+   ```
 
-Dessa namnservrar ska konfigureras med domännamnsregistratorn (där du köpte domännamnet). Registratorn erbjuder möjligheten att konfigurera namnservrar för domänen. Mer information finns i [Självstudie: Använda Azure DNS som värd för din domän](dns-delegate-domain-azure-dns.md#delegate-the-domain).
+1. Kopiera en av namnservernamnen från utdata från föregående steg.
+
+1. Öppna en kommandotolk och kör följande kommando:
+
+   ```
+   nslookup www.contoso.xyz <name server name>
+   ```
+
+   Exempel:
+
+   ```
+   nslookup www.contoso.xyz ns1-08.azure-dns.com.
+   ```
+
+   Du bör se något som liknar följande skärm:
+
+   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+
+Värdnamnet **www\.contoso.xyz** motsvarar **10.10.10.10**, precis som du har konfigurerat den. Resultatet verifierar att namnmatchningen fungerar korrekt.
 
 ## <a name="delete-all-resources"></a>Ta bort alla resurser
- 
+
 Du kan ta bort alla resurser som skapats i den här snabbstarten när de inte behövs längre genom att ta bort resursgruppen:
 
 ```azurecli

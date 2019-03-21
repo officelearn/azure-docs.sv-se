@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 8449462f144590e4fe7048366a21090c95a303cb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 49686e407b2d733c04bad31706c6c4f315bf28bf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455600"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008677"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrera befintliga databaser för att skala ut
 Enkelt hantera dina befintliga shardade utskalade-databaser som använder Azure SQL Database databaser (till exempel den [Elastic Database-klientbiblioteket](sql-database-elastic-database-client-library.md)). Först konvertera en befintlig uppsättning databaser som ska användas i [karthanteraren](sql-database-elastic-scale-shard-map-management.md). 
@@ -30,7 +30,7 @@ Att migrera en befintlig fragmenterade (sharded) databas:
 3. Förbered enskilda shards.  
 4. Lägga till avbildningar fragmentkartan.
 
-Dessa metoder kan implementeras med hjälp av antingen den [klientbiblioteket för .NET Framework](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), eller PowerShell-skript som finns på [Azure SQL DB - skript för Elastic Database-verktyg](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). I exemplen här används PowerShell-skript.
+Dessa metoder kan implementeras med hjälp av antingen den [klientbiblioteket för .NET Framework](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), eller PowerShell-skript som finns på [Azure SQL DB - skript för Elastic Database-verktyg](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). I exemplen här används PowerShell-skript.
 
 Läs mer om ShardMapManager [fragmentkarthantering](sql-database-elastic-scale-shard-map-management.md). En översikt över elastic database-verktyg finns i [översikt över Elastic Database-funktioner](sql-database-elastic-scale-introduction.md).
 

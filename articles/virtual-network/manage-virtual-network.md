@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: b4877f7904523782f1555f53a7bcb440871cc698
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 6e393bf9c08eaa656a1c9b2302cde937a87ccc9a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888329"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088510"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Skapa, ändra eller ta bort ett virtuellt nätverk
 
@@ -54,16 +54,16 @@ Utför följande uppgifter innan du slutför stegen i ett avsnitt i den här art
      >
      >
 
-    - **Namn på undernät**: Namnet på undernätet måste vara unikt inom det virtuella nätverket. Du kan inte ändra namnet på undernätet efter undernätet har skapats. Portalen måste du definiera ett undernät när du skapar ett virtuellt nätverk, även om ett virtuellt nätverk inte har inga undernät. Du kan definiera endast en undernät när du skapar ett virtuellt nätverk i portalen. Du kan lägga till flera undernät för det virtuella nätverket senare, när det virtuella nätverket har skapats. Om du vill lägga till ett undernät till ett virtuellt nätverk, se [hantera undernät](virtual-network-manage-subnet.md). Du kan skapa ett virtuellt nätverk som har flera undernät med hjälp av Azure CLI eller PowerShell.
+     - **Namn på undernät**: Namnet på undernätet måste vara unikt inom det virtuella nätverket. Du kan inte ändra namnet på undernätet efter undernätet har skapats. Portalen måste du definiera ett undernät när du skapar ett virtuellt nätverk, även om ett virtuellt nätverk inte har inga undernät. Du kan definiera endast en undernät när du skapar ett virtuellt nätverk i portalen. Du kan lägga till flera undernät för det virtuella nätverket senare, när det virtuella nätverket har skapats. Om du vill lägga till ett undernät till ett virtuellt nätverk, se [hantera undernät](virtual-network-manage-subnet.md). Du kan skapa ett virtuellt nätverk som har flera undernät med hjälp av Azure CLI eller PowerShell.
 
-      >[!TIP]
-      >Ibland kan skapa administratörer olika undernät för att filtrera eller har kontroll över routning av nätverkstrafik mellan undernät. Innan du definierar undernät du fundera över hur du filtrerar och dirigera trafik mellan dina undernät. Mer information om hur du filtrerar trafik mellan undernät finns [Nätverkssäkerhetsgrupper](security-overview.md). Azure automatiskt dirigerar trafik mellan undernät, men du kan åsidosätta de standardvägar som Azure. Läs mer om Azures standard undernät-trafikdirigering i [routningsöversikten](virtual-networks-udr-overview.md).
-      >
+       >[!TIP]
+       >Ibland kan skapa administratörer olika undernät för att filtrera eller har kontroll över routning av nätverkstrafik mellan undernät. Innan du definierar undernät du fundera över hur du filtrerar och dirigera trafik mellan dina undernät. Mer information om hur du filtrerar trafik mellan undernät finns [Nätverkssäkerhetsgrupper](security-overview.md). Azure automatiskt dirigerar trafik mellan undernät, men du kan åsidosätta de standardvägar som Azure. Läs mer om Azures standard undernät-trafikdirigering i [routningsöversikten](virtual-networks-udr-overview.md).
+       >
 
-    - **Adressintervall för undernätet**: Intervallet måste ligga inom det adressutrymme som du angav för det virtuella nätverket. Den minsta intervall som du kan ange är /29, vilket möjliggör åtta IP-adresser för undernätet. Azure reserverar de första och sista adressen i varje undernät för protokollöverensstämmelse. Tre ytterligare adresser är reserverade för användning av Azure-tjänsten. Därför har ett virtuellt nätverk med ett adressintervall för undernätet som/29 endast tre användbara IP-adresser. Om du planerar att ansluta ett virtuellt nätverk till en VPN-gateway, måste du skapa ett gateway-undernät. Läs mer om [specifik adressintervallet överväganden för gateway-undernät](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Du kan ändra adressintervallet när undernätet har skapats kan vissa villkor. Läs hur du ändrar ett adressintervall för undernätet i [hantera undernät](virtual-network-manage-subnet.md).
-    - **Prenumeration**: Välj en [prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Du kan inte använda samma virtuella nätverk i flera Azure-prenumeration. Men du kan ansluta ett virtuellt nätverk i en prenumeration till virtuella nätverk i andra prenumerationer med [virtuell nätverkspeering](virtual-network-peering-overview.md). Alla Azure-resurser som du ansluter till det virtuella nätverket måste vara i samma prenumeration som det virtuella nätverket.
-    - **Resursgrupp**: Välj en befintlig [resursgrupp](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) eller skapa en ny. En Azure-resurs som du ansluter till det virtuella nätverket kan vara i samma resursgrupp som det virtuella nätverket eller i en annan resursgrupp.
-    - **Plats**: Välj en Azure [plats](https://azure.microsoft.com/regions/), även kallad en region. Ett virtuellt nätverk kan vara i endast en Azure-plats. Dock kan du ansluta ett virtuellt nätverk på en plats till ett virtuellt nätverk på en annan plats med hjälp av en VPN-gateway. Alla Azure-resurser som du ansluter till det virtuella nätverket måste finnas på samma plats som det virtuella nätverket.
+     - **Adressintervall för undernätet**: Intervallet måste ligga inom det adressutrymme som du angav för det virtuella nätverket. Den minsta intervall som du kan ange är /29, vilket möjliggör åtta IP-adresser för undernätet. Azure reserverar de första och sista adressen i varje undernät för protokollöverensstämmelse. Tre ytterligare adresser är reserverade för användning av Azure-tjänsten. Därför har ett virtuellt nätverk med ett adressintervall för undernätet som/29 endast tre användbara IP-adresser. Om du planerar att ansluta ett virtuellt nätverk till en VPN-gateway, måste du skapa ett gateway-undernät. Läs mer om [specifik adressintervallet överväganden för gateway-undernät](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Du kan ändra adressintervallet när undernätet har skapats kan vissa villkor. Läs hur du ändrar ett adressintervall för undernätet i [hantera undernät](virtual-network-manage-subnet.md).
+     - **Prenumeration**: Välj en [prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Du kan inte använda samma virtuella nätverk i flera Azure-prenumeration. Men du kan ansluta ett virtuellt nätverk i en prenumeration till virtuella nätverk i andra prenumerationer med [virtuell nätverkspeering](virtual-network-peering-overview.md). Alla Azure-resurser som du ansluter till det virtuella nätverket måste vara i samma prenumeration som det virtuella nätverket.
+     - **Resursgrupp**: Välj en befintlig [resursgrupp](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) eller skapa en ny. En Azure-resurs som du ansluter till det virtuella nätverket kan vara i samma resursgrupp som det virtuella nätverket eller i en annan resursgrupp.
+     - **Plats**: Välj en Azure [plats](https://azure.microsoft.com/regions/), även kallad en region. Ett virtuellt nätverk kan vara i endast en Azure-plats. Dock kan du ansluta ett virtuellt nätverk på en plats till ett virtuellt nätverk på en annan plats med hjälp av en VPN-gateway. Alla Azure-resurser som du ansluter till det virtuella nätverket måste finnas på samma plats som det virtuella nätverket.
 
 **Kommandon**
 

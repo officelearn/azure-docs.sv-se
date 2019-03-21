@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 16c7fe68e67094cef21d9efbffdccd614827ae6d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 2fe786d90612feff312983dbd25dc6d691be6e70
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887479"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089785"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Säkerhetskopiera en virtuell Azure-dator från inställningarna för virtuella datorer
 
@@ -44,18 +44,18 @@ För att säkerhetskopiera virtuella Azure-datorer, installerar Azure Backup ett
 3. Välj den virtuella datorn som du vill säkerhetskopiera i listan över virtuella datorer.
 4. På VM-menyn klickar du på **Backup**. 
 5. I **Recovery Services-valv**, gör du följande:
-  - Om du redan har ett valv, klickar du på **Välj befintlig**, och välj ett valv.
-  - Om du inte har ett valv, klickar du på **Skapa ny**. Ange ett namn för valvet. Den skapas i samma region- och grupp som den virtuella datorn. Du kan inte ändra dessa inställningar när du aktiverar säkerhetskopiering direkt från inställningarna för virtuella datorer.
+   - Om du redan har ett valv, klickar du på **Välj befintlig**, och välj ett valv.
+   - Om du inte har ett valv, klickar du på **Skapa ny**. Ange ett namn för valvet. Den skapas i samma region- och grupp som den virtuella datorn. Du kan inte ändra dessa inställningar när du aktiverar säkerhetskopiering direkt från inställningarna för virtuella datorer.
 
-  ![Guiden Aktivera säkerhetskopiering](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
+   ![Guiden Aktivera säkerhetskopiering](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
 6. I **Välj säkerhetskopieringspolicy**, gör du följande:
 
-  - Lämna standardprincipen. Detta säkerhetskopierar den virtuella datorn en gång om dagen vid den tid som anges och behåller säkerhetskopiorna i valvet under 30 dagar.
-  - Välj en befintlig säkerhetskopieringspolicy om du har en.
-  - Skapa en ny princip och definiera principinställningarna.  
+   - Lämna standardprincipen. Detta säkerhetskopierar den virtuella datorn en gång om dagen vid den tid som anges och behåller säkerhetskopiorna i valvet under 30 dagar.
+   - Välj en befintlig säkerhetskopieringspolicy om du har en.
+   - Skapa en ny princip och definiera principinställningarna.  
 
-  ![Välja säkerhetskopieringspolicy](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
+   ![Välja säkerhetskopieringspolicy](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
 7. Klicka på **Aktivera säkerhetskopiering**. Det här associerar principen för säkerhetskopiering med den virtuella datorn. 
 
@@ -64,7 +64,7 @@ För att säkerhetskopiera virtuella Azure-datorer, installerar Azure Backup ett
 8. Du kan spåra konfigurationsförloppet i portalen meddelanden.
 9. När jobbet har slutförts, i VM-menyn klickar du på **Backup**. På sidan visas status för säkerhetskopiering för virtuella datorer, information om återställningspunkter, jobb som körs och aviseringar som har utfärdats.
 
-  ![Säkerhetskopieringsstatus](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
+   ![Säkerhetskopieringsstatus](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
 10. När du har aktiverat säkerhetskopiering körs någon säkerhetskopia. Du kan starta den första säkerhetskopieringen direkt eller vänta tills den startas i enlighet med schemat för säkerhetskopiering.
     - Tills den första säkerhetskopieringen har slutförts, den **status för senaste säkerhetskopiering** som **varning (första säkerhetskopiering väntar)**.

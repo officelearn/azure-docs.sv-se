@@ -9,15 +9,15 @@ ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f701642c76446049ad2868ae59a03370e798b6a2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 43fa8148fff1389982d967b2e69f4a9425841c91
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453702"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014914"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Element i B2B-samarbete e-postinbjudan - Azure Active Directory
 
@@ -32,7 +32,7 @@ Nu ska vi titta på några få av e-postmeddelandet så att du vet hur du bäst 
 Ämnet för e-postmeddelandet följer följande mönster: Du är inbjuden till den &lt;tenantname&gt; organisation
 
 ### <a name="from-address"></a>Från adress
-Vi använder ett LinkedIn-liknande mönster för från-adressen.  Du bör vara tydlig som avsändaren är och från företagets vilket också förtydliga att e-postmeddelandet kommer från en Microsoft e-postadress. Formatet är: &lt;Visningsnamnet för inbjudaren&gt; från &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>
+Vi använder ett LinkedIn-liknande mönster för från-adressen.  Du bör vara tydlig som avsändaren är och från företagets vilket också förtydliga att e-postmeddelandet kommer från en Microsoft e-postadress. Formatet är: Microsoft Invitations <invites@microsoft.com> eller &lt;visningsnamnet för inbjudaren&gt; från &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>.
 
 ### <a name="reply-to"></a>Svara
 Svara till e-postmeddelandet är inställd på inbjudaren e-postmeddelande när det är tillgängligt, så att svara på e-postmeddelandet skickar ett e-postmeddelande till avsändaren.
@@ -56,8 +56,12 @@ Om du ännu inte har konfigurerat din profilbild visas en ikon med den inbjudare
 ### <a name="body"></a>Innehåll
 Texten innehåller meddelandet att avsändaren composes när [bjuda in en gästanvändare till den katalog, en grupp eller en app](add-users-administrator.md) eller [med hjälp av inbjudan API](customize-invitation-api.md). Det är ett textområde så att den inte bearbetar HTML-taggar av säkerhetsskäl.
 
+  ![Bild av e-postmeddelandets brödtext](media/invitation-email-elements/invitation-email-body.png)
+
 ### <a name="footer-section"></a>Sidfotsavsnittet
-Sidfoten innehåller Microsoft företagets varumärke och gör att mottagaren kan veta om e-postmeddelandet har skickats från ett oövervakat alias. Specialfall:
+Sidfoten innehåller Microsoft företagets varumärke och gör att mottagaren kan veta om e-postmeddelandet har skickats från ett oövervakat alias. 
+
+Specialfall:
 
 - Avsändaren har inte en e-postadress i bjuder in innehavare
 

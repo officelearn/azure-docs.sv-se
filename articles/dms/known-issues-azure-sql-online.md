@@ -3,20 +3,20 @@ title: Artikel om begränsningar för kända problem/migrering med online migrer
 description: Läs mer om begränsningar för kända problem/migrering med online migrering till Azure SQL Database.
 services: database-migration
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/05/2019
-ms.openlocfilehash: 2261e2143a460bad812a49ba9d8a593c3f3b7b00
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 38a59a3a390977c5a3fd22b185542f5f2ec33d79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792114"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091502"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Begränsningar för kända problem/migrering med online migreringar till Azure SQL DB
 
@@ -62,9 +62,9 @@ Du kan se ett SQL-undantag föreslå ”ntext är inte kompatibel med hierarchyi
       select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
       ``` 
 
- 2. Undanta dessa tabeller från den **konfigurera migreringsinställningarna** bladet, där du anger tabeller för migrering.
+   1. Undanta dessa tabeller från den **konfigurera migreringsinställningarna** bladet, där du anger tabeller för migrering.
 
- 3. Kör migreringsaktiviteten.
+   1. Kör migreringsaktiviteten.
 
 ### <a name="migration-failures-with-various-integrity-violations-with-active-triggers-in-the-schema-during-full-data-load-or-incremental-data-sync"></a>Migrering fel med olika integritet överträdelser med active utlösare i schemat under ”fullständiga Datainläsningen” eller ”inkrementell datasynkronisering”
 

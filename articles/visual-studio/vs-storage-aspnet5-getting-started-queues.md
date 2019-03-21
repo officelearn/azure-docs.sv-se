@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: 237294c1bc603402c349f7a56f20c34ed8d210fe
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 8a91614e7dfb804e6a902967ce60f898ed0e54ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42055817"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999760"
 ---
 # <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Kom igång med queue storage och Visual Studio-anslutna tjänster (ASP.NET Core)
 
@@ -27,7 +27,7 @@ Den här artikeln beskriver hur du kommer igång med Azure Queue storage i Visua
 
 Azure queue storage är en tjänst för att lagra stora mängder meddelanden som kan nås från var som helst i världen via autentiserade anrop via HTTP eller HTTPS. Ett enda kömeddelande kan vara upp till 64 kilobyte (KB) och en kö kan innehålla miljontals meddelanden, upp till den totala kapacitetsgränsen för ett lagringskonto. Se även [Kom igång med Azure Queue storage med hjälp av .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) för information om hur du programmässigt hantera köer.
 
-Kom igång genom att först skapa en Azure-kö i ditt storage-konto. Den här artikeln visar sedan hur du skapar en kö i C# och hur du utför grundläggande köåtgärder, till exempel att lägga till, ändra, läsa och ta bort Kömeddelanden.  Koden använder Azure Storage-klientbiblioteket för .NET. Läs mer om ASP.NET [ASP.NET](http://www.asp.net).
+Kom igång genom att först skapa en Azure-kö i ditt storage-konto. Den här artikeln visar sedan hur du skapar en kö i C# och hur du utför grundläggande köåtgärder, till exempel att lägga till, ändra, läsa och ta bort Kömeddelanden.  Koden använder Azure Storage-klientbiblioteket för .NET. Läs mer om ASP.NET [ASP.NET](https://www.asp.net).
 
 Några av de API: erna för Azure Storage är asynkrona och koden i den här artikeln förutsätter att asynkrona metoder som används. Se [asynkron programmering](https://docs.microsoft.com/dotnet/csharp/async) för mer information.
 
@@ -66,7 +66,7 @@ För att komma åt köer i ASP.NET Core-projekt, inkluderar du följande objekt 
 
 ### <a name="create-a-queue-in-code"></a>Skapa en kö i kod
 
-För att skapa Azure-kö i kod, anropa '' CreateIfNotExistsAsync':
+För att skapa Azure-kö i kod, anropa `CreateIfNotExistsAsync`:
 
 ```cs
 // Create the CloudQueue if it does not exist.

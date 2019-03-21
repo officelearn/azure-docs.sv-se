@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: d2bf5194a3fd4398927d0ee95d89e44db1c1ca15
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b01b68964600f6162512d4405fddbaf125e7e76d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542649"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082737"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Använda en insights-token för att få insikter om en bild
 
@@ -373,19 +373,19 @@ Följ dessa steg om du vill köra programmet:
 1. Skapa en mapp för ditt projekt (eller använd din favorit-IDE eller redigerare).
 2. Gå till mappen som du nyss skapade från en kommandotolk eller terminal.
 3. Installera de begärda modulerna:  
-  ```  
-  npm install request  
-  ```  
+   ```  
+   npm install request  
+   ```  
 3. Installera modulerna för formulärdata:  
-  ```  
-  npm install form-data  
-  ```  
+   ```  
+   npm install form-data  
+   ```  
 4. Skapa en fil med namnet GetVisualInsights.js och lägg till nedanstående kod i den.
 5. Ersätt värdet `subscriptionKey` med din prenumerationsnyckel.
 7. Kör programmet.  
-  ```
-  node GetVisualInsights.js
-  ```
+   ```
+   node GetVisualInsights.js
+   ```
 
 ```javascript
 var request = require('request');

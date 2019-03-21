@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: fd13cb25fbe3696bf67615ef956f478b7c355547
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: f46467871a5ae0147b5dc60881bda4175eabac56
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422060"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858175"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Hantera Azure Blob Storage-resurser med Storage Explorer
 ## <a name="overview"></a>Översikt
@@ -30,7 +30,7 @@ Du kan använda Blob Storage för att exponera data offentligt eller lagra progr
 Du behöver följande för att slutföra stegen i den här artikeln:
 
 * [Hämta och installera Storage Explorer](https://www.storageexplorer.com)
-* [Ansluta till ett Azure-lagringskonto eller en Azure-lagringstjänst](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+* [Ansluta till ett Azure storage-konto eller en tjänst](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Skapa en blobcontainer
 Alla blobbar måste finnas i en blobbehållare, vilket är en logisk gruppering av blobar. Ett konto kan innehålla ett obegränsat antal behållare och varje behållare kan lagra ett obegränsat antal blobbar.
@@ -38,14 +38,14 @@ Alla blobbar måste finnas i en blobbehållare, vilket är en logisk gruppering 
 Följande steg illustrerar hur du skapar en blob-behållare i Storage Explorer.
 
 1. Öppna Storage Explorer.
-2. Expandera det lagringskonto där du vill skapa blob-behållare i den vänstra rutan.
+2. I den vänstra fönsterrutan expanderar du det lagringskonto där du vill skapa blob-containern.
 3. Högerklicka på **Blobbehållare**, och på snabbmenyn - Välj **skapa Blobbehållare**.
 
-   ![Skapa snabbmenyn för blob-behållare][0]
+   ![Snabbmeny för att skapa blob-containrar][0]
 4. En textruta visas nedanför den **Blobbehållare** mapp. Ange namnet på blob-containern. Se den [skapa behållaren och ange behörigheter](storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) information om regler och begränsningar för namngivning av blob-behållare.
 
    ![Skapa Blob-behållare textruta][1]
-5. Tryck på **RETUR** när du är klar för att skapa blobbehållare eller **Esc** att avbryta. När blob-behållaren har skapats visas den visas den **Blobbehållare** mapp för det valda lagringskontot.
+5. Tryck på **Retur** när du är klar så att blob-containern skapas eller på **Esc** om du vill avbryta. När blob-behållaren har skapats visas den visas den **Blobbehållare** mapp för det valda lagringskontot.
 
    ![BLOB-behållare skapas][2]
 

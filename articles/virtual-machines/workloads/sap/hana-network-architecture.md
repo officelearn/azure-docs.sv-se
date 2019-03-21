@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1262ed841fe8f6f9c2d5339d79abf06c1ab15a25
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 724a91b6ba0be030a2281bce366e4378892df59b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392881"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011579"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Nätverksarkitektur för SAP HANA (stora instanser)
 
@@ -27,7 +27,7 @@ Arkitekturen i Azure network-tjänster är en viktig del av distributionen av SA
 
 - Distribuera SAP-system på plats. På grund av storlek, kan inte systemen för närvarande finnas i Azure. Ett exempel är en SAP ERP-system som körs på SQL Server (som databasen) och kräver mer resurser som CPU eller minne än vad som virtuella datorer i produktionsmiljön.
 - Distribuera SAP HANA-baserade SAP system på plats.
-- Distribuerade SAP-system i virtuella datorer. Dessa system kan vara utveckling, testning, sandbox-miljön, eller produktion-instanser för någon av de SAP NetWeaver-baserade program som kan distribuera i Azure (på VM: ar), baserat på användnings- och resursbehov. Dessa system kan också baseras på databaser som SQL Server. Mer information finns i [SAP Support Obs! #1928533 – SAP-program i Azure: produkter och typer av Azure virtuella datorer stöds](https://launchpad.support.sap.com/#/notes/1928533/E). Och dessa system kan baseras på databaser som SAP HANA. Mer information finns i [IaaS-plattformar för SAP HANA-certifierade](http://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html).
+- Distribuerade SAP-system i virtuella datorer. Dessa system kan vara utveckling, testning, sandbox-miljön, eller produktion-instanser för någon av de SAP NetWeaver-baserade program som kan distribuera i Azure (på VM: ar), baserat på användnings- och resursbehov. Dessa system kan också baseras på databaser som SQL Server. Mer information finns i [SAP Support Obs! #1928533 – SAP-program i Azure: Produkter och typer av Azure virtuella datorer stöds](https://launchpad.support.sap.com/#/notes/1928533/E). Och dessa system kan baseras på databaser som SAP HANA. Mer information finns i [IaaS-plattformar för SAP HANA-certifierade](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html).
 - Distribuera SAP-programservrar i Azure (på virtuella datorer) som utnyttjar SAP HANA på Azure (stora instanser) i Azure stora instanser stämplar.
 
 En SAP-hybridlandskap med fyra eller flera olika distributionsscenarier är vanligt. Det finns också många kundärenden av fullständig SAP-landskap som körs i Azure. När virtuella datorer blir mer kraftfulla, ökar antalet kunder som flyttar alla sina SAP-lösningar på Azure.
@@ -79,7 +79,7 @@ Skillnaderna för SAP-distributioner i Azure är:
 - Arkitektur för SAP-program är mer känsliga för fördröjningar i nätverket än vanliga scenarier där data överförs mellan lokala och Azure.
 - Den virtuella nätverksgatewayen har minst två ExpressRoute-anslutningar. Båda anslutningarna dela den maximala bandbredden för inkommande data för den virtuella nätverksgatewayen.
 
-Nätverksfördröjning uppstod mellan virtuella datorer och stora HANA-instansen enheter kan vara högre än en typisk VM-till-VM network fördröjningen. Beroende på Azure-region, de mätvärdena kan överstiga 0,7-ms-fördröjningen klassificeras som under genomsnittet i [SAP Obs! #1100926 – vanliga frågor och svar: nätverksprestanda](https://launchpad.support.sap.com/#/notes/1100926/E). Beroende på Azure-Region och verktyg för att mäta Nätverksfördröjningen mellan en virtuell Azure-dator och stora HANA-instansen enhet, uppmätt svarstiden kan vara upp till och runt 2 millisekunder. Kunder kan dock distribuera SAP HANA-baserade produktion SAP-program på stora SAP HANA-instansen. Kontrollera noggrant testa dina affärsprocesser i Azure HANA stora instanser.
+Nätverksfördröjning uppstod mellan virtuella datorer och stora HANA-instansen enheter kan vara högre än en typisk VM-till-VM network fördröjningen. Beroende på Azure-region, de mätvärdena kan överstiga 0,7-ms-fördröjningen klassificeras som under genomsnittet i [SAP Obs! #1100926 – vanliga frågor och svar: Nätverksprestanda](https://launchpad.support.sap.com/#/notes/1100926/E). Beroende på Azure-Region och verktyg för att mäta Nätverksfördröjningen mellan en virtuell Azure-dator och stora HANA-instansen enhet, uppmätt svarstiden kan vara upp till och runt 2 millisekunder. Kunder kan dock distribuera SAP HANA-baserade produktion SAP-program på stora SAP HANA-instansen. Kontrollera noggrant testa dina affärsprocesser i Azure HANA stora instanser.
  
 För att ge deterministisk Nätverksfördröjningen mellan virtuella datorer och HANA stora instanser, val av den virtuella nätverksgatewayen SKU är viktigt. Mönster för trafik mellan virtuella datorer och stora HANA-instansen kan utveckla små men hög belastning med begäranden och data volymer som ska överföras till skillnad från trafikmönster mellan lokala och virtuella datorer. För att hantera sådana toppar och rekommenderar vi användning av SKU för UltraPerformance-gateway. Användningen av SKU för UltraPerformance-gateway som en virtuell nätverksgateway är obligatoriskt för Type II-klassen för HANA stora instans SKU: er.
 
@@ -113,7 +113,7 @@ För en mer skalbart nätverksarkitektur:
 - Använda flera virtuella nätverk för en enda, större SAP-programnivån.
 - Distribuera ett separat virtuellt nätverk för alla SAP-system som har distribuerats, jämfört med att kombinera dessa SAP-system i olika undernät under samma virtuella nätverk.
 
- En mer skalbart nätverk arkitektur för SAP HANA på Azure (stora instanser):
+  En mer skalbart nätverk arkitektur för SAP HANA på Azure (stora instanser):
 
 ![Distribuera SAP-programnivån över flera virtuella nätverk](./media/hana-overview-architecture/image4-networking-architecture.png)
 
@@ -132,12 +132,12 @@ Tre routning Nätverksöverväganden är viktiga för SAP HANA på Azure (stora 
 
 * SAP HANA på Azure (stora instanser) enheter har en tilldelad IP-adress från servern IP-pool-adressintervall som du skickade. Mer information finns i [SAP HANA (stora instanser) infrastruktur och anslutningsmöjlighet på Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Den här IP-adressen är tillgänglig via Azure-prenumerationer och ExpressRoute som ansluter virtuella nätverk till HANA på Azure (stora instanser). IP-adress som tilldelats av server IP-adressintervall i poolen tilldelas direkt till enheten för maskinvaran. Den har *inte* tilldelad via NAT längre, som var fallet i första distributionen av den här lösningen. 
 
-> [!NOTE] 
+> [!NOTE]
 > Om du vill lösa begränsningen i tillfälliga routning som beskrivs i de första två listobjekt, använder du ytterligare komponenter för routning. Komponenter som kan användas för att övervinna begränsningen kan vara:
-
+> 
 > * En omvänd proxy att dirigera data till och från. Exempelvis F5 BIG-IP, NGINX med Traffic Manager som distribueras i Azure som en brandvägg/trafik i virtuella routning lösning.
 > * Med hjälp av [IPTables-reglerna](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) i en Linux-VM för att aktivera routning mellan lokala platser och stora HANA-instansen enheter, eller mellan stora HANA-instansen enheter i olika regioner.
-
+> 
 > Tänk på att implementering och stöd för anpassade lösningar som inbegriper från tredje part nätverksutrustning eller IPTables inte tillhandahålls av Microsoft. Du måste tillhandahålla support av leverantören av den komponent som används eller Integratorn. 
 
 ## <a name="internet-connectivity-of-hana-large-instance"></a>Ansluten till Internet för stora HANA-instansen

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5739c878812c09a8f2646320df4b1069dfa8810e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: eced1b92aba24c8083cbdc2ece099fab95567db7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189063"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877963"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Självstudier: Azure Active Directory-integrering med tre Zscaler
 
@@ -151,7 +151,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
@@ -159,43 +159,43 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 ### <a name="configure-zscaler-three-single-sign-on"></a>Konfigurera Zscaler tre enkel inloggning
 
-9. I ett annat webbläsarfönster logga du in på webbplatsen Zscaler tre företag som administratör.
+1. I ett annat webbläsarfönster logga du in på webbplatsen Zscaler tre företag som administratör.
 
-10. Gå till **Administration > Autentisering > Autentiseringsinställningar** och utför följande steg:
+1. Gå till **Administration > Autentisering > Autentiseringsinställningar** och utför följande steg:
    
-    ![Administration](./media/zscaler-three-tutorial/ic800206.png "Administration")
+   ![Administration](./media/zscaler-three-tutorial/ic800206.png "Administration")
 
-    a. Under autentiseringstyp väljer du **SAML**.
+   a. Under autentiseringstyp väljer du **SAML**.
 
-    b. Klicka på **Konfigurera SAML**.
+   b. Klicka på **Konfigurera SAML**.
 
-11. I fönstret **Redigera SAML** utför du följande steg och klickar på Spara.  
+1. I fönstret **Redigera SAML** utför du följande steg och klickar på Spara.  
             
-    ![Hantera användare och autentisering](./media/zscaler-three-tutorial/ic800208.png "Hantera användare och autentisering")
+   ![Hantera användare och autentisering](./media/zscaler-three-tutorial/ic800208.png "Hantera användare och autentisering")
     
-    a. I textrutan för **URL:en för SAML-portalen** klistrar du in **inloggnings-URL:en** som du har kopierat från Azure-portalen.
+   a. I textrutan för **URL:en för SAML-portalen** klistrar du in **inloggnings-URL:en** som du har kopierat från Azure-portalen.
 
-    b. I textrutan för **attribut för inloggningsnamn** anger du **NameID**.
+   b. I textrutan för **attribut för inloggningsnamn** anger du **NameID**.
 
-    c. Klicka på **Ladda upp** för att ladda upp Azure SAML-signeringscertifikatet som du har laddat ned från Azure-portalen i det **offentliga SSL-certifikatet**.
+   c. Klicka på **Ladda upp** för att ladda upp Azure SAML-signeringscertifikatet som du har laddat ned från Azure-portalen i det **offentliga SSL-certifikatet**.
 
-    d. Reglera **Enable SAML Auto-Provisioning** (Aktivera automatisk etablering av SAML).
+   d. Reglera **Enable SAML Auto-Provisioning** (Aktivera automatisk etablering av SAML).
 
-    e. I textrutan för **användarens visningsnamnattribut** anger du **displayName** om du vill aktivera automatisk SAML-etablering för attributet displayName.
+   e. I textrutan för **användarens visningsnamnattribut** anger du **displayName** om du vill aktivera automatisk SAML-etablering för attributet displayName.
 
-    f. I textrutan **User Display Name Attribute** (Gruppnamnattribut) anger du **memberOf** om du vill aktivera automatisk SAML-etablering för attributet memberOf.
+   f. I textrutan **User Display Name Attribute** (Gruppnamnattribut) anger du **memberOf** om du vill aktivera automatisk SAML-etablering för attributet memberOf.
 
-    g. I textrutan för **avdelningsnamnattribut** anger du **department** om du vill aktivera automatisk SAML-etablering för department-attribut.
+   g. I textrutan för **avdelningsnamnattribut** anger du **department** om du vill aktivera automatisk SAML-etablering för department-attribut.
 
-    i. Klicka på **Spara**.
+   i. Klicka på **Spara**.
 
-12. I dialogrutan **Konfigurera användarautentisering** utför du följande steg:
+1. I dialogrutan **Konfigurera användarautentisering** utför du följande steg:
 
-    ![Administration](./media/zscaler-three-tutorial/ic800207.png)
+   ![Administration](./media/zscaler-three-tutorial/ic800207.png)
 
-    a. Hovra över menyn **Aktivering** längst ned till vänster.
+   a. Hovra över menyn **Aktivering** längst ned till vänster.
 
-    b. Klicka på **Aktivera**.
+   b. Klicka på **Aktivera**.
 
 ## <a name="configuring-proxy-settings"></a>Konfigurera proxyinställningar
 ### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>För att konfigurera proxyinställningar i Internet Explorer
@@ -246,7 +246,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    b. I den **användarnamn** skriver **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
@@ -300,7 +300,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

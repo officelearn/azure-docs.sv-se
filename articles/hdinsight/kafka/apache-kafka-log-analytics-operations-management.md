@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 65416a00ebd487e80625e4f3c8d8a95b5995daa9
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 281b4b8d20957cbbbf0f4ff52166e8c3a78b3e7d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886578"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108145"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analysera loggar för Apache Kafka på HDInsight
 
@@ -49,28 +49,28 @@ Stegen för att aktivera Azure Monitor-loggar för HDInsight är desamma för al
 
 2. Välj __Loggsöknings__. Härifrån kan du söka efter data som samlas in från Kafka. Här följer några exempel genomsöks:
 
-    * Diskanvändning: `Perf | where ObjectName == "Logical Disk" and CounterName == "Free Megabytes" and InstanceName == "_Total" and ((Computer startswith_cs "hn" and Computer contains_cs "-") or (Computer startswith_cs "wn" and Computer contains_cs "-")) | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)`
+   * Diskanvändning: `Perf | where ObjectName == "Logical Disk" and CounterName == "Free Megabytes" and InstanceName == "_Total" and ((Computer startswith_cs "hn" and Computer contains_cs "-") or (Computer startswith_cs "wn" and Computer contains_cs "-")) | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)`
 
-    * CPU-användning: `Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" and ((Computer startswith_cs "hn" and Computer contains_cs "-") or (Computer startswith_cs "wn" and Computer contains_cs "-")) | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)`
+   * CPU-användning: `Perf | where CounterName == "% Processor Time" and InstanceName == "_Total" and ((Computer startswith_cs "hn" and Computer contains_cs "-") or (Computer startswith_cs "wn" and Computer contains_cs "-")) | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)`
 
-    * Inkommande meddelanden per sekund: `metrics_kafka_CL | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-MessagesInPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s, bin(TimeGenerated, 1h)`
+   * Inkommande meddelanden per sekund: `metrics_kafka_CL | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-MessagesInPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s, bin(TimeGenerated, 1h)`
 
-    * Inkommande byte per sekund: `metrics_kafka_CL | where HostName_s == "wn0-kafka" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesInPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) by bin(TimeGenerated, 1h)`
+   * Inkommande byte per sekund: `metrics_kafka_CL | where HostName_s == "wn0-kafka" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesInPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) by bin(TimeGenerated, 1h)`
 
-    * Utgående byte per sekund: `metrics_kafka_CL | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesOutPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)`
+   * Utgående byte per sekund: `metrics_kafka_CL | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesOutPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)`
 
-    > [!IMPORTANT]  
-    > Ersätt värdena fråga med din specifika information för klustret. Till exempel `ClusterName_s` måste anges till namnet på klustret. `HostName_s` måste anges till domännamnet för en underordnad nod i klustret.
+     > [!IMPORTANT]  
+     > Ersätt värdena fråga med din specifika information för klustret. Till exempel `ClusterName_s` måste anges till namnet på klustret. `HostName_s` måste anges till domännamnet för en underordnad nod i klustret.
 
-    Du kan också ange `*` att söka alla typer som är inloggad. För närvarande är följande loggar tillgängliga för frågor:
+     Du kan också ange `*` att söka alla typer som är inloggad. För närvarande är följande loggar tillgängliga för frågor:
 
-    | Loggtyp | Beskrivning |
-    | ---- | ---- |
-    | log\_kafkaserver\_CL | Kafka broker server.log |
-    | log\_kafkacontroller\_CL | Kafka broker controller.log |
-    | metrics\_kafka\_CL | Kafka JMX metrics |
+     | Loggtyp | Beskrivning |
+     | ---- | ---- |
+     | log\_kafkaserver\_CL | Kafka broker server.log |
+     | log\_kafkacontroller\_CL | Kafka broker controller.log |
+     | metrics\_kafka\_CL | Kafka JMX metrics |
 
-    ![Bild av CPU-användning sökningen](./media/apache-kafka-log-analytics-operations-management/kafka-cpu-usage.png)
+     ![Bild av CPU-användning sökningen](./media/apache-kafka-log-analytics-operations-management/kafka-cpu-usage.png)
  
 ## <a name="next-steps"></a>Nästa steg
 

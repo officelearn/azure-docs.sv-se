@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 170b96810130d33935e54c85529129e7e0267fe9
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 0c0d0fdf4e7df0401692eb026d55fe1a7c9322f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957784"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106491"
 ---
 # <a name="reset-your-work-or-school-password"></a>Återställa lösenordet för arbets- eller skolkonto
 
@@ -93,15 +93,15 @@ Om du inte komma åt ditt konto i Azure Active Directory (AD Azure), det kan ber
 
 - **Återställa lösenordet med hjälp av en kod från din autentiseringsapp.** Accepterar en slumpmässig kod som tillhandahålls av din app med autentisering. Om din administratör har aktiverat info säkerhetsupplevelse, hittar du mer information om hur du konfigurerar en autentiseringsapp ange en kod i den [ställa in säkerhetsinformation för att använda en authentication-appen (förhandsversion)](security-info-setup-auth-app.md) artikeln. Om du använder har ännu inte säkerhetsinformation, hittar du mer information om hur du konfigurerar en autentiseringsapp ange en kod i den [konfigurerar mitt konto för tvåstegsverifiering](multi-factor-authentication-end-user-first-time.md) artikeln.
 
-    1. Välj **ange en kod från min autentiserare**, och välj sedan **skicka meddelande**.
+  1. Välj **ange en kod från min autentiserare**, och välj sedan **skicka meddelande**.
 
-    2. Öppna autentiseringsappen, Skriv Verifieringskod för ditt konto i rutan och välj sedan **nästa**.
+  2. Öppna autentiseringsappen, Skriv Verifieringskod för ditt konto i rutan och välj sedan **nästa**.
 
-    3. Skriv och bekräfta det nya lösenordet och välj sedan **Slutför**.
+  3. Skriv och bekräfta det nya lösenordet och välj sedan **Slutför**.
 
-    4. När du får ett meddelande som säger att ditt lösenord har återställts kan du logga in till ditt konto med ditt nya lösenord.
+  4. När du får ett meddelande som säger att ditt lösenord har återställts kan du logga in till ditt konto med ditt nya lösenord.
         
-    Om du fortfarande inte komma åt ditt konto kontaktar du din organisations administratör för mer hjälp.
+     Om du fortfarande inte komma åt ditt konto kontaktar du din organisations administratör för mer hjälp.
 
 När du återställer ditt lösenord, kan du få en bekräftelse via e-post från ett konto som ”, Microsoft på uppdrag av \< *your_organization*>”. Om du får ett liknande e-postmeddelande, men du inte återställa ditt lösenord nyligen, måste du kontakta organisationens administratör omedelbart.
 
@@ -113,7 +113,7 @@ Om du vill ändra ditt lösenord kan du göra det via Office 365-portalen, Azure
 
 Använd den här metoden om du normalt kommer åt dina appar via Office-portalen:
 
-1. Logga in på din [Office 365-konto](https://www.office.com), med ditt befintliga lösenord.
+1. Logga in på din [Office 365-konto](https://portal.office.com), med ditt befintliga lösenord.
 
 2. Välj din profil längst upp till höger och välj sedan **visa konto**.
 

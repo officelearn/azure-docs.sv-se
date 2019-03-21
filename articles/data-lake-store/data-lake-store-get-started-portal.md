@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 91c069f845ef6291f867099e59e79fd059d8caf1
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: a99d8a265cdc72b6bd1dd45ab670f514d828f808
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320233"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005696"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Kom igång med Azure Data Lake Storage Gen1 med Azure portal
 
@@ -76,9 +76,9 @@ Om du använder nycklar från ett Azure Key Vault för att konfigurera krypterin
 
 > [!NOTE]
 > Du kan också skapa ett Data Lake Storage Gen1-konto med Azure Resource Manager-mallar. Mallarna är tillgängliga från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/?term=data+lake+store):
-    - Utan datakryptering: [Distribuera Azure Data Lake Storage Gen1 konto utan datakryptering](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
-    - Med datakryptering med hjälp av Data Lake Storage Gen1: [Distribuera Data Lake Storage Gen1-konto med kryptering (Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
-    - Med datakryptering med hjälp av Azure Key Vault: [Distribuera Data Lake Storage Gen1-konto med kryptering (Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
+> - Utan datakryptering: [Distribuera Azure Data Lake Storage Gen1 konto utan datakryptering](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
+> - Med datakryptering med hjälp av Data Lake Storage Gen1: [Distribuera Data Lake Storage Gen1-konto med kryptering (Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
+> - Med datakryptering med hjälp av Azure Key Vault: [Distribuera Data Lake Storage Gen1-konto med kryptering (Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
 > 
 > 
 

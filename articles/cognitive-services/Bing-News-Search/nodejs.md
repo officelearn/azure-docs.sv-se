@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 287a82292994a629bde8255321c7f603fdf00b67
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 86c00242d2d7dbb9441b09dc327e4ee8cbbd729b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869287"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099975"
 ---
 # <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Snabbstart: Utföra en nyhetssökning med Node.js och REST-API för nyhetssökning i Bing
 
@@ -26,7 +26,7 @@ Använd den här snabbstarten för att skicka ditt första anrop till API:et fö
 
 Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingNewsSearchv7.js).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den senaste versionen av [Node.js](https://nodejs.org/en/download/).
 
@@ -71,7 +71,7 @@ Se även [Priser för Cognitive Services – API för Bing-sökning](https://azu
         });
         ```
 
-    3. När en **slutflagga** visas kan JSON och rubriker visas.
+    3. När en **slutet** flaggan signaleras, kan visas JSON och rubriker.
 
         ```javascript
         response.on('end', function () {
@@ -184,4 +184,4 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-[Skapa en enkelsidig webbapp](tutorial-bing-news-search-single-page-app.md)
+> [Skapa en enkelsidig webbapp](tutorial-bing-news-search-single-page-app.md)

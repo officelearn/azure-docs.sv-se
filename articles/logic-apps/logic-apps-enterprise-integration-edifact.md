@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.date: 07/26/2016
-ms.openlocfilehash: 2da672e1f55af1e38ae0a3fa90b7ecb10d2f17c7
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bbcdad7c5496cd08994a613b07e1bc7c611e4572
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128385"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876858"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Utbyta EDIFACT-meddelanden för B2B enterprise-integration i Azure Logic Apps med Enterprise-Integrationspaket
 
@@ -38,7 +38,7 @@ När du [skapar ett integrationskonto](../logic-apps/logic-apps-enterprise-integ
 
 ## <a name="create-an-edifact-agreement"></a>Skapa ett EDIFACT-avtal 
 
-1. Logga in på [Azure Portal](http://portal.azure.com "Azure Portal"). 
+1. Logga in på [Azure Portal](https://portal.azure.com "Azure Portal"). 
 
 2. Välj på Azure-huvudmenyn **alla tjänster**. Ange ”-integration” i sökrutan och välj sedan **integrationskonton**.
 
@@ -82,7 +82,7 @@ Nu när du har ställt in egenskaperna avtal kan konfigurera du hur detta avtal 
 1. Under **Lägg till**väljer **ta emot inställningar**.
 Konfigurera dessa egenskaper baserat på ditt avtal med partner som utbyter meddelanden med dig. Egenskapsbeskrivningar finns i tabellerna i det här avsnittet.
 
-   **Ta emot inställningarna** är uppdelad i följande avsnitt: identifierare, bekräftelse, scheman, kontrollnummer, verifiering och interna inställningar.
+   **Ta emot inställningarna** är uppdelad i följande avsnitt: Identifierare, bekräftelse, scheman, kontrollnummer, verifiering och interna inställningar.
 
    ![Konfigurera ”Mottagningsinställningarna”](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
@@ -114,7 +114,7 @@ Ditt avtal är nu redo att hantera inkommande meddelanden som överensstämmer m
 | UNH2.5 (ASSOCIERADE TILLDELADE KOD) |Ange koden som är tilldelade. (Högst sex tecken. Måste vara alfanumeriskt). |
 | UNH2.1 (APP-AVSÄNDAR-ID) |Ange ett alfanumeriskt värde med minst ett tecken och högst 35 tecken. |
 | UNH2.2 (APP-AVSÄNDARKODSKVALIFICERARE) |Ange ett alfanumeriskt värde med högst fyra tecken. |
-| SCHEMAT |Välj det tidigare överförda schema som du vill använda från ditt associerade integrationskontot. |
+| SCHEMA |Välj det tidigare överförda schema som du vill använda från ditt associerade integrationskontot. |
 
 ### <a name="control-numbers"></a>Kontrollnummer
 | Egenskap  | Beskrivning |
@@ -155,7 +155,7 @@ Du kan konfigurera hur detta avtal identifierar och hanterar utgående meddeland
 1.  Under **Lägg till**väljer **skicka inställningar**.
 Konfigurera dessa egenskaper baserat på ditt avtal med din partner som utbyter meddelanden med dig. Egenskapsbeskrivningar finns i tabellerna i det här avsnittet.
 
-    **Skicka inställningar** är uppdelad i följande avsnitt: identifierare, bekräftelse, scheman, kuvert, teckenuppsättningar och avgränsare, kontrollnummer och verifieringar.
+    **Skicka inställningar** är uppdelad i följande avsnitt: Identifierare, bekräftelse, scheman, kuvert, teckenuppsättningar och avgränsare, kontrollnummer och verifieringar.
 
     ![Konfigurera ”skicka inställningar”](./media/logic-apps-enterprise-integration-edifact/edifact-3.png)    
 
@@ -187,7 +187,7 @@ Ditt avtal är nu redo att hantera utgående meddelanden som överensstämmer me
 | UNH2.1 (TYP) |Välj en uppsättning transaktionstyp. |
 | UNH2.2 (VERSION) |Ange det meddelande-versionsnumret. |
 | UNH2.3 (UTGÅVA) |Ange det meddelande-versionsnumret. |
-| SCHEMAT |Välj scheman som ska användas. Scheman finns i ditt integrationskonto. För att komma åt dina scheman, länka din integrationskontot till logikappen. |
+| SCHEMA |Välj scheman som ska användas. Scheman finns i ditt integrationskonto. För att komma åt dina scheman, länka din integrationskontot till logikappen. |
 
 ### <a name="envelopes"></a>Kuvert
 | Egenskap  | Beskrivning |

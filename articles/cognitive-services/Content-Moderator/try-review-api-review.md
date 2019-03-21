@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: d963cdd484727ac46aed1915643dd92462e2c643
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2e40165bde7f3ce2eabd91b55c5bbc8139282b60
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857827"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101473"
 ---
 # <a name="create-reviews-from-the-api-console"></a>Skapa granskningar från API-konsol
 
@@ -33,35 +33,35 @@ Om du vill testa API: et med hjälp av konsolen online, behöver du några värd
 
 Det enklaste sättet att komma åt en testkonsolen är från den **autentiseringsuppgifter** fönster.
 
-1.  I den **autentiseringsuppgifter** väljer [granska API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+1. I den **autentiseringsuppgifter** väljer [granska API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
 
-  Den **granska – skapa** öppnas.
+   Den **granska – skapa** öppnas.
 
-2.  För **Open API testkonsolen**, väljer du den region som bäst beskriver din plats.
+2. För **Open API testkonsolen**, väljer du den region som bäst beskriver din plats.
 
-  ![Granska – skapa val av region](images/test-drive-region.png)
+   ![Granska – skapa val av region](images/test-drive-region.png)
 
-  Den **granska – skapa** API-konsolen öppnas.
+   Den **granska – skapa** API-konsolen öppnas.
   
-3.  Ange värden för obligatoriska parametrar, innehållstyp och din prenumerationsnyckel. I den **Begärandetext** anger innehållet (till exempel Bildplats), metadata och annan information som associeras med innehåll.
+3. Ange värden för obligatoriska parametrar, innehållstyp och din prenumerationsnyckel. I den **Begärandetext** anger innehållet (till exempel Bildplats), metadata och annan information som associeras med innehåll.
 
-  ![Granska – skapa konsolen frågeparametrar, rubriker och begäran text box](images/test-drive-review-1.PNG)
+   ![Granska – skapa konsolen frågeparametrar, rubriker och begäran text box](images/test-drive-review-1.PNG)
   
-4.  Välj **Skicka**. Åtkomstgransknings-ID skapas. Kopiera detta ID ska användas i följande steg.
+4. Välj **Skicka**. Åtkomstgransknings-ID skapas. Kopiera detta ID ska användas i följande steg.
 
-  ![Granska – skapa konsolen svar innehåll visar åtkomstgransknings-ID](images/test-drive-review-2.PNG)
+   ![Granska – skapa konsolen svar innehåll visar åtkomstgransknings-ID](images/test-drive-review-2.PNG)
   
-5.  Välj **hämta**, och sedan öppna API: et genom att välja knappen som matchar din region. Ange värden för på sidan resulterande **teamName**, **ReviewID**, och **prenumerationsnyckel**. Välj den **skicka** på sidan. 
+5. Välj **hämta**, och sedan öppna API: et genom att välja knappen som matchar din region. Ange värden för på sidan resulterande **teamName**, **ReviewID**, och **prenumerationsnyckel**. Välj den **skicka** på sidan. 
 
-  ![Granska – skapa konsolen Get-resultat](images/test-drive-review-3.PNG)
+   ![Granska – skapa konsolen Get-resultat](images/test-drive-review-3.PNG)
   
-6.  Du ser resultatet av genomsökningen.
+6. Du ser resultatet av genomsökningen.
 
-  ![Granska – skapa konsolen svar innehållsrutan](images/test-drive-review-4.PNG)
+   ![Granska – skapa konsolen svar innehållsrutan](images/test-drive-review-4.PNG)
   
-7.  Content Moderator-instrumentpanelen, klicka **granska** > **bild**. Bilden som du skannade visas, redo för mänsklig granskning.
+7. Content Moderator-instrumentpanelen, klicka **granska** > **bild**. Bilden som du skannade visas, redo för mänsklig granskning.
 
-  ![Kontrollera att verktyget avbildning av en fotboll](images/test-drive-review-5.PNG)
+   ![Kontrollera att verktyget avbildning av en fotboll](images/test-drive-review-5.PNG)
 
 ## <a name="next-steps"></a>Nästa steg
 

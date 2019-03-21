@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: bcb62b311426c7582202ced3714d01c429118ab5
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: d3aad8f1b032960786564bbb18f99c260fd72113
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268421"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092726"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetrikorrelation i Application Insights
 
@@ -212,7 +212,7 @@ Ibland kanske du vill anpassa visningen av Komponentnamn i den [Programkartan](.
 ## <a name="next-steps"></a>Nästa steg
 
 - Skriva [anpassad telemetri](../../azure-monitor/app/api-custom-events-metrics.md).
-- Läs mer om [inställningen cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloudrolename) för andra SDK: er.
+- Läs mer om [inställningen cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud_rolename) för andra SDK: er.
 - Publicera alla komponenter i din mikrotjänst i Application Insights. Kolla in den [plattformar som stöds](../../azure-monitor/app/platforms.md).
 - Se den [datamodellen](../../azure-monitor/app/data-model.md) för Application Insights-typer.
 - Lär dig hur du [utöka och filtrera telemetri](../../azure-monitor/app/api-filtering-sampling.md).

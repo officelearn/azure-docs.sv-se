@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: e25da238648b32edcbfaefbdcf1a6240df97916f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 252d5e551dad56108ad952eb0c7c3b39df0585d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728335"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855307"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Hantera Media Services-tillgångar över flera lagringskonton  
 
@@ -42,7 +42,7 @@ När du ansluter flera lagringskonton till ditt Media Services-konto, gäller f�
 
 Annat att tänka på:
 
-Media Services använder värdet för den **IAssetFile.Name** egenskapen när du skapar URL: er för strömning innehållet (till exempel http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/ streamingParameters.) Därför stöds procent-kodning inte. Värdet för egenskapen Name får inte innehålla något av följande [procent-encoding-reserverade tecken](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? [] # % ”. Dessutom det får bara finnas ett ””. för filnamnstillägg.
+Media Services använder värdet för den **IAssetFile.Name** egenskapen när du skapar URL: er för strömning innehållet (till exempel http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/ streamingParameters.) Därför stöds procent-kodning inte. Värdet för egenskapen Name får inte innehålla något av följande [procent-encoding-reserverade tecken](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? [] # % ”. Dessutom det får bara finnas ett ””. för filnamnstillägg.
 
 ## <a name="to-attach-storage-accounts"></a>Att ansluta storage-konton  
 

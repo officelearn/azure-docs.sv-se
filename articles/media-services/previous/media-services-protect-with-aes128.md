@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 357cf832f8878364965c8d8a85d7af8c5a2bc21c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: a0ec87f2afb8e2a18727fe6dd62547e6ad6ecfac
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992099"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57841063"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Använda dynamisk kryptering för AES-128 och nyckelleveranstjänst
 > [!div class="op_single_selector"]
@@ -140,7 +140,7 @@ Hämta en testtoken baserat på de tokenbegränsningar som användes för nyckel
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
-Du kan använda [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) för att testa din dataström.
+Du kan använda [Azure Media Services Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html) för att testa din dataström.
 
 ## <a id="client_request"></a>Hur kan klienten begära en nyckel från nyckelleveranstjänst?
 I föregående steg skapas den URL som pekar på en manifestfil. Klienten måste extrahera den nödvändiga informationen från strömmande manifestfiler och gör en begäran till nyckelleveranstjänst.

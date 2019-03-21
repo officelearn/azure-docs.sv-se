@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: b7710b081668bf07d40718baf1d84314246861f5
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: ce5f7ab1e6751a9ce68aa2d9c466a112c9cac182
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412411"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004047"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Övervaka beroenden, undantag som fångats och metoden körningstider i Java-webbappar
 
@@ -73,7 +73,6 @@ Ange innehållet i xml-filen. Redigera i följande exempel för att ta med eller
                reportCaughtExceptions="true"
                reportExecutionTime="true"
                />
-
            <!-- Report on the particular signature
                 void methodTwo(String, int) -->
            <Method name="methodTwo"
@@ -90,12 +89,26 @@ Du måste aktivera rapporter undantag och metoden val av tidpunkt för enskilda 
 
 Som standard `reportExecutionTime` är SANT och `reportCaughtExceptions` är FALSKT.
 
-### <a name="spring-boot-agent-additional-config"></a>Spring Boot-agenten ytterligare konfiguration
+## <a name="additional-config-spring-boot"></a>Ytterligare konfiguration (Spring Boot)
 
 `java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
 
+För Azure App Services gör du följande:
+
+* Välj Inställningar > Programinställningar
+* Under Appinställningar lägger du till ett nytt nyckel/värde-par:
+
+Nyckel: `JAVA_OPTS` Värde: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.3.1-SNAPSHOT.jar`
+
+Den senaste versionen av Java-agenten finns i versionerna [här](https://github.com/Microsoft/ApplicationInsights-Java/releases
+). 
+
+Agenten måste paketeras som en resurs i ditt projekt så att den hamnar i D:/home/site/wwwroot/katalog. Du kan bekräfta att din agent är i rätt katalog för App Service genom att gå till **utvecklingsverktyg** > **avancerade verktyg** > **Felsökningskonsolen**och undersöka innehållet i katalogen.    
+
+* Spara inställningarna och starta om din app. (De här stegen gäller endast för App Services som körs på Windows.)
+
 > [!NOTE]
-> AI-Agent.xml och agenten jar-filen ska vara i samma mapp. De placeras ofta tillsammans i den `/resources` mappen i projektet. 
+> AI-Agent.xml och agenten jar-filen ska vara i samma mapp. De placeras ofta tillsammans i den `/resources` mappen i projektet.  
 
 ### <a name="spring-rest-template"></a>Mall för spring-Rest
 

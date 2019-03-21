@@ -11,31 +11,31 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d64e1ec4dcf2103c7635b69510f818480d83a6d6
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: MT
+ms.openlocfilehash: b0ab999e2b2a8465b110874cca3d478c60c18099
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673638"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091145"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>Få support för B2B-samarbete
 
 Du har läst igenom dokumentationen, du har gjort rätt saker, men fortfarande inte få något att fungera? Öppna ett supportärende (kräver ett supportavtal):
 
 1. I [Azure-portalen](https://portal.azure.com), gå till hjälp och Support-bladet och välj ny supportförfrågan:
-  - Typ av problem: Teknik
-  - Prenumeration: Välj berörda prenumeration
-    - Tjänst: Active Directory
-    - Supportavtal: Välj relevant supportavtal
+   - Typ av problem: Teknik
+   - Prenumeration: Välj berörda prenumeration
+     - Tjänst: Active Directory
+     - Supportavtal: Välj relevant supportavtal
 
-  ![Ny supportförfrågan](media/get-support/new-support-request.png)
+   ![Ny supportförfrågan](media/get-support/new-support-request.png)
 
 2. Beskriv problemet:
-  - Välj lämplig allvarlighetsgrad som återspeglar du behöver.
-  - Välj typ av Problem som användare och grupper
-  - Välj kategorin som att lägga till användare (B2B)
-  - Inkludera eventuella felmeddelanden som Korrelations-ID, användare som påverkas och så vidare.
+   - Välj lämplig allvarlighetsgrad som återspeglar du behöver.
+   - Välj typ av Problem som användare och grupper
+   - Välj kategorin som att lägga till användare (B2B)
+   - Inkludera eventuella felmeddelanden som Korrelations-ID, användare som påverkas och så vidare.
 
-  ![stöd för biljett problembeskrivning](media/get-support/problem-description.png)
+   ![stöd för biljett problembeskrivning](media/get-support/problem-description.png)
 
 3. Lägg till din kontaktinformation för en supportmedarbetare att kontakta dig för vidare felsökning.

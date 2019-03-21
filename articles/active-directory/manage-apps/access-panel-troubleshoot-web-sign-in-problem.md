@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviwer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f10a1f38b2c793bffb6061c6eefdccef7ac5c57b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7f7418c16d5d5312d2a9a7913da49941ef0a7870
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204533"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090465"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Inte att logga in till åtkomstpanelens webbplats
 
@@ -168,23 +168,23 @@ Om du vill aktivera lösenordsåterställning via självbetjäning, gör följan
 
 Följ dessa steg om du vill kontrollera status för multifaktorautentisering för en användare:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **användare och grupper** på navigeringsmenyn.
+4. Klicka på **användare och grupper** på navigeringsmenyn.
 
-5.  Klicka på **alla användare**.
+5. Klicka på **alla användare**.
 
-6.  Klicka på den **Multifaktorautentisering** längst upp i fönstret.
+6. Klicka på den **Multifaktorautentisering** längst upp i fönstret.
 
-7.  När den **Multi-Factor Authentication-administrationsportalen** belastning, se till att du är på den **användare** fliken.
+7. När den **Multi-Factor Authentication-administrationsportalen** belastning, se till att du är på den **användare** fliken.
 
-8.  Hitta användaren i listan över användare av sökning, filtrering och sortering.
+8. Hitta användaren i listan över användare av sökning, filtrering och sortering.
 
-9.  Välj användaren i listan över användare och **aktivera**, **inaktivera**, eller **tvinga** multifaktorautentisering efter behov.
+9. Välj användaren i listan över användare och **aktivera**, **inaktivera**, eller **tvinga** multifaktorautentisering efter behov.
 
    >[!NOTE]
    >Om en användare finns i en **tvingande** tillstånd, kan du ange dem till **inaktiverad** tillfälligt och låter dem tillbaka till sitt konto. När de är tillbaka i kan du ändra deras tillstånd att **aktiverad** igen för att kräva att Omregistrera kontaktinformationen under deras nästa inloggning. Du kan också följa stegen i den [Kontrollera en användares autentiseringskontakt](#check-a-users-authentication-contact-info) verifiera eller ange informationen för dessa.

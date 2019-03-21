@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b346ac0ac456b7f6af078496e8dd1cb738caab67
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d3cea9f3bc5645aeaefc5bb376557d365681df56
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530202"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994111"
 ---
 # <a name="media-services-concepts"></a>Media Services-koncepten
 
@@ -82,7 +82,7 @@ Du kan använda Media Services **dynamiska manifest** att strömma endast en spe
 
 ## <a name="live-streaming"></a>Liveuppspelning
 
-Azure Media Services kan du leverera händelser till dina kunder på Azure-molnet. **Live-händelser** ansvarar för att mata in och bearbeta direktsänd video feeds. När du skapar en **direktsänd händelse**, skapas en slutpunkt för indata som du kan använda för att skicka en direktsänd signal från en fjärransluten kodare. När du har dataströmmen väl flödar till den **direktsänd händelse**, kan du påbörja strömningshändelsen genom att skapa en **tillgången**, **Live utdata**, och **Strömningspositionerare** . **Live utdata** arkiverar dataströmmen till den **tillgången** och gör den tillgänglig för visning via den **Streaming Endpoid**. En **direktsänd händelse** kan vara något av två typer: **direktautentisering** och **direktsänd kodning**.
+Azure Media Services kan du leverera händelser till dina kunder på Azure-molnet. **Live-händelser** ansvarar för att mata in och bearbeta direktsänd video feeds. När du skapar en **direktsänd händelse**, skapas en slutpunkt för indata som du kan använda för att skicka en direktsänd signal från en fjärransluten kodare. När du har dataströmmen väl flödar till den **direktsänd händelse**, kan du påbörja strömningshändelsen genom att skapa en **tillgången**, **Live utdata**, och **Strömningspositionerare** . **Live utdata** arkiverar dataströmmen till den **tillgången** och gör den tillgänglig för visning via den **Strömningsslutpunkt**. En **direktsänd händelse** kan vara något av två typer: **direktautentisering** och **direktsänd kodning**.
 
 Följande bild illustrerar arbetsflödet direkt typ:
 

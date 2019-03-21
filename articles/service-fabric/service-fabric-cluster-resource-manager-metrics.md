@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 2d1818f42cb2bcb19f979f25962a6c9bdea10155
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 642f479aba62e5cc9dde63aed7c30de39b513a5e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728020"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093357"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Hantera resursförbrukning och belastning i Service Fabric med mått
 *Mått* vilka resurser som din dig för tjänster och som tillhandahålls av noder i klustret. Ett mått är något som du vill hantera för att förbättra eller övervaka prestanda för dina tjänster. Du kan till exempel bevaka minnesförbrukning om du vill veta om din tjänst är överbelastad. Ett annat användningsområde är att ta reda på om tjänsten kan flytta någon annanstans där minne är mindre begränsad för att få bättre prestanda.
@@ -45,6 +45,7 @@ För grundläggande arbetsbelastningar och ange mått som standard en vettigt f�
 Här är vad du får:
 
 <center>
+
 ![Klustret Layout med standard-mått][Image1]
 </center>
 
@@ -215,6 +216,7 @@ Den här syntaxen är (”MetricName, MetricWeight, PrimaryDefaultLoad, Secondar
 Låt oss se vilka ett möjligt kluster layout gick ut:
 
 <center>
+
 ![Klustret balanserad med både standard och anpassade mått][Image2]
 </center>
 
@@ -239,6 +241,7 @@ Verkliga effekten av olika mått vikter i klustret är att Cluster Resource Mana
 Låt oss titta på ett exempel på vissa belastningen rapporter och hur olika mått viktas resultat i olika allokeringar i klustret. I det här exemplet Se vi att byta den relativa vikten av mätvärden orsakar Cluster Resource Manager för att skapa olika uppställningar av tjänster.
 
 <center>
+
 ![Tjänstmåttets vikt exempel och dess påverkan på nätverksbelastning lösningar][Image3]
 </center>
 
@@ -256,6 +259,7 @@ Det finns flera vikterna som spåras för varje mått. Den första vikten är de
 Vad som skulle hända om Cluster Resource Manager inte bryr dig om både globala och lokala saldo? Det är enkelt att skapa lösningar som balanseras globalt, men vilket resultera i sämre resursbalansen för enskilda tjänster. I följande exempel ska vi titta på en tjänst som konfigurerats med bara mått som standard och se vad som händer när endast globala saldo anses:
 
 <center>
+
 ![Effekten av en Global endast lösning][Image4]
 </center>
 

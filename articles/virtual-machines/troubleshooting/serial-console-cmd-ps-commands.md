@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 69aecf3d107000408f98f8ae53968355943c2881
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 55b7e45bb9e600267e1dad0e36e9a97eca9a7d40
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440819"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075006"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows-kommandon - CMD och PowerShell
 
@@ -247,8 +247,8 @@ Om du vill köra PowerShell i SAC, när du når en CMD-kommandotolk, skriver du:
 
 `powershell <enter>`
 
->[!CAUTION]
-Ta bort modulen PSReadLine från PowerShell-sessionen innan du kör andra PowerShell-kommandon. Det finns ett känt problem där extra tecken kan införas i text har klistrats in från Urklipp om PSReadLine körs i en PowerShell-session i SAC.
+> [!CAUTION]
+> Ta bort modulen PSReadLine från PowerShell-sessionen innan du kör andra PowerShell-kommandon. Det finns ett känt problem där extra tecken kan införas i text har klistrats in från Urklipp om PSReadLine körs i en PowerShell-session i SAC.
 
 Kontrollera först om PSReadLine har lästs in. Den läses som standard på Windows Server 2016, Windows 10 och senare versioner av Windows. Det är bara finns i tidigare versioner av Windows om den hade installerats manuellt. 
 

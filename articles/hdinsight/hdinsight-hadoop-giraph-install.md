@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4bcd7bcef0969cec82d42ead6307e72a3abea6e1
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: MT
+ms.openlocfilehash: 3b46acfbfd77015193135d1a8c7646c331340145
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978876"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200658"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>Installera och använda Apache Giraph på Windows-baserade HDInsight-kluster
 
@@ -30,7 +30,7 @@ Du kan installera Giraph på någon typ av kluster (Hadoop-, Storm, HBase, Spark
 
 * [Installera Apache Giraph på HDInsight Hadoop-kluster (Linux)](hdinsight-hadoop-giraph-install-linux.md)
 * [Skapa Apache Hadoop-kluster i HDInsight](hdinsight-provision-clusters.md): allmän information om hur du skapar HDInsight-kluster.
-* [Anpassa HDInsight-kluster med skriptåtgärd][hdinsight-cluster-customize]: allmän information om hur du anpassar HDInsight-kluster med skriptåtgärd.
+* [Anpassa HDInsight-kluster med skriptåtgärd] [hdinsight-kluster – anpassa]: allmän information om hur du anpassar HDInsight-kluster med skriptåtgärd.
 * [Utveckla skriptåtgärder skript för HDInsight](hdinsight-hadoop-script-actions.md).
 
 ## <a name="what-is-giraph"></a>Vad är Giraph?
@@ -150,18 +150,17 @@ Vi använder SimpleShortestPathsComputation-exempel för att demonstrera grundl�
     ![Ritning av objekt som cirklar med kortaste sökvägar mellan](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
 ## <a name="install-giraph-using-azure-powershell"></a>Installera Giraph med Azure PowerShell
-Se [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Exemplet visar hur du installerar Apache Spark med Azure PowerShell. Du behöver anpassa skript om du vill använda [ https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
+Se [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md).  Exemplet visar hur du installerar Apache Spark med Azure PowerShell. Du behöver anpassa skript om du vill använda [ https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
 ## <a name="install-giraph-using-net-sdk"></a>Installera Giraph med .NET SDK
-Se [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Exemplet visar hur du installerar Spark med .NET SDK. Du behöver anpassa skript om du vill använda [ https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
+Se [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md). Exemplet visar hur du installerar Spark med .NET SDK. Du behöver anpassa skript om du vill använda [ https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
 ## <a name="see-also"></a>Se också
 * [Installera Apache Giraph på HDInsight Hadoop-kluster (Linux)](hdinsight-hadoop-giraph-install-linux.md)
 * [Skapa Apache Hadoop-kluster i HDInsight](hdinsight-provision-clusters.md): allmän information om hur du skapar HDInsight-kluster.
-* [Anpassa HDInsight-kluster med skriptåtgärd][hdinsight-cluster-customize]: allmän information om hur du anpassar HDInsight-kluster med skriptåtgärd.
+* [Anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md): allmän information om hur du anpassar HDInsight-kluster med skriptåtgärd.
 * [Utveckla skriptåtgärder skript för HDInsight](hdinsight-hadoop-script-actions.md).
 * [Installera och använda Apache Spark på HDInsight-kluster][hdinsight-install-spark]: Skriptexempel för en åtgärd om hur du installerar Spark.
-* [Installera Apache Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md): Skriptexempel för en åtgärd om att installera Solr.
 
 [tools]: https://github.com/Blackmist/hdinsight-tools
 [aps]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/
@@ -169,4 +168,3 @@ Se [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-clu
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
-[hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

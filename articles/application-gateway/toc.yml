@@ -7,16 +7,16 @@ items:
     href: overview.md
 - name: Snabbstarter
   items:
-  - name: Hantera webbtrafik –portalen
+  - name: Skapa Application Gateway – portalen
     href: quick-create-portal.md
-  - name: Hantera webbtrafik – PowerShell
+  - name: Skapa Application Gateway – PowerShell
     href: quick-create-powershell.md
-  - name: Hantera webbtrafik – Azure CLI
+  - name: Skapa Application Gateway – Azure CLI
     href: quick-create-cli.md
   expanded: true
 - name: Självstudier
   items:
-  - name: Hantera webbtrafik
+  - name: Agera värd åt en enskild webbplats
     href: tutorial-manage-web-traffic-cli.md
   - name: Aktivera brandvägg för webbaserade program
     href: tutorial-restrict-web-traffic-cli.md
@@ -40,12 +40,26 @@ items:
     href: cli-samples.md
 - name: Begrepp
   items:
-  - name: Så här fungerar Application Gateway
-    href: how-application-gateway-works.md
-  - name: Application Gateway-komponenter
-    href: application-gateway-components.md
-  - name: Översikt över konfiguration
-    href: configuration-overview.md
+  - name: Grundläggande inställningar
+    items:
+    - name: Så här fungerar Application Gateway
+      href: how-application-gateway-works.md
+    - name: Application Gateway-komponenter
+      href: application-gateway-components.md
+    - name: Översikt över konfiguration
+      href: configuration-overview.md
+  - name: Routning
+    items:
+    - name: Värdtjänster för flera webbplatser
+      href: multiple-site-overview.md
+    - name: URL-routning
+      href: url-route-overview.md
+    - name: Omdirigering
+      href: redirect-overview.md
+    - name: Återskapa HTTP-huvuden
+      href: rewrite-http-headers.md
+    - name: Anpassade felsidor
+      href: custom-error.md
   - name: SSL
     items:
     - name: Översikt över SSL-princip
@@ -58,20 +72,16 @@ items:
       href: waf-overview.md
     - name: WAF-konfiguration
       href: application-gateway-waf-configuration.md
-  - name: URL-routning
-    href: url-route-overview.md
-  - name: Värdtjänster för flera webbplatser
-    href: multiple-site-overview.md
+  - name: Hälsoövervakning
+    items:
+    - name: Hälsoavsökning
+      href: application-gateway-probe-overview.md
+    - name: Diagnostik
+      href: application-gateway-diagnostics.md
   - name: Automatisk skalning och zonredundans
     href: application-gateway-autoscaling-zone-redundant.md
-  - name: Stöd för omdirigering
-    href: redirect-overview.md
-  - name: Återskapa HTTP-huvuden
-    href: rewrite-http-headers.md
   - name: App Service-webbapp och stöd för flera innehavare
     href: application-gateway-web-app-overview.md
-  - name: Hälsoövervakning
-    href: application-gateway-probe-overview.md
   - name: WebSocket-stöd
     href: application-gateway-websocket.md
   - name: VANLIGA FRÅGOR OCH SVAR
@@ -96,8 +106,12 @@ items:
       href: create-ssl-portal.md
     - name: SSL-avslutning – PowerShell
       href: tutorial-ssl-powershell.md
+    - name: Slutpunkt till slutpunkt för SSL – portalen
+      href: end-to-end-ssl-portal.md
     - name: Slutpunkt till slutpunkt för SSL – PowerShell
       href: application-gateway-end-to-end-ssl-powershell.md
+    - name: Skapa certifikat för serverdel för lista över tillåtna
+      href: certificates-for-backend-authentication.md
     - name: Förnya certifikat
       href: renew-certificates.md
     - name: Konfigurera SSL-princip
@@ -108,7 +122,7 @@ items:
       href: application-gateway-web-application-firewall-portal.md
     - name: Azure PowerShell
       href: tutorial-restrict-web-traffic-powershell.md
-  - name: Anpassa WAF-regler
+  - name: Konfigurera WAF-regeluppsättningar
     items:
     - name: Azure Portal
       href: application-gateway-customize-waf-rules-portal.md
@@ -180,10 +194,6 @@ items:
       href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
     - name: Fel med felaktig gateway (502)
       href: application-gateway-troubleshooting-502.md
-    - name: Diagnostik
-      href: application-gateway-diagnostics.md
-  - name: Anpassade felsidor
-    href: custom-error.md
 - name: Referens
   items:
   - name: CRS-regler
@@ -218,9 +228,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: bd544dc507be3caade81ee45c3a5d704392c5694
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 68264afadd3d05e4d11c6b4b98cd7375886e4d20
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170334"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286964"

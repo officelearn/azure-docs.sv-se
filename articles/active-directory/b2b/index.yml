@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 15c1e8af5e6df658ea24ce357aeeee711eaf9279
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 3ef506da391ece8f4da79283e09cd137ebec5b23
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673502"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294679"
 documentType: LandingData
 title: Dokumentation om Azure Active Directory B2B
 metadata:
@@ -25,7 +25,7 @@ abstract:
   description: Lär dig hur du använder samarbete i Azure AD B2B (företag till företag) för att på ett säkert sätt dela företagets program och tjänster med gästanvändare och externa partner från valfri organisation, samtidigt som du behåller kontrollen över företagets egna data.  Här följer några viktiga funktioner:<ul><li>Genom en enkel process med inbjudan och inlösning kan gästanvändare börja samarbeta med de resurser du vill att de kan komma åt.</li><li>Dina gästanvändare och externa partner hanterar sina egna identiteter via Azure AD, sociala e-postkonton eller valfri identitetsprovider.</li><li>Du kan skydda företagets resurser med Azure AD-funktioner, till exempel multifaktorautentisering.</li><li>Du kan använda API:er för att anpassa upplevelsen, till exempel via en registreringsportal för självbetjäning.</li></ul>Följande resurser hjälper dig att komma igång snabbt.
   aside:
     image:
-      alt: 
+      alt: Miniatyrbild av videon Beskrivning av Azure AD B2B
       height: 110
       src: ./media/index/video.png
       width: 246

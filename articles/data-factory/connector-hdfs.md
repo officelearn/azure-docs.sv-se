@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 4a1b1a32a488395c6a0b3f19de727802a329930a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 547edc2fdfc78f9c22cd62ad2707515f010f2d58
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439867"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852431"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Kopiera data från HDFS med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -308,49 +308,49 @@ Det finns två alternativ för att konfigurera den lokala miljön för att anvä
 
 **På KDC-servern:**
 
-1.  Redigera KDC-konfigurationen i **krb5.conf** filen så att KDC förtroende för Windows-domänen för följande konfiguration. Som standard konfigurationen finns i **/etc/krb5.conf**.
+1. Redigera KDC-konfigurationen i **krb5.conf** filen så att KDC förtroende för Windows-domänen för följande konfiguration. Som standard konfigurationen finns i **/etc/krb5.conf**.
 
-            [logging]
-             default = FILE:/var/log/krb5libs.log
-             kdc = FILE:/var/log/krb5kdc.log
-             admin_server = FILE:/var/log/kadmind.log
+           [logging]
+            default = FILE:/var/log/krb5libs.log
+            kdc = FILE:/var/log/krb5kdc.log
+            admin_server = FILE:/var/log/kadmind.log
 
-            [libdefaults]
-             default_realm = REALM.COM
-             dns_lookup_realm = false
-             dns_lookup_kdc = false
-             ticket_lifetime = 24h
-             renew_lifetime = 7d
-             forwardable = true
+           [libdefaults]
+            default_realm = REALM.COM
+            dns_lookup_realm = false
+            dns_lookup_kdc = false
+            ticket_lifetime = 24h
+            renew_lifetime = 7d
+            forwardable = true
 
-            [realms]
-             REALM.COM = {
-              kdc = node.REALM.COM
-              admin_server = node.REALM.COM
-             }
+           [realms]
+            REALM.COM = {
+             kdc = node.REALM.COM
+             admin_server = node.REALM.COM
+            }
+           AD.COM = {
+            kdc = windc.ad.com
+            admin_server = windc.ad.com
+           }
+
+           [domain_realm]
+            .REALM.COM = REALM.COM
+            REALM.COM = REALM.COM
+            .ad.com = AD.COM
+            ad.com = AD.COM
+
+           [capaths]
             AD.COM = {
-             kdc = windc.ad.com
-             admin_server = windc.ad.com
+             REALM.COM = .
             }
 
-            [domain_realm]
-             .REALM.COM = REALM.COM
-             REALM.COM = REALM.COM
-             .ad.com = AD.COM
-             ad.com = AD.COM
+   **Starta om** KDC-tjänsten efter konfigurationen.
 
-            [capaths]
-             AD.COM = {
-              REALM.COM = .
-             }
+2. Förbereda ett huvudnamn med namnet **krbtgt/REALM.COM\@AD.COM** i KDC-server med följande kommando:
 
-  **Starta om** KDC-tjänsten efter konfigurationen.
+           Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-2.  Förbereda ett huvudnamn med namnet **krbtgt/REALM.COM@AD.COM** i KDC-server med följande kommando:
-
-            Kadmin> addprinc krbtgt/REALM.COM@AD.COM
-
-3.  I **hadoop.security.auth_to_local** HDFS-tjänstkonfigurationen Lägg till `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
+3. I **hadoop.security.auth_to_local** HDFS-tjänstkonfigurationen Lägg till `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//`.
 
 **På domänkontrollanten:**
 
@@ -359,7 +359,7 @@ Det finns två alternativ för att konfigurera den lokala miljön för att anvä
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  Upprätta förtroende från Windows-domän att Kerberos-sfär. [lösenord] är lösenordet för huvudnamn **krbtgt/REALM.COM@AD.COM**.
+2.  Upprätta förtroende från Windows-domän att Kerberos-sfär. [lösenord] är lösenordet för huvudnamn **krbtgt/REALM.COM\@AD.COM**.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 

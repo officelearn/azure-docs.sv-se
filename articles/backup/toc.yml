@@ -160,7 +160,7 @@ items:
       href: backup-azure-central-reporting-updates.md
   - name: Data Protection Manager
     items:
-    - name: Förbereda DPM-arbetsbelastningar i Azure Portal
+    - name: Förbereda DPM-arbetsbelastningar i Azure-portalen
       href: backup-azure-dpm-introduction.md
     - name: Använda DPM för att säkerhetskopiera Exchange-server
       href: backup-azure-backup-exchange-server.md
@@ -172,14 +172,16 @@ items:
       href: backup-azure-backup-sharepoint.md
   - name: Använda Azure PowerShell
     items:
-    - name: Virtuella Azure-datorer i Azure Portal
+    - name: Virtuella Azure-datorer i Azure-portalen
       href: backup-azure-vms-automation.md
-    - name: DPM i Azure Portal
+    - name: DPM i Azure-portalen
       href: backup-dpm-automation.md
-    - name: Windows Server i Azure Portal
+    - name: Windows Server i Azure-portalen
       href: backup-client-automation.md
     - name: Azure-filresurser i Azure-portalen
       href: backup-azure-afs-automation.md
+    - name: SQL i säkerhetskopior av virtuella Azure-datorer
+      href: backup-azure-sql-automation.md
   - name: Använda Azure Backup REST API
     items:
     - name: Skapa Recovery Services-valv
@@ -195,7 +197,7 @@ items:
   - name: Säkerhetskopiera SQL Server-databaser på virtuella Azure-datorer
     items:
     - name: Om SQL Server-säkerhetskopiering i virtuella Azure-datorer
-      href: backup-sql-server-azure-vms.md
+      href: backup-azure-sql-database.md
     - name: Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
       href: backup-sql-server-database-azure-vms.md
     - name: Återställa SQL Server-databaser i virtuella Azure-datorer
@@ -278,9 +280,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: Videoklipp
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: 033235611271b00275a0ef759af80f2c8c9a2474
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb58460b2331ab867e064235d5a2536809b28021
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014652"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284977"

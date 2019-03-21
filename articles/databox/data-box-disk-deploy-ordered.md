@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/27/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: db10361707d83fcda20f0e4bf2adc2abc4176808
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 67f4eb5383452a81ba288f5fe611242259217951
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156179"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404907"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Självstudier: Beställa en Azure Data Box Disk
 
@@ -27,7 +27,7 @@ I den här självstudien beskriver vi hur du kan beställa Azure Data Box-diskar
 > * Spåra beställningen
 > * Avbryta beställningen
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du distribuerar slutför du följande konfigurationskrav för Data Box-tjänsten och Data Box Disk.
 
@@ -80,11 +80,25 @@ Utför följande steg på [Azure-portalen](https://aka.ms/azuredataboxfromdiskdo
     |Namn|Välj ett smeknamn så att du kan spåra beställningen.<br> Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. <br> Namnet måste börja och sluta med en bokstav eller en siffra. |
     |Resursgrupp| Använd ett befintligt eller skapa ett nytt. <br> En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. |
     |Azure-målregion| Välj en region för lagringskontot.<br> För närvarande stöds lagringskonton i USA, västra och norra Europa, Kanada och Australien. |
-    |Lagringskonto(n)|Baserat på den angivna Azure-regionen kan du välja ur en filtrerad lista med befintliga lagringskonton. <br>Du kan också skapa nya konton för generell användning av typen v1 eller v2. |
     |Beräknad datastorlek i TB| Ange en uppskattning i TB. <br>Microsoft skickar baserat på datastorlek ett lämpligt antal SSD-diskar på vardera 8 TB (7 TB användbar kapacitet). <br>Den maximala kapaciteten som kan användas på 5 diskar är upp till 35 TB. |
     |Disknyckel| Ange disknyckeln om du markerar **Använd anpassad nyckel istället för en nyckel som skapats av Azure**. <br> Ange en alfanumerisk nyckel på 12 till 32 tecken som har minst ett numeriskt tecken och ett specialtecken. Tillåtna specialtecken är `@?_+`. <br> Du kan välja att hoppa över det här alternativet och använder den Azure-genererade nyckeln för att låsa upp dina diskar.|
+    |Lagringsmål     | Välj från storage-konto eller hanterade diskar, eller bådadera. <br> Baserat på den angivna Azure-regionen, Välj ett lagringskonto i den filtrerade listan över ett befintligt lagringskonto. Data Box kan länkas med upp till 10 lagringskonton. <br> Du kan också skapa en ny **General-purpose v1**, **gpv2**, eller **Blob storage-konto**. <br>Det går inte att använda lagringskonton som har konfigurerade regler. Lagringskonton måste **tillåta åtkomst från alla nätverk** i avsnittet om brandväggar och virtuella nätverk.|
 
-13. Klicka på **Nästa**. 
+    Om du använder storage-konto som lagringsplats, visas följande skärmbild:
+
+    ![Data Box-diskbeställning för storage-konto](media/data-box-disk-deploy-ordered/order-storage-account.png)
+
+    Om du använder Data Box-diskar för att skapa hanterade diskar från de lokala virtuella hårddiskarna, måste du också ange följande information:
+
+    |Inställning  |Värde  |
+    |---------|---------|
+    |Resursgrupp     | Skapa en ny resursgrupp om du planerar att skapa hanterade diskar från en lokal virtuell hårddisk. Använd en befintlig resursgrupp bara om den har skapats för Data Box-diskbeställning för hanterad disk av Data Box-tjänsten. <br> Endast en resursgrupp stöds.|
+
+    ![Data Box-diskbeställning för hanterad disk](media/data-box-disk-deploy-ordered/order-managed-disks.png)
+
+    Storage-konto som angetts för hanterade diskar används som en mellanlagringskontot. Data Box-tjänsten Överför de virtuella hårddiskarna till mellanlagringskontot och sedan konverterar dem till hanterade diskar och flyttar till resursgrupper. Mer information finns i [verifiera data Överför till Azure](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure).
+
+13. Klicka på **Nästa**.
 
     ![Uppge beställningsinformation](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 
@@ -102,7 +116,7 @@ Utför följande steg på [Azure-portalen](https://aka.ms/azuredataboxfromdiskdo
  
 ## <a name="track-the-order"></a>Spåra beställningen
 
-När du har skapat beställningen kan du spåra statusen för ordern via Azure-portalen. Öppna beställningen och navigera till **Overview** (Översikt) för att visa status. Portalen visar jobbet i tillståndet **Ordered** (beställt). 
+När du har skapat beställningen kan du spåra statusen för ordern via Azure-portalen. Öppna beställningen och navigera till **Overview** (Översikt) för att visa status. Portalen visar jobbet i tillståndet **Ordered** (beställt).
 
 ![Data Box Disk-status beställd](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -118,9 +132,9 @@ Microsoft förbereder sedan diskarna och skickar dem via en regional leverantör
 
 ## <a name="cancel-the-order"></a>Avbryta beställningen
 
-Om du vill avbryta beställningen öppnar du Azure-portalen, navigerar till **Översikt** och klickar på **Avbryt** i kommandofältet. 
+Om du vill avbryta beställningen öppnar du Azure-portalen, navigerar till **Översikt** och klickar på **Avbryt** i kommandofältet.
 
-Du kan bara avbryta beställningen medan den bearbetas inför leveransen. När beställningen har bearbetats går det inte att avbryta den. 
+Du kan bara avbryta beställningen medan den bearbetas inför leveransen. När beställningen har bearbetats går det inte att avbryta den.
 
 ![Avbryta beställning](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
@@ -140,5 +154,3 @@ Gå vidare till nästa självstudie och lär dig hur du ställer in Data Box-dis
 
 > [!div class="nextstepaction"]
 > [Ställ in en Azure Data Box-disk](./data-box-disk-deploy-set-up.md)
-
-

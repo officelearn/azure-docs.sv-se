@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 912bc9fea7b721b9a74198572bbf916ee0ebe6cd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4494996ed54b25be71367dd3e3043023d0958074
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007101"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224047"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Självstudier: Azure Active Directory-integrering med StatusPage
 
@@ -158,15 +158,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. På konfigurationssidan för enkel inloggning utför du följande steg:
    
-     ![Konfigurera enkel inloggning](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
+      ![Konfigurera enkel inloggning](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
 
-     ![Konfigurera enkel inloggning](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
+      ![Konfigurera enkel inloggning](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
  
-     a. I den **mål-URL för enkel inloggning** textrutan klistra in värdet för **SAML enkel inloggning för tjänst-URL**, som du har kopierat från Azure-portalen.
+      a. I den **mål-URL för enkel inloggning** textrutan klistra in värdet för **SAML enkel inloggning för tjänst-URL**, som du har kopierat från Azure-portalen.
 
-     b. Öppna din nedladdade certifikatet i anteckningar, kopiera innehållet och klistra in den i den **certifikat** textrutan. 
+      b. Öppna din nedladdade certifikatet i anteckningar, kopiera innehållet och klistra in den i den **certifikat** textrutan. 
 
-     c. Klicka på **Spara konfiguration**.
+      c. Klicka på **Spara konfiguration**.
 
 > [!TIP]
 > Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)

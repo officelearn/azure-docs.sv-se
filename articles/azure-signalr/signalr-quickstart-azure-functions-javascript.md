@@ -1,24 +1,24 @@
 ---
-title: Snabbstart för serverlös Azure SignalR Service – JavaScript
+title: Azure SignalR Service utan Server Snabbstart – JavaScript
 description: En snabbstart för att använda Azure SignalR Service och Azure Functions för att skapa ett chattrum.
 author: sffamily
 ms.service: signalr
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 09/23/2018
+ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: f0044ca206d15762d44d8d4ea2d58c93950c5e1e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: c66323a430e86053627577b40f66b3f4be11c74f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252464"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535656"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Snabbstart: Skapa ett chattrum med Azure Functions och SignalR Service med hjälp av JavaScript
 
 Med Azure SignalR Service kan du enkelt lägga till realtidsfunktioner i ditt program. Azure Functions är en serverlös plattform som gör att du kan köra din kod utan att behöva hantera någon infrastruktur. I den här snabbstarten lär du dig hur du använder SignalR Service och Functions för att skapa ett serverlöst realtidschattprogram.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här snabbstarten kan köras på macOS, Windows eller Linux.
 
@@ -81,7 +81,7 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade och körde du ett serverlöst realtidsprogram i Visual Studio. Härnäst får du lära dig mer om att utveckla och distribuera Azure Functions med Visual Studio.
+I den här snabbstarten har du skapat och kört ett serverlöst program i realtid i VS Code. Som nästa steg ska du lära dig mer om hur du distribuerar Azure Functions via VS Code.
 
 > [!div class="nextstepaction"]
-> [Utveckla Azure Functions med hjälp av Visual Studio](../azure-functions/functions-develop-vs.md)
+> [Distribuera Azure Functions med VS Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)

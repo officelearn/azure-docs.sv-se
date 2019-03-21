@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: fca14eb5a51799e6d3c0e4f96cb956e4e6886cdb
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: aa9cdbaece2714dd4869268f394e6840fe42edda
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844831"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225407"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Använda tomma kantnoder på Apache Hadoop-kluster i HDInsight
 
@@ -91,7 +91,7 @@ I det här avsnittet använder du Resource Manager-mall för att lägga till en 
 > Se till att välja Azure-resursgrupp för det befintliga HDInsight-klustret.  I annat fall får felmeddelandet ”Det går inte att utföra åtgärden på kapslad resurs. Överordnad resurs '&lt;klusternamn >' hittades inte ”.
 
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>Lägg till en kantnod när du skapar ett kluster
-I det här avsnittet ska använda du Resource Manager-mall för att skapa HDInsight-kluster med en kantnod.  Resource Manager-mallen finns i den [Azure-Snabbstartsmallar galleriet](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Resource Manager-mallen anropar en skriptåtgärd i https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Skriptet utföra inte några åtgärder.  Det är att demonstrera den anropande skriptåtgärd från en Resource Manager-mall.
+I det här avsnittet ska använda du Resource Manager-mall för att skapa HDInsight-kluster med en kantnod.  Resource Manager-mallen finns i den [galleriet med snabbstartmallar för Azure](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Resource Manager-mallen anropar en skriptåtgärd i https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Skriptet utföra inte några åtgärder.  Det är att demonstrera den anropande skriptåtgärd från en Resource Manager-mall.
 
 **Skapa ett HDInsight-kluster med en kantnod**
 

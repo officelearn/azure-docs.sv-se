@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe472a45d99f966c851934ea44a346326cb4201
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b85284a5c2c3017e7ccc0a7e06a712e41c2a9561
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175157"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215599"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Självstudier: Utföra en pilotlansering av självbetjäning av lösenordsåterställning för Azure AD
 
@@ -28,7 +28,7 @@ Det är viktigt att all testning av självåterställning av lösenord utförs m
 > * Aktivera lösenordsåterställning via självbetjäning
 > * Testa SSPR som användare
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett konto som global administratör
 
@@ -42,8 +42,8 @@ Det är viktigt att all testning av självåterställning av lösenord utförs m
       * Se till att användarna i den grupp du valde har licensierats på rätt sätt.
    * Klicka på **Spara**
 1. På sidan **Autentiseringsmetoder**
-   * Ställ in **Antal metoder som krävs för återställning** till **2**
-   * Välj vilka **Metoder som är tillgängliga för användare** som organisationen vill tillåta. För den här självstudien markerar du kryssrutorna för att aktivera **E-post**, **Mobiltelefon** och **Arbetstelefon**.
+   * Ange den **antal metoder som krävs för att återställa** till **1**
+   * Välj vilka **Metoder som är tillgängliga för användare** som organisationen vill tillåta. Den här självstudien markerar du kryssrutorna till aktivera **e-post** och **kod för mobilapp (förhandsversion)**.
    * Klicka på **Spara**
 1. På sidan **Registrering**
    * Välj **Ja** för att **kräva att användare registrerar sig vid inloggning**.
@@ -71,7 +71,7 @@ Testa självåterställning av lösenord med hjälp av en testanvändare som int
 
 Om du inte längre vill använda funktioner som du har konfigurerat i den här självstudien kan du göra följande ändring.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Bläddra till **Azure Active Directory** och välj **Lösenordsåterställning**.
 1. På sidan **Egenskaper** går du till alternativet **Self Service Password Reset Enabled** (Självåterställning av lösenord aktiverat) och väljer **Inget**.
 1. Klicka på **Spara**

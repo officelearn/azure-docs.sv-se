@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: d73c0e3f62d30764cba8866d7e731c5ea67d3057
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: aa8292aac82f478422f9214c26d974825872eed6
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878276"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226343"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Konfigurera haveriberedskap för virtuella VMware-datorer till Azure med PowerShell
 
@@ -26,7 +26,7 @@ Lär dig att:
 > - Konfigurera replikering, inklusive en replikeringsprincip. Lägg till vCenter-servern och identifiera virtuella datorer. 
 > - Lägg till en vCenter-server och identifiera 
 > - Skapa lagringskonton för att lagra data för replikering och replikera de virtuella datorerna.
-> - Utför en redundans. Konfigurera inställningar för växling vid fel, utföra en e-postinställningar för replikering av virtuella datorer.
+> - Utför en redundans. Konfigurera inställningar för växling vid fel, utföra en inställning för replikering av virtuella datorer.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -61,7 +61,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ProvisioningState : Succeeded
    Tags              :
    ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VMwareDRtoAzurePS
-```
+   ```
    
 2. Skapa ett Recovery services-valv. I exemplet nedan Recovery services-valv heter VMwareDRToAzurePs och har skapats i regionen östra Asien, och i resursgruppen som skapades i föregående steg.
 

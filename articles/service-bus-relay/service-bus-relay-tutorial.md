@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 6927788fa79c567222a199064f5b375546ecf9ad
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: db73363a05734db5d7e3375a5755a807eb7ce2a5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615484"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890975"
 ---
 # <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Exponera en lokal WCF REST-tjänst för extern klient med hjälp av Azure WCF Relay
 
@@ -31,7 +31,7 @@ När du har gått igenom alla teman i den här självstudiekursen, kommer du att
 
 I de tre sista stegen beskriver vi hur du skapar ett klientprogram, konfigurerar detta och skapar och använder en klient som har åtkomst till värdens funktioner.
 
-Du kan utföra följande steg i den här självstudien:
+I den här självstudien gör du följande:
 
 > [!div class="checklist"]
 > * Skapa ett Relay-namnområde.
@@ -48,11 +48,11 @@ Du kan utföra följande steg i den här självstudien:
 För att slutföra den här självstudien, finns följande förhandskrav:
 
 - En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-- [Visual Studio 2015 eller senare](http://www.visualstudio.com). I exemplen i den här självstudiekursen används Visual Studio 2017.
-- Azure SDK för .NET. Installera det från den [hämtningssidan för SDK](https://azure.microsoft.com/downloads/).
+- [Visual Studio 2015 eller senare](https://www.visualstudio.com). I exemplen i den här självstudiekursen används Visual Studio 2017.
+- Azure SDK för .NET. Installera det från den [nedladdningssidan för SDK](https://azure.microsoft.com/downloads/).
 
 ## <a name="create-a-relay-namespace"></a>Skapa ett Relay-namnområde
-Det första steget är att skapa ett namnområde och få en [signatur för delad åtkomst (SAS)](../service-bus-messaging/service-bus-sas.md) nyckel. Ett namnområde ger en programgräns för varje program som exponeras via den vidarebefordrande tjänsten. SAS-nyckeln genereras automatiskt av systemet när ett namnområde för tjänsten har skapats. Kombinationen av namnområde för tjänsten och SAS-nyckeln ger referensen för Azure för att autentisera åtkomst till ett program.
+Det första steget är att skapa ett namnområde och hämta en [SAS-nyckel (signatur för delad åtkomst)](../service-bus-messaging/service-bus-sas.md). Ett namnområde ger en appgräns för varje app som exponeras via Relay-tjänsten. SAS-nyckeln genereras automatiskt av systemet när ett namnområde för tjänsten har skapats. Kombinationen av tjänstens namnområde och SAS-nyckeln ger referensen för Azure som används för att tillåta åtkomst till ett program.
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
@@ -84,10 +84,10 @@ Tjänstekontraktet anger vilka åtgärder (webbserviceterminologin för metoder 
    > Den här självstudien använder C#-namnområdet **Microsoft.ServiceBus.Samples**, vilket är namnområdet för kontrakt-baserad hanterad typ som används i konfigurationsfilen i den [konfigurerar WCF-klienten](#configure-the-wcf-client) steg. Du kan ange vilken namnområden du vill när du skapar det här exemplet. Men självstudiekursen kommer inte att fungera om du inte sedan ändrar kontraktets namnområden och tjänster därefter. Det här görs i programmets konfigurationsfil. Det namnområde som anges i filen App.config måste vara samma som det namnområde som angavs i C#-filerna.
    >
    >
-7. Direkt efter den `Microsoft.ServiceBus.Samples` namnområdesdeklarationen men inom namnområdet, definierar du ett nytt gränssnitt med namnet `IEchoContract` och tillämpa den `ServiceContractAttribute` attributet på gränssnittet med ett namnområdesvärde på `http://samples.microsoft.com/ServiceModel/Relay/`. Namnområdesvärdet skiljer sig från det namnområde som du använder under hela intervallet för din kod. Istället används namnområdesvärdet som en unik identifierare för det här kontraktet. Genom att ange namnområdet uttryckligen förhindrar du att det förvalda namnområdesvärdet läggs till i kontraktnamnet. Klistra in följande kod efter namnområdesdeklarationen:
+7. Direkt efter den `Microsoft.ServiceBus.Samples` namnområdesdeklarationen men inom namnområdet, definierar du ett nytt gränssnitt med namnet `IEchoContract` och tillämpa den `ServiceContractAttribute` attributet på gränssnittet med ett namnområdesvärde på `https://samples.microsoft.com/ServiceModel/Relay/`. Namnområdesvärdet skiljer sig från det namnområde som du använder under hela intervallet för din kod. Istället används namnområdesvärdet som en unik identifierare för det här kontraktet. Genom att ange namnområdet uttryckligen förhindrar du att det förvalda namnområdesvärdet läggs till i kontraktnamnet. Klistra in följande kod efter namnområdesdeklarationen:
 
     ```csharp
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
     }
@@ -122,7 +122,7 @@ using System.ServiceModel;
 
 namespace Microsoft.ServiceBus.Samples
 {
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -158,7 +158,7 @@ Skapa en Azure relay kräver att du först skapa det kontrakt som definieras med
 2. Tillämpa attributet [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) på gränssnittet `IEchoContract`. Attributet anger namnet på tjänsten och på namnområdet. När du har gjort det, visas klassen `EchoService` på följande sätt:
 
     ```csharp
-    [ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceBehavior(Name = "EchoService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     class EchoService : IEchoContract
     {
     }
@@ -211,7 +211,7 @@ Skapa en Azure relay kräver att du först skapa det kontrakt som definieras med
 Följande kod visar implementeringen av tjänstekontraktet.
 
 ```csharp
-[ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+[ServiceBehavior(Name = "EchoService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
 
     class EchoService : IEchoContract
     {
@@ -354,7 +354,7 @@ using Microsoft.ServiceBus.Description;
 
 namespace Microsoft.ServiceBus.Samples
 {
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -363,7 +363,7 @@ namespace Microsoft.ServiceBus.Samples
 
     public interface IEchoChannel : IEchoContract, IClientChannel { };
 
-    [ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceBehavior(Name = "EchoService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     class EchoService : IEchoContract
     {
         public string Echo(string text)
@@ -442,7 +442,7 @@ Nästa steg är att skapa ett klientprogram och definiera det tjänstekontrakt s
 6. Lägga till en definition för tjänstekontraktet i namnområdet, som visas i följande exempel. Observera att den här definitionen är identisk med den som används i projektet **Service**. Du måste lägga till den här koden längst upp i namnområdet `Microsoft.ServiceBus.Samples`.
 
     ```csharp
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -465,7 +465,7 @@ using System.ServiceModel;
 namespace Microsoft.ServiceBus.Samples
 {
 
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -631,7 +631,7 @@ using System.ServiceModel;
 
 namespace Microsoft.ServiceBus.Samples
 {
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]

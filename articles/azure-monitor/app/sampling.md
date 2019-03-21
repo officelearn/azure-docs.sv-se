@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: 1bbec8bb1805caf4e9f3ed678ae70475945e4995
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 83c286be6429376d4d0b4009b18c5f751a4b158f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014581"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226699"
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -28,57 +28,40 @@ När måttet antal visas i portalen, är de renormalized hänsyn till kontot sam
 Sampling minskar kostnader och trafik och hjälper dig att undvika begränsning.
 
 ## <a name="in-brief"></a>Kort sagt:
+
 * Sampling behåller 1 i *n* registrerar och ignorerar resten. Det kan till exempel spara 1 av 5 händelser, en samplingsfrekvensen på 20 procent. 
-* Adaptiv Sampling är aktiverat som standard i den senaste versionen av Asp.NET och Asp.NET Core Software Development Kit (SDK).
-* Du kan också ange sampling manuellt. Detta kan konfigureras i portalen på den *användning och uppskattade kostnader*.  I ASP.NET SDK i filen applicationinsights.config.config. I Asp.NET Core SDK via kod. Eller i Java-SDK: T i ApplicationInsights.xml-fil.
+* Adaptiv Sampling är aktiverat som standard i den senaste versionen av ASP.NET och ASP.NET Core Software Development Kit (SDK).
+* Du kan också ange sampling manuellt. Detta kan konfigureras i portalen på den *användning och uppskattade kostnader*, i ASP.NET SDK i filen applicationinsights.config.config i ASP.NET Core-SDK via kod eller Java-SDK: T i ApplicationInsights.xml-fil.
 * Om du loggar in anpassade händelser och behovet av att se till att en uppsättning händelser är bevaras eller tas bort tillsammans måste händelserna ha samma åtgärds-ID-värde.
 * Sampling divisorn *n* rapporteras i varje post i egenskapen `itemCount`, som i sökningen visas under namnet ”begäran antal” eller ”händelseantal”. `itemCount==1`När sampling inte är i drift.
 * Om du skriver analysfrågor, bör du [ta hänsyn till sampling](../../azure-monitor/log-query/aggregations.md). I synnerhet i stället för bara räkna poster, du bör använda `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Typer av sampling
+
 Det finns tre alternativ sampling metoder:
 
-* **Adaptiv sampling** justeras automatiskt mängden telemetri som skickas från SDK: N i din ASP.NET/ASP.NET Core-app. Från och med ASP.NET Web SDK v 2.0.0-beta3, är adaptiv sampling standardmetoden för sampling. Adaptiv sampling är för närvarande bara tillgänglig för ASP.NET serversidan telemetri. För ASP.NET Core-program som riktar in sig på fullständiga Framework, är adaptiv sampling tillgänglig från Microsoft.ApplicationInsights.AspNetCore SDK-version 1.0.0. Adaptiv sampling är tillgänglig från 2.2.0-beta1 av Microsoft.ApplicationInsights.AspNetCore SDK för ASP.NET Core-program som riktar in sig på NetCore.
+* **Adaptiv sampling** justeras automatiskt mängden telemetri som skickas från SDK: N i din ASP.NET/ASP.NET Core-app. Det här är standard sampling från och med ASP.NET Web SDK v 2.0.0-beta3 och Microsoft.ApplicationInsights.AspNetCore SDK v 2.2.0-beta1 och senare.  Adaptiv sampling är för närvarande bara tillgänglig för ASP.NET serversidan telemetri.
 
 * **Fast räntesats sampling** minskar mängden telemetri som skickas från både din ASP.NET- eller ASP.NET Core- eller Java-server och från användarnas webbläsare. Du ställer in frekvensen. Klienten och servern ska synkronisera sina sampling så att, i sökningen som du kan navigera mellan relaterade sidvisningar och förfrågningar.
-* **Inmatningssampling** fungerar i Azure-portalen. Det tar bort några av telemetrin som tas emot från din app på en samplingsfrekvensen som du anger. Det minskar inte telemetritrafik som skickas från din app, men det hjälper dig att skydda inom din månatliga kvot. Den största fördelen med inmatningssampling är att du kan ange samplingsfrekvensen utan att omdistribuera din app. Inmatningssampling fungerar enhetligt för alla servrar och klienter. 
+
+* **Inmatningssampling** fungerar i Azure-portalen. Det tar bort några av telemetrin som tas emot från din app på en samplingsfrekvensen som du anger. Det minskar inte telemetritrafik som skickas från din app, men det hjälper dig att skydda inom din månatliga kvot. Den största fördelen med inmatningssampling är att du kan ange samplingsfrekvensen utan att omdistribuera din app. Inmatningssampling fungerar enhetligt för alla servrar och klienter.
 
 Om Adaptiv eller fast pris sampling är i drift, har inmatningssampling inaktiverats.
 
-## <a name="ingestion-sampling"></a>Inmatningssampling
-Den här typen av sampling körs vid den punkt där telemetri från webbservern, webbläsare och enheter når Application Insights-tjänstslutpunkt. Även om det inte minska telemetritrafik som skickas från din app, den minskar den bearbetas och behålls (och debiteras för) av Application Insights.
 
-Använd den här typen av sampling om din app går ofta via sin månatliga kvot och du inte har alternativet att använda något av de SDK-baserade typerna av sampling. 
+## <a name="adaptive-sampling-in-your-aspnetaspnet-core-web-applications"></a>Adaptiv sampling i dina ASP.NET/ASP.NET Core-webbprogram
 
-Ange samplingsfrekvensen i användning och uppskattade kostnader:
+Adaptiv sampling är tillgänglig för Application Insights SDK för ASP.NET v 2.0.0-beta3 och senare, Microsoft.ApplicationInsights.AspNetCore SDK v 2.2.0-beta1 och senare, och är aktiverad som standard.
 
-![Från översiktsbladet program klickar du på inställningar, kvot, exempel, och sedan väljer en samplingsfrekvensen och klicka på Uppdatera.](./media/sampling/04.png)
+Adaptiv sampling påverkar mängden telemetri som skickas från web server-app till Application Insights-tjänstslutpunkt. Volymen justeras automatiskt om du vill behålla inom en angiven högsta mängden trafik och styrs via inställningen `MaxTelemetryItemsPerSecond`. Om programmet ger lite telemetri, t.ex. när du felsöker eller på grund av låg belastning objekt inte hämta samplas så länge volymen understiger `MaxTelemetryItemsPerSecond`. Som volym telemetri ökar justeras samplingsfrekvensen för att uppnå målvolymen.
 
-Precis som andra typer av sampling behåller algoritmen relaterad telemetri objekt. Till exempel när du granska telemetri i Search kommer du att kunna hitta den relaterade till ett visst undantag. Mått räknar, till exempel förfrågningar och antal undantag bevaras korrekt.
-
-Datapunkter som ignoreras av sampling är inte tillgängliga i alla Application Insights-funktioner som [löpande Export](../../azure-monitor/app/export-telemetry.md).
-
-Inmatningssampling fungerar inte när SDK-baserade anpassningsbara eller fast räntesats sampling är i drift. Adaptiv sampling är aktiverad som standard när ASP.NET/ASP.NET Core SDK är aktiverat i Visual Studio eller aktiverats i Azure Web App-tillägg eller med hjälp av statusövervakaren och inmatningssampling är inaktiverat. Om samplingsfrekvensen på SDK är mindre än 100%, ignoreras inmatning samplingsfrekvensen som du anger.
-
-> [!WARNING]
-> Värdet som visas på panelen visar det värde som du angett för inmatningssampling. Den representerar inte faktiska samplingsfrekvensen om SDK sampling är i drift.
-> 
-> 
-
-## <a name="adaptive-sampling-at-your-web-server"></a>Adaptiv sampling på webbservern
-Adaptiv sampling är tillgänglig för Application Insights SDK för ASP.NET v 2.0.0-beta3 och senare. I 2.2.0-beta1 av Microsoft.ApplicationInsights.AspNetCore SDK och senare, och är aktiverad som standard. 
-
-Adaptiv sampling påverkar mängden telemetri som skickas från web server-app till Application Insights-tjänstslutpunkt. Volymen justeras automatiskt så att du lagrar inom en angiven högsta mängden trafik.
-
-Det fungerar inte vid låg mängder telemetri, så en app i felsökning eller en webbplats med låg belastning påverkas inte.
-
-För att uppnå målvolymen viss telemetri som genererade ignoreras. Men precis som andra typer av sampling algoritmen behåller relaterad telemetri objekt. Till exempel när du granska telemetri i Search kommer du att kunna hitta den relaterade till ett visst undantag. 
+För att uppnå målvolymen viss telemetri som genererade ignoreras. Men precis som andra typer av sampling algoritmen behåller relaterad telemetri objekt. Till exempel när du granska telemetri i Search kommer du att kunna hitta den relaterade till ett visst undantag.
 
 Mått räknar, till exempel förfrågningar och antal undantag justeras för att kompensera för samplingsfrekvensen, så att de visar ungefär rätt värden i Metric Explorer.
 
-### <a name="configuring-adaptive-sampling-for-aspnet-applications"></a>Konfigurera Adaptiv sampling för ASP.NET-program. ###
+## <a name="configuring-adaptive-sampling-for-aspnet-applications"></a>Konfigurera Adaptiv sampling för ASP.NET-program
 
-[Lär dig](../../azure-monitor/app/sampling.md#aspnet-core-sampling) om hur du konfigurerar Adaptiv sampling för för ASP.NET Core-program. 
+[Lär dig](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) om hur du konfigurerar Adaptiv sampling för för ASP.NET Core-program. 
 
 I [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), du kan justera flera parametrar i den `AdaptiveSamplingTelemetryProcessor` noden. Siffrorna som visas är standardvärden:
 
@@ -119,6 +102,7 @@ I [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applic
 **Stänga av** Adaptiv sampling, ta bort AdaptiveSamplingTelemetryProcessor nod(er) från applicationinsights-config.
 
 ### <a name="alternative-configure-adaptive-sampling-in-code"></a>Alternativ: Konfigurera Adaptiv sampling i kod
+
 I stället för att ange parametern sampling i .config-filen kan ange du programmässigt dessa värden.
 
 1. Ta bort alla de `AdaptiveSamplingTelemetryProcessor` nod(er) från .config-filen.
@@ -133,12 +117,12 @@ I stället för att ange parametern sampling i .config-filen kan ange du program
     using Microsoft.ApplicationInsights.WindowsServer.Channel.Implementation;
     using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
     ...
-        
+
     var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     // If you are on ApplicationInsights SDK v 2.8.0-beta2 or higher, use the following line instead
-    var builder = TelemetryConfiguration.Active.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+    // var builder = TelemetryConfiguration.Active.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
 
-    // Optional: here you can adjust the settings from their defaults.
+    // Enable AdaptiveSampling so as to keep overall telemetry volume to 5 items per second.
     builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5);
 
     // If you have other telemetry processors:
@@ -155,20 +139,20 @@ Du kan även justera samplingsfrekvensen för varje typ av telemetri individuell
 *C#*
 
 ```csharp
-       // The following configures adaptive sampling with 5 items per second, and also excludes DependencyTelemetry from being subject to sampling.
-       builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
+    // The following configures adaptive sampling with 5 items per second, and also excludes DependencyTelemetry from being subject to sampling.
+    builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
+```
+
+## <a name="configuring-adaptive-sampling-for-aspnet-core-applications"></a>Konfigurera Adaptiv sampling för ASP.NET Core-program.
+
+Det finns inga `ApplicationInsights.Config` för ASP.NET Core-program, så varje konfiguration sker via kod.
+Adaptiv sampling är aktiverat som standard för alla ASP.NET Core-program. Du kan inaktivera eller anpassa beteendet sampling.
+
+### <a name="turning-off-adaptive-sampling"></a>Om du inaktiverar Adaptiv Sampling
+
+Standard sampling-funktionen kan inaktiveras när du lägger till Application Insights-tjänsten i metoden ```ConfigureServices```med hjälp av ```ApplicationInsightsServiceOptions```:
+
 ```csharp
-
-## Adaptive Sampling in ASP.NET Core.
-
-There is no `ApplicationInsights.Config` for ASP.NET Core Applications, so every configuration is done via code.
-Adaptive sampling is enabled by default for all ASP.NET Core applications. You can disable or customize the sampling behavior.
-
-### Turning off Adaptive Sampling
-
-The default sampling feature can be disabled while adding Application Insights service, in the method ```ConfigureServices```, using ```ApplicationInsightsServiceOptions```:
-
-``` c#
 public void ConfigureServices(IServiceCollection services)
 {
     // ...
@@ -189,7 +173,7 @@ Använd tilläggsmetoder för ```TelemetryProcessorChainBuilder``` som visas ned
 > [!IMPORTANT]
 > Om du använder den här metoden för att konfigurera sampling, kontrollera att du använder aiOptions.EnableAdaptiveSampling = false; inställningar med AddApplicationInsightsTelemetry().
 
-``` c#
+```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
     var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
@@ -199,13 +183,15 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     // var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
 
     // Using adaptive sampling
-    builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:10);
+    builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5);
 
     // Alternately, the following configures adaptive sampling with 5 items per second, and also excludes DependencyTelemetry from being subject to sampling.
     // builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Dependency");
 
     builder.Build();
 
+    // If you have other telemetry processors:
+    builder.Use((next) => new AnotherProcessor(next));
     // ...
 }
 
@@ -213,27 +199,27 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 **Om du använder metoden ovan för att konfigurera sampling, se till att använda ```aiOptions.EnableAdaptiveSampling = false;``` inställningar med AddApplicationInsightsTelemetry().**
 
-## <a name="fixed-rate-sampling-for-aspnet-aspnet-core-and-java-web-sites"></a>Fast räntesats samplingsfrekvensen för ASP.NET, ASP.NET Core och Java-webbplatser
+## <a name="fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites"></a>Fast räntesats sampling för ASP.NET, ASP.NET Core och Java-webbplatser
+
 Fast pris sampling minskar den trafik som skickas från webbservern och webbläsare. Till skillnad från Adaptiv sampling minskar den telemetri till en fast kostnad som du valt. Det synkroniserar även klienten och servern sampling så att relaterade objekt bevaras – till exempel när du tittar på en Sidvisning i Search, du kan hitta relaterade begäran.
 
-Samplingsalgoritmen behåller relaterade objekt. För varje HTTP-begäran är händelse, förfrågan och dess relaterade händelser antingen tas bort eller överförs tillsammans. 
+Som andra provtagningar bevarar detta också relaterade objekt. För varje HTTP-begäran är händelse, förfrågan och dess relaterade händelser antingen tas bort eller överförs tillsammans.
 
 I Metrics Explorer multipliceras priser, till exempel antalet begäranden och undantag med en faktor att kompensera för samplingsfrekvensen, så att de är ungefär rätt.
 
-### <a name="configuring-fixed-rate-sampling-in-aspnet"></a>Konfigurera fast räntesats sampling i ASP.NET ###
+### <a name="configuring-fixed-rate-sampling-in-aspnet"></a>Konfigurera fast räntesats sampling i ASP.NET
 
 1. **Inaktivera adaptiv sampling**: I [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), ta bort eller kommentera ut den `AdaptiveSamplingTelemetryProcessor` noden.
-   
+
     ```xml
-   
+
     <TelemetryProcessors>
-   
+
     <!-- Disabled adaptive sampling:
       <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
         <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
       </Add>
     -->
-
     ```
 
 2. **Aktivera insamlingsmodulen för fast räntesats.** Lägg till det här kodfragmentet att [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md):
@@ -276,40 +262,40 @@ I Metrics Explorer multipliceras priser, till exempel antalet begäranden och un
 ```
 ([Lär dig mer om telemetri processorer](../../azure-monitor/app/api-filtering-sampling.md#filtering).)
 
-### <a name="configuring-fixed-rate-sampling-in-aspnet-core"></a>Konfigurera fast räntesats sampling i ASP.NET Core ###
+### <a name="configuring-fixed-rate-sampling-in-aspnet-core"></a>Konfigurera fast räntesats sampling i ASP.NET Core
 
 1. **Inaktivera adaptiv sampling**:  Ändringar kan göras i metoden ```ConfigureServices```med hjälp av ```ApplicationInsightsServiceOptions```:
 
-    ``` c#
+    ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
     // ...
 
-    var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
-    aiOptions.EnableAdaptiveSampling = false;
-    services.AddApplicationInsightsTelemetry(aiOptions);
+        var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
+        aiOptions.EnableAdaptiveSampling = false;
+        services.AddApplicationInsightsTelemetry(aiOptions);
     //...
     }
     ```
 
 2. **Aktivera insamlingsmodulen för fast räntesats.** Ändringar kan göras i metoden ```Configure``` enligt nedan fragment:
-   
-    ``` c#
+
+    ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
-    var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
+        var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
 
-    var builder = configuration .TelemetryProcessorChainBuilder;
-    // version 2.5.0-beta2 and above should use the following line instead of above. (https://github.com/Microsoft/ApplicationInsights-aspnetcore/blob/develop/CHANGELOG.md#version-250-beta2)
-    // var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
-        
-    // Using fixed rate sampling   
-    double fixedSamplingPercentage = 10;
-    builder.UseSampling(fixedSamplingPercentage);
+        var builder = configuration.TelemetryProcessorChainBuilder;
+        // version 2.5.0-beta2 and above should use the following line instead of above. (https://github.com/Microsoft/ApplicationInsights-aspnetcore/blob/develop/CHANGELOG.md#version-250-beta2)
+        // var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
 
-    builder.Build();
+        // Using fixed rate sampling   
+        double fixedSamplingPercentage = 10;
+        builder.UseSampling(fixedSamplingPercentage);
 
-    // ...
+        builder.Build();
+
+        // ...
     }
 
     ```
@@ -352,6 +338,28 @@ Vilka telemetrityper av som kan inkluderas eller uteslutas från sampling är: B
 
 <a name="other-web-pages"></a>
 
+
+
+## <a name="ingestion-sampling"></a>Inmatningssampling
+
+Den här typen av sampling körs vid den punkt där telemetri från webbservern, webbläsare och enheter når Application Insights-tjänstslutpunkt. Även om det inte minska telemetritrafik som skickas från din app, den minskar den bearbetas och behålls (och debiteras för) av Application Insights.
+
+Använd den här typen av sampling om din app går ofta via sin månatliga kvot och du inte har alternativet att använda något av de SDK-baserade typerna av sampling. 
+
+Ange samplingsfrekvensen i användning och uppskattade kostnader:
+
+![Från översiktsbladet program klickar du på inställningar, kvot, exempel, och sedan väljer en samplingsfrekvensen och klicka på Uppdatera.](./media/sampling/04.png)
+
+Precis som andra typer av sampling behåller algoritmen relaterad telemetri objekt. Till exempel när du granska telemetri i Search kommer du att kunna hitta den relaterade till ett visst undantag. Mått räknar, till exempel förfrågningar och antal undantag bevaras korrekt.
+
+Datapunkter som ignoreras av sampling är inte tillgängliga i alla Application Insights-funktioner som [löpande Export](../../azure-monitor/app/export-telemetry.md).
+
+Inmatningssampling fungerar inte när SDK-baserade anpassningsbara eller fast räntesats sampling är i drift. Adaptiv sampling är aktiverad som standard när ASP.NET/ASP.NET Core SDK är aktiverat i Visual Studio eller aktiverats i Azure Web App-tillägg eller med hjälp av statusövervakaren och inmatningssampling är inaktiverat. Om samplingsfrekvensen på SDK är mindre än 100% (dvs.) objekt som samplas) ignoreras inmatning samplingsfrekvensen som du anger.
+
+> [!WARNING]
+> Värdet som visas på panelen visar det värde som du angett för inmatningssampling. Den representerar inte faktiska samplingsfrekvensen om SDK sampling är i drift.
+>
+>
 ## <a name="sampling-for-web-pages-with-javascript"></a>Sampling för webbsidor med JavaScript
 Du kan konfigurera webbsidor för fast räntesats linjer från en server. 
 
@@ -378,6 +386,7 @@ Samplingsprocenten, Välj i procent som ligger nära 100/N där N är ett heltal
 Om du aktiverar också fast räntesats sampling på servern, synkroniserar klienter och servrar så att, i sökningen som du kan navigera mellan relaterade sidvisningar och förfrågningar.
 
 ## <a name="when-to-use-sampling"></a>När du ska använda sampling?
+
 Adaptiv sampling aktiveras automatiskt i senaste .NET och .NET Core SDK: er. Du kan aktivera inmatningssampling att Application Insights ska samlas in insamlade data oavsett vilken version av SDK: N som du använder.
 
 Som standard aktiveras ingen sampling i Java SDK. Det stöder för närvarande endast fast pris Sampling. Adaptiv Sampling stöds inte i Java-SDK.
@@ -391,6 +400,7 @@ De huvudsakliga fördelarna med sampling är:
 * Att minska nätverkstrafiken från mängden telemetri. 
 
 ### <a name="which-type-of-sampling-should-i-use"></a>Vilken typ av sampling ska jag använda?
+
 **Använd inmatning sampling om:**
 
 * Du gå ofta igenom din månatliga kvot för telemetri.
@@ -408,19 +418,22 @@ De huvudsakliga fördelarna med sampling är:
 Om villkoren kan använda andra typer av sampling inte gäller, rekommenderar vi Adaptiv sampling. Den här inställningen är aktiverad som standard i ASP.NET/ASP.NET Core-server SDK. Det kommer inte att minska trafiken tills en viss taxa har uppnåtts, därför låg användning platser påverkas inte.
 
 ## <a name="how-do-i-know-whether-sampling-is-in-operation"></a>Hur vet jag om sampling pågår?
+
 För att identifiera faktiska samplingsfrekvensen oavsett om den har tillämpats, använda en [analysfråga](../../azure-monitor/app/analytics.md) som detta:
 
 ```
-union * 
+union requests,dependencies,pageViews,browserTimings,exceptions,traces
 | where timestamp > ago(1d)
-| summarize 100/avg(itemCount) by bin(timestamp, 1h), itemType
-| render timechart 
+| summarize RetainedPercentage = 100/avg(itemCount) by bin(timestamp, 1h), itemType
 ```
 
-Bevaras i varje post, `itemCount` anger hur många ursprungliga poster som representerar, lika med 1 + antalet tidigare borttagna poster. 
+Om RetainedPercentage för alla typer är mindre än 100, är det objektet urvalet.
+
+**Application Insights exempel inte sessionen, mått och prestandaräknare typer av telemetri i alla sampling metoder som beskrivs ovan. Dessa typer är alltid uteslutna från sampling eftersom minskad precisionen kan vara mycket oönskade för dessa typer av telemetri**
 
 ## <a name="how-does-sampling-work"></a>Hur fungerar sampling?
-Fast räntesats sampling funktion i ASP.NET-versioner från 2.0.0 SDK och Java SDK version 2.0.1 och och senare. Adaptiv sampling är en funktion av SDK i ASP.NET-versioner från 2.0.0 och senare. Inmatningssampling är en funktion i Application Insights-tjänsten och kan vara i drift om SDK inte presterar sampling. 
+
+Fast räntesats sampling funktion i ASP.NET-versioner från 2.0.0 SDK och Java SDK version 2.0.1 och och senare. Adaptiv sampling är en funktion av SDK i ASP.NET-versioner från 2.0.0 och senare. Inmatningssampling är en funktion i Application Insights-tjänsten och kan vara i drift om SDK inte presterar sampling.
 
 Samplingsalgoritmen avgör vilka objekt för telemetri att släppa och vilka som ska sparas (oavsett om den i SDK eller i Application Insights-tjänsten). Sampling beslutet baseras på flera regler som syftar till att bevara alla relaterade datapunkter intakta, underhålla en diagnostisk upplevelse i Application Insights som är användbara och tillförlitlig även med en lägre datauppsättning. Exempel: om din app skickar ytterligare telemetri objekt (till exempel undantag och spårningar som loggats från den här begäran) för en misslyckad förfrågning, sampling inte delar denna begäran och annan telemetri. Det ser till att eller utelämnar dem allt på samma plats. När du tittar på Frågedetaljer i Application Insights kan du därför alltid se begäran tillsammans med dess tillhörande telemetri-objekt. 
 
@@ -435,9 +448,11 @@ Det arbete du utfört uppskattning beror huvudsakligen på konfigurerade samplin
 > 
 
 ### <a name="adaptive-sampling"></a>Adaptiv sampling
+
 Adaptiv sampling lägger till en komponent som övervakar den aktuella överföringshastigheten från SDK och justerar samplingsprocenten att hålla sig inom den maximala hastigheten mål. Justering beräknas med jämna mellanrum och baseras på ett glidande medelvärde för utgående överföringshastigheten.
 
 ## <a name="sampling-and-the-javascript-sdk"></a>Sampling och JavaScript-SDK
+
 Klientsidan (JavaScript) SDK deltar i fast räntesats sampling tillsammans med SDK för serversidan. Sidorna instrumenterade endast skickar telemetri på klientsidan från samma användare som gjort serversidan beslutet att ”exempel på”. Den här logiken är utformad för att upprätthålla integriteten på användarens session i en klient - och en server-sidor. Därmed från ett visst telemetriobjekt i Application Insights hittar du alla andra telemetri-objekt för den här användaren eller sessionen. 
 
 *Min klient- och serversidan telemetri Visa inte samordnad exempel som beskrivs ovan.*
@@ -447,16 +462,30 @@ Klientsidan (JavaScript) SDK deltar i fast räntesats sampling tillsammans med S
 * Kontrollera att du ställer in samma samplingsprocenten i både klienten och servern.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+
 *Vad är standardbeteendet för sampling i ASP.NET och ASP.NET Core SDK?*
 
-* Om du använder en av de senaste versionerna av de ovanstående SDK: er, är adaptiv Sampling aktiverad som standard med fem telemetri objekt per sekund.
-  Det finns 2 AdaptiveSamplingTelemetryProcessors har lagts till som standard och en innehåller händelsetyp i sampling och den andra utesluter händelsetyp från sampling. Den här konfigurationen innebär att SDK: N försöker att begränsa telemetri objekt till fem telemetri objekt av händelsetyper och fem telemetri-objekt för alla andra typer.
-  Se därför till att händelser samplas separat från andra typer av telemetri. Händelser används vanligtvis för telemetri och bör troligtvis inte påverkas av diagnostiktelemetri volymer.
-  Använd exemplen i det tidigare avsnittet av dokumentet för att ändra det här standardbeteendet.
+* Om du använder en av de senaste versionerna av ovanstående SDK, är adaptiv Sampling aktiverad som standard med fem telemetri objekt per sekund.
+  Det finns 2 AdaptiveSamplingTelemetryProcessors har lagts till som standard och en innehåller händelsetyp i sampling och den andra utesluter händelsetyp från sampling. Den här konfigurationen innebär att SDK: N försöker att begränsa telemetri objekt till fem telemetri objekt av händelsetyper och fem telemetri objekt alla andra typer av kombination, säkerställer härigenom att händelser samplas separat från andra typer av telemetri. Händelser används vanligtvis för telemetri och bör troligtvis inte påverkas av diagnostiktelemetri volymer.
+  
+  Nedan visas ApplicationInsights.Config standardfilen genereras. Enligt beskrivningen, det finns två olika AdaptiveSamplingTelemetryProcessor noder har lagt till, ett exklusive händelsetyper och en annan inkludera den. I ASP.NET Core aktiveras exakt samma standardbeteendet i kod. Använd exemplen i det tidigare avsnittet av dokumentet för att ändra det här standardbeteendet.
+
+    ```xml
+    <TelemetryProcessors>
+        <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+            <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+            <ExcludedTypes>Event</ExcludedTypes>
+        </Add>
+        <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+            <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+            <IncludedTypes>Event</IncludedTypes>
+        </Add>
+    </TelemetryProcessors>
+    ```
 
 *Kan telemetri samlas in mer än en gång?*
 
-* Nej. SamplingTelemetryProcessors Ignorera objekt från sampling överväganden om objektet samplas redan. Samma sak gäller för inmatningssampling som, som inte gäller de objekt som redan sampling i SDK: N själva sampling ”.
+* Nej. SamplingTelemetryProcessors Ignorera objekt från sampling överväganden om objektet samplas redan. Samma sak gäller för inmatningssampling som, som inte gäller de objekt som redan samplas i SDK själva sampling ”.
 
 *Varför inte sampling en enkel ”samla in X procent av varje typ av telemetri”?*
 
@@ -491,4 +520,5 @@ Klientsidan (JavaScript) SDK deltar i fast räntesats sampling tillsammans med S
 * Initiera en separat instans av TelemetryClient med en ny TelemetryConfiguration (inte standard är aktiva). Använda den för att skicka din sällsynta händelser.
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Filtrering](../../azure-monitor/app/api-filtering-sampling.md) kan ge mer strikt kontroll över din SDK skickar.

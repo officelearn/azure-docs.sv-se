@@ -9,19 +9,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dffcfe7c4c892976a61272a2217226f512b70ed
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 833c2e460ae306a7673e580aaa304be93c3cd044
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542564"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199740"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Ta bort en Azure Active Directory-klient
+
 När en klient tas bort så raderas även alla resurser som finns i klienten. Du måste förbereda klienten genom att minimera dess kopplade resurser innan du tar bort. Endast en global administratör för Azure Active Directory (Azure AD) kan ta bort en Azure AD-klient från portalen.
 
 ## <a name="prepare-the-tenant-for-deletion"></a>Förbereda klienten för borttagning
@@ -39,13 +40,13 @@ Du kan inte ta bort en klient i Azure AD tills den skickar flera kontroller. De 
 
 2. Välj **Azure Active Directory**.
 
-3. Växla till klienten som du vill ta bort.
+3. Växla till den organisation som du vill ta bort.
   
-  ![ta bort katalog](./media/directory-delete-howto/delete-directory-command.png)
+   ![Bekräfta organisation innan du tar bort](./media/directory-delete-howto/delete-directory-command.png)
 
 4. Välj **ta bort katalogen**.
   
-  ![ta bort katalog](./media/directory-delete-howto/delete-directory-list.png)
+   ![Välj kommandot för att ta bort organisationen](./media/directory-delete-howto/delete-directory-list.png)
 
 5. Om din klient inte skickar en eller flera kontroller, får du en länk till mer information om hur du skickar. När du skickar alla kontroller, väljer **ta bort** att slutföra processen.
 
@@ -57,10 +58,10 @@ Vad som händer när en Office 365-utvärderingsprenumeration upphör att gälla
 
 Prenumerationens status | Data | Åtkomst till data
 ----- | ----- | -----
-Aktiv (30 dagar för utvärderingsversion)  | Data som är tillgängliga för alla    | <li>Användarna har normal åtkomst till Office 365-filer eller appar<li>Administratörer har normal åtkomst till Office 365 Administrationscenter och resurser 
-Har upphört att gälla (30 dagar)   | Data som är tillgängliga för alla    | <li>Användarna har normal åtkomst till Office 365-filer eller appar<li>Administratörer har normal åtkomst till Office 365 Administrationscenter och resurser
-Inaktiverad (30 dagar) | Data som är tillgängliga för enbart administratör  | <li>Användare kan inte komma åt Office 365-filerna eller apparna<li>Administratörer kan få åtkomst till administrationscentret för Office 365, men det går inte att tilldela licenser till eller uppdatera användare
-Inaktiveringen (30 dagar efter inaktiverad) | Data som tas bort (bort automatiskt om inga andra tjänster används) | <li>Användare kan inte komma åt Office 365-filerna eller apparna<li>Administratörer kan komma åt Office 365 Administrationscenter för att köpa och hantera andra prenumerationer 
+Aktiv (30 dagar för utvärderingsversion)  | Data som är tillgängliga för alla    | <li>Användarna har normal åtkomst till Office 365-filer eller appar<li>Administratörer har normal åtkomst till Microsoft 365 Administrationscenter och resurser 
+Har upphört att gälla (30 dagar)   | Data som är tillgängliga för alla    | <li>Användarna har normal åtkomst till Office 365-filer eller appar<li>Administratörer har normal åtkomst till Microsoft 365 Administrationscenter och resurser
+Inaktiverad (30 dagar) | Data som är tillgängliga för enbart administratör  | <li>Användare kan inte komma åt Office 365-filerna eller apparna<li>Administratörer kan få åtkomst till Microsoft 365-administrationscentret, men det går inte att tilldela licenser till eller uppdatera användare
+Inaktiveringen (30 dagar efter inaktiverad) | Data som tas bort (bort automatiskt om inga andra tjänster används) | <li>Användare kan inte komma åt Office 365-filerna eller apparna<li>Administratörer kan få åtkomst till Microsoft 365-administrationscentret för att köpa och hantera andra prenumerationer 
 
 ## <a name="delete-a-subscription-in-the-microsoft-365-admin-center"></a>Tar bort en prenumeration i Microsoft 365 Administrationscenter
 
@@ -70,17 +71,18 @@ Du kan placera en prenumeration till en **Deprovisoned** tillstånd och kan inte
 
 2. Gå till den **fakturering** fliken och markera **produkter och tjänster**, Välj den prenumeration som du vill avbryta. När du klickar på **Avbryt**, uppdatera sidan.
   
-  ![Ta bort länken för att ta bort prenumeration](./media/directory-delete-howto/delete-command.png)
+   ![Ta bort länken för att ta bort prenumeration](./media/directory-delete-howto/delete-command.png)
   
 3. Välj **ta bort** att ta bort prenumerationen och acceptera de allmänna villkoren. Alla data raderas permanent inom tre dagar. Du kan återaktivera prenumerationen under tre dagar, om du ändrar dig.
   
-  ![allmänna villkor](./media/directory-delete-howto/delete-terms.png)
+   ![Läs villkoren noggrant](./media/directory-delete-howto/delete-terms.png)
 
 4. Nu prenumerationens status har ändrats, har prenumerationen markerats för borttagning. Prenumerationen försätts den **avetablerad** tillstånd 72 timmar senare.
 
 5. När du har tagit bort en prenumeration på din klient och 72 timmar har gått ut kan du registrera ska tillbaka till Azure AD administratörscenter igen och det vara något krävs och inga prenumerationer som blockerar borttagningen din klient. Du bör kunna togs bort Azure AD-klienten.
   
-  ![Skicka prenumeration kontroll på skärmen för borttagning](./media/directory-delete-howto/delete-checks-passed.png)
+   ![Skicka prenumeration kontroll på skärmen för borttagning](./media/directory-delete-howto/delete-checks-passed.png)
 
 ## <a name="next-steps"></a>Nästa steg
+
 [Dokumentation om Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: c3b7695b7a67a33df93b0216cfd02f762e412158
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7ddf37a2973196f458efb8ecc8e20761006996ef
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635722"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199519"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>Kör Apache Sqoop jobb med hjälp av Azure PowerShell för Apache Hadoop i HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -158,7 +158,7 @@ Följande PowerShell-skript före bearbetar källfilen och exporterar den till e
 ## <a name="limitations"></a>Begränsningar
 Linux-baserade HDInsight visar följande begränsningar:
 
-* Massexport: Sqoop-koppling som används för att exportera data till Microsoft SQL Server eller Azure SQL Database stöder för närvarande inte bulkinfogningar.
+* Bulk export: Sqoop-koppling som används för att exportera data till Microsoft SQL Server eller Azure SQL Database stöder för närvarande inte bulkinfogningar.
 
 * Batchbearbetning: Med hjälp av den `-batch` växla när den utför infogningar, Sqoop utför flera infogningar i stället för batchbearbetning insert-åtgärder. 
 
@@ -166,7 +166,6 @@ Linux-baserade HDInsight visar följande begränsningar:
 Nu har du lärt dig hur du använder Sqoop. Du kan läsa mer här:
 
 * [Använda Apache Oozie med HDInsight](../hdinsight-use-oozie.md): Använd Sqoop åtgärden i ett Oozie-arbetsflöde.
-* [Analysera flygförseningsdata med hjälp av HDInsight](../hdinsight-analyze-flight-delay-data.md): Använda Apache Hive för att analysera flygförseningsdata och Använd sedan Sqoop för att exportera data till en Azure SQL database.
 * [Ladda upp data till HDInsight](../hdinsight-upload-data.md): Hitta andra metoder för att överföra data till HDInsight eller Azure Blob storage.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

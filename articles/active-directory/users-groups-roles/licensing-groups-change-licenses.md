@@ -11,43 +11,44 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c81ab72be58cd223eb9b3fe9ec53d56574a94e8
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 4b65eb38b6c8102295f40b5e169ae7c32a2342a2
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430309"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201372"
 ---
-# <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>På ett säkert sätt Migrera användare mellan produktlicenser med gruppbaserad licensiering
+# <a name="change-the-license-for-a-single-user-in-a-licensed-group-in-azure-active-directory"></a>Ändra licensen för en enskild användare i en licensierad grupp i Azure Active Directory
 
 Den här artikeln beskriver den rekommenderade metoden för att flytta användare mellan produktlicenser när du använder gruppbaserad licensiering. Målet med den här metoden är att kontrollera att det finns ingen förlust av tjänsten eller data under migreringen: användare bör växla mellan produkter sömlöst. Två varianter av migreringsprocessen omfattas:
 
--   Enkel migrering mellan produktlicenser som inte innehåller tjänstplanerna, till exempel migrera mellan Office 365 Enterprise E3 och Office 365 Enterprise E5.
+- Enkel migrering mellan produktlicenser som inte innehåller tjänstplanerna, till exempel migrera mellan Office 365 Enterprise E3 och Office 365 Enterprise E5.
 
--   Mer komplexa migrering mellan produkter som innehåller vissa tjänstplanerna, till exempel migrera mellan Office 365 Enterprise E1 och Office 365 Enterprise E3. Läs mer om konflikter [pågår service-planer](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) och [Service planer som inte kan tilldelas på samma gång](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
+- Mer komplexa migrering mellan produkter som innehåller vissa tjänstplanerna, till exempel migrera mellan Office 365 Enterprise E1 och Office 365 Enterprise E3. Läs mer om konflikter [pågår service-planer](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) och [Service planer som inte kan tilldelas på samma gång](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
 
 Den här artikeln innehåller exempel PowerShell-kod som kan användas för att utföra stegen för migrering och kontroll. Koden är särskilt användbart för storskaliga åtgärder om det inte är möjligt att utföra stegen manuellt.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 Det är viktigt att kontrollera vissa antaganden uppfylls för alla användare som ska migreras innan du påbörjar migreringen. Om förutsättningarna inte gäller för alla användare, misslyckas migreringen för några. Vissa av användarna kan därför förlora åtkomst till tjänster eller data. Följande antaganden bör verifieras:
 
--   Användare har den *källkodslicens* som har associerats med gruppbaserad licensiering. Licenser att flytta från ärvs från en enda källa-grupp och har tilldelats inte direkt.
+- Användare har den *källkodslicens* som har associerats med gruppbaserad licensiering. Licenser att flytta från ärvs från en enda källa-grupp och har tilldelats inte direkt.
 
     >[!NOTE]
     >Om licenserna tilldelas också direkt, de kan även hindra tillämpningen av den *target licens*. Läs mer om [direkt och gruppera licenstilldelning](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses). Du kanske vill använda en [PowerShell-skript](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) att kontrollera om användarna har direkt licenser.
 
--   Du har tillräckligt många tillgängliga licenser för målprodukten som. Om du inte har tillräckligt med licenser kan vissa användare kanske inte att hämta den *target licens*. Du kan [kontrollera antalet tillgängliga licenser](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products).
+- Du har tillräckligt många tillgängliga licenser för målprodukten som. Om du inte har tillräckligt med licenser kan vissa användare kanske inte att hämta den *target licens*. Du kan [kontrollera antalet tillgängliga licenser](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products).
 
--   Användarna behöver inte andra tilldelade produktlicenser som kan stå i konflikt med den *target licens* eller förhindra borttagning av den *källkodslicens*. Till exempel en licens från en produkt-tillägg som Workplace Analytics eller Project Online, som har ett beroende på andra produkter.
+- Användarna behöver inte andra tilldelade produktlicenser som kan stå i konflikt med den *target licens* eller förhindra borttagning av den *källkodslicens*. Till exempel en licens från en produkt-tillägg som Workplace Analytics eller Project Online, som har ett beroende på andra produkter.
 
--   Förstå hur grupper hanteras i din miljö. Till exempel om du hanterar grupper på plats och synkronisera dem till Azure Active Directory (Azure AD) via Azure AD Connect, sedan du Lägg till/ta bort användare med hjälp av den lokala datorn. Det tar tid för att ändringarna ska synkroniseras till Azure AD och få slutpunktsstatus uppfattas av gruppbaserad licensiering. Om du använder Azure AD dynamiskt gruppmedlemskap kan du lägga till/ta bort användare genom att ändra deras attribut i stället. Övergripande migreringsprocessen förblir densamma. Den enda skillnaden är hur du lägger till/ta bort användare för gruppmedlemskap.
+- Förstå hur grupper hanteras i din miljö. Till exempel om du hanterar grupper på plats och synkronisera dem till Azure Active Directory (Azure AD) via Azure AD Connect, sedan du Lägg till/ta bort användare med hjälp av den lokala datorn. Det tar tid för att ändringarna ska synkroniseras till Azure AD och få slutpunktsstatus uppfattas av gruppbaserad licensiering. Om du använder Azure AD dynamiskt gruppmedlemskap kan du lägga till/ta bort användare genom att ändra deras attribut i stället. Övergripande migreringsprocessen förblir densamma. Den enda skillnaden är hur du lägger till/ta bort användare för gruppmedlemskap.
 
 ## <a name="migrate-users-between-products-that-dont-have-conflicting-service-plans"></a>Migrera användare mellan produkter som inte har tjänstplanerna
+
 Migrering målet är att använda gruppbaserad licensiering för att ändra användarlicenser från en *källkodslicens* (i det här exemplet: Office 365 Enterprise E3) till en *target licens* (i det här exemplet: Office 365 Enterprise E5). De här två produkterna i det här scenariot innehåller inte tjänstplanerna, så att de kan tilldelas fullständigt samtidigt utan att en konflikt. Någon gång under migreringen bör användare förlora åtkomsten till tjänster eller data. Migreringen utförs batchvis små ””. Du kan verifiera resultatet för varje batch och minimera omfånget för eventuella problem som kan uppstå under processen. Övergripande är processen följande:
 
 1.  Användarna är medlemmar i gruppen för en datakälla och ärver de den *källkodslicens* från gruppen.
@@ -65,6 +66,7 @@ Migrering målet är att använda gruppbaserad licensiering för att ändra anv�
 7.  Upprepa processen för efterföljande batchar med användare.
 
 ### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>Migrera en enskild användare med hjälp av Azure-portalen
+
 Det här är en enkel genomgång för hur du migrerar en enskild användare.
 
 **STEG 1**: Användaren har en *källkodslicens* som ärvs från gruppen. Det finns inga direkta tilldelningar för licensen för:

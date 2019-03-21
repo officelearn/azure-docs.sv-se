@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 7da765bda815e9112dac809d259fd417dc4d866e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 0e15f3dc448ba218ebdfe309c4308bbc789ef5be
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981102"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226274"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Vad är Apache Hadoop-komponenter och versioner som är tillgängliga med HDInsight?
 
@@ -50,11 +50,14 @@ Komponent-versioner som är associerade med HDInsight-klusterversioner som lista
 | Apache Phoenix |5 |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Apache Spark |2.3.1 |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (endast Windows) |-|-|
 | Apache Livy |0,5 |0.4 |0.3 |0.3 |0.2 |-|-|-|
-| Apache Kafka | 1.1 |1.1, 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.1 |1.1, 1.0 * (Se kommentaren nedan) | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.7.0 |2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.8.0 |0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |4.2.1 |3.2.8 |-|-|-|
 | Apache skjutreglaget |-| 0.92.0 |-|-|-|-|-|-|
+
+> [!NOTE]
+> På grund av system prestandaöverväganden, stöd för Kafka version 0.10 har upphört att gälla i mars 2019.
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>Sök efter aktuell versionsinformation för Hadoop-komponent
 
@@ -72,7 +75,7 @@ I tabellerna nedan listas versionerna av HDInsight. HDP-versioner som motsvarar 
 
 ### <a name="available-versions"></a>Tillgängliga versioner
 
-I följande tabell visas de versioner av HDInsight som är tillgängliga i Azure Portal samt andra distributionsmetoder som PowerShell och .NET SDK.
+I följande tabell visas de versioner av HDInsight som är tillgängliga i Azure portal samt andra distributionsmetoder som PowerShell och .NET SDK.
 
 | HDInsight-version | HDP-version | VM OS | Utgivningsdatum | Support upphör att gälla | Slutdatum | Hög tillgänglighet |  Tillgänglighet på Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -88,7 +91,7 @@ I följande tabell visas de versioner av HDInsight som är tillgängliga i Azure
 
 ### <a name="retired-versions"></a>Utgångna versioner
 
-I följande tabell visas de versioner av HDInsight som är **inte** tillgängliga i Azure Portal.
+I följande tabell visas de versioner av HDInsight som är **inte** tillgängliga i Azure-portalen.
 
 | HDInsight-version | HDP-version | VM OS | Utgivningsdatum | Support upphör att gälla | Slutdatum | Hög tillgänglighet |  Tillgänglighet på Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -122,12 +125,12 @@ Företagssäkerhet är ett valfritt paket som du kan lägga till i ditt HDInsigh
 
 - Auktorisering för data
 
-    - Integrering med Apache Ranger för auktorisering för Hive och Spark SQL Yarn köer.
-    - Du kan ställa in åtkomstkontroll för filer och mappar.
+  - Integrering med Apache Ranger för auktorisering för Hive och Spark SQL Yarn köer.
+  - Du kan ställa in åtkomstkontroll för filer och mappar.
 
     Mer information finns i:
 
-    - [Konfigurera Apache Hive-policyer i domänanslutna HDInsight](./domain-joined/apache-domain-joined-run-hive.md)
+  - [Konfigurera Apache Hive-policyer i domänanslutna HDInsight](./domain-joined/apache-domain-joined-run-hive.md)
 
 - Visa granskningsloggar för att övervaka åtkomst och konfigurerade principer. 
 

@@ -2,20 +2,20 @@
 title: Övervaka arbetsbelastningen med Datahanteringsvyer | Microsoft Docs
 description: 'Lär dig mer om att övervaka din arbetsbelastning med DMV: er.'
 services: sql-data-warehouse
-author: kevinvngo
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/17/2018
-ms.author: kevin
+ms.date: 03/18/2019
+ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: fdb51bf249990a10b8476a55be1103cb05c5821b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e2360b5587d204ec87fe82c029391c7252d27914
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466991"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189554"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Övervaka din arbetsbelastning med DMV:er
 Den här artikeln beskriver hur du använder dynamiska hanteringsvyer (DMV) för att övervaka din arbetsbelastning. Detta inkluderar att undersöka Frågekörningen i Azure SQL Data Warehouse.
@@ -68,9 +68,9 @@ WHERE   [label] = 'My Query';
 
 Från resultatet av föregående frågan **Observera ID för begäran** till den fråga som du vill undersöka.
 
-Frågor i den **pausad** tillstånd köas på grund av samtidighetsgränser. De här frågorna visas även i sys.dm_pdw_waits väntar frågan med en typ av UserConcurrencyResourceType. Information om samtidighetsgränser finns [prestandanivåer](performance-tiers.md) eller [resursklasser för hantering av arbetsbelastning](resource-classes-for-workload-management.md). Frågor kan också vänta av andra orsaker som för lås för objektet.  Om din fråga väntar på en resurs, se [undersöka frågor som väntar på resurser] [ Investigating queries waiting for resources] längre ned i den här artikeln.
+Frågor i den **pausad** tillstånd kan placeras i kö på grund av ett stort antal aktiva frågor som körs. De här frågorna visas även i den [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) väntar fråga med en typ av UserConcurrencyResourceType. Information om samtidighetsgränser finns [prestandanivåer](performance-tiers.md) eller [resursklasser för hantering av arbetsbelastning](resource-classes-for-workload-management.md). Frågor kan också vänta av andra orsaker som för lås för objektet.  Om din fråga väntar på en resurs, se [undersöka frågor som väntar på resurser] [ Investigating queries waiting for resources] längre ned i den här artikeln.
 
-För att förenkla sökning av en fråga i tabellen sys.dm_pdw_exec_requests kan använda [etikett] [ LABEL] att tilldela en kommentar för frågan som kan sökas i vyn sys.dm_pdw_exec_requests.
+Att förenkla sökning av en fråga i den [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) tabellen, Använd [etikett] [ LABEL] att tilldela en kommentar för frågan som kan sökas i sys.dm_pdw_exec_ begäranden-vy.
 
 ```sql
 -- Query with Label
@@ -292,11 +292,11 @@ Mer information om DMV: er finns i [systemvyer][System views].
 [Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
 
 <!--MSDN references-->
-[sys.dm_pdw_dms_workers]: http://msdn.microsoft.com/library/mt203878.aspx
-[sys.dm_pdw_exec_requests]: http://msdn.microsoft.com/library/mt203887.aspx
-[sys.dm_pdw_exec_sessions]: http://msdn.microsoft.com/library/mt203883.aspx
-[sys.dm_pdw_request_steps]: http://msdn.microsoft.com/library/mt203913.aspx
-[sys.dm_pdw_sql_requests]: http://msdn.microsoft.com/library/mt203889.aspx
-[DBCC PDW_SHOWEXECUTIONPLAN]: http://msdn.microsoft.com/library/mt204017.aspx
-[DBCC PDW_SHOWSPACEUSED]: http://msdn.microsoft.com/library/mt204028.aspx
+[sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/library/mt203878.aspx
+[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
+[sys.dm_pdw_exec_sessions]: https://msdn.microsoft.com/library/mt203883.aspx
+[sys.dm_pdw_request_steps]: https://msdn.microsoft.com/library/mt203913.aspx
+[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/library/mt203889.aspx
+[DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
+[DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
 [LABEL]: https://msdn.microsoft.com/library/ms190322.aspx

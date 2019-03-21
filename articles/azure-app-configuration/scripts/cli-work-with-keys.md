@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: e69e2ca5ccd8e8edc2f55d74a0cca03eaabc9f49
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 9288ea08da6335dd29e7a15a9bc871b76c1ce7e9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884251"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438439"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Arbeta med nyckelvärden i ett Azure App Configuration-arkiv
 
@@ -70,9 +70,9 @@ I det här skriptet används följande kommandon för att utföra åtgärder på
 
 | Kommando | Anteckningar |
 |---|---|
-| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-kv-set) | Skapar eller uppdaterar ett nyckelvärde. |
-| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-kv-list) | Visar en lista över nyckelvärden i ett appkonfigurationsarkiv. |
-| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-kv-delete) | Tar bort ett nyckelvärde. |
+| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig) | Skapar eller uppdaterar ett nyckelvärde. |
+| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig) | Visar en lista över nyckelvärden i ett appkonfigurationsarkiv. |
+| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig) | Tar bort ett nyckelvärde. |
 
 ## <a name="next-steps"></a>Nästa steg
 

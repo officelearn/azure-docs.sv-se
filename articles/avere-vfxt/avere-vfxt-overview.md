@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: overview
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: b0b835dde4b98619238eaac9449432aaa9acffd3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 724352ae9f7c66dfeab293473ea79438e3b36254
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670495"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989327"
 ---
 # <a name="what-is-avere-vfxt-for-azure"></a>Vad är Avere vFXT för Azure? 
 
@@ -19,8 +19,8 @@ Avere vFXT för Azure är cachelagringslösning för filsystem för dataintensiv
 
 Avere vFXT stöder följande vanliga databehandlingsscenarier: 
 
-* Hybridmolnarkitektur: Avere vFXT för Azure kan fungera med maskinvarubaserade lagringssystem, där du får fördelarna med databehandling i molnet utan att behöva flytta filer. 
-* Kapacitetsstyrd omdirigering (cloud bursting): Avere vFXT för Azure kan hjälpa dig att flytta dina data till molnet för ett enstaka projekt, eller lyfta och föra över hela arbetsflödet permanent. 
+* Hybrid cloud-arkitektur: Avere vFXT för Azure kan arbeta med ett lagringssystem för maskinvara som erbjuder fördelen med molnet utan att behöva flytta filer. 
+* ”Cloud bursting”: Avere vFXT för Azure kan hjälpa dig att flytta dina data till molnet för ett enda projekt eller ”lift and shift” hela arbetsflödet permanent. 
 
 ![diagram som visar information om Avere vFXT-systemet i en Azure-prenumeration ansluten till bloblagring och till ett lokalt datacenter](media/avere-vfxt-hybrid.png)
 
@@ -67,7 +67,7 @@ Avere vFXT använder följande Azure-resurser:
 
 |Azure-komponent|   |
 |----------|-----------|
-|Virtuella datorer|Minst 3 D16s_v3 eller E32s_v3|
+|Virtuella datorer|3 eller fler E32s_v3|
 |Premium SSD-lagring|200 GB OS-utrymme plus 1 TB till 4 TB cacheutrymme per nod |
 |Lagringskonto (valfritt) |v2|
 |Datalagring i serverdel (valfritt) | En tom LRS Blob-container |

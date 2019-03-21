@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 03/18/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: bb9e5ba960251f728e14106ab1c586e1d3ef373f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.lastreviewed: 03/18/2019
+ms.openlocfilehash: 33f1ccf3f1c7bc657cc66efe7c5025356c954ad6
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538654"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187769"
 ---
 # <a name="asdk-release-notes"></a>Viktig information om ASDK
 
@@ -30,9 +30,11 @@ Håll dig uppdaterad med Nyheter i ASDK genom att prenumerera på den [ ![RSS](.
 
 ## <a name="build-11902069"></a>Skapa 1.1902.0.69
 
-### <a name="changes"></a>Ändringar
+### <a name="new-features"></a>Nya funktioner
 
 - 1902-build introducerar ett nytt användargränssnitt på Azure Stack-administratörsportalen för att skapa planer, erbjudanden, kvoter och tilläggsplaner. Mer information, inklusive skärmdumpar, se [skapa planer, erbjudanden och kvoter](../azure-stack-create-plan.md).
+
+- En lista över andra ändringar och förbättringar i den här versionen finns i [i det här avsnittet](../azure-stack-update-1902.md#improvements) viktig information i Azure Stack.
 
 <!-- ### New features
 
@@ -42,6 +44,20 @@ Håll dig uppdaterad med Nyheter i ASDK genom att prenumerera på den [ ![RSS](.
 
 - For a list of issues fixed in this release, see [this section](../azure-stack-update-1902.md#fixed-issues) of the Azure Stack release notes. For a list of known issues, see [this section](../azure-stack-update-1902.md#known-issues-post-installation).
 - Note that [available Azure Stack hotfixes](../azure-stack-update-1902.md#azure-stack-hotfixes) are not applicable to the Azure Stack ASDK. -->
+
+### <a name="known-issues"></a>Kända problem
+
+- Ett problem har identifierats som ignoreras paket över 1450 byte till en intern belastningsutjämnaren (ILB). Problemet beror på inställning för MTU på värden är för lågt för VXLAN inkapslad paket som passerar rollen som från och med 1901 har flyttats till värden. Det finns minst två scenarier som kan uppstå som vi har sett det här problemet manifest själva:
+
+  - SQL-frågor till SQL Always-On som är bakom en interna belastningsutjämnaren (ILB) och är över 660 byte.
+  - Kubernetes-distributioner misslyckas om du försöker aktivera flera huvudservrar.  
+
+  Problemet uppstår när du har kommunikation mellan en virtuell dator och en ILB i samma virtuella nätverk, men i olika undernät. Du kan lösa det här problemet genom att köra följande kommandon i en upphöjd kommandotolk på ASDK värden:
+
+  ```shell
+  netsh interface ipv4 set sub "hostnic" mtu=1660
+  netsh interface ipv4 set sub "management" mtu=1660
+  ```
 
 ## <a name="build-11901095"></a>Skapa 1.1901.0.95
 

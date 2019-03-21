@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 834674eb63af75088434db0f614b11c7a36e7adf
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: eadbaacd4bb860cd09997775b8d77cbcf0ff17f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964822"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181630"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Konfigurera inställningar och principer
 Den här artikeln beskriver hur du lägga till användare i labbet, hämta dem registrerad labbet, antalet timmar som de kan använda den virtuella datorn och mycket mer. 
@@ -30,7 +30,7 @@ Om du har den **begränsa åtkomsten** aktiverat, lägga till användare (e-post
 1. Välj **Användare** på den vänstra menyn.
 2. Välj **Lägg till användare** i verktygsfältet. 
 
-    ![Lägg till användare knapp](../media/how-to-configure-student-usage/add-users-button.png)
+    ![Knappen Lägg till användare](../media/how-to-configure-student-usage/add-users-button.png)
 1. På sidan **Lägg till användare** anger du e-postadresser för användare i separata rader eller på en enda rad, avgränsade med semikolon. 
 
     ![Lägga till e-postadress till användare](../media/how-to-configure-student-usage/add-users-email-addresses.png)
@@ -38,9 +38,22 @@ Om du har den **begränsa åtkomsten** aktiverat, lägga till användare (e-post
 
     ![Användarlista](../media/how-to-configure-student-usage/users-list-new.png)
 
-## <a name="send-registration-link-to-students"></a>Skicka en registreringslänk till eleverna
-Följande procedur innehåller steg för att skicka en registreringslänk till användare. Om den **begränsa åtkomsten** har aktiverats för labbet, endast användare i listan över användare som kan använda registreringslänken för att registrera till labbet. 
+## <a name="share-registration-link-with-students"></a>Dela registreringslänk med studenter
+Använd någon av följande metoder för att skicka registreringslänken för studenter. Den första metoden visar hur du skickar e-postmeddelanden till studenter registreringslänken och ett valfritt meddelande. Den andra metoden visar hur du hämtar registreringslänk som du kan dela med andra sätt som du vill. 
 
+Om den **begränsa åtkomsten** har aktiverats för labbet, endast användare i listan över användare som kan använda registreringslänken för att registrera till labbet. Det här alternativet är aktiverat som standard. 
+
+### <a name="send-email-to-users"></a>Skicka e-post till användare
+1. Växla till **användarvyn** om du inte är på sidan redan. 
+2. Välj specifika eller alla användare i listan. Välj specifika användare genom att markera kryssrutor i den första kolumnen i listan. För att välja alla användare, markerar du kryssrutan framför titeln på den första kolumnen (**namn**) eller markera alla kryssrutor för alla användare i listan.
+3. Välj **skicka inbjudan** i verktygsfältet. Du kan även hovra med musen över en student-namnet i listan och skicka e-postikonen. 
+
+    ![Skicka registreringslänk via e-post](../media/tutorial-setup-classroom-lab/send-email.png)
+4. På den **skicka registreringslänk via e-post** utför de här stegen: 
+    1. Skriv ett **valfritt meddelande** som du vill skicka till elever. E-postmeddelandet innehåller den automatiskt registreringslänken. 
+    2. På den **skicka registreringslänk via e-post** väljer **skicka**. 
+
+## <a name="get-registration-link"></a>Hämta registreringslänk
 1. Växla till den **användare** genom att välja **användare** på den vänstra menyn. 
 2. Välj panelen **Hämta registreringslänk**.
 
@@ -49,11 +62,7 @@ Följande procedur innehåller steg för att skicka en registreringslänk till a
 
     ![Länk för elevregistrering](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. I dialogrutan **Användarregistrering** väljer du **Stäng**. 
-4. Dela registreringslänken med en student så att studenten kan registrera sig för klassen. Om du har inställningen **Begränsa alternativ** aktiverad och har en lista över användare i listan gör du följande:
-    1. Välj **e-postadressen** för användaren i listan. 
-    2. Du ser ett fönster från ditt standard-e-postprogram med **TILL**-adressen ifylld. 
-    3. Klistra in den **registreringswebbadress** du kopierade tidigare. 
-    4. Skicka **e-postmeddelandet**. 
+4. Dela den **registreringslänk** med en student så att studenter kan registreras för klassen. 
 
 ## <a name="view-users-registered-with-the-lab"></a>Visa användare som har registrerats med labbet
 

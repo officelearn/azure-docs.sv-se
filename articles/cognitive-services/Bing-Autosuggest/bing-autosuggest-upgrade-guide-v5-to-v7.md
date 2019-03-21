@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 4768e96b9f29983e07edd4449bc24131cc3206ad
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 51f057a1dd0da866a50a0219574c70c3c805882e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008466"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000004"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Uppgraderingsguide för API för automatiska förslag
 
@@ -25,7 +25,7 @@ Den här uppgraderingshandboken identifierar ändringar mellan version 5 och ver
 
 ### <a name="endpoints"></a>Slutpunkter
 
-- Versionsnumret för den slutpunkt som har ändrats från v5 till v7. Till exempel https://api.cognitive.microsoft.com/bing/\ * \*v7.0 ** / förslag.
+- Versionsnumret för den slutpunkt som har ändrats från v5 till v7. Till exempel https:\//api.cognitive.microsoft.com/bing/\*\*v7.0 ** / förslag.
 
 ### <a name="error-response-objects-and-error-codes"></a>Fel svarsobjekt och felkoder
 

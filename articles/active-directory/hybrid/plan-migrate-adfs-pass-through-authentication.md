@@ -12,12 +12,12 @@ ms.date: 12/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7406758a5e5c345aee4165139242025b8ceb4d18
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: bf0bb51470272099ed2824d0450082f93fe65f14
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534726"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076470"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrera från federation till direktautentisering för Azure Active Directory
 
@@ -260,11 +260,11 @@ Börja med att ändra inloggningsmetoden:
    ![Skärmbild av klart att konfigurera](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image8.png)<br />
 7. I Azure AD-portalen väljer du **Azure Active Directory**, och välj sedan **Azure AD Connect**.
 8. Kontrollera inställningarna:
-  * **Federation** är inställd på **inaktiverad**.
-  * **Sömlös enkel inloggning** är inställd på **aktiverad**.
-  * **Direktautentisering** är inställd på **aktiverad**.<br />
+   * **Federation** är inställd på **inaktiverad**.
+   * **Sömlös enkel inloggning** är inställd på **aktiverad**.
+   * **Direktautentisering** är inställd på **aktiverad**.<br />
 
-  ![Skärmbild som visar inställningarna i avsnittet för användare](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)<br />
+   ![Skärmbild som visar inställningarna i avsnittet för användare](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)<br />
 
 Nästa. distribuera ytterligare autentiseringsmetoder:
 
@@ -272,16 +272,16 @@ Nästa. distribuera ytterligare autentiseringsmetoder:
 2. På den **direktautentisering** väljer den **hämta** knappen.
 3. På den **ladda ned agenten** väljer **acceptera villkoren och hämta**.
 
-  Ytterligare autentiseringsagenter börja ladda ned. Installera den sekundära autentiseringen-agenten på en domänansluten server. 
+   Ytterligare autentiseringsagenter börja ladda ned. Installera den sekundära autentiseringen-agenten på en domänansluten server. 
 
-  > [!NOTE]
-  > Första agenten installeras alltid på Azure AD Connect själva servern som en del av konfigurationsändringar som gjorts i den **användarinloggning** avsnitt av Azure AD Connect-verktyget. Installera eventuella ytterligare autentisering-agenter på en separat server. Vi rekommenderar att du har två eller tre ytterligare autentiseringsagenter tillgängliga. 
+   > [!NOTE]
+   > Första agenten installeras alltid på Azure AD Connect själva servern som en del av konfigurationsändringar som gjorts i den **användarinloggning** avsnitt av Azure AD Connect-verktyget. Installera eventuella ytterligare autentisering-agenter på en separat server. Vi rekommenderar att du har två eller tre ytterligare autentiseringsagenter tillgängliga. 
 
 4. Kör agentinstallationen autentisering. Under installationen måste du ange autentiseringsuppgifter för ett globalt administratörskonto.
 
-  ![Skärmbild som visar knappen installera på sidan för Microsoft Azure AD Connect-agenten autentiseringspaket](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
+   ![Skärmbild som visar knappen installera på sidan för Microsoft Azure AD Connect-agenten autentiseringspaket](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
 
-  ![Skärmbild som visar sidan logga in](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
+   ![Skärmbild som visar sidan logga in](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
 
 5. När autentiseringsagenten har installerats kan du återgå till direktautentisering agent health sidan för att kontrollera status för ytterligare agenter.
 

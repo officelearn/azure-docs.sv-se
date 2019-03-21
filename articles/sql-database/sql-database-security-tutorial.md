@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: b9141fcef8bda181cd7b679f58d22d4ba2895b14
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: d6f14a7cdcb77c1ca47d0f79f587e0bf3606b5d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004605"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893279"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Självstudier: Skydda en enkel databas eller en pooldatabas
 
@@ -39,7 +39,7 @@ Du kan förbättra din databassäkerhet med bara några få enkla steg. I den h�
 
 Mer information finns i artiklarna [Säkerhetsöversikt för Azure SQL Database](/azure/sql-database/sql-database-security-index) och [Funktioner](sql-database-security-overview.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här självstudien behöver du följande:
 
@@ -77,11 +77,11 @@ Konfigurera en brandväggsregel på servernivå:
 
 1. På **översiktssidan** väljer du **Konfigurera serverns brandvägg**. Sidan **Brandväggsinställningar** för databasservern öppnas.
 
-    1. Välj **Lägg till klient-IP** i verktygsfältet och lägg till din aktuella IP-adress i en ny brandväggsregel. Med regeln kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall. Välj **Spara**.
+   1. Välj **Lägg till klient-IP** i verktygsfältet och lägg till din aktuella IP-adress i en ny brandväggsregel. Med regeln kan du öppna port 1433 för en enskild IP-adress eller för IP-adressintervall. Välj **Spara**.
 
-    ![ange brandväggsregel för server](./media/sql-database-security-tutorial/server-firewall-rule2.png)
+      ![ange brandväggsregel för server](./media/sql-database-security-tutorial/server-firewall-rule2.png)
 
-    1. Välj **OK** och stäng sidan **Brandväggsinställningar**.
+   1. Välj **OK** och stäng sidan **Brandväggsinställningar**.
 
 Nu kan du ansluta till valfri databas på servern med IP-adressen eller IP-adressintervallet som angetts.
 
@@ -90,7 +90,7 @@ Nu kan du ansluta till valfri databas på servern med IP-adressen eller IP-adres
 
 ### <a name="setup-database-firewall-rules"></a>Konfigurera brandväggsregler för databaser
 
-Brandväggsregler på databasnivå gäller endast för enskilda databaser. Dessa regler är portabla och följer databasen under en serverredundans. Brandväggsregler på databasnivå kan bara konfigureras med instruktioner för Transact-SQL (T-SQL), och bara efter att du har konfigurerat en brandväggsregel på servernivå.
+Brandväggsregler på databasnivå gäller endast för enskilda databaser. Databasen behåller dessa regler under en serverredundans. Brandväggsregler på databasnivå kan bara konfigureras med instruktioner för Transact-SQL (T-SQL), och bara efter att du har konfigurerat en brandväggsregel på servernivå.
 
 Så här konfigurerar du en brandväggsregel på databasnivå:
 
@@ -142,7 +142,7 @@ Information om hur du konfigurerar Azure AD finns i:
 
 - [Integrera dina lokala identiteter med Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Lägga till ditt eget domännamn i Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)
-- [Microsoft Azure har nu stöd för federation med Windows Server AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [Microsoft Azure har nu stöd för federation med Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Administrera Azure AD-katalogen](../active-directory/fundamentals/active-directory-administer.md)
 - [Hantera Azure AD med hjälp av PowerShell](/powershell/azure/overview?view=azureadps-2.0)
 - [Portar och protokoll som krävs för hybrididentitet](../active-directory/hybrid/reference-connect-ports.md)
@@ -248,11 +248,11 @@ Så här aktiverar du avancerad datasäkerhet:
 
 1. På sidan **SQL-server** letar du upp avsnittet **Säkerhet** och väljer **Avancerad datasäkerhet**.
 
-    1. Välj **PÅ** under **Avancerad datasäkerhet** för att aktivera funktionen. Välj ett lagringskonto för att spara resultat av sårbarhetsbedömning. Välj sedan **Spara**.
+   1. Välj **PÅ** under **Avancerad datasäkerhet** för att aktivera funktionen. Välj ett lagringskonto för att spara resultat av sårbarhetsbedömning. Välj sedan **Spara**.
 
-    ![Navigeringsfönster](./media/sql-database-security-tutorial/threat-settings.png)
+      ![Navigeringsfönster](./media/sql-database-security-tutorial/threat-settings.png)
 
-    Du kan också konfigurera e-postmeddelanden för att få säkerhetsaviseringar, lagringsinformation och typer för identifiering av hot.
+      Du kan också konfigurera e-postmeddelanden för att få säkerhetsaviseringar, lagringsinformation och typer för identifiering av hot.
 
 1. Gå tillbaka till sidan **SQL-databaser** i din databas och välj **Avancerad datasäkerhet** i avsnittet **Säkerhet**. Här hittar du olika säkerhetsindikatorer som är tillgängliga för databasen.
 
@@ -264,7 +264,7 @@ Om avvikande aktiviteter identifieras får du ett e-postmeddelande med informati
 
 ### <a name="auditing"></a>Granskning
 
-Granskningsfunktionen spårar databashändelser och skriver händelser till en granskningslogg i antingen Azure Storage, Log Analytics eller till en händelsehubb. Granskning kan hjälpa dig att upprätthålla regelefterlevnad, förstå databasaktiviteter och få insyn i avvikelser och fel som kan tyda på potentiella säkerhetsöverträdelser.
+Granskningsfunktionen spårar databashändelser och skriver händelser till en granskningslogg i antingen Azure storage, Azure Monitor-loggar, eller till en händelsehubb. Granskning kan hjälpa dig att upprätthålla regelefterlevnad, förstå databasaktiviteter och få insyn i avvikelser och fel som kan tyda på potentiella säkerhetsöverträdelser.
 
 Så här aktiverar du granskning:
 
@@ -274,25 +274,25 @@ Så här aktiverar du granskning:
 
 1. Under **granskningsinställningarna** anger du följande värden:
 
-    1. Ställ in **Granskning** på **PÅ**.
+   1. Ställ in **Granskning** på **PÅ**.
 
-    1. Välj **Mål för spårningsloggen** som något av följande:
+   1. Välj **Mål för spårningsloggen** som något av följande:
 
-        - **Storage**, ett Azure Storage-konto där händelseloggar sparas och kan laddas ned som *.xel*-filer
+       - **Storage**, ett Azure Storage-konto där händelseloggar sparas och kan laddas ned som *.xel*-filer
 
-           > [!TIP]
-           > Använd samma lagringskonto för alla granskade databaser för att få ut mesta möjliga av granskningsrapportmallarna.
+          > [!TIP]
+          > Använd samma lagringskonto för alla granskade databaser för att få ut mesta möjliga av granskningsrapportmallarna.
 
-        - **Log Analytics**, som automatiskt lagrar händelser för frågor eller ytterligare analys
+       - **Log Analytics**, som automatiskt lagrar händelser för frågor eller ytterligare analys
 
-            > [!NOTE]
-            > En **Log Analytics-arbetsyta** krävs för att stödja avancerade funktioner som analyser, anpassade aviseringsregler och export av Excel eller Power BI. Utan en arbetsyta är endast frågeredigeraren tillgänglig.
+           > [!NOTE]
+           > En **Log Analytics-arbetsyta** krävs för att stödja avancerade funktioner såsom analyser, anpassade aviseringsregler och export av Excel eller Power BI. Utan en arbetsyta är endast frågeredigeraren tillgänglig.
 
-        - **Event Hub**, som tillåter att händelser dirigeras för användning i andra program
+       - **Event Hub**, som tillåter att händelser dirigeras för användning i andra program
 
-    1. Välj **Spara**.
+   1. Välj **Spara**.
 
-    ![Granska inställningar](./media/sql-database-security-tutorial/audit-settings.png)
+      ![Granska inställningar](./media/sql-database-security-tutorial/audit-settings.png)
 
 1. Nu kan du välja **Visa granskningsloggar** för att visa databashändelsers data.
 
@@ -334,7 +334,7 @@ Så här aktiverar eller kontrollerar du kryptering:
     ![Transparent datakryptering](./media/sql-database-security-tutorial/encryption-settings.png)
 
 > [!NOTE]
-> Om du vill visa krypteringsstatus ansluter du till databasen med [SSMS](./sql-database-connect-query-ssms.md) och frågar efter kolumnen `encryption_state` i vyn [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017). Tillståndet `3` anger att databasen är krypterad.
+> Om du vill visa krypteringsstatus ansluter du till databasen med [SSMS](./sql-database-connect-query-ssms.md) och frågar efter kolumnen `encryption_state` i vyn [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql). Tillståndet `3` anger att databasen är krypterad.
 
 ## <a name="next-steps"></a>Nästa steg
 

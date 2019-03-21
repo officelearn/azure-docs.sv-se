@@ -1,7 +1,7 @@
 ---
 title: 'Självstudier: Skapa en akustisk modell med Speech Service'
 titlesuffix: Azure Cognitive Services
-description: Lär dig hur du skapar en akustisk modell med Speech-tjänsten i Azure Cognitive Services.
+description: Lär dig hur du skapar en akustisk modell med Speech Services på Azure.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: b644d1d227b5dbd69af38cc32defffb8152b0cde
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: f2a111558fa3f515b797745dc51e32f625bbd91f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878127"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57844032"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Självstudier: Skapa en anpassad akustisk modell
 
@@ -29,13 +29,13 @@ I den här artikeln kan du se hur du:
 
 Om du inte har ett Azure Cognitive Services-konto skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/try/cognitive-services) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att ditt Cognitive Services-konto är anslutet till en prenumeration genom att öppna sidan [Cognitive Services Subscriptions](https://cris.ai/Subscriptions) (Cognitive Services-prenumerationer).
 
-Du kan ansluta till en Speech-tjänstprenumeration som skapades i Azure-portalen genom att välja **Anslut befintlig prenumeration**.
+Du kan ansluta till en Speech Services-prenumeration som har skapats i Azure portal genom att välja **ansluta befintliga prenumeration**.
 
-Information om hur du skapar en Speech-tjänstprenumeration i Azure-portalen finns i [Prova Speech-tjänsten kostnadsfritt](get-started.md).
+Information om hur du skapar en Speech Services-prenumeration i Azure-portalen finns i [testa Speech Services kostnadsfritt](get-started.md).
 
 ## <a name="prepare-the-data"></a>Förbereda data
 
@@ -63,13 +63,13 @@ En akustisk datauppsättning för att anpassa den akustiska modellen består av 
 > Dataimporter via webbportalen är för närvarande begränsade till 2 GB, vilket är den maximala storleken för en akustisk datamängd. Denna storlek motsvarar cirka 17 timmars ljud som spelats in med 16 kHz eller 34 timmars ljud som spelats in med 8 kHz. De grundläggande kraven för ljuddata sammanfattas i följande tabell:
 >
 
-| Egenskap | Värde |
+| Egenskap  | Värde |
 |---------- |----------|
 | Filformat | RIFF (WAV) |
 | Samplingsfrekvens | 8 000 Hertz (Hz) eller 16 000 Hz |
 | Kanaler | 1 (mono) |
 | Samplingsformat | PCM, 16-bitars heltal |
-| Filens varaktighet | 0,1 sekunder < varaktighet < 12 sekunder | 
+| Filens varaktighet | 0,1 sekunder < varaktighet < 12 sekunder |
 | Tystnadsmarginal | > 0,1 sekunder |
 | Arkivformat | .zip |
 | Maximal arkivstorlek | 2 GB |
@@ -96,19 +96,19 @@ Transkriptioner för alla WAV-filer bör ingå i en enda fil med oformaterad tex
 
 Transkriptionerna textnormaliseras så att de kan bearbetas av systemet. Det finns dock vissa viktiga normaliseringar som måste utföras av användaren _innan_ data laddas upp till Custom Speech Service. Information om det språk som är lämpligt att använda när du förbereder transkriptionerna finns i [riktlinjerna om transkription för användning av Speech-tjänsten](prepare-transcription.md).
 
-Utför stegen i nästa avsnitt med hjälp av den [Speech-tjänstportalen](https://cris.ai).
+Utför stegen i nästa avsnitt med hjälp av den [Speech Services portal](https://cris.ai).
 
 ## <a name="import-the-acoustic-dataset"></a>Importera den akustiska datamängden
 
 När du har förberett ljudfilerna och transkriptionerna är de redo att importeras till tjänstwebbportalen.
 
-För att importera dem ska du först vara inloggad i [Speech-tjänstportalen](https://cris.ai). I listrutan **Custom Speech** i menyfliksområdet väljer du **Adaptation Data** (Anpassningsdata). Om det här är första gången du laddar upp data till Custom Speech Service visas en tom tabell med namnet **Datasets** (Datamängder). 
+Om du vill importera dem först se till att du är inloggad på den [Speech Services portal](https://cris.ai). I listrutan **Custom Speech** i menyfliksområdet väljer du **Adaptation Data** (Anpassningsdata). Om det här är första gången du laddar upp data till Custom Speech Service visas en tom tabell med namnet **Datasets** (Datamängder).
 
 På raden **Acoustic Datasets** (Akustiska datamängder) väljer du knappen **Import** (Importera), så visar platsen en sida för att ladda upp en ny datamängd.
 
 ![Sidan Importera akustiska data](media/stt/speech-acoustic-datasets-import.png)
 
-I rutorna **Namn** och **Beskrivning** anger du nödvändig informationen. Minnesvärda beskrivningar är användbara för att hålla reda på de olika datamängder som du laddar upp. 
+I rutorna **Namn** och **Beskrivning** anger du nödvändig informationen. Minnesvärda beskrivningar är användbara för att hålla reda på de olika datamängder som du laddar upp.
 
 I rutorna **Transcriptions file (.txt)** och **Audio files (.zip)** väljer du **Bläddra** och väljer sedan filen med transkription i klartext respektive zip-filen med WAV-filer. När förberedelsen är klar väljer du **Import** (Importera) för att ladda upp data. Dina data laddas upp. För större datamängder kan importprocessen ta flera minuter.
 
@@ -126,11 +126,11 @@ Om du vill ändra namn eller beskrivning för datamängden kan du välja länken
 
 När statusen för den akustiska datamängden är *Complete* (Klar) kan du använda datamängden för att skapa en anpassad akustisk modell. Om du vill göra det väljer du **Acoustic Models** (Akustiska modeller) i listrutan **Custom Speech** (Anpassat tal). En tabell som är märkt **Your models** (Dina modeller) visar en lista över alla dina anpassade akustiska modeller. Den här tabellen är tom om det här är den första användningen. Tabellrubriken visar den aktuella nationella inställningen. För närvarande kan du endast skapa akustiska modeller för amerikansk engelska.
 
-För att skapa en ny modell väljer du **Create New** (Skapa ny) under tabellrubriken. På samma sätt som förut anger du ett namn och en beskrivning som hjälper dig att identifiera den här modellen. Till exempel kan du använda fältet **Description** (Beskrivning) för att registrera vilken startmodell och vilken akustisk datamängd som du använde för att skapa modellen. 
+För att skapa en ny modell väljer du **Create New** (Skapa ny) under tabellrubriken. På samma sätt som förut anger du ett namn och en beskrivning som hjälper dig att identifiera den här modellen. Till exempel kan du använda fältet **Description** (Beskrivning) för att registrera vilken startmodell och vilken akustisk datamängd som du använde för att skapa modellen.
 
 I listrutan **Base Acoustic Model** (Akustisk basmodell) väljer du sedan en basmodell. Basmodellen är startpunkten för din anpassning. Det finns två akustiska basmodeller att välja mellan:
-* Modellen **Microsoft Search and Dictation AM** (Microsofts akustiska basmodell för sökning och diktamen) är lämplig för tal som riktas mot ett program, till exempel kommandon, sökfrågor och diktamen. 
-* **Microsoft Conversational Model** (Microsofts konversationsmodell) är lämplig för igenkänning av tal i konversationsstil. Den här typen av tal riktas vanligtvis mot en annan person och används i kundtjänst och i möten. 
+* Modellen **Microsoft Search and Dictation AM** (Microsofts akustiska basmodell för sökning och diktamen) är lämplig för tal som riktas mot ett program, till exempel kommandon, sökfrågor och diktamen.
+* **Microsoft Conversational Model** (Microsofts konversationsmodell) är lämplig för igenkänning av tal i konversationsstil. Den här typen av tal riktas vanligtvis mot en annan person och används i kundtjänst och i möten.
 
 Fördröjningen för partiella resultat i konversationsmodeller är högre än i sök- och diktamenmodeller.
 
@@ -153,6 +153,6 @@ Tabellen med akustiska modeller visar en ny post som motsvarar den här nya mode
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hämta en kostnadsfri utvärderingsprenumeration på Speech-tjänsten](https://azure.microsoft.com/try/cognitive-services/)
+- [Hämta en kostnadsfri utvärderingsprenumeration på Speech Services](https://azure.microsoft.com/try/cognitive-services/)
 - [Identifiera tal i C#](quickstart-csharp-dotnet-windows.md)
 - [Git-exempeldata](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

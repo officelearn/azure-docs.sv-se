@@ -1,6 +1,6 @@
 ---
 title: Prestanda och skalning i varaktiga funktioner – Azure
-description: Introduktion till tillägget varaktiga funktioner för Azure Functions.
+description: Introduktion till Durable Functions-tillägget för Azure Functions.
 services: functions
 author: cgillum
 manager: jeconnoc
@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/25/2018
+ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5e185eea6fb1e96f17bf458dbfe2f06226933386
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: MT
+ms.openlocfilehash: 170f20ae65a8ba58291a630dc76496cbdcdb36de
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341176"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138124"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestanda och skalning i varaktiga funktioner (Azure Functions)
 
@@ -48,6 +48,15 @@ Det finns en arbetsobjektet kön varje uppgift hubben i varaktiga funktioner. De
 Det finns flera *styra köer* per uppgift hubben i varaktiga funktioner. En *kontroll kö* är mer sofistikerade än enklare arbetsobjektet kön. Kontrollen köer används för att utlösa tillståndskänsliga orchestrator-funktioner. Eftersom orchestrator-funktion-instanser är tillståndskänsliga singletons, går det inte att använda en konkurrerande konsument-modell för att fördela belastningen över virtuella datorer. I stället är orchestrator-meddelanden Utjämning av nätverksbelastning i kontrollen köer. Mer information om detta finns i följande avsnitt.
 
 Kontrollen köer innehåller en mängd olika typer av orchestration livscykel meddelanden. Exempel är [orchestrator kontrollmeddelanden](durable-functions-instance-management.md), aktivitet funktionen *svar* meddelanden och meddelanden för timer. Upp till 32 meddelanden kommer att tagits bort från en kontroll kön i en avsökning. Dessa meddelanden innehåller nyttolast data samt metadata, inklusive vilken orchestration-instans som den är avsedd för. Om flera dequeued meddelanden är avsedda för samma orchestration-instans, kommer att behandlas som en batch.
+
+### <a name="queue-polling"></a>Kö-avsökning
+
+Tillägget varaktiga uppgift implementerar en exponentiell backoff-algoritmen för att minska effekten av idle-kön avsökning lagringskostnader för transaktionen. När ett meddelande hittas söker körningen omedelbart efter en annan message; När inget meddelande hittas, väntar en viss tidsperiod innan du försöker igen. Efter flera misslyckade försök att hämta ett kömeddelande fortsätter väntetiden att öka tills den når maximal väntetid, där standardinställningen är 30 sekunder.
+
+Maximal avsökningen fördröjningen kan konfigureras via den `maxQueuePollingInterval` -egenskapen i den [host.json filen](../functions-host-json.md#durabletask). Du anger detta till ett högre värde kan resultera i högre svarstider för meddelandebehandling. Högre latens är förväntat förrän perioder av inaktivitet. Du anger detta till ett lägre värde kan resultera i högre kostnader för lagring på grund av ökad lagringstransaktioner.
+
+> [!NOTE]
+> När du kör i Azure Functions-förbrukning och Premium-planer i [Azure Functions skala Controller](../functions-scale.md#how-the-consumption-plan-works) ska söka varje kontroll och arbetsobjektet kö var 10: e sekund. Den här ytterligare avsökningen är nödvändigt för att avgöra om att aktivera funktionen app-instanserna och att fatta beslut om skalning. Vid tidpunkten som skrivs 10 andra intervallet är konstant och kan inte konfigureras.
 
 ## <a name="storage-account-selection"></a>Val av Storage-konto
 
@@ -211,20 +220,20 @@ Till exempel om `durableTask/extendedSessionIdleTimeoutInSeconds` är inställd 
 Det är viktigt att tänka på prestandakraven tidigt i planeringsprocessen när du planerar att använda varaktiga funktioner för ett produktionsprogram. Det här avsnittet beskrivs vissa grundläggande Användningsscenarier och den förväntade maximala dataflödet siffror.
 
 * **Sekventiell aktivitetskörning**: Det här scenariot beskriver en orchestrator-funktion som kör en serie Aktivitetsfunktioner en efter en. Den mest liknar den [funktionen länkning](durable-functions-sequence.md) exemplet.
-* **Parallell aktivitetskörning**: Det här scenariot beskriver en orchestrator-funktion som körs många Aktivitetsfunktioner parallellt med den [Bläddra ut, bläddra in](durable-functions-cloud-backup.md) mönster.
-* **Parallell bearbetning av certifikatsvar**: Det här scenariot är den andra halvan av den [Bläddra ut, bläddra in](durable-functions-cloud-backup.md) mönster. Den fokuserar på prestanda hos bläddra in. Det är viktigt att Observera att till skillnad från bläddra ut, bläddra in gör du genom en enda orchestrator-funktion-instans, och därför kan bara köras på en enskild virtuell dator.
+* **Parallell aktivitetskörning**: Det här scenariot beskriver en orchestrator-funktion som körs många Aktivitetsfunktioner parallellt med den [Fan-out, Fan-in](durable-functions-cloud-backup.md) mönster.
+* **Parallell bearbetning av certifikatsvar**: Det här scenariot är den andra halvan av den [Fan-out, Fan-in](durable-functions-cloud-backup.md) mönster. Den fokuserar på prestanda hos bläddra in. Det är viktigt att Observera att till skillnad från bläddra ut, bläddra in gör du genom en enda orchestrator-funktion-instans, och därför kan bara köras på en enskild virtuell dator.
 * **Externa händelsebearbetning**: Det här scenariot representerar en enskild orchestrator-funktion-instans som väntar på [externa händelser](durable-functions-external-events.md), en i taget.
 
 > [!TIP]
-> Till skillnad från bläddra ut-åtgärder, så är bläddra in-åtgärder begränsade till en enda virtuell dator. Om programmet använder bläddra ut/bläddra in-mönster och du är orolig för bläddra in-prestanda, så överväg att dividera icke aktivitet funktionen bläddra ut över flera [underordnade orkestreringar](durable-functions-sub-orchestrations.md).
+> Till skillnad från bläddra ut-åtgärder, så är bläddra in-åtgärder begränsade till en enda virtuell dator. Om programmet använder fan-out, fan-in mönster och du är orolig fan-in prestanda, Överväg att dividera icke aktivitet funktionen fan-out över flera [underordnade orkestreringar](durable-functions-sub-orchestrations.md).
 
 I följande tabell visas den förväntade *maximala* dataflöde-nummer för de tidigare beskrivna scenarierna. ”Instans” refererar till en enda instans av en orchestrator-funktion som körs på en enda liten ([A1](../../virtual-machines/windows/sizes-previous-gen.md#a-series)) virtuell dator i Azure App Service. I samtliga fall det förutsätts att [utökade sessioner](#orchestrator-function-replay) är aktiverade. De faktiska resultaten kan variera beroende på CPU eller i/o-arbetet som utförs av funktionskoden.
 
 | Scenario | Maximalt dataflöde |
 |-|-|
 | Sekventiell aktivitetskörning | 5 aktiviteter per sekund per instans |
-| Parallell aktivitetskörning (bläddra ut) | 100 aktiviteter per sekund per instans |
-| Parallell bearbetning av certifikatsvar (bläddra in) | 150 svar per sekund per instans |
+| Parallell aktivitetskörning (fan-out) | 100 aktiviteter per sekund per instans |
+| Parallell bearbetning av certifikatsvar (fan-in) | 150 svar per sekund per instans |
 | Externa händelsebearbetning | 50 händelser per sekund per instans |
 
 > [!NOTE]
@@ -235,4 +244,4 @@ Om du inte ser dataflöde siffrorna du förväntar dig och din CPU och minnesanv
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa din första varaktiga funktion iC#](durable-functions-create-first-csharp.md)
+> [Skapa din första beständiga funktion i C#](durable-functions-create-first-csharp.md)

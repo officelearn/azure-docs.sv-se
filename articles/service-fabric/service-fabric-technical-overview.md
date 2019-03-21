@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/17/2018
 ms.author: ryanwi
-ms.openlocfilehash: 787a25a822e4ee7e13a2f1429bacd8d5cd2139ca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fda6af0f253457aaf3aef1e8444850592255b318
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196832"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113681"
 ---
 # <a name="service-fabric-terminology-overview"></a>Översikt över Service Fabric-terminologi
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster.  Du kan [Service Fabric-värdkluster som helst](service-fabric-deploy-anywhere.md): Azure i ett lokalt datacenter eller på någon annan molnleverantör.  Service Fabric är orchestrator som driver [Azure Service Fabric nät](/azure/service-fabric-mesh). Du kan använda valfritt ramverk för att skriva dina tjänster och välj var du vill köra programmet från miljön välja mellan flera alternativ. Den här artikeln beskriver de termer som används av Service Fabric för att förstå de termer som används i dokumentationen.
@@ -162,14 +162,14 @@ Service Fabric är en teknik för öppen källkodsplattform som flera olika tjä
 Olika miljöer har olika stöd för ramverk och distributionsmodeller. I följande tabell beskrivs stöds framework och distribution av modellen kombinationer.
 
 | Typ av program | Beskrivningen av | Azure Service Fabric Mesh | Azure Service Fabric-kluster (alla OS)| Lokalt kluster | Fristående kluster |
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|
 | Service Fabric-nät program | Resursmodell (YAML & JSON) | Stöds |Stöds inte | Windows - stöd för Linux och Mac-inte stöds | Windows-inte stöds |
 |Interna Service Fabric-program | Internt programmodell (XML) | Stöds inte| Stöds|Stöds|Windows – stöds|
 
 I följande tabell beskrivs de olika program-modellerna och verktyg som finns för dem mot Service Fabric.
 
 | Typ av program | Beskrivningen av | Visual Studio | Eclipse | SFCTL | AZ CLI | PowerShell|
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|
 | Service Fabric-nät program | Resursmodell (YAML & JSON) | VS 2017 |Stöds inte |Stöds inte | Stöd för – nät-miljö | Stöds inte|
 |Interna Service Fabric-program | Internt programmodell (XML) | VS 2017 och VS 2015| Stöds|Stöds|Stöds|Stöds|
 

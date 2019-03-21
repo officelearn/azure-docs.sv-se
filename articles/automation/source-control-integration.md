@@ -6,54 +6,51 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/15/2019
+ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 49a28901e2ea471f97270c0407e2f6c0a4a533fd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 5b8ec726c81dfab710d30c37d6fb1aac97c12265
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58169161"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293983"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Källkontrollintegrering i Azure Automation
 
-Källkontroll kan du behålla dina runbooks i ditt Automation-konto är uppdaterade med skripten i centrallagret för källkontroll GitHub eller Azure DevOps. Källkontroll kan du enkelt kan samarbeta med ditt team, spåra ändringar och återställa tidigare versioner av dina runbooks. Till exempel kan källkontroll du synkronisera olika grenar i källkontrollen till ditt Automation-konton som utveckling, testning eller produktion. Detta gör det enkelt att flytta upp kod som har testats i din utvecklingsmiljö till din Automation-konto i produktionsmiljön.
+Källkontroll kan du behålla dina runbooks i ditt Automation-konto är uppdaterade med skripten i centrallagret för källkontroll GitHub eller Azure-databaser. Källkontroll kan du enkelt kan samarbeta med ditt team, spåra ändringar och återställa tidigare versioner av dina runbooks. Till exempel kan källkontroll du synkronisera olika grenar i källkontrollen till ditt Automation-konton som utveckling, testning eller produktion. Detta gör det enkelt att flytta upp kod som har testats i din utvecklingsmiljö till din Automation-konto i produktionsmiljön. Källkontrollsintegrering med automation har stöd för en riktning som synkroniseras från centrallagret för källkontroll.
 
 Azure Automation har stöd för 3 typer av källkontroll:
 
 * GitHub
-* Azure DevOps (Git)
-* Azure DevOps (TFVC)
+* Azure-lagringsplatser (Git)
+* Azure-lagringsplatser (TFVC)
 
 ## <a name="pre-requisites"></a>Förutsättningar
 
-* Ett källkontrollscentrallager (GitHub eller Azure DevOps)
-* Rätt [behörigheter](#personal-access-token-permissions) till källkontroll
-* En [Run-As konto och anslutning](manage-runas-account.md)
+* Ett källkontrollscentrallager (GitHub eller Azure-databaser)
+* En [kör som-konto](manage-runas-account.md)
 
 > [!NOTE]
 > Synkronisering för källkontrolljobb körs under användare Automation-konto och debiteras enligt samma taxa som andra Automation-jobb.
 
-## <a name="configure-source-control"></a>Konfigurera källkontroll
+## <a name="configure-source-control---azure-portal"></a>Konfigurera källkontroll - Azure-portalen
 
-I ditt Automation-konto, Välj **källkontroll (förhandsversion)** och klicka på **+ Lägg till**
+I ditt Automation-konto, Välj **källkontroll** och klicka på **+ Lägg till**
 
 ![Välj källkontroll](./media/source-control-integration/select-source-control.png)
 
-Välj **källkontroll typ**, klickar du på **autentisera**.
-
-Granska sidan programbehörigheter begäran och klicka på **acceptera**.
+Välj **källkontroll typ**, klickar du på **autentisera**. Ett webbläsarfönster öppnas och du uppmanas att logga in, följ anvisningarna för att slutföra autentisering.
 
 På den **källa kontroll sammanfattning** sidan, Fyll i informationen och klickar på **spara**. I följande tabell visas en beskrivning av tillgängliga fält.
 
 |Egenskap   |Beskrivning  |
 |---------|---------|
 |Namn på datakälla kontroll     | Ett eget namn för källkontrollen        |
-|Källkontrolltyp     | Typ av kontroll av källa. De tillgängliga alternativen är:</br> GitHub</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
-|Lagringsplats     | Namnet på databasen eller projekt. Det här värdet hämtas från källkontroll. Exempel: $/ ContosoFinanceTFVCExample         |
+|Källkontrolltyp     | Typ av kontroll av källa. De tillgängliga alternativen är:</br> GitHub</br>Azure-lagringsplatser (Git)</br> Azure-lagringsplatser (TFVC)        |
+|Lagringsplats     | Namnet på databasen eller projekt. De första 200 lagringsplatserna returneras. För att söka efter en lagringsplats, skriver du namnet i fältet och klickar på **Sök på GitHub**.|
 |Branch     | Den gren som ska hämta källfiler från. Gren mål är inte tillgänglig för TFVC-källkontrollstypen.          |
-|Mappsökväg     | Den mapp som innehåller runbooks för att synkronisera. Exempel: /Runbooks         |
+|Mappsökväg     | Den mapp som innehåller runbooks för att synkronisera. Exempel: /Runbooks </br>*Endast runbooks i mappen som specificerats synkroniseras. Rekursion stöds inte.*        |
 |Automatisk synkronisering     | Aktiverar eller inaktivera automatisk synkronisering när ett genomförande görs i källkontroll         |
 |Publicera Runbook     | Om inställd **på**, när runbooks har synkroniserats från källkontroll som de kommer att publiceras automatiskt.         |
 |Beskrivning     | Ett textfält för att ge mer information        |
@@ -63,9 +60,64 @@ På den **källa kontroll sammanfattning** sidan, Fyll i informationen och klick
 > [!NOTE]
 > Kontrollera att du har loggat in med rätt konto när du konfigurerar källkontroll. Om det finns en osäkra, öppna en ny flik i webbläsaren och logga ut från visualstudio.com eller github.com och försök ansluta källkontroll igen.
 
+## <a name="configure-source-control---powershell"></a>Konfigurera källkontroll – PowerShell
+
+Du kan också använda PowerShell för att konfigurera källkontroll i Azure Automation. Du konfigurerar källkontroll med PowerShell-cmdletar en [personlig åtkomsttoken (PAT)](#personal-access-token) krävs. Du använder den [New AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) att skapa källkontrollanslutning. Cmdlet: en kräver en säker sträng för din personliga åtkomsttoken, att lära dig hur du skapar en säker sträng finns [ConvertTo SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+
+### <a name="azure-repos-git"></a>Azure-lagringsplatser (Git)
+
+```powershell-interactive
+New-AzureRmAutomationSourceControl -Name SCReposGit -RepoUrl https://<account>.visualstudio.com/DefaultCollection/<project>/_git/<repository> -SourceType VsoGit -AccessToken <secureStringofPAT> -Branch master -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
+```
+
+### <a name="azure-repos-tfvc"></a>Azure-lagringsplatser (TFVC)
+
+```powershell-interactive
+New-AzureRmAutomationSourceControl -Name SCReposTFVC -RepoUrl https://<account>.visualstudio.com/<projectName>/_versionControl -SourceType VsoTfvc -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
+```
+
+### <a name="github"></a>GitHub
+
+```powershell-interactive
+New-AzureRmAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<account>/<repoName>.git -SourceType GitHub -FolderPath "/MyRunbooks" -Branch master -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
+```
+
+### <a name="personal-access-token-permissions"></a>Behörigheter för personlig åtkomst-token
+
+Källkontroll kräver vissa minsta möjliga behörigheter för personliga åtkomsttoken. Följande tabeller innehåller de minsta behörigheter som krävs för GitHub och Azure-databaser.
+
+#### <a name="github"></a>GitHub
+
+Mer information om hur du skapar en personlig åtkomsttoken i GitHub finns [skapar en personlig åtkomsttoken för kommandoraden](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
+
+|Scope  |Beskrivning  |
+|---------|---------|
+|**lagringsplats**     |         |
+|repo:status     | Åtkomststatus för genomförande         |
+|repo_deployment      | Distributionsstatus för åtkomst         |
+|public_repo     | Offentliga lagringsplatserna för åtkomst         |
+|**admin:repo_hook**     |         |
+|write:repo_hook     | Skriva lagringsplats hookar         |
+|read:repo_hook|Läs lagringsplats hookar|
+
+#### <a name="azure-repos"></a>Azure Repos
+
+Mer information om hur du skapar en personlig åtkomsttoken i Azure-lagringsplatser finns [autentisera åtkomsten med personliga åtkomsttoken](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
+
+|Scope  |
+|---------|
+|Kod (läsa)     |
+|Projekt och team (läsa)|
+|Identitet (läsa)      |
+|Användarprofil (läsa)     |
+|Arbetsobjekt (läsa)    |
+|Tjänstanslutningar (läsa, fråga och hantera)<sup>1</sup>    |
+
+<sup>1</sup>the Tjänstanslutningar behörigheten är endast krävs om du har aktiverat automatisk synkronisering.
+
 ## <a name="syncing"></a>Synkroniserar
 
-Konfigurera automatisk synkronisering när du konfigurerar integrering av källkontroll, startar den första synkroniseringen automatiskt. Om automatisk synkronisering inte har angetts, väljer du den från tabellen på den **källkontroll (förhandsversion)** sidan. Klicka på **Starta synkronisering** att starta synkroniseringen.
+Välj källa från tabellen på den **källkontroll** sidan. Klicka på **Starta synkronisering** att starta synkroniseringen.
 
 Du kan visa statusen för den aktuella synkroniseringsjobb eller tidigare inställningarna genom att klicka på den **Synkronisera jobb** fliken. På den **källkontroll** listrutan, Välj en källkontroll.
 
@@ -76,7 +128,7 @@ När du klickar på ett jobb kan du visa jobbutdata. I följande exempel är utd
 ```output
 ========================================================================================================
 
-Azure Automation Source Control Public Preview.
+Azure Automation Source Control.
 Supported runbooks to sync: PowerShell Workflow, PowerShell Scripts, DSC Configurations, Graphical, and Python 2.
 
 Setting AzureRmEnvironment.
@@ -106,38 +158,11 @@ Source Control Sync Summary:
 ========================================================================================================
 ```
 
-## <a name="personal-access-token-permissions"></a>Behörigheter för personlig åtkomst-token
-
-Källkontroll kräver vissa minsta möjliga behörigheter för personliga åtkomsttoken. Följande tabeller innehåller de minsta behörigheter som krävs för GitHub och Azure DevOps.
-
-### <a name="github"></a>GitHub
-
-|Scope  |Beskrivning  |
-|---------|---------|
-|**lagringsplats**     |         |
-|repo:status     | Åtkomststatus för genomförande         |
-|repo_deployment      | Distributionsstatus för åtkomst         |
-|public_repo     | Offentliga lagringsplatserna för åtkomst         |
-|**admin:repo_hook**     |         |
-|write:repo_hook     | Skriva lagringsplats hookar         |
-|read:repo_hook|Läs lagringsplats hookar|
-
-### <a name="azure-devops"></a>Azure DevOps
-
-|Scope  |
-|---------|
-|Kod (läsa)     |
-|Projekt och team (läsa)|
-|Identitet (läsa)      |
-|Användarprofil (läsa)     |
-|Arbetsobjekt (läsa)    |
-|Tjänstanslutningar (läsa, fråga och hantera)<sup>1</sup>    |
-
-<sup>1</sup>Tjänstanslutningar behörigheten är endast krävs om du har aktiverat automatisk synkronisering.
+Ytterligare loggning är tillgänglig genom att välja **alla loggar** på den **källa Control Sync jobbsammanfattning** sidan. Dessa ytterligare poster kan hjälpa dig att felsöka problem som kan uppstå när du använder källkontroll.
 
 ## <a name="disconnecting-source-control"></a>Kopplar från källkontrollen
 
-Om du vill koppla från ett källkontrollscentrallager, öppna **källkontroll (förhandsversion)** under **kontoinställningar** i ditt Automation-konto.
+Om du vill koppla från ett källkontrollscentrallager, öppna **källkontroll** under **kontoinställningar** i ditt Automation-konto.
 
 Välj källkontroll som du vill ta bort. På den **källa kontroll sammanfattning** klickar du på **ta bort**.
 
@@ -148,4 +173,3 @@ Om flera personer redigerar runbooks i centrallagret för källkontroll med olik
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om typer av runbooks, och om deras fördelar och begränsningar, finns i [Typer av Azure Automation-runbooks](automation-runbook-types.md)
-

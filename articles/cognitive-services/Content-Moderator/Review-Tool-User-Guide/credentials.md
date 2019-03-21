@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: f3138a9d0fe201a9486c34c08b8cdb3cca47e1d7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0da6b6b0fef0f998e20789253b2a65c54121532c
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207555"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260017"
 ---
 # <a name="manage-content-moderator-service-credentials"></a>Hantera autentiseringsuppgifter för Content Moderator-tjänsten
 
@@ -61,7 +61,7 @@ Följande avsnitt går igenom den föregående bilden i detalj:
 
 De första delen listorna din **granska API-slutpunkt**, **lag-ID**, och **Ocp-Apim-Subscription-Key (Content Moderator utvärderingsversion nyckel)** genereras som en del av ditt granskningsteam Skapa. Du kan använda dem för att anropa alla Content Moderator API: er, inklusive granska API.
 
-Tänk också på din regionsidentifierare för din API-slutpunkt. Till exempel **westus** är regionen i ”https://westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0”
+Tänk också på din regionsidentifierare för din API-slutpunkt. Till exempel **westus** är regionen i ”https:\//westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0”
 
 ![Content Moderator-nyckeln i granskningsverktyget](images/credentials-trialkey.PNG)
 

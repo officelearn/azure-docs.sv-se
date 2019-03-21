@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: pullabhk
-ms.openlocfilehash: 9ab271943d33ad63be0fae705ac703d1d98524ef
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 22ada6f9bb614bdc3698c58c6aa8ec3dd5def868
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542513"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259556"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhetskopiering av Azure virtuella datorer
 
@@ -67,16 +67,16 @@ Om du vill återställa filer och mappar från återställningspunkten, gå till
 
     - Download.microsoft.com
     - Recovery Service-URL: er (geo-namn som refererar till den region där det recovery service-valvet finns)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.com> (För offentliga Azure-regioner)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (För Azure Kina)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.us> (För Azure Government för USA)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.de> (För Azure Tyskland)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.com (för Azure offentliga regioner)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (för Azure Kina)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (för Azure för amerikanska myndigheter)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.de (för Azure Tyskland)
     - utgående port 3260
 
 > [!Note]
->
-* Hämtade skriptfilnamnet har den **geo-name** fyllas i URL: en. För t.ex.: Hämtade skriptets namn som börjar med \'VMname\'\_\'geoname\'_\'GUID\', som ContosoVM_wcus_12345678...<br><br>
-* URL: en är ”https://pod01-rec2.wcus.backup.windowsazure.com”
+> 
+> * Hämtade skriptfilnamnet har den **geo-name** fyllas i URL: en. För t.ex.: Hämtade skriptets namn som börjar med \'VMname\'\_\'geoname\'_\'GUID\', som ContosoVM_wcus_12345678...<br><br>
+> * URL: en är ”https:\//pod01-rec2.wcus.backup.windowsazure.com”
 
 
    För Linux kräver skriptet 'iscsi-öppen' och 'lshw' komponenter att ansluta till återställningspunkten. Om komponenterna inte finns på den dator där skriptet körs begär skriptet behörighet att installera komponenterna. Ge medgivande till att installera de nödvändiga komponenterna.

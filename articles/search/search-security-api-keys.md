@@ -8,15 +8,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 03/19/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 6ba63fa776e92dd2f8035cfbbdb8cea2860d106f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a59451c659effb55a2e16236b359b7601eb31cd4
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316941"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286609"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Skapa och hantera api-nycklar för en Azure Search-tjänst
 
@@ -42,19 +41,35 @@ Två typer av nycklar som används för att få åtkomst till din söktjänst: a
 > [!NOTE]  
 >  Det anses vara en dålig säkerhetsrutin att skicka känsliga data som en `api-key` i begärande-URI. Därför accepterar Azure Search endast en frågenyckel som en `api-key` i frågan sträng, och du bör undvika att göra det. Om inte innehållet i ditt index bör vara offentligt tillgängliga. Som en allmän regel rekommenderar vi att dina `api-key` som en rubrik för begäran.  
 
-## <a name="find-api-keys-for-your-service"></a>Hitta api-nycklar för din tjänst
+## <a name="find-existing-keys"></a>Hitta befintliga nycklar
 
 Du kan hämta åtkomstnycklar i portalen eller via den [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/). Mer information finns i [hantera api-nycklar som administratör och fråga](search-security-api-keys.md).
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Lista de [söktjänster](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) för din prenumeration.
-3. Välj tjänsten och på sidan, hitta **inställningar** >**nycklar** att visa admin och fråga nycklar.
+3. Välj tjänsten och klickar på sidan Översikt **inställningar** >**nycklar** att visa admin och fråga nycklar.
 
-![Portalsidan inställningar, nycklar-avsnittet](media/search-security-overview/settings-keys.png)
+   ![Portalsidan inställningar, nycklar-avsnittet](media/search-security-overview/settings-keys.png)
+
+## <a name="create-query-keys"></a>Skapa frågenycklar
+
+Frågenycklar används för skrivskyddad åtkomst till dokument i ett index. Det är viktigt att skydda search tillgångar för din tjänst att begränsa åtkomst och åtgärder i klientappar. Använd alltid en frågenyckel i stället för en administratörsnyckel för alla frågor som kommer från en klientapp.
+
+1. Logga in på [Azure Portal](https://portal.azure.com).
+2. Lista de [söktjänster](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) för din prenumeration.
+3. Välj tjänsten och klickar på sidan Översikt **inställningar** >**nycklar**.
+4. Klicka på **hantera frågenycklar**.
+5. Använd fråga redan har skapats för din tjänst, eller skapa upp till 50 nya frågenycklar. Frågenyckel standard heter inte, men ytterligare frågenycklar döpa hanterbarhet.
+
+   ![Skapa eller använda en frågenyckel](media/search-security-overview/create-query-key.png) 
+
+
+> [!Note]
+> Ett exempel som visar frågan nyckelanvändning finns i [fråga ett Azure Search-index i C# ](search-query-dotnet.md).
 
 ## <a name="regenerate-admin-keys"></a>Återskapa administratörsnycklar
 
-Två administratörsnycklar skapas för varje tjänst så att du kan förnya en primär nyckel med hjälp av den sekundära nyckeln för fortsatt åtkomst.
+Två administratörsnycklar skapas för varje tjänst så att du kan rotera en primär nyckel med hjälp av den sekundära nyckeln för fortsatt åtkomst.
 
 Om du återskapar både primära och sekundära nycklarna samtidigt kan kommer de program som använder någon av nycklarna för åtkomst till tjänståtgärder inte längre åtkomst till tjänsten.
 

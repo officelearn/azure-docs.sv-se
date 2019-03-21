@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 03/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 39d0813eab49f526842eec171e3355326bd13c44
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 91325b7884eae4c6f4c85c142b1e81cf2121c039
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727810"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295342"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definiera ordningen för att distribuera resurser i Azure Resource Manager-mallar
 För en viss resurs, kan det finnas andra resurser som måste finnas innan resursen är distribuerad. Till exempel måste en SQL-server finnas innan du distribuerar en SQL-databas. Du kan definiera den här relationen genom att markera en resurs som är beroende av andra resursen. Du definierar ett beroende med den **dependsOn** element, eller genom att använda den **referens** funktion. 
@@ -65,7 +65,7 @@ När du definierar beroenden måste inkludera du de resursproviderns namnområde
 Du kan kodarbete du använder dependsOn för att mappa relationerna mellan dina resurser, är det viktigt att förstå varför du gör den. Till exempel för att dokumentera hur resurser är sammankopplade dependsOn är inte den rätta inställningen. Du kan inte fråga vilka resurser som har definierats i dependsOn-elementet efter distributionen. Genom att använda dependsOn kan påverka du eventuellt distributionstiden eftersom Resource Manager inte distribuerar i parallella två resurser som har ett beroende. 
 
 ## <a name="child-resources"></a>Underordnade resurser
-Egenskapen resurser kan du ange underordnade resurser som är relaterade till resursen som definieras. Underordnade resurser kan bara vara definierade fem nivåers djup. Det är viktigt att notera att beroende av ett implicit inte skapats mellan en underordnad resurs och den överordnade resursen. Om du behöver den underordnade resursen som ska distribueras när den överordnade resursen, måste du uttryckligen ange sambandet med egenskapen dependsOn. 
+Egenskapen resurser kan du ange underordnade resurser som är relaterade till resursen som definieras. Underordnade resurser kan bara vara definierade fem nivåers djup. Det är viktigt att notera att beroende av ett implicit distributionen inte skapats mellan en underordnad resurs och den överordnade resursen. Om du behöver den underordnade resursen som ska distribueras när den överordnade resursen, måste du uttryckligen ange sambandet med egenskapen dependsOn. 
 
 Varje överordnad resurs accepterar endast vissa typer av resurser som underordnade resurser. Godkända resurstyper anges i den [mallsschemat](https://github.com/Azure/azure-resource-manager-schemas) av den överordnade resursen. Namnet på underordnade resurstyp innehåller namnet på resurstypen överordnade exempelvis **Microsoft.Web/sites/config** och **Microsoft.Web/sites/extensions** är både underordnade resurser till **Microsoft.Web/sites**.
 

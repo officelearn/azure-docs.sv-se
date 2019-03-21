@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/05/2019
+ms.date: 03/18/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b6c61b4116983f36cef0632f7bbec4d36d203d0d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: a2efc90e14180cd2b26223ef968a7f192b440ebd
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842987"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287051"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
@@ -22,24 +22,20 @@ När du startar en runbook i Azure Automation skapas ett jobb. Ett jobb innebär
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Följande diagram visar livscykeln för ett runbook-jobb för [grafiska runbooks](automation-runbook-types.md#graphical-runbooks) och [PowerShell Workflow-runbooks](automation-runbook-types.md#powershell-workflow-runbooks).
+Följande diagram visar livscykeln för ett runbook-jobb för [PowerShell-runbooks](automation-runbook-types.md#powershell-runbooks), [grafiska runbooks](automation-runbook-types.md#graphical-runbooks) och [PowerShell Workflow-runbooks](automation-runbook-types.md#powershell-workflow-runbooks).
 
 ![Jobbstatus – PowerShell-arbetsflöde](./media/automation-runbook-execution/job-statuses.png)
-
-Följande diagram visar livscykeln för ett runbook-jobb för [PowerShell-runbooks](automation-runbook-types.md#powershell-runbooks).
-
-![Jobbstatus – PowerShell-skript](./media/automation-runbook-execution/job-statuses-script.png)
 
 Dina jobb har åtkomst till dina Azure-resurser genom att göra en anslutning till din Azure-prenumeration. De har endast åtkomst till resurser i ditt datacenter om dessa resurser är tillgängliga från det offentliga molnet.
 
 ## <a name="where-to-run-your-runbooks"></a>Om du vill köra runbooks
 
-Runbooks i Azure Automation kan köras i vilketdera en sandbox i Azure eller en [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). En Sandbox-miljön är en delad miljö i Azure som kan användas av flera jobb. Jobb med hjälp av samma sandlåda bunden av resursbegränsningar av sandbox-miljön. Hybrid Runbook Worker kan användas för att köra runbooks direkt på den dator som är värd för rollen och mot resurser i miljön för att hantera dessa lokala resurser. Runbooks lagras och hanteras i Azure Automation och sedan levereras till en eller flera tilldelade datorer. De flesta runbooks kan enkelt köra i Azure-sandbox-miljöer. Det finns specifika scenarier där välja en Hybrid Runbook via en Azure testa och köra din runbook kan rekommenderas. Se följande tabell för en lista över några exempelscenarier:
+Runbooks i Azure Automation kan köras i vilketdera en sandbox i Azure eller en [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). En Sandbox-miljön är en delad miljö i Azure som kan användas av flera jobb. Jobb med hjälp av samma sandlåda bunden av resursbegränsningar av sandbox-miljön. Hybrid Runbook Worker kan köra runbooks direkt på den dator som är värd för rollen och mot resurser i miljön för att hantera dessa lokala resurser. Runbooks lagras och hanteras i Azure Automation och sedan levereras till en eller flera tilldelade datorer. De flesta runbooks kan enkelt köra i Azure-sandbox-miljöer. Det finns specifika scenarier där välja en Hybrid Runbook via en Azure testa och köra din runbook kan rekommenderas. Se följande tabell för en lista över några exempelscenarier:
 
 |Aktivitet|Bästa val|Anteckningar|
 |---|---|---|
 |Integrera med Azure-resurser|Azure Sandbox|På azure är-autentisering enklare. Om du använder en Hybrid Runbook Worker på en Azure VM, kan du använda [hanterade identiteter för Azure-resurser](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
-|Optimala prestanda för att hantera azure-resurser|Azure Sandbox|Skriptet kördes i samma miljö, som i sin tur har mindre fördröjning|
+|Optimala prestanda för att hantera azure-resurser|Azure Sandbox|Skriptet körs i samma miljö, som i sin tur har mindre fördröjning|
 |Minimera driftskostnaderna|Azure Sandbox|Det finns inga kostnader för beräkning, inget behov av en virtuell dator|
 |Skriptet körs under lång tid|Hybrid Runbook Worker|Azure sandbox-miljöer har [begränsningen av resurser](../azure-subscription-service-limits.md#automation-limits)|
 |Interagera med lokala tjänster|Hybrid Runbook Worker|Kan ha åtkomst direkt till värddatorn|
@@ -49,7 +45,8 @@ Runbooks i Azure Automation kan köras i vilketdera en sandbox i Azure eller en 
 |Använder-moduler med specifika krav| Hybrid Runbook Worker|Några exempel är:</br> **WinSCP** -beroendet av winscp.exe </br> **IISAdministration** -måste IIS vara aktiverat|
 |Installera modulen som kräver installationsprogram|Hybrid Runbook Worker|Moduler för begränsat läge måste vara xcopyable|
 |Med hjälp av runbooks eller moduler som kräver .NET Framework skiljer sig från 4.7.2|Hybrid Runbook Worker|Automation-sandboxar har .NET Framework 4.7.2 Det går inte att uppgradera den|
-|Skript som kräver utökade privilegier|Hybrid Runbook Worker|Sandbox-miljöer tillåter inte utökade privilegier. Du kan lösa det här används som en Hybrid Runbook Worker och du kan inaktivera UAC och Använd `Invoke-Command` när du kör kommandot som kräver utökade privilegier|
+|Skript som kräver utökade privilegier|Hybrid Runbook Worker|Sandbox-miljöer tillåter inte utökade privilegier. Använda en Hybrid Runbook Worker för att lösa detta problem och du kan inaktivera kontroll av Användarkonto och använda `Invoke-Command` när du kör kommandot som kräver utökade privilegier|
+|Skript som behöver åtkomst till WMI|Hybrid Runbook Worker|Jobb som körs i sandbox-miljöer molnet [har inte åtkomst till WMI](#device-and-application-characteristics)|
 
 ## <a name="runbook-behavior"></a>Runbook-beteende
 
@@ -78,11 +75,11 @@ else
 
 ### <a name="time-dependant-scripts"></a>Tid beroende skript
 
-Noggrann överväganden ska göras vid redigering av runbooks. Som tidigare nämnts runbooks måste vara författade på ett sätt som de är stabila och kan hantera tillfälliga fel som kan orsaka runbook att starta om eller misslyckas. Om en runbook misslyckas att det görs ett nytt. Om en runbook körs vanligtvis inom en tidsbegränsning, körde logik för att kontrollera körningstiden bör implementeras i runbook för att säkerställa att åtgärder som att starta, stänga av eller skala ut enbart vid specifika tidpunkter.
+Noggrann överväganden ska göras vid redigering av runbooks. Som tidigare nämnts runbooks måste vara författade på ett sätt som de är stabila och kan hantera tillfälliga fel som kan orsaka runbook att starta om eller misslyckas. Om en runbook misslyckas, görs ett nytt. Om en runbook körs vanligtvis inom en tidsbegränsning, kör logik för att kontrollera körningstiden bör implementeras i runbook för att se till att åtgärder som att starta, stänga av eller skala ut enbart vid specifika tidpunkter.
 
 ### <a name="tracking-progress"></a>Spåra förloppet
 
-Det är en bra idé att redigera runbooks för att vara modulära sin natur. Det innebär att strukturera logiken i runbook så att den kan återanvändas och startas om enkelt. Spåra förloppet i en runbook är ett bra sätt att se till att logiken i en runbook körs korrekt om det uppstod problem. Några möjliga sätt att spåra förloppet för runbooken är att använda en extern källa, till exempel lagringskonton, en databas eller delade filer. Du kan skapa logiken i din runbook första Kontrollera tillståndet för den senaste åtgärden runbook tog och utifrån resultaten hoppa över eller fortsätta specifika uppgifter i runbooken genom att spåra status externt.
+Det är en bra idé att redigera runbooks för att vara modulära sin natur. Det innebär att strukturera logiken i runbook så att den kan återanvändas och startas om enkelt. Spåra förloppet i en runbook är ett bra sätt att se till att logiken i en runbook körs korrekt om det uppstod problem. Några möjliga sätt att spåra förloppet för runbooken är att använda en extern källa, till exempel lagringskonton, en databas eller delade filer. Genom att spåra status externt, kan du skapa logik i din runbook första Kontrollera tillståndet för den senaste åtgärden tog för runbook. Sedan utifrån resultaten, antingen Hoppa över eller fortsätta specifika uppgifter i runbooken.
 
 ### <a name="prevent-concurrent-jobs"></a>Förhindra samtidiga jobb
 
@@ -116,7 +113,7 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 
 ### <a name="working-with-multiple-subscriptions"></a>Arbeta med flera prenumerationer
 
-När redigering av runbooks som hanterar flera prenumerationer din runbook behöver använda den [Disable-AzureRmContextAutosave](/powershell/module/azurerm.profile/disable-azurermcontextautosave) cmdlet för att se till att din autentiseringskontext inte har hämtats från en annan runbook som körs i samma sandbox-miljön. Sedan måste du använda den `-AzureRmContext` parametern på din `AzureRM` cmdletar och skickar den till din tillräcklig kontext.
+När du skapar runbooks som hanterar flera prenumerationer kan din runbook måste använda den [Disable-AzureRmContextAutosave](/powershell/module/azurerm.profile/disable-azurermcontextautosave) cmdlet för att se till att din autentiseringskontext inte har hämtats från en annan runbook som kan vara körs i samma sandbox-miljön. Sedan måste du använda den `-AzureRmContext` parametern på din `AzureRM` cmdletar och skickar den till din tillräcklig kontext.
 
 ```powershell
 # Ensures you do not inherit an AzureRMContext in your runbook
@@ -141,9 +138,59 @@ Start-AzureRmAutomationRunbook `
     -DefaultProfile $context
 ```
 
+### <a name="handling-exceptions"></a>Hantering av undantag
+
+Det är viktigt för att kunna hantera undantag och potentiella tillfälliga fel vid redigering av skript. Här följer några olika sätt att hantera undantag eller återkommande problem med dina runbooks:
+
+#### <a name="erroractionpreference"></a>$ErrorActionPreference
+
+Den [$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) inställningsvariabeln avgör hur PowerShell ska svara på en icke-avslutande fel. Avslutande fel påverkas inte av `$ErrorActionPreference`, de alltid avsluta. Med hjälp av `$ErrorActionPreference`, ett normalt icke-avslutande fel som `PathNotFound` från den `Get-ChildItem` cmdlet kommer att stoppa runbook från att slutföras. I följande exempel visas med hjälp av `$ErrorActionPreference`. Sista `Write-Output` rad ska aldrig köras som skriptet stoppas.
+
+```powershell-interactive
+$ErrorActionPreference = 'Stop'
+Get-Childitem -path nofile.txt
+Write-Output "This message will not show"
+```
+
+#### <a name="try-catch-finally"></a>Försök Catch slutligen
+
+[Försök Catch](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) används i PowerShell-skript för att hantera avslutande fel. Genom att använda försök fånga upp kan du fånga upp specifika undantag eller allmänt undantag. Catch-sats ska användas för att spåra fel eller används att hantera felet. I följande exempel försöker ladda ned en fil som inte finns. Den fångar upp den `System.Net.WebException` undantag, om det uppstod ett till undantag det senaste värdet som returneras.
+
+```powershell-interactive
+try
+{
+   $wc = new-object System.Net.WebClient
+   $wc.DownloadFile("http://www.contoso.com/MyDoc.doc")
+}
+catch [System.Net.WebException]
+{
+    "Unable to download MyDoc.doc from http://www.contoso.com."
+}
+catch
+{
+    "An error occurred that could not be resolved."
+}
+```
+
+#### <a name="throw"></a>Throw
+
+[Utlös](/powershell/module/microsoft.powershell.core/about/about_throw) kan användas för att generera ett avslutande fel. Detta kan vara användbart när du definierar din egen logik i en runbook. Om ett visst villkor är uppfyllt som ska avbrytas skriptet kan du använda `throw` avbryts. I följande exempel visas machine en funktionsparameter som krävs med hjälp av `throw`.
+
+```powershell-interactive
+function Get-ContosoFiles
+{
+  param ($path = $(throw "The Path parameter is required."))
+  Get-ChildItem -Path $path\*.txt -recurse
+}
+```
+
 ### <a name="using-executables-or-calling-processes"></a>Med hjälp av körbara filer eller anropa processer
 
-Runbooks som kördes i Azure sandboxar stöder inte anropande processer (till exempel en .exe eller subprocess.call). Detta beror på att Azure sandboxar delas processer kördes i behållare som inte kanske har åtkomst till alla underliggande API: erna. För scenarier där du behöver 3 tillverkare eller anropas av sub processer, bör du köra en runbook på en [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
+Runbooks som körs i Azure sandboxar stöder inte anropande processer (till exempel en .exe eller subprocess.call). Det beror på att Azure sandbox-miljöer är delade processer som körs i behållare, som inte kanske har åtkomst till alla underliggande API: erna. För scenarier där du behöver 3 tillverkare eller anropas av sub processer, bör du köra en runbook på en [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
+
+### <a name="device-and-application-characteristics"></a>Egenskaper för enheter och program
+
+Runbook-jobb som körs i Azure sandbox-miljöer har inte åtkomst till alla egenskaper för enhet eller ett program. Den vanligaste API som används för att fråga prestandamått på Windows är WMI. Vissa av dessa vanliga mått är minne och CPU-användning. Men det spelar ingen roll vad API används. Jobb som körs i molnet har inte behörighet Microsofts implementering av Web baserat företagshantering (WBEM), som bygger på Common Information Model (CIM), som är branschstandarder för att definiera egenskaperna för enheter och program.
 
 ## <a name="job-statuses"></a>Jobbstatus
 
@@ -250,9 +297,9 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 Om du vill dela resurser mellan alla runbooks i molnet, Azure Automation tillfälligt inaktiverar eller stoppar alla jobb som har körts i mer än tre timmar. Jobb för [PowerShell-baserade runbooks](automation-runbook-types.md#powershell-runbooks) och [Python runbooks](automation-runbook-types.md#python-runbooks) stoppas och startas om inte, och visar stoppad för jobbets status.
 
-För att långa köra aktiviteter, vi rekommenderar att du använder en [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Worker inte begränsas av rättmätiga del och inte har en begränsning på hur lång tid en runbook kan köra. Det andra jobbet [gränser](../azure-subscription-service-limits.md#automation-limits) gäller både Azure sandbox-miljöer och Hybrid Runbook Worker. Hybrid Runbook Worker-arbeten inte är begränsad av tre timmar rättmätiga del gränsen runbooks kördes på dem fortfarande ha utvecklats för att stödja omstart beteenden från oväntat lokala infrastruktur problem.
+För att långa köra aktiviteter, vi rekommenderar att du använder en [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Worker inte begränsas av rättmätiga del och inte har en begränsning på hur lång tid en runbook kan köra. Det andra jobbet [gränser](../azure-subscription-service-limits.md#automation-limits) gäller både Azure sandbox-miljöer och Hybrid Runbook Worker. Hybrid Runbook Worker-arbeten inte är begränsad av tre timmar rättmätiga del gränsen, bör runbooks som körs på dem. utvecklas för att stödja omstart beteenden från oväntat lokala infrastruktur problem.
 
-Ett annat alternativ är att optimera runbook med hjälp av underordnade runbooks. Om din runbook igenom samma funktion på flera resurser, till exempel en databasåtgärd på flera databaser kan du flytta funktionen till en [underordnad runbook](automation-child-runbooks.md) och anropa det med den [ Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Var och en av dessa underordnade runbooks körs parallellt i separata processer, vilket minskar den överordnade runbookens totala körningstid. Du kan använda den [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet i din runbook för att kontrollera jobbstatus för varje underordnad om det finns åtgärder som utför när den underordnade runbooken har slutförts.
+Ett annat alternativ är att optimera runbook med hjälp av underordnade runbooks. Om din runbook igenom samma funktion på flera resurser, till exempel en databasåtgärd på flera databaser kan du flytta funktionen till en [underordnad runbook](automation-child-runbooks.md) och anropa det med den [ Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Var och en av dessa underordnade runbooks körs parallellt i separata processer. Detta minskar den totala mängden tid för den överordnade runbooken ska slutföras. Du kan använda den [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet i din runbook för att kontrollera jobbstatus för varje underordnad om det finns åtgärder som utför när den underordnade runbooken har slutförts.
 
 ## <a name="next-steps"></a>Nästa steg
 

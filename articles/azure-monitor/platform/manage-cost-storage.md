@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 03/20/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: a1d8984b8c9d0859ff754e3d5bfb35bd98236b54
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5a8bd836322ae005b426707e0994bfdc19701fd8
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098567"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295682"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Hantera användning och kostnader för Log Analytics
 
@@ -112,13 +112,13 @@ Om Log Analytics-arbetsytan har tillgång till äldre prisnivåer för att ändr
 3. Under **prisnivå**, Välj en prisnivå och klickar sedan på **Välj**.  
     ![Valt prisplanen](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-Om du vill flytta din arbetsyta till aktuell prisnivå kan du behöva [ändra prismodellen i Azure Monitor för övervakning av din prenumeration](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model) som kommer att ändras prisnivån för alla arbetsytor i prenumerationen.
+Om du vill flytta din arbetsyta till aktuell prisnivå kan du behöva [ändra prismodellen i Azure Monitor för övervakning av din prenumeration](usage-estimated-costs.md#moving-to-the-new-pricing-model) som kommer att ändras prisnivån för alla arbetsytor i prenumerationen.
 
 > [!NOTE]
 > Om arbetsytan är länkad till ett Automation-konto måste du ta bort alla **Automation and Control**-lösningar och ta bort länken för Automation-kontot innan du kan välja prisnivån *Fristående (per GB)*. I arbetsytebladet klickar du på **Lösningar** under **Allmänt** för att visa och ta bort lösningar. Du tar bort länken för Automation-kontot genom att klicka på namnet på Automation-kontot på bladet **Prisnivå**.
 
 > [!NOTE]
-> Du kan läsa mer om [inställningen prisnivån via ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace) och hur du säkerställer att din ARM-distribution lyckas oavsett om prenumerationen är i äldre eller nya prismodellen. 
+> Du kan läsa mer om [inställningen prisnivån via ARM](template-workspace-configuration.md#create-a-log-analytics-workspace) och hur du säkerställer att din ARM-distribution lyckas oavsett om prenumerationen är i äldre eller nya prismodellen. 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Felsökning varför Log Analytics inte längre att samla in data
@@ -138,24 +138,12 @@ Om du vill meddelas när datainsamlingen slutar, använder du stegen som beskriv
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Felsökning varför användningen är större än förväntat
 Högre användning orsakas av en eller båda:
-- Mer data än förväntat skickas till Log Analytics
 - Mer noder än förväntat som skickar data till Log Analytics
+- Mer data än förväntat skickas till Log Analytics
 
-### <a name="data-volume"></a>Datavolym 
-På den **användning och uppskattade kostnader** kan den *datainmatning per lösning* diagrammet visar den totala mängden data som skickas och hur mycket som skickas av varje lösning. På så sätt kan du fastställa trender, till exempel om den övergripande dataanvändning (eller användning av en viss lösning) ökar, förblir oförändrad eller minskar. Frågan används för att generera detta är
+Nästa avsnitt explor
 
-`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
-
-Observera att i satsen ”där IsBillable = true” filtrerar ut datatyper från vissa lösningar som är gratis inmatning. 
-
-Du kan öka detaljnivån ytterligare till Se datatrender för specifika datatyper, till exempel om du vill undersöka data på grund av IIS-loggar:
-
-`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
-
-### <a name="nodes-sending-data"></a>Noder som skickar data
+## <a name="understanding-nodes-sending-data"></a>Förstå noder som skickar data
 
 För att förstå hur många datorer (noder) och rapporterar data varje dag under den senaste månaden, använda
 
@@ -171,9 +159,9 @@ Hämta en lista över datorer som skickar **faktureras datatyper** (vissa dataty
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-Använd de här `union withsource = tt *` frågar sparsamt eftersom sökningar över datatyper är dyrt att köra. 
+Använd de här `union withsource = tt *` frågar sparsamt eftersom sökningar över datatyper är dyrt att köra. Den här frågan ersätter det gamla sättet att hämtar information om varje dator med datatypen användning.  
 
-Detta kan utökas för att returnera antalet datorer per timme som skickar faktureras datatyper:
+Detta kan utökas för att returnera antalet datorer per timme som skickar faktureras datatyper (vilket är hur beräknar Log Analytics fakturerbara noder för äldre Per nod prisnivå):
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -181,13 +169,30 @@ Detta kan utökas för att returnera antalet datorer per timme som skickar faktu
 | where computerName != ""
 | summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
 
-Se den **storlek** faktureringsbara händelser matas in per dator, använder den `_BilledSize` egenskapen som tillhandahåller storlek i byte:
+## <a name="understanding-ingested-data-volume"></a>Förstå som matas in datavolym 
+
+På den **användning och uppskattade kostnader** kan den *datainmatning per lösning* diagrammet visar den totala mängden data som skickas och hur mycket som skickas av varje lösning. På så sätt kan du fastställa trender, till exempel om den övergripande dataanvändning (eller användning av en viss lösning) ökar, förblir oförändrad eller minskar. Frågan används för att generera detta är
+
+`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+Observera att i satsen ”där IsBillable = true” filtrerar ut datatyper från vissa lösningar som är gratis inmatning. 
+
+Du kan öka detaljnivån ytterligare till Se datatrender för specifika datatyper, till exempel om du vill undersöka data på grund av IIS-loggar:
+
+`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| where DataType == "W3CIISLog"
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+### <a name="data-volume-by-computer"></a>Datavolym efter dator
+
+Se den **storlek** faktureringsbara händelser matas in per dator, använder den `_BilledSize` egenskapen ([log-standard-properties #_billedsize.md](learn more)) som tillhandahåller storlek i byte:
 
 `union withsource = tt * 
 | where _IsBillable == true 
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
 
-Den här frågan ersätter det gamla sättet att läsa detta med datatypen användning. 
+Den `_IsBillable` egenskapen anger om den inmatade data tillkommer kostnader ([log-standard-properties.md #_isbillable](Learn more).)
 
 Se den **antal** händelser matas in per dator, använda
 
@@ -207,8 +212,29 @@ Om du vill se antalet för fakturerbar datatyper skickar data till en specifik d
 | where _IsBillable == true 
 | summarize count() by tt | sort by count_ nulls last `
 
+### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Datavolym per Azure-resurs, resursgrupp eller prenumeration
+
+För data från noder som finns i Azure kan du hämta den **storlek** faktureringsbara händelser matas in __per dator__, använda den `_ResourceId` -egenskap som innehåller den fullständiga sökvägen till resursen ([ log-standard-properties.md #_resourceid](learn more)):
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last `
+
+För data från noder som finns i Azure kan du hämta den **storlek** faktureringsbara händelser matas in __per Azure-prenumeration__, parsa den `_ResourceId` egenskapen som:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
+    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last `
+
+Ändra `subscriptionId` till `resourceGroup` visar fakturerbara inmatade datavolym per Azure resouurce grupp. 
+
+
 > [!NOTE]
 > Vissa fält av datatypen användning medan fortfarande i schemat har gjorts inaktuell och kommer deras värden fylls inte längre. Det här är **datorn** samt relaterade fält till inmatning (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** och **AverageProcessingTimeMs**.
+
+### <a name="querying-for-common-data-types"></a>Fråga efter vanliga datatyper
 
 Om du vill gå på djupet datakällan för en viss typ, är här några användbara exempelfrågor:
 
@@ -241,7 +267,7 @@ Några förslag för att minska mängden insamlade loggar är:
 | AzureDiagnostics           | Ändra logginsamlingen för resurser för att: <br> – Minska antalet resursloggar som skickas till Log Analytics <br> – Endast samla in nödvändiga loggar |
 | Lösningsdata från datorer som inte behöver lösningen | Använd [lösningsriktning](../insights/solution-targeting.md) för att endast samla in data från obligatoriska grupper med datorer. |
 
-### <a name="getting-node-counts"></a>Hämta noden räknar 
+### <a name="getting-security-and-automation-node-counts"></a>Hämta antal för säkerhet och Automation nod 
 
 Om du är på ”Per nod (OMS)” prisnivå så debiteras du utifrån antal noder och lösningar som du använder, hur många insikter och analys noder som du faktureras kommer att visas i tabellen på den **användning och uppskattade kostnader**sidan.  
 
@@ -282,6 +308,7 @@ Använd fråga om du vill se antalet distinkta Automation-noder:
  | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc`
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Skapa en avisering när datainsamlingen är högre än väntat
+
 I det här avsnittet beskrivs hur du skapar en avisering om:
 - Datavolymen överskrider en angiven mängd.
 - Datavolymen förväntas överskrida en angiven mängd.

@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: dc743f7e8ebaebf2b253a1c2c199133bc4266dd5
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: c2107e501affd5e3dd22e0fbc83d078b51d414a5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404377"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57841148"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault hanteras lagringskonto – CLI
 
@@ -40,6 +40,7 @@ När du använder funktionen viktiga hanterad lagring:
 - **Tillåt endast Key Vault för att hantera dina lagringskontonycklar.** Försök inte hantera dem själv, som du ska påverka Key Vault-processer.
 - **Tillåt inte storage-kontonycklar som ska hanteras av fler än ett objekt i Key Vault**.
 - **Inte manuellt återskapa dina lagringskontonycklar**. Vi rekommenderar att du återskapar dem via Key Vault.
+- Ber Key Vault för att hantera ditt lagringskonto kan göras genom att ett UPN för tillfället och inte ett huvudnamn för tjänsten
 
 I följande exempel visar hur du kan låta Key Vault för att hantera dina lagringskontonycklar.
 
@@ -124,7 +125,7 @@ När den här åtgärden har körts kan bör du se utdata som liknar enligt neda
    "se=2020-01-01&sp=***"
 ```
 
-2. I det här steget använder vi utdata ($sasToken) genereras ovan för att skapa en SAS-Definition. Mer dokumentation finns [här](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+1. I det här steget använder vi utdata ($sasToken) genereras ovan för att skapa en SAS-Definition. Mer dokumentation finns [här](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
 
 ```
 az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
@@ -134,12 +135,11 @@ az keyvault storage sas-definition create --vault-name <YourVaultName> --account
  > [!NOTE] 
  > I det fallet att användaren inte har behörighet att storage-konto kan hämta vi först objekt-Id för användaren
 
-    ```
-    az ad user show --upn-or-object-id "developer@contoso.com"
+ ```
+ az ad user show --upn-or-object-id "developer@contoso.com"
 
-    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
-    
-    ```
+ az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
+ ```
     
 ## <a name="fetch-sas-tokens-in-code"></a>Hämta SAS-token i koden
 
@@ -147,8 +147,8 @@ I det här avsnittet diskuteras hur du kan göra åtgärder på ditt lagringskon
 
 I den under avsnittet vi visar hur du kan hämta SAS-token när en SAS-definitionen har skapats enligt ovan.
 
-> [!NOTE] 
-  Det finns 3 sätt att autentisera till Key Vault eftersom du kan läsa i den [grundläggande begrepp](key-vault-whatis.md#basic-concepts)
+> [!NOTE]
+>   Det finns 3 sätt att autentisera till Key Vault eftersom du kan läsa i den [grundläggande begrepp](key-vault-whatis.md#basic-concepts)
 > - Med hjälp av hanterad tjänstidentitet (rekommenderas)
 > - Med hjälp av tjänstens huvudnamn och certifikat 
 > - Med tjänstens huvudnamn och lösenord (rekommenderas inte)

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 5d9f973926a46e61d83cba6fb52a543bddf26f99
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 10bc4e4c440e5495afd820f588270b7990108b68
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315868"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259269"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Skapa en Programgateway med sökvägsbaserad routning regler med hjälp av Azure portal
 
@@ -48,20 +48,20 @@ Det krävs ett virtuellt nätverk för kommunikation mellan de resurser som du s
 2. Välj **Nätverk** och sedan **Application Gateway** i listan Aktuella.
 3. Ange följande värden för programgatewayen:
 
-    - *myAppGateway* – Namnet på programgatewayen.
-    - *myResourceGroupAG* – Den nya resursgruppen.
+   - *myAppGateway* – Namnet på programgatewayen.
+   - *myResourceGroupAG* – Den nya resursgruppen.
 
-    ![Skapa en ny programgateway](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
+     ![Skapa en ny programgateway](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
 4. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
 5. Klicka på **Välj ett virtuellt nätverk**, klicka på **Skapa nytt** och ange sedan följande värden för det virtuella nätverket:
 
-    - *myVnet* – Det virtuella nätverkets namn.
-    - *10.0.0.0/16* – Det virtuella nätverkets adressutrymme.
-    - *myBackendSubnet* – Undernätsnamnet.
-    - *10.0.0.0/24* – Undernätets adressutrymme.
+   - *myVnet* – Det virtuella nätverkets namn.
+   - *10.0.0.0/16* – Det virtuella nätverkets adressutrymme.
+   - *myBackendSubnet* – Undernätsnamnet.
+   - *10.0.0.0/24* – Undernätets adressutrymme.
 
-    ![Skapa det virtuella nätverket](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
+     ![Skapa det virtuella nätverket](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
 6. Klicka på **OK** för att skapa det virtuella nätverket och undernätet.
 7. Klicka på **välja en offentlig IP-adress**, klickar du på **Skapa nytt**, och ange sedan namnet på den offentliga IP-adressen. I det här exemplet heter den offentliga IP-adressen *myAGPublicIPAddress*. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
@@ -156,7 +156,7 @@ I det här exemplet skapar du tre virtuella datorer som ska användas som server
 
     ![Registrera programgatewayens offentliga IP-adress](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel http:// http://40.121.222.19.
+2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel http:\//40.121.222.19.
 
     ![Testa basadressen i programgatewayen](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 

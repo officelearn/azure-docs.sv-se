@@ -2,19 +2,19 @@
 title: Hantera loggar för ett HDInsight-kluster – Azure HDInsight
 description: Kontrollera de typer och storlekar bevarandeprinciper för loggfiler för HDInsight-aktivitet.
 services: hdinsight
-author: ashishthaps
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.author: ashishth
-ms.openlocfilehash: 7b6f9ca914e9fed48463d2134eeba1cd4c103690
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.date: 03/19/2019
+ms.author: hrasheed
+ms.openlocfilehash: 0f0a22ea4a24a82cb4acf7a3b20a743ee7425c72
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225332"
+ms.locfileid: "58294917"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Hantera loggar för ett HDInsight-kluster
 
@@ -43,13 +43,12 @@ Information om följande kluster är användbara i hjälper till att samla in in
 * Tillstånd för klustret, inklusive information om den senaste tillståndsändringen
 * Typ och antal HDInsight-instanser som angetts för master, core och uppgiften noder
 
-Du kan hämta de flesta av informationen på den högsta nivån med Azure portal.  Du kan också använda den klassiska Azure-CLI för att hämta information om HDInsight-kluster:
+Du kan hämta de flesta av informationen på den högsta nivån med Azure portal.  Du kan också använda [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) att få information om HDInsight-kluster:
 
+```azurecli
+    az hdinsight list --resource-group <ResourceGroup>
+    az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
-    azure hdinsight cluster list
-    azure hdinsight cluster show <ClusterName>
-```
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Du kan också använda PowerShell för att visa denna information.  Mer information finns i [Apache hantera Hadoop-kluster i HDInsight med hjälp av Azure PowerShell](hdinsight-administer-use-powershell.md).
 
@@ -77,7 +76,7 @@ En typisk HDInsight-klustret använder flera tjänster och program med öppen k�
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Visa inställningar för klustrets med Ambari UI
 
-Apache Ambari förenklar hantering, konfiguration och övervakning i ett HDInsight-kluster genom att tillhandahålla en web UI och ett REST-API. Ambari ingår i Linux-baserade HDInsight-kluster. Välj den **Klusterinstrumentpanel** fönstret på Azure HDInsight portalsidan att öppna den**Klusterinstrumentpaneler** länksida.  Välj sedan den **HDInsight-klusterinstrumentpanel** fönstret för att öppna Ambari UI.  Du uppmanas att ange dina autentiseringsuppgifter för klusterinloggning.
+Apache Ambari förenklar hantering, konfiguration och övervakning i ett HDInsight-kluster genom att tillhandahålla en web UI och ett REST-API. Ambari ingår i Linux-baserade HDInsight-kluster. Välj den **Klusterinstrumentpanel** fönstret på Azure HDInsight portalsidan att öppna den **Klusterinstrumentpaneler** länksida.  Välj sedan den **HDInsight-klusterinstrumentpanel** fönstret för att öppna Ambari UI.  Du uppmanas att ange dina autentiseringsuppgifter för klusterinloggning.
 
 Om du vill öppna en lista över service-vyerna, Välj den **Ambari-vyer** rutan på sidan för Azure portal för HDInsight.  Den här listan varierar beroende på vilka bibliotek som du har installerat.  Du kan till exempel se köhanteraren YARN, Hive-vyerna och Tez.  Välj en länk för tjänsten att se konfigurations- och tjänstinformation.  Ambari UI **Stack och Version** sidan innehåller information om kluster-tjänsternas konfiguration och versionshistorik för tjänsten. Gå till det här avsnittet av Ambari UI, välja den **Admin** menyn och sedan **stackar och versioner**.  Välj den **versioner** fliken för att se information om tjänstens version.
 
@@ -99,7 +98,7 @@ Nästa steg är Granska loggfilerna för jobbet körning för de olika tjänster
 
 ### <a name="access-the-hadoop-log-files"></a>Få åtkomst till loggfilerna för Hadoop
 
-HDInsight lagrar loggfilerna både i filsystemet kluster och i Azure storage. Du kan kontrollera loggfilerna i klustret genom att öppna en SSH-anslutning till klustret och surfning filsystemet eller med hjälp av Hadoop YARN Status-portalen på fjärranslutna huvudnoden-servern. Du kan granska loggfilerna i Azure storage med någon av de verktyg som kan komma åt och hämta data från Azure storage. Exempel är AZCopy, CloudXplorer och Visual Studio Server Explorer. Du kan också använda PowerShell och Azure Storage-klientbibliotek eller Azure .NET SDK för att komma åt data i Azure blob storage.
+HDInsight lagrar loggfilerna både i filsystemet kluster och i Azure storage. Du kan undersöka loggfiler i klustret genom att öppna en [SSH](/hdinsight-hadoop-linux-use-ssh-unix.md) anslutningen till klustret och bläddra i filsystemet eller med hjälp av Hadoop YARN Status-portalen på fjärranslutna huvudnoden-servern. Du kan granska loggfilerna i Azure storage med någon av de verktyg som kan komma åt och hämta data från Azure storage. Exempel är [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer), och Visual Studio Server Explorer. Du kan också använda PowerShell och Azure Storage-klientbibliotek eller Azure .NET SDK för att komma åt data i Azure blob storage.
 
 Hadoop körs verk som tillhör jobb som *uppgift försök* på olika noder i klustret. HDInsight kan initiera spekulativ uppgift försök Avsluta några andra uppgiften försök som inte slutförs först. Detta genererar betydande aktivitet som loggas i domänkontrollanten, stderr och syslog log-filer i farten. Dessutom kan flera försök att uppgiften körs samtidigt, men en loggfil kan bara visa resultat linjärt.
 
@@ -168,9 +167,9 @@ Ange följande egenskaper för att kontrollera storlek och antal loggfiler som b
 
 ### <a name="other-log-management-techniques"></a>Andra metoder för hantering av logg
 
-För att undvika körs slut på diskutrymme kan du använda några OS-verktyg som `logrotate` att hantera hantering av loggfiler. Du kan konfigurera `logrotate` dagligen måste komprimera logga filer och ta bort gamla. Din beror på dina behov, till exempel hur länge för att hålla loggfilerna på lokala noder. 
+För att undvika körs slut på diskutrymme kan du använda några OS-verktyg som [logrotate](https://linux.die.net/man/8/logrotate) att hantera hantering av loggfiler. Du kan konfigurera `logrotate` dagligen måste komprimera logga filer och ta bort gamla. Din beror på dina behov, till exempel hur länge för att hålla loggfilerna på lokala noder.  
 
-Du kan också kontrollera om felsökningsloggning är aktiverat för en eller flera tjänster, vilket ökar loggstorleken utdata. 
+Du kan också kontrollera om felsökningsloggning är aktiverat för en eller flera tjänster, vilket ökar loggstorleken utdata.  
 
 För att samla in loggar från alla noder till en central plats, kan du skapa ett dataflöde, till exempel mata in alla loggposter i Solr.
 

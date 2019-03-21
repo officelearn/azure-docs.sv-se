@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: ef7a4ce26e9117e28a00f417a1368e1edca6851e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d2831472bcddf3480a87e69661b39e4ec715c786
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863227"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257703"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Översikt över Media Services PlayReady-licensmallen
 Azure Media Services innehåller nu en tjänst för att leverera PlayReady-licenser. När spelaren (till exempel Silverlight) försöker att spela upp ditt innehåll med PlayReady-skyddad, skickas en begäran till licensleveranstjänst du erhåller en licens. Om Licenstjänsten godkänner begäran, utfärdar den licens som skickas till klienten och används för att dekryptera och spela upp det angivna innehållet.

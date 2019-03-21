@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 32604c06c6a4325f7ae6cb45930de902a1366480
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 2e13f1f09fcdfb68a99e705511e3659f1632132e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750335"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895489"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profilera live-Azure Cloud Services med Programinsikter
 
@@ -33,7 +33,7 @@ Application Insights Profiler har installerats med Azure Diagnostics-tillägget.
 
 1. Lägg till [Application Insights SDK till Azure Cloud Services](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
-  >**Det finns en bugg i profiler som levereras i den senaste versionen av WAD för molntjänster.** För att kunna använda profiler med en molnbaserad tjänst, stöder den versionen 2.7.2 endast AI-SDK. Om du använder en nyare version av AI-SDK måste du gå tillbaka till 2.7.2 för att kunna använda profiler.
+   >**Det finns en bugg i profiler som levereras i den senaste versionen av WAD för molntjänster.** För att kunna använda profiler med en molnbaserad tjänst, stöder den versionen 2.7.2 endast AI-SDK. Om du använder en nyare version av AI-SDK måste du gå tillbaka till 2.7.2 för att kunna använda profiler. Om du använder Visual Studio för att nedgradera versionen av SDK: N för App Insights, kan du få en bindning omdirigerings-fel vid körning. Det beror på att ”newVersion” i filen web.config för Microsoft.ApplicationInsights ska vara inställd på ”2.7.2.0” när nedgradering AI-SDK, men det inte uppdateras automatiskt.
 
 1. Spåra begäranden med Application Insights:
 

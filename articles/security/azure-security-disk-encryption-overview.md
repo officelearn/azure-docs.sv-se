@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/12/2019
+ms.date: 03/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: a7dd061d84167b172aff52e8a62ed6d43fddc108
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 66d788aec83e3e57a49b063f2ca80484360f639d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862020"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295291"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption för virtuella IaaS-datorer
 
@@ -81,6 +81,7 @@ Lösningen stöder inte följande scenarier, funktioner och -teknik:
 * Basic-nivån virtuella IaaS-datorer.
 * Inaktivera kryptering på en operativsystemenhet för virtuella Linux IaaS-datorer.
 * Inaktivera kryptering på en dataenhet när OS-enhet är krypterad för virtuella Linux IaaS-datorer.
+* OS-kryptering för Linux VM-skalningsuppsättning anger.
 * Virtuella IaaS-datorer som skapas med hjälp av metod för skapande av klassiska virtuella datorer.
 * Aktivera kryptering av kunden anpassade avbildningar på virtuella Linux IaaS-datorer.
 * Integrering med din lokala nyckelhanteringssystem.

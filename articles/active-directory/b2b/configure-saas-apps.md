@@ -9,14 +9,15 @@ ms.date: 05/23/2017
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03652329acaeb737cb7cb4010ef48938caa17acc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c7a652ab4283321c5934b32fdc5478bb5d79e4a7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096919"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293138"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Konfigurera SaaS-appar för B2B-samarbete
 
@@ -53,7 +54,7 @@ Om du vill att användarna ska logga in med deras organisation, måste du manuel
 
 5. Logga in på Dropbox med inloggnings-URL: en från den **enkel inloggning** sidan.
 
-   ![Inloggningssidan för Dropbox](media/configure-saas-apps/sign-in-to-dropbox.png)
+   ![Skärmbild som visar inloggningssidan för Dropbox](media/configure-saas-apps/sign-in-to-dropbox.png)
 
 6. På menyn, Välj **administratörskonsolen**.
 
@@ -78,7 +79,7 @@ Du kan låta användare autentisera Box gästanvändare med sina Azure AD-konto 
 
 2. Konfigurera enkel inloggning i följande ordning:
 
-   ![Konfigurera Box enkel inloggning](media/configure-saas-apps/configure-box-sso.png)
+   ![Skärmbild som visar inställningar för konfiguration för enkel inloggning](media/configure-saas-apps/configure-box-sso.png)
 
    a. I den **inloggnings-URL** ser du till att inloggnings-URL: en har angetts på rätt sätt för Box i Azure-portalen. Denna URL är Webbadressen till din Box.com-klient. Den bör följa namngivningskonventionen *https://.box.com*.  
    Den **identifierare** gäller inte för den här appen, men den fortfarande visas som ett obligatoriskt fält.

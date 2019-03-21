@@ -1,6 +1,6 @@
 ---
-title: Azure AD-lösenordsskydd preview-åtgärder och rapportering
-description: Efter distributionen driften av Azure AD-lösenordsskydd förhandsversionen och rapportering
+title: Azure AD-lösenordsskydd operations och rapportering
+description: Azure AD-lösenordsskydd efter distributionen-åtgärder och rapportering
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fda79f16560a5c96e1283f4d9d9f14dbe503d61
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: ac91a70465d79b235ae43681a1375d47e7691efe
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175258"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285810"
 ---
-# <a name="preview-azure-ad-password-protection-operational-procedures"></a>Förhandsversion: Azure AD-lösenordsskydd operativa procedurer
-
-|     |
-| --- |
-| Azure AD-lösenordsskydd är en funktion i offentliga förhandsversionen av Azure Active Directory. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-operational-procedures"></a>Azure AD-lösenordsskydd operativa procedurer
 
 När du har slutfört den [installation av Azure AD-lösenordsskydd](howto-password-ban-bad-on-premises-deploy.md) lokalt, det finns några objekt som måste konfigureras i Azure-portalen.
 
@@ -33,7 +28,7 @@ Följ anvisningarna i artikeln [konfigurera listan över anpassade förbjudna l�
 
 ## <a name="enable-password-protection"></a>Aktivera lösenordsskydd
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) och bläddra till **Azure Active Directory**, **autentiseringsmetoder**, sedan **lösenordsskydd (förhandsversion)**.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) och bläddra till **Azure Active Directory**, **autentiseringsmetoder**, sedan **lösenordsskydd**.
 1. Ange **aktivera lösenordsskydd på Windows Server Active Directory** till **Ja**
 1. Som vi nämnde i den [Distributionsguide](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), rekommenderar vi att du med att ange den **läge** till **granskning**
    * När du är nöjd med funktionen kan du växla den **läge** till **tvingande**

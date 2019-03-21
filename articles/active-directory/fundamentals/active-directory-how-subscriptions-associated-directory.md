@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 262f46b3d0b61923352f3ff98b08cb5e4f6d5e75
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: f8c5cb04c17e508409e67f0441daee4bc44c29d5
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993902"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285014"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Koppla eller lägga till en Azure-prenumeration till din Azure Active Directory-klient
 
@@ -62,11 +62,10 @@ Innan du kan koppla eller lägga till din prenumeration, måste du utföra följ
 
     Katalogen ändras för prenumerationen och du får ett meddelande.
 
-    ![Meddelande om att något har slutförts](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
+    ![Meddelande om katalogändring](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
+4. Använd den **katalogväxlaren** att gå till den nya katalogen. Det kan ta upp till 10 minuter innan allt visas korrekt.
 
-4. Använd katalogväxlaren för att gå till den nya katalogen. Det kan ta upp till 10 minuter innan allt visas korrekt.
-
-    ![Katalogsidan mellan aktiviteter](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+    ![Katalogsidan mellan aktiviteter med exempelinformation](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
 Ändra prenumerationskatalogen är en åtgärd på servicenivå, så att det inte påverkar faktureringsägarskapet för prenumerationen. Kontoadministratören kan ändå ändra tjänstadministratör från den [Kontocenter](https://account.azure.com/subscriptions). Om du vill ta bort den ursprungliga katalogen måste du överför prenumerationsfaktureringen ägarskap till en ny kontoadministratör Mer information om att överföra faktureringsägarskapet finns i [Överför ägarskapet för en Azure-prenumeration till ett annat konto](../../billing/billing-subscription-transfer.md). 
 

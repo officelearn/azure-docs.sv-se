@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: f9020cd6d35c59e9293e6e8a96b09319f9f8bb00
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: HT
+ms.openlocfilehash: 48a0400a471e06f65c1d548b7c1c419a1cb198bd
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225694"
+ms.locfileid: "58284586"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Vanliga frågor och svar om SQL Server-databaser som körs på en virtuell Azure-säkerhetskopiering
 
@@ -66,7 +66,7 @@ Nej. Lyckade säkerhetskopieringsjobb genererar inte aviseringar. Aviseringar sk
 Den **säkerhetskopieringsjobbet** menyn visas bara adhoc-säkerhetskopieringsjobb. Schemalagt jobb använder [övervakning med hjälp av Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>Framtida databaser automatiskt läggs till för säkerhetskopiering?
-Ja, du kan uppnå den här funktionen med [automatiskt skydd](backup-azure-sql-database.md#enable-auto-protection).  
+Ja, du kan uppnå den här funktionen med [automatiskt skydd](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
 
 ## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Om jag tar bort en databas från en instans av autoprotected vad händer med säkerhetskopiorna?
 Om en databas har släppts från en instans av autoprotected provas fortfarande säkerhetskopior av databasen. Detta innebär att den borttagna databasen börjar visas som felaktig under **Säkerhetskopieringsobjekt** och fortfarande är skyddad.
@@ -84,7 +84,7 @@ Ett nytt namngiven databas behandlas som en ny databas. Tjänsten kommer därfö
 Du kan välja för databasen, som nu har fått nytt namn och konfigurera skydd på den. Om det automatiska skyddet aktiveras på instansen, har identifierats omdöpt databasen automatiskt och skyddas.
 
 ##  <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>Varför kan jag inte se en databas som har lagts till för en autoprotected-instans?
-En databas som du [lägger till i en instans av autoprotected](backup-azure-sql-database.md#enable-auto-protection) visas inte direkt under skyddade objekt. Det beror på att identifieringen vanligtvis körs var 8:e timme. Men du kan identifiera och skydda nya databaser direkt om du kör en identifiering manuellt genom att välja **återställa databaser**, enligt följande bild.
+En databas som du [lägger till i en instans av autoprotected](backup-sql-server-database-azure-vms.md#enable-auto-protection) visas inte direkt under skyddade objekt. Det beror på att identifieringen vanligtvis körs var 8:e timme. Men du kan identifiera och skydda nya databaser direkt om du kör en identifiering manuellt genom att välja **återställa databaser**, enligt följande bild.
 
   ![Identifiera manuellt en nyligen tillagd databas](./media/backup-azure-sql-database/view-newly-added-database.png)
 

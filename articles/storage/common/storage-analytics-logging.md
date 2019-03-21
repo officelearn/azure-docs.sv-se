@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 8137e59de7ad33ea806fcc2be36bb778448c9adc
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
-ms.translationtype: HT
+ms.openlocfilehash: ab235c67e3a0e60999a0348d03a6e938944f7030
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58077283"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260202"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage analytics-loggning
 
@@ -37,7 +37,7 @@ Lagringsanalys loggar detaljerad information om lyckade och misslyckade begäran
 - Begäranden som använder en signatur för delad åtkomst (SAS) eller OAuth, inklusive misslyckade och lyckade förfrågningar
 - Begäranden till analytics-data
 
-  Begäranden som görs av Storage Analytics, till exempel log skapas eller tas bort, loggas inte. En fullständig lista över data som loggats dokumenteras i den [Storage Analytics loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) och [Storage Analytics loggformat](/rest/api/storageservices/storage-analytics-log-format.md) ämnen.
+  Begäranden som görs av Storage Analytics, till exempel log skapas eller tas bort, loggas inte. En fullständig lista över data som loggats dokumenteras i den [Storage Analytics loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) och [Storage Analytics loggformat](/rest/api/storageservices/storage-analytics-log-format) ämnen.
 
 ### <a name="logging-anonymous-requests"></a>Logga anonyma förfrågningar
 
@@ -48,7 +48,7 @@ Lagringsanalys loggar detaljerad information om lyckade och misslyckade begäran
 - Timeout-fel för både klient och server
 - Misslyckade GET-begäranden med felkoden 304 (har inte ändrats)
 
-  Alla övriga misslyckade anonyma förfrågningar loggas inte. En fullständig lista över data som loggats dokumenteras i den [Storage Analytics loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) och [Storage Analytics loggformat](/rest/api/storageservices/storage-analytics-log-format.md) ämnen.
+  Alla övriga misslyckade anonyma förfrågningar loggas inte. En fullständig lista över data som loggats dokumenteras i den [Storage Analytics loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) och [Storage Analytics loggformat](/rest/api/storageservices/storage-analytics-log-format) ämnen.
 
 ## <a name="how-logs-are-stored"></a>Hur loggar lagras
 
@@ -200,9 +200,9 @@ AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs
 
  Ett exempel på hur du laddar ned loggdata programmässigt finns i bloggposten [loggning för Windows Azure Storage: Använda loggar för att spåra lagringsbegäranden](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) och Sök efter ordet ”DumpLogs” på sidan.  
 
- När du har hämtat dina loggdata, ser du vilka loggposter i filerna. Dessa loggfiler använda avgränsat textformat så många läser verktyg kan parsa, inklusive Microsoft Message Analyzer (Mer information finns i guiden [övervakning, diagnostisera och felsöka Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Olika verktyg har olika funktioner för formatering, filtrering, sortering, ad söker innehållet i loggfilerna. Läs mer om Storage Logging loggfilsformat och innehåll, [Storage Analytics loggformat](storage-analytics-logging.md) och [Storage Analytics loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md).
+ När du har hämtat dina loggdata, ser du vilka loggposter i filerna. Dessa loggfiler använda avgränsat textformat så många läser verktyg kan parsa, inklusive Microsoft Message Analyzer (Mer information finns i guiden [övervakning, diagnostisera och felsöka Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Olika verktyg har olika funktioner för formatering, filtrering, sortering, ad söker innehållet i loggfilerna. Läs mer om Storage Logging loggfilsformat och innehåll, [Storage Analytics loggformat](/rest/api/storageservices/storage-analytics-log-format) och [Storage Analytics loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Loggformatet för Storage Analytics](/rest/api/storageservices/storage-analytics-log-format.md)
-* [Lagringsanalys loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md)
+* [Loggformatet för Storage Analytics](/rest/api/storageservices/storage-analytics-log-format)
+* [Lagringsanalys loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 * [Mätvärden i Storage Analytics (klassisk)](storage-analytics-metrics.md)

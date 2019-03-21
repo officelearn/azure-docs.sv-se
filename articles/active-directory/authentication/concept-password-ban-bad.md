@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccad4f9aaa85d528697c1bcf34e1b034eeabe9e1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b7dcac665dadef7f3f192e7f0e359b6b7c244bde
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996007"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287034"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminera felaktiga lösenord i din organisation
-
-|     |
-| --- |
-| Azure AD-lösenordsskydd och listan över anpassade förbjudna lösenord är funktioner i offentlig förhandsversion av Azure Active Directory. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
 
 Branschledare berättar inte ska använda samma lösenord på flera platser, så att de blir komplexa och att inte göra det enkelt som/Password123. Hur kan organisationer till garanterar att användarna följer vägledning? Hur ser de till användarna inte använder vanliga lösenord eller lösenord som är kända som ska ingå i de senaste dataintrång?
 
@@ -31,7 +26,7 @@ Branschledare berättar inte ska använda samma lösenord på flera platser, så
 
 Microsoft försöker alltid ligga steget före cyberbrottslingarna. Azure AD Identity Protection-teamet letar därför kontinuerligt efter vanligt förekommande och komprometterade lösenord. De kan sedan blockera dessa lösenord som bedöms för vanligt i något som kallas listan globala förbjudna lösenord. Cyberbrottslingar använder också liknande strategier i sina attacker, därför Microsoft publicerar inte innehållet i den här listan offentligt. Dessa sårbara lösenord blockeras innan de blir ett verkligt hot för Microsofts kunder. Mer information om säkerhetsarbete finns i den [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report).
 
-## <a name="preview-custom-banned-password-list"></a>Förhandsversion: Lista över anpassade förbjudna lösenord
+## <a name="custom-banned-password-list"></a>Lista över anpassade förbjudna lösenord
 
 Vissa organisationer vilja ta security ett steg längre genom att lägga till egna anpassningar utöver listan globala förbjudna lösenord inom det som Microsoft kallar listan över anpassade förbjudna lösenord. Enterprise-kunder som Contoso kan sedan välja att blockera varianter av sina egna varumärken, företagsspecifik villkor eller andra objekt.
 
@@ -41,7 +36,7 @@ Anpassat förbjuden lösenordslista och möjligheten att aktivera en lokal Activ
 
 ## <a name="on-premises-hybrid-scenarios"></a>Lokala hybridscenarier
 
-Skyddar molnbaserad konton är användbar men många organisationer behåller hybridscenarier, inklusive lokala Windows Server Active Directory. Det är möjligt att installera Azure AD-lösenordsskydd för Windows Server Active Directory (förhandsversion) agenter lokalt att utöka listor med förbjudna lösenord till din befintliga infrastruktur. Nu användare och administratörer som ändrar, ange eller återställa lösenord krävs lokala att följa principen med samma lösenord som molnexklusiva användare.
+Skyddar molnbaserad konton är användbar men många organisationer behåller hybridscenarier, inklusive lokala Windows Server Active Directory. Det är möjligt att installera Azure AD-lösenordsskydd för Windows Server Active Directory agenter lokalt att utöka listor med förbjudna lösenord till din befintliga infrastruktur. Nu användare och administratörer som ändrar, ange eller återställa lösenord krävs lokala att följa principen med samma lösenord som molnexklusiva användare.
 
 ## <a name="how-are-passwords-evaluated"></a>Hur utvärderas lösenord
 

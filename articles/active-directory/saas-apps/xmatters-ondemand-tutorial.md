@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e947b71fe6bb9e6bd884b8b2dd0397a63bea2a95
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8b5ec711f0e43d9d29d962d43ed8b1d86338db87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203649"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881222"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Självstudier: Azure Active Directory-integrering med xMatters OnDemand
 
@@ -114,6 +114,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_url.png)
     
     a. I textrutan **Identifierare** anger du en URL med följande mönster:
+
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au/`|
@@ -123,6 +124,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `https://<companyname>.xmatters.com.au/`|
 
     b. I textrutan **Svars-URL** anger du en URL med följande mönster:
+    
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au`|
@@ -154,11 +156,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Admin](./media/xmatters-ondemand-tutorial/IC776795.png "Admin")
 
-1. På den **SAML-konfiguration** utför följande steg:
+1. I dialogrutan **SAML-konfiguration** utför du följande steg:
 
     ![SAML-konfiguration](./media/xmatters-ondemand-tutorial/IC776796.png "SAML-konfiguration")
 
-    a. Välj **aktivera SAML**.
+    a. Välj **Aktivera SAML**.
 
     b. I den **identitet Provider-ID** textrutan klistra in **SAML entitets-ID** värde som du har kopierat från Azure-portalen.
 
@@ -209,9 +211,9 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 1. Logga in på din **XMatters OnDemand** klient.
 
-1.  Klicka på **användare** fliken och klicka sedan på **Lägg till användare**.
+1. Klicka på **användare** fliken och klicka sedan på **Lägg till användare**.
 
-    ![Användare](./media/xmatters-ondemand-tutorial/IC781048.png "Användare")
+   ![Användare](./media/xmatters-ondemand-tutorial/IC781048.png "Användare")
 
 1. I den **lägga till en användare** avsnittet, utför följande steg:
 
@@ -221,9 +223,9 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
     b. I den **användar-ID** textrutan typ användar-id för användaren som Brittasimon@contoso.com.
 
-    c. I den **Förnamn** textrutan Ange först namnet på användaren som Britta.
+    c. I textrutan för **förnamn** skriver du förnamnet på användaren, till exempel Britta.
 
-    d. I den **efternamn** textrutan Skriv Efternamn för användaren som Simon.
+    d. I textrutan för **efternamn** skriver du efternamnet, till exempel Simon.
 
     e. I den **plats** textrutan, ange den giltiga platsen i en giltig Azure AD-konto som du vill etablera.
 
@@ -268,7 +270,7 @@ Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen]
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

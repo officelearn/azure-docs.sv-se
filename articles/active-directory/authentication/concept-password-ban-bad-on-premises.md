@@ -1,6 +1,6 @@
 ---
-title: Förhandsversionen protection Azure AD-lösenord
-description: Förbjud svaga lösenord i den lokala Active Directory med hjälp av Azure AD lösenord protection preview
+title: Azure AD-lösenordsskydd
+description: Förbjud svaga lösenord i den lokala Active Directory med hjälp av Azure AD-lösenordsskydd
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,87 +11,85 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1beae186f6eb276b9aa302d3d51f0ba8688e591
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: MT
+ms.openlocfilehash: f1b3660d256e4beda948f723035aa75ca8a9ed2e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415756"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284876"
 ---
-# <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Förhandsversion: Använda Azure AD-lösenordsskydd för Windows Server Active Directory
+# <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Använda Azure AD-lösenordsskydd för Windows Server Active Directory
 
-|     |
-| --- |
-| Azure AD-lösenordsskydd och listan över anpassade förbjudna lösenord är funktioner i offentlig förhandsversion av Azure Active Directory. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
-
-Azure AD-lösenordsskydd är en ny funktion i offentlig förhandsversion som tillhandahålls av Azure Active Directory (Azure AD) för att förbättra lösenordsprinciper i en organisation. Lokal distribution av Azure AD-lösenordsskydd använder den globala och anpassade förbjudna lösenordslistor som lagras i Azure AD och utför samma kontroller lokala platser som molnbaserad Azure AD-ändringar.
+Azure AD-lösenordsskydd är en funktion som förbättrar lösenordsprinciper i en organisation. Lösenordsskydd i den lokala distributionen använder båda globala och anpassade förbjudna lösenord listorna som lagras i Azure AD. Detta sker i samma kontroller på plats som Azure AD för molnbaserad ändringar.
 
 ## <a name="design-principles"></a>Designprinciper
 
-Azure AD-lösenordsskydd för Active Directory har utformats med följande principer i åtanke:
+Azure AD-lösenordsskydd har utformats med dessa principer i åtanke:
 
-* Domänkontrollanter är aldrig krävs för att kommunicera direkt med Internet
+* Domänkontrollanter får aldrig direkt kommunicera med internet.
 * Inga nya nätverksportarna öppnas på domänkontrollanter.
-* Det krävs inga ändringar för Active Directory-schemat. Programvaran använder befintliga Active Directory-behållare och serviceConnectionPoint schemaobjekt.
-* Det krävs ingen minsta Active Directory-domän eller skogens funktionella nivå (DFL\FFL).
-* Programvaran inte skapar eller kräver några konton i Active Directory-domäner som den skyddar.
-* Lösenord i klartext lämnar aldrig domänkontrollanten (oavsett om under verifieringen lösenordsåtgärder eller när som helst andra).
-* Stegvis distribution stöds med kompromiss att lösenordsprinciper gäller endast där domain controller-agenten är installerad.
-* Det rekommenderas att installera DC-agenten på alla domänkontrollanter för att säkerställa allt vanligare lösenord protection säkerhet.
+* Det krävs inga ändringar för Active Directory-schemat. Programvaran använder befintliga Active Directory **behållare** och **serviceConnectionPoint** schemaobjekt.
+* Inga minsta Active Directory domänens eller skogens funktionsnivå (DFL/FFL) krävs.
+* Programvaran inte skapa eller kräver konton i Active Directory-domäner som den skyddar.
+* Lösenord i klartext lämna inte domänkontrollanten under verifieringen lösenordsåtgärder eller vid en annan tidpunkt.
+* Stegvis distribution stöds. Men lösenordsprincipen som gäller endast där Domain Controller agenten (DC-Agent) är installerad.
+* Vi rekommenderar att du installerar DC-agenten på alla domänkontrollanter för att säkerställa universal lösenord protection säkerhet.
 
 ## <a name="architectural-diagram"></a>Arkitekturdiagram
 
-Det är viktigt att förstå de underliggande design och funktionella begrepp innan du distribuerar Azure AD-lösenord skydd i en lokal Active Directory-miljö. Följande diagram visar hur komponenterna i Azure AD-lösenordsskydd tillsammans:
+Det är viktigt att förstå de underliggande design och funktionsbegrepp innan du distribuerar Azure AD-lösenordsskydd i en lokal Active Directory-miljö. Följande diagram visar hur komponenterna i lösenordsskydd tillsammans:
 
 ![Hur Azure AD-lösenord protection komponenter fungerar tillsammans](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
-I ovanstående diagram visas de tre grundläggande programvarukomponenter som utgör Azure AD-lösenordsskydd:
+* Azure AD-lösenord Protection Proxy-tjänsten körs på alla domänanslutna datorer i den aktuella Active Directory-skogen. Dess primära syfte är att vidarebefordra hämtningsbegäranden princip för lösenord från domänkontrollanter till Azure AD. Den returnerar sedan svar från Azure AD till domänkontrollanten.
+* Lösenordsfiltrerings-DLL: av DC-agenten tar emot begäranden mellan användare och verifiering av lösenord från operativsystemet. Den vidarebefordrar dem till tjänsten DC-Agent som körs lokalt på domänkontrollanten.
+* DC-agenttjänsten av lösenordsskydd tar emot lösenordsverifieringen förfrågningar från lösenordsfiltrerings-DLL: av DC-agenten. Den behandlar dem med hjälp av den aktuella lösenordsprincipen (lokalt tillgängligt) och returnerar resultatet: *skicka* eller *misslyckas*.
 
-* Azure AD-lösenord Protection Proxy-tjänsten körs på alla domänanslutna datorer i den aktuella Active Directory-skogen. Dess primära syfte är att vidarebefordra hämtningsbegäranden princip för lösenord från domänkontrollanter till Azure AD och returnerar svaret från Azure AD tillbaka till domänkontrollanten.
-* DLL-filen för Azure AD-lösenord Protection DC agenten lösenord filter tar emot användarbegäranden lösenord verifiering från operativsystemet och vidarebefordrar dem till Azure AD-lösenord DC Protection Agent-tjänsten som körs lokalt på domänkontrollanten.
-* Azure AD-lösenord DC Protection Agent-tjänsten tar emot lösenord verifiering förfrågningar från DLL-filen för DC-agenten lösenord filter, bearbetar dem med hjälp av den aktuella lösenordsprincipen (lokalt tillgängligt) och returnerar resultatet (pass\fail).
+## <a name="how-password-protection-works"></a>Lösenordsskydd
 
-## <a name="theory-of-operations"></a>Typ av åtgärder
+Varje Azure AD-lösenord Protection Proxy-tjänstinstans annonserar själva för domänkontrollanter i skogen genom att skapa en **serviceConnectionPoint** objektet i Active Directory.
 
-Så får de ovanstående diagram- och designegenskaperna hur Azure AD-lösenordsskydd faktiskt fungerar?
+Varje DC-agenttjänsten lösenordsskydd skapar även en **serviceConnectionPoint** objektet i Active Directory. Det här objektet används främst för rapportering och diagnostik.
 
-Varje Azure AD-lösenord Protection proxytjänsten annonserar själva för domänkontrollanter i skogen genom att skapa ett serviceConnectionPoint-objekt i Active Directory.
+DC-agenttjänsten ansvarar för att påbörja hämtningen av en ny princip från Azure AD. Det första steget är att hitta en Azure AD-lösenord Protection proxytjänst genom att fråga skogen för proxy **serviceConnectionPoint** objekt. När en tillgänglig proxytjänst har hittats skickar DC-agenten en hämtningsbegäran för lösenord principen till proxytjänsten. Proxy-tjänsten skickar i sin tur en begäran till Azure AD. Proxy-tjänsten returnerar svaret till DC-agenttjänsten.
 
-Varje Azure AD-lösenord DC Protection Agent-tjänsten skapar också ett serviceConnectionPoint-objekt i Active Directory. Men används främst för rapportering och diagnostik.
+När tjänsten DC-Agent har hämtat en ny lösenordsprincip för från Azure AD kommer tjänsten lagrar principen till en mapp i roten för sin domän *sysvol* mappen resursen. DC-Agent-tjänsten övervakar även den här mappen om nyare principer replikera i från andra DC Agent-tjänster i domänen.
 
-Azure AD-lösenord Protection DC-agenttjänsten ansvarar för att påbörja hämtningen av en ny princip från Azure AD. Det första steget är att hitta en Azure AD-lösenord Protection proxytjänst genom att fråga skogen för proxy serviceConnectionPoint objekt. När en tillgänglig proxytjänst har hittats, skickas en hämtningsbegäran för lösenord princip från DC-agenttjänsten proxy-tjänst, vilket i sin tur skickar den till Azure AD och returnerar svaret till DC-agenttjänsten. När du har fått en ny lösenordsprincip för från Azure AD lagrar DC-agenttjänsten principen till en mapp i roten på dess domän sysvol-resursen. DC-agenttjänsten övervakar även den här mappen om nyare principer replikera i från andra DC agent-tjänster i domänen.
+DC-agenttjänsten begär alltid en ny princip när tjänsten startar. När tjänsten DC-Agent har startat kontrollerar ålder på den aktuella lokalt tillgängliga principen per timme. Om principen är äldre än en timme, begär DC-agenten en ny princip från Azure AD som tidigare beskrivits. Om den aktuella principen inte är äldre än en timme, fortsätter DC-agenten att använda principen.
 
-Azure AD-lösenord Protection DC-agenttjänsten begär alltid en ny princip på tjänsten startades. När DC-agenttjänsten är igång genom att med jämna mellanrum (en gång i timmen) kontrollerar du åldern på den aktuella lokalt tillgängliga principen; Om den aktuella principen är äldre än en timme DC agent-tjänsten kommer att begära en ny princip från Azure AD som beskrivs ovan, kommer annars DC-agenten fortsätta att använda den aktuella principen.
+När en lösenordsprincip för Azure AD lösenord protection laddas ned är principen specifik för en klient. Med andra ord är lösenordsprinciper alltid en kombination av listan Microsoft global förbjudna lösenord och listan per klient anpassade förbjudna lösenord.
 
-Azure AD-lösenord DC skyddsagenttjänsten kommunicerar med Azure AD-lösenord Protection Proxy-tjänsten med hjälp av RPC (Remote Procedure Call) via TCP. Proxy-tjänsten lyssnar efter dessa anrop på antingen en dynamisk eller statisk RPC-port (som konfigurerats).
+DC-agenten kommunicerar med proxytjänsten via RPC via TCP. Proxy-tjänsten lyssnar efter dessa anrop på en dynamisk eller statisk RPC-port, beroende på konfigurationen.
 
-Azure AD-lösenord Protection DC-agenten lyssnar aldrig på en nätverk finns port och proxytjänsten försöker aldrig anropa DC-agenttjänsten.
+DC-agenten lyssnar aldrig på ett nätverk tillgänglig port.
 
-Azure AD-lösenord Protection Proxy-tjänsten är tillståndslösa; den cachelagrar aldrig principer eller några andra tillstånd ned från Azure.
+Proxytjänsten anropar aldrig DC Agent-tjänsten.
 
-Azure AD-lösenord Protection DC-agenttjänsten utvärderas bara en användares lösenord med hjälp av den senaste tillgängliga lokalt lösenordsprincipen. Om det finns ingen princip för lösenord på den lokala domänkontrollanten lösenordet godkänns automatiskt och ett händelseloggmeddelande loggas för att varna administratören.
+Proxytjänsten är tillståndslösa. Den cachelagrar aldrig principer eller några andra tillstånd ned från Azure.
 
-Azure AD-lösenordsskydd är inte en i realtid principmodulen för programmet. Det kan finnas en fördröjning under tiden mellan en lösenordsändring princip konfiguration görs i Azure AD och hur lång tid det når och tillämpas på alla domänkontrollanter.
+DC-Agent-tjänsten använder alltid den senaste tillgängliga lokalt lösenordsprincipen för att utvärdera en användares lösenord. Lösenordet godkänns automatiskt om det finns ingen princip för lösenord på den lokala domänkontrollanten. När det sker så loggas ett händelsemeddelande för att varna administratören.
 
-## <a name="foresttenant-binding-for-azure-ad-password-protection"></a>Forest\tenant bindningen för Azure AD-lösenordsskydd
+Azure AD-lösenordsskydd är inte en i realtid principmodulen för programmet. Det kan finnas en fördröjning mellan när en konfigurationsändring för lösenord princip skapas i Azure AD och när som ändrar når och tillämpas på alla domänkontrollanter.
 
-Distribution av Azure AD-lösenord skydd i en Active Directory-skog kräver registrering av Active Directory-skogen och eventuella distribuerade Azure AD-lösenord Protection proxytjänster med Azure AD. Båda dessa registreringar (skog och proxyservrar) som är associerade med en viss Azure AD-klient som identifieras implicit via de autentiseringsuppgifter som används under registreringen. Varje gång en lösenordsprincip för Azure AD-lösenordsskydd hämtas det alltid är specifika för den här klienten (t.ex, att principen alltid är en kombination av Microsofts globala förbjudna lösenord per klient anpassade förbjudna lösenord och listan med). Det går inte för att konfigurera olika domäner eller proxyservrar i en skog vara bundna till annan Azure AD klienter.
+## <a name="foresttenant-binding-for-password-protection"></a>Skog/klient bindning lösenordsskydd
+
+Distribution av Azure AD-lösenordsskydd i en Active Directory-skog kräver registrering av skogen med Azure AD. Varje proxytjänst som har distribuerats måste också vara registrerad med Azure AD. Dessa skogar och proxy-registreringar som är associerade med en viss Azure AD-klient som identifieras implicit med de autentiseringsuppgifter som används under registreringen.
+
+Active Directory-skog och alla distribuerade proxytjänster inom en skog måste vara registrerad med samma klient. Det går inte för att ha en Active Directory-skog eller någon proxy-tjänsterna i den skog som registreras till annan Azure AD-innehavare. Symtom på en felkonfigurerad distribution är det inte går att ladda ned lösenordsprinciper.
 
 ## <a name="license-requirements"></a>Licenskrav
 
-Fördelarna med listan över globala förbjudna lösenord gäller för alla användare av Azure Active Directory (AD Azure).
+Fördelarna med listan över globala förbjudna lösenord gäller för alla användare av Azure AD.
 
-Lista med anpassade förbjudna lösenord kräver Azure AD Basic-licenser.
+Listan över anpassade förbjudna lösenord kräver Azure AD Basic-licenser.
 
 Azure AD-lösenordsskydd för Windows Server Active Directory kräver Azure AD Premium-licenser.
 
-Ytterligare information om licenser går inklusive kostnader, kan hittas på den [priser platsen för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Mer licensieringsinformation finns [priser för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="download"></a>Ladda ned
 
-Två krävs agenten installationsprogram för Azure AD-lösenord skydd som kan laddas ned från den [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=57071)
+Det finns två nödvändiga agent-installationsprogram för Azure AD-lösenordsskydd från den [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 
 ## <a name="next-steps"></a>Nästa steg
-
 [Distribuera Azure AD-lösenordsskydd](howto-password-ban-bad-on-premises-deploy.md)

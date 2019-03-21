@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: 7dee92ffd183b852d48bcb150ba3c1ba8d5d0380
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 48deeec7a2c8767ab5dbb81b622e6d40483ed455
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569054"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093556"
 ---
 # <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Skapa en fjärranslutning till ett Kubernetes-, DC/OS- eller Docker Swarm-kluster
 När du har skapat ett Azure Container Service-kluster måste du ansluta till klustret för att distribuera och hantera arbetsbelastningar. Den här artikeln beskriver hur du ansluter till den virtuella huvuddatorn i klustret från en fjärrdator. 
@@ -113,11 +113,11 @@ Det första du ska göra när du ska skapa en SSH-tunnel i Linux eller macOS är
     ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com
     ```
   
-  > [!NOTE]
-  > SSH-anslutningsporten är 2200 och inte standardporten 22. I ett kluster med flera virtuella huvuddatorer är detta anslutningsporten till den första virtuella huvuddatorn.
-  > 
+   > [!NOTE]
+   > SSH-anslutningsporten är 2200 och inte standardporten 22. I ett kluster med flera virtuella huvuddatorer är detta anslutningsporten till den första virtuella huvuddatorn.
+   > 
 
-  Kommandot returneras utan utdata.
+   Kommandot returneras utan utdata.
 
 Se exemplen för DC/OS och Swarm i följande avsnitt.    
 
@@ -181,16 +181,16 @@ Det finns flera olika sätt att skapa SSH-tunnlar i Windows. Om du kör Bash på
 
 5. Välj **SSH > Tunnlar** och konfigurera följande vidarebefordrade portar:
 
-    * **Källport:** Använd 80 för DC/OS eller 2375 för Swarm.
-    * **Mål:** Använd localhost:80 för DC/OS eller localhost:2375 för Swarm.
+   * **Källport:** Använd 80 för DC/OS eller 2375 för Swarm.
+   * **Mål:** Använd localhost: 80 för DC/OS eller localhost: 2375 för Swarm.
 
-    Exemplen nedan har konfigurerats för DC/OS, men det ser ungefär likadant ut för Docker Swarm.
+     Exemplen nedan har konfigurerats för DC/OS, men det ser ungefär likadant ut för Docker Swarm.
 
-    > [!NOTE]
-    > Port 80 får inte användas för något annat när du skapar den här tunneln.
-    > 
+     > [!NOTE]
+     > Port 80 får inte användas för något annat när du skapar den här tunneln.
+     > 
 
-    ![PuTTY-konfiguration 3](./media/container-service-connect/putty3.png)
+     ![PuTTY-konfiguration 3](./media/container-service-connect/putty3.png)
 
 6. När du är klar klickar du på **Session > Spara** för att spara anslutningskonfigurationen.
 

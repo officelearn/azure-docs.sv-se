@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 12/27/2018
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 1f65d7711c57930886ac9826bb105b6bc4931268
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 158f22ec2ab07bfc2f893d4b0c55d862e0b19de0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238915"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106669"
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Viktiga överväganden: Med hjälp av tjänster eller att skapa appar för Azure Stack
 
@@ -76,8 +76,8 @@ Azure Stack har stöd för specifika versioner av Azure PowerShell och Azure ser
 
 För att säkerställa att du använder rätt version av Azure PowerShell, Använd [API-versionsprofiler](azure-stack-version-profiles.md). Ta reda på versionen av Azure Stack som du använder för att fastställa den senaste version profil för API som du kan använda. Du kan hämta den här informationen från din Azure Stack-administratör.
 
->[!NOTE]
- Om du har administratörsbehörighet när du använder Azure Stack Development Kit och se den [fastställa den aktuella versionen](../azure-stack-updates.md#determine-the-current-version) avsnitt för att avgöra den Azure Stack-versionen.
+> [!NOTE]
+>  Om du har administratörsbehörighet när du använder Azure Stack Development Kit och se den [fastställa den aktuella versionen](../azure-stack-updates.md#determine-the-current-version) avsnitt för att avgöra den Azure Stack-versionen.
 
 För andra API: er, kör du följande PowerShell-kommando för att mata ut de namnområden, resurstyper och API-versioner som stöds i Azure Stack-prenumerationen. Obs det kan fortfarande finnas skillnader på en nivå för egenskapen. För det här kommandot ska fungera måste du ha redan [installerat](azure-stack-powershell-install.md) och [konfigurerats](azure-stack-powershell-configure-user.md) PowerShell för Azure Stack-miljön. Du måste också ha en prenumeration på ett Azure Stack-erbjudande.
 

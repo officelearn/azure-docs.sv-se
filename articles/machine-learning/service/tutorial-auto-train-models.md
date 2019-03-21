@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1f9265567ea23b7a3f47c995474ee1328ebaae2c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e30e65ba2efaf60a0e2d0a6df409c96db4d6285e
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878422"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295818"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Självstudier: Använda automatiserad maskininlärning för att skapa en regressionsmodell
 
@@ -112,7 +112,7 @@ import os
 
 ### <a name="configure-workspace"></a>Konfigurera arbetsyta
 
-Skapa ett arbetsyteobjekt från den befintliga arbetsytan. En [arbetsytan](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py) är en klass som accepterar dina Azure-prenumeration och resursgrupp information. Den skapar också en molnresurs för att övervaka och spåra dina körningar i modellen.
+Skapa ett arbetsyteobjekt från den befintliga arbetsytan. En [arbetsytan](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) är en klass som accepterar dina Azure-prenumeration och resursgrupp information. Den skapar också en molnresurs för att övervaka och spåra dina körningar i modellen.
 
 `Workspace.from_config()` läser filen **aml_config/config.json** och läser in informationen i ett objekt med namnet `ws`.  `ws` används i resten av koden i den här självstudien.
 

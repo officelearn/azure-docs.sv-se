@@ -4,13 +4,13 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/2/2019
 ms.author: crtreasu
-ms.openlocfilehash: 97623cae9620bc27981573f2d1d38619c747d760
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: HT
+ms.openlocfilehash: d0c3c9bdac1dc344dd8520f5270b6afb583c1fa4
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752899"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305277"
 ---
-Öppna **Build Settings** (Bygginställningar) genom att välja **Arkiv** -> **Build Settings** (Bygginställningar).
+Öppna **Build Settings** (Bygginställningar) genom att välja **Arkiv** > **Build Settings** (Bygginställningar).
 
-Under **Scenes In Build** (Scener i bygget) placerar du en kryssmarkering intill scenen `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsBasicDemo` och rensar kryssmarkeringarna från alla andra scener.
+Under **kulisserna i skapa**, lägga till en bock bredvid den `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsBasicDemo` scen och rensa markeringarna från alla andra scener.

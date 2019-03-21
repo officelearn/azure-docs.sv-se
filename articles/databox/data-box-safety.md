@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 65b111d74121b6a679883d480b9e1f19d41e334e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d0ef3e407fd256b4db351f86b51964cbcb16e819
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093569"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905145"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Installera och använda Azure Data box-enhet på ett säkert sätt
 ![Varningsikon](./media/data-box-safety/warning_icon.png)
@@ -84,7 +84,7 @@ Här följer ikonerna att du kan hitta när du granskar de säkerhetsåtgärder 
 ![Varningsikon](./media/data-box-safety/warning_icon.png) **varning:**
 
 * Den här enheten innehåller mynt cellsbatterier. Försök inte att hantera enheten. Batterier i den här enheten är inte funktionsduglig användare. 
-* **För tjänsten personal endast**: Risk för Explosion om batteri ersätts av en felaktig typ. Ta bort används batterier enligt anvisningarna.
+* **För tjänsten personal endast**: Risken för Explosion om batteri ersätts av en felaktig typ. Ta bort används batterier enligt anvisningarna.
 
 ![Observera ikonen](./media/data-box-safety/notice_icon.png) **meddelande:**
 
@@ -104,7 +104,7 @@ Den här enheten är:
     - Temperatur vid drift: 50° 95° f (10° till 35° C)
     - Temperatur vid förvaring:-4 ° till 122 ° F (20 ° till 50 ° C)
     - Relativ fuktighet: 15 till 85% (icke-kondenserande) 
-    - Driva höjd: testats upp till 6500 meter 0 till 2 000 mätare
+    - Höjd vid drift: Testats upp till 6500 meter 0 till 2 000 mätare
 
 Strömförsörjningen klassificeringar, finns enheten Klassificeringsetiketten medföljer enheten. 
 
@@ -122,9 +122,9 @@ Den här enheten uppfyller del 15 av FCC regler och branschen Kanada licens unda
 
 ![Kanada](./media/data-box-safety/canada.png)
 
-KAN ICES-3(A)/NMB-3(A)
+CAN ICES-3(A)/NMB-3(A)
 
-Microsoft Corporation, One Microsoft sätt, Redmond, WA 98052, USA.
+Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.
 
 USA: (800) 426-9400
 
@@ -142,7 +142,7 @@ Det här är en klass A-produkt. Den här produkten kan orsaka radiostörningar 
 
 ![Ikon för borttagning av batteri](./media/data-box-safety/battery_disposal_icon.png)
 
-Den här symbolen på produkten eller dess batterier eller dess förpackning innebär att den här produkten och eventuella batterier som den innehåller inte måste avyttras med din hushållens spill. I stället är det ditt ansvar att överlämna detta till en tillämplig samling återanvändning av batterier och elektriska och elektroniska produkter. Samlingen separat och återvinning kommer hjälpa till att spara naturresurser och förhindra eventuella negativa konsekvenser för människors hälsa och miljön på grund av möjlig förekomst av farliga ämnen i batterier och elektriska och elektroniska utrustning, som kan ha orsakats av olämpliga borttagning. Mer information om var du vill lämna in dina batterier och elektriska och elektroniska avfall Kontakta din lokala stad/kommuner office, hushållens avfallshantering tjänsten eller verkstaden där du har köpt den här produkten. Kontakta *erecycle@microsoft.com* för mer information om WEEE.
+Den här symbolen på produkten eller dess batterier eller dess förpackning innebär att den här produkten och eventuella batterier som den innehåller inte måste avyttras med din hushållens spill. I stället är det ditt ansvar att överlämna detta till en tillämplig samling återanvändning av batterier och elektriska och elektroniska produkter. Samlingen separat och återvinning kommer hjälpa till att spara naturresurser och förhindra eventuella negativa konsekvenser för människors hälsa och miljön på grund av möjlig förekomst av farliga ämnen i batterier och elektriska och elektroniska utrustning, som kan ha orsakats av olämpliga borttagning. Mer information om var du vill lämna in dina batterier och elektriska och elektroniska avfall Kontakta din lokala stad/kommuner office, hushållens avfallshantering tjänsten eller verkstaden där du har köpt den här produkten. Kontakta *erecycle\@microsoft.com* för mer information om WEEE.
 
 Den här produkten innehåller mynt cell battery(ies).
 

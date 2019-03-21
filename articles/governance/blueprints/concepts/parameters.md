@@ -4,17 +4,17 @@ description: Läs mer om statiska och dynamiska parametrar och hur använder dem
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d7c923dd819f826d9d9aaf8d5b88355a9feb344f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 42a70f7ea21a58f40f7786d6c6f1a51093923f83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823169"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838025"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Skapa dynamiska skisser genom parametrar
 
@@ -41,8 +41,13 @@ Den här säkerhetsåtgärd förhindrar den osäkra metoden för att lagra hemli
 - Namn på hemlighet för Key Vault
 - Version av hemlighet för Key Vault
 
-Den refererade Key Vault måste finnas i samma prenumeration som skissen tilldelas till.
-Det måste också ha **Aktivera åtkomst till Azure Resource Manager för malldistribution** konfigurerats för Key Vault **åtkomstprinciper** sidan. Läs anvisningarna om hur du aktiverar den här funktionen [Key Vault - aktivera malldistributionen](../../../managed-applications/key-vault-access.md#enable-template-deployment). Läs mer om Azure Key Vault, [översikt över Key Vault](../../../key-vault/key-vault-overview.md).
+Om skisstilldelningen använder en **systemtilldelade hanterad identitet**, referera till Key Vault _måste_ finns i samma prenumeration som skissdefinitionen har tilldelats.
+
+Om skisstilldelningen använder en **användartilldelade hanterad identitet**, referera till Key Vault _kan_ finns i en centraliserad prenumeration. Den hanterade identitet måste beviljas behörighet för Key Vault före skisstilldelningen.
+
+I båda fallen Key Vault måste ha **Aktivera åtkomst till Azure Resource Manager för malldistribution** konfigurerats på den **åtkomstprinciper** sidan. Läs anvisningarna om hur du aktiverar den här funktionen [Key Vault - aktivera malldistributionen](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+
+Läs mer om Azure Key Vault, [översikt över Key Vault](../../../key-vault/key-vault-overview.md).
 
 ## <a name="parameter-types"></a>Parametertyper
 
@@ -52,9 +57,9 @@ Ett parametervärde som definierats i definitionen av en skiss kallas en **Stati
 
 #### <a name="setting-static-parameters-in-the-portal"></a>Ställa in statisk parametrar i portalen
 
-1. Välj **alla tjänster** i den vänstra rutan. Sök efter och välj **skisser**.
+1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Välj **skiss definitioner** från sidan till vänster.
+1. Välj **Skissdefinitioner** till vänster på sidan.
 
 1. Klicka på en befintlig skissen och klicka sedan på **redigera skiss** eller klicka på **+ skapa skiss** och Fyll i informationen på den **grunderna** fliken.
 
@@ -169,9 +174,9 @@ Motsatsen till en statisk parameter är en **dynamisk parameter**. Den här para
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Ange dynamiska parametrar i portalen
 
-1. Välj **alla tjänster** i den vänstra rutan. Sök efter och välj **skisser**.
+1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Välj **skiss definitioner** från sidan till vänster.
+1. Välj **Skissdefinitioner** till vänster på sidan.
 
 1. Högerklicka på det som du vill tilldela. Välj **tilldela skissen** eller klicka på den modell som du vill tilldela och sedan klicka på den **tilldela skissen** knappen.
 
@@ -236,8 +241,8 @@ Artefakter för en resursgrupp definieras med ett ”mallnamn”, **namn**, och 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [livscykeln för en skiss](lifecycle.md)
-- Lär dig hur du anpassar [sekvensordningen för en skiss](sequencing-order.md)
-- Lär dig hur du använder [resurslåsning för en skiss](resource-locking.md)
-- Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md)
-- Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md)
+- Lär dig mer om [livscykeln för en skiss](lifecycle.md).
+- Lär dig hur du anpassar [sekvensordningen för en skiss](sequencing-order.md).
+- Lär dig hur du använder [resurslåsning för en skiss](resource-locking.md).
+- Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md).
+- Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](../troubleshoot/general.md).

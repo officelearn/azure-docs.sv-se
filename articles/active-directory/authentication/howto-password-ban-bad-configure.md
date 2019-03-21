@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30627994a8fe8cfe73e7945dadf2153ea60860b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: ef8f66cda7e80ffdafefbbac5de24d45f01401af
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175140"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286938"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Konfigurera listan över anpassade förbjudna lösenord
-
-|     |
-| --- |
-| Azure AD-lösenordsskydd är en funktion i offentliga förhandsversionen av Azure Active Directory. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
 
 Många organisationer hitta användarna skapa lösenord med hjälp av vanliga lokala ord, till exempel en skola, sport eller berömda personen, utan gör dem lätta att gissa. Lista med Microsofts anpassade förbjudna lösenord gör att organisationer kan lägga till strängar för att utvärdera och blockera, förutom den globala förbjuden lista med lösenord, när användare och administratörer försöker ändra och återställa ett lösenord.
 
@@ -31,7 +26,7 @@ Många organisationer hitta användarna skapa lösenord med hjälp av vanliga lo
 
 Konfigurera listan över anpassade förbjudna lösenord kräver en Azure Active Directory Premium P1 eller P2-licens. Mer detaljerad information om Azure Active Directory-licensiering finns i den [sidan med priser för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). |
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) och bläddra till **Azure Active Directory**, **autentiseringsmetoder**, sedan **lösenordsskydd (förhandsversion)**.
+1. Logga in på den [Azure-portalen](https://portal.azure.com) och bläddra till **Azure Active Directory**, **autentiseringsmetoder**, sedan **lösenordsskydd**.
 1. Ställ in alternativet **tvinga anpassad lista**till **Ja**.
 1. Lägg till strängar som ska den **anpassad förbjuden lösenordslista**, en sträng per rad
    * Lista med anpassade förbjudna lösenord kan innehålla upp till 1000 orden.

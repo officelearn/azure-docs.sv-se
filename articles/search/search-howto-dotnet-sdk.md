@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 6f263511a7d1df4af82a690c1d6b04fecd2a8a91
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: afc60e933c9fcc154af74c47e382d8b8e7b0df8d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634549"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286320"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Hur du använder Azure Search från .NET-program
 Den här artikeln är en genomgång för att komma igång med den [Azure Search .NET SDK](https://aka.ms/search-sdk). Du kan använda .NET SDK för att implementera en fullständig sökfunktion i ditt program med Azure Search.
@@ -59,7 +59,7 @@ Det finns flera saker du behöver göra i ditt sökprogram. I den här självstu
 * Fylla i index med dokument
 * Söker efter dokument med hjälp av fulltextsökning och filter
 
-Exempelkoden nedan visar var och en av dessa. Använd gärna kodfragmenten i ditt eget program.
+Följande exempelkod visar var och en av dessa. Använd gärna kodfragmenten i ditt eget program.
 
 ### <a name="overview"></a>Översikt
 Vi kommer att utforska exempelprogrammet skapar en ny index med namnet ”hotels” fylls med några dokument och sedan köra några sökfrågor. Här är huvudsakliga programmet, som visar övergripande flödet:
@@ -202,7 +202,7 @@ Den fullständiga källkoden för programmet finns i slutet av den här artikeln
 Nu ska vi tar en närmare titt på var och en av de metoder som anropas av `Main`.
 
 ### <a name="creating-an-index"></a>Skapa ett index
-När du har skapat en `SearchServiceClient`, härnäst `Main` har är ta bort indexet ”hotels” om det redan finns. Det är klart enligt följande metod:
+När du har skapat en `SearchServiceClient`, `Main` tar bort indexet ”hotels” om det redan finns. Det är klart enligt följande metod:
 
 ```csharp
 private static void DeleteHotelsIndexIfExists(SearchServiceClient serviceClient)
@@ -330,6 +330,8 @@ Den tredje delen av den här metoden är ett catch-block som hanterar en viktig 
 
 Slutligen den `UploadDocuments` metoden skapar en fördröjning på två sekunder. Indexeringen sker asynkront i Azure Search-tjänsten, så exempelprogrammet måste vänta en kort stund för att kontrollera att dokumenten är tillgängliga för sökning. Fördröjningar som den här är normalt endast nödvändiga i demonstrationer, tester och exempelprogram.
 
+<a name="how-dotnet-handles-documents"></a>
+
 #### <a name="how-the-net-sdk-handles-documents"></a>Hur .NET SDK hanterar dokument
 Du kanske undrar hur Azure Search .NET SDK kan ladda upp instanser av en användardefinierad klass som `Hotel` till indexet. För att besvara frågan ska vi titta på den `Hotel` klass:
 
@@ -394,9 +396,9 @@ Det första du ser är att varje offentlig egenskap för `Hotel` motsvarar ett f
 > 
 > 
 
-Den andra bör lägga märke är attribut som `IsFilterable`, `IsSearchable`, `Key`, och `Analyzer` som dekorera varje offentlig egenskap. Dessa attribut mappar direkt till den [motsvarande attribut för Azure Search-index](https://docs.microsoft.com/rest/api/searchservice/create-index#request). Den `FieldBuilder` klassen använder dessa för att konstruera fältdefinitioner för indexet.
+Det andra att Observera är attribut som dekorera offentliga egenskaper (till exempel `IsFilterable`, `IsSearchable`, `Key`, och `Analyzer`). Dessa attribut mappar direkt till den [motsvarande attribut för Azure Search-index](https://docs.microsoft.com/rest/api/searchservice/create-index#request). Den `FieldBuilder` klassen använder dessa för att konstruera fältdefinitioner för indexet.
 
-Det tredje viktigt om den `Hotel` klass är datatyperna för de offentliga egenskaperna. .NET-typerna för dessa egenskaper mappar till deras motsvarande fälttyper i indexdefinitionen. Exempelvis mappar `Category`-strängegenskapen till `category`-fältet, som är av typen `Edm.String`. Det finns liknande typmappningar mellan `bool?` och `Edm.Boolean`, `DateTimeOffset?` och `Edm.DateTimeOffset` osv. De specifika reglerna för typmappningen finns dokumenterade med `Documents.Get`-metoden i [Azure Search .NET SDK-referensen](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). Den `FieldBuilder` klass tar hand om den här mappningen för dig, men det kan fortfarande vara bra att förstå om du behöver felsöka serialiseringsproblem med.
+Det tredje viktigt om den `Hotel` klassen är datatyperna för de offentliga egenskaperna. .NET-typerna för dessa egenskaper mappar till deras motsvarande fälttyper i indexdefinitionen. Exempelvis mappar `Category`-strängegenskapen till `category`-fältet, som är av typen `Edm.String`. Det finns liknande typmappningar mellan `bool?` och `Edm.Boolean`, `DateTimeOffset?` och `Edm.DateTimeOffset` osv. De specifika reglerna för typmappningen finns dokumenterade med `Documents.Get`-metoden i [Azure Search .NET SDK-referensen](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). Den `FieldBuilder` klass tar hand om den här mappningen för dig, men det kan fortfarande vara bra att förstå om du behöver felsöka serialiseringsproblem med.
 
 Den här möjligheten att använda egna klasser som dokument fungerar i båda riktningarna; Du kan också hämta sökresultat och låta SDK deserialisera dem automatiskt till en typ av föredrar, som vi ser i nästa avsnitt.
 
@@ -585,7 +587,7 @@ Och här är de resultat som innehåller alla fält eftersom vi inte har angett 
 
     ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
 
-Det här steget Slutför självstudien, men avbryta inte här. **Nästa steg** innehåller ytterligare resurser för att läsa mer om Azure Search.
+Det här steget Slutför självstudien, men avbryta inte här. ** Nästa steg finns ytterligare resurser för att läsa mer om Azure Search.
 
 ## <a name="next-steps"></a>Nästa steg
 * Bläddra i referensinformationen till [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) och [REST API](https://docs.microsoft.com/rest/api/searchservice/).

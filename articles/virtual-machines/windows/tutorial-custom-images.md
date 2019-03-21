@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 192ecf0cf4f97a709808fa04f676035e8a672b79
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 74087a6d1ce00293c968837e72c636847081e39e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976954"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285995"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Självstudier: Skapa en anpassad avbildning av en virtuell Azure-dator med Azure PowerShell
 
@@ -65,7 +65,7 @@ Sysprep tar bland annat bort all din personliga kontoinformation och förbereder
 
 När du skapar en avbildning måste den virtuella datorn frigöras och markeras som generaliserad i Azure.
 
-Frigör den virtuella datorn med hjälp av [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
+Frigöra en virtuell dator med hjälp av [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
 
 ```azurepowershell-interactive
 Stop-AzVM `
@@ -162,7 +162,7 @@ I självstudien skapade du en anpassad VM-avbildning. Du har lärt dig att:
 > * Göra en lista med alla avbildningar i din prenumeration
 > * Ta bort en avbildning
 
-Gå vidare till nästa självstudie om du vill lära dig mer om virtuella datorer med hög tillgänglighet.
+Gå vidare till nästa självstudie om du vill veta mer om hur du skapar virtuella datorer med hög tillgänglighet.
 
 > [!div class="nextstepaction"]
 > [Skapa virtuella datorer med hög tillgänglighet](tutorial-availability-sets.md)

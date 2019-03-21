@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45e9553a3af8a09a6630efa771294661702feef5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 791dcfadf1db6cae48bee5c926f75e454c88fc55
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670720"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294662"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Egenskaper för en användare för Azure Active Directory B2B-samarbete
 
@@ -32,7 +33,7 @@ Beroende på behov i organisationen som bjuder in kan en Azure AD B2B-användare
 
 - Tillstånd 4: I värden organisationens Azure AD med UserType = Gäst och autentiseringsuppgifter som värd-organisation hanterar.
 
-  ![Visa den inbjudaren initialer](media/user-properties/redemption-diagram.png)
+  ![Diagram som illustrerar fyra användarstatus](media/user-properties/redemption-diagram.png)
 
 
 Nu ska vi se vad en Azure AD B2B-användare ser ut i Azure AD.
@@ -41,7 +42,7 @@ Nu ska vi se vad en Azure AD B2B-användare ser ut i Azure AD.
 
 Tillstånd 1 och tillstånd 2-konton är resultatet av att bjuda in gästanvändare för att samarbeta med hjälp av gäst användarnas egna autentiseringsuppgifter. När inbjudan skickas först till gästanvändaren, skapas ett konto i din katalog. Det här kontot har inte några autentiseringsuppgifter som är associerade med den eftersom autentiseringen utförs med gästanvändarens identitetsprovider. Den **källa** egenskapen för gästanvändarkontot i din katalog är inställd **Invited användaren**. 
 
-![Före erbjudandet inlösen](media/user-properties/before-redemption.png)
+![Skärmbild som visar användaregenskaper före erbjudandet inlösen](media/user-properties/before-redemption.png)
 
 ### <a name="after-invitation-redemption"></a>Efter inlösning av inbjudan
 
@@ -87,7 +88,7 @@ Vanligtvis är en Azure AD B2B-användare och gästanvändare synonyma. Därför
 
 ## <a name="filter-for-guest-users-in-the-directory"></a>Filter för gästanvändare i katalogen
 
-![Filtrera gästanvändare](media/user-properties/filter-guest-users.png)
+![Skärmbild som visar filtret för gästanvändare](media/user-properties/filter-guest-users.png)
 
 ## <a name="convert-usertype"></a>Konvertera UserType
 Det är möjligt att konvertera UserType från medlem till gäst och vice versa med hjälp av PowerShell. Men representerar egenskapen UserType användarens relation till organisationen. Därför bör du ändra den här egenskapen endast om relationen användarens organisation ändringar. Om relationen mellan användaren ändrar användarens huvudnamn (UPN) Ändra? Ska du fortsätta att få åtkomst till samma resurser? Tilldelas en postlåda? Vi rekommenderar inte ändra UserType med hjälp av PowerShell som en atomisk aktivitet. Även om den här egenskapen blir inte kan ändras med hjälp av PowerShell, rekommenderar vi inte tar ett beroende på det här värdet.
@@ -97,7 +98,7 @@ Det kan finnas fall där du vill ge dina gästanvändare högre privilegier. Du 
 
 Det är möjligt att Stäng av standardbegränsningarna så att en gästanvändare i företagets katalog har samma behörigheter som en medlemsanvändare.
 
-![Ta bort begränsningar för gäst-användare](media/user-properties/remove-guest-limitations.png)
+![Skärmbild som visar de externa användarna alternativet i användarinställningarna](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Kan jag visa gästanvändare i den globala adresslistan Exchange?
 Ja. Gästen objekt visas inte i din organisations globala adresslistan som standard, men du kan använda Azure Active Directory PowerShell för att göra dem synliga. Mer information finns i **kan jag göra gäst objekt visas i den globala adresslistan?** i [hantera gäståtkomst i Office 365-grupper](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#faq). 

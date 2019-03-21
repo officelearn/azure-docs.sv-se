@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5fb263819a5bb96175f636f53a16c28649a3f39
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: MT
+ms.openlocfilehash: b006a4fbb8d1059f5096f5c1585853953b69042f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339557"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082151"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Skapa en flexibel hanteringsstrategi för åtkomstkontroll med Azure Active Directory
 
@@ -94,18 +94,18 @@ Din organisation kan också även skapa principer för oförutsedda händelser. 
 Förstå din exponering vid avbrott bidrar till att minska risken och är en viktig del av planeringsprocessen. Om du vill skapa din nödplan först bestämma följande affärsbehoven i organisationen:
 
 1. Bestämma dina verksamhetskritiska kritiska appar förväg: Vad är appar måste du ge åtkomst till, även med en lägre risk/säkerhetsposition? Skapa en lista över de här apparna och kontrollera att din andra intressenter (business, säkerhet, juridiska och ledarskap) alla godkänner att om alla åtkomstkontroll är borta kan de här apparna fortfarande måste fortsätta att köras. Du sannolikt kommer att slutet med kategorier av:
-  * **Kategori 1 verksamhetskritiska affärskritiska appar** som inte var tillgänglig i mer än ett par minuter, till exempel appar som direkt påverkar intäkter på organisationen.
-  * **Kategori 2 viktiga appar** att företaget måste vara tillgänglig inom några timmar.
-  * **Kategori 3 med låg prioritet appar** som klarar att ett avbrott i några få dagar.
+   * **Kategori 1 verksamhetskritiska affärskritiska appar** som inte var tillgänglig i mer än ett par minuter, till exempel appar som direkt påverkar intäkter på organisationen.
+   * **Kategori 2 viktiga appar** att företaget måste vara tillgänglig inom några timmar.
+   * **Kategori 3 med låg prioritet appar** som klarar att ett avbrott i några få dagar.
 2. För appar i kategori 1 och 2 rekommenderar Microsoft att du planerar inför vilken typ av åtkomstnivå som du vill tillåta:
-  * Vill du tillåta fullständig åtkomst eller begränsad session, som begränsar nedladdningar?
-  * Vill du tillåta åtkomst till delar av appen, men inte hela appen?
-  * Vill du tillåta åtkomst till arbete och blockera administratörsåtkomst tills åtkomstkontrollen återställs?
+   * Vill du tillåta fullständig åtkomst eller begränsad session, som begränsar nedladdningar?
+   * Vill du tillåta åtkomst till delar av appen, men inte hela appen?
+   * Vill du tillåta åtkomst till arbete och blockera administratörsåtkomst tills åtkomstkontrollen återställs?
 3. För dessa appar, Microsoft rekommenderar också att du planerar vilka vägar av åtkomst du avsiktligt öppnas och vilka som du kommer att stängas:
-  * Vill du tillåta webbläsaren endast åtkomst och blockera omfattande klienter som kan spara data offline?
-  * Vill du tillåta åtkomst endast för användare i företagsnätverket och hålla utanför användare blockerats?
-  * Vill du tillåta åtkomst från vissa länder eller regioner endast under störningar?
-  * Vill du principer för oförutsedda händelser principer, särskilt för verksamhetskritiska affärskritiska appar att misslyckas eller lyckas om ett alternativt åtkomstkontroll inte är tillgängligt?
+   * Vill du tillåta webbläsaren endast åtkomst och blockera omfattande klienter som kan spara data offline?
+   * Vill du tillåta åtkomst endast för användare i företagsnätverket och hålla utanför användare blockerats?
+   * Vill du tillåta åtkomst från vissa länder eller regioner endast under störningar?
+   * Vill du principer för oförutsedda händelser principer, särskilt för verksamhetskritiska affärskritiska appar att misslyckas eller lyckas om ett alternativt åtkomstkontroll inte är tillgängligt?
 
 #### <a name="microsoft-recommendations"></a>Microsoft-rekommendationer
 
@@ -251,7 +251,7 @@ Beroende på vilka åtgärder eller risker används under ett avbrott, kan din o
 Om din organisation använder äldre principer för MFA för per användare, kan du överväga följande alternativ:
 
 1. Om du har den utgående IP-adressen för företagets nätverk, kan du lägga till dem som betrodda IP-adresser att aktivera autentisering endast till företagets nätverk.
- 2. Om du inte har med lagret för utgående IP-adresser, eller du krävs för att aktivera åtkomst i och utanför företagets nätverk, kan du lägga till hela IPv4-adressutrymmet som tillförlitliga IP-adresser genom att ange 0.0.0.0/1 och 128.0.0.0/1.
+   1. Om du inte har med lagret för utgående IP-adresser, eller du krävs för att aktivera åtkomst i och utanför företagets nätverk, kan du lägga till hela IPv4-adressutrymmet som tillförlitliga IP-adresser genom att ange 0.0.0.0/1 och 128.0.0.0/1.
 
 >[!IMPORTANT]
  > Om du bredda de betrodda IP-adresserna för att låsa upp åtkomst genereras inte riskhändelser som är associerade med IP-adresser (till exempel omöjlig resa eller okända platser).
@@ -264,9 +264,9 @@ Om din organisation använder äldre principer för MFA för per användare, kan
 * [Dokumentation om Azure AD-autentisering](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [Hantera nödfall-åtkomst till administratörskonton i Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 * [Konfigurera namngivna platser i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
- * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+  * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Konfigurera hybrid Azure Active Directory-anslutna enheter](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [Distributionsguide för Windows Hello för företag](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
- * [Riktlinjer för lösenord – Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
+  * [Riktlinjer för lösenord – Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [Vad är villkor i Azure Active Directory villkorlig åtkomst?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [Vad är åtkomstkontroller i Azure Active Directory villkorlig åtkomst?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

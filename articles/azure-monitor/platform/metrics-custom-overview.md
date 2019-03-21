@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: cb1d08bb7b4c64d8dbcf39a667cb037ff30c38e7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467914"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287272"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Anpassade mått i Azure Monitor
 
@@ -29,7 +29,7 @@ Anpassade mått kan skickas till Azure Monitor via flera olika sätt:
 
 När du skickar anpassade mått till Azure Monitor, varje datapunkt, eller värdet som rapporteras måste innehålla följande information.
 
-### <a name="authentication"></a>Autentisering
+### <a name="authentication"></a>Authentication
 Om du vill skicka anpassade mått till Azure Monitor, den entitet som skickar måttet måste en giltig Azure Active Directory (Azure AD)-token i den **ägar** huvudet i begäran. Det finns ett antal sätt att hämta en giltig ägartoken som stöds:
 1. [Hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Ger en identitet till en Azure-resurs, till exempel en virtuell dator. Hanterad tjänstidentitet (MSI) är utformad för att ge behörighet att utföra vissa åtgärder för resurser. Ett exempel att tillåta att en resurs att skapa mått om sig själv. En resurs eller dess MSI kan beviljas **övervakning mått Publisher** behörigheter på en annan resurs. Med den här behörigheten kan MSI generera mått för andra resurser samt.
 2. [Azure AD-tjänstobjekt](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). I det här scenariot, en Azure AD-programmet eller tjänsten, kan du tilldela behörigheter att skapa mått om en Azure-resurs.
@@ -55,7 +55,7 @@ Den här egenskapen samlar in den resurs som du mått för distribueras i vilka 
 >
 
 ### <a name="timestamp"></a>Tidsstämpel
-Varje datapunkt som skickas till Azure Monitor måste markeras med en tidsstämpel. Den här tidsstämpeln avbildar datum/tid då mätvärdet mäts eller samlas in. Azure Monitor accepterar måttdata med tidsstämplar som är så långt det är 20 minuter tidigare och 5 minuter i framtiden.
+Varje datapunkt som skickas till Azure Monitor måste markeras med en tidsstämpel. Den här tidsstämpeln avbildar datum/tid då mätvärdet mäts eller samlas in. Azure Monitor accepterar måttdata med tidsstämplar som är så långt det är 20 minuter tidigare och 5 minuter i framtiden. Tidsstämpeln måste vara i ISO 8601-format.
 
 ### <a name="namespace"></a>Namnområde
 Namnområden är ett sätt att kategorisera eller gruppera liknande mått. Du kan uppnå isolering mellan grupper av mått som kan samla in olika insights eller nyckeltal med hjälp av namnområden. Du kan till exempel ha ett namnområde som kallas **ContosoMemoryMetrics** som spårar minnesanvändning mått som profilera din app. En annan namnrymd som kallas **ContosoAppTransaction** kan spåra alla mått om användartransaktioner i ditt program.
@@ -65,7 +65,7 @@ Namnområden är ett sätt att kategorisera eller gruppera liknande mått. Du ka
 
 ### <a name="dimension-keys"></a>Dimensionsnycklarna
 En dimension är en nyckel eller ett värde-par som hjälper dig att ge ytterligare egenskaper om mått som samlas in. Med ytterligare egenskaper kan du samla in mer information om mått, som möjliggör djupare insikter. Till exempel den **byte i minnesanvändning** mått kan ha en dimension-nyckel som heter **processen** som samlar in hur många byte av minne varje process på en virtuell dator använder. Med den här nyckeln kan filtrera du mått att se hur mycket minne som använder vissa processer eller för att identifiera de översta fem processerna efter minnesanvändning.
-Varje anpassat mått kan ha upp till 10 dimensioner.
+Dimensioner är valfria, inte alla mått kanske dimensioner. Ett anpassat mått kan ha upp till 10 dimensioner.
 
 ### <a name="dimension-values"></a>Dimensionsvärden
 Om du rapporterar en metrisk datapunkt för varje dimension-nyckel på mått som rapporteras, finns det en motsvarande dimensionsvärde. Du kanske exempelvis vill rapportera det minne som används av ContosoApp på den virtuella datorn:
@@ -75,6 +75,7 @@ Om du rapporterar en metrisk datapunkt för varje dimension-nyckel på mått som
 * Värdet för dimensionen är **ContosoApp.exe**.
 
 När du publicerar ett värde, kan du bara ange ett enstaka dimensionsvärde per dimension nyckel. Om du samlar in samma minnesanvändning för flera processer på den virtuella datorn kan du rapportera flera mått värden för den tidsstämpeln. Varje måttvärde skulle ange en annan dimension-värde för den **processen** dimension nyckel.
+Dimensioner är valfria, inte alla mått kanske dimensioner. Om ett mått inlägg definierar dimensionsnycklarna, är motsvarande värden obligatoriska.
 
 ### <a name="metric-values"></a>Måttvärden
 Azure Monitor lagrar alla mått med en minuts kornighet intervall. Vi förstår att under en viss minuten, ett mått kan behöva samlas in flera gånger. Ett exempel är CPU-användning. Eller kanske måste mätas för många diskreta händelser. Ett exempel är inloggning transaktion svarstider. Om du vill begränsa antalet rådata så måste du generera och betala för i Azure Monitor kan du lokalt före sammanställa och generera värdena:
@@ -169,13 +170,13 @@ Den offentliga förhandsversionen är möjligheten att publicera anpassade mått
 
 |Azure-region|Regionala endpoint prefix|
 |---|---|
-|Östra USA|https://eastus.monitoring.azure.com/|
-|Södra centrala USA|https://southcentralus.monitoring.azure.com/|
-|Västra centrala USA|https://westcentralus.monitoring.azure.com/|
-|Västra USA 2|https://westus2.monitoring.azure.com/|
-|Sydostasien|https://southeastasia.monitoring.azure.com/|
-|Norra Europa|https://northeurope.monitoring.azure.com/|
-|Västra Europa|https://westeurope.monitoring.azure.com/|
+|Östra USA| https:\//eastus.monitoring.azure.com/ |
+|Södra centrala USA| https:\//southcentralus.monitoring.azure.com/ |
+|Västra centrala USA| https:\//westcentralus.monitoring.azure.com/ |
+|Västra USA 2| https:\//westus2.monitoring.azure.com/ |
+|Sydostasien| https:\//southeastasia.monitoring.azure.com/ |
+|Norra Europa| https:\//northeurope.monitoring.azure.com/ |
+|Västra Europa| https:\//westeurope.monitoring.azure.com/ |
 
 ## <a name="quotas-and-limits"></a>Kvoter och begränsningar
 Azure Monitor inför följande användningsbegränsningar i anpassade mått:
@@ -185,6 +186,7 @@ Azure Monitor inför följande användningsbegränsningar i anpassade mått:
 |Tid serien/prenumerationer/region|50,000|
 |Dimensionsnycklarna per mått|10|
 |Stränglängd för mått-namnområden, Måttnamn, dimensionsnycklarna och dimensionsvärden|256 tecken|
+
 En aktiv tidsserier definieras som en unik kombination av mått, dimension nyckel och värde som har haft måttvärden publicerade under de senaste 12 timmarna.
 
 ## <a name="next-steps"></a>Nästa steg

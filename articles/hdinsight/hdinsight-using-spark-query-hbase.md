@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: 0ba61dc266add48577c3a382465ecb2cec9d2a05
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: HT
+ms.openlocfilehash: 200691f7af16e82d554d0e1e019b6a4e5c75949f
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188041"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260146"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Använda Apache Spark för att läsa och skriva Apache HBase-data
 
@@ -25,7 +25,7 @@ Apache HBase är vanligtvis efterfrågas med dess lågnivå-API (genomsökningar
 * Två separata HDInsight-kluster, en HBase och en Spark med minst Spark 2.1 (HDInsight 3.6) installerat.
 * Spark-klustret behöver för att kommunicera direkt med HBase-kluster med minimal svarstid, så den rekommenderade konfigurationen är att distribuera båda klustren i samma virtuella nätverk. Mer information finns i [skapa Linux-baserade kluster i HDInsight med Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
-* Den [URI-schema](/hdinsight-hadoop-linux-information#URI-and-scheme.md) för ditt kluster primär lagring. Detta skulle vara wasb: / / för Azure Blob Storage, abfs: / / för Azure Data Lake Storage Gen2 eller adl: / / för Azure Data Lake Storage Gen1. Om säker överföring har aktiverats för Blob Storage eller Data Lake Storage Gen2, URI: N blir wasbs: / / eller abfss: / /, respektive Se även [säker överföring](../storage/common/storage-require-secure-transfer.md).
+* Den [URI-schema](hdinsight-hadoop-linux-information.md#URI-and-scheme) för ditt kluster primär lagring. Detta skulle vara wasb: / / för Azure Blob Storage, abfs: / / för Azure Data Lake Storage Gen2 eller adl: / / för Azure Data Lake Storage Gen1. Om säker överföring har aktiverats för Blob Storage eller Data Lake Storage Gen2, URI: N blir wasbs: / / eller abfss: / /, respektive Se även [säker överföring](../storage/common/storage-require-secure-transfer.md).
 
 
 ## <a name="overall-process"></a>Övergripande processen

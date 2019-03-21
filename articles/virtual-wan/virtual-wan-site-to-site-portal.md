@@ -5,17 +5,17 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 02/26/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: c99d3df23e0ba9733e8762fe8fc22a4c69d3bcfb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: ca18042985669899247c3a0a16b41a98c5c6d1ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236864"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075176"
 ---
-# <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Självstudie: Skapa en plats-till-plats-anslutning med Azure Virtual WAN
+# <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Självstudier: Skapa en plats-till-plats-anslutning med Azure virtuellt WAN-nätverk
 
 Här förklarar vi hur du ansluter resurser i Azure via en IPsec/IKE (IKEv1 och IKEv2) VPN-anslutning med Virtual WAN. Den här typen av anslutning kräver en lokal VPN-enhet som tilldelats till en extern offentlig IP-adress. Mer information om virtuella WAN-nätverk finns i [översikten om virtuellt WAN](virtual-wan-about.md)
 
@@ -40,7 +40,11 @@ I den här guiden får du lära dig att:
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="vnet"></a>1. Skapa ett virtuellt nätverk
 
@@ -60,12 +64,12 @@ Skapa så många platser som du behöver för att motsvara de fysiska platserna.
 2. På sidan **VPN-platser** klickar du på **+ Skapa webbplats**.
 3. Fyll i följande fält på sidan **Skapa webbplats**:
 
-  * **Namn** – Det här är namnet du vill ge den lokala platsen.
-  * **Offentlig IP-adress** – Det här är den offentliga IP-adressen för VPN-enheten som hör till den lokala platsen.
-  * **Privat adressutrymme** – Det här är adressutrymmet som finns på din lokala plats. Trafik till det här adressutrymmet dirigeras till den lokala platsen.
-  * **Prenumeration** – Kontrollera prenumerationen.
-  * **Resursgrupp** – Den resursgrupp du vill använda.
-  * **Plats**.
+   * **Namn** – Det här är namnet du vill ge den lokala platsen.
+   * **Offentlig IP-adress** – Det här är den offentliga IP-adressen för VPN-enheten som hör till den lokala platsen.
+   * **Privat adressutrymme** – Det här är adressutrymmet som finns på din lokala plats. Trafik till det här adressutrymmet dirigeras till den lokala platsen.
+   * **Prenumeration** – Kontrollera prenumerationen.
+   * **Resursgrupp** – Den resursgrupp du vill använda.
+   * **Plats**.
 4. Klicka på **Visa avancerade** för att visa ytterligare inställningar. Du kan välja **BGP** för att aktivera BGP, vilket aktiverar den här funktionen för alla anslutningar som skapas för den här platsen i Azure. Du kan även ange **Enhetsinformation** (valfria fält). Det här kan hjälpa Azure-teamet att bättre förstå din miljö och lägga till ytterligare optimeringsmöjligheter i framtiden eller hjälpa dig att felsöka.
 5. Klicka på **Bekräfta**.
 6. När du har klickat på **Bekräfta** visar du statusen på sidan för VPN-platser. Platsen kommer att ändras från **Etableras** till **Etablerad**.
@@ -267,10 +271,10 @@ Skapa en anslutning för att övervaka kommunikation mellan en virtuell Azure-da
 
 ## <a name="cleanup"></a>11. Rensa resurser
 
-Du kan använda [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) för att ta bort resursgruppen och alla resurser den innehåller när du inte längre behöver dem. Ersätt myResourceGroup med namnet på resursgruppen och kör följande PowerShell-kommando:
+När du inte längre behöver dessa resurser kan du använda [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) att ta bort resursgruppen och alla resurser den innehåller. Ersätt myResourceGroup med namnet på resursgruppen och kör följande PowerShell-kommando:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Nästa steg

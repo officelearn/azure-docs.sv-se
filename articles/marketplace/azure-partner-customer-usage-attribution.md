@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 3f3c7523bfc800a74da56b1b3241ac5756c68d14
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
-ms.translationtype: MT
+ms.openlocfilehash: ae31aa19e5905ccafcd0161ea362cc68234f8295
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215514"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294764"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner kundens användning attribution
 
@@ -127,6 +127,8 @@ När du använder Azure CLI för att lägga till din GUID, ange den **AZURE_HTTP
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+Mer information finns i [Azure SDK för Go](https://docs.microsoft.com/go/azure/).
+
 ## <a name="use-terraform"></a>Använd Terraform
 
 Stöd för Terraform är tillgänglig via Azure-providern 1.21.0 viktig: [ https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019 ](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  Detta stöd gäller för alla partner som distribuerar lösningen via Terraform och alla resurser distribueras och förbrukade av Azure-providern (version 1.21.0 eller senare).
@@ -280,7 +282,7 @@ Följ dessa steg om du behöver hjälp för Marketplace Onboarding och/eller att
    - Association användningsproblem, Välj **andra**.
    - Åtkomstproblem med Azure Marketplace CPP, Välj **problem med anslutningen**.
    
-    ![Välj problem-kategori](media/marketplace-publishers-guide/lu-article-incident.png)
+     ![Välj problem-kategori](media/marketplace-publishers-guide/lu-article-incident.png)
 
 1. Välj **Startförfrågan**.
 
@@ -299,7 +301,7 @@ Du kan också få teknisk vägledning från Microsoft Partner teknisk konsult f�
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>Hur du skickar en begäran om teknisk samråd
 
-1. Besök [ http://aka.ms/TechnicalJourney ](http://aka.ms/TechnicalJourney).
+1. Besök [ https://aka.ms/TechnicalJourney ](https://aka.ms/TechnicalJourney).
 1. Välj moln-infrastruktur och hantering samt en ny sida öppnas om du vill visa den tekniska resan.
 1. Klicka på Skicka en begäran-knappen under Deployment Services
 1. Logga in med ditt MSA (MPN-konto) eller din AAD (konto på instrumentpanelen för Partner;) baserat på inloggningen autentiseringsuppgifter, öppnas en begäran om online-formuläret: 
@@ -308,7 +310,7 @@ Du kan också få teknisk vägledning från Microsoft Partner teknisk konsult f�
     * Ange en rubrik och beskrivning av problemet (ange så mycket information som möjligt).
 1. Klicka på Skicka
 
-Visa instruktioner med skärmdumpar på [ http://aka.ms/TechConsultInstructions ](http://aka.ms/TechConsultInstructions).
+Visa instruktioner med skärmdumpar på [ https://aka.ms/TechConsultInstructions ](https://aka.ms/TechConsultInstructions).
 
 ### <a name="whats-next"></a>Vad händer nu
 

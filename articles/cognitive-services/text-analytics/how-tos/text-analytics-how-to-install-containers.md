@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 6ad48bb6e7d9c2fd0365b26999b67ad8c62fc42c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5f757218d29317f82339967a327f34438c62ab96
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000254"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294152"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installera och köra textanalys behållare
 
@@ -26,7 +26,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att kunna köra någon av behållarna för textanalys, måste du ha följande:
+Du måste ha värdmiljöerna för datorn och en behållare för att köra någon av behållarna för textanalys.
 
 ## <a name="preparation"></a>Förberedelse
 
@@ -46,11 +46,14 @@ Du måste uppfylla följande krav innan du kan använda textanalys behållare:
 
 I följande tabell beskrivs de minsta och rekommenderade CPU-kärnorna minst 2,6 GHz (gigahertz) eller snabbare, och minne i gigabyte (GB), att tilldela för varje behållare för textanalys.
 
-| Container | Minimum | Rekommenderas |
-|-----------|---------|-------------|
-|Extrahering av nyckelfraser | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |
-|Språkidentifiering | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |
-|Attitydanalys | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |
+| Container | Minimum | Rekommenderas | TPS<br>(Lägsta, högsta)|
+|-----------|---------|-------------|--|
+|Extrahering av nyckelfraser | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |15, 30|
+|Språkidentifiering | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |15, 30|
+|Attitydanalys | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |15, 30|
+
+* Varje kärna måste vara minst 2,6 GHz (gigahertz) eller snabbare.
+* TPS - transaktioner per sekund
 
 Kärnor och minne som motsvarar den `--cpus` och `--memory` inställningar som används som en del av den `docker run` kommando.
 
@@ -64,7 +67,7 @@ Behållaravbildningar för textanalys är tillgängliga från Microsoft Containe
 |Språkidentifiering | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Attitydanalys | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-Använd den [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) för att ladda ned en behållaravbildning från Microsoft Container Registry...
+Använd den [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) för att ladda ned en behållaravbildning från Microsoft Container Registry.
 
 En fullständig beskrivning av tillgängliga taggar för textanalys-behållare finns i följande behållare i Docker Hub:
 
@@ -125,7 +128,7 @@ ApiKey={BILLING_KEY}
 Det här kommandot:
 
 * Kör en diskussionsämne behållare från behållaravbildningen
-* Allokerar en CPU-kärnor och 4 gigabyte (GB) minne
+* Allokerar en CPU-kärna och 4 gigabyte (GB) minne
 * Visar TCP-port 5000 och allokerar en pseudo-TTY för behållaren
 * Tar automatiskt bort behållaren när avslutas. Behållaravbildningen finns kvar på värddatorn. 
 

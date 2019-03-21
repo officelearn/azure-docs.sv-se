@@ -9,14 +9,15 @@ ms.date: 05/26/2017
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0ab999e2b2a8465b110874cca3d478c60c18099
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 7ae5ae6d742bc6b4420b886c9ea2bd4e023075f4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091145"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295529"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>Få support för B2B-samarbete
 
@@ -28,7 +29,7 @@ Du har läst igenom dokumentationen, du har gjort rätt saker, men fortfarande i
      - Tjänst: Active Directory
      - Supportavtal: Välj relevant supportavtal
 
-   ![Ny supportförfrågan](media/get-support/new-support-request.png)
+   ![Skärmbild som visar en ny supportbegäran](media/get-support/new-support-request.png)
 
 2. Beskriv problemet:
    - Välj lämplig allvarlighetsgrad som återspeglar du behöver.
@@ -36,6 +37,6 @@ Du har läst igenom dokumentationen, du har gjort rätt saker, men fortfarande i
    - Välj kategorin som att lägga till användare (B2B)
    - Inkludera eventuella felmeddelanden som Korrelations-ID, användare som påverkas och så vidare.
 
-   ![stöd för biljett problembeskrivning](media/get-support/problem-description.png)
+   ![Skärmbild som visar en biljett beskrivning av problemet](media/get-support/problem-description.png)
 
 3. Lägg till din kontaktinformation för en supportmedarbetare att kontakta dig för vidare felsökning.

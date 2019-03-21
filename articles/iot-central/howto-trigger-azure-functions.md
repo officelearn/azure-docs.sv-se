@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 512956d2de0f9a838cc6378345a334e489d1d120
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: c80b007c3c9c1a35540e690554603a5ae8f16d62
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306875"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284637"
 ---
 # <a name="trigger-azure-functions-using-webhooks-in-azure-iot-central"></a>Utlösa Azure Functions med webhookar i Azure IoT Central
 
 *Det här avsnittet gäller builders och administratörer.*
 
-Använd Azure Functions för att köra serverlös kod för webhook-utdata från IoT Central regler. Du behöver inte etablera en virtuell dator eller publicera en webbapp för att använda Azure Functions, men i stället kan du köra den här koden serverlessly. Använd Azure Functions för att omvandla webhook-nyttolasten innan de skickas till slutmålet, till exempel en SQL-databas eller en Event Grid.
+Använd Azure Functions för att köra serverlös kod för webhook-utdata från IoT Central regler. Du behöver inte etablera en virtuell dator eller publicera en webbapp för att använda Azure Functions, men i stället kan du köra den här koden utan server. Använd Azure Functions för att omvandla webhook-nyttolasten innan de skickas till slutmålet, till exempel en SQL-databas eller en Event Grid.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -27,15 +27,15 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="how-to-connect-azure-functions"></a>Så här ansluter du Azure Functions
 
-1. [Skapa en ny funktionsapp i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.FunctionApp).
+1. [Skapa en ny funktionsapp i Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.FunctionApp).
 
-    ![Skapa en ny funktionsapp i Azure Portal](media/howto-trigger-azure-functions/createfunction.png)
+    ![Skapa en ny funktionsapp i Azure portal](media/howto-trigger-azure-functions/createfunction.png)
 
-2. Expandera funktionsappen och välj den **+ knappen** bredvid funktioner. Om den här funktionen är den första funktionen i din funktionsapp väljer du **Anpassad funktion**. Detta visar en fullständig uppsättning med funktionsmallar.
+2. Expandera funktionsappen och välj den **+ knappen** bredvid funktioner. Om den här funktionen är den första funktionen i din funktionsapp väljer **i portalen** som utvecklingsmiljö och välj **Fortsätt**.
 
     ![Välj anpassad funktion i funktionsappen](media/howto-trigger-azure-functions/customfunction.png)
 
-3. I sökfältet skriver **”generic”** och välj sedan önskat språk för utlösarmallen för allmän webhook. I det här avsnittet används en C#-funktion. 
+3. Välj **Webhook + API** mallen och välj **skapa**. Det här avsnittet använder .NET-baserade Azure-funktion.
 
     ![Välj allmän webhook-utlösare](media/howto-trigger-azure-functions/genericwebhooktrigger.png)
 

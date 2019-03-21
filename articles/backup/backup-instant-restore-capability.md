@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: 7d54e137cbfb35c84173c79e65a1070eabb52e78
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 20f934ae418b0a5e37d3e619fabadc5cb6e23642
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731640"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285555"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhetskopian och återställer prestanda med Azure Backup-omedelbar återställning kapacitet
 
@@ -25,9 +25,8 @@ Den nya modellen för omedelbar återställning innehåller följande funktionsf
 * Möjlighet att använda ögonblicksbilder som tas som en del av ett säkerhetskopieringsjobb som är tillgängliga för återställning utan att behöva vänta på att överföra data till valvet för att slutföra. Det minskar väntetiden för ögonblicksbilder att kopiera till valvet innan återställningen.
 * Minskar tider för säkerhetskopiering och återställning genom att behålla ögonblicksbilder lokalt, i två dagar som standard. Det här standard-valvet kan konfigureras till ett värde mellan 1 till 5 dagar.
 * Stöder disk storlekar upp till 4 TB.
-* Stöder Standard SSD-diskar.
-*   Möjligheten att använda en ohanterad virtuell dator ursprungliga lagringskonton (per disk) när du återställer. Denna möjlighet finns även när den virtuella datorn har diskar som är fördelade på storage-konton. Det går snabbare återställningsåtgärder för en mängd olika VM-konfigurationer
-
+* Stöder Standard SSD-diskar tillsammans med Standard HDD-diskar och Premium SSD-diskar.
+*   Möjligheten att använda en ohanterad virtuell dator ursprungliga lagringskonton (per disk) när du återställer. Denna möjlighet finns även när den virtuella datorn har diskar som är fördelade på storage-konton. Det går snabbare återställningsåtgärder för en mängd olika VM-konfigurationer.
 
 
 ## <a name="whats-new-in-this-feature"></a>Vad är nytt i den här funktionen
@@ -41,7 +40,7 @@ En återställningspunkt anses skapas endast efter faser 1 och 2 har slutförts.
 
 ![Säkerhetskopieringsjobbet på VM säkerhetskopieringsstack distributionsmodellen Resource Manager – lagring och valv](./media/backup-azure-vms/instant-rp-flow.png)
 
-Som standard behålls ögonblicksbilder i två dagar. Den här funktionen kan återställningar åtgärden från de här ögonblicksbilderna det genom att stopptider återställning. Det minskar den tid som krävs för att omvandla och kopiera data från valvet till användarens storage-konto för ohanterade diskar scenarier och för användare av hanterad disk, skapar den hanterade diskar från Recovery Services-data.
+Som standard behålls ögonblicksbilder i två dagar. Den här funktionen kan återställningen från de här ögonblicksbilderna det genom att stopptider återställning. Det minskar den tid som krävs för att omvandla och kopiera data från valvet.
 
 ## <a name="feature-considerations"></a>Överväganden för funktionernas
 
@@ -51,107 +50,30 @@ Som standard behålls ögonblicksbilder i två dagar. Den här funktionen kan å
 * Du får en möjlighet att konfigurera den ögonblicksbild kvarhållning av säkerhetskopior baserat på dina behov för återställning. Beroende på krav, kan du ange ögonblicksbild kvarhållning till minst en dag i bladet säkerhetskopieringspolicy som beskrivs nedan. Detta kan hjälpa dig minska kostnaderna för ögonblicksbild kvarhållning om du inte utföra återställningar ofta.
 * Det här är en uppgradering för en riktad, en gång uppgraderas till omedelbar återställning, du kan inte gå tillbaka.
 
-
 >[!NOTE]
 >Med den här snabbmeddelanden återställa uppgradering ögonblicksbild kvarhållningsvaraktighetens för alla kunder (**nya och befintliga ingår både**) anges till ett standardvärde på två dagar. Du kan dock ange varaktighet enligt dina krav på att ett värde mellan 1 till 5 dagar.
-
 
 ## <a name="cost-impact"></a>Kostnad påverkan
 
 Inkrementella ögonblicksbilder lagras i Virtuella datorns lagringskonto som används för omedelbar återställning. Inkrementell ögonblicksbild innebär det utrymme som används av en ögonblicksbild är lika med det utrymme som används av sidor som har skrivits när ögonblicksbilden har skapats. Faktureringen sker fortfarande för den per GB använt utrymme som används av ögonblicksbilden och pris per GB är samma som de som nämns i den [prissättningssidan](https://azure.microsoft.com/pricing/details/managed-disks/).
 
+>[!NOTE]
+> Ögonblicksbild kvarhållning har åtgärdats till 5 dagar för principer för varje vecka.
 
-## <a name="upgrading-to-instant-restore"></a>Uppgradera till omedelbar återställning
+## <a name="configure-snapshot-retention-using-the-azure-portal"></a>Konfigurera ögonblicksbild kvarhållning av säkerhetskopior med Azure portal
 
-Om du använder Azure-portalen, visas ett meddelande på instrumentpanelen för valvet. Det här meddelandet relaterar till stöd för stora diskar och förbättringar för säkerhetskopiering och återställning hastighet.
-Välj banderollen för att öppna en skärm för att uppgradera till omedelbar återställning.
+**Alla Azure backup användare har nu uppgraderats till omedelbar återställning**.
 
-![Säkerhetskopieringsjobbet på VM säkerhetskopieringsstack Resource Manager-modellen – stöd för meddelande](./media/backup-azure-vms/instant-rp-banner.png)
-
-Klicka på **uppgradera** som visas i skärmbilden nedan:
-
-![Säkerhetskopieringsjobbet på säkerhetskopieringsstack för virtuell dator distributionsmodellen för Resource Manager – uppgradera](./media/backup-azure-vms/instant-rp.png)
-
-Du kan också gå till **egenskaper** sidan i valvet för att hämta den **uppgradera** alternativet **säkerhetskopieringsstack för virtuell dator**.
-
-![Säkerhetskopieringsjobbet på säkerhetskopieringsstack för virtuell dator – sidan Egenskaper](./media/backup-azure-vms/instant-restore-capability-properties.png)
-
-
-## <a name="configure-snapshot-retention-using-azure-portal"></a>Konfigurera ögonblicksbild kvarhållning av säkerhetskopior med hjälp av Azure portal
-Alla användare på alla **geografiska områden i offentliga** har uppgraderats till omedelbar återställning.
-
-I Azure-portalen för de uppgraderade användarna, visas ett fält har lagts till i den **VM Backup-principen** bladet under den **omedelbar återställning** avsnittet. Du kan ändra kvarhållningsvaraktighetens ögonblicksbild från den **VM säkerhetskopieringsprincip** bladet för alla virtuella datorer som är associerade med principen för specifika säkerhetskopiering.
+I Azure-portalen kan du se ett fält har lagts till i den **VM Backup-principen** bladet under den **omedelbar återställning** avsnittet. Du kan ändra kvarhållningsvaraktighetens ögonblicksbild från den **VM säkerhetskopieringsprincip** bladet för alla virtuella datorer som är associerade med principen för specifika säkerhetskopiering.
 
 ![Kapaciteten för omedelbar återställning](./media/backup-azure-vms/instant-restore-capability.png)
-
-## <a name="upgrade-to-instant-restore-using-powershell"></a>Uppgradera till omedelbar återställning med hjälp av PowerShell
-
-Om du vill att självbetjäning och uppgradera till omedelbar återställning kan du köra följande cmdlets från en upphöjd PowerShell-terminal:
-
-1.  Logga in på ditt Azure-konto:
-
-    ```
-    PS C:> Connect-AzureRmAccount
-    ```
-
-2.  Välj den prenumeration som du vill registrera:
-
-    ```
-    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-    ```
-
-3.  Registrera den här prenumerationen:
-
-    ```
-    PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-## <a name="upgrade-to-instant-restore-using-cli"></a>Uppgradera till omedelbar återställa med hjälp av CLI
-
-Kör följande kommandon från ett gränssnitt:
-
-1.  Logga in på ditt Azure-konto:
-
-    ```
-    az login
-    ```
-
-2.  Välj den prenumeration som du vill registrera:
-
-    ```
-    az account set --subscription "Subscription Name"
-    ```
-
-3.  Registrera den här prenumerationen:
-
-    ```
-    az feature register --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
-    ```
-
-## <a name="verify-that-the-upgrade-is-successful"></a>Kontrollera att uppgraderingen har utförts
-
-### <a name="powershell"></a>PowerShell
-Kör följande cmdlet från en upphöjd PowerShell-terminalen:
-
-```
-Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
-```
-
-### <a name="cli"></a>CLI
-Kör följande kommando från ett gränssnitt:
-
-```
-az feature show --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
-```
-
-Om det står ”Registered” har din prenumeration uppgraderats till omedelbar återställning.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 ### <a name="what-are-the-cost-implications-of-instant-restore"></a>Vad är kostnaden effekterna av omedelbar återställning?
 Ögonblicksbilder lagras tillsammans med diskar som snabbare att skapa en återställningspunkt och återställning. Därför visas lagringskostnader som motsvarar den ögonblicksbild kvarhållningsperioden som valts som en del av principen för säkerhetskopiering av virtuell dator.
 
-### <a name="in-premium-storage-accounts-do-the-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>I Premium Storage-konton ögonblicksbilder som tas för omedelbar återställningspunkt uppta gränsen för ögonblicksbilder på 10 TB?
+### <a name="in-premium-storage-accounts-do-the-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>I Premium Storage-konton ögonblicksbilder som tas för omedelbar återställningspunkt uppta 10 TB-gränsen för ögonblicksbilder?
 Ja, för premium storage-konton till ögonblicksbilder som tagits för omedelbar återställningspunkt tar upp 10 TB utrymme för allokerade ögonblicksbild.
 
 ### <a name="how-does-the-snapshot-retention-work-during-the-five-day-period"></a>Hur fungerar ögonblicksbild kvarhållning under femdagars-period?

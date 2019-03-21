@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 8010d7cbf960c3e2f6528687be97a47d31270696
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 0d9f13003a9b81085fda9635fc8b07566a1c0c66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997208"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107533"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(INAKTUELL) Övervaka ett Azure Container Service-kluster med Log Analytics
 
@@ -91,37 +91,37 @@ $ kubectl create -f oms-daemonset.yaml
 ### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Installera Log Analytics-agenten med hjälp av en Kubernetes-hemlighet
 Du kan använda Kubernetes-hemlighet som en del av DaemonSet YAML-fil för att skydda ditt Log Analytics arbetsyte-ID och nyckel.
 
- - Kopiera skriptet och hemliga mallfilen DaemonSet YAML-fil (från [databasen](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) och kontrollera att de finns i samma katalog.
-      - Hemligheten som genererar skript - hemlighet gen.sh
-      - Hemlig mall - hemlighet template.yaml
-   - DaemonSet YAML-fil – omsagent-ds-secrets.yaml
- - Kör skriptet. Skriptet begär Log Analytics arbetsyte-ID och den primärnyckeln. Infoga som och skriptet skapar en hemlig yaml-fil så att du kan köra den.
-   ```
-   #> sudo bash ./secret-gen.sh
-   ```
+- Kopiera skriptet och hemliga mallfilen DaemonSet YAML-fil (från [databasen](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) och kontrollera att de finns i samma katalog.
+  - Hemligheten som genererar skript - hemlighet gen.sh
+  - Hemlig mall - hemlighet template.yaml
+    - DaemonSet YAML-fil – omsagent-ds-secrets.yaml
+- Kör skriptet. Skriptet begär Log Analytics arbetsyte-ID och den primärnyckeln. Infoga som och skriptet skapar en hemlig yaml-fil så att du kan köra den.
+  ```
+  #> sudo bash ./secret-gen.sh
+  ```
 
-   - Skapa hemligheter pod genom att köra följande: ``` kubectl create -f omsagentsecret.yaml ```
+  - Skapa hemligheter pod genom att köra följande: ``` kubectl create -f omsagentsecret.yaml ```
 
-   - Du kan kontrollera genom att köra följande:
+  - Du kan kontrollera genom att köra följande:
 
-   ```
-   root@ubuntu16-13db:~# kubectl get secrets
-   NAME                  TYPE                                  DATA      AGE
-   default-token-gvl91   kubernetes.io/service-account-token   3         50d
-   omsagent-secret       Opaque                                2         1d
-   root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
-   Name:           omsagent-secret
-   Namespace:      default
-   Labels:         <none>
-   Annotations:    <none>
+  ```
+  root@ubuntu16-13db:~# kubectl get secrets
+  NAME                  TYPE                                  DATA      AGE
+  default-token-gvl91   kubernetes.io/service-account-token   3         50d
+  omsagent-secret       Opaque                                2         1d
+  root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
+  Name:           omsagent-secret
+  Namespace:      default
+  Labels:         <none>
+  Annotations:    <none>
 
-   Type:   Opaque
+  Type:   Opaque
 
-   Data
-   ====
-   WSID:   36 bytes
-   KEY:    88 bytes
-   ```
+  Data
+  ====
+  WSID:   36 bytes
+  KEY:    88 bytes
+  ```
 
   - Skapa din omsagent daemon-set genom att köra ``` kubectl create -f omsagent-ds-secrets.yaml ```
 

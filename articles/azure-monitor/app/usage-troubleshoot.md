@@ -13,12 +13,12 @@ ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 7c903390af54d1771bce1b6aff96e9bb54397189
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: eabc47c2acb33d8c6ee03477b5e8c7783edebbb7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54046060"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258791"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Felsöka användaren beteende analysverktyg i Application Insights
 Om du har frågor om den [användaren beteende analysverktyg i Application Insights](usage-overview.md): [Användare, sessioner, händelser](usage-segmentation.md), [Trattar](usage-funnels.md), [Användarflöden](usage-flows.md), [kvarhållning](usage-retention.md), eller kohorter? Här är några svar.
@@ -39,7 +39,7 @@ Analysverktyg för användaren beteende stöder för närvarande inte cykliska a
 ## <a name="naming-events"></a>Namngivning av händelser
 **Min app har tusentals olika Sidvisning och namn på anpassad händelse. Det är svårt att skilja mellan dem och analysverktyg för användaren beteende svarar ofta. Hur kan jag åtgärda problemen namngivning?**
 
-Sidvy och anpassad händelsenamn används i analysverktyg som användaren beteende. Namnge händelser väl är viktigt att hämta värdet från dessa verktyg. Målet är en balans mellan har för få, alltför allmänt namn (”knappen klickade på”) och gör att för många, alltför specifika namn (”redigeringsknappen klickade på http://www.contoso.com/index”).
+Sidvy och anpassad händelsenamn används i analysverktyg som användaren beteende. Namnge händelser väl är viktigt att hämta värdet från dessa verktyg. Målet är en balans mellan har för få, alltför allmänt namn (”knappen klickade på”) och gör att för många, alltför specifika namn (”redigeringsknappen klickade på http:\//www.contoso.com/index”).
 
 Om du vill göra ändringar i Sidvisning och anpassad händelsenamn som din app skickar, som du behöver ändra källkoden och distribuera om din app. **All telemetri i Application Insights lagras i 90 dagar och kan inte tas bort**, så att ändringar du gör i händelsenamn tar 90 dagar kan fullständigt visas. I 90 dagar när du har gjort ändringar, ska både gamla och nya händelsenamn visas i telemetrin, så justera frågor och kommunicerade dina team i enlighet med detta.
 

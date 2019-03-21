@@ -15,18 +15,18 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 32d00a1c0daf383d41d6bbc7c9fe105b3a2a6ab1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ab867af76821f90c6a87c08d42affdef8192e201
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774923"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258147"
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Introduktion till IDN: er för Azure Stack
 
 *Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
-IDN: er är ett nätverk Azure Stack-funktion som gör det möjligt för dig att lösa externa DNS-namn (till exempel https://www.bing.com.) det också möjligt att registrera namn för internt virtuellt nätverk. Då kan lösa du virtuella datorer på samma virtuella nätverk genom att namnet i stället för IP-adress. Den här metoden tar bort behovet av att tillhandahålla anpassade DNS-serverposter. Mer information om DNS finns i den [översikt över Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview).
+IDN: er är ett nätverk Azure Stack-funktion som gör det möjligt för dig att lösa externa DNS-namn (till exempel https:\//www.bing.com.) Du kan också att registrera namn för internt virtuellt nätverk. Då kan lösa du virtuella datorer på samma virtuella nätverk genom att namnet i stället för IP-adress. Den här metoden tar bort behovet av att tillhandahålla anpassade DNS-serverposter. Mer information om DNS finns i den [översikt över Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview).
 
 ## <a name="what-does-idns-do"></a>Vad gör IDN: er?
 

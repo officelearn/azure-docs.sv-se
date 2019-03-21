@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 0f500ec776d90755d6738af80c34866105d354f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: ffbf30f2bfdf0a175513a8d2b9182b35c39f6aae
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999410"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58292458"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Hantera Media Services-enheter med REST  
 
@@ -29,7 +29,7 @@ ms.locfileid: "55999410"
 > 
 > 
 
-Microsoft Azure Media Services är en REST-baserad tjänst som bygger på OData v3. Du kan lägga till, fråga, uppdatera och ta bort entiteter på ungefär samma sätt som på andra OData-tjänst. Undantag att appåtgärden anropas när så är tillämpligt. Läs mer på OData [Open Data Protocol dokumentation](http://www.odata.org/documentation/).
+Microsoft Azure Media Services är en REST-baserad tjänst som bygger på OData v3. Du kan lägga till, fråga, uppdatera och ta bort entiteter på ungefär samma sätt som på andra OData-tjänst. Undantag att appåtgärden anropas när så är tillämpligt. Läs mer på OData [Open Data Protocol dokumentation](https://www.odata.org/documentation/).
 
 Det här avsnittet visar hur du hanterar Azure Media Services-enheter med REST.
 

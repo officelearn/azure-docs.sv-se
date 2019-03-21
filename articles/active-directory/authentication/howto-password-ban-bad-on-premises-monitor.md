@@ -1,5 +1,5 @@
 ---
-title: Övervakning och loggning i förhandsversionen av Azure AD-lösenordsskydd
+title: Övervakning och loggning i Azure AD-lösenordsskydd
 description: Förstå Azure AD lösenordsskydd övervakning och loggning
 services: active-directory
 ms.service: active-directory
@@ -11,23 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1f946eceab68b0fe49ea67dc33a7094458cd14c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: b1e12addc15afe0c0745e0e8d5a9b6718483d477
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451494"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293727"
 ---
-# <a name="preview-azure-ad-password-protection-monitoring-and-logging"></a>Förhandsversion: Azure AD-lösenordsskydd övervakning och loggning
-
-|     |
-| --- |
-| Azure AD-lösenordsskydd är en funktion i offentliga förhandsversionen av Azure Active Directory. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD-lösenordsskydd övervakning och loggning
 
 Är viktiga uppgifter efter distribution av Azure AD-lösenordsskydd, övervakning och rapportering. Den här artikeln innehåller information för att du lär dig vilka olika övervakning tekniker, inklusive där varje tjänst loggar information och rapportera om användning av Azure AD-lösenordsskydd.
 
-# <a name="dc-agent-event-logging"></a>Händelseloggning för DC-agent
+## <a name="dc-agent-event-logging"></a>Händelseloggning för DC-agent
 
 På varje domänkontrollant skriver DC service Agentprogrammet som är resultatet av varje enskild åtgärd för verifiering (och andra status) till en lokal händelselogg:
 

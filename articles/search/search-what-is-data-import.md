@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2c3da9470668fa2987195c26e98eee51f14027f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 7d95ae1f750c59c121e998c6f51f9439b1b0339a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58136352"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287102"
 ---
 # <a name="data-import-overview---azure-search"></a>Importera data översikt – Azure Search
 
@@ -40,18 +40,25 @@ En introduktion till varje metod finns i [snabbstarten: Skapa ett Azure Search-i
 
 <a name="indexing-actions"></a>
 
-### <a name="indexing-actions-upload-merge-uploadormerge-delete"></a>Indexering åtgärder: ladda upp, sammanfoga, uploadOrMerge, ta bort
+### <a name="indexing-actions-upload-merge-mergeorupload-delete"></a>Indexering åtgärder: ladda upp, sammanfoga, mergeOrUpload, ta bort
 
-När du använder REST-API:et skickar du HTTP POST-begäranden med JSON-begärandetext till URL:en för Azure Search-indexets slutpunkt. JSON-objektet i HTTP-begärandetexten innehåller en enstaka JSON-matris med namnet ”value” som innehåller JSON-objekt som representerar dokument som du vill lägga till i ditt index, uppdatera eller ta bort.
+Du kan styra vilken indexeringsåtgärd på basis av per dokument, att ange om dokumentet ska överföras i full, sammanfogade med dokumentinnehåll eller har tagits bort.
 
-Varje JSON-objekt i ”value”-matrisen representerar ett dokument som ska indexeras. Var och en av dessa objekt innehåller dokumentets nyckel och anger önskad indexeringsåtgärd (ladda upp, sammanfoga, ta bort). Beroende på vilken av åtgärderna nedan som du väljer måste endast vissa fält tas med för varje dokument:
+Utfärda HTTP POST-förfrågningar i REST-API med JSON-begärandetext till slutpunkts-URL för ditt Azure Search-index. Varje JSON-objekt i matrisen ”value” innehåller dokumentets nyckel och anger en indexeringsåtgärd tilläggs-, uppdateringar, eller tar bort dokumentinnehåll. Finns ett kodexempel i [läsa in dokument](search-create-index-rest-api.md#load-documents).
+
+I .NET SDK, packa upp data till en `IndexBatch` objekt. En `IndexBatch` kapslar in en samling `IndexAction` objekt, vart och ett innehåller ett dokument och en egenskap som meddelar Azure Search vilken åtgärd som ska utföras för dokumentet. Finns ett kodexempel i [konstruera IndexBatch](search-import-data-dotnet.md#construct-indexbatch).
+
 
 | @search.action | Beskrivning | Nödvändiga fält för varje dokument | Anteckningar |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |En `upload`-åtgärd liknar en ”upsert” där dokumentet infogas om det är nytt och uppdateras/ersätts om det finns. |nyckel plus eventuella andra fält som du vill definiera |När du uppdaterar och ersätter ett befintligt dokument tilldelas alla fält som inte angetts i begäran `null`. Detta sker även om fältet tidigare hade ett värde som inte var null. |
-| `merge` |Uppdaterar ett befintligt dokument med de angivna fälten. Sammanfogningen misslyckas om dokumentet inte finns i indexet. |nyckel plus eventuella andra fält som du vill definiera |Alla fält som du anger i en sammanfogning ersätter det befintliga fältet i dokumentet. Detta gäller även fält av typen `Collection(Edm.String)`. Om dokumentet till exempel innehåller ett `tags`-fält med värdet `["budget"]` och du utför en sammanfogning med värdet `["economy", "pool"]` för `tags` så blir det slutliga värdet för fältet `tags` `["economy", "pool"]`. Det blir inte `["budget", "economy", "pool"]`. |
+| `merge` |Uppdaterar ett befintligt dokument med de angivna fälten. Sammanfogningen misslyckas om dokumentet inte finns i indexet. |nyckel plus eventuella andra fält som du vill definiera |Alla fält som du anger i en sammanfogning ersätter det befintliga fältet i dokumentet. I .NET SDK, omfattar detta fält av typen `DataType.Collection(DataType.String)`. I REST API, omfattar detta fält av typen `Collection(Edm.String)`. Om dokumentet till exempel innehåller ett `tags`-fält med värdet `["budget"]` och du utför en sammanfogning med värdet `["economy", "pool"]` för `tags` så blir det slutliga värdet för fältet `tags` `["economy", "pool"]`. Det blir inte `["budget", "economy", "pool"]`. |
 | `mergeOrUpload` |Den här åtgärden fungerar som `merge` om ett dokument med den angivna nyckeln redan finns i indexet. Om dokumentet inte finns fungerar den som `upload` med ett nytt dokument. |nyckel plus eventuella andra fält som du vill definiera |- |
 | `delete` |Tar bort det angivna dokumentet från indexet. |endast nyckel |Andra fält som du anger än nyckelfältet ignoreras. Om du vill ta bort ett enstaka fält från ett dokument använder du `merge` i stället och anger bara fältet till null. |
+
+## <a name="decide-which-indexing-action-to-use"></a>Bestäm vilken indexeringsåtgärd som du vill använda
+Att importera data med .NET SDK, (ladda upp, sammanfoga, ta bort och mergeOrUpload). Beroende på vilken av åtgärderna nedan som du väljer måste endast vissa fält tas med för varje dokument:
+
 
 ### <a name="formulate-your-query"></a>Formulera frågan
 Du kan [söka i ditt index med hjälp av REST-API:et](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) på två sätt. Ett sätt är att skicka en HTTP POST-begäran där dina frågeparametrar definieras i ett JSON-objekt i begärandetexten. Det andra sättet är att skicka en HTTP GET-begäran där dina frågeparametrar definieras i URL:en för begäran. POST har mindre [restriktiva gränser](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) vad gäller frågeparametrarnas storlek än GET. Av den anledningen rekommenderar vi att du använder POST såvida det inte finns särskilda omständigheter som gör att GET är lämpligare.

@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2556942119fdd4f58f6bd47bc88160dd2e13753d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: 3a50d78645630e499b11f012da122b12b026ae6b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585568"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857869"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Snabbstart: Strömma videofiler – .NET
 
@@ -31,7 +31,7 @@ I slutet av snabbstarten kommer du att kunna strömma en video.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte har Visual Studio installerat kan du hämta [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md).<br/>Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot.
@@ -42,7 +42,7 @@ I slutet av snabbstarten kommer du att kunna strömma en video.
 Klona en GitHub-lagringsplats som innehåller det strömmande .NET-exemplet till din dator med följande kommando:  
 
  ```bash
- git clone http://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
+ git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
 
 Exemplet finns i mappen [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles).

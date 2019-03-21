@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/14/2019
-ms.openlocfilehash: 37dcde3d55ce704c7a5dbb6d7757420ba8c393f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.date: 03/20/2019
+ms.openlocfilehash: 7c35c1f3568ab98bdd3c7fba8acd3aa958aa795b
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885109"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285149"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Resursgränser för enskilda databaser med hjälp av den DTU-baserade inköpsmodellen
 
@@ -73,12 +73,14 @@ Följande tabeller visar resurserna som är tillgängliga för en enskild databa
 | **Beräkna storlek** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
 | Maximala DTU:er | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| Lagringsutrymme (GB) | 500 | 500 | 500 | 500 | 4096 | 4096 |
-| Maximalt antal lagringsalternativ (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
+| Lagringsutrymme (GB) | 500 | 500 | 500 | 500 | 4096* | 4096* |
+| Maximalt antal lagringsalternativ (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096* | 4096* |
 | Maximal InMemory-OLTP-lagring (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Maximalt antal samtidiga arbetare (begäranden)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Maximalt antal samtidiga sessioner | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
+
+\* Från 1 024 GB upp till 4096 GB ökningar på 256 GB
 
 > [!IMPORTANT]
 > Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom: Kina, östra; Kina, norra; Tyskland, centrala; Tyskland, nordöstra; USA, västra centrala; US DoD-regioner samt US Government Central. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i aktuella begränsningar för sidan 11-15.  

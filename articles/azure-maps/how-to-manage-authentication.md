@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: fe0e325543d245e4415fea925fcdade32eb00614
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 414ca7156fd59ec1dc08e45c73e9eb30835078d4
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570512"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259932"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Hantera autentisering i Azure Maps
 
@@ -32,7 +32,7 @@ Du kan visa information om din autentisering på Azure portal. Gå till ditt kon
 
 När du skapar ett Azure Maps-konto måste du upprätta en anslutning mellan din Azure AD-klient och Azure Maps-resursen.
 
-1. Gå till bladet Azure AD och skapa en appregistrering. Ange ett namn för registreringen. I den **inloggnings-URL** ange startsida webbappen / API (till exempel https://localhost/). Om du redan har en registrerad app, gå till steg 2.
+1. Gå till bladet Azure AD och skapa en appregistrering. Ange ett namn för registreringen. I den **inloggnings-URL** ange startsida webbappen / API (till exempel https:\//localhost/). Om du redan har en registrerad app, gå till steg 2.
 
     ![Appregistrering](./media/how-to-manage-authentication/app-registration.png)
 

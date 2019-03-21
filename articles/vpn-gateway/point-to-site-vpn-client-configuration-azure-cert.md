@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 03/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: 58936fa85567dcac624b15e95bbd84e68e0ae117
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: c8bc0ad7c5113f8ffdcda0ae9e6b1df43975bbcb
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009894"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294951"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Skapa och installera VPN-klientkonfigurationsfiler för native Azure certificate authentication P2S-konfigurationer
 
@@ -74,7 +74,7 @@ Använd följande steg för att konfigurera den inbyggda Windows VPN-klienten f�
 
 ## <a name="installmac"></a>Mac (OS X)
 
- Du måste konfigurera den inbyggda IKEv2 VPN-klienten manuellt på varje Mac som ska ansluta till Azure. Azure tillhandahåller inte mobileconfig-filen för intern Azure-certifikatautentisering. Den **allmän** innehåller all information som du behöver för konfigurationen. Om du inte ser mappen Generic i nedladdningen beror det antagligen på att du inte valde IKEv2 som tunneltyp. När du har valt IKEv2 genererar du ZIP-filen igen för att hämta mappen Generic.<br>Mappen Generic innehåller följande filer:
+ Du måste konfigurera den inbyggda IKEv2 VPN-klienten manuellt på varje Mac som ska ansluta till Azure. Azure tillhandahåller inte mobileconfig-filen för intern Azure-certifikatautentisering. Den **allmän** innehåller all information som du behöver för konfigurationen. Om du inte ser mappen Generic i nedladdningen beror det antagligen på att du inte valde IKEv2 som tunneltyp. Observera att VPN-gatewayen grundläggande SKU: N inte har stöd för IKEv2. När du har valt IKEv2 genererar du ZIP-filen igen för att hämta mappen Generic.<br>Mappen Generic innehåller följande filer:
 
 * **VpnSettings.xml**, som innehåller viktiga inställningar som typ av adress och tunnel. 
 * **VpnServerRoot.cer**, som innehåller servercertifikatets rotcertifikat som krävs för att validera Azure VPN Gateway under installationen av P2S-anslutning.

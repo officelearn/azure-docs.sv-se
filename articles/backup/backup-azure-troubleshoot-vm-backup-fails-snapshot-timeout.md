@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 85dca677238070ded13b59faf9a13081c2409987
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4d090740b75acbe2629ae4f1e13cde8947f190bb
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890873"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286439"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: Problem med agenten eller -tillägget
 
@@ -102,19 +102,12 @@ När du har registrerat och schemalägga en virtuell dator för Azure Backup-tj�
 **Orsak 5: Backup-tjänsten har inte behörighet att ta bort gamla återställningspunkter på grund av en grupp resurslås** <br>
 **Orsak 6: [Den virtuella datorn har inte tillgång till internet](#the-vm-has-no-internet-access)**
 
-## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize – för närvarande Azure Backup har inte stöd för diskar som är större än 1 023 GB
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize – för närvarande Azure Backup har inte stöd för diskar som är större än 4 095 GB
 
 **Felkod**: UserErrorUnsupportedDiskSize <br>
-**Felmeddelande**: För närvarande har Azure Backup inte stöd för diskstorlekar som är större än 1023 GB <br>
+**Felmeddelande**: Azure Backup stöder för närvarande inte diskar som är större än 4 095 GB <br>
 
-Din säkerhetskopieringen misslyckas, när du säkerhetskopierar virtuella datorer med diskstorlekar på över 1 023 GB, eftersom ditt valv inte har uppgraderats till omedelbar återställning. Uppgradera till omedelbar återställning ger stöd för upp till 4TB, finns i den här [artikeln](backup-instant-restore-capability.md#upgrading-to-instant-restore). När du uppgraderar kan ta det upp till två timmar innan prenumerationen för att kunna ta del av den här funktionen. Ange tillräckliga bufferten innan du försöker igen.  
-
-## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported – för närvarande Azure Backup stöder inte Standard SSD-diskar
-
-**Felkod**: UserErrorStandardSSDNotSupported <br>
-**Felmeddelande**: Azure Backup stöder för närvarande inte Standard SSD-diskar <br>
-
-Azure Backup stöder för närvarande Standard SSD-diskar endast för valv som har uppgraderats till [omedelbar återställning](backup-instant-restore-capability.md).
+Din säkerhetskopieringen misslyckas, när du säkerhetskopierar virtuella datorer med diskstorlekar på över 4 095 GB. Stöd för stora diskar kommer snart.  
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - det går inte att påbörja säkerhetskopieringen eftersom en annan säkerhetskopiering pågår just nu
 

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: b40a2bbfa7bbab7ffbdd4c47684eda7c954e7b77
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c5979fa7ff67c5acda9ab653bc4ee52d8b5129a5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996971"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293812"
 ---
 # <a name="streaming-endpoints-overview"></a>Översikt över slutpunkter för direktuppspelning  
 
@@ -50,8 +50,8 @@ Från och med januari 2017-versionen av Media Services kan ha du två strömmand
 
 Type|Beskrivning
 ---|---
-**Standard**|Det här är standardalternativet som skulle fungera för flesta scenarier.<br/>Med det här alternativet kan du få fast/begränsad SLA, första 15 dagarna efter att du startar slutpunkten för direktuppspelning är kostnadsfri.<br/>Om du skapar flera slutpunkter för direktuppspelning, endast den första som är kostnadsfri under de första 15 dagarna, faktureras de andra när du startar. <br/>Observera att kostnadsfria utvärderingsversionen bara gäller för nya media services-konton och standardslutpunkt för direktuppspelning. Befintliga slutpunkter för direktuppspelning och dessutom skapade slutpunkter för direktuppspelning inte innehåller kostnadsfria utvärderingsperioden även de uppgraderas till version 2.0 eller de skapas som version 2.0.
-**Premium**|Det här alternativet är lämpligt för professionella scenarier som kräver högre skala eller kontroll.<br/>Variabeln serviceavtal som baseras på strömmande enhet (SU) premiumkapacitet köpt, dedikerad slutpunkter för direktuppspelning live i isolerad miljö och konkurrerar inte om resurser.
+**Standard** |Det här är standardalternativet som skulle fungera för flesta scenarier.<br/>Med det här alternativet kan du få fast/begränsad SLA, första 15 dagarna efter att du startar slutpunkten för direktuppspelning är kostnadsfri.<br/>Om du skapar flera slutpunkter för direktuppspelning, endast den första som är kostnadsfri under de första 15 dagarna, faktureras de andra när du startar. <br/>Observera att kostnadsfria utvärderingsversionen bara gäller för nya media services-konton och standardslutpunkt för direktuppspelning. Befintliga slutpunkter för direktuppspelning och dessutom skapade slutpunkter för direktuppspelning inte innehåller kostnadsfria utvärderingsperioden även de uppgraderas till version 2.0 eller de skapas som version 2.0.
+**Premium** |Det här alternativet är lämpligt för professionella scenarier som kräver högre skala eller kontroll.<br/>Variabeln serviceavtal som baseras på strömmande enhet (SU) premiumkapacitet köpt, dedikerad slutpunkter för direktuppspelning live i isolerad miljö och konkurrerar inte om resurser.
 
 Mer information finns i den **jämför Streaming typer** följande avsnitt.
 

@@ -7,22 +7,22 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: quickstart
 ms.reviewer: sgilley
-author: hning86
-ms.author: haining
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 513df9f68fdd54b5dc90e57bd8389688c46bf615
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: HT
+ms.openlocfilehash: fcf919a4120348ba8101280d960470ce46e5bdb0
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804254"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294254"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Snabbstart: Kom igång med Azure Machine Learning med hjälp av Python-SDK:n
 
 I den här artikeln använder du Azure Machine Learning SDK för Python 3 för att skapa och sedan använda en [arbetsyta](concept-azure-machine-learning-architecture.md) för Azure Machine Learning-tjänsten. Den här arbetsytan är själva grunden i det moln som du använder för att experimentera, träna och distribuera maskininlärningsmodeller med Machine Learning.
 
-Du börjar med att konfigurera din egen Python-miljö och Jupyter Notebook Server. Information om hur du kan köra den utan installation finns i [Snabbstart: Använda Azure-portalen för att komma igång med Azure Machine Learning](quickstart-get-started.md). 
+Du börjar med att konfigurera din egen Python-miljö och Jupyter Notebook Server. Information om hur du kan köra den utan installation finns i [Snabbstart: Använda Azure-portalen för att komma igång med Azure Machine Learning](quickstart-get-started.md).
 
 Visa en videoversion av den här snabbstarten:
 
@@ -39,17 +39,17 @@ I den här snabbstarten kommer du att göra följande:
 Du skapar en arbetsyta och en konfigurationsfil som är nödvändiga komponenter för andra självstudier och instruktionsartiklar om Azure Machine Learning. Precis som med andra Azure-tjänster finns det vissa begränsningar och kvoter som är associerade med Machine Learning. [Läs mer om kvoter och hur du begär mer.](how-to-manage-quotas.md)
 
 Följande Azure-resurser läggs automatiskt till din arbetsyta när de är regionalt tillgängliga:
- 
+
 - [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
 - [Azure Storage](https://azure.microsoft.com/services/storage/)
-- [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
+- [Azure Application Insights](https://azure.microsoft.com/services/application-insights/)
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
 >[!NOTE]
 > Koden i den här artikeln kräver Azure Machine Learning SDK version 1.0.2 eller senare och testades med version 1.0.8.
 
 
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) i dag.
+Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
 ## <a name="install-the-sdk"></a>Installera SDK:n
 
@@ -58,13 +58,16 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
 > * Azure Data Science Virtual Machines som skapats efter det den 27 september 2018 levereras förinstallerade med Python-SDK:n.
 > * I Azure Databricks-miljön följer du [Databricks-installationsstegen](how-to-configure-environment.md#azure-databricks) i stället.
 
+>[!NOTE]
+> Följ dessa instruktioner för att installera och använda SDK: N från Jupyter Notebook på din lokala dator. För att använda Jupyter på fjärransluten virtuell dator, konfigurera en fjärransluten dator eller X terminalsession.
+
 Innan du installerar SDK:n rekommenderar vi att du skapar en isolerad Python-miljö. Även om den här artikeln använder [Miniconda](https://docs.conda.io/en/latest/miniconda.html) kan du även använda fullständiga [Anaconda](https://www.anaconda.com/) installerat eller [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
 Anvisningarna i den här snabbstarten kommer att installera de paket som du behöver för köra anteckningsböckerna för snabbstart och självstudier.  Andra exempelanteckningsböcker kan kräva installation av ytterligare komponenter.  Mer information om dessa komponenter finns i avsnittet om att [installera Azure Machine Learning SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
 
 ### <a name="install-miniconda"></a>Installera Miniconda
 
-[Ladda ned och installera Miniconda](https://docs.conda.io/en/latest/miniconda.html). Välj att installera versionen Python 3.7. Välj inte versionen Python 2.x.  
+[Ladda ned och installera Miniconda](https://docs.conda.io/en/latest/miniconda.html). Välj att installera versionen Python 3.7. Välj inte versionen Python 2.x.
 
 ### <a name="create-an-isolated-python-environment"></a>Skapa en isolerad Python-miljö
 
@@ -94,9 +97,9 @@ Anvisningarna i den här snabbstarten kommer att installera de paket som du beh�
 
 ### <a name="install-the-sdk"></a>Installera SDK:n
 
-1. Installera kärnkomponenterna för Machine Learning-SDK:n med Jupyter Notebook-funktioner i den aktiverade conda-miljön.  Installationen tar några minuter att slutföra beroende på datorns konfiguration.
+1. Installera kärnkomponenterna för Machine Learning-SDK:n med Jupyter Notebook-funktioner i den aktiverade conda-miljön. Installationen tar några minuter att slutföra beroende på datorns konfiguration.
 
-  ```shell
+    ```shell
     pip install --upgrade azureml-sdk[notebooks]
     ```
 
@@ -112,6 +115,13 @@ Anvisningarna i den här snabbstarten kommer att installera de paket som du beh�
     pip install --upgrade azureml-sdk[automl]
     ```
 
+> [!IMPORTANT]
+> I vissa kommandoradsverktyg, kan du behöva lägga till citattecken enligt följande:
+> *  'azureml-sdk[notebooks]'
+> * 'azureml-sdk[automl]'
+>
+
+
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
 Skapa din arbetsyta i en Jupyter Notebook med hjälp av Python-SDK.
@@ -124,7 +134,7 @@ Skapa din arbetsyta i en Jupyter Notebook med hjälp av Python-SDK.
     jupyter notebook
     ```
 
-1. I webbläsarfönstret skapar du en ny notebook med hjälp av `Python 3`-standardkernel. 
+1. I webbläsarfönstret skapar du en ny notebook med hjälp av `Python 3`-standardkernel.
 
 1. Visa SDK-versionen genom att ange och sedan köra följande Python-kod i en notebook-cell:
 
@@ -135,10 +145,10 @@ Skapa din arbetsyta i en Jupyter Notebook med hjälp av Python-SDK.
    ```python
    from azureml.core import Workspace
    ws = Workspace.create(name='myworkspace',
-                         subscription_id='<azure-subscription-id>', 
+                         subscription_id='<azure-subscription-id>',
                          resource_group='myresourcegroup',
                          create_resource_group=True,
-                         location='eastus2' 
+                         location='eastus2'
                         )
    ```
 
@@ -151,9 +161,9 @@ Skapa din arbetsyta i en Jupyter Notebook med hjälp av Python-SDK.
 
 ## <a name="write-a-configuration-file"></a>Skriva en konfigurationsfil
 
-Spara informationen om arbetsytan i en konfigurationsfil i den aktuella katalogen. Den här filen kallas *aml_config\config.json*.  
+Spara informationen om arbetsytan i en konfigurationsfil i den aktuella katalogen. Den här filen kallas *aml_config\config.json*.
 
-Den här konfigurationsfilen för arbetsyta gör det enkelt att läsa in samma arbetsyta senare. Du kan läsa in den med andra notebooks och skript i samma katalog eller en underkatalog.  
+Den här konfigurationsfilen för arbetsyta gör det enkelt att läsa in samma arbetsyta senare. Du kan läsa in den med andra notebooks och skript i samma katalog eller en underkatalog.
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
 
@@ -188,7 +198,7 @@ Använd länken för att visa de loggade värdena på Azure-portalen i webbläsa
 
 ![Loggade värden i Azure Portal](./media/quickstart-create-workspace-with-python/logged-values.png)
 
-## <a name="clean-up-resources"></a>Rensa resurser 
+## <a name="clean-up-resources"></a>Rensa resurser
 >[!IMPORTANT]
 >Du kan använda resurserna som du har skapat här som förhandskrav för andra självstudier och instruktionsartiklar om Machine Learning.
 
@@ -203,4 +213,4 @@ I den här artikeln har du lärt dig att skapa de resurser som du behöver för 
 > [!div class="nextstepaction"]
 > [Självstudier: Träna en bildklassificeringsmodell](tutorial-train-models-with-aml.md)
 
-Du kan även utforska [mer avancerade exempel på GitHub](https://aka.ms/aml-notebooks).
+Du kan även utforska [mer avancerade exempel på GitHub](https://aka.ms/aml-notebooks) eller visa den [SDK användarhandboken](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 4cbb8e389f403aeb149998acc21956ebce40be78
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 883e81572218e39d84ad8793423b02468d49d00a
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011508"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294067"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Förstå och använda enhetstvillingar i IoT Hub
 
@@ -180,44 +180,44 @@ Lösningens backend-server körs på enhetstvillingen med hjälp av följande at
 
 * **Ta emot meddelanden twin**. Den här åtgärden gör att lösningens serverdel kan meddelas när läsningen ändras. Gör din IoT-lösning behöver du skapar en väg och datakällan ska vara lika med *twinChangeEvents*. Som standard finnas inga sådana vägar redan, så att inga dubbla meddelanden skickas. Om ändringsfrekvensen är för hög eller av andra orsaker, till exempel interna fel IoT-hubben kan skicka endast ett meddelande som innehåller alla ändringar. Om ditt program behöver tillförlitlig granskning och loggning av alla mellanliggande tillstånd, bör du därför använda meddelanden från enheten till molnet. Meddelandet twin innehåller egenskaperna och brödtext.
 
-   - Egenskaper
+  - Egenskaper
 
-   | Namn | Värde |
-   | --- | --- |
-   $content-typ | application/json |
-   $iothub-enqueuedtime |  Tid när meddelandet skickades |
-   $iothub-message-source | twinChangeEvents |
-   $content-encoding | utf-8 |
-   deviceId | ID för enheten |
-   HubName | Namnet på IoT Hub |
-   operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) tidsstämpeln för åtgärden |
-   iothub-message-schema | deviceLifecycleNotification |
-   opType | ”replaceTwin” eller ”updateTwin” |
+    | Namn | Värde |
+    | --- | --- |
+    $content-typ | application/json |
+    $iothub-enqueuedtime |  Tid när meddelandet skickades |
+    $iothub-message-source | twinChangeEvents |
+    $content-encoding | utf-8 |
+    deviceId | ID för enheten |
+    HubName | Namnet på IoT Hub |
+    operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) tidsstämpeln för åtgärden |
+    iothub-message-schema | deviceLifecycleNotification |
+    opType | ”replaceTwin” eller ”updateTwin” |
 
-   Meddelandet Systemegenskaper föregås den `$` symbolen.
+    Meddelandet Systemegenskaper föregås den `$` symbolen.
 
-   - Innehåll
+  - Innehåll
         
-   Det här avsnittet innehåller alla twin ändringar i JSON-format. Den använder samma format som en korrigeringsfil, med skillnaden att den kan innehålla alla twin avsnitt: taggar, properties.reported, properties.desired och att den innehåller ”$metadata”-element. Exempel:
+    Det här avsnittet innehåller alla twin ändringar i JSON-format. Den använder samma format som en korrigeringsfil, med skillnaden att den kan innehålla alla twin avsnitt: taggar, properties.reported, properties.desired och att den innehåller ”$metadata”-element. Exempel:
 
-   ```json
-   {
-       "properties": {
-           "desired": {
-               "$metadata": {
-                   "$lastUpdated": "2016-02-30T16:24:48.789Z"
-               },
-               "$version": 1
-           },
-           "reported": {
-               "$metadata": {
-                   "$lastUpdated": "2016-02-30T16:24:48.789Z"
-               },
-               "$version": 1
-           }
-       }
-   }
-   ```
+    ```json
+    {
+      "properties": {
+          "desired": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          },
+          "reported": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          }
+      }
+    }
+    ```
 
 Stöd för alla åtgärder för föregående [Optimistisk samtidighet](iot-hub-devguide-device-twins.md#optimistic-concurrency) och kräver den **ServiceConnect** behörighet, enligt definitionen i [styra åtkomsten till IoT Hub](iot-hub-devguide-security.md).
 
@@ -310,7 +310,7 @@ Exempel:
             "telemetryConfig": {
                 "sendFrequency": "5m",
                 "status": "success"
-            }
+            },
             "batteryLevel": "55%",
             "$metadata": {
                 "telemetryConfig": {
@@ -319,7 +319,7 @@ Exempel:
                         "$lastUpdated": "2016-03-31T16:35:48.789Z"
                     },
                     "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                }
+                },
                 "batteryLevel": {
                     "$lastUpdated": "2016-04-01T16:35:48.789Z"
                 },

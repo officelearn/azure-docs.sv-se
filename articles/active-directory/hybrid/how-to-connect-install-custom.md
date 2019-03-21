@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 03/20/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b55a7016ec0068234dfc6110d9d4afc04119ccdd
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: bbfc325d1a33db45afecf30bfa21244e3336961d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194069"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295495"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
 Du använder **anpassade inställningar** för Azure AD Connect om du behöver fler installationsalternativ. Du använder dem till exempel om du har flera skogar eller om du vill konfigurera valfria funktioner som inte omfattas av snabbinstallationen. De används i samtliga fall där en [**snabbinstallation**](how-to-connect-install-express.md) inte uppfyller dina distributions- eller topologikrav.
@@ -221,7 +221,7 @@ För varje skog som har lagts till i Azure AD Connect måste du ange inloggnings
 >Du kan hoppa över en viss skog om du inte vill använda enkel inloggning med den skogen.
 
 #### <a name="configure-the-intranet-zone-for-client-machines"></a>Konfigurera zonen Intranät för klientdatorer
-För att se till att klienten loggar in automatiskt i zonen Intranät måste du kontrollera att två URL:er ingår i zonen Intranät. Detta säkerställer att den domänanslutna datorn automatiskt skickar en Kerberos-biljett till Azure AD när den ansluter till företagsnätverket.
+För att säkerställa att klienten inloggningar automatiskt i intranätzonen måste du kontrollera att URL: en är en del av intranätzonen. Detta säkerställer att den domänanslutna datorn automatiskt skickar en Kerberos-biljett till Azure AD när den ansluter till företagsnätverket.
 På en dator med verktyg för grupprinciphantering.
 
 1.  Öppna verktygen för grupprinciphantering

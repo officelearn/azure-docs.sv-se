@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46fc0a49ebae86a715685e1073b4eb7cc10e6032
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 65e803ca373fb9853fc23d17f1a27ecadc6a209c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533416"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295223"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Hitta aktivitetsrapporter i Azure portal
 
@@ -81,12 +81,12 @@ Tjänsterna omfattar:
 - B2C
 - Villkorlig åtkomst
 - Kärnkatalog
-- Hantering av behörighet
+- Berättigandehantering
 - Identity Protection
 - Inbjudna användare
 - PIM
 - Självbetjäning, grupphantering
-- Självbetjäning Passord Management
+- Hantering av lösenord för självbetjäning
 - Användningsvillkor
 
 ## <a name="sign-ins-report"></a>Rapport över inloggningar 
@@ -153,11 +153,11 @@ Jag har hämtat aktivitetsloggarna (granskning eller inloggningar) och kan inte 
  
 #### <a name="cause"></a>Orsak
 
-När du hämtar aktivitetsloggar i Azure portal begränsar vi omfattningen till 5 000 poster, sorterade efter senaste först. 
+När du hämtar aktivitetsloggar i Azure portal begränsar vi omfattningen till 250000 poster, sorterade efter senaste först. 
 
 #### <a name="resolution"></a>Lösning
 
-Du kan använda [rapporterings-API:er för Azure AD](concept-reporting-api.md) att hämta upp till en miljoner poster när som helst. Den rekommenderade metoden är att [köra ett skript enligt ett schema](tutorial-signin-logs-download-script.md) som anropar den reporting API: er för att hämta poster på ett inkrementellt sätt under en viss tidsperiod (till exempel varje dag eller varje vecka). 
+Du kan använda [rapporterings-API:er för Azure AD](concept-reporting-api.md) att hämta upp till en miljoner poster när som helst.
 
 ### <a name="missing-audit-data-for-recent-actions-in-the-azure-portal"></a>Saknas granskningsdata för senaste åtgärder i Azure portal
 

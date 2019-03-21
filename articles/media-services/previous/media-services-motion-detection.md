@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: 26090067923c468b7102ac5b7bb78b9d7b7960bb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: e0b083cba575f4d1c0eb19afb76fca29431ae75e
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995620"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259113"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Identifiera rörelser med Azure Media Analytics
 ## <a name="overview"></a>Översikt
@@ -386,5 +386,5 @@ namespace VideoMotionDetection
 
 [Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
-[Azure Medieanalys-demonstrationer](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Medieanalys-demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

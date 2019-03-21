@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 1/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: a82c3b3aef59ef53e5054f2beb2880e8a01dc8fa
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7aa0e11ed47219829830369d17b300270d3fbffb
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448668"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259422"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Distribuera en modell som en webbtjänst på en FPGA med Azure Machine Learning-tjänsten
 
@@ -28,7 +28,7 @@ Du kan distribuera en modell som en webbtjänst på [fältet programmable gate m
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) i dag.
+- Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
 - En arbetsyta för Azure Machine Learning-tjänsten och Azure Machine Learning-SDK för Python installerat. Lär dig hur du hämtar dessa krav med hjälp av den [så här konfigurerar du en utvecklingsmiljö](how-to-configure-environment.md) dokumentet.
  
@@ -45,10 +45,6 @@ Du kan distribuera en modell som en webbtjänst på [fältet programmable gate m
     ```shell
     pip install "tensorflow==1.10"
     ```
-
-### <a name="get-the-notebook"></a>Hämta anteckningsboken
-
-Självstudien finns tillgänglig som en Jupyter Notebook. Följ kod här eller kör den [Snabbstart notebook](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/project-brainwave-quickstart.ipynb).
 
 ## <a name="create-and-deploy-your-model"></a>Skapa och distribuera din modell
 Skapa en pipeline för att Förbearbeta inmatad bild, blir en funktion med ResNet-50 på en FPGA och kör sedan funktionerna via en klassificerare som tränats på ImageNet-datauppsättning.

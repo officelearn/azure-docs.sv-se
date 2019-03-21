@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 03/20/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eae1569cf6f7ada89f64b96fe81b154b84932a12
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dd89d9645d2054f301ed999121fefc417ea5c6fa
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182854"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293914"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-utskalning
 
@@ -46,6 +46,8 @@ När du utför en efterföljande skalbara, till exempel är öka antalet replike
 * Synkronisering tillåts även om det finns inga repliker i frågepoolen. Om du skala ut från noll till en eller flera repliker med nya data från en bearbetning åtgärd på den primära servern, synkronisera först med inga repliker i frågepoolen och sedan skala ut. Synkronisera innan du skalar ut undviker redundanta hydrering nytillagda repliker.
 
 * När du tar bort en modelldatabas från den primära servern, den inte automatiskt tas bort från repliker i frågepoolen. Du måste utföra en synkroniseringsåtgärd som tar bort filen/s för den här databasen från repliken delade blob-lagringsplats och tar sedan bort modelldatabasen på repliker i frågepoolen.
+
+* När du ändrar en databas på den primära servern, finns det ytterligare ett steg krävs för att se till att databasen är korrekt synkroniserad till alla repliker. När du byter namn på, utför du en synkronisering att ange den `-Database` parametern med det gamla databasnamnet. Synkroniseringen tar bort databasen och filer med det gamla namnet från alla repliker. Utför sedan en annan synkronisering ange den `-Database` parametern med det nya databasnamnet. Den andra synkroniseringen kopierar den nya databasen till den andra uppsättningen av filer och hydrates alla repliker. Dessa synkroniseringar kan inte utföras med hjälp av kommandot Synkronisera modellen i portalen.
 
 ### <a name="separate-processing-from-query-pool"></a>Separata bearbetning från frågepool
 

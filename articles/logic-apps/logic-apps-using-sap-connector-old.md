@@ -2,7 +2,6 @@
 title: Ansluta till SAP-system – Azure Logic Apps | Microsoft Docs
 description: Så här att komma åt och hantera SAP-resurser genom att automatisera arbetsflöden med Azure Logic Apps
 author: ecfan
-manager: jeconnoc
 ms.author: estfan
 ms.date: 05/31/2018
 ms.topic: article
@@ -11,18 +10,17 @@ services: logic-apps
 ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 77d1e11c1400f9a3d6bb6bda8e935cd4d24a195e
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d677c0eae9c92f90783ed4ebd95a528b34c872ec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230904"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170844"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ansluta till SAP-system från Azure Logic Apps
 
 > [!NOTE]
-> Den här SAP-anslutningsappen upphör att gälla snart. Vi har släppt nya och mer avancerade SAP-anslutningsappen och det rekommenderas att välja eller flytta till den [nya SAP-anslutningsappen](./logic-apps-using-sap-connector.md).
->  
+> Den här SAP-anslutningsappen har schemalagts för utfasningen. Använd eller migrera till den [senare och mer avancerade SAP-anslutningsappen](./logic-apps-using-sap-connector.md). 
 
 Den här artikeln visar hur du kan komma åt dina SAP-resurser i en logikapp med SAP-programservern och SAP Message Server-anslutningar. På så sätt kan du automatisera uppgifter, processer och arbetsflöden som hanterar dina SAP-data och resurser genom att skapa logikappar.
 
@@ -38,7 +36,7 @@ Om du inte har en Azure-prenumeration än, <a href="https://azure.microsoft.com/
 
 Om du vill följa den här artikeln behöver du följande objekt:
 
-* Logikapp från där du vill komma åt dina SAP-system och en utlösare som startar logikappens arbetsflöde. SAP-anslutningsappar innehåller för närvarande endast åtgärder. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Snabbstart: skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Logikapp från där du vill komma åt dina SAP-system och en utlösare som startar logikappens arbetsflöde. SAP-anslutningsappar innehåller för närvarande endast åtgärder. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabbstarten: Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Din <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">SAP-programservern</a> eller <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">SAP Message Server</a>
 
@@ -67,7 +65,7 @@ I det här exemplet skapar du en logikapp med en slutpunkt i Azure så att du ka
 
 1. Skapa en tom logikapp som öppnas Logic App Designer i Azure-portalen. 
 
-2. Ange ”http-begäran” i sökrutan som filter. Välj den här utlösaren från listan över utlösare: **begäran – när en HTTP-begäran tas emot**
+2. Ange ”http-begäran” i sökrutan som filter. Välj den här utlösaren från listan över utlösare: **Begäran - när en HTTP-begäran tas emot**
 
    ![Lägg till HTTP-begäran-utlösare](./media/logic-apps-using-sap-connector-old/add-trigger.png)
 
@@ -154,7 +152,7 @@ Lägg till en svarsåtgärd logikappens arbetsflöde och innehåller utdata frå
 
 1. I Logic App Designer, SAP-åtgärd väljer **nytt steg** > **Lägg till en åtgärd**.
 
-2. I sökrutan anger du ”svar” som filter. Välj den här åtgärden från åtgärdslistan över: **begäran – svar**
+2. I sökrutan anger du ”svar” som filter. Välj den här åtgärden från åtgärdslistan över: **Begäran - svar**
 
 3. Klicka i den **brödtext** så att den dynamiska innehållslistan visas. Från listan under **skicka till SAP**väljer den **brödtext** fält. 
 

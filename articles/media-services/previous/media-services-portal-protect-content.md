@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: dc5439c98b5abc69b6cb1ba144e015426bb887ce
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c0571e202448951de0994d34f68e1649eabd5519
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996978"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259082"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Konfigurera innehållsskydd principer med hjälp av Azure portal
  Med Azure Media Services kan skydda du dina mediefiler från den tidpunkt som den lämnar din dator via lagrings-, bearbetnings- och leverans. Du kan använda Media Services för att leverera ditt innehåll krypteras dynamiskt med den Standard AES (Advanced Encryption) med hjälp av 128-bitars krypteringsnycklar. Du kan också använda den med gemensam kryptering (CENC) med PlayReady och/eller Widevine digital rights management (DRM) och Apple FairPlay. 
@@ -71,7 +71,7 @@ Widevine-licensmall anger de funktioner som är aktiverad för Widevine-licenser
 ### <a name="basic"></a>Basic
 När du väljer **grundläggande**, mallen har skapats med alla standardvärden.
 
-### <a name="advanced"></a>Advanced
+### <a name="advanced"></a>Avancerat
 Mer information om rättighetsmall för Widevine finns i den [översikt över Widevine-licensmallen](media-services-widevine-license-template-overview.md).
 
 ![Avancerade innehållsskydd](./media/media-services-portal-content-protection/media-services-content-protection005.png)

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 170f20ae65a8ba58291a630dc76496cbdcdb36de
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 3c9227a34c1b7208210b84b5b7d64ecdc8654a83
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138124"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286388"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestanda och skalning i varaktiga funktioner (Azure Functions)
 
@@ -60,7 +60,7 @@ Maximal avsökningen fördröjningen kan konfigureras via den `maxQueuePollingIn
 
 ## <a name="storage-account-selection"></a>Val av Storage-konto
 
-Köer, tabeller och blobbar som används av varaktiga funktioner skapas genom att i ett konfigurerat Azure Storage-konto. Kontot som ska användas som kan anges med hjälp av den `durableTask/azureStorageConnectionStringName` i **host.json** fil.
+Köer, tabeller och blobbar som används av varaktiga funktioner skapas i ett konfigurerat Azure Storage-konto. Kontot som ska användas som kan anges med hjälp av den `durableTask/azureStorageConnectionStringName` i **host.json** fil.
 
 ### <a name="functions-1x"></a>Functions 1.x
 

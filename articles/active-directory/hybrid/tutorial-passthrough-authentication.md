@@ -11,12 +11,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c813685a89f3d18b01ab75d710df54f8d1e1338
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b951cc81d2f957214eb4c78125bde36b61ff64b8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187754"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098050"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Självstudier:  Integrera en enskild AD-skog med hjälp av direktautentisering (PTA)
 
@@ -24,7 +24,7 @@ ms.locfileid: "56187754"
 
 Självstudien vägleder dig genom att skapa en hybrididentitetsmiljö med hjälp av direktautentisering.  Du kan sedan använda miljön för att testa eller bli mer bekant med hur en hybrididentitet fungerar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Följande är förutsättningar som krävs för den här självstudien
 - En dator med [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installerat.  Vi rekommenderar att du gör detta på en dator med antingen [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) eller [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - En [Azure-prenumeration](https://azure.microsoft.com/free)
@@ -80,7 +80,7 @@ För att slutföra skapande av den virtuella datorn kan du behöva slutföra ins
 
 1. Hyper-V Manager, dubbelklicka på den virtuella datorn
 2. Klicka på knappen Start.
-3.  Du får uppmaningen ”Press any key to boot from CD or DVD” (Tryck på valfri tangent för att starta från CD eller DVD). Gör så.
+3. Du får uppmaningen ”Press any key to boot from CD or DVD” (Tryck på valfri tangent för att starta från CD eller DVD). Gör så.
 4. På Windows Server-startskärmen väljer du språk och klickar på **Nästa**.
 5. Klicka på **Installera nu**.
 6. Ange licensnyckeln och klicka på **Nästa**.
@@ -250,9 +250,9 @@ Vi kommer nu att verifiera att de användare som vi hade i vår lokala katalog h
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testa att logga in med någon av våra användare
 
-1.  Bläddra till [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
+1. Bläddra till [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Logga in med ett användarkonto som har skapats i vår nya klientorganisation.  Du behöver logga in med följande format: (user@domain.onmicrosoft.com). Använd samma lösenord som användaren använder för att logga in lokalt.
-![Verifiera](media/tutorial-password-hash-sync/verify1.png)
+   ![Verifiera](media/tutorial-password-hash-sync/verify1.png)
 
 Du har nu har installerat en hybrididentitetsmiljö som du kan använda för att testa och bekanta dig med allt som Azure har att erbjuda.
 

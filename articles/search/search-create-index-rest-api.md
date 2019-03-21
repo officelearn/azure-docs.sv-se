@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 0524bd224e3da3e6a9b18a4225c88e9c43d07606
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: HT
+ms.openlocfilehash: 87da5cdd31abb41a774a46d3891006eb58ac5e4d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223418"
+ms.locfileid: "58285144"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Snabbstart: Skapa ett Azure Search-index med PowerShell och REST API
 > [!div class="op_single_selector"]
@@ -77,7 +77,7 @@ Om tjänsten är tom och har inga index, liknar resultat följande exempel. Anna
 }
 ```
 
-## <a name="1---create-an-index"></a>1 – skapa ett index
+## <a name="1---create-an-index"></a>1 – Skapa ett index
 
 Om du inte använder portalen, måste ett index finnas på tjänsten innan du kan läsa in data. Det här steget definierar indexet och skickas till tjänsten. Den [Create Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) används för det här steget.
 
@@ -162,6 +162,8 @@ Resultatet bör se ut ungefär så här (trunkeras till de två första fälten 
 
 > [!Tip]
 > För verifiering, du kan också kontrollera listan index i portalen eller kör kommandot används för att verifiera tjänstanslutning till för att se den *hotels* index som anges i index-samlingen.
+
+<a name="load-documents"></a>
 
 ## <a name="2---load-documents"></a>2 – läsa in dokument
 
@@ -253,7 +255,7 @@ Resultatet bör likna följande exempel. Du bör se statuskod 201. En beskrivnin
 }
 ```
 
-## <a name="3---search-an-index"></a>3 – söka i ett index
+## <a name="3---search-an-index"></a>3 – Söka i ett index
 
 Det här steget visar hur man frågar ett index med hjälp av den [API för webbsökning dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 

@@ -16,17 +16,20 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 2ff32bf5a8e3c5c31b13e2e8a1594f94647ed689
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: d52e710cadbc37b8ad6c1de61f75df3b96704daa
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695397"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243915"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>Kopiera en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration med CLI
 
-Det här skriptet kopierar en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration. Använd det här skriptet för att flytta en ögonblicksbild till annan prenumeration i samma region som den överordnade ögonblicksbilden.
+Det här skriptet kopierar en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration. Använd det här skriptet för följande scenarier:
 
+1. Migrera en ögonblicksbild i Premium-lagring (Premium_LRS) till standardlagring (Standard_LRS eller Standard_ZRS) för att minska dina kostnader.
+1. Migrera en ögonblicksbild från lokalt redundant lagring (Premium_LRS, Standard_LRS) till zonredundant lagring (Standard_ZRS) för att dra nytta av ZRS storage högre tillförlitlighet.
+1. Flytta en ögonblicksbild till annan prenumeration i samma region för längre kvarhållning.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -48,7 +51,7 @@ Det här skriptet använder följande kommandon för att skapa en ögonblicksbil
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa en virtuell dator från en ögonblicksbild](./virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[Skapa en virtuell dator från en ögonblicksbild](./virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 

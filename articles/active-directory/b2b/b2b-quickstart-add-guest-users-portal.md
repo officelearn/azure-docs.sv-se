@@ -9,14 +9,15 @@ ms.date: 07/02/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb01ae6514dfb97cc8a923619513383ace0b09a5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: f4935cc15bf3edeccd6b6ce9da701904a32606db
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669983"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295036"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Snabbstart: Lägga till gästanvändare till din katalog i Azure-portalen
 
@@ -26,7 +27,7 @@ I den här snabbstarten får du lägga till en ny gästanvändare i Azure AD, sk
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra scenariot i den här självstudien behöver du:
 
@@ -39,15 +40,15 @@ För att kunna slutföra scenariot i den här självstudien behöver du:
 2. Välj **Azure Active Directory** i den vänstra rutan.
 3.  Under **Hantera** väljer du **Användare**.
 
-    ![Välj Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
+    ![Skärmbild som visar var du väljer alternativet användare](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
 
 4.  Välj **Ny gästanvändare**.
 
-    ![Välj Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
+    ![Skärmbild som visar var du väljer alternativet för användare av nya gäst](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
 
 5.  Under **Användarnamn** anger du den externa användarens e-postadress. Under **Inkludera ett personligt meddelande med inbjudan** skriver du ett välkomstmeddelande. 
 
-    ![Välj Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
+    ![Skärmbild som visar var du anger gäst inbjudan användarmeddelande](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
 
 6. Välj **Bjud in** för att skicka inbjudan till gästanvändaren automatiskt. Ett meddelande visas längst upp till höger med meddelandet **Användaren har bjudits in**. 
 7.  När du har skickat inbjudan läggs användarkontot automatiskt till i katalogen som gäst.
@@ -59,7 +60,7 @@ Lägg till Salesforce-appen till din testklient och tilldela testgästanvändare
 3.  Välj **Nytt program**.
 4. Under **Lägg till från galleriet** söker du efter **Salesforce** och väljer sedan det.
 
-    ![Välj Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
+    ![Skärmbild som visar guiden Lägg till från galleriet sökrutan](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
 5. Välj **Lägg till**.
 6. Under **Hantera** väljer du **Enkel inloggning** och under **Läge för enkel inloggning** väljer du **Lösenordsbaserad inloggning** och klickar på  **Spara**.
 7. Under **Hantera** väljer du **Användare och grupper** > **Lägg till användare** > **Användare och grupper**.
@@ -71,11 +72,11 @@ Logga nu in som gästanvändaren för att visa inbjudan.
 1.  Logga in på testgästanvändarens e-postkonto.
 2.  Du hittar e-postmeddelandet ”Du har fått en inbjudan” i inkorgen.
 
-    ![E-postmeddelande med B2B-inbjudan](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
+    ![Skärmbild som visar e-postinbjudan B2B](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
 
 3.  I e-postmeddelandets brödtext väljer du **Komma igång**. Sidan **Granska behörigheter** öppnas i webbläsaren. 
 
-    ![Sida för att acceptera en B2B-inbjudan](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
+    ![Skärmbild som visar sidan Granska behörigheter](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
 
 4. Välj **Acceptera**. Åtkomstpanelen öppnas och här visas de program som gästanvändaren kan komma åt.
 

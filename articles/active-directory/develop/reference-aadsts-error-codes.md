@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16f7dc81d8174e3d8da39d3af95b945f8034cecd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1ff37184cd8789c5408d02a427080db86de00b7d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452037"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295461"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Autentisering och felkoder vid autentisering
 
@@ -30,6 +30,8 @@ Letar du efter information om felkoder AADSTS som returneras från Azure Active 
 
 > [!NOTE]
 > Den här informationen är preliminär och kan ändras. Har du en fråga eller kan inte hitta det du letar efter? Skapa ett GitHub-ärende eller se [Support och hjälper dig att alternativ för utvecklare](active-directory-develop-help-support.md) vill veta mer om andra sätt du kan få hjälp och support.
+>
+> Den här dokumentationen tillhandahålls för utvecklare och administratör vägledning, men bör aldrig användas av klienten sig själv. Felkoder som kan ändras när som helst för att tillhandahålla mer detaljerade felmeddelanden som är avsedda att hjälpa utvecklare när du skapar sina program. Appar som kan skapa ett beroende på text eller fel kodnumren kommer att brytas över tid.  
 
 ## <a name="aadsts-error-codes"></a>AADSTS felkoder
 

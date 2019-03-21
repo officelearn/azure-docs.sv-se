@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fa08e6da6b87de5878f099709563fb90e8669e77
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 20c916275acd6bb79675c592711b17b277c9fc78
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237611"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294101"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Upprepningsbara kopian i Azure Data Factory
 
@@ -114,7 +114,7 @@ Den här kolumnen används av Azure Data Factory för repeterbarhet och i proces
 1. Definiera en kolumn av typen **binary (32)** i målet SQL-tabell. Det bör finnas utan begränsningar på den här kolumnen. Nu ska vi ge ett namn i den här kolumnen som AdfSliceIdentifier i det här exemplet.
 
 
-Källtabellen:
+    Källtabellen:
 
     ```sql
     CREATE TABLE [dbo].[Student](
@@ -123,7 +123,7 @@ Källtabellen:
     )
     ```
 
-Måltabell: 
+    Måltabell: 
 
     ```sql
     CREATE TABLE [dbo].[Student](
@@ -133,7 +133,7 @@ Måltabell:
     )
     ```
 
-2. Använd det i kopieringsaktiviteten på följande sätt:
+1. Använd det i kopieringsaktiviteten på följande sätt:
    
     ```json
     "sink":  

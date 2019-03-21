@@ -4,13 +4,13 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: c877cff20a2329ae07a15e1b198c4d407721c4ed
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: HT
+ms.openlocfilehash: 3e0f2593f6a5cf0ddfe74b51523476f7db8ae4de
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752921"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305348"
 ---
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat ett Spatial Anchors-konto. Sedan konfigurerade och distribuerade du en app för att spara och återkalla Spatial Anchors. Om du vill lära dig mer om att förbättra appen så att den kan dela Spatial Anchors med andra enheter fortsätter du till nästa självstudie.
+I den här snabbstarten har skapade du ett konto för Spatial fästpunkter. Du kan sedan konfigureras och distribueras en app för att spara och hämta spatial fästpunkter. Fortsätt till nästa självstudie om du vill veta mer om hur du förbättrar appen så att den kan dela spatial ankare med andra enheter.

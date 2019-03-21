@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2887badb9a72cc94321263196d02dfab47229b7c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 78e83f4a1aea04bbaea12181419de6c5c06034f2
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078303"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287085"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Skapa en basgrupp och lägga till medlemmar med hjälp av Azure Active Directory
 Du kan skapa en basgrupp med hjälp av Azure Active Directory (Azure AD)-portalen. I den här artikeln läggs en basgrupp till i en enskild resurs av resursägaren (administratören) och innehåller specifika medlemmar (anställda) som behöver åtkomst till den här resursen. Mer komplicerade scenarier, inklusive dynamiskt medlemskap och regelskapande, finns i [dokumentationen för Azure Active Directory-användarhantering](../users-groups-roles/index.yml).
@@ -31,7 +31,7 @@ Du kan skapa en basgrupp och lägga till dina medlemmar på samma gång.
 
 2. Välj **Azure Active Directory**, **Grupper** och välj sedan **Ny grupp**.
 
-    ![Azure AD med grupper som visas](media/active-directory-groups-create-azure-portal/group-full-screen.png)
+    ![Azure AD-sidan, med grupper som visar](media/active-directory-groups-create-azure-portal/group-full-screen.png)
 
 3. På sidan **Grupp** fyller du i den information som krävs.
 

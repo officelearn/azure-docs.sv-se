@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 830825c6ad54a6ff300fb7ee223b32ee0571a55a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: bb244cb03ed5419762541e93784bb72fcf252676
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58163542"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258062"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Så här hanterar du enheter med hjälp av Azure-portalen
 
@@ -83,7 +83,7 @@ Inställningssidan för enheten kan du konfigurera:
 
 - **Användarna kan synkronisera inställningar och AppData på enheter** -som standard är inställningen **NONE**. Välja specifika användare eller grupper eller alla kan användarens inställningar och AppData att synkronisera via sina Windows 10-enheter. Läs mer om hur synkroniseringen fungerar i Windows 10.
 Det här alternativet är en premium-funktion som är tillgängliga via produkter som Azure AD Premium eller Enterprise Mobility Suite (EMS).
- 
+
 
 
 
@@ -119,7 +119,7 @@ Enhetsnamn som innehåller apostrofer kan potentiellt använda olika tecken som 
 
 ## <a name="device-management-tasks"></a>Enhetens hanteringsuppgifter
 
-Du kan hantera registrerade eller domänanslutna enheter som global administratör. Intune Service-administratörer kan:
+Som global administratör eller molnenhetsadministratör kan hantera du registrerade eller domänanslutna enheter. Intune Service-administratörer kan:
  
 - Uppdatera enheter – exempel är dagliga åtgärder som till exempel aktivering/inaktivering av enheter
 
@@ -151,7 +151,7 @@ Om du vill aktivera / inaktivera en enhet, har du två alternativ:
 
 **Anmärkning:**
 
-- Du måste vara en global administratör i Azure AD för att aktivera / inaktivera en enhet. 
+- Du måste vara en global administratör eller cloud enhetsadministratör i Azure AD för att aktivera / inaktivera en enhet. 
 - Inaktiverar en enhet förhindrar att en enhet autentisering med Azure AD, vilket förhindrar enheten från åtkomst till din Azure AD-resurser som är skyddad av enheten CA: N eller med dina autentiseringsuppgifter för WH4B. 
 
 

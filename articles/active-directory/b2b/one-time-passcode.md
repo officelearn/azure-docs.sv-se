@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9493f7ee3278bb42dc21574cd008fbe2f4376a1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8f5234674bc41e1f5bfa260dfc32042a3345d9f7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185153"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294833"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>E-engångskod authentication (förhandsversion)
 
@@ -35,11 +36,11 @@ Den här funktionen är tillgänglig för förhandsversion (se [valde förhandsv
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Användarupplevelsen för engångslösenord gästanvändare
 Med engångskod autentisering kan gästanvändaren Lös in inbjudan genom att klicka på en direktlänk eller med hjälp av e-postinbjudan. I båda fallen indikerar ett meddelande i webbläsaren att en kod kommer att skickas till gästanvändarens e-postadress. Gästanvändaren väljer **skicka kod**:
  
-   ![Åtkomstpaneler hantera app](media/one-time-passcode/otp-send-code.png)
+   ![Skärmbild som visar knappen Skicka kod](media/one-time-passcode/otp-send-code.png)
  
 Ett lösenord skickas till användarens e-postadress. Användaren hämtar lösenordet från e-postmeddelandet och anger den i webbläsarfönstret:
  
-   ![Åtkomstpaneler hantera app](media/one-time-passcode/otp-enter-code.png)
+   ![Skärmbild som visar sidan Ange koden](media/one-time-passcode/otp-enter-code.png)
  
 Gästanvändaren nu autentiseras och de kan se den delade resursen eller fortsätta att logga in. 
 
@@ -57,7 +58,7 @@ Det finns inget som tyder på att användaren du gärna kommer att använda aute
 
 Du kan visa gästanvändare som autentiserats med ett enstaka lösenord i Azure portal genom att gå till **Azure Active Directory** > **organisationens relationer**  >   **Användare från andra organisationer**.
 
-![Visa engångskod användare i Azure-portalen där källan är lika med Engångslösenord](media/one-time-passcode/otp-users.png)
+![Skärmbild som visar en engångskod användare med värdet för datakällan av OTP](media/one-time-passcode/otp-users.png)
 
 > [!NOTE]
 > När en användare redeems ett engångslösenord och senare hämtar en MSA, Azure AD-konto eller andra federerade, fortsätter de att autentiseras med en engångslösenkod. Om du vill uppdatera autentiseringsmetod du reinvite dem ta bort deras gästanvändarkontot.

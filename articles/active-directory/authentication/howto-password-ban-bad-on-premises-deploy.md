@@ -1,6 +1,6 @@
 ---
-title: Distribuera Azure AD-lösenord protection preview
-description: Distribuera förhandsversionen av Azure AD lösenord protection om du vill förbjuda felaktiga lösenord på plats
+title: Distribuera Azure AD-lösenordsskydd
+description: Distribuera Azure AD-lösenordsskydd om du vill förbjuda felaktiga lösenord på plats
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 832f29d16e5976493da56b304c3de0288b83c9b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 54d2d600771316b0a88ea0a2486c0dedd0f84594
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848753"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286541"
 ---
-# <a name="preview-deploy-azure-ad-password-protection"></a>Förhandsversion: Distribuera Azure AD-lösenordsskydd
-
-|     |
-| --- |
-| Lösenordsskydd i Azure Active Directory (Azure AD) är en funktion för förhandsversionen av Azure AD. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="deploy-azure-ad-password-protection"></a>Distribuera Azure AD-lösenordsskydd
 
 Nu när du förstår [för tvingande Azure AD-lösenordsskydd för Windows Server Active Directory](concept-password-ban-bad-on-premises.md), nästa steg är att planera och köra din distribution.
 

@@ -16,16 +16,16 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae0565bd51235f2d1b471adcc511786c204d175a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eda145f43c9268e5f6b291a767ed51249804f87d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890526"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286456"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
->Håll dig informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att kopiera och klistra in den här URL: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` i din ![RSS-ikonen](./media/whats-new/feed-icon-16x16.png) feed läsare.
+>Håll dig informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att kopiera och klistra in den här URL: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` i din ![RSS-feed läsare ikonen](./media/whats-new/feed-icon-16x16.png) feed läsare.
 
 Azure AD får förbättringar med jämna mellanrum. Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den här artikeln information om:
 
@@ -40,7 +40,7 @@ Den här sidan uppdateras varje månad, så gå tillbaka till den regelbundet. O
 ---
 ## <a name="february-2019"></a>Februari 2019
 
-### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>Konfigurerbara Azure AD SAML-tokenkryptering (offentlig förhandsversion) 
+### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>Konfigurerbar Azure AD SAML-tokenkryptering (allmänt tillgänglig förhandsversion) 
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Företagsappar  
@@ -52,7 +52,7 @@ Läs mer om hur du konfigurerar SAML-tokenkryptering, [konfigurera Azure AD-SAML
 
 ---
 
-### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>Skapa en åtkomstgranskning efter grupper eller appar med hjälp av Azure AD-Åtkomstgranskningar
+### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>Skapa en åtkomstgranskning för grupper eller appar som använder Azure AD-åtkomstgranskningar
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Åtkomstgranskningar  
@@ -64,7 +64,7 @@ Mer information om hur du skapar en åtkomstgranskning med hjälp av Azure AD-Å
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>Nya federerade appar är tillgängliga i appgalleriet för Azure AD - februari 2019
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>Nya federerade appar tillgängliga i Azure AD-appgalleriet – februari 2019
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Företagsappar  
@@ -78,7 +78,7 @@ Mer information om apparna som finns i [SaaS-programintegration med Azure Active
 
 ---
 
-### <a name="enhanced-combined-mfasspr-registration"></a>Förbättrad kombinerade MFA/SSPR-registrering
+### <a name="enhanced-combined-mfasspr-registration"></a>Förbättrad kombinerad MFA SSPR-registrering
 
 **Typ:** Ändrad funktion  
 **Tjänstekategori:** Lösenordsåterställning via självbetjäning  
@@ -106,7 +106,7 @@ Läs mer om registrering av förbättrad upplevelse, den [lågfrekvent förbätt
 
 ---
 
-### <a name="updated-policy-management-experience-for-user-flows"></a>Uppdaterade policyn hanteringsupplevelse för användarflöden
+### <a name="updated-policy-management-experience-for-user-flows"></a>Principhanteringsupplevelsen för användarflöden har uppdaterats
 
 **Typ:** Ändrad funktion  
 **Tjänstekategori:** B2C – konsumentidentitetshantering  
@@ -120,7 +120,7 @@ Mer information om den nya princip hanteringsupplevelsen finns i den [Azure AD B
 
 ---
 
-### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>Välj specifik sida elementet versioner som tillhandahålls av Azure AD B2C
+### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>Välj specifika sidelementsversioner som tillhandahålls av Azure AD B2C
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** B2C – konsumentidentitetshantering  
@@ -132,7 +132,7 @@ Läs mer om hur du väljer specifika versioner för sidelement i [Azure AD B2C h
 
 ---
 
-### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>Konfigurerbara slutanvändarens lösenordskrav för B2C (GA)
+### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>Konfigurerbara lösenordskrav för slutanvändare för B2C (GA)
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** B2C – konsumentidentitetshantering  
@@ -144,7 +144,7 @@ Mer information om konfiguration av lösenord komplexiteten krav finns i [konfig
 
 ---
 
-### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>Ny standardmallarna för anpassade företagsanpassad autentiseringsupplevelse
+### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>Nya standardmallar för anpassade autentiseringsupplevelser
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** B2C – konsumentidentitetshantering  
@@ -158,7 +158,7 @@ Mer information om hur du använder mallar finns i [Azure AD B2C har nu JavaScri
 
 ## <a name="january-2019"></a>Januari 2019
 
-### <a name="active-directory-b2b-collaboration-using-one-time-passcode-authentication-public-preview"></a>Active Directory B2B-samarbete med engångskod autentisering (offentlig förhandsversion)
+### <a name="active-directory-b2b-collaboration-using-one-time-passcode-authentication-public-preview"></a>Active Directory B2B-samarbete som använder autentisering med engångslösenord (allmänt tillgänglig förhandsversion)
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** B2B  
@@ -168,7 +168,7 @@ Vi har introducerat engångskod autentisering (OTP) för B2B-gästanvändare som
 
 Mer information finns i [e-post engångskod authentication (förhandsversion)](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) och bloggen [Azure AD gör delning och samarbete sömlös för alla användare med ett konto](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-makes-sharing-and-collaboration-seamless-for-any-user/ba-p/325949).
 
-### <a name="new-azure-ad-application-proxy-cookie-settings"></a>Nya cookieinställningar för Azure AD-programproxyn
+### <a name="new-azure-ad-application-proxy-cookie-settings"></a>Nya Azure AD Application Proxy cookie-inställningar
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** App Proxy  
@@ -390,7 +390,7 @@ Mer information finns i den [lägga till användningsvillkor Använd avsnittet A
 
 ---
 
-### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-each-users-schedule"></a>Administratörer kan konfigurera användningsvillkor att gå ut baserat på varje användares schema
+### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-each-users-schedule"></a>Administratörer kan konfigurera användningsvillkor så att de förfaller baserat på varje användares schema
 
 **Typ:** Ny funktion  
 **Tjänstekategori:** Användningsvillkor  
@@ -577,7 +577,7 @@ Mer information finns i [vad är portalen Mina appar?](https://docs.microsoft.co
 
 Den nya **felsökning och Support** fliken på den **inloggningar** sidan på Azure-portalen är avsedd att hjälpa administratörer och supporttekniker felsöka problem med Azure AD-inloggningar. Den här nya fliken visar felkod, felmeddelande och rekommenderade åtgärder (i förekommande fall) för att lösa problemet. Om det inte går att lösa problemet, vi även ger dig ett nytt sätt att skapa en support biljett med den **kopiera till Urklipp** uppstår som fyller på **ID för begäran** och **datum (UTC)** fält för loggfilen i ditt supportärende.  
 
-![Logga in loggar med den nya fliken](media/whats-new/troubleshooting-and-support.png)
+![Logga in loggarna som visar den nya fliken](media/whats-new/troubleshooting-and-support.png)
 
 ---
 

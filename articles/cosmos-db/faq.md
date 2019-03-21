@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 7e1c6d771e2452e99b47c256c99e25e281b9a3aa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c344e8c2d0ad62b394792201ab52bb37413012f8
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849235"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259915"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 
@@ -159,7 +159,7 @@ Behållare är också faktureringsenheterna för Azure Cosmos DB. Varje behålla
 
 ### <a name="how-do-i-create-a-database"></a>Hur skapar jag en databas?
 
-Du kan skapa databaser med hjälp av den [Azure-portalen](https://portal.azure.com), enligt beskrivningen i [Lägg till en samling](create-sql-api-dotnet.md#create-collection), någon av de [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md), eller [REST API: er](/rest/api/cosmos-db/).
+Du kan skapa databaser med hjälp av den [Azure-portalen](https://portal.azure.com), enligt beskrivningen i [Lägg till en samling](create-sql-api-dotnet.md#create-collection-database), någon av de [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md), eller [REST API: er](/rest/api/cosmos-db/).
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Hur ställer jag in användare och behörigheter?
 
@@ -257,7 +257,7 @@ Det finns vissa skillnader i beteende som användare som kommer från Azure-tabe
 * CORS stöds inte för närvarande
 * Tabellnamn i Azure Table storage är inte skiftlägeskänsliga, men de finns i Azure Cosmos DB Table API
 * Vissa av Azure Cosmos DB-internt format kodning information, till exempel binära fält, är för närvarande inte lika effektiva som en kanske gillar. Det kan därför orsaka oväntade begränsningar för datastorlek. Till exempel använder för närvarande en kunde inte fullständig en Meg för en tabellentitet för att lagra binär data eftersom den kodning ökar storleken på data.
-* Entitetsnamn egenskapen ”Id” för närvarande inte
+* Entitetsnamn egenskapen ”ID” för närvarande inte
 * TableQuery TakeCount är inte begränsat till 1000
 
 Det finns ett antal slutpunkter/frågealternativ som inte stöds av Azure Cosmos DB Table API när det gäller REST-API:

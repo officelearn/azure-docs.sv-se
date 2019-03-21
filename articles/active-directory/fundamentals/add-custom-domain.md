@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ee05c117fb45cbd96a82ede524db7a6b098830f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9820fcae0dfb366c1722c50c95400c7de0fbeb12
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854763"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285793"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Lägg till ditt domännamn med hjälp av Azure Active Directory-portalen
 Varje ny Azure AD-klienten levereras med ett första domännamn *domainname*. onmicrosoft.com. Du kan inte ändra eller ta bort det ursprungliga domännamnet, men du kan lägga till din organisations namn i listan. Att lägga till anpassade domännamn som hjälper dig att skapa användarnamn som dina användare känner igen som *alain\@contoso.com*.
@@ -31,7 +31,7 @@ När du får ditt domännamn kan skapa du din första Azure AD-katalog.
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com/) för din katalog med ett konto med den **ägare** rollen för prenumerationen och välj sedan **Azure Active Directory**. Mer information om prenumerationen roller finns i [administratörsroller för klassiska prenumeration, Azure RBAC-roller och Azure AD-administratörsroller](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
 
-    ![Azure Portal-skärmen](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+    ![Azure portal skärmbild som visar alternativet Azure AD](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
     >[!TIP]
     > Om du planerar att federera din lokala Windows Server AD med Azure AD behöver du markera kryssrutan **Jag planerar att konfigurera den här domänen för enkel inloggning med min lokala Active Directory** när du kör Azure AD Connect-verktyget för att synkronisera dina kataloger. Du behöver även registrera samma domännamn som du väljer för federering med din lokala katalog i steget **Azure AD-domän** i guiden. Du kan se hur det steget i guiden ser ut [i dessa anvisningar](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). Om du inte har verktyget Azure AD Connect kan du [ladda ned det här](https://go.microsoft.com/fwlink/?LinkId=615771).
@@ -46,7 +46,7 @@ När du har skapat din katalog kan du lägga till ditt domännamn.
 
 1. Välj **anpassade domännamn**, och välj sedan **Lägg till anpassad domän**.
 
-    ![Fabrikam - anpassad domän, sida med Lägg till anpassad domänalternativet är markerat](media/add-custom-domain/add-custom-domain.png)
+    ![Anpassad domän, sida med Lägg till anpassad domän visas](media/add-custom-domain/add-custom-domain.png)
 
 2. Ange din organisations nya domännamnet i den **anpassade domännamn** box (till exempel _contoso.com_), och välj sedan **Lägg till domän**.
 
@@ -55,7 +55,7 @@ När du har skapat din katalog kan du lägga till ditt domännamn.
     >[!Important]
     >Du måste ta med .com, .net eller annat toppnivåtillägg för detta ska fungera korrekt.
 
-    ![Fabrikam - anpassad domän, sida med Lägg till domän knappen markerad](media/add-custom-domain/add-custom-domain-blade.png)
+    ![Anpassad domän, sida med Lägg till anpassad domän-sidan](media/add-custom-domain/add-custom-domain-blade.png)
 
 4. Kopiera den DNS-informationen från den **Contoso** sidan. Till exempel MS = ms64983159.
 

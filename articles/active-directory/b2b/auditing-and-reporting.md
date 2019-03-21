@@ -9,14 +9,15 @@ ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dad4872f9bc32a1978de47a52cea23d6bb2742a1
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 5763a7e5f122702ddaf86246fbfbd18326878146
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673621"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294203"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Granskning och rapportering av en användare för B2B-samarbete
 Med gästanvändare har du granskningsfunktioner liknar med användare. 
@@ -28,11 +29,11 @@ Du kan använda åtkomstgranskningar regelbundet kontrollerar om gästanvändare
 
 Azure AD-audit-loggarna ger poster i system- och aktiviteter, inklusive aktiviteter som initierats av gästanvändare. Åtkomst till granskningsloggar, på **Azure Active Directory**under **övervakning**väljer **granskningsloggar**. Här är ett exempel på inbjudan och inlösen historiken för inbjudens Sam Oogle:
 
-![granskningslogg](./media/auditing-and-reporting/audit-log.png)
+![Skärmbild som visar och exempel på audit logga utdata](./media/auditing-and-reporting/audit-log.png)
 
 Du kan fördjupa dig i var och en av dessa händelser för att hämta information. Exempelvis kan du nu ska vi titta detaljinformationen godkännande.
 
-![information om datoraktivitet](./media/auditing-and-reporting/activity-details.png)
+![Skärmbild som visar och exempel på information om aktivitetsutdata](./media/auditing-and-reporting/activity-details.png)
 
 Du kan också exportera dessa loggar från Azure AD och använda Rapporteringsverktyg föredrar för att hämta anpassade rapporter.
 

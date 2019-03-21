@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: dea0a38b1f543fbb17cb0cd98ee4f96144d07f4e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8f24bab531143cad1974663eb71b173a20b6f51a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432914"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287187"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uppgradera ditt informationslager till Gen2
 
@@ -43,8 +43,8 @@ I följande tabell sammanfattas per region när lägre Gen2-Beräkningsnivån ä
 | Norra Kina |\* |\* |
 | Kina, norra 2 |\* |\* |
 | Östasien |Tillgängligt |Den 1 maj 2019 |
-| Östra USA |Tillgängligt |2 april 2019 |
-| USA, östra 2 |Tillgängligt |2 april 2019 |
+| Östra USA |Tillgängligt |Den 1 maj 2019 |
+| USA, östra 2 |Tillgängligt |Den 1 maj. 2019 |
 | Frankrike, centrala |\* |\* |
 | Centrala Tyskland |\* |\* |
 | Tyskland, västra centrala |Den 1 september 2019|Den 2 januari 2020 |
@@ -55,15 +55,15 @@ I följande tabell sammanfattas per region när lägre Gen2-Beräkningsnivån ä
 | Sydkorea, centrala |2 april 2019 |Den 1 maj 2019 |
 | Sydkorea, södra |2 april 2019 |Den 1 juni 2019 |
 | Norra centrala USA |2 april 2019 |Den 1 juni 2019 |
-| Norra Europa |Tillgängligt |2 april 2019 |
+| Norra Europa |Tillgängligt |Den 1 maj 2019 |
 | Södra centrala USA |Tillgängligt |Den 1 maj 2019 |
-| Sydostasien |Tillgängligt |2 april 2019 |
+| Sydostasien |Tillgängligt |Den 1 maj 2019 |
 | Storbritannien, södra |2 april 2019 |Den 1 maj 2019 |
 | Storbritannien, västra |\*|\* |
 | Västra centrala USA |2 september 2019 |Den 2 januari 2020|
-| Västra Europa |Tillgängligt |2 april 2019 |
+| Västra Europa |Tillgängligt |Den 1 maj 2019 |
 | Västra USA |2 april 2019 |Den 1 juni 2019 |
-| Västra USA 2 |Tillgängligt |2 april 2019 |
+| Västra USA 2 |Tillgängligt |Den 1 maj 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Automatisk uppgraderingsprocessen
 

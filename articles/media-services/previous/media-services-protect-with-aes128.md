@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: a0ec87f2afb8e2a18727fe6dd62547e6ad6ecfac
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9b8ae86a5c13573fbe80c8f06d5ce97c72d8e341
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57841063"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257678"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Använda dynamisk kryptering för AES-128 och nyckelleveranstjänst
 > [!div class="op_single_selector"]

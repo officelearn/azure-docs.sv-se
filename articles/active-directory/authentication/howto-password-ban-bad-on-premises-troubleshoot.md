@@ -1,6 +1,6 @@
 ---
-title: Felsökning i förhandsversionen av Azure AD lösenord protection
-description: Förstå Azure AD lösenord protection preview felsökning av vanliga problem
+title: Felsökning i Azure AD-lösenordsskydd
+description: Förstå Azure AD lösenord protection felsökning av vanliga problem
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 760ad30daabee61300768b7c67824f39437ac87f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ac97d7bda56a871e0b8f6de6d5d7262f3f44667
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006949"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285708"
 ---
-# <a name="preview-azure-ad-password-protection-troubleshooting"></a>Förhandsversion: Felsökning av Azure AD-lösenordsskydd
-
-|     |
-| --- |
-| Azure AD-lösenordsskydd är en funktion i offentliga förhandsversionen av Azure Active Directory. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-troubleshooting"></a>Felsökning av Azure AD-lösenordsskydd
 
 Efter distributionen av Azure AD-lösenordsskydd, kan felsökning krävas. Den här artikeln innehåller information för att förstå vanliga felsökningssteg.
 
@@ -101,7 +96,7 @@ När degraderingen har slutförts och domänkontrollanten har startats och körs
 
 ## <a name="removal"></a>Borttagning
 
-Om det är valt att avinstallera den allmänna förhandsversionen av programvaran och rensa alla relaterade tillstånd från de domäner och skog, kan den här uppgiften utföras med hjälp av följande steg:
+Om det är valt att avinstallera protection-programmet för Azure AD-lösenord och rensa alla relaterade tillstånd från de domäner och skog, kan den här uppgiften utföras med hjälp av följande steg:
 
 > [!IMPORTANT]
 > Det är viktigt att utföra dessa steg i ordning. Om valfri instans av tjänsten Proxy lämnas körs skapas med jämna mellanrum igen dess serviceConnectionPoint-objektet. Om valfri instans av DC-agenttjänsten lämnas körs skapas med jämna mellanrum igen dess serviceConnectionPoint-objektet och sysvol-status.
@@ -120,7 +115,7 @@ Om det är valt att avinstallera den allmänna förhandsversionen av programvara
 
    De resulterande objekten som hittades den `Get-ADObject` kommando kan sedan skickas till `Remove-ADObject`, eller tagits bort manuellt.
 
-4. Ta bort alla anslutningspunkter för DC-agenten manuellt i varje domännamngivningskontexten. Det kan finnas en dessa objekt per domänkontrollant i skogen, beroende på hur mycket den allmänna förhandsversionen av programvaran har distribuerats. Platsen för det objektet kan identifieras med följande Active Directory PowerShell-kommando:
+4. Ta bort alla anslutningspunkter för DC-agenten manuellt i varje domännamngivningskontexten. Det kan finnas en dessa objekt per domänkontrollant i skogen, beroende på hur ofta programmet har distribuerats. Platsen för det objektet kan identifieras med följande Active Directory PowerShell-kommando:
 
    ```PowerShell
    $scp = "serviceConnectionPoint"

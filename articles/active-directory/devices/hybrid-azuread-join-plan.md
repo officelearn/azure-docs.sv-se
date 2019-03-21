@@ -17,12 +17,12 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7a1d0dab08c4beb93d323bcd1a5f5b00a190daa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: de80825ccdd331f57dcd31d307196dc0b45b9cc9
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868297"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294594"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instruktioner: Planera implementeringen hybrid Azure Active Directory join
 
@@ -41,6 +41,8 @@ Om du har en lokal Active Directory-miljö och du vill ansluta dina domänanslut
 
 Den här artikeln förutsätter att du är bekant med den [introduktionen till enhetshantering i Azure Active Directory](../device-management-introduction.md).
 
+>[!NOTE]
+>  Den begärda minimiversionen domänfunktionsnivån och skogens funktionsnivåer för Windows 10 hybrid Azure AD-anslutning är Windows Server 2008 R2. I lägre versioner kan användaren inte kan ta emot en primär uppdatera Token under Windows-inloggning på grund av LSA-problem 
 
 ## <a name="plan-your-implementation"></a>Planera implementeringen
 
@@ -114,7 +116,8 @@ Hybrid Azure AD-anslutning är en process för att automatiskt registrera dina l
 
 Om din Windows 10-domänanslutna enheter är redan [Azure AD-registrerad](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) till din klient, vi rekommenderar starkt att ta bort det aktuella tillståndet innan du aktiverar Hybrid Azure AD-anslutning. Följande ändringar har gjorts att undvika det här dubbel tillståndet från Windows 10 1809 version: 
  - Alla befintliga Azure AD-registrerad tillstånd skulle tas bort automatiskt när enheten är Hybrid Azure AD-anslutna. 
- - Du kan förhindra att dina domänansluten enhet som Azure AD-registrerad genom att lägga till den här registernyckeln - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, ”BlockAADWorkplaceJoin” = DWORD: 00000001
+ - Du kan förhindra att dina domänansluten enhet som Azure AD-registrerad genom att lägga till den här registernyckeln - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, ”BlockAADWorkplaceJoin” = DWORD: 00000001.
+ - Den här ändringen är nu tillgängligt för Windows 10-1803 version med KB4489894.
 
 FIPS-kompatibel TPM: er stöds inte för Hybrid Azure AD-anslutning. Om dina enheter har FIPS-kompatibel TPM: er, måste du inaktivera dem innan du fortsätter med Hybrid Azure AD-anslutning. Microsoft tillhandahåller inte några verktyg för att inaktivera FIPS-läge för TPM: er eftersom den är beroende av TPM-tillverkaren. Kontakta din maskinvara OEM för support.
 

@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 65e5a678b4619897930873e77208005e14c054d2
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 5f34991dca4dbb4275033c764981c44492b9920e
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410289"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257816"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrering med Azure Stack datacenter - identitet
 Du kan distribuera Azure Stack med Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) som identitetsleverantör man. Du måste göra valet innan du distribuerar Azure Stack. I ett scenario med anslutna kan du välja Azure AD eller AD FS. För ett scenario med frånkopplade stöds endast AD FS.
@@ -122,7 +122,7 @@ Följande information måste anges som indata för automation-parametrar:
 |Parameter|Beskrivning|Exempel|
 |---------|---------|---------|
 |CustomAdfsName|Namnet på anspråksprovidern.<br>Den visas på så sätt på landningssidan för AD FS.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Länk för Federation metadata|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
+|CustomAD<br>FSFederationMetadataEndpointUri|Länk för Federation metadata| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Utlösa automatisering för att konfigurera anspråksleverantörsförtroendena i Azure Stack

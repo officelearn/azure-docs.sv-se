@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 7bc3ea054056ac67cf0a116fb1538bc1483ab4d4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 61b3a9e066a3ee20effa97f1c6c7a0bd1ae90ac0
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223537"
+ms.locfileid: "58285846"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway-konfiguration
 
@@ -33,7 +33,9 @@ Application gateway är en särskild distribution i det virtuella nätverket. I 
 
 #### <a name="size-of-the-subnet"></a>Storleken på undernätet
 
-När det gäller v1-SKU förbrukar application Gateway en privat IP-adress per instans, plus en annan privat IP-adress om en privat klientdels-IP-konfiguration har konfigurerats. Dessutom Azure reserverar fyra första och sista IP-adress i varje undernät för intern användning. Exempel: om en application gateway är inställd på tre instanser och ingen privat klientdels-IP, sedan ett/29 undernät storlek eller högre krävs. I det här fallet använder application gateway tre IP-adresser. Om du har tre instanser och en IP-adress för privata klientdelens IP-konfiguration, sedan en/28 undernät storlek eller högre krävs eftersom det krävs fyra IP-adresser.
+Application Gateway förbrukar en privat IP-adress per instans, plus en annan privat IP-adress om en privat klientdels-IP-konfiguration har konfigurerats. Dessutom Azure reserverar fyra första och sista IP-adress i varje undernät för intern användning. Till exempel om en application gateway är inställt på tre instanser och ingen privat klientdels-IP-adress, måste sedan minst åtta IP-adresser i undernät – fem IP-adresser för intern användning och tre IP-adresserna för de tre instanserna av application gateway. Därför i det här fallet ett/29 undernät storlek eller högre krävs. Om du har tre instanser och en IP-adress för privata klientdelens IP-konfiguration och sedan nio IP-adresser måste utföras - tre IP-adresserna för de tre instanserna av application gateway, en IP-adress för privat klientdels-IP och fem IP-adresser för intern användning. Därför i det här fallet en/28 undernät storlek eller högre krävs.
+
+Ett bra tips är att använda minst en/28 undernätets storlek. Detta ger dig 11 användbara adresser. Om programbelastningen kräver mer än 10 instanser, bör du överväga en/27 eller/26 undernätets storlek.
 
 #### <a name="network-security-groups-supported-on-the-application-gateway-subnet"></a>Nätverkssäkerhetsgrupper som stöds på Application Gateway-undernät
 
@@ -41,7 +43,7 @@ Nätverkssäkerhetsgrupper (NSG) stöds i Application Gateway-undernät med föl
 
 - Undantag måste placeras i inkommande trafik på portarna 65503 65534 för Application Gateway v1-SKU och portar 65200 – 65535 för v2-SKU. Den här portintervall krävs för Azures infrastrukturkommunikation. De är skyddade (låsta) med Azure-certifikat. Utan rätt certifikat kommer går externa entiteter, inklusive kunderna till dessa gateways, inte att initiera alla ändringar på dessa slutpunkter.
 
-- Det går inte att blockera utgående internet-anslutning.
+- Det går inte att blockera utgående internet-anslutning. Utgående standardregler i NSG: N kan redan ansluten till internet. Vi rekommenderar att du inte tar bort utgående standardregler och att du inte skapar andra utgående regler som nekar utgående internet-anslutning.
 
 - Trafik från taggen AzureLoadBalancer måste tillåtas.
 
@@ -57,11 +59,12 @@ Det här scenariot kan göras med NSG: er på application gateway-undernätet. F
 
 #### <a name="user-defined-routes-supported-on-the-application-gateway-subnet"></a>Användardefinierade vägar som stöds på Application Gateway-undernät
 
-Vid v1-SKU stöds användardefinierade vägar (Udr) på application gateway-undernätet, så länge de inte ändrar slutpunkt till slutpunkt begäran/svar-kommunikation.
-
-Exempel: du kan ställa in en UDR i application gateway-undernätet så att den pekar till en brandväggsinstallation för paketinspektion, men måste du kontrollera att paketet kan nå den avsedda mål post granskar. I annat fall kan leda till felaktig hälsotillstånd avsökning eller SNMP-trafiken routning beteende. Detta inkluderar inlärda eller 0.0.0.0/0 standardvägar sprids av ExpressRoute eller VPN-gatewayer i det virtuella nätverket.
+Vid v1-SKU stöds användardefinierade vägar (Udr) på application gateway-undernätet, så länge de inte ändrar slutpunkt till slutpunkt begäran/svar-kommunikation. Exempel: du kan ställa in en UDR i application gateway-undernätet så att den pekar till en brandväggsinstallation för paketinspektion, men måste du kontrollera att paketet kan nå den avsedda mål post granskar. I annat fall kan leda till felaktig hälsotillstånd avsökning eller SNMP-trafiken routning beteende. Detta inkluderar inlärda eller 0.0.0.0/0 standardvägar sprids av ExpressRoute eller VPN-gatewayer i det virtuella nätverket.
 
 När det gäller v2 stöds-SKU, udr: er i application gateway-undernätet inte. Mer information finns i [automatisk skalning och zonredundant Application Gateway (offentlig förhandsversion)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+
+> [!NOTE]
+> Udr: er i application gateway-undernätet leder hälsostatus i den [vyn för backend-hälsotillstånd](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) ska visas som **okänd** och leder också failue för generering av application gateway-loggar och mått. Det rekommenderas att du inte använder udr: er i application gateway-undernätet för att kunna visa hälsotillstånd för serverdel, loggar och mått.
 
 ## <a name="frontend-ip"></a>Frontend-IP
 
@@ -87,10 +90,11 @@ Du kan välja mellan [grundläggande eller multisite lyssnare](https://docs.micr
 
 - Om du konfigurerar mer än ett webbprogram eller flera underdomäner i samma överordnade domän på samma application gateway-instans, väljer du lyssnare för flera platser. För lyssnare för flera platser behöver du dessutom ange ett värdnamn. Det beror på att Application Gateway förlitar sig på HTTP 1.1 värdhuvuden för att vara värd för flera webbplatser på samma offentliga IP-adress och port.
 
-> [!NOTE]
-> När det gäller v1-SKU: er bearbetas lyssnare i den ordning som de visas. Därför om en grundläggande lyssnare matchar en inkommande begäran bearbetas först. Lyssnare för flera platser bör därför konfigureras innan en grundläggande lyssnare så att trafik dirigeras till rätt serverdel.
->
-> När det gäller v2-SKU: er bearbetas lyssnare för flera platser innan du grundläggande lyssnare.
+#### <a name="order-of-processing-listeners"></a>Bearbetningsordning för lyssnare
+
+När det gäller v1-SKU: er bearbetas lyssnare i den ordning som de visas. Därför om en grundläggande lyssnare matchar en inkommande begäran bearbetas först. Lyssnare för flera platser bör därför konfigureras innan en grundläggande lyssnare så att trafik dirigeras till rätt serverdel.
+
+När det gäller v2-SKU: er bearbetas lyssnare för flera platser innan du grundläggande lyssnare.
 
 ### <a name="frontend-ip"></a>Frontend-IP
 
@@ -110,9 +114,9 @@ Du måste välja mellan HTTP och HTTPS-protokollet.
 
   Om du vill konfigurera Secure Sockets Layer (SSL)-avslutning och SSL-kryptering från slutpunkt till slutpunkt, krävs ett certifikat som ska läggas till lyssnaren för att aktivera Application Gateway att härleda en symmetrisk nyckel enligt specifikationen för SSL-protokollet. Den symmetriska nyckeln används sedan för att kryptera och dekryptera trafiken som skickas till gatewayen. Gateway-certifikatet måste ha formatet Personal Information Exchange (PFX). Det här filformatet kan du exportera den privata nyckeln som krävs av application gateway för att utföra kryptering och dekryptering av trafik. 
 
-#### <a name="supported-certs"></a>Certifikat som stöds
+#### <a name="supported-certificates"></a>Certifikat som stöds
 
-Självsignerade certifikat, CA-certifikat, jokertecken certifikat och EV certifikat stöds.
+Se [certifikat som stöds för SSL-avslutning](https://docs.microsoft.com/azure/application-gateway/ssl-overview#certificates-supported-for-ssl-termination).
 
 ### <a name="additional-protocol-support"></a>Stöd för ytterligare protokoll
 
@@ -160,11 +164,11 @@ Du kan välja mellan [grundläggande eller sökvägsbaserad regel](https://docs.
 - Välj-baserad lyssnare om du vill dirigera begäranden med specifika sökvägar till specifika serverdelspooler. Sökvägsmönster tillämpas endast på sökvägen till URL-Adressen, inte till dess Frågeparametrar.
 
 
-> [!NOTE]
->
-> Vid v1-SKU: er bearbetas matchning av mönster för inkommande begäran i ordning där sökvägarna visas i Webbadress för sökvägskarta av sökvägsbaserad regel. Därför, om en begäran matchar mönstret i två eller flera sökvägar i Webbadress för sökvägskarta, sedan den sökväg som visas först matchas och begäran vidarebefordras till serverdelen som är associerade med samma sökväg.
->
-> När det gäller v2-SKU: er innehåller en exakt matchning högre prioritet över den ordning som sökvägarna visas i Webbadress för sökvägskarta. För detta innebär att om en begäran matchar mönstret i två eller flera sökvägar, och sedan begäran vidarebefordras till serverdelen som associeras med samma sökväg som matchar exakt med begäran. Om sökvägen i den inkommande begäranden inte matchar någon sökväg i Webbadress för sökvägskarta, bearbetas sedan matchar mönstret för inkommande begäran i ordning där sökvägarna visas i Webbadress för sökvägskarta av sökvägsbaserad regel.
+#### <a name="order-of-processing-rules"></a>Ordningen på bearbetar regler
+
+Vid v1-SKU: er bearbetas matchning av mönster för inkommande begäran i ordning där sökvägarna visas i Webbadress för sökvägskarta av sökvägsbaserad regel. Därför, om en begäran matchar mönstret i två eller flera sökvägar i Webbadress för sökvägskarta, sedan den sökväg som visas först matchas och begäran vidarebefordras till serverdelen som är associerade med samma sökväg.
+
+När det gäller v2-SKU: er innehåller en exakt matchning högre prioritet över den ordning som sökvägarna visas i Webbadress för sökvägskarta. För detta innebär att om en begäran matchar mönstret i två eller flera sökvägar, och sedan begäran vidarebefordras till serverdelen som associeras med samma sökväg som matchar exakt med begäran. Om sökvägen i den inkommande begäranden inte matchar någon sökväg i Webbadress för sökvägskarta, bearbetas sedan matchar mönstret för inkommande begäran i ordning där sökvägarna visas i Webbadress för sökvägskarta av sökvägsbaserad regel.
 
 ### <a name="associated-listener"></a>Tillhörande lyssnare
 
@@ -176,7 +180,7 @@ Associera serverdelspoolen som innehåller backend-mål som kommer att fungera b
 
 ### <a name="associated-backend-http-setting"></a>Associerade serverdelens HTTP-inställning
 
-Lägg till en backend-HTTP-inställning för varje regel. Förfrågningar kommer att dirigeras från Programgatewayen till backend-mål med portnumret, protokoll och andra inställningar som anges i den här inställningen. Vid en grundläggande regel tillåts endast en serverdelens HTTP-inställning eftersom alla begäranden på den associerade lyssnaren vidarebefordras till de motsvarande backend-mål som använder den här inställningen för HTTP. Lägg till flera serverdelens HTTP-inställningar för varje URL-sökväg vid en sökvägsbaserad regel. Begäranden som matchar den webbsökväg som anges här, vidarebefordras till de motsvarande backend-mål med hjälp av HTTP-inställningarna för varje URL-sökväg. Lägg även till en HTTP-standardinställningarna eftersom de förfrågningar som inte matchar alla URL-sökvägen som angetts i den här regeln ska vidarebefordras till Standardpool för serverdelen med HTTP-standardinställningarna.
+Lägg till en backend-HTTP-inställning för varje regel. Förfrågningar kommer att dirigeras från Programgatewayen till backend-mål med portnumret, protokoll och andra inställningar som anges i den här inställningen. Vid en grundläggande regel tillåts endast en serverdelens HTTP-inställning eftersom alla begäranden på den associerade lyssnaren vidarebefordras till de motsvarande backend-mål som använder den här inställningen för HTTP. Lägg till flera serverdelens HTTP-inställningar för varje URL-sökväg vid en sökvägsbaserad regel. Begäranden som matchar den webbsökväg som anges här, vidarebefordras till de motsvarande backend-mål med hjälp av HTTP-inställningarna för varje URL-sökväg. Lägg även till en standardinställning för HTTP eftersom de förfrågningar som inte matchar alla URL-sökvägen som angetts i den här regeln ska vidarebefordras till Standardpool för serverdelen genom att använda standardinställningen för HTTP.
 
 ### <a name="redirection-setting"></a>Omdirigeringsinställningen
 
@@ -186,7 +190,7 @@ Information om funktionen för omdirigering finns i [översikt över Mappomdirig
 
 - #### <a name="redirection-type"></a>Omdirigeringstyp
 
-  Välj typ av omdirigering av krävs från: Permanenta är tillfällig, hitta eller se andra.
+  Välj typ av omdirigering av krävs från: Permanent(301), Temporary(307), Found(302) eller se other(303).
 
 - #### <a name="redirection-target"></a>Omdirigering av mål
 
@@ -236,14 +240,14 @@ Hur många sekunder som application gateway som väntar på svar från backend-p
 
 Den här inställningen kan du konfigurera ett valfritt anpassat vidarebefordran sökväg som ska användas när begäran vidarebefordras till serverdelen. Detta kommer att kopiera någon del av den inkommande sökvägen som matchar den anpassade sökväg som angavs i den **åsidosätta sökvägen till serverdelen** fältet vidarebefordrade sökvägen. Se tabellen nedan för att förstå hur funktionen fungerar.
 
-- När HTTP-inställningarna är kopplad till en regel för vidarebefordran av grundläggande begäran:
+- När HTTP-inställning är kopplad till en regel för vidarebefordran av grundläggande begäran:
 
   | Ursprungliga begäran  | Åsidosätt serverdelssökväg | Begäran vidarebefordras till serverdelen |
   | ----------------- | --------------------- | ---------------------------- |
   | /Startsida/            | /override/            | / åsidosätta/home /              |
   | / home/secondhome / | /override/            | / åsidosättning/home/secondhome /   |
 
-- När HTTP-inställningarna är kopplad till en regel för vidarebefordran av sökvägsbaserad begäran:
+- När HTTP-inställning är kopplad till en regel för vidarebefordran av sökvägsbaserad begäran:
 
   | Ursprungliga begäran           | Sökvägsregeln       | Åsidosätt serverdelssökväg | Begäran vidarebefordras till serverdelen |
   | -------------------------- | --------------- | --------------------- | ---------------------------- |

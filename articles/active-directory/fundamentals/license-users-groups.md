@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10346ea0aa292be33f820bd4e92434e2c58a89ab
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1e7a3f80067adb3093bd27e34a45b3afd72b4993
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194316"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286864"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Tilldela eller ta bort licenser med hjälp av Azure Active Directory-portalen
 Många Azure Active Directory (Azure AD) tjänster måste du aktivera Azure AD-produkt och licensiera var och en av dina användare eller grupper (och associerade medlemmar) för produkten. Endast användare med aktiva licenser kommer att kunna komma åt och använda den licensierade Azure AD-tjänster.
@@ -47,7 +47,7 @@ Du kan visa dina tillgängliga produkter, inklusive enskilda licenser söker eft
 
     Den **licenser** visas.
 
-    ![Licenser sidan som visar antalet köpta produkter och tilldelade licenser](media/license-users-groups/license-details-blade.png)
+    ![Licenser sida med antalet köpta produkter och tilldelade licenser](media/license-users-groups/license-details-blade.png)
     
 3. Välj den **köpta produkter** länken för att visa den **produkter** sidan och se den **tilldelad**, **tillgänglig**, och  **Upphör snart att gälla** information för varje specifik produkt-version.
 
@@ -76,7 +76,7 @@ Se till att vem som helst att behöva använda en licensierad Azure AD-tjänsten
 
 4. Välj **tilldelningsalternativ**, kontrollera att du har rätt licens alternativen har aktiverats och välj sedan **OK**.
 
-    ![Licens alternativet sidan som visar alla alternativ som är tillgänglig i versionen](media/license-users-groups/license-option-blade-assignments.png)
+    ![Licens alternativet sida, med alla alternativ som är tillgänglig i versionen](media/license-users-groups/license-option-blade-assignments.png)
 
     Den **tilldela licens** sidan uppdateringar att visa att en användare har valts och att tilldelningarna har konfigurerats.
 
@@ -102,7 +102,7 @@ Se till att vem som helst att behöva använda en licensierad Azure AD-tjänsten
 
 4. Välj **tilldelningsalternativ**, kontrollera att du har rätt licens alternativen har aktiverats och välj sedan **OK**.
 
-    ![Licens alternativet sidan som visar alla alternativ som är tillgänglig i versionen](media/license-users-groups/license-option-blade-group-assignments.png)
+    ![Licens alternativet sida, med alla alternativ som är tillgänglig i versionen](media/license-users-groups/license-option-blade-group-assignments.png)
 
     Den **tilldela licens** sidan uppdateringar att visa att en användare har valts och att tilldelningarna har konfigurerats.
 
@@ -112,7 +112,6 @@ Se till att vem som helst att behöva använda en licensierad Azure AD-tjänsten
 5. Välj **Tilldela**.
 
     Gruppen har lagts till i listan över licensierade grupper och alla medlemmar har åtkomst till den medföljande Azure AD-tjänster.
-
 
 ## <a name="remove-a-license"></a>Ta bort en licens
 Du kan ta bort en licens från en användare eller grupp från den **licenser** sidan.

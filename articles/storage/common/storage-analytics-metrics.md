@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: b35d3d22ce154420c9099143894688389e8af420
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: 9b4bceba53658cb8ac3c73e75e0d19faf3fe3f0b
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58078048"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259762"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure Storage analytics-mått (klassisk)
 
@@ -23,10 +23,10 @@ Lagringsanalys kan lagra mätvärden som innehåller aggregerad Transaktionsstat
 
 > [!NOTE]
 > Mätvärden i Storage Analytics är tillgängliga för tjänsterna Blob, kö, tabell och fil.
-> Mätvärden i Storage Analytics är nu klassisk mått. Microsoft rekommenderar att du använder [Storage-mått i Azure Monitor](/azure/storage/common/storage-metrics-in-azure-monitor.md) i stället för Storage Analytics mätvärden.
+> Mätvärden i Storage Analytics är nu klassisk mått. Microsoft rekommenderar att du använder [Storage-mått i Azure Monitor](storage-metrics-in-azure-monitor.md) i stället för Storage Analytics mätvärden.
 
 ## <a name="transaction-metrics"></a>Transaktionsmått  
- En stabil uppsättning data registreras med timvis eller minuters intervall för varje lagringstjänst och den begärda API-åtgärden, inklusive ingående/utgående trafik, tillgänglighet, fel, och kategoriseras begäran procenttal. Du kan se en fullständig lista över transaktionsuppgifter i den [Schema över Måttabeller i Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema.md) avsnittet.  
+ En stabil uppsättning data registreras med timvis eller minuters intervall för varje lagringstjänst och den begärda API-åtgärden, inklusive ingående/utgående trafik, tillgänglighet, fel, och kategoriseras begäran procenttal. Du kan se en fullständig lista över transaktionsuppgifter i den [Schema över Måttabeller i Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema) avsnittet.  
 
  Transaktionsdata registreras på två nivåer – servicenivån och API-åtgärdsnivå. På servicenivån begärda statistik som sammanfattar alla API-åtgärder skrivs till en tabellentitet varje timme även om inga ansökningar har gjorts till tjänsten. På åtgärdsnivå API skrivs statistik enbart till en entitet om åtgärden begärdes den timmen.  
 
@@ -45,7 +45,7 @@ Lagringsanalys kan lagra mätvärden som innehåller aggregerad Transaktionsstat
 - **ContainerCount**: Antal blob-behållare i lagringskontots Blob service.  
 - **ObjectCount**: Antal allokerade och ogenomförda block- eller sidtyp blobar i lagringskontots Blob service.  
 
-  Läs mer om kapacitetsmåtten [Schema över Måttabeller i Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema.md).  
+  Läs mer om kapacitetsmåtten [Schema över Måttabeller i Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema).  
 
 ## <a name="how-metrics-are-stored"></a>Hur mått lagras  
 
@@ -123,7 +123,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
 Läs mer om hur du använder ett .NET-språk för att konfigurera Lagringsmått [Lagringsklientbiblioteket för .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx).  
 
-Allmän information om hur du konfigurerar mätvärden i Storage med hjälp av REST-API finns i [aktivera och konfigurera Lagringsanalys](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics.md).  
+Allmän information om hur du konfigurerar mätvärden i Storage med hjälp av REST-API finns i [aktivera och konfigurera Lagringsanalys](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).  
 
 ##  <a name="viewing-storage-metrics"></a>Visa lagringsmått  
 När du har konfigurerat Storage Analytics mätvärden för att övervaka ditt storage-konto, registrerar Storage Analytics mätvärden i en uppsättning välkända tabeller i ditt lagringskonto. Du kan konfigurera diagram om du vill visa per timme mått i den [Azure-portalen](https://portal.azure.com):
@@ -144,7 +144,7 @@ Om du vill hämta mått för långsiktig lagring eller analysera dem lokalt, må
 |Minutmått|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Kan bara aktiveras med hjälp av PowerShell eller via programmering.<br /><br /> Mått för tjänsten är tillgängliga från och med version 2015-04-05.|  
 |Kapacitet|$MetricsCapacityBlob|BLOB-tjänsten.|  
 
-Du hittar fullständig information om scheman för dessa tabeller på [Schema över Måttabeller i Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema.md). Raderna exemplet nedan visar endast en delmängd av kolumnerna som är tillgängliga, men visar några viktiga funktioner i sätt Lagringsmått sparar de här måtten:  
+Du hittar fullständig information om scheman för dessa tabeller på [Schema över Måttabeller i Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema). Raderna exemplet nedan visar endast en delmängd av kolumnerna som är tillgängliga, men visar några viktiga funktioner i sätt Lagringsmått sparar de här måtten:  
 
 ||||||||||||  
 |-|-|-|-|-|-|-|-|-|-|-|  
@@ -227,6 +227,6 @@ Den kapacitet som används av tabellerna mått är också faktureringsbara. Du k
 
 ## <a name="next-steps"></a>Nästa steg
 * [Så här övervakar du ett Storage-konto](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
-* [Schema över Måttabeller i Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)   
-* [Lagringsanalys loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md)   
+* [Schema över Måttabeller i Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
+* [Lagringsanalys loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
 * [Loggningen i Storage Analytics](storage-analytics-logging.md)

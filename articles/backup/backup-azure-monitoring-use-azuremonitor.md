@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 7daf76605d40495d6c9cb5076f0403a78819adfc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: aa97e60fe296190f3478d29bc80c70ea487e8955
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439171"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258589"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Övervakning i stor skala med Azure Monitor
 
@@ -29,7 +29,7 @@ Den [inbyggd övervakning och avisering artikeln](backup-azure-monitoring-built-
 ## <a name="using-log-analytics-workspace"></a>Med hjälp av Log Analytics-arbetsyta
 
 > [!NOTE]
-> Data från Virtuella Azure-säkerhetskopieringar, MAB-agenten, System Center DPM (SC-DPM) är som läggs in till arbetsytan Log Analytics via diagnostikinställningar. Stöd för SQL-säkerhetskopior i Azure virtuella datorer, säkerhetskopior av Azure-filresurser, Microsoft Azure Backup Server (MABS) kommer snart.
+> Är som läggs in data från Virtuella Azure-säkerhetskopieringar, MAB-agenten, System Center DPM (SC-DPM), SQL-säkerhetskopior i Azure virtuella datorer till Log Analytics-arbetsytan via diagnostikinställningar. Stöd för säkerhetskopior av Azure-filresurser, Microsoft Azure Backup Server (MABS) kommer snart.
 
 Vi använder sig av funktionerna i två Azure-tjänster – **diagnostikinställningar** (för att skicka data från flera Azure Resource Manager-resurser till en annan resurs) och **Log Analytics** (LA - för att generera anpassade aviseringar där du kan definiera andra meddelandekanaler med åtgärdsgrupper) för att övervaka i skala. Följande avsnitt visar om hur du använder LA för att övervaka Azure Backup i stor skala.
 

@@ -16,12 +16,12 @@ ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 564c4b011b26f2bc6b034233d014542172a4a739
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 665f8ac9a8b0738ed23649673c548bc6b1774d2d
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885308"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259966"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Översikt över identitet för Azure Stack
 
@@ -65,7 +65,7 @@ I Azure Stack, användarkonton:
 - Är begränsade till den katalog där de först registrera, vilket är sin organisations katalog.
 - Du kan importera från dina lokala kataloger. Mer information finns i [integrerar dina lokala kataloger med Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).
 
-När du loggar in till din organisations klient-portalen kan du använda den *https://portal.local.azurestack.external* URL: en. När du loggar in på Azure Stack-portalen från andra domäner än den som används för att registrera Azure Stack, domännamn som används för att registrera Azure Stack måste läggas till på portalen URL: en. Till exempel om Azure Stack har registrerats med fabrikam.onmicrosoft.com och det användarkonto som har loggat in är admin@contoso.com, URL: en du använder för att logga in på användarportalen: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+När du loggar in till din organisations klient-portalen kan du använda den *https:\//portal.local.azurestack.external* URL: en. När du loggar in på Azure Stack-portalen från andra domäner än den som används för att registrera Azure Stack, domännamn som används för att registrera Azure Stack måste läggas till på portalen URL: en. Till exempel om Azure Stack har registrerats med fabrikam.onmicrosoft.com och det användarkonto som har loggat in är admin@contoso.com, URL: en du använder för att logga in på användarportalen: https:\//portal.local.azurestack.external/ Fabrikam.onmicrosoft.com.
 
 ### <a name="guest-users"></a>Gästanvändare
 
@@ -73,7 +73,7 @@ Gästanvändare är användarkonton från andra klienter i katalogen som har bev
 
 Om du vill bjuda in gästanvändare molnoperatörer och användare kan använda [Azure AD B2B-samarbete](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Inbjudna användare få åtkomst till dokument, resurser och program från din katalog och du behåller kontrollen över dina egna resurser och data. 
 
-Som gästanvändare, kan du logga in till en annan organisation directory-klient. Om du vill göra det du lägga till den organisationens katalognamnet på portalen URL: en. Till exempel om du ingår i Contoso-organisation och vill logga in till katalogen Fabrikam du använda https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Som gästanvändare, kan du logga in till en annan organisation directory-klient. Om du vill göra det du lägga till den organisationens katalognamnet på portalen URL: en. Till exempel om du ingår i Contoso-organisation och vill logga in till katalogen Fabrikam, använda https:\//portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ### <a name="applications"></a>Appar
 
@@ -156,10 +156,10 @@ För program och användare beskrivs arkitekturen för Azure Stack med fyra lage
 
 För att autentisera med identitetsprovidern och ta emot en JSON Web Token, måste du ha följande information:
 
-1. **URL: en för ID-system (Authority)**: Den URL som din identitetsprovider kan nås. Till exempel *https://login.windows.net*.
+1. **URL: en för ID-system (Authority)**: Den URL som din identitetsprovider kan nås. Till exempel *https:\//login.windows.net*.
 2. **App-ID-URI: N för Azure Resource Manager**: Den unika identifieraren för Azure Resource Manager som har registrerats hos din identitetsprovider. Det är också unik för varje Azure Stack-installation.
 3. **autentiseringsuppgifter**: De autentiseringsuppgifter som du använder för att autentisera med identitetsprovidern.
-4. **URL för Azure Resource Manager**: URL: en är platsen för Azure Resource Manager-tjänsten. Till exempel *https://management.azure.com* eller *https://management.local.azurestack.external*.
+4. **URL för Azure Resource Manager**: URL: en är platsen för Azure Resource Manager-tjänsten. Till exempel *https:\//management.azure.com* eller *https:\//management.local.azurestack.external*.
 
 När ett huvudnamn (en klient, program eller användare) gör en autentiseringsbegäran till en resurs, måste begäran innehålla:
 

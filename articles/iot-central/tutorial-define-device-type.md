@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 3f20708308a9b5d7c09d6a498d659afac8a508c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: e4c5942dfba62a2c869e4eeceb9018fc926d9de9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090805"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259557"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-new-ui-design"></a>Självstudier: Definiera en ny enhetstyp i Azure IoT Central-programmet (nytt användargränssnitt)
 
@@ -144,6 +144,9 @@ Följande steg visar hur du skapar en ny enhetsmall kallad **Ansluten luftkondit
      ![Konfigurera temperatursimulering](./media/tutorial-define-device-type/temperaturesimulation.png)
 
 7. Efter en kort stund visar fliken **Mått** ett diagram över temperaturtelemetrin från den simulerade anslutna luftkonditioneringsenheten. Använd kontrollerna för att hantera synlighet eller sammansättning eller redigera telemetridefinitionen:
+ 
+    > [!NOTE]
+    > För telemetri, **genomsnittlig** har angetts som standardaggregeringen. 
 
     ![Visa temperatursimulering](./media/tutorial-define-device-type/viewsimulation.png)
 

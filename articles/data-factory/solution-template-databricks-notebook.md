@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 884a13df23fd0cc1103b6a73fad26f2099e3bfd7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 54b440ee76fe36a83284b8ce769bb31012781a35
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074704"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295767"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>Omvandla data med hjälp av Databricks i Azure Data Factory
 
@@ -39,7 +39,7 @@ För att den här mallen enkelt skapar inte mallen en schemalagd utlösare. Du k
 
 2.  Kontrollera att du har en **Azure Databricks-arbetsytan** eller skapa en ny.
 
-1.  **Importera anteckningsboken för ETL**. Importera den nedan transformeringen notebook till Databricks-arbetsytan. (Det behöver inte finnas på samma plats som nedan, men kom ihåg den sökväg som du väljer för senare.) Importera anteckningsboken från följande URL genom att ange URL: en i URL-fält: `https://Data Factorylabstaging1.blob.core.windows.net/share/Transformations.html`. Välj **Import**.
+1.  **Importera anteckningsboken för ETL**. Importera den nedan transformeringen notebook till Databricks-arbetsytan. (Det behöver inte finnas på samma plats som nedan, men kom ihåg den sökväg som du väljer för senare.) Importera anteckningsboken från följande URL genom att ange URL: en i URL-fält: `https://DataFactorylabstaging1.blob.core.windows.net/share/Transformations.html`. Välj **Import**.
 
     ![2](media/solution-template-Databricks-notebook/Databricks-tutorial-image02.png)
 

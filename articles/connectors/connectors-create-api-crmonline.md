@@ -10,12 +10,12 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: 1247f603b759364edcee2bff12f75bb0a217ecd6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: MT
+ms.openlocfilehash: 9fe41cf2946525948897635a4e30213d161431ef
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231262"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295308"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Hantera Dynamics 365-poster med Azure Logic Apps
 
@@ -34,7 +34,7 @@ Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../log
 
 * Logikappen där du vill komma åt ditt Dynamics 365-konto. Om du vill börja din logikapp med en Dynamics 365-utlösare, som du behöver en [tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
-## <a name="add-dynamics-365-trigger"></a>Lägg till Dynamics 365-utlösare
+## <a name="add-dynamics-365-trigger"></a>Add Dynamics 365 trigger
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
@@ -42,7 +42,7 @@ Lägg först till en Dynamics 365-utlösare som utlöses när en ny lead-posten 
 
 1. I den [Azure-portalen](https://portal.azure.com), öppna logikappen tom i Logic App Designer, om inte redan är öppna.
 
-1. Ange ”Dynamics 365” i sökrutan som filter. I det här exemplet under listan över utlösare, Välj den här utlösaren: **när en post skapas**
+1. Ange ”Dynamics 365” i sökrutan som filter. Välj den här utlösaren i det här exemplet under listan över utlösare: **När en post skapas**
 
    ![Välj utlösare](./media/connectors-create-api-crmonline/select-dynamics-365-trigger.png)
 
@@ -66,7 +66,7 @@ Lägg nu till Dynamics 365-åtgärd som skapar en uppgiftspost för den nya lead
 
 1. Under utlösaren och väljer **nytt steg**.
 
-1. Ange ”Dynamics 365” i sökrutan som filter. Välj den här åtgärden från åtgärdslistan över: **skapa en ny post**
+1. Ange ”Dynamics 365” i sökrutan som filter. Välj den här åtgärden från åtgärdslistan över: **Skapa en ny post**
 
    ![Välj åtgärd](./media/connectors-create-api-crmonline/select-action.png)
 
@@ -85,7 +85,7 @@ Lägg nu till Dynamics 365-åtgärd som skapar en uppgiftspost för den nya lead
    | Fält | Beskrivning | 
    |-------|-------------| 
    | **Efternamn** | Efternamnet från lead som den primära kontakten i posten |
-   | **Avsnittet** | Ett beskrivande namn för ditt lead i posten | 
+   | **Ämne** | Ett beskrivande namn för ditt lead i posten | 
    | | | 
 
    ![Information om posten](./media/connectors-create-api-crmonline/create-record-details.png)
@@ -122,9 +122,9 @@ Den här tabellen beskriver några av fälttyper och vilka data som krävs för 
 
 | Fälttyp | Krävs för datatyp | Beskrivning | 
 |------------|--------------------|-------------|
-| Textfält | Enskild rad med text | Dessa fält kräver en rad med text eller dynamiskt innehåll som har texttypen. <p><p>*Exempel fält*: **beskrivning** och **kategori** | 
-| Heltalsfält | Heltal | Vissa fält kräver heltal eller dynamiskt innehåll som har typen heltal. <p><p>*Exempel fält*: **procent färdigt** och **varaktighet** | 
-| Datumfält | Datum och tid | Vissa fält kräver ett datum med mm/dd/åååå eller dynamiskt innehåll som är av typen date. <p><p>*Exempel fält*: **Skapad den**, **startdatum**, **verklig Start**, **Verkligt slut**, och **förfallodatum** | 
+| Textfält | Enskild rad med text | Dessa fält kräver en rad med text eller dynamiskt innehåll som har texttypen. <p><p>*Exempel fält*: **Beskrivning av** och **kategori** | 
+| Heltalsfält | Heltal | Vissa fält kräver heltal eller dynamiskt innehåll som har typen heltal. <p><p>*Exempel fält*: **Procent färdigt** och **varaktighet** | 
+| Datumfält | Datum och tid | Vissa fält kräver ett datum med mm/dd/åååå eller dynamiskt innehåll som är av typen date. <p><p>*Exempel fält*: **Skapad**, **startdatum**, **verklig Start**, **Verkligt slut**, och **förfallodatum** | 
 | Ange fält som kräver både ett post-ID och en uppslagstyp | Primär nyckel | Vissa fält som refererar till en annan entitetspost kräver både ett post-ID och en uppslagstyp. | 
 ||||
 
@@ -187,7 +187,7 @@ Läs mer om hur du felsöker logikappar [diagnosticera logikappfel](../logic-app
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information, till exempel utlösare och åtgärder gränser, enligt beskrivningen av kopplingens Swagger-fil, finns i den [anslutningsappens-referenssida](/connectors/crm/). 
+Teknisk information, till exempel utlösare och åtgärder gränser, enligt beskrivningen av kopplingens Swagger-fil, finns i den [anslutningsappens-referenssida](/connectors/dynamicscrmonline/). 
 
 ## <a name="get-support"></a>Få support
 

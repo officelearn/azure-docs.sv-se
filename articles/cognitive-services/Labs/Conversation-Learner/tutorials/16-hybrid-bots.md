@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 17be364959c5cdc1beaf48aa86966ede5c7c7309
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b90fc42aa56bfc813ec464670336dea75cff0f0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219370"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117446"
 ---
 # <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>Hur du använder Konversationsdeltagare med andra bot bygger teknik
 
@@ -119,11 +119,11 @@ Till skillnad från enkel konversationen Leaner modellen robotar du inte testa d
 2. Ange ”hello”.  Eftersom `isOpen` värdet inte anges, roboten säger ”jag har vi är stängd” och avsluta sessionen.
 
 #### <a name="scenario-2-store-is-open"></a>Scenario 2: Store är öppen
-3. Ange ”öppna store”.  Detta anger den `isOpen` till true.
-4. Ange ”köp”.
-5. Ange ”hello”.  Eftersom `isOpen` värdet anges till SANT, roboten står ”vad du vill köpa”?
-6. Ange ”leda'. ”chair” kommer att sparas i minnet CL som entiteten `purchaseItem`. End-session återanrop har anropats som kopierar det här värdet till arkivet för konversationen.
-7. Ange ”historik”.  Roboten säger ”du har köpt chair” eftersom detta är sist `purchaseItem`.
+1. Ange ”öppna store”.  Detta anger den `isOpen` till true.
+1. Ange ”köp”.
+1. Ange ”hello”.  Eftersom `isOpen` värdet anges till SANT, roboten står ”vad du vill köpa”?
+1. Ange ”leda'. ”chair” kommer att sparas i minnet CL som entiteten `purchaseItem`. End-session återanrop har anropats som kopierar det här värdet till arkivet för konversationen.
+1. Ange ”historik”.  Roboten säger ”du har köpt chair” eftersom detta är sist `purchaseItem`.
 
 ## <a name="conclusion"></a>Sammanfattning
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 66410a0586fcdd10f7c350bd4bad5211be61a79a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 0587782cbfa31f7b397b950a752040cc678cf7d7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669354"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085821"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentera webbappar vid körning med Application Insights Status Monitor
 
@@ -98,14 +98,14 @@ Det här är några steg som du kan utföra för att bekräfta att installatione
 - Bekräfta att filen applicationInsights.config finns i målkatalogen för appen och innehåller din ikey.
 
 - Om du misstänker att data saknas kan du köra en enkel fråga i [Analytics](../log-query/get-started-portal.md) att lista alla molnroller som skickar telemetri.
-```Kusto
-union * | summarize count() by cloud_RoleName, cloud_RoleInstance
-```
+  ```Kusto
+  union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+  ```
 
 - Om du vill kontrollera att Application Insights är har bifogats kan du köra [Sysinternals referensen](https://docs.microsoft.com/sysinternals/downloads/handle) i ett kommando fönstret för att bekräfta att applicationinsights.dll har lästs in av IIS.
-```cmd
-handle.exe /p w3wp.exe
-```
+  ```cmd
+  handle.exe /p w3wp.exe
+  ```
 
 
 ### <a name="cant-connect-no-telemetry"></a>Går det inte att ansluta? Ser du ingen telemetri?

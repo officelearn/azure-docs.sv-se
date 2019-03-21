@@ -1,5 +1,5 @@
 ---
-title: Lägg till användare i B2B-samarbetet utan en inbjudan länk eller e-post – Azure Active Directory | Microsoft Docs
+title: Lägga till B2B-gäster utan en inbjudan länk eller e-post – Azure Active Directory | Microsoft Docs
 description: Du kan låta en gästanvändare lägga till andra gästanvändare till din Azure AD utan löser in inbjudan i Azure Active Directory B2B-samarbete.
 services: active-directory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c33d9a3755f2fb5397dd013c88ab542e727e125
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1dca03f84b821d20ee6fecbaec24a1aa840836b5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337676"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294985"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Lägga till gästanvändare för B2B-samarbete utan en inbjudan länk eller e-post
 
@@ -33,7 +33,7 @@ Den här ursprungliga metoden fortfarande fungerar. Det finns dock små skillnad
 
 Om du bjuda in användare till katalogen gästanvändaren måste komma åt resursen klientspecifik Azure-portalen URL direkt (till exempel https://portal.azure.com/ *resourcetenant*. onmicrosoft.com) att visa och samtycker till sekretesspolicyn.
 
-### <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 - [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
 - [B2B-samarbete inlösning av inbjudan](redemption-experience.md)

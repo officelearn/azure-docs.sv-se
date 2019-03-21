@@ -3,7 +3,7 @@ title: Säkerhetsaviseringar per typ i Azure Security Center | Microsoft Docs
 description: I den här artikeln beskrivs de olika typerna av säkerhetsaviseringar som är tillgängliga i Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
@@ -12,22 +12,19 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
-ms.author: rkarlin
-ms.openlocfilehash: 6bd05a417bfb011dd86b61d654be836ef76099b7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 3/20/2018
+ms.author: monhaber
+ms.openlocfilehash: 407d0610f919b1145a91e8678f57f8d344c9c187
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439691"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286371"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Förstå säkerhetsaviseringar i Azure Security Center
 Den här artikeln visar de olika typerna av säkerhetsaviseringar och meddelanden som är tillgängliga i Azure Security Center. Mer information om att hantera aviseringar och händelser finns i [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
 
 För avancerad identifiering rekommenderar vi att du uppgraderar till Azure Security Center Standard. En kostnadsfri utvärderingsversion är tillgänglig. Om du vill uppgradera väljer du **Prisnivå** i avsnittet om [säkerhetsprinciper](tutorial-security-policy.md). Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
-
-> [!NOTE]
-> Security Center har för den begränsade förhandsversionen publicerat en ny uppsättning identifieringar som utnyttjar auditd-poster, ett gemensamt granskningsramverk för att upptäcka skadligt beteende på Linux-datorer. Skicka ett e-postmeddelande med dina prenumerations-id:n till [oss](mailto:ASC_linuxdetections@microsoft.com) för att ta del av förhandsversionen.
 
 ## <a name="what-type-of-alerts-are-available"></a>Vilka typer av aviseringar finns?
 Azure Security Center använder olika [identifieringsfunktioner](security-center-detection-capabilities.md) för att uppmärksamma kunder om eventuella hot mot deras miljöer. Dessa aviseringar innehåller värdefull information om vad som utlöste aviseringen, vilka resurser som berörs och attackens källa. Informationen som ingår i en avisering varierar beroende på vilken typ av analys som används för att identifiera hot. Händelser kan också innehålla ytterligare sammanhangsinformation som kan vara användbart när du utreder ett hot.  Den här artikeln innehåller information om följande aviseringstyper:

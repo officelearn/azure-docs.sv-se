@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b5c43215ce1800ac162c8b5d19ba4d4c987a3bac
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b00082ec567d51c320f55210cb38dcab9547e0d9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445814"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258759"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Hantera Nyckelvalv i Azure Stack med hjälp av PowerShell
 
@@ -92,7 +92,7 @@ New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location 
 
 ![Nytt nyckelvalv](media/azure-stack-key-vault-manage-powershell/image4.png)
 
-Kommandots utdata visar egenskaper för nyckelvalvet som du skapade. När ett program har åtkomst till det här valvet, måste den använda den **Valvets URI** egenskapen, som är ”https://vault01.vault.local.azurestack.external” i det här exemplet.
+Kommandots utdata visar egenskaper för nyckelvalvet som du skapade. När ett program har åtkomst till det här valvet, måste den använda den **Valvets URI** egenskapen, som är ”https:\//vault01.vault.local.azurestack.external” i det här exemplet.
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Distribution av Active Directory Federation Services (AD FS)
 
@@ -127,8 +127,8 @@ Den **mål** används för att ange att nyckeln är programvara som skyddas. Nä
 
 Du kan nu referera nyckeln med hjälp av dess URI. Om du skapar eller importera en nyckel som har samma namn som en befintlig nyckel, uppdateras den ursprungliga nyckeln med värdena som anges i den nya nyckeln. Du kan komma åt den tidigare versionen med hjälp av versionsspecifika URI för nyckeln. Exempel:
 
-* Använd ”https://vault10.vault.local.azurestack.external:443/keys/key01” att alltid hämta den aktuella versionen.
-* Använd ”https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a” att hämta den här specifika versionen.
+* Använd ”https:\//vault10.vault.local.azurestack.external:443/keys/key01” att alltid hämta den aktuella versionen.
+* Använd ”https:\//vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a” att hämta den här specifika versionen.
 
 ### <a name="get-a-key"></a>Hämta en nyckel
 

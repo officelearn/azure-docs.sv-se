@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5802634fe070f5d71fae01706c3cb4e83e04a72e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 691f705574050b15869a0ac8b7d128507e5aae10
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192072"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285640"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Redigera gruppinformation med hjälp av Azure Active Directory
 
@@ -39,7 +39,7 @@ Med Azure Active Directory (Azure AD) kan redigera du inställningarna för en g
 
 4. Välj gruppen som **MDM princip – västra**, och välj sedan **egenskaper** från den **hantera** området.
 
-    ![Översikt översiktssidan med numret och medlemmar och medlemmen alternativet markerat](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+    ![Översikt översiktssidan med information som är markerat och medlemmen alternativet](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 
 5. Uppdatera den **allmänna inställningar** information efter behov, inklusive:
 

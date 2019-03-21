@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fa36ab67957dcba7b5282e219706e442be9dc97
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: a77d502182da8128624bfb5fc0481f2f8786ec37
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674488"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293642"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Vad är gästanvändaråtkomst i Azure Active Directory B2B?
 
@@ -34,7 +35,7 @@ Med Azure AD B2B använder dina partners sina egna lösningar för identitetshan
 - Du behöver inte hantera externa konton eller lösenord. 
 - Du behöver inte synkronisera konton eller hantera kontolivscykler.  
 
-![lägg till medlem](media/what-is-b2b/add-member.png)
+![Skärmbild som visar Lägg till medlemmar](media/what-is-b2b/add-member.png)
 
 ## <a name="invite-guest-users-with-a-simple-invitation-and-redemption-process"></a>Bjud in gästanvändare med en enkel process för inbjudan och inlösen
 Gästanvändarna loggar in på dina appar och tjänster med sina egna arbets- eller skolidentiteter eller sociala identiteter. Om en gästanvändare inte har något Microsoft-konto eller ett Azure AD-konto skapas ett när användaren löser in sin inbjudan. 
@@ -42,7 +43,7 @@ Gästanvändarna loggar in på dina appar och tjänster med sina egna arbets- el
 - Skicka en direktlänk till en app eller skicka en inbjudan till gästanvändaren egen åtkomstpanel. 
 - Gästanvändarna loggar in genom några enkla inlösningssteg.
 
-![åtkomstpanel](media/what-is-b2b/consentscreen.png)
+![Skärmbild som visar sidan Granska behörigheter](media/what-is-b2b/consentscreen.png)
 
 ## <a name="use-policies-to-securely-share-your-apps-and-services"></a>Använda principer för att på ett säkert sätt dela dina appar och tjänster
 Du kan använda auktoriseringsprinciper för att skydda företagets innehåll. Principer för villkorsstyrd åtkomst, som multifaktorautentisering, kan tillämpas:
@@ -50,7 +51,7 @@ Du kan använda auktoriseringsprinciper för att skydda företagets innehåll. P
 - På programnivå.
 - För specifika gästanvändare för att skydda företagets appar och data.
 
-![lägga till gästanvändare](media/what-is-b2b/tutorial-mfa-policy-2.png)
+![Skärmbild som visar alternativet villkorlig åtkomst](media/what-is-b2b/tutorial-mfa-policy-2.png)
 
 
 ## <a name="easily-add-guest-users-in-the-azure-ad-portal"></a>Lägg enkelt till gästanvändare i Azure AD-portalen
@@ -60,7 +61,7 @@ Som administratör kan du enkelt lägga till gästanvändare för din organisati
 - Gästanvändaren får direkt en anpassningsbar inbjudan som låter hen logga in på sin åtkomstpanel.
 - Gästanvändare i katalogen kan tilldelas appar eller grupper.  
 
-![lägga till gästanvändare](media/what-is-b2b/adding-b2b-users-admin.png)
+![Skärmbild som visar sidan Ny gästanvändare postinbjudan](media/what-is-b2b/adding-b2b-users-admin.png)
 
 ## <a name="let-application-and-group-owners-manage-their-own-guest-users"></a>Låt program och gruppägare hantera sina egna gästanvändare
 
@@ -68,7 +69,7 @@ Du kan delegera hanteringen av gästanvändarna till programägarna, så att de 
  - Administratörer konfigurerar självbetjäningapp och grupphantering.
  - Icke-administratörer använda sina [åtkomstpanelet](https://myapps.microsoft.com) för att lägga till gästanvändare till program eller grupper.
 
-![lägga till gästanvändare](media/what-is-b2b/access-panel-manage-app.png)
+![Skärmbild som visar åtkomstpanelen för gästanvändare](media/what-is-b2b/access-panel-manage-app.png)
 
 ## <a name="use-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>Använd API:er och exempelkod för att enkelt bygga program att publicera
 
@@ -76,7 +77,7 @@ Integrera dina externa partners så passar din organisations behov.
 - Använd [API:erna för B2B-samarbetsinbjudan](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) för att anpassa integreringen, t.ex. genom att skapa självbetjäningsportaler för registrering. 
 - Använd den exempelkod som vi tillhandahåller för en självbetjäningsportal [på GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
-![registreringsportal](media/what-is-b2b/sign-up-portal.png)
+![Skärmbild som visar registreringsportalen för exemplet](media/what-is-b2b/sign-up-portal.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

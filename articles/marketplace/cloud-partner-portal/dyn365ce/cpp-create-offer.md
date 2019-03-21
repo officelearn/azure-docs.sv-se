@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6551eab45fdfb5070b29de4152cf2b3e3d008f69
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 0138ea8dcbd780ca8aa87178dad41bdca1a72267
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083244"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900666"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement-application-offer"></a>Skapa en Dynamics 365 för kundengagemang programmet erbjudande
 
@@ -28,7 +28,7 @@ Det här avsnittet beskriver hur du skapar och publicerar en Dynamics 365 för k
 
 ## <a name="new-offer-form"></a>Nytt erbjudande formulär
 
-Logga in på den [Cloud Partner Portal](http://cloudpartner.azure.com/), och välj sedan **+ nytt erbjudande** på den vänstra menyraden. På ikonen nytt erbjuda meny, Välj **Dynamics 365 för kundengagemang**:
+Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com/), och välj sedan **+ nytt erbjudande** på den vänstra menyraden. På ikonen nytt erbjuda meny, Välj **Dynamics 365 för kundengagemang**:
 
 ![Nytt erbjudande menyalternativet för Dynamics 365 för Customer Engagement-program](./media/new-dyn365ce-menu-item.png)
 

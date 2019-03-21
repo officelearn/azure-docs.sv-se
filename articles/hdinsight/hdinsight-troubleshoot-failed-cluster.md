@@ -2,33 +2,33 @@
 title: Felsöka ett långsamt eller felaktigt HDInsight-kluster – Azure HDInsight
 description: Diagnostisera och felsöka ett långsamt eller felaktigt HDInsight-kluster.
 services: hdinsight
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.openlocfilehash: 05c6f1cbf5f7f20745fa837accdaa95e6c186b8b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.date: 03/19/2019
+ms.openlocfilehash: 0129a09383b59aa5d213ef7ff1c78f23588472a7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226631"
+ms.locfileid: "58295478"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Felsöka ett långsamt eller felaktigt HDInsight-kluster
 
-Om ett HDInsight-kluster långsam eller misslyckas med felkoden, har du flera alternativ för felsökning. Om dina jobb tar längre tid än förväntat eller om du ser långa svarstider i allmänhet, kan det finnas fel uppströms från ditt kluster, till exempel de tjänster som körs på klustret. Den vanligaste orsaken till dessa fördröjningar är dock inte tillräckligt med skalning. När du skapar ett nytt HDInsight-kluster väljer du lämplig [storlekar för virtuella datorer](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)
+Om ett HDInsight-kluster långsam eller misslyckas med felkoden, har du flera alternativ för felsökning. Om dina jobb tar längre tid än förväntat eller om du ser långa svarstider i allmänhet, kan det finnas fel uppströms från ditt kluster, till exempel de tjänster som körs på klustret. Den vanligaste orsaken till dessa fördröjningar är dock inte tillräckligt med skalning. När du skapar ett nytt HDInsight-kluster väljer du lämplig [storlekar för virtuella datorer](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
 
 Samla in information om alla aspekter av miljön, till exempel tillhörande Azure-tjänster och konfiguration av klustrets jobbinformation för körning för att diagnostisera ett långsamt eller felaktigt kluster. En bra diagnostik är att försöka återskapa feltillstånd i ett annat kluster.
 
-* Steg 1: Samla in data om problemet
-* Steg 2: Validera miljön för HDInsight-kluster 
-* Steg 3: Visa din klusterhälsa
-* Steg 4: Granska miljö stack och versioner
-* Steg 5: Granska loggfilerna för kluster
-* Steg 6: Kontrollera konfigurationsinställningarna
-* Steg 7: Återskapa felet på ett annat kluster 
+* Steg 1: Samla in data om problemet.
+* Steg 2: Validera miljön för HDInsight-kluster.
+* Steg 3: Visa hälsotillstånd för ditt kluster.
+* Steg 4: Granska miljö stack och versioner.
+* Steg 5: Granska loggfilerna för klustret.
+* Steg 6: Kontrollera konfigurationsinställningarna.
+* Steg 7: Återskapa felet på ett annat kluster.
 
 ## <a name="step-1-gather-data-about-the-issue"></a>Steg 1: Samla in data om problemet
 
@@ -57,13 +57,12 @@ Azure-portalen kan ge den här informationen:
 
 ![HDInsight-Azure-portalen Information](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-Du kan också använda den klassiska Azure-CLI:
+Du kan också använda [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
 
+```azurecli
+az hdinsight list --resource-group <ResourceGroup>
+az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
-    azure hdinsight cluster list
-    azure hdinsight cluster show <ClusterName>
-```
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Ett annat alternativ med hjälp av PowerShell. Mer information finns i [hantera Apache Hadoop-kluster i HDInsight med Azure PowerShell](hdinsight-administer-use-powershell.md).
 
@@ -73,10 +72,10 @@ Varje HDInsight-kluster förlitar sig på olika Azure-tjänster och programvara 
 
 ### <a name="service-details"></a>Tjänstinformation
 
-* Kontrollera slutversionerna bibliotek med öppen källkod
-* Sök efter [avbrott i Azure-tjänst](https://azure.microsoft.com/status/) 
-* Sök efter Azure-tjänsten användningsbegränsningar 
-* Kontrollera konfigurationen för Azure Virtual Network-undernät 
+* Kontrollera slutversionerna bibliotek med öppen källkod.
+* Sök efter [Azure tjänstavbrott](https://azure.microsoft.com/status/).  
+* Sök efter Azure-tjänsten användningsbegränsningar. 
+* Kontrollera konfigurationen för Azure Virtual Network-undernät.  
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Visa inställningar för klustrets med Ambari UI
 
@@ -124,7 +123,7 @@ Ett vanligt scenario för Apache Hive, Apache Pig eller Apache Sqoop jobb missly
 Detta är ett allmänt meddelande från gateway-noder och är de vanligaste statuskoden för felet. En möjlig orsak till detta är den WebHCat-tjänst som håller ned på den aktiva huvudnoden. Om du vill söka efter den här risken, använder du följande CURL-kommando:
 
 ```bash
-$ curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
+curl -u admin:{HTTP PASSWD} https://{CLUSTERNAME}.azurehdinsight.net/templeton/v1/status?user.name=admin
 ```
 
 Ambari visas en avisering som visar de värdar där WebHCat-tjänsten har stoppats. Du kan försöka att återställa tjänsten WebHCat säkerhetskopiera genom att starta om tjänsten på dess värd.
@@ -153,7 +152,7 @@ I följande avsnitt beskrivs några orsaker till WebHCat-timeout.
 När WebHCat är under belastning med fler än 10 öppna sockets, tar det längre tid att etablera nya socketanslutningar, vilket kan resultera i en tidsgräns. Om du vill visa nätverksanslutningar till och från WebHCat använder `netstat` på den aktuella aktiva huvudnoden:
 
 ```bash
-$ netstat | grep 30111
+netstat | grep 30111
 ```
 
 30111 är WebHCat lyssnar på porten. Antalet öppna sockets bör vara mindre än 10.
@@ -161,7 +160,7 @@ $ netstat | grep 30111
 Om det finns inga öppna sockets, genererar inte ett resultat i det föregående kommandot. Kontrollera om Templeton är igång och lyssnar på port 30111, Använd:
 
 ```bash
-$ netstat -l | grep 30111
+netstat -l | grep 30111
 ```
 
 ##### <a name="yarn-level-timeout"></a>Tidsgräns för YARN-nivå
@@ -190,9 +189,9 @@ Det finns två typer av tidsgränser på YARN-nivå:
 
 Diagnostisera problemen:
 
-    1. Intervall för UTC-tid att felsöka
-    2. Välj lämplig `webhcat.log` fil (er)
-    3. Leta efter WARN och felmeddelanden under den tiden
+1. Intervall för UTC-tid att felsöka
+2. Välj lämplig `webhcat.log` fil (er)
+3. Leta efter WARN och felmeddelanden under den tiden
 
 #### <a name="other-webhcat-failures"></a>Andra fel med WebHCat
 
@@ -215,8 +214,6 @@ Ambari UI **Stack och Version** sidan innehåller information om klustret tjäns
 ## <a name="step-5-examine-the-log-files"></a>Steg 5: Granska loggfilerna
 
 Det finns många typer av loggarna som genereras från de många tjänsterna och komponenterna som utgör ett HDInsight-kluster. [Loggfiler för WebHCat](#check-your-webhcat-service) beskrivs tidigare. Det finns flera andra användbara loggfiler som du kan undersöka om du vill begränsa problem med ditt kluster, enligt beskrivningen i följande avsnitt.
-
-![Exempel på HDInsight en loggfil](./media/hdinsight-troubleshoot-failed-cluster/logs.png)
 
 * HDInsight-kluster består av flera noder, de flesta är har behörighet för att köra skickade jobb. Jobb körs samtidigt, men loggfiler kan bara visa resultat linjärt. HDInsight kör nya aktiviteter avslutas andra som inte slutföras först. Den här aktiviteten loggas i den `stderr` och `syslog` filer.
 
@@ -259,7 +256,7 @@ Starta ett nytt kluster med samma konfiguration för att diagnostisera källan t
 1. Skapa ett nytt testkluster med samma konfiguration som misslyckade klustret.
 2. Skicka det första steget i test-klustret.
 3. När steget har slutförts bearbetning, Sök efter fel i loggfilerna steg. Anslut till test-klustrets huvudnod och visa det loggfilerna. Loggfilerna steg visas endast när steget körs under en period har slutförts eller misslyckas.
-4. Om det första steget lyckades, kör du nästa steg. Om det finns fel, Undersök fel i loggfilerna. Om det uppstod ett fel i koden, korrigera och kör steget. 
+4. Om det första steget lyckades, kör du nästa steg. Om det finns fel, Undersök fel i loggfilerna. Om det uppstod ett fel i koden, korrigera och kör steget.
 5. Fortsätt tills alla steg körs utan fel.
 6. När du är klar felsökning test-klustret, ta bort den.
 

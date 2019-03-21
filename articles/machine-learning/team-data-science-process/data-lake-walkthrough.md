@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2f47a145f00748a3366ea5bd1aa961f4b556a08f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cc37109eda2690b4407f9cd0c92851b7c0e3f915
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474674"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835252"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Skalbar datavetenskap med Azure Data Lake: En slutpunkt till slutpunkt genomgång
 Den här genomgången visar hur du använder Azure Data Lake att göra datagranskning och binär klassificering uppgifter på ett exempel på NYC taxi resa och färdavgiften datauppsättning för att förutsäga om ett tips betalas av en avgiften. Vi går igenom stegen i den [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), slutpunkt till slutpunkt, från datainsamling modellera utbildning och sedan till distributionen av en webbtjänst som publicerar modellen.
@@ -72,17 +72,17 @@ Det här avsnittet innehåller anvisningar om hur du skapar dessa resurser. Om d
 ### <a name="create-an-azure-data-lake-store"></a>Skapa en Azure Data Lake Store
 
 
-Skapa ett ADLS från den [Azure-portalen](http://portal.azure.com). Mer information finns i [skapa ett HDInsight-kluster med Data Lake Store med hjälp av Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Se till att ställa in kluster AAD-identitet i den **DataSource** bladet för den **valfri konfiguration** bladet beskrivs det.
+Skapa ett ADLS från den [Azure-portalen](https://portal.azure.com). Mer information finns i [skapa ett HDInsight-kluster med Data Lake Store med hjälp av Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Se till att ställa in kluster AAD-identitet i den **DataSource** bladet för den **valfri konfiguration** bladet beskrivs det.
 
  ![3](./media/data-lake-walkthrough/3-create-ADLS.PNG)
 
 ### <a name="create-an-azure-data-lake-analytics-account"></a>Skapa ett Azure Data Lake Analytics-konto
-Skapa ett ADLA-konto från den [Azure-portalen](http://portal.azure.com). Mer information finns i [Självstudier: Kom igång med Azure Data Lake Analytics med hjälp av Azure portal](../../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+Skapa ett ADLA-konto från den [Azure-portalen](https://portal.azure.com). Mer information finns i [Självstudier: Kom igång med Azure Data Lake Analytics med hjälp av Azure portal](../../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
  ![4](./media/data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 ### <a name="create-an-azure-blob-storage-account"></a>Skapa ett Azure Blob storage-konto
-Skapa ett Azure Blob storage-konto från den [Azure-portalen](http://portal.azure.com). Mer information finns i Skapa ett storage-konto-avsnitt i [om Azure storage-konton](../../storage/common/storage-create-storage-account.md).
+Skapa ett Azure Blob storage-konto från den [Azure-portalen](https://portal.azure.com). Mer information finns i Skapa ett storage-konto-avsnitt i [om Azure storage-konton](../../storage/common/storage-create-storage-account.md).
 
  ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -99,7 +99,7 @@ Installera Azure Data Lake Tools för din version av Visual Studio från [Azure 
  ![7](./media/data-lake-walkthrough/7-install-ADL-tools-VS-done.PNG)
 
 ## <a name="the-nyc-taxi-trips-dataset"></a>NYC Taxi och RETUR-datauppsättning
-De uppgifter som används här är en offentligt tillgänglig datauppsättning – den [NYC Taxi kommunikation datauppsättning](http://www.andresmh.com/nyctaxitrips/). NYC Taxi resedata består av cirka 20 GB komprimerat CSV-filer (~ 48 GB okomprimerad), registrera mer än 173 miljoner enskilda kommunikation och priser betalda för varje resa. Posterna resa innehåller hämtning och dropoff platser och gånger licensnummer maskerade hack (drivrutin) och antalet medallion (taxi's unikt ID). Informationen som täcker alla kommunikation i år 2013 och anges i följande två datauppsättningar för varje månad:
+De uppgifter som används här är en offentligt tillgänglig datauppsättning – den [NYC Taxi kommunikation datauppsättning](https://www.andresmh.com/nyctaxitrips/). NYC Taxi resedata består av cirka 20 GB komprimerat CSV-filer (~ 48 GB okomprimerad), registrera mer än 173 miljoner enskilda kommunikation och priser betalda för varje resa. Posterna resa innehåller hämtning och dropoff platser och gånger licensnummer maskerade hack (drivrutin) och antalet medallion (taxi's unikt ID). Informationen som täcker alla kommunikation i år 2013 och anges i följande två datauppsättningar för varje månad:
 
 Trip_data CSV innehåller resans information, till exempel antalet passagerare, hämtning och dropoff punkter, resans varaktighet och resans längd. Här följer några Exempelposter:
 
@@ -147,7 +147,8 @@ För att köra U-SQL, öppna Visual Studio klickar du på **Arkiv--> Ny--> proje
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
 ### <a name="ingest"></a>Datainmatning: Läsa data från offentliga blob
-Platsen för data i Azure-blobben refereras som **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** och extraherade med **Extractors.Csv()**. Ersätt behållarnamn och lagringskontonamn i följande skript för container_name@blob_storage_account_name wasb-adress. Eftersom filnamnen finns i samma format, är det möjligt att använda **resans\_data_ {\*\}.csv** att läsa i alla 12 resans filer.
+
+Platsen för data i Azure-blobben refereras som **wasb://container\_namn\@blob\_storage\_konto\_name.blob.core.windows.net/blob_name**och extraherade med **Extractors.Csv()**. Ersätt behållarnamn och lagringskontonamn i följande skript för behållaren\_namn\@blob\_storage\_konto\_i wasb-adress. Eftersom filnamnen finns i samma format, är det möjligt att använda **resans\_data\_\{\*\}.csv** att läsa i alla 12 resans filer.
 
     ///Read in Trip data
     @trip0 =
@@ -170,7 +171,7 @@ Platsen för data i Azure-blobben refereras som **wasb://container_name@blob_sto
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-Eftersom det finns rubriker på den första raden, måste du ta bort rubrikerna och ändra kolumntyper till lämpliga värden. Du kan antingen spara bearbetade data till Azure Data Lake Storage med hjälp av **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ eller till Azure Blob storage-konto med  **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
+Eftersom det finns rubriker på den första raden, måste du ta bort rubrikerna och ändra kolumntyper till lämpliga värden. Du kan antingen spara bearbetade data till Azure Data Lake Storage med hjälp av **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ eller till Azure Blob storage-konto med **wasb: / / container_name\@blob_storage_account_name.blob.core.windows.net/blob_name**.
 
     // change data types
     @trip =
@@ -596,7 +597,7 @@ Du vill utföra åtgärder för machine learning-modell när den har skapats. Bi
 Azure Machine Learning Studio kan läsa data direkt från Azure Data Lake Store och sedan användas för att skapa och distribuera modeller. Den här metoden använder en Hive-tabell som pekar på Azure Data Lake Store. Detta kräver att etableras en separat Azure HDInsight-kluster, som Hive-tabellen skapades. I följande avsnitt visas hur du gör detta.
 
 ### <a name="create-an-hdinsight-linux-cluster"></a>Skapa ett HDInsight-kluster för Linux
-Skapa ett HDInsight-kluster (Linux) från den [Azure-portalen](http://portal.azure.com). Mer information finns i **skapar ett HDInsight-kluster med åtkomst till Azure Data Lake Store** i avsnittet [skapa ett HDInsight-kluster med Data Lake Store med hjälp av Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Skapa ett HDInsight-kluster (Linux) från den [Azure-portalen](https://portal.azure.com). Mer information finns i **skapar ett HDInsight-kluster med åtkomst till Azure Data Lake Store** i avsnittet [skapa ett HDInsight-kluster med Data Lake Store med hjälp av Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 

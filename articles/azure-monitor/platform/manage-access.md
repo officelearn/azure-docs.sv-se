@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 66cef8369a314a76cf619e436cd25d6bdf628c45
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: be285b6a51ae5a0f4239b841ce64100f1875d785
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076317"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294356"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Hantera loggdata och arbetsytor i Azure Monitor
 Azure Monitor-butiker logga data över en Log Analytics-arbetsyta som är i grunden en behållare som innehåller data och konfigurationsinformation. För att hantera åtkomst för att logga data måste utföra du olika administrativa uppgifter relaterade till arbetsytor. Du eller andra medlemmar i din organisation kan använda flera arbetsytor för att hantera olika uppsättningar av data som samlas in från alla eller delar av din IT-infrastruktur.
@@ -136,15 +136,6 @@ Det här är standardinställningen för alla arbetsytor som skapats efter mars 
 > [!NOTE]
 > Om en användare har bara resursbehörighet till arbetsytan kan de bara kommer att kunna komma åt en arbetsyta med hjälp av [resurs-centric läge](#access-modes).
 
-
-### <a name="define-access-control-mode-in-azure-portal"></a>Definiera åtkomstläge för åtkomstkontroll i Azure-portalen
-Du kan visa den aktuella arbetsyteläge åtkomstkontroll på de **översikt** för arbetsytan i den **Log Analytics-arbetsyta** menyn.
-
-![Visa arbetsytan åtkomstläge kontroll](media/manage-access/view-access-control-mode.png)
-
-Du kan ändra den här inställningen på den **egenskaper** för arbetsytan. Ändrar den här inställningen inaktiveras om du inte har behörighet att konfigurera arbetsytan.
-
-![Ändra arbetsytan åtkomstläge](media/manage-access/change-access-control-mode.png)
 
 ### <a name="define-access-control-mode-in-azure-portal"></a>Definiera åtkomstläge för åtkomstkontroll i Azure-portalen
 Du kan visa den aktuella arbetsyteläge åtkomstkontroll på de **översikt** för arbetsytan i den **Log Analytics-arbetsyta** menyn.

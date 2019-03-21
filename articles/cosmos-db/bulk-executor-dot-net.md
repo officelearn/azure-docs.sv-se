@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 969821c8b83b8ef554c67f99e3a16e827b53e647
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ba6a352d965f3f90a122f5277ad23ec5f92907eb
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845128"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258470"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Använd bulk executor .NET-biblioteket för att utföra massåtgärder i Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Massinläsning executor biblioteket är för närvarande stöds av Azure Cosmos 
 
 * Du kan [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden. Du kan också använda den [Azure Cosmos DB-emulatorn](https://docs.microsoft.com/azure/cosmos-db/local-emulator) med den `https://localhost:8081` slutpunkt. Primärnyckeln finns i [Autentisera begäranden](local-emulator.md#authenticating-requests).
 
-* Skapa ett Azure Cosmos DB SQL API-konto med hjälp av stegen som beskrivs i [skapa databaskonto](create-sql-api-dotnet.md#create-a-database-account) i .NET snabbstartsartikeln. 
+* Skapa ett Azure Cosmos DB SQL API-konto med hjälp av stegen som beskrivs i [skapa databaskonto](create-sql-api-dotnet.md#create-account) i .NET snabbstartsartikeln. 
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
@@ -72,7 +72,7 @@ Den klonade lagringsplatsen innehåller två exempel ”BulkImportSample” och 
    connectionPolicy)
    ```
 
-4. BulkExecutor-objektet har initierats med en hög retry-värdena för väntetid och begränsade begäranden. Och sedan de är inställda på 0 att skicka överbelastningskontroll till BulkExecutor för dess livslängd.  
+4. BulkExecutor-objektet har initierats med en hög retry-värdet för väntetid och begränsade begäranden. Och sedan de är inställda på 0 att skicka överbelastningskontroll till BulkExecutor för dess livslängd.  
 
    ```csharp
    // Set retry options high during initialization (default values).
@@ -102,7 +102,7 @@ Den klonade lagringsplatsen innehåller två exempel ”BulkImportSample” och 
    
    |**Parametern**  |**Beskrivning** |
    |---------|---------|
-   |enableUpsert    |   En flagga för att aktivera upsert dokument. Om ett dokument med angiven id finns redan, den har uppdaterats. Som standard är den inställd på false.      |
+   |enableUpsert    |   En flagga för att aktivera upsertar dokument. Om ett dokument med angiven ID finns redan, den har uppdaterats. Som standard är den inställd på false.      |
    |disableAutomaticIdGeneration    |    En flagga för att inaktivera automatisk generering av ID. Som standard är den inställd till true.     |
    |maxConcurrencyPerPartitionKeyRange    | Högsta grad av samtidighet per partitionsnyckelintervall inställningen till null medför biblioteket för att använda ett standardvärde på 20. |
    |maxInMemorySortingBatchSize     |  Det maximala antalet dokument som hämtats från uppräknaren dokumentet som skickades till API-anrop i varje steg.  För InMemory-förväg bearbetnings sortering fasen före massimport medför inställningen till null bibliotek som ska användas av standardvärdet för min (documents.count 1000000).       |
@@ -173,7 +173,7 @@ Tänk på följande för bättre prestanda när du använder bulk executor bibli
 
 * Vi rekommenderar att skapa en instans av ett enda BulkExecutor-objekt för hela programmet i en enda virtuell dator som motsvarar en viss Cosmos DB-behållare.  
 
-* Eftersom ett enda API massåtgärder förbrukar en stor del av klientdatorns processor- och IO. Detta sker genom att skapa flera aktiviteter internt bör du undvika att skapa flera samtidiga aktiviteter i din programprocessen varje körs samtidigt åtgärden API-anrop. Om ett enda bulk åtgärden API-anrop som körs på en virtuell dator inte kan använda hela behållaren dataflöde (om din behållare dataflöde > 1 miljon RU/s), är det bättre att skapa separata virtuella datorer för att samtidigt köra grupp åtgärden API-anrop.  
+* Eftersom ett enda API massåtgärder förbrukar en stor del av klientdatorns processor- och IO. Detta sker genom att skapa flera aktiviteter internt bör du undvika att skapa flera samtidiga aktiviteter i din programprocessen varje körs samtidigt åtgärden API-anrop. Om en enda grupp-funktionsanrop API som körs på en virtuell dator inte kan använda hela behållaren dataflöde (om din behållare dataflöde > 1 miljon RU/s), är det bättre att skapa separata virtuella datorer att samtidigt köra massinläsning åtgärden API-anrop.  
 
 * Se till att InitializeAsync() anropas efter att ett BulkExecutor-objekt för att hämta partitionsöversikten för target Cosmos DB-behållare.  
 

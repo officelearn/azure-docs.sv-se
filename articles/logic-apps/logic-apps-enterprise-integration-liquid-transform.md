@@ -9,18 +9,18 @@ ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 3441350a07047676ac43de23262be6c54912162c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5472a8ce2670a34174d6d39f0d90faca8a7002ad
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104173"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58292894"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Utföra avancerade JSON-transformationer med en flytande mallar i Azure Logic Apps
 
-Du kan utföra grundläggande JSON-transformationer i dina logic apps med inbyggda åtgärden dataåtgärder som **Compose** eller **parsa JSON**. Om du vill utföra avancerade JSON-transformationer, du kan skapa mallar eller kartor med [flytande](https://shopify.github.io/liquid/), vilket är en öppen källkod mallspråk för flexibla web apps. Flytande mallar kan du definiera hur du omvandlar JSON-utdata och har stöd för mer komplexa JSON-transformationer, t.ex iterationer, kontrollera flöden, variabler och så vidare. 
+Du kan utföra grundläggande JSON-transformationer i dina logic apps med inbyggda åtgärden dataåtgärder som **Compose** eller **parsa JSON**. Om du vill utföra avancerade JSON-transformationer, du kan skapa mallar eller kartor med [flytande](https://shopify.github.io/liquid/), vilket är en öppen källkod mallspråk för flexibla web apps. En flytande mall definierar visar hur du omvandlar JSON-utdata och har stöd för mer komplexa JSON-transformationer, t.ex iterationer, kontroll flöden, variabler och så vidare. 
 
-Därför innan du kan utföra en flytande omvandling i din logikapp måste definiera du först JSON till JSON-mappning med en flytande mall och store som mappar i ditt integrationskonto. Den här artikeln visar hur du skapar och använder den här flytande mall eller en karta. 
+Innan du kan utföra en flytande omvandling i din logikapp måste definiera du först JSON till JSON-mappning med en flytande mall och store som mappar i ditt integrationskonto. Den här artikeln visar hur du skapar och använder den här flytande mall eller en karta. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -28,13 +28,16 @@ Därför innan du kan utföra en flytande omvandling i din logikapp måste defin
 
 * Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* En grundläggande [Integrationskontot](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
+* En grundläggande [integrationskontot](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
 * Grundläggande kunskaper om [flytande mallspråk.](https://shopify.github.io/liquid/)
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Skapa en flytande mall eller karta för ditt integrationskonto
 
-1. I det här exemplet skapar du en flytande exempelmallen som beskrivs i det här steget. Du kan använda i din mall för flytande [flytande filtrerar](https://shopify.github.io/liquid/basics/introduction/#filters), som använder [DotLiquid](https://dotliquidmarkup.org/) och C# namngivningskonventioner. Dock se till att du *börja Filternamn med versaler*, inte gemener. 
+1. I det här exemplet skapar du en flytande exempelmallen som beskrivs i det här steget. Du kan använda i din mall för flytande [flytande filtrerar](https://shopify.github.io/liquid/basics/introduction/#filters), som använder [DotLiquid](https://dotliquidmarkup.org/) och C# namngivningskonventioner. 
+
+   > [!NOTE]
+   > Se till att använda Filternamn *inledande versal* i mallen. I annat fall fungerar filtren inte.
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}

@@ -15,12 +15,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 243fb01a5c8112afaf310f616b93c2667ac6f19d
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 76af6d6585d52eee99548f69c92bd414068fa28d
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729866"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259218"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Komma åt Kubernetes-instrumentpanelen i Azure Stack 
 
@@ -114,11 +114,11 @@ Du kan hämta URL: en för instrumentpanelen från den överordnade noden i klus
 
 ## <a name="open-the-kubernetes-dashboard"></a>Öppna Kubernetes-instrumentpanelen 
 
-1.  Inaktivera programmet på din webbläsare.
+1. Inaktivera programmet på din webbläsare.
 
-2.  Punkt webbläsaren till URL som anges när du körde kommandot `kubectl cluster-info`. Exempel: https://azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy 
-3.  Välj klientcertifikatet.
-4.  Ange token. 
+2. Punkt webbläsaren till URL som anges när du körde kommandot `kubectl cluster-info`. Till exempel: https:\//azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard: / proxy 
+3. Välj klientcertifikatet.
+4. Ange token. 
 5. Återansluta till kommandoraden bash på huvudnoden och ge behörighet att `kubernetes-dashboard`. Kör följande kommando:
 
     ```Bash  

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ff73982b706fa2d353be818f5022de8fbfec42fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1306b97ce7fcf2cd429be31bc99d022de53805d6
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58167447"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259869"
 ---
 # <a name="set-up-a-device-template-new-ui-design"></a>Konfigurera en mall för enheten (nytt användargränssnitt)
 
@@ -78,6 +78,8 @@ Du kan exempelvis lägga till en ny temperatur telemetri mätning:
 ![”Skapa telemetri” formuläret med information om temperatur mätning](./media/howto-set-up-template/measurementsform.png)
 
 När du har valt **spara**, **temperatur** mått visas i listan över mått. I en liten stund visas visualisering av temperaturdata från den simulerade enheten.
+
+När du visar telemetri som du kan välja bland följande alternativ för aggregeringen: Medelvärde, lägsta, högsta, Sum och Count. **Genomsnittlig** väljs som standard aggregering i diagrammet. 
 
 > [!NOTE]
 > Datatypen för måttet telemetri är en flytande peka tal.

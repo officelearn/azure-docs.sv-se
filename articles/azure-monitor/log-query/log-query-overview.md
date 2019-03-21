@@ -7,12 +7,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 3e0cc41b2bb9b5c8193e64ccec767e551b3525e1
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b25bbc0c4beac12c0b0f693dd4e01ddb2896fa16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307403"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857886"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Analysera loggdata i Azure Monitor
 
@@ -41,7 +41,7 @@ Olika sätt som du ska använda frågor i Azure Monitor är följande:
 - **Vyer.**  Du kan skapa visualiseringar av data som ska ingå i instrumentpaneler för användare med [Vydesigner](../platform/view-designer.md).  Loggfrågor tillhandahåller de data som används av [paneler](../platform/view-designer-tiles.md) och [visualisering delar](../platform/view-designer-parts.md) i varje vy.  
 
 - **Exportera.**  När du importerar loggdata från Azure Monitor till Excel eller [Power BI](../platform/powerbi.md), skapar du en loggfråga för att definiera data som ska exporteras.
-- **PowerShell.** Du kan köra ett PowerShell-skript från en kommandorad eller ett Azure Automation-runbook som använder [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) att hämta loggdata från Azure Monitor.  Denna cmdlet kräver en fråga för att fastställa data som ska hämtas.
+- **PowerShell.** Du kan köra ett PowerShell-skript från en kommandorad eller ett Azure Automation-runbook som använder [Get-AzOperationalInsightsSearchResults](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) att hämta loggdata från Azure Monitor.  Denna cmdlet kräver en fråga för att fastställa data som ska hämtas.
 - **API för Azure Monitor-loggar.**  Den [API: T för Azure Monitor-loggar](../platform/alerts-overview.md) tillåter alla REST API-klient att hämta loggdata från arbetsytan.  API-begäran innehåller en fråga som körs mot Azure Monitor för att fastställa data som ska hämtas.
 
 ![Loggsökningar](media/log-query-overview/queries-overview.png)

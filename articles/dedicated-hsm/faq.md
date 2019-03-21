@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/11/2019
+ms.date: 3/19/2019
 ms.author: barclayn
-ms.openlocfilehash: cd3228b66dbbf19b574c390733340c0ea2fb5a78
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b28d9607bf35d37e252d7d0bc59d1ce808e38665
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57846896"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260000"
 ---
 # <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
 
@@ -164,7 +164,7 @@ Ja. Du kan skicka loggar från HSM-installation till en syslog-server
 
 ### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>F: Är det möjligt att konfigurera hög tillgänglighet i samma region eller över flera regioner?
 
-Ja. Konfiguration för hög tillgänglighet och installationen utförs i HSM-klientprogrammet som tillhandahålls av Gemalto. HSM: er från samma virtuella nätverk eller andra virtuella nätverk i samma region eller i olika regioner eller i lokala HSM: er som är ansluten till ett virtuellt nätverk med plats-till-plats eller point-to-point VPN kan läggas till samma konfiguration för hög tillgänglighet.
+Ja. Konfiguration för hög tillgänglighet och installationen utförs i HSM-klientprogrammet som tillhandahålls av Gemalto. HSM: er från samma virtuella nätverk eller andra virtuella nätverk i samma region eller i olika regioner eller i lokala HSM: er som är ansluten till ett virtuellt nätverk med plats-till-plats eller point-to-point VPN kan läggas till samma konfiguration för hög tillgänglighet. Det bör noteras att detta synkroniserar nyckelmaterial endast och inte specifika konfigurationsobjekt, till exempel roller.
 
 ### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>F: Kan jag lägga till HSM: er från mitt lokala nätverk till en grupp för hög tillgänglighet med Azure dedikerad HSM?
 
@@ -176,13 +176,13 @@ Nej.
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>F: Hur många HSM: er kan jag lägga till samma konfiguration för hög tillgänglighet från ett enda program?
 
-16\.
+16 medlemmar i en grupp med hög tillgänglighet har under gått, högsta testning med bäst resultat.
 
 ## <a name="support"></a>Support
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>F: Vad är serviceavtalet för dedikerad HSM-tjänst?
 
-Det finns inget serviceavtal för dedikerad HSM-tjänst för tillfället. Microsoft garanterar nätverksåtkomst till enheten och kan därför standard Azure networking serviceavtal gäller.
+Det finns inga specifika drifttid guarentee för dedikerad HSM-tjänst. Microsoft garanterar nätverksåtkomst till enheten och kan därför standard Azure networking serviceavtal gäller.
 
 ### <a name="q-how-are-the-hsms-used-in-azure-dedicated-hsm-protected"></a>F: Hur används HSM: erna i Azure dedikerad HSM-skyddade?
 
@@ -198,15 +198,19 @@ Vi rekommenderar starkt att använda en lokal HSM säkerhetskopieringsenhet för
 
 ### <a name="q-how-do-i-get-support-for-dedicated-hsm"></a>F: Hur får jag support för dedikerad HSM?
 
-På samma sätt som du får support för alla andra Azure-tjänster. Azure-supportteam kommer Eskalera till Gemalto support vid behov beroende på fallet.
+Support tillhandahålls av både Microsoft och Gemalto.  Om du har ett problem med maskinvaran eller nätverksåtkomst, begär support med Microsoft och om du har ett problem med konfiguration, programvara och programutveckling, HSM du rasie ett supportärende med Gemalto. Om du har ett obestämd problem, generera en support begäran withg Microsoft och sedan Gemalto kan användas som krävs. 
 
-### <a name="q-how-do-i-get-access-to-dedicated-hsm-client-software-documentation-firmware-images"></a>F: Hur gör jag för att få åtkomst till dedikerad HSM-klientprogramvaran, dokumentation, avbildningar av inbyggd programvara?
+### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>F: Hur får jag klienten programvara, dokumentation och åtkomst till integration vägledning för SafeNet Luna 7 HSM?
 
-Kunden måste arbeta direkt med Gemalto att få åtkomst till HSM-klientprogramvaran, dokumentation, avbildningar av operativsystem/inbyggd programvara.
+Efter registreringen för tjänsten blir ett Gemalto kund-ID anges som möjliggör registrering i portalen Gemalto customer support. Detta aktiverar åtkomst till alla programvaran och dokumentationen samt aktivera supportärenden direkt med Gemalto.
 
 ### <a name="q-if-there-is-a-security-vulnerability-found-and-a-patch-is-released-by-gemalto-who-is-responsible-for-upgradingpatching-osfirmware"></a>F: Om det finns en säkerhetsrisk som hittades och en korrigering har släppts av Gemalto som ansvarar för uppgradering/uppdatering operativsystem/inbyggd programvara?
 
 Microsoft har inte möjlighet att ansluta till HSM: er som allokerats till kunder. Kunder måste uppgradera och korrigera sina HSM: er.
+
+### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>F: Vad händer om jag behöver starta om min HSM?
+
+ HSM har en kommandorad för omstart och det bör noteras att alternativet ”hård omstart” måste användas. Om detta misslyckas av någon anledning, begär support med Microsoft och vi kan ha enheten fysiskt startas om. 
 
 ## <a name="cryptography-and-standards"></a>Kryptering och standarder
 
@@ -262,15 +266,13 @@ Dedikerad HSM tillhandahåller SafeNet nätverk HSM 7 installationer (modell A79
 
 ### <a name="q-how-many-partitions-can-be-created-in-dedicated-hsm"></a>F: Hur många partitioner kan skapas i dedikerade HSM?
 
-Baserat på specifika modell för HSM används, finns det 10 partitioner som är tillgängliga.
+SafeNet Luna HSM 7-modellen som används av A790 inkluderar en licens för 10 partitioner i kostnaden för tjänsten. Enheten har en gräns på 100 partitioner och lägger till partitioner upp till den här gränsen kan medföra extra licensieringskostnader och kräver installation av en ny licensfil på enheten.
 
 ### <a name="q-how-many-keys-can-be-supported-in-dedicated-hsm"></a>F: Hur många nycklar som kan användas i dedikerade HSM?
 
-Maximalt antal nycklar. Dessa siffror kan också användas för nyckelpar om du använder asymmetriska nycklar.
+Det maximala antalet nycklar är en funktion av det tillgängliga minnet. SafeNet Luna 7 modellen A790 används har 32MB minne. Följande nummer kan också användas för nyckelpar om du använder asymmetriska nycklar.
 
 * RSA 2048 - 19,000
 * ECC-P256 - 91,000
-* AES-256 - 218,000
 
 Kapacitet varierar beroende på specifika viktiga attribut som angetts i mallen för nyckelgenerering och antalet partitioner.
-

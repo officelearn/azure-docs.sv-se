@@ -1,90 +1,126 @@
 ---
-title: Säkerhetskopiera virtuella Azure-datorer i skala
-description: Den här självstudiekursen förklarar hur du säkerhetskopierar flera virtuella Azure-datorer till ett Recovery Services-valv.
-services: backup
+title: Säkerhetskopiera flera virtuella Azure-datorer med PowerShell
+description: Den här självstudiekursen förklarar hur du säkerhetskopierar flera virtuella Azure-datorer till ett Recovery Services-valv med hjälp av Azure PowerShell.
 author: rayne-wiselman
 manager: carmonm
-keywords: virtual machine backup; back up virtual machine; backup and disaster recovery
 ms.service: backup
 ms.topic: tutorial
-ms.date: 09/06/2017
-ms.author: trinadhk
+ms.date: 03/05/2019
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d2b83963f7af52101ed298e85b6c7fd64fc99a07
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 85e5fc7e1c8a4561b51afaf0d665fedb6d9cde1f
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875594"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258385"
 ---
-# <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Säkerhetskopiera Azure Virtual Machines i Azure i skala
+# <a name="back-up-azure-vms-with-powershell"></a>Säkerhetskopiera virtuella Azure-datorer med PowerShell
 
-Den här självstudiekursen förklarar hur du säkerhetskopierar virtuella Azure-datorer till ett Recovery Services-valv. Det mesta av arbetet för att säkerhetskopiera virtuella datorer är förberedelserna. Innan du kan säkerhetskopiera (eller skydda) en virtuell dator måste du slutföra [förutsättningarna](backup-azure-arm-vms-prepare.md) för att förbereda miljön för att skydda dina virtuella datorer. 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Den här självstudien beskrivs hur du distribuerar en [Azure Backup](backup-overview.md) Recovery Services-valvet för att säkerhetskopiera flera virtuella Azure-datorer med hjälp av PowerShell.  
+
+I den här självstudiekursen får du lära du dig att:
+
+> [!div class="checklist"]
+> * Skapa ett Recovery Services-valv och ange valvets sammanhang.
+> * definierar en säkerhetskopieringspolicy
+> * applicerar säkerhetskopieringspolicyn för att skydda flera virtuella datorer
+> * Utlösa en säkerhetskopiering på begäran för de skyddade virtuella datorerna innan du kan säkerhetskopiera (eller skydda) en virtuell dator måste du slutföra de [krav](backup-azure-arm-vms-prepare.md) att förbereda miljön för att skydda dina virtuella datorer. 
 
 > [!IMPORTANT]
 > Den här självstudien förutsätter att du redan har skapat en resursgrupp och en virtuell Azure-dator.
 
+
+## <a name="log-in-and-register"></a>Logga in och registrera
+
+
+1. Logga in på Azure-prenumerationen med kommandot `Connect-AzAccount` och följ anvisningarna på skärmen.
+
+    ```powershell
+    Connect-AzAccount
+    ```
+2. Första gången du använder Azure Backup, måste du registrera Azure Recovery Services-providern i din prenumeration med [registrera AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider). Hoppa över det här steget om du redan har registrerat.
+
+    ```powershell
+    Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    ```
+
+
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
-Ett [Recovery Services-valv](backup-azure-recovery-services-vault-overview.md) är en container som rymmer återställningspunkterna för objekten som säkerhetskopieras. Ett Recovery Services-valv är en Azure-resurs som kan distribueras och hanteras som en del av en Azure-resursgrupp. I den här självstudien skapar du ett Recovery Services-valv i samma resursgrupp som den virtuella datorn som skyddas.
+En [Recovery Services-valv](backup-azure-recovery-services-vault-overview.md) är en logisk behållare som lagrar säkerhetskopierade data för skyddade resurser, till exempel virtuella Azure-datorer. När ett säkerhetskopieringsjobb körs, skapas en återställningspunkt i Recovery Services-valvet. Du kan sedan använda någon av dessa återställningspunkter för att återställa data till en given tidpunkt.
 
 
-Första gången du använder Azure Backup måste du registrera Azure Recovery Services-providern i din prenumeration. Om du redan har registrerat providern med din prenumeration går du till nästa steg.
+- I den här självstudien skapar du valvet i samma resursgrupp och plats som den virtuella datorn som du vill säkerhetskopiera.
+- Azure Backup hanterar automatiskt lagring för säkerhetskopierade data. Valvet använder som standard [Geo-Redundant lagring (GRS)](../storage/common/storage-redundancy-grs.md). GEO-redundans garanterar att säkerhetskopierade data replikeras till en sekundär Azure region hundratals mil bort från den primära regionen.
+
+Skapa valvet på följande sätt:
+
+1. Använd den [New AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault)att skapa valvet. Ange resursgruppens namn och plats för den virtuella datorn som du vill säkerhetskopiera.
+
+    ```powershell
+    New-AzRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
+    ```
+2. Många Azure Backup-cmdletar kräver Recovery Services-valvobjekt som indata. Därför är det praktiskt att lagra säkerhetskopians Recovery Services-valvobjekt i en variabel.
+
+    ```powershell
+    $vault1 = Get-AzRecoveryServicesVault –Name myRSVault
+    ```
+    
+3. Anger du valvkontexten med [Set-AzRecoveryServicesVaultContext](/powershell/module/az.RecoveryServices/Set-azRecoveryServicesVaultContext).
+
+   - Valvets sammanhang är typen av data som skyddas i valvet.
+   - När kontexten har angetts gäller som för alla efterföljande cmdletar
+
+     ```powershell
+     Get-AzRecoveryServicesVault -Name "myRSVault" | Set-AzRecoveryServicesVaultContext
+     ```
+
+## <a name="back-up-azure-vms"></a>Säkerhetskopiera virtuella Azure-datorer
+
+Säkerhetskopiering köras i enlighet med det schema som angetts i säkerhetskopieringsprincipen. När du skapar ett Recovery Services-valv medföljer standardskydd och principer för kvarhållning.
+
+- Principen för standardskydd utlöser ett säkerhetskopieringsjobb en per dag vid en viss tidpunkt.
+- Principen för standardskydd håller kvar den dagliga återställningspunkten i 30 dagar. 
+
+För att aktivera och in Azure VM-säkerhetskopiering på den här självstudien gör vi följande:
+
+1. Ange en behållare i valvet som innehåller dina säkerhetskopierade data med [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
+2. Varje virtuell dator för säkerhetskopiering är en artikel. Om du vill starta ett säkerhetskopieringsjobb du få information om den virtuella datorn med [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
+3. Köra en ad hoc-säkerhetskopiering med[Backup AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem). 
+    - Det första första säkerhetskopieringsjobbet skapar en fullständig återställningspunkt.
+    - Efter den första säkerhetskopian skapas varje säkerhetskopiering inkrementella återställningspunkter.
+    - Inkrementella återställningspunkter är lagrings- och tidseffektiva eftersom de bara överför de ändringar som gjorts sedan den senaste säkerhetskopieringen.
+
+Aktivera och köra säkerhetskopieringen på följande sätt:
 
 ```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+$namedContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVM -Status Registered -FriendlyName "V2VM"
+$item = Get-AzRecoveryServicesBackupItem -Container $namedContainer -WorkloadType AzureVM
+$job = Backup-AzRecoveryServicesBackupItem -Item $item
 ```
 
-Skapa ett Recovery Services-valv med **New-AzureRmRecoveryServicesVault**. Se till att ange resursgruppens namn och den plats som används när du konfigurerar den virtuella datorn som du vill säkerhetskopiera. 
+## <a name="troubleshooting"></a>Felsökning 
 
-```powershell
-New-AzureRmRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
-```
+Om du får problem när du säkerhetskopierar den virtuella datorn kan du granska det [felsökningsartikeln](backup-azure-vms-troubleshoot.md).
 
-Många Azure Backup-cmdletar kräver Recovery Services-valvobjekt som indata. Därför är det praktiskt att lagra säkerhetskopians Recovery Services-valvobjekt i en variabel. Använd sedan **Set-AzureRmRecoveryServicesBackupProperties** för att ställa in alternativet **-BackupStorageRedundancy** på [Geo-redundant lagring (GRS)](../storage/common/storage-redundancy-grs.md). 
+### <a name="deleting-a-recovery-services-vault"></a>Ta bort ett Recovery Services-valv
 
-```powershell
-$vault1 = Get-AzureRmRecoveryServicesVault –Name myRSVault
-Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
-```
-
-## <a name="back-up-azure-virtual-machines"></a>Säkerhetskopiera virtuella Azure-datorer
-
-Innan du kan köra den första säkerhetskopian måste du ange valvets sammanhang. Valvets sammanhang är typen av data som skyddas i valvet. När du skapar ett Recovery Services-valv medföljer standardskydd och principer för kvarhållning. Principen för standardskydd utlöser ett säkerhetsjobb varje dag vid en viss tidpunkt. Principen för standardskydd håller kvar den dagliga återställningspunkten i 30 dagar. I den här självstudiekursen accepterar du standardprincipen. 
-
-Använd **[Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** för att ställa in valvets sammanhang. När valvet sammanhang är inställt gäller det alla efterkommande cmdletar. 
-
-```powershell
-Get-AzureRmRecoveryServicesVault -Name myRSVault | Set-AzureRmRecoveryServicesVaultContext
-```
-
-Använd **[Backup-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)** för att utlösa säkerhetskopieringsjobbet. Säkerhetskopieringsjobbet skapar en återställningspunkt. Om det är den första säkerhetskopian är återställningspunkten en fullständig säkerhetskopia. Efterföljande säkerhetskopieringar skapar en inkrementell kopia.
-
-```powershell
-$namedContainer = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureVM -Status Registered -FriendlyName "V2VM"
-$item = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer -WorkloadType AzureVM
-$job = Backup-AzureRmRecoveryServicesBackupItem -Item $item
-```
-
-## <a name="delete-the-recovery-services-vault"></a>Ta bort Recovery Services-valvet
-
-Om du vill ta bort Recovery Services-valvet måste du först ta bort alla återställningspunkter i valvet och avregistrera valvet. Följande kommandon redogör för stegen. 
+Om du vill ta bort ett valv kan först ta bort återställningspunkter i valvet och avregistrera valvet, enligt följande:
 
 
 ```powershell
-$Cont = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureVM -Status Registered
-$PI = Get-AzureRmRecoveryServicesBackupItem -Container $Cont[0] -WorkloadType AzureVm
-Disable-AzureRmRecoveryServicesBackupProtection -RemoveRecoveryPoints $PI[0]
-Unregister-AzureRmRecoveryServicesBackupContainer -Container $namedContainer
-Remove-AzureRmRecoveryServicesVault -Vault $vault1
+$Cont = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVM -Status Registered
+$PI = Get-AzRecoveryServicesBackupItem -Container $Cont[0] -WorkloadType AzureVm
+Disable-AzRecoveryServicesBackupProtection -RemoveRecoveryPoints $PI[0]
+Unregister-AzRecoveryServicesBackupContainer -Container $namedContainer
+Remove-AzRecoveryServicesVault -Vault $vault1
 ```
-
-## <a name="troubleshooting-errors"></a>Felsöka fel
-Om du stöter på problem när du säkerhetskopierar den virtuella datorn kan du läsa [felsökningsartikeln om att säkerhetskopiera virtuella Azure-datorer](backup-azure-vms-troubleshoot.md).
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har skyddat de virtuella datorerna kan du läsa följande artiklar för att lära dig mer om att hantera uppgifter och återställa virtuella datorer från en återställningspunkt.
 
-* Om du vill ändra principen för säkerhetskopiering läser du informationen om att [använda AzureRM.RecoveryServices.Backup-cmdletar för att säkerhetskopiera virtuella datorer](backup-azure-vms-automation.md#create-a-protection-policy).
-* [Hantera och övervaka dina virtuella datorer](backup-azure-manage-vms.md)
-* [Återställa virtuella datorer](backup-azure-arm-restore-vms.md)
+- [Granska](backup-azure-vms-automation.md) en mer detaljerad genomgång av säkerhetskopiera och återställa virtuella datorer i Azure med PowerShell. 
+- [Hantera och övervaka virtuella Azure-datorer](backup-azure-manage-vms.md)
+- [Återställa virtuella datorer i Azure](backup-azure-arm-restore-vms.md)

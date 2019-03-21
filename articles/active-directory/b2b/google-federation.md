@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c1d6f541123a3f31c22352d646d701c37356e51
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d61f233b2eb901bcf1e6b5b4ff147893f918e8f
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088323"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293319"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Lägga till Google som en identitetsprovider för gästanvändare för B2B
 
@@ -31,32 +32,32 @@ När du skickar en inbjudan till en Google Gmail-användare bör gästanvändare
 
 Om gästanvändaren ser felet ”huvud för lång”, de kan försöka ta bort deras cookies eller de kan öppna ett privat eller incognito-fönster och försök logga in igen.
 
-![Logga in med Google](media/google-federation/google-sign-in.png)
+![Skärmbild som visar Google-inloggningssidan](media/google-federation/google-sign-in.png)
 
 ## <a name="step-1-configure-a-google-developer-project"></a>Steg 1: Konfigurera ett Google developer-projekt
 Skapa först ett nytt projekt i konsolen för Google-utvecklare att skaffa en klient-ID och en klienthemlighet som du kan senare lägga till Azure AD. 
 1. Gå till Google APIs på https://console.developers.google.com, och logga in med ditt Google-konto. Vi rekommenderar att du använder en delad grupp Google-konto.
 2. Skapa ett nytt projekt: På instrumentpanelen, väljer **skapa projekt**, och välj sedan **skapa**. På sidan nytt projekt kan du ange en **projektnamn**, och välj sedan **skapa**.
    
-   ![Nytt Google-projekt](media/google-federation/google-new-project.png)
+   ![Skärmbild som visar sidan för ett nytt projekt för Google](media/google-federation/google-new-project.png)
 
 3. Kontrollera att det nya projektet är markerad i menyn projekt. Öppna menyn längst upp till vänster och välj sedan **API: er och tjänster** > **autentiseringsuppgifter**.
 
-   ![Google API-autentiseringsuppgifter](media/google-federation/google-api.png)
+   ![Skärmbild som visar Google-API: et autentiseringsuppgifter alternativ](media/google-federation/google-api.png)
  
 4. Välj den **OAuth godkännandeskärmen** fliken och ange en **programnamn**. (Lämna de andra inställningarna.)
 
-   ![Google OAuth godkännandeskärmen](media/google-federation/google-oauth-consent-screen.png)
+   ![Skärmbild som visar Google OAuth-medgivande skärm](media/google-federation/google-oauth-consent-screen.png)
 
 5. Bläddra till den **auktoriserade domäner** och ange microsoftonline.com.
 
-   ![Avsnittet för auktoriserade domäner](media/google-federation/google-oauth-authorized-domains.png)
+   ![Skärmbild som visar avsnittet auktoriserade domäner](media/google-federation/google-oauth-authorized-domains.png)
 
 6. Välj **Spara**.
 
 7. Välj den **autentiseringsuppgifter** fliken. I den **skapa autentiseringsuppgifter** menyn, Välj **OAuth klient-ID**.
 
-   ![Google API-autentiseringsuppgifter](media/google-federation/google-api-credentials.png)
+   ![Skärmbild som visar Google APIs skapa inloggningsinformation](media/google-federation/google-api-credentials.png)
 
 8. Under **programtyp**, Välj **webbprogram**, och sedan under **auktoriserade omdirigerings-URI: er**, anger du följande URI: er:
    - `https://login.microsoftonline.com` 
@@ -65,11 +66,11 @@ Skapa först ett nytt projekt i konsolen för Google-utvecklare att skaffa en kl
      > [!NOTE]
      > Du hittar din katalog-ID genom att gå till https://portal.azure.com, och under **Azure Active Directory**, Välj **egenskaper** och kopiera den **katalog-ID**.
 
-   ![Skapa OAuth klient-ID](media/google-federation/google-create-oauth-client-id.png)
+   ![Skärmbild som visar auktoriserade omdirigerings-URI: er avsnittet](media/google-federation/google-create-oauth-client-id.png)
 
 9. Välj **Skapa**. Kopiera klient-ID och klienthemlighet som du ska använda när du lägger till identitetsleverantören i Azure AD-portalen.
 
-   ![OAuth-ID och klienthemlighet](media/google-federation/google-auth-client-id-secret.png)
+   ![Skärmbild som visar OAuth-klient-ID och klienthemlighet](media/google-federation/google-auth-client-id-secret.png)
 
 ## <a name="step-2-configure-google-federation-in-azure-ad"></a>Steg 2: Konfigurera Google federation i Azure AD 
 Nu ställer du Google-klient-ID och klienthemlighet, antingen genom att skriva in den i Azure AD-portalen eller med hjälp av PowerShell. Var noga med att testa federationkonfigurationen Google genom att bjuda in dig själv med hjälp av en Gmail-adress och försök att lösa in inbjudan med inbjudna Google-konto. 
@@ -80,7 +81,7 @@ Nu ställer du Google-klient-ID och klienthemlighet, antingen genom att skriva i
 3. Välj **identitetsprovidrar**, och klicka sedan på den **Google** knappen.
 4. Ange ett namn. Ange klient-ID och klienthemlighet som du fick tidigare. Välj **Spara**. 
 
-   ![Lägg till Google-identitetsprovider](media/google-federation/google-identity-provider.png)
+   ![Skärmbild som visar sidan Lägg till Google-providern](media/google-federation/google-identity-provider.png)
 
 #### <a name="to-configure-google-federation-by-using-powershell"></a>Att konfigurera Google federation med hjälp av PowerShell
 1. Installera den senaste versionen av Azure AD PowerShell för Graph-modul ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
@@ -102,7 +103,7 @@ Du kan ta bort din Google federation-konfiguration. Om du gör det Google-gästa
 3. Välj **identitetsprovidrar**.
 4. På den **Google** rad, väljer du snabbmenyn (**...** ) och välj sedan **ta bort**. 
    
-   ![Ta bort den sociala identitetsprovidern](media/google-federation/google-social-identity-providers.png)
+   ![Skärmbild som visar alternativet Ta bort för den sociala identitetsprovidern](media/google-federation/google-social-identity-providers.png)
 
 1. Välj **Ja** att bekräfta borttagningen. 
 

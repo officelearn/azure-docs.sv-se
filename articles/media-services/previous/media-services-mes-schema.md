@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: c19572f74a4ec4b5d7418772ec5f7251835a8bb8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 837235e04ce190a4481e1f19789d8e9ff9cb7578
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012985"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259250"
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard-schema
 Den här artikeln beskriver några av de elementen och typer av XML-schema som [Media Encoder Standard förinställningar](media-services-mes-presets-overview.md) baseras. Artikeln ger förklaring av element och deras giltiga värden.  

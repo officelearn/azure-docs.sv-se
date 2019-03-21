@@ -8,18 +8,18 @@ ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 14b51f109ca76661ac10c99d42002dda45bc0500
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 700e8e9fe0dac182d71df8ca66800fa03cf25a2e
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318716"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295801"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exportera dina data i Azure IoT Central
 
 *Det här avsnittet gäller för administratörer.*
 
-Den här artikeln aktivitetsgruppsrapport djupare i hur du använder funktionen löpande export i Azure IoT Central för att exportera data till dina egna **Azure Event Hubs**, och **Azure Service Bus** instanser. Du kan exportera **mätningar av**, **enheter**, och **enheten mallar** till dina egna mål för varma sökvägen insikter och analyser. Detta inkluderar att utlösa anpassade regler i Azure Stream Analytics, utlösa anpassade arbetsflöden i Azure Logic Apps eller omvandlar data och skicka den via Azure Functions. 
+Den här artikeln beskriver hur du använder funktionen löpande export i Azure IoT Central för att exportera data till dina egna **Azure Event Hubs**, och **Azure Service Bus** instanser. Du kan exportera **mätningar av**, **enheter**, och **enheten mallar** till dina egna mål för varma sökvägen insikter och analyser. Detta inkluderar att utlösa anpassade regler i Azure Stream Analytics, utlösa anpassade arbetsflöden i Azure Logic Apps eller omvandlar data och skicka den via Azure Functions. 
 
 > [!Note]
 > Igen när du aktiverar löpande dataexport, får du endast data från det ögonblick då och uppåt. För närvarande går inte att hämta data under en tid när löpande dataexport var inaktiverat. Om du vill behålla fler historiska data, aktivera löpande dataexport tidigt.
@@ -28,6 +28,77 @@ Den här artikeln aktivitetsgruppsrapport djupare i hur du använder funktionen 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste vara administratör i din IoT Central-App
+
+## <a name="set-up-export-destination"></a>Konfigurera exportera
+
+Följ dessa steg om du inte har en befintlig Event Hubs/Service Bus för att exportera till:
+
+## <a name="create-event-hubs-namespace"></a>Skapa Event Hubs-namnområdet
+
+1. Skapa en [nya Event Hubs-namnområde i Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.EventHub). Du kan läsa mer i [Händelsehubbar i Azure-docs](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+2. Välj en prenumeration. 
+
+    > [!Note] 
+    > Nu kan du exportera data till andra prenumerationer som är **inte samma** som programmets användningsbaserad IoT Central. Du ansluter med en anslutningssträng i det här fallet.
+3. Skapa en händelsehubb i namnområdet för Event Hubs. Gå till ditt namnområde och välj **+ Event Hub** överst för att skapa en event hub-instans.
+
+## <a name="create-service-bus-namespace"></a>Skapa Service Bus-namnområde
+
+1. Skapa en [nya Service Bus-namnområde i Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5) . Du kan läsa mer i [Azure Service Bus docs](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal).
+2. Välj en prenumeration. 
+
+    > [!Note] 
+    > Nu kan du exportera data till andra prenumerationer som är **inte samma** som programmets användningsbaserad IoT Central. Du ansluter med en anslutningssträng i det här fallet.
+
+3. Gå till ditt Service Bus-namnområde och välj **+ kö** eller **+ ämne** överst för att skapa en kö eller ämne att exportera till.
+
+
+## <a name="set-up-continuous-data-export"></a>Konfigurera löpande dataexport
+
+Nu när du har ett Event Hubs/Service Bus-mål för att exportera data för att följa dessa steg för att konfigurera löpande dataexport. 
+
+1. Logga in på ditt IoT Central-program.
+
+2. I den vänstra menyn väljer du **löpande Export av Data**.
+
+    > [!Note]
+    > Om du inte ser löpande Export av Data på den vänstra menyn kan är du inte administratör i din app. Kontakta en administratör att ställa in export av data.
+
+    ![Skapa ny cde Event Hub](media/howto-export-data/export_menu.PNG)
+
+3. Välj den **+ ny** knappen uppe till höger. Välj något av **Azure Event Hubs** eller **Azure Service Bus** som mål för exporten. 
+
+    > [!NOTE] 
+    > Det maximala antalet exporter per app är fem. 
+
+    ![Skapa ny löpande dataexport](media/howto-export-data/export_new.PNG)
+
+4. I den nedrullningsbara listrutan väljer du din **Event Hubs-namnområde/Service Bus-namnområde**. Du kan också välja alternativet sist i listan som **ange en anslutningssträng**. 
+
+    > [!NOTE] 
+    > Du ser bara Storage konton/Event Hubs-namnområden/Service Bus-namnområden i den **samma prenumeration som din IoT Central-app**. Om du vill exportera till ett mål utanför den här prenumerationen kan du välja **ange en anslutningssträng** och finns i steg 5.
+
+    > [!NOTE] 
+    > 7 dagars utvärderingsversion appar, det enda sättet att konfigurera kontinuerlig data exportera är i via en anslutningssträng. Det beror på att 7 dagars utvärderingsversion appar inte har en associerad Azure-prenumeration.
+
+    ![Skapa ny cde Event Hub](media/howto-export-data/export_create.PNG)
+
+5. (Valfritt) Om du har valt **ange en anslutningssträng**, en ny ruta visas där du kan klistra in anslutningssträngen. Att hämta anslutningssträngen för din:
+    - Event Hubs eller Azure Service Bus, går du till namnområdet i Azure-portalen.
+        - Under **inställningar**väljer **principer för delad åtkomst**
+        - Välj standard **RootManageSharedAccessKey** eller skapa en ny
+        - Kopiera den primär eller sekundär anslutningssträngen
+ 
+6. Välj en Event hub/kö eller ämne i nedrullningsbara listrutan.
+
+7. Under **Data som ska exporteras**, ange varje typ av data som ska exporteras genom att ställa in typen **på**.
+
+6. Se till att aktivera löpande dataexport genom **dataexport** är **på**. Välj **Spara**.
+
+  ![Konfigurera löpande dataexport](media/howto-export-data/export_list.PNG)
+
+7. Efter ett par minuter visas dina data i ditt valda mål.
+
 
 ## <a name="export-to-azure-event-hubs-and-azure-service-bus"></a>Exportera till Azure Event Hubs och Azure Service Bus
 

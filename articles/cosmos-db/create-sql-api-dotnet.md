@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/10/2018
-ms.openlocfilehash: 530cd5adf942f32aaf883f668e3564ba5c12bbe2
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.date: 03/15/2019
+ms.openlocfilehash: 1ef414b2de2acbf5b92661c8b5f1e249549b14df
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588037"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259150"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-db-sql-api-account"></a>Snabbstart: Skapa en .NET-app med hjälp av Azure Cosmos DB SQL API-konto
 
@@ -29,11 +29,9 @@ ms.locfileid: "56588037"
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-Den här snabbstarten visar hur du skapar ett Azure Cosmos DB [SQL API](sql-api-introduction.md)-konto, dokumentdatabas och samling med Azure Portal. Därefter skapar och distribuerar du en webbapp med en att göra-lista som bygger på [SQL .NET API:t](sql-api-sdk-dotnet.md) som visas i följande skärmbild. 
+Den här snabbstarten visar hur du skapar ett Azure Cosmos DB [SQL API](sql-api-introduction.md) kontot, dokumentera databas, samling och lägger till exempeldata till samlingen med hjälp av Azure portal. Du sedan skapa och distribuera en att göra-lista-webbapp som skapats med den [SQL .NET SDK](sql-api-sdk-dotnet.md), för att lägga till mer hantera data i samlingen. 
 
-![Att göra-app med exempeldata](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
-
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **utan kostnad**. Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 
@@ -41,19 +39,64 @@ Om du inte har Visual Studio 2017 installerad kan du ladda ned och använda [Vis
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 <a id="create-account"></a>
-## <a name="create-a-database-account"></a>Skapa ett databaskonto
+## <a name="create-an-account"></a>Skapa ett konto
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-<a id="create-collection"></a>
-## <a name="add-a-collection"></a>Lägga till en samling
+<a id="create-collection-database"></a>
+## <a name="add-a-database-and-a-collection"></a>Lägg till en databas och en samling
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+Nu kan du använda datautforskarverktyget i Azure Portal för att skapa en databas och samling. 
+
+1. Klicka på **Datautforskaren** > **Ny samling**. 
+    
+    Området **Lägg till samling** visas längst till höger, du kan behöva bläddra åt höger för att se det.
+
+    ![Datautforskaren i Azure-portalen, fönstret Lägg till samling](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
+
+2. På sidan **Lägg till samling** anger du inställningarna för den nya samlingen.
+
+    Inställning|Föreslaget värde|Beskrivning
+    ---|---|---
+    **Databas-id**|ToDoList|Ange *ToDoList* som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg.
+    **Samlings-id**|Objekt|Ange *Objekt* som namnet på din nya samling. Samlings-ID har samma teckenkrav gäller som databasnamn.
+    **Partitionsnyckel**| `<your_partition_key>`| Ange en partitionsnyckel. I exemplet som beskrivs i den här artikeln används */category* som partitionsnyckel.
+    **Dataflöde**|400 RU|Ändra genomflödet till 400 begäransenheter per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden. 
+    
+    Utöver föregående inställningar kan du lägga till **unika nycklar** för samlingen om du vill. Vi lämnar fältet tomt i det här exemplet. Unika nycklar ger utvecklarna möjlighet att lägga till ett lager med dataintegritet till databasen. När du skapar en unik nyckelprincip medan du skapar en samling garanterar du unikheten för ett eller flera värden per partitionsnyckel. Läs mer i artikeln om [unika nycklar i Azure Cosmos DB](unique-keys.md).
+    
+    Klicka på **OK**.
+
+    Datautforskaren visar den nya databasen och samlingen.
+
+    ![Datautforskaren i Azure-portalen visar den nya databasen och samlingen](./media/create-sql-api-dotnet/azure-cosmos-db-new-collection.png)
 
 <a id="add-sample-data"></a>
 ## <a name="add-sample-data"></a>Lägg till exempeldata
 
-[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
+Du kan nu lägga till data till din nya samling med datautforskaren.
+
+1. Den nya databasen visas på panelen Samlingar i datautforskaren. Expandera databasen **Tasks** (Aktiviteter), expandera samlingen **Items** (Objekt), klicka på **Dokument** och klicka sedan på **Nya dokument**. 
+
+   ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
+  
+2. Lägg nu till ett dokument i samlingen med följande struktur.
+
+     ```json
+     {
+         "id": "1",
+         "category": "personal",
+         "name": "groceries",
+         "description": "Pick up apples and strawberries.",
+         "isComplete": false
+     }
+     ```
+
+3. När du har lagt till json på fliken **Dokument** klickar du på **Spara**.
+
+    ![Kopiera in json-data och klicka på Spara i Datautforskaren i Azure Portal](./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png)
+
+4. Skapa och spara ännu ett dokument där du lägger till ett unikt värde för egenskapen `id` och ändrar de andra egenskaperna som passar. Dina nya dokument kan ha vilken struktur du vill eftersom Azure Cosmos DB inte kräver något schema för dina data.
 
 ## <a name="query-your-data"></a>Fråga dina data
 
@@ -85,32 +128,49 @@ Nu ska vi övergå till att arbeta med kod. Vi ska klona en [SQL API-app från G
 
 ## <a name="review-the-code"></a>Granska koden
 
-Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). 
+Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). I den här snabbstarten får du skapa en databas och en samling med hjälp av Azure-portalen och Lägg till exempeldata med hjälp av .NET-exempel. Men kan du också skapa databasen och samlingen med hjälp av .NET-exempel. 
 
 Följande kodfragment är alla hämtade från filen DocumentDBRepository.cs.
 
-* DocumentClient initieras på rad 76.
+* DocumentClient initieras som visas i följande kod:
 
     ```csharp
     client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
     ```
 
-* En ny databas skapas på rad 91.
+* En ny databas skapas med hjälp av den `CreateDatabaseAsync` metoden enligt följande kod:
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* En ny samling skapas på rad 110.
+* En ny samling skapas med hjälp av den `CreateDocumentCollectionAsync` som visas i följande kod:
 
     ```csharp
-    await client.CreateDocumentCollectionAsync(
-        UriFactory.CreateDatabaseUri(DatabaseId),
-        new DocumentCollection
-            {
-               Id = CollectionId
-            },
-        new RequestOptions { OfferThroughput = 400 });
+    private static async Task CreateCollectionIfNotExistsAsync()
+    {
+        try
+        {
+           await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId));
+        }
+        catch (DocumentClientException e)
+        {
+           if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
+           {
+              await client.CreateDocumentCollectionAsync(
+              UriFactory.CreateDatabaseUri(DatabaseId),
+              new DocumentCollection
+              {
+                  Id = CollectionId
+              },
+              new RequestOptions { OfferThroughput = 400 });
+           }
+           else
+           {
+             throw;
+           }
+        }
+    }
     ```
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
@@ -131,10 +191,13 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
     `<add key="authKey" value="FILLME" />`
     
-5. Uppdatera sedan databasvärdet för att matcha namnet på den databas som du skapade tidigare. Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
+5. Uppdatera sedan till databasen och samlingen värden som matchar namnet på databasen som du skapade tidigare. Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
 
-    `<add key="database" value="Tasks" />`    
-    
+   ```csharp
+   <add key="database" value="ToDoList"/>
+   <add key="collection" value="Items"/>
+   ```
+ 
 ## <a name="run-the-web-app"></a>Kör webbappen
 1. I Visual Studio högerklickar du på projektet i **Solution Explorer** och väljer därefter **Hantera NuGet-paket**. 
 

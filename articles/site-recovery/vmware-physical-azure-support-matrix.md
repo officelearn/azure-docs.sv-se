@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: 086a3b4bf34f2ea7454bb018f9468dd21629a8ce
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 2fe2e972d16bdb27c5d2fbd2d552dac825235b6d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903104"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286473"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd matrix för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -244,7 +244,7 @@ Premium P10- eller P15-disk | 8 kB  | 2 MB/s | 168 GB per disk
 Premium P10- eller P15-disk | 16 kB | 4 MB/s |  336 GB per disk
 Premium P10- eller P15-disk | 32 kB eller mer | 8 MB/s | 672 GB per disk
 Premium P20-, P30-, P40- eller P50-disk | 8 kB    | 5 MB/s | 421 GB per disk
-Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |10 MB/s | 842 GB per disk
+Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |20 MB/s | 1684 GB per disk
 
 **Källans dataomsättning** | **Övre gräns**
 ---|---

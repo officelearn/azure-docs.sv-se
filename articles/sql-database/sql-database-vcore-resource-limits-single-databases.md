@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 990e6b4d869df030bfddfeb2d60f0ca0e23ea8ca
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 03/19/2019
+ms.openlocfilehash: b1467550ac84c57eaad9178d32fdcfaf14d84ae8
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902271"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260238"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL Database vCore-baserade köpa modellen gränser för en enskild databas
 
@@ -149,7 +149,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |Maximalt antal samtidiga inloggningar|200|400|600|800|1000|1200|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
 |Antal repliker|4|4|4|4|4|4|
-|Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
+|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
 |Lässkalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 
@@ -173,7 +173,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |Maximalt antal samtidiga inloggningar (begäranden)|1400|1600|1800|2000|3200|4800|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
 |Antal repliker|4|4|4|4|4|4|
-|Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
+|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
 |Lässkalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 
@@ -198,7 +198,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
 |Antal repliker|4|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|Lässkalbarhet|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
+|Lässkalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Kritiska-affärsnivå: Generation 5-beräkningsplattformen (del 2)
@@ -222,7 +222,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
 |Antal repliker|4|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|Lässkalbarhet|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
+|Lässkalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 
 ## <a name="hyperscale-service-tier-preview"></a>Hyperskala tjänstnivå (förhandsversion)

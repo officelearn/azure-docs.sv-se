@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/21/2019
+ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: dbee223e6c8e878d017026531dd06301fe6aaf84
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 0dac046c359bb8affd69145c73a66cf4ac079012
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093879"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287204"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
@@ -220,7 +220,7 @@ Premium P10- eller P15-disk | 8 kB  | 2 MB/s | 168 GB per disk
 Premium P10- eller P15-disk | 16 kB | 4 MB/s |  336 GB per disk
 Premium P10- eller P15-disk | 32 kB eller mer | 8 MB/s | 672 GB per disk
 Premium P20-, P30-, P40- eller P50-disk | 8 kB    | 5 MB/s | 421 GB per disk
-Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |10 MB/s | 842 GB per disk
+Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |20 MB/s | 1684 GB per disk
 ## <a name="replicated-machines---networking"></a>Replikerade datorer - nätverk
 **Konfiguration** | **Support** | **Detaljer**
 --- | --- | ---

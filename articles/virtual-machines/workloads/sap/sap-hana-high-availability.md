@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/16/2018
+ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 0f5de24d42ccc930a4746251b9f466f241c3508e
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: f0bac9d50e73ed703905545261e86796ede214e2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806716"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180848"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Hög tillgänglighet för SAP HANA på Azure virtuella datorer på SUSE Linux Enterprise Server
 
@@ -193,6 +193,9 @@ Om du vill distribuera mallen genom att följa dessa steg:
 
 Mer information om portarna som krävs för SAP HANA, finns i kapitlet [anslutningar till klientdatabaser](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) i den [klientdatabaser för SAP HANA](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide eller [SAP anteckning 2388694][2388694].
 
+> [!IMPORTANT]
+> Aktivera inte TCP tidsstämplarna för virtuella Azure-datorer är placerade bakom Azure Load Balancer. Aktivera TCP tidsstämplar genereras hälsoavsökningar misslyckas. Ange parametern **net.ipv4.tcp_timestamps** till **0**. Mer information finns i [hälsoavsökningar för belastningsutjämnaren](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
+> SAP-kommentar [2382421](https://launchpad.support.sap.com/#/notes/2382421) innehåller för närvarande motstridig instruktionen som talar om att ställa in net.ipv4.tcp_timestamps på 1. Ange parametern för virtuella Azure-datorer är placerade bakom Azure Load balancer **net.ipv4.tcp_timestamps** till **0**. 
 
 ## <a name="create-a-pacemaker-cluster"></a>Skapa ett Pacemaker-kluster
 

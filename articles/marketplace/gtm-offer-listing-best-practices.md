@@ -14,25 +14,25 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: 60f02f0ae92f471718c0c35f8ac833b9ca6c1da4
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e5db2f340917705ec29f7b6db4de40914c66efcd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355919"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863941"
 ---
 # <a name="offer-listing-best-practices"></a>Erbjud lista Metodtips
 
 Tabeller i det här avsnittet innehåller förslag för att skapa och engagerande marketplace-erbjudanden. För att skriva och konfigurera ditt marknadsföringsmaterial, går du till den [Cloud Partner portal](https://cloudpartner.azure.com/#insights). 
 
 ## <a name="storefront-offer-details"></a>Storefront erbjudandeinformation
-| Storefront inställningen | Bästa praxis |
+| Storefront inställningen | Regelverk |
 |:--- |:--- |  
 | Erbjudandets namn | Ange ett starkt namn:<br> <ul> <li> Appnamnet på din ska kommunicera kärnan för dina kunder. </li> <li> Inkludera sökord i din app rubrik för att få högre rangordning i sökresultat. </li> </ul> Följ ett set rubrik format för consulting service listor:<br>[Erbjudandets namn]: [varaktighet] [Erbjudandetyp] (till exempel *Contoso: 2 veckor implementering*) <br><br> Följa varumärke riktlinjer:<br>Följ [varumärke riktlinjer och Microsoft Trademark](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) och andra relevanta, produktspecifik riktlinjer när du refererar till Microsofts varumärken och namnen på Microsoft-programvara, produkter och tjänster. |
 | Beskrivning av erbjudande | Ange en beskrivning av Rensa erbjudande:<br> <ul> <li> Beskriv tydligt ditt erbjudande förslagsvärde i de första några meningarna beskrivningen. </li> <li> Tänk på att de första några meningarna kan visas i sökresultat. </li> <li> Förlita dig inte på Egenskaper och funktioner för att sälja din produkt. I stället fokusera på det värdet du levererar. </li> <li> Använd branschspecifika ordförråd eller förmånen-baserade formulering så mycket som möjligt.</li> <li> Dessutom anges tydligt Consulting Service publiceringar professionella tjänster som du anger. </li></ul> Kärnkomponenterna i din förslagsvärde bör innehålla följande information:<ul><li>Beskrivning av produkten.</li><li>Typ av användare som kan dra nytta av produkten.</li><li>Kunden behöver eller enkelt som åtgärdar produkten.</li></ul> |
 
 ## <a name="storefront-listing-details"></a>Storefront lista information
-| Storefront inställningen | Bästa praxis |
+| Storefront inställningen | Regelverk |
 |:--- |:--- |  
 | Branscher: AppSource-appar och konsulttjänster endast | Välj branscher om ditt erbjudande adresser branschspecifika behov: <ul><li> Anropa branschspecifika-funktionerna i beskrivningen för erbjudandet.</li> </ul> **Obs!** Det maximala antalet alternativen varierar beroende på typ av erbjudande och anges i den [Cloud Partner portal](https://cloudpartner.azure.com/#insights). |
 | Kategorier | Välj kategorier som passar bäst för ditt erbjudande:<br> <ul> <li> Välj kategorier noggrant, eftersom kunder använda dem för att söka efter relevanta appar. </li> <li> Glöm inte att anropa reda på hur ditt erbjudande stöder kategorispecifik behov i beskrivningen för erbjudandet. </li> </ul> **Obs!** Det maximala antalet alternativen varierar beroende på typ av erbjudande och anges i den [Cloud Partner portal](https://cloudpartner.azure.com/#insights). |
@@ -40,7 +40,7 @@ Tabeller i det här avsnittet innehåller förslag för att skapa och engagerand
 | Sökord (max 3) | Sökord hjälper företag användarna att hitta ditt erbjudande när de söker <ul> <li> på Azure Marketplace </li> <li> on AppSource </li> <li> med hjälp av sökmotorer </li> </ul> Din lista visas i dessa sökningar, måste du: <ul> <li> Identifiera de främsta tre sökord för ditt erbjudande; </li> <li> införliva sökord i ditt erbjudande sammanfattning och beskrivning; </li> <li> lista över sökord här. </li> </ul> |
 
 ## <a name="storefront-marketing-details"></a>Storefront marknadsföring information
-| Storefront inställningen | Bästa praxis |
+| Storefront inställningen | Regelverk |
 |:--- |:--- |  
 | Erbjuder logotyp (PNG-format, 48&nbsp;&times;&nbsp;48): söksidan | Utforma och optimera din logotyp för ett digitalt medium:<br>Ladda upp logotyp i PNG-format till söksidan i ditt erbjudande. |
 | Erbjuder logotyp (PNG-format, 216&nbsp;&times;&nbsp;216): appinformationssidan | Utforma och optimera din logotyp för ett digitalt medium:<br>Ladda upp logotyp i PNG-format till appinformationen sidan i ditt erbjudande. |
@@ -56,7 +56,7 @@ När du länkar från AppSource eller Azure Marketplace-märket på din webbplat
 
 Följande exempel-URL innehåller både för föregående frågeparametrar: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 
-Genom att lägga till parametrar till AppSource-URL kan du granska effektiviteten i din kampanj i analytics-instrumentpanelen i [Cloud Partner portal](http://cloudpartner.azure.com/#insights).
+Genom att lägga till parametrar till AppSource-URL kan du granska effektiviteten i din kampanj i analytics-instrumentpanelen i [Cloud Partner portal](https://cloudpartner.azure.com/#insights).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ab41826661db3f46161aca4e650e5e974c6b3b45
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 8893d8a55f77b54c9327e913af192ad39df46ba2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994984"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090023"
 ---
 # <a name="what-is-azure-search"></a>Vad är Azure Search?
 Azure Search är en molnlösning för sökning som en tjänst 0som ger utvecklare API:er och verktyg för att lägga till omfattande sökfunktioner för privat heterogent innehåll i webb-, mobil- och företagsprogram. Frågor körs över ett användardefinierat index.
@@ -116,8 +116,8 @@ Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/
 
 3. Gå vidare med kod med .NET eller REST-API:et:
 
-  + [Använda .NET SDK](search-howto-dotnet-sdk.md) beskriver huvudarbetsflödet i förvaltad kod.  
-  + I [Komma igång med REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) visas samma steg med REST API. Du kan också använda den här snabbstarten för att anropa REST-API:er från Postman eller Fiddler: [Utforska REST-API:er för Azure Search](search-fiddler.md).
+   + [Använda .NET SDK](search-howto-dotnet-sdk.md) beskriver huvudarbetsflödet i förvaltad kod.  
+   + I [Komma igång med REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) visas samma steg med REST API. Du kan också använda den här snabbstarten för att anropa REST-API:er från Postman eller Fiddler: [Utforska REST-API:er för Azure Search](search-fiddler.md).
 
 ## <a name="watch-this-video"></a>Titta på den här videon
 

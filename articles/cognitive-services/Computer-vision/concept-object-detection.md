@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ee85e6bd171fc9415e5c7606d6e18a7a22fa6570
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cc5b40b6a800ff185c6c52652435b558fabe091f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866924"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57873894"
 ---
 # <a name="object-detection"></a>Objektidentifiering
 
-Objektidentifiering liknar [taggning](concept-tagging-images.md), men API: et returnerar de omgivande koordinaterna för avgränsningsfält (i bildpunkter) för varje objekt hittades. Om en bild exempelvis innehåller en hund, en katt och en person, kommer identifieringsåtgärden visa en lista över dessa objekt tillsammans med deras koordinater i bilden. Du kan använda den här funktionen för att bearbeta relationerna mellan objekt i en bild. Du kan även se om det finns flera instanser av samma tagg i en bild.
+Objektidentifiering liknar [taggning](concept-tagging-images.md), men API: et returnerar de omgivande koordinaterna för avgränsningsfält (i bildpunkter) för varje objekt hittades. Om en bild exempelvis innehåller en hund, en katt och en person, kommer identifieringsåtgärden visa en lista över dessa objekt tillsammans med deras koordinater i bilden. Du kan använda den här funktionen för att bearbeta relationerna mellan objekt i en bild. Du kan också kontrollera om det finns flera instanser av samma tagg i en bild.
 
-Identifiera API: et gäller taggar baserat på antalet objekt eller en levande saker som identifierats i avbildningen. Observera att nu finns det ingen formell relation mellan taxonomi för taggning och taxonomi som används för objektidentifiering av. På en konceptuell nivå hittar API: et identifiera endast objekt och levande saker, medan tagg-API kan även inkludera sammanhangsberoende termer som ”inom”, som inte går att lokalisera med avgränsar rutorna.
+Identifiera API: et gäller taggar baserat på antalet objekt eller en levande saker som identifierats i avbildningen. Då finns det ingen formell relation mellan de taggning taxonomin och taxonomi för objekt-identifiering. På en konceptuell nivå hittar API: et identifiera endast objekt och levande saker, medan tagg-API kan även inkludera sammanhangsberoende termer som ”inom”, som inte går att lokalisera med avgränsar rutorna.
 
 ## <a name="object-detection-example"></a>Exempel för identifiering av objekt
 
@@ -89,13 +89,15 @@ Följande JSON-svar visar vad för visuellt innehåll returnerar när du söker 
 
 ## <a name="limitations"></a>Begränsningar
 
-Det är viktigt att notera begränsningarna i funktionen för identifiering av objekt så att du kan undvika eller minimera effekterna av FALSKT negativ (missade objekt) och begränsad information.
-* Objekt identifieras vanligtvis inte om de är mycket liten (mindre än 5% av bilden).
-* Objekt identifieras vanligtvis inte om de är placerade mycket bra tillsammans (en stack med nivåer, till exempel).
+Det är viktigt att notera begränsningarna i objektidentifiering så att du kan undvika eller minimera effekterna av FALSKT negativ (missade objekt) och begränsad information.
+
+* Objekt identifieras vanligtvis inte om de är liten (mindre än 5% av bilden).
+* Objekt identifieras vanligtvis inte om de är placerade nära tillsammans (en stack med nivåer, till exempel).
 * Objekt särskiljs inte med hjälp av varumärke eller produkt-namn (olika typer av sodavatten på en store-hylla, till exempel). Men du kan få varumärke information från en avbildning med hjälp av den [varumärken identifiering](concept-brand-detection.md) funktionen.
 
 ## <a name="use-the-api"></a>Använda API: et
-Funktionen för identifiering av objekt är en del av den [analysera bild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. Du kan anropa detta API via en intern SDK eller REST-anrop. När du får det fullständiga JSON-svaret helt enkelt parsa strängen för innehållet i den `"objects"` avsnittet.
+
+Funktionen för identifiering av objekt är en del av den [analysera bild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. Du kan anropa detta API via en intern SDK eller REST-anrop. När du får det fullständiga JSON-svaret Parsar då strängen för innehållet i den `"objects"` avsnittet.
 
 * [Snabbstart: Analysera en bild (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
 * [Snabbstart: Analysera en bild (REST API)](./quickstarts/csharp-analyze.md)

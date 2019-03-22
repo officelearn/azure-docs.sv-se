@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38a8cac6508777abe676e243496c792f87131483
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1cbd40f2ab91f854f46dc3e62bccbc8a3264f97f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432302"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087473"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Tilldela användare och grupper till ett program i Azure Active Directory
 Den här artikeln visar hur du tilldelar användare eller grupper till ett program i Azure Active Directory (AD Azure). Användare måste först tilldelas till ett program innan en administratör kan ge dem åtkomst för att göra följande:
@@ -126,25 +126,25 @@ Självbetjäning för programåtkomst är ett bra sätt så att användarna kan 
 
 Följ stegen nedan om du vill aktivera självbetjäningsprogram åtkomst till ett program:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från Azure Active Directory-vänstra navigeringsmenyn.
+4. Klicka på **företagsprogram** från Azure Active Directory-vänstra navigeringsmenyn.
 
-5.  Klicka på **alla program** att visa en lista över alla dina program.
+5. Klicka på **alla program** att visa en lista över alla dina program.
 
    * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
 
-6.  Välj det program som du vill ge åtkomst till i listan.
+6. Välj det program som du vill ge åtkomst till i listan.
 
-7.  När programmet har lästs in klickar du på **självbetjäning** från programmets vänstra navigeringsmenyn.
+7. När programmet har lästs in klickar du på **självbetjäning** från programmets vänstra navigeringsmenyn.
 
-8.  Om du vill aktivera självbetjäningsåtkomsten för det här programmet, aktivera den **Tillåt användare att begära åtkomst till det här programmet?** växla till **Ja.**
+8. Om du vill aktivera självbetjäningsåtkomsten för det här programmet, aktivera den **Tillåt användare att begära åtkomst till det här programmet?** växla till **Ja.**
 
-9.  Klicka sedan på väljaren bredvid etiketten för att välja gruppen till vilken användare som begär åtkomst till det här programmet ska läggas till, **till vilken grupp ska tilldelade användare läggas?** och välj en grupp.
+9. Klicka sedan på väljaren bredvid etiketten för att välja gruppen till vilken användare som begär åtkomst till det här programmet ska läggas till, **till vilken grupp ska tilldelade användare läggas?** och välj en grupp.
 
 10. **Valfritt:** Om du inte vill att kräva ett företag godkännande innan användarna får åtkomst genom att ange den **kräver godkännande innan du beviljar åtkomst till det här programmet?** växla till **Ja**.
 
@@ -152,10 +152,10 @@ Följ stegen nedan om du vill aktivera självbetjäningsprogram åtkomst till et
 
 12. **Valfritt:** Om du vill ange den företagsgodkännaren som har behörighet att bevilja åtkomst till det här programmet, klickar du på väljaren bredvid etiketten **som har behörighet att bevilja åtkomst till det här programmet?** att välja upp till 10 enskilda företagsgodkännaren.
 
-  >[!NOTE]
-  >Grupper stöds inte.
-  >
-  >
+    >[!NOTE]
+    >Grupper stöds inte.
+    >
+    >
 
 13. **Valfritt:** **För program som exponera roller**, om du vill tilldela självbetjäning godkända användare till en roll, klickar du på väljaren bredvid den **till vilken roll ska användarna tilldelas i det här programmet?** att välja rollen som Dessa användare ska tilldelas.
 

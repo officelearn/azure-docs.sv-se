@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 70154a50086fabc84671e7e540d8496490ab5b2d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 42fd28f2a18ecf81c7846abdc7b3159a275a9cd7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436637"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013557"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>HTTP-variabler för Azure CDN regelmotor
 HTTP-variabler innehåller innebär genom vilka du kan hämta metadata för HTTP-begäranden och svar. Dessa metadata kan sedan användas för att ändra dynamiskt en begäran eller ett svar. Användning av HTTP-variabler är begränsat till följande regler motorn funktioner:
@@ -54,10 +54,10 @@ I följande tabell beskrivs de HTTP-variablerna. Ett tomt värde returneras när
 | Parametern för frågesträngen hittades | %{is_amp} | Värdet för den här variabeln varierar beroende på om begäran innehåller minst en frågesträngsparameter.<br /><br />-Parametern hittades: &<br />– Ingen parametrar: NULL | & |
 | Parametern för Frågesträngsvärdet | %{arg_&lt;parameter&gt;} | Returnerar värdet för frågesträngparametern som identifieras av den &lt;parametern&gt; termen. | Exempel: <br />%{arg_language}<br /><br />Exemplet frågesträngparametern: <br />? språk = SV<br /><br />Exempel på värde: en |
 | Frågesträngsvärdet | %{query_string} | Anger hela frågesträngsvärdet som definierats i fråge-URL. |key1 = val1 & key2 = val2 & key3 = val3 |
-| Referentdomän | %{referring_domain} | Anger den domän som definierats i referent rubriken. | www.google.com |
+| Referentdomän | %{referring_domain} | Anger den domän som definierats i referent rubriken. | <www.google.com> |
 | Region (begär) | %{geo_region} | Anger den som begär region (till exempel region) via en alfanumeriska förkortning. | CA |
 | Värde på begärandehuvud | %{http_RequestHeader} | Returnerar värdet för huvudet för begäran som identifieras av RequestHeader termen. <br /><br />Om namnet på huvudet för begäran innehåller ett bindestreck (till exempel användar-Agent) kan du ersätta det med ett understreck (till exempel User_Agent).| Exempel: % {http_Connection}<br /><br />Exempelvärde: Keep-Alive | 
-| Begär värden | %{host} | Anger värden som definierats i fråge-URL. | www.mydomain.com |
+| Begär värden | %{host} | Anger värden som definierats i fråge-URL. | <www.mydomain.com> |
 | Begäran-protokollet | %{request_protocol} | Anger protokollet som begäran. | HTTP/1.1 |
 | Begäran-schema | %{scheme} | Anger schemat för begäran. |http |
 | Begärande-URI (relativ) | %{request_uri} | Anger den relativa sökvägen, inklusive frågesträngen som definierats i begärande-URI. | /Marketing/foo.js?loggedin=true |
@@ -187,8 +187,8 @@ I det här exempelscenariot i *request_uri* variabeln anges till:
 
 I följande tabell visar hur den här syntaxen fungerar.
 
-| Exempelsyntax | Resultat |
-| ------------- | ------- |
+| Exempelsyntax | Resultat | |
+| ------------- | ------- | --- |
 | %{request_uri#/800001}/customerorigin | /customerorigin/myorigin/marketing/product.html?language=en-US | Eftersom variabeln börjar med mönstret, ersattes. |
 | %{request_uri%html}htm | /800001/myorigin/marketing/product.html?language=en-US | Eftersom variabeln inte få med mönstret, var det ingen ändring.|
 

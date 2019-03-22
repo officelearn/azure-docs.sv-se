@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/18/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5266ca3f50a2d8163dbab95109cb967fb5a63ed8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: ebe23c606d95baa6c79c668fc929177c8bc37e44
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474589"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862955"
 ---
 # <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
@@ -22,7 +22,7 @@ I den här snabbstarten lär du dig att skapa ett lagringskonto med [Azure-porta
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -55,6 +55,10 @@ Knappen startar ett interaktivt gränssnitt som du kan använda för att köra s
 
 Du kan även installera och använda Azure CLI lokalt. För den här snabbstarten krävs det att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
 
+# <a name="templatetabtemplate"></a>[Mall](#tab/template)
+
+Ingen.
+
 ---
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
@@ -80,6 +84,10 @@ Logga in på den lokala installationen av CLI genom att köra inloggningskommand
 ```cli
 az login
 ```
+
+# <a name="templatetabtemplate"></a>[Mall](#tab/template)
+
+Gäller inte
 
 ---
 
@@ -170,6 +178,33 @@ Du kan skapa ett GPv2-lagringskonto for generell användning med zonredundant la
 |Geo-redundant lagring (GRS)     |Standard_GRS         |
 |Read-Access Geo-Redundant Storage (GRS)     |Standard_RAGRS         |
 
+# <a name="templatetabtemplate"></a>[Mall](#tab/template)
+
+Du kan använda Azure Powershell eller Azure CLI för att distribuera en Resource Manager-mall för att skapa ett lagringskonto. Den mall som användes i den här snabbstarten är från [Azure-snabbstartmallar](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Om du vill köra skripten **prova** att öppna Azure Cloud shell. Högerklicka i gränssnittet för att klistra in skriptet, och välj sedan **klistra in**.
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+```
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the location (i.e. centralus):" &&
+read location &&
+az group create --name $resourceGroupName --location "$location" &&
+az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+```
+
+Information om hur du skapar mallar finns:
+
+- [Dokumentation om Azure Resource Manager](/azure/azure-resource-manager/).
+- [Mallreferensen för Storage-konto](/azure/templates/microsoft.storage/allversions).
+- [Ytterligare lagringsutrymme konto-mallexempel](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
+
 ---
 
 Mer information om tillgängliga replikeringsalternativ finns i [Storage replication options](storage-redundancy.md) (Alternativ för lagringsreplikering).
@@ -202,6 +237,21 @@ Om du vill ta bort resursgruppen och dess kopplade resurser, inklusive det nya l
 az group delete --name storage-quickstart-resource-group
 ```
 
+# <a name="templatetabtemplate"></a>[Mall](#tab/template)
+
+Använd Azure PowerShell eller Azure CLI för att ta bort resursgruppen och dess kopplade resurser, inklusive det nya lagringskontot.
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+```
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName
+```
+
 ---
 
 ## <a name="next-steps"></a>Nästa steg
@@ -222,5 +272,10 @@ I den här snabbstarten har du skapat ett allmänt standardlagringskonto v2. Om 
 
 > [!div class="nextstepaction"]
 > [Arbeta med blobar med Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
+
+# <a name="templatetabtemplate"></a>[Mall](#tab/template)
+
+> [!div class="nextstepaction"]
+> [Arbeta med blobar med Azure-portalen](../blobs/storage-quickstart-blobs-portal.md)
 
 ---

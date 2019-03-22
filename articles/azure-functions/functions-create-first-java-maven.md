@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a72d6b180db35f3e0f0e0527e8ae0f544a585b25
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: 96ac8522f94a3555fe63575baca8bbfbabc272d9
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822982"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570461"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Skapa din första funktion med Java och Maven
 
@@ -25,7 +25,7 @@ Den här artikeln vägleder dig med att använda Maven-kommandoradsverktyget fö
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna utveckla funktioner med hjälp av Java måste du ha följande installerat:
 
@@ -41,7 +41,7 @@ För att kunna utveckla funktioner med hjälp av Java måste du ha följande ins
 
 Kör följande kommando i en tom mapp för att skapa ett funktionsprojekt utifrån en [Maven-arketyp](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
-### <a name="linuxmacos"></a>Linux/MacOS
+### <a name="linuxmacos"></a>Linux/macOS
 
 ```bash
 mvn archetype:generate \
@@ -49,7 +49,14 @@ mvn archetype:generate \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-### <a name="windows-cmd"></a>Windows (CMD)
+### <a name="windows"></a>Windows
+
+```powershell
+mvn archetype:generate `
+    "-DarchetypeGroupId=com.microsoft.azure" `
+    "-DarchetypeArtifactId=azure-functions-archetype"
+```
+
 ```cmd
 mvn archetype:generate ^
     -DarchetypeGroupId=com.microsoft.azure ^
@@ -159,6 +166,9 @@ När distributionen är klar kan du se den webbadress som används för att få 
 ```
 
 Testa funktionsappen som körs på Azure med hjälp av `cURL`. Du måste ändra URL-adressen från exemplet till den distribuerade URL-adressen för din egen funktionsapp från föregående steg.
+
+> [!NOTE]
+> Se till att ange den **åtkomstbehörigheter** till `Anonymous`. När du väljer vilken `Function`, måste du presentera den [funktionsnyckel](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) i förfrågningar om åtkomst till din funktion-slutpunkt.
 
 ```
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions

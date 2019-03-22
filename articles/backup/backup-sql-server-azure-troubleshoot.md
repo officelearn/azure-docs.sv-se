@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: b8fb6e2b23c275d198ac58fec874ad6627a7b43e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: e5565e257e511203043c84e499712cc6a0a78c3f
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007182"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286024"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Felsöka säkerhetskopiering av SQL Server på Azure
 
@@ -21,7 +21,7 @@ Den här artikeln innehåller felsökningsinformation för att skydda SQL Server
 
 ## <a name="feature-consideration-and-limitations"></a>Funktionen överväganden och begränsningar
 
-Om du vill visa funktionen överväganden finns i artikeln [om SQL Server-säkerhetskopiering i Azure virtuella datorer](backup-sql-server-azure-vms.md#feature-consideration-and-limitations).
+Om du vill visa funktionen överväganden finns i artikeln [om SQL Server-säkerhetskopiering i Azure virtuella datorer](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
 ## <a name="sql-server-permissions"></a>SQL Server-behörigheter
 
@@ -80,7 +80,7 @@ Följande tabeller är ordnade efter felkod.
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
 | Det går inte att säkerhetskopiera eftersom transaktionsloggen för datakällan är full. | Transaktionell loggutrymmet för databasen är full. | Om du vill åtgärda problemet genom att referera till den [dokumentation om SQL](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| Den här SQL database stöder inte den begärda säkerhetskopieringstypen. | Alltid på AG sekundära repliker stöder inte fullständiga och differentiella säkerhetskopieringar. | <ul><li>Om du har utlöst en ad hoc-säkerhetskopiering, utlösa säkerhetskopior på den primära noden.</li><li>Om säkerhetskopieringen har schemalagts av Grupprincip, kontrollera att den primära noden har registrerats. Att registrera noden [följer du stegen för att identifiera en SQL Server-databas](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
+| Den här SQL database stöder inte den begärda säkerhetskopieringstypen. | Alltid på AG sekundära repliker stöder inte fullständiga och differentiella säkerhetskopieringar. | <ul><li>Om du har utlöst en ad hoc-säkerhetskopiering, utlösa säkerhetskopior på den primära noden.</li><li>Om säkerhetskopieringen har schemalagts av Grupprincip, kontrollera att den primära noden har registrerats. Att registrera noden [följer du stegen för att identifiera en SQL Server-databas](backup-sql-server-database-azure-vms.md#discover-sql-server-databases).</li></ul> |
 
 ## <a name="restore-failures"></a>Återställningsfel
 

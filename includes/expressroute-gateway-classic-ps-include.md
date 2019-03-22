@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2457ef2843b0d16359b7e47fc54c58e2ef5e6034
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53430046"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58125220"
 ---
 > [!NOTE]
 > De här exemplen gäller inte för S2S/ExpressRoute samexistera konfigurationer.
@@ -28,8 +28,8 @@ När du lägger till en gateway till ett virtuellt nätverk med den klassiska mo
 1. Ladda ned nätverkskonfigurationsfilen med hjälp av stegen i [nätverkskonfigurationsfilen](../articles/virtual-network/virtual-networks-using-network-configuration-file.md) artikeln. Öppna filen i en textredigerare.
 2. Lägg till en lokal nätverksplats i filen. Du kan använda valfri giltig adressprefix. Du kan lägga till någon giltig IP-adress för VPN-gateway. Adressvärden i det här avsnittet används inte för ExpressRoute-åtgärder, men krävs för verifiering av filen. I det här exemplet är ”branch1” namnet på platsen. Du kan använda ett annat namn, men se till att använda samma värde i avsnittet Gateway filens.
 
-  ```
-  <VirtualNetworkConfiguration>
+   ```
+   <VirtualNetworkConfiguration>
     <Dns />
     <LocalNetworkSites>
       <LocalNetworkSite name="branch1">
@@ -38,15 +38,15 @@ När du lägger till en gateway till ett virtuellt nätverk med den klassiska mo
         </AddressSpace>
         <VPNGatewayAddress>3.2.1.4</VPNGatewayAddress>
     </LocalNetworkSite>
-  ```
+   ```
 3. Navigera till VirtualNetworkSites och ändra fälten.
 
-  * Kontrollera att Gateway-undernätet finns för det virtuella nätverket. Om det inte kan du lägga till något just nu. Namnet måste vara ”GatewaySubnet”.
-  * Kontrollera avsnittet Gateway filens finns. Om inte kan du lägga till den. Detta krävs för att koppla det virtuella nätverket till den lokala nätverksplatsen (som representerar det nätverket som du ansluter).
-  * Kontrollera att anslutningstypen = dedikerad. Detta krävs för ExpressRoute-anslutningar.
+   * Kontrollera att Gateway-undernätet finns för det virtuella nätverket. Om det inte kan du lägga till något just nu. Namnet måste vara ”GatewaySubnet”.
+   * Kontrollera avsnittet Gateway filens finns. Om inte kan du lägga till den. Detta krävs för att koppla det virtuella nätverket till den lokala nätverksplatsen (som representerar det nätverket som du ansluter).
+   * Kontrollera att anslutningstypen = dedikerad. Detta krävs för ExpressRoute-anslutningar.
 
-  ```
-  </LocalNetworkSites>
+   ```
+   </LocalNetworkSites>
     <VirtualNetworkSites>
       <VirtualNetworkSite name="myAzureVNET" Location="East US">
         <AddressSpace>
@@ -69,9 +69,9 @@ När du lägger till en gateway till ett virtuellt nätverk med den klassiska mo
         </Gateway>
       </VirtualNetworkSite>
     </VirtualNetworkSites>
-  </VirtualNetworkConfiguration>
-  </NetworkConfiguration>
-  ```
+   </VirtualNetworkConfiguration>
+   </NetworkConfiguration>
+   ```
 4. Spara filen och överföra den till Azure.
 
 ### <a name="create-the-gateway"></a>Skapa gatewayen

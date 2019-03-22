@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: e851f6f5433a832aa30a0d87a917b64d1bc721f2
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 76f1ddeebb173bf19b15753d12e4374e6365bf8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888285"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998983"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Installera och konfigurera PostgreSQL på Azure
 PostgreSQL är en avancerad databas för öppen källkod liknar Oracle och DB2. Den innehåller företagsklara funktioner, till exempel fullständig ACID efterlevnad, tillförlitlig transaktionsbearbetning och flera versioner samtidighetskontroll. Det stöder även standarder som ANSI SQL och SQL/MED (inklusive externa data omslutningar för Oracle, MySQL, MongoDB och många andra). Det är mycket utökningsbart med stöd för över 12 procedurmässig språk, GIN och GiST index, stöd för spatialdata och flera NoSQL-liknande funktioner för JSON eller nyckel-värde-baserade program.
@@ -238,5 +238,5 @@ Använd följande kommando för att uppdatera data i en tabell. För den här en
 
 
 ## <a name="get-more-information-about-postgresql"></a>Få mer information om PostgreSQL
-Nu när du har slutfört installationen av PostgreSQL i en virtuell Linux-dator, kan du är nöjd med den i Azure. Om du vill veta mer om PostgreSQL kan du gå till den [PostgreSQL webbplats](http://www.postgresql.org/).
+Nu när du har slutfört installationen av PostgreSQL i en virtuell Linux-dator, kan du är nöjd med den i Azure. Om du vill veta mer om PostgreSQL kan du gå till den [PostgreSQL webbplats](https://www.postgresql.org/).
 

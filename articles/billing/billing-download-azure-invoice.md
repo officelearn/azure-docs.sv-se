@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 74274d6f901a2c02fb526a9bdce85771a9764f53
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6b82c0d2d4a5e22094bf0a408d6a42f17bb3bea4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249181"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839822"
 ---
-# <a name="view-and-download-your-microsoft-azure-invoice"></a>Visa och ladda ned Microsoft Azure-faktura
+# <a name="view-and-download-your-microsoft-azure-invoice"></a>Visa och ladda ned din faktura för Microsoft Azure
 
 För de flesta prenumerationer kan du ladda ned din faktura från den [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) eller så har den skickas via e-post. Om du är Azure-kund med ett Enterprise-avtal (EA-kund), kan du ladda ned fakturor för din organisation. Fakturor skickas till den har ställts in för att ta emot fakturor för registrering.
 
@@ -32,7 +32,7 @@ Om du har en [Microsoft kundavtal](#Check-your-access-to-a-Microsoft-Customer-Ag
 
 ## <a name="download-your-azure-invoices-pdf"></a>Hämta din Azure-fakturor (PDF)
 
-Du kan hämta din faktura för de flesta prenumerationer från Azure-portalen. Om du har ett Microsoft-kundavtal Se [ladda ner fakturor för fakturerings-profilen](#download-invoices-for-a-billing-profile).
+Du kan hämta din faktura för de flesta prenumerationer från Azure-portalen. Om du har ett Microsoft-kundavtal finns i hämta fakturor för fakturerings-profilen.
 
 ### <a name="download-invoices-for-an-individual-subscription"></a>Ladda ner fakturor för en enskild prenumeration
 
@@ -69,7 +69,7 @@ Om du inte ser en faktura för den senaste faktureringsperioden, se [Varför ser
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Hämta din faktura i e-post (PDF)
 
-Du kan välja och konfigurera ytterligare mottagare för att ta emot din Azure-faktura i ett e-postmeddelande. Den här funktionen är kanske inte tillgänglig för vissa prenumerationer som stöd för erbjudanden, Enterprise-avtal eller Azure i Open. Om du har ett avtal för Microsoft Customer Se [hämta fakturering profil fakturor via e-post](#get-your-billing-profile-invoices-in-email).
+Du kan välja och konfigurera ytterligare mottagare för att ta emot din Azure-faktura i ett e-postmeddelande. Den här funktionen är kanske inte tillgänglig för vissa prenumerationer som stöd för erbjudanden, Enterprise-avtal eller Azure i Open. Om du har ett avtal för Microsoft Customer Se Get profilen fakturering fakturor via e-post.
 
 ### <a name="get-your-subscriptions-invoices-in-email"></a>Få din prenumeration fakturor via e-post
 
@@ -89,7 +89,7 @@ Om du inte får ett e-postmeddelande när du har följt stegen, kontrollera din 
 
 ### <a name="opt-out-of-getting-your-subscriptions-invoices-in-email"></a>Avanmäla dig från att få din prenumeration fakturor via e-post
 
-Du kan välja bort komma fakturan via e-post genom att följa stegen ovan och klicka på **avanmäla dig från e-postfakturor**. Det här alternativet tar bort alla e-postadresser som är inställd på att ta emot fakturor via e-post. Du kan konfigurera om mottagarna om du väljer i.
+Du kan välja bort komma fakturan via e-post genom att följa stegen ovan och klicka på **avanmäla dig från e-postfakturor**. Det här alternativet tar bort alla e-postadresser som är inställda för att ta emot fakturor via e-post. Du kan konfigurera om mottagarna om du väljer i.
 
  ![Skärmbild som visar välja bort flödet](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
@@ -129,7 +129,7 @@ Det kan finnas flera orsaker till att den inte visas:
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
 

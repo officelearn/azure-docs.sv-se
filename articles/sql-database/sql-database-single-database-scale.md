@@ -11,19 +11,21 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/06/2019
-ms.openlocfilehash: d6de6e2752c16d95c81f47b9d14d53e0233a4ed6
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.date: 03/20/2019
+ms.openlocfilehash: c6dc49204c0a7e1cb0d1116e29746eed2fe52f8d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570807"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286269"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skala resurser för enkel databas i Azure SQL Database
 
 Den här artikeln beskriver hur du skalar beräknings- och lagringsresurser som är tillgängliga för en enskild databas i Azure SQL Database.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
 
 ## <a name="change-compute-resources-vcores-or-dtus"></a>Ändra beräkningsresurser (virtuella kärnor eller dtu: er)
 
@@ -33,6 +35,9 @@ I följande video visas dynamiskt ändra tjänsten nivå och beräkna storleken 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
+
+> [!IMPORTANT]
+> Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
 
 ### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Effekten av att ändra tjänst-nivå eller skalas om beräkningsstorleken
 
@@ -101,11 +106,7 @@ Du debiteras för varje timme som det finns en databas med hjälp av den högsta
 
 Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom: Kina, östra; Kina, norra; Tyskland, centrala; Tyskland, nordöstra; USA, västra centrala; US DoD-regioner samt US Government Central. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB. Mer information finns i [Aktuella begränsningar för P11–P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb). Följande överväganden och begränsningar gäller för P11 och P15-databaser med en maximal storlek som är större än 1 TB:
 
-- Om du väljer en maximal storlek som är större än 1 TB när du skapar en databas (med ett värde på 4 TB eller 4096 GB), misslyckas kommandot för att skapa ett fel om databasen har etablerats i en region som stöds inte.
-- För befintliga P11 och P15-databaser finns på någon av regionerna som stöds kan du öka det maximala lagringsutrymmet till mer än 1 TB i steg om 256 GB upp till 4 TB. Om du vill se om en större storlek stöds i din region, Använd den [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) fungera eller granska databasens storlek i Azure-portalen. Uppgradera en befintlig P11 eller P15 kan databasen endast utföras av en huvudsaklig inloggning på servernivå eller av medlemmar i rollen dbmanager.
-- Om en uppgraderingsåtgärd körs i en region som stöds konfigurationen uppdateras direkt. Databasen förblir online under uppgraderingsprocessen. Du kan inte dock använda fullständig mängden lagringsutrymme till mer än 1 TB lagringsutrymme förrän faktiska databasfilerna har uppgraderats till den största storleken. Hur lång tid som krävs beror på storleken på databasen håller på att uppgraderas.
-- När du skapar eller uppdaterar en P11 eller P15-databas, kan du bara välja mellan 1 TB och 4 TB i steg om 256 GB maximal storlek. När du skapar en P11/P15 är standardalternativet för lagring på 1 TB förvalda. Du kan öka storage max till upp till 4 TB för en ny eller befintlig databas för databaser som finns på någon av regionerna som stöds. Den maximala storleken kan inte utökas över 1 TB för alla andra regioner. Priset ändras inte när du väljer 4 TB lagringsutrymme.
-- Om den maximala storleken för en databas är större än 1 TB, sedan den kan inte ändras till 1 TB även om den faktiska lagring som används är lägre än 1 TB. Så kan inte du nedgradera en P11 eller P15 med en maximal storlek som är större än 1 TB till en 1 TB P11 eller 1 TB P15 eller lägre compute storlek, till exempel P1 – P6). Den här begränsningen gäller även för återställning och kopiera scenarier inklusive point-in-time, geo-återställning, lång-sikt – backup-kvarhållning och databaskopian. När en databas har konfigurerats med en maximal storlek som är större än 1 TB, måste du köra alla återställningsåtgärder för den här databasen till en P11/P15 med en maximal storlek som är större än 1 TB.
+- Om den maximala storleken för en databas för P11 eller P15 någonsin angavs ett värde större än 1 TB, kan sedan den endast återställas eller kopieras till en P11 eller P15-databas.  Därefter kan skala databasen till en annan beräkningsstorleken förutsatt att mängden utrymme som tilldelas när den skulle skalas om åtgärden inte överskrider maxstorleken gränserna för den nya beräkningsstorleken.
 - För scenarier med aktiv geo-replikering:
   - Konfigurera geo-replikeringsrelation: Om den primära databasen är P11 eller P15, måste secondary(ies) också vara P11 eller P15; lägre beräkningsstorleken avvisas som sekundärservrar eftersom de inte kan stödja mer än 1 TB.
   - Uppgradera den primära databasen i en relation för geo-replikering: Ändra den maximala storleken till mer än 1 TB på en primär databas utlöser samma ändringar på den sekundära databasen. Båda uppgraderingar måste genomföras för att ändringen på primärt ska börja gälla. Region begränsningar för mer än 1 TB-alternativet. Om sekundärt finns i en region som inte stöder mer än 1 TB, uppgraderas inte primärt.

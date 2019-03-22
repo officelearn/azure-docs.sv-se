@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: c882907ef2763f13a3806c335dabf330d35a0831
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 08eb7171249c42348877afedc80c6c6338265422
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433220"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861744"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Skapa och läsa IoT Hub-meddelanden
 
@@ -56,8 +56,7 @@ I följande tabell visar uppsättningen Systemegenskaper i IoT Hub-meddelanden.
 | iothub-enqueuedtime |Datum och tid i [moln till enhet](iot-hub-devguide-c2d-guidance.md) meddelande togs emot av IoT Hub. | Nej för C2D-meddelanden. Ja annars. |
 | Korrelations-id |En strängegenskap i ett svarsmeddelande som vanligtvis innehåller meddelande-ID för begäran i begäran / svar-mönster. | Ja |
 | användar-id |Ett ID som används för att ange ursprunget av meddelanden. När meddelanden genereras av IoT Hub, den är inställd på `{iot hub name}`. | Nej |
-| iothub-ack |En feedback meddelande generator. Den här egenskapen används i meddelanden från moln till enhet för att begära IoT Hub för att generera meddelanden på grund av användningen av meddelandet av enheten. Möjliga värden: **ingen** (standard): ingen feedback meddelande genereras **positivt**: meddelandet feedback om meddelandet har slutförts, **negativt**: ta emot en feedback-meddelande om meddelandet har gått ut (eller har nått maximalt antal leveranser) utan håller på att slutföras av enheten, eller **fullständig**: både positiva och negativa. 
-<!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | Ja |
+| iothub-ack |En feedback meddelande generator. Den här egenskapen används i meddelanden från moln till enhet för att begära IoT Hub för att generera meddelanden på grund av användningen av meddelandet av enheten. Möjliga värden: **ingen** (standard): ingen feedback meddelande genereras **positivt**: meddelandet feedback om meddelandet har slutförts, **negativt**: ta emot en feedback-meddelande om meddelandet har gått ut (eller har nått maximalt antal leveranser) utan håller på att slutföras av enheten, eller **fullständig**: både positiva och negativa. <!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | Ja |
 | iothub-connection-device-id |Ett ID som angetts av IoT Hub på meddelanden från enheten till molnet. Den innehåller den **deviceId** på den enhet som skickade meddelandet. | Nej för D2C-meddelanden. Ja annars. |
 | iothub-connection-auth-generation-id |Ett ID som angetts av IoT Hub på meddelanden från enheten till molnet. Den innehåller den **generationId** (enligt [identitet enhetsegenskaper](iot-hub-devguide-identity-registry.md#device-identity-properties)) på den enhet som skickade meddelandet. | Nej för D2C-meddelanden. Ja annars. |
 | iothub-connection-auth-method |En autentiseringsmetod som angetts av IoT Hub på meddelanden från enheten till molnet. Den här egenskapen innehåller information om den autentiseringsmetod som används för att autentisera den enhet som skickar meddelandet. <!-- ROBINSH For more information, see [Device to cloud anti-spoofing][lnk-antispoofing].--> | Nej för D2C-meddelanden. Ja annars. |

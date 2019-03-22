@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9409d196e307b75a14a272dee6c8c93789ca8556
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 9aba12a2bca882b5f0e6e95d8e4f6014b318a12e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669796"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119759"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>Delegera app administratörsroller i Azure Active Directory
 
@@ -37,8 +37,8 @@ Så här ger dig möjlighet att hantera åtkomsten till program i Azure portal:
 1. Logga in på din [Azure AD-klient](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med ett konto som är berättigade till den globala administratörsrollen i klienten.
 2. När du har tillräcklig behörighet kan öppna den [roller och administratörer sidan](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
 3. Öppna en av följande roller för att se dess medlem tilldelningar:
-  * **Programadministratör**
-  * **Molnprogramadministratör**
+   * **Programadministratör**
+   * **Molnprogramadministratör**
 4. På den **medlemmar** för rollen, väljer **Lägg till medlem**.
 5. Välj en eller flera medlemmar som ska läggas till i rollen. <!--Members can be users or groups.-->
 
@@ -50,8 +50,8 @@ Alla användare kan skapa programregistreringar som standard, men du bevilja vil
 
 1. Logga in på din [Azure AD-klient](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med ett konto som är berättigade till den globala administratörsrollen i klienten.
 2. När du har fått behörighet genom att ange en eller båda av följande:
-  * På den [användaren inställningssidan för din klient](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)anger **användare kan registrera program** Nej.
-  * På den [användarinställningar för företagsprogram](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)anger **användare kan samtycka till program som får åtkomst till företagsdata å deras vägnar** Nej.
+   * På den [användaren inställningssidan för din klient](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)anger **användare kan registrera program** Nej.
+   * På den [användarinställningar för företagsprogram](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)anger **användare kan samtycka till program som får åtkomst till företagsdata å deras vägnar** Nej.
 3. Sedan tilldela användare som behöver den här behörigheten ska vara medlemmar i rollen tillämpning developer efter behov.
 
 När en användare registrerar ett program, läggs de automatiskt som första ägare för programmet.

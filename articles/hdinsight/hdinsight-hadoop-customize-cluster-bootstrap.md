@@ -9,26 +9,26 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2da89e674b967287150b2e8f3a98fc25df2af81e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: fe653d36b2c527391a2f6d4ce33b89ba8dd648ac
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878275"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202800"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Anpassa HDInsight-kluster med Bootstrap
 
 Ibland kan vill du konfigurera konfigurationsfiler, bland annat:
 
 * clusterIdentity.xml
-* Core-site.xml
+* core-site.xml
 * gateway.XML
 * hbase-env.xml
 * hbase-site.xml
 * hdfs-site.xml
 * hive-env.xml
 * hive-site.xml
-* mapred-plats
+* mapred-site
 * oozie-site.xml
 * oozie-env.xml
 * storm-site.xml
@@ -87,7 +87,7 @@ En fullständig fungerande PowerShell-skript finns i [bilaga](#appendix-powershe
 6. Klicka på **HiveServer2** från **sammanfattning**.
 7. Klicka på den **Peeringkonfigurationer** fliken.
 8. Klicka på **Hive** menyn till vänster.
-9. Klicka på den **Avancerat** fliken.
+9. Klicka på fliken **Avancerat**.
 10. Rulla nedåt och expandera sedan **avancerade hive-plats**.
 11. Leta efter **hive.metastore.client.socket.timeout** i avsnittet.
 
@@ -131,7 +131,6 @@ Du kan använda bootstrap i Resource Manager-mall:
 * [Skapa Apache Hadoop-kluster i HDInsight] [ hdinsight-provision-cluster] innehåller instruktioner om hur du skapar ett HDInsight-kluster med hjälp av andra anpassade alternativ.
 * [Utveckla skriptåtgärder skript för HDInsight][hdinsight-write-script]
 * [Installera och använda Apache Spark på HDInsight-kluster][hdinsight-install-spark]
-* [Installera och använda Apache Solr på HDInsight-kluster](hdinsight-hadoop-solr-install.md).
 * [Installera och använda Apache Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
@@ -142,7 +141,7 @@ Du kan använda bootstrap i Resource Manager-mall:
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Steg när klustret skapas"
 
-## <a name="appendix-powershell-sample"></a>Bilaga: PowerShell-exempel
+## <a name="appendix-powershell-sample"></a>Tillägg: PowerShell-exempel
 Det här PowerShell-skriptet skapar ett HDInsight-kluster och anpassar en Hive-inställning:
 
 ```powershell

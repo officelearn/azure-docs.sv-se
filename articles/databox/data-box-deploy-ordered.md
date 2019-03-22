@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 03/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 43dc9edf715e20c84515d6acf4884e97c3b28184
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 07ccd2aaec6b2325d6eef09a466a5d0707836b4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451892"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834276"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Självstudier: Beställa Azure Data Box
 
@@ -27,7 +27,7 @@ I den här självstudien beskriver vi hur du kan beställa en Azure Data Box. I 
 > * Spåra beställningen
 > * Avbryta beställningen
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför följande konfigurationskrav för Data Box-tjänsten och enheten innan du distribuerar enheten.
 
@@ -38,7 +38,7 @@ Innan du börjar ska du kontrollera att:
 - Kontrollera att den prenumeration du använder för Data Box-tjänsten är någon av följande typer:
     - Microsoft Enterprise-avtal (EA). Läs mer om [EA-prenumerationer](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Leverantör av molnlösningar (CSP). Läs mer om [Azure CSP-program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Microsoft Azure-sponsring. Läs mer om [Azure-sponsringsprogrammet](https://azure.microsoft.com/offers/ms-azr-0036p/). 
+    - Microsoft Azure-sponsring. Läs mer om [Azure-sponsringsprogrammet](https://azure.microsoft.com/offers/ms-azr-0036p/).
 
 - Kontrollera att du har ägar- eller deltagaråtkomst till prenumerationen för att skapa en Data Box-beställning.
 
@@ -61,6 +61,7 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
 3. Klicka på **Skapa**.
 
 4. Kontrollera om Data Box-tjänsten är tillgänglig i din region. Ange eller välj följande information och klicka på **Tillämpa**. 
+
     |Inställning  |Värde  |
     |---------|---------|
     |Prenumeration     | Välj en prenumeration för EA, CSP eller Azure-sponsring för Data Box-tjänsten. <br> Prenumerationen är kopplad till ditt faktureringskonto.       |
@@ -68,7 +69,7 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
     |Källand     |   Välj landet där dina data finns.         |
     |Azure-målregion     |     Välj den Azure-region dit du vill överföra data.        |
 
-5. Välj **Data Box**. Den maximala lösningskapaciteten för en enskild beställning är 80 TB. Du kan skapa flera beställningar för större datamängder.
+5. Välj **Data Box**. Den maximala kapaciteten som kan användas för en enskild beställning är 786 TB. Du kan skapa flera beställningar för större datamängder.
 
       [![Välja Data Box-alternativ 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 
@@ -79,8 +80,22 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
     |Namn     |  Välj ett smeknamn så att du kan spåra beställningen. <br> Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. <br> Namnet måste börja och sluta med en bokstav eller en siffra.      |
     |Resursgrupp     |   Använd ett befintligt eller skapa ett nytt. <br> En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans.         |
     |Azure-målregion     | Välj en region för lagringskontot. <br> Mer information finns i [regional tillgänglighet](data-box-overview.md#region-availability).        |
-    |Lagringskonto(n)     | Baserat på den angivna Azure-regionen väljer du ett eller flera lagringskonton från den filtrerade listan med befintliga lagringskonton. Data Box kan länkas med upp till 10 lagringskonton. <br> Du kan även ett nytt konto för **Generell användning v1**, **Generell användning v2** eller **Blob Storage**. Det går inte att använda lagringskonton som har konfigurerade regler. Lagringskonton måste **tillåta åtkomst från alla nätverk** i avsnittet om brandväggar och virtuella nätverk.|
-    
+    |Lagringsmål     | Välj från storage-konto eller hanterade diskar, eller bådadera. <br> Baserat på den angivna Azure-regionen väljer du ett eller flera lagringskonton från den filtrerade listan med befintliga lagringskonton. Data Box kan länkas med upp till 10 lagringskonton. <br> Du kan också skapa en ny **General-purpose v1**, **gpv2**, eller **Blob storage-konto**. <br>Storage-konton med virtuella nätverk stöds. Aktivera betrodda tjänster inom storage-konto nätverksinställningar brandväggen så att Data Box-tjänsten att arbeta med säker storage-konton. Läs mer om hur du [lägga till Azure Data Box som en betrodd tjänst](../storage/common/storage-network-security.md#exceptions).|
+
+    Om du använder storage-konto som lagringsplats, visas följande skärmbild:
+
+    ![Data Box-beställning för storage-konto](media/data-box-deploy-ordered/order-storage-account.png)
+
+    Om du använder Data Box för att skapa hanterade diskar från de lokala virtuella hårddiskarna, behöver du också ange följande information:
+
+    |Inställning  |Värde  |
+    |---------|---------|
+    |Resursgrupper     | Skapa nya resursgrupper om du planerar att skapa hanterade diskar från en lokal virtuell hårddisk. Du kan använda en befintlig resursgrupp endast om resursgruppen har skapats tidigare när du skapar en Data Box-beställning för hanterad disk av Data Box-tjänsten. <br> Ange flera resursgrupper, avgränsade med semikolon. Högst 10 resursgrupper stöds.|
+
+    ![Data Box-beställning för hanterad disk](media/data-box-deploy-ordered/order-managed-disks.png)
+
+    Storage-konto som angetts för hanterade diskar används som en mellanlagringskontot. Data Box-tjänsten uppladdningar de virtuella hårddiskarna som sida BLOB-objekt till mellanlagringskontot innan du konvertera den till hanterade diskar och flytta den till resursgrupper. Mer information finns i [verifiera data Överför till Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+
 7. I **Leveransadress** uppger du för- och efternamn, företagets postadress och ett giltigt telefonnummer. Klicka på **Verifiera adress**. Tjänsten verifierar leveransadressen och tjänstens tillgänglighet. Om tjänsten är tillgänglig för den angivna leveransadressen får du ett meddelande om det. Klicka på **Nästa**.
 
 8. Ange e-postadresser i **Notification details** (Information om meddelande). Tjänsten skickar e-postmeddelanden om alla uppdateringar rörande orderstatus.
@@ -89,7 +104,7 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
 
 9. Granska informationen **Summary** (Sammanfattning) som rör beställningen, kontakt, meddelanden och sekretess. Markera rutan för avtalet till sekretesspolicyn.
 
-10. Klicka på **Order** (Ordning). Det tar några minuter att skapa beställningen. 
+10. Klicka på **Order** (Ordning). Det tar några minuter att skapa beställningen.
 
 
 ## <a name="track-the-order"></a>Spåra beställningen
@@ -98,9 +113,9 @@ När du har skapat beställningen kan du spåra statusen för ordern via Azure-p
 
 Om enheten inte är tillgänglig får du ett meddelande. Om enheten är tillgänglig identifierar Microsoft enheten för leverans och förbereder försändelsen. Vid enhetsförberedelsen utförs följande åtgärder:
 
-- SMB-resurser skapas för varje lagringskonto som är associerat med enheten. 
+- SMB-resurser skapas för varje lagringskonto som är associerat med enheten.
 - För varje resurs genereras autentiseringsuppgifter för åtkomst såsom användarnamn och lösenord.
-- Det enhetslösenord som hjälper till att låsa upp enheten skapas också. 
+- Det enhetslösenord som hjälper till att låsa upp enheten skapas också.
 - Data Box låses för att förhindra obehörig åtkomst till enheten.
 
 När enhetsförberedelserna är klara visar portalen beställningen i tillståndet **Processed** (Behandlad).

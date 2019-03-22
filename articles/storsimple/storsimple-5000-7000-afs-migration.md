@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 9992faa11585d49d3024e00338b4c1dc09da9195
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: c27244af6da01163fa9ab554b6b9c1d9c99bab23
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726676"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104581"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrera data från StorSimple 5000-7000-serien till Azure File Sync
 
@@ -57,7 +57,7 @@ Här hittar du migreringen krav för äldre 5000 eller 7000 serien enheten till 
 - Värden har tillräckligt med lokal lagring för dina lokala cachelagrade data.
 - Ägare åtkomst på Azure-prenumerationen som du använder för att distribuera Azure File Sync. Det kan uppstå problem när du skapar en molnslutpunkt för din synkroniseringsgruppen om du inte har ägare eller administratör serverbehörigheter.
 - Åtkomst till en [gpv2-konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview) med en Azure-filresurs som du vill synkronisera. Mer information finns i [Skapa ett lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
- - Så här [skapar en Azure-filresurs](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
+  - Så här [skapar en Azure-filresurs](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="migration-process"></a>Migreringsprocessen
 

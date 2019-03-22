@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: shlo
-ms.openlocfilehash: 53540128b5a9a1e2690179a35f26a9a82c6cb584
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: d2f892941f9d37dd3d74afe17d7952b404dc709f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446961"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551644"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Branchning och kedjesammansättning av aktiviteter i en Data Factory-pipeline
 I den här självstudiekursen skapar du en Data Factory-pipeline som visar några av funktionerna för att styra flödet. Den här pipelinen skapar en enkel kopia från en container i Azure Blob Storage till en annan container i samma lagringskonto. Om kopieringen lyckas vill du skicka information om den lyckade åtgärden (till exempel hur mycket data som har skrivits) i ett e-postmeddelande. Om kopieringen misslyckas vill du skicka information om att kopieringen misslyckades (till exempel ett felmeddelande) i ett e-postmeddelande. I självstudiekursen visas olika exempel på hur du skickar parametrar.
@@ -40,7 +40,7 @@ I den här självstudiekursen används .NET SDK. Du kan använda andra metoder f
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) .
 * **Azure SQL Database**. Du använder databasen som **mottagare** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL Database](../sql-database/sql-database-get-started-portal.md).
@@ -56,7 +56,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
     John|Doe
     Jane|Doe
     ```
-2. Använd verktyg som till exempel [Azure Storage Explorer](http://storageexplorer.com/) till att skapa containern **adfv2branch** och för att ladda upp filen **input.txt** till containern.
+2. Använd verktyg som till exempel [Azure Storage Explorer](https://storageexplorer.com/) till att skapa containern **adfv2branch** och för att ladda upp filen **input.txt** till containern.
 
 ## <a name="create-visual-studio-project"></a>Skapa Visual Studio-projekt
 

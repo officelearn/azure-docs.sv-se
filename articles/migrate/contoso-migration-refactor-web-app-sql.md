@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 8e8b9536c96b1f5ed899695a3715021b9f9875cf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 271e18d370068e0445f183af0c694b19f0da22f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440377"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102762"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Contoso-migrering: Omstrukturera en lokal app till en Azure Web App och Azure SQL-databas
 
@@ -244,9 +244,9 @@ Med databasen migreras, Contoso-administratörer kan nu etablera de två web app
 
 Contoso behöver skapa DevOps-infrastrukturen och pipelines för programmet.  Detta gör Contoso administratörer skapa ett nytt DevOps-projekt, importera koden, konfigurera build och release-pipelines.
 
-1.   De skapa ett nytt projekt i Contoso Azure DevOps-konto (**ContosoSmartHotelRefactor**), och välj **Git** för versionskontroll.
+1. De skapa ett nytt projekt i Contoso Azure DevOps-konto (**ContosoSmartHotelRefactor**), och välj **Git** för versionskontroll.
 
-    ![Nytt projekt](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
+   ![Nytt projekt](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
 2. De importerar Git-lagringsplats som för närvarande innehåller sin kod. Det är en [offentlig repo](https://github.com/Microsoft/SmartHotel360-internal-booking-apps) och du kan hämta den.
 
     ![Hämta kod](./media/contoso-migration-refactor-web-app-sql/vsts2.png)
@@ -306,8 +306,8 @@ Contoso-administratörer kan nu konfigurera Azure DevOps för att skapa build-ve
 
 6. Mappen **släppa** innehåller resultatet.
 
-    - Två zip-filer är de paket som innehåller apparna.
-    - De här filerna används i versionspipelinen för distribution till Azure Web Apps
+   - Två zip-filer är de paket som innehåller apparna.
+   - De här filerna används i versionspipelinen för distribution till Azure Web Apps
 
      ![Artefakt](./media/contoso-migration-refactor-web-app-sql/pipeline6.png)
 
@@ -341,7 +341,7 @@ Contoso-administratörer kan nu konfigurera Azure DevOps för att skapa build-ve
 
 16. Utlösare av kontinuerlig distribution ska vara inställd på **aktiverad**.
 
-   ![Kontinuerlig distribution aktiverad](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
+    ![Kontinuerlig distribution aktiverad](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
 
 17. Nu kan de gå tillbaka till steg 1-jobbet jag uppgifter och klicka på **distribuera Azure App Service**.
 

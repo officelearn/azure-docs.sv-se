@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7475969f3b1437a8d42345f00a974957c15d00fa
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 075a50802a05a9b8254ff6ab1e0a38f43baca970
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444306"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105632"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Ett oväntat program i listan över program
 
@@ -48,7 +48,7 @@ Om du vill se alla program i din klient, måste du använda den **Filter** så a
 
 När filtrerat till **alla program**, **alla program** **lista** visar alla objekt för tjänstens huvudnamn i din klient. Objekt för tjänstens huvudnamn kan visas i listan på olika sätt:
 
-1.  När du lägger till alla program från programgalleriet, inklusive:
+1. När du lägger till alla program från programgalleriet, inklusive:
 
    1. **Azure AD-Galleriprogram** – ett program som har varit förintegrerade för enkel inloggning med Azure AD
 
@@ -58,21 +58,21 @@ När filtrerat till **alla program**, **alla program** **lista** visar alla obje
 
    4. **Icke-Galleriprogram** – Använd dina egna program! Alla webblänk som du vill eller alla program som återger ett fält för användarnamn och lösenord, har stöd för SAML- eller OpenID Connect-protokoll eller stöder SCIM som du vill integrera för enkel inloggning med Azure AD.
 
-2.  När du registrerar dig för eller logga in på en 3<sup>rd</sup> partsprogram integrerad med Azure Active Directory. Ett exempel är [Smartsheet](https://app.smartsheet.com/b/home) eller [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
+2. När du registrerar dig för eller logga in på en 3<sup>rd</sup> partsprogram integrerad med Azure Active Directory. Ett exempel är [Smartsheet](https://app.smartsheet.com/b/home) eller [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
 
-3.  När registreringen eller att lägga till en licens till en användare eller grupp i ett partsprogram för första, som [Microsoft Office 365](https://products.office.com/)
+3. När registreringen eller att lägga till en licens till en användare eller grupp i ett partsprogram för första, som [Microsoft Office 365](https://products.office.com/)
 
-4.  När du lägger till en ny programregistrering genom att skapa ett egenutvecklat program som använder den [programregistret](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)
+4. När du lägger till en ny programregistrering genom att skapa ett egenutvecklat program som använder den [programregistret](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)
 
-5.  När du lägger till en ny programregistrering genom att skapa ett egenutvecklat program som använder den [V2.0 programregistreringsportalen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)
+5. När du lägger till en ny programregistrering genom att skapa ett egenutvecklat program som använder den [V2.0 programregistreringsportalen](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)
 
-6.  När du lägger till ett program du håller på att utveckla med Visual Studio [ASP.net autentiseringsmetoder](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) eller [Connected Services](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
+6. När du lägger till ett program du håller på att utveckla med Visual Studio [ASP.net autentiseringsmetoder](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) eller [Connected Services](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
 
-7.  När du skapar ett objekt med den [Azure AD PowerShell-modulen](/powershell/azure/install-adv2?view=azureadps-2.0)
+7. När du skapar ett objekt med den [Azure AD PowerShell-modulen](/powershell/azure/install-adv2?view=azureadps-2.0)
 
-8.  När du [samtycka till ett program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) som administratör för att använda data i din klient
+8. När du [samtycka till ett program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) som administratör för att använda data i din klient
 
-9.  När en [användare godkänner ett program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) att använda data i din klient
+9. När en [användare godkänner ett program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) att använda data i din klient
 
 10. När du aktiverar vissa tjänster som lagrar data i din klient. Ett exempel är återställning av lösenord, som modellerats som princip för återställning av tjänstens huvudnamn för att lagra lösenordet på ett säkert sätt.
 
@@ -90,21 +90,21 @@ Om du vill inaktivera alla användarinloggningar till ett program följer du ste
 
 Att **ta bort ett program**, Följ dessa steg:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
-5.  Klicka på **alla program** att visa en lista över alla dina program.
+5. Klicka på **alla program** att visa en lista över alla dina program.
 
-  * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
+   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
 
-6.  Välj det program som du vill ta bort.
+6. Välj det program som du vill ta bort.
 
-7.  När programmet har lästs in klickar du på **ta bort** ikonen från övre programmets **översikt** fönstret.
+7. När programmet har lästs in klickar du på **ta bort** ikonen från övre programmets **översikt** fönstret.
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Jag vill inaktivera alla framtida medgivande användaråtgärder för program
 

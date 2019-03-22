@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 7a90a0af8c6c7fd19b784d97e2ce30bea7910089
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: efe4f1542d255232258329f26526bfc997cf6b50
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550719"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189758"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välja rätt autentiseringsmetod för din Azure Active Directory-hybrididentitetslösning 
 
@@ -135,10 +135,10 @@ Referera till [implementera direktautentisering](https://docs.microsoft.com/azur
 
 * **Avancerade scenarier**. En lösning för federerad autentisering krävs vanligtvis när kunder har ett krav för autentisering som Azure AD inte stöder internt. Se detaljerad information som hjälper dig att [väljer rätt inloggningsalternativ](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Beakta följande vanliga krav:
 
-    * Autentisering som kräver smartkort eller certifikat.
-    * Lokala MFA-servrar eller tredje parts multifaktor-leverantörer.
-    * Autentisering med hjälp av autentiseringsmetoder från tredje part lösningar. Se den [kompatibilitetslistan för Azure AD-federation](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
-    * Logga in som kräver en sAMAccountName, till exempel domän\användarnamn, i stället för en UPN User Principal Name (), till exempel user@domain.com.
+  * Autentisering som kräver smartkort eller certifikat.
+  * Lokala MFA-servrar eller tredje parts multifaktor-leverantörer.
+  * Autentisering med hjälp av autentiseringsmetoder från tredje part lösningar. Se den [kompatibilitetslistan för Azure AD-federation](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
+  * Logga in som kräver en sAMAccountName, till exempel domän\användarnamn, i stället för en UPN User Principal Name (), till exempel user@domain.com.
 
 * **Affärskontinuitet**. Federerad system kräver normalt en Utjämning av nätverksbelastning-matris av servrar, kallas även en servergrupp. Den här gruppen har konfigurerats i ett internt nätverk och perimeternätverket Nätverkstopologi för att säkerställa hög tillgänglighet för begäranden om autentisering.
 
@@ -180,7 +180,7 @@ Följande diagram visas de övergripande arkitektur komponenter som krävs för 
 |Finns det en lösning för hälsoövervakning?|Krävs inte|Agentstatus som tillhandahålls av [Azure Active Directory Administrationscenter](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-pass-through-authentication)|[Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)|
 |Användarna får enkel inloggning till molnresurser från domänanslutna enheter i företagets nätverk?|Ja med [sömlös SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Ja med [sömlös SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Ja|
 |Vilka typer av inloggning stöds?|UserPrincipalName + lösenord<br><br>Windows-integrerad autentisering med hjälp av [sömlös SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[Alternativa inloggnings-ID](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom)|UserPrincipalName + lösenord<br><br>Windows-integrerad autentisering med hjälp av [sömlös SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[Alternativa inloggnings-ID](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq)|UserPrincipalName + lösenord<br><br>sAMAccountName + lösenord<br><br>Windows-integrerad autentisering<br><br>[Certifikat och smartkort-autentisering](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Alternativa inloggnings-ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
-|Är Windows Hello för företag som stöds?|[Förtroendemodell med nyckel](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Förtroendemodell med certifikat med Intune](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)|[Förtroendemodell med nyckel](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Förtroendemodell med certifikat med Intune](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)<br>*Kräver Windows Server 2016 domänens funktionsnivå*|[Förtroendemodell med nyckel](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Förtroendemodell med certifikat](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
+|Är Windows Hello för företag som stöds?|[Förtroendemodell med nyckel](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Förtroendemodell med certifikat med Intune](https://microscott.azurewebsites.net/2017/12/16/setting-up-windows-hello-for-business-with-intune/)|[Förtroendemodell med nyckel](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Förtroendemodell med certifikat med Intune](https://microscott.azurewebsites.net/2017/12/16/setting-up-windows-hello-for-business-with-intune/)<br>*Kräver Windows Server 2016 domänens funktionsnivå*|[Förtroendemodell med nyckel](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Förtroendemodell med certifikat](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |Vad är Multi-Factor authentication-alternativ?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Anpassade kontroller med villkorlig åtkomst *](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Anpassade kontroller med villkorlig åtkomst *](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Azure MFA-servern](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[Tredje parts MFA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Anpassade kontroller med villkorlig åtkomst *](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|
 |Vilka användare konto tillstånd stöds?|Inaktiverade konton<br>(upp till 30-minuters fördröjning)|Inaktiverade konton<br><br>Låst konto<br><br>Kontot har gått ut<br><br>Lösenordet har gått ut<br><br>Logga in timmar|Inaktiverade konton<br><br>Låst konto<br><br>Kontot har gått ut<br><br>Lösenordet har gått ut<br><br>Logga in timmar|
 |Vad är alternativ för villkorlig åtkomst?|[Azure AD villkorlig åtkomst, med Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD villkorlig åtkomst, med Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD villkorlig åtkomst, med Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[ADFS-anspråksregler](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|

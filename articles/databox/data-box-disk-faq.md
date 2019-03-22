@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 02/14/2019
+ms.date: 02/26/2019
 ms.author: alkohli
-ms.openlocfilehash: 5f44e3c4a1b7f28133ecd232fc49a34931bddfa4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: 97794675f3d489e1154d9c327c18d40708dd5b53
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729839"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877861"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Vad är Azure Data Box Disk?
 
@@ -51,7 +51,7 @@ A.  Du skaffar Azure Data Box-diskar genom att logga in på Azure-portalen och s
 A. Om du får fem diskar om vardera 8 TB (7 TB användbar kapacitet) är den maximala användbara kapaciteten 35 TB. Du kan då överföra 35 TB data. Om du vill överföra en större datamängd måste du beställa fler diskar.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>F. Hur ser jag om Data Box-diskar finns tillgängliga i min region? 
-A.  Data Box-diskar är för närvarande tillgängliga i USA, Kanada, Australien och alla länder i den Europeiska unionen.  
+A.  Om du vill se där Data Box-diskar är för närvarande tillgängliga går du till den [regiontillgänglighet](data-box-disk-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>F. I vilka regioner kan jag lagra data med Data Box-diskar?
 A. Data Box Disk stöds i alla regioner i USA, Kanada och Australien, samt i Europa,västra och Europa, norra. Endast regionerna med offentligt Azure-moln stöds. Azure Government och andra begränsade moln stöds inte.
@@ -126,14 +126,14 @@ A.  Nej. För närvarande går det endast att använda ett lagringskonto, allmä
 A. Verktygsuppsättningen som är tillgänglig med Data Box-diskar består av tre verktyg:
  - **Upplåsningsverktyg för Data Box Disk**: Du kan använda verktyget för att låsa upp de krypterade diskar som skickas från Microsoft. När du låser upp diskarna med verktyget måste du ange en nyckel som du hittar i Data Box Disk-beställningen på Azure-portalen. 
  - **Data Box Disk-valideringsverktyget**: Använd det här verktyget för att verifiera storleken, formatet och blobnamnen baserat på Azure-namngivningskonventionerna. Verktyget genererar även kontrollsummor för kopierade data som sedan används för att verifiera de data som överförs till Azure.
- - **Verktyget Data Box Disk Split Copy**: Använd det här verktyget om du använder flera diskar och har en stor datauppsättning som behöver delas upp och kopieras över alla diskar. Det här verktyget är för närvarande tillgängligt för Windows.
+ - **Verktyget Data Box Disk Split Copy**: Använd det här verktyget om du använder flera diskar och har en stor datauppsättning som behöver delas upp och kopieras över alla diskar. Det här verktyget är för närvarande tillgängligt för Windows. Det här verktyget stöds inte med hanterade diskar. Det här verktyget validerar också som data kopieras, därför du kan hoppa över verifieringen steg när du använder det här verktyget.
 
 Verktygsuppsättningen är tillgänglig både för Windows och Linux. Du kan hämta verktygen här:
- - [Ladda ned Data Box Disk-verktyg för Windows](https://aka.ms/databoxdisktoolswin) 
- - [Ladda ned Data Box Disk-verktyg för Linux](https://aka.ms/databoxdisktoolslinux)
+- [Ladda ned Data Box Disk-verktyg för Windows](https://aka.ms/databoxdisktoolswin) 
+- [Ladda ned Data Box Disk-verktyg för Linux](https://aka.ms/databoxdisktoolslinux)
  
-### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>F. Kan jag använda Data Box Disk för att överföra data till Azure Files och sedan använda data med Azure File Sync? 
-A. Azure Files stöds inte med Data Box Disk. Dessutom sparas inte metadata om fildata senare används med Azure File Sync.
+  ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>F. Kan jag använda Data Box Disk för att överföra data till Azure Files och sedan använda data med Azure File Sync? 
+  A. Azure Files stöds med Data Box-Disk, men kommer inte att fungera bra med Azure File Sync. Metadata sparas inte om fildata som används med Azure File Sync.
 
 
 ## <a name="verify-and-upload"></a>Verifiera och ladda upp
@@ -142,10 +142,10 @@ A. Azure Files stöds inte med Data Box Disk. Dessutom sparas inte metadata om f
 A.  När orderstatusen för datakopieringen visas som slutförd bör du komma åt dina data direkt.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>F. Var i Azure finns mina data efter uppladdningen?
-A.  När du kopierar data under mapparna *BlockBlob* och *PageBlob* på disken skapas en container i Azure-lagringskontot för varje undermapp under mappen *BlockBlob* och *PageBlob*. Om du kopierade filerna under mapparna *BlockBlob* och *PageBlob* direkt kopieras de till en standardcontainer *$root* under Azure Storage-kontot.
+A.  När du kopierar data under mapparna *BlockBlob* och *PageBlob* på disken skapas en container i Azure-lagringskontot för varje undermapp under mappen *BlockBlob* och *PageBlob*. Om du kopierade filerna under mapparna *BlockBlob* och *PageBlob* direkt kopieras de till en standardcontainer *$root* under Azure Storage-kontot. När du kopierar data till en mapp under *AzureFile* mappen som en filresurs har skapats.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>F. Jag har precis märkt att jag inte följde namngivningskraven för min container. Misslyckas dataöverföringen till Azure?
-A. Versaler omvandlas automatiskt till gemener. Om namn inte efterlever kraven på andra sätt (specialtecken, andra språk och så vidare) misslyckas uppladdningen. Mer information finns i [Azure-namngivningskonventioner](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions).
+A. Versaler omvandlas automatiskt till gemener. Om namn inte efterlever kraven på andra sätt (specialtecken, andra språk och så vidare) misslyckas uppladdningen. Mer information finns i [Azure-namngivningskonventioner](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-multiple-data-box-disks"></a>F. Hur verifierar jag de data jag kopierade till flera Data Box-diskar?
 A.  När kopieringen är klar kan du köra `DataBoxDiskValidation.cmd` i mappen *DataBoxDiskImport* för att generera kontrollsummor för verifiering. Om du har flera diskar behöver du öppna ett kommandofönster per disk och kör det här kommandot. Tänk på att den här åtgärden kan ta lång tid (~ timmar) beroende på storleken på dina data.
@@ -160,7 +160,13 @@ A.  Data Box-diskarna krypteras med AES-128 Microsoft BitLocker-kryptering. Alla
 A. Ja. Om du vill verifiera dina data (vi rekommenderar att du gör det!), måste du köra verifieringen om du har lagt till ytterligare data på diskarna.
 
 ### <a name="q-i-used-all-my-disks-to-transfer-data-and-need-to-order-more-disks-is-there-a-way-to-quickly-place-the-order"></a>F. Jag har använt samtliga diskar och behöver beställa fler diskar. Går det att beställa dem snabbt?
-A. Du kan klona din tidigare beställning. En kloning skapar samma ordning som tidigare och du kan redigera beställningsinformationen utan att behöva ange adress, kontaktuppgifter och aviseringsadress. 
+A. Du kan klona din tidigare beställning. En kloning skapar samma ordning som tidigare och du kan redigera beställningsinformationen utan att behöva ange adress, kontaktuppgifter och aviseringsadress.
+
+### <a name="q-i-copied-data-to-manageddisk-folder-i-dont-see-any-managed-disks-with-the-resource-group-specified-for-managed-disks-was-my-data-uploaded-to-azure-and-how-can-i-locate-it"></a>F. Jag har kopierat data till ManagedDisk mapp. Jag ser inte alla hanterade diskar med resursgruppen som angetts för hanterade diskar. Har mina data som överförts till Azure och hur kan jag hitta den?
+A. Ja. Dina data har överförts till Azure, men om du inte ser några hanterade diskar med de angivna resursgrupperna, är det troligt eftersom data inte var giltig. Om sidblobar, blockblobbar, Azure Files och hanterade diskar är inte giltiga, skulle dessa går du till följande mappar:
+ - Sidblobar övergår i ett block blob-behållare som börjar med *databoxdisk-ogiltig-pb -*.
+ - Azure Files övergår i ett block blob-behållare som börjar med *databoxdisk-ogiltig-af -*.
+ - Hanterade diskar skulle gå till en block blob-behållare som börjar med *databoxdisk-invliad-md -*.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8326e7bc4b03c8e2828e74e13fc00d6a63f78e1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 35c268b5952f2276dc718df955c125c59c51d356
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211027"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014701"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Konfigurera Azure Multi-Factor Authentication Server för IIS-webbappar
 
@@ -30,7 +30,7 @@ Om du ska skydda en IIS-webbapp som använder formulärbaserad autentisering ins
 1. Klicka på ikonen för IIS-autentisering på den vänstra menyn i Azure Multi-Factor Authentication Server.
 2. Klicka på fliken **Formulärbaserad**.
 3. Klicka på **Lägg till**.
-4. Om du vill identifiera användarnamn, lösenord och domänvariabler automatiskt anger du inloggnings-URL:en (till exempel https://localhost/contoso/auth/login.aspx) i dialogrutan Konfigurera formulärbaserad webbplats automatiskt och klickar på **OK**.
+4. Om du vill identifiera användarnamn, lösenord och domänvariabler automatiskt anger du inloggnings-URL (t.ex. `https://localhost/contoso/auth/login.aspx`) i dialogrutan Konfigurera formulärbaserad webbplats och klickar på **OK**.
 5. Markera rutan om att **Multi-Factor Authentication-användarmatchning krävs** om alla användare har importerats eller ska importeras till servern och om multifaktorautentisering används. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från multifaktorautentisering, lämnar du rutan avmarkerad.
 6. Om sidvariablerna inte kan identifieras automatiskt klickar du på **Ange manuellt** i dialogrutan Konfigurera formulärbaserad webbplats automatiskt.
 7. I dialogrutan Lägg till formulärbaserad webbplats anger du URL:en till inloggningssidan i fältet Skicka URL och anger ett programnamn (valfritt). Programnamnet visas i Azure Multi-Factor Authentication-rapporter och kan visas i autentiseringsmeddelanden i SMS- eller mobilappar.
@@ -39,9 +39,9 @@ Om du ska skydda en IIS-webbapp som använder formulärbaserad autentisering ins
 10. Markera rutan om att **Multi-Factor Authentication-användarmatchning krävs** om alla användare har importerats eller ska importeras till servern och om multifaktorautentisering används. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från multifaktorautentisering, lämnar du rutan avmarkerad.
 11. Klicka på **Avancerat** för att granska avancerade inställningar, inklusive:
 
-  - Välj en anpassad nekandeväxlingsfil
-  - Cachelagra lyckade autentiseringar på webbplatsen under en period med hjälp av cookies
-  - Välj om du vill autentisera primära autentiseringsuppgifter mot en Windows-domän, LDAP-katalogen eller RADIUS-servern.
+    - Välj en anpassad nekandeväxlingsfil
+    - Cachelagra lyckade autentiseringar på webbplatsen under en period med hjälp av cookies
+    - Välj om du vill autentisera primära autentiseringsuppgifter mot en Windows-domän, LDAP-katalogen eller RADIUS-servern.
 
 12. Klicka på **OK** så visas dialogrutan Lägg till formulärbaserad webbplats igen.
 13. Klicka på **OK**.
@@ -53,7 +53,7 @@ Om du ska skydda en IIS-webbapp som använder integrerad Windows HTTP-autentiser
 1. Klicka på ikonen för IIS-autentisering på den vänstra menyn i Azure Multi-Factor Authentication Server.
 2. Klicka på fliken **HTTP**.
 3. Klicka på **Lägg till**.
-4. I dialogrutan Lägg till grundläggande webbadress anger du URL:en för den webbplats där HTTP-autentiseringen utförs (till exempel http://localhost/owa) och anger sedan ett programnamn (valfritt). Programnamnet visas i Azure Multi-Factor Authentication-rapporter och kan visas i autentiseringsmeddelanden i SMS- eller mobilappar.
+4. I dialogrutan Lägg till grundläggande Webbadress anger du URL: en för webbplatsen där HTTP-autentiseringen utförs (t.ex. <http://localhost/owa>) och ange ett programnamn (valfritt). Programnamnet visas i Azure Multi-Factor Authentication-rapporter och kan visas i autentiseringsmeddelanden i SMS- eller mobilappar.
 5. Justera tiderna för Timeout vid inaktivitet och Längsta session om standardvärdet inte räcker.
 6. Markera rutan om att **Multi-Factor Authentication-användarmatchning krävs** om alla användare har importerats eller ska importeras till servern och om multifaktorautentisering används. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från multifaktorautentisering, lämnar du rutan avmarkerad.
 7. Markera kryssrutan för **cachelagring av cookies** om du vill det.

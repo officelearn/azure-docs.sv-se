@@ -9,14 +9,15 @@ ms.date: 06/25/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a4ed93bee091bf0a40718a47ffb7cd97a85147c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 94e5f4eaf32815dd0342ef73705efb2c575b71bc
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993491"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294000"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Självstudier: Framtvinga multifaktorautentisering för B2B-gästanvändare
 
@@ -24,7 +25,7 @@ När du samarbetar med externa B2B-gästanvändare är det en bra idé om du sky
 
 Exempel:
 
-![B2B-app som kräver MFA](media/tutorial-mfa/aad-b2b-mfa-example.png)
+![Diagram som visar en gästanvändare loggar in på ett företags-appar](media/tutorial-mfa/aad-b2b-mfa-example.png)
 
 1.  En administratör eller anställd på företag A bjuder in en gästanvändare att använda ett molnprogram eller lokalt program som är konfigurerat för att kräva MFA för åtkomst.
 2.  Gästanvändaren loggar med sina egna arbets- eller skolidentiteter eller sociala identiteter. 
@@ -56,11 +57,11 @@ För att kunna slutföra scenariot i den här självstudien behöver du:
 3.  Under **Hantera** väljer du **Användare**.
 4.  Välj **Ny gästanvändare**.
 
-    ![Välj Azure Active Directory](media/tutorial-mfa/tutorial-mfa-user-3.png)
+    ![Skärmbild som visar var du väljer alternativet för användare av nya gäst](media/tutorial-mfa/tutorial-mfa-user-3.png)
 
 5.  Under **Användarnamn** anger du den externa användarens e-postadress. Du kan också lägga till ett välkomstmeddelande. 
 
-    ![Välj Azure Active Directory](media/tutorial-mfa/tutorial-mfa-user-4.png)
+    ![Skärmbild som visar var du anger gäst inbjudningsmeddelandet](media/tutorial-mfa/tutorial-mfa-user-4.png)
 
 6.  Välj **Bjud in** för att skicka inbjudan till gästanvändaren automatiskt. Meddelandet **Användaren har bjudits in** visas. 
 7.  När du har skickat inbjudan läggs användarkontot automatiskt till i katalogen som gäst.
@@ -79,26 +80,26 @@ För att kunna slutföra scenariot i den här självstudien behöver du:
 6.  Välj **Användare och grupper** i avsnittet **Tilldelningar**.
 7.  Välj **Välj användare och grupper** på sidan **Användare och grupper** och välj sedan **Alla gästanvändare (förhandsversion)**.
 
-    ![Välj Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-6.png)
+    ![Skärmbild som visar att välja alla gästanvändare](media/tutorial-mfa/tutorial-mfa-policy-6.png)
 9.  Välj **Done** (Klar).
 10. Välj **Molnappar** i avsnittet **Tilldelningar** på sidan **Ny**.
 11. Välj **Välj appar** på sidan **Molnappar** och välj sedan **Välj**.
 
-    ![Välj Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-10.png)
+    ![Skärmbild som visar sidan appar för molnet och väljer alternativet](media/tutorial-mfa/tutorial-mfa-policy-10.png)
 
 12. Välj **Microsoft Azure-hantering** på sidan **Välj** och välj sedan **Välj**.
 
-    ![Välj Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-11.png)
+    ![Skärmbild som visar Microsoft Azure Management-app har valts](media/tutorial-mfa/tutorial-mfa-policy-11.png)
 
 13. Välj **Klar** på sidan **Molnappar**.
 14. Välj **Bevilja** i avsnittet **Åtkomstkontroller** på sidan **Ny**.
 15. Välj **Bevilja åtkomst** på sidan **Bevilja**, markera kryssrutan **Kräv multifaktorautentisering** och välj sedan **Välj**.
 
-    ![Välj Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-13.png)
+    ![Skärmbild som visar den kräver multifaktorautentisering alternativet](media/tutorial-mfa/tutorial-mfa-policy-13.png)
 
 16. Välj **På** under **Aktivera princip**.
 
-    ![Välj Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-14.png)
+    ![Skärmbild som visar alternativet Aktivera aktiverat](media/tutorial-mfa/tutorial-mfa-policy-14.png)
 
 17. Välj **Skapa**.
 
@@ -106,27 +107,27 @@ För att kunna slutföra scenariot i den här självstudien behöver du:
 
 1.  Välj **What If** på sidan **Villkorsstyrd åtkomst – Principer**. 
 
-    ![Välj Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
+    ![Skärmbild som visar var du ska välja vad om alternativet](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
 
 2.  Välj **Användare**, marker din testgästanvändare och välj sedan **Välj**.
 
-    ![Välj Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
+    ![Skärmbild som visar en gästanvändare som valts](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
 
 3.  Välj **Molnappar**.
 4.  Välj **Välj appar** på sidan **Molnappar** och klicka sedan på **Välj**. Välj **Microsoft Azure-hantering** i listan över program och klicka sedan på **Välj**. 
 
-    ![Välj Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
+    ![Skärmbild som visar Microsoft Azure Management-app har valts](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
 
 5.  Välj **Klar** på sidan **Molnappar**.
 6.  Välj **What If** och verifiera att den nya principen visas under **Utvärderingsresultat** på fliken **Principer som gäller**.
 
-    ![Välj Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
+    ![Skärmbild som visar var du ska välja vad om alternativet](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
 
 ## <a name="test-your-conditional-access-policy"></a>Testa din princip för villkorsstyrd åtkomst
 1.  Använd ditt testanvändarnamn och lösenordet för att logga in på [Azure Portal](https://portal.azure.com/).
 2.  Du bör se en begäran om ytterligare autentiseringsmetoder. Observera att det kan ta lite tid innan principen träder i kraft.
 
-    ![Välj Azure Active Directory](media/tutorial-mfa/mfa-required.png)
+    ![Skärmbild som visar mer information krävs för meddelande](media/tutorial-mfa/mfa-required.png)
  
 3.  Logga ut.
 

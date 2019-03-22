@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 3fa890b02c791f26f3f25bf2418b105d1116ca75
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: f66101d9847c57c5e078c3484a243e7b38823f53
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094434"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001782"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Flytta en virtuell Windows-dator från Amazon Web Services (AWS) till en Azure-dator
 
@@ -46,7 +46,7 @@ Du kan ladda upp både generaliserade och specialiserade virtuella hårddiskar t
 
 ## <a name="export-and-download-the-vhd"></a>Exportera och ladda ned den virtuella Hårddisken 
 
-Exportera EC2-instans på en virtuell Hårddisk i en Amazon S3-bucket. Följ stegen i dokumentationsartikel Amazon [och exportera en instans som en virtuell dator med hjälp av VM Import/Export](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) och kör den [skapa-instans-export-aktivitet](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) kommando för att exportera EC2-instans till en VHD-fil. 
+Exportera EC2-instans på en virtuell Hårddisk i en Amazon S3-bucket. Följ stegen i dokumentationsartikel Amazon [och exportera en instans som en virtuell dator med hjälp av VM Import/Export](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) och kör den [skapa-instans-export-aktivitet](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) kommando för att exportera EC2-instans till en VHD-fil. 
 
 Den exporterade VHD-filen sparas i en Amazon S3-bucket som du anger. Grundläggande syntax för export av den virtuella Hårddisken är nedan, Ersätt bara platshållartexten i <brackets> med din information.
 
@@ -55,7 +55,7 @@ aws ec2 create-instance-export-task --instance-id <instanceID> --target-environm
   --export-to-s3-task DiskImageFormat=VHD,ContainerFormat=ova,S3Bucket=<bucket>,S3Prefix=<prefix>
 ```
 
-När den virtuella Hårddisken har exporterats, följer du anvisningarna i [hur hämtar jag ett objekt från en S3-Bucket?](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) att ladda ned VHD-filen från S3-bucket. 
+När den virtuella Hårddisken har exporterats, följer du anvisningarna i [hur hämtar jag ett objekt från en S3-Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) att ladda ned VHD-filen från S3-bucket. 
 
 > [!IMPORTANT]
 > AWS-avgifter för dataöverföring avgifter för att ladda ned den virtuella Hårddisken. Se [Amazon S3 priser](https://aws.amazon.com/s3/pricing/) för mer information.

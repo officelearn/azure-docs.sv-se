@@ -2,7 +2,7 @@
 title: 'Självstudier: Använd Azure Database Migration Service till att migrera online från SQL Server till en enkel databas eller pooldatabas i Azure SQL Database | Microsoft Docs'
 description: Lär dig att göra en onlinemigrering från SQL Server lokalt till en enkel databas eller pooldatabas i Azure SQL Database genom att använda Azure Database Migration Service.
 services: dms
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/07/2019
-ms.openlocfilehash: acb5c5851c65c42995f2018a8155a72a55814bca
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 1eb41b7b027489e18900332ca0c20598ec8edfcc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999721"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093117"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Självstudier: Migrera SQL Server till en enkel databas eller pooldatabas i Azure SQL Database online med DMS
 
@@ -47,14 +47,23 @@ För att slutföra den här kursen behöver du:
 
 - Ladda ned och installera [SQL Server 2012 eller senare](https://www.microsoft.com/sql-server/sql-server-downloads) (valfri version).
 - Aktivera TCP/IP-protokollet, som är inaktiverat som standard under SQL Server Express-installation, genom att följa instruktionerna i artikeln om att [aktivera eller inaktivera ett servernätverksprotokoll](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
-- Skapa en enkel databas (eller pooldatabas) i Azure SQL Database, genom att följa anvisningarna i artikeln [Skapa en enkel databas i Azure SQL Database med Azure-portalen](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started).
+- Skapa en enskild (eller poolad) databas i Azure SQL Database. Det gör du genom att följa anvisningarna i artikeln [Skapa en enskild databas i Azure SQL-databas med Azure-portalen](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started).
 
     > [!NOTE]
     > Om du använder SQL Server Integration Services (SSIS) och vill migrera katalogdatabasen för dina SSIS-projekt/-paket (SSISDB) från SQL Server till Azure SQL Database skapas och hanteras målet SSISDB automatiskt åt dig när du etablerar SSIS i Azure Data Factory (ADF). Mer information om att migrera SSIS-paket finns i artikeln [Migrate SQL Server Integration Services packages to Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) (Migrera SQL Server Integration Services-paket till Azure).
 
 - Ladda ned och installera [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) version 3.3 eller senare.
-- Skapa virtuellt nätverk för Azure Database Migration Service genom att använda Azure Resource Manager-distributionsmodellen, som ger plats-till-plats-anslutning för dina lokala källservrar genom att använda [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Kontrollera att dina regler för nätverkssäkerhetsgrupp (NSG) för Azure Virtual Network (VNET) inte blockerar följande kommunikationsportar: 443, 53, 9354, 445, 12000. Mer information om trafikfiltrering för Azure VNET NSG finns i artikeln om att [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Skapa ett virtuellt Azure-nätverk för Azure Database Migration Service genom att använda Azure Resource Manager-distributionsmodellen, som ger plats-till-plats-anslutning för dina lokala källservrar genom att använda [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+
+    > [!NOTE]
+    > Under installationen av virtuellt nätverk, om du använder ExpressRoute med nätverks-peering till Microsoft, lägger du till följande tjänst [slutpunkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) till undernätet där tjänsten ska etableras:
+    > - Mål-database-slutpunkten (till exempel SQL-slutpunkten och Cosmos DB-slutpunkt)
+    > - Slutpunkt för lagring
+    > - Service bus-slutpunkt
+    >
+    > Den här konfigurationen är nödvändigt eftersom Azure Database Migration Service saknar Internetanslutning.
+
+- Se till att dina regler för Nätverkssäkerhetsgrupp kopplad till virtuella nätverk inte blockerar följande kommunikationsportar 443, 53, 9354, 445, 12000. Mer information om trafikfiltrering för Azure VNET NSG finns i artikeln om att [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Konfigurera din [Windows-brandvägg för databasmotoråtkomst](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Öppna Windows-brandväggen så att Azure Database Migration Service kommer åt käll-SQL Server, som har standardinställningen TCP-port 1433.
 - Om du kör flera namngivna SQL Server-instanser med dynamiska portar kan du vilja aktivera SQL Browser Service och tillåta åtkomst till UDP-port 1434 via dina brandväggar så att Azure Database Migration Service kan ansluta till en namngiven instans på källservern.
@@ -121,10 +130,10 @@ Om du vill utvärdera en lokal databas utför du följande steg:
 
     När du utvärderar SQL Server-källdatabasen som ska migreras till en enkel databas eller pooldatabas i Azure SQL Database, kan du välja en eller båda av följande utvärderingsrapporttyper:
 
-    - Kontrollera databaskompatibilitet
-    - Kontrollera funktionsparitet
+   - Kontrollera databaskompatibilitet
+   - Kontrollera funktionsparitet
 
-    Båda rapporttyperna väljs som standard.
+     Båda rapporttyperna väljs som standard.
 
 3. På skärmen **Alternativ** i DMA väljer du **Nästa**.
 4. På sidan **Välj källor** i dialogrutan **Anslut till en server**, anger du anslutningsinformationen till SQL Server och väljer sedan **Anslut**.
@@ -146,14 +155,14 @@ Om du vill utvärdera en lokal databas utför du följande steg:
 
 ## <a name="migrate-the-sample-schema"></a>Migrera exempelschemat
 
-När du är nöjd med utvärderingen och finner att den valda databasen går att migrera till en enkel databas eller pooldatabas i Azure SQL Database, använder du DMA till att migrera schemat till Azure SQL Database.
+När du är nöjd med utvärderingen och finner att den valda databasen är en giltig kandidat för migrering till en enskild eller poolad databas i Azure SQL Database använder du DMA för att migrera schemat till Azure SQL Database.
 
 > [!NOTE]
 > Innan du skapar ett migreringsprojekt i DMA ska du redan ha etablerat en Azure SQL-databas så som anges i förutsättningarna. För den här självstudiekursen antas namnet på Azure SQL Database vara **AdventureWorksAzure** men du kan ange ett valfritt namn.
 > [!IMPORTANT]
 > Om du använder SSIS stöder DMA för närvarande inte migrering av käll-SSISDB, men du kan distribuera om ditt SSIS-projekt/-paket till SSISDB-målet med Azure SQL Database. Mer information om att migrera SSIS-paket finns i artikeln [Migrate SQL Server Integration Services packages to Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) (Migrera SQL Server Integration Services-paket till Azure).
 
-Om du vill migrera **AdventureWorks2012**-schemat till en enkel databas eller pooldatabas i Azure SQL Database gör du följande:
+Att migrera den **AdventureWorks2012** schemat till en enkel databas eller databas Azure SQL Database, utför följande steg:
 
 1. I Data Migration Assistant väljer du ikonen Nytt (+) och sedan under **Projekttyp** väljer du **Migrering**.
 2. Ange ett projektnamn i textrutan **Typ av källserver**, välj **SQL Server**. I textrutan **Målservertyp** väljer du sedan **Azure SQL Database**.
@@ -224,7 +233,7 @@ Om du vill migrera **AdventureWorks2012**-schemat till en enkel databas eller po
 
     Mer information om kostnader och prisnivåer finns på [sidan med priser](https://aka.ms/dms-pricing).
 
-    Om du behöver hjälp med att välja rätt Azure Database Migration Service-nivå läser du rekommendationerna i inlägget [här](https://go.microsoft.com/fwlink/?linkid=861067).  
+    Om du behöver hjälp med att välja rätt nivå för Azure Database Migration Service finns rekommendationer för bokföring [här](https://go.microsoft.com/fwlink/?linkid=861067).  
 
      ![Konfigurera Azure Database Migration Service-instansinställningar](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
 

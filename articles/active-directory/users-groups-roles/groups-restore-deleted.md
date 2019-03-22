@@ -1,5 +1,5 @@
 ---
-title: Återställa en borttagen Office 365-grupp i Azure AD | Microsoft Docs
+title: Återställa en borttagen Office 365-grupp - Azure AD | Microsoft Docs
 description: Så återställer du en borttagen grupp, visar återställningsbara grupper och tar bort en grupp permanent i Azure Active Directory
 services: active-directory
 author: curtand
@@ -8,19 +8,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
-ms.custom: it-pro
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cacd4a24becab1dfe797fe29aea125c016527192
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: 81bf41dd183944a43d9558d0aec0c416d30620b2
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734395"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202579"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Återställa en borttagen Office 365-grupp i Azure Active Directory
+
 När du tar bort en Office 365-grupp i Azure Active Directory (Azure AD) bevaras den borttagna gruppen, men visas inte, i 30 dagar räknat från borttagningsdatumet. På så sätt kan gruppen och dess innehåll återställas om det behövs. Den här funktionen är begränsad till Office 365-grupper i Azure AD. Den är inte tillgänglig för säkerhetsgrupper och distributionsgrupper.
 
 > [!NOTE]
@@ -30,22 +31,22 @@ Behörigheterna som krävs för att återställa en grupp kan vara någon av fö
 
 Roll | Behörigheter
 --------- | ---------
-Företagsadministratör, Partnersupport, nivå 2 och Intune-tjänstadministratörer | Kan återställa alla borttagna Office 365-grupper
-Användarkontoadministratör och Partnersupport, nivå 2 | Kan återställa alla borttagna Office 365-grupper utom de grupper som tilldelats till rollen Företagsadministratör
-Användare | Kan återställa alla borttagna Office 365-grupper som de äger
+Global administratör, support för Partner – nivå 2 och Intune-administratör | Kan återställa alla borttagna Office 365-grupper
+Användaradministratör och support för Partner nivå 1 | Kan återställa alla borttagna Office 365-grupper utom de grupper som tilldelats till rollen Företagsadministratör
+Användare | Återställa en borttagen Office 365-grupp som de äger
 
 ## <a name="view-and-manage-the-deleted-office-365-groups-that-are-available-to-restore"></a>Visa och hantera de borttagna Office 365-grupper som är tillgängliga för återställning
 
-1. Logga in på [Azure AD-administrationscenter](https://aad.portal.azure.com) med ett administratörskonto.
+1. Logga in på den [Azure AD administratörscenter](https://aad.portal.azure.com) användare med ett administratörskonto.
 
 2. Välj **Grupper** och sedan **Borttagna grupper** för att visa de borttagna grupper som är tillgängliga för återställning.
 
-    ![Bladet Borttagna grupper](media/groups-lifecycle/deleted-groups3.png)
+    ![Visa grupper som är tillgängliga för återställning](media/groups-lifecycle/deleted-groups3.png)
 
 3. På bladet **Borttagna grupper** kan du:
 
-  - Återställa den borttagna gruppen och dess innehåll genom att välja **Återställ grupp**.
-  - Ta bort den borttagna gruppen permanent genom att välja **Ta bort permanent**. Du måste vara administratör för att ta bort en grupp permanent.
+   - Återställa den borttagna gruppen och dess innehåll genom att välja **Återställ grupp**.
+   - Ta bort den borttagna gruppen permanent genom att välja **Ta bort permanent**. Du måste vara administratör för att ta bort en grupp permanent.
 
 ## <a name="view-the-deleted-office-365-groups-that-are-available-to-restore-using-powershell"></a>Visa de borttagna Office 365-grupper som är tillgängliga för återställning med hjälp av PowerShell
 Du kan använda följande cmdlets för att visa de borttagna grupperna och kontrollera att den eller de grupper som du är intresserad av inte har raderats permanent än. Dessa cmdlets är en del av [Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureAD/). Mer information om den här modulen finns i artikeln [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0).

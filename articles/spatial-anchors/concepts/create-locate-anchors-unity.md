@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0b8f99246852a699f8036a98d8ddf1df7e310c1c
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 4da02a4576b0a44c4b80a556d128c154adc246b1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753280"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898558"
 ---
 # <a name="create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>Skapa och leta upp ankare som använder Azure Spatial ankare i Unity
 
@@ -25,9 +25,11 @@ ms.locfileid: "56753280"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har aktiverat för att fungera bra med ditt val av utvecklingsmiljö. I den här artikeln ska vi fördjupar oss i hur du gör i Unity.
+Med Azure Spatial Anchors kan du dela fästpunkter i världen mellan olika enheter. Den stöder flera utvecklingsmiljöer. I den här artikeln ska vi fördjupar oss i hur du gör i Unity.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
+
+Läs mer om den [CloudSpatialAnchorSession](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession) klass.
 
 ```csharp
     CloudSpatialAnchorSession cloudSession;
@@ -36,6 +38,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
+
+Läs mer om den [SessionConfiguration](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionconfiguration) klass.
 
 ```csharp
     this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
@@ -48,6 +52,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
+
+Läs mer om den [TokenRequiredDelegate](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.tokenrequireddelegate) delegera.
 
 ```csharp
     this.cloudSession.TokenRequired += (object sender, TokenRequiredEventArgs args) =>
@@ -97,6 +103,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
+Läs mer om den [starta](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.start) metod.
+
 ```csharp
 #if UNITY_IOS
     this.arkitSession = UnityARSessionNativeInterface.GetARSessionNativeInterface();
@@ -114,6 +122,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
+
+Läs mer om den [ProcessFrame](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.processframe) metod.
 
 ```csharp
 #if UNITY_ANDROID
@@ -137,6 +147,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
 
+Läs mer om den [SessionUpdatedDelegate](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionupdateddelegate) delegera.
+
 ```csharp
     this.cloudSession.SessionUpdated += (object sender, SessionUpdatedEventArgs args)
     {
@@ -148,6 +160,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
+
+Läs mer om den [CloudSpatialAnchor](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor) klass.
 
 ```csharp
     // Create a local anchor, perhaps by hit-testing and spawning an object within the scene
@@ -197,6 +211,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
+Läs mer om den [GetSessionStatusAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.getsessionstatusasync) metod.
+
 ```csharp
     SessionStatus value = await this.cloudSession.GetSessionStatusAsync();
     if (value.RecommendedForCreateProgress < 1.0f) return;
@@ -204,6 +220,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
+
+Läs mer om den [AppProperties](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor.appproperties) egenskapen.
 
 ```csharp
     CloudSpatialAnchor cloudAnchor = new CloudSpatialAnchor() { LocalAnchor = localAnchor };
@@ -214,6 +232,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
+Läs mer om den [UpdateAnchorPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.updateanchorpropertiesasync) metod.
+
 ```csharp
     CloudSpatialAnchor anchor = /* locate your anchor */;
     anchor.AppProperties[@"last-user-access"] = @"just now";
@@ -221,6 +241,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
+
+Läs mer om den [GetAnchorPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.getanchorpropertiesasync) metod.
 
 ```csharp
     var anchor = await cloudSession.GetAnchorPropertiesAsync(@"anchorId");
@@ -233,11 +255,15 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
+Läs mer om den [upphör att gälla](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor.expiration) egenskapen.
+
 ```csharp
     cloudAnchor.Expiration = DateTimeOffset.Now.AddDays(7);
 ```
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
+
+Läs mer om den [CreateWatcher](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.createwatcher) metod.
 
 ```csharp
     AnchorLocateCriteria criteria = new AnchorLocateCriteria();
@@ -246,6 +272,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 ```
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
+
+Läs mer om den [AnchorLocatedDelegate](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocateddelegate) delegera.
 
 ```csharp
     this.cloudSession.AnchorLocated += (object sender, AnchorLocatedEventArgs args) =>
@@ -274,6 +302,8 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
+Läs mer om den [DeleteAnchorAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.deleteanchorasync) metod.
+
 ```csharp
     await this.cloudSession..DeleteAnchorAsync(cloudAnchor);
     // Perform any processing you may want when delete finishes
@@ -281,17 +311,23 @@ Azure Spatial ankare kan du dela ankare i världen mellan olika enheter. Det har
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
+Läs mer om den [stoppa](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.stop) metod.
+
 ```csharp
     this.cloudSession.Stop();
 ```
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
 
+Läs mer om den [återställa](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.reset) metod.
+
 ```csharp
     this.cloudSession.Reset();
 ```
 
 [!INCLUDE [Cleanup](../../../includes/spatial-anchors-create-locate-anchors-cleanup-unity.md)]
+
+Läs mer om den [ta bort](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.dispose) metod.
 
 ```csharp
     this.cloudSession.Dispose();

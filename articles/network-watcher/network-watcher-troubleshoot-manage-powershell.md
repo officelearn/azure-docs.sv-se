@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 67c34156d6a397cdeb4bb50c712b1bb651c2f257
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 51fb834c0c6a3602ed0edfee6256183eefb2026b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090436"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889496"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Felsöka virtuella nätverkets Gateway och anslutningar som använder Azure Network Watcher PowerShell
 
@@ -27,7 +27,7 @@ ms.locfileid: "39090436"
 > - [Portal](diagnose-communication-problem-between-networks.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 > - [Azure CLI](network-watcher-troubleshoot-manage-cli.md)
-> - [REST API](network-watcher-troubleshoot-manage-rest.md)
+> - [REST-API](network-watcher-troubleshoot-manage-rest.md)
 
 Network Watcher innehåller många funktioner som den relaterar till att förstå nätverksresurserna i Azure. En av dessa funktioner är resurs felsökning. Felsökning av resursen kan anropas via portal, PowerShell, CLI eller REST API. När den anropas, Network Watcher kontrollerar hälsotillståndet för en virtuell nätverksgateway eller en anslutning och returnerar resultatet.
 
@@ -85,7 +85,7 @@ När du kör cmdleten, granskar Network Watcher resurs för att kontrollera häl
 
 Åtgärd-texten innehåller allmänna råd om hur du löser problemet. Om en åtgärd kan utföras på problemet, länk en med ytterligare vägledning. I fall där det finns inga ytterligare vägledning, svaret anger webbadressen för att öppna ett supportärende.  Mer information om egenskaperna för svaret och vad som ingår finns [felsökning av Network Watcher-översikt](network-watcher-troubleshoot-overview.md)
 
-Instruktioner om att ladda ned filer från azure storage-konton finns i [komma igång med Azure Blob storage med hjälp av .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Ett annat verktyg som kan användas är Storage Explorer. Mer information om Storage Explorer finns här på följande länk: [Storage Explorer](http://storageexplorer.com/)
+Instruktioner om att ladda ned filer från azure storage-konton finns i [komma igång med Azure Blob storage med hjälp av .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Ett annat verktyg som kan användas är Storage Explorer. Mer information om Storage Explorer finns här på följande länk: [Storage Explorer](https://storageexplorer.com/)
 
 ## <a name="next-steps"></a>Nästa steg
 

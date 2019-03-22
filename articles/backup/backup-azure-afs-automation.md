@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: pullabhk
-ms.openlocfilehash: 489de7b2fe87d1bb218e3fce39f269d866d66dd7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 83fe8d17699c19d442fd734d71d828eb9fd9d6ed
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845179"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258368"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Säkerhetskopiera och återställa Azure Files med PowerShell
 
@@ -240,9 +240,9 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 
 Använd [Backup AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) att köra en säkerhetskopiering på begäran för en skyddad Azure-filresurs.
 
-1. Hämta den storage-konto och filresurs från behållaren i valvet som innehåller dina säkerhetskopierade data med [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices.backup/get-Azrecoveryservicesbackupcontainer).
-2. Om du vill starta ett säkerhetskopieringsjobb du få information om den virtuella datorn med [Get-AzRecoveryServicesBackupItem](/powershell/module/Az.RecoveryServices.Backup/Get-AzRecoveryServicesBackupItem).
-3. Köra en säkerhetskopiering på begäran med[Backup AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices.backup/backup-Azrecoveryservicesbackupitem).
+1. Hämta den storage-konto och filresurs från behållaren i valvet som innehåller dina säkerhetskopierade data med [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
+2. Om du vill starta ett säkerhetskopieringsjobb du få information om den virtuella datorn med [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
+3. Köra en säkerhetskopiering på begäran med[Backup AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
 
 Kör säkerhetskopiering på begäran på följande sätt:
     

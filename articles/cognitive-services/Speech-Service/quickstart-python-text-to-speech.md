@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 36ff3f4b73db8889349e977aaf80a754894d75ae
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: MT
+ms.openlocfilehash: 534473ccde52af69b6dad1e84ef77da326d29d5c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857350"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872590"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Snabbstart: Omvandla text till tal med hjälp av Python
 
 I den här snabbstarten du lär dig hur du konverterar text till tal med Python och text till tal REST-API. Det begärda innehållet i den här guiden är strukturerad som [tal syntes Markup Language (SSML)](speech-synthesis-markup.md), vilket gör att du kan välja rösten och språket i svaret.
 
-Den här snabbstarten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Speech Service-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](get-started.md) för att hämta en prenumerationsnyckel.
+Den här snabbstarten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Speech Services-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](get-started.md) för att hämta en prenumerationsnyckel.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -30,7 +30,7 @@ För den här snabbstarten krävs:
 
 * Python 2.7.x eller 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) eller valfritt redigeringsprogram
-* En Azure-prenumerationsnyckel för Speech Service
+* En Azure-prenumeration-nyckel för Speech Services
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
@@ -70,9 +70,9 @@ Den `subscription_key` är den unika nyckeln från Azure-portalen. `tts` uppmana
 
 ## <a name="get-an-access-token"></a>Hämta en åtkomsttoken
 
-Text till tal REST-API kräver en åtkomsttoken för autentisering. Om du vill få en åtkomsttoken, krävs ett utbyte. Det här exemplet utbyter prenumerationsnyckeln Speech Service för en token med den `issueToken` slutpunkt.
+Text till tal REST-API kräver en åtkomsttoken för autentisering. Om du vill få en åtkomsttoken, krävs ett utbyte. Det här exemplet utbyter prenumerationsnyckeln Speech Services för en token med den `issueToken` slutpunkt.
 
-Det här exemplet förutsätter att prenumerationen Speech Service i regionen USA, västra. Om du använder en annan region måste du uppdatera värdet för `fetch_token_url`. En fullständig lista finns i [regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Det här exemplet förutsätter att prenumerationen Speech Services är i regionen USA, västra. Om du använder en annan region måste du uppdatera värdet för `fetch_token_url`. En fullständig lista finns i [regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Kopiera den här koden i den `TextToSpeech` klass:
 
@@ -91,7 +91,7 @@ def get_token(self):
 
 ## <a name="make-a-request-and-save-the-response"></a>Gör en begäran och spara svaret
 
-Här ska du skapa begäran och spara svaret tal. Först behöver du ange den `base_url` och `path`. Det här exemplet förutsätter att du använder slutpunkten som USA, västra. Om din resurs har registrerats till en annan region, kontrollera att du uppdaterar den `base_url`. Mer information finns i [Speech Service regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Här ska du skapa begäran och spara svaret tal. Först behöver du ange den `base_url` och `path`. Det här exemplet förutsätter att du använder slutpunkten som USA, västra. Om din resurs har registrerats till en annan region, kontrollera att du uppdaterar den `base_url`. Mer information finns i [Speech Services regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Du måste sedan lägga till nödvändiga sidhuvuden för begäran. Se till att du uppdaterar `User-Agent` med namnet på din resurs (finns i Azure portal) och Ställ in `X-Microsoft-OutputFormat` till din önskade ljud. En fullständig lista över utdataformat finns i [ljud matar ut](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-outputs).
 

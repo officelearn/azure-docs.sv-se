@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 940ca126eb18b81fd31f1ee2876948563e9d97af
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1a8ff17656978e6e4e8741c19cda79743560481a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188384"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080853"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Snabbstart: Konfigurera en app att exponera webb-API:er (förhandsversion)
 
@@ -30,7 +30,7 @@ Du kan utveckla ett webb-API och göra det tillgängligt för klientprogram geno
 
 I den här snabbstarten lär du dig hur du konfigurerar en app att exponera ett nytt omfång för att göra den tillgänglig för klientprogram.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
@@ -106,10 +106,10 @@ Så här exponerar du ett nytt omfång eller en ny roll via applikationsmanifest
       }
       ```
 
-  > [!NOTE]
-  > Värdet `id` måste genereras programmatiskt eller med hjälp av ett GUID-genereringsverktyg såsom [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). `id` representerar en unik identifierare för omfånget såsom det görs tillgängligt av webb-API:et. När en klient är korrekt konfigurerad med behörigheter att komma åt ditt webb-API utfärdas en OAuth 2.0-åtkomsttoken till klienten av Azure AD. När klienten anropar webb-API:et presenterar den den åtkomsttoken som har omfångsanspråket (scp) till de behörigheter som begärs i dess programregistrering.
-  >
-  > Du kan göra ytterligare omfång tillgängliga senare, vid behov. Tänk på att ditt webb-API kanske gör flera omfång tillgängliga som är associerade med en mängd olika funktioner. Din resurs kan styra åtkomsten till webb-API:et vid körning genom att utvärdera omfångsanspråken (`scp`) i den mottagna OAuth 2.0-åtkomsttoken.
+   > [!NOTE]
+   > Värdet `id` måste genereras programmatiskt eller med hjälp av ett GUID-genereringsverktyg såsom [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). `id` representerar en unik identifierare för omfånget såsom det görs tillgängligt av webb-API:et. När en klient är korrekt konfigurerad med behörigheter att komma åt ditt webb-API utfärdas en OAuth 2.0-åtkomsttoken till klienten av Azure AD. När klienten anropar webb-API:et presenterar den den åtkomsttoken som har omfångsanspråket (scp) till de behörigheter som begärs i dess programregistrering.
+   >
+   > Du kan göra ytterligare omfång tillgängliga senare, vid behov. Tänk på att ditt webb-API kanske gör flera omfång tillgängliga som är associerade med en mängd olika funktioner. Din resurs kan styra åtkomsten till webb-API:et vid körning genom att utvärdera omfångsanspråken (`scp`) i den mottagna OAuth 2.0-åtkomsttoken.
 
 1. När det är klart klickar du på **Spara**. Nu är ditt webb-API konfigurerat för användning av andra program i din katalog.
 1. Följ stegen för att [kontrollera att webb-API:et exponeras för andra appar](#verify-the-web-api-is-exposed-to-other-applications).

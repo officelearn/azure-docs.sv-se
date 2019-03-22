@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 574394000c45ca2c12c309c4536a6649bd3fcb76
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e44beed592e013a089011c2a774b7300f2b3f854
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104057"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102000"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Skapa en Programgateway med intern omdirigering med Azure CLI
 
-Du kan använda Azure CLI för att konfigurera [web traffic omdirigering](multiple-site-overview.md) när du skapar en [Programgateway](overview.md). I den här självstudien definierar du en serverdelspool med hjälp av en skalningsuppsättning för virtuella datorer. Du sedan konfigurera lyssnare och regler baserat på domäner som du äger för att se till att Internet-trafik anländer till i poolen. Den här självstudien förutsätter att du äger flera domäner och använder exempel på *www.contoso.com* och *www.contoso.org*.
+Du kan använda Azure CLI för att konfigurera [web traffic omdirigering](multiple-site-overview.md) när du skapar en [Programgateway](overview.md). I den här självstudien definierar du en serverdelspool med hjälp av en skalningsuppsättning för virtuella datorer. Du sedan konfigurera lyssnare och regler baserat på domäner som du äger för att se till att Internet-trafik anländer till i poolen. Den här självstudien förutsätter att du äger flera domäner och använder exempel på *www\.contoso.com* och *www\.contoso.org*.
 
 I den här artikeln kan du se hur du:
 
@@ -101,7 +101,7 @@ Det kan ta flera minuter att skapa programgatewayen. När programgatewayen har s
 
 ## <a name="add-listeners-and-rules"></a>Lägga till lyssnare och regler 
 
-Du behöver en lyssnare så att programgatewayen kan dirigera trafiken till serverdelspoolen på rätt sätt. I den här självstudien skapar du två lyssnare för de två domänerna. I det här exemplet lyssnare har skapats för domänerna med *www.contoso.com* och *www.contoso.org*.
+Du behöver en lyssnare så att programgatewayen kan dirigera trafiken till serverdelspoolen på rätt sätt. I den här självstudien skapar du två lyssnare för de två domänerna. I det här exemplet lyssnare har skapats för domänerna med *www\.contoso.com* och *www\.contoso.org*.
 
 Lägg till lyssnarna för serverdelen som ska dirigera trafiken med [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create).
 
@@ -124,7 +124,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Lägga till konfigurationen för omdirigering
 
-Lägg till omdirigeringskonfiguration som skickar trafik från *www.consoto.org* till lyssnaren för *www.contoso.com* i application gateway med [az network application-gateway omdirigerings-config skapa](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
+Lägg till omdirigeringskonfiguration som skickar trafik från *www\.consoto.org* till lyssnaren för *www\.contoso.com* i application gateway med hjälp av [az network application-gateway omdirigerings-config skapa](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -217,7 +217,7 @@ Ange domännamnet i adressfältet i webbläsaren. Till exempel http://www.contos
 
 ![Testa contoso-webbplatsen i programgatewayen](./media/redirect-internal-site-cli/application-gateway-nginxtest.png)
 
-Ändra adressen till din domän, till exempel http://www.contoso.org så bör du se att trafiken har omdirigerats till lyssnaren för www.contoso.com.
+Ändra adressen till din domän, till exempel http://www.contoso.org så bör du se att trafiken har omdirigerats till lyssnaren för www\.contoso.com.
 
 ## <a name="next-steps"></a>Nästa steg
 

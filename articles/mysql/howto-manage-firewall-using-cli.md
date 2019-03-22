@@ -7,12 +7,12 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: e4aabaf2673f6211523653f9d0a0ecf1769f83a3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 870910654101b4d6689b51464f8a29aef41bf9cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549011"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103136"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Skapa och hantera Azure Database för MySQL-brandväggsregler med hjälp av Azure CLI
 Brandväggsregler på servernivå kan administratörer hantera åtkomst till en Azure Database for MySQL-Server från en specifik IP-adress eller ett intervall med IP-adresser. Med praktiska Azure CLI-kommandon kan du skapa, uppdatera, ta bort, lista, och visa brandväggsregler för att hantera servern. En översikt över Azure Database för MySQL-brandväggar, se [Azure Database for MySQL-serverbrandväggsregler](./concepts-firewall-rules.md)
@@ -27,9 +27,9 @@ Den **az mysql server firewall-rule** används med Azure CLI för att skapa, ta 
 Kommandon:
 - **Skapa**: Skapa en brandväggsregel för Azure MySQL-server.
 - **Ta bort**: Ta bort en brandväggsregel för Azure MySQL-server.
-- **Lista**: Lista över brandväggsregler för Azure MySQL-servern.
+- **list**: Lista över brandväggsregler för Azure MySQL-servern.
 - **Visa**: Visa information om en Azure MySQL-server brandväggsregel.
-- **Uppdatera**: Uppdatera en brandväggsregel för Azure MySQL-server.
+- **update**: Uppdatera en brandväggsregel för Azure MySQL-server.
 
 ## <a name="log-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Logga in på Azure och lista din Azure Database för MySQL-servrar
 På ett säkert sätt ansluta Azure CLI med Azure-kontot med hjälp av den **az-inloggning** kommando.
@@ -38,7 +38,7 @@ På ett säkert sätt ansluta Azure CLI med Azure-kontot med hjälp av den **az-
     ```azurecli
     az login
     ```
-Detta kommando visar en kod som ska användas i nästa steg.
+   Detta kommando visar en kod som ska användas i nästa steg.
 
 2. Använd en webbläsare för att öppna sidan [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin), och ange koden.
 

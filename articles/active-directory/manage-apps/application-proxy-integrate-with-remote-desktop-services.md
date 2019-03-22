@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e433eded9ffccde0eccb3b807c8eb8e3219771f5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 295422e0f456c4dfd4166911ef8150e8a896ba1a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162110"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111114"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicera Fjärrskrivbord med Azure AD Application Proxy
 
@@ -86,7 +86,7 @@ Anslut till RDS-distribution som administratör och byta namn på RD Gateway-ser
 6. På fliken RD Gateway kan ändra den **servernamn** automatiskt till den externa URL: en som du anger för slutpunkten för RD-värden i Application Proxy.
 7. Ändra den **logga in metod** fältet **lösenordsautentisering**.
 
-  ![Egenskaper för distributionsskärmen på Fjärrskrivbordstjänster](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
+   ![Egenskaper för distributionsskärmen på Fjärrskrivbordstjänster](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
 8. Kör det här kommandot för varje samling. Ersätt *\<yourcollectionname\>* och *\<proxyfrontendurl\>* med din egen information. Det här kommandot aktiverar enkel inloggning mellan webbåtkomst och fjärrskrivbordsgateway och optimerar prestanda:
 
@@ -98,8 +98,8 @@ Anslut till RDS-distribution som administratör och byta namn på RD Gateway-ser
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
->[!NOTE]
->Kommandot ovan använder ett backtick i ”' nrequire”.
+   >[!NOTE]
+   >Kommandot ovan använder ett backtick i ”' nrequire”.
 
 9. För att verifiera ändringen av de anpassade RDP-egenskaperna och visa innehållet för RDP-fil som ska laddas ned från RDWeb för den här samlingen, kör du följande kommando:
     ```

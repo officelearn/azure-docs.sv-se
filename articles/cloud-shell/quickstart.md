@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 56a4645c5f86e9f95e82533b7f5f81b7bca51e7b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 1b6419feef96b57bafd0831531bd8cfa56142cc4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245326"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089156"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Snabbstart för Bash i Azure Cloudshell
 
@@ -44,14 +44,14 @@ Kontrollera att miljön listrutan till vänster shell-fönstret säger `Bash`. <
 
 ### <a name="set-your-subscription"></a>Ange din prenumeration
 1. Lista över prenumerationer som du har åtkomst till.
-```azurecli-interactive
-az account list
-```
+   ```azurecli-interactive
+   az account list
+   ```
 
 2. Ställ in din önskade prenumeration: <br>
-```azurecli-interactive
-az account set --subscription my-subscription-name`
-```
+   ```azurecli-interactive
+   az account set --subscription my-subscription-name`
+   ```
 
 > [!TIP]
 > Din prenumeration kommer att kommas ihåg för framtida sessioner med hjälp av `/home/<user>/.azure/azureProfile.json`.
@@ -77,26 +77,26 @@ Ditt användarnamn på den här virtuella datorn kommer att ditt användarnamn s
 ### <a name="ssh-into-your-linux-vm"></a>SSH till den virtuella Linux-datorn
 1. Sök efter namnet på din virtuella dator i Azure portal sökfältet.
 2. Klicka på ”Anslut” för att få dina virtuella datorns namn och en offentlig IP-adress. <br>
-![](media/quickstart/sshcmd-copy.png)
+   ![](media/quickstart/sshcmd-copy.png)
 
 3. SSH till den virtuella datorn med den `ssh` cmd.
-```
-ssh username@ipaddress
-```
+   ```
+   ssh username@ipaddress
+   ```
 
 Du bör se Ubuntu Välkommen prompten vid upprätta SSH-anslutningen. <br>
 ![](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>Rensa 
 1. Avsluta ditt ssh session.
-```azurecli-interactive
-exit
-```
+   ```azurecli-interactive
+   exit
+   ```
 
 2. Ta bort resursgruppen och alla resurser i den.
-```azurecli-interactive
-az group delete -n MyRG
-```
+   ```azurecli-interactive
+   az group delete -n MyRG
+   ```
 
 ## <a name="next-steps"></a>Nästa steg
 [Läs mer om bevara filer för Bash i Cloud Shell](persisting-shell-storage.md) <br>

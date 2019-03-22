@@ -12,12 +12,12 @@ ms.date: 11/09/2018
 ms.author: celested
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2488cb085c3be68265a787bd062028598c9243b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4e00ecde5550b5ef4f1698fa879a039dee8aad12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190032"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181732"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Upplevelse för slutanvändare för program i Azure Active Directory
 Azure Active Directory (Azure AD) erbjuder anpassningsbara sätt att distribuera program för slutanvändare i din organisation:
@@ -39,23 +39,21 @@ Vilka metoder som du väljer att distribuera i din organisation är passar dig b
 Mer information om Azure AD-åtkomstpanelen finns i den [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="office-365-application-launcher"></a>Startprogrammet för Office 365
-För organisationer som har distribuerat Office 365, visas även program som är tilldelade till användare via Azure AD i Office 365-portalen på https://portal.office.com/myapps. Detta gör det enkelt och praktiskt för användare i en organisation att starta sina appar utan att behöva använda en andra portal och är den rekommenderade app starta lösningen för organisationer som använder Office 365.
+För organisationer som har distribuerat Office 365, visas även program som är tilldelade till användare via Azure AD i Office 365-portalen på [ https://portal.office.com/myapps ](https://portal.office.com/myapps). Detta gör det enkelt och praktiskt för användare i en organisation att starta sina appar utan att behöva använda en andra portal och är den rekommenderade app starta lösningen för organisationer som använder Office 365.
 
-![](./media/what-is-single-sign-on/officeapphub.png)
+![Office 365-portalen](./media/end-user-experiences/microsoft-365-portal-office-com.png)
 
 Läs mer om startprogrammet för Office 365, [appen visas i Office 365-appstartaren](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
 ## <a name="direct-sign-on-to-federated-apps"></a>Direkt inloggning till federerade appar
 Mest federerade program som stöder SAML 2.0, WS-Federation och OpenID connect också support möjligheten för användare att börja på programmet och sedan hämta loggat in via Azure AD genom automatisk omdirigering eller genom att klicka på en länk för inloggning. Detta kallas tjänstleverantör-initieras inloggnings- och mest federerade program i Azure AD-programgalleriet har stöd för den här (se dokumentationen länkad från appens konfigurationen för enkel inloggning för guiden i Azure-portalen för information).
 
-![](./media/what-is-single-sign-on/workdaymobile.png)
+![](./media/end-user-experiences/workdaymobile.png)
 
 ## <a name="direct-sign-on-links"></a>Inloggnings-länkar
 Azure AD stöder också enkel inloggning Direktlänkar till enskilda program som har stöd för lösenordsbaserad enkel inloggning, länkade enkel inloggning och någon form av federerad enkel inloggning.
 
-Dessa länkar är särskilt utformad URL: er som skickar en användare via Azure AD logga in igen för ett visst program utan att användaren lanseringen dem från Azure AD åtkomst till panelen eller Office 365. Dessa enkel inloggnings-URL: er finns under fliken instrumentpanel i alla redan integrerade program i Active Directory-avsnittet i Azure-portalen som visas i skärmbilden nedan.
-
-![](./media/what-is-single-sign-on/deeplink.png)
+Dessa länkar är särskilt utformad URL: er som skickar en användare via Azure AD logga in igen för ett visst program utan att användaren lanseringen dem från Azure AD åtkomst till panelen eller Office 365. Dessa **användaren åtkomst till URL: er** finns i egenskaperna för tillgängliga program under Azure Active Directory i Azure-portalen.
 
 Dessa länkar kan kopieras och klistras in var du vill att ange en länk till det valda programmet. Det kan i ett e-postmeddelande eller i valfri anpassad webbaserad portal som du har konfigurerat för programåtkomst för användare. Här är ett exempel på en Azure AD direkt inloggnings-URL för enkel för Twitter:
 

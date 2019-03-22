@@ -16,12 +16,12 @@ ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f2539674668a9738d03e9af9c4fb88327cb1933
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 345c97a19f789bb3d850df000824d4c23989a81f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865067"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086827"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
 
@@ -74,8 +74,9 @@ Om du redan har en installation av Azure AD Connect, Välj den **ändra använda
 ![Azure AD Connect: Ändra användarinloggning](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
 Fortsätt genom guiden tills du kommer till den **aktivera enkel inloggning** sidan. Ange autentiseringsuppgifter som domänadministratör för varje Active Directory-skogen som:
-    * Du kan synkronisera till Azure AD via Azure AD Connect.
-    * Innehåller användare som du vill aktivera för sömlös enkel inloggning.
+
+* Du kan synkronisera till Azure AD via Azure AD Connect.
+* Innehåller användare som du vill aktivera för sömlös enkel inloggning.
 
 När du har slutfört guiden är sömlös enkel inloggning aktiverat på din klient.
 
@@ -126,11 +127,11 @@ Det finns två sätt att ändra användares Zoninställningar för intranätet:
    - **Värdenamn**: Azure AD URL: en som Kerberos-biljetter vidarebefordras.
    - **Värdet** (Data): **1** indikerar att zonen Intranät.
 
-    Resultatet ser ut så här:
+     Resultatet ser ut så här:
 
-    Värdenamn: `https://autologon.microsoftazuread-sso.com`
+     Värdenamn: `https://autologon.microsoftazuread-sso.com`
   
-    Värde (Data): 1
+     Värde (Data): 1
 
    >[!NOTE]
    > Om du vill neka vissa användare från att använda sömlös enkel inloggning (till exempel om dessa användare logga in på delade kiosker), ange föregående värdena till **4**. Den här åtgärden lägger till Azure AD-URL för zonen Ej tillförlitliga platser och misslyckas sömlös SSO hela tiden.
@@ -162,9 +163,9 @@ Det finns två sätt att ändra användares Zoninställningar för intranätet:
    - **Värdetypen**: ***REG_DWORD***.
    - **Värdedata**: ***00000001***.
  
-    ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso16.png)
  
-    ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso17.png)
+     ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### <a name="browser-considerations"></a>Överväganden för webbläsare
 

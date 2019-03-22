@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 84287191af60a5e9306f03ca2ebd10f9e347c9ac
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 87c5d24f0e9077acf66bacd97097cfc32bd49ead
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453060"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432115"
 ---
 # <a name="what-is-computer-vision"></a>Vad är visuellt innehåll?
 
@@ -42,12 +42,11 @@ Du kan analysera bilder för att identifiera och få insikter om bildernas visue
 |**[Skapa en miniatyrbild](concept-generating-thumbnails.md)**|Analysera innehållet i en bild för att generera en lämplig miniatyrbild för den. Visuellt innehåll genererar först en högkvalitativ miniatyr och sedan analyseras objekten i bilden för att fastställa *intresseområdet*. Visuellt innehåll beskär sedan bilden för att den ska uppfylla kraven för intresseområdet. Den genererade miniatyrbilden kan vid behov anges med proportioner som skiljer sig från proportionerna på den ursprungliga bilden.|
 |**[Hämta ett intresseområde](concept-generating-thumbnails.md#area-of-interest)**|Analysera innehållet i en bild för att returnera koordinaterna för *intresseområdet*. Det här är samma funktion som används för att skapa miniatyrbilder, men i stället för att bilden beskärs returnerar Visuellt innehåll avgränsningsfältets koordinater i regionen så att det anropande programmet kan ändra den ursprungliga bilden efter behov.|
 
-
 ## <a name="extract-text-from-images"></a>Extrahera text från bilder
 
-Du kan använda visuellt innehåll för att [extrahera text med optisk teckenigenkänning (OCR)](concept-extracting-text-ocr.md) från en bild till en maskinläsningsbar teckenström. Om det behövs korrigerar OCR rotationen av den tolkade texten och anger ramkoordinater för varje ord. OCR har stöd för 25 olika språk och identifierar automatiskt språket för den tolkade texten.
+Du kan använda för visuellt innehåll för att extrahera text från en avbildning till en mängd med hjälp av [optisk teckenläsning (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api). Om det behövs korrigerar OCR rotationen av den tolkade texten och anger ramkoordinater för varje ord. OCR har stöd för 25 olika språk och identifierar automatiskt språket för den tolkade texten.
 
-Du kan även [identifiera utskriven och handskriven text](concept-recognizing-text.md) i en bild. Visuellt innehåll kan identifiera och extrahera utskriven och handskriven text från bilder från olika objekt med olika ytor och bakgrunder, till exempel kvitton, affischer, visitkort, brev och whiteboardtavlor. För närvarande finns funktionerna för textigenkänning av utskriven och handskriven text i en förhandsversion och engelska är det enda språk som stöds. 
+Du kan också använda den [tillgång till API](concept-recognizing-text.md#read-api) att extrahera utskrivna såväl som handskriven text från bilder och textbaserade dokument. Läs-API använder uppdaterade modeller och fungerar för en mängd-objekt med olika ytor och bakgrunder, till exempel kvitton, affischer, visitkort, bokstäver och whiteboardtavlor. För närvarande kan de få tillgång till API är en förhandsversion och engelska är det enda språket som stöds.
 
 ## <a name="moderate-content-in-images"></a>Moderera innehåll i bilder
 

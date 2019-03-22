@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: f64000ed502ee817f907e6ac9c89c2f037725a39
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: 7132c2073223008cd82d0ffd54aaf266d0a630ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823798"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839025"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>Självstudie 3: Distribuera en kreditriskmodell – Azure Machine Learning Studio
 
@@ -42,7 +42,7 @@ I den här delen av självstudien ska du:
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför [del två av självstudien](tutorial-part2-credit-risk-train.md).
 
@@ -72,12 +72,11 @@ du måste ta bort följande moduler:
 
 Markera varje modul och tryck på Delete-tangenten, eller högerklicka på modulen och välj **Ta bort**. 
 
-![SVM-modellen togs bort](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
-
+![Visar vilka moduler tas bort för att ta bort modellen dator för Vektorstöd](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
 
 Nu bör modellen se ut ungefär så här:
 
-![SVM-modellen togs bort](./media/tutorial-part3-credit-risk-deploy/publish3.png)
+![Resulterande experiment när modellen dator för Vektorstöd tas bort](./media/tutorial-part3-credit-risk-deploy/publish3.png)
 
 Nu är vi redo att distribuera modellen med hjälp av [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Tvåklassigt förbättrat beslutsträd).
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
-ms.openlocfilehash: 506910ffa46cb3fbd4be9dcecf9df0f9fdd291e5
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901028"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897460"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Förstå villkoren på din faktura för Microsoft Azure
 
-Fakturan innehåller en sammanfattning av dina avgifter och innehåller instruktioner för betalning. Den är tillgänglig för hämtning i PDF--Format (PDF) från den [Azure-portalen](https://portal.azure.com/) eller skickas via e-post. Mer information finns i [så här hämtar du din Azure-fakturering och daglig användningsdata](billing-download-azure-invoice-daily-usage-date.md).
+Fakturan innehåller en sammanfattning av dina avgifter och instruktioner för betalning. Den är tillgänglig för hämtning i PDF--Format (PDF) från den [Azure-portalen](https://portal.azure.com/) eller skickas via e-post. Mer information finns i [så här hämtar du din Azure-fakturering och daglig användningsdata](billing-download-azure-invoice-daily-usage-date.md).
 
 Några saker att tänka på:
 
@@ -31,7 +31,7 @@ Några saker att tänka på:
 
 -   Upp till 24 timmars användning i slutet av den tidigare faktureringsperioden kan visas i den aktuella fakturan.
 
--   Kostnader som anges på kontoutdrag för internationella kunder är endast. Banker kan ha olika kostnader för valutaomvandling.
+-   Avgifter som anges på faktureringsutdragen för internationella kunder är endast uppskattade. Banker kan ha olika kostnader för valutaomvandling.
 
 >[!VIDEO https://www.youtube.com/embed/jWG1lyJe3Mg]
 
@@ -100,7 +100,7 @@ I följande tabell beskrivs kolumnrubrikerna för användning avgifter visas på
 | Period |Beskrivning |
 | --- | --- |
 | Namn |Identifierar huvudtjänst för användning |
-| Typ |Definierar den Azure-tjänst-typ som kan påverka priset |
+| Type |Definierar den Azure-tjänst-typ som kan påverka priset |
 | Resurs |Anger måttenhet för den mätning som används |
 | Region |Anger datacenterplats för vissa tjänster som prissätts beroende på var datacentret |
 | Förbrukad |Hur mycket av används under faktureringsperioden |
@@ -116,4 +116,4 @@ Om det finns en avgift på fakturan som du vill ha mer information på, se [för
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).

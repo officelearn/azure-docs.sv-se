@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f20031b41d56e049670491a9aa9a41b21e0bfca4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 99a35c09d60ccb009c0f21d3aea59de2d5e9b63d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197818"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119827"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Självstudier: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Data Lake Store
 
@@ -32,7 +32,7 @@ I den här självstudien lär du dig att komma åt en Azure Data Lake Store med 
 > * Bevilja din virtuella dator åtkomst till en Azure Data Lake Store
 > * Hämta en åtkomsttoken med hjälp av en identitet för en virtuell dator och använd den för att få åtkomst till en Azure Data Lake Store
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -68,7 +68,7 @@ I den här självstudien autentiserar du till Lake Store-filsystemets REST API m
 1. I portalen går du till **Virtuella datorer** och sedan till den virtuella Windows-datorn. Under **Översikt** klickar du på **Anslut**.
 2. Ange ditt **användarnamn** och **lösenord** som du lade till när du skapade den virtuella Windows-datorn. 
 3. Nu när du har skapat en **anslutning till fjärrskrivbord** med den virtuella datorn öppnar du **PowerShell** i fjärrsessionen. 
-4. Använd PowerShells `Invoke-WebRequest` och skicka en begäran till den lokala slutpunkten för hanterade identiteter för Azure-resurser för att hämta en åtkomsttoken för Azure Data Lake Store.  Resurs-ID för Data Lake Store är ”https://datalake.azure.net/”.  Data Lake gör en exakt matchning på resurs-ID, och det avslutande snedstrecket är viktigt.
+4. Använd PowerShells `Invoke-WebRequest` och skicka en begäran till den lokala slutpunkten för hanterade identiteter för Azure-resurser för att hämta en åtkomsttoken för Azure Data Lake Store.  Resurs-ID: t för Data Lake Store är `https://datalake.azure.net/`.  Data Lake gör en exakt matchning på resurs-ID, och det avslutande snedstrecket är viktigt.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}

@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd05913a982d88a1e4fe4ff72bca0387e280e230
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fc27e5cd6af19f06a5eab73e30d3034fada0ccc2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211639"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838399"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Identitetssynkronisering och duplicerad attributåterhämtning
 Duplicerad Attributåterhämtning är en funktion i Azure Active Directory åtgärdar problem som orsakas av **UserPrincipalName** och **ProxyAddress** står i konflikt när du kör något av Microsofts synkroniseringsverktyg för.
@@ -40,7 +40,7 @@ Om det finns ett försök att etablera ett nytt objekt med ett UPN eller ProxyAd
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Beteende med duplicerad Attributåterhämtning
 Istället för att helt föra att etablera eller uppdatera ett objekt med Duplicerat attribut, Azure Active Directory ”placerar i karantän” dubblettattribut som skulle strida mot unikhetsbegränsningen. Om det här attributet är obligatoriskt för etablering som UserPrincipalName, tilldelar ett platshållarvärde i tjänsten. Formatet för dessa tillfälliga värden är  
-”***<OriginalPrefix>+ < 4DigitNumber > @<InitialTenantDomain>. onmicrosoft.com***”.  
+”***<OriginalPrefix>+ < 4DigitNumber >\@<InitialTenantDomain>. onmicrosoft.com***”.  
 Om attributet inte är obligatoriskt, som en **ProxyAddress**, Azure Active Directory bara placerar i karantän attributet konflikt och fortsätter med objektskapande eller update.
 
 Vid sätta attributet skickas information om konflikten i samma fel rapporten e-postmeddelandet används i den gamla funktionen. Men den här informationen visas bara i felrapporten en gång om karantänen inträffar kan det inte fortsätter att loggas i framtida e-postmeddelanden. Dessutom eftersom exporten av det här objektet har slutförts Synkroniseringsklienten loggar inte ett fel och gör inget nytt försök att skapa / uppdatera igen vid nästa synkroniseringscykler.
@@ -144,9 +144,9 @@ Ingen av de här problemen orsakar förluster eller tjänsten försämring av da
 1. Objekt med specifika attributkonfigurationer fortfarande får exportfel till skillnad från det duplicerade attribut karantän.  
    Exempel:
    
-    a. Ny användare skapas i AD med en UPN för **Joe@contoso.com** och ProxyAddress **smtp:Joe@contoso.com**
+    a. Ny användare skapas i AD med en UPN för **Joe\@contoso.com** och ProxyAddress **smtp:Joe\@contoso.com**
    
-    b. Egenskaperna för det här objektet är i konflikt med en befintlig grupp, där ProxyAddress är **SMTP:Joe@contoso.com**.
+    b. Egenskaperna för det här objektet är i konflikt med en befintlig grupp, där ProxyAddress är **SMTP:Joe\@contoso.com**.
    
     c. Vid export en **ProxyAddress konflikt** fel inträffar i stället för att konflikten attribut i karantän. Åtgärden görs vid varje efterföljande synkroniseringscykel eftersom det skulle ha varit innan funktionen återhämtning aktiverades.
 2. Om två grupper skapas lokalt med samma SMTP-adress, ett inte går att etablera på det första försöket med en standard dubblett **ProxyAddress** fel. Dock dubblettvärden är korrekt i karantän vid nästa synkroniseringscykel.
@@ -156,13 +156,13 @@ Ingen av de här problemen orsakar förluster eller tjänsten försämring av da
 1. Det detaljerade felmeddelandet för två objekt i en UPN-konflikt är samma. Detta anger att de har både haft sina UPN ändrats / i karantän när i själva verket bara en av dem hade några data ändras.
 2. Det detaljerade felmeddelandet för en UPN-konflikt visar fel displayName för en användare som har haft sina UPN ändrats/i karantän. Exempel:
    
-    a. **Användare A** synkroniseras först med **UPN = User@contoso.com** .
+    a. **Användare A** synkroniseringar först med **UPN = användare\@contoso.com**.
    
-    b. **Användare B** försökte synkroniseras nästa med **UPN = User@contoso.com** .
+    b. **Användare B** försökte synkroniseras nästa med **UPN = användare\@contoso.com**.
    
-    c. **Användare B: s** UPN ändras till **User1234@contoso.onmicrosoft.com** och **User@contoso.com** läggs till i **DirSyncProvisioningErrors**.
+    c. **Användare B: s** UPN ändras till **User1234\@contoso.onmicrosoft.com** och **användaren\@contoso.com** läggs till i **DirSyncProvisioningErrors** .
    
-    d. Felmeddelandet för **användare B** ska indikera som **användare A** har redan **User@contoso.com** så som visas i ett UPN, men det **användare B** egna displayName.
+    d. Felmeddelandet för **användare B** ska indikera som **användare A** har redan **användaren\@contoso.com** så som visas i ett UPN, men det **användare B: s** egna displayName.
 
 **Felrapport för synkronisering av identitet**:
 

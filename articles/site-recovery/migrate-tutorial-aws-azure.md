@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ce48e9a17ab6b63c7fb8caa752258e218ca51ba3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 74329624b6e0f1b105349d87a6d166efad520076
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226391"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010916"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -31,14 +31,14 @@ I de här självstudien får du lära dig hur du migrerar virtuella Amazon Web S
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 - Kontrollera att de virtuella datorer du vill migrera körs på en OS-version som stöds. Versioner som stöds inkluderar: 
-      - Windows Server 2016 
-      - Windows Server 2012 R2
-      - Windows Server 2012 
-      - 64-bitarsversionen av Windows Server 2008 R2 SP1 eller senare
-      - Red Hat Enterprise Linux 6.4 till 6.10, 7.1 till 7.6 (endast HVM-virtualiserade instanser)  *(Instanser som kör RedHat PV-drivrutiner stöds inte.)*
-      - CentOS 6.4 till 6.10, 7.1 till 7.6 (endast HVM-virtualiserade instanser)
+  - Windows Server 2016 
+  - Windows Server 2012 R2
+  - Windows Server 2012 
+  - 64-bitarsversionen av Windows Server 2008 R2 SP1 eller senare
+  - Red Hat Enterprise Linux 6.4 till 6.10, 7.1 till 7.6 (endast HVM-virtualiserade instanser)  *(Instanser som kör RedHat PV-drivrutiner stöds inte.)*
+  - CentOS 6.4 till 6.10, 7.1 till 7.6 (endast HVM-virtualiserade instanser)
  
 - Mobilitetstjänsten måste installeras på varje virtuell dator som du vill replikera. 
 
@@ -172,39 +172,39 @@ Aktivera replikering för varje virtuell dator som du vill migrera. När replike
 1. Gå till [Azure-portalen](https://portal.azure.com).
 1. På sidan för ditt valv, under **Kom igång**, klickar du på **Site Recovery**.
 2. Under **För lokala datorer och virtuella Azure-datorer** klickar du på **Steg 1: Replikera program**. Slutför guidesidorna med följande information. Välj **OK** på varje sida när du är klar:
-    - 1: Konfigurera källan
+   - 1: Konfigurera källan
 
-    |  |  |
-    |-----|-----|
-    | Källa: | Välj **Lokalt**.|
-    | Källplats:| Ange namnet på din konfigurationsservers EC2-instans.|
-    |Typ av dator: | Välj **Fysiska datorer**.|
-    | Processerver: | Välj konfigurationsserver i listrutan.|
+     |  |  |
+     |-----|-----|
+     | Källa: | Välj **Lokalt**.|
+     | Källplats:| Ange namnet på din konfigurationsservers EC2-instans.|
+     |Typ av dator: | Välj **Fysiska datorer**.|
+     | Processerver: | Välj konfigurationsserver i listrutan.|
 
-    - 2: Konfigurera målet
+   - 2: Konfigurera målet
 
-    |  |  |
-    |-----|-----|
-    | Mål: | Låt standardvärdet vara kvar.|
-    | Prenumeration: | Välj den prenumeration som du har använt.|
-    | Postredundant resursgrupp:| Använd den resursgrupp du skapade i avsnittet [Förbered Azure-resurser](#prepare-azure-resources).|
-    | Postredundant distributionsmodell: | Välj **Resource Manager**.|
-    | Lagringskonto: | Välj det Storage-konto du skapade i avsnittet [Förbered Azure-resurser](#prepare-azure-resources).|
-    | Azure-nätverk: | Välj **Konfigurera nu för valda datorer**.|
-    | Postredundant Azure-nätverk: | Välj det nätverk du skapade i avsnittet [Förbered Azure-resurser](#prepare-azure-resources).|
-    | Undernät: | Välj **standardinställningen** i listrutan.|
+     |  |  |
+     |-----|-----|
+     | Mål: | Låt standardvärdet vara kvar.|
+     | Prenumeration: | Välj den prenumeration som du har använt.|
+     | Postredundant resursgrupp:| Använd den resursgrupp du skapade i avsnittet [Förbered Azure-resurser](#prepare-azure-resources).|
+     | Postredundant distributionsmodell: | Välj **Resource Manager**.|
+     | Lagringskonto: | Välj det Storage-konto du skapade i avsnittet [Förbered Azure-resurser](#prepare-azure-resources).|
+     | Azure-nätverk: | Välj **Konfigurera nu för valda datorer**.|
+     | Postredundant Azure-nätverk: | Välj det nätverk du skapade i avsnittet [Förbered Azure-resurser](#prepare-azure-resources).|
+     | Undernät: | Välj **standardinställningen** i listrutan.|
 
-    - 3: Välj fysiska datorer
+   - 3: Välj fysiska datorer
 
-      Välj **Fysisk dator** och ange värdena för **Namn**, **IP-adress** och **OS-typ** för den EC2-instans du vill migrera. Välj **OK**.
+     Välj **Fysisk dator** och ange värdena för **Namn**, **IP-adress** och **OS-typ** för den EC2-instans du vill migrera. Välj **OK**.
 
-    - 4: Konfigurera egenskaper
+   - 4: Konfigurera egenskaper
 
-      Välj det konto du skapade på konfigurationsservern och klicka på **OK**.
+     Välj det konto du skapade på konfigurationsservern och klicka på **OK**.
 
-    - 5: Konfigurera replikeringsinställningar
+   - 5: Konfigurera replikeringsinställningar
 
-      Kontrollera att den replikeringsprincip som valts i listrutan är **myReplicationPolicy** och klicka sedan på **OK**.
+     Kontrollera att den replikeringsprincip som valts i listrutan är **myReplicationPolicy** och klicka sedan på **OK**.
 
 3. När guiden är klar klickar du på **Aktivera replikering**.
 
@@ -245,10 +245,10 @@ Kör en riktig redundansväxling för EC2-instanserna för att migrera dem till 
 1. Kontrollera att den virtuella datorn visas i **Replikerade objekt**.
 2. Högerklicka på varje virtuell dator och välj sedan **Slutför migrering**. Det här gör följande:
 
-    - Detta avslutar migreringsprocessen, stoppar replikeringen för virtuella datorer i AWS och stoppar Site Recovery-debitering för den virtuella datorn.
-    - Det här steget rensar replikeringsdata. Men det raderar inte de migrerade virtuella datorerna. 
+   - Detta avslutar migreringsprocessen, stoppar replikeringen för virtuella datorer i AWS och stoppar Site Recovery-debitering för den virtuella datorn.
+   - Det här steget rensar replikeringsdata. Men det raderar inte de migrerade virtuella datorerna. 
 
-    ![Slutföra migrering](./media/migrate-tutorial-aws-azure/complete-migration.png)
+     ![Slutföra migrering](./media/migrate-tutorial-aws-azure/complete-migration.png)
 
 > [!WARNING]
 > *Avbryt inte en redundansväxling som pågår*. Innan redundans startas stoppas den virtuella datorreplikeringen. Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikera igen.  

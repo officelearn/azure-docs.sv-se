@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 6037d6a1b418a4241f1133b8ca7d89764da22f61
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: a975c95af75e9f3e09e5d0142716795ab4b90e28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571379"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136486"
 ---
 # <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Exempel på enkla syntaxfråga för att skapa frågor i Azure Search
 
@@ -195,7 +195,7 @@ POST /indexes/nycjobs/docs/search?api-version=2017-11-11
       "count": "true"
     }
 ```
-För mer läsbara resultat bort sökresultaten om du vill inkludera ett jobb-id, jobbtitel och arbetsplats. Från koordinaterna erhölls från ett slumpmässigt dokument i indexet (i det här fallet för arbetsplats på Staten ö.
+För mer läsbara resultat bort sökresultaten om du vill inkludera ett jobb-ID, jobbtitel och arbetsplats. Från koordinaterna erhölls från ett slumpmässigt dokument i indexet (i det här fallet för arbetsplats på Staten ö.
 
 Du kan också testa detta i Postman med hjälp av GET:
 
@@ -273,7 +273,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 Försök att ange frågor i din kod. Följande länkar beskriver hur du ställer in sökfrågor för både .NET och REST-API med hjälp av enkel standard-syntax.
 
 * [Fråga ditt Azure Search-Index med .NET SDK](search-query-dotnet.md)
-* [Fråga ditt Azure Search-Index med hjälp av REST-API](search-query-rest-api.md)
+* [Fråga ditt Azure Search-Index med hjälp av REST-API](search-create-index-rest-api.md)
 
 Ytterligare referens, fråga arkitektur och exempel finns i följande länkar:
 

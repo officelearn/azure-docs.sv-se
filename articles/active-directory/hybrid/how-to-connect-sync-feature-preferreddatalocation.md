@@ -16,12 +16,12 @@ ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbe9a10c85efa2f52a04f5c2fab87421a08f0a16
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199807"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118450"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect-synkronisering: Konfigurera önskad Dataplats för Office 365-resurser
 Syftet med det här avsnittet är att vägleder dig genom hur du konfigurerar attributet för önskad Dataplats i Azure Active Directory (Azure AD) Connect-synkronisering. När någon använder Multi-Geo-funktioner i Office 365 använder du det här attributet för att ange geografiska av användarens Office 365-data. (Villkoren *region* och *geo* används synonymt.)
@@ -192,8 +192,8 @@ I allmänhet krävs fullständig synkroniseringscykel. Detta är eftersom du har
    3. I dialogrutan Välj **fullständig Import**, och välj **OK**.
    4. Vänta tills åtgärden har slutförts.
 
-    > [!NOTE]
-    > Du kan hoppa över fullständig import på en lokal Active Directory-koppling om källattributet ingår redan i listan över importerade attribut. Du med andra ord inte göra ändringar i steg 2 ovan.
+      > [!NOTE]
+      > Du kan hoppa över fullständig import på en lokal Active Directory-koppling om källattributet ingår redan i listan över importerade attribut. Du med andra ord inte göra ändringar i steg 2 ovan.
 
 2. Kör **fullständig import** i Azure AD Connector:
 

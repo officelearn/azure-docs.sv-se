@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: erikre
-ms.openlocfilehash: 5cb26b98f5969032bcff95e4408fcf685399d6da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 9a0b536426ab024d5af7b257e44a2d5e20f14def
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114509"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898711"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Granska enterprise enrollment fakturering med hjälp av REST API: er
 
@@ -78,7 +78,7 @@ Statuskod 200 returneras (OK) för ett lyckat svar som innehåller en lista med 
 }
 ```  
 
-Det här exemplet är förkortas; Se [hämta kostnadsinformation för något faktureringskonto](/rest/api/consumption/usagedetails/listbybillingaccount) för en fullständig beskrivning av varje svarsfält och felhantering.
+Det här exemplet är förkortas; Se [hämta kostnadsinformation för något faktureringskonto](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist) för en fullständig beskrivning av varje svarsfält och felhantering.
 
 ## <a name="department-billing"></a>Avdelning fakturering 
 
@@ -134,7 +134,7 @@ I följande exempel visas resultatet av REST-API för avdelning `1234`.
 }
 ```  
 
-Det här exemplet är förkortas; Se [hämta kostnadsinformation för en avdelning](/rest/api/consumption/usagedetails/listbydepartment) för en fullständig beskrivning av varje svarsfält och felhantering.
+Det här exemplet är förkortas; Se [hämta kostnadsinformation för en avdelning](/rest/api/consumption/usagedetails/list#departmentusagedetailslist) för en fullständig beskrivning av varje svarsfält och felhantering.
 
 ## <a name="enrollment-account-billing"></a>Fakturering för registrering
 
@@ -187,7 +187,7 @@ I följande exempel visas resultatet av REST-API för företagsregistrering `123
 }
 ``` 
 
-Det här exemplet är förkortas; Se [hämta kostnadsinformation för ett konto för enhetsregistreringshanterare](/rest/api/consumption/usagedetails/listbyenrollmentaccount) för en fullständig beskrivning av varje svarsfält och felhantering.
+Det här exemplet är förkortas; Se [hämta kostnadsinformation för ett konto för enhetsregistreringshanterare](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist) för en fullständig beskrivning av varje svarsfält och felhantering.
 
 ## <a name="next-steps"></a>Nästa steg 
 - Granska [Enterprise rapporteringsöversikt](https://docs.microsoft.com/azure/billing/billing-enterprise-api)

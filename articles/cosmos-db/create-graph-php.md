@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: e7ca026d47952721c7aa28de401738ef50b697c6
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: aace9b61ae7625f1d3bbed5181fd88e367ea8f12
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586724"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082763"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Snabbstart: Skapa en grafdatabas i Azure Cosmos DB med hjälp av PHP och Azure-portalen
 
@@ -239,17 +239,17 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
 12. Nu kan du koppla ihop Rakesh och Ashley. Se till att **ashley** är markerat i listan **Resultat** och klicka sedan på redigeringsknappen bredvid **Mål** nere till höger. Du kan behöva bredda fönstret för att se området **Egenskaper**.
 
-   ![Ändra mål för ett hörn i en graf](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Ändra mål för ett hörn i en graf](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. I rutan **Mål** skriver du *rakesh* och i rutan **Edge label**  (Kantetikett) skriver du *känner* och klickar sedan på kryssmarkeringen.
 
-   ![Lägg till en anslutning mellan Ashley och Rakesh i datautforskaren](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
+    ![Lägg till en anslutning mellan Ashley och Rakesh i datautforskaren](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
 
 14. Markera nu **rakesh** i resultatlistan och se att Ashley och Rakesh är anslutna. 
 
-   ![Två hörn anslutna i datautforskaren](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
+    ![Två hörn anslutna i datautforskaren](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
 
-   Då är delen om att skapa resurser slutförd i den här snabbstarten. Du kan fortsätta att lägga till hörn i diagrammet, ändra befintliga hörn eller ändra frågorna. Vi ska nu titta på de mått som Azure Cosmos DB tillhandahåller, och sedan ska vi rensa resurserna. 
+    Då är delen om att skapa resurser slutförd i den här snabbstarten. Du kan fortsätta att lägga till hörn i diagrammet, ändra befintliga hörn eller ändra frågorna. Vi ska nu titta på de mått som Azure Cosmos DB tillhandahåller, och sedan ska vi rensa resurserna. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
-ms.openlocfilehash: c51804748e4313d79cc3a369b659974d2d32e2e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f14c8f8ef9f0e59ac35dd7346bf37cc07f2cfb19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014275"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58163862"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Kopieringsdata från och till ODBC-datalager med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-odbc-connector.md)
 > * [Aktuell version](connector-odbc.md)
 
@@ -49,9 +49,9 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för ODBC-länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **ODBC** | Ja |
+| typ | Type-egenskapen måste anges till: **Odbc** | Ja |
 | connectionString | Anslutningssträngen undantaget del som autentiseringsuppgifter. Du kan ange anslutningssträngen med mönster som `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, eller använda systemet-DSN (Data Source Name) du har konfigurerat på Integration Runtime-dator med `"DSN=<name of the DSN on IR machine>;"` (du måste fortfarande ange credential-delen i den länkade tjänsten i enlighet med detta).<br>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md).| Ja |
 | authenticationType | Typ av autentisering som används för att ansluta till ODBC-datalager.<br/>Tillåtna värden är: **Grundläggande** och **anonym**. | Ja |
 | Användarnamn | Ange användarnamnet om du använder grundläggande autentisering. | Nej |

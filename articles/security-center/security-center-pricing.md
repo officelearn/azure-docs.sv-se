@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 03/17/2019
 ms.author: monhaber
-ms.openlocfilehash: 74902d9628f147f37169c22319ad9186bd267f6c
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 5f49de453f9cd694598918500a8ac0221937bdb1
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56989565"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201695"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Uppgradera till standardnivån i Security Center för ökad säkerhet
 Azure Security Center har en enhetlig säkerhetshantering och avancerat skydd mot hot för arbetsbelastningar som körs i Azure, lokalt och i andra moln. Du får insyn och kontroll över hybridmolnarbetsbelastningar active försvar som minskar din exponering för hot och intelligent identifiering för att hålla jämna steg med snabbt växande cyberattacker.

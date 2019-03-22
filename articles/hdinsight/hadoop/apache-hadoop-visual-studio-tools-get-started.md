@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: aa9d03e40880dbc856045840499dba43b9d1aba9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bb7c46548726b00c68c8e952a8e2956ad0511763
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105343"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201780"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Använd Data Lake Tools för Visual Studio för att ansluta till Azure HDInsight och kör Apache Hive-frågor
 
@@ -93,7 +93,7 @@ Så här ansluter du till Azure-portalen från Visual Studio:
 
 1. Från Server Explorer navigerar du till **Azure** > **HDInsight** och välj ditt kluster.
 
-2. Högerklicka på ett HDInsight-kluster och välj **hantera kluster i Azure Portal**.
+2. Högerklicka på ett HDInsight-kluster och välj **hantera kluster i Azure-portalen**.
 
 Ställ frågor och/eller ge feedback från Visual Studio:
 
@@ -275,5 +275,5 @@ I den här artikeln har du lärt dig hur använder Data Lake Tools för Visual S
 * [Använda Hadoop Hive i HDInsight](hdinsight-use-hive.md)
 * [Komma igång med Apache Hadoop i HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Skicka Apache Hadoop-jobb i HDInsight](submit-apache-hadoop-jobs-programmatically.md)
-* [Analysera Twitter-data med Apache Hadoop i HDInsight](../hdinsight-analyze-twitter-data.md)
+* [Analysera Twitter-data med Apache Hadoop i HDInsight](../hdinsight-analyze-twitter-data-linux.md)
 

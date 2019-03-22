@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 02/08/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 6b9e5f304eb578a5f63739d26047db328a3d5ac9
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
-ms.translationtype: HT
+ms.openlocfilehash: 5cca0d866442583c87665b3a1db8c65c66d12f0a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216772"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285385"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Skapa en Python-app i Azure App Service i Linux (förhandsversion)
 
@@ -109,12 +109,12 @@ Checking connectivity... done.
 
 Ändra till den katalog som innehåller exempelkoden och kör `az webapp up` kommandot.
 
-Ersätt <app_name> med ett unikt programnamn i följande exempel.
+Ersätt < appnamn > i följande exempel med ett unikt appnamn.
 
 ```bash
 cd python-docs-hello-world
 
-az webapp up -n <app_name>
+az webapp up -n <app-name>
 ```
 
 Det kan ett par minuter att köra kommandot. Medan det körs visas information liknande den i följande exempel:
@@ -125,15 +125,15 @@ Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
 Resource group creation complete
 Creating App service plan 'appsvc_asp_Linux_CentralUS' ...
 App service plan creation complete
-Creating app '<app_name>' ....
+Creating app '<app-name>' ....
 Webapp creation complete
 Creating zip with contents of dir /home/username/quickstart/python-docs-hello-world ...
 Preparing to deploy contents to app.
 All done.
 {
-  "app_url": "https:/<app_name>.azurewebsites.net",
+  "app_url": "https:/<app-name>.azurewebsites.net",
   "location": "Central US",
-  "name": "<app_name>",
+  "name": "<app-name>",
   "os": "Linux",
   "resourcegroup": "appsvc_rg_Linux_CentralUS ",
   "serverfarm": "appsvc_asp_Linux_CentralUS",
@@ -151,7 +151,7 @@ All done.
 Bläddra till den distribuerade appen via webbläsaren.
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 Python-exempelkoden körs i App Service på Linux med en inbyggd avbildning.
@@ -174,10 +174,10 @@ return "Hello Azure!"
 
 Spara dina ändringar och avsluta redigeraren. Använd kommandot `^S` för att spara och `^Q` för att avsluta.
 
-Distribuera nu om programmet. Ersätt `<app_name>` med din app.
+Distribuera nu om programmet. Ersätt `<app-name>` med din app.
 
 ```bash
-az webapp up -n <app_name>
+az webapp up -n <app-name>
 ```
 
 När distributionen är klar går du tillbaka till webbläsarfönstret som öppnades när du skulle **söka efter appen** och klickar på knappen för att uppdatera sidan.

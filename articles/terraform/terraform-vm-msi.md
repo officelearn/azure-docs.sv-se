@@ -2,19 +2,19 @@
 title: Använda en Azure Marketplace-avbildning till att skapa en virtuell Terraform Linux-dator med hanterad identitet
 description: Använd Marketplace-avbildning till att skapa virtuell Terraform Linux-dator med en hanterad identitet och Remote State-hantering för att enkelt distribuera resurser till Azure.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, MSI, virtual machine, remote state, azure
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 3f10e5dfd0a4aac859c1a946b5f0a680899e0888
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: a1a980e1f8b004c4a3dba53e4f83367022074c7c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852549"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007957"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Använda en Azure Marketplace-avbildning till att skapa en virtuell Terraform Linux-dator med hanterade identiteter för Azure-resurser
 
@@ -24,7 +24,7 @@ Terraform Marketplace-avbildningen gör det enkelt att komma igång med Terrafor
 
 Det tillkommer inga programvaruavgifter för den Terraform VM-avbildningen. Du betalar bara för användningen av Azure-maskinvara som utvärderas utifrån storleken på den virtuella dator som etableras. Mer information om beräkningsavgifter finns på [sidan med priser för virtuella Linux-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Innan du kan skapa en virtuell Linux Terraform-dator måste du ha en Azure-prenumeration. Se [Skapa ett kostnadsfritt Azure-konto i dag](https://azure.microsoft.com/free/) om du inte redan har ett konto.  
 
 ## <a name="create-your-terraform-virtual-machine"></a>Skapa den virtuella Terraform-datorn 
@@ -77,7 +77,7 @@ Den virtuella Terraform-datorn utför följande:
 
 ## <a name="access-and-configure-a-linux-terraform-virtual-machine"></a>Få åtkomst till och konfigurera en virtuell Linux Terraform-dator
 
-När du har skapat den virtuella datorn kan du logga in på den med SSH. Använd de autentiseringsuppgifter för kontot som du skapade i avsnittet Grundläggande inställningar i steg 3 för textgränssnittet. I Windows kan du ladda ned ett SSH-klientverktyg som [Putty](http://www.putty.org/).
+När du har skapat den virtuella datorn kan du logga in på den med SSH. Använd de autentiseringsuppgifter för kontot som du skapade i avsnittet Grundläggande inställningar i steg 3 för textgränssnittet. I Windows kan du ladda ned ett SSH-klientverktyg som [Putty](https://www.putty.org/).
 
 När du har använt SSH till att anslut till den virtuella datorn måste du ge deltagarbehörighet för hela prenumerationen till hanterade identiteter för Azure-resurser på den virtuella datorn. 
 

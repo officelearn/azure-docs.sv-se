@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 84eb458c68c7accf1b638b8e21907516328cb892
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 26b560434e6305689781b8c39c7cf814af9bf8aa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545098"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112304"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Självstudier: Ansluta, konfigurera, aktiverar Azure Data Box-Gateway (förhandsversion) 
 
@@ -80,12 +80,12 @@ Du har kommit till den **instrumentpanelen** för din enhet.
    
     När du konfigurerar nätverksinställningar, Tänk på följande:
 
-    - Om DHCP har aktiverats i din miljö konfigureras nätverksgränssnitten automatiskt. Därför kan tilldelas automatiskt en IP-adress, undernät, gateway och DNS.
-    - Om DHCP inte är aktiverad kan du tilldela statiska IP-adresser om det behövs.
-    - Du kan konfigurera nätverksgränssnittets som IPv4.
+   - Om DHCP har aktiverats i din miljö konfigureras nätverksgränssnitten automatiskt. Därför kan tilldelas automatiskt en IP-adress, undernät, gateway och DNS.
+   - Om DHCP inte är aktiverad kan du tilldela statiska IP-adresser om det behövs.
+   - Du kan konfigurera nätverksgränssnittets som IPv4.
 
-    >[!NOTE] 
-    > Vi rekommenderar att du inte växla lokala IP-adressen för nätverksgränssnittet från statisk till DHCP, om du inte har en annan IP-adress att ansluta till enheten. Om du använder ett nätverksgränssnitt och du växlar till DHCP och det är inget sätt att avgöra DHCP-adress. Om du vill ändra till en DHCP-adress, vänta tills enheten har registrerats med tjänsten och sedan ändra. Du kan visa IP-adresserna för alla kort i den **enhetsegenskaper** i Azure-portalen för din tjänst.
+     >[!NOTE] 
+     > Vi rekommenderar att du inte växla lokala IP-adressen för nätverksgränssnittet från statisk till DHCP, om du inte har en annan IP-adress att ansluta till enheten. Om du använder ett nätverksgränssnitt och du växlar till DHCP och det är inget sätt att avgöra DHCP-adress. Om du vill ändra till en DHCP-adress, vänta tills enheten har registrerats med tjänsten och sedan ändra. Du kan visa IP-adresserna för alla kort i den **enhetsegenskaper** i Azure-portalen för din tjänst.
 
 4. (Valfritt) Konfigurera din webbproxyserver. Men webbproxykonfigurationen är valfritt, Tänk på att om du använder en webbproxy, du kan bara konfigurera den här.
    

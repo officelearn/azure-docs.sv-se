@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: b7e9a46caf39d736fd7fdc5b3742a47c2bab51fd
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e49b521f625dee8c48c448065096ed027cf6c9b2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876424"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090040"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>SQL-Språkreferens för Azure Cosmos DB 
 
@@ -218,11 +218,11 @@ Inre kopplingar resultera i en fullständig kryssprodukten av de mängder som de
   
 Utvärderingen av kopplingen beror på kontexten omfånget för deltagande uppsättningar:  
   
--  En koppling mellan behållare-uppsättning A och container-omfattande ange B, resulterar i en kryssprodukten av alla element i sets A och B.
+- En koppling mellan behållare-uppsättning A och container-omfattande ange B, resulterar i en kryssprodukten av alla element i sets A och B.
   
--   En koppling mellan uppsättning A och dokument-omfattande uppsättning B, resulterar i en union av alla uppsättningar som erhålls genom att utvärdera dokument-omfattande uppsättning B för varje dokument från ange A.  
+- En koppling mellan uppsättning A och dokument-omfattande uppsättning B, resulterar i en union av alla uppsättningar som erhålls genom att utvärdera dokument-omfattande uppsättning B för varje dokument från ange A.  
   
- Högst ett container-omfattande uttryck stöds i den aktuella versionen av frågeprocessorn.  
+  Högst ett container-omfattande uttryck stöds i den aktuella versionen av frågeprocessorn.  
   
 ### <a name="examples-of-joins"></a>Exempel på kopplingar  
   
@@ -321,17 +321,17 @@ WHERE <filter_condition>
   
  **Argument**  
   
--   `<filter_condition>`  
+- `<filter_condition>`  
   
-     Anger villkoret vara uppfyllda för dokument som ska returneras.  
+   Anger villkoret vara uppfyllda för dokument som ska returneras.  
   
--   `<scalar_expression>`  
+- `<scalar_expression>`  
   
-     Uttryck som representerar värdet som ska beräknas. Se den [skaläruttryck](#bk_scalar_expressions) information.  
+   Uttryck som representerar värdet som ska beräknas. Se den [skaläruttryck](#bk_scalar_expressions) information.  
   
- **Kommentarer**  
+  **Kommentarer**  
   
- Villkoret måste utvärderas till SANT för dokumentet som ska returneras ett uttryck har angetts som filter. Endast booleska värdet true kommer uppfyller villkoren, ett annat värde: Odefinierad, null, false, tal, matris, eller ett objekt kommer inte uppfyller villkoret.  
+  Villkoret måste utvärderas till SANT för dokumentet som ska returneras ett uttryck har angetts som filter. Endast booleska värdet true kommer uppfyller villkoren, ett annat värde: Odefinierad, null, false, tal, matris, eller ett objekt kommer inte uppfyller villkoret.  
   
 ##  <a name="bk_orderby_clause"></a> ORDER BY-sats  
  Anger sorteringsordning för resultaten som returnerades av frågan. Exempel finns i [ORDER BY-sats-exempel](how-to-sql-query.md#OrderByClause)
@@ -347,29 +347,29 @@ ORDER BY <sort_specification>
   
  **Argument**  
   
--   `<sort_specification>`  
+- `<sort_specification>`  
   
-     Anger en egenskap eller ett uttryck som du vill sortera frågeresultatet. En sorteringskolumn kan anges som ett alias för namn eller en kolumn.  
+   Anger en egenskap eller ett uttryck som du vill sortera frågeresultatet. En sorteringskolumn kan anges som ett alias för namn eller en kolumn.  
   
-     Du kan ange flera sorteringskolumner. Kolumnnamnen måste vara unika. Vilken ordning kolumnerna sortera i ORDER BY-satsen definierar hur sorterade resultatuppsättningen. Det vill säga resultatet sorteras efter den första egenskapen och sedan den beställda listan sorteras efter den andra egenskapen och så vidare.  
+   Du kan ange flera sorteringskolumner. Kolumnnamnen måste vara unika. Vilken ordning kolumnerna sortera i ORDER BY-satsen definierar hur sorterade resultatuppsättningen. Det vill säga resultatet sorteras efter den första egenskapen och sedan den beställda listan sorteras efter den andra egenskapen och så vidare.  
   
-     Namn på kolumnerna som refereras i ORDER BY-satsen måste motsvara till antingen en kolumn i select-listan eller en kolumn som definierats i en tabell som angetts i FROM-sats utan någon tvetydigheter.  
+   Namn på kolumnerna som refereras i ORDER BY-satsen måste motsvara till antingen en kolumn i select-listan eller en kolumn som definierats i en tabell som angetts i FROM-sats utan någon tvetydigheter.  
   
--   `<sort_expression>`  
+- `<sort_expression>`  
   
-     Anger en enskild egenskap eller ett uttryck som du vill sortera frågeresultatet.  
+   Anger en enskild egenskap eller ett uttryck som du vill sortera frågeresultatet.  
   
--   `<scalar_expression>`  
+- `<scalar_expression>`  
   
-     Se den [skaläruttryck](#bk_scalar_expressions) information.  
+   Se den [skaläruttryck](#bk_scalar_expressions) information.  
   
--   `ASC | DESC`  
+- `ASC | DESC`  
   
-     Anger att värdena i den angivna kolumnen ska sorteras i stigande eller fallande ordning. ASC sorterar från det lägsta värdet för högsta värden. DESC sorterar från högsta värdet till lägsta värdet. ASC är standardsorteringsordning. Null-värden behandlas som de lägsta möjliga värdena.  
+   Anger att värdena i den angivna kolumnen ska sorteras i stigande eller fallande ordning. ASC sorterar från det lägsta värdet för högsta värden. DESC sorterar från högsta värdet till lägsta värdet. ASC är standardsorteringsordning. Null-värden behandlas som de lägsta möjliga värdena.  
   
- **Kommentarer**  
+  **Kommentarer**  
   
- Medan frågegrammatik har stöd för flera ordning av egenskaper, Cosmos DB-fråga runtime stöder sortering endast mot en enskild egenskap och endast mot egenskapsnamn (inte mot beräknade egenskaper). Sortera kräver också att indexprincip innehåller ett intervallsindex för egenskapen och den angivna typen, med den maximala precisionen. I indexering princip-dokumentationen för mer information.  
+  Medan frågegrammatik har stöd för flera ordning av egenskaper, Cosmos DB-fråga runtime stöder sortering endast mot en enskild egenskap och endast mot egenskapsnamn (inte mot beräknade egenskaper). Sortera kräver också att indexprincip innehåller ett intervallsindex för egenskapen och den angivna typen, med den maximala precisionen. I indexering princip-dokumentationen för mer information.  
   
 ##  <a name="bk_scalar_expressions"></a> Skaläruttryck  
  Ett skalärt uttryck som är en kombination av symboler och operatörer som kan utvärderas för att få ett enskilt värde. Enkla uttryck kan vara konstanter, egenskapen referenser, matris referenser, alias referenser eller funktionsanrop. Enkla uttryck kan kombineras till komplexa uttryck med hjälp av operatörer. Exempel finns i [skaläruttryck exempel](how-to-sql-query.md#scalar-expressions)
@@ -407,62 +407,62 @@ ORDER BY <sort_specification>
   
  **Argument**  
   
--   `<constant>`  
+- `<constant>`  
   
-     Representerar ett konstant värde. Se [konstanter](#bk_constants) information.  
+   Representerar ett konstant värde. Se [konstanter](#bk_constants) information.  
   
--   `input_alias`  
+- `input_alias`  
   
-     Representerar ett värde som definieras av den `input_alias` introducerades i den `FROM` satsen.  
-    Det här värdet är säkert att den inte **odefinierat** –**odefinierat** värden i inkommande hoppas över.  
+   Representerar ett värde som definieras av den `input_alias` introducerades i den `FROM` satsen.  
+  Det här värdet är säkert att den inte **odefinierat** –**odefinierat** värden i inkommande hoppas över.  
   
--   `<scalar_expression>.property_name`  
+- `<scalar_expression>.property_name`  
   
-     Representerar ett värde för egenskapen för ett objekt. Om egenskapen inte finns eller egenskapen refererar till ett värde som inte är ett objekt och sedan uttrycket utvärderas till **odefinierat** värde.  
+   Representerar ett värde för egenskapen för ett objekt. Om egenskapen inte finns eller egenskapen refererar till ett värde som inte är ett objekt och sedan uttrycket utvärderas till **odefinierat** värde.  
   
--   `<scalar_expression>'['"property_name"|array_index']'`  
+- `<scalar_expression>'['"property_name"|array_index']'`  
   
-     Representerar ett värde för egenskapen med namnet `property_name` eller matriselementet med index `array_index` av en objektmatris. Om egenskapen/matrisindex finns inte eller egenskapen/matrisindex refereras på ett värde som är inte en objektmatris sedan uttrycket utvärderas till ett odefinierat värde.  
+   Representerar ett värde för egenskapen med namnet `property_name` eller matriselementet med index `array_index` av en objektmatris. Om egenskapen/matrisindex finns inte eller egenskapen/matrisindex refereras på ett värde som är inte en objektmatris sedan uttrycket utvärderas till ett odefinierat värde.  
   
--   `unary_operator <scalar_expression>`  
+- `unary_operator <scalar_expression>`  
   
-     Representerar en operatör som tillämpas på ett enda värde. Se [operatörer](#bk_operators) information.  
+   Representerar en operatör som tillämpas på ett enda värde. Se [operatörer](#bk_operators) information.  
   
--   `<scalar_expression> binary_operator <scalar_expression>`  
+- `<scalar_expression> binary_operator <scalar_expression>`  
   
-     Representerar en operatör som tillämpas på två värden. Se [operatörer](#bk_operators) information.  
+   Representerar en operatör som tillämpas på två värden. Se [operatörer](#bk_operators) information.  
   
--   `<scalar_function_expression>`  
+- `<scalar_function_expression>`  
   
-     Representerar ett värde som definieras av ett resultat av ett funktionsanrop.  
+   Representerar ett värde som definieras av ett resultat av ett funktionsanrop.  
   
--   `udf_scalar_function`  
+- `udf_scalar_function`  
   
-     Namnet på den användardefinierade skalära funktionen.  
+   Namnet på den användardefinierade skalära funktionen.  
   
--   `builtin_scalar_function`  
+- `builtin_scalar_function`  
   
-     Namnet på inbyggd skalärfunktion.  
+   Namnet på inbyggd skalärfunktion.  
   
--   `<create_object_expression>`  
+- `<create_object_expression>`  
   
-     Representerar ett värde som fås genom att skapa ett nytt objekt med angivna egenskaperna och deras värden.  
+   Representerar ett värde som fås genom att skapa ett nytt objekt med angivna egenskaperna och deras värden.  
   
--   `<create_array_expression>`  
+- `<create_array_expression>`  
   
-     Representerar ett värde som fås genom att skapa en ny matris med angivna värden som element  
+   Representerar ett värde som fås genom att skapa en ny matris med angivna värden som element  
   
--   `parameter_name`  
+- `parameter_name`  
   
-     Representerar ett värde för det angivna parameternamnet. Parameternamn måste ha en enda \@ som det första tecknet.  
+   Representerar ett värde för det angivna parameternamnet. Parameternamn måste ha en enda \@ som det första tecknet.  
   
- **Kommentarer**  
+  **Kommentarer**  
   
- När du anropar en inbyggda eller användardefinierade skalärfunktion måste alla argument definieras. Om något av argumenten är odefinierad kommer inte att anropa funktionen och resultatet blir odefinierad.  
+  När du anropar en inbyggda eller användardefinierade skalärfunktion måste alla argument definieras. Om något av argumenten är odefinierad kommer inte att anropa funktionen och resultatet blir odefinierad.  
   
- När du skapar ett objekt ska hoppas över egenskaper som är tilldelad odefinierat värde och inte ingår i det skapade objektet.  
+  När du skapar ett objekt ska hoppas över egenskaper som är tilldelad odefinierat värde och inte ingår i det skapade objektet.  
   
- När skapar en matris, ett elementvärde som tilldelas **odefinierat** värde ska hoppas över och inte ingår i det skapade objektet. Detta innebär att nästa definierade element ska utföras så att den Skapa matrisen inte kommer ha hoppas över index.  
+  När skapar en matris, ett elementvärde som tilldelas **odefinierat** värde ska hoppas över och inte ingår i det skapade objektet. Detta innebär att nästa definierade element ska utföras så att den Skapa matrisen inte kommer ha hoppas över index.  
   
 ##  <a name="bk_operators"></a> Operatörer  
  Det här avsnittet beskrivs operatorer som stöds. Varje operatör kan tilldelas till exakt en kategori.  
@@ -498,9 +498,11 @@ ORDER BY <sort_specification>
 |**Sträng**|**&#124;&#124;**|Sammanfogning. Returnerar en sammansättning av båda argumenten.|  
   
  **Diagram-Ternär operatorer:**  
-  
-|Ternär operator|?|Returnerar det andra argumentet om det första argumentet utvärderas till **SANT**; annars returneras det tredje argumentet.|  
+
+|**Namn**|**Operator**|**Detaljer**| 
 |-|-|-|  
+|Ternär operator|?|Returnerar det andra argumentet om det första argumentet utvärderas till **SANT**; annars returneras det tredje argumentet.|  
+
   
  **Sorteringen av värden för jämförelse**  
   
@@ -614,7 +616,7 @@ ORDER BY <sort_specification>
   
   Stränglitteraler är Unicode-strängar som representeras av en sekvens med noll eller flera Unicode-tecken eller escape-sekvenser. Stränglitteraler är inom enkla citattecken (apostrof ”:) eller dubbla citattecken (citattecken”:).  
   
- Följande escape-sekvenser tillåts:  
+  Följande escape-sekvenser tillåts:  
   
 |**Escape-sekvensen**|**Beskrivning**|**Unicode-tecken**|  
 |-|-|-|  
@@ -634,17 +636,17 @@ ORDER BY <sort_specification>
   
  Följande filter beaktas för index sökning:  
   
--   Använd Likhetsoperatorn (=) med ett dokument sökvägsuttryck och en konstant.  
+- Använd Likhetsoperatorn (=) med ett dokument sökvägsuttryck och en konstant.  
   
--   Använda range-operatorer (<, \<=, >, > =) med ett dokument sökvägsuttryck och antalet konstanter.  
+- Använda range-operatorer (<, \<=, >, > =) med ett dokument sökvägsuttryck och antalet konstanter.  
   
--   Dokumentet sökvägsuttryck står för ett uttryck som identifierar en konstant sökväg i dokument från behållaren refererad databas.  
+- Dokumentet sökvägsuttryck står för ett uttryck som identifierar en konstant sökväg i dokument från behållaren refererad databas.  
   
- **Dokumentet sökvägsuttryck**  
+  **Dokumentet sökvägsuttryck**  
   
- Dokumentet sökvägsuttryck är uttryck som en sökväg till egenskapen eller matris indexeraren bedömare över ett dokument som kommer från databasen behållardokument. Den här sökvägen kan användas för att identifiera platsen för värden som refereras i ett filter direkt i dokumenten i behållaren för databasen.  
+  Dokumentet sökvägsuttryck är uttryck som en sökväg till egenskapen eller matris indexeraren bedömare över ett dokument som kommer från databasen behållardokument. Den här sökvägen kan användas för att identifiera platsen för värden som refereras i ett filter direkt i dokumenten i behållaren för databasen.  
   
- För ett uttryck för att anses vara ett dokument sökvägsuttryck, bör det:  
+  För ett uttryck för att anses vara ett dokument sökvägsuttryck, bör det:  
   
 1.  Referera till roten behållare direkt.  
   
@@ -707,17 +709,17 @@ ABS (<numeric_expression>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visar resultatet av att använda funktionen ABS på tre olika antal.  
+  I följande exempel visar resultatet av att använda funktionen ABS på tre olika antal.  
   
 ```  
 SELECT ABS(-1), ABS(0), ABS(1)  
@@ -740,17 +742,17 @@ ACOS(<numeric_expression>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel returneras ACOS-1.  
+  I följande exempel returneras ACOS-1.  
   
 ```  
 SELECT ACOS(-1)  
@@ -773,17 +775,17 @@ ASIN(<numeric_expression>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel returneras ASIN-1.  
+  I följande exempel returneras ASIN-1.  
   
 ```  
 SELECT ASIN(-1)  
@@ -806,17 +808,17 @@ ATAN(<numeric_expression>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel returneras ATAN av det angivna värdet.  
+  I följande exempel returneras ATAN av det angivna värdet.  
   
 ```  
 SELECT ATAN(-45.01)  
@@ -839,17 +841,17 @@ ATN2(<numeric_expression>, <numeric_expression>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel beräknar ATN2 för den angivna x- och y komponenter.  
+  I följande exempel beräknar ATN2 för den angivna x- och y komponenter.  
   
 ```  
 SELECT ATN2(35.175643, 129.44)  
@@ -872,17 +874,17 @@ CEILING (<numeric_expression>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visas positivt numeriskt och negativa noll värden med funktionen tak.  
+  I följande exempel visas positivt numeriskt och negativa noll värden med funktionen tak.  
   
 ```  
 SELECT CEILING(123.45), CEILING(-123.45), CEILING(0.0)  
@@ -905,17 +907,17 @@ COS(<numeric_expression>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel beräknar COS för den angivna vinkeln.  
+  I följande exempel beräknar COS för den angivna vinkeln.  
   
 ```  
 SELECT COS(14.78)  
@@ -938,17 +940,17 @@ COT(<numeric_expression>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel beräknar COT för den angivna vinkeln.  
+  I följande exempel beräknar COT för den angivna vinkeln.  
   
 ```  
 SELECT COT(124.1332)  
@@ -971,17 +973,17 @@ DEGREES (<numeric_expression>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel returneras grad i en vinkeln för PI/2 radianer.  
+  I följande exempel returneras grad i en vinkeln för PI/2 radianer.  
   
 ```  
 SELECT DEGREES(PI()/2)  
@@ -1004,17 +1006,17 @@ FLOOR (<numeric_expression>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visas positivt numeriskt och negativa noll värden med funktionen VÅNING.  
+  I följande exempel visas positivt numeriskt och negativa noll värden med funktionen VÅNING.  
   
 ```  
 SELECT FLOOR(123.45), FLOOR(-123.45), FLOOR(0.0)  
@@ -1037,25 +1039,25 @@ EXP (<numeric_expression>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Kommentarer**  
+  **Kommentarer**  
   
- Ständiga **e** (2.718281...) är basen för logaritmen.  
+  Ständiga **e** (2.718281...) är basen för logaritmen.  
   
- E upphöjt till ett tal är konstanten **e** upphöjt till för talet. Till exempel EXP(1.0) = e ^ 1.0 = 2.71828182845905 och EXP(10) = e ^ 10 = 22026.4657948067.  
+  E upphöjt till ett tal är konstanten **e** upphöjt till för talet. Till exempel EXP(1.0) = e ^ 1.0 = 2.71828182845905 och EXP(10) = e ^ 10 = 22026.4657948067.  
   
- Exponenten för den naturliga logaritmen för ett tal är antalet själva: EXP (loggning (n)) = n. Och den naturliga logaritmen för e upphöjt till ett tal är antalet själva: LOG (EXP (n)) = n.  
+  Exponenten för den naturliga logaritmen för ett tal är antalet själva: EXP (loggning (n)) = n. Och den naturliga logaritmen för e upphöjt till ett tal är antalet själva: LOG (EXP (n)) = n.  
   
- **Exempel**  
+  **Exempel**  
   
- Exemplet nedan deklarerar en variabel och returnerar exponentiell värdet för den angivna variabeln (10).  
+  Exemplet nedan deklarerar en variabel och returnerar exponentiell värdet för den angivna variabeln (10).  
   
 ```  
 SELECT EXP(10)  
@@ -1090,29 +1092,29 @@ LOG (<numeric_expression> [, <base>])
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
--   `base`  
+- `base`  
   
-     Valfritt numeriska argument som anger basen för logaritmen.  
+   Valfritt numeriska argument som anger basen för logaritmen.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Kommentarer**  
+  **Kommentarer**  
   
- Som standard returnerar LOG() den naturliga logaritmen. Du kan ändra logaritmens bas till ett annat värde med hjälp av den grundläggande icke obligatoriska parametern.  
+  Som standard returnerar LOG() den naturliga logaritmen. Du kan ändra logaritmens bas till ett annat värde med hjälp av den grundläggande icke obligatoriska parametern.  
   
- Den naturliga logaritmen är logaritmen för talet **e**, där **e** är en onormal konstant ungefär lika 2.718281828.  
+  Den naturliga logaritmen är logaritmen för talet **e**, där **e** är en onormal konstant ungefär lika 2.718281828.  
   
- Den naturliga logaritmen för e upphöjt till ett tal är antalet själva: LOGG (EXP (n)) = n. Och exponentiell för den naturliga logaritmen för ett tal är antalet själva: EXP (loggning (n)) = n.  
+  Den naturliga logaritmen för e upphöjt till ett tal är antalet själva: LOGG (EXP (n)) = n. Och exponentiell för den naturliga logaritmen för ett tal är antalet själva: EXP (loggning (n)) = n.  
   
- **Exempel**  
+  **Exempel**  
   
- Exemplet nedan deklarerar en variabel och Returnerar logaritmen värdet för den angivna variabeln (10).  
+  Exemplet nedan deklarerar en variabel och Returnerar logaritmen värdet för den angivna variabeln (10).  
   
 ```  
 SELECT LOG(10)  
@@ -1147,21 +1149,21 @@ LOG10 (<numeric_expression>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Kommentarer**  
+  **Kommentarer**  
   
- Funktionerna LOG10 och POWER är omvänt relaterade till varandra. Till exempel 10 ^ LOG10(n) = n.  
+  Funktionerna LOG10 och POWER är omvänt relaterade till varandra. Till exempel 10 ^ LOG10(n) = n.  
   
- **Exempel**  
+  **Exempel**  
   
- Exemplet nedan deklarerar en variabel och returnerar LOG10 värdet för den angivna variabeln (100).  
+  Exemplet nedan deklarerar en variabel och returnerar LOG10 värdet för den angivna variabeln (100).  
   
 ```  
 SELECT LOG10(100)  
@@ -1184,17 +1186,17 @@ PI ()
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel returneras värdet för PI.  
+  I följande exempel returneras värdet för PI.  
   
 ```  
 SELECT PI()  
@@ -1217,21 +1219,21 @@ POWER (<numeric_expression>, <y>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
--   `y`  
+- `y`  
   
-     Strömbrytare som att höja `numeric_expression`.  
+   Strömbrytare som att höja `numeric_expression`.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visar att ett tal upphöjt till 3 (kuben talets).  
+  I följande exempel visar att ett tal upphöjt till 3 (kuben talets).  
   
 ```  
 SELECT POWER(2, 3), POWER(2.5, 3)  
@@ -1254,17 +1256,17 @@ RADIANS (<numeric_expression>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel tar några vinklar som indata och returnerar motsvarande radian värden.  
+  I följande exempel tar några vinklar som indata och returnerar motsvarande radian värden.  
   
 ```  
 SELECT RADIANS(-45.01), RADIANS(-181.01), RADIANS(0), RADIANS(0.1472738), RADIANS(197.1099392)  
@@ -1293,17 +1295,17 @@ ROUND(<numeric_expression>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel Avrundar följande positiva och negativa tal till närmaste heltal.  
+  I följande exempel Avrundar följande positiva och negativa tal till närmaste heltal.  
   
 ```  
 SELECT ROUND(2.4), ROUND(2.6), ROUND(2.5), ROUND(-2.4), ROUND(-2.6)  
@@ -1326,17 +1328,17 @@ SIGN(<numeric_expression>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel returneras LOGGA värden av tal från -2 till 2.  
+  I följande exempel returneras LOGGA värden av tal från -2 till 2.  
   
 ```  
 SELECT SIGN(-2), SIGN(-1), SIGN(0), SIGN(1), SIGN(2)  
@@ -1359,17 +1361,17 @@ SIN(<numeric_expression>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel beräknar SIN för den angivna vinkeln.  
+  I följande exempel beräknar SIN för den angivna vinkeln.  
   
 ```  
 SELECT SIN(45.175643)  
@@ -1392,17 +1394,17 @@ SQRT(<numeric_expression>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel returnerar roten av talen 1-3.  
+  I följande exempel returnerar roten av talen 1-3.  
   
 ```  
 SELECT SQRT(1), SQRT(2.0), SQRT(3)  
@@ -1425,17 +1427,17 @@ SQUARE(<numeric_expression>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel returneras rutor för tal 1-3.  
+  I följande exempel returneras rutor för tal 1-3.  
   
 ```  
 SELECT SQUARE(1), SQUARE(2.0), SQUARE(3)  
@@ -1458,17 +1460,17 @@ TAN (<numeric_expression>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel beräknar tangens för PI () / 2.  
+  I följande exempel beräknar tangens för PI () / 2.  
   
 ```  
 SELECT TAN(PI()/2);  
@@ -1491,17 +1493,17 @@ TRUNC(<numeric_expression>)
   
  **Argument**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel trunkerar följande positiva och negativa tal till närmaste heltal.  
+  I följande exempel trunkerar följande positiva och negativa tal till närmaste heltal.  
   
 ```  
 SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)  
@@ -1533,17 +1535,17 @@ IS_ARRAY(<expression>)
   
  **Argument**  
   
--   `expression`  
+- `expression`  
   
-     Är ett giltigt uttryck.  
+   Är ett giltigt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett booleskt uttryck.  
+  Returnerar ett booleskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel kontrollerar objekt i JSON-boolesk, tal, sträng, null, objektet, matrisen och odefinierad typer med hjälp av funktionen IS_ARRAY.  
+  I följande exempel kontrollerar objekt i JSON-boolesk, tal, sträng, null, objektet, matrisen och odefinierad typer med hjälp av funktionen IS_ARRAY.  
   
 ```  
 SELECT   
@@ -1573,17 +1575,17 @@ IS_BOOL(<expression>)
   
  **Argument**  
   
--   `expression`  
+- `expression`  
   
-     Är ett giltigt uttryck.  
+   Är ett giltigt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett booleskt uttryck.  
+  Returnerar ett booleskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel kontrollerar objekt i JSON-boolesk, tal, sträng, null, objektet, matrisen och odefinierad typer med hjälp av funktionen IS_BOOL.  
+  I följande exempel kontrollerar objekt i JSON-boolesk, tal, sträng, null, objektet, matrisen och odefinierad typer med hjälp av funktionen IS_BOOL.  
   
 ```  
 SELECT   
@@ -1613,17 +1615,17 @@ IS_DEFINED(<expression>)
   
  **Argument**  
   
--   `expression`  
+- `expression`  
   
-     Är ett giltigt uttryck.  
+   Är ett giltigt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett booleskt uttryck.  
+  Returnerar ett booleskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel söker efter förekomsten av en egenskap i det angivna JSON-dokumentet. Först returnerar true eftersom ”a” finns, men andra returnerar FALSKT eftersom ”b” saknas.  
+  I följande exempel söker efter förekomsten av en egenskap i det angivna JSON-dokumentet. Först returnerar true eftersom ”a” finns, men andra returnerar FALSKT eftersom ”b” saknas.  
   
 ```  
 SELECT IS_DEFINED({ "a" : 5 }.a), IS_DEFINED({ "a" : 5 }.b)  
@@ -1649,17 +1651,17 @@ IS_NULL(<expression>)
   
  **Argument**  
   
--   `expression`  
+- `expression`  
   
-     Är ett giltigt uttryck.  
+   Är ett giltigt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett booleskt uttryck.  
+  Returnerar ett booleskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel kontrollerar objekt i JSON-boolesk, tal, sträng, null, objektet, matrisen och odefinierad typer med hjälp av funktionen IS_NULL.  
+  I följande exempel kontrollerar objekt i JSON-boolesk, tal, sträng, null, objektet, matrisen och odefinierad typer med hjälp av funktionen IS_NULL.  
   
 ```  
 SELECT   
@@ -1689,17 +1691,17 @@ IS_NUMBER(<expression>)
   
  **Argument**  
   
--   `expression`  
+- `expression`  
   
-     Är ett giltigt uttryck.  
+   Är ett giltigt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett booleskt uttryck.  
+  Returnerar ett booleskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel kontrollerar objekt i JSON-boolesk, tal, sträng, null, objektet, matrisen och odefinierad typer med hjälp av funktionen IS_NULL.  
+  I följande exempel kontrollerar objekt i JSON-boolesk, tal, sträng, null, objektet, matrisen och odefinierad typer med hjälp av funktionen IS_NULL.  
   
 ```  
 SELECT   
@@ -1729,17 +1731,17 @@ IS_OBJECT(<expression>)
   
  **Argument**  
   
--   `expression`  
+- `expression`  
   
-     Är ett giltigt uttryck.  
+   Är ett giltigt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett booleskt uttryck.  
+  Returnerar ett booleskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel kontrollerar objekt i JSON-boolesk, tal, sträng, null, objektet, matrisen och odefinierad typer med hjälp av funktionen IS_OBJECT.  
+  I följande exempel kontrollerar objekt i JSON-boolesk, tal, sträng, null, objektet, matrisen och odefinierad typer med hjälp av funktionen IS_OBJECT.  
   
 ```  
 SELECT   
@@ -1769,17 +1771,17 @@ IS_PRIMITIVE(<expression>)
   
  **Argument**  
   
--   `expression`  
+- `expression`  
   
-     Är ett giltigt uttryck.  
+   Är ett giltigt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett booleskt uttryck.  
+  Returnerar ett booleskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel kontrollerar objekt i JSON-boolesk, tal, sträng, null, objektet, matrisen och odefinierad typer med hjälp av funktionen IS_PRIMITIVE.  
+  I följande exempel kontrollerar objekt i JSON-boolesk, tal, sträng, null, objektet, matrisen och odefinierad typer med hjälp av funktionen IS_PRIMITIVE.  
   
 ```  
 SELECT   
@@ -1809,17 +1811,17 @@ IS_STRING(<expression>)
   
  **Argument**  
   
--   `expression`  
+- `expression`  
   
-     Är ett giltigt uttryck.  
+   Är ett giltigt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett booleskt uttryck.  
+  Returnerar ett booleskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel kontrollerar objekt i JSON-boolesk, tal, sträng, null, objektet, matrisen och odefinierad typer med hjälp av funktionen IS_STRING.  
+  I följande exempel kontrollerar objekt i JSON-boolesk, tal, sträng, null, objektet, matrisen och odefinierad typer med hjälp av funktionen IS_STRING.  
   
 ```  
 SELECT   
@@ -1850,7 +1852,7 @@ SELECT
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[StringToArray](#bk_stringtoarray)|
 |[StringToBoolean](#bk_stringtoboolean)|[StringToNull](#bk_stringtonull)|[StringToNumber](#bk_stringtonumber)|
 |[StringToObject](#bk_stringtoobject)|[DELSTRÄNGEN](#bk_substring)|[ToString](#bk_tostring)|
-|[TRIM](#bk_trim)|[ÖVRE](#bk_upper)||| 
+|[TRIM](#bk_trim)|[ÖVRE](#bk_upper)||
   
 ####  <a name="bk_concat"></a> CONCAT  
  Returnerar en sträng som är resultatet av en sammanfogning av två eller fler strängvärden.  
@@ -1863,17 +1865,17 @@ CONCAT(<str_expr>, <str_expr> [, <str_expr>])
   
  **Argument**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Är ett stränguttryck.  
+   Är ett stränguttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett stränguttryck.  
+  Returnerar ett stränguttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel returneras sammanfogad sträng med de angivna värdena.  
+  I följande exempel returneras sammanfogad sträng med de angivna värdena.  
   
 ```  
 SELECT CONCAT("abc", "def")  
@@ -1896,17 +1898,17 @@ CONTAINS(<str_expr>, <str_expr>)
   
  **Argument**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Är ett stränguttryck.  
+   Är ett stränguttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett booleskt uttryck.  
+  Returnerar ett booleskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel kontrollerar om ”abc” innehåller ”ab” och ”d”.  
+  I följande exempel kontrollerar om ”abc” innehåller ”ab” och ”d”.  
   
 ```  
 SELECT CONTAINS("abc", "ab"), CONTAINS("abc", "d")  
@@ -1929,17 +1931,17 @@ ENDSWITH(<str_expr>, <str_expr>)
   
  **Argument**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Är ett stränguttryck.  
+   Är ett stränguttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett booleskt uttryck.  
+  Returnerar ett booleskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel returneras ”abc” slutar med ”b” och ”bc”.  
+  I följande exempel returneras ”abc” slutar med ”b” och ”bc”.  
   
 ```  
 SELECT ENDSWITH("abc", "b"), ENDSWITH("abc", "bc")  
@@ -1962,17 +1964,17 @@ INDEX_OF(<str_expr>, <str_expr>)
   
  **Argument**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Är ett stränguttryck.  
+   Är ett stränguttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel returnerar index för olika delsträngar i ”abc”.  
+  I följande exempel returnerar index för olika delsträngar i ”abc”.  
   
 ```  
 SELECT INDEX_OF("abc", "ab"), INDEX_OF("abc", "b"), INDEX_OF("abc", "c")  
@@ -1995,21 +1997,21 @@ LEFT(<str_expr>, <num_expr>)
   
  **Argument**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Är ett stränguttryck.  
+   Är ett stränguttryck.  
   
--   `num_expr`  
+- `num_expr`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett stränguttryck.  
+  Returnerar ett stränguttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel returneras den vänstra delen av ”abc” för värden för olika längd.  
+  I följande exempel returneras den vänstra delen av ”abc” för värden för olika längd.  
   
 ```  
 SELECT LEFT("abc", 1), LEFT("abc", 2)  
@@ -2032,17 +2034,17 @@ LENGTH(<str_expr>)
   
  **Argument**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Är ett stränguttryck.  
+   Är ett stränguttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett stränguttryck.  
+  Returnerar ett stränguttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel returnerar längden på en sträng.  
+  I följande exempel returnerar längden på en sträng.  
   
 ```  
 SELECT LENGTH("abc")  
@@ -2065,17 +2067,17 @@ LOWER(<str_expr>)
   
  **Argument**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Är ett stränguttryck.  
+   Är ett stränguttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett stränguttryck.  
+  Returnerar ett stränguttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visar hur du använder lägre i en fråga.  
+  I följande exempel visar hur du använder lägre i en fråga.  
   
 ```  
 SELECT LOWER("Abc")  
@@ -2099,17 +2101,17 @@ LTRIM(<str_expr>)
   
  **Argument**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Är ett stränguttryck.  
+   Är ett stränguttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett stränguttryck.  
+  Returnerar ett stränguttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visar hur du använder LTRIM inuti en fråga.  
+  I följande exempel visar hur du använder LTRIM inuti en fråga.  
   
 ```  
 SELECT LTRIM("  abc"), LTRIM("abc"), LTRIM("abc   ")  
@@ -2132,17 +2134,17 @@ REPLACE(<str_expr>, <str_expr>, <str_expr>)
   
  **Argument**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Är ett stränguttryck.  
+   Är ett stränguttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett stränguttryck.  
+  Returnerar ett stränguttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visar hur du använder Ersätt i en fråga.  
+  I följande exempel visar hur du använder Ersätt i en fråga.  
   
 ```  
 SELECT REPLACE("This is a Test", "Test", "desk")  
@@ -2165,24 +2167,24 @@ REPLICATE(<str_expr>, <num_expr>)
   
  **Argument**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Är ett stränguttryck.  
+   Är ett stränguttryck.  
   
--   `num_expr`  
+- `num_expr`  
   
-     Är ett numeriskt uttryck. Om num_expr är negativt eller icke-bestämt antal, är resultatet odefinierad.
+   Är ett numeriskt uttryck. Om num_expr är negativt eller icke-bestämt antal, är resultatet odefinierad.
 
   > [!NOTE]
   > Den maximala längden på resultatet är 10 000 tecken d.v.s. (length(str_expr) * num_expr) < = 10000.
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett stränguttryck.  
+  Returnerar ett stränguttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visar hur du använder replikering i en fråga.  
+  I följande exempel visar hur du använder replikering i en fråga.  
   
 ```  
 SELECT REPLICATE("a", 3)  
@@ -2205,17 +2207,17 @@ REVERSE(<str_expr>)
   
  **Argument**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Är ett stränguttryck.  
+   Är ett stränguttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett stränguttryck.  
+  Returnerar ett stränguttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visar hur du använder OMVÄND i en fråga.  
+  I följande exempel visar hur du använder OMVÄND i en fråga.  
   
 ```  
 SELECT REVERSE("Abc")  
@@ -2238,21 +2240,21 @@ RIGHT(<str_expr>, <num_expr>)
   
  **Argument**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Är ett stränguttryck.  
+   Är ett stränguttryck.  
   
--   `num_expr`  
+- `num_expr`  
   
-     Är ett numeriskt uttryck.  
+   Är ett numeriskt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett stränguttryck.  
+  Returnerar ett stränguttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel returneras den högra delen av ”abc” för värden för olika längd.  
+  I följande exempel returneras den högra delen av ”abc” för värden för olika längd.  
   
 ```  
 SELECT RIGHT("abc", 1), RIGHT("abc", 2)  
@@ -2275,17 +2277,17 @@ RTRIM(<str_expr>)
   
  **Argument**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Är ett stränguttryck.  
+   Är ett stränguttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett stränguttryck.  
+  Returnerar ett stränguttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visar hur du använder RTRIM inuti en fråga.  
+  I följande exempel visar hur du använder RTRIM inuti en fråga.  
   
 ```  
 SELECT RTRIM("  abc"), RTRIM("abc"), RTRIM("abc   ")  
@@ -2308,17 +2310,17 @@ STARTSWITH(<str_expr>, <str_expr>)
   
  **Argument**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Är ett stränguttryck.  
+   Är ett stränguttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett booleskt uttryck.  
+  Returnerar ett booleskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel kontrollerar om strängen ”abc” börjar med ”b” och ”a”.  
+  I följande exempel kontrollerar om strängen ”abc” börjar med ”b” och ”a”.  
   
 ```  
 SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")  
@@ -2341,17 +2343,17 @@ StringToArray(<expr>)
   
  **Argument**  
   
--   `expr`  
+- `expr`  
   
-     Är ett giltigt JSON-matris-uttryck. Observera att strängvärden måste skrivas med dubbla citattecken ska vara giltigt. Mer information om JSON-format finns [json.org](https://json.org/)
+   Är ett giltigt JSON-matris-uttryck. Observera att strängvärden måste skrivas med dubbla citattecken ska vara giltigt. Mer information om JSON-format finns [json.org](https://json.org/)
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett matrisuttryck eller odefinierad.  
+  Returnerar ett matrisuttryck eller odefinierad.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visas hur StringToArray beter sig över olika typer. 
+  I följande exempel visas hur StringToArray beter sig över olika typer. 
   
 ```  
 SELECT 
@@ -2385,17 +2387,17 @@ StringToBoolean(<expr>)
   
  **Argument**  
   
--   `expr`  
+- `expr`  
   
-     Är ett giltigt uttryck.  
+   Är ett giltigt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett booleskt uttryck eller odefinierad.  
+  Returnerar ett booleskt uttryck eller odefinierad.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visas hur StringToBoolean beter sig över olika typer. 
+  I följande exempel visas hur StringToBoolean beter sig över olika typer. 
   
 ```  
 SELECT 
@@ -2428,17 +2430,17 @@ StringToNull(<expr>)
   
  **Argument**  
   
--   `expr`  
+- `expr`  
   
-     Är ett giltigt uttryck.  
+   Är ett giltigt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett uttryck som är null eller odefinierad.  
+  Returnerar ett uttryck som är null eller odefinierad.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visas hur StringToNull beter sig över olika typer. 
+  I följande exempel visas hur StringToNull beter sig över olika typer. 
   
 ```  
 SELECT 
@@ -2470,17 +2472,17 @@ StringToNumber(<expr>)
   
  **Argument**  
   
--   `expr`  
+- `expr`  
   
-     Är ett giltigt JSON-Number-uttryck. Siffror i JSON måste vara ett heltal eller ett flyttal. Mer information om JSON-format finns [json.org](https://json.org/)  
+   Är ett giltigt JSON-Number-uttryck. Siffror i JSON måste vara ett heltal eller ett flyttal. Mer information om JSON-format finns [json.org](https://json.org/)  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett antal uttryck eller odefinierad.  
+  Returnerar ett antal uttryck eller odefinierad.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visas hur StringToNumber beter sig över olika typer. 
+  I följande exempel visas hur StringToNumber beter sig över olika typer. 
   
 ```  
 SELECT 
@@ -2515,17 +2517,17 @@ StringToObject(<expr>)
   
  **Argument**  
   
--   `expr`  
+- `expr`  
   
-     Är ett giltigt uttryck för JSON-objekt. Observera att strängvärden måste skrivas med dubbla citattecken ska vara giltigt. Mer information om JSON-format finns [json.org](https://json.org/)  
+   Är ett giltigt uttryck för JSON-objekt. Observera att strängvärden måste skrivas med dubbla citattecken ska vara giltigt. Mer information om JSON-format finns [json.org](https://json.org/)  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett objektuttryck eller odefinierad.  
+  Returnerar ett objektuttryck eller odefinierad.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visas hur StringToObject beter sig över olika typer. 
+  I följande exempel visas hur StringToObject beter sig över olika typer. 
   
 ```  
 SELECT 
@@ -2559,21 +2561,21 @@ SUBSTRING(<str_expr>, <num_expr>, <num_expr>)
   
  **Argument**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Är ett stränguttryck.  
+   Är ett stränguttryck.  
   
--   `num_expr`  
+- `num_expr`  
   
-     Är ett numeriskt uttryck för att ange start- och tecken.    
+   Är ett numeriskt uttryck för att ange start- och tecken.    
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett stränguttryck.  
+  Returnerar ett stränguttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel Returnerar delsträngen av ”abc” vid 1 och en längd på 1 tecken.  
+  I följande exempel Returnerar delsträngen av ”abc” vid 1 och en längd på 1 tecken.  
   
 ```  
 SELECT SUBSTRING("abc", 1, 1)  
@@ -2595,17 +2597,17 @@ ToString(<expr>)
   
  **Argument**  
   
--   `expr`  
+- `expr`  
   
-     Är ett skalärt uttryck.  
+   Är ett skalärt uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett stränguttryck.  
+  Returnerar ett stränguttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visas hur ToString beter sig över olika typer.   
+  I följande exempel visas hur ToString beter sig över olika typer.   
   
 ```  
 SELECT ToString(1.0000), ToString("Hello World"), ToString(NaN), ToString(Infinity),
@@ -2670,17 +2672,17 @@ TRIM(<str_expr>)
   
  **Argument**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Är ett stränguttryck.  
+   Är ett stränguttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett stränguttryck.  
+  Returnerar ett stränguttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visar hur du använder TRIMNING inuti en fråga.  
+  I följande exempel visar hur du använder TRIMNING inuti en fråga.  
   
 ```  
 SELECT TRIM("   abc"), TRIM("   abc   "), TRIM("abc   "), TRIM("abc")   
@@ -2702,17 +2704,17 @@ UPPER(<str_expr>)
   
  **Argument**  
   
--   `str_expr`  
+- `str_expr`  
   
-     Är ett stränguttryck.  
+   Är ett stränguttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett stränguttryck.  
+  Returnerar ett stränguttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visas hur du använder längst upp i en fråga  
+  I följande exempel visas hur du använder längst upp i en fråga  
   
 ```  
 SELECT UPPER("Abc")  
@@ -2743,17 +2745,17 @@ ARRAY_CONCAT (<arr_expr>, <arr_expr> [, <arr_expr>])
   
  **Argument**  
   
--   `arr_expr`  
+- `arr_expr`  
   
-     Är någon giltig matris-uttryck.  
+   Är någon giltig matris-uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett matrisuttryck.  
+  Returnerar ett matrisuttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel hur du sammanfoga två matriser.  
+  I följande exempel hur du sammanfoga två matriser.  
   
 ```  
 SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])  
@@ -2776,25 +2778,25 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
   
  **Argument**  
   
--   `arr_expr`  
+- `arr_expr`  
   
-     Är någon giltig matris-uttryck.  
+   Är någon giltig matris-uttryck.  
   
--   `expr`  
+- `expr`  
   
-     Är ett giltigt uttryck.  
+   Är ett giltigt uttryck.  
 
--   `bool_expr`  
+- `bool_expr`  
   
-     Är ett booleskt uttryck. Om den är inställd på ' true'and om det angivna värdet är ett objekt, kommandot söker efter en delvis matchning (objektet search är en delmängd av ett av objekten). Om den är inställd på 'false', söker kommandot efter en fullständig matchning av alla objekt i matrisen. Standardvärdet om inget anges är false. 
+   Är ett booleskt uttryck. Om den är inställd på ' true'and om det angivna värdet är ett objekt, kommandot söker efter en delvis matchning (objektet search är en delmängd av ett av objekten). Om den är inställd på 'false', söker kommandot efter en fullständig matchning av alla objekt i matrisen. Standardvärdet om inget anges är false. 
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett booleskt värde.  
+  Returnerar ett booleskt värde.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel hur du kontrollerar om medlemskap i en matris med ARRAY_CONTAINS.  
+  I följande exempel hur du kontrollerar om medlemskap i en matris med ARRAY_CONTAINS.  
   
 ```  
 SELECT   
@@ -2838,17 +2840,17 @@ ARRAY_LENGTH(<arr_expr>)
   
  **Argument**  
   
--   `arr_expr`  
+- `arr_expr`  
   
-     Är någon giltig matris-uttryck.  
+   Är någon giltig matris-uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck.  
+  Returnerar ett numeriskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel hur du hämtar hur lång en matris med ARRAY_LENGTH.  
+  I följande exempel hur du hämtar hur lång en matris med ARRAY_LENGTH.  
   
 ```  
 SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"])  
@@ -2871,25 +2873,25 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
  **Argument**  
   
--   `arr_expr`  
+- `arr_expr`  
   
-     Är någon giltig matris-uttryck.  
+   Är någon giltig matris-uttryck.  
   
--   `num_expr`  
+- `num_expr`  
   
-     Nollbaserat numeriskt index som du vill börja matrisen. Negativa värden kan användas för att ange startIndex i förhållande till det sista elementet i matrisen d.v.s. -1-referenser till det sista elementet i matrisen.  
+   Nollbaserat numeriskt index som du vill börja matrisen. Negativa värden kan användas för att ange startIndex i förhållande till det sista elementet i matrisen d.v.s. -1-referenser till det sista elementet i matrisen.  
 
--   `num_expr`  
+- `num_expr`  
 
-     Maximalt antal element i matrisen resulterande.    
+   Maximalt antal element i matrisen resulterande.    
 
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett matrisuttryck.  
+  Returnerar ett matrisuttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visar hur du hämtar olika segment i en matris med ARRAY_SLICE.  
+  I följande exempel visar hur du hämtar olika segment i en matris med ARRAY_SLICE.  
   
 ```  
 SELECT   
@@ -2920,10 +2922,10 @@ SELECT
 ###  <a name="bk_spatial_functions"></a> Spatial funktioner  
  Följande skalärfunktioner utföra en åtgärd på en spatialobjektet indatavärdet och returnerar ett numeriskt eller booleskt värde.  
   
-||||  
-|-|-|-|  
-|[ST_DISTANCE](#bk_st_distance)|[ST_WITHIN](#bk_st_within)|[ST_INTERSECTS](#bk_st_intersects)|[ST_ISVALID](#bk_st_isvalid)|  
-|[ST_ISVALIDDETAILED](#bk_st_isvaliddetailed)|||  
+|||||
+|-|-|-|-|
+|[ST_DISTANCE](#bk_st_distance)|[ST_WITHIN](#bk_st_within)|[ST_INTERSECTS](#bk_st_intersects)|[ST_ISVALID](#bk_st_isvalid)|
+|[ST_ISVALIDDETAILED](#bk_st_isvaliddetailed)||||
   
 ####  <a name="bk_st_distance"></a> ST_DISTANCE  
  Returnerar avståndet mellan de två GeoJSON Point-, Polygon- eller LineString-uttrycken.  
@@ -2936,17 +2938,17 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   
  **Argument**  
   
--   `spatial_expr`  
+- `spatial_expr`  
   
-     Är ett giltigt uttryck för GeoJSON punkt, Polygon eller LineString-objektet.  
+   Är ett giltigt uttryck för GeoJSON punkt, Polygon eller LineString-objektet.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett numeriskt uttryck som innehåller avståndet. Detta uttrycks i mätare för referenssystem standard.  
+  Returnerar ett numeriskt uttryck som innehåller avståndet. Detta uttrycks i mätare för referenssystem standard.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visas hur du returnerar alla family dokument som ligger inom 30 km för den angivna platsen med hjälp av den inbyggda funktionen ST_DISTANCE. .  
+  I följande exempel visas hur du returnerar alla family dokument som ligger inom 30 km för den angivna platsen med hjälp av den inbyggda funktionen ST_DISTANCE. .  
   
 ```  
 SELECT f.id   
@@ -2973,21 +2975,21 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
   
  **Argument**  
   
--   `spatial_expr`  
+- `spatial_expr`  
   
-     Är ett giltigt uttryck för GeoJSON punkt, Polygon eller LineString-objektet.  
+   Är ett giltigt uttryck för GeoJSON punkt, Polygon eller LineString-objektet.  
  
--   `spatial_expr`  
+- `spatial_expr`  
   
-     Är ett giltigt uttryck för GeoJSON punkt, Polygon eller LineString-objektet.  
+   Är ett giltigt uttryck för GeoJSON punkt, Polygon eller LineString-objektet.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett booleskt värde.  
+  Returnerar ett booleskt värde.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visas hur du hittar alla family dokument i en polygon med ST_WITHIN.  
+  I följande exempel visas hur du hittar alla family dokument i en polygon med ST_WITHIN.  
   
 ```  
 SELECT f.id   
@@ -3015,21 +3017,21 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
   
  **Argument**  
   
--   `spatial_expr`  
+- `spatial_expr`  
   
-     Är ett giltigt uttryck för GeoJSON punkt, Polygon eller LineString-objektet.  
+   Är ett giltigt uttryck för GeoJSON punkt, Polygon eller LineString-objektet.  
  
--   `spatial_expr`  
+- `spatial_expr`  
   
-     Är ett giltigt uttryck för GeoJSON punkt, Polygon eller LineString-objektet.  
+   Är ett giltigt uttryck för GeoJSON punkt, Polygon eller LineString-objektet.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett booleskt värde.  
+  Returnerar ett booleskt värde.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visas hur du hittar alla områden som överlappar angivna polygonen.  
+  I följande exempel visas hur du hittar alla områden som överlappar angivna polygonen.  
   
 ```  
 SELECT a.id   
@@ -3057,21 +3059,21 @@ ST_ISVALID(<spatial_expr>)
   
  **Argument**  
   
--   `spatial_expr`  
+- `spatial_expr`  
   
-     Är ett giltigt GeoJSON punkt, Polygon eller LineString-uttryck.  
+   Är ett giltigt GeoJSON punkt, Polygon eller LineString-uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett booleskt uttryck.  
+  Returnerar ett booleskt uttryck.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel visas hur du kontrollerar om en är giltig med hjälp av ST_VALID.  
+  I följande exempel visas hur du kontrollerar om en är giltig med hjälp av ST_VALID.  
   
- Nu har exempelvis ett latitud-värde som inte är i det giltiga värdeintervallet [-90, 90], så fråga returnerar FALSKT.  
+  Nu har exempelvis ett latitud-värde som inte är i det giltiga värdeintervallet [-90, 90], så fråga returnerar FALSKT.  
   
- För polygoner kräver GeoJSON-specifikationen att senaste koordinaten paret som anges ska vara samma som först som skapar en sluten form. Punkter inom en polygon måste anges i motsols ordning. En polygon som angetts i medurs ordning representerar inversen till regionen i den.  
+  För polygoner kräver GeoJSON-specifikationen att senaste koordinaten paret som anges ska vara samma som först som skapar en sluten form. Punkter inom en polygon måste anges i motsols ordning. En polygon som angetts i medurs ordning representerar inversen till regionen i den.  
   
 ```  
 SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })  
@@ -3094,17 +3096,17 @@ ST_ISVALID(<spatial_expr>)
   
  **Argument**  
   
--   `spatial_expr`  
+- `spatial_expr`  
   
-     Är ett giltigt GeoJSON punkt eller polygon uttryck.  
+   Är ett giltigt GeoJSON punkt eller polygon uttryck.  
   
- **Returnera typer**  
+  **Returnera typer**  
   
- Returnerar ett JSON-värde som innehåller ett booleskt värde värdet om det angivna GeoJSON punkt eller polygon uttrycket är giltig och om det är ogiltig, dessutom orsak som ett strängvärde.  
+  Returnerar ett JSON-värde som innehåller ett booleskt värde värdet om det angivna GeoJSON punkt eller polygon uttrycket är giltig och om det är ogiltig, dessutom orsak som ett strängvärde.  
   
- **Exempel**  
+  **Exempel**  
   
- I följande exempel hur du kontrollerar giltigheten (med information om) med hjälp av ST_ISVALIDDETAILED.  
+  I följande exempel hur du kontrollerar giltigheten (med information om) med hjälp av ST_ISVALIDDETAILED.  
   
 ```  
 SELECT ST_ISVALIDDETAILED({   

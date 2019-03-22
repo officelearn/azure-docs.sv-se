@@ -4,7 +4,7 @@ description: Hur program för universell Windows-plattform (UWP) kan anropa ett 
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/18/2019
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e130da9bf12d25cc5c77c825512717bdf2ba5a1
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: b00a4f9ee561e8e9356b36d4a14b4bcb4f9a3357
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408824"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202868"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Anropa Microsoft Graph API från en Universal Windows Platform-program (XAML)
 
@@ -37,7 +37,7 @@ I slutet av den här guiden anropar ett skyddade API med hjälp av personliga ko
 
 ## <a name="how-this-guide-works"></a>Så här fungerar den här guiden
 
-![Hur fungerar den här guiden graph](./media/tutorial-v2-windows-uwp/uwp-intro.png)
+![Visar hur exempelapp som genererats av den här kursen fungerar](./media/tutorial-v2-windows-uwp/uwp-intro-updated.png)
 
 Den här guiden skapar ett UWP-exempelprogram som frågar Microsoft Graph API eller ett webb-API som accepterar token från Azure Active Directory v2.0-slutpunkten. Det här scenariot läggs en token till HTTP-förfrågningar via auktoriseringsrubriken. Microsoft Authentication Library (MSAL) hanterar token anskaffning och förnyelser.
 

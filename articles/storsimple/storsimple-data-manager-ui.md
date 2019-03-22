@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: e773986d11a11c6cc84df367aa48ac1b01a9183e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: fa897b4b77f7f5869eab2ba2e7db9afbd84febfa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157130"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121510"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Hantera StorSimple Data Manager-tjänsten i Azure-portalen
 
@@ -46,19 +46,19 @@ Utför följande steg för att skapa en StorSimple Data Manager-tjänsten.
 
 3. För den nya tjänsten anger du följande:
 
-    1. Ange ett unikt **tjänstnamn** för din StorSimple Data Manager. Det är ett eget namn som kan användas för att identifiera tjänsten. Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. Namnet måste börja och sluta med en bokstav eller en siffra.
+   1. Ange ett unikt **tjänstnamn** för din StorSimple Data Manager. Det är ett eget namn som kan användas för att identifiera tjänsten. Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. Namnet måste börja och sluta med en bokstav eller en siffra.
 
-    2. Välj en **prenumeration** från den nedrullningsbara listan. Prenumerationen är kopplad till ditt faktureringskonto. Det här fältet är automatiskt ifylld (och inte valbar) om du bara har en prenumeration.
+   2. Välj en **prenumeration** från den nedrullningsbara listan. Prenumerationen är kopplad till ditt faktureringskonto. Det här fältet är automatiskt ifylld (och inte valbar) om du bara har en prenumeration.
 
-    3. Välj en befintlig resursgrupp eller skapa en ny grupp. Mer information finns i avsnittet om [Azure-resursgrupper](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+   3. Välj en befintlig resursgrupp eller skapa en ny grupp. Mer information finns i avsnittet om [Azure-resursgrupper](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
 
-    4. Ange den **plats** för din tjänst som lagrar dina lagringskonton och StorSimple Data Manager-tjänsten. StorSimple Device Manager-tjänsten, Data Manager-tjänsten och det associerade lagringskontot ska i regionerna som stöds.
+   4. Ange den **plats** för din tjänst som lagrar dina lagringskonton och StorSimple Data Manager-tjänsten. StorSimple Device Manager-tjänsten, Data Manager-tjänsten och det associerade lagringskontot ska i regionerna som stöds.
     
-    5. Välj för att få en länk till den här tjänsten på instrumentpanelen, **fäst på instrumentpanelen**.
+   5. Välj för att få en länk till den här tjänsten på instrumentpanelen, **fäst på instrumentpanelen**.
     
-    6. Klicka på **Skapa**.
+   6. Klicka på **Skapa**.
 
-    ![Skapa en StorSimple Data Manager-tjänst 3](./media/storsimple-data-manager-ui/create-service-4.png)
+      ![Skapa en StorSimple Data Manager-tjänst 3](./media/storsimple-data-manager-ui/create-service-4.png)
 
 Det tar några minuter att skapa tjänsten. Du ser ett meddelande när tjänsten har skapats och den nya tjänsten visas.
 
@@ -88,33 +88,33 @@ Utför följande steg för att skapa en jobbdefinition.
 
     ![Lägg till ny data-lagringsplats](./media/storsimple-data-manager-ui/create-job-definition-3.png)
   
-    1. Välj **StorSimple 8000-serien Manager** som lagringsplats för datatyp.
+   1. Välj **StorSimple 8000-serien Manager** som lagringsplats för datatyp.
     
-    2. Ange ett eget namn för centrallagret data.
+   2. Ange ett eget namn för centrallagret data.
     
-    3. I listrutan väljer du en prenumeration som är associerade med din StorSimple Device Manager-tjänsten.
+   3. I listrutan väljer du en prenumeration som är associerade med din StorSimple Device Manager-tjänsten.
     
-    4. Ange namnet på StorSimple Device Manager för den **Resource**.
+   4. Ange namnet på StorSimple Device Manager för den **Resource**.
 
-    5. Ange den **Service datakryptering** nyckel för StorSimple Device Manager-tjänsten. 
+   5. Ange den **Service datakryptering** nyckel för StorSimple Device Manager-tjänsten. 
 
-    ![Konfigurera källa data lagringsplatsen 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
+      ![Konfigurera källa data lagringsplatsen 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
 
-    Klicka på **OK** när du är klar. Detta sparar ditt datalager. Återanvända StorSimple Device Manager i andra jobbdefinitioner utan att ange dessa parametrar igen. Det tar några sekunder när du klickar på **OK** för nyligen skapade källdatabasen data visas i listrutan.
+      Klicka på **OK** när du är klar. Detta sparar ditt datalager. Återanvända StorSimple Device Manager i andra jobbdefinitioner utan att ange dessa parametrar igen. Det tar några sekunder när du klickar på **OK** för nyligen skapade källdatabasen data visas i listrutan.
 
 7. I listrutan för **datalager**, Välj den databas du skapade. 
 
-    1. Ange namnet på den enhet i StorSimple 8000-serien som innehåller data av intresse.
+   1. Ange namnet på den enhet i StorSimple 8000-serien som innehåller data av intresse.
 
-    2. Ange namnet på den volym som finns på StorSimple-enheten där dina data av intresse.
+   2. Ange namnet på den volym som finns på StorSimple-enheten där dina data av intresse.
 
-    3. I den **Filter** underavsnitt, ange rotkatalogen som innehåller dina data av intresse i _\MyRootDirectory\Data_ format. Enhetsbeteckningar, till exempel _\C:\Data_ stöds inte. Du kan också lägga till alla filfilter.
+   3. I den **Filter** underavsnitt, ange rotkatalogen som innehåller dina data av intresse i _\MyRootDirectory\Data_ format. Enhetsbeteckningar, till exempel _\C:\Data_ stöds inte. Du kan också lägga till alla filfilter.
 
-    4. Omvandling datatjänst fungerar på de data som skickas till Azure via ögonblicksbilder. När du kör det här jobbet kan du göra en säkerhetskopia varje gång det här jobbet körs (för att fungera på senaste data) eller Använd den senaste säkerhetskopian i molnet (om du arbetar med vissa arkiverade data).
+   4. Omvandling datatjänst fungerar på de data som skickas till Azure via ögonblicksbilder. När du kör det här jobbet kan du göra en säkerhetskopia varje gång det här jobbet körs (för att fungera på senaste data) eller Använd den senaste säkerhetskopian i molnet (om du arbetar med vissa arkiverade data).
 
-    5. Klicka på **OK**.
+   5. Klicka på **OK**.
 
-    ![Konfigurera källa data lager 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
+      ![Konfigurera källa data lager 2](./media/storsimple-data-manager-ui/create-job-definition-8.png)
 
 8. Därefter måste data måldatabasen konfigureras. Välj lagringskonton för att placera filer i BLOB-objekt i det kontot. Välj i listrutan **Lägg till ny** och sedan **konfigurera inställningar för**.
 

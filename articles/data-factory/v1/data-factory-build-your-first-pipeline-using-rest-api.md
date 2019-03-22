@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2465dd6c22567a3d8b50a7cfad4e26491bbe773e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 384294dfcd443f0bdbb7a915069d2563bcc35ae4
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885208"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533893"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Självstudier: Skapa din första Azure-datafabrik med hjälp av REST-API:et för Data Factory
 > [!div class="op_single_selector"]
@@ -45,7 +45,10 @@ Pipeline i den här självstudien har en aktivitet: **HDInsight Hive-aktiviteten
 > En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) (Schemaläggning och utförande i Data Factory).
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Läs igenom artikeln [Självstudier – översikt](data-factory-build-your-first-pipeline.md) och slutför de **nödvändiga** stegen.
 * Installera [Curl](https://curl.haxx.se/dlwiz/) på din dator. Du kan använda verktyget CURL med REST-kommandon för att skapa en datafabrik.
 * Gör följande genom att följa anvisningarna i [den här artikeln](../../active-directory/develop/howto-create-service-principal-portal.md):
@@ -55,13 +58,13 @@ Pipeline i den här självstudien har en aktivitet: **HDInsight Hive-aktiviteten
   4. Tilldela **ADFGetStartedApp**-programmet rollen som **Data Factory-deltagare**.
 * [Installera Azure PowerShell](/powershell/azure/overview).
 * Starta **PowerShell** och kör följande kommando. Låt Azure PowerShell vara öppet tills du är klar med självstudien. Om du stänger och öppnar det igen måste du köra kommandona en gång till.
-  1. Kör **Connect-AzureRmAccount** och ange det användarnamn och lösenord som du använde för att logga in på Azure Portal.
-  2. Kör **Get-AzureRmSubscription** för att visa alla prenumerationer för det här kontot.
-  3. Kör **Get-AzureRmSubscription - SubscriptionName NameOfAzureSubscription | Set-AzureRmContext** och välj den prenumeration som du vill arbeta med. Ersätt **NameOfAzureSubscription** med namnet på din Azure-prenumeration.
+  1. Kör **Connect AzAccount** och ange användarnamn och lösenord som används för att logga in på Azure-portalen.
+  2. Kör **Get-AzSubscription** att visa alla prenumerationer för det här kontot.
+  3. Kör **Get-AzSubscription - SubscriptionName NameOfAzureSubscription | Set-AzContext** att välja den prenumeration som du vill arbeta med. Ersätt **NameOfAzureSubscription** med namnet på din Azure-prenumeration.
 * Skapa en Azure-resursgrupp med namnet **ADFTutorialResourceGroup** genom att köra följande kommando i PowerShell:
 
     ```PowerShell
-    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
    Vissa av stegen i den här självstudien förutsätter att du använder resursgruppen med namnet ADFTutorialResourceGroup. Om du använder en annan resursgrupp måste du använda namnet på din resursgrupp i stället för ADFTutorialResourceGroup i den här självstudiekursen.
@@ -132,7 +135,7 @@ Observera följande punkter:
 * Du kan använda **ditt eget HDInsight-kluster** i stället för att använda ett HDInsight-kluster på begäran. Se [HDInsight-länkad tjänst](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) för mer information.
 * HDInsight-klustret skapar en **standardcontainer** i den bloblagring som du angav i JSON (**linkedServiceName**). HDInsight tar inte bort den här containern när klustret tas bort. Det här beteendet är avsiktligt. Med en HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor bearbetas, såvida det inte finns ett befintligt live-kluster (**timeToLive**). Det raderas när bearbetningen är klar.
 
-    Allteftersom fler sektorer bearbetas kan du se många containrar i ditt Azure Blob Storage. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här containrarna följer ett mönster: ”adf**datafabrikensnamn**-**denlänkadetjänstensnamn**-datumtidsstämpel”. Använd verktyg som [Microsoft Lagringsutforskaren](http://storageexplorer.com/) till att ta bort containrar i din Azure bloblagring.
+    Allteftersom fler sektorer bearbetas kan du se många containrar i ditt Azure Blob Storage. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här containrarna följer ett mönster: ”adf**datafabrikensnamn**-**denlänkadetjänstensnamn**-datumtidsstämpel”. Använd verktyg som [Microsoft Lagringsutforskaren](https://storageexplorer.com/) till att ta bort containrar i din Azure bloblagring.
 
 Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information.
 
@@ -325,12 +328,12 @@ Observera följande punkter:
   * I Azure PowerShell kör du följande kommando för att registrera Data Factory-providern:
 
     ```PowerShell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
       Du kan köra följande kommando om du vill kontrollera att Data Factory-providern är registrerad:
     ```PowerShell
-    Get-AzureRmResourceProvider
+    Get-AzResourceProvider
     ```
   * Logga in med Azure-prenumerationen i [Azure Portal](https://portal.azure.com) och navigera till ett Data Factory-blad (eller) skapa en datafabrik i Azure Portal. Med den här åtgärden registreras providern automatiskt.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: a6e4f816d3c5be9d3a4f4824ad7ed26d48763034
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433281"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118058"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ansluta Azure till ITSM-verktyg som använder IT Service Management Connector
 
@@ -52,24 +52,24 @@ Du kan börja använda ITSM-anslutningsprogrammet med följande steg:
 
 Innan du kan skapa en anslutning, måste du lägga till lösning för ITSM-anslutningen.
 
-1.  I Azure-portalen klickar du på **+ ny** ikon.
+1. I Azure-portalen klickar du på **+ ny** ikon.
 
-    ![Nya Azure-resurs](media/itsmc-overview/azure-add-new-resource.png)
+   ![Nya Azure-resurs](media/itsmc-overview/azure-add-new-resource.png)
 
-2.  Sök efter **IT Service Management Connector** i Marketplace och på **skapa**.
+2. Sök efter **IT Service Management Connector** i Marketplace och på **skapa**.
 
-    ![Lägg till ITSMC lösning](media/itsmc-overview/add-itsmc-solution.png)
+   ![Lägg till ITSMC lösning](media/itsmc-overview/add-itsmc-solution.png)
 
-3.  I den **OMS-arbetsyta** väljer Azure Log Analytics-arbetsytan där du vill installera lösningen.
+3. I den **OMS-arbetsyta** väljer Azure Log Analytics-arbetsytan där du vill installera lösningen.
    >[!NOTE]
    >Som en del av pågående övergången från Microsoft Operations Management Suite (OMS) till Azure Monitor, är OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.
-4.  I den **inställningar för OMS-arbetsyta** väljer du den resursgrupp där du vill skapa resursen lösning.
+4. I den **inställningar för OMS-arbetsyta** väljer du den resursgrupp där du vill skapa resursen lösning.
 
-    ![ITSMC arbetsyta](media/itsmc-overview/itsmc-solution-workspace.png)
-    >[!NOTE]
-    >Som en del av pågående övergången från Microsoft Operations Management Suite (OMS) till Azure Monitor, är OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.
+   ![ITSMC arbetsyta](media/itsmc-overview/itsmc-solution-workspace.png)
+   >[!NOTE]
+   >Som en del av pågående övergången från Microsoft Operations Management Suite (OMS) till Azure Monitor, är OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.
 
-5.  Klicka på **Skapa**.
+5. Klicka på **Skapa**.
 
 När resursen lösningen har distribuerats kan det visas ett meddelande längst upp höger i fönstret.
 
@@ -89,22 +89,22 @@ Beroende på ITSM-produkten som du ansluter till, använder du följande steg:
 
 När du har förberedd ITSM-verktygen, följer du stegen nedan för att skapa en anslutning:
 
-1.  Gå till **alla resurser**, leta efter **ServiceDesk(YourWorkspaceName)**.
-2.  Under **DATAKÄLLOR för ARBETSYTA** i den vänstra rutan klickar du på **ITSM-anslutningar**.
-    ![ITSM-anslutningar](media/itsmc-overview/itsm-connections.png)
+1. Gå till **alla resurser**, leta efter **ServiceDesk(YourWorkspaceName)**.
+2. Under **DATAKÄLLOR för ARBETSYTA** i den vänstra rutan klickar du på **ITSM-anslutningar**.
+   ![ITSM-anslutningar](media/itsmc-overview/itsm-connections.png)
 
-    Den här sidan visar listan över anslutningar.
-3.  Klicka på **Lägg till anslutning**.
+   Den här sidan visar listan över anslutningar.
+3. Klicka på **Lägg till anslutning**.
 
-    ![Lägga till ITSM-anslutningen](media/itsmc-overview/add-new-itsm-connection.png)
+   ![Lägga till ITSM-anslutningen](media/itsmc-overview/add-new-itsm-connection.png)
 
-4.  Ange anslutningsinställningarna enligt beskrivningen i [konfigurera ITSMC anslutningen med din artikel för ITSM-produkter/tjänster](../../azure-monitor/platform/itsmc-connections.md).
+4. Ange anslutningsinställningarna enligt beskrivningen i [konfigurera ITSMC anslutningen med din artikel för ITSM-produkter/tjänster](../../azure-monitor/platform/itsmc-connections.md).
 
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   > Som standard uppdaterar ITSMC anslutningens configuration-data en gång under var 24: e timme. Om du vill uppdatera din anslutning data direkt den redigeringar eller en mall för programuppdateringar som du gör, klickar du på den **synkronisering** knappen på bladet för din anslutning.
 
-    > Som standard uppdaterar ITSMC anslutningens configuration-data en gång under var 24: e timme. Om du vill uppdatera din anslutning data direkt den redigeringar eller en mall för programuppdateringar som du gör, klickar du på den **synkronisering** knappen på bladet för din anslutning.
-
-    ![Uppdatera anslutning](media/itsmc-overview/itsmc-connections-refresh.png)
+   ![Uppdatera anslutning](media/itsmc-overview/itsmc-connections-refresh.png)
 
 
 ## <a name="using-the-solution"></a>Använda lösningen
@@ -138,8 +138,8 @@ Följ dessa steg:
 
 När du skapar/redigerar en Azure varningsregel, använder du en åtgärdsgrupp som har en ITSM-åtgärd. När en avisering utlöses arbetsobjekt som har skapats/uppdaterats i ITSM-verktyget.
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > Mer information om priser för ITSM-åtgärden finns i den [prissättningssidan](https://azure.microsoft.com/pricing/details/monitor/) för åtgärdsgrupper.
 
 
@@ -172,7 +172,7 @@ Incidenter och ändringsförfrågningar synkroniseras från ITSM-produkten till 
 Informationen nedan visar exempel på data som samlas in av ITSMC:
 
 > [!NOTE]
-
+> 
 > Beroende på typ av arbetsobjekt som importeras till Log Analytics, **ServiceDesk_CL** innehåller följande fält:
 
 **Arbetsobjekt:** **Incidenter**  
@@ -284,17 +284,17 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Felsöka ITSM-anslutningar
-1.  Om anslutningen misslyckas från ansluten källa Användargränssnittet med en **fel när anslutning sparades** visas, gör följande:
- - För ServiceNow, Cherwell och Provance anslutningar  
-    - Se till att du korrekt angett användarnamn, lösenord, klient-ID och klienthemlighet för var och en av anslutningarna.  
-    - Kontrollera om du har tillräcklig behörighet i motsvarande ITSM-produkten för att upprätta anslutningen.  
- - För Service Manager-anslutningar  
-    - Kontrollera att webbappen har distribuerats och hybridanslutning har skapats. Kontrollera anslutningen är upprättad med den på plats Service Manager-datorn genom att gå till Webbappens URL som beskrivs i dokumentationen för att göra den [hybridanslutning](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
+1. Om anslutningen misslyckas från ansluten källa Användargränssnittet med en **fel när anslutning sparades** visas, gör följande:
+   - För ServiceNow, Cherwell och Provance anslutningar  
+   - Se till att du korrekt angett användarnamn, lösenord, klient-ID och klienthemlighet för var och en av anslutningarna.  
+   - Kontrollera om du har tillräcklig behörighet i motsvarande ITSM-produkten för att upprätta anslutningen.  
+   - För Service Manager-anslutningar  
+   - Kontrollera att webbappen har distribuerats och hybridanslutning har skapats. Kontrollera anslutningen är upprättad med den på plats Service Manager-datorn genom att gå till Webbappens URL som beskrivs i dokumentationen för att göra den [hybridanslutning](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
 
-2.  Om du inte komma har synkroniserats data från ServiceNow till Log Analytics, se till att ServiceNow instans inte är i viloläge. ServiceNow Dev instanser går ibland i viloläge när det är inaktivt under en lång period. Annars rapportera problemet.
-3.  Om Log Analytics-aviseringar utlöses men fungerar objekt skapas inte i ITSM-produkten eller konfigurationsobjekt är inte skapat/kopplad till arbetsobjekt eller allmän information, se ut på följande platser:
- -  ITSMC: Lösningen visar en sammanfattning av anslutningar/objekt/arbetsdatorer osv. Klicka på panelen visar **Connector-Status**, som tar dig till **Loggsökning** med relevanta fråga. Titta på loggposter med LogType_S som fel för mer information.
- - **Loggsöknings-** sida: Visa fel/relaterade informationen direkt med hjälp av frågan `*`ServiceDeskLog_CL`*`.
+2. Om du inte komma har synkroniserats data från ServiceNow till Log Analytics, se till att ServiceNow instans inte är i viloläge. ServiceNow Dev instanser går ibland i viloläge när det är inaktivt under en lång period. Annars rapportera problemet.
+3. Om Log Analytics-aviseringar utlöses men fungerar objekt skapas inte i ITSM-produkten eller konfigurationsobjekt är inte skapat/kopplad till arbetsobjekt eller allmän information, se ut på följande platser:
+   -  ITSMC: Lösningen visar en sammanfattning av anslutningar/objekt/arbetsdatorer osv. Klicka på panelen visar **Connector-Status**, som tar dig till **Loggsökning** med relevanta fråga. Titta på loggposter med LogType_S som fel för mer information.
+   - **Loggsöknings-** sida: Visa fel/relaterade informationen direkt med hjälp av frågan `*`ServiceDeskLog_CL`*`.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Felsöka Service Manager Web App-distribution
 1.  Vid problem med distribution av webbappar, se till att du har tillräckliga behörigheter i prenumerationen som nämns skapa/distribuera resurser.

@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: a9b7d15bebdef40c983eaf4d5eee6953b5a10994
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d86b2c71515900405b0e7714d2c36cd8e4cbc7fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236946"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993217"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Använda Blob storage från C++
 
-Den här guiden visar hur du utför vanliga scenarier med Azure Blob storage. Exemplen visar hur du laddar upp, lista, hämta och ta bort blobar. Exemplen är skrivna i C++ och använder [Azure Storage-klientbiblioteket för C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md).   
+Den här guiden visar hur du utför vanliga scenarier med Azure Blob storage. Exemplen visar hur du laddar upp, lista, hämta och ta bort blobar. Exemplen är skrivna i C++ och använder [Azure Storage-klientbiblioteket för C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).   
 
 Mer information om Blob storage finns [introduktion till Azure Blob storage](storage-blobs-introduction.md).
 
 > [!NOTE]
-> För den här guiden krävs Azure Storage-klientbiblioteket för C++ version 1.0.0 eller senare. Microsoft rekommenderar att du använder den senaste versionen av Storage-klientbiblioteket för C++, tillgängligt via [NuGet](http://www.nuget.org/packages/wastorage) eller [GitHub](https://github.com/Azure/azure-storage-cpp).
+> För den här guiden krävs Azure Storage-klientbiblioteket för C++ version 1.0.0 eller senare. Microsoft rekommenderar att du använder den senaste versionen av Storage-klientbiblioteket för C++, tillgängligt via [NuGet](https://www.nuget.org/packages/wastorage) eller [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
@@ -34,7 +34,7 @@ För att göra det måste du installera Azure Storage-klientbiblioteket för C++
 Du kan installera Azure Storage-klientbiblioteket för C++ med någon av följande metoder:
 
 * **Linux:** Följ instruktionerna den [Azure Storage-klientbiblioteket för C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) sidan.  
-* **Windows:** Klicka på **Verktyg > NuGet Package Manager > Package Manager Console** i Visual Studio. Skriv följande kommando i den [NuGet Package Manager-konsolen](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) och tryck på **RETUR**.  
+* **Windows:** Klicka på **Verktyg > NuGet Package Manager > Package Manager Console** i Visual Studio. Skriv följande kommando i den [NuGet Package Manager-konsolen](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) och tryck på **RETUR**.  
   
      Install-Package wastorage
 
@@ -258,7 +258,7 @@ Nu när du har lärt dig grunderna om blob storage kan du följa dessa länkar o
 * [Använda Queue Storage från C++](../storage-c-plus-plus-how-to-use-queues.md)
 * [Använda Table Storage från C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Lista över Azure Storage-resurser i C++](../storage-c-plus-plus-enumeration.md)
-* [Storage-klientbibliotek för C++-referens](http://azure.github.io/azure-storage-cpp)
+* [Storage-klientbibliotek för C++-referens](https://azure.github.io/azure-storage-cpp)
 * [Azure Storage-dokumentation](https://azure.microsoft.com/documentation/services/storage/)
 * [Överföra data med kommandoradsverktyget AzCopy](../storage-use-azcopy.md)
 

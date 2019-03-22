@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 301199667d2307bc81da7ef42f3e4f7daa750ee2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0c99bc4ef23ee2d8f4478bbaab591e7b36c7ea75
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199714"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109839"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Självstudier: Azure Active Directory-integrering med Rightscale
 
@@ -132,7 +132,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 1. På den **Rightscale Configuration** klickar du på **konfigurera Rightscale** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Konfigurera enkel inloggning](./media/rightscale-tutorial/tutorial_rightscale_configure.png) 
-<CS>
+   <CS>
 1. För att få SSO konfigurerats för ditt program kan behöva du inloggning till din RightScale-klient som administratör.
 
     a. Klicka på menyn längst upp i **inställningar** fliken och markera **enkel inloggning**.
@@ -164,10 +164,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Konfigurera enkel inloggning](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
     h. Klicka på **Spara**.
-<CE>
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+   <CE>
+   > [!TIP]
+   > Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+   > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
@@ -242,7 +242,7 @@ När du klickar på panelen RightScale i åtkomstpanelen du bör få automatiskt
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

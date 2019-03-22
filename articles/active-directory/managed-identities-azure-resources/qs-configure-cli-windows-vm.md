@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/10/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4782afa71919a3545bd023f33f873969c86b6cc6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6d3bb9708c7bab41f87ad9c2b6ae18ac62849a2d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208358"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223928"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Konfigurera hanterade identiteter för Azure-resurser på en Azure-dator med Azure CLI
 
@@ -107,14 +107,10 @@ Om du har en virtuell dator som inte längre behöver systemtilldelade identitet
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
+> [!NOTE]
+> Om du har etablerat den hanterade identitet för VM-tillägg för Azure-resurser (för att bli inaktuell) kan du behöva ta bort den med [az vm-tillägget delete](https://docs.microsoft.com/cli/azure/vm/). Mer information finns i [migrera från VM-tillägg till Azure IMDS för autentisering](howto-migrate-vm-extension.md).
 
-Ta bort den hanterade identitet för Azure-resurser VM-tillägg (planerad för utfasning i januari 2019), användaren `-n ManagedIdentityExtensionForWindows` eller `-n ManagedIdentityExtensionForLinux` växla (beroende på vilken typ av virtuell dator) med [az vm-tillägget delete](https://docs.microsoft.com/cli/azure/vm/):
-
-```azurecli-interactive
-az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
-```
-
-## <a name="user-assigned-managed-identity"></a>Användartilldelade hanterad identitet
+## <a name="user-assigned-managed-identity"></a>Användartilldelad hanterad identitet
 
 I det här avsnittet får lära du dig att lägga till och ta bort en hanterad Användartilldelad identitet från en Azure-dator med Azure CLI.
 
@@ -135,7 +131,7 @@ Om du vill tilldela en Användartilldelad identitet till en virtuell dator när 
    ```azurecli-interactive
    az identity create -g myResourceGroup -n myUserAssignedIdentity
    ```
-   Svaret innehåller information om det användartilldelade hanterad identitet skapas, liknar följande. Resurs-id-värdet som tilldelats till den hanterade Användartilldelad identitet används i följande steg.
+   Svaret innehåller information om det användartilldelade hanterad identitet skapas, liknar följande. Resurs-ID-värdet som tilldelats till den hanterade Användartilldelad identitet används i följande steg.
 
    ```json
    {

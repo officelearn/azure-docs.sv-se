@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e39bdcde896bca094b60b87308127a6ea01f1dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4aecb2850f80f0991c7466b388147ab4b21c4780
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169743"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170708"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>Självstudier: Azure Active Directory-integrering med IriusRisk
 
@@ -164,7 +164,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     d. Klicka på **Skapa**.
  
-### <a name="create-a-iriusrisk-test-user"></a>Skapa en IriusRisk testanvändare
+### <a name="create-an-iriusrisk-test-user"></a>Skapa en IriusRisk testanvändare
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i IriusRisk. IriusRisk stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt IriusRisk om det inte finns ännu.
 
@@ -210,7 +210,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

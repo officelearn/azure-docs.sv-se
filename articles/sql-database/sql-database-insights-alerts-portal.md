@@ -12,12 +12,12 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: dea9a73d7ac868e45d3abf2ee3ff8366fc7b65cd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 93337e39a117c1f8d38f24dc416ff8ae95513a34
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57783099"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855596"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Skapa aviseringar för Azure SQL Database och Data Warehouse med Azure portal
 
@@ -59,7 +59,7 @@ Du kan konfigurera och få information om Varningsregler med hjälp av
 4. **Namnet** aviseringen regel och väljer en **beskrivning**, som visar även i e-postaviseringar.
 5. Välj den **mått** du vill övervaka och väljer sedan en **villkor** och **tröskelvärdet** värdet för måttet. Också välja den **Period** tid som måttregel måste vara uppfyllda innan aviseringen utlösare. Till exempel om du använder perioden ”PT5M” och aviseringen söker efter CPU högre än 80%, en avisering utlöses när den **genomsnittlig** CPU har varit över 80% i 5 minuter. När den första utlösaren inträffar, utlöser igen när den genomsnittliga CPU som är mindre än 80% under 5 minuter. CPU-mätning sker varje minut. Med hjälp av tabellen nedan för stöds tidsfönster och aggregeringen Skriv som var Avisera använder inte alla aviseringar använder medelvärdet.   
 6. Kontrollera **e-ägare...**  om du vill att administratörer och medadministratörer för att få e-postaviseringar när aviseringen utlöses.
-7. Om du vill att ytterligare e-postmeddelanden tar emot ett meddelande när aviseringen utlöses, lägga till dem i den **administratören email(s)** fält. Avgränsa flera e-postmeddelanden med semikolon -  *email@contoso.com;email2@contoso.com*
+7. Om du vill att ytterligare e-postmeddelanden tar emot ett meddelande när aviseringen utlöses, lägga till dem i den **administratören email(s)** fält. Avgränsa flera e-postmeddelanden med semikolon - *e-post\@contoso.com;email2\@contoso.com*
 8. Placera i en giltig URI i den **Webhook** fältet om du vill att den anropas när aviseringen utlöses.
 9. Välj **OK** när du är klar för att skapa aviseringen.   
 
@@ -79,7 +79,7 @@ När du har skapat en avisering, kan du välja den och:
 | --- | --- | --- | --- | --- |
 | SQL-databas | cpu_percent | CPU-procent | Medel | 5 minuter |
 | SQL-databas | physical_data_read_percent | Data IO-procent | Medel | 5 minuter |
-| SQL-databas | log_write_percent | Logg-IO-procent | Medel | 5 minuter |
+| SQL-databas | log_write_percent | Logg I/O-procent | Medel | 5 minuter |
 | SQL-databas | dtu_consumption_percent | DTU-procent | Medel | 5 minuter |
 | SQL-databas | lagring | Totala databasstorleken | Maximal | 30 minuter |
 | SQL-databas | connection_successful | Anslutningarna lyckades | Totalt | 10 minuter |
@@ -88,17 +88,17 @@ När du har skapat en avisering, kan du välja den och:
 | SQL-databas | deadlock | Dödlägen | Totalt | 10 minuter |
 | SQL-databas | storage_percent | Databasstorlek i procent | Maximal | 30 minuter |
 | SQL-databas | xtp_storage_percent | Percent(Preview) för in-Memory OLTP-lagring | Medel | 5 minuter |
-| SQL-databas | workers_percent | Arbetare procent | Medel | 5 minuter |
+| SQL-databas | workers_percent | Arbetarprocent | Medel | 5 minuter |
 | SQL-databas | sessions_percent | Sessioner procent | Medel | 5 minuter |
 | SQL-databas | dtu_limit | DTU-gräns | Medel | 5 minuter |
 | SQL-databas | dtu_used | DTU används | Medel | 5 minuter |
 ||||||
 | Elastisk pool | cpu_percent | CPU-procent | Medel | 10 minuter |
 | Elastisk pool | physical_data_read_percent | Data IO-procent | Medel | 10 minuter |
-| Elastisk pool | log_write_percent | Logg-IO-procent | Medel | 10 minuter |
+| Elastisk pool | log_write_percent | Logg I/O-procent | Medel | 10 minuter |
 | Elastisk pool | dtu_consumption_percent | DTU-procent | Medel | 10 minuter |
 | Elastisk pool | storage_percent | Lagringsprocent | Medel | 10 minuter |
-| Elastisk pool | workers_percent | Arbetare procent | Medel | 10 minuter |
+| Elastisk pool | workers_percent | Arbetarprocent | Medel | 10 minuter |
 | Elastisk pool | eDTU_limit | eDTU-gränsen | Medel | 10 minuter |
 | Elastisk pool | storage_limit | Gränsen för lagring | Medel | 10 minuter |
 | Elastisk pool | eDTU_used | edtu: er används | Medel | 10 minuter |

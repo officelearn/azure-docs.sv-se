@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 05/23/2018
 ms.author: tdykstra
 ms.custom: include file
-ms.openlocfilehash: a6501a4fd9104c212377ef080ff96292c5ac8970
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c360057d252bf15d80dd4cb2658587886dbb684c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738767"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125259"
 ---
 I följande tabell innehåller information om hur du lägger till stöd för den här bindningen i varje utvecklingsmiljö.
 
 | Utvecklingsmiljö               | Du lägger till stöd i <br>Functions 1.x  |
-|----------------------|----------------|---------------|
+|----------------------|----------------|
 |Lokal utveckling – C#-klassbibliotek       | [Installera paketet](../articles/azure-functions/functions-bindings-register.md#c-class-library-with-visual-studio-2017) | 
 |Lokal utveckling - C# skript, JavaScript,F# |Automatisk         |
 |Portal-utveckling|  Automatisk    |

@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2018
-ms.author: kumud
+ms.date: 03/18/2019
+ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: 4c072ef63c0d4961fba695fc8d9be1d12b4b0e8b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: afadef8b29927f909af5be1e1204180724258b74
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749222"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167073"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Konfigurera redundans över flera Azure CDN-slutpunkter med Azure Traffic Manager
 
@@ -77,7 +77,7 @@ När du ställer in din CDN- och Traffic Manager-profiler, följer du stegen ned
     >
 
 
-2.  Azure CDN-profilen, Välj den första CDN-slutpunkten (Akamai). Välj **Lägg till anpassad domän** och inkommande *cdndemo101akamai.azureedge.net*. Kontrollera att bockmarkeringen för att verifiera den anpassade domänen är grönt. 
+2.  Azure CDN-profilen, Välj den första CDN-slutpunkten (Akamai). Välj **Lägg till anpassad domän** och inkommande *cdndemo101.dustydogpetcare.online*. Kontrollera att bockmarkeringen för att verifiera den anpassade domänen är grönt. 
 
     Azure CDN använder den *cdnverify* underdomänen för att verifiera DNS-mappningen för att slutföra registreringsprocessen. Mer information finns i [skapa en CNAME DNS-post](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Det här steget aktiverar Azure CDN för att identifiera den anpassade domänen så att de kan svara på begäranden.
 
@@ -87,7 +87,7 @@ När du ställer in din CDN- och Traffic Manager-profiler, följer du stegen ned
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. Välj andra CDN-slutpunkten (Verizon) från Azure CDN-profilen, och upprepa steg 2. Välj **Lägg till anpassad domän**, och indata *cdndemo101akamai.azureedge.net*.
+4. Välj andra CDN-slutpunkten (Verizon) från Azure CDN-profilen, och upprepa steg 2. Välj **Lägg till anpassad domän**, och indata *cdndemo101.dustydogpetcare.online*.
  
 När du har slutfört de här stegen har din multi-CDN-tjänst med funktioner för redundans ställts in med Azure Traffic Manager. Du kommer att kunna komma åt testet URL: er från din anpassade domän. Testa funktionen genom att inaktivera primära CDN-slutpunkten och verifiera att begäran korrekt flyttas över till den sekundära CDN-slutpunkten. 
 

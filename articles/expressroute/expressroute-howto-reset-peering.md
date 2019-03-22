@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: f856753ae74b43e257cb222422f4d4eb27ee099c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 8541362a16c7d12a0e3a4cf009ed9cd5faf9f1cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404883"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097635"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Återställa ExpressRoute-krets peerkopplingar
 
@@ -33,48 +33,48 @@ Det finns ett par scenarier där du kan det vara bra när du återställer din E
 
 1. Om du kör PowerShell lokalt, öppna PowerShell-konsolen med förhöjd behörighet och Anslut till ditt konto. Använd följande exempel för att ansluta:
 
-  ```azurepowershell
-  Connect-AzAccount
-  ```
+   ```azurepowershell
+   Connect-AzAccount
+   ```
 2. Om du har flera Azure-prenumerationer anger du prenumerationerna för kontot.
 
-  ```azurepowershell-interactive
-  Get-AzSubscription
-  ```
+   ```azurepowershell-interactive
+   Get-AzSubscription
+   ```
 3. Ange den prenumeration som du vill använda.
 
-  ```azurepowershell-interactive
-  Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
+   ```azurepowershell-interactive
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   ```
 4. Kör följande kommandon för att hämta ExpressRoute-kretsen.
 
-  ```azurepowershell-interactive
-  $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-  ```
+   ```azurepowershell-interactive
+   $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+   ```
 5. Identifiera den peering som du vill inaktivera eller aktivera. *Peer-kopplingar* är en matris. I följande exempel är peer-kopplingar [0] Azure privat Peering och Microsoft-Peering peer-kopplingar [1].
 
-  ```azurepowershell-interactive
-Name                             : ExpressRouteARMCircuit
-ResourceGroupName                : ExpressRouteResourceGroup
-Location                         : westus
-Id                               : /subscriptions/########-####-####-####-############/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-Etag                             : W/"cd011bef-dc79-49eb-b4c6-81fb6ea5d178"
-ProvisioningState                : Succeeded
-Sku                              : {
+   ```azurepowershell-interactive
+   Name                             : ExpressRouteARMCircuit
+   ResourceGroupName                : ExpressRouteResourceGroup
+   Location                         : westus
+   Id                               : /subscriptions/########-####-####-####-############/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+   Etag                             : W/"cd011bef-dc79-49eb-b4c6-81fb6ea5d178"
+   ProvisioningState                : Succeeded
+   Sku                              : {
                                      "Name": "Standard_MeteredData",
                                      "Tier": "Standard",
                                      "Family": "MeteredData"
                                    }
-CircuitProvisioningState         : Enabled
-ServiceProviderProvisioningState : Provisioned
-ServiceProviderNotes             :
-ServiceProviderProperties        : {
+   CircuitProvisioningState         : Enabled
+   ServiceProviderProvisioningState : Provisioned
+   ServiceProviderNotes             :
+   ServiceProviderProperties        : {
                                      "ServiceProviderName": "Coresite",
                                      "PeeringLocation": "Los Angeles",
                                      "BandwidthInMbps": 50
                                    }
-ServiceKey                       : ########-####-####-####-############
-Peerings                         : [
+   ServiceKey                       : ########-####-####-####-############
+   Peerings                         : [
                                      {
                                        "Name": "AzurePrivatePeering",
                                        "Etag": "W/\"cd011bef-dc79-49eb-b4c6-81fb6ea5d178\"",
@@ -130,17 +130,17 @@ Peerings                         : [
                                        "Connections": []
                                      }
                                    ]
-Authorizations                   : []
-AllowClassicOperations           : False
-GatewayManagerEtag               :
-  ```
+   Authorizations                   : []
+   AllowClassicOperations           : False
+   GatewayManagerEtag               :
+   ```
 6. Kör följande kommandon för att ändra tillståndet för peer-kopplingen.
 
-  ```azurepowershell-interactive
-  $ckt.Peerings[0].State = "Disabled"
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
-Peer-kopplingen ska vara i ett tillstånd som du anger. 
+   ```azurepowershell-interactive
+   $ckt.Peerings[0].State = "Disabled"
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
+   Peer-kopplingen ska vara i ett tillstånd som du anger. 
 
 ## <a name="next-steps"></a>Nästa steg
 Om du behöver hjälp att felsöka ett problem med ExpressRoute kan du kolla i följande artiklar:

@@ -8,46 +8,39 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: pvrk
-ms.openlocfilehash: d430f6252157c5d34aa236ef88f8490b4ad6a184
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 0a7a16a43b208bf2d14b86cd5cb23544ec03f9a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497952"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877538"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för Windows Server/Windows-klient med hjälp av PowerShell
 Den här artikeln visar hur du använder PowerShell för att konfigurera Azure Backup i Windows Server eller en Windows-klient och hantera säkerhetskopiering och återställning.
 
 ## <a name="install-azure-powershell"></a>Installera Azure PowerShell
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
-Den här artikeln fokuserar på Azure Resource Manager (ARM) och MS Online Backup PowerShell-cmdlets som hjälper dig att använda ett Recovery Services-valv i en resursgrupp.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Azure PowerShell 1.0 gavs ut i oktober 2015. Den här versionen har uppdaterats 0.9.8-namn släpp och online om några viktiga ändringar, särskilt i namngivningsmönstret cmdlet. 1.0-cmdletar följer namngivningsmönstret {verb}-AzureRm {substantiv}, medan 0.9.8-namn inte inkluderar **Rm** (till exempel New-AzureRmResourceGroup istället för New-AzureResourceGroup). När du använder Azure PowerShell 0.9.8, måste du först aktivera Resource Manager-läget genom att köra kommandot **Switch-AzureMode AzureResourceManager**. Det här kommandot behövs inte i 1.0 eller senare.
-
-Om du vill använda dina skript som har skrivits för 0.9.8-namn miljö i miljön 1.0 eller senare, du bör noggrant uppdaterar och testa skripten i en förproduktionsmiljö innan du använder dem i produktion att undvika att oväntade påverkas.
-
-[Ladda ned den senaste versionen av PowerShell](https://github.com/Azure/azure-powershell/releases) (lägsta versionen är: 1.0.0)
-
-[!INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
+Du kommer igång [installera den senaste versionen av PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 Följande steg vägleder dig genom att skapa ett Recovery Services-valv. Recovery Services-valvet skiljer sig från ett säkerhetskopieringsvalv.
 
-1. Om du använder Azure Backup för första gången, måste du använda den **Register-AzureRMResourceProvider** cmdlet för att registrera Azure Recovery Services-providern med din prenumeration.
+1. Om du använder Azure Backup för första gången, måste du använda den **registrera AzResourceProvider** cmdlet för att registrera Azure Recovery Services-providern med din prenumeration.
 
     ```
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    PS C:\> Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 2. Recovery Services-valvet är en ARM-resurs, så du måste placera den i en resursgrupp. Du kan använda en befintlig resursgrupp eller skapa en ny. När du skapar en ny resursgrupp måste du ange namn och plats för resursgruppen.  
 
     ```
-    PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "WestUS"
+    PS C:\> New-AzResourceGroup –Name "test-rg" –Location "WestUS"
     ```
-3. Använd den **New-AzureRmRecoveryServicesVault** cmdlet för att skapa det nya valvet. Glöm inte att ange samma plats för valvet som användes för resursgruppen.
+3. Använd den **New AzRecoveryServicesVault** cmdlet för att skapa det nya valvet. Glöm inte att ange samma plats för valvet som användes för resursgruppen.
 
     ```
-    PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
+    PS C:\> New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
 4. Ange vilken typ av lagringsredundans ska användas. Du kan använda [lokalt Redundant lagring (LRS)](../storage/common/storage-redundancy-lrs.md) eller [geografiskt Redundant lagring (GRS)](../storage/common/storage-redundancy-grs.md). I följande exempel visas alternativet - BackupStorageRedundancy för testVault anges till GeoRedundant.
 
@@ -57,17 +50,17 @@ Följande steg vägleder dig genom att skapa ett Recovery Services-valv. Recover
    >
 
     ```
-    PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
-    PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
+    PS C:\> $vault1 = Get-AzRecoveryServicesVault –Name "testVault"
+    PS C:\> Set-AzRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
     ```
 
 ## <a name="view-the-vaults-in-a-subscription"></a>Visa valv i en prenumeration
-Använd **Get-AzureRmRecoveryServicesVault** att visa en lista över alla valv i den aktuella prenumerationen. Du kan använda det här kommandot för att kontrollera att ett nytt valv har skapats eller för att se vilka valv är tillgängliga i prenumerationen.
+Använd **Get-AzRecoveryServicesVault** att visa en lista över alla valv i den aktuella prenumerationen. Du kan använda det här kommandot för att kontrollera att ett nytt valv har skapats eller för att se vilka valv är tillgängliga i prenumerationen.
 
-Kör kommando, **Get-AzureRmRecoveryServicesVault**, och alla valv i prenumerationen visas.
+Kör kommando, **Get-AzRecoveryServicesVault**, och alla valv i prenumerationen visas.
 
 ```
-PS C:\> Get-AzureRmRecoveryServicesVault
+PS C:\> Get-AzRecoveryServicesVault
 Name              : Contoso-vault
 ID                : /subscriptions/1234
 Type              : Microsoft.RecoveryServices/vaults
@@ -131,7 +124,7 @@ När du har skapat Recovery Services-valvet kan ladda ned den senaste agenten oc
 
 ```
 PS C:\> $credspath = "C:\downloads"
-PS C:\> $credsfilename = Get-AzureRmRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
+PS C:\> $credsfilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
 ```
 
 Kör på Windows Server eller Windows-klientdator, den [Start OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) cmdlet för att registrera datorn med valvet.

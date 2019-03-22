@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 6844fb9b6e85e77ad9c7a869a989214fffd05ece
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0167665684bc4fc8b29dce70c53033dcbb007555
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438752"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113786"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Anslut Raspberry Pi onlinesimulator till Azure IoT Hub (Node.js)
 
@@ -56,7 +56,7 @@ Anslut simulerade Raspberry Pi till en IoT-hubb som du skapar. Sedan kör du ett
 Klicka på knappen för att starta Raspberry Pi onlinesimulator.
 
 > [!div class="button"]
-<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Starta simulatorn Raspberry Pi</a>
+> <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">Start Raspberry Pi Simulator</a>
 
 Det finns tre områden i web-simulatorn.
 
@@ -70,8 +70,8 @@ Det finns tre områden i web-simulatorn.
    * **Återställ** -återställa området kodning till standard-exempelprogram.
    * **Vikning/Expandera** -på höger sida finns en knapp att vikning/Expandera konsolfönstret.
 
-> [!NOTE] 
-Raspberry Pi web simulatorn är nu tillgängligt i förhandsversionen. Vi vill gärna höra din röst i den [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). Källkoden är offentlig på [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
+> [!NOTE]
+> Raspberry Pi web simulatorn är nu tillgängligt i förhandsversionen. Vi vill gärna höra din röst i den [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). Källkoden är offentlig på [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
 
 ![Översikt över Pi onlinesimulator](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/10/2018
 ms.author: banders
-ms.openlocfilehash: a71c456f017e80da85f27437738aa963ec967a3c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 7e5697073b9406d915eda99a5e71e3123c48073a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904173"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880239"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API: er för Azure reservation automation
 
@@ -29,7 +29,7 @@ Använd Azure API: er för att programmässigt få information för din organisa
 
 Använda reservationen Rekommendationen API för att få rekommendationer som reservationer som tänker köpa utifrån din organisations användning. Mer information finns i [få rekommendationer för reservation](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 
-Du kan också analysera resursanvändningen genom att använda kostnadsinformation för förbrukning API. Mer information finns i [användningsinformation - lista för Billing Period av faktureringskonto](/rest/api/consumption/usagedetails/listforbillingperiodbybillingaccount). Azure-resurser som du använder konsekvent är vanligtvis det bästa alternativet för en reservation.
+Du kan också analysera resursanvändningen genom att använda kostnadsinformation för förbrukning API. Mer information finns i [användningsinformation - lista för Billing Period av faktureringskonto](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslistforbillingperiod). Azure-resurser som du använder konsekvent är vanligtvis det bästa alternativet för en reservation.
 
 ## <a name="buy-a-reservation"></a>Köpa en reservation
 

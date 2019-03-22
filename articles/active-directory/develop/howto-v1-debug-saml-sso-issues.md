@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, smalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b953d979fc5306372c1e751fbbb8942d19fed03f
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: MT
+ms.openlocfilehash: f854c8b27065c2d2bf0c9964fe9dfce66aba423a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648922"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104513"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Felsöka SAML-baserad enkel inloggning till program i Azure Active Directory
 
@@ -97,9 +97,9 @@ Följ dessa steg för att lösa problemet:
     - Om den Mina appar skyddat inloggningstillägg installeras från den **testa enkel inloggning** bladet klickar du på **hämta SAML-svar**.
     - Om tillägget inte är installerad, använda ett verktyg som [Fiddler](https://www.telerik.com/fiddler) att hämta SAML-svar. 
 1. Lägg märke till de här elementen i svaret SAML-token:
-    - Unik identifierare för användaren för NameID-värde och format
-    - Anspråk som utfärdats i token
-    - Certifikatet som används för att signera token. 
+   - Unik identifierare för användaren för NameID-värde och format
+   - Anspråk som utfärdats i token
+   - Certifikatet som används för att signera token. 
 
      Mer information om SAML-svar finns [enkel inloggning SAML-protokoll](single-sign-on-saml-protocol.md).
 

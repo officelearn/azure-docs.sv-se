@@ -12,16 +12,16 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 4ddeef417490b5b928f46dce428acc3e5febe159
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 2e63c44db2391f63078f0945caa69a43c0c464cf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245991"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001361"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Konfigurera aktiv geo-replikering för Azure SQL Database i Azure-portalen och initiera redundans
 
-Den här artikeln visar hur du konfigurerar [aktiv geo-replikering för enkel och delade databaser](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) i Azure SQL Database med hjälp av den [Azure-portalen](http://portal.azure.com) och för att initiera redundans.
+Den här artikeln visar hur du konfigurerar [aktiv geo-replikering för enkel och delade databaser](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) i Azure SQL Database med hjälp av den [Azure-portalen](https://portal.azure.com) och för att initiera redundans.
 
 Information om automatisk redundans grupper med enkel och delade databaser finns i [bästa praxis att använda grupper för växling vid fel med enkel och delade databaser](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Information om automatisk redundans grupper med hanterade instanser (förhandsversion) finns i [bästa praxis att använda grupper för växling vid fel med hanterade instanser](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
@@ -32,7 +32,7 @@ För att konfigurera aktiv geo-replikering med hjälp av Azure portal, behöver 
 * En Azure SQL database: Den primära databasen som du vill replikera till en annan geografisk region.
 
 > [!Note]
-När du använder Azure-portalen kan skapa du bara en sekundär databas i samma prenumeration som primärt. Om sekundär databas måste vara i en annan prenumeration, använder [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) eller [ALTER DATABASE Transact-SQL API: et](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
+> När du använder Azure-portalen kan skapa du bara en sekundär databas i samma prenumeration som primärt. Om sekundär databas måste vara i en annan prenumeration, använder [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) eller [ALTER DATABASE Transact-SQL API: et](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
 
 ## <a name="add-a-secondary-database"></a>Lägg till en sekundär databas
 
@@ -46,7 +46,7 @@ När sekundärt skapas och dirigeras, börjar data replikeras från den primära
 > [!NOTE]
 > Kommandot misslyckas om partner-databasen finns redan (till exempel till följd av avslutar en föregående geo-replikeringsrelation).
 
-1. I den [Azure-portalen](http://portal.azure.com), bläddra till den databas som du vill konfigurera för geo-replikering.
+1. I den [Azure-portalen](https://portal.azure.com), bläddra till den databas som du vill konfigurera för geo-replikering.
 2. SQL database-sidan Välj **geo-replikering**, och välj sedan regionen du skapar den sekundära databasen. Du kan välja vilken region som helst utom den region som är värd för den primära databasen, men vi rekommenderar den [parad region](../best-practices-availability-paired-regions.md).
 
     ![Konfigurera geo-replikering](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
@@ -66,11 +66,11 @@ När sekundärt skapas och dirigeras, börjar data replikeras från den primära
 
 Den sekundära databasen kan stängas för att bli primärt.  
 
-1. I den [Azure-portalen](http://portal.azure.com), bläddra till den primära databasen i partnerskapet för geo-replikering.
+1. I den [Azure-portalen](https://portal.azure.com), bläddra till den primära databasen i partnerskapet för geo-replikering.
 2. På bladet SQL Database väljer **alla inställningar** > **geo-replikering**.
 3. I den **SEKUNDÄRSERVRAR** väljer du den databas du vill bli den nya primärt och på **redundans**.
 
-    ![Redundans](./media/sql-database-geo-replication-failover-portal/secondaries.png)
+    ![redundans](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Klicka på **Ja** starta redundansväxlingen.
 
 Kommandot växlar omedelbart sekundär databas till den primära rollen.
@@ -84,7 +84,7 @@ Det finns en kort tidsperiod under vilken båda databaserna är inte tillgängli
 
 Den här åtgärden permanent avslutar replikeringen till den sekundära databasen och ändras sekundärt rollen till en vanlig skrivskyddad databas. Om anslutningen till den sekundära databasen är bruten kommandot lyckas men sekundära stöder inte blir skrivskyddade förrän efter anslutningen har återställts.  
 
-1. I den [Azure-portalen](http://portal.azure.com), bläddra till den primära databasen i partnerskapet för geo-replikering.
+1. I den [Azure-portalen](https://portal.azure.com), bläddra till den primära databasen i partnerskapet för geo-replikering.
 2. SQL database-sidan Välj **geo-replikering**.
 3. I den **SEKUNDÄRSERVRAR** väljer du den databas som du vill ta bort från partnerskapet geo-replikering.
 4. Klicka på **Replikeringsstopp**.

@@ -8,21 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 2/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 117271b0a952090bf8af2416206652972ae274ff
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9aa8fc4c6b27c2a2c7d11a95ddb2ecca347ec0e0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210840"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858843"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Snabbstart: Använda Ruby för att anropa API för webbsökning i Bing  
 
-Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få ett JSON-svar. Det här enkla Ruby-programmet skickar en sökfråga till API:et och visar svaret. Även om det här programmet är skrivet i Ruby, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få ett JSON-svar. Den här Ruby-programmet skickar en sökbegäran till API: et och visas svaret. Även om det här programmet är skrivet i Ruby, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
+
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
 * [Ruby 2.4 eller senare](https://www.ruby-lang.org/en/downloads/)

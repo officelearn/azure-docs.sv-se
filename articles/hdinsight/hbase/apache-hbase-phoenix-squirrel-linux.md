@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
-ms.openlocfilehash: 51707baeba4a511d2766161afacd512a4338cf24
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 6dee4ac7cb863a08e9046b16189e7f4a7b04b810
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653993"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201678"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>Använda Apache Phoenix med Linux-baserade Apache HBase-kluster i HDInsight
 Lär dig hur du använder [Apache Phoenix](https://phoenix.apache.org/) i Azure HDInsight och hur du använder SQLLine. Läs mer om Phoenix [Apache Phoenix i 15 minuter eller mindre](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Phoenix-grammatik finns [Apache Phoenix grammatik](https://phoenix.apache.org/language/index.html).
@@ -39,7 +39,7 @@ När du ansluter till ett HBase-kluster måste du ansluta till en av de [Apache 
 1. Öppna [Apache Ambari](https://ambari.apache.org/) genom att bläddra till **https://\<klusternamnet\>. azurehdinsight.net**.
 2. Ange HTTP (kluster)-användarnamn och lösenord för att logga in.
 3. I den vänstra menyn väljer du **ZooKeeper**. Tre **ZooKeeper-Server** instanser visas.
-4. Välj en av de **ZooKeeper-Server** instanser. På den **sammanfattning** fönstret hitta den **värdnamn**. Den liknar *zk1 jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
+4. Välj en av de **ZooKeeper-Server** instanser. På den **sammanfattning** fönstret hitta den **värdnamn**. It looks similar to *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
 
 **Använda SQLLine**
 
@@ -47,7 +47,7 @@ När du ansluter till ett HBase-kluster måste du ansluta till en av de [Apache 
 
 2. Använd följande kommandon för att köra SQLLine i SSH:
 
-        cd /usr/hdp/2.2.9.1-7/phoenix/bin
+        cd /usr/hdp/current/phoenix/bin
         ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
 3. Om du vill skapa en HBase-tabell och infoga vissa data, kör du följande kommandon:
 
@@ -76,7 +76,6 @@ I den här artikeln har du lärt dig hur du använder Apache Phoenix i HDInsight
 [azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
-[hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
 [hdinsight-hbase-provision-vnet]:apache-hbase-provision-vnet.md
 [hdinsight-hbase-overview]:apache-hbase-overview.md
 

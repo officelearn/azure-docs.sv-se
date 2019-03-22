@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
 ms.date: 02/01/2019
-ms.openlocfilehash: e1a0dda4c13baf7fc2e5ba65d599db8c74591adb
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 1421b142fbca83d2de46f52f8390d0c25f22780c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893246"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117293"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Självstudier: Konfigurera Apache HBase-principer i HDInsight med Enterprise Security Package (förhandsversion)
 
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
-* Logga in på [Azure-portalen](https://portal.azure.com/).
+* Logga in på [Azure Portal](https://portal.azure.com/).
 
 * Skapa ett [HDInsight HBase-kluster med Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md).
 
@@ -102,7 +102,7 @@ Skapa en Ranger-princip för **sales_user1** och **marketing_user1**.
 
     ![Skapa en princip i Apache Ranger-administratörsanvändargränssnittet](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
-3.  På skärmen **Skapa princip** anger du följande värden:
+3. På skärmen **Skapa princip** anger du följande värden:
 
    |**Inställning**  |**Föreslaget värde**  |
    |---------|---------|
@@ -234,7 +234,7 @@ Baserat på de konfigurerade Ranger-principerna kan **sales_user1** visa alla da
 
 Om du inte planerar att fortsätta använda det här programmet tar du bort det HBase-kluster som du skapade med följande steg:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. I rutan **Sök** längst upp skriver du **HDInsight**. 
 1. Välj **HDInsight-kluster** under **Tjänster**.
 1. I listan över HDInsight-kluster som visas klickar du på **...** intill det kluster som du skapade för den här självstudien. 

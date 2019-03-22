@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: bccf12c4e0614ec02414001ab7cf3c4b7f189e65
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 557e7d9a35f012d65977d3e0654b55b15ff1e28f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456008"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106448"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Självstudie: Köra en parallell R-simulering med Azure Batch 
 
-Kör dina parallella R-arbetsbelastningar i full skala med [doAzureParallel](http://www.github.com/Azure/doAzureParallel), ett enkelt R-paket som gör att du kan använda Azure Batch direkt från din R-session. doAzureParallel-paketet bygger på det populära R-paketet [foreach](http://cran.r-project.org/web/packages/foreach/index.html). doAzureParallel tar varje iteration av loopen foreach och skickar den som en Azure Batch-uppgift.
+Kör dina parallella R-arbetsbelastningar i full skala med [doAzureParallel](https://www.github.com/Azure/doAzureParallel), ett enkelt R-paket som gör att du kan använda Azure Batch direkt från din R-session. doAzureParallel-paketet bygger på det populära R-paketet [foreach](https://cran.r-project.org/web/packages/foreach/index.html). doAzureParallel tar varje iteration av loopen foreach och skickar den som en Azure Batch-uppgift.
 
 I den här självstudien visas hur du distribuerar en Batch-pool och kör ett parallellt R-jobb i Azure Batch direkt från RStudio. Lär dig att:
  
@@ -30,7 +30,7 @@ I den här självstudien visas hur du distribuerar en Batch-pool och kör ett pa
 > * skapa en Batch-pool som en parallell serverdel för R-sessionen
 > * köra en parallell exempelsimulering på poolen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En installerad [R](https://www.r-project.org/)-distribution, som [Microsoft R Open](https://mran.microsoft.com/open). Använd version 3.3.1 eller senare av R.
 
@@ -45,7 +45,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 ## <a name="install-doazureparallel"></a>Installera doAzureParallel
 
-Installera [GitHub-paketet doAzureParallel](http://www.github.com/Azure/doAzureParallel) i RStudio-konsolen. Med följande kommandon laddar du ned och installerar paketet och dess beroenden i den aktuella R-sessionen: 
+Installera [GitHub-paketet doAzureParallel](https://www.github.com/Azure/doAzureParallel) i RStudio-konsolen. Med följande kommandon laddar du ned och installerar paketet och dess beroenden i den aktuella R-sessionen: 
 
 ```R
 # Install the devtools package  
@@ -260,7 +260,7 @@ stopCluster(cluster)
 I den här självstudien lärde du dig att:
 
 > [!div class="checklist"]
-installera doAzureParallel och konfigurera det för att komma åt dina Batch- och Storage-konton
+> installera doAzureParallel och konfigurera det för att komma åt dina Batch- och Storage-konton
 > * skapa en Batch-pool som en parallell serverdel för R-sessionen
 > * köra en parallell exempelsimulering på poolen.
 

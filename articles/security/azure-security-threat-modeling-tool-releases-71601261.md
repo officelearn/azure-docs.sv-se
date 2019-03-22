@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: jegeib
-ms.openlocfilehash: 55c781d0c6284de1382c9d3e614621c40963194b
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c96b924294286be57de90dae7e6534b5ed9306ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55303122"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57874580"
 ---
-# <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Threat Modeling Tool uppdateringsutgåvan 7.1.60126.1 - 1/29/2019
+# <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Threat Modeling Tool, uppdaterad version 7.1.60126.1 – 2019-01-29
 
 Version 7.1.60126.1 av Microsoft Threat Modeling Tool släpptes januari 29 2019 och innehåller följande ändringar:
 
-- Versionen som krävs av .NET har ökat till [.Net 4.7.1](http://go.microsoft.com/fwlink/?LinkId=863262).
+- Versionen som krävs av .NET har ökat till [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262).
 - Versionen som krävs av Windows har ökat till [Windows 10 Anniversary Update](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) på grund av .NET-beroendet.
 - Visa/Dölj för modellen valideringsfunktionen har lagts till verktygets Alternativ-menyn.
 - Flera länkar i egenskaperna för hot har uppdaterats.
@@ -47,7 +47,7 @@ Alternativet att växla modellen verifiering och inaktivera finns i filen -> Ins
 - Operativsystem som stöds
   - [Microsoft Windows 10 Anniversary Update](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) eller senare
 - .NET-version som krävs
-  - [.NET 4.7.1](http://go.microsoft.com/fwlink/?LinkId=863262) eller senare
+  - [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) eller senare
 - Ytterligare krav
   - Internetanslutning krävs för att ta emot uppdateringar av verktyget samt mallar.
 

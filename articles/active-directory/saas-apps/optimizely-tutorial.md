@@ -4,58 +4,48 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 28ef03e1-9aad-4301-af97-d94e853edc74
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/07/2018
+ms.topic: tutorial
+ms.date: 03/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 534a373024556db86d0553b68ce3f847ff085486
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6029e24f0a08efeeae0ae7644305e07669b6f8b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210721"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176430"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Självstudier: Azure Active Directory-integrering med Optimizely
 
 I den här självstudien får du lära dig hur du integrerar Optimizely med Azure Active Directory (AD Azure).
-
 Integrera Optimizely med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Optimizely
-- Du kan aktivera användarna att automatiskt få loggat in på Optimizely (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+* Du kan styra i Azure AD som har åtkomst till Optimizely.
+* Du kan aktivera användarna att vara automatiskt inloggad till Optimizely (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Optimizely, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En Optimizely enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Optimizely enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö.
-Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-1. Att lägga till Optimizely från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+* Har stöd för Optimizely **SP** -initierad SSO
 
 ## <a name="adding-optimizely-from-the-gallery"></a>Att lägga till Optimizely från galleriet
 
@@ -63,154 +53,181 @@ För att konfigurera integrering av Optimizely i Azure AD, som du behöver lägg
 
 **Utför följande steg för att lägga till Optimizely från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Appar][2]
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Appar][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Optimizely**.
+4. I sökrutan skriver **Optimizely**väljer **Optimizely** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Skapa en Azure AD-användare för testning](./media/optimizely-tutorial/tutorial_optimizely_search.png)
+     ![Optimizely i resultatlistan](common/search-new-app.png)
 
-5. I resultatpanelen väljer **Optimizely**, och klicka sedan på **Lägg till** för att lägga till programmet.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-    ![Skapa en Azure AD-användare för testning](./media/optimizely-tutorial/tutorial_optimizely_addfromgallery.png)
-
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Optimizely baserat på en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Optimizely är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Optimizely upprättas.
-
-Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i Optimizely.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Optimizely baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Optimizely upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Optimizely, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare Optimizely](#creating-an-optimizely-test-user)**  – du har en motsvarighet för Britta Simon i Optimizely som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Optimizely Single Sign-On](#configure-optimizely-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa testanvändare Optimizely](#create-optimizely-test-user)**  – du har en motsvarighet för Britta Simon i Optimizely som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Optimizely program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Optimizely:**
+Utför följande steg för att konfigurera Azure AD enkel inloggning med Optimizely:
 
-1. I Azure-portalen på den **Optimizely** program integration-sidan klickar du på **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **Optimizely** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Konfigurera enkel inloggning](./media/optimizely-tutorial/tutorial_optimizely_samlbase.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. På den **Optimizely domän och URL: er** avsnittet, utför följande steg:
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    ![Konfigurera enkel inloggning](./media/optimizely-tutorial/tutorial_optimizely_url.png)
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://app.optimizely.net/<instance name>`
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster:  `urn:auth0:optimizely:contoso`
+    ![Optimizely domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
+
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://app.optimizely.net/<instance name>`
+
+    b. I textrutan **Identifierare (entitets-ID)** skriver du en URL med följande mönster: `urn:auth0:optimizely:contoso`
 
     > [!NOTE]
-    > De här värdena är inte verkliga. Du ska uppdatera värdet med faktiska inloggnings-URL och identifierare som beskrivs senare i självstudien.
+    > De här värdena är inte verkliga. Du ska uppdatera värdet med faktiska inloggnings-URL och identifierare som beskrivs senare i självstudien. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-4. Optimizely program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den ”**användarattribut**” på sidan för integrering av program. Följande skärmbild visar ett exempel på detta.
-    
-    ![Konfigurera enkel inloggning](./media/optimizely-tutorial/tutorial_optimizely_attribute.png)
-    
-5. Klicka på **visa och redigera alla andra användarattribut** kryssrutan i den **användarattribut** avsnitt för att expandera attribut. Utför följande steg på varje visas attribut-
+5. Programmets Optimizely förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera** för att öppna dialogrutan **Användarattribut** .
 
-    | Attributnamn | Attributvärde |
+    ![image](common/edit-attribute.png)
+
+6. Förutom ovanstående Optimizely program som förväntar få fler attribut som ska skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
+
+    | Namn | Källattribut |
     | ---------------| --------------- |
     | e-post | user.mail |
+    
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
+    ![image](common/new-save-attribute.png)
 
-    ![Konfigurera enkel inloggning](./media/optimizely-tutorial/tutorial_attribute_04.png)
+    ![image](common/new-attribute-details.png)
 
-    ![Konfigurera enkel inloggning](./media/optimizely-tutorial/tutorial_attribute_05.png)
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-    b. I den **namn** textrutan skriver den **attributnamnet** visas för den raden.
+    c. Lämna **Namnrymd** tom.
 
-    c. Från den **värdet** anger attributvärdet som visas för den raden.
+    d. Välj Källa som **Attribut**.
 
-    d. Klicka på **OK**.
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
-6. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+    f. Klicka på **Ok**
 
-    ![Konfigurera enkel inloggning](./media/optimizely-tutorial/tutorial_optimizely_certificate.png)
+    g. Klicka på **Spara**.
 
-7. Klicka på knappen **Spara**.
+4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Konfigurera enkel inloggning](./media/optimizely-tutorial/tutorial_general_400.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-8. På den **Optimizely Configuration** klickar du på **konfigurera Optimizely** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+6. På den **konfigurera Optimizely** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
 
-    ![Konfigurera enkel inloggning](./media/optimizely-tutorial/tutorial_optimizely_configure.png)
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-9. Att konfigurera enkel inloggning på **Optimizely** sida, kontakta kontoansvarig Optimizely och ange de hämtade **certifikat (Base64)**, och **SAML enkel inloggning för tjänst-URL**.
+    a. Inloggnings-URL
 
-10. Som svar på din e-post ger Optimizely dig logga på URL: en (SP-initierad SSO) och värden för identifierare (Service Provider entitets-ID).
+    b. Azure AD-identifierare
 
-    a. Kopiera den **SP-initierad SSO-URL** angivna genom Optimizely och klistra in i den **inloggning på URL: en** -textrutan i **Optimizely domän och URL: er** avsnittet på Azure-portalen.
+    c. Utloggnings-URL
 
-    b. Kopiera den **entitets-ID för Service Provider** angivna genom Optimizely och klistra in i den **identifierare** -textrutan i **Optimizely domän och URL: er** avsnittet på Azure-portalen.
+### <a name="configure-optimizely-single-sign-on"></a>Konfigurera Optimizely Single Sign-On
 
-11. I ett annat webbläsarfönster inloggning till programmets Optimizely.
+1. Att konfigurera enkel inloggning på **Optimizely** sida, kontakta kontoansvarig Optimizely och ange de hämtade **certifikat (Base64)** och lämpliga kopieras URL: er.
 
-12. Klicka på du kontonamn i övre högra hörnet och sedan **kontoinställningar**.
+2. Som svar på din e-post ger Optimizely dig logga på URL: en (SP-initierad SSO) och värden för identifierare (Service Provider entitets-ID).
+
+    a. Kopiera den **SP-initierad SSO-URL** angivna genom Optimizely och klistra in i den **inloggning på URL: en** -textrutan i **grundläggande SAML-konfiguration** avsnittet på Azure-portalen.
+
+    b. Kopiera den **entitets-ID för Service Provider** angivna genom Optimizely och klistra in i den **identifierare** -textrutan i **grundläggande SAML-konfiguration** avsnittet på Azure-portalen.
+
+3. I ett annat webbläsarfönster inloggning till programmets Optimizely.
+
+4. Klicka på du kontonamn i övre högra hörnet och sedan **kontoinställningar**.
 
     ![Azure AD enkel inloggning](./media/optimizely-tutorial/tutorial_optimizely_09.png)
 
-13. Markera kryssrutan på fliken konto **aktivera SSO** under enkel inloggning i den **översikt** avsnittet.
+5. Markera kryssrutan på fliken konto **aktivera SSO** under enkel inloggning i den **översikt** avsnittet.
   
     ![Azure AD enkel inloggning](./media/optimizely-tutorial/tutorial_optimizely_10.png)
 
-14. Klicka på **Spara**
+6. Klicka på **Spara**
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/optimizely-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/optimizely-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/optimizely-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-4. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/optimizely-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** för Britta Simon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="creating-an-optimizely-test-user"></a>Skapa en Optimizely testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Optimizely.
+
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Optimizely**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I listan med program väljer **Optimizely**.
+
+    ![Länken Optimizely i listan med program](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-optimizely-test-user"></a>Skapa Optimizely testanvändare
 
 I det här avsnittet skapar du en användare som kallas Britta Simon i Optimizely.
 
@@ -226,57 +243,17 @@ I det här avsnittet skapar du en användare som kallas Britta Simon i Optimizel
 
 4. De får en e-postinbjudan. Med den e-postadressen som de behöver logga in på Optimizely.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
-
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Optimizely.
-
-![Tilldela användare][200] 
-
-**Om du vill tilldela Britta Simon Optimizely, utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201]
-
-2. I listan med program väljer **Optimizely**.
-
-    ![Konfigurera enkel inloggning](./media/optimizely-tutorial/tutorial_optimizely_app.png) 
-
-3. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Tilldela användare][202]
-
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Tilldela användare][203]
-
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Optimizely i åtkomstpanelen du bör få automatiskt loggat in på ditt Optimizely program.
+När du klickar på panelen Optimizely i åtkomstpanelen, bör det vara loggas in automatiskt till Optimizely som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/optimizely-tutorial/tutorial_general_01.png
-[2]: ./media/optimizely-tutorial/tutorial_general_02.png
-[3]: ./media/optimizely-tutorial/tutorial_general_03.png
-[4]: ./media/optimizely-tutorial/tutorial_general_04.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/optimizely-tutorial/tutorial_general_100.png
-
-[200]: ./media/optimizely-tutorial/tutorial_general_200.png
-[201]: ./media/optimizely-tutorial/tutorial_general_201.png
-[202]: ./media/optimizely-tutorial/tutorial_general_202.png
-[203]: ./media/optimizely-tutorial/tutorial_general_203.png

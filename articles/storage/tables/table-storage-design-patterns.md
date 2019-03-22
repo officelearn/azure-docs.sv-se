@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 40062cfb2e646fd6befef1e746f9493f3e4b20f9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f2f4fb04ac483f7716c0b7a0fb1f87843d8b817f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821377"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995308"
 ---
 # <a name="table-design-patterns"></a>Mönster för tabelldesign
 Den här artikeln beskrivs vissa mönster som är lämplig för användning med lösningar för Table service. Dessutom visas hur du praktiskt taget kan lösa vissa problem och kompromisser diskuteras i andra artiklar i Table storage design. Följande diagram sammanfattar relationerna mellan de olika mönster:  
@@ -588,7 +588,7 @@ var employees = query.Execute();
 
 Observera hur frågan anger både en **RowKey** och en **PartitionKey** säkerställa bättre prestanda.  
 
-Följande kodexempel visar motsvarande funktioner med fluent-API (Mer information om fluent-API: er i allmänhet finns [bästa praxis för att utforma en Fluent-API](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
+Följande kodexempel visar motsvarande funktioner med fluent-API (Mer information om fluent-API: er i allmänhet finns [bästa praxis för att utforma en Fluent-API](https://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(

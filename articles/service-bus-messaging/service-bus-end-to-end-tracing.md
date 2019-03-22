@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 2330e395244f33653af415b5db896fdc2aa2024d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 6e5895392db1d75a985674bf2f878a84bc8dd926
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852991"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107043"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Distribuerad spårning och korrelation via Service Bus-meddelanden
 
@@ -213,7 +213,7 @@ I vissa fall är det klokt att logga endast en del av händelserna om du vill mi
 
 1. `IsEnabled(<OperationName>, string entity, null)` till exempel `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")`. Observera att det finns ingen ”Start” eller ”sluta” i slutet. Du kan använda den för att filtrera bort vissa åtgärder eller köer. Om motringning returnerar `false`, skickas inte händelser för åtgärden
 
-  * För de 'Process' och 'ProcessSession', du får också `IsEnabled(<OperationName>, string entity, Activity activity)` återanrop. Använda den för att filtrera händelser utifrån `activity.Id` eller taggar egenskaper.
+   * För de 'Process' och 'ProcessSession', du får också `IsEnabled(<OperationName>, string entity, Activity activity)` återanrop. Använda den för att filtrera händelser utifrån `activity.Id` eller taggar egenskaper.
   
 2. `IsEnabled(<OperationName>.Start)` till exempel `IsEnabled("Microsoft.Azure.ServiceBus.Send.Start")`. Kontrollerar om ”Start” händelse bör vara aktiverade. Resultatet påverkar endast ”Start” händelse, men ytterligare instrumentation är inte beroende av den.
 

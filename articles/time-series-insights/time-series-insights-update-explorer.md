@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: d5c18521f39b1b57b5f94a54bb3131e05abba745
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: ed8a829bd73a53dc94bf8b08648b3d6684f718f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556653"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109771"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Visualisera data i explorer Preview
 
@@ -39,7 +39,7 @@ Förhandsversion av Azure Time Series Insights explorer består av följande ele
 * **Hierarkiträdet**: Kan du välja specifika dataelement för diagrammet.
 * **Time series bra**: Visar dina valda dataelement.
 * **Diagrammet panelen**: Visar aktuella fungerande diagrammet.
-* **Tidslinje**: Kan du ändra din fungerande tidsintervall.
+* **Timeline**: Kan du ändra din fungerande tidsintervall.
 * **Appfältet**: Innehåller dina alternativ för användare, till exempel aktuell klient, och du kan ändra tema och språkinställningar.
 
 ## <a name="time-series-insights-preview-environment-panel"></a>Time Series Insights Preview miljö panelen
@@ -141,7 +141,7 @@ När du arbetar med Time Series Insights Preview måste välja du först ett tid
 
 1. **Datumintervall till och från webbkontrollen för**: Den här kontrollen kan enkelt klickar du på och välj din önskade datum- och tidsintervall. Du kan också använda kontrollen för att växla mellan olika tidszoner. När du har gjort ändringarna ska tillämpas på din aktuella arbetsyta väljer **spara**.
 
-  ![Explorer-13][13]
+   ![Explorer-13][13]
 
 ## <a name="time-series-insights-preview-navigation-panel"></a>Time Series Insights Preview navigeringsfönster
 

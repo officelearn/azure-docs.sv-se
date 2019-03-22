@@ -6,16 +6,16 @@ author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: security
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c3844d378b44d292b9a7eb631fa896d5f6e61dbe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 179925fc7411a1ccf3de02d7b6298cc66f93bc66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472192"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175725"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Skydda en databas i SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ SQL Data Warehouse använder brandväggsregler på servernivå. Det stöder inte
 
 Anslutningar till SQL Data Warehouse krypteras som standard.  Ändra anslutningsinställningar till datakrypteringen ignoreras.
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 Autentisering refererar till hur du styrkt din identitet vid anslutning till databasen. SQL Data Warehouse stöder för närvarande SQL Server-autentisering med användarnamn och lösenord och med Azure Active Directory. 
 
 När du skapade den logiska servern för databasen angav du en "serveradministratörsinloggning” med ett användarnamn och lösenord. Med dessa autentiseringsuppgifter kan autentisera du till valfri databas på servern som databasens ägare eller ”dbo” via SQL Server-autentisering.

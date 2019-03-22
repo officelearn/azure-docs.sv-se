@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
-ms.openlocfilehash: 0d9de6e5cfa8ffa0c5f67607a60d930b623413cf
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5452a1adb419a2f57e2124d5aac49f9cdcff615a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247281"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111675"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-pci-dss"></a>Azure Blueprint för säkerhet och efterlevnad: PaaS-webbprogram för PCI DSS
 
@@ -228,10 +228,10 @@ Den här Azure-säkerhet och efterlevnad skissen Automation består av JSON-konf
 2. Granska AdministrativeAccountAndPermission.md-0-installationen och kör de angivna kommandona.
 
 3. Distribuera en test-lösning med Contoso exempeldata eller pilot en inledande produktionsmiljö.
-  - 1A-ContosoWebStoreDemoAzureResources.ps1
-    - Det här skriptet distribuerar Azure-resurser för en demonstration av en webstore med hjälp av Contoso-exempeldata.
-  - 1-DeployAndConfigureAzureResources.ps1
-    - Det här skriptet distribuerar Azure resurser som behövs för att stödja en produktionsmiljö för ett kundägda webbprogram. Den här miljön bör anpassas ytterligare av kunden utifrån organisationens krav.
+   - 1A-ContosoWebStoreDemoAzureResources.ps1
+     - Det här skriptet distribuerar Azure-resurser för en demonstration av en webstore med hjälp av Contoso-exempeldata.
+   - 1-DeployAndConfigureAzureResources.ps1
+     - Det här skriptet distribuerar Azure resurser som behövs för att stödja en produktionsmiljö för ett kundägda webbprogram. Den här miljön bör anpassas ytterligare av kunden utifrån organisationens krav.
 
 ## <a name="guidance-and-recommendations"></a>Vägledning och rekommendationer
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
-ms.openlocfilehash: fdba05bdf5fe9620ba450c8e0384d392df2dc7f0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 4fd03d832ea56afa56abbbd4820bfdbca102a9f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311584"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100708"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Skapa en Programgateway med intern omdirigering med Azure PowerShell
 
-Du kan använda Azure Powershell för att konfigurera [web traffic omdirigering](multiple-site-overview.md) när du skapar en [Programgateway](overview.md). I den här självstudien definierar du en serverdelspool med hjälp av en skalningsuppsättning för virtuella datorer. Du sedan konfigurera lyssnare och regler baserat på domäner som du äger för att se till att Internet-trafik anländer till i poolen. Den här självstudien förutsätter att du äger flera domäner och använder exempel på *www.contoso.com* och *www.contoso.org*.
+Du kan använda Azure Powershell för att konfigurera [web traffic omdirigering](multiple-site-overview.md) när du skapar en [Programgateway](overview.md). I den här självstudien definierar du en serverdelspool med hjälp av en skalningsuppsättning för virtuella datorer. Du sedan konfigurera lyssnare och regler baserat på domäner som du äger för att se till att Internet-trafik anländer till i poolen. Den här självstudien förutsätter att du äger flera domäner och använder exempel på *www\.contoso.com* och *www\.contoso.org*.
 
 I den här artikeln kan du se hur du:
 
@@ -111,7 +111,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-first-listener-and-rule"></a>Skapa den första lyssnaren och regel
 
-Du behöver en lyssnare så att programgatewayen kan dirigera trafiken till serverdelspoolen på rätt sätt. I den här självstudien skapar du två lyssnare för de två domänerna. I det här exemplet lyssnare har skapats för domänerna med *www.contoso.com* och *www.contoso.org*.
+Du behöver en lyssnare så att programgatewayen kan dirigera trafiken till serverdelspoolen på rätt sätt. I den här självstudien skapar du två lyssnare för de två domänerna. I det här exemplet lyssnare har skapats för domänerna med *www\.contoso.com* och *www\.contoso.org*.
 
 Skapa den första lyssnaren med namnet *contosoComListener* med [New AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) med frontend-konfigurationen och frontend-port som du skapade tidigare. Du måste ange en regel för lyssnaren som anger vilken serverdelspool som ska användas för inkommande trafik. Skapa en grundläggande regel med namnet *contosoComRule* med [New AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -300,7 +300,7 @@ Ange domännamnet i adressfältet i webbläsaren. Till exempel http://www.contos
 
 ![Testa contoso-webbplatsen i programgatewayen](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-Ändra adressen till din domän, till exempel http://www.contoso.org så bör du se att trafiken har omdirigerats till lyssnaren för www.contoso.com.
+Ändra adressen till din domän, till exempel http://www.contoso.org så bör du se att trafiken har omdirigerats till lyssnaren för www\.contoso.com.
 
 ## <a name="next-steps"></a>Nästa steg
 

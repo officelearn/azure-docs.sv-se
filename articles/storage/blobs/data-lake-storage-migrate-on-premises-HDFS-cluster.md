@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 0a658d47f850537f18c976ab0933105b57692673
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1c0a04a074cfbd96423502ac92dd5821bade78e1
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344855"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258538"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Använda Azure Data Box för att migrera data från en lokal HDFS-databas till Azure Storage
 
@@ -59,7 +59,7 @@ Följ dessa steg för att kopiera data via REST API: er för Blob/Object-lagring
 
 2. I storage-konto för åtkomst och dialogrutan för filöverföring av data, kopiera den **Blobbtjänstens slutpunkt** och **lagringskontonyckel**. Från blob-tjänstens slutpunkt utelämna den `https://` och avslutande snedstreck.
 
-    I det här fallet slutpunkten är: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. Värddelen av den URI som du använder är: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. Ett exempel finns i så här [Anslut till REST över http](/azure/databox/data-box-deploy-copy-data-via-rest.md). 
+    I det här fallet slutpunkten är: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. Värddelen av den URI som du använder är: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. Ett exempel finns i så här [Anslut till REST över http](/azure/databox/data-box-deploy-copy-data-via-rest). 
 
      ![Dialogrutan ”åtkomst till lagringskontot och ladda upp data”](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 

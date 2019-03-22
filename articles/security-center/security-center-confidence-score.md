@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 67442a5861514eadfebfc877d91e735e05f6f63d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 64bab5c1b99720eecb189834d7a11802cf919ca3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117553"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106788"
 ---
 # <a name="alert-confidence-score"></a>Förtroendepoäng för avisering 
 
@@ -45,7 +45,7 @@ Visa förtroendepoäng:
 Visa de data som har bidragit till Security Center förtroende för en avisering:
 - Under säkerheten uppmärksamma bladet under **förtroende**, visa observationer som bidrog till förtroendepoäng och få insikter som är relaterade till aviseringen. Det ger dig mer om typen av aktiviteter som orsakade aviseringen.
 
- ![Misstänkt förtroendepoäng][2]
+  ![Misstänkt förtroendepoäng][2]
 
 Använda Security Center förtroendepoäng att prioritera aviseringar prioritering i din miljö. Förtroendepoäng sparar du tid och arbete genom att automatiskt undersöka aviseringar, tillämpa branschens bästa praxis och intelligenta algoritmer och fungerar som ett svar för att avgöra vilka hot är verkliga och där du behöver fokusera din uppmärksamhet.
 

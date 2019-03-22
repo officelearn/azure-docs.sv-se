@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d6f857e926343c4c3c26d746134bbb9d94754c12
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a1ecc4de9475e735cd17286826c1d8cea05904ab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866019"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089360"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Migrera användare med sociala identiteter
 När du planerar att migrera din identitetsprovider till Azure AD B2C kan du också behöva Migrera användare med sociala identiteter. Den här artikeln beskrivs hur du migrerar befintliga konton i sociala identiteter, till exempel: Facebook, LinkedIn, Microsoft och Google-konton till Azure AD B2C. Den här artikeln gäller även för federerade identiteter, men dessa migreringar är mindre vanliga.
@@ -32,14 +32,14 @@ Den här artikeln är en förlängning av användaren migrering artikeln och fok
 * **Kombinera lokalt konto med sociala**. Som tidigare nämnts kan lagras lokalt konto inloggningsnamn och sociala kontoidentiteter i olika attribut. `signInNames` är används för lokalt konto, medan `userIdentities` för socialt konto. Ett enda Azure AD B2C-konto kan vara ett lokalt konto, socialt konto eller kombinera ett lokalt konto med sociala i en användarpost. Det här beteendet kan du hantera ett enda konto när en användare kan logga in med lokalt konto credential(s) eller med sociala identiteter.
 
 * `UserIdentity` Typ - innehåller information om identiteten för en användare för socialt konto i en Azure AD B2C-klient:
-    * `issuer` Den sträng som innehåller den identitetsprovider som utfärdade användaridentifierare, till exempel facebook.com.
-    * `issuerUserId` Den unika användare-identifieraren som används av den sociala identitetsprovidern i base64-format.
+  * `issuer` Den sträng som innehåller den identitetsprovider som utfärdade användaridentifierare, till exempel facebook.com.
+  * `issuerUserId` Den unika användare-identifieraren som används av den sociala identitetsprovidern i base64-format.
 
     ```JSON
     "userIdentities": [{
-            "issuer": "Facebook.com",
-            "issuerUserId": "MTIzNDU2Nzg5MA=="
-        }
+          "issuer": "Facebook.com",
+          "issuerUserId": "MTIzNDU2Nzg5MA=="
+      }
     ]
     ```
 

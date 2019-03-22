@@ -10,18 +10,18 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: ff214a545023364b09a0e757462a1b3f3d963d44
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d421abf0a3cc402cf8d040363dfe79b07b66bf95
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885029"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105717"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>Snabbstart: Utföra en videosökning med SDK för videosökning i Bing för Java
 
 Använd den här snabbstarten till att börja söka efter nyheter med SDK för videosökning i Bing för Java. Även om Videosökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så är SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch), som innehåller fler kommentarer och funktioner för Videosökning i Bing.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
 
@@ -41,7 +41,7 @@ Installera SDK för videosökning i Bing med hjälp av Maven eller Gradle eller 
   </dependencies> 
 ```
 
-## <a name="create-and-initalize-a-project"></a>Skapa och initiera ett projekt
+## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
 
 Skapa ett nytt Java-projekt i valfri IDE eller redigeringsprogram och importera följande bibliotek.
@@ -61,7 +61,7 @@ Skapa ett nytt Java-projekt i valfri IDE eller redigeringsprogram och importera 
 
 ## <a name="create-a-search-client"></a>Skapa en sökklient
 
-2. Implementera klienten `VideoSearchAPIImpl`, som kräver din API-slutpunkt och en instans av klassen `ServiceClientCredentials`.
+1. Implementera klienten `VideoSearchAPIImpl`, som kräver din API-slutpunkt och en instans av klassen `ServiceClientCredentials`.
 
     ```java
     public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
@@ -115,7 +115,7 @@ Skapa ett nytt Java-projekt i valfri IDE eller redigeringsprogram och importera 
         //...
         ```
 
-## <a name="send-a-search-request-and-recieve-the-response"></a>Skicka en sökbegäran och ta emot svaret 
+## <a name="send-a-search-request-and-receive-the-response"></a>Skicka en sökbegäran och ta emot svaret 
 
 1. Skapa en funktion som kallas `VideoSearch()` och som tar din prenumerationsnyckel som en sträng. Instansiera den sökklient som skapades tidigare.
     
@@ -161,7 +161,7 @@ Skapa ett nytt Java-projekt i valfri IDE eller redigeringsprogram och importera 
 > [!div class="nextstepaction"]
 > [Skapa en webbapp med en sida](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Se även 
+## <a name="see-also"></a>Se också 
 
 * [Vad är API för videosökning i Bing?](../overview.md)
 * [Exempel med Cognitive Services SDK för .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

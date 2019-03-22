@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: cff3f526586eb52466883247d41a57dae919dd21
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: a3990bfac9199fadeff0573d7547d7e5bc551ece
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867234"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838620"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Snabbstart: Taligenkänning med Speech SDK för .NET Framework (Windows)
 
@@ -23,7 +23,11 @@ ms.locfileid: "56867234"
 
 Använd den här guiden för att skapa ett tal till text-konsolprogram med hjälp av .NET-ramverket för Windows och Speech SDK. När du är klar kan du använda datorns mikrofon för att transkribera tal till text i realtid.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+För en snabb demonstration (utan att skapa Visual Studio-projektet på egen hand enligt nedan):
+
+Få senaste [Cognitive Services tal SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk) från Github.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra det här projektet behöver du:
 
@@ -41,7 +45,7 @@ För att slutföra det här projektet behöver du:
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
-1. Leta upp och ersätt strängen `YourSubscriptionKey` med din Speech Service-prenumerationsnyckel.
+1. Leta upp och ersätta strängen `YourSubscriptionKey` med din prenumerationsnyckel för Speech Services.
 
 1. Leta upp och ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration. Om du till exempel använder den kostnadsfria utvärderingsversionen är regionen `westus`.
 
@@ -57,7 +61,7 @@ För att slutföra det här projektet behöver du:
 
     ![Skärmbild av Visual Studio-programmet, med Starta felsökning markerat](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "Starta appen i felsökningsläge")
 
-1. Ett konsolfönster visas, där du uppmanas att tala. Säg nu något på engelska. Ditt tal överförs till Speech Service och transkriberas till text i realtid. Resultatet skrivs till konsolen.
+1. Ett konsolfönster visas, där du uppmanas att tala. Säg nu något på engelska. Ditt tal överförs till Speech Services och transkriberas till text i realtid. Resultatet skrivs till konsolen.
 
     ![Skärmbild av konsolens utdata efter lyckad taligenkänning](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "Konsolens utdata efter lyckad taligenkänning")
 
@@ -66,7 +70,7 @@ För att slutföra det här projektet behöver du:
 > [!div class="nextstepaction"]
 > [Utforska C#-exempel på GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
 - [Anpassa språkmodeller](how-to-customize-language-model.md)

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 03b8dd9bd0a7acc63fdae66330904142384429a8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: ead2b83fb7bf505fe4cbb5a09a383598617066a3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794217"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104054"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Redundans och återställning vid fel för virtuella Hyper-V-datorer som replikeras till Azure
 
@@ -49,13 +49,13 @@ Innan redundansväxlingen utförs kontrollerar du VM-egenskaperna och ser till a
 
 I **Skyddade objekt** klickar du på **Replikerade objekt** > VM.
 
-2. I fönstret **Replikerade objekt** finns det en sammanfattning av VM-informationen, hälsostatus och de senaste tillgängliga återställningspunkterna. Klicka på **Egenskaper** för att se mer information.
+1. I fönstret **Replikerade objekt** finns det en sammanfattning av VM-informationen, hälsostatus och de senaste tillgängliga återställningspunkterna. Klicka på **Egenskaper** för att se mer information.
 
-3. I **Beräkning och nätverk** kan du ändra Azure-namnet, resursgrupp, målstorlek, [tillgänglighetsuppsättning](../virtual-machines/windows/tutorial-availability-sets.md) och hanterade diskinställningar.
+1. I **Beräkning och nätverk** kan du ändra Azure-namnet, resursgrupp, målstorlek, [tillgänglighetsuppsättning](../virtual-machines/windows/tutorial-availability-sets.md) och hanterade diskinställningar.
 
-4. Du kan visa och ändra inställningar för nätverk, inklusive det nätverk/undernät där den virtuella Azure-datorn kommer att finnas efter redundansen och den IP-adress som kommer att tilldelas till den.
+1. Du kan visa och ändra inställningar för nätverk, inklusive det nätverk/undernät där den virtuella Azure-datorn kommer att finnas efter redundansen och den IP-adress som kommer att tilldelas till den.
 
-5. I **Diskar** kan du se information om operativsystemet och vilka datadiskar som finns på den virtuella datorn.
+1. I **Diskar** kan du se information om operativsystemet och vilka datadiskar som finns på den virtuella datorn.
 
 ## <a name="failover-to-azure"></a>Redundansväxla till Azure
 

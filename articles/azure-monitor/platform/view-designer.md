@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 1996befa78409e572798a9043f7e6ee3b6f647bc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887917"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286575"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Skapa anpassade vyer med hjälp av Vydesigner i Azure Monitor
 Genom att använda Vydesigner i Azure Monitor kan skapa du en mängd olika anpassade vyer i Azure portal som kan hjälpa dig att visualisera data i Log Analytics-arbetsytan. Den här artikeln presenteras en översikt över Vydesigner och procedurer för att skapa och redigera anpassade vyer.
@@ -43,6 +43,9 @@ De vyer som du skapar med Vydesigner innehålla de delar som beskrivs i följand
 | Sida vid sida | Visas på din Azure Monitor **översikt** sidan. Varje panel visar en visuell översikt över den anpassade vyn som representerar. Varje Paneltyp av innehåller en annan visualisering av posterna. Du väljer en panel för att visa en anpassad vy. |
 | Anpassad vy | Visas när du väljer en panel. Varje vy innehåller en eller flera delar av visualiseringen. |
 | Delar av visualiseringen | Presentera en visualisering av data i Log Analytics-arbetsytan baserat på en eller flera [logga frågor](../log-query/log-query-overview.md). De flesta delar är en rubrik som ger en övergripande visualisering, och en lista som visar de bästa resultaten. Varje Deltyp av en innehåller en annan visualisering av posterna i Log Analytics-arbetsytan. Du kan välja element i delen att utföra en loggfråga som innehåller detaljerade poster. |
+
+## <a name="required-permissions"></a>Nödvändiga behörigheter
+Du behöver minst [deltagare serverbehörigheter](manage-access.md#manage-accounts-and-users) i Log Analytics-arbetsytan för att skapa eller ändra vyer. Om du inte har den här behörigheten kan sedan visas alternativet Vydesigner inte i menyn.
 
 
 ## <a name="work-with-an-existing-view"></a>Arbeta med en befintlig vy

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: a561ae5d46222ed9da75d0d32948ee3f0b66658d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 7bd554896d739a567d04e7b978fba72960762805
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408419"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111369"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Flytta ExpressRoute-kretsar från klassisk till Resource Manager-distributionsmodellen med PowerShell
 
@@ -37,28 +37,28 @@ Logga in på den klassiska Azure-miljön och samla in tjänstnyckeln.
 
 1. Logga in på ditt Azure-konto.
 
-  ```powershell
-  Add-AzureAccount
-  ```
+   ```powershell
+   Add-AzureAccount
+   ```
 
 2. Välj lämplig Azure-prenumeration.
 
-  ```powershell
-  Select-AzureSubscription "<Enter Subscription Name here>"
-  ```
+   ```powershell
+   Select-AzureSubscription "<Enter Subscription Name here>"
+   ```
 
 3. Importera PowerShell-moduler för Azure och ExpressRoute.
 
-  ```powershell
-  Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-  Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-  ```
+   ```powershell
+   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+   Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
+   ```
 
 4. Använd cmdleten nedan för att få för tjänsten för alla ExpressRoute-kretsar. Efter hämtning av nycklarna, kopiera den **tjänstnyckeln** för kretsen som du vill flytta till Resource Manager-distributionsmodellen.
 
-  ```powershell
-  Get-AzureDedicatedCircuit
-  ```
+   ```powershell
+   Get-AzureDedicatedCircuit
+   ```
 
 ### <a name="step-2-sign-in-and-create-a-resource-group"></a>Steg 2: Logga in och skapa en resursgrupp
 
@@ -66,21 +66,21 @@ Logga in till Resource Manager-miljön och skapa en ny resursgrupp.
 
 1. Logga in på din Azure Resource Manager-miljö.
 
-  ```powershell
-  Connect-AzAccount
-  ```
+   ```powershell
+   Connect-AzAccount
+   ```
 
 2. Välj lämplig Azure-prenumeration.
 
-  ```powershell
-  Get-AzSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzSubscription
-  ```
+   ```powershell
+   Get-AzSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzSubscription
+   ```
 
 3. Ändra kodfragmentet nedan för att skapa en ny resursgrupp om du inte redan har en resursgrupp.
 
-  ```powershell
-  New-AzResourceGroup -Name "DemoRG" -Location "West US"
-  ```
+   ```powershell
+   New-AzResourceGroup -Name "DemoRG" -Location "West US"
+   ```
 
 ### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Steg 3: Flytta ExpressRoute-kretsen till Resource Manager-distributionsmodellen
 
@@ -106,27 +106,27 @@ När du har flyttat klassiska ExpressRoute-kretsen till Resource Manager-distrib
 
 1. Hämta information om krets.
 
-  ```powershell
-  $ckt = Get-AzExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
-  ```
+   ```powershell
+   $ckt = Get-AzExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
+   ```
 
 2. Ange ”Tillåt klassiska åtgärder” till TRUE.
 
-  ```powershell
-  $ckt.AllowClassicOperations = $true
-  ```
+   ```powershell
+   $ckt.AllowClassicOperations = $true
+   ```
 
 3. Uppdatera kretsen. När den här åtgärden har slutförts kommer du att kunna visa kretsen i den klassiska distributionsmodellen.
 
-  ```powershell
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
+   ```powershell
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
 
 4. Kör följande cmdlet för att hämta information om ExpressRoute-kretsen. Du måste kunna se tjänstnyckeln anges.
 
-  ```powershell
-  get-azurededicatedcircuit
-  ```
+   ```powershell
+   get-azurededicatedcircuit
+   ```
 
 5. Du kan nu hantera länkar till ExpressRoute-krets med hjälp av kommandona modellen för klassisk distribution för klassiska virtuella nätverk och Resource Manager-kommandon för Resource Manager-VNets. I följande artiklar hjälper dig att hantera länkar till ExpressRoute-krets:
 
@@ -139,21 +139,21 @@ Kör följande cmdlets för att inaktivera åtkomst till den klassiska distribut
 
 1. Få information om ExpressRoute-kretsen.
 
-  ```powershell
-  $ckt = Get-AzExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
-  ```
+   ```powershell
+   $ckt = Get-AzExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
+   ```
 
 2. Ange ”Tillåt klassiska åtgärder” till FALSE.
 
-  ```powershell
-  $ckt.AllowClassicOperations = $false
-  ```
+   ```powershell
+   $ckt.AllowClassicOperations = $false
+   ```
 
 3. Uppdatera kretsen. När den här åtgärden har slutförts, kan du inte visa kretsen i den klassiska distributionsmodellen.
 
-  ```powershell
-Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
+   ```powershell
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
 
 ## <a name="next-steps"></a>Nästa steg
 

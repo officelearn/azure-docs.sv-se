@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: d0d5ee18e37436562f1e9e15571dc39fb0e00129
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: a81eef9e3f7892afa1d64befec35852381ffe17b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875046"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117752"
 ---
 # <a name="what-is-azure-data-box"></a>Vad är Azure Data Box?
 
@@ -44,11 +44,11 @@ Data Box har utformats för att flytta stora mängder data till Azure med knapp 
 - **Hastighet** – Data Box använder nätverksgränssnitt med 1 Gbit/s eller 10 Gbit/s för att flytta upp till 80 TB data till Azure.
 
 - **Skydd** – Data Box har inbyggt säkerhetsskydd för enheten, data och tjänsten.
-    - Enheten har ett robust hölje som skyddas av manipuleringsskyddade skruvar och säkerhetsförslutna klistermärken. 
-    - Data på enheten skyddas alltid med AES 256-bitars kryptering.
-    - Enheten kan bara låsas upp med ett lösenord som anges i Azure-portalen.
-    - Tjänsten skyddas av säkerhetsfunktionerna i Azure.
-    - När dina data har laddats upp till Azure rensas diskarna på enheten i enlighet med standarderna NIST 800-88r1.
+  - Enheten har ett robust hölje som skyddas av manipuleringsskyddade skruvar och säkerhetsförslutna klistermärken. 
+  - Data på enheten skyddas alltid med AES 256-bitars kryptering.
+  - Enheten kan bara låsas upp med ett lösenord som anges i Azure-portalen.
+  - Tjänsten skyddas av säkerhetsfunktionerna i Azure.
+  - När dina data har laddats upp till Azure rensas diskarna på enheten i enlighet med standarderna NIST 800-88r1.
     
     Mer information finns i [Säkerhet och dataskydd i Azure Data Box](data-box-security.md).
 

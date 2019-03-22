@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: adsolank
-ms.openlocfilehash: c3ef977e7e8742f4d6de0f85d2d1684aa7eaa887
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a57194a0c7b0cd82ce3d9426211b0cf6fc0d1182
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993766"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188058"
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Videostabilisera mediefiler med Azure Media Hyperlapse
 
@@ -52,7 +52,7 @@ Följande är ett exempel på en kompatibel konfigurationsfil i XML- och JSON:
 **XML-förinställning:**
 ```xml
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
         <Sources>
             <Source StartFrame="0" NumFrames="10000" />
         </Sources>
@@ -219,5 +219,5 @@ Följande metod överför en mediefil som en tillgång och skapar ett jobb med A
 ## <a name="related-links"></a>Relaterade länkar
 [Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
-[Azure Medieanalys-demonstrationer](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Medieanalys-demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

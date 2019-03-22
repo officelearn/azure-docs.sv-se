@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 84403729d6d31ef9dea82b228a1c21bfb847b0ce
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f3a0651d3641a547722528fb33f688cce1913e6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453447"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886651"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Regelbunden säkerhetskopiering och återställning i Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Service Fabric tillhandahåller en uppsättning API: er för att uppnå följand
 ## <a name="prerequisites"></a>Förutsättningar
 * Service Fabric-kluster med Fabric version 6.2 och senare. Klustret ska ställas in på Windows Server. Referera till denna [artikeln](service-fabric-cluster-creation-for-windows-server.md) steg att ladda ned paket som krävs.
 * X.509-certifikat för kryptering av hemligheter som behövs för att ansluta till storage för lagring av säkerhetskopior. Se [artikeln](service-fabric-windows-cluster-x509-security.md) kunskaper om att hämta eller skapa ett självsignerat X.509-certifikat.
-* Service Fabric tillförlitliga tillståndskänsliga program som skapats med hjälp av Service Fabric SDK version 3.0 eller senare. För program som riktar in sig på .net Core 2.0, bör skapat programmet med hjälp av Service Fabric SDK version 3.1 eller senare.
+* Service Fabric tillförlitliga tillståndskänsliga program som skapats med hjälp av Service Fabric SDK version 3.0 eller senare. För program som riktar in sig på .NET Core 2.0, bör programmet skapas med hjälp av Service Fabric SDK version 3.1 eller senare.
 
 ## <a name="enabling-backup-and-restore-service"></a>Aktivera säkerhetskopiera och återställa tjänsten
 Först måste du aktivera den _säkerhetskopiera och återställa tjänsten_ i klustret. Hämta mallen för det kluster som du vill distribuera. Du kan använda den [exempel på mallar](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples). Aktivera den _säkerhetskopiera och återställa tjänsten_ med följande steg:

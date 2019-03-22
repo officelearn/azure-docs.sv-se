@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 3/19/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a2c4f68a35d5baa3d7933243737d02d720409289
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 665e6651db37cc04693d68bd2de2ede6e595eab4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671598"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293404"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installera och köra Identifiera Text behållare
 
@@ -50,14 +50,14 @@ Du måste uppfylla följande krav innan du använder identifiera Text behållare
 
 I följande tabell beskrivs de minsta och rekommenderade processorkärnor och minne för att allokera för varje behållare identifiera Text.
 
-| Container | Minimum | Rekommenderas |
-|-----------|---------|-------------|
-|Identifiera Text|1 kärna, 8 GB minne, 0,5 TPS|2 kärnor, 8 GB minne, 1 TPS|
+| Container | Minimum | Rekommenderas |TPS<br>(Lägsta, högsta)|
+|-----------|---------|-------------|--|
+|Identifiera Text|1 kärna, 8 GB minne, 0,5 TPS|2 kärnor, 8 GB minne, 1 TPS|0.5, 1|
 
-Varje kärna måste vara minst 2,6 GHz (gigahertz) eller snabbare.
+* Varje kärna måste vara minst 2,6 GHz (gigahertz) eller snabbare.
+* TPS - transaktioner per sekund
 
 Kärnor och minne som motsvarar den `--cpus` och `--memory` inställningar som används som en del av den `docker run` kommando.
-
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Hämta behållaravbildningen med `docker pull`
 
@@ -123,7 +123,7 @@ Mer [exempel](./computer-vision-resource-container-config.md#example-docker-run-
 
 Behållaren innehåller REST-baserade frågan förutsägelse endpoint API: er. 
 
-Använd värden https://localhost:5000, för behållaren API: er.
+Använd värden `https://localhost:5000`, för behållaren API: er.
 
 ### <a name="asynchronous-text-recognition"></a>Asynkron textigenkänning
 

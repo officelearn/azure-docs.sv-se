@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 14c43fbc138d6d70b65f6afd1ef174488e066796
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567748"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116783"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Använda geo-återställning för att återställa en SaaS-program med flera klienter från säkerhetskopior av databasen
 
@@ -32,13 +32,13 @@ GEO-återställning finns billigaste haveriberedskapslösning för Azure SQL Dat
 
 Den här guiden utforskar både återställning och hemtransport arbetsflöden. Lär dig att:
 > [!div class="checklist"]
-
->* Synkronisera databaser och elastiska konfigurationsinformation för lagringspool i klient-katalogen.
->* Konfigurera en spegelbild miljö i en återställningsregion som innehåller program, servrar och pooler.   
->* Återställa katalog och klient-databaser med hjälp av geo-återställning.
->* Använda geo-replikering till hem klientkatalog och ändrade klientdatabaserna när driftstörningarna har åtgärdats.
->* Uppdatera katalogen när varje databas är återställts (eller återföras) att spåra den aktuella platsen för den aktiva kopian av varje klientdatabas.
->* Se till att programmet och klientdatabas är alltid samordnad i samma Azure-region som minskar svarstiderna. 
+> 
+> * Synkronisera databaser och elastiska konfigurationsinformation för lagringspool i klient-katalogen.
+> * Konfigurera en spegelbild miljö i en återställningsregion som innehåller program, servrar och pooler.   
+> * Återställa katalog och klient-databaser med hjälp av geo-återställning.
+> * Använda geo-replikering till hem klientkatalog och ändrade klientdatabaserna när driftstörningarna har åtgärdats.
+> * Uppdatera katalogen när varje databas är återställts (eller återföras) att spåra den aktuella platsen för den aktiva kopian av varje klientdatabas.
+> * Se till att programmet och klientdatabas är alltid samordnad i samma Azure-region som minskar svarstiderna. 
  
 
 Innan du börjar den här självstudien utför du följande krav:
@@ -194,13 +194,13 @@ Programslutpunkten är inaktiverad i Traffic Manager, är programmet inte tillg�
 
 * När katalogdatabasen har återställts, men innan innehavarna som är online igen, uppdatera evenemangshubben Wingtip biljetter i webbläsaren.
 
-    * Observera att namnet på katalogen har nu i sidfoten - recovery suffix och finns i återställningsregionen.
+  * Observera att namnet på katalogen har nu i sidfoten - recovery suffix och finns i återställningsregionen.
 
-    * Observera att klienter som inte har återställts markeras som offline och inte är valbara.   
+  * Observera att klienter som inte har återställts markeras som offline och inte är valbara.   
  
     ![Återställningsprocessen](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-    * Om du öppnar en klients händelser sidan direkt medan klienten är offline, visar sidan ett meddelande om klient offline. Till exempel om Contosos Konserthall är offline försöker öppna http://events.wingtip-dpt.&lt; användare&gt;.trafficmanager.net/contosoconcerthall.
+  * Om du öppnar en klients händelser sidan direkt medan klienten är offline, visar sidan ett meddelande om klient offline. Till exempel om Contosos Konserthall är offline försöker öppna http://events.wingtip-dpt.&lt; användare&gt;.trafficmanager.net/contosoconcerthall.
 
     ![Återställningsprocessen](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -245,13 +245,13 @@ När återställningen är klar programmet och alla klienter är helt funktionel
 
 4. Öppna resursgruppen återställning och Lägg märke till följande objekt:
 
-    * Recovery versioner av katalogen och tenants1-servrar, med suffixet-återställning. De återställda katalog- och klienttrafik databaserna på dessa servrar som alla har de namn som används i den ursprungliga regionen.
+   * Recovery versioner av katalogen och tenants1-servrar, med suffixet-återställning. De återställda katalog- och klienttrafik databaserna på dessa servrar som alla har de namn som används i den ursprungliga regionen.
 
-    * Tenants2-dpt -&lt;användaren&gt;-recovery SQLServer. Den här servern används för att etablera nya klienter under avbrottet.
+   * Tenants2-dpt -&lt;användaren&gt;-recovery SQLServer. Den här servern används för att etablera nya klienter under avbrottet.
 
-    * App service med namnet händelser-wingtip-dpt -&lt;recoveryregion&gt;-&lt;användaren&gt;, vilket är evenemangsappen recovery-instansen.
+   * App service med namnet händelser-wingtip-dpt -&lt;recoveryregion&gt;-&lt;användaren&gt;, vilket är evenemangsappen recovery-instansen.
 
-    ![Contoso-resurser i återställningsregionen](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
+     ![Contoso-resurser i återställningsregionen](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
     
 5. Öppna tenants2-dpt -&lt;användaren&gt;-recovery SQLServer. Observera att den innehåller hawthornhall för databas och elastisk pool Pool1. Hawthornhall databasen är konfigurerad som en elastisk databas i den elastiska poolen Pool1.
 
@@ -367,12 +367,12 @@ Klientdatabaser kan spridas till återställning och ursprungliga regioner under
 
 I den här självstudiekursen lärde du dig att:
 > [!div class="checklist"]
-
->* Använda klient-katalogen ska innehålla med jämna mellanrum konfigurationsinformation, vilket gör att en spegelbild Återställningsmiljö som ska skapas i en annan region.
->* Återställa Azure SQL-databaser i återställningsregionen genom att använda geo-återställning.
->* Uppdatera klientkatalog för att återspegla återställda klient databasplatser. 
->* Använda en DNS-alias för att aktivera ett program för att ansluta till klientkatalog i hela utan omkonfiguration.
->* Använda geo-replikering till hem återställda databaser till deras ursprungliga region efter ett avbrott har åtgärdats.
+> 
+> * Använda klient-katalogen ska innehålla med jämna mellanrum konfigurationsinformation, vilket gör att en spegelbild Återställningsmiljö som ska skapas i en annan region.
+> * Återställa Azure SQL-databaser i återställningsregionen genom att använda geo-återställning.
+> * Uppdatera klientkatalog för att återspegla återställda klient databasplatser. 
+> * Använda en DNS-alias för att aktivera ett program för att ansluta till klientkatalog i hela utan omkonfiguration.
+> * Använda geo-replikering till hem återställda databaser till deras ursprungliga region efter ett avbrott har åtgärdats.
 
 Prova den [haveriberedskap för en multitenant SaaS-program med hjälp av database geo-replikering](saas-dbpertenant-dr-geo-replication.md) självstudiekurs och lär dig hur du använder geo-replikering att avsevärt minska den tid som krävs för att återställa ett storskaligt program för flera innehavare.
 

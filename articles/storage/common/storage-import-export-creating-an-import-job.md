@@ -8,28 +8,28 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 42246a5d2c8515c26ed399f041476c8ad70decfe
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fa76f4fb5d4da5fd00bb9fa4ed862c6977a47e90
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442145"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102187"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Skapa ett importjobb för tjänsten Azure Import/Export
 
 Skapa ett importjobb för Microsoft Azure Import/Export-tjänsten med hjälp av REST-API omfattar följande steg:
 
--   Förbereder enheter med verktyget Azure Import/Export.
+- Förbereder enheter med verktyget Azure Import/Export.
 
--   Hämta den plats som ska skicka hårddisken.
+- Hämta den plats som ska skicka hårddisken.
 
--   Skapa importjobbet.
+- Skapa importjobbet.
 
--   Levererade enheter till Microsoft via en stöds operatör-tjänst.
+- Levererade enheter till Microsoft via en stöds operatör-tjänst.
 
--   Uppdaterar importjobbet med leveransinformationen.
+- Uppdaterar importjobbet med leveransinformationen.
 
- Se [med Microsoft Azure Import/Export-tjänsten för att överföra Data till Blob Storage](storage-import-export-service.md) för en översikt över Import/Export-tjänsten och en genomgång som visar hur du använder den [Azure-portalen](https://portal.azure.com/) att skapa Hantera importera och exportera jobb.
+  Se [med Microsoft Azure Import/Export-tjänsten för att överföra Data till Blob Storage](storage-import-export-service.md) för en översikt över Import/Export-tjänsten och en genomgång som visar hur du använder den [Azure-portalen](https://portal.azure.com/) att skapa Hantera importera och exportera jobb.
 
 ## <a name="preparing-drives-with-the-azure-importexport-tool"></a>Förbereda enheter med verktyget Azure Import/Export
 
@@ -39,21 +39,21 @@ Nedan visas en kort översikt över förberedelsen av enheten. Referera till den
 
 Förbereda enheten omfattar:
 
--   Identifiera data som ska importeras.
+- Identifiera data som ska importeras.
 
--   Identifiera mål-blobar i Windows Azure Storage.
+- Identifiera mål-blobar i Windows Azure Storage.
 
--   Med verktyget Azure Import/Export för att kopiera data till en eller flera hårddiskar.
+- Med verktyget Azure Import/Export för att kopiera data till en eller flera hårddiskar.
 
- Azure Import/Export-verktyget genererar även en manifestfil för var och en av enheterna medan den förbereds. En manifestfil innehåller:
+  Azure Import/Export-verktyget genererar även en manifestfil för var och en av enheterna medan den förbereds. En manifestfil innehåller:
 
--   En uppräkning av alla filer som är avsedd för uppladdning och mappningar från dessa filer till BLOB.
+- En uppräkning av alla filer som är avsedd för uppladdning och mappningar från dessa filer till BLOB.
 
--   Kontrollsummor för segmenten i varje fil.
+- Kontrollsummor för segmenten i varje fil.
 
--   Information om metadata och egenskapers ska associeras med varje blob.
+- Information om metadata och egenskapers ska associeras med varje blob.
 
--   En lista över åtgärden som ska vidtas om en blob överförs har samma namn som en befintlig blob i behållaren. Möjliga alternativen är: a) över bloben med filen, (b) Behåll befintlig blob och hoppa över överföra filen, c) lägga till ett suffix till namnet så att det inte står i konflikt med andra filer.
+- En lista över åtgärden som ska vidtas om en blob överförs har samma namn som en befintlig blob i behållaren. Möjliga alternativen är: a) över bloben med filen, (b) Behåll befintlig blob och hoppa över överföra filen, c) lägga till ett suffix till namnet så att det inte står i konflikt med andra filer.
 
 ## <a name="obtaining-your-shipping-location"></a>Hämta din plats för leverans
 

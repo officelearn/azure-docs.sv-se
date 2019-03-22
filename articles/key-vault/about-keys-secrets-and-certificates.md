@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cb18b9063599520ccc6caec44053dc9780969f74
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 01d9f763983da2415aba0f9bae81414017bc2f02
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532345"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842574"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Om nycklar, hemligheter och certifikat
 
@@ -42,7 +42,7 @@ JavaScript Object Notation (JSON) och JavaScript-objekt signering och kryptering
 -   [JSON-Webbnyckeln (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
 -   [JSON Web-kryptering (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
 -   [JSON Web algoritmer (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
--   [JSON Web signatur (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
+-   [JSON Web signatur (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
 
 ### <a name="data-types"></a>Datatyper
 
@@ -112,7 +112,7 @@ De kryptografiska moduler som använder Key Vault, om HSM eller programvara är 
 #### <a name="curve-types"></a>Kurvan typer
 
 -   **P-256** – The NIST kurvan p-256, har definierats på [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
--   **P-256_K** – The sek kurvan SECP256K1 som definierats på [sek 2: Rekommenderade elliptisk kurva domänparametrar](http://www.secg.org/sec2-v2.pdf).
+-   **P-256_K** – The sek kurvan SECP256K1 som definierats på [sek 2: Rekommenderade elliptisk kurva domänparametrar](https://www.secg.org/sec2-v2.pdf).
 -   **P-384** – The NIST kurvan p-384, har definierats på [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 -   **P-521** – The NIST kurvan p 521, som definierats på [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 
@@ -409,10 +409,10 @@ Certifikatskontakterna innehåller kontaktuppgifter för att skicka meddelanden 
 
 Om en certifikatprincip anges för automatisk förnyelse, skickas ett meddelande om följande händelser.  
 
--   Innan du certifikatförnyelse
--   Efter certifikatförnyelse, anger om certifikatet har förnyats, eller om ett fel uppstod, kräver manuell förnyelse av certifikatet.  
+- Innan du certifikatförnyelse
+- Efter certifikatförnyelse, anger om certifikatet har förnyats, eller om ett fel uppstod, kräver manuell förnyelse av certifikatet.  
 
- När en certifikatprincip för som är inställt på manuellt förnyas (endast email), skickas ett meddelande när det är dags att förnya certifikatet.  
+  När en certifikatprincip för som är inställt på manuellt förnyas (endast email), skickas ett meddelande när det är dags att förnya certifikatet.  
 
 ### <a name="certificate-access-control"></a>Åtkomstkontroll för certifikat
 

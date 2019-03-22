@@ -14,12 +14,12 @@ ms.date: 09/17/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86f9d0ab9c8d8e7fde8afeb479546857c732bd40
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 45379f8f955c50e2598ebcebd34e971c29b2c81c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210653"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103238"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Självstudier:  Integrera en enskild AD-skog med hjälp av synkronisering av lösenordshash (PHS)
 
@@ -27,7 +27,7 @@ ms.locfileid: "56210653"
 
 Självstudien vägleder dig genom att skapa en hybrididentitetsmiljö med synkronisering av lösenordshash.  Du kan sedan använda miljön för att testa eller bli mer bekant med hur en hybrididentitet fungerar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Följande är förutsättningar som krävs för den här självstudien
 - En dator med [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installerat.  Vi rekommenderar att du gör detta på en dator med antingen [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) eller [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - Ett [externt nätverkskort](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) så att den virtuella datorn kan kommunicera med internet.
@@ -77,7 +77,7 @@ För att slutföra skapande av den virtuella datorn kan du behöva slutföra ins
 
 1. Hyper-V Manager, dubbelklicka på den virtuella datorn
 2. Klicka på knappen Start.
-3.  Du får uppmaningen ”Press any key to boot from CD or DVD” (Tryck på valfri tangent för att starta från CD eller DVD). Gör så.
+3. Du får uppmaningen ”Press any key to boot from CD or DVD” (Tryck på valfri tangent för att starta från CD eller DVD). Gör så.
 4. På Windows Server-startskärmen väljer du språk och klickar på **Nästa**.
 5. Klicka på **Installera nu**.
 6. Ange licensnyckeln och klicka på **Nästa**.
@@ -139,6 +139,7 @@ $LogPath = "c:\windows\NTDS"
 $SysVolPath = "c:\windows\SYSVOL"
 $featureLogPath = "c:\poshlog\featurelog.txt" 
 $Password = "Pass1w0rd"
+$SecureString = ConvertTo-SecureString $Password -AsPlainText -Force
 
 #Install AD DS, DNS and GPMC 
 start-job -Name addFeature -ScriptBlock { 
@@ -149,7 +150,7 @@ Wait-Job -Name addFeature
 Get-WindowsFeature | Where installed >>$featureLogPath
 
 #Create New AD Forest
-Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $Password -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
+Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $SecureString -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
 ```
 
 ## <a name="create-a-windows-server-ad-user"></a>Skapa en Windows Server AD-användare
@@ -225,9 +226,9 @@ Vi kommer nu att verifiera att de användare som vi hade i vår lokala katalog h
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testa att logga in med någon av våra användare
 
-1.  Bläddra till [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
+1. Bläddra till [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Logga in med ett användarkonto som har skapats i vår nya klientorganisation.  Du behöver logga in med följande format: (user@domain.onmicrosoft.com). Använd samma lösenord som användaren använder för att logga in lokalt.</br>
-![Verifiera](media/tutorial-password-hash-sync/verify1.png)</br>
+   ![Verifiera](media/tutorial-password-hash-sync/verify1.png)</br>
 
 Du har nu har installerat en hybrididentitetsmiljö som du kan använda för att testa och bekanta dig med allt som Azure har att erbjuda.
 

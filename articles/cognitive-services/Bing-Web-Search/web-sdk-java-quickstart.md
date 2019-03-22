@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/22/2018
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 420a0769af85d050f2786b65eb929a24d8b9da5d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7209df902f03a7055e142dcbbb7743b6832958b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874166"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863788"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Snabbstart: Använda SDK för Webbsökning i Bing för Java
 
@@ -27,16 +27,17 @@ Vill du se koden på en gång? [Exemplen med SDK för Webbsökning i Bing för J
 
 Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
+
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
 * [JDK 7 eller 8](https://aka.ms/azure-jdks)
 * [Apache Maven](https://maven.apache.org/download.cgi) eller valfritt verktyg för versionsautomatisering
 * En prenumerationsnyckel
 
-## <a name="create-a-project-and-configure-your-pom-file"></a>Skapa ett projekt och konfigurera POM-filen
+## <a name="create-a-project-and-set-up-your-pom-file"></a>Skapa ett projekt och konfigurera POM-filen
 
-Skapa ett nytt Java-projekt med hjälp av Maven eller valfritt verktyg för versionsautomatisering. Om du använder Maven lägger du till följande rader i POM-filen. Ersätt alla förekomster av `mainClass` med ditt program.
+Skapa ett nytt Java-projekt med hjälp av Maven eller valfritt verktyg för versionsautomatisering. Om vi antar att du använder Maven lägger du till följande rader till din [projekt Object Model (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) fil. Ersätt alla förekomster av `mainClass` med ditt program.
 
 ```xml
 <build>
@@ -180,7 +181,7 @@ Nu lägger vi till kod för att parsa svaret och skriva ut resultatet. `name` oc
 ```java
 /*
 * WebPages
-* If the search response contains web pages, the first result's name
+* If the search response has web pages, the first result's name
 * and url are printed.
 */
 if (webData != null && webData.webPages() != null && webData.webPages().value() != null &&
@@ -200,7 +201,7 @@ if (webData != null && webData.webPages() != null && webData.webPages().value() 
 }
 /*
  * Images
- * If the search response contains images, the first result's name
+ * If the search response has images, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.images() != null && webData.images().value() != null &&
@@ -220,7 +221,7 @@ if (webData != null && webData.images() != null && webData.images().value() != n
 }
 /*
  * News
- * If the search response contains news articles, the first result's name
+ * If the search response has news articles, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.news() != null && webData.news().value() != null &&
@@ -240,7 +241,7 @@ if (webData != null && webData.news() != null && webData.news().value() != null 
 
 /*
  * Videos
- * If the search response contains videos, the first result's name
+ * If the search response has videos, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.videos() != null && webData.videos().value() != null &&
@@ -297,6 +298,6 @@ När du är klar med det här projektet bör du ta bort din prenumerationsnyckel
 > [!div class="nextstepaction"]
 > [Exempel med Cognitive Services SDK för Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * [Azure Java SDK-referens](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/websearch)

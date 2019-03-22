@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 0ef4aa988f4adc855051b213013636b4a04f1cca
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8e108d88282894a7b1bf014146083008bedd483d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316989"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095049"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Kan inte använda RDP till en virtuell dator eftersom den virtuella datorn startas i felsäkert läge
 
 Den här artikeln visar hur du löser problem som du inte kan ansluta till Azure Windows Virtual Machines (VM) eftersom den virtuella datorn är konfigurerad att starta i felsäkert läge.
 
 > [!NOTE]
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver Resource Manager-distributionsmodellen, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributionsmodellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver Resource Manager-distributionsmodellen, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributionsmodellen.
 
 ## <a name="symptoms"></a>Symtom
 
@@ -47,7 +47,7 @@ Lös problemet genom att använda seriell kontroll för att konfigurera den virt
 ### <a name="use-serial-control"></a>Använda seriell kontroll
 
 1. Ansluta till [seriella konsolen och öppna CMD instans](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). Om Seriekonsolen inte är aktiverad på den virtuella datorn finns i [reparera den virtuella datorn offline](#repair-the-vm-offline).
+   ). Om Seriekonsolen inte är aktiverad på den virtuella datorn finns i [reparera den virtuella datorn offline](#repair-the-vm-offline).
 2. Kontrollera boot configuration data:
 
         bcdedit /enum
@@ -55,12 +55,12 @@ Lös problemet genom att använda seriell kontroll för att konfigurera den virt
     Om den virtuella datorn är konfigurerad för att starta i felsäkert läge, ser du en extra flagga under den **Windows Boot Loader** avsnitt som heter **safeboot**. Om du inte ser den **safeboot** flagga den virtuella datorn är inte i felsäkert läge. Den här artikeln gäller inte för ditt scenario.
 
     Den **safeboot** flaggan kan visas med följande värden:
-    - Minimalt
-    - Nätverk
+   - Minimalt
+   - Nätverk
 
-    I dessa två lägena kan startas inte RDP. Därför förblir korrigeringen densamma.
+     I dessa två lägena kan startas inte RDP. Därför förblir korrigeringen densamma.
 
-    ![Bild som visar flaggan felsäkert läge](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
+     ![Bild som visar flaggan felsäkert läge](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
 
 3. Ta bort den **safemoade** flaggan, så att den virtuella datorn startar i normalt läge:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.subservice: queues
-ms.openlocfilehash: 64e8f9d1fb29718b0a3d4655c739abc93ecb088c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7f317c061c66a344731172f83e1c85dc5487379d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763848"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005195"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Utföra åtgärder för Azure Queue storage med Azure PowerShell
 
@@ -122,7 +122,7 @@ $queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQ
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 ```
 
-Om du använder den [Azure Storage Explorer](http://storageexplorer.com), du kan ansluta till ditt Azure-konto och visa köer i lagringskontot och granska nedåt i kö för att visa meddelanden i kön. 
+Om du använder den [Azure Storage Explorer](https://storageexplorer.com), du kan ansluta till ditt Azure-konto och visa köer i lagringskontot och granska nedåt i kö för att visa meddelanden i kön. 
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>Läs ett meddelande från kön och tar bort den
 

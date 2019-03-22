@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/22/2019
 ms.author: aljo
-ms.openlocfilehash: 38aef6e5ba65f67a1dd30ba2c18e180cd92624c6
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: bb99e5984f91edb0cf40f3bdc485624b9ec59833
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805323"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872695"
 ---
 # <a name="working-with-reliable-collections"></a>Arbeta med Reliable Collections
 Service Fabric erbjuder en tillståndskänslig programmeringsmodell som är tillgängliga för .NET-utvecklare via tillförlitliga samlingar. Mer specifikt tillhandahåller Service Fabric tillförlitlig ordlista och tillförlitlig kö klasser. När du använder de här klasserna är din delstat partitionerade (för skalbarhet), replikeras (för tillgänglighet) och överförda inom en partition (för ACID-semantik). Nu ska vi titta på en normal användning av en tillförlitlig ordlista-objekt och se vad det faktiskt gör.
@@ -143,7 +143,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definiera datatyper som inte kan ändras för att förhindra programmerare fel
-Vi rekommenderar vill vi kompilatorn att rapportera fel när du skapar kod som mutates tillståndet för ett objekt som du ska överväga kan ändras av misstag. Men, C# kompilatorn har inte möjlighet att göra detta. Så för att undvika potentiella programmerare buggar, rekommenderar vi starkt att du definierar vilka du använder med tillförlitliga samlingar som inte kan ändras typer. Mer specifikt kan detta innebär att du har fästs mot core värdetyper (till exempel siffror [Int32, UInt64 osv.], DateTime, Guid, tidsintervall och liknande). Du kan också använda sträng. Det är bäst att undvika samlingsegenskaper som serialisering och avserialisering av dem kan försämra prestandan ofta. Men om du vill använda samlingsegenskaper rekommenderar vi användning av. oföränderligt samlingar nätverksbibliotek ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Det här biblioteket är tillgängliga för nedladdning från http://nuget.org. Vi rekommenderar också hur du skrivskyddar dina klasser och skrivskydda fält när det är möjligt.
+Vi rekommenderar vill vi kompilatorn att rapportera fel när du skapar kod som mutates tillståndet för ett objekt som du ska överväga kan ändras av misstag. Men, C# kompilatorn har inte möjlighet att göra detta. Så för att undvika potentiella programmerare buggar, rekommenderar vi starkt att du definierar vilka du använder med tillförlitliga samlingar som inte kan ändras typer. Mer specifikt kan detta innebär att du har fästs mot core värdetyper (till exempel siffror [Int32, UInt64 osv.], DateTime, Guid, tidsintervall och liknande). Du kan också använda sträng. Det är bäst att undvika samlingsegenskaper som serialisering och avserialisering av dem kan försämra prestandan ofta. Men om du vill använda samlingsegenskaper rekommenderar vi användning av. oföränderligt samlingar nätverksbibliotek ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Det här biblioteket är tillgängliga för nedladdning från https://nuget.org. Vi rekommenderar också hur du skrivskyddar dina klasser och skrivskydda fält när det är möjligt.
 
 Typen användarinformationen nedan visar hur du definierar en typ som inte kan ändras genom att dra nytta av ovan nämnda rekommendationer.
 

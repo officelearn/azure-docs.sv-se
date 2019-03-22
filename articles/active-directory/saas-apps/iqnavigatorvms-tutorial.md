@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee936d174aa3e221bbeb0823ba1503c7cb64a9d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f5a0700a63d21d089573f757716e08fb03665b28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185170"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58165002"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Självstudier: Azure Active Directory-integrering med IQNavigator VMS
 
@@ -175,7 +175,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     d. Klicka på **Skapa**.
 
-### <a name="creating-a-iqnavigator-vms-test-user"></a>Skapa en IQNavigator VMS testanvändare
+### <a name="creating-an-iqnavigator-vms-test-user"></a>Skapa en IQNavigator VMS testanvändare
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i IQNavigator VMS. Arbeta med [IQNavigator VMS supportteamet](https://www.beeline.com/iqn-product-support/) att lägga till användare i IQNavigator VMS-konto.
 
@@ -218,7 +218,7 @@ Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen]
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

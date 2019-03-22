@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/27/2019
-ms.openlocfilehash: a243dbfa8b63d45f87fd16370fa8e120ff68711c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: cb83f0c38f6860340444c15b6c5eef0b990d0ad0
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309153"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295257"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Skapa och använda aktiv geo-replikering
 
@@ -69,7 +69,7 @@ För att uppnå verkliga affärskontinuitet, att lägga till databasredundans me
 
 - **Automatisk asynkron replikering**
 
- Du kan bara skapa en sekundär databas genom att lägga till en befintlig databas. Sekundärt kan skapas i en Azure SQL Database-server. När du skapat fylls den sekundära databasen med de data som kopieras från den primära databasen. Den här processen kallas seeding. När sekundära databasen har skapats och angetts, replikeras uppdateringar till den primära databasen asynkront till den sekundära databasen automatiskt. Asynkron replikering innebär att transaktionerna sparas på den primära databasen innan de replikeras till den sekundära databasen.
+  Du kan bara skapa en sekundär databas genom att lägga till en befintlig databas. Sekundärt kan skapas i en Azure SQL Database-server. När du skapat fylls den sekundära databasen med de data som kopieras från den primära databasen. Den här processen kallas seeding. När sekundära databasen har skapats och angetts, replikeras uppdateringar till den primära databasen asynkront till den sekundära databasen automatiskt. Asynkron replikering innebär att transaktionerna sparas på den primära databasen innan de replikeras till den sekundära databasen.
 
 - **Läsbara sekundära databaser**
 
@@ -116,6 +116,12 @@ Du kan uppgradera eller nedgradera en primär databas till en annan beräkningss
 > [!NOTE]
 > Om du har skapat sekundär databas som en del av konfigurationen av redundans-grupp inte rekommenderas att nedgradera den sekundära databasen. Det här är att säkerställa att din datanivå har tillräckligt med kapacitet för att bearbeta din vanliga arbetsbelastning när redundans har aktiverats.
 
+> [!IMPORTANT]
+> Den primära databasen i en redundansgrupp skala inte till en högre nivå, såvida inte den sekundära databasen först desto högre nivå. Om du försöker skala den primära databasen innan den sekundära databasen skalas, kan du få följande fel:
+>
+> `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
+>
+
 ## <a name="preventing-the-loss-of-critical-data"></a>Förhindra förlust av viktiga data
 
 Kontinuerlig kopiering använder en asynkron replikeringsmekanism på grund av den lång svarstiden för WAN-nätverk. Asynkron replikering kan data gå förlorade oundvikligt med om ett fel inträffar. Vissa program kan dock kräva utan dataförlust. För att skydda viktiga uppdateringar, en programutvecklare kan anropa den [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) system proceduren omedelbart efter att transaktionen genomförs snabbare. Anropa **sp_wait_for_database_copy_sync** blockerar anropstråden tills den senast allokerade transaktionen har skickats till den sekundära databasen. Men väntar den inte överförda transaktionerna till återupprepas och verkställs på sekundärt. **sp_wait_for_database_copy_sync** är begränsad till en specifik kontinuerlig kopiering-länk. Alla användare med behörighet för anslutning till den primära databasen kan anropa den här proceduren.
@@ -156,6 +162,8 @@ Enligt beskrivningen tidigare kan aktiv geo-replikering också hanteras via prog
 ### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: Hantera redundans för enkel och delade databaser
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
 
 | Cmdlet | Beskrivning |
 | --- | --- |

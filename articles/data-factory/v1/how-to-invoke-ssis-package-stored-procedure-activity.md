@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 859cd6cfd3db68dad2607f1dc8905facb43dd290
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ed53f9bf2e22e1d69a4e00de1e8d71291a5be46d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453787"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108720"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Anropa ett SSIS-paket med hjälp av aktivitet för lagrad procedur i Azure Data Factory
 Den här artikeln beskriver hur du anropar ett SSIS-paket från en Azure Data Factory-pipeline med hjälp av en lagrad procedur-aktivitet. 
@@ -54,20 +54,20 @@ Första steget är att skapa en datafabrik med hjälp av Azure portal.
 3. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i. 
 4. För **resursgruppen** utför du något av följande steg:
      
-      - Välj **Använd befintlig** och välj en befintlig resursgrupp i listrutan. 
-      - Välj **Skapa ny** och ange namnet på en resursgrupp.   
+   - Välj **Använd befintlig** och välj en befintlig resursgrupp i listrutan. 
+   - Välj **Skapa ny** och ange namnet på en resursgrupp.   
          
-    Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../../azure-resource-manager/resource-group-overview.md).  
+     Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../../azure-resource-manager/resource-group-overview.md).  
 4. Välj **V1** för den **version**.
 5. Välj **plats** för datafabriken. Endast platser som stöds av Data Factory visas i listrutan. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas på andra platser.
 6. Välj **fäst till instrumentpanelen**.     
 7. Klicka på **Skapa**.
 8. På instrumentpanelen visas följande panel med statusen: **Distribuerar datafabrik**. 
 
-    ![panelen distribuerar datafabrik](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
+     ![panelen distribuerar datafabrik](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
 9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
    
-    ![Datafabrikens startsida](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
+     ![Datafabrikens startsida](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 10. Klicka på **författare och distribuera** att starta Data Factory-redigeraren.
 
     ![Data Factory-redigeraren](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-editor.png)
@@ -304,13 +304,13 @@ I det här steget skapar du en pipeline med en lagrad procedur-aktivitet. Aktivi
 
 ### <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
 
-2. Kör **Get-AzDataFactorySlice** att få information om alla sektorer av den utdata datauppsättning **, vilket är utdatatabellen för pipelinen.
+1. Kör **Get-AzDataFactorySlice** att få information om alla sektorer av den utdata datauppsättning **, vilket är utdatatabellen för pipelinen.
 
     ```PowerShell
     Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
     Observera att StartDateTime som du anger här är samma starttid som angavs i din pipeline-JSON. 
-3. Kör **Get-AzDataFactoryRun** för att hämta information om aktiviteten som körs för en viss sektor.
+1. Kör **Get-AzDataFactoryRun** för att hämta information om aktiviteten som körs för en viss sektor.
 
     ```PowerShell
     Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z

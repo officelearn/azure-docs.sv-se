@@ -6,14 +6,14 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 5fe4161c688570cc3adaacc79a0dd1fe38460142
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: 6709bb2beae6dd1964f475ce2ba07b569b9ad4ab
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58118909"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285079"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
 
@@ -31,9 +31,9 @@ Den här artikeln visar hur du säkerhetskopierar en SQL Server-databas som kör
 
 Kontrollera följande villkor innan du säkerhetskopierar SQL Server-databasen:
 
-1. Identifiera eller [skapa](backup-azure-sql-database.md#create-a-recovery-services-vault) ett Recovery Services-valv i samma region eller språk som den virtuella datorn som är värd för SQL Server-instansen.
-2. [Kontrollera de behörigheter för virtuella datorer](#fix-sql-sysadmin-permissions) som behövs för att säkerhetskopiera SQL-databaserna.
-3. Kontrollera att den virtuella datorn har [nätverksanslutning](backup-azure-sql-database.md#establish-network-connectivity).
+1. Identifiera eller [skapa](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) ett Recovery Services-valv i samma region eller språk som den virtuella datorn som är värd för SQL Server-instansen.
+2. [Kontrollera de behörigheter för virtuella datorer](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) som behövs för att säkerhetskopiera SQL-databaserna.
+3. Kontrollera att den virtuella datorn har [nätverksanslutning](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 4. Kontrollera att SQL Server-databaserna namnges enligt [riktlinjerna för namngivning](#verify-database-naming-guidelines-for-azure-backup) för Azure Backup.
 5. Kontrollera att du inte har några andra lösningar för säkerhetskopiering aktiverade för databasen. Inaktivera alla andra SQL Server-säkerhetskopieringar innan du installerar det här scenariot. Du kan aktivera Azure Backup för en virtuell Azure-dator tillsammans med Azure Backup för en SQL Server-databas som körs på den virtuella datorn utan konflikter.
 
@@ -60,7 +60,7 @@ Azure Backup gör ett antal saker när du konfigurerar säkerhetskopiering för 
 - För att identifiera databaser på den virtuella datorn skapar Azure Backup kontot **NT SERVICE\AzureWLBackupPluginSvc**. Det här kontot används för säkerhetskopiering och återställning och kräver SQL-sysadmin-behörighet.
 - Azure Backup utnyttjar kontot **NT AUTHORITY\SYSTEM** för databasidentifiering/-förfrågan. Därför behöver det här kontot vara en offentlig inloggning på SQL.
 
-Om du inte skapade SQL Server-datorn från Azure Marketplace kan det hända att du får felet **UserErrorSQLNoSysadminMembership**. Om det inträffar [följer du de här instruktionerna](#fix-sql-sysadmin-permissions).
+Om du inte skapade SQL Server-datorn från Azure Marketplace kan det hända att du får felet **UserErrorSQLNoSysadminMembership**. Om det inträffar [följer du de här instruktionerna](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Kontrollera riktlinjerna för namngivning av databaser för Azure Backup
 
@@ -139,7 +139,7 @@ Konfigurera säkerhetskopiering på följande sätt:
 
 4. Klicka på **OK** att öppna den **säkerhetskopieringspolicy** bladet.
 
-    ![Inaktivera automatiskt skydd i den instansen](./media/backup-azure-sql-database/disable-auto-protection.png)
+    ![Aktivera automatiskt skydd i AlwaysOn-tillgänglighetsgruppen](./media/backup-azure-sql-database/enable-auto-protection.png)
 
 5. I **Välj säkerhetskopieringspolicy**, Välj en princip och sedan på **OK**.
 
@@ -233,12 +233,13 @@ I instrumentpanelen för valvet går du till **hantera** > **principer för säk
 
 ## <a name="enable-auto-protection"></a>Aktivera automatiskt skydd  
 
-Aktivera automatiskt skydd för att automatiskt skydda alla befintliga databaser samt databaser som läggs till i framtiden till en fristående SQL Server-instans eller en SQL Server Always On-tillgänglighetsgrupp.
+Aktivera automatiskt skydd för automatisk säkerhetskopiering av alla befintliga databaser och databaser som ska läggas till en fristående SQL Server-instans eller en SQL Server Always on-tillgänglighetsgrupp i framtiden.
 
-  - När du aktiverar automatiskt skydd och väljer en princip fortsätter de befintliga skyddade databaserna att använda den föregående policyn.
-  - Det finns ingen gräns för antalet databaser som du kan välja för automatiskt skydd i en går.
+- Det finns ingen gräns för antalet databaser som du kan välja för automatiskt skydd i en går.
+- Du kan inte selektivt skydda eller utesluta databaserna från skyddet i en instans vid tidpunkten för att aktivera automatiskt skydd.
+- Om din instans innehåller redan vissa skyddade databaser, skulle de fortsätta att vara skyddade enligt deras respektive principer även när du har aktiverat automatiskt skydd. Men alla icke skyddade databaser och de databaser som kommer få läggas till i framtiden, har en enda princip som du definierar vid tidpunkten för att aktivera automatiskt skydd under **Konfigurera säkerhetskopiering**. Du kan dock ändra principen som är associerad med en databas som automatiskt skydd senare.  
 
-Aktivera automatiskt skydd på följande sätt:
+Steg för att aktivera automatiskt skydd är följande:
 
   1. I **Items to backup** (Objekt som ska säkerhetskopieras) väljer du den instans som du vill aktivera automatiskt skydd för.
   2. Välj listrutan under **Autoprotect** (Automatiskt skydd) och välj **På**. Klicka sedan på **OK**.
@@ -247,37 +248,9 @@ Aktivera automatiskt skydd på följande sätt:
 
   3. Säkerhetskopiering konfigureras för alla databaser tillsammans och kan spåras i **Säkerhetskopieringsjobb**.
 
-Om du vill inaktivera det automatiska skyddet klickar du på namnet på instansen under **Konfigurera säkerhetskopiering**, och välj **inaktivera automatisk skydda** för instansen. Alla databaser fortsätter att säkerhetskopiera. Men framtida databaser skyddas inte automatiskt.
+Om du vill inaktivera det automatiska skyddet klickar du på namnet på instansen under **Konfigurera säkerhetskopiering**, och välj **inaktivera automatisk skydda** för instansen. Alla databaser kommer att fortsätta att säkerhetskopiera, men framtida databaser skyddas inte automatiskt.
 
-
-## <a name="fix-sql-sysadmin-permissions"></a>Åtgärda SQL-sysadmin-behörigheter
-
-  Om du behöver åtgärda behörigheter grund av felet **UserErrorSQLNoSysadminMembership** gör du följande:
-
-  1. Använd ett konto med SQL Server-sysadmin-behörighet för att logga in till SQL Server Management Studio (SSMS). Såvida du inte behöver specialbehörigheter bör Windows-autentisering fungera.
-  2. På SQL Server öppnar du mappen **Security/Logins** (Säkerhet/Inloggningar).
-
-      ![Öppna mappen Security/inloggningar för att se konton](./media/backup-azure-sql-database/security-login-list.png)
-
-  3. Högerklicka på mappen **Logins** och välj **Ny inloggning**. I **Login - New** (Inloggning – ny) väljer du **Sök**.
-
-      ![I dialogrutan Inloggning – ny väljer du Sök](./media/backup-azure-sql-database/new-login-search.png)
-
-  4. Kontot för virtuell Windows-tjänst, **NT SERVICE\AzureWLBackupPluginSvc**, skapades under registreringen av den virtuell datorn och SQL-identifieringsfasen. Ange kontonamnet såsom det visas i **Ange ett objektnamn du vill markera**. Välj **Kontrollera namn** för att matcha namnet. Klicka på **OK**.
-
-      ![Välj Kontrollera namn för att matcha det okända tjänstnamnet](./media/backup-azure-sql-database/check-name.png)
-
-  5. I **Serverroller** kontrollerar du att serverrollen **sysadmin** har valts. Klicka på **OK**. De behörigheter som krävs bör nu finnas.
-
-      ![Kontrollera att serverrollen sysadmin har valts](./media/backup-azure-sql-database/sysadmin-server-role.png)
-
-  6. Nu associerar du databasen med Recovery Services-valvet. I Azure-portalen går du till listan **Skyddade servrar**, högerklickar på den server som är i ett felaktigt tillstånd > **Identifiera databaser på nytt**.
-
-      ![Kontrollera att servern har rätt behörigheter](./media/backup-azure-sql-database/check-erroneous-server.png)
-
-  7. Kontrollera förloppet i området **Meddelanden**. När de valda databaserna hittas visas ett meddelande.
-
-      ![Meddelande som anger att distributionen lyckades](./media/backup-azure-sql-database/notifications-db-discovered.png)
+![Inaktivera automatiskt skydd i den instansen](./media/backup-azure-sql-database/disable-auto-protection.png)
 
  
 ## <a name="next-steps"></a>Nästa steg

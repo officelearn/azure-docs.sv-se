@@ -8,14 +8,18 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: c9944aeae425d3173fa4700caa004097d29d417d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 10acb353e282508c838bee89b131d94dcd3fa7ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870081"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877827"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Snabbstart: Skapa en Azure Database för MySQL-server med Azure CLI
+
+> [!TIP]
+> Överväg att använda den enklare [az mysql in](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) Azure CLI-kommando (för närvarande i förhandsversion). Prova att använda den [snabbstarten](./quickstart-create-server-up-azure-cli.md).
+
 I den här snabbstarten beskrivs hur du använder Azure CLI till att skapa en Azure Database för MySQL-server i en Azure-resursgrupp på ungefär fem minuter. Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
@@ -45,7 +49,7 @@ Skapa en Azure Database för MySQL-server med kommandot **[az mysql server creat
 ---|---|---
 namn | mydemoserver | Välj ett unikt namn för Azure Database för MySQL-server. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
 resource-group | myresourcegroup | Ange namnet på Azure-resursgruppen.
-sku-name | GP_Gen4_2 | Namnet på SKU:n. Följer konventionen {prisnivå}_{beräkningsgenerering}_{vCores} i snabbformat. Se under tabellen för mer information om parametern sku-name.
+sku-name | GP_Gen5_2 | Namnet på SKU:n. Följer konventionen {prisnivå}\_{beräkningsgenerering}\_{vCores} i snabbformat. Se under tabellen för mer information om parametern sku-name.
 backup-retention | 7 | Hur länge en säkerhetskopia ska behållas. Enheten är dagar. Intervallet är 7–35. 
 geo-redundant-backup | Disabled | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern eller inte. Tillåtna värden: Aktiverad, inaktiverad.
 location | westus | Azure-platsen för servern.
@@ -57,7 +61,7 @@ admin-password | *säkert lösenord* | Lösenordet för administratörsanvändar
 
 
 Parametervärdet för sku-namn följer namngivningskonventionen {prisnivå}\_{compute-generering}\_{vCores} som i exemplen nedan:
-+ `--sku-name B_Gen4_1` mappar till Basic, Gen 4 och 1 virtuell kärna. Det här alternativet är minsta tillgängliga SKU.
++ `--sku-name B_Gen5_1` mappar till Basic, Gen 5 och 1 virtuell kärna. Det här alternativet är minsta tillgängliga SKU.
 + `--sku-name GP_Gen5_32` mappar till generell användning, Gen 5 och 32 vCores.
 + `--sku-name MO_Gen5_2` mappar till minnesoptimerad, Gen 5 och 2 vCores.
 
@@ -66,7 +70,7 @@ Se dokumentationen om [prisnivåer](./concepts-pricing-tiers.md) för mer inform
 I följande exempel skapas en MySQL 5.7-server i USA, västra som heter `mydemoserver` i din resursgrupp `myresourcegroup` med serveradministratörsinloggningen `myadmin`. Det här är **4:e generationens** server för **generell användning** med 2 **virtuella kärnor**. Ersätt `<server_admin_password>` med ditt eget värde.
 
 ```azurecli-interactive
-az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
+az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
 ```
 
 > [!NOTE]
@@ -116,8 +120,8 @@ Resultatet är i JSON-format. Anteckna **fullyQualifiedDomainName** och **admini
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -140,15 +144,15 @@ Anslut till servern med kommandoradverktyget **mysql.exe**. Du kan hämta MySQL 
 Skriv nästa kommandon: 
 
 1. Anslut till servern med kommandoradsverktyget **mysql**:
-```bash
- mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
-```
+   ```bash
+   mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
+   ```
 
 2. Visa status för servern:
-```sql
- mysql> status
-```
-Om allt går väl kommer kommandoradverktyget returnera följande text:
+   ```sql
+   mysql> status
+   ```
+   Om allt går väl kommer kommandoradverktyget returnera följande text:
 
 ```dos
 C:\Users\>mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
@@ -194,9 +198,9 @@ mysql>
 > För fler kommandon, se [Referensmanual för MySQL 5.7 - kapitel 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
 ## <a name="connect-to-the-server-using-the-mysql-workbench-gui-tool"></a>Anslut till servern med verktyget MySQL Workbench GUI
-1.  Starta programmet MySQL Workbench på klientdatorn. Du kan ladda ned och installera MySQL Workbench [här](https://dev.mysql.com/downloads/workbench/).
+1. Starta programmet MySQL Workbench på klientdatorn. Du kan ladda ned och installera MySQL Workbench [här](https://dev.mysql.com/downloads/workbench/).
 
-2.  I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar**:
+2. I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar**:
 
    ![konfigurera ny anslutning](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 

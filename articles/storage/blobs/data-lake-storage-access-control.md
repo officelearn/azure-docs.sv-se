@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 3005f19ffbc4771da442e36290a5803dddebfdbb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 906b1dde3d145268df4fb1ff5c243c7daa8396ec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240183"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992433"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomstkontroll i Azure Data Lake Storage Gen2
 
@@ -290,13 +290,13 @@ ACL: er ärver inte. Standard-ACL: er kan dock användas för att ange ACL: er f
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Var hittar jag mer information om POSIX-modellen för åtkomstkontroll?
 
 * [POSIX-åtkomstkontrollistor på Linux](https://www.linux.com/news/posix-acls-linux)
-* [Guide för HDFS-behörighet](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
-* [Vanliga frågor och svar om POSIX](http://www.opengroup.org/austin/papers/posix_faq.html)
-* [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
-* [POSIX 1003.1 2013](http://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
-* [POSIX 1003.1 2016](http://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
+* [Guide för HDFS-behörighet](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
+* [Vanliga frågor och svar om POSIX](https://www.opengroup.org/austin/papers/posix_faq.html)
+* [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
+* [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
+* [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
 * [POSIX ACL på Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
-* [ACL med åtkomstkontrollistor på Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
+* [ACL med åtkomstkontrollistor på Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## <a name="see-also"></a>Se också
 

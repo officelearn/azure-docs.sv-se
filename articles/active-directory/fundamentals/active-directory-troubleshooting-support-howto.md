@@ -15,12 +15,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 548ea67092a2cdb8cedeed869becd8933c08c5c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 22bf80c13ef3b18ab3119b6b35e529c8ad32f504
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181800"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285102"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Få hjälp och öppna ett supportärende för Azure Active Directory
 Microsoft tillhandahåller global teknisk, förförsäljnings, fakturering och prenumerationsstöd för Azure Active Directory (AD Azure). Support fås både online och per telefon för Microsoft Azure betalda prenumerationer och provprenumerationer. Telefonsupport och faktureringssupport online är tillgänglig på andra språk. 
@@ -31,7 +31,7 @@ Kolla in följande resurser för svar och information innan du skapar ett suppor
 
 * Innehåll, till exempel instruktioner eller kodexempel för IT-proffs och utvecklare, finns det [teknisk dokumentation på docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/).
 
-* Den [Microsoft Tech Community](https://techcommunity.microsoft.com/) är rätt ställe för våra IT pro partner och kunder att samarbeta, dela och lär dig. Den [Microsoft Tech Community Info Center](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) används för meddelanden, blogginlägg, be-mig – allt (AMA) interaktioner med experter och mer. Du kan också [gå med i communityn för att skicka in dina idéer](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
+* Den [teknisk Community för Microsoft](https://techcommunity.microsoft.com/) är rätt ställe för våra IT pro partner och kunder att samarbeta, dela och lär dig. Den [Microsoft Technical Community Info Center](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) används för meddelanden, blogginlägg, be-mig – allt (AMA) interaktioner med experter och mer. Du kan också [gå med i communityn för att skicka in dina idéer](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
 
 
 ## <a name="open-a-support-ticket"></a>Öppna ett supportärende
@@ -64,8 +64,7 @@ Om det inte går att hitta svar med hjälp av självhjälpsresurserna kan öppna
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Hur du öppnar ett supportärende för Azure AD i Microsoft 365 Administrationscenter
 
 > [!NOTE]
-> Stöd för Azure AD på den [Microsoft 365 Administrationscenter](https://admin.microsoft.com) erbjuds endast för administratörer.
-> 
+> Stöd för Azure AD på den [Microsoft 365 Administrationscenter](https://admin.microsoft.com) erbjuds endast för administratörer. 
 
 1. Logga in på den [Microsoft 365 Administrationscenter](https://admin.microsoft.com) med ett konto som har en Enterprise Mobility + Security (EMS)-licens.
 

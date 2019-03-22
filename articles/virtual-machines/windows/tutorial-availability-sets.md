@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3ee9740f9ef7e364c47bb205315683d1e4ea9294
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: f71bfa39e4ded0ea300cc2d329c442fdc6ddec37
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977138"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309085"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Självstudier: Skapa och distribuera virtuella datorer med hög tillgänglighet med Azure PowerShell
 
@@ -38,7 +38,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="availability-set-overview"></a>Översikt över tillgänglighetsuppsättning
 
-En tillgänglighetsuppsättning är en funktion för logisk gruppering som isolerar VM-resurser från varandra när de distribueras. Azure ser till att de virtuella datorer som du placerar i en tillgänglighetsuppsättning körs över flera fysiska servrar, datarack, lagringsenheter och nätverksswitchar. Om ett maskinvaru- eller programvarufel inträffar påverkas endast en delmängd av dina virtuella datorer. Den övergripande lösningen fortsätter att fungera. Tillgänglighetsuppsättningar är viktiga för skapandet av tillförlitliga molnlösningar.
+En Tillgänglighetsuppsättning är en logisk grupperingsfunktion för att isolera Virtuella datorresurser från varandra när de har distribuerats. Azure ser till att de virtuella datorer som du placerar i en tillgänglighetsuppsättning körs över flera fysiska servrar, datarack, lagringsenheter och nätverksswitchar. Om ett maskinvaru- eller programvarufel inträffar påverkas endast en delmängd av dina virtuella datorer. Den övergripande lösningen fortsätter att fungera. Tillgänglighetsuppsättningar är viktiga för skapandet av tillförlitliga molnlösningar.
 
 Nu ska vi titta en typisk VM-baserad lösning där du kan ha fyra klientdelswebbservrar och två virtuella serverdelsdatorer. Med Azure bör du definiera två tillgänglighetsuppsättningar innan du distribuerar dina virtuella datorer: en för webbnivån och en för serverdelsnivån. När du skapar en ny virtuell dator anger du tillgänglighetsuppsättningen som en parameter. Azure ser till att de virtuella datorerna isoleras över flera fysiska maskinvaruresurser. Om det uppstår ett problem på den fysiska maskinvara som dina servrar körs på fortsätter de andra instanserna av servrarna att köras eftersom de finns på annan maskinvara.
 

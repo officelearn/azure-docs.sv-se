@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 64470a1497a287f4cc2c3ef3ed29986382aeac9b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 74bb2d181533f802e1428eaa8a855f60fb855193
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285037"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258843"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Serialisera telemetri som använder Protocol Buffers
 
@@ -37,10 +37,10 @@ Stegen i den här How-to-till-guiden visar dig hur du:
 Om du vill följa stegen i den här guiden behöver du:
 
 * Visual Studio Code. Du kan ladda ned [Visual Studio Code för Mac, Linux och Windows](https://code.visualstudio.com/download).
-* .NET core. Du kan ladda ned [.NET Core för Mac, Linux och Windows](https://www.microsoft.com/net/download).
+* .NET Core. Du kan ladda ned [.NET Core för Mac, Linux och Windows](https://www.microsoft.com/net/download).
 * Postman. Du kan ladda ned [Postman för Mac, windows eller Linux](https://www.getpostman.com/apps).
 * En [IoT hub som är distribuerad på Azure-prenumerationen](../iot-hub/iot-hub-create-through-portal.md). Du behöver anslutningssträngen för IoT-hubben att slutföra stegen i den här guiden. Du kan hämta anslutningssträngen från Azure-portalen.
-* En [Cosmos DB-databas som distribuerats till din Azure-prenumeration](../cosmos-db/create-sql-api-dotnet.md#create-a-database-account) som använder SQL-API och som är konfigurerad för [stark konsekvens](../cosmos-db/manage-account.md). Du behöver anslutningssträngen för Cosmos DB-databasen för att slutföra stegen i den här guiden. Du kan hämta anslutningssträngen från Azure-portalen.
+* En [Cosmos DB-databas som distribuerats till din Azure-prenumeration](../cosmos-db/create-sql-api-dotnet.md#create-account) som använder SQL-API och som är konfigurerad för [stark konsekvens](../cosmos-db/manage-account.md). Du behöver anslutningssträngen för Cosmos DB-databasen för att slutföra stegen i den här guiden. Du kan hämta anslutningssträngen från Azure-portalen.
 * En [Azure storage-konto som distribueras till din Azure-prenumeration](../storage/common/storage-quickstart-create-account.md). Du behöver anslutningssträngen för storage-konto för att slutföra stegen i den här guiden. Du kan hämta anslutningssträngen från Azure-portalen.
 
 ## <a name="prepare-your-development-environment"></a>Förbereda utvecklingsmiljön
@@ -70,7 +70,7 @@ I Visual Studio Code, öppna den **remote-monitoring-services-dotnet-master\stor
 
 Om du vill köra storage nätverkskort mikrotjänster lokalt, klickar du på **felsöka \> Starta felsökning**.
 
-Den **Terminal** fönstret i Visual Studio Code visas utdata från körs mikrotjänst, inklusive en URL för web service-hälsokontroll: <http://127.0.0.1:9022/v1/status>. När du navigerar till den här adressen statusen ska vara ”OK: Alive och väl”.
+Den **Terminal** fönstret i Visual Studio Code visas utdata från körs mikrotjänst, inklusive en URL för web service-hälsokontroll: <http://127.0.0.1:9022/v1/status>. När du navigerar till den här adressen statusen ska vara ”OK: Alive och väl ”.
 
 Lämna storage adapter-mikrotjänster som körs i den här instansen av Visual Studio Code när du slutför följande steg.
 
@@ -84,58 +84,58 @@ I den här How-to-till-guiden, kan du skapa en ny enhetsmodell för en tillgång
 
 1. Definiera enheten funktionerna i den nuvarande enhetsmodellen **assettracker 01.json** fil. Avsnittet telemetri i en Protobuf enhetsmodell måste:
 
-    * Inkludera namnet på klassen Protobuf du generera för din enhet. Följande avsnitt visar hur du skapar den här klassen.
-    * Ange Protobuf som meddelandeformat.
+   * Inkludera namnet på klassen Protobuf du generera för din enhet. Följande avsnitt visar hur du skapar den här klassen.
+   * Ange Protobuf som meddelandeformat.
 
-    ```json
-    {
-      "SchemaVersion": "1.0.0",
-      "Id": "assettracker-01",
-      "Version": "0.0.1",
-      "Name": "Asset Tracker",
-      "Description": "An asset tracker with location, temperature, and humidity",
-      "Protocol": "AMQP",
-      "Simulation": {
-        "InitialState": {
-          "online": true,
-          "latitude": 47.445301,
-          "longitude": -122.296307,
-          "temperature": 38.0,
-          "humidity": 62.0
-        },
-        "Interval": "00:01:00",
-        "Scripts": [
-          {
-            "Type": "javascript",
-            "Path": "assettracker-01-state.js"
-          }
-        ]
-      },
-      "Properties": {
-        "Type": "AssetTracker",
-        "Location": "Field",
-        "Latitude": 47.445301,
-        "Longitude": -122.296307
-      },
-      "Telemetry": [
-        {
-          "Interval": "00:00:10",
-          "MessageTemplate": "{\"latitude\":${latitude},\"longitude\":${longitude},\"temperature\":${temperature},\"humidity\":${humidity}}",
-          "MessageSchema": {
-            "Name": "assettracker-sensors;v1",
-            "ClassName": "Microsoft.Azure.IoTSolutions.DeviceSimulation.Services.Models.Protobuf.AssetTracker",
-            "Format": "Protobuf",
-            "Fields": {
-              "latitude": "double",
-              "longitude": "double",
-              "temperature": "double",
-              "humidity": "double"
-            }
-          }
-        }
-      ]
-    }
-    ```
+     ```json
+     {
+     "SchemaVersion": "1.0.0",
+     "Id": "assettracker-01",
+     "Version": "0.0.1",
+     "Name": "Asset Tracker",
+     "Description": "An asset tracker with location, temperature, and humidity",
+     "Protocol": "AMQP",
+     "Simulation": {
+       "InitialState": {
+         "online": true,
+         "latitude": 47.445301,
+         "longitude": -122.296307,
+         "temperature": 38.0,
+         "humidity": 62.0
+       },
+       "Interval": "00:01:00",
+       "Scripts": [
+         {
+           "Type": "javascript",
+           "Path": "assettracker-01-state.js"
+         }
+       ]
+     },
+     "Properties": {
+       "Type": "AssetTracker",
+       "Location": "Field",
+       "Latitude": 47.445301,
+       "Longitude": -122.296307
+     },
+     "Telemetry": [
+       {
+         "Interval": "00:00:10",
+         "MessageTemplate": "{\"latitude\":${latitude},\"longitude\":${longitude},\"temperature\":${temperature},\"humidity\":${humidity}}",
+         "MessageSchema": {
+           "Name": "assettracker-sensors;v1",
+           "ClassName": "Microsoft.Azure.IoTSolutions.DeviceSimulation.Services.Models.Protobuf.AssetTracker",
+           "Format": "Protobuf",
+           "Fields": {
+             "latitude": "double",
+             "longitude": "double",
+             "temperature": "double",
+             "humidity": "double"
+           }
+         }
+       }
+     ]
+     }
+     ```
 
 ### <a name="create-device-behaviors-script"></a>Skapa beteenden-enhetsskript
 
@@ -271,7 +271,7 @@ Du kan stoppa två som körs lokalt mikrotjänster i sina Visual Studio Code-ins
 
 Om du behöver inte längre IoT Hub och Cosmos DB-instanser kan du ta bort dem från Azure-prenumerationen för att undvika onödiga kostnader.
 
-## <a name="iot-hub-support"></a>Stöd för IoT-hubb
+## <a name="iot-hub-support"></a>IoT Hub Support
 
 Många IoT Hub-funktioner stöder inte internt Protobuf eller andra binärt format. Du kan till exempel vidarebefordra baserat på meddelandenyttolast eftersom IoT Hub inte går att bearbeta meddelandet nyttolasten. Du kan dock vidarebefordra baserat på meddelandehuvudena.
 

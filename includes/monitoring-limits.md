@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: c608389136bca2c6add7edfb1ae4eaca218f2b99
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4360196a33381d1a9c8316430339b9a80cb0dba3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553848"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58016478"
 ---
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
@@ -23,6 +23,7 @@ ms.locfileid: "57553848"
 | Åtgärdsgrupper |2 000 åtgärdsgrupper per prenumeration. | Kontakta supporten. |
 
 **Åtgärden gruppspecifika gränser**
+
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
 | Push för Azure-app | 10 azure åtgärder per åtgärdsgruppen. | Kontakta supporten. |

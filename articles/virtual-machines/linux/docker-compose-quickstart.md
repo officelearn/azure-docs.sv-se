@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2019
 ms.author: cynthn
-ms.openlocfilehash: 3aa3b29ef44d3efb21237dc0d82a1ee6e99e729b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 03501ea774cf58a4be88ed9155e5cfdfb99f0379
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328953"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007184"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Kom igång med Docker och Compose för att definiera och köra program med flera behållare i Azure
-Med [Compose](http://github.com/docker/compose), du använda en exempeltextfil för att definiera ett program som består av flera Docker-behållare. Sedan sätta upp ditt program i ett enda kommando som gör allt för att distribuera din definierade miljö. Exempelvis kan visar den här artikeln hur du snabbt konfigurera en WordPress-blogg med en serverdel MariaDB SQL-databas på en Ubuntu-VM. Du kan också använda Skriv för att ställa in mer komplexa program.
+Med [Compose](https://github.com/docker/compose), du använda en exempeltextfil för att definiera ett program som består av flera Docker-behållare. Sedan sätta upp ditt program i ett enda kommando som gör allt för att distribuera din definierade miljö. Exempelvis kan visar den här artikeln hur du snabbt konfigurera en WordPress-blogg med en serverdel MariaDB SQL-databas på en Ubuntu-VM. Du kan också använda Skriv för att ställa in mer komplexa program.
 
 Den här artikeln senast har testats på 2/14/2019 med hjälp av den [Azure Cloud Shell](https://shell.azure.com/bash) och [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) version 2.0.58.
 
@@ -132,7 +132,7 @@ Du kan nu ansluta till WordPress direkt på den virtuella datorn på port 80. Ö
 ![Startskärmen för WordPress](./media/docker-compose-quickstart/wordpressstart.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Kolla in den [Compose Kommandoradsreferens](http://docs.docker.com/compose/reference/) och [användarhandboken](http://docs.docker.com/compose/) fler exempel på att skapa och distribuera appar för flera behållare.
+* Kolla in den [Compose Kommandoradsreferens](https://docs.docker.com/compose/reference/) och [användarhandboken](https://docs.docker.com/compose/) fler exempel på att skapa och distribuera appar för flera behållare.
 * Använda en Azure Resource Manager-mall, antingen din egen eller en som tillförts från den [community](https://azure.microsoft.com/documentation/templates/), för att distribuera en virtuell Azure-dator med Docker och ett program som konfigurerats med Compose. Till exempel den [distribuera en WordPress-blogg med Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) mallen använder Docker och Compose för att snabbt distribuera WordPress med MySQL-serverdel på en Ubuntu-VM.
 * Försök integrera Docker Compose med ett Docker Swarm-kluster. Se [med hjälp av Compose med Swarm](https://docs.docker.com/compose/swarm/) för scenarier.
 

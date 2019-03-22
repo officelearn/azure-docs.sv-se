@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 25fd1df0-411c-4f55-8be3-4273b543100f
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e79424ff3fe3bce006932c19dba8cf5fc4bce4f2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: d6b8edf2627ade23fc6d1125afbabc34a1d9d21b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878633"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860388"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Självstudier: Azure Active Directory-integrering med AppDynamics
 
@@ -34,7 +34,7 @@ Genom att integrera AppDynamics med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande saker för att konfigurera Azure AD-integrering med AppDynamics:
 
@@ -55,7 +55,7 @@ För att konfigurera integrering av AppDynamics i Azure AD behöver du lägga ti
 
 **Utför följande steg för att lägga till AppDynamics från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -130,29 +130,29 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ap
 
 ### <a name="configure-appdynamics-single-sign-on"></a>Konfigurera enkel inloggning för AppDynamics
 
-7. I ett annat webbläsarfönster loggar du in på AppDynamics-företagsplatsen som administratör.
+1. I ett annat webbläsarfönster loggar du in på AppDynamics-företagsplatsen som administratör.
 
-8. I verktygsfältet längst upp klickar du på **Inställningar** och sedan på **Administration**.
+1. I verktygsfältet längst upp klickar du på **Inställningar** och sedan på **Administration**.
 
     ![Administration](./media/appdynamics-tutorial/ic790216.png "Administration")
 
-9. Klicka på fliken **Autentiseringsprovider**.
+1. Klicka på fliken **Autentiseringsprovider**.
 
     ![Autentiseringsprovider](./media/appdynamics-tutorial/ic790224.png "Autentiseringsprovider")
 
-10. I avsnittet **Autentiseringsprovider** utför du följande steg:
+1. I avsnittet **Autentiseringsprovider** utför du följande steg:
 
-    ![SAML-konfiguration](./media/appdynamics-tutorial/ic790225.png "SAML-konfiguration")
+   ![SAML-konfiguration](./media/appdynamics-tutorial/ic790225.png "SAML-konfiguration")
 
-    a. För **Autentiseringsprovider** väljer du **SAML**.
+   a. För **Autentiseringsprovider** väljer du **SAML**.
 
-    b. I textrutan för **inloggnings-URL** klistrar du in värdet för **inloggnings-URL:en** som du har kopierat från Azure-portalen.
+   b. I textrutan för **inloggnings-URL** klistrar du in värdet för **inloggnings-URL:en** som du har kopierat från Azure-portalen.
 
-    c. I textrutan **Logout URL** (Utloggnings-URL) klistrar du in värdet för den **utloggnings-URL** som du har kopierat från Azure-portalen.
+   c. I textrutan **Logout URL** (Utloggnings-URL) klistrar du in värdet för den **utloggnings-URL** som du har kopierat från Azure-portalen.
 
-    d. Öppna ditt Base64-kodade certifikat i Anteckningar, kopiera innehållet till Urklipp och klistra in det i textrutan **Certifikat**
+   d. Öppna ditt Base64-kodade certifikat i Anteckningar, kopiera innehållet till Urklipp och klistra in det i textrutan **Certifikat**
 
-    e. Klicka på **Spara**.
+   e. Klicka på **Spara**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -172,14 +172,14 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till AppDynamics.
 
@@ -214,7 +214,7 @@ Målet med det här avsnittet är att skapa en användare som heter Britta Simon
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
 När du klickar på AppDynamics-panelen i åtkomstpanelen bör du automatiskt loggas in på AppDynamics som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

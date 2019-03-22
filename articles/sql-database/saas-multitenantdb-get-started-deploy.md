@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: cb64b96f179bd71c3f885a54b17decb794b40c1a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567391"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994912"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Distribuera och utforska ett delat program för flera innehavare
 
@@ -66,9 +66,9 @@ Välj ditt namn nu och Skriv ned dem.
 ### <a name="steps"></a>Steg
 
 1. Klicka på följande blå **distribuera till Azure** knappen.
-    - Azure-portalen öppnas med Wingtip biljetter SaaS-Distributionsmall.
+   - Azure-portalen öppnas med Wingtip biljetter SaaS-Distributionsmall.
 
-    [![Knappen för att distribuera till Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
+     [![Knappen för att distribuera till Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
 1. Ange nödvändiga parametervärden för distributionen.
 
@@ -125,9 +125,9 @@ Varje plats får en personaliserad webbapp sina evenemang och sälja biljetter. 
 En central **Evenemangshubben** webbsidan innehåller en lista med länkar till klienter i din viss distribution. Använd följande steg för att uppleva de **Evenemangshubben** webbsidan och en enskild webbapp:
 
 1. Öppna den **Evenemangshubben** i webbläsaren:
-    - http://events.wingtip-mt.&lt; användare&gt;. trafficmanager.net &nbsp; *(Ersätt &lt;användaren&gt; med värdet för användarnamn för din distribution.)*
+   - http://events.wingtip-mt.&lt; användare&gt;. trafficmanager.net &nbsp; *(Ersätt &lt;användaren&gt; med värdet för användarnamn för din distribution.)*
 
-    ![evenemangshubben](media/saas-multitenantdb-get-started-deploy/events-hub.png)
+     ![evenemangshubben](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
 2. Klicka på **Fabrikam Jazzklubb** i **evenemangshubben**.
 
@@ -208,7 +208,7 @@ Nu ska etablerar vi en annan klient nu i en egen databas:
 
 Nu titta vi på några av de resurser som har distribuerats:
 
-1. I den [Azure-portalen](http://portal.azure.com), bläddra i listan över resursgrupper. Öppna resursgruppen du skapade när du har distribuerat programmet.
+1. I den [Azure-portalen](https://portal.azure.com), bläddra i listan över resursgrupper. Öppna resursgruppen du skapade när du har distribuerat programmet.
 
    ![Resursgrupp](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
@@ -275,7 +275,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 -->
 
-[link-aka-ms-deploywtp-mtapp-52k]: http://aka.ms/deploywtp-mtapp
+[link-aka-ms-deploywtp-mtapp-52k]: https://aka.ms/deploywtp-mtapp
 
 
 [link-azure-get-started-powershell-41q]: https://docs.microsoft.com/powershell/azure/get-started-azureps
@@ -286,7 +286,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 <!--  Image references.
 
-[image-deploy-to-azure-blue-48d]: http://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
+[image-deploy-to-azure-blue-48d]: https://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
 -->
 
 [image-deploy-to-azure-blue-48d]: media/saas-multitenantdb-get-started-deploy/deploy.png "Knappen för att distribuera till Azure."

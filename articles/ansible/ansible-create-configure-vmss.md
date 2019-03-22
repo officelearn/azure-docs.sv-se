@@ -1,24 +1,24 @@
 ---
 title: Skapa VM-skalningsuppsättningar i Azure med Ansible
 description: Lär dig hur du använder Ansible för att skapa och konfigurera en skalningsuppsättning för virtuell dator i Azure
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.openlocfilehash: 920a631ed379651751641c22e4b43f6731197377
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 1176987ab318a97a7db6a12e619e7b7db06ad2da
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054166"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097897"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Skapa VM-skalningsuppsättningar i Azure med Ansible
 Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera dina VM-skalningsuppsättningar (VMSS) i Azure på samma sätt som för alla andra Azure-resurser. I den här artikeln får du läsa om hur du använder Ansible för att skapa och skala ut en skalningsuppsättning för virtuell dator. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 - **Azure-prenumeration** – Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) konto innan du börjar.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
@@ -276,5 +276,5 @@ Resultatet av körningen av kommandot i Cloud Shell visar att det nu finns tre i
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"] 
 > [Distribuera program till VM-skalningsuppsättningar med hjälp av Ansible](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
-
+> 
 > [Skala en VM-skalningsuppsättning automatiskt med hjälp av Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

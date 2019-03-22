@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 596bc86033fdeaf872f1facfebbf47780893b7d2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5b4da39d56b86f79727590076ac60b87541643e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455951"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082848"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimera din miljö med lösningen för System Center Operations Manager hälsokontroll (förhandsversion)
 
@@ -44,11 +44,11 @@ Den här lösningen fungerar med Microsoft System Center 2012 Operations Manager
 
 Använd följande information för att installera och konfigurera lösningen.
 
- - Innan du kan använda lösningen för hälsokontroll i Log Analytics, måste du ha installerat lösningen. Installera lösningen från [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
+- Innan du kan använda lösningen för hälsokontroll i Log Analytics, måste du ha installerat lösningen. Installera lösningen från [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
 
- - När du lägger till lösningen till arbetsytan, den **System Center Operations Manager Health Check** panelen på instrumentpanelen visar ett meddelande om ytterligare konfiguration krävs. Klicka på panelen och följ konfigurationsstegen på sidan
+- När du lägger till lösningen till arbetsytan, den **System Center Operations Manager Health Check** panelen på instrumentpanelen visar ett meddelande om ytterligare konfiguration krävs. Klicka på panelen och följ konfigurationsstegen på sidan
 
- ![Instrumentpanel för System Center Operations Manager](./media/scom-assessment/scom-configrequired-tile.png)
+  ![Instrumentpanel för System Center Operations Manager](./media/scom-assessment/scom-configrequired-tile.png)
 
 > [!NOTE]
 > Konfiguration av System Center Operations Manager kan göras med hjälp av ett skript genom att följa stegen i konfigurationssidan för lösningen i Log Analytics.

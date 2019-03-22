@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 03/14/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 9a27efe7908b2a15ceb823d7a85c4a12603731ab
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: cc4422c4a22309eaf78a3eb9439a5cd27f664863
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075989"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997652"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Aktivera Azure-prenumerationer och konton med Cloudyn
 
@@ -60,7 +60,7 @@ När du lägger till en prenumeration till en kontouppdatering beviljar du åtko
 1. Om du vill uppdatera en _inaktiverad_ prenumeration som redan finns i Cloudyn går du till Kontohantering och klickar på pennsymbolen för redigering till höger om överordnad _klientorganisations-GUID_. Prenumerationerna är grupperade under en överordnad klientorganisation, så undvik att aktivera prenumerationer individuellt.
     ![välj ditt klient-ID i rutan Identifiera prenumerationer på nytt](./media/activate-subs-accounts/existing-sub.png)
 2. Ange klient-ID om det behövs. Om du inte vet klient-ID kan du söka efter det genom att göra följande:
-    1. Logga in på [Azure-portalen](https://portal.azure.com).
+    1. Logga in på [Azure Portal](https://portal.azure.com).
     2. Välj **Azure Active Directory** i Azure Portal.
     3. Om du vill hämta klientorganisations-ID:t väljer du **Egenskaper** för din Microsoft Azure Active Directory-klientorganisation.
     4. Kopiera katalog-ID GUID. Det här värdet är ditt klientorganisations-ID.

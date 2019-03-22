@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 7b59ab5da89d7ab99560a777f5a685f8b33e31dc
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: dbaafca8692b144b0032315c0b40eb02bec0e3ff
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201184"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438677"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Självstudie om NoSQL: Skapa ett Java-konsolprogram med SQL API
 
@@ -87,7 +87,7 @@ Gå till ditt Azure Cosmos DB-konto på Azure Portal och klicka på **Nycklar**.
         , new ConnectionPolicy(),
         ConsistencyLevel.Session);
 
-![Skärmdump av Azure Portal som används i NoSQL-självstudiekursen för att skapa ett Java-konsolprogram. Visar ett Azure Cosmos DB-konto där den AKTIVA hubben är markerad, där knappen NYCKLAR är markerad på bladet för Azure Cosmos DB-kontot och där värdena för URI, PRIMÄR NYCKEL och SEKUNDÄR NYCKEL är markerade på bladet Nycklar][keys]
+![Skärmbild av Azure Portal som används i NoSQL-självstudiekursen för att skapa en Java-konsolprogram. Visar ett Azure Cosmos DB-konto där den AKTIVA hubben är markerad, där knappen NYCKLAR är markerad på bladet för Azure Cosmos DB-kontot och där värdena för URI, PRIMÄR NYCKEL och SEKUNDÄR NYCKEL är markerade på bladet Nycklar][keys]
 
 ## <a name="step-4-create-a-database"></a>Steg 4: Skapa en databas
 Azure Cosmos DB-[databasen](databases-containers-items.md#azure-cosmos-databases) kan skapas med metoden [createDatabase](/java/api/com.microsoft.azure.documentdb.documentclient.createdatabase) i **DocumentClient**-klassen. En databas är en logisk container för JSON-dokumentlagring, partitionerad över samlingarna.

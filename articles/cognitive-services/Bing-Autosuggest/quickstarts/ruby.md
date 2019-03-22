@@ -1,71 +1,84 @@
 ---
-title: 'Snabbstart: API för automatiska förslag i Bing, Ruby'
+title: 'Snabbstart: Föreslå sökfrågor med REST API för automatiska förslag i Bing och Ruby'
 titlesuffix: Azure Cognitive Services
 description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API:et för automatiska förslag i Bing.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 09/14/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 0093554c1d4b9b315dcf7b6171d5ed1ff5ab9057
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 02/20/2019
+ms.author: aahi
+ms.openlocfilehash: c7ba0fd34c789735cd92c25a728aec346dc88fcc
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875577"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009757"
 ---
-# <a name="quickstart-for-bing-autosuggest-api-with-ruby"></a>Snabbstart för API för automatiska förslag i Bing med Ruby 
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>Snabbstart: Föreslå sökfrågor med REST API för automatiska förslag i Bing och Ruby
 
-Den här artikeln beskriver hur du använder [API:et för automatiska förslag i Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/)  med Ruby. API för automatiska förslag i Bing returnerar en lista över föreslagna frågor baserat på den partiella frågesträng som användaren anger i sökrutan. Normalt skulle du anropa detta API varje gång som användaren skriver ett nytt tecken i sökrutan, och sedan visa förslagen i listrutan i sökrutan. I den här artikeln kan du se hur du skickar en begäran som returnerar de föreslagna frågesträngarna för *sail* (segla).
+Använd den här snabbstarten ska börja göra anrop till API för automatiska förslag i Bing och hämta JSON-svar. Den här enkla Ruby-programmet skickar en partiell sökfråga till API: et och returnerar förslag på sökningar. Även om det här programmet är skrivet i Ruby, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) eller senare för att köra den här koden.
+## <a name="prerequisites"></a>Förutsättningar
 
-Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API v7 för automatiska förslag i Bing**. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/#search) för den här snabbstarten. Du behöver den åtkomstnyckel som du fick när du aktiverade din kostnadsfria utvärderingsversion, eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure.
+* [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) eller senare.
 
-## <a name="get-autosuggest-results"></a>Hämta resultat för automatiska förslag
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
-1. Skapa ett nytt Ruby-projekt i din favorit-IDE.
-2. Lägg till koden nedan.
-3. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Kör programmet.
+## <a name="create-a-new-application"></a>Skapa ett nytt program
 
-```ruby
-require 'net/https'
-require 'uri'
-require 'json'
+1. Skapa en ny Ruby-fil i din favorit-IDE eller redigerare. Lägg till följande krav:
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+    ```ruby
+    require 'net/https'
+    require 'uri'
+    require 'json'
+    ```
 
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'enter key here'
+2. Skapa variabler för dina API-värden och sökväg, [marknaden kod](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes), delvis sökfråga.
 
-host = 'https://api.cognitive.microsoft.com'
-path = '/bing/v7.0/Suggestions'
+    ```ruby
+    subscriptionKey = 'enter your key here'
+    host = 'https://api.cognitive.microsoft.com'
+    path = '/bing/v7.0/Suggestions'
+    mkt = 'en-US'
+    query = 'sail'
+    ```
 
-mkt = 'en-US'
-query = 'sail'
+3. Skapa en parametrar sträng genom att lägga till marknaden koden så att den `?mkt=` parametern och lägga till frågan i `&q=` parametern. Skapa sedan din begäran URI genom att kombinera API-värden, sökväg och strängen som parametrar.
 
-params = '?mkt=' + mkt + '&q=' + query
-uri = URI (host + path + params)
+    ```ruby
+    params = '?mkt=' + mkt + '&q=' + query
+    uri = URI (host + path + params)
+    ```
 
-request = Net::HTTP::Get.new(uri)
-request['Ocp-Apim-Subscription-Key'] = subscriptionKey
+## <a name="create-and-send-an-api-request"></a>Skapa och skicka en API-begäran
 
-response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request (request)
-end
+1. Skapa en begäran med din URI och Lägg till din prenumerationsnyckel till den `Ocp-Apim-Subscription-Key` rubrik.
+    
+    ```ruby
+    request = Net::HTTP::Get.new(uri)
+    request['Ocp-Apim-Subscription-Key'] = subscriptionKey
+    ```
 
-puts JSON::pretty_generate (JSON (response.body))
-```
+2. Skicka begäran och lagra svaren.
+    
+    ```ruby
+    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+        http.request (request)
+    end
+    ```
 
-### <a name="response"></a>Svar
+3. Skriva ut JSON-svar.
+    
+    ```ruby
+    puts JSON::pretty_generate (JSON (response.body))
+    ```
+
+## <a name="example-json-response"></a>Exempel på JSON-svar
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 
@@ -136,9 +149,9 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie för automatiska förslag i Bing](../tutorials/autosuggest.md)
+> [Skapa en enkelsidig webbapp](../tutorials/autosuggest.md)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Vad är automatiska förslag i Bing?](../get-suggested-search-terms.md)
 - [Referens för API v7 för automatiska förslag i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)

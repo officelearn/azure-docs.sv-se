@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 1e952e32142672946fa987b763032dad66f564a9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d5603bb6bbb56d1aebb719902c60de631a4f14f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537889"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108196"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Slutanvändarautentisering med Azure Data Lake Storage Gen1 med hjälp av REST API
 > [!div class="op_single_selector"]
@@ -45,38 +45,36 @@ Resultatet av att ha slutanvändarens inloggningen är att ditt program är base
 I det här scenariot uppmanar programmet användaren att logga in och alla åtgärder utförs i kontexten för användaren. Utför följande steg:
 
 1. Omdirigera användaren via ditt program till följande URL:
-   
+
         https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
-   
+
    > [!NOTE]
    > \<REDIRECT-URI> måste kodas för användning i en URL. Så för https://localhost, använda `https%3A%2F%2Flocalhost`)
-   > 
-   > 
-   
+
     För självstudierna kan du ersätta platshållarvärdena i URL-adressen ovan och klistra in den i webbläsarens adressfält. Du omdirigeras för att autentisera med Azure-autentiseringsuppgifter. När du har loggat in visas svaret i webbläsarens adressfält. Svaret ska ha följande format:
-   
+
         http://localhost/?code=<AUTHORIZATION-CODE>&session_state=<GUID>
 
 2. Avbilda auktoriseringskoden från svaret. För den här självstudien får kopiera du Auktoriseringskoden från adressfältet i webbläsaren och pass den i INLÄGGET begäran till tokenslutpunkten, enligt följande kodavsnitt:
-   
+
         curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token \
         -F redirect_uri=<REDIRECT-URI> \
         -F grant_type=authorization_code \
         -F resource=https://management.core.windows.net/ \
         -F client_id=<APPLICATION-ID> \
         -F code=<AUTHORIZATION-CODE>
-   
+
    > [!NOTE]
    > I det här fallet behöver \<REDIRECT-URI> inte vara kodad.
    > 
    > 
 
 3. Svaret är ett JSON-objekt som innehåller en åtkomsttoken (till exempel `"access_token": "<ACCESS_TOKEN>"`) och en uppdateringstoken (till exempel `"refresh_token": "<REFRESH_TOKEN>"`). Programmet använder åtkomsttoken vid åtkomst till Azure Data Lake Storage Gen1 och uppdateringstoken för att få en annan åtkomsttoken när en åtkomst-token upphör att gälla.
-   
+
         {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before":    "1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
 
 4. När åtkomsttoken upphör att gälla, kan du begära en ny åtkomsttoken med hjälp av uppdateringstoken som visas i följande kodavsnitt:
-   
+
         curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
              -F grant_type=refresh_token \
              -F resource=https://management.core.windows.net/ \
@@ -84,7 +82,7 @@ I det här scenariot uppmanar programmet användaren att logga in och alla åtg�
              -F refresh_token=<REFRESH-TOKEN>
 
 Mer information om interaktiv användarautentisering finns i [Flöde beviljat med auktoriseringskod](https://msdn.microsoft.com/library/azure/dn645542.aspx).
-   
+
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln beskrivs hur du använder tjänst-till-tjänst-autentisering för att autentisera med Azure Data Lake Storage Gen1 med hjälp av REST API. Du kan nu se ut i följande artiklar som pratar om hur du använder REST API för att arbeta med Azure Data Lake Storage Gen1.
 

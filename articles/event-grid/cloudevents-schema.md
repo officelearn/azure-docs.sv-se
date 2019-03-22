@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: c9c0fd8bf7dc893ce07a6e3ce9cb392fc652a560
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 1eab0be59de90ad68cbf9601b7e2200e640875f4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535860"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58178075"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Använd CloudEvents-schema med Event Grid
 
@@ -24,6 +24,8 @@ CloudEvents förenklar samverkan genom att tillhandahålla ett gemensamt Händel
 CloudEvents håller på att skapas av ett flertal [medarbetare](https://github.com/cloudevents/spec/blob/master/community/contributors.md), inklusive Microsoft, via den [Cloud interna databehandling Foundation](https://www.cncf.io/). Det finns för närvarande som version 0.1.
 
 Den här artikeln beskriver hur du använder CloudEvents-schema med Event Grid.
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 ## <a name="install-preview-feature"></a>Installera förhandsversionsfunktionen
 

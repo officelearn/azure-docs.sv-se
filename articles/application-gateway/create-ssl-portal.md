@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: 33e24a8d8715dd6f2b37ed566a1479dffd93c466
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 92db27aa486936d53c2e2e1c92db7d728b7d99c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308099"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091842"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Konfigurera en Programgateway med SSL-avslutning med Azure portal
 
@@ -78,12 +78,12 @@ Det krävs ett virtuellt nätverk för kommunikation mellan de resurser som du s
 4. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
 5. Klicka på **Välj ett virtuellt nätverk**, klicka på **Skapa nytt** och ange sedan följande värden för det virtuella nätverket:
 
-    - *myVnet* – Det virtuella nätverkets namn.
-    - *10.0.0.0/16* – Det virtuella nätverkets adressutrymme.
-    - *myBackendSubnet* – Undernätsnamnet.
-    - *10.0.0.0/24* – Undernätets adressutrymme.
+   - *myVnet* – Det virtuella nätverkets namn.
+   - *10.0.0.0/16* – Det virtuella nätverkets adressutrymme.
+   - *myBackendSubnet* – Undernätsnamnet.
+   - *10.0.0.0/24* – Undernätets adressutrymme.
 
-    ![Skapa det virtuella nätverket](./media/create-ssl-portal/application-gateway-vnet.png)
+     ![Skapa det virtuella nätverket](./media/create-ssl-portal/application-gateway-vnet.png)
 
 6. Klicka på **OK** för att skapa det virtuella nätverket och undernätet.
 7. Klicka på **välja en offentlig IP-adress**, klickar du på **Skapa nytt**, och ange sedan namnet på den offentliga IP-adressen. I det här exemplet heter den offentliga IP-adressen *myAGPublicIPAddress*. Godkänn standardvärdena för de andra inställningarna och klicka sedan på **OK**.
@@ -149,13 +149,13 @@ I det här exemplet skapar du två virtuella datorer som ska användas som serve
 
 ### <a name="add-backend-servers"></a>Lägga till serverdelsservrar
 
-3. Klicka på **Alla resurser** och sedan på **myAppGateway**.
-4. Klicka på **Serverdelspooler**. En standardpool skapades automatiskt med programgatewayen. Klicka på **appGatewayBackendPool**.
-5. Klicka på **Lägg till mål** att lägga till varje virtuell dator som du skapade till serverdelspoolen.
+1. Klicka på **Alla resurser** och sedan på **myAppGateway**.
+1. Klicka på **Serverdelspooler**. En standardpool skapades automatiskt med programgatewayen. Klicka på **appGatewayBackendPool**.
+1. Klicka på **Lägg till mål** att lägga till varje virtuell dator som du skapade till serverdelspoolen.
 
     ![Lägga till serverdelsservrar](./media/create-ssl-portal/application-gateway-backend.png)
 
-6. Klicka på **Spara**.
+1. Klicka på **Spara**.
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 

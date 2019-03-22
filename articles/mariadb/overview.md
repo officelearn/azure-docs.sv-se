@@ -6,17 +6,17 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 12/03/2018
-ms.openlocfilehash: 7fecc280d4e92df88f5f8e9b9e571273328d2458
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.date: 03/20/2019
+ms.openlocfilehash: a5d00c24531099e66afcb6ccf07cfdf99abd28d1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352322"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295155"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Vad är Azure Database for MariaDB?
 
-Azure Database for MariaDB är en relationsdatabastjänst i Microsofts moln. Azure Database for MariaDB baseras på databasmotorn för [MariaDB Community Edition](https://mariadb.org/download/), version 10.2.
+Azure Database for MariaDB är en relationsdatabastjänst i Microsofts moln. Azure Database for MariaDB baseras på den [MariaDB community edition](https://mariadb.org/download/) (tillgängligt under GPLv2 licens) databasmotorn, version 10.2.
 
 Azure Database for MariaDB ger:
 

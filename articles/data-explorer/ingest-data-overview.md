@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 2/18/2019
-ms.openlocfilehash: bd1cb101a3bf9a4da9c681169d2a5c999e56b1b3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c4db658db3d32905368390826e5531ca31525486
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438422"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58133135"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure Data Explorer-datainmatning
 
@@ -53,7 +53,7 @@ Azure Data Explorer stöder för närvarande:
 
 ### <a name="ingestion-using-integration-services"></a>Inmatning som använder integrationstjänster
 
-* Azure Data Factory (ADF), en fullständigt hanterad dataintegreringstjänst för analytiska arbetsbelastningar i Azure för att kopiera data till och från Azure Data Explorer. Mer information finns i [kopiera data till och från Azure Data Explorer med Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
+* Azure Data Factory (ADF), en fullständigt hanterad dataintegreringstjänst för analytiska arbetsbelastningar i Azure för att kopiera data till och från Azure Data Explorer med hjälp av [datalager och format som stöds](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Mer information finns i [kopiera data till och från Azure Data Explorer med Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
 
 ### <a name="programmatic-ingestion"></a>Programmässig inmatning
 

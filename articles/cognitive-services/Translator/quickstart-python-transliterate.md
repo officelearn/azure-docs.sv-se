@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 2022971d24f7ac8a24986f45031f568a86fc31d9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: b30fa9bb0af8da7b3c72fef7aa2ecd18a8f759e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726371"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862853"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Snabbstart: Använda Translator Text API till att transkribera text med hjälp av Python
 
@@ -23,7 +23,7 @@ I den här snabbstarten lär du dig hur du transkriberar (konverterar) text frå
 
 För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
@@ -32,7 +32,7 @@ För den här snabbstarten krävs:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
-Skapa ett nytt Python-projekt med valfri IDE eller redigeringsprogram. Kopiera sedan det här kodavsnittet till projektet i en fil med namnet `transliterate-text.py`.
+Skapa ett nytt projekt med hjälp av din favorit-IDE eller redigerare eller en ny mapp med en fil med namnet `transliterate-text.py` på skrivbordet. Kopiera sedan det här kodfragmentet till din projektfilen:
 
 ```python
 # -*- coding: utf-8 -*-
@@ -135,7 +135,7 @@ Om du vill jämföra din kod med vår finns det fullständiga exemplet på [GitH
 [
     {
         "script": "latn",
-        "text": "konnnichiha"
+        "text": "konnichiwa"
     }
 ]
 ```
@@ -149,7 +149,7 @@ Om du har hårdkodat din prenumerationsnyckel i programmet ser du till att ta bo
 > [!div class="nextstepaction"]
 > [Utforska Python-exempel på GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 Lär dig att använda Translator Text API för att:
 

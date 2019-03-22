@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 4fd701c92ea2cf1447f0c3ea14db6a968ac8910e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: fdda53172bef9fb7a4a09cbacfdc5fa4ec4c7509
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115682"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122360"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Självstudie – Distribuera HSM:er till ett befintligt virtuellt nätverk med hjälp av PowerShell
 
@@ -35,7 +35,7 @@ En typisk arkitektur med hög tillgänglighet för distribution i flera regioner
 
 Den här självstudien fokuserar på integreringen av ett par HSM:er och den nödvändiga ExpressRoute-gatewayen (se Undernät 1 ovan) i ett befintligt virtuellt nätverk (se VNET 1 ovan).  Alla andra resurser är Azure-standardresurser. Samma integreringsprocess kan användas för HSM:er i undernät 4 på VNET 3 ovan.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Dedikerad HSM i Azure är inte tillgängligt i Azure-portalen. Därför sker all interaktion med tjänsten via kommandoraden eller PowerShell. Den här självstudien använder PowerShell i Azure Cloud Shell. Om PowerShell är nytt för dig följer du instruktionerna för att komma igång här: [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0).
 
@@ -255,8 +255,8 @@ Om du är klar med bara HSM-enheten kan den tas bort som resurs och returneras t
 9. `syslog rotate`
 
 
->[!NOTE]
-om det är problem med någon Gemalto-enhetskonfiguration bör du kontakta [Gemaltos kundsupport](https://safenet.gemalto.com/technical-support/).
+> [!NOTE]
+> om det är problem med någon Gemalto-enhetskonfiguration bör du kontakta [Gemaltos kundsupport](https://safenet.gemalto.com/technical-support/).
 
 Om du är klar med resurserna i den här resursgruppen kan du ta bort dem alla med följande kommando:
 

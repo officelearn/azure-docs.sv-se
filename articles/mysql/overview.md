@@ -6,16 +6,17 @@ author: ajlam
 ms.author: andrela
 ms.custom: mvc
 ms.topic: conceptual
-ms.date: 11/14/2018
-ms.openlocfilehash: 99039c4d6abb8a839886e9d623e92c9fb2c41787
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.date: 03/20/2019
+ms.openlocfilehash: 2852cab05fab8e15b7e60a22f54cc866d2f0f178
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353336"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295410"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Vad är Azure Database for MySQL?
-Azure Database för MySQL är en relationsdatabastjänst i Microsoft-molnet baserat på den [MySQL Community Edition](https://www.mysql.com/products/community/) database engine, version 5.6 och 5.7. Azure Database för MySQL ger:
+
+Azure Database för MySQL är en relationsdatabastjänst i Microsoft-molnet baserat på den [MySQL Community Edition](https://www.mysql.com/products/community/) (tillgängligt under GPLv2 licens) databasmotorn, version 5.6 och 5.7. Azure Database för MySQL ger:
 
 - Inbyggd hög tillgänglighet utan extra kostnad.
 - Förutsägbar prestanda med hjälp av priser för användningsbaserad betalning.
@@ -29,10 +30,12 @@ Dessa funktioner kräver nästan ingen administration och de tillhandahålls uta
 ![Azure Database for MySQL konceptuellt diagram](media/overview/1-azure-db-for-mysql-conceptual-diagram.png)
 
 Den här artikeln är en introduktion till Azure Database för MySQL nyckelkoncept och funktioner som relaterar till prestanda, skalbarhet och hanterbarhet, med länkar till mer detaljerad information. Läs följande snabbstarter innan du börjar:
+
 - [Skapa en Azure Database för MySQL med Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Skapa en Azure Database för MySQL-server med Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md)
 
 En uppsättning Azure CLI-exempel finns här:
+
 - [Azure CLI-exempel för Azure Database for MySQL](sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Justera prestanda och skalning på några sekunder
@@ -55,12 +58,14 @@ Som standard konfigureras Azure Database for MySQL-tjänsten för att kräva [SS
 För frågor eller förslag som du kan ha om hur du arbetar med Azure Database för MySQL, skicka ett e-postmeddelande till Azure Database för MySQL-teamet ([ @Ask Azure DB för MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Observera att detta inte är ett alias för teknisk support.
 
 Tänk dessutom på följande kontaktpunkter efter behov:
+
 - Kontakta Azure Support genom att [skicka in ett supportärende från Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - Om du vill åtgärda ett problem med ditt konto, skickar du in ett [supportärende](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) i Azure-portalen.
 - Om du vill ge feedback eller begära nya funktioner, skapar du ett inlägg via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har läst en introduktion till Azure Database för MySQL och besvarat frågan ”vad är Azure Database för MySQL”?, är du redo att:
+
 - På prissättningssidan finns kostnadsjämförelser och kostnadsberäknare. [Prissättning](https://azure.microsoft.com/pricing/details/mysql/)
 - Kom igång genom att skapa din första server. [Skapa en Azure Database för MySQL med Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md)
 - Skapa din första app med det språk du föredrar: [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md)

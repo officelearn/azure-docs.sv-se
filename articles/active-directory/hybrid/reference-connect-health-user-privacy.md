@@ -14,12 +14,12 @@ ms.topic: reference
 ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0a7dc5152bb1ede5f7311e74815a6d58782d32a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 27e5ae48a8194c05a19e5164ee2cc6be68967a62
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199331"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112763"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Användarsekretess och Azure AD Connect Health 
 
@@ -62,17 +62,17 @@ Se [ta bort en server från Azure AD Connect Health](how-to-connect-health-opera
 Azure AD Connect Health ger också möjlighet att stoppa datainsamlingen av **alla** registrerats tjänster i klientorganisationen. Vi rekommenderar noggrann överväganden och fullständig bekräftelse av alla globala administratörer innan du vidtar åtgärden. När processen börjar att Connect Health-tjänsten slutar den ta emot, bearbetning och rapporterar inga data för alla dina tjänster. Befintliga data i Connect Health-tjänsten ska behållas i mer än 30 dagar.
 Om du vill stoppa insamling av specifika servrar följer du stegen i borttagning av specifika servrar. Följ stegen nedan om du vill stoppa insamling av data och ta bort alla tjänster på klienten om du vill stoppa insamling av tenant-wise.
 
-1.  Klicka på **allmänna inställningar** under konfigurationen i huvudbladet. 
-2.  Klicka på **stoppa datainsamling** knappen överst på bladet. De andra alternativen för konfigurationsinställningar för klient kommer att inaktiveras när processen startar.  
+1. Klicka på **allmänna inställningar** under konfigurationen i huvudbladet. 
+2. Klicka på **stoppa datainsamling** knappen överst på bladet. De andra alternativen för konfigurationsinställningar för klient kommer att inaktiveras när processen startar.  
  
- ![Stoppa datainsamling](./media/reference-connect-health-user-privacy/gdpr4.png)
+   ![Stoppa datainsamling](./media/reference-connect-health-user-privacy/gdpr4.png)
   
-3.  Kontrollera listan över integrerade tjänster som påverkas genom att stoppa datasamlingar. 
-4.  Ange exakt klientnamnet för att aktivera den **ta bort** &
-5.  Klicka på **ta bort** att utlösa borttagningen av alla tjänster. Connect Health slutar att ta emot, bearbetning, rapporterar inga data skickas från dina integrerade tjänster. Hela processen med att kan ta upp till 24 timmar. Observera att det här steget inte kan ångras. 
-6.  När processen är klar visas inte några registrerade tjänster i Connect Health längre. 
+3. Kontrollera listan över integrerade tjänster som påverkas genom att stoppa datasamlingar. 
+4. Ange exakt klientnamnet för att aktivera den **ta bort** &
+5. Klicka på **ta bort** att utlösa borttagningen av alla tjänster. Connect Health slutar att ta emot, bearbetning, rapporterar inga data skickas från dina integrerade tjänster. Hela processen med att kan ta upp till 24 timmar. Observera att det här steget inte kan ångras. 
+6. När processen är klar visas inte några registrerade tjänster i Connect Health längre. 
 
- ![När datainsamling har stoppats](./media/reference-connect-health-user-privacy/gdpr5.png)
+   ![När datainsamling har stoppats](./media/reference-connect-health-user-privacy/gdpr5.png)
 
 ## <a name="re-enable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Aktivera insamling av data och övervakning i Azure AD Connect Health
 Om du vill återaktivera övervakning i Azure AD Connect Health för en tidigare borttagna övervakade tjänsten, måste du avinstallera och [återinstallera hälsoagenten](how-to-connect-health-agent-install.md) på alla servrar.
@@ -85,14 +85,14 @@ Insamling av tenant-Wise kan återupptas i Azure AD Connect Health. Vi rekommend
 > Följande steg blir tillgänglig när åtgärden har inaktiverat 24 timmar.
 > När du har aktiverat för insamling av visar uppvisade insikter och övervakning av data i Connect Health inte några äldre data som samlas in innan. 
 
-1.  Klicka på **allmänna inställningar** under konfigurationen i huvudbladet. 
-2.  Klicka på **Aktivera datainsamling** knappen överst på bladet. 
+1. Klicka på **allmänna inställningar** under konfigurationen i huvudbladet. 
+2. Klicka på **Aktivera datainsamling** knappen överst på bladet. 
  
- ![Aktivera datainsamling](./media/reference-connect-health-user-privacy/gdpr6.png)
+   ![Aktivera datainsamling](./media/reference-connect-health-user-privacy/gdpr6.png)
  
-3.  Ange exakt klientnamnet för att aktivera den **aktivera** knappen.
-4.  Klicka på **aktivera** knappen för att bevilja behörighet för datainsamlingen i Connect Health-tjänsten. Ändringen kommer att tillämpas inom kort. 
-5.  Följ den [installationsprocessen](how-to-connect-health-agent-install.md) att installera om agenten på servrar som ska övervakas och tjänster kommer att finnas i portalen.  
+3. Ange exakt klientnamnet för att aktivera den **aktivera** knappen.
+4. Klicka på **aktivera** knappen för att bevilja behörighet för datainsamlingen i Connect Health-tjänsten. Ändringen kommer att tillämpas inom kort. 
+5. Följ den [installationsprocessen](how-to-connect-health-agent-install.md) att installera om agenten på servrar som ska övervakas och tjänster kommer att finnas i portalen.  
 
 
 ## <a name="next-steps"></a>Nästa steg

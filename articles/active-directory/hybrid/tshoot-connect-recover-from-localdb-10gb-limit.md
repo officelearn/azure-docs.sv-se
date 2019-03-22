@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e0942f028752b1e3db89802ee889eac7157815d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 194f422c1567103e41f3b39f8510931b1f4762b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205621"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105190"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Så här återställer du från LocalDB med en gräns på 10 GB
 Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. Du kan antingen använda SQL Server 2012 Express LocalDB som är installerat som standard med Azure AD Connect eller använda din egen fullständiga SQL. SQL Server Express har en storleksgräns på 10 GB. När du använder LocalDB och gränsen har uppnåtts kan synkroniseringstjänsten för Azure AD Connect inte längre starta eller synkronisera korrekt. Den här artikeln innehåller steg för återställning.
@@ -81,13 +81,13 @@ Namnet på den databas som har skapats för Azure AD Connect är **ADSync**. Om 
 ### <a name="delete-run-history-data"></a>Ta bort köra historikdata
 Som standard behåller Azure AD Connect upp till sju dagar som körningshistorik för data. I det här steget ska bort vi körningshistoriken-data och frigöra DB-utrymme så att Azure AD Connect-synkroniseringstjänsten kan börja synkronisera igen.
 
-1.  Starta **hanteraren för synkroniseringstjänsten** genom att gå till START → synkroniseringstjänsten.
+1. Starta **hanteraren för synkroniseringstjänsten** genom att gå till START → synkroniseringstjänsten.
 
-2.  Gå till den **Operations** fliken.
+2. Gå till den **Operations** fliken.
 
-3.  Under **åtgärder**väljer **Rensa körningar**...
+3. Under **åtgärder**väljer **Rensa körningar**...
 
-4.  Du kan antingen välja **Rensa alla körningar** eller **Clear körs före... <date>**  alternativet. Vi rekommenderar att du börjar genom att avmarkera köra historikdata som är äldre än två dagar. Om du fortfarande stöter på problem i DB storlek, väljer den **Rensa alla körningar** alternativet.
+4. Du kan antingen välja **Rensa alla körningar** eller **Clear körs före... <date>**  alternativet. Vi rekommenderar att du börjar genom att avmarkera köra historikdata som är äldre än två dagar. Om du fortfarande stöter på problem i DB storlek, väljer den **Rensa alla körningar** alternativet.
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Förkorta kvarhållningsperioden för körningshistorik för data
 Det här steget är att minska sannolikheten för att köra i gräns på 10 GB-problem när du har flera synkroniseringscyklerna.

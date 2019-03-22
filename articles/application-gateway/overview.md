@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 1/22/2019
+ms.date: 03/20/2019
 ms.author: victorh
-ms.openlocfilehash: c574e3ab82f97f5fffc7c834a53d19df93fc426f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: bb849e80e83edc4a25ad2f891d2c6c433ba0d106
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448950"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225543"
 ---
 # <a name="what-is-azure-application-gateway"></a>Vad är Azure Application Gateway?
 
@@ -70,11 +70,15 @@ Brandvägg för webbaserade program (WAF) är en funktion i Application Gateway 
 
 Webbprogram blir i allt större utsträckning föremål för attacker där kända svagheter i programmen utnyttjas. Bland annat är SQL-inmatningsattacker och skriptangrepp mellan webbplatser vanliga. Det kan vara svårt att förhindra sådana attacker i programkoden och kräver ofta omfattande underhåll, korrigeringar och övervakning av många skikt i programtopologin. Med en centraliserad brandvägg för webbaserade program blir det enklare att hantera säkerheten och programadministratörer får bättre möjligheter skydda mot intrång. En brandväggslösning för webbaserade program kan även reagera snabbare på ett säkerhetshot genom att åtgärda en känd svaghet på en central plats jämfört med om korrigeringar ska utföras i varje enskilt webbprogram. Befintliga programgatewayer kan enkelt konverteras till en Application Gateway med brandväggen för webbprogram.
 
+Mer information finns i [Web application firewall (WAF) i Application Gateway](https://docs.microsoft.com/azure/application-gateway/waf-overview)).
+
 ## <a name="url-based-routing"></a>URL-baserad routning
 
 URL-sökvägsbaserad routning låter dig routa trafik till serverdels-serverpooler baserat på URL-sökvägen till begäranden. Ett av scenarierna är att dirigera begäranden för olika innehållstyper till olika pooler.
 
 Till exempel dirigeras begäranden för `http://contoso.com/video/*` till VideoServerPool och `http://contoso.com/images/*` dirigeras till ImageServerPool. DefaultServerPool väljs om inget av sökvägsmönstren matchar.
+
+Mer information finns i [URL-baserad routning med Application Gateway](https://docs.microsoft.com/azure/application-gateway/url-route-overview).
 
 ## <a name="multiple-site-hosting"></a>Värd för flera platser
 
@@ -83,6 +87,8 @@ Om du har flera webbplatser så kan du konfigurera fler än en webbplats inom sa
 Begäranden för `http://contoso.com` dirigeras till ContosoServerPool och `http://fabrikam.com` dirigeras till FabrikamServerPool.
 
 På samma sätt kan två underdomäner i samma överordnade domän finnas på samma distribution av en programgateway. Exempel på användning av underdomäner kan vara `http://blog.contoso.com` och `http://app.contoso.com` på samma distribution av en programgateway.
+
+Mer information finns i [flera-webbplatser med Application Gateway](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview).
 
 ## <a name="redirection"></a>Omdirigering
 
@@ -96,6 +102,8 @@ Stöd för Application Gateway-stöd har följande funktioner:
 - Sökvägsbaserad omdirigering. Den här typen av omdirigering möjliggör bara HTTP till HTTPS-omdirigering på ett specifikt webbplatsområde, till exempel en kundvagn som betecknas av `/cart/*`.
 - Omdirigera till en extern webbplats.
 
+Mer information finns i [omdirigerar trafik](https://docs.microsoft.com/azure/application-gateway/redirect-overview) med Application Gateway.
+
 ## <a name="session-affinity"></a>Sessionstillhörighet
 
 Den cookie-baserade sessionstillhörighetsfunktionen är användbar när du vill behålla en användarsession på samma server. Genom att använda gatewayhanterade cookies kan Application Gateway dirigera efterföljande trafik från en användarsession till samma serverdel för bearbetning. Det här är viktigt i de fall där sessionstillstånd har sparats lokalt på servern för en användarsession.
@@ -105,6 +113,8 @@ Den cookie-baserade sessionstillhörighetsfunktionen är användbar när du vill
 Application Gateway har inbyggt stöd för WebSocket- och HTTP/2-protokoll. Det finns inga inställningar som kan konfigureras av användaren för att selektivt aktivera eller inaktivera WebSocket-stöd.
 
 WebSocket- och HTTP/2-protokollen aktiverar full duplex-kommunikation mellan en server och en klient över en tidskrävande TCP-anslutning. Det här tillåter en mer interaktiv kommunikation mellan webbservern och klienten, som kan vara dubbelriktad utan att behöva avsökning som krävs i HTTP-baserade implementeringar. Dessa protokoll har låg omkostnader, till skillnad från HTTP, och kan återanvända samma TCP-anslutning för flera begäranden/svar, vilket resulterar i ett mer effektivt utnyttjande av resurser. Dessa protokoll är utformade att fungera via de traditionella HTTP-portarna 80 och 443.
+
+Mer information finns i [WebSocket-stöd](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) och [stöd för HTTP/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support). 
 
 ## <a name="rewrite-http-headers-public-preview"></a>Skriva om HTTP-huvuden (offentlig förhandsversion)
 

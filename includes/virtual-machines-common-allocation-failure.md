@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 2eb7fb82b358d4ec8628bfa546b572ee3cbe47fa
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 136c7e497b24db99b230884514d4a286bbeb64be
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51208295"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084563"
 ---
 När du skapar en virtuell dator (VM), starta om Stoppad (frigjord) virtuella datorer eller ändra storlek på en virtuell dator, allokerar Microsoft Azure beräkningsresurser till din prenumeration. Vi kontinuerligt investera i ytterligare infrastruktur och vilka funktioner du vill se till att vi alltid har alla VM-typer för att stödja kundernas efterfrågan. Det kan ibland uppstå Allokeringsfel för resursen på grund av en oöverträffad ökad efterfrågan på Azure-tjänster i vissa regioner. Det här problemet kan uppstå när du försöker skapa eller starta virtuella datorer i en region medan de virtuella datorerna visas följande felkod och meddelandet:
 
 **Felkod**: AllocationFailed eller ZonalAllocationFailed
 
-**Felmeddelande**: ”tilldelningen misslyckades. Vi har inte tillräckligt med kapacitet för den begärda VM-storleken i den här regionen. Läs mer om att förbättra sannolikheten för en lyckad allokering på http://aka.ms/allocation-guidance”
+**Felmeddelande**: ”Tilldelningen misslyckades. Vi har inte tillräckligt med kapacitet för den begärda VM-storleken i den här regionen. Läs mer om att förbättra sannolikheten för en lyckad allokering på http://aka.ms/allocation-guidance”
 
 Den här artikeln förklarar orsakerna till några av de vanliga Allokeringsfel och föreslår åtgärder.
 
@@ -41,11 +41,11 @@ Ange en begäran om att ändra storlek på en virtuell dator eller lägga till e
 Om den virtuella datorn kan vara en del av en annan tillgänglighetsuppsättning, kan du skapa en virtuell dator i en annan tillgänglighetsuppsättning (i samma region). Den här nya virtuella datorn kan sedan läggas till samma virtuella nätverk.
 
 Stoppa (frigöra) alla virtuella datorer i samma tillgänglighetsuppsättning ange och sedan starta om var och en.
-Stoppa: Klicka på resursgrupper > [resursgruppen] > resurser > [tillgänglighetsuppsättningen] > virtuella datorer > [din virtuella dator] > Stoppa.
+Sluta: Klicka på resursgrupper > [resursgruppen] > resurser > [tillgänglighetsuppsättningen] > VM > [din virtuella dator] > Stoppa.
 När alla virtuella datorer har slutat, Välj den första virtuella datorn och klicka sedan på Starta.
 Det här steget ser till att ett nytt försök för allokering körs och att ett nytt kluster kan väljas som har tillräckligt med kapacitet.
 
-## <a name="restart-partially-stopped-deallocated-vms"></a>Starta om delvis stoppad (frigjord) virtuella datorer
+## <a name="restart-partially-stopped-deallocated-vms"></a>Starta om delvis stoppade (frigjorda) virtuella datorer
 
 ### <a name="cause"></a>Orsak
 
@@ -54,11 +54,11 @@ Flyttningen är delvis innebär att du stoppat (frigjort) en eller flera, men in
 ### <a name="workaround"></a>Lösning
 
 Stoppa (frigöra) alla virtuella datorer i samma tillgänglighetsuppsättning ange och sedan starta om var och en.
-Stoppa: Klicka på resursgrupper > [resursgruppen] > resurser > [tillgänglighetsuppsättningen] > virtuella datorer > [din virtuella dator] > Stoppa.
+Sluta: Klicka på resursgrupper > [resursgruppen] > resurser > [tillgänglighetsuppsättningen] > VM > [din virtuella dator] > Stoppa.
 När alla virtuella datorer har slutat, Välj den första virtuella datorn och klicka sedan på Starta.
 Det säkerställer att ett nytt försök för allokering körs och att ett nytt kluster kan väljas som har tillräckligt med kapacitet.
 
-## <a name="restart-fully-stopped-deallocated-vms"></a>Starta om fullständigt Stoppad (frigjord) virtuella datorer
+## <a name="restart-fully-stopped-deallocated-vms"></a>Starta om fullständigt stoppade (frigjorda) virtuella datorer
 
 ### <a name="cause"></a>Orsak
 
@@ -75,12 +75,12 @@ Om din begäran om minnesallokering är stor (fler än 500 kärnor), finns i rik
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Allokeringsfel för äldre VM-storlekar (Av1, Dv1, DSv1, D15v2, DS15v2 osv.)
 
-Eftersom vi har expanderat Azure-infrastrukturen kan distribuera vi nyare maskinvara som har utformats för att stödja de senaste typerna av virtuella datorer. Några av de virtuella datorerna äldre serien körs inte på vår senaste generation infrastruktur. Därför kan kunder ibland uppstå Allokeringsfel för dessa äldre SKU: er. För att undvika det här problemet kan vi rekommenderar att kunder som använder äldre serien virtuella datorer för att flytta till motsvarande nyare virtuella datorer per följande rekommendationer: dessa virtuella datorer är optimerade för den senaste maskinvaran och kan du dra nytta av bättre priser och prestanda. 
+Eftersom vi har expanderat Azure-infrastrukturen kan distribuera vi nyare maskinvara som har utformats för att stödja de senaste typerna av virtuella datorer. Några av de virtuella datorerna äldre serien körs inte på vår senaste generation infrastruktur. Därför kan kunder ibland uppstå Allokeringsfel för dessa äldre SKU: er. För att undvika det här problemet kan rekommenderar vi att kunder som använder äldre serien virtuella datorer för att flytta till motsvarande nyare virtuella datorer per följande rekommendationer: Dessa virtuella datorer är optimerade för den senaste maskinvaran och kan du dra nytta av bättre pris- och prestanda. 
 
 |Äldre VM-serien eller storlek|Rekommenderade nyare VM-serien eller storlek|Mer information|
 |----------------------|----------------------------|--------------------|
 |Av1-serien|[Av2-serien](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
-|Dv1 eller DSv1-serien (D1 till D5)|[Dv3 eller Dsv3-serien](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Dv1 eller DSv1-serien (D1 till D5)|[Dv3 eller Dsv3-serien](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
 |Dv1 eller DSv1-serien (D11 till D14)|[Ev3 eller Esv3-serien](../articles/virtual-machines/windows/sizes-memory.md#esv3-series)|
 |D15v2 eller DS15v2|Om du använder theResource Manager-distributionsmodellen för att kunna dra nytta av större storlekar för Virtuella datorer kan du överväga att flytta till E16v3/E16sv3 eller E32v3/E32sv3. Dessa är avsedda att köras på den senaste generation maskinvaran. Överväg att övergå till de nya isolerade VM-storlekar, E64i_v3 eller E64is_v3, som är avsedd att köras på den senaste generation maskinvaran om du använder Resource Manager-distributionsmodellen för att kontrollera att VM-instansen är isolerad till maskinvara som är dedikerad till en enda kund. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 

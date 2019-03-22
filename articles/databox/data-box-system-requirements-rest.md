@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 4ad607ad7ef1ee91ea9c886a76faabb0f304969d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5770cd9a4955013100b7e58698eed77da10c0583
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538076"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012255"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Krav för Azure Data Box-Blob-lagring
 
@@ -96,7 +96,7 @@ Kör: Installera php composer.phar.
 
 ### <a name="endpoint-declaration"></a>Slutpunktsdeklarationen
 
-En Azure Data Box Blob storage-slutpunkt innehåller två delar: namnet på en region och Data Box-domänen. I Data Box-Blob-storage SDK är standardslutpunkten <serial no. of the device>. microsoftdatabox.com.  Mer information om blob service-slutpunkt, går du till [Anslut via blobblagring för Data Box](data-box-deploy-copy-data-via-rest.md).
+En Azure Data Box Blob storage-slutpunkt innehåller två delar: namnet på en region och Data Box-domänen. I Data Box-Blob-storage SDK är standardslutpunkten \<serienummer. enhetens >. microsoftdatabox.com.  Mer information om blob service-slutpunkt, går du till [Anslut via blobblagring för Data Box](data-box-deploy-copy-data-via-rest.md).
  
 ## <a name="examples"></a>Exempel
 

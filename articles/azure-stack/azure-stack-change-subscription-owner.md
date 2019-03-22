@@ -16,12 +16,12 @@ ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: 02c5d063246844d5ed8945aba38aaada87691627
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1d9dd7d19c196679ead9b552bcf296b4acd4ca68
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763205"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842897"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Ändra ägare för en prenumeration för Azure Stack-användare
 
@@ -49,7 +49,7 @@ Ersätt följande värden i skriptet innan den körs:
 - **$ArmEndpoint**: Resource Manager-slutpunkten för din miljö.
 - **$TenantId**: Din klient-ID.
 - **$SubscriptionId**: Ditt prenumerations-ID.
-- **$OwnerUpn**: Ett konto, till exempel **user@example.com**, för att lägga till som den nya ägaren för fakturering.
+- **$OwnerUpn**: Ett konto, till exempel **användaren\@example.com**, för att lägga till som den nya ägaren för fakturering.
 
 ```powershell
 # Set up Azure Stack admin environment

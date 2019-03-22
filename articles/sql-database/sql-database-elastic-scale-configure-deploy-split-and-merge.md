@@ -12,19 +12,19 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 7939de5cf45535dc911c25ae8fa8c914a214fa3c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5aff7e93dcfaa5320be0d6f7d427abcdc88c69e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458065"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995819"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuera en tjänst för dela / sammanslå som flyttar data mellan shardade databaser
 
 Dela / sammanslå-verktyget kan du flytta data mellan shardade databaser. Se [flytta data mellan utskalade molndatabaser](sql-database-elastic-scale-overview-split-and-merge.md)
 
 ## <a name="download-the-split-merge-packages"></a>Ladda ned paket för dela / Sammanslå
-1. Hämta den senaste NuGet-versionen från [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
+1. Hämta den senaste NuGet-versionen från [NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
 2. Öppna en kommandotolk och navigera till katalogen där du hämtade nuget.exe. Nedladdningen innehåller PowerShell-kommandon.
 3. Ladda ned det senaste dela / Sammanslå-paketet till den aktuella katalogen i kommandot nedan:
    ```

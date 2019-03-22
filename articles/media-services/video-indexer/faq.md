@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 8d70fca5820dbd2152ca378916bfbcdbad4a027f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e85beea4250b5ac5f4defd0b918786079d3dbe3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776765"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892667"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -100,7 +100,7 @@ Din video- eller ljudinnehåll innehåll som har offentliga som dess sekretessin
 
 ### <a name="what-access-does-microsoft-have-to-my-video-or-audio-files-that-have-been-indexed-andor-stored-by-video-indexer-and-the-metadata-and-insights-that-were-extracted"></a>Vilken åtkomst har Microsoft att min video- eller ljudinnehåll filer som har blivit indexerade och/eller lagras av Video Indexer och metadata och information som extraherades?
 
-Per den [Azure Online Services-villkoren](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (OST) du helt äger innehållet och Microsoft har endast åtkomst till ditt innehåll och metadata och insikter som Video Indexer extraherar från ditt innehåll enligt OST och Microsoft Sekretesspolicy.
+Per den [Azure Online Services-villkoren](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (OST) du helt äger innehållet och Microsoft har endast åtkomst till ditt innehåll och metadata och insikter som Video Indexer extraherar från ditt innehåll enligt OST och Microsoft Sekretesspolicy.
 
 ### <a name="are-the-custom-models-that-i-build-in-my-video-indexer-account-available-to-other-accounts"></a>Finns de anpassade modeller som jag skapar i min Video Indexer-konto för andra konton?
 

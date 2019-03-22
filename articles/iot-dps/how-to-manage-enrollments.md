@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 0970131c4b674fd864ad574b0f749cd6d7f6f2a2
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 51b072bfd0827528a5504133dff8c1cdd7a7ca86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054606"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089394"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Hantera enhetsregistreringar med Azure Portal
 
@@ -28,15 +28,15 @@ Det finns två sätt som du kan registrera dina enheter med etableringstjänsten
 
     Du kan skapa en grupp för registrering i portalen för en grupp av enheter med hjälp av följande steg:
 
-    1. Logga in på Azure-portalen och klicka på **alla resurser** på den vänstra menyn.  
-    1. Klicka på Device Provisioning-tjänsten som du vill registrera din enhet på listan över resurser.  
-    1. I etableringstjänsten:  
-       a. Klicka på **hantera registreringar**och välj sedan den **Registreringsgrupper** fliken.  
-       b. Klicka på knappen **Lägg till** högst upp.  
-       c. Ange information för registreringslistan när panelen ”Lägg till grupp för registrering” visas.  **Gruppnamn** krävs. Även välja ”CA: N eller mellanliggande” för **certifikattyp**, och ladda upp roten **primära** för gruppen med enheter.  
-       d. Klicka på **Spara**. Du bör se gruppnamnet visas under gruppen har skapats av din grupp för registrering i **Registreringsgrupper** fliken.  
+  1. Logga in på Azure-portalen och klicka på **alla resurser** på den vänstra menyn.  
+  1. Klicka på Device Provisioning-tjänsten som du vill registrera din enhet på listan över resurser.  
+  1. I etableringstjänsten:  
+     a. Klicka på **hantera registreringar**och välj sedan den **Registreringsgrupper** fliken.  
+     b. Klicka på knappen **Lägg till** högst upp.  
+     c. Ange information för registreringslistan när panelen ”Lägg till grupp för registrering” visas.  **Gruppnamn** krävs. Även välja ”CA: N eller mellanliggande” för **certifikattyp**, och ladda upp roten **primära** för gruppen med enheter.  
+     d. Klicka på **Spara**. Du bör se gruppnamnet visas under gruppen har skapats av din grupp för registrering i **Registreringsgrupper** fliken.  
 
-       [![Grupp för registrering i portalen](./media/how-to-manage-enrollments/group-enrollment.png)] (. / media/how-to-manage-enrollments/group-enrollment.png#lightbox)
+     [![Grupp för registrering i portalen](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
 
 * En **enskild registrering** finns en post för en enskild enhet som kan registreras. Enskilda registreringar kan använda antingen x509 certifikat eller SAS-token (från en fysisk eller virtuell TPM) som attesteringsmekanismer. Vi rekommenderar att du använder enskilda registreringar för enheter som kräver unika första konfigurationer eller för enheter som endast kan använda SAS-token via TPM eller virtuell TPM som attesteringsmetod. Enskilda registreringar kan ha angivet önskat enhets-ID för IoT Hub.

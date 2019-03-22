@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1927e9b4aeec6f424c69632d8811c49c97d3aad1
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 9634e2578ea256d1dec71389f676ee53627e6272
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961558"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077776"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Säkerhetskopiera och återställa kontoautentiseringsuppgifter med Microsoft Authenticator-appen
 
@@ -27,9 +27,9 @@ ms.locfileid: "56961558"
 
 Microsoft Authenticator-appen säkerhetskopierar dina autentiseringsuppgifter och relaterade appinställningar, till exempel ordningen på dina konton till molnet. Efter säkerhetskopieringen, kan du också använda appen för att återställa din information på en ny enhet potentiellt undvika komma låst upp eller att skapa konton.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Du behöver ett personligt Microsoft-konto och en iCloud-konto för varje lagringsplats för säkerhetskopiering. Men i den lagringsplatsen du kan säkerhetskopiera flera konton. Du kan till exempel har ett personligt konto, ett skolkonto och ett tredje parts-konto som Facebook, Google, och så vidare.
-
+> 
 > Endast dina personliga och 3 part autentiseringsuppgifter lagras som inkluderar ditt användarnamn och kontoverifieringskod som krävs för att verifiera din identitet. Vi lagrar inte några andra som är associerade med dina konton, inklusive e-postmeddelanden och filer. Vi inte också koppla eller dela dina konton på något sätt eller med alla andra produkter eller tjänster. Och slutligen IT-administratören få inte någon information om något av dessa konton.
 
 ## <a name="back-up-your-account-credentials"></a>Säkerhetskopiera dina kontouppgifter

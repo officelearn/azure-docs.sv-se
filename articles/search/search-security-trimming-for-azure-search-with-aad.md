@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 3f55b3b099cc22fda2bebf0dcb8d3e9c1a580f02
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 410727022b092e2dd8ab8b05e628e25fd60ab833
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099709"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102534"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Säkerhetsfilter för att trimma Azure-sökresultaten med hjälp av Active Directory-identiteter
 
@@ -22,13 +22,13 @@ Den här artikeln visar hur du använder Azure Active Directory (AAD) security i
 
 Den här artikeln beskriver följande uppgifter:
 > [!div class="checklist"]
-- Skapa AAD-grupper och användare
-- Koppla användaren till gruppen som du har skapat
-- Cachelagra de nya grupperna
-- Indexera dokument med associerade grupper
-- Utfärda en sökbegäran med grupp-ID: n-filter
-
->[!NOTE]
+> - Skapa AAD-grupper och användare
+> - Koppla användaren till gruppen som du har skapat
+> - Cachelagra de nya grupperna
+> - Indexera dokument med associerade grupper
+> - Utfärda en sökbegäran med grupp-ID: n-filter
+> 
+> [!NOTE]
 > Exemplet kodfragment i den här artikeln är skrivna i C#. Du hittar den fullständiga källkoden [på GitHub](https://aka.ms/search-dotnet-howto). 
 
 ## <a name="prerequisites"></a>Förutsättningar

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 5ff0a70d8b370655df1eef55dac68804a1db406b
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: f83ee40c97e49add539a44a6ba764024a8e47bfa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082154"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081499"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Skapa och hantera tillgängliga virtuella datorer i Azure DevTest Labs
 Du lägger till en virtuell dator till ett labb i liknande sätt som hur du [lägga till en standard virtuell dator](devtest-lab-add-vm.md) – från en *grundläggande* som är antingen en [anpassad avbildning](devtest-lab-create-template.md), [formeln](devtest-lab-manage-formulas.md) , eller [Marketplace-avbildning](devtest-lab-configure-marketplace-images.md). Den här självstudiekursen beskriver hur du använder Azure-portalen för att lägga till en virtuell dator i ett labb i DevTest Labs och visar processerna som en användare följer för att begära och avsäga sig den virtuella datorn.
@@ -64,12 +64,12 @@ En användare kan göra anspråk på en virtuell dator i listan över ”tillgä
 
 * I listan ”tillgängliga virtuella datorer” längst ned på den lab ”översikt” fönstret, högerklicka på någon av de virtuella datorerna i listan och välj **anspråk datorn**.
 
- ![Begär en specifik virtuell dator.](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
+  ![Begär en specifik virtuell dator.](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
 
 
 * Längst ned i fönstret ”Översikt” Välj **gör anspråk på någon**. En slumpmässig virtuell dator är tilldelad i listan med tillgängliga virtuella datorer.
 
- ![Begära valfri virtuell dator.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
+  ![Begära valfri virtuell dator.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
 
 När en användare anspråk som en virtuell dator, flyttas till sin lista över ”mina virtuella datorer” och är inte längre tillgängliga av någon annan användare.

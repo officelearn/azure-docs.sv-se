@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: srinathv
-ms.openlocfilehash: f79a9048e50901424330224066cb84929d9126dc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 906c0ef3db530ecb4aeade449e41a866a4b09a74
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530934"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005711"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Felsöka säkerhetskopiering av virtuell Azure-dator
 Du kan felsöka fel vid användning av Azure Backup med informationen som visas i följande tabell:
@@ -41,12 +41,13 @@ Du kan felsöka fel vid användning av Azure Backup med informationen som visas 
 | Azure Backup-tjänsten har inte tillräcklig behörighet till Azure Key Vault för säkerhetskopiering av krypterade virtuella datorer. |Ange dessa behörigheter i PowerShell för Backup-tjänsten med hjälp av stegen i [skapa en virtuell dator från återställda diskar](backup-azure-vms-automation.md). |
 |Det gick inte att installera tillägget för ögonblicksbild med fel **COM + kunde inte kommunicera med Microsoft Distributed Transaction Coordinator**. | Starta tjänsten Windows från en upphöjd kommandotolk **COM + System Application**. Ett exempel är **net start COMSysApp**. Om tjänsten inte startar, gör du följande:<ol><li> Kontrollera att tjänsten inloggningskonto **Distributed Transaction Coordinator** är **nätverkstjänst**. Om den inte ändra kontot som **nätverkstjänst** och starta om tjänsten. Försök att starta **COM + System Application**.<li>Om **COM + System Application** inte starta, vidta följande steg för att avinstallera och installera tjänsten **Distributed Transaction Coordinator**: <ol><li>Stoppa MSDTC-tjänsten. <li>Öppna en kommandotolk **cmd**. <li>Kör kommandot ```msdtc -uninstall```. <li>Kör kommandot ```msdtc -install```. <li>Starta MSDTC-tjänsten. </ol> <li>Starta tjänsten Windows **COM + System Application**. Efter den **COM + System Application** startar, utlöser en säkerhetskopiering från Azure-portalen.</ol> |
 |  Ögonblicksbildsåtgärden misslyckades på grund av ett COM +-fel. | Vi rekommenderar att du startar om tjänsten Windows **COM + System Application** från en upphöjd kommandotolk **net start COMSysApp**. Om problemet kvarstår startar du om den virtuella datorn. Om du startar om den virtuella datorn inte hjälper så, försök [tar bort tillägget VMSnapshot](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout) och Utlös säkerhetskopieringen manuellt. |
-| Säkerhetskopieringen misslyckades att frysa en eller flera monteringspunkter på den virtuella datorn ska använda en konsekvent ögonblicksbild för fil-system. | Vidta följande steg: <ul><li>Kontrollera filen systemtillståndet för alla monterade enheter med hjälp av den **'tune2fs'** kommando. Ett exempel är **tune2fs -l/dev/sdb1 \** .| GREP **filsystem**. <li>Demontera enheterna som filen systemtillståndet inte ren med hjälp av den **'umount'** kommando. <li> Kör en konsekvenskontroll för fil-system på dessa enheter med hjälp av den **'fsck'** kommando. <li> Montera enheterna igen och försök säkerhetskopieringen.</ol> |
+| Säkerhetskopieringen misslyckades att frysa en eller flera monteringspunkter på den virtuella datorn ska använda en konsekvent ögonblicksbild för fil-system. | Vidta följande steg: <ul><li>Kontrollera filen systemtillståndet för alla monterade enheter med hjälp av den **'tune2fs'** kommando. Ett exempel är **tune2fs -l/dev/sdb1 \\** .\| grep **filsystem**. <li>Demontera enheterna som filen systemtillståndet inte ren med hjälp av den **'umount'** kommando. <li> Kör en konsekvenskontroll för fil-system på dessa enheter med hjälp av den **'fsck'** kommando. <li> Montera enheterna igen och försök säkerhetskopieringen.</ol> |
 | Ögonblicksbildsåtgärden misslyckades på grund av det gick inte att skapa en säker nätverkskommunikationskanal. | <ol><li> Öppna Registereditorn genom att köra **regedit.exe** en förhöjd behörighet. <li> Identifiera alla versioner av .NET Framework finns i systemet. De är närvarande under hierarkin för registernyckeln **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Lägg till följande nyckel för varje .NET Framework finns i registernyckeln: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | Ögonblicksbildsåtgärden misslyckades på grund av det gick inte att installera Visual C++ Redistributable för Visual Studio 2012. | Gå till C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion och installera vcredist2012_x64. Kontrollera att registernyckelvärdet som gör att installationen av den här anges till rätt värde. Det vill säga värdet för registernyckeln **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** är inställd på **3** och inte **4**. <br><br>Om du fortfarande har problem med installationen startar du om installationstjänsten genom att köra **MSIEXEC /UNREGISTER** följt av **MSIEXEC /REGISTER** från en upphöjd kommandotolk.  |
 
 
 ## <a name="jobs"></a>Jobb
+
 | Felinformation | Lösning |
 | --- | --- |
 | Annulleringen stöds inte för den här jobbtypen: <br>Vänta tills jobbet har slutförts. |Ingen |

@@ -11,12 +11,12 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: d68910c32c53128704004d356062aca2c328e7d5
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 849f944235cf1ab4408aeab336310028d6e754f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576709"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855877"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -324,9 +324,9 @@ Komma åt egenskaper av typen *SecureString* från en anpassad aktivitet läsa d
 
 ## <a name="compare-v2-v1"></a> Jämför v2 anpassad aktivitet och version 1 (anpassad) DotNet-aktivitet
 
-I Azure Data Factory version 1 kan du implementera en (anpassad) DotNet-aktivitet genom att skapa en .net-klassbiblioteket projekt med en klass som implementerar den `Execute` -metoden för den `IDotNetActivity` gränssnitt. Den länkade tjänster, datauppsättningar och utökade egenskaper i JSON-nyttolast med en (anpassad) DotNet-aktivitet skickas till metoden körning som starkt typifierade objekt. Mer information om beteendet version 1 finns [(anpassad) DotNet i version 1](v1/data-factory-use-custom-activities.md). På grund av den här implementeringen har din version 1 DotNet-Aktivitetskod att fokusera på .NET Framework 4.5.2. Version 1 DotNet aktiviteten har också köras på Windows-baserade Azure Batch-Pool-noder.
+I Azure Data Factory version 1 kan du implementera en (anpassad) DotNet-aktivitet genom att skapa ett projekt för .NET-klassbiblioteket med en klass som implementerar den `Execute` -metoden för den `IDotNetActivity` gränssnitt. Den länkade tjänster, datauppsättningar och utökade egenskaper i JSON-nyttolast med en (anpassad) DotNet-aktivitet skickas till metoden körning som starkt typifierade objekt. Mer information om beteendet version 1 finns [(anpassad) DotNet i version 1](v1/data-factory-use-custom-activities.md). På grund av den här implementeringen har din version 1 DotNet-Aktivitetskod att fokusera på .NET Framework 4.5.2. Version 1 DotNet aktiviteten har också köras på Windows-baserade Azure Batch-Pool-noder.
 
-I Azure Data Factory V2 anpassade aktiviteten behöver du inte implementera ett .net-gränssnitt. Du kan nu direkt köra kommandon, skript och din egen kod, kompilerad som en körbar fil. Om du vill konfigurera den här implementeringen, anger du den `Command` egenskapen tillsammans med den `folderPath` egenskapen. Den anpassade aktiviteten laddar upp den körbara filen och dess beroenden till `folderpath` och kör kommandot för dig.
+I Azure Data Factory V2 anpassade aktiviteten behöver du inte implementera ett .NET-gränssnitt. Du kan nu direkt köra kommandon, skript och din egen kod, kompilerad som en körbar fil. Om du vill konfigurera den här implementeringen, anger du den `Command` egenskapen tillsammans med den `folderPath` egenskapen. Den anpassade aktiviteten laddar upp den körbara filen och dess beroenden till `folderpath` och kör kommandot för dig.
 
 Länkade tjänster, datauppsättningar (definieras i referenceObjects) och utökade egenskaper som definierats i JSON-nyttolasten för en Data Factory v2 anpassad aktivitet kan nås av den körbara filen som JSON-filer. Du kan komma åt de nödvändiga egenskaperna med hjälp av en JSON-serialisering enligt föregående SampleApp.exe kodexemplet.
 
@@ -337,18 +337,18 @@ I följande tabell beskrivs skillnaderna mellan Data Factory V2 anpassad aktivit
 
 |Skillnader      | Anpassad aktivitet      | version 1 (anpassad) DotNet-aktivitet      |
 | ---- | ---- | ---- |
-|Hur anpassad logik har definierats      |Genom att tillhandahålla en körbar fil      |Genom att implementera ett .net DLL      |
+|Hur anpassad logik har definierats      |Genom att tillhandahålla en körbar fil      |Genom att implementera ett .NET-DLL      |
 |Körningsmiljö för den anpassade logiken      |Windows- eller Linux      |Windows (.NET Framework 4.5.2)      |
-|Kör skript      |Har stöd för körning av skript direkt (till exempel ”cmd /c echo hello world” på Windows virtuell dator)      |Kräver implementering i .net DLL      |
+|Kör skript      |Har stöd för körning av skript direkt (till exempel ”cmd /c echo hello world” på Windows virtuell dator)      |Kräver implementering i .NET-DLL      |
 |Datauppsättning som krävs      |Valfri      |Krävs för att länka aktiviteter och skickar information      |
 |Skicka information från aktiviteten till anpassad logik      |Via ReferenceObjects (LinkedServices och datauppsättningar) och ExtendedProperties (anpassade egenskaper)      |Via ExtendedProperties (anpassade egenskaper), indata och utdata datauppsättningar      |
-|Hämta information i anpassad logik      |Parsar activity.json och linkedServices.json datasets.json som lagras i samma mapp på den körbara filen      |Via .net SDK (.Net bildruta 4.5.2)      |
-|Loggning      |Skriver direkt till STDOUT      |Implementera loggaren i .net DLL      |
+|Hämta information i anpassad logik      |Parsar activity.json och linkedServices.json datasets.json som lagras i samma mapp på den körbara filen      |Via .NET SDK (.NET bildruta 4.5.2)      |
+|Loggning      |Skriver direkt till STDOUT      |Implementera loggaren i .NET-DLL      |
 
 
-Om du har befintliga .net-kod som skrivits för en version 1 (anpassad) DotNet-aktiviteten kan behöva du ändra koden att fungera med den aktuella versionen av den anpassade aktiviteten. Uppdatera din kod genom att följa riktlinjerna på hög nivå:
+Om du har befintliga .NET-kod som skrivits för en version 1 (anpassad) DotNet-aktiviteten kan behöva du ändra koden att fungera med den aktuella versionen av den anpassade aktiviteten. Uppdatera din kod genom att följa riktlinjerna på hög nivå:
 
-  - Ändra projektet från en .net-klassbiblioteket till en Konsolapp.
+  - Ändra projektet från en .NET-klassbiblioteket till en Konsolapp.
   - Starta programmet med den `Main` metoden. Den `Execute` -metoden för den `IDotNetActivity` gränssnittet inte längre behövs.
   - Läsa och tolka länkade tjänster, datauppsättningar och aktivitet med en JSON-serialisering, men inte starkt typifierade objekt. Skicka värdena för obligatoriska egenskaper för dina viktigaste anpassad kod logik. Referera till föregående SampleApp.exe kod som ett exempel.
   - Loggaren-objektet stöds inte längre. Utdata från den körbara filen kan skrivas till konsolen och sparas på stdout.txt.

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 877e42dc8d6e69834cf989122f855ada560b813c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2ed4826eb47ab2fb13d312860475f9ec9b323bf7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201252"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884162"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Förbereda din IoT Edge-modul tekniska resurser
 
@@ -45,7 +45,7 @@ IoT Edge-modul måste ha stöd för något av följande alternativ för plattfor
 Stöd för alla nivå 1-plattformar som stöds av IoT Edge (mätt i [support för Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/support)). Vi rekommenderar det här alternativet eftersom det ger en bättre kundupplevelse. Moduler som uppfyller det här villkoret kommer att visas. En modul med det här alternativet om plattform måste:
 
 - Ange en `latest` tagg och en tagg för version (till exempel `1.0.1`) som är manifestet taggar som skapats med GitHub [manifest-verktyget](https://github.com/estesp/manifest-tool).
-- Använd den [fliken Marketplace](./cpp-marketplace-tab.md) att lägga till en länk till [kompatibla IoT Edge certifierade enheter](https://aka.ms/iot-edge-certified). Den här länken som motsvarar `http://aka.ms/iot-edge-certified`, en webbplats där kunder kan bläddra eller Sök efter certifierade enheter. Den här webbplatsen är även känd som den [Azure IoT Edge-certifierade](https://catalog.azureiotsolutions.com/) enhetskatalog.
+- Använd den [fliken Marketplace](./cpp-marketplace-tab.md) att lägga till en länk till [kompatibla IoT Edge certifierade enheter](https://aka.ms/iot-edge-certified). Den här länken som motsvarar `https://aka.ms/iot-edge-certified`, en webbplats där kunder kan bläddra eller Sök efter certifierade enheter. Den här webbplatsen är även känd som den [Azure IoT Edge-certifierade](https://catalog.azureiotsolutions.com/) enhetskatalog.
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>En delmängd av nivå 1-plattformar som stöds av IoT Edge
   
@@ -61,9 +61,9 @@ IoT Edge-modulen dimensioner (processor/RAM-minne/Storage/GPU/osv) på riktade I
 - Modulen måste **fungerar med minst en IoT Edge-certifierade** enhet i den [Azure IoT Edge-certifierade](https://catalog.azureiotsolutions.com/) enhetskatalog.
 - Den **Minsta maskinvarukrav** måste dokumenteras som det sista stycket i beskrivningen av erbjudandet (under den [Marketplace fliken](./cpp-marketplace-tab.md)). Du kan också kan du också ange de rekommenderade maskinvarukraven om de skiljer sig avsevärt. Till exempel lägga till följande avsnitt i slutet av ditt erbjudande-beskrivning:
 
- ```html
+  ```html
     <p><u>Minimum hardware requirements:</u> Linux x64 and arm32  OS, 1GB of RAM, 500 Mb of storage</p>
- ```
+  ```
 
 ### <a name="configuration"></a>Konfiguration
 
@@ -128,10 +128,11 @@ SDK för IoT-modulen krävs för att hämta dessa data om antalet modulen instan
 
 ## <a name="recertification-process"></a>Ny certifiering i enlighet process
 
-<!-- Add legal time windows--> Partner meddelas när det finns en stor förändring som påverkar deras moduler, till exempel:
+<!-- Add legal time windows-->
+Partner meddelas när det finns en stor förändring som påverkar deras moduler, till exempel:
 
 - Stödmatris för nivå 1 os/arch stöds av IoT Edge
-- SDK för IoT-modul
+- IoT Module SDK
 - IoT Edge-körningen
 - Riktlinjer för IoT Edge-modulen certifikatutfärdare
 

@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: d1e43924634e3c4543c244043cb06d965a4d14e0
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 37e3dbb5f69d7319e0b56a5d209e0487e0562e00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576845"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838807"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera en lokal integration runtime
 Integration runtime (IR) är beräkningsinfrastrukturen som Azure Data Factory använder för att tillhandahålla funktioner för dataintegrering olika nätverksmiljöer integrationsfunktioner. Mer information om IR finns [översikten över Integration runtime](concepts-integration-runtime.md).
@@ -61,7 +61,7 @@ Här är ett övergripande dataflöde för sammanfattning av stegen för att kop
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Överväganden för att använda en lokal IR
 
 - En enda lokal integration runtime kan användas för flera lokala datakällor. En enda lokal integration runtime kan delas med en annan data factory inom samma Azure Active Directory-klientorganisation. Mer information finns i [delning av en lokal integration runtime](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories).
-- Du kan ha endast en instans av en lokal integration runtime som installeras på en enda dator. Om du har två datafabriker som behöver åtkomst till lokala datakällor måste du installera den lokala integreringskörningen på två lokala datorer. Med andra ord är en lokal integration runtime kopplad till en specifik data factory.
+- Du kan ha endast en instans av en lokal integration runtime som installeras på en enda dator. Om du har två datafabriker som behöver åtkomst till lokala datakällor, måste du installera den lokala integreringskörningen på två lokala datorer varje från båda datafabriker eller använda den [lokal IR funktionenfördelning](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)att dela en lokal integration runtime med en annan Data Factory.  
 - Lokal integration runtime behöver inte finnas på samma dator som datakällan. Men minskar med den lokala integreringskörningen närmare datakällan tiden för lokal integration runtime kan ansluta till datakällan. Vi rekommenderar att du installerar den lokala integreringskörningen på en dator som skiljer sig från det som är värd för en lokal datakälla. När lokal integration runtime och datakällan finns på olika datorer, lokal integration runtime inte konkurrerar om resurser med datakällan.
 - Du kan ha flera IR-körningar på olika datorer som ansluter till samma lokala datakällan. Till exempel kanske du har två IR-körningar som betjänar två datafabriker, men samma lokala datakälla har registrerats med båda datafabriker.
 - Om du redan har ingen gateway installerad på datorn för att hantera ett scenario med Power BI kan du installera en separat lokal integration runtime för Azure Data Factory på en annan dator.
@@ -145,7 +145,7 @@ Här följer kraven för TLS/SSL-certifikatet som används för att säkra kommu
 - Certifikat med CNG-nycklar stöds inte.  
 
 > [!NOTE]
-> Det här certifikatet används för att kryptera portar på den lokala installationens IR-nod, används för **kommunikation från nod till nod** (för synkronisering av tillstånd) och medan **med hjälp av PowerShell-cmdlet: en för den länkade tjänsten autentiseringsuppgifter inställningen**från i lokala nätverket. Vi föreslår att du använder det här certifikatet om nätverksmiljön privata inte är säker eller om du vill att skydda kommunikationen mellan noderna i ditt privata nätverk. Dataförflyttning under överföring från lokal IR till datalager sker alltid med krypterad kanal, oavsett den här certifikat har angetts eller inte. 
+> Det här certifikatet används för att kryptera portar på den lokala installationens IR-nod, används för **kommunikation från nod till nod** (för synkronisering av tillstånd som innehåller länkade tjänster autentiseringsuppgifter synkronisering mellan noder) medan **med hjälp av PowerShell-cmdlet: en för den länkade tjänsten autentiseringsuppgifter inställningen** från i lokala nätverket. Vi föreslår att du använder det här certifikatet om nätverksmiljön privata inte är säker eller om du vill att skydda kommunikationen mellan noderna i ditt privata nätverk. Dataförflyttning under överföring från lokal IR till datalager sker alltid med krypterad kanal, oavsett den här certifikat har angetts eller inte. 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Dela en lokal integration runtime med flera olika datafabriker för
 

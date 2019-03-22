@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: 62683aaf7dda048b5828e9494ba8cafe6c8b8f9f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 012a352b00de2e2d1bf64fd18125ddd10faba5cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417947"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122815"
 ---
 # <a name="assessment-calculations"></a>Utvärderingsberäkningar
 
@@ -118,14 +118,14 @@ För prestandabaserade storleksändringar behöver Azure Migrate användningsdat
 
    Nedan angående är de orsaker till varför en utvärdering kan hämta ett låga säkerhetsomdöme:
 
-   - Du profilerade inte din miljö för hela den varaktighet för vilken du skapar utvärderingen. Om du skapar utvärderingen med varaktigheten inställd på 1 dag, måste du vänta minst en dag efter att du börjar identifieringen för att alla datapunkter ska ha samlats in.
+- Du profilerade inte din miljö för hela den varaktighet för vilken du skapar utvärderingen. Om du skapar utvärderingen med varaktigheten inställd på 1 dag, måste du vänta minst en dag efter att du börjar identifieringen för att alla datapunkter ska ha samlats in.
 
-   - Några virtuella datorer stängdes av under perioden som utvärderingen utfördes. Om några virtuella datorer stängdes av under en viss period så kommer vi inte att kunna samla in prestandadata för den perioden.
+- Några virtuella datorer stängdes av under perioden som utvärderingen utfördes. Om några virtuella datorer stängdes av under en viss period så kommer vi inte att kunna samla in prestandadata för den perioden.
 
-   - Några virtuella datorer skapades under perioden som utvärderingen utförs. Om du till exempel skapar en utvärdering för prestandahistoriken för den senaste månaden, men några virtuella datorer skapades i miljön för en vecka sedan. I sådana fall är prestandahistoriken för de nya virtuella datorerna inte med för hela perioden.
+- Några virtuella datorer skapades under perioden som utvärderingen utförs. Om du till exempel skapar en utvärdering för prestandahistoriken för den senaste månaden, men några virtuella datorer skapades i miljön för en vecka sedan. I sådana fall är prestandahistoriken för de nya virtuella datorerna inte med för hela perioden.
 
-   > [!NOTE]
-   > Om säkerhetsomdömet för någon utvärdering är lägre än 5 stjärnor, rekommenderar vi att du väntar minst en dag att profilera miljön och sedan *beräkna om* utvärderingen. Om det föregående inte kan utföras kan prestandabaserade storleksändringar vara mindre tillförlitliga och därför rekommenderar vi att du byter till *storleksändringar av typen "som lokalt"* genom att ändra utvärderingsegenskaperna.
+  > [!NOTE]
+  > Om säkerhetsomdömet för någon utvärdering är lägre än 5 stjärnor, rekommenderar vi att du väntar minst en dag att profilera miljön och sedan *beräkna om* utvärderingen. Om det föregående inte kan utföras kan prestandabaserade storleksändringar vara mindre tillförlitliga och därför rekommenderar vi att du byter till *storleksändringar av typen "som lokalt"* genom att ändra utvärderingsegenskaperna.
 
 ## <a name="monthly-cost-estimation"></a>Uppskattning per månad
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 5f3b9b48fc5f15738c3de9928ca0bb220a66db12
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.openlocfilehash: 563b54fe9b4ab65cd8d3008e9d3955618194031f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985996"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899554"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Självstudie: Lastbalansera virtuella datorer i en tillgänglighetszon med Standard Load Balancer med hjälp av Azure-portalen
 
@@ -41,7 +41,7 @@ Om du vill kan du använda [Azure CLI](load-balancer-standard-public-zonal-cli.m
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-public-standard-load-balancer-instance"></a>Skapa en offentlig Standard Load Balancer-instans
 
@@ -56,14 +56,14 @@ Standard Load Balancer stöder endast offentliga IP-standardadresser. När du sk
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupZLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | Typ          | Välj **Offentligt**.                                        |
+    | Type          | Välj **Offentligt**.                                        |
     | SKU           | Välj **standard**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
     |Tillgänglighetszon| Välj **1**.    |
 3. På fliken **Granska + skapa** klickar du på **Skapa**.   
 
- ## <a name="create-backend-servers"></a>Skapa serverdelsservrar
+   ## <a name="create-backend-servers"></a>Skapa serverdelsservrar
 
 I det här avsnittet skapar du ett virtuellt nätverk. Du kan också skapa två virtuella datorer i samma zon (dvs zon 1) för den region som ska läggas till i lastbalanserarens serverdelspool. Sedan installerar du IIS på de virtuella datorerna så att du enklare kan testa den zonredundanta lastbalanseraren. Om en virtuell dator misslyckas så misslyckas även hälsoavsökningen för den virtuella datorn i samma zon. Trafiken fortsätter att hanteras av andra virtuella datorer i samma zon.
 
@@ -80,8 +80,8 @@ I det här avsnittet skapar du ett virtuellt nätverk. Du kan också skapa två 
 
 1. Välj **Skapa en resurs** längst upp till vänster på skärmen. Ange **Nätverkssäkerhetsgrupp** i sökrutan. Välj **Skapa** på nätverkssäkerhetsgruppssidan.
 2. Ange dessa värden på sidan **Skapa nätverkssäkerhetsgrupp**:
-    - **myNetworkSecurityGroup** för nätverkssäkerhetsgruppens namn.
-    - **myResourceGroupLB** för den befintliga resursgruppens namn.
+   - **myNetworkSecurityGroup** för nätverkssäkerhetsgruppens namn.
+   - **myResourceGroupLB** för den befintliga resursgruppens namn.
    
      ![Skapa en nätverkssäkerhetsgrupp](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
 

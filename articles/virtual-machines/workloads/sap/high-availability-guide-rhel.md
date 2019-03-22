@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/27/2017
+ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: c7805e64c4f387b870922dcb63e20d86f691092a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 931727eff0de104ea57930abb1d3739fa086967a
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119024"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226665"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Azure virtuella datorer hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux
 
@@ -86,36 +86,36 @@ För att uppnå hög tillgänglighet, kräver SAP NetWeaver delad lagring. Glust
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, ÄNDARE för SAP NetWeaver och SAP HANA-databas använda virtuella värdnamn och virtuella IP-adresser. På Azure måste en belastningsutjämnare använda en virtuell IP-adress. I följande lista visas konfigurationen av (A) SCS och ÄNDARE belastningsutjämnare.
 
-### <a name="ascs"></a>(A) SCS
+### <a name="ascs"></a>(A)SCS
 
 * Konfiguration för klientdel
   * IP-adress 10.0.0.7
 * Backend-konfiguration
   * Ansluten till primära nätverksgränssnitt för alla virtuella datorer som ska vara en del av (A) SCS/ÄNDARE kluster
 * Avsökningsport
-  * Port 620**&lt;nr&gt;**
+  * Port 620<strong>&lt;nr&gt;</strong>
 * Med regler
-  * 32**&lt;nr&gt;**  TCP
-  * 36**&lt;nr&gt;**  TCP
-  * 39**&lt;nr&gt;**  TCP
-  * 81**&lt;nr&gt;**  TCP
-  * 5**&lt;nr&gt;** 13 TCP
-  * 5**&lt;nr&gt;** 14 TCP
-  * 5**&lt;nr&gt;** 16 TCP
+  * 32<strong>&lt;nr&gt;</strong> TCP
+  * 36<strong>&lt;nr&gt;</strong> TCP
+  * 39<strong>&lt;nr&gt;</strong> TCP
+  * 81<strong>&lt;nr&gt;</strong> TCP
+  * 5<strong>&lt;nr&gt;</strong>13 TCP
+  * 5<strong>&lt;nr&gt;</strong>14 TCP
+  * 5<strong>&lt;nr&gt;</strong>16 TCP
 
-### <a name="ers"></a>ÄNDARE
+### <a name="ers"></a>ERS
 
 * Konfiguration för klientdel
   * IP-adress 10.0.0.8
 * Backend-konfiguration
   * Ansluten till primära nätverksgränssnitt för alla virtuella datorer som ska vara en del av (A) SCS/ÄNDARE kluster
 * Avsökningsport
-  * Port 621**&lt;nr&gt;**
+  * Port 621<strong>&lt;nr&gt;</strong>
 * Med regler
-  * 33**&lt;nr&gt;**  TCP
-  * 5**&lt;nr&gt;** 13 TCP
-  * 5**&lt;nr&gt;** 14 TCP
-  * 5**&lt;nr&gt;** 16 TCP
+  * 33<strong>&lt;nr&gt;</strong> TCP
+  * 5<strong>&lt;nr&gt;</strong>13 TCP
+  * 5<strong>&lt;nr&gt;</strong>14 TCP
+  * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ## <a name="setting-up-glusterfs"></a>Konfigurera GlusterFS
 
@@ -204,6 +204,9 @@ Du måste först skapa de virtuella datorerna för det här klustret. Därefter 
          * Upprepa stegen ovan för portar 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16- och TCP för ASCS
       1. Ytterligare portar för ASCS ERS
          * Upprepa stegen ovan för portar 33**02**, 5**02**13, 5**02**14, 5**02**16- och TCP för ASCS ERS
+
+> [!IMPORTANT]
+> Aktivera inte TCP tidsstämplarna för virtuella Azure-datorer är placerade bakom Azure Load Balancer. Aktivera TCP tidsstämplar genereras hälsoavsökningar misslyckas. Ange parametern **net.ipv4.tcp_timestamps** till **0**. Mer information finns i [hälsoavsökningar för belastningsutjämnaren](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Skapa Pacemaker kluster
 

@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 97261535-7a2d-4d73-94c8-38116b8a776e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 3142f52d43cd884d11a40431d23120cc8a6ee8c3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 11021562cd34f31564e6b4c22fcd64aac25d3469
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878310"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862071"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-webmethods-integration-cloud"></a>Självstudier: Azure Active Directory-integrering med webMethods Integration Cloud
 
@@ -33,7 +33,7 @@ Integreringen av webMethods Integration Cloud med Azure AD medför följande fö
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med webMethods Integration Cloud behöver du följande:
 
@@ -54,7 +54,7 @@ För att konfigurera integreringen av webMethods Integration Cloud i Azure AD m�
 
 **Utför följande steg för att lägga till webMethods Integration Cloud från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -107,6 +107,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för we
     ![webMethods Integration Cloud-domän och information om URL:er för enkel inloggning](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:
+
     | |
     |--|
     | `<SUBDOMAIN>.webmethodscloud.com` |
@@ -114,6 +115,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för we
     | `<SUBDOMAIN>.webmethodscloud.de` |
 
     b. I textrutan **Svars-URL** skriver du in en URL med följande mönster:
+
     | |
     |--|
     | `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoResponse` |
@@ -125,6 +127,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för we
     ![webMethods Integration Cloud-domän och information om URL:er för enkel inloggning](common/metadata-upload-additional-signon.png)
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
+    
     | |
     |--|
     | `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoRequest` |
@@ -170,14 +173,14 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till webMethods Integration Cloud.
 
@@ -209,7 +212,7 @@ I det här avsnittet skapas en användare som heter Britta Simon i webMethods In
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
 När du klickar på webMethods Integration Cloud-panelen i åtkomstpanelen bör du automatiskt loggas in på webMethods Integration Cloud som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

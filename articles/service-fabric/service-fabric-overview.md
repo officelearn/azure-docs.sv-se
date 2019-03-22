@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: a48d14f20d885849a233c592db8d9cf587342755
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 8f2a3536b7d1b02f124b3116c96ce442383a6b3b
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870080"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294441"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Översikt över Azure Service Fabric
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster och containrar. Service Fabric tar också itu med betydande utmaningar vid utveckling och hantering av inbyggda molnprogram. Utvecklare och administratörer kan undvika komplexa infrastrukturproblem och fokusera på att implementera verksamhetskritiska, krävande arbetsbelastningar som är skalbara, tillförlitliga och hanterbara. Service Fabric representerar nästa generations plattform för att skapa och hantera dessa molskalningsprogram i företagsklass på nivå 1 som körs i containrar.
@@ -49,7 +49,7 @@ Service Fabric kan köras överallt. Du kan skapa kluster för Service Fabric i 
 
 ![Service Fabric-plattform][Image1]
 
-För Windows-utveckling är Service Fabric .NET SDK integrerad med Visual Studio och Powershell. Se [Förbereda utvecklingsmiljön i Windows](service-fabric-get-started.md). För Linux-utveckling är Service Fabric Java SDK integrerad med Eclipse, och Yeoman används för att generera mallar för Java, .NET Core och containerprogram. Se [Förbereda utvecklingsmiljön i Linux](service-fabric-get-started.md)
+För Windows-utveckling är Service Fabric .NET SDK integrerad med Visual Studio och Powershell. Se [Förbereda utvecklingsmiljön i Windows](service-fabric-get-started.md). För Linux-utveckling är Service Fabric Java SDK integrerad med Eclipse, och Yeoman används för att generera mallar för Java, .NET Core och containerprogram. Se [Förbereda utvecklingsmiljön i Linux](service-fabric-get-started-linux.md)
 
 Mer information om att skapa kluster finns i [skapa ett kluster i Windows Server eller Linux](service-fabric-deploy-anywhere.md) eller för Azure att skapa kluster [via Azure Portal](service-fabric-cluster-creation-via-portal.md).
 

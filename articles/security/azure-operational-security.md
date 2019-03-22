@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 5a407db97803d3c3be898893b7da6c1cb4aa94bb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ab5b50433b85416ff471546171998e992293b0ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537005"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901516"
 ---
 # <a name="azure-operational-security"></a>Azure driftsäkerhet
 ## <a name="introduction"></a>Introduktion
@@ -149,7 +149,7 @@ Azure Security Center hjälper kunder att förhindra, upptäcka och svara på ho
 
 -   **Dataavgränsning**: Data lagras logiskt separerade på varje komponent i tjänsten. Alla data taggas efter organisation. Den här taggningen finns kvar i informationens hela livscykel och används på varje lager i tjänsten.
 
--   **Dataåtkomst**: Om du vill ge säkerhetsrekommendationer och undersöka möjliga säkerhetshot kan Microsofts Personal komma åt information som samlas in eller analyseras av Azure-tjänster, inklusive kraschdumpfiler, bearbeta händelser som skapas, ögonblicksbilder av Virtuella datordiskar och artefakter, som kan oavsiktligt innehålla kunddata eller personuppgifter från dina virtuella datorer. Vi följer de [sekretesspolicy för Microsoft Online Services-villkoren och](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), vilka tillstånd som Microsoft inte använder kunddata eller härleder information från dem för reklamändamål eller i liknande kommersiellt syfte.
+-   **Dataåtkomst**: Om du vill ge säkerhetsrekommendationer och undersöka möjliga säkerhetshot kan Microsofts Personal komma åt information som samlas in eller analyseras av Azure-tjänster, inklusive kraschdumpfiler, bearbeta händelser som skapas, ögonblicksbilder av Virtuella datordiskar och artefakter, som kan oavsiktligt innehålla kunddata eller personuppgifter från dina virtuella datorer. Vi följer de [sekretesspolicy för Microsoft Online Services-villkoren och](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), vilka tillstånd som Microsoft inte använder kunddata eller härleder information från dem för reklamändamål eller i liknande kommersiellt syfte.
 
 -   **Dataanvändning**: Microsoft använder mönster och hotinformation som identifieras över flera klienter för att förbättra våra skydds- och identifieringsfunktioner funktioner; Vi har gjort i enlighet med sekretessåtaganden som beskrivs i vår [sekretesspolicy](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
 
@@ -271,6 +271,7 @@ Följande typer av autentiserade och anonyma förfrågningar loggas.
 | Begäranden som använder en signatur för delad åtkomst (SAS), inklusive misslyckade och lyckade förfrågningar |Timeout-fel för både klient och server |
 |   Begäranden till analytics-data |    Misslyckade GET-begäranden med felkoden 304 (har inte ändrats) |
 | Begäranden som görs av Storage Analytics, till exempel log skapas eller tas bort, loggas inte. En fullständig lista över data som loggats dokumenteras i den [Storage Analytics loggade åtgärder och statusmeddelanden](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) och [Storage Analytics loggformat](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) ämnen. | Alla övriga misslyckade anonyma förfrågningar loggas inte. En fullständig lista över data som loggats dokumenteras i den [Storage Analytics loggade åtgärder och statusmeddelanden](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) och [Storage Analytics loggformat](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). |
+
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
 Azure AD innehåller också en fullständig uppsättning funktioner för identitethantering inklusive multifaktorautentisering, enhetsregistrering, lösenordshantering via självbetjäning, grupphantering, hantering av Privilegierade, rollbaserad åtkomst åtkomstkontroll, övervakning av programanvändning, omfattande granskning och säkerhetsövervakning och avisering.
@@ -293,7 +294,7 @@ Rapporterna ger granskningsposten för händelsenamn aktören som utförde åtg�
 |Inloggningar från potentiellt infekterade enheter |Aktivitet för enskilda användare |   |
 |Användare med avvikande inloggningsaktivitet |Aktivitetsrapport för grupper |   |
 | |Aktivitetsrapport över registrering av lösenordsåterställning |   |
-| |Lösenordsåterställningsaktivitet |   | |
+| |Lösenordsåterställningsaktivitet |   |
 
 
 

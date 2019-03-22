@@ -5,18 +5,18 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 2/19/2019
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 9ed0c8763835add485d6c60a43f4e4113ecde12e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 43df80e060ff698537f7fd65075006e6dfffe6c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429289"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117157"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Självstudier: Skapa DNS-poster i en anpassad domän för en webbapp 
 
-Du kan konfigurera Azure DNS för att vara värd för en anpassad domän för dina webbprogram. Du kan till exempel skapa en Azure-webbapp och göra så att dina användare kommer åt den via www.contoso.com eller contoso.com som ett fullständigt kvalificerat domännamn (FQDN).
+Du kan konfigurera Azure DNS för att vara värd för en anpassad domän för dina webbprogram. Du kan till exempel skapa en Azure webbapp och har dina användare åtkomst den med hjälp av antingen www\.contoso.com eller contoso.com som ett fullständigt kvalificerat domännamn (FQDN).
 
 > [!NOTE]
 > Contoso.com används som exempel i den här självstudien. Använd ditt eget domännamn i stället för contoso.com.
@@ -43,16 +43,17 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- [Skapa en App Service-app](../app-service/app-service-web-get-started-html.md), eller använd en app som du har skapat för en annan kurs.
+* Du måste ha ett domännamn som är tillgängliga för att testa med att du kan ha i Azure DNS. Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
+* [Skapa en App Service-app](../app-service/app-service-web-get-started-html.md), eller använd en app som du har skapat för en annan kurs.
 
-- Skapa en DNS-zon i Azure DNS och delegera zonen i registratorn till Azure DNS.
+* Skapa en DNS-zon i Azure DNS och delegera zonen i registratorn till Azure DNS.
 
    1. Om du vill skapa en DNS-zon följer du stegen i [Skapa en DNS-zon](dns-getstarted-create-dnszone.md).
-   2. Om du vill delegera zonen till Azure DNS följer du stegen i [DNS-domändelegering](dns-domain-delegation.md).
+   2. Om du vill delegera zonen till Azure DNS följer du stegen i [DNS-domändelegering](dns-delegate-domain-azure-dns.md).
 
 När du har skapat en zon och delegerat den till Azure DNS kan du sedan skapa poster för din anpassade domän.
 
@@ -72,7 +73,7 @@ På sidan **Anpassade domäner** kopierar du appens IPv4-adress:
 
 ### <a name="create-the-a-record"></a>Skapa en A-post
 
-```powershell
+```azurepowershell
 New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
  -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 `
  -DnsRecords (New-AzDnsRecordConfig -IPv4Address "<your web app IP address>")
@@ -82,7 +83,10 @@ New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
 
 Den här posten används av App Services endast vid konfigurationen, för att verifiera att du äger den anpassade domänen. Du kan ta bort den här TXT-posten när din anpassade domän har verifierats och konfigurerats i App Service.
 
-```powershell
+> [!NOTE]
+> Om du vill verifiera domännamnet, men inte vidarebefordra produktionstrafik till webbappen behöver du bara ange TXT-posten för verifieringen.  Verifieringen kräver inte en A- eller CNAME-post utöver TXT-posten.
+
+```azurepowershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
  -Name "@" -RecordType "txt" -Ttl 600 `
  -DnsRecords (New-AzDnsRecordConfig -Value  "contoso.azurewebsites.net")
@@ -96,7 +100,7 @@ Om din domän redan hanteras av Azure DNS (se [DNS-domändelegering](dns-domain-
 
 ### <a name="create-the-record"></a>Skapa posten
 
-```powershell
+```azurepowershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName "MyAzureResourceGroup" `
  -Name "www" -RecordType "CNAME" -Ttl 600 `
  -DnsRecords (New-AzDnsRecordConfig -cname "contoso.azurewebsites.net")
@@ -158,7 +162,7 @@ contoso.com text =
 
 Nu kan du lägga till de anpassade värdnamnen till din webbapp:
 
-```powershell
+```azurepowershell
 set-AzWebApp `
  -Name contoso `
  -ResourceGroupName MyAzureResourceGroup `

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 67b9be6f7788acd44ac60fe0c71133d69a2c122e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: a1e1be24f9cb6d762d5480385843e9a5356d4a29
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313845"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889802"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Installera översikt över elastiska databasjobb
 
@@ -27,12 +27,12 @@ ms.locfileid: "57313845"
 
 [**Elastic Database-jobb** ](sql-database-elastic-jobs-overview.md) kan installeras via PowerShell eller via Azure portal. Du kan komma åt för att skapa och hantera jobb med hjälp av PowerShell-API endast om du installerar PowerShell-paketet. Dessutom ger PowerShell APIs betydligt fler funktioner än portalen vid denna tidpunkt.
 
-Om du redan har installerat **elastiska databasjobb** via portalen från en befintlig **elastisk pool**, den senaste förhandsversionen av Powershell innehåller skript för att uppgradera den befintliga installationen. Vi rekommenderar starkt att uppgradera installationen till senast **elastiska databasjobb** komponenter för att kunna dra nytta av nya funktioner som exponeras via PowerShell APIs.
+Om du redan har installerat **elastiska databasjobb** via portalen från en befintlig **elastisk pool**, den senaste förhandsversionen av PowerShell innehåller skript för att uppgradera den befintliga installationen. Vi rekommenderar starkt att uppgradera installationen till senast **elastiska databasjobb** komponenter för att kunna dra nytta av nya funktioner som exponeras via PowerShell APIs.
 
 ## <a name="prerequisites"></a>Förutsättningar
 * En Azure-prenumeration. En kostnadsfri utvärderingsversion, se [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. Installera den senaste versionen med hjälp av den [Web Platform Installer](https://go.microsoft.com/fwlink/p/?linkid=320376). Mer information finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
-* [NuGet Command-line Utility](https://nuget.org/nuget.exe) används för att installera paketet för Elastic Database-jobb. Mer information finns i http://docs.nuget.org/docs/start-here/installing-nuget.
+* [NuGet Command-line Utility](https://nuget.org/nuget.exe) används för att installera paketet för Elastic Database-jobb. Mer information finns i https://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Hämta och importera PowerShell-paketet för Elastic Database-jobb
 1. Starta Microsoft Azure PowerShell-Kommandotolken och navigera till katalogen där du hämtade NuGet Command-line Utility (nuget.exe).
@@ -75,9 +75,7 @@ Parametrarna som anges på det här exemplet anropet kan ändras för dina önsk
     <td>Tillhandahåller Azure resursgruppens namn innehåller de nyligen skapade Azure-komponenterna. Den här parametern som standard ”__ElasticDatabaseJob”. Du bör inte ändra det här värdet.</td>
     </tr>
 
-</tr>
-
-    <tr>
+<tr>
     <td>ResourceGroupLocation</td>
     <td>Innehåller den Azure-platsen som ska användas för de nyligen skapade Azure-komponenterna. Den här parametern standard platsen för centrala USA.</td>
 </tr>
@@ -85,28 +83,24 @@ Parametrarna som anges på det här exemplet anropet kan ändras för dina önsk
 <tr>
     <td>ServiceWorkerCount</td>
     <td>Visar antalet arbetare för tjänsten att installera. Den här parametern standardvärdet 1. Ett högre antal arbetare kan användas för att skala ut tjänsten och för att ge hög tillgänglighet. Det rekommenderas att använda ”2” för distributioner som kräver hög tillgänglighet till tjänsten.</td>
-    </tr>
-
 </tr>
-    <tr>
+
+<tr>
     <td>ServiceVmSize</td>
     <td>Innehåller VM-storleken för användning i Molntjänsten. Den här parametern standard A0. Parametervärdena för... /.. / A3 accepteras vilket leder till att worker-roll att använda en ExtraSmall/Small/Medium/Large storlek respektive. För mer information om storlekar för worker-roll, se [Elastic Database-jobb komponenter och priser](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerDatabaseSlo</td>
     <td>Tillhandahåller beräkningsstorleken för en Standard-utgåva. Den här parametern standard S0. Parametervärdena för... /.. /.. /.. / S9/S12 accepteras vilket leder till Azure SQL-databas att använda respektive beräkningsstorleken. Mer information om storlekar på SQL-databas finns i [Elastic Database-jobb komponenter och priser](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerAdministratorUserName</td>
     <td>Innehåller ett administratörsanvändarnamn för den nyligen skapade Azure SQL Database-servern. Om inget värde anges öppnas ett fönster för PowerShell-autentiseringsuppgifter för att efterfråga autentiseringsuppgifter.</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerAdministratorPassword</td>
     <td>Tillhandahåller administratörslösenordet för den nyligen skapade Azure SQL Database-servern. När inte anges så öppnas ett fönster för PowerShell-autentiseringsuppgifter för att efterfråga autentiseringsuppgifter.</td>
 </tr>
@@ -131,22 +125,17 @@ För att uppdatera VM-storleken för en installation, kör du följande skript m
   <th>Beskrivning</th>
 </tr>
 
-  <tr>
+<tr>
     <td>ResourceGroupName</td>
     <td>Identifierar Azure resursgruppens namn används när elastiska jobb databaskomponenterna ursprungligen har installerats. Den här parametern som standard ”__ElasticDatabaseJob”. Eftersom det inte rekommenderas att ändra det här värdet, har du inte anger den här parametern.</td>
-    </tr>
 </tr>
 
-</tr>
-
-  <tr>
+<tr>
     <td>ServiceWorkerCount</td>
     <td>Visar antalet arbetare för tjänsten att installera.  Den här parametern standardvärdet 1.  Ett högre antal arbetare kan användas för att skala ut tjänsten och för att ge hög tillgänglighet.  Det rekommenderas att använda ”2” för distributioner som kräver hög tillgänglighet till tjänsten.</td>
 </tr>
 
-</tr>
-
-    <tr>
+<tr>
     <td>ServiceVmSize</td>
     <td>Innehåller VM-storleken för användning i Molntjänsten. Den här parametern standard A0. Parametervärdena för... /.. / A3 accepteras vilket leder till att worker-roll att använda en ExtraSmall/Small/Medium/Large storlek respektive. För mer information om storlekar för worker-roll, se [Elastic Database-jobb komponenter och priser](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>

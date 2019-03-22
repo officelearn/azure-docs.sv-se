@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 74fdfed23d30dbf88b2faa6028039159010d9afc
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 37de2de18656f0f8ba85495b3fd72315e0bd885b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53756806"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113086"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatisera anpassade rapporter med Azure Application Insights-data
 
@@ -110,12 +110,12 @@ availabilityResults
     
     (AI_-värden kan hittas under API-åtkomst för Application Insights-resurs som du vill rapportera om. Om du inte har en Application Insights API-nyckel, finns alternativet att **skapa API-nyckel**.)
     
-    * AI_APP_ID = program-ID
-    * AI_APP_KEY = API-nyckel
-    * SendGridAPI = SendGrid API-nyckel
+   * AI_APP_ID = program-ID
+   * AI_APP_KEY = API-nyckel
+   * SendGridAPI = SendGrid API-nyckel
 
-    > [!NOTE]
-    > Om du inte har ett SendGrid-konto kan du skapa en. SendGrid-dokumentation för Azure Functions är [här](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Om bara vill att en minimal förklaring av hur du konfigurerar SendGrid och generera en API-nyckel som sådan anges i slutet av den här artikeln. 
+     > [!NOTE]
+     > Om du inte har ett SendGrid-konto kan du skapa en. SendGrid-dokumentation för Azure Functions är [här](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Om bara vill att en minimal förklaring av hur du konfigurerar SendGrid och generera en API-nyckel som sådan anges i slutet av den här artikeln. 
 
 9. Välj **integrera** och klicka på utdata under **SendGrid ($return)**.
 

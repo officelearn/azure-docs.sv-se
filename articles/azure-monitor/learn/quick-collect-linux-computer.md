@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 1292e3261173e3513e185c58732235ba8b6238f1
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: d3aaa6fb09a65c65bea6bb1ad9a305fe3a67bdbd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186352"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078728"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Konfigurera Log Analytics-agenten för Linux-datorer i en hybridmiljö
 [Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) kan samla in data direkt från fysiska eller virtuella Linux-datorer i ditt datacenter eller en annan molnmiljö till en enda lagringsplats för detaljerad analys och korrelation.  Den här snabbstarten visar hur du konfigurerar och samlar in data från Linux-datorer med några enkla steg.  För virtuella Linux-datorer, se avsnittet [Samla in data om virtuella datorer i Azure](quick-collect-azurevm.md).  
@@ -35,13 +35,13 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.<br><br> ![Azure Portal](media/quick-collect-linux-computer/azure-portal-01.png)<br><br>  
 2. Klicka på **Skapa** och välj sedan alternativ för följande objekt:
 
-  * Ange ett namn för den nya **Log Analytics-arbetsytan**, som *DefaultLAWorkspace*. OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.   
-  * Välj en **prenumeration** att länka till genom att välja från den listrutan om standardvalet inte är lämpligt.
-  * För **Resursgrupp** väljer du en befintlig resursgrupp som innehåller en eller flera virtuella datorer i Azure.  
-  * Välj den **plats** där dina virtuella datorer distribueras.  Mer information finns i avsnittet om [tillgängliga regioner för Log Analytics](https://azure.microsoft.com/regions/services/).  
-  * Om du skapar en arbetsyta i en ny prenumeration som skapats efter 2 april 2018 används prisplanen *Per GB* automatiskt och alternativet för att välja en prisnivå är inte tillgängligt.  Om du skapar en arbetsyta för en befintlig prenumeration som skapats före 2 april eller en prenumeration som var bunden till en befintlig EA-registrering, väljer du önskad prisnivå.  Mer information om de olika nivåerna finns i [prisinformation om Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+   * Ange ett namn för den nya **Log Analytics-arbetsytan**, som *DefaultLAWorkspace*. OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.   
+   * Välj en **prenumeration** att länka till genom att välja från den listrutan om standardvalet inte är lämpligt.
+   * För **Resursgrupp** väljer du en befintlig resursgrupp som innehåller en eller flera virtuella datorer i Azure.  
+   * Välj den **plats** där dina virtuella datorer distribueras.  Mer information finns i avsnittet om [tillgängliga regioner för Log Analytics](https://azure.microsoft.com/regions/services/).  
+   * Om du skapar en arbetsyta i en ny prenumeration som skapats efter 2 april 2018 används prisplanen *Per GB* automatiskt och alternativet för att välja en prisnivå är inte tillgängligt.  Om du skapar en arbetsyta för en befintlig prenumeration som skapats före 2 april eller en prenumeration som var bunden till en befintlig EA-registrering, väljer du önskad prisnivå.  Mer information om de olika nivåerna finns i [prisinformation om Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-        ![Create Log Analytics resource blade](media/quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
+        ![Skapa Log Analytics-resursbladet](media/quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
 
 3. När du har angett den nödvändiga informationen i fönsterrutan **Log Analytics-arbetsyta** klickar du på **OK**.  
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c04358734923654366eb679505910e14d0e0059b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4d2701f078a26c22f52aebd0ef562dd60eaca923
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767540"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097982"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ansluta ett allmänt klientprogram till ditt Azure IoT Central program (Node.js)
 
@@ -41,7 +41,7 @@ Lägg till följande telemetri i den **mätningar** sidan:
 | Tryck     | tryck    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
-  Datatypen för måttet telemetri är en flytande peka tal.
+>   Datatypen för måttet telemetri är en flytande peka tal.
 
 Ange fältnamn exakt som de visas i tabellen i mallar för enheten. Om egenskapsnamnen i motsvarande enhet koden inte matchar fältnamnen kan inte visas telemetri i programmet.
 
@@ -54,7 +54,7 @@ Lägg till följande tillstånd i den **mätningar** sidan:
 | Fläktläge     | fläktläge     | 1       | Körs      | 0       | Stoppad      |
 
 > [!NOTE]
-  Datatypen för måttet tillstånd är sträng.
+>   Datatypen för måttet tillstånd är sträng.
 
 Ange fältnamn exakt som de visas i tabellen i mallar för enheten. Om egenskapsnamnen i motsvarande enhet koden inte matchar namnen på kan tillståndet inte visas i programmet.
 
@@ -67,7 +67,7 @@ Lägg till följande händelse i den **mätningar** sidan:
 | Överhettning  | överhettas    | Fel    |
 
 > [!NOTE]
-  Datatypen för måttet händelse är sträng.
+>   Datatypen för måttet händelse är sträng.
 
 ### <a name="device-properties"></a>Enhetsegenskaper
 

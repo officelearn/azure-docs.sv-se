@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 320a23e425ecb11e36af3efe988b25e598948132
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 3b302c60aefec1c4cd37a7dde82a2f11a9eeed33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118521"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862870"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Säker åtkomst till ett nyckelvalv
 
@@ -28,7 +28,7 @@ Azure Key Vault är en molnbaserad tjänst som skyddar krypteringsnycklar och he
 
 ## <a name="access-model-overview"></a>Översikt över åtkomst
 
-Åtkomst till ett nyckelvalv styrs via två gränssnitt: den *Hanteringsplanet* och *dataplanet*. Hanteringsplanet är där du hanterar Key Vault själva. Åtgärder i den här plan omfattar skapa och ta bort nyckelvalv, hämta egenskaper för Key Vault och åtkomstprinciperna. Dataplanet är där du arbetar med data som lagras i ett nyckelvalv. Du kan lägga till, ta bort och ändra nycklar, hemligheter och certifikat.
+Åtkomst till ett nyckelvalv styrs via två gränssnitt: den **Hanteringsplanet** och **dataplanet**. Hanteringsplanet är där du hanterar Key Vault själva. Åtgärder i den här plan omfattar skapa och ta bort nyckelvalv, hämta egenskaper för Key Vault och åtkomstprinciperna. Dataplanet är där du arbetar med data som lagras i ett nyckelvalv. Du kan lägga till, ta bort och ändra nycklar, hemligheter och certifikat.
 
 Om du vill komma åt ett nyckelvalv i antingen plan måste måste alla anropare (användare eller program) ha korrekt autentisering och auktorisering. Autentisering etablerar identiteten hos anroparen. Auktoriseringen avgör vilka åtgärder som anroparen kan köra. 
 
@@ -62,7 +62,7 @@ I följande tabell visar slutpunkterna för hantering och data plan.
 
 ## <a name="management-plane-and-rbac"></a>Hanteringsplanet och RBAC
 
-I Hanteringsplanet använder du RBAC för att auktorisera de åtgärder som kan köra en anropare. Varje Azure-prenumeration har en instans av Azure AD i RBAC-modellen. Du beviljar åtkomst till användare, grupper och program från den här katalogen. Komma åt för att hantera resurser i Azure-prenumeration som använder Azure Resource Manager-distributionsmodellen. Om du vill bevilja åtkomst, använda den [Azure-portalen](https://portal.azure.com/), [Azure CLI](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs), eller [Azure Resource Manager REST API: er](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+I Hanteringsplanet använder du RBAC (rollen baserat Access Control) för att auktorisera de åtgärder som kan köra en anropare. Varje Azure-prenumeration har en instans av Azure AD i RBAC-modellen. Du beviljar åtkomst till användare, grupper och program från den här katalogen. Komma åt för att hantera resurser i Azure-prenumeration som använder Azure Resource Manager-distributionsmodellen. Om du vill bevilja åtkomst, använda den [Azure-portalen](https://portal.azure.com/), [Azure CLI](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs), eller [Azure Resource Manager REST API: er](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 Du skapar ett nyckelvalv i en resursgrupp och hantera åtkomst med hjälp av Azure AD. Du ger användare eller grupper möjligheten att hantera nyckelvalv i en resursgrupp. Du ger åtkomst på en specifik omfattning genom att tilldela lämpliga RBAC-roller. Om du vill bevilja åtkomst till en användare att hantera nyckelvalven, tilldelar du en fördefinierad `key vault Contributor` roll till användare i ett visst omfång. Följande omfattningar nivåer kan tilldelas till RBAC-roll:
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 24132fdb23ff89045f2b497327997d95e4ceecac
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7f3b8101b633c977201b6c413ad12e4bbe55e9a7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054851"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011792"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights för ASP.NET Core
 
@@ -88,21 +88,21 @@ Välj **visa** > **Team Explorer** (Ctrl +\, Ctrl + M) > **projekt** > **ändrin
 
 - En ny fil skapas:
 
-  -  _ConnectedService.json_
+  - _ConnectedService.json_
 
     ```json
     {
-      "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
-      "Version": "8.12.10405.1",
-      "GettingStartedDocument": {
-        "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
-      }
+     "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
+     "Version": "8.12.10405.1",
+     "GettingStartedDocument": {
+       "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
+     }
     }
     ```
 
 - Tre filer ändras (ytterligare kommentarer tillagda för att visa ändringar):
 
-  - _appSettings.JSON_:
+  - _appsettings.json_:
 
     ```json
     {
@@ -148,7 +148,7 @@ Välj **visa** > **Team Explorer** (Ctrl +\, Ctrl + M) > **projekt** > **ändrin
     </Project>
     ```
 
-  -  _Program.CS_:
+  -  _Program.cs_:
 
       ```csharp
       using System;
@@ -181,11 +181,15 @@ Välj **visa** > **Team Explorer** (Ctrl +\, Ctrl + M) > **projekt** > **ändrin
       }
       ```
 
+## <a name="send-ilogger-logs-to-application-insights"></a>Skicka loggar med ILogger till Application Insights
+
+Application Insights stöder in loggar som skickas via ILogger. Konfigurera loggning checka ut kodexemplen [här](https://docs.microsoft.com/azure/azure-monitor/app/ilogger).
+
 ## <a name="synthetic-transactions-with-powershell"></a>Syntetiska transaktioner med PowerShell
 
 Automatisera begäranden till din app med hjälp av syntetiska transaktioner:
 
-1. Om du vill köra din app, Välj den ![Skärmbild av Visual Studio IIS Express-ikonen](./media/asp-net-core/004-iis-express.png) ikonen.
+1. Om du vill köra din app, Välj den ![Skärmbild av Visual Studio IIS Express-ikonen](./media/asp-net-core/004-iis-express.png) icon.
 
 2. Kopiera URL: en från webbläsarens adressfält. URL: en är i formatet `http://localhost:<port number>`.
 
@@ -213,7 +217,7 @@ I Visual Studio-menyn väljer du **projekt** > **Programinsikter** > **öppna Ap
 
 ## <a name="collect-failed-requests-live-stream-and-page-view-load-time"></a>Samla in misslyckade förfrågningar, Live Stream och inläsningstid för Sidvisning
 
-### <a name="failed-requests"></a>Misslyckade förfrågningar
+### <a name="failed-requests"></a>Misslyckade begäranden
 
 Tekniskt sett misslyckade förfrågningar samlas in, men inga misslyckade förfrågningar har inträffat ännu. Du kan lägga till en anpassad undantag till befintligt projekt för att simulera en verklig undantag så att processen går snabbare. Om din app körs fortfarande i Visual Studio innan du fortsätter, Välj **stoppa felsökning** (SKIFT + F5).
 
@@ -276,7 +280,7 @@ Flera bekräftelsemeddelanden visas. Läs och acceptera om du godkänner ändrin
 
 Att testa och kontrollera att allt fungerar:
 
-1. Kör din app. Om du vill köra din app, Välj den ![Skärmbild av Visual Studio IIS Express-ikonen](./media/asp-net-core/004-iis-express.png) ikonen.
+1. Kör din app. Om du vill köra din app, Välj den ![Skärmbild av Visual Studio IIS Express-ikonen](./media/asp-net-core/004-iis-express.png) icon.
 
 2. Gå till den **om** sidan för att utlösa test-undantag. (Om du är i felsökningsläge i Visual Studio väljer **Fortsätt** för undantaget visas i Application Insights.)
 

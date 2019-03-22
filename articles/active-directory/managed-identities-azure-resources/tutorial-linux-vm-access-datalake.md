@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24d050cbfbe3def0e6475b807f88102f3edfe4f7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3bae4012f20d5f655dba014a0e71616101bc42a2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204669"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092063"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Självstudier: Använda systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Data Lake Store
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-I den här självstudien lär du dig att komma åt Cosmos DB med en systemtilldelad hanterad identitet för en virtuell Linux-dator. Lär dig att: 
+Den här självstudien visar hur du använder en automatiskt genererad hanterad identitet för en Linux-dator (VM) för att få åtkomst till Azure Data Lake Store. Lär dig att: 
 
 I den här guiden får du lära dig att:
 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 > * Bevilja din virtuella dator åtkomst till Azure Data Lake Store.
 > * Få en åtkomsttoken genom att använda den virtuella datorns systemtilldelade hanterade identitet för åtkomst till Azure Data Lake Store.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -71,7 +71,7 @@ För att slutföra de här stegen behöver du en SSH-klient. Om du använder Win
 
 1. Bläddra till din virtuella Linux-dator i portalen. I **Översikt** väljer du **Anslut**.  
 2. Anslut till den virtuella datorn med valfri SSH-klient. 
-3. I terminalfönstret, med hjälp av CURL, skickar du en begäran till den lokala hanterade identiteter för Azure-resursslutpunkter för att hämta en åtkomsttoken för Data Lake Store-filsystemet. Resurs-ID för Data Lake Store är ”https://datalake.azure.net/”.  Det är viktigt att inkludera avslutande snedstreck i resurs-ID.
+3. I terminalfönstret, med hjälp av CURL, skickar du en begäran till den lokala hanterade identiteter för Azure-resursslutpunkter för att hämta en åtkomsttoken för Data Lake Store-filsystemet. Resurs-ID: t för Data Lake Store är `https://datalake.azure.net/`.  Det är viktigt att inkludera avslutande snedstreck i resurs-ID.
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   

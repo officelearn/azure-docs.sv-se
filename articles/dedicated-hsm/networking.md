@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: barclayn
-ms.openlocfilehash: d872c4eff3d55ddf5d98243055e831a7a223a8ef
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: aed0eb6ba4cdaa57d282ac4484e0c27c0697afb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115461"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58083138"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure dedikerad HSM-nätverk
 
@@ -51,8 +51,8 @@ Ett krav i den aktuella arkitekturen är konfigurationen av en ER gateway i kund
 När du skapar molnbaserade resurser, det är ett vanliga krav för en privat anslutning tillbaka till den lokala IT-resurser. När det gäller dedikerad HSM blir främst för HSM-klientprogrammet att konfigurera HSM-enheter och för aktiviteter, till exempel säkerhetskopior och hämta loggar från HSM: er för analys. En viktig beslutspunkten här är typen av anslutningen som det finns alternativ.  Det mest flexibla alternativet är VPN för plats-till-plats som kommer troligen att flera lokala resurser som kräver säker kommunikation med resurser (inklusive HSM: er) i Azure-molnet. Detta kräver en kundens organisation att ha en VPN-enhet för att underlätta anslutningen. En punkt-till-plats-VPN-anslutning kan användas om det är bara en enda slutpunkt på plats, till exempel en enkel administration-arbetsstation.
 Mer information om alternativ för nätverksanslutning finns [VPN Gateway planning alternativ](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable).
 
->[!NOTE]
-ExpressRoute är inte ett alternativ för anslutning till lokala resurser för tillfället. Det bör också noteras att ExpressRoute-gatewayen används enligt beskrivningen ovan, är inte för anslutningar till den lokala infrastrukturen.
+> [!NOTE]
+> ExpressRoute är inte ett alternativ för anslutning till lokala resurser för tillfället. Det bör också noteras att ExpressRoute-gatewayen används enligt beskrivningen ovan, är inte för anslutningar till den lokala infrastrukturen.
 
 ### <a name="point-to-site-vpn"></a>Punkt-till-plats-VPN
 
@@ -80,8 +80,8 @@ HSM-enheter har möjlighet, via programvara bibliotek, att omdirigera trafik til
 
 För globalt distribuerade program eller för scenarier med hög tillgänglighet regional redundans krävs det att ansluta virtuella nätverk i olika regioner. Med Azure dedikerad HSM uppnås hög tillgänglighet med hjälp av en VPN-Gateway som ger en säker tunnel mellan de två virtuella nätverken. Mer information om Vnet-till-Vnet-anslutningar med hjälp av VPN-Gateway finns i artikeln [vad är VPN-Gateway?](../vpn-gateway/vpn-gateway-about-vpngateways.md#V2V)
 
->[!NOTE]
-Global Vnet-peering är inte tillgänglig i interregionala anslutningen scenarier med dedikerade HSM: er vid denna tidpunkt och VPN-gateway som ska användas istället. 
+> [!NOTE]
+> Global Vnet-peering är inte tillgänglig i interregionala anslutningen scenarier med dedikerade HSM: er vid denna tidpunkt och VPN-gateway som ska användas istället. 
 
 ![Global vnet](media/networking/global-vnet.png)
 

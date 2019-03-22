@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: a81bcf26234f3b7840a75e7134596cb777071e8f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3676a1e4bf69f7d31bb347f99787c4e2f08721a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432798"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107601"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Felsöka problem med konfigurationen av servern
 
@@ -25,9 +25,9 @@ Källdatorn registreras med konfigurationsservern när du installerar mobilitets
 1. Öppna filen C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log. (Mappen ProgramData kan vara en dold mapp. Om du inte ser mappen ProgramData i Utforskaren på den **visa** fliken den **Visa/dölj** väljer den **dolda objekt** markerar du kryssrutan.) Fel kan orsakas av flera problem.
 
 2. Sök efter strängen **ingen giltig IP-adress hittades**. Om strängen hittas:
-    1. Kontrollera att den begärda värd-ID är samma som värd-ID för källdatorn.
-    2. Kontrollera att källdatorn har minst en IP-adress som tilldelats det fysiska nätverkskortet. För registreringen med konfigurationsservern ska lyckas, måste källdatorn ha minst en giltig IP v4-adress tilldelad till det fysiska nätverkskortet.
-    3. Kör något av följande kommandon på källdatorn för att hämta alla IP-adresser på källdatorn:
+   1. Kontrollera att den begärda värd-ID är samma som värd-ID för källdatorn.
+   2. Kontrollera att källdatorn har minst en IP-adress som tilldelats det fysiska nätverkskortet. För registreringen med konfigurationsservern ska lyckas, måste källdatorn ha minst en giltig IP v4-adress tilldelad till det fysiska nätverkskortet.
+   3. Kör något av följande kommandon på källdatorn för att hämta alla IP-adresser på källdatorn:
       - För Windows: `> ipconfig /all`
       - För Linux: `# ifconfig -a`
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 32b84b1a0967ca447b223a4eec1998f4da90291c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 310e0e77b898171aea3fdcf5996cbc53f9f582a6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316854"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864617"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>Skapa en Programgateway med URL-sökvägsbaserad routning regler med hjälp av Azure PowerShell
 
@@ -36,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 3.6 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modul version 3.6 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -347,7 +347,7 @@ for ($i=1; $i -le 3; $i++)
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Du kan använda [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) att hämta den offentliga IP-adressen för application gateway. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel *http://52.168.55.24*, *http://52.168.55.24:8080/images/test.htm* eller *http://52.168.55.24:8080/video/test.htm*.
+Du kan använda [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) att hämta den offentliga IP-adressen för application gateway. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. T.ex, `http://52.168.55.24`, `http://52.168.55.24:8080/images/test.htm`, eller `http://52.168.55.24:8080/video/test.htm`.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

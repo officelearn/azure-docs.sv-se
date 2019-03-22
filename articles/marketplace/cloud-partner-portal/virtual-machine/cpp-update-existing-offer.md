@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: Ankit.Sud
-ms.openlocfilehash: ee828c908cb3b103befa3890b43bb2c1f04f7cf0
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 254215389d129874f7ac3fc855b26819d41a095c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214052"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852482"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Uppdatera en befintlig VM-erbjudandet på Azure Marketplace
 
@@ -65,7 +65,7 @@ Det är vanligt att en VM-avbildning uppdateras regelbundet med säkerhetskorrig
 
 4.  Under **Disk version**, klicka på **+ ny Disk Version** att lägga till en ny VM-avbildning.
 
-5.  Ange de nya VM-avbildningarna **Disk version**. Disk-version måste följa den [sémantickou verzi](http://semver.org/) format. Versionerna bör vara i formatet X.Y.Z, där X, Y och Z är heltal. Kontrollera att den nya versionen som du anger är större än alla tidigare versioner. Annars när du publicerar visas den nya versionen inte i portalen eller Azure Marketplace.
+5.  Ange de nya VM-avbildningarna **Disk version**. Disk-version måste följa den [sémantickou verzi](https://semver.org/) format. Versionerna bör vara i formatet X.Y.Z, där X, Y och Z är heltal. Kontrollera att den nya versionen som du anger är större än alla tidigare versioner. Annars när du publicerar visas den nya versionen inte i portalen eller Azure Marketplace.
 
 6.  För **OS VHD URL**, ange den [signatur för delad åtkomst (SAS) URI](./cpp-get-sas-uri.md) skapade för det virtuella Hårddisken för operativsystemet. 
 

@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/08/2019
-ms.openlocfilehash: 513cc1f0155c5e5499d0bf076d21aff46756d769
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 820bb22fee75e5c1159ba90f23b478339f6345b5
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312182"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201933"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Överföra data för Apache Hadoop-jobb i HDInsight
 
@@ -37,7 +37,7 @@ Observera följande krav innan du börjar:
 ## <a name="utilities"></a>Samhällsservice
 Microsoft tillhandahåller följande verktyg att arbeta med Azure Storage:
 
-| Verktyget | Linux | OS X | Windows |
+| Verktyg | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
@@ -53,10 +53,7 @@ Microsoft tillhandahåller följande verktyg att arbeta med Azure Storage:
 ## <a id="commandline"></a>Hadoop-kommandoraden
 Hadoop-kommandoraden är bara användbara för att lagra data i Azure storage-blob när data finns redan på klustrets huvudnod.
 
-För att kunna använda kommandot Hadoop, måste du först ansluta till huvudnoden med någon av följande metoder:
-
-* **Windows-baserade HDInsight**: [Ansluta med hjälp av fjärrskrivbord](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **Linux-baserade HDInsight**: Ansluta med hjälp av [SSH eller PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
+För att kunna använda kommandot Hadoop, måste du först ansluta till huvudnoden med [SSH eller PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 När du är ansluten, kan du använda följande syntax för att överföra en fil till lagring.
 

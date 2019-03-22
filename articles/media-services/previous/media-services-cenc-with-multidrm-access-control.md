@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 94baa1235388ce99d013f8267f8410dcc206a51d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 336552c142e504ae7296314512f00688e30d032e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998356"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894367"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Designen av ett system för innehållsskydd med åtkomstkontroll med Azure Media Services 
 
@@ -28,7 +28,7 @@ Utforma och skapa en digital rights management (DRM) undersystem för en over-th
 
 Riktade läsare för det här dokumentet är tekniker som arbetar i DRM delsystem av OTT eller strömning flera/skärmar onlinelösningar eller läsare som är intresserade av DRM-undersystem. Antas att läsaren känner till minst en av DRM-tekniker på marknaden, till exempel PlayReady, Widevine, FairPlay eller Adobe åtkomst.
 
-I den här diskussionen av DRM innefatta vi också gemensam kryptering (CENC) med multi-DRM. En större trend i online strömning och OTT-branschen är att använda CENC med flera interna DRM på olika klientplattformar. Denna trend är en förändring från det föregående objekt som används av en enda DRM och dess klient-SDK för olika klientplattformar. När du använder CENC med flera interna DRM både PlayReady och Widevine krypteras enligt den [gemensam kryptering (ISO/IEC 23001 7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specifikationen.
+I den här diskussionen av DRM innefatta vi också gemensam kryptering (CENC) med multi-DRM. En större trend i online strömning och OTT-branschen är att använda CENC med flera interna DRM på olika klientplattformar. Denna trend är en förändring från det föregående objekt som används av en enda DRM och dess klient-SDK för olika klientplattformar. När du använder CENC med flera interna DRM både PlayReady och Widevine krypteras enligt den [gemensam kryptering (ISO/IEC 23001 7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specifikationen.
 
 Fördelarna med CENC med multi-DRM är att den:
 
@@ -156,7 +156,7 @@ I följande tabell visar mappningen.
 | **Nyckelhantering** |Inte behövs för referensimplementering |
 | **Innehållshantering** |En C#-konsolprogram |
 
-Med andra ord används både IDP och STS med Azure AD. Den [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/) används för spelaren. Både Media Services och Media Player stöder DASH och CENC med multi-DRM.
+Med andra ord används både IDP och STS med Azure AD. Den [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/) används för spelaren. Både Media Services och Media Player stöder DASH och CENC med multi-DRM.
 
 Följande diagram visar övergripande struktur och flödet med föregående teknik mappningen:
 
@@ -208,7 +208,7 @@ Implementering omfattar följande steg:
    * Install-Package Microsoft.Owin.Host.SystemWeb
    * Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
-8. Skapa en spelare med hjälp av den [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/). Använd den [Azure Media Player ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/) att ange vilka DRM-teknik för att använda på olika DRM-plattformar.
+8. Skapa en spelare med hjälp av den [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/). Använd den [Azure Media Player ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/) att ange vilka DRM-teknik för att använda på olika DRM-plattformar.
 
 9. I följande tabell visas test-matrisen.
 

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 45a391f45d11d968818bafc97a705411a133b273
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c17cb13bff0ea9eb3b0bb2caf5bb527fa3958428
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57430857"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852618"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>Vad är nytt i Azure SQL Data Warehouse? Maj 2018 
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i maj 2018. 
@@ -44,7 +44,7 @@ Som bästa praxis och vägledning, rekommenderar vi att ställa `AUTO_CREATE_STA
 Se den [ALTER DATABASE SET-alternativ](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options) för ytterligare information.
 
 ## <a name="rejected-row-support"></a>Avvisade raden Support
-Kunder använder ofta [PolyBase (externa tabeller) för att läsa in data](design-elt-data-loading.md) parallell natur inläsning av data till SQL Data Warehouse på grund av hög prestanda. PolyBase är standard läser in modellen vid inläsning av data via [Azure Data Factory](http://azure.com/adf) samt. 
+Kunder använder ofta [PolyBase (externa tabeller) för att läsa in data](design-elt-data-loading.md) parallell natur inläsning av data till SQL Data Warehouse på grund av hög prestanda. PolyBase är standard läser in modellen vid inläsning av data via [Azure Data Factory](https://azure.com/adf) samt. 
 
 SQL Data Warehouse lägger till möjligheten att definiera en avvisade raden plats via den `REJECTED_ROW_LOCATION` parametern med det [CREATE EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) instruktionen. Efter körning av en [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) från den externa tabellen alla rader som inte gick att läsa in kommer att lagras i en fil nära källan för ytterligare utredning. 
 
@@ -144,7 +144,7 @@ Nu när du vet lite om SQL Data Warehouse, lär du dig hur du snabbt [skapa ett 
 [Customer Advisory Team-bloggar]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Kundernas framgångsberättelser]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Funktionsbegäranden]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow-forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow-forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videoklipp]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md

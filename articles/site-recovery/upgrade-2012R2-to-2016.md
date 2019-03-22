@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: rajanaki
-ms.openlocfilehash: e7644128a3f0e0ea531933286e95b15149fdebd3
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: b67290f72f762331a6d699fb79aef0c0d7f9fb65
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557877"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853281"
 ---
 # <a name="upgrade-windows-server-2012-r2-hosts-scvmm-2012-r2-configured-with-azure-site-recovery-to-windows-server-2016--scvmm-2016"></a>Uppgradera Windows Server 2012 R2-värdar, SCVMM 2012 R2 som konfigurerats med Azure Site Recovery till Windows Server 2016 & SCVMM 2016
 
@@ -50,8 +50,8 @@ Observera följande innan du uppgraderar:-
     - Kontrollera att du de nya SCVMMs som du lägger till i klustret har samma namn som hade tidigare. 
 
 - Se till att du uppgraderar din återställningssidan först innan du uppgraderar den primära sidan om du replikerar mellan två av dina webbplatser som hanteras av SCVMMs på båda sidorna.
-> [!WARNING]
-> När du uppgraderar SCVMM 2012 R2 under hantering av distribuerad nyckel, väljer du att **lagra krypteringsnycklar i Active Directory**. Välj noga inställningarna för tjänstkonto och hantering av distribuerad nyckel. Baserat på ditt val av påverka krypterade data som lösenord i mallar inte kan vara tillgängliga efter uppgraderingen och kan potentiellt replikeringen med Azure Site Recovery
+  > [!WARNING]
+  > När du uppgraderar SCVMM 2012 R2 under hantering av distribuerad nyckel, väljer du att **lagra krypteringsnycklar i Active Directory**. Välj noga inställningarna för tjänstkonto och hantering av distribuerad nyckel. Baserat på ditt val av påverka krypterade data som lösenord i mallar inte kan vara tillgängliga efter uppgraderingen och kan potentiellt replikeringen med Azure Site Recovery
 
 > [!IMPORTANT]
 > Läs den detaljerade SCVMM-dokumentationen för [krav](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#requirements-and-limitations)
@@ -79,8 +79,8 @@ Innan du uppgraderar dina Windows Server 2012 R2-värdar kan behöva du uppgrade
 
 4. [Installera VMM 2016](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#install-vmm-2016)
 5. Starta SCVMM och kontrollera statusen för varje värdar under **Infrastrukturresurser** fliken. Klicka på **uppdatera** att hämta senaste status. Du bör se status som ”Värdstatus”. 
-17. Installera senast [Microsoft Azure Site Recovery-providern](http://aka.ms/downloaddra) på SCVMM.
-16. Installera senast [Microsoft Azure Recovery Service MARS-agenten](http://aka.ms/latestmarsagent) på varje värd i klustret. Uppdatera för att säkerställa SCVMM kan ställa frågor värdarna.
+17. Installera senast [Microsoft Azure Site Recovery-providern](https://aka.ms/downloaddra) på SCVMM.
+16. Installera senast [Microsoft Azure Recovery Service MARS-agenten](https://aka.ms/latestmarsagent) på varje värd i klustret. Uppdatera för att säkerställa SCVMM kan ställa frågor värdarna.
 
 **Uppgradera Windows Server 2012 R2-värdar i Windows Server 2016**
 
@@ -97,8 +97,8 @@ Innan du uppgraderar dina Windows Server 2012 R2-värdar kan behöva du uppgrade
 1.  Avinstallera ASR-providern genom att gå till Kontrollpanelen -> program -> program och funktioner -> Microsoft Azure Site Recovery och klicka på Avinstallera
 2. Följ stegen [här](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#upgrade-a-standalone-vmm-server) baserat på läget för uppgradering som du vill köra.
 3. Starta SCVMM-konsolen och kontrollera statusen för varje värdar under **Infrastrukturresurser** fliken. Klicka på **uppdatera** att hämta senaste status. Du bör se status som ”Värdstatus”.
-4. Installera senast [Microsoft Azure Site Recovery-providern](http://aka.ms/downloaddra) på SCVMM.
-5. Uppdatera senast [Microsoft Azure Recovery Service MARS-agenten](http://aka.ms/latestmarsagent) på varje värd i klustret. Uppdatera för att säkerställa SC VMM kan ställa frågor värdarna.
+4. Installera senast [Microsoft Azure Site Recovery-providern](https://aka.ms/downloaddra) på SCVMM.
+5. Uppdatera senast [Microsoft Azure Recovery Service MARS-agenten](https://aka.ms/latestmarsagent) på varje värd i klustret. Uppdatera för att säkerställa SC VMM kan ställa frågor värdarna.
 
 
 **Uppgradera Windows Server 2012 R2-värdar i Windows Server 2016**

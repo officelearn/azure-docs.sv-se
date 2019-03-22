@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 73b13dcea84ba322072217c3feacebdefb3bf1e6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6650eed6bf2559e9fb76b573189179a7f5df81ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052047"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896712"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>Vad är Power BI-arbetsytesamlingar?
 
@@ -84,7 +84,7 @@ Du kan nu redigera befintliga rapporter eller skapa nya rapporter direkt i ditt 
 [Bädda in en rapport](embed-report.md)  
 [Autentisering och auktorisering i Power BI-arbetsytesamlingar](app-token-flow.md)  
 [Inbäddat exempel med JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
-[Power BI-CSharp Git-lagringsplats](https://github.com/Microsoft/PowerBI-CSharp)  
+[PowerBI-CSharp Git Repo](https://github.com/Microsoft/PowerBI-CSharp)  
 [Power BI-noden Git-lagringsplats](https://github.com/Microsoft/PowerBI-Node)  
 
-Fler frågor? [Försök med Power BI Community](http://community.powerbi.com/)
+Fler frågor? [Försök med Power BI Community](https://community.powerbi.com/)

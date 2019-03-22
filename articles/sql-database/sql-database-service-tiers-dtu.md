@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
-ms.openlocfilehash: 247198e9ba1cdc6cd43b3fe60a20cd81280113cd
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 7a8556edd793cbde47c14d2b79792dbe42f8e44b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569951"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894299"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Tjänstnivåer i DTU-baserad inköpsmodell
 
@@ -33,7 +33,7 @@ Tjänstnivåer i DTU-baserad inköpsmodell särskiljs med hjälp av olika storle
 Välja tjänstnivå beror huvudsakligen på kontinuitet för företag-, lagrings- och prestandakrav.
 
 ||Basic|Standard|Premium|
-| :-- | --: |--:| --:| --:|
+| :-- | --: |--:| --:|
 |Målarbetsbelastning|Utveckling och produktion|Utveckling och produktion|Utveckling och produktion|
 |SLA för drifttid|99,99 %|99,99 %|99,99 %|
 |Kvarhållning av säkerhetskopior|7 dagar|35 dagar|35 dagar|
@@ -52,10 +52,10 @@ Välja tjänstnivå beror huvudsakligen på kontinuitet för företag-, lagrings
 Compute-storlekar uttrycks i Databastransaktionsenheter (dtu: er) för enskilda databaser och elastiska Databastransaktionsenheter (edtu: er) för elastiska pooler. Mer information om dtu: er och edtu: er finns i [DTU-baserade inköpsmodellen](sql-database-purchase-models.md#dtu-based-purchasing-model)?
 
 ||Basic|Standard|Premium|
-| :-- | --: | --: | --: | --: |
+| :-- | --: | --: | --: |
 | Lagringsstorlek | 2 GB | 1 TB | 4 TB  |
 | Maximala dtu: er | 5 | 3000 | 4000 | 
-||||||
+|||||
 
 > [!IMPORTANT]
 > Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
@@ -63,13 +63,13 @@ Compute-storlekar uttrycks i Databastransaktionsenheter (dtu: er) för enskilda 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>Elastisk pool-eDTU-, lagrings- och databas i pool gränser
 
 | | **Basic** | **Standard** | **Premium** |
-| :-- | --: | --: | --: | --: |
+| :-- | --: | --: | --: |
 | Maximala lagringsstorleken per databas  | 2 GB | 1 TB | 1 TB |
 | Maximala lagringsstorleken per pool | 156 GB | 4 TB | 4 TB |
 | Högsta edtu: er per databas | 5 | 3000 | 4000 |
 | Högsta edtu: er per pool | 1600 | 3000 | 4000 |
 | Högsta antal databaser per pool | 500  | 500 | 100 |
-||||||
+|||||
 
 > [!IMPORTANT]
 > Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom: Kina, östra; Kina, norra; Tyskland, centrala; Tyskland, nordöstra; USA, västra centrala; US DoD-regioner samt US Government Central. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i [Aktuella begränsningar för P11–P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  

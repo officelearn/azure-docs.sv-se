@@ -8,12 +8,12 @@ ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: e265a46533264bbb1d437edbfe1bbfb3306614ad
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fa7d46d45c350435c0ffba8f3755ad8bea651c3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044831"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088765"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Hantera Azure Data Lake Analytics med hjälp av Azure-kommandoradsgränssnittet (CLI)
 
@@ -66,7 +66,7 @@ Följande kommando uppdaterar egenskaperna för ett befintligt Data Lake Analyti
    az dla account update --account "<Data Lake Analytics Account Name>" --firewall-state "Enabled" --query-store-retention 7
    ```
 
-### <a name="list-accounts"></a>Lista över konton
+### <a name="list-accounts"></a>Lista konton
 
 Lista över Data Lake Analytics-konton inom en specifik resursgrupp
 
@@ -180,9 +180,9 @@ Du måste ha ett Data Lake Analytics-konto innan du kan skapa ett jobb.  Mer inf
 > [!NOTE]
 > Standardprioriteten för ett jobb är 1 000 och standard graden av parallellitet för ett jobb är 1.
 > 
-   ```azurecli
-   az dla job submit --account "<Data Lake Analytics account name>" --job-name "<Name of your job>" --script "<Script to submit>"
-   ```
+>    ```azurecli
+>    az dla job submit --account "<Data Lake Analytics account name>" --job-name "<Name of your job>" --script "<Script to submit>"
+>    ```
 
 ### <a name="cancel-jobs"></a>Avbryt jobb
 Använd listan över kommando för att hitta jobb-id och sedan använda Avbryt om du vill avbryta jobbet.

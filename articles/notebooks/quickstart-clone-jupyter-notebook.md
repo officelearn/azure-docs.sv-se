@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: ced279575c0dd6ca2509911a53a23c2ebf9eb77e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: cfce5765cda1e3a1dfb7eb073719191b13b0696e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762050"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089207"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Snabbstart: Skapa en notebook-fil
 
@@ -40,13 +40,13 @@ Kloning av skapar en kopia av en GitHub-anteckningsbok i anteckningsböcker i Az
 
 1. I den **överför GitHub-lagringsplatsen** som visas, ange eller ange följande information och välj sedan **Import**:
 
-    - **GitHub-lagringsplatsen**: Microsoft cognitive-tjänster-datorer (det här namnet klonar Jupyter-anteckningsböcker för Azure Cognitive Services på [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks)).
-    - **Klona rekursivt**: (avmarkerad)
-    - **Projektnamnet**: Cognitive Services klon
-    - **Projektet ID**: cognitive services klon
-    - **Offentliga**: (avmarkerad)
+   - **GitHub-lagringsplatsen**: Microsoft cognitive-tjänster-datorer (det här namnet klonar Jupyter-anteckningsböcker för Azure Cognitive Services på [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks)).
+   - **Klona rekursivt**: (avmarkerad)
+   - **Projektnamnet**: Cognitive Services klon
+   - **Projektet ID**: cognitive services klon
+   - **Offentliga**: (avmarkerad)
 
-    ![Ladda upp GitHub-lagringsplatsen popup-fönstret för att samla in information om lagringsplats](media/quickstarts/upload-github-repo-popup.png)
+     ![Ladda upp GitHub-lagringsplatsen popup-fönstret för att samla in information om lagringsplats](media/quickstarts/upload-github-repo-popup.png)
 
 1. Ha tålamod medan processen körs; kloning av en databas kan ta några minuter.
 

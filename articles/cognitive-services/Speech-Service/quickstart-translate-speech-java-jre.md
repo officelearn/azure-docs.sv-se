@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 8f365bd5711f8478379394630f43a86dd442389d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 36eaaeabcf888aac10bcf9b8a27e3590d21079ec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446026"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897116"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Snabbstart: Översätt tal med Speech-SDK för Java
 
@@ -23,7 +23,7 @@ I den här snabbstarten skapar du ett enkelt Java-program som samlar in använda
 
 En fullständig lista över språk som är tillgängliga för talöversättning finns i [språkstöd](language-support.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
@@ -79,7 +79,7 @@ Ytterligare exempel, till exempel att läsa tal från en ljudfil och mata ut öv
 > [!div class="nextstepaction"]
 > [Utforska Java-exempel på GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Snabbstart: Känna igen tal, Java (Windows, Linux)](quickstart-java-jre.md)
 - [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)

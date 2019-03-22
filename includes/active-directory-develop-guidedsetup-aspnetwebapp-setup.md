@@ -3,8 +3,8 @@ title: ta med fil
 description: ta med fil
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,29 +12,29 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/17/2018
-ms.author: andret
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: ac8e678d8ca006fc5b0ab52f007590ac4e334bf7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 701b08cafd2e6d38a68252ea5919c8f4cd7de9b4
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988555"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203660"
 ---
-## <a name="set-up-your-project"></a>Konfigurera ditt projekt
+## <a name="set-up-your-project"></a>Konfigurera projektet
 
 Det här avsnittet visar hur du installerar och konfigurerar autentiseringspipelinen via OWIN-mellanprogrammet på en ASP.NET-projekt med hjälp av OpenID Connect.
 
 > Om du vill ladda ned det här exemplet Visual Studio-projekt i stället? [Ladda ned ett projekt](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) och gå vidare till den [konfigurationssteget](#register-your-application) konfigurera kodexemplet innan du kör.
 
-### <a name="create-your-aspnet-project"></a>Skapa din ASP.NET-projekt
+### <a name="create-your-aspnet-project"></a>Skapa ASP.NET-projektet
 
 1. I Visual Studio: `File` > `New` > `Project`
 2. Under *Visual C# \Web*väljer `ASP.NET Web Application (.NET Framework)`.
 3. Namnge ditt program och klicka på *OK*
 4. Välj `Empty` och markera kryssrutan för att lägga till `MVC` referenser
 
-## <a name="add-authentication-components"></a>Lägg till autentiseringskomponenter
+## <a name="add-authentication-components"></a>Lägga till autentiseringskomponenter
 
 1. I Visual Studio: `Tools` > `Nuget Package Manager` > `Package Manager Console`
 2. Lägg till *NuGet-paket för OWIN-mellanprogram* genom att skriva följande i Package Manager-konsolfönstret:

@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 07/31/2018
-ms.openlocfilehash: 9d2fe2c18452537f734a8bf176130e1ad68d40e1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: e1d845d1d90a3a70590778013504fea7c0aec85c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231040"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097669"
 ---
 # <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Snabbstart: Skapa och automatisera uppgifter, processer och arbetsflöden med Azure Logic Apps – Visual Studio
 
@@ -61,7 +61,7 @@ Kom igång genom att skapa ett [projekt för en Azure-resursgrupp](../azure-reso
 
 1. Starta Visual Studio och logga in med ditt Azure-konto.
 
-2. Gå till **Arkiv**-menyn och välj **Nytt** > **Projekt**. (Tangentbord: Ctrl+Skift+N)
+2. Gå till **Arkiv**-menyn och välj **Nytt** > **Projekt**. (Tangentbord: CTRL + SKIFT + N)
 
    ![Gå till Arkiv-menyn och välj Nytt > Projekt](./media/quickstart-create-logic-apps-with-visual-studio/create-new-visual-studio-project.png)
 
@@ -83,11 +83,13 @@ Kom igång genom att skapa ett [projekt för en Azure-resursgrupp](../azure-reso
 
 När du har skapat projektet för Azure-resursgruppen kan du skapa och bygga din logikapp utifrån mallen **Tom logikapp**.
 
-1. Gå till Solution Explorer och öppna snabbmenyn för filen **LogicApp.json**. Välj **Öppna med Logic App Designer**. (Tangentbord: Ctrl+L)
+1. Gå till Solution Explorer och öppna snabbmenyn för filen **LogicApp.json**. 
+   Välj **Öppna med Logic App Designer**. (Tangentbord: CTRL + L)
 
    ![Öppna filen LogicApp.json med Logic App Designer](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
-2. Som **prenumeration** anger du den Azure-prenumeration som du vill använda. För **Resursgrupp** väljer du **Skapa nytt...** , vilket skapar en ny Azure-resursgrupp. 
+2. Som **prenumeration** anger du den Azure-prenumeration som du vill använda. 
+   För **Resursgrupp** väljer du **Skapa nytt...** , vilket skapar en ny Azure-resursgrupp. 
 
    ![Välj Azure-prenumeration, resursgrupp och plats för resurser](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
@@ -101,7 +103,8 @@ När du har skapat projektet för Azure-resursgruppen kan du skapa och bygga din
    | **Plats** | MyLogicApp-RG2 <br> (Västra USA) | En annan plats om du inte vill använda resursgruppens plats |
    ||||
 
-3. Logic Apps Designer öppnas och det visas en sida med en introduktionsvideo och vanliga utlösare. Rulla förbi videon och utlösarna. Under **Mallar** väljer du **Tom logikapp**.
+3. Logic Apps Designer öppnas och det visas en sida med en introduktionsvideo och vanliga utlösare. 
+   Rulla förbi videon och utlösarna. Under **Mallar** väljer du **Tom logikapp**.
 
    ![Välj Tom logikapp](./media/quickstart-create-logic-apps-with-visual-studio/choose-blank-logic-app-template.png)
 

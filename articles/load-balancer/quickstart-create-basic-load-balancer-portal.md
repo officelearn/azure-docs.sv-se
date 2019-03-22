@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: fa0ba7aabcd03297b076ccbc1fcc3d2453676cc1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782674"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57869820"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Snabbstart: Skapa en Basic-lastbalanserare med hjälp av Azure-portalen
 
@@ -28,7 +28,7 @@ Med belastningsutjämning får du högre tillgänglighet och skala genom att ink
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-Logga in på [Azure-portalen](http://portal.azure.com) för att genomföra alla uppgifter i den här snabbstarten.
+Logga in på [Azure-portalen](https://portal.azure.com) för att genomföra alla uppgifter i den här snabbstarten.
 
 ## <a name="create-a-basic-load-balancer"></a>Skapa en grundläggande lastbalanserare
 
@@ -207,7 +207,7 @@ Belastningsutjämningsregeln med namnet **MyLoadBalancerRule** avlyssnar port 80
    
 1. Välj **OK**.
    
-  ![Lägga till en belastningsutjämningsregel](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
+   ![Lägga till en belastningsutjämningsregel](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
 ## <a name="test-the-load-balancer"></a>Testa lastbalanseraren
 
@@ -259,6 +259,7 @@ Installera IIS (Internet Information Services) på de virtuella datorerna för a
 
 ![IIS-webbserver](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 
+Om du vill se hur lastbalanseraren distribuerar trafik över alla tre virtuella datorer som kör din app, kan du framtvinga uppdatering av webbläsaren.
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du vill ta bort lastbalanseraren och alla relaterade resurser när du inte längre behöver dem öppnar du resursgruppen **MyResourceGroupLB** och väljer **Ta bort resursgrupp**.

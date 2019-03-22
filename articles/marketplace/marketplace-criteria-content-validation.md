@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 145c6ac01cce9a70f3753b54a46638bf9d9c23b4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e72b115420e49a50f18ae9a27c6243394427ea4a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729754"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000417"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Riktlinjer för Azure Marketplace-lista
 
@@ -72,16 +72,18 @@ Alla erbjudanden måste uppfylla de [alla lista krav](https://docs.microsoft.com
 ----
 
 ## <a name="container-offer-requirements"></a>Erbjudandet behållarkrav
+
 |  | Visa en lista över Element | Grundläggande krav | Optimal krav | 
 |:--- |:--- |:--- |:--- |
 |1 |Erbjudandeinställningar | <br>• Erbjudande-ID: Högst 50 tecken <br>• Publicerings-ID: Välj listrutan <br>• Namn: Max 50 tecken | Speglar inte vill att formatmallen Rubrik redan finns i beskrivningen - långa rubriker. | 
-| 2 | SKU:er | Partner klickar på nya SKU: er| Speglar inte vill att formatmallen Rubrik redan finns i beskrivningen - långa rubriker.  |  |
+| 2 | SKU:er | Partner klickar på nya SKU: er| Speglar inte vill att formatmallen Rubrik redan finns i beskrivningen - långa rubriker.  |
 | 3 | Marketplace-artefakter | Logotyper visas korrekt |<br>• Logotyp inkluderar ”hero bild”, vilket är den stora formatbild i Azure Portal <br>• Logotyper: Liten (48 x 48) & stor (216 x 216) krävs <br>• Hero avbildningskrav: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Skärmbild (Max 5):  CPP kräver en .png-avbildning med lösning 1 280 x 720.|
 | 4 | Lead-hantering |<br>• Lead-hantering: Välj system där dina leads ska lagras. <br>• Veta hur du ansluter din CRM-systemet [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
 
 ----
 
 ## <a name="consulting-offer-requirements"></a>Consulting erbjudandet krav
+
 |  | Visa en lista över Element | Grundläggande krav | Optimal krav |
 |:--- |:--- |:--- |:--- |
 | 1 | Erbjudandet rubrik  |  <br>• Måste tydligt lista tjänsttyp och varaktighet i följande format: NAMN: VARAKTIGHETSTYP. (d.v.s. ”erbjuder Engagement: 1 vecka Proof-of-Concept ”)  | <br>• Upprepas inte utgivarens namn <br>• Speglar formatmallen Rubrik redan finns i beskrivningen – vill inte att långa rubriker. | 

@@ -6,12 +6,12 @@ author: tknandu
 ms.author: ramkris
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 3c59b96146928a066c70113cb3fb1cd1915d9c8b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6902b1a26d02efbf1a31fe9a3a25253a6b5a5604
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034020"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100351"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Implementera en lambda-arkitektur på Azure-plattformen 
 
@@ -258,14 +258,14 @@ Med den här designen behöver du bara två hanterade tjänster, Azure Cosmos DB
 
 ### <a name="resources"></a>Resurser
 
- * **Nya data**: Den [stream från Twitter-flöde till CosmosDB](https://github.com/tknandu/TwitterCosmosDBFeed), vilket är mekanismen för att skicka nya data till Azure Cosmos DB.
- * **Batchlager:** Batch-lagret består av den *master datauppsättning* (en oföränderlig, Lägg endast uppsättning rådata) och möjligheten att beräkna före batch vyer av data som skickas till den **betjäningslagret**.
-    * Den **Lambda-arkitektur Rearchitected - Batchlager** notebook [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) frågor i *master datauppsättning* uppsättning vyer för batch.
- * **Betjäningslagret:** Den **betjäningslagret** består av förberäknade data, vilket resulterar i batch-vyer (till exempel aggregeringar, specifika utsnitt osv.) för snabba frågor.
-    * Den **Lambda-arkitektur Rearchitected - Batch betjänar lagret** notebook [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) skickar batchdata till betjäningslagret, det vill säga Spark frågar en batch samling tweets, bearbetar dessa och lagrar den i en annan samling (en beräknad batch).
-* **Hastighetslagret:** Den **hastighetslagret** består av Spark med Azure Cosmos DB-ändringsflödet för att läsa och agera på omedelbart. Data kan också att sparas i *beräknad RT* så att andra system kan fråga de bearbetade realtidsdata till skillnad från kör en i realtid fråga själva.
-    * Den [Streaming frågan från Cosmos-DB ändra flöde](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) scala skriptet kör en strömmande fråga från Azure Cosmos DB-ändringsflödet för att beräkna ett intervall för antal från spark-shell.
-    * Den [Streaming taggar frågan från Cosmos-DB ändra flöde](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala) scala skriptet kör en strömmande fråga från Azure Cosmos DB-ändringsflödet för att beräkna ett intervall för antal taggar från spark-shell.
+* **Nya data**: Den [stream från Twitter-flöde till CosmosDB](https://github.com/tknandu/TwitterCosmosDBFeed), vilket är mekanismen för att skicka nya data till Azure Cosmos DB.
+* **Batchlager:** Batch-lagret består av den *master datauppsättning* (en oföränderlig, Lägg endast uppsättning rådata) och möjligheten att beräkna före batch vyer av data som skickas till den **betjäningslagret**.
+   * Den **Lambda-arkitektur Rearchitected - Batchlager** notebook [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) frågor i *master datauppsättning* uppsättning vyer för batch.
+* **Betjäningslagret:** Den **betjäningslagret** består av förberäknade data, vilket resulterar i batch-vyer (till exempel aggregeringar, specifika utsnitt osv.) för snabba frågor.
+  * Den **Lambda-arkitektur Rearchitected - Batch betjänar lagret** notebook [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) skickar batchdata till betjäningslagret, det vill säga Spark frågar en batch samling tweets, bearbetar dessa och lagrar den i en annan samling (en beräknad batch).
+    * **Hastighetslagret:** Den **hastighetslagret** består av Spark med Azure Cosmos DB-ändringsflödet för att läsa och agera på omedelbart. Data kan också att sparas i *beräknad RT* så att andra system kan fråga de bearbetade realtidsdata till skillnad från kör en i realtid fråga själva.
+  * Den [Streaming frågan från Cosmos-DB ändra flöde](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Query%20from%20Cosmos%20DB%20Change%20Feed.scala) scala skriptet kör en strömmande fråga från Azure Cosmos DB-ändringsflödet för att beräkna ett intervall för antal från spark-shell.
+  * Den [Streaming taggar frågan från Cosmos-DB ändra flöde](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Streaming%20Tags%20Query%20from%20Cosmos%20DB%20Change%20Feed%20.scala) scala skriptet kör en strömmande fråga från Azure Cosmos DB-ändringsflödet för att beräkna ett intervall för antal taggar från spark-shell.
   
 ## <a name="next-steps"></a>Nästa steg
 Om du inte redan gjort hämta Spark till Azure Cosmos DB-anslutningen från den [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark) GitHub-lagringsplatsen och utforska ytterligare resurser i lagringsplatsen:

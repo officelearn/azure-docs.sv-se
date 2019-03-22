@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3e10c09b8f11566860256aaf4b793c6ae0d2d5e9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e0a0a88e249c0a032e5afaeea14b9b3cfcbdc319
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876934"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080668"
 ---
 ## <a name="control-flow"></a>Kontrollflöde
 
@@ -25,13 +25,13 @@ Det här dokumentet beskriver Kontrollflöde för konversationen Learner (CL) so
 
 1. Användaren anger en term eller fras i bot, till exempel ”vad är vädret i Seattle”?
 1. CL skickar indata från användaren till en maskininlärningsmodell som extraherar entiteter
-    - Den här modellen är version av Konversationsdeltagare och värd www.luis.ai
+   - Den här modellen är version av Konversationsdeltagare och värd www.luis.ai
 1. Någon extraheras entiteter och användarens indata-text, skickas till entiteten identifiering motringningsmetoden i robotens kod.
     - Den här koden kan set/Rensa/ändra entitetsvärden
 1. CL neuralt nätverk tar sedan utdata från entitetextrahering och indata från användaren och alla åtgärder som definierats i roboten-poäng
-    - I det här exemplet är den högsta sannolikhet åtgärden att tillhandahålla väderprognosen:
+   - I det här exemplet är den högsta sannolikhet åtgärden att tillhandahålla väderprognosen:
 
-    ![](media/controlflow_forecast.PNG)
+     ![](media/controlflow_forecast.PNG)
 
 1. Den valda åtgärden i det här fallet kräver ett API-anrop för att hämta väderprognosen. 
 1. Detta API har registrerats med hjälp av CL. AddCallback-metoden anropas sedan.  Resultatet av detta API returneras sedan till användaren som ett meddelande, till exempel Sunny med en hög 67.

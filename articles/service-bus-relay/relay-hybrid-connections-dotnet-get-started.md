@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 16b1ad580ce9d2a6c34da7c243ab6dd9ab810078
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 88d540f274d8b07bfbdbb566c670adf6ddfefd74
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763984"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57878706"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Komma igång med Azure Relay-hybridanslutningar med Websockets i .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -38,7 +38,7 @@ I den här snabbstarten gör du följande:
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
-* [Visual Studio 2015 eller senare](http://www.visualstudio.com). I exemplen i den här självstudiekursen används Visual Studio 2017.
+* [Visual Studio 2015 eller senare](https://www.visualstudio.com). I exemplen i den här självstudiekursen används Visual Studio 2017.
 * En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="create-a-namespace"></a>Skapa ett namnområde

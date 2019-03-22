@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: afd5361774af3379dc0d4054509e318e8263dcc5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3fdb0f566789382a1606b19e4fac179f9ecf40cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250194"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887467"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Visa och ändra värdnamn
 Om du vill tillåta dina rollinstanser som refereras av värdnamn, måste du ange värdet för värdnamnet i tjänstekonfigurationsfilen för varje roll. Det gör du genom att lägga till önskade värdnamnet till den **vmName** attributet för den **rollen** element. Värdet för den **vmName** attributet används som bas för värdnamnet för varje rollinstans. Till exempel om **vmName** är *webrole* och det finns tre instanser av rollen, värdnamn av instanserna blir *webrole0*, *webrole1*, och *webrole2*. Du behöver inte ange ett värdnamn för virtuella datorer i konfigurationsfilen, eftersom värdnamnet för en virtuell dator har fyllts i baserat på virtuella datornamn. Mer information om hur du konfigurerar en Microsoft Azure-tjänst finns i [Azure-Tjänstkonfigurationens Schema (.cscfg-filen)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
@@ -40,9 +40,9 @@ När du har aktiverat Fjärrskrivbord (Windows), Windows PowerShell-fjärrkommun
 ### <a name="azure-service-management-rest-api"></a>Azure Service Management REST API
 Följ de här instruktionerna från en REST-klient:
 
-1. Kontrollera att du har ett klientcertifikat för att ansluta till Azure-portalen. Om du vill skaffa ett klientcertifikat, följer du stegen som visas i [så här: hämta och importera Publiceringsinställningar och prenumerationsinformation](https://msdn.microsoft.com/library/dn385850.aspx). 
+1. Kontrollera att du har ett klientcertifikat för att ansluta till Azure-portalen. Om du vill skaffa ett klientcertifikat, följer du stegen som visas i [så här: Hämta och importera publicera inställningar och prenumerationsinformation](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. Ange en rubrikpost med namnet x-ms-version med värdet 2013-11-01.
-3. Skicka en begäran i följande format: https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
+3. Skicka en begäran i följande format: https:\//management.core.windows.net/\<prenumerationen-id\>/services/hostedservices/\<tjänstnamnet\>? bädda in detail = true
 4. Leta efter den **värdnamn** element för varje **Rollinstans** element.
 
 > [!WARNING]

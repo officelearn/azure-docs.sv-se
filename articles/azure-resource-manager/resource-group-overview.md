@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/13/2019
+ms.date: 03/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: d275455f502cf20eaa573c1716c38023f8e7236e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: 115b1fcd1b1e878a9b4a7efdf6f24d7391945619
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821908"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409865"
 ---
 # <a name="azure-resource-manager-overview"></a>Översikt över Azure Resource Manager
 
@@ -51,7 +51,16 @@ Resource Manager har flera fördelar:
 * Du kan lägga till taggar för resurser och organisera alla logiskt i din prenumeration.
 * Du kan tydliggöra din organisations fakturering genom att visa kostnaderna för en grupp av resurser som delar samma tagg.
 
+## <a name="understand-management-scope"></a>Förstå hanteringsomfång
+
+Azure erbjuder fyra nivåer av hanteringsomfång: hanteringsgrupper, prenumerationer, resursgrupper och resurser. [Hanteringsgrupper](../governance/management-groups/index.md) är i förhandsversion. Följande bild visar ett exempel på dessa lager.
+
+![Scope](./media/resource-group-overview/scope-levels.png)
+
+Du tillämpar hanteringsinställningar på vilken som helst av dessa omfångsnivåer. Den nivå nu väljer avgör hur brett inställningen tillämpas. Lägre nivåer ärver inställningar från högre nivåer. Till exempel när du tillämpar en [princip](../governance/policy/overview.md) prenumerationen, tillämpas principen för alla resursgrupper och resurser i din prenumeration. När du använder en princip på tillämpas den resursgrupp som principen är resursgruppen och alla dess resurser. En annan resursgrupp har dock inte den principtilldelningen.
+
 ## <a name="guidance"></a>Riktlinjer
+
 Följande rekommendationer hjälper dig att dra full nytta av Resource Manager när du arbetar med dina lösningar.
 
 * Definiera och distribuera infrastrukturen med den deklarativa syntaxen i Resource Manager-mallarna i stället för med tvingande kommandon.

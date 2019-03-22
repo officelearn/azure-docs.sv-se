@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
+ms.date: 03/18/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 2d57097e4d3317bfba5055a6b75ae72dd60f046a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: fe19510d9b4c6311923b4b2ea15f133249e6cbd5
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244700"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190047"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexering tabeller i SQL Data Warehouse
 Rekommendationer och exempel för indexering tabeller i Azure SQL Data Warehouse.
@@ -45,12 +45,12 @@ Det finns några scenarier där grupperade inte kan vara ett bra alternativ:
 
 - Columnstore-tabeller stöder inte varchar(max), nvarchar(max) och varbinary(max). Överväg att heap eller grupperat index i stället.
 - Columnstore-tabeller kan vara mindre effektivt för tillfälliga data. Överväg att heap och till och med temporära tabeller.
-- Små tabeller med mindre än 100 miljoner rader. Överväg att heap-tabeller.
+- Små tabeller med färre än 60 miljoner rader. Överväg att heap-tabeller.
 
 ## <a name="heap-tables"></a>Heap-tabeller
 När du tillfälligt hanterar data i SQL Data Warehouse, kanske som använder en heap-tabell gör processen gå snabbare. Det beror på att inläsningar till heaps är snabbare än att indextabeller och i vissa fall kan du göra efterföljande Läs från cache.  Om du läser in data endast för att mellanlagra dem innan du kör fler transformationer, är läser in tabellen till heap-tabell mycket snabbare än att läsa in data till ett grupperat columnstore-tabell. Dessutom läser in data till en [temporära tabellen](sql-data-warehouse-tables-temporary.md) läses in snabbare än läser in en tabell till permanent lagring.  
 
-För små uppslagstabeller, mindre än 100 miljoner rader, meningslösa ofta heap-tabeller.  Klustret columnstore-tabeller börjar att uppnå optimal komprimering när det finns fler än 100 miljoner rader.
+För små uppslagstabeller, mindre än 60 miljoner rader, meningslösa ofta heap-tabeller.  Klustret columnstore-tabeller börjar att uppnå optimal komprimering när det finns fler än 60 miljoner rader.
 
 Om du vill skapa en heap-tabell, anger du bara HEAP i WITH-satsen:
 
@@ -79,7 +79,7 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-Om du vill lägga till en icke-grupperat index för en tabell, helt enkelt använder du följande syntax:
+Om du vill lägga till en icke-grupperat index för en tabell, använder du följande syntax:
 
 ```SQL
 CREATE INDEX zipCodeIndex ON myTable (zipCode);
@@ -182,7 +182,7 @@ Om du har identifierat tabeller med dålig segmentkvaliteten kan du identifiera 
 Dessa faktorer kan orsaka ett columnstore-index har betydligt mindre än optimala 1 miljon rader per radgrupp. De kan även orsaka rader att gå till radgrupp delta i stället för en komprimerad radgrupp. 
 
 ### <a name="memory-pressure-when-index-was-built"></a>Minnesbelastning när indexet skapades
-Antal rader per komprimerad radgrupp är direkt relaterade till bredden på raden och mängden minne som är tillgängliga för att bearbeta radgrupp.  När rader skrivs till columnstore-tabeller när minnet är hårt belastat, kan columnstore-segmentens kvalitet påverkas.  Därför är det bästa sättet att ge den session som skriver till din columnstore-index tabeller åtkomst till så mycket minne som möjligt.  Eftersom det inte finns en kompromiss mellan minne och samtidighet, information om rätt minnesallokering beror på data i varje rad i tabellen, informationslagerenheter som allokerats till datorn och hur många samtidighetsfack som du kan ge till sessionen som skriver data till din tabell.  Som bästa praxis rekommenderar vi börjar med xlargerc om du använder DW300 eller mindre, largerc om du använder DW400 DW600 och mediumrc om du använder DW1000 och senare.
+Antal rader per komprimerad radgrupp är direkt relaterade till bredden på raden och mängden minne som är tillgängliga för att bearbeta radgrupp.  När rader skrivs till columnstore-tabeller när minnet är hårt belastat, kan columnstore-segmentens kvalitet påverkas.  Därför är det bästa sättet att ge den session som skriver till din columnstore-index tabeller åtkomst till så mycket minne som möjligt.  Eftersom det inte finns en kompromiss mellan minne och samtidighet, information om rätt minnesallokering beror på data i varje rad i tabellen, informationslagerenheter som allokerats till datorn och hur många samtidighetsfack som du kan ge till sessionen som skriver data till din tabell.
 
 ### <a name="high-volume-of-dml-operations"></a>Stort antal DML-åtgärder
 Ett stort antal DML-åtgärder som uppdaterar och ta bort rader kan introducera funktionen till columnstore. Detta gäller särskilt om flesta av rader i en radgrupp ändras.
@@ -205,7 +205,7 @@ När dina tabeller har lästs in med vissa data, följer du de stegen nedan för
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Bygga om index för att förbättra segmentkvaliteten
 ### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Steg 1: Identifiera eller skapa användare som använder rätt resurs-klass
-Ett snabbt sätt att förbättra omedelbart segmentkvaliteten är att återskapa indexet.  SQL som returneras av vyn ovan returnerar en ALTER INDEX REBUILD-instruktion som kan användas för att återskapa ditt index. När du återskapar dina index, är det viktigt att du allokerar tillräckligt med minne för att sessionen som återskapar ditt index.  Gör detta genom att öka resursklass för en användare som har behörighet att återskapa indexet på den här tabellen till minimum som rekommenderade. Resursklass av ägare databasanvändare ändras inte, så om du inte har skapat en användare i systemet måste du göra det nu. Den minsta rekommendera resursklassen är xlargerc om du använder DW300 eller mindre, largerc om du använder DW400 DW600 och mediumrc om du använder DW1000 och senare.
+Ett snabbt sätt att förbättra omedelbart segmentkvaliteten är att återskapa indexet.  SQL som returneras av vyn ovan returnerar en ALTER INDEX REBUILD-instruktion som kan användas för att återskapa ditt index. När du återskapar dina index, är det viktigt att du allokerar tillräckligt med minne för att sessionen som återskapar ditt index.  Gör detta genom att öka resursklass för en användare som har behörighet att återskapa indexet på den här tabellen till minimum som rekommenderade. 
 
 Nedan visas ett exempel på hur du allokera mer minne till en användare genom att öka deras resursklass. Om du vill arbeta med resursklasser Se [resursklasser för hantering av arbetsbelastning](resource-classes-for-workload-management.md).
 
@@ -216,7 +216,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Steg 2: Återskapa grupperade columnstore-index med högre resource klass användare
 Logga in som användare i steg 1 (t.ex. LoadUser) som är med hjälp av en högre resursklass och kör ALTER INDEX-instruktioner. Var noga med att den här användaren har behörigheten ALTER till tabellerna där indexet återskapas. De här exemplen visar hur du återskapa hela columnstore-indexet eller återskapa en enda partition. För stora tabeller är det mer praktiska att återskapa indexerar en partition i taget.
 
-Alternativt kan du i stället för att återskapa indexet, du kan kopiera tabellen till en ny tabell [med hjälp av CTAS](sql-data-warehouse-develop-ctas.md). Hur är bäst? För stora mängder data, CTAS är normalt snabbare än [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). För mindre mängder data, ALTER INDEX är enklare att använda och kräver inte att du byta ut tabellen. Se **bygga om index med CTAS och partition växla** nedan för mer information om hur du återskapa index med CTAS.
+Alternativt kan du i stället för att återskapa indexet, du kan kopiera tabellen till en ny tabell [med hjälp av CTAS](sql-data-warehouse-develop-ctas.md). Hur är bäst? För stora mängder data, CTAS är normalt snabbare än [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). För mindre mängder data, ALTER INDEX är enklare att använda och kräver inte att du byta ut tabellen. 
 
 ```sql
 -- Rebuild the entire clustered index
@@ -263,25 +263,8 @@ WHERE   [OrderDateKey] >= 20000101
 AND     [OrderDateKey] <  20010101
 ;
 
--- Step 2: Create a SWITCH out table
-CREATE TABLE dbo.FactInternetSales_20000101
-    WITH    (   DISTRIBUTION = HASH(ProductKey)
-            ,   CLUSTERED COLUMNSTORE INDEX
-            ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
-                                (20000101
-                                )
-                            )
-            )
-AS
-SELECT *
-FROM    [dbo].[FactInternetSales]
-WHERE   1=2 -- Note this table will be empty
-
--- Step 3: Switch OUT the data 
-ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales_20000101] PARTITION 2;
-
--- Step 4: Switch IN the rebuilt data
-ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
+-- Step 2: Switch IN the rebuilt data with TRUNCATE_TARGET option
+ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
 Mer information om hur du skapar partitioner som använder CTAS igen finns i [använder partitioner i SQL Data Warehouse](sql-data-warehouse-tables-partition.md).

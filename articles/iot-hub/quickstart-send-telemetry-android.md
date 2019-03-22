@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/05/2018
 ms.author: wesmc
-ms.openlocfilehash: d90595d3d557293bfbc6b06aca638eb1b7c08d30
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: 8f30918a73e1e7012ad3be151e778eb073627b84
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164321"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726693"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Snabbstart: Skicka IoT-telemetri från en Android-enhet
 
@@ -29,7 +29,7 @@ Snabbstarten använder ett färdigt Android-program för att skicka telemetrin. 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Android Studio från https://developer.android.com/studio/. Mer information om Android Studio-installationen finns i [android-installation](https://developer.android.com/studio/install). 
 
@@ -85,6 +85,12 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
     ```
 
 3. I Android Studio klickar du på **Arkiv** > **Synkronisera projekt med Gradle-filer**. Kontrollera att bygget slutförs.
+
+   > [!NOTE]
+   > Om projektet synkroniseringen misslyckas, kan det bero på något av följande orsaker:
+   >
+   > * Versioner av Android Gradle-plugin-programmet och Gradle som refereras till i projektet har upphört att gälla för din version av Android Studio. Följ [instruktionerna](https://developer.android.com/studio/releases/gradle-plugin) att referera till och installera rätt version av plugin-programmet och Gradle för installationen.
+   > * Licensavtalet för Android SDK har inte signerats. Följ instruktionerna i resultatet från att logga i detta avtal och ladda ned SDK.
 
 4. När bygget har slutförts klickar du på **Kör** > **Kör app**. Konfigurera appen att köras på en fysisk Android-enhet eller en Android-emulator. Mer information om att köra en Android-app på en fysisk enhet eller emulator finns i [Köra appen](https://developer.android.com/training/basics/firstapp/running-app).
 

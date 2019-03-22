@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: aae0ec93f3de708096ff9546a3a4f4e090095a89
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 77fa369a3085a3d11d5bf03406b4ddb885a24009
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041175"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847407"
 ---
 # <a name="reliable-actors-state-management"></a>Reliable Actors-tillståndshantering
 Reliable Actors är single-threaded-objekt som kan kapsla både logik och tillstånd. Eftersom aktörer körs på Reliable Services, har de tillstånd på ett tillförlitligt sätt med hjälp av samma persistence och replikeringsmekanismer. På så sätt kan aktörer inte förlorar deras tillstånd efter fel vid återaktivering efter skräpinsamling eller när de flyttas mellan noder i ett kluster på grund av resurs belastningsutjämning eller uppgraderingar.
@@ -29,9 +29,9 @@ Alla Reliable Actors anses *tillståndskänslig* eftersom varje aktör-instans s
 
 Även om aktörer anses tillståndskänslig betyder inte de måste lagra tillstånd på ett tillförlitligt sätt. Aktörer kan välja vilken sessionslägets beständighet och replikering baserat på deras data krav:
 
-* **Sparade tillstånd**: tillstånd sparat på disken och replikeras till tre eller fler repliker. Beständiga tillståndet är den mest varaktiga tillstånd, där tillstånd kan spara genom hela klustret avbrott.
-* **Föränderliga tillstånd**: tillstånd replikeras till tre eller fler repliker och endast sparas i minnet. Föränderliga state ger återhämtning mot nodfel och aktören fel och under uppgraderingar och belastningsutjämning för resursen. Dock tillstånd sparas inte till disk. Så om alla repliker förloras samtidigt, tillståndet förloras samt.
-* **Inga bestående tillstånd**: tillstånd är inte replikeras eller skrivs till disk, Använd endast för aktörer som inte behöver underhålla tillståndet på ett tillförlitligt sätt.
+* **Sparade tillstånd**: Tillstånd sparat på disken och replikeras till tre eller fler repliker. Beständiga tillståndet är den mest varaktiga tillstånd, där tillstånd kan spara genom hela klustret avbrott.
+* **Föränderliga tillstånd**: Tillstånd replikeras till tre eller fler repliker och endast sparas i minnet. Föränderliga state ger återhämtning mot nodfel och aktören fel och under uppgraderingar och belastningsutjämning för resursen. Dock tillstånd sparas inte till disk. Så om alla repliker förloras samtidigt, tillståndet förloras samt.
+* **Inga bestående tillstånd**: Tillstånd är inte replikeras eller skrivs till disk, Använd endast för aktörer som inte behöver underhålla tillståndet på ett tillförlitligt sätt.
 
 Varje nivå av persistence är helt enkelt en annan *tillståndsprovider* och *replikering* konfigurationen av din tjänst. Huruvida stav je zapsaný na disk beror på tillståndsprovider--komponenten i en tillförlitlig tjänst som lagrar tillstånd. Replikering är beroende av hur många repliker för en tjänst distribueras med. Precis som med Reliable Services kan tillståndsprovider såväl replikantal enkelt ställas in manuellt. Ramverket innehåller ett attribut som, när används på en aktör, väljer automatiskt en standardprovider för tillstånd och inställningar för replikantalet för att uppnå en av dessa tre persistenceinställningarna genererar automatiskt. Attributet StatePersistence ärvs inte av härledda klassen, varje typ av aktör måste ge sin StatePersistence-nivå.
 
@@ -86,7 +86,7 @@ När du använder den `StatePersistence` attribut, en tillståndsprovider väljs
 Du kan ändra dessa parametrar manuellt. Men varje gång den `StatePersistence` attribut ändras, parametrarna är inställda på repliken set storlek standardvärden för de valda `StatePersistence` attribut, åsidosätter alla föregående värden. Med andra ord de värden som du angav i ServiceManifest.xml är *endast* åsidosätts vid Byggtiden när du ändrar den `StatePersistence` attributvärde.
 
 ```xml
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Parameters>
       <Parameter Name="MyActorService_PartitionCount" DefaultValue="10" />
       <Parameter Name="MyActorService_MinReplicaSetSize" DefaultValue="3" />

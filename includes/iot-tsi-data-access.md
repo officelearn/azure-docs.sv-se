@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/20/2018
 ms.author: anshan
 ms.custom: include file
-ms.openlocfilehash: fb45ea02f365cf4e7b394e249f9b91a784e5469f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: c9daa86bf36b260001d9969385b9e8a98a8ac0cf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368863"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125243"
 ---
 ## <a name="grant-data-access"></a>Bevilja åtkomst till data
 
@@ -33,12 +33,12 @@ Följ dessa steg om du vill bevilja åtkomst till data för en användares huvud
     ![Hantera Time Series Insights-källan – lägg till](media/iot-tsi-data-access/getstarted-grant-data-access2.png)
 
 6. Välj **Välj roll**. Välj rätt roll för användaren:
-    - Välj **deltagare** om du vill tillåta användare att ändra referensdata och dela sparade frågor och perspektiv med andra användare av miljön. 
-    - Annars väljer **läsare** att tillåta användare söker data i miljön och sparar personliga (inte delade) frågor i miljön.
+   - Välj **deltagare** om du vill tillåta användare att ändra referensdata och dela sparade frågor och perspektiv med andra användare av miljön. 
+   - Annars väljer **läsare** att tillåta användare söker data i miljön och sparar personliga (inte delade) frågor i miljön.
 
-    Välj **Ok** att bekräfta valet rollen.
+     Välj **Ok** att bekräfta valet rollen.
 
-    ![Hantera Time Series Insights-källan – välj användare](media/iot-tsi-data-access/getstarted-grant-data-access3.png)
+     ![Hantera Time Series Insights-källan – välj användare](media/iot-tsi-data-access/getstarted-grant-data-access3.png)
 
 7. Välj **Ok** i den **Välj användarroll** sidan.
 

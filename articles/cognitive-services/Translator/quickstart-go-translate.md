@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: a1218442aedf94028fe1e08f02f13ce1c0d05008
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: f0690d2e95084712c4260ade9df493ee078979a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738121"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863737"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-go"></a>Snabbstart: Använda Translator Text API för att översätta en sträng med hjälp av Go
 
@@ -23,7 +23,7 @@ I den här snabbstarten lär du dig att översätta en textsträng från engelsk
 
 För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
@@ -60,7 +60,7 @@ func main() {
      * Read your subscription key from an env variable.
      * Please note: You can replace this code block with
      * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables.
+     * want to use env variables. If so, be sure to delete the "os" import.
      */
     subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
     if subscriptionKey == "" {
@@ -191,12 +191,12 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska Go-paket för API:er för Cognitive Services via [Azure SDK för Go](https://github.com/Azure/azure-sdk-for-go) på GitHub.
+Utforska Go-exempel för Cognitive Services-API: er från den [Azure SDK för Go](https://github.com/Azure/azure-sdk-for-go) på GitHub.
 
 > [!div class="nextstepaction"]
-> [Utforska Go-paket på GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+> [Utforska Go-exempel på GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 Lär dig att använda Translator Text API till att:
 

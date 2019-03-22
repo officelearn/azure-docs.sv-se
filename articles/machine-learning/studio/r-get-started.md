@@ -1,21 +1,21 @@
 ---
-title: Komma igång med R-programspråket
+title: Komma igång med R
 titleSuffix: Azure Machine Learning Studio
 description: Använd den här programming R-självstudiekursen för att komma igång med R-språket med Azure Machine Learning Studio för att skapa en lösning för prognostisering.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: c18de2efff0f867213cad56b6012bb8ee6ed52bb
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 307636b019b53c8457c65261824adbf8e52ca0a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344993"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875523"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio"></a>Komma igång med R-programspråket i Azure Machine Learning Studio
 
@@ -131,7 +131,7 @@ Läs vidare om du inte förstår den sista raden i den här koden för tillfäll
 
 RStudio är ett vanligt IDE för R. Jag använder RStudio för redigering, testning och felsökning på några av R-kod som används i den här guiden. När R-kod är testats och är klara kan du helt enkelt klipp ut och klistra in från RStudio-redigeraren i en Machine Learning Studio [kör R-skript] [ execute-r-script] modulen.  
 
-Om du inte har programmeringsspråket R installerat på din stationära dator rekommenderar jag du göra det nu. Kostnadsfri nedladdning av R-språket med öppen källkod är tillgängliga på den omfattande R Archive Network (CRAN) på [ http://www.r-project.org/ ](http://www.r-project.org/). Det finns hämtningsbara filer för Windows, Mac OS x och Linux/UNIX. Välj en närliggande spegling och följ anvisningarna för hämtning. CRAN innehåller dessutom massor av användbara analys- och manipulering av paket.
+Om du inte har programmeringsspråket R installerat på din stationära dator rekommenderar jag du göra det nu. Kostnadsfri nedladdning av R-språket med öppen källkod är tillgängliga på den omfattande R Archive Network (CRAN) på [ https://www.r-project.org/ ](https://www.r-project.org/). Det finns hämtningsbara filer för Windows, Mac OS x och Linux/UNIX. Välj en närliggande spegling och följ anvisningarna för hämtning. CRAN innehåller dessutom massor av användbara analys- och manipulering av paket.
 
 Om du är nybörjare på RStudio, bör du hämta och installera skrivbordsversionen. Du hittar RStudio hämtningar för Windows, Mac OS x och Linux/UNIX på http://www.rstudio.com/products/RStudio/. Följ anvisningarna för att installera RStudio på din stationära dator.  
 
@@ -1312,18 +1312,18 @@ RStudio är ganska väl dokumenterat. Här följer några länkar till viktiga d
 
 Den här programming R-självstudien tar upp grunderna för vad du behöver använda R-språket med Azure Machine Learning Studio. Om du inte är bekant med R är två introduktioner tillgängliga på CRAN:
 
-* [R för nybörjare](http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) som Emmanuel Paradis är ett bra ställe att börja.  
-* [En introduktion till R](http://cran.r-project.org/doc/manuals/R-intro.html) av W. N. Venables et. al. hamnar i lite mer djupet.
+* [R för nybörjare](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) som Emmanuel Paradis är ett bra ställe att börja.  
+* [En introduktion till R](https://cran.r-project.org/doc/manuals/R-intro.html) av W. N. Venables et. al. hamnar i lite mer djupet.
 
 Det finns många böcker på R som hjälper dig att komma igång. Här är några jag vara användbara:
 
 * Den **bilder av R-programmering: En genomgång av statistiska programdesign** Norman Matloff är en utmärkt introduktion till programmering i R.  
 * **R-Cookbook** av Paul Teetor ger en problemet och lösningen metod för med R.  
-* **R i praktiken** som Robert Kabacoff är en annan användbar inledande boken. Tillhörande [snabb R webbplats](http://www.statmethods.net/) är en bra resurs.
+* **R i praktiken** som Robert Kabacoff är en annan användbar inledande boken. Tillhörande [snabb R webbplats](https://www.statmethods.net/) är en bra resurs.
 * **R Inferno** Patrick Burns är en överraskande lättsam bok som behandlar ett antal svårt och dyrt avsnitt som kan uppstå vid programmering i R. Boken är tillgänglig kostnadsfritt på [The R Inferno](http://www.burns-stat.com/documents/books/the-r-inferno/).
 * Om du vill att en djupdykning i avancerade ämnen i R ta en titt på boken **avancerade R** av Hadley Wickham. Online-versionen av den här boken är tillgänglig kostnadsfritt på [ http://adv-r.had.co.nz/ ](http://adv-r.had.co.nz/).
 
-En katalog med R time series-paket finns i [CRAN uppgiften visa: Time Series Analysis](http://cran.r-project.org/web/views/TimeSeries.html). Information om specifika tid serien objekt-paket, bör du i dokumentationen för det paketet.
+En katalog med R time series-paket finns i [CRAN uppgiften visa: Time Series Analysis](https://cran.r-project.org/web/views/TimeSeries.html). Information om specifika tid serien objekt-paket, bör du i dokumentationen för det paketet.
 
 Boken **inledande tidsserier** med R genom Paul Cowpertwait och Andrew Metcalfe ger en introduktion till att använda R för analys av tidsserier. Många fler teoretisk texter innehåller R-exempel.
 
@@ -1331,8 +1331,8 @@ Här följer några bra Internetresurser:
 
 * DataCamp Lär R i bekvämt med din webbläsare med video lektioner och kodning övningarna. Det finns interaktiva självstudier på de senaste R-tekniker och paket. Ta den kostnadsfria [interaktiva självstudierna för R](https://www.datacamp.com/courses/introduction-to-r).
 * [Lär dig R programmering, den definitiva guiden](https://www.programiz.com/r-programming) från Programiz.
-* Ett snabbt [R självstudien](http://www.cyclismo.org/tutorial/R/) av Kelly Black från Clarkson University.
-* Det finns över 60 R resurser i [upp R språkresurser för att förbättra dina kunskaper om data](http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html).
+* Ett snabbt [R självstudien](https://www.cyclismo.org/tutorial/R/) av Kelly Black från Clarkson University.
+* Det finns över 60 R resurser i [upp R språkresurser för att förbättra dina kunskaper om data](https://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html).
 
 <!-- Module References -->
 [execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script

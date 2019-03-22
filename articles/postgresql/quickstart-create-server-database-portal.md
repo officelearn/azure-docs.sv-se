@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 01/09/2019
-ms.openlocfilehash: ec05fb3ea2aa968ebd34c8c1e156f3621e4049fa
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 9a17bbc26a65d3747683ad0fc0ecba40a22088d7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190159"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856217"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Snabbstart: Skapa en Azure-databas för PostgreSQL i Azure-portalen
 
@@ -48,7 +48,7 @@ Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
     Lösenord |Ditt lösenord| Ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Ditt lösenord måste innehålla tecken från tre av följande kategorier: Engelska versaler, engelska gemener, siffror (0–9) och icke-alfanumeriska tecken (!, $, #, % osv.).
     Plats|Den region som är närmast dina användare| Den plats som är närmast dina användare.
     Version|Senaste huvudversion| Den senaste PostgreSQL-huvudversionen, om du inte har andra särskilda krav.
-    Prisnivå | **Generell användning**, **Gen 4**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Prisnivå**. Sedan väljer du fliken **Generell användning**. *Gen 4*, *2 virtuella kärnor*, *5 GB*, och *7 dagar* är standardvärdena för **Compute-generering**, **Virtuell kärna** , **Lagring** och **Kvarhållningsperiod för säkerhetskopior**. Du kan lämna dessa skjutreglage som de är. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
+    Prisnivå | **Generell användning**, **Gen 5**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Prisnivå**. Sedan väljer du fliken **Generell användning**. *Gen 5*, *2 virtuella kärnor*, *5 GB*, och *7 dagar* är standardvärdena för **Compute-generering**, **Virtuell kärna** , **Lagring** och **Kvarhållningsperiod för säkerhetskopior**. Du kan lämna dessa skjutreglage som de är. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
 
    > [!NOTE]
    > Överväg att använda prisnivån Basic om lätt beräkning och I/O är lämpligt för din arbetsbelastning. Observera att servrar som skapas på prisnivån Basic inte senare kan skalas till Generell användning eller Minnesoptimerad. Mer information finns på [sidan med prissättning](https://azure.microsoft.com/pricing/details/postgresql/).
@@ -116,7 +116,7 @@ Det finns ett antal program som du kan använda för att ansluta till Azure Data
     ---|---|---
     --host | servernamn | Det värde för servernamn som du använde tidigare när du skapade Azure Database för PostgreSQL-server. Exempelservern som visas är **mydemoserver.postgres.database.azure.com.** Använd det fullständiga domännamnet (**\*.postgres.database.azure.com**) som i det här exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. 
     --port | 5432 | Porten som ska användas när du ansluter till Azure Database för PostgreSQL-servern. 
-    --username | Inloggningsnamn för serveradministratör |Ange det användarnamn för serveradministratörsinloggning som du angav tidigare när du skapade Azure Database för PostgreSQL-server. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *username@servername*.
+    --username | Inloggningsnamn för serveradministratör |Ange det användarnamn för serveradministratörsinloggning som du angav tidigare när du skapade Azure Database för PostgreSQL-server. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *användarnamn\@servername*.
     --dbname | *postgres* | Det systemgenererade standarddatabasnamnet som skapades för den första anslutningen. Senare kan du skapa en egen databas.
 
     När du har kört psql-kommandot med egna parametervärden uppmanas du att ange lösenordet för serveradministratören. Det här är samma lösenord som du angav när du skapade servern. 
@@ -181,7 +181,7 @@ pgAdmin är ett verktyg med öppen källkod som används med PostgreSQL. Du kan 
     Värdnamn/-adress | servernamn | Det värde för servernamn som du använde tidigare när du skapade Azure Database för PostgreSQL-server. Vår exempelserver är **mydemoserver.postgres.database.azure.com.** Använd det fullständiga domännamnet (**\*.postgres.database.azure.com**) som i det här exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. 
     Port | 5432 | Porten som ska användas när du ansluter till Azure Database för PostgreSQL-servern. 
     Underhållsdatabas | *postgres* | Systemgenererat standardnamn för databasen.
-    Användarnamn | Inloggningsnamn för serveradministratör | Ange det användarnamn för serveradministratörsinloggning som du angav tidigare när du skapade Azure Database för PostgreSQL-server. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *username@servername*.
+    Användarnamn | Inloggningsnamn för serveradministratör | Ange det användarnamn för serveradministratörsinloggning som du angav tidigare när du skapade Azure Database för PostgreSQL-server. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *användarnamn\@servername*.
     Lösenord | Ditt administratörslösenord | Det lösenord du angav när du skapade servern tidigare i den här snabbstarten.
     Roll | Lämna tomt | Du behöver inte ange ett rollnamn nu. Lämna fältet tomt.
     SSL-läge | *Kräv* | Du kan ställa in SSL-läge på SSL-fliken i pgAdmin. Som standard skapas alla Azure Database for PostgreSQL-servrar med tvingande SSL aktiverat. Om du vill inaktivera tvingande SSL kan läsa informationen om [tvingande SSL](./concepts-ssl-connection-security.md).
@@ -198,7 +198,7 @@ pgAdmin är ett verktyg med öppen källkod som används med PostgreSQL. Du kan 
 
 10. Välj **Ägare** för databasen från den nedrullningsbara listan. Välj ditt inloggningsnamn som serveradministratör, förslagsvis som i vårt exempel: **my admin**.
 
-   ![Skapa en databas i pgAdmin](./media/quickstart-create-database-portal/11-pgadmin-database.png)
+    ![Skapa en databas i pgAdmin](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
 11. Välj **Spara** för att skapa en tom databas.
 

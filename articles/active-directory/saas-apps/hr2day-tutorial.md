@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e932fd59fb888d73fb2ad9aee3f440b4aca3e662
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 378aab82fac5298c3785f752478e3bfc3c6e325b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180581"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103153"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Självstudier: Azure Active Directory-integrering med HR2day av Merces
 
@@ -118,7 +118,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     b. I den **identifierare** skriver du en URL med hjälp av följande mönster: `https://hr2day.force.com/<companyname>`.
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL och identifierare. Kontakta den [HR2day av Merces klienten supportteamet](mailto:servicedesk@merces.nl) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta den [HR2day av Merces klienten supportteamet](mailto:servicedesk@merces.nl) att hämta dessa värden. 
  
 
 
@@ -132,8 +132,8 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Konfigurera enkel inloggning](./media/hr2day-tutorial/tutorial_hr2day_00.png)
     
-    > [!NOTE] 
-    Innan du kan konfigurera SAML-kontroll, måste du kontakta den [HR2day av Merces klienten supportteamet](mailto:servicedesk@merces.nl) och begära värdet för attributet för unik identifierare för din klient. Du behöver det här värdet för att slutföra stegen i nästa avsnitt. 
+   > [!NOTE]
+   >  Innan du kan konfigurera SAML-kontroll, måste du kontakta den [HR2day av Merces klienten supportteamet](mailto:servicedesk@merces.nl) och begära värdet för attributet för unik identifierare för din klient. Du behöver det här värdet för att slutföra stegen i nästa avsnitt. 
 
 1. I den **enkel inloggning** i dialogrutan den **användarattribut** avsnittet, konfigurera attributet som SAML-token som visas i följande bild. Sedan vidta följande steg.
     
@@ -174,7 +174,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     > [!TIP]
     >Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du lägger till den här appen från den **Active Directory** > **företagsprogram** väljer den **enkel inloggning** fliken. Komma åt den inbäddade dokumentationen genom den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen embedded-dokumentation i den [embedded-dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+   > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 027f8ad854cfc4c412a56a293de3b02a425d6858
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a2f964915efda6ce83439c3c1970de58b0467456
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713836"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201729"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Installera Apache Giraph på HDInsight Hadoop-kluster och använda Giraph för att bearbeta storskaliga diagram
 
@@ -68,7 +68,7 @@ Det här avsnittet innehåller instruktioner om hur du använder exempelskriptet
 
 2. I den **valfri konfiguration** väljer **skriptåtgärder**, och ange följande information:
 
-   * **NAMN PÅ**: Ange ett eget namn för skriptåtgärden.
+   * **NAMN**: Ange ett eget namn för skriptåtgärden.
 
    * **SKRIPT-URI**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
@@ -171,5 +171,3 @@ När klustret har skapats, kan du använda följande steg för att köra exemple
 ## <a name="next-steps"></a>Nästa steg
 
 * [Installera och använda Hue på HDInsight-kluster](hdinsight-hadoop-hue-linux.md).
-
-* [Installera Apache Solr på HDInsight-kluster](hdinsight-hadoop-solr-install-linux.md).

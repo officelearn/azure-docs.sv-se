@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 0096a7a57cb4a404f5c8e36d8b69eac2c20c1fab
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.openlocfilehash: 31330c3d2b10e6245db775da4039fd1948539df4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139819"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106023"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Självstudie: Distribuera Azure Stream Analytics som en IoT Edge-modul
 
@@ -33,13 +33,14 @@ I den här guiden får du lära dig att:
 > * Distribuera Azure Stream Analytics-jobbet till en IoT Edge-enhet från Azure Portal.
 
 <center>
-![Diagram – Självstudie: modul för arkitektur, mellanlagring och ASA-jobb](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
+
+![Diagram - självstudie arkitektur mellanlagra och distribuera ASA-jobb](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 En Azure IoT Edge-enhet:
 
@@ -215,9 +216,9 @@ Nu kan du gå till din IoT Edge-enhet för att se interaktionen mellan Azure Str
    ```cmd/sh
    iotedge list  
    ```
-<!--
+   <!--
    ![Docker output](./media/tutorial-deploy-stream-analytics/docker_output.png)
--->
+   -->
 1. Visa alla systemloggar och statistikdata. Använd Stream Analytics-modulnamnet:
 
    ```cmd/sh

@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/04/2019
 ms.author: mayg
-ms.openlocfilehash: 811d75ec2246199662a25afd6b96b23035444211
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 75c97a7feb63a100d322610b7e6d2e5c57bebda2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436042"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889700"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Felsök fel när redundansväxlingen VMware VM eller en fysisk dator till Azure
 
@@ -24,7 +24,7 @@ Du får något av följande fel när du gör redundans för en virtuell dator ti
 
 Det gick inte att skapa en redundansväxlade virtuella datorn i Azure site Recovery. Det kan inträffa på grund av något av följande orsaker:
 
-* Det finns inte tillräckligt många tillgängliga för att skapa den virtuella datorn: Du kan kontrollera tillgänglig kvot genom att gå till prenumeration -> användning och kvoter. Du kan öppna en [ny supportbegäran](http://aka.ms/getazuresupport) att öka kvoten.
+* Det finns inte tillräckligt många tillgängliga för att skapa den virtuella datorn: Du kan kontrollera tillgänglig kvot genom att gå till prenumeration -> användning och kvoter. Du kan öppna en [ny supportbegäran](https://aka.ms/getazuresupport) att öka kvoten.
 
 * Du försöker att redundansväxling för virtuella datorer av olika storlekar i samma tillgänglighetsuppsättning. Se till att du väljer samma storleksfamilj för alla virtuella datorer i samma tillgänglighetsuppsättning. Ändra storlek genom att gå till inställningarna för beräkning och nätverk för den virtuella datorn och försök att redundansväxla.
 
@@ -32,7 +32,7 @@ Det gick inte att skapa en redundansväxlade virtuella datorn i Azure site Recov
 
 ## <a name="failover-failed-with-error-id-28092"></a>Det gick inte att Redundansväxla med fel-ID 28092
 
-Site Recovery kunde inte skapa ett nätverksgränssnitt för den redundansväxlade virtuella datorn. Kontrollera att du har tillräckligt många tillgängliga för att skapa nätverksgränssnitt i prenumerationen. Du kan kontrollera tillgänglig kvot genom att gå till prenumeration -> användning och kvoter. Du kan öppna en [ny supportbegäran](http://aka.ms/getazuresupport) att öka kvoten. Om du har tillräckligt många så det kan vara ett tillfälligt problem, försök igen. Om problemet kvarstår trots upprepade försök, ska du lämna en kommentar i slutet av det här dokumentet.  
+Site Recovery kunde inte skapa ett nätverksgränssnitt för den redundansväxlade virtuella datorn. Kontrollera att du har tillräckligt många tillgängliga för att skapa nätverksgränssnitt i prenumerationen. Du kan kontrollera tillgänglig kvot genom att gå till prenumeration -> användning och kvoter. Du kan öppna en [ny supportbegäran](https://aka.ms/getazuresupport) att öka kvoten. Om du har tillräckligt många så det kan vara ett tillfälligt problem, försök igen. Om problemet kvarstår trots upprepade försök, ska du lämna en kommentar i slutet av det här dokumentet.  
 
 ## <a name="failover-failed-with-error-id-70038"></a>Det gick inte att Redundansväxla med fel-ID 70038
 
@@ -48,7 +48,7 @@ Om du vill ta fram en dator i Azure, kräver Azure-miljön några av drivrutiner
 
 Att manuellt ändra starttypen för drivrutiner för **Windows-Gästoperativsystem**, följer du de stegen nedan:
 
-1. [Ladda ned](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) nr hydrering skript och kör det som följer. Det här skriptet kontrollerar om virtuell dator kräver hydrering.
+1. [Ladda ned](https://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) nr hydrering skript och kör det som följer. Det här skriptet kontrollerar om virtuell dator kräver hydrering.
 
     `.\Script-no-hydration.ps1`
 

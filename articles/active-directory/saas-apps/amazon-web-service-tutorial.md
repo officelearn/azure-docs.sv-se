@@ -7,20 +7,20 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 02/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e49bc5a468777197eaf88a492566a606e7b9f93
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 6f58c8c3ea76cf44730a54897e6b77ef6e648a49
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961881"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901669"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Självstudier: Azure Active Directory-integrering med Amazon Web Services (AWS)
 
@@ -55,7 +55,7 @@ c. Du kan tilldela appägaren enskilt för appen, som kan hantera appen direkt i
 > [!Note]
 > Kontrollera att du enbart använder galleriappen
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Amazon Web Services (AWS) behöver du följande:
 
@@ -63,7 +63,7 @@ För att konfigurera Azure AD-integrering med Amazon Web Services (AWS) behöver
 * Amazon Web Services (AWS)-prenumeration med enkel inloggning aktiverat
 
 > [!NOTE]
-> Vi rekommenderar att du inte använder en produktionsmiljö för att testa stegen i den här självstudien.
+> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
 Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
@@ -85,7 +85,7 @@ För att konfigurera integreringen av Amazon Web Services (AWS) med Azure AD må
 
 **Utför följande steg för att lägga till Amazon Web Services (AWS) från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -133,7 +133,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Amazo
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. I avsnittet **Grundläggande SAML-konfiguration** behöver användaren inte utföra några steg eftersom appen redan är förintegrerad med Azure.  Klicka på **Spara**.
+4. På den **SAML grundkonfiguration** avsnittet programmet är förkonfigurerad och nödvändiga URL: er är redan ifyllda på förhand med Azure. Användaren behöver för att spara konfigurationen genom att klicka på den **spara** knappen.
 
     ![image](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_url.png)
 
@@ -401,14 +401,14 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Amazon Web Services (AWS).
 
@@ -440,7 +440,7 @@ Målet med det här avsnittet är att skapa en användare som heter Britta Simon
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
 När du klickar på Amazon Web Services (AWS)-panelen i åtkomstpanelen bör du automatiskt loggas in på Amazon Web Services (AWS) som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

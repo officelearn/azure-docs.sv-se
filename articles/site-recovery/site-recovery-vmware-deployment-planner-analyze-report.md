@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 3/20/2019
 ms.author: mayg
-ms.openlocfilehash: 460bb6b9c7c5700d2c59dbe88d3089be64bb3a31
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: cbea6785239c70a3cdb229d0811497f051224238
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216449"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286354"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analysera rapporten för Distributionshanteraren för Azure Site Recovery för VMware-haveriberedskap till Azure
 
@@ -41,6 +41,9 @@ På sidan Lokal sammanfattning visas en översikt över den profilerade VMware-m
 **Observerad vanliga dataomsättning per dag (GB)**: Den genomsnittliga dataomsättning som observerats under alla profileringsdagar. Det här värdet används som ett av invärdena i rekommendationen för att fastställa antalet konfigurationsservrar och ytterligare processervrar som ska användas i distributionen.
 
 ## <a name="recommendations"></a>Rekommendationer
+
+>[!Note]
+>När du replikerar direkt till hanterade diskar, kan du ignorera rekommendationen för antalet lagringskonton.
 
 Rekommendationsbladet för VMware till Azure-rapporten innehåller följande information enligt vald önskat RPO:
 
@@ -155,6 +158,9 @@ Du kan ha en situation där du vet att du inte kan ange en bandbredd på mer än
 ![Möjligt återställningspunktmål för 500 Mbit/s bandbredd](media/site-recovery-vmware-deployment-planner-analyze-report/achievable-rpo-v2a.png)
 
 ## <a name="vm-storage-placement"></a>Placering av VM-lagring
+
+>[!Note]
+>När du replikerar direkt till hanterade diskar, behöver du inte bekymra dig om antalet lagringskonton. Använd endast rekommendationen för lagring på lagringstyp (Standard eller Premium). Samma typ kan användas för hanterade diskar.
 
 ![Placering av VM-lagring](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
@@ -273,7 +279,7 @@ Premium P10- eller P15-disk | 8 kB  | 2 MB/s | 168 GB per disk
 Premium P10- eller P15-disk | 16 kB | 4 MB/s |  336 GB per disk
 Premium P10- eller P15-disk | 32 kB eller mer | 8 MB/s | 672 GB per disk
 Premium P20-, P30-, P40- eller P50-disk | 8 kB    | 5 MB/s | 421 GB per disk
-Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |10 MB/s | 842 GB per disk
+Premium P20-, P30-, P40- eller P50-disk | minst 16 kB | 20 MB/s | 1684 GB per disk
 
 **Källans dataomsättning** | **Övre gräns**
 ---|---

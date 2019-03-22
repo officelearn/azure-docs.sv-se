@@ -5,31 +5,31 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: 0cded27e5c7a7105c3e22f55fa02394572d0932f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 835a7027293694551e672220a3d7db4c7085550b
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099909"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188279"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrera dig för CSP-partnerprogrammet och visa kostnadsdata
 
 Som CSP-partner kan du registrera dig för Cloudyn. Registreringen ger dig åtkomst till Cloudyn-portalen. Den här snabbstarten beskriver registreringsprocessen som krävs för att skapa en utvärderingsprenumeration på Cloudyn och logga in på Cloudyn-portalen. Den visar också hur du kan börja visa kostnadsdata direkt.
 
 
->[!NOTE]
-
->Endast CSP Direct-partner och CSP Indirect-partner kan slutföra Cloudyn-registreringen.
+> [!NOTE]
 >
->Konfigurering av Partner Center API krävs för autentisering och åtkomst till data. Ett global administratör-konto för Partner Center krävs för att etablera API-åtkomst.
-Mer information finns i [Ansluta till Partner Center API](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
+> Endast CSP Direct-partner och CSP Indirect-partner kan slutföra Cloudyn-registreringen.
 >
->Åtkomst till Cloudyn kan göras tillgänglig för CSP Indirect-återförsäljare när deras CSP Indirekt-leverantörer registreras i Cloudyn. Sedan kan CSP Indirect-återförsäljare ge Cloudyn-åtkomst till Azure-kunder och prenumerationer.
+> Konfigurering av Partner Center API krävs för autentisering och åtkomst till data. Ett global administratör-konto för Partner Center krävs för att etablera API-åtkomst.
+> Mer information finns i [Ansluta till Partner Center API](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
+>
+> Åtkomst till Cloudyn kan göras tillgänglig för CSP Indirect-återförsäljare när deras CSP Indirekt-leverantörer registreras i Cloudyn. Sedan kan CSP Indirect-återförsäljare ge Cloudyn-åtkomst till Azure-kunder och prenumerationer.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -43,13 +43,13 @@ Mer information finns i [Ansluta till Partner Center API](https://msdn.microsoft
 3. På sidan **Cloudyn** klickar du på **Go to Cloudyn** (Gå till Cloudyn) för att öppna Cloudyn-registreringssidan i ett nytt fönster.
 4. På utvärderingsregistreringssidan på Cloudyn-portalen anger du namnet på ditt företag, väljer **Microsoft CSP Partner Program Administrator** och klickar sedan på **Nästa**.  
 5. Ange **program-ID**, **handels-ID**, **hemlig nyckel för program** och välj **standardprisplanen**. Om du inte har informationen till hands loggar du in på Partner Center-portalen på  [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) med ditt primära administratörskonto och gör följande:
-  1. Gå till **Instrumentpanelen** klicka på symbolen **Inställningar**, klicka på **Partner settings** (Partnerinställningar) och klicka sedan på **Apphantering**.
-  2. Hoppa över det här steget om du har skapat en webbapp tidigare. Annars klickar du på **Lägg till ny webbapp** i avsnittet **Webbapp**.
-  3. Kopiera den unika identifieraren **App-ID** från din webbapp.
-  4. Kopiera den unika identifieraren **Handels-ID** från din webbapp.
-  5. Välj ett eller två års giltighetstid för nyckeln, efter behov. Välj **Lägg till nyckel** och kopiera och spara sedan värdet för hemliga nyckeln.  
+   1. Gå till **Instrumentpanelen** klicka på symbolen **Inställningar**, klicka på **Partner settings** (Partnerinställningar) och klicka sedan på **Apphantering**.
+   2. Hoppa över det här steget om du har skapat en webbapp tidigare. Annars klickar du på **Lägg till ny webbapp** i avsnittet **Webbapp**.
+   3. Kopiera den unika identifieraren **App-ID** från din webbapp.
+   4. Kopiera den unika identifieraren **Handels-ID** från din webbapp.
+   5. Välj ett eller två års giltighetstid för nyckeln, efter behov. Välj **Lägg till nyckel** och kopiera och spara sedan värdet för hemliga nyckeln.  
     ![Partner-instrumentpanel där du kopierar autentiseringsinformation](./media/quick-register-csp/csp-partner-center.png)
-  6. Gå tillbaka till Cloudyn-registreringssidan och klistra in informationen.  
+   6. Gå tillbaka till Cloudyn-registreringssidan och klistra in informationen.  
       ![Klistra in autentiseringsinformationen på Cloudyns registreringssida](./media/quick-register-csp/csp-reg.png)
 6. Godkänn användningsvillkoren och validera sedan dina uppgifter. Klicka på **Nästa** för att tillåta att Cloudyn samlar in Azure-resursdata. Data som samlas in innefattar information om användning, prestanda, fakturering och taggar från dina prenumerationer.  
 7. Under **Invite other stakeholders** (Bjud in andra intressenter) kan du lägga till användare genom att ange deras e-postadresser. Klicka på **Nästa** när du är klar. Det tar ungefär två timmar att lägga till all din faktureringsinformation på Cloudyn.
@@ -59,10 +59,10 @@ Mer information finns i [Ansluta till Partner Center API](https://msdn.microsoft
 
 Som standard är Partner Center API endast tillgängligt för direkta CSP:er. En direkt CSP-provider kan dock konfigurera åtkomst för indirekta CSP-kunder eller partner med hjälp av entitetsgrupper i Cloudyn.
 
-Om du vill aktivera åtkomst för indirekta CSP-kunder eller partner följer du stegen i [Registrera dig på Clouydn](#register-with-cloudyn) för att skapa en utvärderingsregistrering. Sedan slutför du följande steg för att dela upp indirekta CSP-data med hjälp av entitetsgrupper i Cloudyn. Tilldela sedan lämpliga användarbehörigheter till entitetsgrupperna.
+Om du vill aktivera åtkomst för indirekta CSP-kunder eller partner följer du stegen i [registrera med Cloudyn](#register-with-cloudyn) att ställa in en utvärderingsregistrering. Sedan slutför du följande steg för att dela upp indirekta CSP-data med hjälp av entitetsgrupper i Cloudyn. Tilldela sedan lämpliga användarbehörigheter till entitetsgrupperna.
 
 1. Skapa en entitetsgrupp med informationen i [Create entities](tutorial-user-access.md#create-and-manage-entities) (Skapa entiteter).
-2. Följ stegen i [Tilldela prenumerationer till kostnadsentiteter](https://support.cloudyn.com/hc/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities) (Tilldela prenumerationer till kostnadsentiteter). Associera den indirekta CSP-kundens konto och Azure-prenumerationer till den entitet som du skapade tidigare.
+2. Följ stegen i [Tilldela prenumerationer till kostnadsentiteter](https://www.youtube.com/watch?v=d9uTWSdoQYo) (Tilldela prenumerationer till kostnadsentiteter). Associera den indirekta CSP-kundens konto och Azure-prenumerationer till den entitet som du skapade tidigare.
 3. Följ stegen i [Create a user with admin access](tutorial-user-access.md#create-a-user-with-admin-access) (Skapa en användare med administratörsåtkomst) för att skapa ett användarkonto med administratörsåtkomst. Kontrollera sedan att användarkontot har administratörsåtkomst till de specifika entiteter som du skapade tidigare för det indirekta kontot.
 
 Indirekta CSP-partner loggar in på Cloudyn-portalen med hjälp av de konton som du skapar åt dem.

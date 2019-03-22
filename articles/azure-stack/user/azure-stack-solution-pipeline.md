@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 13c5d194ca5e6a606b319a42fdba7a597a8d4852
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9c7e6640bdb17e9f996545c2c3315c0c1ade42d1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781212"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902220"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Självstudier: Distribuera appar till Azure och Azure Stack
 
@@ -78,17 +78,17 @@ Den här självstudien förutsätter att du har några grundläggande kunskaper 
 ### <a name="azure-stack-requirements"></a>Krav för Azure Stack
 
 * Använd ett integrerat Azure Stack-system eller distribuera Azure Stack Development Kit (ASDK). För att distribuera ASDK:
-    * Den [självstudie: distribuera ASDK med hjälp av installationsprogrammet](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) ger detaljerad distributionsanvisningarna.
-    * Använd den [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) PowerShell-skript för att automatisera ASDK efter distributionen steg.
+  * Den [självstudie: distribuera ASDK med hjälp av installationsprogrammet](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) ger detaljerad distributionsanvisningarna.
+  * Använd den [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) PowerShell-skript för att automatisera ASDK efter distributionen steg.
 
     > [!Note]
     > ASDK installationen tar ungefär sju timmar att slutföra, så planera på lämpligt sätt.
 
- * Distribuera [Apptjänst](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS-tjänster till Azure Stack.
- * Skapa [Plan/erbjudanden](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) i Azure Stack.
- * Skapa en [klient prenumeration](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) i Azure Stack.
- * Skapa en Webbapp i klientprenumeration. Anteckna den nya Web App-URL för att använda senare.
- * Distribuera en Windows Server 2012-dator i klientprenumeration. Du använder den här servern som build-servern och att köra Azure DevOps-tjänster.
+  * Distribuera [Apptjänst](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS-tjänster till Azure Stack.
+  * Skapa [Plan/erbjudanden](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) i Azure Stack.
+  * Skapa en [klient prenumeration](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) i Azure Stack.
+  * Skapa en Webbapp i klientprenumeration. Anteckna den nya Web App-URL för att använda senare.
+  * Distribuera en Windows Server 2012-dator i klientprenumeration. Du använder den här servern som build-servern och att köra Azure DevOps-tjänster.
 * Ange en Windows Server 2016-avbildning med .NET 3.5 för en virtuell dator (VM). Den här virtuella datorn kommer att skapas på Azure Stack som en privat skapandeagent.
 
 ### <a name="developer-tool-requirements"></a>Krav för Developer-verktyget
@@ -97,8 +97,8 @@ Den här självstudien förutsätter att du har några grundläggande kunskaper 
 * [Installera Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) och [logga in på Azure DevOps-tjänsterna](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Anslut till ditt projekt och [klona den lokalt](https://www.visualstudio.com/docs/git/gitquickstart).
 
- > [!Note]
- > Azure Stack-miljön måste rätt bilderna syndikeras för att köra Windows Server och SQL Server. Det måste också ha App Service som har distribuerats.
+  > [!Note]
+  > Azure Stack-miljön måste rätt bilderna syndikeras för att köra Windows Server och SQL Server. Det måste också ha App Service som har distribuerats.
 
 ## <a name="prepare-the-private-azure-pipelines-agent-for-azure-devops-services-integration"></a>Förbereda privata Pipelines för Azure-agenten för integrering med Azure DevOps Services
 
@@ -363,7 +363,7 @@ Hybrid CI/CD kan använda för både programkoden och infrastrukturkod. Använd 
 
 2. Navigera till den **skapa webbprogram** sidan för projektet.
 
-3. I **argument**, lägga till **- r win10-x64** kod. Detta krävs för att utlösa en självständig distribution med .net Core.
+3. I **argument**, lägga till **- r win10-x64** kod. Detta är nödvändigt att utlösa en självständig distribution med .NET Core.
 
     ![Lägg till argumentet build pipeline](media/azure-stack-solution-hybrid-pipeline/020_publish_additions.png)
 

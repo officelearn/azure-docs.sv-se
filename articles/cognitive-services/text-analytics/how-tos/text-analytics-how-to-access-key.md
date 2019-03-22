@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: fc594a660efe1bf90daeffa79826057a8e66c60c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 512417a228ed99a2f5b516f14084a5785bc0c1dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245175"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096749"
 ---
 # <a name="how-to-find-endpoints-and-access-keys-for-the-text-analytics-cognitive-service"></a>Så här hittar du slutpunkter och åtkomst till nycklar för Text Analytics Cognitive Service
 
@@ -33,7 +33,7 @@ Om du behöver hjälp att hitta nyckeln eller för att avgöra om din prenumerat
 
 4. Klicka på länken för att öppna bladet för tjänsten. Nu kan du få en nyckel från **resurser > nycklar** eller genom att klicka på **visa åtkomstnycklar** i rutan information. Slutpunkten är också visas i rutan information.
 
- ![Portalsidan med slutpunkt och nycklar](../media/portal-keys-endpoint.png)
+   ![Portalsidan med slutpunkt och nycklar](../media/portal-keys-endpoint.png)
 
 ## <a name="see-also"></a>Se också 
 

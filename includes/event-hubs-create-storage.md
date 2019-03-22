@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 38ba8ccad63120d33ce06faf39439bb58706e78d
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 690e0da160042b7ac432b1a36c024a8a8f439823
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56660453"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125258"
 ---
 ## <a name="create-a-storage-account-for-event-processor-host"></a>Skapa ett lagringskonto för Event Processor Host
 Event Processor Host är en smart agent som gör det enklare att ta emot händelser från Event Hubs genom hantering av permanenta kontrollpunkter och parallella mottaganden. För att kunna använda kontrollpunkter måste Event Processor Host ha ett lagringskonto. I följande exempel visas hur du skapar ett lagringskonto och hur du kommer åt dess åtkomstnycklar:
@@ -26,13 +26,13 @@ Event Processor Host är en smart agent som gör det enklare att ta emot händel
 
 3. Gör följande på sidan **Skapa lagringskonto**: 
 
-    1. Ange ett namn för lagringskontot. 
-    2. Välj en Azure-prenumeration som innehåller händelsehubben.
-    3. Välj den resursgrupp som innehåller händelsehubben.
-    4. Välj en plats där du vill skapa resursen. 
-    5. Klicka därefter på **Granska + skapa**.
+   1. Ange ett namn för lagringskontot. 
+   2. Välj en Azure-prenumeration som innehåller händelsehubben.
+   3. Välj den resursgrupp som innehåller händelsehubben.
+   4. Välj en plats där du vill skapa resursen. 
+   5. Klicka därefter på **Granska + skapa**.
    
-    ![Skapa lagringskonto – sida](./media/event-hubs-create-storage/create-storage2.png)
+      ![Skapa lagringskonto – sida](./media/event-hubs-create-storage/create-storage2.png)
 
 4. På sidan **Granska + skapa** granskar du värdena och väljer **Skapa**. 
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4dcf482e02d38e18b7b86fc57565a47510627d44
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: e470f9d6f33e8b534be22132881f4806bed85f5d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652872"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078371"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Självstudie: Använda Apache Spark Structured Streaming med Apache Kafka i HDInsight
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 Kom ihåg att ta bort klustren för att undvika onödiga avgifter när du är klar med stegen i det här dokumentet.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Kunskaper om [Jupyter Notebooks](https://jupyter.org/) med Spark på HDInsight. Mer information finns i dokumentet [Läsa in data och köra frågor med Apache Spark på HDInsight](spark/apache-spark-load-data-run-query.md).
 
@@ -131,12 +131,12 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Spark-klus
 
     Den här mallen skapar följande resurser:
 
-    * En Kafka på HDInsight 3.6-klustret.
-    * En Apache Spark 2.2.0 på HDInsight 3.6-klustret.
-    * Ett virtuellt Azure-nätverk som innehåller HDInsight-klustren.
+   * En Kafka på HDInsight 3.6-klustret.
+   * En Apache Spark 2.2.0 på HDInsight 3.6-klustret.
+   * Ett virtuellt Azure-nätverk som innehåller HDInsight-klustren.
 
-    > [!IMPORTANT]  
-    > Anteckningsboken för Structured Streaming som används i den här självstudien kräver Apache Spark 2.2.0 i HDInsight 3.6. Om du använder en tidigare version av Apache Spark i HDInsight får du ett felmeddelande när du använder anteckningsboken.
+     > [!IMPORTANT]  
+     > Anteckningsboken för Structured Streaming som används i den här självstudien kräver Apache Spark 2.2.0 i HDInsight 3.6. Om du använder en tidigare version av Apache Spark i HDInsight får du ett felmeddelande när du använder anteckningsboken.
 
 2. Använd följande information för att fylla i posterna i avsnittet **Anpassad mall**:
 

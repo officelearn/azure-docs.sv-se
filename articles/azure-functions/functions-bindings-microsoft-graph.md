@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: eb05d1b28b80cb7bf48bc1160c251936423763e6
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100806"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997549"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph-bindningar för Azure Functions
 
@@ -354,12 +354,13 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**userToken**|**Metadatafältet**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionsappen. |
 |**path**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till Excel-arbetsboken.|
 |**worksheetName**|**WorksheetName**|Kalkylbladet där tabellen finns.|
-|**tableName**|**TableName**|Namnet på tabellen. Om den inte anges används innehållet i kalkylbladet.|
+|**tableName**|**TableName**|Tabellens namn. Om den inte anges används innehållet i kalkylbladet.|
 
 <a name="excel-input-code"></a>
 ### <a name="excel-input---usage"></a>Excel indata - användning
 
 Den här bindningen kräver följande Azure AD-behörigheter:
+
 |Resurs|Behörighet|
 |--------|--------|
 |Microsoft Graph|Läs användarfiler|
@@ -515,13 +516,14 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**userToken**|**Metadatafältet**|Krävs om och bara om _identitet_ är inställd på `userFromToken`. En token är giltig för funktionsappen. |
 |**path**|**Sökväg**|Obligatoriskt - sökvägen i OneDrive till Excel-arbetsboken.|
 |**worksheetName**|**WorksheetName**|Kalkylbladet där tabellen finns.|
-|**tableName**|**TableName**|Namnet på tabellen. Om den inte anges används innehållet i kalkylbladet.|
+|**tableName**|**TableName**|Tabellens namn. Om den inte anges används innehållet i kalkylbladet.|
 |**updateType**|**Uppdateringstyp**|Krävs – typ av ändring som ska göras i tabellen. Kan vara något av följande värden:<ul><li><code>update</code> -Ersätter innehållet i tabellen i OneDrive.</li><li><code>append</code> -Lägger till nyttolasten i slutet av tabellen i OneDrive genom att skapa nya rader.</li></ul>|
 
 <a name="excel-output-code"></a>
 ### <a name="excel-output---usage"></a>Excel utdata - användning
 
 Den här bindningen kräver följande Azure AD-behörigheter:
+
 |Resurs|Behörighet|
 |--------|--------|
 |Microsoft Graph|Ha fullständig åtkomst till användarfiler|
@@ -664,6 +666,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 ### <a name="file-input---usage"></a>Filen indata - användning
 
 Den här bindningen kräver följande Azure AD-behörigheter:
+
 |Resurs|Behörighet|
 |--------|--------|
 |Microsoft Graph|Läs användarfiler|
@@ -811,6 +814,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 #### <a name="file-output---usage"></a>Filen utdata - användning
 
 Den här bindningen kräver följande Azure AD-behörigheter:
+
 |Resurs|Behörighet|
 |--------|--------|
 |Microsoft Graph|Ha fullständig åtkomst till användarfiler|
@@ -960,6 +964,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 ### <a name="outlook-output---usage"></a>Outlook utdata - användning
 
 Den här bindningen kräver följande Azure AD-behörigheter:
+
 |Resurs|Behörighet|
 |--------|--------|
 |Microsoft Graph|Skicka e-post som användare|

@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/27/2018
-ms.openlocfilehash: a42d2c75913b2c9fdfa0d2b7c3ec2742525a4c97
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.date: 03/13/2019
+ms.openlocfilehash: 354f6014e3230b65a0c4f1cd7507e58ca94474dd
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806104"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188109"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Regional haveriberedskap för Azure Databricks-kluster
 
@@ -263,9 +263,14 @@ Om du vill skapa egna regionalt haveri recovery topologi, följer du dessa krav:
 
 10. **Manuellt omkonfigurera och tillämpa åtkomstkontroll.**
 
-   Om din befintliga primära arbetsytan är konfigurerad för att använda Premium-nivån (SKU), är det troligt att du även använder den [Access Control-funktionen](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
+    Om din befintliga primära arbetsytan är konfigurerad för att använda Premium-nivån (SKU), är det troligt att du även använder den [Access Control-funktionen](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
 
-   Om du använder funktionen Access Control, manuellt tillämpa åtkomstkontrollen till resurser (anteckningsböcker, kluster, jobb, tabeller).
+    Om du använder funktionen Access Control, manuellt tillämpa åtkomstkontrollen till resurser (anteckningsböcker, kluster, jobb, tabeller).
+
+## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Haveriberedskap för din Azure-ekosystemet
+
+Om du använder andra Azure-tjänster måste du implementera disaster recovery bästa praxis för dessa tjänster för. Till exempel om du väljer att använda en extern Hive-metaarkiv instans, bör du återställa [Azure SQL Server](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md), och/eller [Azure Database for MySQL ](../mysql/concepts-business-continuity.md). Allmän information om haveriberedskap finns i [haveriberedskap för Azure-program](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 ## <a name="next-steps"></a>Nästa steg
+
 Mer information finns i [dokumentation för Azure Databricks](https://docs.azuredatabricks.net/user-guide/index.html).

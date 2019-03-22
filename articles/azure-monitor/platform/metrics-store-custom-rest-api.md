@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: c9e08cd1daef919fa4bd919c06e402da1c48d5db
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c7ec3ba960929250f2d23d09b9a5ab06e3f6cd38
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769931"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095423"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Skicka anpassade mått för en Azure-resurs till arkivet som Azure Monitor-mått med hjälp av ett REST-API
 
@@ -78,13 +78,13 @@ Spara åtkomsttoken från svaret.
     ``` 
 
 1. Efter måttdata i Kommandotolk-fönster: 
-    - **azureRegion**. Måste matcha distributionsregionen för resursen som du de mått för. 
-    - **resourceID**.  Resurs-ID för Azure-resursen du spårar mått jämfört med.  
-    - **AccessToken**. Klistra in den token som du hämtade tidigare.
+   - **azureRegion**. Måste matcha distributionsregionen för resursen som du de mått för. 
+   - **resourceID**.  Resurs-ID för Azure-resursen du spårar mått jämfört med.  
+   - **AccessToken**. Klistra in den token som du hämtade tidigare.
 
-    ```Shell 
-    curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
-    ```
+     ```Shell 
+     curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
+     ```
 1. Ändra tidsstämpel och värdena i JSON-filen. 
 1. Upprepa föregående två steg ett par gånger, så att du har data i flera minuter.
 

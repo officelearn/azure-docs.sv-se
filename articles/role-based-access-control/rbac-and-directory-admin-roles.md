@@ -15,12 +15,12 @@ ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 8ce5460a7a2f29250ad8ef346f35914a0363a921
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1b7183da84b994da8694440183e367f143722002
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847237"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295188"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Administratörsroller för klassiska prenumerationer, Azure RBAC-roller och administratörsroller för Azure AD
 
@@ -81,7 +81,7 @@ Resten av de inbyggda rollerna tillåter hantering av specifika Azure-resurser. 
 
 Endast Azure-portalen och Azure Resource Manager-API:er stöder RBAC. Användare, grupper och program som tilldelas RBAC-roller kan inte använda [API:er för Azures klassiska distributionsmodell](../azure-resource-manager/resource-manager-deployment-model.md).
 
-I Azure-portalen visas rolltilldelningar som använder RBAC på bladet **Åtkomstkontroll (IAM)**. Det här bladet finns på flera ställen i portalen, till exempel i hanteringsgrupper, prenumerationer, resursgrupper och olika resurser.
+I Azure-portalen visas rolltilldelningar som använder RBAC på bladet **Åtkomstkontroll (IAM)**. Det här bladet finns i portalen, till exempel hanteringsgrupper, prenumerationer, resursgrupper och olika resurser.
 
 ![Bladet Åtkomstkontroll (IAM) i Azure-portalen](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 

@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 25b33242b9f7bddf0497067f111ca3fb4a1ea570
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600732"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895863"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Skapa anpassade API: er som du kan anropa från Azure Logic Apps
 
@@ -25,7 +25,7 @@ ms.locfileid: "53600732"
 * Hjälp kunder att använda tjänsten för att hantera professionella eller personliga uppgifter.
 * Expandera den räckvidd, identifierbarhet och användning för din tjänst.
 
-I princip kopplingar är web API: er som för anslutningsbara gränssnitt med hjälp av REST [Swagger metadataformat](http://swagger.io/specification/) för dokumentation och JSON som utbytesformat sina data. Eftersom kopplingar är REST API: er som kommunicerar via HTTP-slutpunkter, kan du använda valfritt språk som .NET, Java eller Node.js, för att skapa kopplingar. Du kan också vara värd för dina API: er på [Azure App Service](../app-service/overview.md), en platform-as-a-service (PaaS) som tillhandahåller ett av de bästa, enklaste och mest skalbara sätten som värd för API: et. 
+I princip kopplingar är web API: er som för anslutningsbara gränssnitt med hjälp av REST [Swagger metadataformat](https://swagger.io/specification/) för dokumentation och JSON som utbytesformat sina data. Eftersom kopplingar är REST API: er som kommunicerar via HTTP-slutpunkter, kan du använda valfritt språk som .NET, Java eller Node.js, för att skapa kopplingar. Du kan också vara värd för dina API: er på [Azure App Service](../app-service/overview.md), en platform-as-a-service (PaaS) som tillhandahåller ett av de bästa, enklaste och mest skalbara sätten som värd för API: et. 
 
 För anpassade API: er att arbeta med logic apps, ditt API kan ge [ *åtgärder* ](./logic-apps-overview.md#logic-app-concepts) som utför olika uppgifter i logikappens arbetsflöde. Ditt API kan också fungera som en [ *utlösaren* ](./logic-apps-overview.md#logic-app-concepts) som startar en logikapparbetsflöde när nya data eller en händelse som uppfyller ett angivet villkor. Det här avsnittet beskrivs vanliga mönster som du kan följa för att skapa åtgärder och utlösare i ditt API, baserat på det beteende som du vill att ditt API för att tillhandahålla.
 
@@ -41,11 +41,11 @@ Du kan vara värd för dina API: er på [Azure App Service](../app-service/overv
 > * [Python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
-> API-App-exempel som skapats för logic apps, finns det [Azure Logic Apps GitHub-lagringsplatsen](http://github.com/logicappsio) eller [blogg](https://aka.ms/logicappsblog).
+> API-App-exempel som skapats för logic apps, finns det [Azure Logic Apps GitHub-lagringsplatsen](https://github.com/logicappsio) eller [blogg](https://aka.ms/logicappsblog).
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Hur skiljer sig anpassade API: er från anpassade anslutningsappar?
 
-Anpassade API: er och [anpassade anslutningsappar](../logic-apps/custom-connector-overview.md) är webb-API: er som för anslutningsbara gränssnitt med hjälp av REST [Swagger metadataformat](http://swagger.io/specification/) för dokumentation och JSON som utbytesformat sina data. Och eftersom de här API: er och anslutningsappar är REST API: er som kommunicerar via HTTP-slutpunkter, du kan använda valfritt språk som .NET, Java eller Node.js, för att skapa anpassade API: er och anslutningsappar.
+Anpassade API: er och [anpassade anslutningsappar](../logic-apps/custom-connector-overview.md) är webb-API: er som för anslutningsbara gränssnitt med hjälp av REST [Swagger metadataformat](https://swagger.io/specification/) för dokumentation och JSON som utbytesformat sina data. Och eftersom de här API: er och anslutningsappar är REST API: er som kommunicerar via HTTP-slutpunkter, du kan använda valfritt språk som .NET, Java eller Node.js, för att skapa anpassade API: er och anslutningsappar.
 
 Anpassade API: er kan du anropa API: er som inte är kopplingar och ange slutpunkter som kan anropas med HTTP + Swagger, Azure API Management eller App Services. Anpassade anslutningsappar fungerar som anpassade API: er, men även ha dessa attribut:
 
@@ -63,7 +63,7 @@ Läs mer om anpassade anslutningsappar
 
 ## <a name="helpful-tools"></a>Användbara verktyg
 
-Ett anpassat API som fungerar bäst med logic apps när API: et har också en [Swagger-dokument](http://swagger.io/specification/) som beskriver API: ets åtgärder och parametrar.
+Ett anpassat API som fungerar bäst med logic apps när API: et har också en [Swagger-dokument](https://swagger.io/specification/) som beskriver API: ets åtgärder och parametrar.
 Många bibliotek som [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle), kan du automatiskt generera Swagger-filen åt dig. Om du vill kommentera Swagger-filen för visningsnamn, egenskapstyper och så vidare, du kan också använda [TRex](https://github.com/nihaue/TRex) så att din Swagger-fil som fungerar bra med logikappar.
 
 <a name="actions"></a>
@@ -167,7 +167,7 @@ Här följer specifika åtgärder för en avsökning utlösare, som beskrivs av 
 
 | Hitta nya data eller händelse?  | API-svar | 
 | ------------------------- | ------------ |
-| Hitta | Returnera ett HTTP `200 OK` status med svarsnyttolasten (indata för nästa steg). <br/>Det här svaret skapar en logikappinstans och startar arbetsflödet. | 
+| Hittade | Returnera ett HTTP `200 OK` status med svarsnyttolasten (indata för nästa steg). <br/>Det här svaret skapar en logikappinstans och startar arbetsflödet. | 
 | Kunde inte hittas | Returnera ett HTTP `202 ACCEPTED` status med en `location` rubrik och en `retry-after` rubrik. <br/>För utlösare, den `location` rubriken ska också innehålla en `triggerState` frågeparameter som vanligtvis är ”timestamp”. Ditt API kan använda den här identifieraren för att spåra den senaste gången som logikappen utlöstes. | 
 ||| 
 

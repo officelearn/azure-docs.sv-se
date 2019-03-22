@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/12/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 220c419142f31261a193795da85eedd841183db9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7308d5715b1ac8abc62bb26ad3636423bbd727ba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202714"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889768"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Självstudier: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Storage
 
@@ -30,8 +30,8 @@ I den här självstudien lär du dig hur du använder en systemtilldelad hantera
 
 > [!div class="checklist"]
 > * Skapa en blobcontainer i ett lagringskonto
-> * Ge den systemtilldelade hanterade identiteten för din virtuella Windows-dator åtkomst till ett lagringskonto 
-> * Hämta en åtkomsttoken, och använda den och anropa Azure Storage 
+> * Ge den systemtilldelade hanterade identiteten för din virtuella Windows-dator åtkomst till ett lagringskonto
+> * Hämta en åtkomsttoken, och använda den och anropa Azure Storage
 
 > [!NOTE]
 > Azure Active Directory-autentisering för Azure Storage finns i en allmänt tillgänglig förhandsversion.
@@ -40,14 +40,14 @@ I den här självstudien lär du dig hur du använder en systemtilldelad hantera
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-I det här avsnittet skapar du ett lagringskonto. 
+I det här avsnittet skapar du ett lagringskonto.
 
 1. Klicka på knappen **+ Skapa en resurs** längst upp till vänster i Azure-portalen.
 2. Klicka på **Lagring** och sedan på **Lagringskonto – blob, fil, tabell, kö**.
-3. Under **Namn** anger du ett namn för lagringskontot.  
-4. **Distributionsmodell** och **Typ av konto** ska vara inställda på **Resurshanterare** respektive **Lagring (generell användning v1)**. 
+3. Under **Namn** anger du ett namn för lagringskontot.
+4. **Distributionsmodell** och **Typ av konto** ska vara inställda på **Resurshanterare** respektive **Lagring (generell användning v1)**.
 5. Kontrollera att informationen under **Prenumeration** och **Resursgrupp** matchar informationen som du angav när du skapade den virtuella datorn i föregående steg.
 6. Klicka på **Skapa**.
 
@@ -64,22 +64,22 @@ Eftersom filer kräver bloblagring måste du skapa en blobcontainer som du lagra
 
     ![Skapa lagringscontainer](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-5. Med hjälp av valfritt redigeringsprogram skapar du en fil som heter *hello world.txt* på den lokala datorn.  Öppna filen och lägg till följande text (utan citattecken): ”Hello world! :)”och spara den. 
+5. Med hjälp av valfritt redigeringsprogram skapar du en fil som heter *hello world.txt* på den lokala datorn. Öppna filen och lägg till följande text (utan citattecken): ”Hello world! :)”och spara den.
 6. Ladda upp filen till containern du skapade genom att klicka på containernamnet och sedan på **Ladda upp**
 7. I fönstret **Ladda upp blob**, under **Filer**, klickar du på mappikonen och bläddrar till filen **hello_world.txt** på den lokala datorn. Välj sedan filen och klicka på **Ladda upp**.
     ![Ladda upp textfil](./media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
-## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Ge din virtuella dator åtkomst till en Azure Storage-container 
+## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Ge din virtuella dator åtkomst till en Azure Storage-container
 
-Du kan använda den virtuella datorns systemtilldelade hanterade identitet för att hämta data i Azure Storage Blob.   
+Du kan använda den virtuella datorns systemtilldelade hanterade identitet för att hämta data i Azure Storage Blob.
 
-1. Gå tillbaka till det lagringskonto som du nyss skapade.  
-2. Klicka på länken **Åtkomstkontroll (IAM)** på den vänstra panelen.  
+1. Gå tillbaka till det lagringskonto som du nyss skapade.
+2. Klicka på länken **Åtkomstkontroll (IAM)** på den vänstra panelen.
 3. Klicka på **+ Lägg till rolltilldelning** längst upp på sidan för att lägga till en ny rolltilldelning för den virtuella datorn.
-4. Välj **Storage Blob Data-läsare (förhandsgranskning)** i listrutan under **Roll**. 
-5. I listrutan under **Tilldela behörighet till** väljer du **Virtuell dator**.  
-6. Kontrollera sedan att rätt prenumeration är inställd i listrutan **Prenumeration**. Under **Resursgrupper** väljer du **Alla resursgrupper**.  
-7. Under **Välj** väljer du din virtuella dator och klickar sedan på **Spara**. 
+4. Välj **Storage Blob Data-läsare (förhandsgranskning)** i listrutan under **Roll**.
+5. I listrutan under **Tilldela behörighet till** väljer du **Virtuell dator**.
+6. Kontrollera sedan att rätt prenumeration är inställd i listrutan **Prenumeration**. Under **Resursgrupper** väljer du **Alla resursgrupper**.
+7. Under **Välj** väljer du din virtuella dator och klickar sedan på **Spara**.
 
     ![Tilldela behörigheter](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
@@ -87,7 +87,7 @@ Du kan använda den virtuella datorns systemtilldelade hanterade identitet för 
 
 Azure Storage har inbyggt stöd för Azure Active Directory-autentisering, vilket gör att åtkomsttoken som hämtas med en hanterad identitet kan accepteras direkt. Detta är en del av integreringen av Azure Storage med Azure Active Directory, och skiljer sig från att ange autentiseringsuppgifter i anslutningssträngen.
 
-Här är ett .Net-exempel på att öppna en anslutning till Azure Storage med hjälp av en åtkomsttoken, och sedan läsa innehållet i filen du skapade tidigare. Koden måste köras på den virtuella datorn om du vill komma åt slutpunkten för den virtuella datorns hanterade identitet. .Net Framework 4.6 eller senare krävs om du vill använda metoden med åtkomsttoken. Ersätt värdet för `<URI to blob file>` därefter. Du kan hämta värdet genom att gå till filen du skapade och laddade upp till bloblagringen, och kopiera **URL:en** under **Egenskaper** på sidan **Översikt**.
+Här är ett .NET kodexempel för att öppna en anslutning till Azure Storage med hjälp av en åtkomsttoken och sedan läsa innehållet i filen som du skapade tidigare. Koden måste köras på den virtuella datorn om du vill komma åt slutpunkten för den virtuella datorns hanterade identitet. .NET framework 4.6 eller senare krävs för att använda åtkomstmetoden-token. Ersätt värdet för `<URI to blob file>` därefter. Du kan hämta värdet genom att gå till filen du skapade och laddade upp till bloblagringen, och kopiera **URL:en** under **Egenskaper** på sidan **Översikt**.
 
 ```csharp
 using System;
@@ -97,7 +97,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Net;
-using System.Web.Script.Serialization; 
+using System.Web.Script.Serialization;
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
 
@@ -109,7 +109,7 @@ namespace StorageOAuthToken
         {
             //get token
             string accessToken = GetMSIToken("https://storage.azure.com/");
-           
+
             //create token credential
             TokenCredential tokenCredential = new TokenCredential(accessToken);
 
@@ -120,7 +120,7 @@ namespace StorageOAuthToken
 
             //create block blob using storage credentials
             CloudBlockBlob blob = new CloudBlockBlob(blobAddress, storageCredentials);
-        
+
             //retrieve blob contents
             Console.WriteLine(blob.DownloadText());
             Console.ReadLine();
@@ -152,7 +152,7 @@ namespace StorageOAuthToken
                 string errorText = String.Format("{0} \n\n{1}", e.Message, e.InnerException != null ? e.InnerException.Message : "Acquire token failed");
                 return accessToken;
             }
-        }            
+        }
     }
 }
 ```
@@ -167,6 +167,3 @@ I den här självstudien har du lärt dig hur du aktiverar en systemtilldelad id
 
 > [!div class="nextstepaction"]
 > [Azure Storage](/azure/storage/common/storage-introduction)
-
-
-

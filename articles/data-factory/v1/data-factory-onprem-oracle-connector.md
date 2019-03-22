@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1dbac37e8b3bac5ee06ac3bdc3270c04efdcd408
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536699"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084614"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Kopiera data till eller från Oracle på plats med hjälp av Azure Data Factory
 
@@ -56,11 +56,11 @@ Gatewayen krävs även om Oracle finns i en Azure-infrastruktur som en tjänst (
 Den här Oracle-anslutningsappen stöder två versioner av drivrutiner:
 
 - **Microsoft-drivrutin för Oracle (rekommenderas)**: Från och med Data Management Gateway version 2.7, installeras en Microsoft-drivrutin för Oracle automatiskt med gatewayen. Du behöver inte installera eller uppdatera för att upprätta en anslutning till Oracle-drivrutinen. Du kan också använda ger kopieringen bättre prestanda med hjälp av den här drivrutinen. Dessa versioner av Oracle-databaser som stöds:
-    - Oracle 12c R1 (12.1)
-    - Oracle 11g R1, R2 (11.1, 11.2)
-    - Oracle 10g R1, R2 (10.1, 10,2)
-    - Oracle 9i R1, R2 (9.0.1, 9.2)
-    - Oracle 8i R3 (8.1.7)
+  - Oracle 12c R1 (12.1)
+  - Oracle 11g R1, R2 (11.1, 11.2)
+  - Oracle 10g R1, R2 (10.1, 10,2)
+  - Oracle 9i R1, R2 (9.0.1, 9.2)
+  - Oracle 8i R3 (8.1.7)
 
     > [!NOTE]
     > Oracle-proxyserver stöds inte.
@@ -614,7 +614,7 @@ När du flyttar data från Oracle, används följande mappningar från Oracle-da
 | NVARCHAR2 |String |
 | RÅDATA |Byte[] |
 | RAD-ID |String |
-| TIMESTAMP |DateTime |
+| TIDSSTÄMPEL |DateTime |
 | TIDSSTÄMPEL MED LOKALA TIDSZON |DateTime |
 | TIDSSTÄMPEL MED TIDSZON |DateTime |
 | HELTALET |Tal |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: hkanna
-ms.openlocfilehash: 913df079b56e131a3120971b635c49c2c04b2b1e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 17428405a0be45854a2eaaef831864f529ed145a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871578"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994465"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple som ett säkerhetskopieringsmål med NetBackup
 
@@ -94,6 +94,7 @@ Följande tabeller visar enheten modellen till arkitektur inledande vägledning.
 |------------------------|---------------|-----------------|
 | Lokal lagringskapacitet | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
 | Kapacitet för molnlagring | &gt; 200 TiB\* | &gt; 500 TiB\* |
+
 \* Lagringsstorlek förutsätter att inga deduplicering eller komprimering.
 
 **StorSimple-kapaciteter för primära och sekundära säkerhetskopieringar**
@@ -207,16 +208,16 @@ Konfigurera din lösning enligt riktlinjerna i följande avsnitt.
 
 ### <a name="operating-system-best-practices"></a>Metodtips för operativsystem
 
--   Inaktivera Windows Server-kryptering och deduplicering för NTFS-filsystemet.
--   Inaktivera Windows Server defragmentering på StorSimple-volymer.
--   Inaktivera Windows Server-indexering på StorSimple-volymer.
--   Kör en virusgenomsökning källvärden (inte mot StorSimple-volymer).
--   Inaktivera [Windows serverunderhåll](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) i Aktivitetshanteraren. Gör detta på något av följande sätt:
-    - Inaktivera Underhåll configurator i Schemaläggaren i Windows.
-    - Ladda ned [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) från Windows Sysinternals. När du har hämtat PsExec kör du Windows PowerShell som administratör och skriv:
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- Inaktivera Windows Server-kryptering och deduplicering för NTFS-filsystemet.
+- Inaktivera Windows Server defragmentering på StorSimple-volymer.
+- Inaktivera Windows Server-indexering på StorSimple-volymer.
+- Kör en virusgenomsökning källvärden (inte mot StorSimple-volymer).
+- Inaktivera [Windows serverunderhåll](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) i Aktivitetshanteraren. Gör detta på något av följande sätt:
+  - Inaktivera Underhåll configurator i Schemaläggaren i Windows.
+  - Ladda ned [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) från Windows Sysinternals. När du har hämtat PsExec kör du Windows PowerShell som administratör och skriv:
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### <a name="storsimple-best-practices"></a>Metodtips för StorSimple
 
@@ -257,6 +258,7 @@ Baserat på föregående antaganden kan du skapa en 26-TiB StorSimple nivåindel
 | Årlig fullständig | 1  | 10 | 10 |
 | GFS krav |   | 38 |   |
 | Större kvot  | 4  |   | 42 GFS totalkravet  |
+
 \* Multiplikatorn som GFS är antalet kopior måste du skydda och bevara så att de uppfyller dina krav för princip för säkerhetskopiering.
 
 ## <a name="set-up-netbackup-storage"></a>Konfigurera NetBackup lagring
@@ -302,7 +304,7 @@ Här är ett exempel på ett schema för rotation av GFS för fyra veckor, måna
 |---|---|---|
 | Varje vecka (1 – 4 veckor) | Lördag | Måndag-fredag |
 | Månadsvis  | Lördag  |   |
-| Varje år | Lördag  |   |   |
+| Varje år | Lördag  |   |
 
 ## <a name="assigning-storsimple-volumes-to-a-netbackup-backup-job"></a>Tilldela ett säkerhetskopieringsjobb för NetBackup StorSimple-volymer
 
@@ -310,69 +312,69 @@ Följande sekvens förutsätter att NetBackup och målvärden har konfigurerats 
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-backup-job"></a>Tilldela StorSimple-volymer till ett säkerhetskopieringsjobb för NetBackup
 
-1.  I administrationskonsolen NetBackup väljer **NetBackup Management**, högerklicka på **principer**, och välj sedan **ny princip**.
+1. I administrationskonsolen NetBackup väljer **NetBackup Management**, högerklicka på **principer**, och välj sedan **ny princip**.
 
-    ![NetBackup Administrationskonsolen, skapa en ny princip](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
+   ![NetBackup Administrationskonsolen, skapa en ny princip](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
 
-2.  I den **Lägg till en ny princip** dialogrutan, ange ett namn för principen och välj sedan den **Använd principen konfigurationsguiden** markerar du kryssrutan. Välj **OK**.
+2. I den **Lägg till en ny princip** dialogrutan, ange ett namn för principen och välj sedan den **Använd principen konfigurationsguiden** markerar du kryssrutan. Välj **OK**.
 
-    ![NetBackup Administrationskonsolen, lägga till en ny princip dialogruta](./media/storsimple-configure-backup-target-using-netbackup/nbimage7.png)
+   ![NetBackup Administrationskonsolen, lägga till en ny princip dialogruta](./media/storsimple-configure-backup-target-using-netbackup/nbimage7.png)
 
-3.  I princip guiden Konfigurera säkerhetskopiering, väljer du den typ av säkerhetskopiering och väljer sedan **nästa**.
+3. I princip guiden Konfigurera säkerhetskopiering, väljer du den typ av säkerhetskopiering och väljer sedan **nästa**.
 
-    ![Välj typ av säkerhetskopiering-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage8.png)
+   ![Välj typ av säkerhetskopiering-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage8.png)
 
-4.  Om du vill ange Principtyp, Välj **Standard**, och välj sedan **nästa**.
+4. Om du vill ange Principtyp, Välj **Standard**, och välj sedan **nästa**.
 
-    ![Välj Principtyp-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
+   ![Välj Principtyp-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
 
-5.  Välj värden, Välj den **identifierar klientens operativsystem** kryssrutan och välj sedan **Lägg till**. Välj **Nästa**.
+5. Välj värden, Välj den **identifierar klientens operativsystem** kryssrutan och välj sedan **Lägg till**. Välj **Nästa**.
 
-    ![Lista över klienter i en ny princip-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
+   ![Lista över klienter i en ny princip-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
 
-6.  Välj de enheter du vill säkerhetskopiera.
+6. Välj de enheter du vill säkerhetskopiera.
 
-    ![Säkerhetskopiering val för en ny princip-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage11.png)
+   ![Säkerhetskopiering val för en ny princip-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage11.png)
 
-7.  Välj de värden för frekvens och kvarhållning som uppfyller dina krav på säkerhetskopieringsrotation.
+7. Välj de värden för frekvens och kvarhållning som uppfyller dina krav på säkerhetskopieringsrotation.
 
-    ![NetBackup Administrationskonsolen, säkerhetskopieringsfrekvens och rotation för en ny princip](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
+   ![NetBackup Administrationskonsolen, säkerhetskopieringsfrekvens och rotation för en ny princip](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
-8.  Välj **nästa** > **nästa** > **Slutför**.  Du kan ändra schemat när principen har skapats.
+8. Välj **nästa** > **nästa** > **Slutför**.  Du kan ändra schemat när principen har skapats.
 
-9.  Välj för att expandera den princip som du precis skapade och välj **scheman**.
+9. Välj för att expandera den princip som du precis skapade och välj **scheman**.
 
-    ![Scheman för en ny princip-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage13.png)
+   ![Scheman för en ny princip-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage13.png)
 
-10.  Högerklicka på **differentiell Inc**väljer **kopiera till nya**, och välj sedan **OK**.
+10. Högerklicka på **differentiell Inc**väljer **kopiera till nya**, och välj sedan **OK**.
 
     ![Schemat för en ny princip-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage14.png)
 
-11.  Högerklicka på det nyligen skapade schemat och välj sedan **ändra**.
+11. Högerklicka på det nyligen skapade schemat och välj sedan **ändra**.
 
-12.  På den **attribut** fliken den **åsidosätta principen val av mållagring** kryssrutan och sedan väljer du den volym där måndag inkrementella säkerhetskopieringar går.
+12. På den **attribut** fliken den **åsidosätta principen val av mållagring** kryssrutan och sedan väljer du den volym där måndag inkrementella säkerhetskopieringar går.
 
     ![Ändra schema-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage15.png)
 
-13.  På den **starta fönstret** väljer du tidsperioden för säkerhetskopiorna.
+13. På den **starta fönstret** väljer du tidsperioden för säkerhetskopiorna.
 
     ![Starta ändringsfönster-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage16.png)
 
-14.  Välj **OK**.
+14. Välj **OK**.
 
-15.  Upprepa steg 10 – 14 för varje inkrementell säkerhetskopiering. Välj lämplig volym och schemat för varje säkerhetskopiering som du skapar.
+15. Upprepa steg 10 – 14 för varje inkrementell säkerhetskopiering. Välj lämplig volym och schemat för varje säkerhetskopiering som du skapar.
 
-16.  Högerklicka på den **differentiell Inc** schemalägga och tar bort den.
+16. Högerklicka på den **differentiell Inc** schemalägga och tar bort den.
 
-17.  Ändra ditt fullständiga schema så att den uppfyller dina säkerhetskopieringsbehov.
+17. Ändra ditt fullständiga schema så att den uppfyller dina säkerhetskopieringsbehov.
 
     ![Ändra schema för fullständig-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage17.png)
 
-18.  Ändra start-fönstret.
+18. Ändra start-fönstret.
 
     ![NetBackup Administrationskonsolen, ändra fönstret start](./media/storsimple-configure-backup-target-using-netbackup/nbimage18.png)
 
-19.  Sista schemat ser ut så här:
+19. Sista schemat ser ut så här:
 
     ![Sista schema-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage19.png)
 
@@ -400,6 +402,7 @@ I följande tabell visar hur du konfigurerar säkerhetskopieringar att köras p�
 | Månatliga fullständig |StorSimple-disk (långsiktig) | 1 | 12 | 12 |
 | Årlig fullständig |StorSimple-disk (långsiktig) | 1 | 1 | 1 |
 |GFS volymer kravet |  |  |  | 18*|
+
 \* Total kapacitet innehåller 17 TiB av StorSimple-diskar och 1 TiB lokal RAID-volym.
 
 
@@ -412,7 +415,7 @@ I följande tabell visar hur du konfigurerar säkerhetskopieringar att köras p�
 | Vecka 3 | StorSimple veckor 2 – 4 |   |   |   |   |   |
 | Vecka 4 | StorSimple veckor 2 – 4 |   |   |   |   |   |
 | Månadsvis | StorSimple per månad |   |   |   |   |   |
-| Varje år | StorSimple varje år  |   |   |   |   |   |   |
+| Varje år | StorSimple varje år  |   |   |   |   |   |
 
 
 ## <a name="assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Tilldela ett NetBackup arkivering och duplicering jobb StorSimple-volymer
@@ -427,41 +430,41 @@ När du har definierat de inledande diskpooler, måste du definiera tre ytterlig
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Tilldela StorSimple-volymer till ett NetBackup arkivering och duplicering jobb
 
-1.  I administrationskonsolen NetBackup väljer **Storage** > **livscykel-principer för lagring** > **nya Storage livscykelpolicy**.
+1. I administrationskonsolen NetBackup väljer **Storage** > **livscykel-principer för lagring** > **nya Storage livscykelpolicy**.
 
-    ![Livscykelprincipen för nya storage-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
+   ![Livscykelprincipen för nya storage-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
 
-2.  Ange ett namn för ögonblicksbilden och välj sedan **Lägg till**.
+2. Ange ett namn för ögonblicksbilden och välj sedan **Lägg till**.
 
-3.  I den **nya åtgärden** dialogrutan den **egenskaper** fliken för **åtgärden**väljer **Backup**. Välj de värden som du vill använda för **mållagret**, **kvarhållning typ**, och **kvarhållningsperioden**. Välj **OK**.
+3. I den **nya åtgärden** dialogrutan den **egenskaper** fliken för **åtgärden**väljer **Backup**. Välj de värden som du vill använda för **mållagret**, **kvarhållning typ**, och **kvarhållningsperioden**. Välj **OK**.
 
-    ![Nya åtgärden i dialogrutan som visas i administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
+   ![Nya åtgärden i dialogrutan som visas i administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
 
-    Detta definierar den första säkerhetskopieringen och databasen.
+   Detta definierar den första säkerhetskopieringen och databasen.
 
-4.  Välj för att markera den föregående åtgärden och välj sedan **Lägg till**. I den **ändra lagringsåtgärd** dialogrutan väljer du de värden som du vill använda för **mållagret**, **kvarhållning typ**, och **kvarhållningsperioden**.
+4. Välj för att markera den föregående åtgärden och välj sedan **Lägg till**. I den **ändra lagringsåtgärd** dialogrutan väljer du de värden som du vill använda för **mållagret**, **kvarhållning typ**, och **kvarhållningsperioden**.
 
-    ![Åtgärd för lösenordsbyte lagring i dialogrutan som visas i administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage23.png)
+   ![Åtgärd för lösenordsbyte lagring i dialogrutan som visas i administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage23.png)
 
-5.  Välj för att markera den föregående åtgärden och välj sedan **Lägg till**. I den **nya Storage livscykelpolicy** dialogrutan lägger du till månatliga säkerhetskopior för ett år.
+5. Välj för att markera den föregående åtgärden och välj sedan **Lägg till**. I den **nya Storage livscykelpolicy** dialogrutan lägger du till månatliga säkerhetskopior för ett år.
 
-    ![Dialogrutan Ny Storage livscykelpolicy-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage24.png)
+   ![Dialogrutan Ny Storage livscykelpolicy-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage24.png)
 
-6.  Upprepa steg 4 – 5 tills du har skapat omfattande SLP bevarandeprincipen som du behöver.
+6. Upprepa steg 4 – 5 tills du har skapat omfattande SLP bevarandeprincipen som du behöver.
 
-    ![Lägg till principer i dialogrutan Ny Storage livscykelpolicy-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage25.png)
+   ![Lägg till principer i dialogrutan Ny Storage livscykelpolicy-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage25.png)
 
-7.  När du är klar med att definiera bevarandeprincipen SLP, under **princip**, definiera en princip för säkerhetskopiering genom att följa stegen som beskrivs i [tilldela StorSimple-volymer till ett säkerhetskopieringsjobb för NetBackup](#assigning-storsimple-volumes-to-a-netbackup-backup-job).
+7. När du är klar med att definiera bevarandeprincipen SLP, under **princip**, definiera en princip för säkerhetskopiering genom att följa stegen som beskrivs i [tilldela StorSimple-volymer till ett säkerhetskopieringsjobb för NetBackup](#assigning-storsimple-volumes-to-a-netbackup-backup-job).
 
-8.  Under **scheman**i den **Ändra schema** dialogrutan högerklickar du på **fullständig**, och välj sedan **ändra**.
+8. Under **scheman**i den **Ändra schema** dialogrutan högerklickar du på **fullständig**, och välj sedan **ändra**.
 
-    ![Ändra schema i dialogrutan som visas i administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage26.png)
+   ![Ändra schema i dialogrutan som visas i administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage26.png)
 
-9.  Välj den **åsidosätta principen val av mållagring** kryssrutan och välj sedan SLP bevarandeprincipen som du skapade i steg 1 – 6.
+9. Välj den **åsidosätta principen val av mållagring** kryssrutan och välj sedan SLP bevarandeprincipen som du skapade i steg 1 – 6.
 
-    ![Val av mållagring för åsidosättning princip-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage27.png)
+   ![Val av mållagring för åsidosättning princip-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage27.png)
 
-10.  Välj **OK**, och upprepa sedan för schemat för inkrementell säkerhetskopiering.
+10. Välj **OK**, och upprepa sedan för schemat för inkrementell säkerhetskopiering.
 
     ![Ändra schema dialogrutan för inkrementell säkerhetskopiering-administrationskonsolen NetBackup](./media/storsimple-configure-backup-target-using-netbackup/nbimage28.png)
 
@@ -474,6 +477,7 @@ När du har definierat de inledande diskpooler, måste du definiera tre ytterlig
 | Årlig fullständig | 1  | 10 | 10 |
 | GFS krav  |     |     | 38 |
 | Större kvot  | 4  |    | 42 GFS totalkravet |
+
 \* Multiplikatorn som GFS är antalet kopior måste du skydda och bevara så att de uppfyller dina krav för princip för säkerhetskopiering.
 
 ## <a name="storsimple-cloud-snapshots"></a>Ögonblicksbilder av molnet för StorSimple
@@ -503,13 +507,13 @@ I följande avsnitt beskrivs hur du skapar ett kort skript för att starta och t
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Starta eller ta bort en ögonblicksbild i molnet
 
-1.  [Installera Azure PowerShell](/powershell/azure/overview).
+1. [Installera Azure PowerShell](/powershell/azure/overview).
 2. Ladda ned och konfigurera [hantera CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell-skript.
 3. Kör PowerShell som administratör på den server som kör skriptet. Kontrollera att du kört skriptet med `-WhatIf $true` att se vad ändrar skriptet gör. När verifieringen är klar kan du skicka `-WhatIf $false`. Kör i kommandot nedan:
-```powershell
-.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
-```
-4.  Lägg till skript till säkerhetskopieringsjobbet i NetBackup. Gör detta genom att redigera din NetBackup jobbalternativ-före och efter bearbetning kommandon.
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
+4. Lägg till skript till säkerhetskopieringsjobbet i NetBackup. Gör detta genom att redigera din NetBackup jobbalternativ-före och efter bearbetning kommandon.
 
 > [!NOTE]
 > Vi rekommenderar att du kör din StorSimple cloud ögonblicksbild säkerhetskopieringsprincip som en efterbearbetning skriptet i slutet av det dagliga säkerhetskopieringsjobbet. Mer information om hur du säkerhetskopierar och återställer miljön säkerhetskopieringsprogrammet för att hjälpa dig att uppnå dina RPO och RTO i med din säkerhetskopiering architect.

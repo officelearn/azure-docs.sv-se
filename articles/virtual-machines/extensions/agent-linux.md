@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c19d32f6c6f491a91ba6c2219be9fd016b5ec34
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1defa08b0eb9ede2adec3b7ac12c873522dd6c37
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243887"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011593"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Förstå och använda Azure Linux Agent
 
@@ -73,18 +73,18 @@ Informationsflödet från plattformen till agenten sker via två kanaler:
 Följande datorer har testats och är kända för att arbeta med Azure Linux Agent:
 
 > [!NOTE]
-> Den här listan kan skilja sig från listan över officiella av operativsystem som stöds på Microsoft Azure-plattformen, enligt nedan: [http://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> Den här listan kan skilja sig från listan över officiella av operativsystem som stöds på Microsoft Azure-plattformen, enligt nedan: [https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
 * CoreOS
-* CentOS 6.3 +
+* CentOS 6.3+
 * Red Hat Enterprise Linux 6.7 +
-* Debian 7.0 +
-* Ubuntu 12.04 +
-* openSUSE 12,3 +
-* SLES 11 SP3 +
-* Oracle Linux 6.4 +
+* Debian 7.0+
+* Ubuntu 12.04+
+* openSUSE 12.3+
+* SLES 11 SP3+
+* Oracle Linux 6.4+
 
 Andra system som stöds:
 
@@ -92,10 +92,10 @@ Andra system som stöds:
 
 Linux-agenten beror på vissa Systempaket för att fungera korrekt:
 
-* Python 2.6 +
+* Python 2.6+
 * OpenSSL 1.0 +
 * OpenSSH 5.3 +
-* Filsystem-verktyg: sfdisk fdisk, mkfs, åtskilda
+* Filesystem utilities: sfdisk, fdisk, mkfs, parted
 * Verktyg för lösenord: chpasswd sudo
 * Verktyg för textbearbetning: sed grep
 * Verktyg: IP-väg
@@ -108,12 +108,12 @@ Finns i dokumentationen i den [Azure Linux Agent lagringsplatsen på GitHub](htt
 
 ## <a name="command-line-options"></a>Kommandoradsalternativ
 ### <a name="flags"></a>Flaggor
-* utförlig: ökar loggfilernas detaljnivå angivna kommandot
-* tvinga: hoppa över interaktiva bekräftelse för vissa kommandon
+* utförlig: Öka loggfilernas detaljnivå angivna kommandot
+* tvinga: Hoppa över interaktiva bekräftelse för vissa kommandon
 
 ### <a name="commands"></a>Kommandon
-* hjälpa: Visar en lista över kommandon som stöds och flaggor.
-* avetablering: försök att rensa systemet och gör den lämplig för reprovisioning. I följande åtgärden tar bort:
+* Hjälp: Visar en lista över kommandon som stöds och flaggor.
+* deprovision: Försök att rensa systemet och gör den lämplig för reprovisioning. I följande åtgärden tar bort:
   
   * Alla SSH-värdnycklar (om Provisioning.RegenerateSshHostKeyPair är ”y” i konfigurationsfilen)
   * Namnserverkonfigurationen i /etc/resolv.conf
@@ -126,11 +126,11 @@ Finns i dokumentationen i den [Azure Linux Agent lagringsplatsen på GitHub](htt
 > 
 > 
 
-* avetablering + användare: utför allt i - avetablering (ovan) och även tar bort det senast etablerade användarkontot (hämtades från /var/lib/waagent) och tillhörande data. Den här parametern är när avetableringsförbättringar en avbildning som tidigare etablering i Azure så att den kan hämtas och återanvändas.
+* deprovision+user: Utför allt i - avetablering (ovan) och även tar bort det senast etablerade användarkontot (hämtades från /var/lib/waagent) och tillhörande data. Den här parametern är när avetableringsförbättringar en avbildning som tidigare etablering i Azure så att den kan hämtas och återanvändas.
 * version: Visar vilken version av waagent
-* serialconsole: konfigurerar GRUB om du vill markera ttyS0 (den första seriella porten) som start-konsol. Detta säkerställer att kernel starttillstånd loggarna skickas till den seriella porten och görs tillgängliga för felsökning.
-* Daemon: kör waagent som en daemon för att hantera interaktion med plattformen. Det här argumentet anges till waagent i skriptet waagent init.
-* Starta: kört waagent bakgrunden
+* serialconsole: Konfigurerar GRUB om du vill markera ttyS0 (den första seriella porten) som start-konsol. Detta säkerställer att kernel starttillstånd loggarna skickas till den seriella porten och görs tillgängliga för felsökning.
+* daemon: Kör waagent som en daemon för att hantera interaktion med plattformen. Det här argumentet anges till waagent i skriptet waagent init.
+* Starta: Kört waagent bakgrunden
 
 ## <a name="configuration"></a>Konfiguration
 En konfigurationsfil (/ etc/waagent.conf) styr åtgärderna för waagent. Nedan visas ett exempel på konfigurationsfil:
@@ -234,7 +234,7 @@ Default: 6
 Algoritm som används av crypt vid generering av lösenords-hash.  
  1 - MD5  
  2a - Blowfish  
- 5 – SHA-256  
+ 5 - SHA-256  
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
@@ -300,14 +300,14 @@ Default: n
 ```
 Om uppsättningen, agenten försöker installera och sedan läsa in en RDMA-kerneldrivrutinen matchar som versionen av den inbyggda programvaran på den underliggande maskinvaran.
 
-**OS. RootDeviceScsiTimeout:**  
+**OS.RootDeviceScsiTimeout:**  
 ```
 Type: Integer  
 Default: 300
 ```
 Den här inställningen konfigurerar SCSI-tidsgräns i sekunder för OS-disk- och enheter. Om det inte har angetts i systemet som standard.
 
-**OS. OpensslPath:**  
+**OS.OpensslPath:**  
 ```
 Type: String  
 Default: None
@@ -330,7 +330,7 @@ Aktivera eller inaktivera automatisk uppdatering för målstatusen bearbetning; 
 
 
 
-## <a name="ubuntu-cloud-images"></a>Ubuntu Molnbilder
+## <a name="ubuntu-cloud-images"></a>Ubuntu Cloud Images
 Ubuntu Molnbilder använda [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) att utföra flera konfigurationsåtgärder som annars skulle hanteras av Azure Linux Agent. Det gäller följande skillnader:
 
 * **Provisioning.Enabled** standardvärdet är ”n” på Ubuntu molnet avbildningar som använder cloud-init för att utföra uppgifter för etablering.

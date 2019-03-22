@@ -16,12 +16,12 @@ ms.date: 12/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d21fe7c70c09ad41faf628db45d82b995c8f2515
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: bd3aac6a7fb0904089f135c9af7b136eda73701f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311448"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835477"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
 Det här avsnittet beskriver kraven och maskinvarukrav för Azure AD Connect.
@@ -50,7 +50,7 @@ Innan du installerar Azure AD Connect, finns det några saker som du behöver.
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect-servern
 * Azure AD Connect kan inte installeras på Small Business Server eller Windows Server Essentials innan 2019 (Windows Server Essentials 2019 stöds). Servern måste använda Windows Server standard- eller bättre.
 * Azure AD Connect-servern måste ha ett fullständigt grafiskt användargränssnitt installerad. Det är **stöds inte** att installera på server core.
-* Azure AD Connect måste installeras på Windows Server 2008 R2 eller senare. Den här servern kan vara en domänkontrollant eller en medlemsserver när med standardinställningar. Om du använder anpassade inställningar, servern kan också vara fristående och behöver inte vara ansluten till en domän.
+* Azure AD Connect måste installeras på Windows Server 2008 R2 eller senare. Den här servern måste vara domänen ansluten och kan vara en domänkontrollant eller en medlemsserver.
 * Om du installerar Azure AD Connect på Windows Server 2008 R2, se till att tillämpa de senaste snabbkorrigeringarna från Windows Update. Installationen kan inte börja med en okorrigerad server.
 * Om du planerar att använda funktionen **Lösenordssynkronisering**, Azure AD Connect-servern måste vara i Windows Server 2008 R2 SP1 eller senare.
 * Om du planerar att använda en **grupphanterat tjänstkonto**, Azure AD Connect-servern måste vara i Windows Server 2012 eller senare.
@@ -64,7 +64,7 @@ Innan du installerar Azure AD Connect, finns det några saker som du behöver.
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server som används av Azure AD Connect
 * Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. En SQL Server 2012 Express LocalDB (ett ljust version av SQL Server Express) installeras som standard. SQL Server Express har en gräns på 10GB storlek som hjälper dig att hantera cirka 100 000 objekt. Om du behöver hantera ett ökat antal katalogobjekt, måste du peka guiden Installera på en annan installation av SQL Server.
 * Om du använder en separat SQL Server gäller dessa krav:
-  * Azure AD Connect stöder alla versioner av Microsoft SQL Server från SQL Server 2008 (med senaste Service Pack) till SQL Server 2017. Microsoft Azure SQL Database är **stöds inte** som en databas.
+  * Azure AD Connect stöder alla versioner av Microsoft SQL Server från 2008 R2 (med senaste Service Pack) till SQL Server 2019. Microsoft Azure SQL Database är **stöds inte** som en databas.
   * Du måste använda en icke skiftlägeskänslig sortering i SQL. Dessa sorteringar identifieras med en \_CI_ i sina namn. Det är **stöds inte** att använda en skiftlägeskänslig sortering, identifieras av \_CS_ i sina namn.
   * Du kan bara ha en Synkroniseringsmotorn per SQL-instans. Det är **stöds inte** att dela en SQL-instans med FIM/MIM-synkronisering, DirSync eller Azure AD Sync.
 
@@ -129,9 +129,9 @@ Azure AD Connect är beroende av Microsoft PowerShell och .NET Framework 4.5.1. 
 
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>Aktivera TLS 1.2 för Azure AD Connect
-Före version 1.1.614.0 använder TLS 1.0 i Azure AD Connect som standard för att kryptera kommunikationen mellan synkronisering engine-server och Azure AD. Du kan ändra detta genom att konfigurera .net-program att använda TLS 1.2 som standard på servern. Mer information om TLS 1.2 finns i [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358).
+Före version 1.1.614.0 använder TLS 1.0 i Azure AD Connect som standard för att kryptera kommunikationen mellan synkronisering engine-server och Azure AD. Du kan ändra detta genom att konfigurera .NET-program att använda TLS 1.2 som standard på servern. Mer information om TLS 1.2 finns i [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358).
 
-1. TLS 1.2 kan inte aktiveras före Windows Server 2008 R2 eller senare. Se till att du har .net 4.5.1 snabbkorrigeringen installeras för ditt operativsystem, se [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). Du kan ha den här snabbkorrigeringen eller en senare version redan installerat på servern.
+1. TLS 1.2 kan inte aktiveras före Windows Server 2008 R2 eller senare. Kontrollera att du har .NET 4.5.1 snabbkorrigering installerad för ditt operativsystem finns i [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). Du kan ha den här snabbkorrigeringen eller en senare version redan installerat på servern.
 2. Om du använder Windows Server 2008 R2 kan du sedan kontrollera att TLS 1.2 är aktiverad. TLS 1.2 måste redan vara aktiverat på servern för Windows Server 2012 och senare versioner.
     ```
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]

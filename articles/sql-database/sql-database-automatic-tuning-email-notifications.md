@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: 8b82955d7a4bdecf71c9cb4545249a423a5b5dd4
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: 0d0452cba099bbc568f2b9e926258eb16060eaf4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57577083"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855928"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-postmeddelanden för automatisk justering
 
@@ -26,6 +26,8 @@ SQL Database justeringsrekommendationer genereras av Azure SQL Database [automat
 SQL Database automatiska justeringsrekommendationer kan visas i den [Azure-portalen](sql-database-advisor-portal.md), hämtades med [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) anropar eller genom att använda [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) och [ PowerShell](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) kommandon. Den här artikeln baseras på att använda ett PowerShell-skript för att hämta automatiska justeringsrekommendationer för.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Automatisera e-postmeddelanden för automatiska justeringsrekommendationer för
 

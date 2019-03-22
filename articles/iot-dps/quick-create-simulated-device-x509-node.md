@@ -10,19 +10,19 @@ services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: aeeab619ac2366796a1039bf85cc71f89a10b83c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: cc0d004a20aa5497c40b07e04e0eeae7758a9826
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158507"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085260"
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad X.509-enhet med Node.js-enhets-SDK för IoT Hub Device Provisioning-tjänsten
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 Dessa steg visar hur du skapar en registreringspost i enhetsetableringstjänsten, simulerar en X.509-enhet på utvecklingsmaskinen, ansluter den simulerade enheten med enhetsetableringstjänsten och registrerar enheten i din IoT Hub med [Azure IoT Hub Node.js-enhets-SDK](https://github.com/Azure/azure-iot-sdk-node).
 
-Om du inte känner till processen för automatisk etablering, bör du också gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal) innan du fortsätter. 
+Om du inte känner till processen för automatisk etablering, bör du även gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). Se också till att slutföra stegen i [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal) innan du fortsätter. 
 
 Azure IoT Device Provisioning Service stöder två typer av registreringar:
 - [Registreringsgrupper](concepts-service.md#enrollment-group): Används för att registrera flera relaterade enheter.
@@ -80,17 +80,17 @@ Du kommer att använda exempelkoden från [Azure IoT SDK för Node.js](https://g
 5. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Välj fliken **Enskilda registreringar** och klicka på knappen **Lägg till enskild registrering** längst upp. 
 
 6. Under panelen **Lägg till registrering** anger du följande information:
-    - Välj **X.509** som identitet för bestyrkande *mekanism*.
-    - Under *Primary certificate .pem or .cer file* (Primär .pem- eller .cer-certifikatfil) klickar du på *Välj en fil* för att välja certifikatfilen **{certificate-name}_cert.pem** som skapades i föregående steg.  
-    - Du kan även ange följande information:
-      - Välj en IoT hub som är länkad till din etableringstjänst.
-      - Ange ett unikt enhets-ID. Se till att undvika känsliga data när du namnger din enhet. 
-      - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
-   - Klicka på knappen **Spara** när det är klart. 
+   - Välj **X.509** som identitet för bestyrkande *mekanism*.
+   - Under *Primary certificate .pem or .cer file* (Primär .pem- eller .cer-certifikatfil) klickar du på *Välj en fil* för att välja certifikatfilen **{certificate-name}_cert.pem** som skapades i föregående steg.  
+   - Du kan även ange följande information:
+     - Välj en IoT hub som är länkad till din etableringstjänst.
+     - Ange ett unikt enhets-ID. Se till att undvika känsliga data när du namnger din enhet. 
+     - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
+     - Klicka på knappen **Spara** när det är klart. 
 
-    [![Lägga till en enskild registrering för X.509-attestering i portalen](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
+     [![Lägga till en enskild registrering för X.509-attestering i portalen](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
 
-    Om registreringen har lyckats visas din X.509-enhet som **{certifikatnamn}** under kolumnen *Registrerings-ID* på fliken *Enskilda registreringar*. Anteckna det här värdet för senare användning.
+     Om registreringen har lyckats visas din X.509-enhet som **{certifikatnamn}** under kolumnen *Registrerings-ID* på fliken *Enskilda registreringar*. Anteckna det här värdet för senare användning.
 
 ## <a name="simulate-the-device"></a>Simulera enheten
 

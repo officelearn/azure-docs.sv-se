@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 6444d2ab5265fffd4e3c956a2eec29437911b0e2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: MT
+ms.openlocfilehash: 73f962cc8e0d4605c0c5f0bace79553033ebe082
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876716"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110910"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Använda versioner för att redigera och testa utan att påverka mellanlagring eller produktion appar
 
@@ -39,7 +39,7 @@ Listan över versioner som visar vilka versioner publiceras, där de publiceras 
      > [!NOTE]
      > Version ID bestå av tecken, siffror eller '.' och får inte vara längre än 10 tecken.
  
- En ny version med det angivna namnet skapas och Ställ in som den aktiva versionen.
+   En ny version med det angivna namnet skapas och Ställ in som den aktiva versionen.
 
 ## <a name="set-active-version"></a>Ange active version
 

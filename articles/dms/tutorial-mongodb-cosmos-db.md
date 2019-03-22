@@ -2,21 +2,21 @@
 title: 'Självstudier: Använda Azure Database Migration Service till att migrera MongoDB till Azure Cosmos DB:s API för MongoDB offline | Microsoft Docs'
 description: Lär dig att migrera från MongoDB lokalt till Azure Cosmos DB:s API för MongoDB offline genom att använda Azure Database Migration Service.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/11/2018
-ms.openlocfilehash: 5fd3200ab787a26b11feb121b5db125e4a79365c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 62acab231455b19d37b0800ead172950b5ee0378
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960393"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176284"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Självstudier: Migrera MongoDB till Azure Cosmos DB:s API för MongoDB offline med DMS
 Du kan använda Azure Database Migration Service till att utföra en offlinemigrering (en gång) av databaser från en lokal instans eller en molninstans av MongoDB till Azure Cosmos DB:s API för MongoDB.
@@ -30,11 +30,20 @@ I den här guiden får du lära dig att:
 
 I den här självstudien migrerar du en datamängd i MongoDB på en virtuell Azure-dator till Azure Cosmos DB:s API för MongoDB med hjälp av Azure Database Migration Service. Om du inte har konfigurerat någon MongoDB-källa, kan du läsa artikeln [Installera och konfigurera MongoDB på en virtuell Windows-dator i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 För att slutföra den här kursen behöver du:
 - [Skapa ett Azure Cosmos DB-API för MongoDB-konto](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
-- Skapa virtuellt nätverk för Azure Database Migration Service genom att använda Azure Resource Manager-distributionsmodellen, som ger plats-till-plats-anslutning för dina lokala källservrar genom att använda [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Kontrollera att dina NSG-regler för Azure Virtual Network (VNET) inte blockerar följande kommunikationsportar: 443, 53, 9354, 445 och 12000. Mer information om trafikfiltrering för Azure VNET NSG finns i artikeln om att [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Skapa ett virtuellt Azure-nätverk för Azure Database Migration Service genom att använda Azure Resource Manager-distributionsmodellen, som ger plats-till-plats-anslutning för dina lokala källservrar genom att använda [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+
+    > [!NOTE]
+    > Under installationen av virtuellt nätverk, om du använder ExpressRoute med nätverks-peering till Microsoft, lägger du till följande tjänst [slutpunkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) till undernätet där tjänsten ska etableras:
+    > - Mål-database-slutpunkten (till exempel SQL-slutpunkten och Cosmos DB-slutpunkt)
+    > - Slutpunkt för lagring
+    > - Service bus-slutpunkt
+    >
+    > Den här konfigurationen är nödvändigt eftersom Azure Database Migration Service saknar Internetanslutning.
+
+- Kontrollera att dina VNET-regler för nätverkssäkerhetsgruppen inte blockerar följande kommunikationsportar: 443, 53, 9354, 445 och 12000. Mer information om trafikfiltrering för Azure VNET NSG finns i artikeln om att [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Öppna Windows-brandväggen så att Azure Database Migration Service kommer åt MongoDB-källservern, med standardinställningen TCP-port 27017.
 - När du använder en brandväggsinstallation framför dina källdatabaser kanske du måste lägga till brandväggsregler för att tillåta Azure Database Migration Service att komma åt källdatabaserna för migrering.
 

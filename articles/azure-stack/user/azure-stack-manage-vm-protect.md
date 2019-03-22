@@ -15,24 +15,19 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 50b3499a52ac646b6c896dd79b2191651c5b277e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 3/19/2018
+ms.openlocfilehash: de57ebbf0c0c4e8a18c955200d1692ea4ae9afae
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782946"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295019"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Skydda virtuella datorer som distribueras på Azure Stack
 
 Använd den här artikeln som vägledning för att utveckla en plan för att skydda virtuella datorer (VM) som dina användare distribuerar på Azure Stack.
 
-Du behöver implementera en plan för säkerhetskopiering, återställning eller katastrofåterställning för sina data och program för att skydda dig mot dataförlust och oplanerade avbrott. Den här planen kan vara unikt för varje program men följer ett ramverk som upprättats av din organisations omfattande affärskontinuitet och haveriberedskap (BC/DR). En bra utgångspunkt är [designa elastiska program för Azure](https://docs.microsoft.com/azure/architecture/resiliency), som tillhandahåller allmänna mönster och metoder för programmets tillgänglighet och återhämtning.
-
->[!IMPORTANT]
-> Testa din backup- och haveriberedskap planer med jämna mellanrum. Nu måste du så här kontrollerar du att:
-> * Planer arbetet
-> * Prenumerationerna fortfarande uppfyller kraven som de utformades för.
+Du behöver implementera en plan för säkerhetskopiering, återställning eller katastrofåterställning för sina data och program för att skydda dig mot dataförlust och oplanerade avbrott. Den här planen kan vara unikt för varje program men följer ett ramverk som upprättats av din organisations omfattande affärskontinuitet och haveriberedskap (BC/DR). En bra utgångspunkt är [Azure Stack: Överväganden för affärskontinuitet och haveriberedskap](https://aka.ms/azurestackbcdrconsiderationswp).
 
 ## <a name="azure-stack-infrastructure-recovery"></a>Återställning av Azure Stack-infrastruktur
 
@@ -47,6 +42,9 @@ Om Azure Stack-molnet är offline en längre tid eller permanent oåterkalleligt
 * Gör att betjäna begäranden mellan användare och-program
 
 Operatorn i Azure Stack-molnet är ansvarig för att skapa en återställningsplan för de underliggande Azure Stack-infrastruktur och tjänster. Mer information finns i artikeln [fort oåterkallelig dataförlust](https://docs.microsoft.com/azure/azure-stack/azure-stack-backup-recover-data).
+
+## <a name="considerations-for-iaas-vms"></a>Överväganden för virtuella IaaS-datorer
+Operativsystemet installerat i IaaS-VM begränsar vilka produkter som du kan använda för att skydda data som den innehåller. För Windows-baserade virtuella IaaS-datorer, kan du använda Microsoft och partner produkter för att skydda data. För Linux-baserade virtuella IaaS-datorer, är det enda alternativet att använda partnerprodukter. Referera till [det här databladet för alla BC/DR-partner med validerade produkter för Azure Stack](https://aka.ms/azurestackbcdrpartners).
 
 ## <a name="sourcetarget-combinations"></a>Källa/mål kombinationer
 

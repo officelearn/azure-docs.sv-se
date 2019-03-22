@@ -1,19 +1,19 @@
 ---
 title: Starta om Azure Database for PostgreSQL-server med hjälp av Azure portal
-description: Den här artikeln beskrivs hur du kan starta om en Azure Database for PostgreSQL-server med Azure Portal.
+description: Den här artikeln beskrivs hur du kan starta om en Azure Database for PostgreSQL-server med Azure-portalen.
 author: ajlam
 ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 2/7/2019
-ms.openlocfilehash: cc5957da97d9a8801583564bdf51f0483ab8e004
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.date: 3/18/2019
+ms.openlocfilehash: 83947571ed835c53c6cf8da6e73deb8dceabdd62
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865798"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58168783"
 ---
-# <a name="restart-azure-database-for-postgresql-server-using-azure-portal"></a>Starta om Azure Database for PostgreSQL-server med hjälp av Azure portal
+# <a name="restart-azure-database-for-postgresql-server-using-the-azure-portal"></a>Starta om Azure Database for PostgreSQL-server med Azure portal
 Det här avsnittet beskrivs hur du kan starta om en Azure Database for PostgreSQL-server. Du kan behöva starta om servern för underhåll orsaker, vilket medför ett kort avbrott som servern utför åtgärden.
 
 Starta om servern kommer att blockeras om tjänsten är upptagen. Tjänsten kan till exempel behandlar tidigare åtgärden, till exempel skala virtuella kärnor.
@@ -28,7 +28,7 @@ Du behöver följande för att slutföra den här guiden:
 
 Starta följande steg om PostgreSQL-server:
 
-1. Välj din Azure Database for PostgreSQL-server i Azure-portalen.
+1. I den [Azure-portalen](https://portal.azure.com/), Välj din Azure Database for PostgreSQL-server.
 
 2. I verktygsfältet på serverns **översikt** klickar du på **starta om**.
 
@@ -48,4 +48,4 @@ Starta följande steg om PostgreSQL-server:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Snabbstart: Skapa Azure Database for PostgreSQL-server med Azure-portalen](./quickstart-create-server-database-portal.md)
+Lär dig mer om [hur du ställer in parametrarna i Azure Database för PostgreSQL](howto-configure-server-parameters-using-portal.md)

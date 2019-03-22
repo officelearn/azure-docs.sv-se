@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f17a297d3099d51b3a58a6654560a67f9a4192a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: aadb3188969e099a709711ac18916b67c83b5da1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208324"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884446"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>Självstudier: Azure Active Directory-integrering med en Zoho
 
@@ -117,7 +117,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     d. I den **Vidarebefordransstatus** textrutan anger du ett URL:`https://one.zoho.com`
 
-1. Om du vill konfigurera programmet i **SP** initierad läge utföra följande steg:
+1. Om du vill konfigurera programmet i **SP**-initierat läge gör du följande:
 
     I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://accounts.zoho.com/samlauthrequest/<domain_name>?serviceurl=https://one.zoho.com`
      
@@ -223,7 +223,7 @@ Om du vill aktivera Azure AD-användare att logga in på en Zoho, måste de etab
     
     a. I **namn** text, ange namnet på användaren som **Britta simon**.
     
-    b. I textrutan **E-postadress** anger du användarens e-postadress, som **brittasimon@contoso.com**.
+    b. I **e-postadress** text, ange den e-postadressen för användaren som **brittasimon\@contoso.com**.
 
     >[!Note]
     >Välj din verifierade domän i listan för domänen.
@@ -269,7 +269,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

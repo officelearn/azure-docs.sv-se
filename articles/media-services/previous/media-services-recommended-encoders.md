@@ -6,15 +6,15 @@ keywords: kodning; kodare; media
 author: dbgeorge
 manager: johndeu
 ms.author: johndeu
-ms.date: 02/09/2019
+ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 76c5c5d90045e1697f698895e522ffda47d47565
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447729"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295376"
 ---
 # <a name="recommended-on-premises-encoders"></a>Rekommenderade lokala kodare
 När direktsänd strömning med Azure Media Services, kan du ange hur du vill att din kanal tar emot Indataströmmen. Om du vill använda en på lokala kodare med en livekanal med kodning ska kodaren skicka en dataström med hög kvalitet med enkel bithastighet som utdata. Om du vill använda en på lokala kodare med släpp igenom kanal bör kodaren skicka en dataström med multibithastighet som utdata med alla önskade output-egenskaper. Mer information finns i [direktsänd strömning med på lokala kodare](media-services-live-streaming-with-onprem-encoders.md).

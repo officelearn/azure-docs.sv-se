@@ -16,19 +16,19 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce4ad48a81d5f3b3b8574237b8d8685ad9b141ec
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 2f2d9a7c8cfbfc4fb56ff8fba3c65ae9a7925830
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194214"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852979"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: Uppgradera från DirSync
 Azure AD Connect är efterföljaren till DirSync. I det här avsnittet lär du dig hur du kan uppgradera från DirSync på olika sätt. Stegen fungerar inte om du ska uppgradera från en annan version av Azure AD Connect eller från Azure AD Sync.
 
 Innan du börjar installera Azure AD Connect [laddar du ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) och kontrollerar att du uppfyller kraven i [Azure AD Connect: Maskinvara och krav](how-to-connect-install-prerequisites.md). Du bör särskilt läsa om följande, eftersom dessa områden skiljer sig från DirSync:
 
-* Den version av .Net och PowerShell som krävs. Nyare versioner krävs på servern än vad DirSync krävde.
+* Nödvändig version av .NET och PowerShell. Nyare versioner krävs på servern än vad DirSync krävde.
 * Proxyserverkonfigurationen. Om du använder en proxyserver för att nå Internet måste den här inställningen konfigureras innan du uppgraderar. DirSync använde alltid proxyservern som konfigurerats för användaren som installerar den, men Azure AD Connect använder datorinställningar i stället.
 * URL:erna måste vara öppna i proxyservern. För grundläggande scenarier, som också stöds av DirSync, är kraven identiska. Om du vill använda de nya funktionerna som ingår i Azure AD Connect måste några nya URL:er vara öppna.
 
@@ -41,7 +41,7 @@ Om du inte uppgraderar från DirSync, se relaterad dokumentation för andra scen
 Beroende på din aktuella DirSync-distribution finns det olika alternativ för uppgraderingen. Om den förväntade tiden för uppgraderingen är mindre än tre timmar rekommenderar vi att du gör en uppgradering på plats. Om den förväntade tiden för uppgraderingen är mer än tre timmar rekommenderar vi att du gör en parallell distribution på en annan server. Uppskattningsvis tar uppgraderingen mer än tre timmar om du har mer än 50 000 objekt.
 
 | Scenario |
-| --- | --- |
+| --- |
 | [Uppgradering på plats](#in-place-upgrade) |
 | [Parallell distribution](#parallel-deployment) |
 

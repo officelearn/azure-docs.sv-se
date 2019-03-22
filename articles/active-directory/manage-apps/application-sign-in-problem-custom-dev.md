@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea0d49f1495d500347b2c35d8733f66b3c8b4275
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f4365c87f0028fe3a9c4ba35f40599359eb1455f
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182331"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259133"
 ---
 # <a name="problems-signing-in-to-an-custom-developed-application"></a>Problem vid inloggning i ett egenutvecklat program
 
@@ -39,7 +39,7 @@ Det finns flera fel som kan vara orsaken du inte kunna logga in på en app. Den 
 
 [Utvecklarguide för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)<br>
 
-[Medgivande och integrera appar i Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications>)<br>
+[Medgivande och integrera appar i Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
 
 [Medgivande och ge behörighet till för Azure AD v2.0 konvergerat appar](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 

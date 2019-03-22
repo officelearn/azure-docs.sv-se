@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 3f064769728d5d081c4a110e6c981c4b36aad384
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: MT
+ms.openlocfilehash: bc5c4648a5efe53e3aa645bf1d6b121008eb86dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300592"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854933"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Hur du använder hanterade identiteter för App Service och Azure Functions
 
@@ -38,9 +38,9 @@ Skapa en app med en automatiskt genererad identitet kräver ytterligare en egens
 
 ### <a name="using-the-azure-portal"></a>Använda Azure Portal
 
-Om du vill konfigurera en hanterad identitet i portalen måste du först skapa ett program som vanligt och sedan aktivera funktionen.
+För att konfigurera en hanterad identitet i portalen skapar du först ett program som vanligt och aktiverar sedan funktionen.
 
-1. Skapa en app i portalen som vanligt. Navigera till den i portalen.
+1. Skapa en app i portalen som vanligt. Gå till den i portalen.
 
 2. Om du använder en funktionsapp, gå till **plattformsfunktioner**. För andra typer av appar, rulla ned till den **inställningar** i det vänstra navigeringsfönstret.
 
@@ -173,7 +173,7 @@ Du måste först att skapa en resurs för Användartilldelad identitet.
 
 1. Skapa en resurs för användartilldelade hanterad identitet enligt [instruktionerna](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
-2. Skapa en app i portalen som vanligt. Navigera till den i portalen.
+2. Skapa en app i portalen som vanligt. Gå till den i portalen.
 
 3. Om du använder en funktionsapp, gå till **plattformsfunktioner**. För andra typer av appar, rulla ned till den **inställningar** i det vänstra navigeringsfönstret.
 
@@ -350,7 +350,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
-    var options = {
+    let options = {
         uri: `${process.env["MSI_ENDPOINT"]}/?resource=${resource}&api-version=${apiver}`,
         headers: {
             'Secret': process.env["MSI_SECRET"]

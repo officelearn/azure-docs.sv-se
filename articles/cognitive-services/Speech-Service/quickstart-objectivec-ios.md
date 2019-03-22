@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 67acc7a074b26cb7614b5e08d25afd7b7c1caa74
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 2520f05c83cb5b727c8cdae1602b39320de4b99d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958515"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094930"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Snabbstart: Identifiera tal i Objective-C i iOS med hjälp av Speech SDK
 
@@ -23,7 +23,7 @@ ms.locfileid: "56958515"
 
 I den här artikeln lär du dig hur du skapar en iOS-app i Objective-C med hjälp av Cognitive Services Speech-SDK för att transkribera en ljudfil med inspelat tal till text.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Gå igenom den här listan med förhandskrav innan du sätter igång:
 
@@ -75,7 +75,7 @@ Ersätt den automatiskt genererade XML:en med följande kod:
 ## <a name="add-the-sample-code"></a>Lägga till exempelkoden
 
 1. Ladda ned [wav-exempelfilen](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-speech-sdk/f9807b1079f3a85f07cbb6d762c6b5449d536027/samples/cpp/windows/console/samples/whatstheweatherlike.wav) genom att högerklicka på länken och välja **Save target as...** (Spara mål som...). Lägg till wav-filen i projektet som en resurs genom att dra det från ett Finder-fönster till projektvyns rotnivå.
-Klicka på **Finish** (Slutför) i följande dialogruta utan att ändra inställningarna.
+   Klicka på **Finish** (Slutför) i följande dialogruta utan att ändra inställningarna.
 1. Ersätt innehållet i den automatiskt genererade `ViewController.m`-filen genom att göra följande:
 
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
@@ -90,12 +90,12 @@ Klicka på **Finish** (Slutför) i följande dialogruta utan att ändra inställ
 ## <a name="building-and-running-the-sample"></a>Skapa och köra exemplet
 
 1. Gör felsökningsresultatet synligt (**View** > **Debug Area** > **Activate Console**) (Visa > Felsökningsområde > Aktivera konsol).
-1. Välj iOS-simulatorn eller en iOS-enhet som är ansluten till utvecklingsdatorn som mål för appen från listan på menyn **Product** -> **Destination** (Produkt > Mål).
+1. Välj den iOS-simulatorn eller en iOS-enhet är ansluten till din utvecklingsdator som mål för appen från listan i den **produkten** -> **mål** menyn.
 1. Skapa och kör exempelkoden i iOS-simulatorn genom att välja **Product** -> **Run** (Produkt > Kör) på menyn eller genom att klicka på **uppspelningsknappen**.
-För närvarande stöder Speech SDK bara 64-bitars iOS-plattformar.
+   För närvarande stöder Speech SDK bara 64-bitars iOS-plattformar.
 1. När du har klickat på knappen ”Recognize (File)” (Identifiera (fil)) i appen bör du se innehållet i ljudfilen ”What's the weather like?” (Vad är det för väder?) på den nedre delen av skärmen.
 
- ![Simulerad iOS-app](media/sdk/qs-objectivec-simulated-app.png)
+   ![Simulerad iOS-app](media/sdk/qs-objectivec-simulated-app.png)
 
 1. När du har klickat på knappen ”Recognize (Microphone)” (Identifiera (mikrofon)) i appen och säger några ord bör du se texten för det du har sagt på den nedre delen av skärmen.
 

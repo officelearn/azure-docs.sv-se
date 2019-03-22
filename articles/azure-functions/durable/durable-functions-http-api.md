@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: c2ffa623ad7a6c6da5b799d2c7d5f35c9f65e503
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 5bd977826f489ca8452432babe6126b8553450fb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215413"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58137716"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API: er i varaktiga funktioner (Azure Functions)
 
@@ -44,13 +44,13 @@ Den [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable
 
 Dessa exempel funktionerna ge följande JSON-data som svar. Datatypen för alla fält är `string`.
 
-| Fält             |Beskrivning                           |
-|-------------------|--------------------------------------|
-| id                |ID för orchestration-instans. |
-| statusQueryGetUri |Status för Webbadressen till orchestration-instans. |
-| sendEventPostUri  |”Rera händelse” Webbadressen till orchestration-instans. |
-| terminatePostUri  |”Avsluta” Webbadressen till orchestration-instans. |
-| rewindPostUri     |”Tillbakaspolning” Webbadressen till orchestration-instans. |
+| Fält                   |Beskrivning                           |
+|-------------------------|--------------------------------------|
+| **`id`**                |ID för orchestration-instans. |
+| **`statusQueryGetUri`** |Status för Webbadressen till orchestration-instans. |
+| **`sendEventPostUri`**  |”Rera händelse” Webbadressen till orchestration-instans. |
+| **`terminatePostUri`**  |”Avsluta” Webbadressen till orchestration-instans. |
+| **`rewindPostUri`**     |”Tillbakaspolning” Webbadressen till orchestration-instans. |
 
 Här är ett exempel på ett svar:
 
@@ -90,19 +90,11 @@ Det här protokollet kan samordna tidskrävande processer med externa klienter e
 
 Alla HTTP APIs som implementeras av tillägget Gör följande parametrar. Datatypen för alla parametrar är `string`.
 
-| Parameter  | Parametertyp  | Beskrivning |
-|------------|-----------------|-------------|
-| instanceId | URL             | ID för orchestration-instans. |
-| taskHub    | Frågesträng    | Namnet på den [uppgift hub](durable-functions-task-hubs.md). Om inte anges, antas hubbnamnet för den aktuella funktionsapp uppgift. |
-| anslutning | Frågesträng    | Den **namn** av anslutningssträngen för lagringskontot. Om inte anges, antas standardanslutningssträngen för funktionsappen. |
-| systemKey  | Frågesträng    | Auktoriseringsnyckeln som krävs för att anropa API: et. |
-| showInput  | Frågesträng    | Valfri parameter; enskild instans-begäran. Om inställd `false`, körningen indata inte tas med i svarets nyttolast.|
-| showHistory| Frågesträng    | Valfri parameter; enskild instans-begäran. Om inställd `true`, orchestration-körningshistorik tas med i svarets nyttolast.|
-| showHistoryOutput| Frågesträng    | Valfri parameter; enskild instans-begäran. Om inställd `true`, aktiviteten matar ut tas med i orchestration-körningshistorik.|
-| createdTimeFrom  | Frågesträng    | Valfri parameter. När du filtrerar listan över returnerade instanser som har skapats på eller efter den givna tidsstämpeln ISO8601.|
-| createdTimeTo    | Frågesträng    | Valfri parameter. När du filtrerar listan över returnerade instanser som har skapats på eller innan den givna tidsstämpeln ISO8601.|
-| runtimeStatus    | Frågesträng    | Valfri parameter. När du filtrerar listan över returnerade instanser baserat på deras Körningsstatus. Listan över möjliga runtime statusvärden finns i den [fråga instanser](durable-functions-instance-management.md) avsnittet. |
-| längst upp    | Frågesträng    | Valfri parameter. När du anger dela resultatet av frågan i sidor och begränsa det maximala antalet resultat per sida. |
+| Parameter        | Parametertyp  | Beskrivning |
+|------------------|-----------------|-------------|
+| **`taskHub`**    | Frågesträng    | Namnet på den [uppgift hub](durable-functions-task-hubs.md). Om inte anges, antas hubbnamnet för den aktuella funktionsapp uppgift. |
+| **`connection`** | Frågesträng    | Den **namn** av anslutningssträngen för lagringskontot. Om inte anges, antas standardanslutningssträngen för funktionsappen. |
+| **`systemKey`**  | Frågesträng    | Auktoriseringsnyckeln som krävs för att anropa API: et. |
 
 `systemKey` är en auktoriseringsnyckeln automatiskt genererade av Azure Functions-värden. Den mer specifikt ger åtkomst till tillägget varaktiga uppgift API: er och kan hanteras på samma sätt som [andra auktorisering nycklar](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Det enklaste sättet att identifiera den `systemKey` värdet är med hjälp av den `CreateCheckStatusResponse` API tidigare nämnts.
 
@@ -114,17 +106,41 @@ Hämtar status för en angiven orchestration-instans.
 
 #### <a name="request"></a>Förfrågan
 
-För Functions 1.0 är format för förfrågan på följande sätt:
+För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
 ```http
-GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}
+GET /admin/extensions/DurableTaskExtension/instances/{instanceId}
+    ?taskHub={taskHub
+    &connection={connectionName}
+    &code={systemKey}
+    &showHistory=[true|false]
+    &showHistoryOutput=[true|false]
+    &showInput=[true|false]
 ```
 
-Functions 2.0-formatet har samma parametrar, men har ett något annorlunda URL-prefix:
+I version 2.x av funktionskörningen URL-format har samma parametrar, men med ett något annorlunda prefix:
 
 ```http
-GET /runtime/webhooks/durabletask/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
+GET /runtime/webhooks/durabletask/instances/{instanceId}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &showHistory=[true|false]
+    &showHistoryOutput=[true|false]
+    &showInput=[true|false]
 ```
+
+Parametrar för detta API innehåller en standarduppsättning som tidigare nämnts samt följande unika parametrar för begäran:
+
+| Fält                   | Parametertyp  | Beskrivning |
+|-------------------------|-----------------|-------------|
+| **`instanceId`**        | URL             | ID för orchestration-instans. |
+| **`showInput`**         | Frågesträng    | Valfri parameter. Om inställd `false`, funktionen indata inte tas med i svarets nyttolast.|
+| **`showHistory`**       | Frågesträng    | Valfri parameter. Om inställd `true`, orchestration-körningshistorik tas med i svarets nyttolast.|
+| **`showHistoryOutput`** | Frågesträng    | Valfri parameter. Om inställd `true`, funktionen matar ut tas med i orchestration-körningshistorik.|
+| **`createdTimeFrom`**   | Frågesträng    | Valfri parameter. När du filtrerar listan över returnerade instanser som har skapats på eller efter den givna tidsstämpeln ISO8601.|
+| **`createdTimeTo`**     | Frågesträng    | Valfri parameter. När du filtrerar listan över returnerade instanser som har skapats från och med den givna tidsstämpeln ISO8601.|
+| **`runtimeStatus`**     | Frågesträng    | Valfri parameter. När du filtrerar listan över returnerade instanser baserat på deras Körningsstatus. Listan över möjliga runtime statusvärden finns i den [fråga instanser](durable-functions-instance-management.md) avsnittet. |
 
 #### <a name="response"></a>Svar
 
@@ -138,15 +154,15 @@ Flera möjliga status code-värden kan returneras.
 
 Svarets nyttolast för den **HTTP 200** och **HTTP 202** fall är en JSON-objekt med följande fält:
 
-| Fält           | Datatyp | Beskrivning |
-|-----------------|-----------|-------------|
-| runtimeStatus   | sträng    | Körningsstatus för instansen. Värden är *kör*, *väntande*, *misslyckades*, *avbruten*, *Uppsagd*, *Slutförts*. |
-| indata           | JSON      | JSON-data som används för att initiera instansen. Det här fältet är `null` om den `showInput` frågesträngparametern anges till `false`.|
-| customStatus    | JSON      | JSON-data som används för anpassad orkestreringsstatus. Det här fältet är `null` om det inte angetts. |
-| utdata          | JSON      | JSON-utdata för instansen. Det här fältet är `null` om instansen inte är i slutfört tillstånd. |
-| createdTime     | sträng    | Den tid då instansen har skapats. Använder ISO 8601 utökade notation. |
-| lastUpdatedTime | sträng    | Den tid då instansen senast sparade. Använder ISO 8601 utökade notation. |
-| historyEvents   | JSON      | En JSON-matris som innehåller orchestration-körningshistorik. Det här fältet är `null` såvida inte den `showHistory` frågesträngparametern anges till `true`. |
+| Fält                 | Datatyp | Beskrivning |
+|-----------------------|-----------|-------------|
+| **`runtimeStatus`**   | sträng    | Körningsstatus för instansen. Värden är *kör*, *väntande*, *misslyckades*, *avbruten*, *Uppsagd*, *Slutförts*. |
+| **`input`**           | JSON      | JSON-data som används för att initiera instansen. Det här fältet är `null` om den `showInput` frågesträngparametern anges till `false`.|
+| **`customStatus`**    | JSON      | JSON-data som används för anpassad orkestreringsstatus. Det här fältet är `null` om det inte angetts. |
+| **`output`**          | JSON      | JSON-utdata för instansen. Det här fältet är `null` om instansen inte är i slutfört tillstånd. |
+| **`createdTime`**     | sträng    | Den tid då instansen har skapats. Använder ISO 8601 utökade notation. |
+| **`lastUpdatedTime`** | sträng    | Den tid då instansen senast sparade. Använder ISO 8601 utökade notation. |
+| **`historyEvents`**   | JSON      | En JSON-matris som innehåller orchestration-körningshistorik. Det här fältet är `null` såvida inte den `showHistory` frågesträngparametern anges till `true`. |
 
 Här är ett exempel svarsnyttolasten inklusive orchestration historik och aktivitetens utdata från körningen (formaterad för läsbarhet):
 
@@ -207,40 +223,53 @@ Den **HTTP 202** svaret innehåller också en **plats** svarshuvud som refererar
 
 ### <a name="get-all-instances-status"></a>Hämta status för alla instanser
 
-Du kan också fråga status för alla instanser. Ta bort den `instanceId` i 'Hämta status för instans-begäran. Parametrarna är samma som ”Get-instans status”.
+Du kan också fråga status för alla instanser genom att ta bort den `instanceId` i 'Hämta status för instans-begäran. I det här fallet är de grundläggande egenskaperna samma som 'Get instans status'. Parametrar för frågesträngen för att filtrera stöds också.
 
 En sak som att komma ihåg är att `connection` och `code` är valfria. Om du har anonym autentisering om funktionen inte kod krävs.
-Om du inte vill använda en annan blob storage-anslutningssträng än definieras i appinställningen AzureWebJobsStorage kan sedan du ignorera frågesträngparametern för anslutningen.
+Om du inte vill använda en annan lagringsanslutningssträng än definieras i appinställningen AzureWebJobsStorage, kan sedan du ignorera frågesträngparametern för anslutningen.
 
 #### <a name="request"></a>Förfrågan
 
-För Functions 1.0 är format för förfrågan på följande sätt:
+För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
 ```http
-GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+GET /admin/extensions/DurableTaskExtension/instances
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &createdTimeFrom={timestamp}
+    &createdTimeTo={timestamp}
+    &runtimeStatus={runtimeStatus1,runtimeStatus2,...}
+    &showInput=[true|false]
+    &top={integer}
 ```
 
-Functions 2.0-formatet har samma parametrar men ett något annorlunda URL-prefix:
+I version 2.x av funktionskörningen URL-format har samma parametrar, men med ett något annorlunda prefix:
 
 ```http
-GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+GET /runtime/webhooks/durableTask/instances?
+    taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &createdTimeFrom={timestamp}
+    &createdTimeTo={timestamp}
+    &runtimeStatus={runtimeStatus1,runtimeStatus2,...}
+    &showInput=[true|false]
+    &top={integer}
 ```
 
-#### <a name="request-with-filters"></a>Begäran med filter
+Parametrar för detta API innehåller en standarduppsättning som tidigare nämnts samt följande unika parametrar för begäran:
 
-Du kan filtrera begäran.
-
-För Functions 1.0 är format för förfrågan på följande sätt:
-
-```http
-GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}&showInput={showInput}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
-```
-
-Functions 2.0-formatet har samma parametrar men ett något annorlunda URL-prefix:
-
-```http
-GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}&showInput={showInput}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
-```
+| Fält                   | Parametertyp  | Beskrivning |
+|-------------------------|-----------------|-------------|
+| **`instanceId`**        | URL             | ID för orchestration-instans. |
+| **`showInput`**         | Frågesträng    | Valfri parameter. Om inställd `false`, funktionen indata inte tas med i svarets nyttolast.|
+| **`showHistory`**       | Frågesträng    | Valfri parameter. Om inställd `true`, orchestration-körningshistorik tas med i svarets nyttolast.|
+| **`showHistoryOutput`** | Frågesträng    | Valfri parameter. Om inställd `true`, funktionen matar ut tas med i orchestration-körningshistorik.|
+| **`createdTimeFrom`**   | Frågesträng    | Valfri parameter. När du filtrerar listan över returnerade instanser som har skapats på eller efter den givna tidsstämpeln ISO8601.|
+| **`createdTimeTo`**     | Frågesträng    | Valfri parameter. När du filtrerar listan över returnerade instanser som har skapats från och med den givna tidsstämpeln ISO8601.|
+| **`runtimeStatus`**     | Frågesträng    | Valfri parameter. När du filtrerar listan över returnerade instanser baserat på deras Körningsstatus. Listan över möjliga runtime statusvärden finns i den [fråga instanser](durable-functions-instance-management.md) avsnittet. |
+| **`top`**               | Frågesträng    | Valfri parameter. När du begränsar antalet instanser som returneras av frågan. |
 
 #### <a name="response"></a>Svar
 
@@ -299,25 +328,124 @@ Här är ett exempel på svar-nyttolaster som inkluderar orkestreringsstatus (fo
 > Den här åtgärden kan vara väldigt kostsamt när det gäller Azure Storage i/o, om det finns många rader i tabellen instanser. Mer information om instansen tabellen finns i den [prestanda och skalning i varaktiga funktioner (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) dokumentation.
 >
 
-#### <a name="request-with-paging"></a>Begäran med växling
+Om det finns fler resultat returneras ett fortsättningstoken i svarshuvudet.  Namnet på rubriken är `x-ms-continuation-token`.
 
-Du kan ange den `top` parametern att dela upp resultatet av frågan i sidor.
+Om du ställer in fortsättning token värde i nästa rubriken får nästa sida i resultatet. Det här namnet i huvudet för begäran är också `x-ms-continuation-token`.
 
-För Functions 1.0 är format för förfrågan på följande sätt:
+### <a name="purge-single-instance-history"></a>Rensa historiken för enskild instans
+
+Tar bort historik och relaterade artefakter för en angiven orchestration-instans.
+
+#### <a name="request"></a>Förfrågan
+
+För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
 ```http
-GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
+DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}
+    ?taskHub={taskHub}
+    &connection={connection}
+    &code={systemKey}
 ```
 
-Functions 2.0-formatet har samma parametrar men ett något annorlunda URL-prefix:
+I version 2.x av funktionskörningen URL-format har samma parametrar, men med ett något annorlunda prefix:
 
 ```http
-GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
+DELETE /runtime/webhooks/durabletask/instances/{instanceId}
+    ?taskHub={taskHub}
+    &connection={connection}
+    &code={systemKey}
 ```
 
-Om nästa sida finns, returneras ett fortsättningstoken i svarshuvudet.  Namnet på rubriken är `x-ms-continuation-token`.
+Parametrar för detta API innehåller en standarduppsättning som tidigare nämnts samt följande unika parametrar för begäran:
 
-Om du ställer in fortsättning token värde i nästa rubriken får nästa sida.  Den här nyckeln i rubriken i begäran är `x-ms-continuation-token`.
+| Fält             | Parametertyp  | Beskrivning |
+|-------------------|-----------------|-------------|
+| **`instanceId`**  | URL             | ID för orchestration-instans. |
+
+#### <a name="response"></a>Svar
+
+Följande HTTP-status code värden kan returneras.
+
+* **HTTP 200 (OK)**: Instans-historik har tagits bort.
+* **HTTP 404 (hittades inte)**: Den angivna instansen finns inte.
+
+Svarets nyttolast för den **HTTP 200** är ett JSON-objekt med följande fält:
+
+| Fält                  | Datatyp | Beskrivning |
+|------------------------|-----------|-------------|
+| **`instancesDeleted`** | heltal   | Antalet instanser som har tagits bort. För enskild instans, det här värdet alltid vara `1`. |
+
+Här är ett exempel svarsnyttolasten (formaterad för läsbarhet):
+
+```json
+{
+    "instancesDeleted": 1
+}
+```
+
+### <a name="purge-multiple-instance-history"></a>Rensa historiken för flera instanser
+
+Du kan också ta bort historik och relaterade artefakter för flera instanser inom en uppgift hubb genom att ta bort den `{instanceId}` i ”rensa historiken för enskild instans-begäran. För att selektivt Rensa instansen historik, använder du samma filter som beskrivs i ”Hämta status för alla instanser'-begäran.
+
+#### <a name="request"></a>Förfrågan
+
+För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
+
+```http
+DELETE /admin/extensions/DurableTaskExtension/instances
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &createdTimeFrom={timestamp}
+    &createdTimeTo={timestamp}
+    &runtimeStatus={runtimeStatus1,runtimeStatus2,...}
+```
+
+I version 2.x av funktionskörningen URL-format har samma parametrar, men med ett något annorlunda prefix:
+
+```http
+DELETE /runtime/webhooks/durabletask/instances
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &createdTimeFrom={timestamp}
+    &createdTimeTo={timestamp}
+    &runtimeStatus={runtimeStatus1,runtimeStatus2,...}
+```
+
+Parametrar för detta API innehåller en standarduppsättning som tidigare nämnts samt följande unika parametrar för begäran:
+
+| Fält                 | Parametertyp  | Beskrivning |
+|-----------------------|-----------------|-------------|
+| **`createdTimeFrom`** | Frågesträng    | Valfri parameter. När du filtrerar listan över borttagna instanser som har skapats på eller efter den givna tidsstämpeln ISO8601.|
+| **`createdTimeTo`**   | Frågesträng    | Valfri parameter. När du filtrerar listan över borttagna instanser som har skapats från och med den givna tidsstämpeln ISO8601.|
+| **`runtimeStatus`**   | Frågesträng    | Valfri parameter. När du filtrerar listan över borttagna instanser baserat på deras Körningsstatus. Listan över möjliga runtime statusvärden finns i den [fråga instanser](durable-functions-instance-management.md) avsnittet. |
+
+Om inga parametrar har angetts ska alla instanser i hubben aktiviteten rensas.
+
+> [!NOTE]
+> Den här åtgärden kan vara väldigt kostsamt när det gäller i/o för Azure-lagring om det finns mycket av rader i instanser och/eller historik tabeller. Mer information om dessa tabeller finns i den [prestanda och skalning i varaktiga funktioner (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) dokumentation.
+
+#### <a name="response"></a>Svar
+
+Följande HTTP-status code värden kan returneras.
+
+* **HTTP 200 (OK)**: Instans-historik har tagits bort.
+* **HTTP 404 (hittades inte)**: Inga instanser hittades som matchar filtret-uttryck.
+
+Svarets nyttolast för den **HTTP 200** är ett JSON-objekt med följande fält:
+
+| Fält                   | Datatyp | Beskrivning |
+|-------------------------|-----------|-------------|
+| **`instancesDeleted`**  | heltal   | Antalet instanser som har tagits bort. |
+
+Här är ett exempel svarsnyttolasten (formaterad för läsbarhet):
+
+```json
+{
+    "instancesDeleted": 250
+}
+```
 
 ### <a name="raise-event"></a>Generera händelser
 
@@ -325,24 +453,31 @@ Skickar en händelse-meddelande till en orchestration-instans som körs.
 
 #### <a name="request"></a>Förfrågan
 
-För Functions 1.0 är format för förfrågan på följande sätt:
+För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
 ```http
-POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
+POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
 ```
 
-Functions 2.0-formatet har samma parametrar, men har ett något annorlunda URL-prefix:
+I version 2.x av funktionskörningen URL-format har samma parametrar, men med ett något annorlunda prefix:
 
 ```http
-POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
+POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
 ```
 
 Parametrar för detta API innehåller en standarduppsättning som tidigare nämnts samt följande unika parametrar för begäran:
 
-| Fält       | Parametertyp  | Data tType | Beskrivning |
-|-------------|-----------------|-----------|-------------|
-| EventName   | URL             | sträng    | Namnet på den händelse som orchestration målinstansen väntar på. |
-| {innehåll}   | Begära innehåll | JSON      | JSON-formaterad händelsenyttolast. |
+| Fält             | Parametertyp  | Beskrivning |
+|-------------------|-----------------|-------------|
+| **`instanceId`**  | URL             | ID för orchestration-instans. |
+| **`eventName`**   | URL             | Namnet på den händelse som orchestration målinstansen väntar på. |
+| **`{content}`**   | Begära innehåll | JSON-formaterad händelsenyttolast. |
 
 #### <a name="response"></a>Svar
 
@@ -355,7 +490,7 @@ Flera möjliga status code-värden kan returneras.
 
 Här är en exempelbegäran som skickar JSON-sträng `"incr"` till en instans som väntar på en händelse med namnet **åtgärden**:
 
-```
+```http
 POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 Content-Type: application/json
 Content-Length: 6
@@ -371,23 +506,32 @@ Avbryter en orchestration-instans som körs.
 
 #### <a name="request"></a>Förfrågan
 
-För Functions 1.0 är format för förfrågan på följande sätt:
+För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
 ```http
-POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &reason={text}
 ```
 
-Functions 2.0-formatet har samma parametrar, men har ett något annorlunda URL-prefix:
+I version 2.x av funktionskörningen URL-format har samma parametrar, men med ett något annorlunda prefix:
 
 ```http
-POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &reason={text}
 ```
 
 Begära parametrar för detta API innehåller en standarduppsättning som tidigare nämnts samt följande unika parameter.
 
-| Fält       | Parametertyp  | Datatyp | Beskrivning |
-|-------------|-----------------|-----------|-------------|
-| orsak      | Frågesträng    | sträng    | Valfri. Orsak för att avsluta orchestration-instans. |
+| Fält             | Parametertyp  | Beskrivning |
+|-------------------|-----------------|-------------|
+| **`instanceId`**  | URL             | ID för orchestration-instans. |
+| **`reason`**      | Frågesträng    | Valfri. Orsak för att avsluta orchestration-instans. |
 
 #### <a name="response"></a>Svar
 
@@ -411,23 +555,32 @@ Svar för detta API innehåller inte något innehåll.
 
 ### <a name="request"></a>Förfrågan
 
-För Functions 1.0 är format för förfrågan på följande sätt:
+För version 1.x av funktionskörningen begäran är formaterad på följande sätt (flera rader visas för tydlighetens skull):
 
 ```http
-POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/rewind?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/rewind
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &reason={text}
 ```
 
-Functions 2.0-formatet har samma parametrar, men har ett något annorlunda URL-prefix:
+I version 2.x av funktionskörningen URL-format har samma parametrar, men med ett något annorlunda prefix:
 
 ```http
-POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &reason={text}
 ```
 
 Begära parametrar för detta API innehåller en standarduppsättning som tidigare nämnts samt följande unika parameter.
 
-| Fält       | Parametertyp  | Datatyp | Beskrivning |
-|-------------|-----------------|-----------|-------------|
-| orsak      | Frågesträng    | sträng    | Valfri. Orsaken till spola tillbaka orchestration-instans. |
+| Fält             | Parametertyp  | Beskrivning |
+|-------------------|-----------------|-------------|
+| **`instanceId`**  | URL             | ID för orchestration-instans. |
+| **`reason`**      | Frågesträng    | Valfri. Orsaken till spola tillbaka orchestration-instans. |
 
 ### <a name="response"></a>Svar
 
@@ -439,7 +592,7 @@ Flera möjliga status code-värden kan returneras.
 
 Här är en exempelbegäran som Spolar tillbaka en instans som misslyckats och anger en anledning för **fast**:
 
-```
+```http
 POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/rewind?reason=fixed&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 ```
 

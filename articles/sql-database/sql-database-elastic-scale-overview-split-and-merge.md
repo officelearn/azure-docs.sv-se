@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 195b513d7cc878045449ed137a2ea72f291a9f6e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: 2127c05d7e52b0103d91ecfac4fb5977a4815f31
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308167"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901941"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Flytta data mellan utskalade molndatabaser
 
@@ -29,7 +29,7 @@ Dela / sammanslå verktyget körs som en Azure-webbtjänst. En administratör el
 
 ## <a name="download"></a>Ladda ned
 
-[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
+[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
 ## <a name="documentation"></a>Dokumentation
 
@@ -136,7 +136,7 @@ Dela / sammanslå service-paketet innehåller en arbetsroll och en webbroll. Web
 
 - **Fragmentkartan**
 
- Nästa avsnitt av parametrarna som innehåller information om fragmentkartan och databasen som är värd för din fragmentkartan. I synnerhet måste du ange namnet på Azure SQL Database-servern och databasen som är värd shardmap, autentiseringsuppgifter för att ansluta till fragment kartan databasen och slutligen på namnet på fragmentkartan. Åtgärden accepterar för närvarande endast en enda uppsättning autentiseringsuppgifter. Dessa autentiseringsuppgifter måste ha tillräcklig behörighet för att utföra ändringar i fragmentkartan samt att användardata på shards.
+  Nästa avsnitt av parametrarna som innehåller information om fragmentkartan och databasen som är värd för din fragmentkartan. I synnerhet måste du ange namnet på Azure SQL Database-servern och databasen som är värd shardmap, autentiseringsuppgifter för att ansluta till fragment kartan databasen och slutligen på namnet på fragmentkartan. Åtgärden accepterar för närvarande endast en enda uppsättning autentiseringsuppgifter. Dessa autentiseringsuppgifter måste ha tillräcklig behörighet för att utföra ändringar i fragmentkartan samt att användardata på shards.
 
 - **Käll-intervall (dela och slå samman)**
 
@@ -217,6 +217,8 @@ Dela / sammanslå-tjänsten använder Azure Diagnostics baserat på Azure SDK 2.
 ## <a name="deploy-diagnostics"></a>Distribuera diagnostik
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
 
 Om du vill aktivera övervakning och diagnostik med diagnostik-konfiguration för webb- och worker-roller som tillhandahålls av NuGet-paketet, kör du följande kommandon med hjälp av Azure PowerShell:
 

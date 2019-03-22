@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: c5ae3523da6da3286a65328cf302c5b211987d6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c8f7e3cd6a2b4b6105547d7a4429803a00f6999f
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895243"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285521"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Konfigurera en CI/CD-pipeline med Azure Cosmos DB-emulatorns build-uppgift i Azure DevOps
 
@@ -39,7 +39,7 @@ Välj sedan den organisation där du vill installera tillägget.
 
 Nu när tillägget har installerats loggar du på ditt Azure DevOps-konto och hitta ditt projekt i projektinstrumentpanelen. Du kan lägga till en [bygg-pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) i projektet eller ändrar en befintlig bygg-pipeline. Om du redan har en bygg-pipeline kan du gå vidare till [Lägga till emulatorns build-uppgift i en build-definition](#addEmulatorBuildTaskToBuildDefinition).
 
-1. Du kan skapa en ny build-definition genom att gå till fliken **Build** (Bygg) i Azure DevOps. Välj **+New** (Ny)  >  **Ny bygg-pipeline**
+1. Du kan skapa en ny build-definition genom att gå till fliken **Build** (Bygg) i Azure DevOps. Välj **+New** (Ny)  \> **Skapa ny pipeline**
 
    ![Skapa en ny bygg-pipeline](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 

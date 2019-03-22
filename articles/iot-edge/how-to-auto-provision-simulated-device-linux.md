@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a1dba3b497807841f9b86d685f5bb560ebdd9316
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9a549221a9e1864e1b7565f35139cb4c2a6ca65e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532433"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093134"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Skapa och etablera en IoT Edge-enhet med en virtuell TPM på en Linux-dator
 
@@ -234,17 +234,17 @@ Du kan ge TPM-åtkomst till IoT Edge-körningen genom att åsidosätta systemd i
 
 11. Kontrollera att åsidosättningen har lyckats.
 
-   ```bash
-   sudo systemctl cat iotedge.service
-   ```
+    ```bash
+    sudo systemctl cat iotedge.service
+    ```
 
-   Lyckad utdata visar den **iotedge** standard service variabler och visar sedan miljövariabeln att du ställer in **override.conf**. 
+    Lyckad utdata visar den **iotedge** standard service variabler och visar sedan miljövariabeln att du ställer in **override.conf**. 
 
 12. Läsa in inställningarna.
 
-   ```bash
-   sudo systemctl daemon-reload
-   ```
+    ```bash
+    sudo systemctl daemon-reload
+    ```
 
 ## <a name="restart-the-iot-edge-runtime"></a>Starta om IoT Edge-körningen
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: f56b4f07b7155d9f465a6ce492b4718d4a66e76e
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959331"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013312"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Varna och övervaka datafabriker med hjälp av Azure Monitor
 Molnprogram är komplexa med alla rörliga delar. Övervakning ger data så att ditt program fungerar och körs i ett felfritt tillstånd. Det hjälper dig också att stave potentiella problem eller felsöka tidigare sådana. Du kan dessutom använda övervakningsdata för att få djupa insikter om ditt program. Den här kunskapen kan hjälpa dig att förbättra programmets prestanda och underhåll eller automatisera åtgärder som annars skulle kräva manuella åtgärder.
@@ -277,7 +277,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Nivå |String | Nivån på diagnostikloggarna. Nivå 4 är alltid fallet för aktivitetskörning loggar. | `4`  |
 | correlationId |String | Unikt ID för att spåra en viss begäran slutpunkt till slutpunkt | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Tid för händelse i tiden, UTC-format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | String | Tid för händelse i tiden, UTC-format `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| String| ID för aktiviteten kör | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |pipelineRunId| String| ID för pipelinekörningen | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |resourceId| String | Tillhörande resurs-ID för data factory-resursen | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -288,7 +288,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |activityName| String | Namn på aktiviteten | `MyActivity` |
 |start| String | Början av den aktivitet som körs i tiden, UTC-format | `2017-06-26T20:55:29.5007959Z`|
 |slut| String | Slutet av den aktivitet som körs i tiden, UTC-format. Om aktiviteten inte har avslutats ännu (Diagnostisk loggning för att starta en aktivitet), används värdet `1601-01-01T00:00:00Z` har angetts.  | `2017-06-26T20:55:29.5007959Z` |
-
 
 ### <a name="pipeline-run-logs-attributes"></a>Pipeline-körning loggar attribut
 
@@ -324,7 +323,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Nivå |String | Nivån på diagnostikloggarna. Nivå 4 gäller för aktivitetskörning loggar. | `4`  |
 | correlationId |String | Unikt ID för att spåra en viss begäran slutpunkt till slutpunkt | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Tid för händelse i tiden, UTC-format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | String | Tid för händelse i tiden, UTC-format `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| String| ID för pipelinekörningen | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |resourceId| String | Tillhörande resurs-ID för data factory-resursen | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| String | Kategori för diagnostikloggar. Ange den här egenskapen till ”PipelineRuns” | `PipelineRuns` |
@@ -334,7 +333,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| String | Början av den aktivitet som körs i tiden, UTC-format | `2017-06-26T20:55:29.5007959Z`|
 |slut| String | Slutet av aktiviteten körs i tiden, UTC-format. Om aktiviteten inte har avslutats ännu (Diagnostisk loggning för att starta en aktivitet), används värdet `1601-01-01T00:00:00Z` har angetts.  | `2017-06-26T20:55:29.5007959Z` |
 |status| String | Slutlig status för pipelinekörningen (lyckades eller misslyckades) | `Succeeded`|
-
 
 ### <a name="trigger-run-logs-attributes"></a>Utlösarkörning loggar attribut
 
@@ -369,7 +367,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Nivå |String | Nivån på diagnostikloggarna. Inställd på nivå 4 för aktivitetskörning loggar. | `4`  |
 | correlationId |String | Unikt ID för att spåra en viss begäran slutpunkt till slutpunkt | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Tid för händelse i tiden, UTC-format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | String | Tid för händelse i tiden, UTC-format `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| String| ID för utlösaren kör | `08587023010602533858661257311` |
 |resourceId| String | Tillhörande resurs-ID för data factory-resursen | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| String | Kategori för diagnostikloggar. Ange den här egenskapen till ”PipelineRuns” | `PipelineRuns` |

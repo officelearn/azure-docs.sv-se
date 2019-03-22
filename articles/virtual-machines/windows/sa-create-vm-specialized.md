@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 62d8236abb2b5f21bdb4111480d95376faa2e379
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 90d1d752481ada33c038ab563f6bd0d3bf5fad08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432608"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086810"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Skapa en virtuell dator från en specialiserad virtuell Hårddisk i ett lagringskonto
 
@@ -212,10 +212,10 @@ Skapa vNet och undernät för den [virtuellt nätverk](../../virtual-network/vir
     $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
-### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Skapa nätverkssäkerhetsgruppen och en regel för RDP
-Du måste ha en säkerhetsregel som tillåter RDP-åtkomst på port 3389 för att kunna logga in på den virtuella datorn med RDP. Eftersom den virtuella Hårddisken för den nya virtuella datorn har skapats från en befintlig kan specialiserad virtuell dator, när den virtuella datorn skapas du använda ett befintligt konto från den virtuella källdatorn som har behörighet att logga in med RDP.
-Det här måste slutföras innan du skapar nätverksgränssnitt som det ska kopplas.  
-Det här exemplet anges NSG-namnet **myNsg** och Regelnamnet RDP till **myRdpRule**.
+   ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Skapa nätverkssäkerhetsgruppen och en regel för RDP
+   Du måste ha en säkerhetsregel som tillåter RDP-åtkomst på port 3389 för att kunna logga in på den virtuella datorn med RDP. Eftersom den virtuella Hårddisken för den nya virtuella datorn har skapats från en befintlig kan specialiserad virtuell dator, när den virtuella datorn skapas du använda ett befintligt konto från den virtuella källdatorn som har behörighet att logga in med RDP.
+   Det här måste slutföras innan du skapar nätverksgränssnitt som det ska kopplas.  
+   Det här exemplet anges NSG-namnet **myNsg** och Regelnamnet RDP till **myRdpRule**.
 
 ```powershell
 $nsgName = "myNsg"

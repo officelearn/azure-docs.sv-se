@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39a5ef9d929899ac5e66c5a0e342040fc3c5074b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b294163a4486ab1db0590f39ca9235ae46ef1dfe
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194826"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287000"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Snabbstart: Skapa en ny klientorganisation i Azure Active Directory
 Du kan utföra alla administrativa aktiviteter med hjälp av Azure Active Directory (Azure AD)-portalen, inklusive att skapa en ny klient för din organisation. 
@@ -29,7 +29,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 Logga in på din organisations [Azure-portal](https://portal.azure.com/) med ett konto som global administratör.
 
-![Azure Portal-skärmen](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+![Azure portal fönster, där Azure AD](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
 ## <a name="create-a-new-tenant-for-your-organization"></a>Så här skapar du en ny klient för din organisation
 När du har loggat in på Azure-portalen kan du skapa en ny klient för din organisation. Den nya klientorganisationen representerar din organisation och hjälper dig att hantera en specifik instans av Microsoft-molntjänster för dina interna och externa användare.
@@ -60,7 +60,7 @@ Om du inte planerar att fortsätta använda det här programmet kan du ta bort k
 
     Klienten och dess tillhörande information tas bort.
 
-    ![Skapa katalogsida](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    ![Skapa directory-sidan med exempelinformation](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
 ## <a name="next-steps"></a>Nästa steg
 - Information om att ändra eller lägga till fler domännamn finns i [Lägga till ett anpassat domännamn i Azure Active Directory](add-custom-domain.md)

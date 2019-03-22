@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 9f0ccb85fa4b42ef3ca90c6d4ca2d80113b93a0c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3a6fa631fdf3436dc3a76817d2c0043b0407b2ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733707"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121561"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Ge program åtkomst till Azure Stack-resurser genom att skapa tjänstens huvudnamn
 
@@ -56,8 +56,8 @@ Stegen för att tilldela ett huvudnamn för tjänsten till en roll samma för Az
 
 Om Azure Stack använder Azure AD som Identitetslagret, kan du skapa en tjänst huvudnamn med hjälp av samma steg som Azure, med hjälp av Azure-portalen.
 
->[!NOTE]
-Kontrollera att du har den [Azure AD-behörigheter som krävs för](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) innan du börjar skapa ett huvudnamn för tjänsten.
+> [!NOTE]
+> Kontrollera att du har den [Azure AD-behörigheter som krävs för](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) innan du börjar skapa ett huvudnamn för tjänsten.
 
 ### <a name="create-service-principal"></a>Skapa tjänstens huvudnamn
 
@@ -80,8 +80,8 @@ När du loggar in programmässigt kan du använda det ID: T för ditt program oc
 
 4. Tillhandahåll beskrivning av och varaktighet för nyckeln. Välj **Spara** när du är klar.
 
->[!IMPORTANT]
-När du har sparat nyckeln, nyckeln **värdet** visas. Anteckna det här värdet eftersom det går inte att hämta nyckeln senare. Lagra nyckelvärdet där programmet kan hämta det.
+> [!IMPORTANT]
+> När du har sparat nyckeln, nyckeln **värdet** visas. Anteckna det här värdet eftersom det går inte att hämta nyckeln senare. Lagra nyckelvärdet där programmet kan hämta det.
 
 ![Nyckelvärdet varning för sparade nyckeln.](./media/azure-stack-create-service-principals/image15.png)
 
@@ -101,8 +101,8 @@ Mer information om hur du skapar tjänstens huvudnamn finns i [skapa tjänstens 
 
 För att komma åt resurser i din prenumeration, måste du tilldela programmet till en roll. Bestäm vilken roll representerar rätt behörigheter för programmet. Läs om tillgängliga roller i [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md).
 
->[!NOTE]
-Du kan ange en Användarrollens omfång på nivån för en prenumeration, en resursgrupp eller en resurs. Behörigheter ärvs till lägre nivåer av omfång. Till exempel innebär en app med rollen Läsare för en resursgrupp att appen kan läsa någon av resurserna i resursgruppen.
+> [!NOTE]
+> Du kan ange en Användarrollens omfång på nivån för en prenumeration, en resursgrupp eller en resurs. Behörigheter ärvs till lägre nivåer av omfång. Till exempel innebär en app med rollen Läsare för en resursgrupp att appen kan läsa någon av resurserna i resursgruppen.
 
 Använd följande steg som en vägledning för att tilldela en roll till tjänstens huvudnamn.
 

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 5b749a85295e85ecde8d283ca02066a31be33666
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 259787a90b61b171f391dc02276214f17a57d0d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673077"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838824"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Självstudier: Identifiera Azure-tjänstens logotyper i bilder med kameran
 
@@ -30,7 +30,7 @@ De här självstudierna visar hur du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 - Xamarin-arbetsbelastningen för Visual Studio (se [Installera Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
@@ -101,7 +101,6 @@ Nu öppnar du filen *Source\VisualProvision\AppSettings.cs* och fyller i variabl
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
 
-
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
 Appen kräver ett Azure-konto för tjänstens huvudnamn för att distribuera tjänster till din Azure-prenumeration. Med tjänstens huvudnamn kan du delegera specifika behörigheter för en app med rollbaserad åtkomstkontroll. Mer information finns i [guiden för tjänstens huvudnamn](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
@@ -131,6 +130,7 @@ Vid slutförande bör du se följande JSON-utdata, däribland nödvändiga auten
   ...
 }
 ```
+
 Anteckna värdena `clientId` och `tenantId`. Lägg till dem i rätt fält i filen *Source\VisualProvision\AppSettings.cs*.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=8-16)]
@@ -138,9 +138,10 @@ Anteckna värdena `clientId` och `tenantId`. Lägg till dem i rätt fält i file
 ## <a name="run-the-app"></a>Kör appen
 
 Nu har du gett appen åtkomst till:
-* En tränad Custom Vision-modell
-* Tjänsten Visuellt innehåll
-* Ett tjänsthuvudnamn 
+
+- En tränad Custom Vision-modell
+- Tjänsten Visuellt innehåll
+- Ett tjänsthuvudnamn
 
 Följ dessa steg om du vill köra appen:
 
@@ -163,7 +164,6 @@ Följ dessa steg om du vill köra appen:
 
     ![Appskärmen som visar en listruta för mål-Azure-prenumeration](media/azure-logo-tutorial/app-az-subscription.png)
 
-    
 
 1. Kameran på enheten aktiveras. Ta ett foto av en av Azure-tjänstens logotyper som du har tränat. En distributionsfönster uppmanar dig att välja en region och en resursgrupp för de nya tjänsterna (som du skulle göra om du hade distribuerat dem från Azure-portalen). 
 
@@ -171,7 +171,7 @@ Följ dessa steg om du vill köra appen:
 
     ![En appskärm som visar fält för distributionsregion och resursgrupp](media/azure-logo-tutorial/app-deployment-options.png)
 
-## <a name="clean-up-resources"></a>Rensa resurser 
+## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du har följt alla steg i det här scenariot och använt appen för att distribuera Azure-tjänster till ditt konto går du till [Azure-portalen](https://ms.portal.azure.com/). Där avbryter du de tjänster som du inte vill använda.
 

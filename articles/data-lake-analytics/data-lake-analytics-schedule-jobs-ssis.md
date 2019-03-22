@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 7d5630c082c044ac936f555965aec5a2a00f3544
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 5393e202c7b5005552f164c9c6f55da92fc82572
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448728"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104445"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Schemalägga U-SQL-jobb med hjälp av SQL Server Integration Services (SSIS)
 
@@ -93,16 +93,16 @@ I designvyn för SSIS-paket, lägger du till en **systemaktivitet för Azure Dat
     
     Skapa den här filen-anslutningen:
 
-    1. Välj **<New Connection...>** i FileConnection inställningen.
-    2. Ange **användningstyp** till **befintlig fil**, och ange den **filen** till en befintlig fil filsökväg.
+   1. Välj **<New Connection...>** i FileConnection inställningen.
+   2. Ange **användningstyp** till **befintlig fil**, och ange den **filen** till en befintlig fil filsökväg.
 
-        ![Konfigurera Foreach-Loop-behållaren](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
+       ![Konfigurera Foreach-Loop-behållaren](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
-    3. I **anslutning chefer** visa, högerklicka på filen anslutningen skapas just nu och välj **egenskaper**.
+   3. I **anslutning chefer** visa, högerklicka på filen anslutningen skapas just nu och välj **egenskaper**.
 
-    4. I den **egenskaper** fönstret expanderar **uttryck**, och Ställ in **ConnectionString** till den variabel som anges i Foreach-Loop behållare, till exempel `@[User::FileName]`.
+   4. I den **egenskaper** fönstret expanderar **uttryck**, och Ställ in **ConnectionString** till den variabel som anges i Foreach-Loop behållare, till exempel `@[User::FileName]`.
 
-        ![Konfigurera Foreach-Loop-behållaren](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
+       ![Konfigurera Foreach-Loop-behållaren](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-property-for-foreach-loop-container.png)
 
 3. Ange **AzureDataLakeAnalyticsConnection** till Azure Data Lake Analytics-kontot som du vill skicka jobb till. Läs mer om [Anslutningshanteraren för Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017).
 

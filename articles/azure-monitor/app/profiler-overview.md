@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 2a2c2667ae3180fd4f7b114ce6cef05ac7a1080c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c42de8cf189c0ebaf5f13ef5971ad91d14d862fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859733"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850283"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilen produktionsprogram i Azure med Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Aktivera Application Insights Profiler för ditt program
@@ -30,6 +30,7 @@ Profiler fungerar med .NET-program som distribueras på följande Azure-tjänste
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Azure virtuella datorer och VM-skalningsuppsättningar](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [**FÖRHANDSGRANSKA** ASP.NET Core Azure Linux Web Apps](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
 
 Om du har aktiverat Profiler men inte ser spårningar, kontrollera våra [felsökningsguide för](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
 
@@ -93,6 +94,10 @@ Metoder som **SqlCommand.Execute** tyda på att koden väntar en databasåtgärd
 ### <a id="block"></a>Blockerade tid
 
 **BLOCKED_TIME** anger att koden väntar på en annan resurs ska vara tillgängliga. Det kan till exempel vänta för ett synkroniseringsobjekt, för en tråd ska vara tillgängliga eller för att slutföra en begäran.
+
+### <a name="unmanaged-async"></a>Ohanterad asynkron
+
+.NET framework genererar ETW-händelser och skickar ett aktivitets-ID mellan trådar så att asynkrona anrop kan spåras i trådar. Ohanterad kod (intern kod) och vissa äldre format asynkron kod saknar dessa händelser och ett aktivitets-ID, så profiler inte kan avgöra vilken tråd och funktioner som körs i tråden. Detta är märkt ”ohanterade Async' i anropsstacken. Om du har hämtat ETW-fil kan du använda [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) att få överblick över vad som händer.
 
 ### <a id="cpu"></a>CPU-tid
 

@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 3bccf50d9236fb5b51b89f31ffc2ec9b0d2c74cd
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: bf33860b111900fed850158d6b80d5a9d4404893
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727289"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181613"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-go"></a>Snabbstart: Använd Translator Text API för att hämta en lista över språk som stöds med Go
 
 I den här snabbstarten lär du dig hur du gör en GET-begäran som returnerar en lista över språk som stöds med hjälp av Go och Translator Text REST API.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
@@ -29,7 +29,7 @@ För den här snabbstarten krävs:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
-Skapa ett nytt Go-projekt med valfri IDE eller valfritt redigeringsprogram. Kopiera sedan det här kodavsnittet till projektet i en fil med namnet `get-languages.go`.
+Skapa ett nytt Go-projekt med hjälp av din favorit-IDE eller redigerare eller ny mapp på skrivbordet. Kopiera det här kodfragmentet till ditt projekt/mapp i en fil med namnet `get-languages.go`.
 
 ```go
 package main
@@ -135,6 +135,8 @@ Om du vill jämföra din kod med vår finns det fullständiga exemplet på [GitH
 
 ## <a name="sample-response"></a>Exempelsvar
 
+Hitta en landsförkortning på i den här [Språklista](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
+
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 
 ```json
@@ -228,7 +230,7 @@ Utforska Go-paket för API:er för Cognitive Services via [Azure SDK för Go](ht
 > [!div class="nextstepaction"]
 > [Utforska Go-paket på GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 Lär dig att använda Translator Text API för att:
 

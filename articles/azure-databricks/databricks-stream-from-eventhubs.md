@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: 006286b492b7431ca15b8a2dc9ac5b4116f7d1b1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: bc712885169730aa9cbbd8de35b96e645ff1cea2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876286"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087133"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Självstudier: Strömma data i Azure Databricks med Event Hubs
 
@@ -40,7 +40,11 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+> [!Note]
+> Den här självstudien inte kan utföras med hjälp av **Azure kostnadsfria Testprenumerationen**.
+> Om du vill använda ett kostnadsfritt konto för att skapa Azure Databricks-klustret ska du innan du skapar klustret gå till din profil och ändra prenumerationen till **betala per användning**. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar med den här självstudien måste du uppfylla följande krav:
 - Ett Event Hubs-namnområde.
@@ -96,11 +100,11 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
     Godkänn alla övriga standardvärden, förutom följande:
 
-    * Ange ett namn för klustret.
-    * För den här artikeln skapar du ett kluster med körningen **4.0**.
-    * Se till att markera kryssrutan **Avsluta efter \_\_ minuters inaktivitet**. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
+   * Ange ett namn för klustret.
+   * För den här artikeln skapar du ett kluster med körningen **4.0**.
+   * Se till att markera kryssrutan **Avsluta efter \_\_ minuters inaktivitet**. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
 
-    Välj **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
+     Välj **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
 
 ## <a name="create-a-twitter-application"></a>Skapa ett Twitter-program
 
@@ -124,16 +128,16 @@ Spara de värden som du hämtade för Twitter-programmet. Du behöver dem senare
 
 I den här självstudien använder du Twitter-API:er för att skicka tweets till Event Hubs. Du använder också [Apache Spark Event Hubs-anslutningsprogram](https://github.com/Azure/azure-event-hubs-spark) för att läsa och skriva data till Azure Event Hubs. Använd dessa API:er som en del av klustret, lägg till dem som bibliotek i Azure Databricks och koppla dem sedan till ditt Spark-kluster. Följande anvisningar visar hur du lägger till biblioteket i mappen **Delade** på arbetsytan.
 
-1.  I Azure Databricks-arbetsytan väljer du **Arbetsyta** och högerklickar sedan på **Delade**. I snabbmenyn väljer du **Skapa** > **Bibliotek**.
+1. I Azure Databricks-arbetsytan väljer du **Arbetsyta** och högerklickar sedan på **Delade**. I snabbmenyn väljer du **Skapa** > **Bibliotek**.
 
-    ![Dialogrutan Lägg till bibliotek](./media/databricks-stream-from-eventhubs/databricks-add-library-option.png "Dialogrutan Lägg till bibliotek")
+   ![Dialogrutan Lägg till bibliotek](./media/databricks-stream-from-eventhubs/databricks-add-library-option.png "Dialogrutan Lägg till bibliotek")
 
 2. På sidan Nytt bibliotek väljer du som **Källa** **Maven-koordinat**. I **Koordinat** anger du koordinaten för det paket som du vill lägga till. Här är Maven-koordinaterna för de bibliotek som används i självstudien:
 
-    * Spark Event Hubs-anslutningsprogram – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
-    * Twitter-API – `org.twitter4j:twitter4j-core:4.0.6`
+   * Spark Event Hubs-anslutningsprogram – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
+   * Twitter-API – `org.twitter4j:twitter4j-core:4.0.6`
 
-    ![Ange Maven-koordinater](./media/databricks-stream-from-eventhubs/databricks-eventhub-specify-maven-coordinate.png "Ange Maven-koordinater")
+     ![Ange Maven-koordinater](./media/databricks-stream-from-eventhubs/databricks-eventhub-specify-maven-coordinate.png "Ange Maven-koordinater")
 
 3. Välj **Skapa bibliotek**.
 

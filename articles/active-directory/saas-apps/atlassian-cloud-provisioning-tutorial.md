@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2019
 ms.author: v-ant
-ms.openlocfilehash: ca9a569d28e42baafeabc15f49fb7f5206566730
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: ff6a111663df5d7e7f4f517446084ef75b009e59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57572686"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092709"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Atlassians moln för automatisk användaretablering
 
@@ -28,7 +28,7 @@ Målet med den här självstudien är att ange vilka åtgärder som ska utföras
 
 > [!NOTE]
 > Den här självstudien beskrivs en koppling som bygger på Azure AD-användare Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
-
+> 
 > Den här anslutningsappen är för närvarande i offentlig förhandsversion. Läs mer på allmänna Microsoft Azure-villkor för användning av förhandsversionsfunktioner [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -108,9 +108,9 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
 5. Under den **administratörsautentiseringsuppgifter** avsnittet, ange den **klient-URL** och **hemlighet Token** av din Atlassians molnkonto. Exempel på dessa värden är:
 
-    *   I den **klient-URL** fältet, Fyll specifik klient-slutpunkten som du får från Atlassians, enligt beskrivningen i steg 6. Till exempel: **https://api.atlassian.com/scim/directory/{directoryId}**
+   * I den **klient-URL** fältet, Fyll specifik klient-slutpunkten som du får från Atlassians, enligt beskrivningen i steg 6. Till exempel: **https://api.atlassian.com/scim/directory/{directoryId}**
 
-    *   I den **hemlighet Token** fältet, Fyll hemlig token enligt beskrivningen i steg 6.
+   * I den **hemlighet Token** fältet, Fyll hemlig token enligt beskrivningen i steg 6.
 
 6. Gå till [Atlassians organisation Manager](https://admin.atlassian.com) **> Användaretablering** och klicka på **skapa en Token**. Kopiera den **Directory bas-URL** och **ägar-Token** till den **klient-URL** och **hemlighet Token** respektive fält.
 

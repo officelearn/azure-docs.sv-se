@@ -1,6 +1,6 @@
 ---
 title: Övervaka och diagnostisera Windows-containers för Service Fabric i Azure | Microsoft Docs
-description: I den här självstudien får du konfigurera Log Analytics för övervakning och diagnostisering av Windows-containers i Azure Service Fabric.
+description: I den här självstudien konfigurerar du Azure Monitor-loggar för övervakning och diagnostik för Windows-behållare på Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -15,39 +15,41 @@ ms.workload: NA
 ms.date: 06/08/2018
 ms.author: aljo, dekapur
 ms.custom: mvc
-ms.openlocfilehash: f6aa0dcfa4a4f9e2780c8fb886523da347eeaa31
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: HT
+ms.openlocfilehash: 085357e5922378d413dab75e434c932c534e135b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806461"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244245"
 ---
-# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Självstudier: Övervaka Windows-containrar i Service Fabric med hjälp av Log Analytics
+# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Självstudier: Övervaka Windows-behållare i Service Fabric med Azure Monitor-loggar
 
-Det här är del tre i självstudiekursen. Den vägleder dig genom att ställa in Log Analytics för att övervaka Windows-containrar som dirigeras i Service Fabric.
+Detta är del tre i självstudiekursen och vägleder dig genom att ställa in Azure Monitor-loggar för att övervaka Windows-behållare som dirigeras i Service Fabric.
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Konfigurera Log Analytics för Service Fabric-kluster
+> * Konfigurera Azure Monitor-loggar för Service Fabric-kluster
 > * Använda en Log Analytics-arbetsyta till att visa och fråga loggar från containrar och noder
 > * Konfigurera Log Analytics-agenten så att containrar och nodvärden hämtas in
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar de här självstudierna bör du:
 
 * ha ett kluster i Azure, eller [skapa ett via den här självstudiekursen](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 * [Distribuera ett program i containrar till det](service-fabric-host-app-in-a-container.md).
 
-## <a name="setting-up-log-analytics-with-your-cluster-in-the-resource-manager-template"></a>Konfigurera Log Analytics med klustret i Resource Manager-mall
+## <a name="setting-up-azure-monitor-logs-with-your-cluster-in-the-resource-manager-template"></a>Konfigurera Azure Monitor-loggar med klustret i Resource Manager-mall
 
-Om du använde [mallen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure) i den första delen av självstudiekursen bör den omfatta följande tillägg till en allmän Service Fabric Azure Resource Manager-mall. Om du har ett eget kluster som du vill konfigurera för containerövervakning med Log Analytics ska du:
+Om du använde [mallen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure) i den första delen av självstudiekursen bör den omfatta följande tillägg till en allmän Service Fabric Azure Resource Manager-mall. I fallet om du har ett kluster med din egen som du vill konfigurera för behållarövervakning med Azure Monitor-loggar:
 
 * göra följande ändringar i Resource Manager-mallen
 * distribuera med PowerShell för att uppgradera klustret genom att [distribuera mallen](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager ser att resursen finns, så den lanseras som en uppgradering.
 
-### <a name="adding-log-analytics-to-your-cluster-template"></a>Lägga till Log Analytics i klustermallen
+### <a name="adding-azure-monitor-logs-to-your-cluster-template"></a>Lägga till Azure Monitor-loggar i klustermallen
 
 Gör följande ändringar i *template.json*:
 
@@ -186,7 +188,7 @@ Gör följande ändringar i *template.json*:
 
 [Här](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) är en exempelmall (används i del 1 i den här guiden). I den finns alla ändringarna, att referera till vid behov. De här ändringarna lägger till Log Analytics-arbetsytan i resursgruppen. Arbetsytan konfigureras så att den hämtar upp Service Fabric-plattformshändelser från lagringstabeller som har konfigurerats med [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md)-agenten. Log Analytics-agenten (Microsoft Monitoring Agent) har också lagts till i varje nod i klustret som ett tillägg för virtuella datorer. Det innebär att agenten konfigureras automatiskt på varje dator och kopplas till samma arbetsyta när du skalar klustret.
 
-Distribuera mallen med dina ändringar för att uppgradera det aktuella klustret. Du bör se Log Analytics-resurserna i resursgruppen när det här har slutförts. När klustret är klart kan du distribuera ditt containerprogram till det. I nästa steg ställer vi in containerövervakning.
+Distribuera mallen med dina ändringar för att uppgradera det aktuella klustret. Du bör se log analytics-resurser i resursgruppen när den har slutförts. När klustret är klart kan du distribuera ditt containerprogram till det. I nästa steg ställer vi in containerövervakning.
 
 ## <a name="add-the-container-monitoring-solution-to-your-log-analytics-workspace"></a>Lägga till lösning för övervakning av containrar i Log Analytics-arbetsytan
 
@@ -194,7 +196,7 @@ När du vill konfigurera containerlösningen i arbetsytan söker du efter *Lösn
 
 ![Lägga till containerlösning](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-När du tillfrågas om *Log Analytics-arbetsytan* markerar du den arbetsyta som skapades i resursgruppen och klickar på **Skapa**. Det här lägger till en *lösning för övervakning av containrar* på arbetsytan. Det gör automatiskt att Log Analytics-agenten som driftsattes av mallen börjar samla in docker-loggar och statistik. 
+När du tillfrågas om den *Log Analytics-arbetsyta*, Välj den arbetsyta som skapades i resursgruppen och klicka på **skapa**. Det här lägger till en *lösning för övervakning av containrar* på arbetsytan. Det gör automatiskt att Log Analytics-agenten som driftsattes av mallen börjar samla in docker-loggar och statistik. 
 
 Navigera tillbaka till *resursgruppen*. Du bör nu se den nyligen tillagda övervakningslösningen. Om du klickar på den visar landningssidan antalet containeravbildningar som körs.
 
@@ -202,7 +204,7 @@ Navigera tillbaka till *resursgruppen*. Du bör nu se den nyligen tillagda över
 
 ![Landningssida för containerlösning](./media/service-fabric-tutorial-monitoring-wincontainers/solution-landing.png)
 
-När du klickar på **lösningen för övervakning av containrar** dirigeras du till en mer detaljerad instrumentpanel där du kan bläddra igenom flera paneler och köra frågor i Log Analytics.
+När du klickar på den **lösningen för övervakning av behållare** tar dig till en mer detaljerad instrumentpanel där du kan bläddra igenom flera paneler samt köra frågor i Azure Monitor-loggar.
 
 *Observera att från och med september 2017 genomförs några uppdateringar för lösningen. Ignorera eventuella fel om Kubernetes-händelser. Vi arbetar med att integrera flera initierare i samma lösning.*
 
@@ -210,18 +212,18 @@ Eftersom agenten plockar upp dockerloggar är standardinställningen att *stdout
 
 ![Instrumentpanel för containerlösning](./media/service-fabric-tutorial-monitoring-wincontainers/container-metrics.png)
 
-Om du klickar på någon av dessa paneler dirigeras du till Log Analytics-frågan som genererar det visade värdet. Ändra frågan till *\** så att du ser alla olika typer av loggar som hämtas in. Härifrån kan du fråga eller filtrera efter containrarnas prestanda och loggar och titta på händelser för Service Fabric-plattformen. Agenterna avger dessutom ständigt pulsslag från varje nod. Du kan ta en titt på dem och kontrollera att data fortfarande samlas in från alla datorer om klusterkonfigurationen ändras.
+När du klickar på någon av dessa paneler dirigeras du till Kusto-frågan som genererar det visa värdet. Ändra frågan till *\** så att du ser alla olika typer av loggar som hämtas in. Härifrån kan du fråga eller filtrera efter containrarnas prestanda och loggar och titta på händelser för Service Fabric-plattformen. Agenterna avger dessutom ständigt pulsslag från varje nod. Du kan ta en titt på dem och kontrollera att data fortfarande samlas in från alla datorer om klusterkonfigurationen ändras.
 
 ![Containerfråga](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
 
 ## <a name="configure-log-analytics-agent-to-pick-up-performance-counters"></a>Konfigurera Log Analytics-agenten för att hämta prestandaräknare
 
-En annan fördel med att använda Log Analytics-agenten är möjligheten att ändra de prestandaräknare som du hämtar in i Log Analytics UI-miljön. Du slipper att konfigurera Azure-diagnostikagenten och genomföra en uppgradering baserad på resurshanteringsmallen varje gång. För att göra det klickar du på **OMS-arbetsytan** på landningssidan för lösningen för övervakning av containrar (eller Service Fabric).
+En annan fördel med Log Analytics-agenten är möjligheten att ändra de prestandaräknare som du vill hämta via logganalys användargränssnitt, snarare än att behöva konfigurera Azure-diagnostikagenten och genomföra en uppgradering baserad på resurshanteringsmallen varje gång. För att göra det klickar du på **OMS-arbetsytan** på landningssidan för lösningen för övervakning av containrar (eller Service Fabric).
 
 Det leder till Log Analytics-arbetsytan där du kan se dina lösningar, skapa anpassade instrumentpaneler och konfigurera Log Analytics-agenten. 
 * Klicka på **Avancerade inställningar** för att öppna menyn Avancerade inställningar.
 * Klicka på **Anslutna källor** > **Windows-servrar** för att kontrollera att du har *5 anslutna Windows-datorer*.
-* Klicka på **Data** > **Windows-prestandaräknare** för att söka efter och lägga till nya prestandaräknare. Här visas en lista över rekommendationer från Log Analytics för prestandaräknare som du kan samla in samt alternativet att söka efter andra räknare. Kontrollera att räknarna **Processor(_Total)\% Processortid** och **Minne (*) \Tillgängliga megabyte** samlas in.
+* Klicka på **Data** > **Windows-prestandaräknare** för att söka efter och lägga till nya prestandaräknare. Här visas en lista över rekommendationer från Azure Monitor-loggar för prestandaräknare som du kan samla in samt alternativet för att söka efter andra räknare. Kontrollera att räknarna **Processor(_Total)\% Processortid** och **Minne (*) \Tillgängliga megabyte** samlas in.
 
 **Uppdatera** lösningen för övervakning av containrar efter ett par minuter. Du ska nu se information om *Datorprestanda* komma in. Det här hjälper dig att förstå hur dina resurser används. Du kan också använda de här måtten till att fatta rätt beslut om skalning av klustret och för att bekräfta om ett kluster balanserar ut belastningen som förväntat.
 
@@ -234,13 +236,13 @@ Det leder till Log Analytics-arbetsytan där du kan se dina lösningar, skapa an
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Konfigurera Log Analytics för Service Fabric-kluster
+> * Konfigurera Azure Monitor-loggar för Service Fabric-kluster
 > * Använda en Log Analytics-arbetsyta till att visa och fråga loggar från containrar och noder
 > * Konfigurera Log Analytics-agenten så att containrar och nodvärden hämtas in
 
 Nu när du har ställt in övervakning för programmet i containern kan du testa följande:
 
-* Ställ in Log Analytics för ett Linux-kluster, via liknande steg som ovan. Referera till [den här mallen](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) och gör ändringar i Resource Manager-mallen.
-* Konfigurera Log Analytics och ställ in [automatiserade aviseringar](../log-analytics/log-analytics-alerts.md) för att underlätta identifiering och diagnostik.
+* Konfigurera Azure Monitor-loggar för ett Linux-kluster, via liknande steg som ovan. Referera till [den här mallen](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) och gör ändringar i Resource Manager-mallen.
+* Konfigurera Azure Monitor-loggar att ställa in [automatiserade aviseringar](../log-analytics/log-analytics-alerts.md) att underlätta identifiering och diagnostik.
 * Utforska Service Fabric-listan över [rekommenderade prestandaräknare](service-fabric-diagnostics-event-generation-perf.md) för att konfigurera klustren.
-* Bekanta dig med funktionerna [loggsökning och frågor](../log-analytics/log-analytics-log-searches.md) i Log Analytics.
+* Bekanta dig med den [loggsökning och frågor](../log-analytics/log-analytics-log-searches.md) funktioner som erbjuds som en del av Azure Monitor-loggar.

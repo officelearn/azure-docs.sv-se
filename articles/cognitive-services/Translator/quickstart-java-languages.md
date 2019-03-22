@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: 88347076888b68459747757d655759d3f83d19a7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 446f83ecf81d344163deca58ac4aaf8487292ab4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964567"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181052"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Snabbstart: Använd Translator Text API för att hämta en lista över språk som stöds med Java
 
 I den här snabbstarten hämtar du en lista över språk som stöds för översättning, translitterering och ordlistesökningar med hjälp av Translator Text API.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [JDK 7 eller senare](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Gradle](https://gradle.org/install/)
@@ -171,6 +171,8 @@ gradle run
 ```
 
 ## <a name="sample-response"></a>Exempelsvar
+
+Hitta en landsförkortning på i den här [Språklista](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 

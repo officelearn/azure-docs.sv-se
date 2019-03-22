@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 48409fec8a9edd8a56f6e0664e1451e9677c4281
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: e3b0aeeacadc918d9b17e1cd873170c73eced510
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155042"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834769"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Registrera TPM-enhet på IoT Hub Device Provisioning-tjänsten med C#-tjänst-SDK
 
@@ -27,7 +27,7 @@ De här stegen visar hur du programmässigt skapar en enskild registrering för 
 ## <a name="prepare-the-development-environment"></a>Förbereda utvecklingsmiljön
 
 1. Kontrollera att du har [Visual Studio 2017](https://www.visualstudio.com/vs/) installerat på datorn. 
-2. Kontrollera att du har [.Net Core SDK](https://www.microsoft.com/net/download/windows) installerat på datorn. 
+2. Kontrollera att du har den [.NET Core SDK](https://www.microsoft.com/net/download/windows) installerat på datorn. 
 3. Se till att slutföra stegen i [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) (Konfigurera IoT Hub Device Provisioning-tjänsten med Azure-portalen) innan du fortsätter.
 4. (Valfritt) Om du vill registrera en simulerad enhet i slutet av den här snabbstarten ska du följa instruktionerna om att [skapa och etablera en simulerad TPM-enhet med C#-enhets-SDK ](quick-create-simulated-device-tpm-csharp.md) tills du kommer till steget där du får en bekräftelsenyckel för enheten. Anteckna bekräftelsenyckeln, registrerings-ID:t och enhets-ID:t (valfritt). Du behöver dem senare i snabbstarten. **Följ inte stegen för att skapa en enskild registrering med Azure-portalen.**
 

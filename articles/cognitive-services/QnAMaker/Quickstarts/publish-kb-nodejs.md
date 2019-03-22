@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 11/19/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: a469bbebda6928e6882b1943ac6c13330a628f6d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5538253459643400faf01b5999cfaf8780c05d29
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858696"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217962"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-nodejs"></a>Snabbstart: Publicera en kunskapsbas i QnA Maker med Node.js
 
@@ -25,7 +25,7 @@ Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar
 Den här snabbstarten anropar API:er för QnA Maker:
 * [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) (Publicera) – detta API kräver inte någon information i brödtexten för begäran.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Node.js 6+](https://nodejs.org/en/download/)
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Hämta nyckeln genom att välja **Nycklar** under **Resurshantering** på instrumentpanelen. 

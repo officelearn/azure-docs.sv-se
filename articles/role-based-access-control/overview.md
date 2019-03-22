@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2019
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: eb8791a4031eeeeeccddda024514af208ff66251
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: HT
+ms.openlocfilehash: fd5c47bb3c7bc3dfc9c0e140531ff832e7e6ef56
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806584"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011034"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Vad är rollbaserad åtkomstkontroll (RBAC) för Azure-resurser?
 
@@ -76,7 +76,7 @@ Resten av de inbyggda rollerna tillåter hantering av specifika Azure-resurser. 
 
 Azure har infört dataåtgärder (för närvarande i förhandsversion) som gör det möjligt att bevilja åtkomst till data i ett objekt. Till exempel kan en användare med dataläsningsåtkomst till ett lagringskonto läsa blobar eller meddelanden i det lagringskontot. Mer information finns i [Förstå rolldefinitioner för Azure-resurser](role-definitions.md).
 
-### <a name="scope"></a>Omfång
+### <a name="scope"></a>Scope
 
 *Omfång* är den uppsättning resurser som åtkomsten som gäller för. När du tilldelar en roll kan du ytterligare begränsa de åtgärder som tillåts genom att definiera ett omfång. Det här är användbart om du vill göra någon till en [Webbplatsdeltagare](built-in-roles.md#website-contributor) men endast för en resursgrupp.
 
@@ -108,7 +108,10 @@ Så vad händer om du har flera överlappande rolltilldelningar? RBAC är en add
 
 ## <a name="deny-assignments"></a>Avvisa tilldelning
 
-Tidigare var RBAC en tillåt endast-modell med inga nekanden, men nu har RBAC stöd för tilldelningsnekanden begränsad utsträckning. På samma sätt som en rolltilldelning kopplar ett *tilldelningsnekande* en uppsättning nekandeåtgärder till en användare, grupp, tjänstens huvudnamn eller hanterad identitet i ett visst omfång för att neka åtkomst. En rolltilldelning definierar en uppsättning åtgärder som är *tillåtna*, medan en nekandetilldelning definierar en uppsättning åtgärder som *inte är tillåtna*. Med andra ord blockerar tilldelningsnekanden användare från att utföra angivna åtgärder, även om en rolltilldelning ger dem åtkomst. Tilldelningsnekanden åsidosätter rolltilldelningar. För närvarande är tilldelningsnekanden **skrivskyddade** och kan bara konfigureras av Microsoft. Mer information finns i [Förstå nekandetilldelningar för Azure-resurser](deny-assignments.md) och [Visa nekandetilldelningar för Azure-resurser med hjälp av Azure-portalen](deny-assignments-portal.md).
+Tidigare var RBAC en tillåt endast-modell med inga nekanden, men nu har RBAC stöd för tilldelningsnekanden begränsad utsträckning. På samma sätt som en rolltilldelning kopplar ett *tilldelningsnekande* en uppsättning nekandeåtgärder till en användare, grupp, tjänstens huvudnamn eller hanterad identitet i ett visst omfång för att neka åtkomst. En rolltilldelning definierar en uppsättning åtgärder som är *tillåtna*, medan en nekandetilldelning definierar en uppsättning åtgärder som *inte är tillåtna*. Med andra ord blockerar tilldelningsnekanden användare från att utföra angivna åtgärder, även om en rolltilldelning ger dem åtkomst. Tilldelningsnekanden åsidosätter rolltilldelningar. Mer information finns i [Förstå nekandetilldelningar för Azure-resurser](deny-assignments.md) och [Visa nekandetilldelningar för Azure-resurser med hjälp av Azure-portalen](deny-assignments-portal.md).
+
+> [!NOTE]
+> För närvarande det enda sättet som du kan lägga till egna neka tilldelningar är med hjälp av Azure skisser. Mer information finns i [skydda nya resurser med Azure skisser resurslås](../governance/blueprints/tutorials/protect-new-resources.md).
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Hur RBAC avgör om en användare har åtkomst till en resurs
 

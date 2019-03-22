@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 8c27e340-2b25-47b6-bf1f-438be4c14f93
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d5824708f6a99d0222ef5e236758b78a7eedafb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 54690386b3654952cc2292963c9bf01dc65e4315
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882186"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875224"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Självstudier: Azure Active Directory-integrering med Qlik Sense Enterprise
 
@@ -34,7 +34,7 @@ Genom att integrera Qlik Sense Enterprise med Azure AD får du följande fördel
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande saker för att konfigurera Azure AD-integrering med Qlik Sense Enterprise:
 
@@ -53,7 +53,7 @@ För att konfigurera integreringen av Qlik Sense Enterprise med Azure AD behöve
 
 **Utför följande steg för att lägga till Qlik Sense Enterprise från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -108,6 +108,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ql
     a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<Qlik Sense Fully Qualifed Hostname>:4443/azure/hub`
 
     b. I textrutan **Identifierare** anger du en URL med följande mönster:
+
     | |
     |--|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qlikpoc.com`|
@@ -260,14 +261,14 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Qlik Sense Enterprise.
 
@@ -299,7 +300,7 @@ I det här avsnittet skapar du en användare som heter Britta Simon i Qlik Sense
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
 När du klickar på Qlik Sense Enterprise-panelen i åtkomstpanelen bör du automatiskt loggas in på Qlik Sense Enterprise som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

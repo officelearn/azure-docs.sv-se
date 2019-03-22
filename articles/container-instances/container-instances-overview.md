@@ -2,19 +2,19 @@
 title: Vad är Azure Container Instances?
 description: Tjänsten Azure Container Instances är det snabbaste och enklaste sättet att köra isolerade behållare i Azure, utan att behöva hantera virtuella datorer och utan att behöva använda en initierare på högre nivå.
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
 ms.date: 11/30/2018
-ms.author: seanmck
+ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ba454965ff2bb78ebe526e71d9280200b1f4b08b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 8362ae5e9647c023ff950a363f9ba7bfde37fdb6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187202"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863329"
 ---
 # <a name="what-is-azure-container-instances"></a>Vad är Azure Container Instances?
 
@@ -48,9 +48,14 @@ Vi erbjuder direkt [montering av Azure Files-resurser](container-instances-mount
 
 Azure Container Instances kan schemalägga både Windows- och Linux-behållare med samma API. Ange typ av operativsystem när du skapar dina [containergrupper](container-instances-container-groups.md).
 
-Vissa funktioner är för närvarande begränsade till Linux-container. Medan vi arbetar med att förse Windows-behållare med funktionsparitet kan du se de nuvarande skillnaderna mellan plattformarna i informationen om [kvoter och regional tillgänglighet för Azure Container Instances](container-instances-quotas.md).
+Vissa funktioner är för närvarande begränsade till Linux-behållare:
 
-Azure Container Instances stöder Windows-bilder baserat på LTSC-versioner (Long-Term Servicing Channel). SAC-versioner (halvårskanal) för Windows såsom 1709 och 1803 stöds inte.
+* Flera containrar per containergrupp
+* Montera volymen ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [hemlighet](container-instances-volume-secret.md))
+* [Virtual network-distributionen](container-instances-vnet.md) (förhandsversion)
+* [GPU-resurser](container-instances-gpu.md) (förhandsversion)
+
+Azure Container Instances stöder Windows Server 2016 bilder baserat på Long-Term Servicing kanal (LTSC)-versioner. SAC-versioner (halvårskanal) för Windows såsom 1709 och 1803 stöds inte.
 
 ## <a name="co-scheduled-groups"></a>Samordna schemalagda grupper
 

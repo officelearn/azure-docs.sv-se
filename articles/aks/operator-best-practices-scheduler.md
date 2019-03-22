@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: abdce8b63a035fe55f4bd37acc5012237bd499da
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8233330973946e552e36a85a11bdbbfb06c739f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428972"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58178143"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Metodtips för grundläggande scheduler funktioner i Azure Kubernetes Service (AKS)
 
@@ -122,9 +122,9 @@ Läs mer om hur du använder pod avbrott budgetar [anger en avbrott budget för 
 
 ## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Kontrollera regelbundet kluster problem med kube-advisor
 
-**Bästa praxis riktlinjer** -regelbundet kör den senaste versionen av `kube-advisor` att identifiera problem i klustret. Om du använder resurskvoter i ett befintligt AKS-kluster, kör `kube-advisor` först för att hitta poddar som inte har resursbegäranden och gränser som definierats.
+**Bästa praxis riktlinjer** -regelbundet kör den senaste versionen av `kube-advisor` verktyg med öppen källkod att identifiera problem i klustret. Om du använder resurskvoter i ett befintligt AKS-kluster, kör `kube-advisor` först för att hitta poddar som inte har resursbegäranden och gränser som definierats.
 
-Den [kube-advisor] [ kube-advisor] verktyget söker igenom ett Kubernetes-kluster och rapporterar problem som hittas. En användbar check är att identifiera poddar som inte har resursbegäranden och begränsningar på plats.
+Den [kube-advisor] [ kube-advisor] verktyget är ett projekt med associerade AKS öppen källkod som genomsöker ett Kubernetes-kluster och rapporter på problem som hittas. En användbar check är att identifiera poddar som inte har resursbegäranden och begränsningar på plats.
 
 I ett AKS-kluster som är värd för flera utvecklingsteam och program, kan det vara svårt att spåra poddar utan dessa resurs-begäranden och begränsar uppsättningen. Som bästa praxis, regelbundet kör `kube-advisor` på dina AKS-kluster, särskilt om du inte tilldelar resurskvoter till namnområden.
 

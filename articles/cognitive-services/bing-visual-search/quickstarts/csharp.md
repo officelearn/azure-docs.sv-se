@@ -10,22 +10,22 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: d4a1ff43f6165e2620bbc3a5fbbf381ca114062e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7961fb05f7ca9c6e6b61330e7dff53f2d5a41001
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884264"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535322"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Snabbstart: Hämta information om bilder med hjälp av REST API för visuell sökning i Bing och C#
 
 Använd den här snabbstarten för att skicka ditt första anrop till API för visuell sökning i Bing och visa sökresultaten. Det här enkla C#-programmet laddar upp en bild till API:et och visar informationen som returneras om den.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Valfri version av [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
-* Om du använder Linux/Mac OS kan det här programmet köras med [Mono](http://www.mono-project.com/).
+* Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 

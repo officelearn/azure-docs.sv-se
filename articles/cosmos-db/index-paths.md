@@ -1,17 +1,17 @@
 ---
 title: Arbeta med index sökvägar i Azure Cosmos DB
 description: Översikt över index sökvägar i Azure Cosmos DB
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/5/2018
-ms.author: rimman
-ms.openlocfilehash: c22d8d69284c546a4fccc86302672d81ce65b9e8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 3/13/2019
+ms.author: mjbrown
+ms.openlocfilehash: d0fce763822ded374eab2f70c3f319aba0c89267
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54032779"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992823"
 ---
 # <a name="index-paths-in-azure-cosmos-db"></a>Sökvägar för index i Azure Cosmos DB
 
@@ -25,12 +25,12 @@ Här följer vanliga mönster för att ange index sökvägar:
 
 | **Sökväg** | **Beskrivning/användningsfall** |
 | ---------- | ------- |
-| /   | Standardsökvägen för samlingen. Rekursiva och gäller för hela dokumentträdet.|
-| / prop /?  | Index-sökväg som krävs för att leverera frågor som liknar följande (med Hash- eller typer, respektive):<br><br>Välj från samlingen-c WHERE c.prop = ”value”<br><br>Välj från samlingen-c WHERE c.prop > 5<br><br>Välj samling c ORDER BY c.prop  |
-| / prop / *  | Index sökväg för alla sökvägar under den angivna etiketten. Fungerar med följande frågor<br><br>Välj från samlingen-c WHERE c.prop = ”value”<br><br>Välj från samlingen-c WHERE c.prop.subprop > 5<br><br>Välj från samlingen-c WHERE c.prop.subprop.nextprop = ”value”<br><br>Välj samling c ORDER BY c.prop |
-| / sammanställer / [] /?  | Index sökväg krävs för att hantera iteration och delta i frågor mot matriser av skalärer som [”a”, ”b”, ”c”]:<br><br>Välj tagg från taggen i collection.props var taggen = ”value”<br><br>Välj tagg från samlingen c JOIN-tagg i c.props där tagga > 5  |
+| /          | Standardsökvägen för samlingen. Rekursiva och gäller för hela dokumentträdet.|
+| / prop /?    | Index-sökväg som krävs för att leverera frågor som liknar följande (med intervallet typer, respektive): <br><br>Välj från samlingen-c WHERE c.prop = ”value”<br><br>Välj från samlingen-c WHERE c.prop > 5 <br><br>Välj samling c ORDER BY c.prop  |
+| / prop / *    | Index sökväg för alla sökvägar under den angivna etiketten. Fungerar med följande frågor <br><br>Välj från samlingen-c WHERE c.prop = ”value”<br><br>Välj från samlingen-c WHERE c.prop.subprop > 5<br><br>Välj från samlingen-c WHERE c.prop.subprop.nextprop = ”value”<br><br>Välj samling c ORDER BY c.prop |
+| / sammanställer / [] /?| Index sökväg krävs för att hantera iteration och delta i frågor mot matriser av skalärer som [”a”, ”b”, ”c”]:<br><br>Välj tagg från taggen i collection.props var taggen = ”value”<br><br>Välj tagg från samlingen c JOIN-tagg i c.props där tagga > 5 |
 | /Props/ [] /subprop/? | Index sökväg krävs för att hantera iteration och JOIN-frågor mot matriser av objekt som [{subprop: ”a”}, {subprop: ”b”}]:<br><br>Välj tagg från taggen i collection.props var tag.subprop = ”value”<br><br>Välj tagg från samlingen c JOIN-tagg i c.props var tag.subprop = ”value” |
-| / prop/subprop /? | Index-sökväg som krävs för att leverera frågor (med Hash- eller typer, respektive):<br><br>Välj från samlingen-c WHERE c.prop.subprop = ”value”<br><br>Välj från samlingen-c WHERE c.prop.subprop > 5  |
+| / prop/subprop /? | Index-sökväg som krävs för att leverera frågor (med intervallet typer, respektive):<br><br>Välj från samlingen-c WHERE c.prop.subprop = ”value”<br><br>Välj från samlingen-c WHERE c.prop.subprop > 5  |
 
 När du ställer in anpassat index sökvägar, så måste du ange Standardregeln för indexering för hela artikeln, enligt den särskilda sökvägen `/*`.
 

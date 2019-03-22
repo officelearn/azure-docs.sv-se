@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 86976263c54f40c370a2bc8cab426f3e413442f7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 48afb867a5455ffea10f8a74b1fff2c2b7f361ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546266"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849762"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(INAKTUELL) Använda Draft med Azure Container Service och Azure Container Registry för att skapa och distribuera ett program till Kubernetes
 
@@ -106,11 +106,11 @@ Nu när du har ett kluster kan du importera autentiseringsuppgifterna med hjälp
 1. Ladda ned utkast för din miljö på https://github.com/Azure/draft/releases och installerar i SÖKVÄGEN så att kommandot kan användas.
 2. Ladda ned helm för din miljö på https://github.com/kubernetes/helm/releases och [installerar det i SÖKVÄGEN så att kommandot kan användas](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
 3. Konfigurera Draft för att använda ditt register och skapa underdomäner för varje Helm-diagram som skapas. För att konfigurera Draft behöver du:
-  - ditt Azure Container Registry-namn (`draftacsdemo` i det här exemplet)
-  - din registernyckel, eller ditt lösenord, från `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`.
+   - ditt Azure Container Registry-namn (`draftacsdemo` i det här exemplet)
+   - din registernyckel, eller ditt lösenord, från `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`.
 
-  Anropa `draft init` konfigurationsprocessen efterfrågas värdena ovan; Observera att URL-format för register-URL: en är registernamnet (i det här exemplet `draftacsdemo`) plus `.azurecr.io`. Ditt användarnamn är registernamnet på egen hand. Processen ser ut ungefär så här första gången du kör den.
- ```bash
+   Anropa `draft init` konfigurationsprocessen efterfrågas värdena ovan; Observera att URL-format för register-URL: en är registernamnet (i det här exemplet `draftacsdemo`) plus `.azurecr.io`. Ditt användarnamn är registernamnet på egen hand. Processen ser ut ungefär så här första gången du kör den.
+   ```bash
     $ draft init
     Creating /home/ralph/.draft 
     Creating /home/ralph/.draft/plugins 
@@ -132,7 +132,7 @@ Nu när du har ett kluster kan du importera autentiseringsuppgifterna med hjälp
     3. Enter your password: 
     Draft has been installed into your Kubernetes Cluster.
     Happy Sailing!
-```
+   ```
 
 Nu är du redo att distribuera ett program.
 
@@ -224,7 +224,7 @@ Din domänleverantör har ett eget sätt att tilldela DNS-servrar. Gör så här
     ```
 
 2. Skapa en DNS-zon för din domän.
-Använd kommandot [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) för att erhålla namnservrar för att delegera DNS-kontroll till Azure DNS för din domän.
+   Använd kommandot [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) för att erhålla namnservrar för att delegera DNS-kontroll till Azure DNS för din domän.
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {
@@ -247,12 +247,12 @@ Använd kommandot [az network dns zone create](/cli/azure/network/dns/zone#az-ne
     ```
 3. Lägg till DNS-servrarna du får i domänleverantören för din distributionsdomän så att du kan använda Azure DNS för att peka om domänen som du vill. Ditt sätt att göra detta varierar beroende på domänen ange; [Delegera din domän namnservrar till Azure DNS](../../dns/dns-delegate-domain-azure-dns.md) innehåller några av den information som du bör känna till. 
 4. När din domän har delegerats till Azure DNS, skapar du en post i A-postuppsättningen för mappningen av distributionsdomänen till den `ingress` IP från steg 2 i föregående avsnitt.
-  ```azurecli
-  az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*.draft' -g squillace.io -z squillace.io
-  ```
-Utdata ser ut ungefär så här:
-  ```json
-  {
+   ```azurecli
+   az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*.draft' -g squillace.io -z squillace.io
+   ```
+   Utdata ser ut ungefär så här:
+   ```json
+   {
     "arecords": [
       {
         "ipv4Address": "13.64.108.240"
@@ -265,23 +265,23 @@ Utdata ser ut ungefär så här:
     "resourceGroup": "squillace.io",
     "ttl": 3600,
     "type": "Microsoft.Network/dnszones/A"
-  }
-  ```
+   }
+   ```
 5. Installera om **utkast**
 
    1. Ta bort **draftd** från klustret genom att skriva `helm delete --purge draft`. 
    2. Installera om **draft** med hjälp av samma `draft-init` kommandot, men med den `--ingress-enabled` alternativet:
-    ```bash
-    draft init --ingress-enabled
-    ```
-   Svara på frågorna som ovan första gången. Du kan dock en har du fler frågor att svara på, med hjälp av fullständig sökvägen som du har konfigurerat med Azure DNS.
+      ```bash
+      draft init --ingress-enabled
+      ```
+      Svara på frågorna som ovan första gången. Du kan dock en har du fler frågor att svara på, med hjälp av fullständig sökvägen som du har konfigurerat med Azure DNS.
 
 6. Ange din toppnivådomänen för ingångshändelser (t.ex. draft.example.com): draft.squillace.io
 7. När du anropar `draft up` nu, kommer du att kunna se ditt program (eller `curl` den) på URL i formatet `<appname>.draft.<domain>.<top-level-domain>`. Det här exemplet `http://handy-labradoodle.draft.squillace.io`. 
-```bash
-curl -s http://handy-labradoodle.draft.squillace.io
-Hello World, I'm Java!
-```
+   ```bash
+   curl -s http://handy-labradoodle.draft.squillace.io
+   Hello World, I'm Java!
+   ```
 
 
 ## <a name="next-steps"></a>Nästa steg

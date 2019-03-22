@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3f0d7907fa755483ef5a92b3376c18d54467cc7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7dc80b78bbba369e0ddb5c2c1e9fd90834dc0148
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191205"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120422"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Aktivera fjärråtkomst till SharePoint med Azure AD Application Proxy
 
@@ -50,7 +50,7 @@ Använda procedurerna i följande sekventiella avsnitt om du vill konfigurera KC
 Kontrollera först att SharePoint-webbprogrammet körs under ett domänkonto--inte lokalt system, lokal tjänst och nätverkstjänst. Gör så att du kan koppla tjänstens huvudnamn (SPN) till det här kontot. SPN-namn är hur Kerberos-protokollet identifierar olika tjänster. Och du behöver konto senare för att konfigurera KCD.
 
 > [!NOTE]
-Du måste ha ett befintligt Azure AD-konto för tjänsten. Vi rekommenderar att du tillåter för en automatisk ändring av lösenord. Mer information om en fullständig uppsättning steg och felsökning av problem finns i [konfigurera automatisk ändring av lösenord i SharePoint](https://technet.microsoft.com/library/ff724280.aspx).
+> Du måste ha ett befintligt Azure AD-konto för tjänsten. Vi rekommenderar att du tillåter för en automatisk ändring av lösenord. Mer information om en fullständig uppsättning steg och felsökning av problem finns i [konfigurera automatisk ändring av lösenord i SharePoint](https://technet.microsoft.com/library/ff724280.aspx).
 
 För att säkerställa att dina webbplatser körs under ett tjänstkonto som är definierade, utför du följande steg:
 
@@ -58,7 +58,7 @@ För att säkerställa att dina webbplatser körs under ett tjänstkonto som är
 2. Gå till **Security** och välj **Konfigurera tjänstkonton**.
 3. Välj **Web programpoolen - SharePoint – 80**. Alternativen kan vara annorlunda ut baserat på namnet på din webb-pool eller om poolen web använder SSL som standard.
 
-  ![Alternativ för att konfigurera ett tjänstkonto](./media/application-proxy-integrate-with-sharepoint-server/service-web-application.png)
+   ![Alternativ för att konfigurera ett tjänstkonto](./media/application-proxy-integrate-with-sharepoint-server/service-web-application.png)
 
 4. Om **väljer du ett konto för den här komponenten** anges till **lokal tjänst** eller **nätverkstjänst**, måste du skapa ett konto. Om inte, du är klar och gå till nästa avsnitt.
 5. Välj **registrera nytt hanterat konto**. När ditt konto har skapats måste du ange **webbprogrampoolen** innan du kan använda kontot.
@@ -108,7 +108,7 @@ Upprepa följande steg för att konfigurera KCD, för varje connector-datorn:
 6. I listan över SPN-namn, väljer du det konto som du skapade tidigare för tjänstkontot.
 7. Klicka på **OK**. Klicka på **OK** igen för att spara ändringarna.
   
-  ![Delegeringsinställningarna](./media/application-proxy-integrate-with-sharepoint-server/delegation-box2.png)
+   ![Delegeringsinställningarna](./media/application-proxy-integrate-with-sharepoint-server/delegation-box2.png)
 
 ## <a name="step-2-configure-azure-ad-proxy"></a>Steg 2: Konfigurera Azure AD-Proxy
 
@@ -142,18 +142,18 @@ Nästa steg är att utöka SharePoint-webbprogram till en ny zon som konfigurera
 1. Starta den **hanteringsgränssnittet för SharePoint**.
 2. Kör följande skript för att utöka det webbaserade programmet och extranät-zon och aktivera Kerberos-autentisering:
 
-  ```powershell
-  # Replace "http://spsites/" with the URL of your web application
-  # Replace "https://sharepoint-f128.msappproxy.net/" with the External URL in your Azure AD proxy application
-  $winAp = New-SPAuthenticationProvider -UseWindowsIntegratedAuthentication -DisableKerberos:$false
-  Get-SPWebApplication "http://spsites/" | New-SPWebApplicationExtension -Name "SharePoint - AAD Proxy" -SecureSocketsLayer -Zone "Extranet" -Url "https://sharepoint-f128.msappproxy.net/" -AuthenticationProvider $winAp
-  ```
+   ```powershell
+   # Replace "http://spsites/" with the URL of your web application
+   # Replace "https://sharepoint-f128.msappproxy.net/" with the External URL in your Azure AD proxy application
+   $winAp = New-SPAuthenticationProvider -UseWindowsIntegratedAuthentication -DisableKerberos:$false
+   Get-SPWebApplication "http://spsites/" | New-SPWebApplicationExtension -Name "SharePoint - AAD Proxy" -SecureSocketsLayer -Zone "Extranet" -Url "https://sharepoint-f128.msappproxy.net/" -AuthenticationProvider $winAp
+   ```
 
 3. Öppna den **Central Administration av SharePoint** plats.
 4. Under **systeminställningar**väljer **konfigurera alternativa åtkomstmappningar**. Alternativa åtkomstmappningar rutan öppnas.
 5. Välj din webbplats, till exempel **SharePoint – 80**. För tillfället är saknar extranät zon den interna URL: en som har konfigurerats korrekt ännu:
 
-  ![Alternativa åtkomstmappningar box](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
+   ![Alternativa åtkomstmappningar box](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
 
 6. Klicka på **Lägg till interna URL: er**.
 7. I **URL-protokoll, värd och port** textrutan skriver den **interna URL: en** konfigurerats i Azure AD-proxy, till exempel <https://SharePoint/>.
@@ -161,7 +161,7 @@ Nästa steg är att utöka SharePoint-webbprogram till en ny zon som konfigurera
 9. Klicka på **Spara**.
 10. Alternativa åtkomstmappningar bör nu se ut så här:
 
-  ![Korrigera alternativa åtkomstmappningar](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)
+    ![Korrigera alternativa åtkomstmappningar](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)
 
 ## <a name="step-4-ensure-that-an-https-certificate-is-configured-for-the-iis-site-of-the-extranet-zone"></a>Steg 4: Kontrollera att ett HTTPS-certifikat har konfigurerats för IIS-webbplats i zonen extranät
 
@@ -170,13 +170,13 @@ SharePoint-konfigurationen är nu klar, men eftersom den interna URL: en i zonen
 1. Öppna Windows PowerShell-konsolen.
 2. Kör följande skript för att generera ett självsignerat certifikat och lägga till den i datorn mitt Arkiv:
 
-  ```powershell
-  # Replace "SharePoint" with the actual hostname of the Internal URL of your Azure AD proxy application
-  New-SelfSignedCertificate -DnsName "SharePoint" -CertStoreLocation "cert:\LocalMachine\My"
-  ```
+   ```powershell
+   # Replace "SharePoint" with the actual hostname of the Internal URL of your Azure AD proxy application
+   New-SelfSignedCertificate -DnsName "SharePoint" -CertStoreLocation "cert:\LocalMachine\My"
+   ```
 
-  > [!NOTE]
-  Självsignerade certifikat är lämplig endast för testning. I produktionsmiljöer rekommenderas att använda certifikat som utfärdats av en certifikatutfärdare i stället.
+   > [!NOTE]
+   > Självsignerade certifikat är lämplig endast för testning. I produktionsmiljöer rekommenderas att använda certifikat som utfärdats av en certifikatutfärdare i stället.
 
 3. Öppna ”Internet Information Services Manager”-konsolen.
 4. Expandera servern i trädvyn ”platser”, välj platsen ”SharePoint – AAD Proxy” och klicka på **bindningar**.

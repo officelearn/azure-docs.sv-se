@@ -1,21 +1,20 @@
 ---
-title: Skapa en molnbaserad utvecklingsmiljö för Node.js och Kubernetes med VS-kod | Microsoft Docs
+title: Skapa en Kubernetes-Node.js-utvecklingsmiljö i molnet med VS Code
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 09/26/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 6cdce9f7dbb2e3f0bc5b2d8a3f12e5d50cadc505
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
+ms.openlocfilehash: 063ea2392dcaa705436bfbd7ba5d429bb096651e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816971"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891043"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Komma igång med Azure Dev Spaces med Node.js
 
@@ -63,7 +62,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Skapa ett Kubernetes-kluster som är aktiverat för Azure Dev Spaces
 
-I kommandotolken skapar du resursgruppen. Använd någon av regionerna som stöds för närvarande (USA, östra; USA, östra 2; USA, centrala; USA, västra 2; Europa, västra; Asien, sydöstra; Kanada, centrala eller Kanada, östra).
+I Kommandotolken, skapa en resursgrupp i en [region som stöder Azure Dev blanksteg](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -72,7 +71,7 @@ az group create --name MyResourceGroup --location <region>
 Skapa ett Kubernetes-kluster med följande kommando:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
 Det tar några minuter att skapa klustret.
@@ -142,13 +141,13 @@ Skanna konsolens utdata för information om den offentliga webbadressen som skap
 
 ```
 (pending registration) Service 'webfrontend' port 'http' will be available at <url>
-Service 'webfrontend' port 80 (TCP) is available at http://localhost:<port>
+Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
 Öppna webbadressen i ett webbläsarfönster. Du bör nu se hur webbappen läses in. När containern körs strömmas `stdout`- och `stderr`-utdata till terminalfönstret.
 
 > [!Note]
-> Första gången det körs kan det ta några minuter innan DNS är redo. Om den offentliga URL:en inte fungerar kan du använda den alternativa http://localhost:<portnumber>-URL:en som visas i konsolens utdata. Om du använder localhost-URL:en kan det verka som om containern körs lokalt, men i själva verket körs den i AKS. För enkelhetens skull och för att underlätta interaktionen med tjänsten från den lokala datorn skapar Azure Dev Spaces en tillfällig SSH-tunnel för containern som körs i Azure. Du kan komma tillbaka och testa den offentliga URL:en senare när DNS-posten är färdig.
+> Första gången det körs kan det ta några minuter innan DNS är redo. Om en offentlig URL inte matchar, kan du använda alternativet `http://localhost:<portnumber>` URL som visas i konsolens utdata. Om du använder localhost-URL:en kan det verka som om containern körs lokalt, men i själva verket körs den i AKS. För enkelhetens skull och för att underlätta interaktionen med tjänsten från den lokala datorn skapar Azure Dev Spaces en tillfällig SSH-tunnel för containern som körs i Azure. Du kan komma tillbaka och testa den offentliga URL:en senare när DNS-posten är färdig.
 
 ### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
 Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – det handlar om att du snabbt och löpande kan se effekten av dina kodändringar i en Kubernetes-miljö i molnet.

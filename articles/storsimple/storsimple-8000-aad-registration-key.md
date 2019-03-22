@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: b1ea195ab0b06c4ca0fab37fe7e5701229b34938
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 01d36188c1684eae8303cb20ba0fd0c708ff91ba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387046"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079923"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Använd ny autentisering för din StorSimple
 
@@ -59,7 +59,7 @@ Om URL: en för autentisering ingår inte i brandväggsreglerna utöver utfasnin
 Om du använder en enhet i StorSimple 8000-serien, Använd följande tabell för att fastställa vilken åtgärd som du behöver ta baserat på enhetens programvaruversion som du kör.
 
 | Om enheten körs| Vidta följande åtgärd                                    |
-|--------------------------|------------------------|--------------------|--------------------------------------------------------------|
+|--------------------------|------------------------|
 | Uppdatering 5 eller senare och enheten är offline. <br> Du ser en avisering som att URL: en inte är godkänd.|1. Ändra brandväggsregler för att inkludera autentiserings-URL. Se [autentisering URL: er](#url-changes-for-aad-authentication).<br>2. [Hämta nyckel för AAD-registrering från tjänsten](#aad-based-registration-keys).<br>3. [Ansluta till Windows PowerShell-gränssnittet för StorSimple 8000-serien enheten](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. Använd `Redo-DeviceRegistration` cmdlet för att registrera enheten via Windows PowerShell. Ange den nyckel som du fick i föregående steg.|
 | Uppdatering 5 eller senare och enheten.| Ingen åtgärd krävs.                                       |
 | Uppdatering 4 eller tidigare och enheten är offline. |1. Ändra brandväggsregler för att inkludera autentiserings-URL.<br>2. [Ladda ned uppdatering 5 via katalogserver](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [Installera uppdatering 5 via metoden snabbkorrigering](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [Hämta nyckel för AAD-registrering från tjänsten](#aad-based-registration-keys).<br>5. [Ansluta till Windows PowerShell-gränssnittet för StorSimple 8000-serien enheten](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. Använd `Redo-DeviceRegistration` cmdlet för att registrera enheten via Windows PowerShell. Ange den nyckel som du fick i föregående steg.|

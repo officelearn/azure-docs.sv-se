@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.openlocfilehash: 8cde3402ef52747e61333c56903309259e07599a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: e11d541f0450c0de4ba6d60f889fc7471b1fa1aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747602"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011139"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple som ett säkerhetskopieringsmål med Backup Exec
 
@@ -94,6 +94,7 @@ Följande tabeller visar enheten modellen till arkitektur inledande vägledning.
 |------------------------|---------------|-----------------|
 | Lokal lagringskapacitet | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
 | Kapacitet för molnlagring | &gt; 200 TiB\* | &gt; 500 TiB\* |
+
 \* Lagringsstorlek förutsätter att inga deduplicering eller komprimering.
 
 **StorSimple-kapaciteter för primära och sekundära säkerhetskopieringar**
@@ -206,16 +207,16 @@ Konfigurera din lösning enligt instruktionerna i följande avsnitt.
 
 ### <a name="operating-system-best-practices"></a>Metodtips för operativsystem
 
--   Inaktivera Windows Server-kryptering och deduplicering för NTFS-filsystemet.
--   Inaktivera Windows Server defragmentering på StorSimple-volymer.
--   Inaktivera Windows Server-indexering på StorSimple-volymer.
--   Kör en virusgenomsökning källvärden (inte mot StorSimple-volymer).
--   Inaktivera [Windows serverunderhåll](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) i Aktivitetshanteraren. Gör detta på något av följande sätt:
-   - Inaktivera Underhåll configurator i Schemaläggaren i Windows.
-   - Ladda ned [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) från Windows Sysinternals. När du har hämtat PsExec kör du Azure PowerShell som administratör och skriv:
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- Inaktivera Windows Server-kryptering och deduplicering för NTFS-filsystemet.
+- Inaktivera Windows Server defragmentering på StorSimple-volymer.
+- Inaktivera Windows Server-indexering på StorSimple-volymer.
+- Kör en virusgenomsökning källvärden (inte mot StorSimple-volymer).
+- Inaktivera [Windows serverunderhåll](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) i Aktivitetshanteraren. Gör detta på något av följande sätt:
+  - Inaktivera Underhåll configurator i Schemaläggaren i Windows.
+  - Ladda ned [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) från Windows Sysinternals. När du har hämtat PsExec kör du Azure PowerShell som administratör och skriv:
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### <a name="storsimple-best-practices"></a>Metodtips för StorSimple
 
@@ -259,6 +260,7 @@ Baserat på föregående antaganden kan du skapa en 26-TiB StorSimple nivåindel
 | Årlig fullständig | 1  | 10 | 10 |
 | GFS krav |   | 38 |   |
 | Större kvot  | 4  |   | 42 GFS totalkravet  |
+
 \* Multiplikatorn som GFS är antalet kopior måste du skydda och bevara så att de uppfyller dina krav för princip för säkerhetskopiering.
 
 ## <a name="set-up-backup-exec-storage"></a>Konfigurera Backup Exec-lagring
@@ -312,7 +314,7 @@ Här är ett exempel på ett schema för rotation av GFS för fyra veckor, måna
 |---|---|---|
 | Varje vecka (1 – 4 veckor) | Lördag | Måndag-fredag |
 | Månadsvis  | Lördag  |   |
-| Varje år | Lördag  |   |   |
+| Varje år | Lördag  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Tilldela ett säkerhetskopieringsjobb för Backup Exec StorSimple-volymer
@@ -373,6 +375,7 @@ I följande tabell visar hur du konfigurerar säkerhetskopieringar att köras p�
 | Månatliga fullständig |StorSimple-disk (långsiktig) | 1 | 12 | 12 |
 | Årlig fullständig |StorSimple-disk (långsiktig) | 1 | 1 | 1 |
 |GFS volymer kravet |  |  |  | 18*|
+
 \* Total kapacitet innehåller 17 TiB av StorSimple-diskar och 1 TiB lokal RAID-volym.
 
 
@@ -385,7 +388,7 @@ I följande tabell visar hur du konfigurerar säkerhetskopieringar att köras p�
 | Vecka 3 | StorSimple veckor 2 – 4 |   |   |   |   |   |
 | Vecka 4 | StorSimple veckor 2 – 4 |   |   |   |   |   |
 | Månadsvis | StorSimple per månad |   |   |   |   |   |
-| Varje år | StorSimple varje år  |   |   |   |   |   |   |
+| Varje år | StorSimple varje år  |   |   |   |   |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-archive-and-deduplication-job"></a>Tilldela StorSimple-volymer till ett Backup Exec-Arkiv och dedupliceringen jobb
@@ -445,15 +448,15 @@ I följande avsnitt beskrivs hur du skapar ett kort skript för att starta och t
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Starta eller ta bort en ögonblicksbild i molnet
 
-1.  [Installera Azure PowerShell](/powershell/azure/overview).
+1. [Installera Azure PowerShell](/powershell/azure/overview).
 2. Ladda ned och konfigurera [hantera CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell-skript.
 3. Kör PowerShell som administratör på den server som kör skriptet. Kontrollera att du kört skriptet med `-WhatIf $true` att se vad ändrar skriptet gör. När verifieringen är klar kan du skicka `-WhatIf $false`. Kör i kommandot nedan:
-```powershell
-.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
-```
-4.  Lägg till skript säkerhetskopieringsjobbet i Backup Exec genom att redigera din Backup Exec jobbalternativ-förbearbetning och efterbearbetning kommandon.
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
+4. Lägg till skript säkerhetskopieringsjobbet i Backup Exec genom att redigera din Backup Exec jobbalternativ-förbearbetning och efterbearbetning kommandon.
 
-    ![Säkerhetskopiera Exec-konsolen, alternativ för säkerhetskopiering, fliken före och efter bearbetnings-kommandon](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
+   ![Säkerhetskopiera Exec-konsolen, alternativ för säkerhetskopiering, fliken före och efter bearbetnings-kommandon](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
 
 > [!NOTE]
 > Vi rekommenderar att du kör din StorSimple cloud ögonblicksbild säkerhetskopieringsprincip som en efterbearbetning skriptet i slutet av det dagliga säkerhetskopieringsjobbet. Mer information om hur du säkerhetskopierar och återställer miljön säkerhetskopieringsprogrammet för att hjälpa dig att uppnå dina RPO och RTO i med din säkerhetskopiering architect.

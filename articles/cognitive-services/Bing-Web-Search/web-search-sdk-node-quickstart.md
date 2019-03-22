@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/16/2018
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 94bc7d2ddca84b01dd799552fe7a331c9bb958a1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 96848e30c13d226978a6be1a1786e9ed2b4ab7c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856911"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892871"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Snabbstart: Använda SDK för webbsökning i Bing för Node.js
 
@@ -27,7 +27,7 @@ Vill du se koden på en gång? [Exemplen med SDK för Webbsökning i Bing för N
 
 Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
 * [Node.js 6](https://nodejs.org/en/download/) eller senare
@@ -43,14 +43,14 @@ Vi börjar med att konfigurera utvecklingsmiljön för Node.js-projektet.
     mkdir YOUR_PROJECT
     ```
 
-2. Skapa en ny paketfil:
+1. Skapa en ny paketfil:
 
     ```console
     cd YOUR_PROJECT
     npm init
     ```
 
-3. Nu installerar vi några Azure-moduler och lägger till dem i `package.json`:
+1. Nu installerar vi några Azure-moduler och lägger till dem i `package.json`:
 
     ```console
     npm install --save azure-cognitiveservices-websearch
@@ -109,6 +109,6 @@ När du är klar med det här projektet bör du ta bort din prenumerationsnyckel
 > [!div class="nextstepaction"]
 > [Exempel med Cognitive Services SDK för Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * [Azure Node SDK-referens](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-websearch/)

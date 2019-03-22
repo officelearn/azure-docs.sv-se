@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/04/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a785cb461b12c20bd5e322a55a91c8b49cb40d54
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: cabf29423123d988b08e002077b4782529e96aa0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858169"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095644"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-python"></a>Snabbstart: Söka efter bilder med SDK för bildsökning i Bing för Python
 
@@ -24,7 +24,7 @@ Använd den här snabbstarten till att göra din första bildsökning med API f�
 
 Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image-search-quickstart.py) tillsammans med ytterligare felhantering och kommentarer.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/cognitive-services/) under **Sök**.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 * [Python 2.7 eller 3.4](https://www.python.org/) och högre.
@@ -52,16 +52,16 @@ Hämta en [Cognitive Services-åtkomstnyckel](https://azure.microsoft.com/try/co
 
 ## <a name="create-the-image-search-client"></a>Skapa bildsökningsklient
 
-3. Skapa en instans av `CognitiveServicesCredentials` och skapa en instans av klienten:
+1. Skapa en instans av `CognitiveServicesCredentials` och skapa en instans av klienten:
 
     ```python
     client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
     ```
-4. Skicka en sökbegäran till API:et för bildsökning i Bing:
+1. Skicka en sökbegäran till API:et för bildsökning i Bing:
     ```python
     image_results = client.images.search(query=search_term)
     ```
-## <a name="process-and-view-the-results"></a>Bearbeta och visa svaren
+   ## <a name="process-and-view-the-results"></a>Bearbeta och visa svaren
 
 Parsa bildresultaten som returneras i svaret.
 
@@ -83,7 +83,7 @@ else:
 > [!div class="nextstepaction"]
 > [Självstudie om enkel app för bildsökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * [Vad är bildsökning i Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Prova en interaktiv demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  

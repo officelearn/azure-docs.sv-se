@@ -6,16 +6,16 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: conceptual
-ms.date: 01/18/2019
+ms.topic: overview
+ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d2086f02cc981ad944c030ad40083d153c520359
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 3c2567564e015ef19adf9f8c776e1f377a9cdf30
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447335"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58133067"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Vad är ”cognitive search” i Azure Search?
 
@@ -92,31 +92,9 @@ Index som ska genereras från ett indexschema som definierar fälten, attribut, 
 
 ## <a name="where-do-i-start"></a>Vad ska jag börja med?
 
-**Steg 1: [Skapa en Azure Search-resurs](search-create-service-portal.md) i en region som tillhandahåller API: er** 
+**Steg 1: [Skapa en Azure Search-resurs](search-create-service-portal.md)** 
 
-+ Västra centrala USA
-+ Södra centrala USA
-+ Norra centrala USA
-+ Östra USA
-+ USA, östra 2
-+ Västra USA
-+ Västra USA 2
-+ Centrala USA
-+ Centrala Kanada
-+ Västra Europa
-+ Norra Europa
-+ Storbritannien, södra
-+ Frankrike, centrala
-+ Södra Brasilien
-+ Östasien
-+ Sydostasien
-+ Indien, centrala
-+ Västra Japan
-+ Östra Japan
-+ Sydkorea, centrala
-+ Östra Australien
-
-**Steg 2: Praktisk erfarenhet att arbetsflödet**
+**Steg 2: Prova några snabbstarter och exempel för praktisk erfarenhet**
 
 + [Snabbstart (portal)](cognitive-search-quickstart-blob.md)
 + [Självstudie (HTTP-begäranden)](cognitive-search-tutorial-blob.md)

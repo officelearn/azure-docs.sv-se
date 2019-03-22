@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 539a7fc5b9d3038424059f1ee599c6966a968781
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: a9e8d2cbc067fd92208fac778ba17c58bdc7a5e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629609"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079153"
 ---
 # <a name="filters-in-azure-search"></a>Filter i Azure Search 
 
@@ -32,17 +32,17 @@ Följande: scenarier
 
 1. Använd ett filter för att dela upp ditt index baserat på datavärden i indexet. Du kan skapa ett filter för att uttryckligen välja dokument som uppfyller dina kriterier (i Seattle, condos, Hamnområde) med ett schema med stad, bostadsmarknaden typ och bekvämligheterna kan. 
 
-  Fulltextsökning med samma indata ger ofta liknande resultat, men ett filter är mer exakt som det krävs en exakt matchning av filtervillkor mot innehåll i ditt index. 
+   Fulltextsökning med samma indata ger ofta liknande resultat, men ett filter är mer exakt som det krävs en exakt matchning av filtervillkor mot innehåll i ditt index. 
 
 2. Använd ett filter om sökupplevelsen levereras med ett filter-krav:
 
- * [Aspektbaserad navigering](search-faceted-navigation.md) använder ett filter för att skicka tillbaka den aspekt kategori som valts av användaren.
- * GEO-sökning använder ett filter för att skicka koordinaterna för den aktuella platsen i ”Sök närheten” appar. 
- * Säkerhetsfilter skicka säkerhetsidentifierare som villkor, där en matchning i indexet fungerar som proxy för åtkomsträttigheter till dokumentet.
+   * [Aspektbaserad navigering](search-faceted-navigation.md) använder ett filter för att skicka tillbaka den aspekt kategori som valts av användaren.
+   * GEO-sökning använder ett filter för att skicka koordinaterna för den aktuella platsen i ”Sök närheten” appar. 
+   * Säkerhetsfilter skicka säkerhetsidentifierare som villkor, där en matchning i indexet fungerar som proxy för åtkomsträttigheter till dokumentet.
 
 3. Använd ett filter om du vill sökvillkor i ett numeriskt fält. 
 
-  Numeriska fält är hämtningsbara i dokumentet och kan visas i sökresultaten, men de är inte sökbara (beroende på fulltextsökning) individuellt. Om du behöver urvalskriterier baserat på numeriska data kan du använda ett filter.
+   Numeriska fält är hämtningsbara i dokumentet och kan visas i sökresultaten, men de är inte sökbara (beroende på fulltextsökning) individuellt. Om du behöver urvalskriterier baserat på numeriska data kan du använda ett filter.
 
 ### <a name="alternative-methods-for-reducing-scope"></a>Alternativa metoder för att minska omfånget
 
@@ -141,10 +141,8 @@ I .NET-SDK på filtrerbara är *av* som standard. API för att ställa in egensk
 
 Om ett fält är icke-filtrerbara och du vill göra det filtrerbara, måste du lägga till ett nytt fält eller återskapa det befintliga fältet. Ändra en fältdefinition ändrar den fysiska strukturen i indexet. I Azure Search indexeras alla kunna komma sökvägar för snabba frågor hastighet, vilket kräver återskapning av en av datastrukturerna när fältdefinitioner ändras. 
 
-Återskapa enskilda fält kan vara en låg inverkan åtgärd som kräver en sammanfogning som skickar befintliga dokumentnyckeln och associerade värden till indexet, lämna resten av varje dokument intakta. Om det uppstår ett återskapning krav, se följande länkar för anvisningar:
+Återskapa enskilda fält kan vara en låg inverkan åtgärd som kräver en sammanfogning som skickar befintliga dokumentnyckeln och associerade värden till indexet, lämna resten av varje dokument intakta. Om det uppstår ett återskapning krav, se [indexering åtgärder (ladda upp, sammanfoga, mergeOrUpload, ta bort)](search-what-is-data-import.md#indexing-actions) för en lista med alternativ.
 
- + [Indexering åtgärder med hjälp av .NET SDK](https://docs.microsoft.com/azure/search/search-import-data-dotnet#decide-which-indexing-action-to-use)
- + [Indexering åtgärder med hjälp av REST API](https://docs.microsoft.com/azure/search/search-import-data-rest-api#decide-which-indexing-action-to-use)
 
 ## <a name="text-filter-fundamentals"></a>Grunderna i text-filter
 
@@ -157,8 +155,8 @@ Språk-ID är skiftlägeskänsliga. Det finns inga lägre skiftläge alltid i ö
 
 | Metoden | Beskrivning | 
 |----------|-------------|
-| [Search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | En funktion som tillhandahåller kommaavgränsad lista med strängar för ett visst fält. Strängarna utgör filtervillkoren som används på varje fält i omfånget för frågan. <br/><br/>`search.in(f, ‘a, b, c’)` semantiskt motsvarar `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, förutom att det körs mycket snabbare när listan över värden är stor.<br/><br/>Vi rekommenderar den **search.in** fungerar för [säkerhetsfilter](search-security-trimming-for-azure-search.md) och för eventuella filter som består av rå text som ska matchas på värden i ett visst fält. Den här metoden är utformat för hastighet. Du kan förvänta dig subsecond svarstiden för hundratusentals värden. Även om det finns ingen explicit gräns för hur många objekt som du kan skicka till funktionen, ökar svarstiden i proportion till antalet strängar som du anger. | 
-| [Search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | En funktion som gör att du kan blanda fulltextsökning åtgärder med strikt booleska åtgärder i samma filteruttrycket. Det gör att flera kombinationer av fråga filter i en begäran. Du kan också använda den för en *innehåller* och filtrerar på en partiell sträng i en större sträng. |  
+| [search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | En funktion som tillhandahåller kommaavgränsad lista med strängar för ett visst fält. Strängarna utgör filtervillkoren som används på varje fält i omfånget för frågan. <br/><br/>`search.in(f, ‘a, b, c’)` semantiskt motsvarar `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, förutom att det körs mycket snabbare när listan över värden är stor.<br/><br/>Vi rekommenderar den **search.in** fungerar för [säkerhetsfilter](search-security-trimming-for-azure-search.md) och för eventuella filter som består av rå text som ska matchas på värden i ett visst fält. Den här metoden är utformat för hastighet. Du kan förvänta dig subsecond svarstiden för hundratusentals värden. Även om det finns ingen explicit gräns för hur många objekt som du kan skicka till funktionen, ökar svarstiden i proportion till antalet strängar som du anger. | 
+| [search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | En funktion som gör att du kan blanda fulltextsökning åtgärder med strikt booleska åtgärder i samma filteruttrycket. Det gör att flera kombinationer av fråga filter i en begäran. Du kan också använda den för en *innehåller* och filtrerar på en partiell sträng i en större sträng. |  
 | [$filter = fältet operatorsträng](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Ett uttryck för användardefinierade består av fält, operatorer och värden. | 
 
 ## <a name="numeric-filter-fundamentals"></a>Numeriska filter grunderna

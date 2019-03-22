@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: e34856704b474ac1b7d25d589be5f98be2b113cc
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 02f973af71f0ee7e1fd1bcf712a08e001ec41667
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671564"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224965"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Självstudier: Uppgradera körningen av ett Service Fabric-kluster i Azure
 
-Den här guiden är del tre i en serie. Den visar hur du uppgraderar körningen av Service Fabric ett Azure Service Fabric-kluster. Den här delen är skriven för Service Fabric-kluster som körs på Azure och gäller inte för fristående Service Fabric kluster.
+Den här självstudien är del fyra i en serie och visar hur du uppgraderar Service Fabric-körningen på ett Azure Service Fabric-kluster. Den här delen är skriven för Service Fabric-kluster som körs på Azure och gäller inte för fristående Service Fabric kluster.
 
 > [!WARNING]
 > För den delen av kursen krävs PowerShell. Stöd för uppgradering av klusterkörning finns inte i Azure CLI-verktygen ännu. Ett kluster kan också uppgraderas på portalen. Mer information finns i [Uppgradera till ett Azure Service Fabric-kluster](service-fabric-cluster-upgrade.md).
@@ -40,6 +40,7 @@ I den här guiden får du lära dig att:
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i Azure med hjälp av en mall
+> * [Övervaka ett kluster](service-fabric-tutorial-monitor-cluster.md)
 > * [skala upp eller ned ett kluster](service-fabric-tutorial-scale-cluster.md)
 > * uppgradera körningen för ett kluster
 > * [Ta bort ett kluster](service-fabric-tutorial-delete-cluster.md)

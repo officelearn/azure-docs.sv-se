@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 94d49edb93e4c7b2daff3c58c02b349612f1ee92
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998295"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259303"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Använda automatisk skalning åtgärder för att skicka e-post och webhook-aviseringar i Azure Monitor
 Den här artikeln visar hur du konfigurerar utlösare så att du kan anropa Webb-URL: er eller skicka e-postmeddelanden baserat på åtgärder för automatisk skalning i Azure.  
@@ -71,7 +71,7 @@ När du använder REST API eller Resource Manager-mallen inkludera meddelanden-e
 | properties |ja |Värdet måste vara tom {} eller kan innehålla nyckel / värde-par |
 
 ## <a name="authentication-in-webhooks"></a>Autentisering i webhooks
-Webhooken kan autentisera med hjälp av tokenbaserad autentisering, där du kan spara webhooken URI med ett token-ID som frågeparameter. Till exempel, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+Webhooken kan autentisera med hjälp av tokenbaserad autentisering, där du kan spara webhooken URI med ett token-ID som frågeparameter. Till exempel https: \/ /mysamplealert/webcallback? tokenid = sometokenid & someparameter = somevalue
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>Automatisk skalning meddelande webhook-nyttolasten schema
 När meddelandet Autoskala genereras ingår följande metadata i webhook-nyttolasten:

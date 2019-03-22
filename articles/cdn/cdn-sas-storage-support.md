@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: 57891bcce289c30d7dce1cd00c301064aa9b97cc
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: ee64b4cbfd024c91b226736bc8cac0b9b33f964e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955244"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170402"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Använda Azure CDN med SAS
 
@@ -48,9 +48,9 @@ Mer information om inställningen parametrar finns i [SAS parametern övervägan
 
 ![CDN SAS-inställningar](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
-### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Alternativ 1: Använda SAS med direkt till blob storage från Azure CDN
+### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Alternativ 1: Med hjälp av SAS med direkt till blob storage från Azure CDN
 
-Det här alternativet är den enklaste och använder en enda SAS-token som skickas från Azure CDN till ursprungsservern. Det stöds av **Azure CDN Standard från Verizon** och **Azure CDN Standard från Akamai** profiler. 
+Det här alternativet är den enklaste och använder en enda SAS-token som skickas från Azure CDN till ursprungsservern.
  
 1. Välj en slutpunkt, Välj **Cachelagringsregler**och välj sedan **cachelagra varje unik URL** från den **cachelagring av frågesträngar i frågan** lista.
 
@@ -97,7 +97,7 @@ Det här alternativet är endast tillgänglig för **Azure CDN Premium från Ver
 
 3. Finjustera cachelagringens varaktighet med hjälp av cachelagringsregler eller genom att lägga till `Cache-Control` rubriker på den ursprungliga servern. Eftersom Azure CDN behandlar SAS-token som en vanlig frågesträng, som bästa praxis bör du ställa in en lagringstiden som upphör att gälla från och med den SAS upphör att gälla. I annat fall om en fil cachelagras under en längre tid än SAS är aktiv och kanske filen är tillgängligt från Azure CDN ursprungsservern förfallotiden för SAS har förflutit. Om den här situationen uppstår och du vill isolera cachelagrade filen, måste du utföra en rensning-åtgärden på filen för att radera den från cachen. Information om hur du anger cachelagringens varaktighet på Azure CDN finns i [Kontrollera Cachelagringsbeteendet med cachelagringsregler](cdn-caching-rules.md).
 
-### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Alternativ 3: Med tokenautentisering för CDN säkerhet med en omskrivningsregel
+### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Alternativ 3: Med en omskrivningsregel tokenautentisering för CDN säkerhet
 
 Om du vill använda Azure CDN token autentisering, måste du ha en **Azure CDN Premium från Verizon** profil. Det här alternativet är säker och anpassningsbara. Klientåtkomst baseras på de parametrar som du angett för säkerhetstoken. När du har skapat och ställa in säkerhetstoken, behöver den på alla webbadresser för CDN-slutpunkten. Men på grund av URL-Omskrivningsregler-regeln krävs SAS-token inte för CDN-slutpunkt. Om SAS-token senare blir ogiltig, kommer Azure CDN inte längre att kunna verifiera innehållet från den ursprungliga servern.
 

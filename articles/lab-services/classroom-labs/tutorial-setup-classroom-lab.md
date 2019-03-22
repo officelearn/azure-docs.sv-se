@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 4abec80df4aeeb4c20d56b43ba122ee7266905a6
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: HT
+ms.openlocfilehash: 6816c21d30ff5340441d58aff202c271eb1c836a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649602"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090329"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Självstudier: Konfigurera ett klassrumslabb 
 I självstudien konfigurerar du ett klassrumslabb med virtuella datorer som används av eleverna i klassrummet.  
@@ -31,7 +31,7 @@ I de här självstudierna gör du följande:
 > * Lägga till användare i labbet
 > * Skicka en registreringslänk till eleverna
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 För att konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i någon av dessa roller i labbkontot: Ägare, Labbskaparen eller Deltagare. Det konto som du använde för att skapa ett labbkonto läggs automatiskt till i ägarrollen.
 
 En labbägare kan lägga till andra användare i rollen **Labbskaparen**. Labbägare lägger exempelvis till universitetslärare till rollen Labbskaparen. Sedan skapar universitetsläraren labbar med virtuella datorer för deras klasser. Elever använder registreringslänken som de får från universitetslärarna för att registrera sig i labbet. När de har registrerats kan de använda virtuella datorer i labbarna för att utföra klass- och hemarbete. Detaljerade anvisningar för att lägga till användare till rollen Labbskaparen finns i [Lägga till en användare till rollen Labbskaparen](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
@@ -69,9 +69,9 @@ En labbägare kan lägga till andra användare i rollen **Labbskaparen**. Labbä
 
     ![Konfigurera mallsidan när det är klart](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. På sidan **Konfigurera mall** utför du följande steg: De här stegen är **valfria** för självstudien.
-    2. Anslut till mallen för den virtuella datorn genom att välja **Anslut**. 
-    3. Installera och konfigurera programvaran på mallen för den virtuella datorn.     
-    5. Ange en **beskrivning** för mallen
+   1. Anslut till mallen för den virtuella datorn genom att välja **Anslut**. 
+   1. Installera och konfigurera programvaran på mallen för den virtuella datorn.     
+   1. Ange en **beskrivning** för mallen
 9. Välj **Nästa** på mallsidan. 
 10. På sidan **Publicera mallen** utför du någon av följande åtgärder. 
     1. För att publicera mallen omedelbart väljer du **Publicera**.  
@@ -89,10 +89,10 @@ En labbägare kan lägga till andra användare i rollen **Labbskaparen**. Labbä
     ![Publicera mall – lyckades](../media/tutorial-setup-classroom-lab/publish-success.png)
 1. **Instrumentpanelen** för labbet visas. 
     
-    ![Instrumentpanel för klassrumslabb](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
+     ![Instrumentpanel för klassrumslabb](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
 4. Växla till sidan **Virtuella datorer** genom att välja Virtuella datorer på den vänstra menyn eller genom att välja panelen Virtuella datorer. Bekräfta att du ser virtuella datorer som är i tillståndet **Otilldelad**. De här virtuella datorerna har inte tilldelats till studenter ännu. De måste vara i tillstånd **Stoppad**. Du kan starta en virtuell dator för studenter, ansluta till den virtuella datorn, stoppa den virtuella datorn och ta bort den virtuella datorn på den här sidan. Du kan starta dem på den här sidan eller låta studenterna starta de virtuella datorerna. 
 
-    ![Virtuella datorer i stoppat tillstånd](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
+     ![Virtuella datorer i stoppat tillstånd](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
 ## <a name="add-users-to-the-lab"></a>Lägga till användare i labbet
 

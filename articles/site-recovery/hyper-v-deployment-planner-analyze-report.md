@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/20/2019
 ms.author: mayg
-ms.openlocfilehash: 6065d83cf74b6bb7c3d80d4e452df8377dc9823e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7bfe382ac1a175aafb4944dffa8d12a372f4fb70
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732661"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286507"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analysera rapporten för Distributionshanteraren för Azure Site Recovery
 I den här artikeln diskuteras bladen i Excel-rapporterna som genereras av distributionshanteraren för Azure Site Recovery för scenariot Hyper-V till Azure.
@@ -275,7 +275,7 @@ Följande tabell innehåller gränserna för Site Recovery. Dessa gränser är b
 ---|---|---|---
 Standard Storage | 8 kB | 2 MB/s per virtuell dator | 168 GB per virtuell dator
 Premium Storage | 8 kB  | 5 MB/s per virtuell dator | 421 GB per virtuell dator
-Premium Storage | 16 kB eller mer| 10 MB/s per virtuell dator | 842 GB per virtuell dator
+Premium Storage | 16 kB eller mer| 20 MB/s per VM | 1684 GB per VM
 
 Gränserna är genomsnittliga värden baserade på en I/O-överlappning på 30 procent. Site Recovery kan hantera högre dataflöden med annan överlappning, större skrivningsstorlek och verkligt I/O-beteende under arbetsbelastningen. Föregående antal antar en typisk eftersläpning på cirka fem minuter. Det vill säga, när data har överförts bearbetas de och en återställningspunkt skapas inom fem minuter.
 

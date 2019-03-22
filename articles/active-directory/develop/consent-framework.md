@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbac6fe421864f9479c9a4ee7eecde97c13f6052
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0200aa917894f4b7f1a45a9d3bd15b128aaf27a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200538"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124192"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Ramverket för medgivande för Azure Active Directory
 
@@ -58,14 +58,14 @@ Följande steg visar hur samtycke upplevelse fungerar för både programutveckla
 
     **Om du vill godkänna en app delegerade behörigheter**
 
-    1. Gå till den **inställningar** sidan för ditt program
-    1. Välj **behörigheter som krävs för**.
-    1. Klicka på den **bevilja** knappen.
+   1. Gå till den **inställningar** sidan för ditt program
+   1. Välj **behörigheter som krävs för**.
+   1. Klicka på den **bevilja** knappen.
 
-    ![Bevilja behörigheter för explicit administratörens godkännande](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+      ![Bevilja behörigheter för explicit administratörens godkännande](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
 
-  > [!IMPORTANT]
-  > Bevilja uttryckliga medgivande med hjälp av den **bevilja** knappen krävs för närvarande för enkelsidigt program (SPA) som använder ADAL.js. Annars misslyckas programmet när åtkomsttoken begärs.
+   > [!IMPORTANT]
+   > Bevilja uttryckliga medgivande med hjälp av den **bevilja** knappen krävs för närvarande för enkelsidigt program (SPA) som använder ADAL.js. Annars misslyckas programmet när åtkomsttoken begärs.
 
 ## <a name="next-steps"></a>Nästa steg
 

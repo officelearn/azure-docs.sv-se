@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5295f2d341ce104ae51776af5c4477304b1dacb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 31e9746c0739a2ddd6267428f428e977151077b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187244"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099788"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problem med att konfigurera federerad enkel inloggning för ett Azure AD-galleriprogram
 
@@ -42,33 +42,33 @@ Om du inte kunna konfigurera identifierare eller svars-URL kan du bekräfta iden
 
 Du behöver veta de mönster som redan har konfigurerats för programmet:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.** Gå till steg 7. Om du redan är i programbladet på Azure AD.
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.** Gå till steg 7. Om du redan är i programbladet på Azure AD.
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
-5.  Klicka på **alla program** att visa en lista över alla dina program.
+5. Klicka på **alla program** att visa en lista över alla dina program.
 
    * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
 
-6.  Välj det program som du vill konfigurera enkel inloggning.
+6. Välj det program som du vill konfigurera enkel inloggning.
 
-7.  När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7. När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
 
-8.  Välj **SAML-baserad inloggning** från den **läge** listrutan.
+8. Välj **SAML-baserad inloggning** från den **läge** listrutan.
 
-9.  Gå till den **identifierare** eller **svars-URL** textrutan under den **domän och URL: er.**
+9. Gå till den **identifierare** eller **svars-URL** textrutan under den **domän och URL: er.**
 
 10. Det finns tre sätt att veta stöds mönster för programmet:
 
-   * I textrutan, visas stöds pattern(s) som platshållare *exempel:* <https://contoso.com>.
+    * I textrutan, visas stöds pattern(s) som platshållare *exempel:* <https://contoso.com>.
 
-   * Om mönstret inte stöds, visas ett rött utropstecken vid försök att ange värdet i textrutan. Om du håller muspekaren över rött utropstecken, ser du mönster som stöds.
+    * Om mönstret inte stöds, visas ett rött utropstecken vid försök att ange värdet i textrutan. Om du håller muspekaren över rött utropstecken, ser du mönster som stöds.
 
-   * I självstudien för programmet, kan du också få information om mönster som stöds. Under den **konfigurera Azure AD enkel inloggning** avsnittet. Gå till steg för konfigurerade värdena under den **domän och URL: er** avsnittet.
+    * I självstudien för programmet, kan du också få information om mönster som stöds. Under den **konfigurera Azure AD enkel inloggning** avsnittet. Gå till steg för konfigurerade värdena under den **domän och URL: er** avsnittet.
 
 Om värdena inte matchar de mönster som redan har konfigurerats i Azure AD. Du kan:
 
@@ -86,23 +86,23 @@ Azure AD väljer du formatet för NameID-attributet (användaridentifierare) bas
 
 Följ dessa steg för att ladda ned programmetadata eller certifikat från Azure AD:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
-5.  Klicka på **alla program** att visa en lista över alla dina program.
+5. Klicka på **alla program** att visa en lista över alla dina program.
 
    * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
 
-6.  Välj det program som du har konfigurerat för enkel inloggning.
+6. Välj det program som du har konfigurerat för enkel inloggning.
 
-7.  När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7. När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
 
-8.  Gå till **SAML-signeringscertifikat** och sedan klicka på **hämta** kolumnvärde. Beroende på vilka programmet kräver att du konfigurerar enkel inloggning, se du antingen välja att hämta Metadata XML eller certifikatet.
+8. Gå till **SAML-signeringscertifikat** och sedan klicka på **hämta** kolumnvärde. Beroende på vilka programmet kräver att du konfigurerar enkel inloggning, se du antingen välja att hämta Metadata XML eller certifikatet.
 
 Azure AD tillhandahåller inte en URL för att hämta metadata. Metadata kan endast hämtas som en XML-fil.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: d6504b97bbc6c1ba4bcd02da54a29501c164439f
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: a3fe14436a569a8354e4bfd58a9ba164881d8fe2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447998"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878689"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Snabbstart: Taligenkänning i C++ på Windows med hjälp av Speech SDK
 
@@ -23,9 +23,9 @@ ms.locfileid: "56447998"
 
 I den här artikeln får skapa du ett C++-konsolprogram för Windows. Du använder Cognitive Services [Speech SDK](speech-sdk.md) för att transkribera tal till text i realtid från datorns mikrofon. Programmet har skapats med [Speech SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017 (alla versioner).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver en prenumerationsnyckel för Speech-tjänsten för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Mer information finns i [Prova Speech-tjänsten kostnadsfritt](get-started.md).
+Du behöver en Speech Services-prenumeration för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Se [testa Speech Services kostnadsfritt](get-started.md) mer information.
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
@@ -53,7 +53,7 @@ Du behöver en prenumerationsnyckel för Speech-tjänsten för att slutföra den
 
    ![Skärmbild av Visual Studio-programmet med Starta felsökning markerat](media/sdk/qs-cpp-windows-07-start-debugging.png)
 
-1. Ett konsolfönster öppnas där du uppmanas att säga något. Säg en engelsk fras eller en mening. Ditt tal överförs till Speech-tjänsten och transkriberas till text som visas i samma fönster.
+1. Ett konsolfönster öppnas där du uppmanas att säga något. Säg en engelsk fras eller en mening. Ditt tal överförs till Speech Services och transkriberas till text som visas i samma fönster.
 
    ![Skärmbild av konsolutdata efter lyckad taligenkänning](media/sdk/qs-cpp-windows-08-console-output-release.png)
 
@@ -64,7 +64,7 @@ Ytterligare exempel, till exempel hur man läser tal från en ljudfil, finns på
 > [!div class="nextstepaction"]
 > [Utforska C++-exempel på GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
 - [Anpassa språkmodeller](how-to-customize-language-model.md)

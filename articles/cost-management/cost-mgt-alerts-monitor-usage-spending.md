@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: alavital
 ms.custom: ''
-ms.openlocfilehash: d6f7a597ff5737bb5e9a3f07122ece313bd432ff
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: feb7fcdd9005ef131acadfc63defbe4caeaca014
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337792"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57991937"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Använda cost aviseringar för att övervaka användning och utgifter
 
@@ -39,7 +39,7 @@ Avdelning utgiftsgränsen kvot aviseringar meddelar dig när avdelning utgifter 
 
 Stöd för aviseringstyper beror på vilken typ av Azure-konto att du har (Microsoft erbjuder). I följande tabell visas de aviseringarna funktioner som stöds av olika Microsoft-erbjudanden. Du kan visa en fullständig lista över Microsoft-erbjudanden på [förstå kostnadshantering data](understand-cost-mgt-data.md).
 
-| Aviseringstyp | Enterprise Agreement | Microsofts kundavtal | Web direct/betala per användning-As-You-Go |
+| Aviseringstyp | Enterprise-avtal | Microsofts kundavtal | Web direct/betala per användning-As-You-Go |
 |---|---|---|---|
 | Budget | ✔ | ✔ | ✔ |
 | Kredit | ✔ |✘ | ✘ |
@@ -49,7 +49,7 @@ Stöd för aviseringstyper beror på vilken typ av Azure-konto att du har (Micro
 
 ## <a name="view-cost-alerts"></a>Visa aviseringar
 
-Klicka på **Kostnadshantering + fakturering** i listan med tjänster i Azure Portal. Sedan i listan under **kostnadshantering**väljer **kostnad aviseringar**.
+Om du vill visa kostnaden aviseringar, öppna det önskade omfånget i Azure portal och väljer **budgetar** på menyn. Använd den **omfång** pill att växla till ett annat omfång. Välj **kostnad aviseringar** på menyn. Mer information om scope finns [förstå och arbeta med omfattningar](understand-work-scopes.md).
 
 ![Exempelbild av aviseringar som visas i Cost Management](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 

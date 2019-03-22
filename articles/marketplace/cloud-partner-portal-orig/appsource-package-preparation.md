@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0b24c5d2f174c9a656e81d0c85e12b589d7d7799
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811633"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837045"
 ---
 # <a name="appsource-package-preparation"></a>Förberedelse av AppSource-paket
 
@@ -39,8 +39,8 @@ Paket för Package Deployer är en del av AppSource-paketet.
 
 Använd följande instruktioner för att skapa ett paket för Package Deployer: [ https://msdn.microsoft.com/library/dn688182.aspx ](https://msdn.microsoft.com/library/dn688182.aspx). När du är klar kommer ditt paket bestå av tillgångar nedan:
 
-1. Paketmappen: innehåller alla lösningar, konfigurationsdata, flata filer och innehåll för ditt paket. _Obs: I följande exempel förutsätter vi att paketmappen kallas ”PkgFolder”_
-2. DLL-filen: sammansättningen innehåller anpassad kod för ditt paket. _Obs: I följande exempel förutsätter vi att den här filen kallas ”MicrosoftSample.dll”._
+1. Paketmappen: innehåller alla lösningar, konfigurationsdata, flata filer och innehåll för ditt paket. _Obs! I följande exempel förutsätter vi att paketmappen kallas ”PkgFolder”_
+2. DLL-filen: Sammansättningen innehåller anpassad kod för ditt paket. _Obs! I följande exempel förutsätter vi att den här filen kallas ”MicrosoftSample.dll”._
 
 Nu kan du behöva skapa en fil med namnet ”**Content_Types.xml**” den här filen visar en lista över alla tillgångar-tillägg som ingår i paketet. Här är exempelkod för filen.
 
@@ -63,7 +63,7 @@ Det sista steget är att zip-följande till en fil. Anropa den **package.zip**. 
 
 1. PkgFolder (inklusive allt inuti mappen)
 2. DLL-filen
-3. **Content_Types.XML**
+3. **Content_Types.xml**
 
 Steg för att skapa package.zip:
 
@@ -71,11 +71,11 @@ Steg för att skapa package.zip:
 
 ![CRMScreenShot2](media/CRMScreenShot2.png)
 
-2. Markera alla objekt i mappen, högerklicka och välj Skicka till komprimerade (zip) mappen
+1. Markera alla objekt i mappen, högerklicka och välj Skicka till komprimerade (zip) mappen
 
 ![CRMScreenShot3](media/CRMScreenShot3.png)
 
-3. Ändra namnet till package.zip
+1. Ändra namnet till package.zip
 
 ![CRMScreenShot4](media/CRMScreenShot4.png)
 
@@ -97,7 +97,7 @@ Här är exempelkod för Input.XML är. Se definitioner i den tabellen nedan.
         <StartDate>01/01/2016</StartDate>
         <EndDate>01/01/2021</EndDate>
         <SupportedCountries>US,CA</SupportedCountries>
-        <LearnMoreLink>http://www.microsoft.com</LearnMoreLink>
+        <LearnMoreLink>https://www.microsoft.com</LearnMoreLink>
         <Locales>
         <PackageLocale Code="1033" IsDefault="true">
         <Logo>logo32x32.png</Logo>
@@ -117,12 +117,12 @@ Här är exempelkod för Input.XML är. Se definitioner i den tabellen nedan.
 |SolutionAnchorName |Namnet på lösningen zip-filen i package deployer som används för namn och beskrivning av lösning tillgångar.|
 | Startdatum| Det här är det datum då lösningspaketet blir tillgängliga. Formatet är åååå-MM-DD|
 |endDate|Detta är det datum att lösningspaketet stoppar som det är tillgängligt. Formatet är åååå-MM-DD |
-|SupportedCountries |Det här är en kommaavgränsad lista över länder som bör se det här paketet. Kontakta online services för en lista över alla aktuella landskoder. Då detta skriver listan var: AE, AL, AM, AO, AR, AT, Australien, AZ, BA, BB, BD, BE, BG, BH, BM, BN, BO, Brasilien, BY, CA, CH, CI, CL, CM, CO, CR, KA, CW, CY, CZ, DE, DK, gör, DZ, EG, EE, EG , ES, FI, FR, GB, GE, HÖ, GR, GT, HK, HN, HR, HU, ID, INTERNET EXPLORER, IL, IN-, IQ, ÄR DET, JM, JO, JP, KE, KG, KN, KOREA, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, MIG, MK, MN, MÅNAD, MT, MU, MX, MIN , NG, NI, NL, NEJ, NZ, OM, PA, PE, PH, PK, PL, PULL-BEGÄRAN, PS, PT, PY, QA, RO, RS, RU, RW-SKIVOR, SA, SE, SG, SI, SK, SN, SA, TH, TM, TN, TR, TT, TW, UA, USA, UY, UZ, STÖTT, VI, VN, ZA, ZW |
+|SupportedCountries |Det här är en kommaavgränsad lista över länder som bör se det här paketet. Kontakta online services för en lista över alla aktuella landskoder. Då detta skrivs var listan: AE, AL, AM, AO, AR AT, AUSTRALIEN, AZ, BA, BB, BD, VARA, BG, BH, BM, BN, BO, BR AV CA: N, CH, CI, CL, CM, CO, CR, KA, CW, CY, CZ, DE, DK, GÖR, DZ, EG, EE, T.EX., ES, FI, FR, GB, GE, HÖ, GR, GT, HK , HN, HR, HU, ID, INTERNET EXPLORER, IL, IN-, IQ, ÄR DET, JM, JO, JP, KE, KG, KN, KOREA, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, MIG, MK, MN, MÅNAD, MT, MU, MX, MIN, NG, NI, NL, NEJ, NZ, OM, PA, PE, PH , PK, PL, PULL-BEGÄRAN, PS, PT, PY, QA, RO, RS, RU, RW-SKIVOR, SA, SE, SG, SI, SK, SN, SA, TH, TM, TN, TR, TT, TW, UA, USA, UY, UZ, STÖTT, VI, VN, ZA, ZW |
 |LearnMoreLink | URL till informationslagersidan för mer för det här paketet. |
 |Nationella inställningar|En instans av den här noden för varje UX-språk som du vill stödja i prioriterade lösningen UX. Den här noden innehåller underordnade som beskriver de nationella inställningar, logotyp och villkoren för varje språk|
-|Nationella inställningar: PackageLocale.Code|LCID för de för den här noden. Exempel: Svenska är 1033|
+|Nationella inställningar: PackageLocale.Code|LCID för de för den här noden. Exempel: Amerikansk engelska är 1033|
 |Nationella inställningar: PackageLocale.IsDefault|Anger att det här är standardspråket. Detta används som höst tillbaka språk om det valda kunden UX-språket inte är tillgänglig.|
-|Nationella inställningar: logotyp|Detta om logotypen som du vill använda för det här paketet. Ikonen storleken är 32 x 32. Format som tillåts är PNG och JPG|
+|Nationella inställningar: Logotyp|Detta om logotypen som du vill använda för det här paketet. Ikonen storleken är 32 x 32. Format som tillåts är PNG och JPG|
 |Nationella inställningar: termer: PackageTerm.File|Det här är namnet på HTML-dokument som innehåller dina licensvillkor.|
 
 Här är där logotypen visas:
@@ -132,10 +132,10 @@ Här är där logotypen visas:
 Det sista steget är att zip-följande till en fil.
 
 1. ZIP (som skapats tidigare)
-2. **Content_Types.XML**
+2. **Content_Types.xml**
 3. xml
 4. PNG
-5. HTML
+5. html
 
 ![CRMScreenShot6](media/CRMScreenShot6.png)
 

@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af01d924036e5d31de5498e51b56efdf1defc9f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5217f21449efeb2086770f040fb781765ea819eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201456"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083945"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory sömlös enkel inloggning: Teknisk djupdykning
 
@@ -60,7 +60,7 @@ Logga in flödet i en webbläsare är följande:
 3. Användaren skriver sitt användarnamn till inloggningssidan för Azure AD.
 
    >[!NOTE]
-   >För [vissa program](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso), steg 2 och 3 hoppas över.
+   >För [vissa program](./how-to-connect-sso-faq.md#what-applications-take-advantage-of-domain_hint-or-login_hint-parameter-capability-of-seamless-sso), steg 2 och 3 hoppas över.
 
 4. Azure AD anropar med hjälp av JavaScript i bakgrunden, webbläsaren, via ett 401, obehörig svar, att tillhandahålla en Kerberos-biljett.
 5. Webbläsaren kan i sin tur begär en biljett från Active Directory för den `AZUREADSSOACC` datorkontot (som representerar Azure AD).

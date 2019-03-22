@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
 ms.author: aljo, anmola
-ms.openlocfilehash: f5e31c6cf08ab455b835231f54b564a3e4ed8dad
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 147607bbea65199ff97459711ad6301a4ae93aa4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806206"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079834"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Behållaranpassa dina Service Fabric Reliable Services och Reliable Actors i Windows
 
@@ -38,9 +38,9 @@ Det här dokumentet innehåller riktlinjer för att få din tjänst som körs i 
 
 3. För varje kodpaketet som du skulle vilja behållaranpassa, initiera inläsaren på program-posten pekar du. Lägg till statisk konstruktor visas i följande kodfragment i filen programmet post punkt.
 
-  ```csharp
-  namespace MyApplication
-  {
+   ```csharp
+   namespace MyApplication
+   {
       internal static class Program
       {
           static Program()
@@ -53,7 +53,7 @@ Det här dokumentet innehåller riktlinjer för att få din tjänst som körs i 
           /// </summary>
           private static void Main()
           {
-  ```
+   ```
 
 4. Skapa och [paketet](service-fabric-package-apps.md#Package-App) ditt projekt. För att bygga och skapa ett paket, högerklicka på programprojektet i Solution Explorer och välj den **paketet** kommando.
 
@@ -79,49 +79,49 @@ Det här dokumentet innehåller riktlinjer för att få din tjänst som körs i 
 
 7. Ändra ApplicationManifest.xml och ServiceManifest.xml för att lägga till din behållaravbildning, lagringsinformationen, registerautentisering och port till värd-mappning. För att ändra manifesten Se [skapa en Azure Service Fabric-behållarapp](service-fabric-get-started-containers.md). Paketdefinition kod i tjänstmanifestet måste ersättas med motsvarande behållaravbildning. Se till att ändra EntryPoint till en ContainerHost.
 
-  ```xml
-<!-- Code package is your service executable. -->
-<CodePackage Name="Code" Version="1.0.0">
-  <EntryPoint>
+   ```xml
+   <!-- Code package is your service executable. -->
+   <CodePackage Name="Code" Version="1.0.0">
+   <EntryPoint>
     <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
     <ContainerHost>
       <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
     </ContainerHost>
-  </EntryPoint>
-  <!-- Pass environment variables to your container: -->
-</CodePackage>
-  ```
+   </EntryPoint>
+   <!-- Pass environment variables to your container: -->
+   </CodePackage>
+   ```
 
 8. Lägga till en port till värd-mappning för replikatorn och tjänstslutpunkten. Eftersom båda portarna tilldelas vid körning av Service Fabric, nollställs ContainerPort för att använda tilldelad port för mappning.
 
- ```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code">
+   ```xml
+   <Policies>
+   <ContainerHostPolicies CodePackageRef="Code">
     <PortBinding ContainerPort="0" EndpointRef="ServiceEndpoint"/>
     <PortBinding ContainerPort="0" EndpointRef="ReplicatorEndpoint"/>
-  </ContainerHostPolicies>
-</Policies>
- ```
+   </ContainerHostPolicies>
+   </Policies>
+   ```
 
 9. Konfigurera isoleringsläge för behållare kan se [konfigurera isoleringsläge]( https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). Windows stöder två isoleringslägen för containrar: process och Hyper-V. Följande kodfragment visar hur isoleringsläget har angetts i applikationsmanifestfilen.
 
- ```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code" Isolation="process">
-  ...
-  </ContainerHostPolicies>
-</Policies>
- ```
-  ```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
-  ...
-  </ContainerHostPolicies>
-</Policies>
- ```
+   ```xml
+   <Policies>
+   <ContainerHostPolicies CodePackageRef="Code" Isolation="process">
+   ...
+   </ContainerHostPolicies>
+   </Policies>
+   ```
+   ```xml
+   <Policies>
+   <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
+   ...
+   </ContainerHostPolicies>
+   </Policies>
+   ```
 
 10. Om du vill testa det här programmet, måste du distribuera den till ett kluster som kör version 5.7 eller högre. För körningsversioner 6.1 eller lägre måste du redigera och uppdatera inställningarna för klustret om du vill aktivera den här funktionen för förhandsgranskning. Följ stegen i den här [artikeln](service-fabric-cluster-fabric-settings.md) och Lägg till inställning visas nästa.
-```
+    ```
       {
         "name": "Hosting",
         "parameters": [
@@ -131,7 +131,7 @@ Det här dokumentet innehåller riktlinjer för att få din tjänst som körs i 
           }
         ]
       }
-```
+    ```
 
 11. Nästa [distribuera](service-fabric-deploy-remove-applications.md) redigerade programpaketet i det här klustret.
 

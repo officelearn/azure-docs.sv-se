@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 0cc0068f9e1d836800aa77b3057815962581d47b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 401827f3fa5eb6d364d0f133d8cd672cf8968031
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243376"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103187"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Skapa och ändra peering för en ExpressRoute-krets
 
@@ -57,37 +57,37 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Microso
 
 1. Konfigurera ExpressRoute-kretsen. Se till att kretsen är helt etablerad av anslutningsprovidern innan du fortsätter. Om din anslutningsleverantör erbjuder hanteringstjänster till Layer 3, kan du be din anslutningsleverantör för att Microsoft peering åt dig. I så fall behöver du inte följa anvisningarna i nästa avsnitt. Om din anslutningsleverantör inte kan hantera routning åt dig, när du har skapat kretsen, fortsätta konfigurationen med nästa steg.
 
-  ![lista över Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+   ![lista över Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
 2. Konfigurera Microsoft-peering för kretsen. Kontrollera att du har följande information innan du fortsätter.
 
-  * Ett /30 undernät för den primära länken. Detta måste vara ett giltigt offentligt IPv4-prefix som du äger och har registrerat i en RIR/IR. Från det här undernätet ska du tilldela första riktlinje IP-adressen till routern som Microsoft använder den andra riktlinje IP-Adressen för dess router.
-  * Ett /30 undernät för den sekundära länken. Detta måste vara ett giltigt offentligt IPv4-prefix som du äger och har registrerat i en RIR/IR. Från det här undernätet ska du tilldela första riktlinje IP-adressen till routern som Microsoft använder den andra riktlinje IP-Adressen för dess router.
-  * Ett giltigt VLAN-ID att upprätta denna peering på. Se till att ingen annan peering i kretsen använder samma VLAN-ID. För både primära och sekundära länkar måste du använda samma VLAN-ID.
-  * AS-tal för peering. Du kan använda både 2 byte och 4 byte som AS-tal.
-  * Annonserade prefix: Du måste ange en lista över alla prefix som du planerar att annonsera i BGP-sessionen. Endast offentliga IP-adressprefix accepteras. Om du planerar att skicka en uppsättning prefix, kan du skicka en kommaavgränsad lista. Dessa prefix måste vara registrerade åt dig i ett RIR/IR.
-  * **Valfritt –** kund-ASN: Om du har reklamprefix som inte är registrerade på peeringens AS number, kan du ange det AS-nummer som de är registrerade.
-  * Routningens registernamn: Du kan ange RIR / IR mot vilken AS-numret och prefixet är registrerade.
-  * **Valfritt –** en MD5-hash om du väljer att använda en.
+   * Ett /30 undernät för den primära länken. Detta måste vara ett giltigt offentligt IPv4-prefix som du äger och har registrerat i en RIR/IR. Från det här undernätet ska du tilldela första riktlinje IP-adressen till routern som Microsoft använder den andra riktlinje IP-Adressen för dess router.
+   * Ett /30 undernät för den sekundära länken. Detta måste vara ett giltigt offentligt IPv4-prefix som du äger och har registrerat i en RIR/IR. Från det här undernätet ska du tilldela första riktlinje IP-adressen till routern som Microsoft använder den andra riktlinje IP-Adressen för dess router.
+   * Ett giltigt VLAN-ID att upprätta denna peering på. Se till att ingen annan peering i kretsen använder samma VLAN-ID. För både primära och sekundära länkar måste du använda samma VLAN-ID.
+   * AS-tal för peering. Du kan använda både 2 byte och 4 byte som AS-tal.
+   * Annonserade prefix: Du måste ange en lista över alla prefix som du planerar att annonsera i BGP-sessionen. Endast offentliga IP-adressprefix accepteras. Om du planerar att skicka en uppsättning prefix, kan du skicka en kommaavgränsad lista. Dessa prefix måste vara registrerade åt dig i ett RIR/IR.
+   * **Valfritt –** kund-ASN: Om du har reklamprefix som inte är registrerade på peeringens AS number, kan du ange det AS-nummer som de är registrerade.
+   * Routningens registernamn: Du kan ange RIR / IR mot vilken AS-numret och prefixet är registrerade.
+   * **Valfritt –** en MD5-hash om du väljer att använda en.
 3. Du kan välja den peering som du vill konfigurera, som visas i följande exempel. Välj Microsofts peering-rad.
 
-  ![Välj Microsofts peering-rad](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft1.png)
+   ![Välj Microsofts peering-rad](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft1.png)
 4. Konfigurera Microsoft-peering. Följande bild visar ett Konfigurationsexempel:
 
-  ![Konfigurera Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft2.png)
+   ![Konfigurera Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft2.png)
 5. Spara konfigurationen när du har angett alla parametrar.
 
-  Om din krets kommer till en ”verifiering krävs” tillstånd (som visas i bild), måste du öppna ett supportärende för att bevisa ägarskapet för prefixen till supportteamet.
+   Om din krets kommer till en ”verifiering krävs” tillstånd (som visas i bild), måste du öppna ett supportärende för att bevisa ägarskapet för prefixen till supportteamet.
 
-  ![Spara konfigurationen för Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft5.png)
+   ![Spara konfigurationen för Microsoft-peering](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft5.png)
 
-  Du kan öppna ett supportärende direkt från portalen, enligt följande exempel:
+   Du kan öppna ett supportärende direkt från portalen, enligt följande exempel:
 
-  ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
+   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
 
 
 1. När konfigurationen har tagits emot, visas något som liknar följande bild:
 
-  ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
+   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
 
 ### <a name="getmsft"></a>Så här visar du Microsofts peering-information
 
@@ -115,23 +115,23 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Azures 
 
 1. Konfigurera ExpressRoute-kretsen. Se till att kretsen är helt etablerad av anslutningsprovidern innan du fortsätter. Om din anslutningsleverantör erbjuder hanteringstjänster till Layer 3, kan du be anslutningsleverantören aktiverar Azures privata peering åt dig. I så fall behöver du inte följa anvisningarna i nästa avsnitt. Om din anslutningsleverantör inte kan hantera routning åt dig, när du har skapat kretsen, fortsätta konfigurationen med nästa steg.
 
-  ![lista](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+   ![lista](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
 2. Konfigurera Azures privata peering för kretsen. Kontrollera att du har följande objekt innan du fortsätter med nästa steg:
 
-  * Ett /30 undernät för den primära länken. Undernätet får inte vara en del av något adressutrymme som reserverats för virtuella nätverk. Från det här undernätet ska du tilldela första riktlinje IP-adressen till routern som Microsoft använder den andra riktlinje IP-Adressen för dess router.
-  * Ett /30 undernät för den sekundära länken. Undernätet får inte vara en del av något adressutrymme som reserverats för virtuella nätverk. Från det här undernätet ska du tilldela första riktlinje IP-adressen till routern som Microsoft använder den andra riktlinje IP-Adressen för dess router.
-  * Ett giltigt VLAN-ID att upprätta denna peering på. Se till att ingen annan peering i kretsen använder samma VLAN-ID. För både primära och sekundära länkar måste du använda samma VLAN-ID.
-  * AS-tal för peering. Du kan använda både 2 byte och 4 byte som AS-tal. Du kan använda ett privat AS-tal för den här peeringen förutom tal från 65515 till 65520, portintervallet.
-  * **Valfritt –** en MD5-hash om du väljer att använda en.
+   * Ett /30 undernät för den primära länken. Undernätet får inte vara en del av något adressutrymme som reserverats för virtuella nätverk. Från det här undernätet ska du tilldela första riktlinje IP-adressen till routern som Microsoft använder den andra riktlinje IP-Adressen för dess router.
+   * Ett /30 undernät för den sekundära länken. Undernätet får inte vara en del av något adressutrymme som reserverats för virtuella nätverk. Från det här undernätet ska du tilldela första riktlinje IP-adressen till routern som Microsoft använder den andra riktlinje IP-Adressen för dess router.
+   * Ett giltigt VLAN-ID att upprätta denna peering på. Se till att ingen annan peering i kretsen använder samma VLAN-ID. För både primära och sekundära länkar måste du använda samma VLAN-ID.
+   * AS-tal för peering. Du kan använda både 2 byte och 4 byte som AS-tal. Du kan använda ett privat AS-tal för den här peeringen förutom tal från 65515 till 65520, portintervallet.
+   * **Valfritt –** en MD5-hash om du väljer att använda en.
 3. Välj den Azure-privata peering-raden som visas i följande exempel:
 
-  ![privat](./media/expressroute-howto-routing-portal-resource-manager/rprivate1.png)
+   ![privat](./media/expressroute-howto-routing-portal-resource-manager/rprivate1.png)
 4. Konfigurera privat peering. Följande bild visar ett Konfigurationsexempel:
 
-  ![Konfigurera privat peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
+   ![Konfigurera privat peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
 5. Spara konfigurationen när du har angett alla parametrar. När konfigurationen har tagits emot, visas något som liknar följande exempel:
 
-  ![Spara privat peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
+   ![Spara privat peering](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
 
 ### <a name="getprivate"></a>Så här visar du Azures privata peering-information
 
@@ -164,23 +164,23 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Azures 
 
 1. Konfigurera ExpressRoute-kretsen. Se till att kretsen är helt etablerad av anslutningsprovidern innan du fortsätter. Om din anslutningsleverantör erbjuder hanteringstjänster till Layer 3, kan du be anslutningsleverantören aktiverar Azures offentliga peering åt dig. I så fall behöver du inte följa anvisningarna i nästa avsnitt. Om din anslutningsleverantör inte kan hantera routning åt dig, när du har skapat kretsen, fortsätta konfigurationen med nästa steg.
 
-  ![lista över offentlig peering](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+   ![lista över offentlig peering](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
 2. Konfigurera Azures offentliga peering för kretsen. Kontrollera att du har följande objekt innan du fortsätter med nästa steg:
 
-  * Ett /30 undernät för den primära länken. Detta måste vara ett giltigt offentligt IPv4-prefix. Från det här undernätet ska du tilldela första riktlinje IP-adressen till routern som Microsoft använder den andra riktlinje IP-Adressen för dess router. 
-  * Ett /30 undernät för den sekundära länken. Detta måste vara ett giltigt offentligt IPv4-prefix. Från det här undernätet ska du tilldela första riktlinje IP-adressen till routern som Microsoft använder den andra riktlinje IP-Adressen för dess router.
-  * Ett giltigt VLAN-ID att upprätta denna peering på. Se till att ingen annan peering i kretsen använder samma VLAN-ID. För både primära och sekundära länkar måste du använda samma VLAN-ID.
-  * AS-tal för peering. Du kan använda både 2 byte och 4 byte som AS-tal.
-  * **Valfritt –** en MD5-hash om du väljer att använda en.
+   * Ett /30 undernät för den primära länken. Detta måste vara ett giltigt offentligt IPv4-prefix. Från det här undernätet ska du tilldela första riktlinje IP-adressen till routern som Microsoft använder den andra riktlinje IP-Adressen för dess router. 
+   * Ett /30 undernät för den sekundära länken. Detta måste vara ett giltigt offentligt IPv4-prefix. Från det här undernätet ska du tilldela första riktlinje IP-adressen till routern som Microsoft använder den andra riktlinje IP-Adressen för dess router.
+   * Ett giltigt VLAN-ID att upprätta denna peering på. Se till att ingen annan peering i kretsen använder samma VLAN-ID. För både primära och sekundära länkar måste du använda samma VLAN-ID.
+   * AS-tal för peering. Du kan använda både 2 byte och 4 byte som AS-tal.
+   * **Valfritt –** en MD5-hash om du väljer att använda en.
 3. Välj den Azure offentliga peering-raden som visas i följande bild:
 
-  ![Välj offentliga peering-raden](./media/expressroute-howto-routing-portal-resource-manager/rpublic1.png)
+   ![Välj offentliga peering-raden](./media/expressroute-howto-routing-portal-resource-manager/rpublic1.png)
 4. Konfigurera offentlig peering. Följande bild visar ett Konfigurationsexempel:
 
-  ![Konfigurera offentlig peering](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
+   ![Konfigurera offentlig peering](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
 5. Spara konfigurationen när du har angett alla parametrar. När konfigurationen har tagits emot, visas något som liknar följande exempel:
 
-  ![Spara offentlig peering-konfigurationen](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
+   ![Spara offentlig peering-konfigurationen](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
 
 ### <a name="getpublic"></a>Så här visar du Azures offentliga peering-information
 

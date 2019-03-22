@@ -3,7 +3,7 @@ title: Import/Export-Data i web services - Azure Machine Learning Studio | Micro
 description: Lär dig hur du använder modulerna importera Data och exportera Data för att skicka och ta emot data från en webbtjänst.
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
 editor: cgronlun
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 0d6c27afb30bae9ea64f32009864aa6c63e5eb92
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 28d16bce6dbb5063c085e8c4393777ee9d152768
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821515"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092046"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Distribuera Azure Machine Learning Studio-webbtjänster som använder moduler för dataimport och dataexport
 

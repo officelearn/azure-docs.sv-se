@@ -11,12 +11,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: bcc0d69024954b0b8cbf58fb3eac938ff3e1b0e6
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 8dd725bed6364979a9388d5741bf17f667bda0b7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039868"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435277"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – skapa en Node.js Express-app
 
@@ -103,7 +103,7 @@ Den här kursen kräver även följande:
     * Tillhandahåller allt som finns i dist-mappen, som är det statiska innehållet
     * Visar programmet, och visar index.html för GET-begäranden som inte hittas på servern (för djuplänkar)
     * Startar servern med app.listen
-    * Använder en arow-funktion för att logga att porten är aktiv
+    * Använder en funktion för pilen för att logga att porten är aktiv
     
    ```node
    const express = require('express');

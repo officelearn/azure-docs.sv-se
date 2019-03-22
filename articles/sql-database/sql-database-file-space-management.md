@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: a6fccb087d8a2c78bb1ad47758952b76b245dbde
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: 043ceb6c46155ed169c080d08f37688b47e3e4b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576216"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881171"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Hantera utrymmet för enkel och delade databaser i Azure SQL Database
 
@@ -29,6 +29,8 @@ Den här artikeln beskrivs olika typer av lagringsutrymme för enkel och delade 
 ## <a name="overview"></a>Översikt
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
 
 Med enkel och delade databaser i Azure SQL Database finns arbetsbelastningmönster där allokeringen av underliggande datafiler för databaser kan bli större än mängden data som används sidor. Den här situationen kan uppstå när mängden utnyttjat utrymme ökar och data därefter raderas. Anledningen är allokerade utrymmet inte frigörs automatiskt när data tas bort.
 
@@ -239,7 +241,7 @@ Du kan också kan automatiskt förminskas aktiveras för en databas.  Automatisk
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-Mer information om det här kommandot finns i [databasen in](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) alternativ. 
+Mer information om det här kommandot finns i [databasen in](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) alternativ. 
 
 ### <a name="rebuild-indexes"></a>Återskapa index
 

@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6cd7b2a8a70a315b05c0824a863803bbc6ffabb2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 37cdac16a51a30bdaf1ba0266bab7fdd1f2990f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872143"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895455"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Identifiera bildtyper med visuellt innehåll
 
-Visuellt innehåll kan analysera innehållstyp avbildningar genom att ange om en bild är ClipArt, omdöme sannolikheten på en skala eller en Linjeteckning.
+Med den [analysera bild](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API, visuellt innehåll kan analysera innehållstypen för avbildningar, som anger om en bild är ClipArt eller en Linjeteckning.
 
 ## <a name="detecting-clip-art"></a>Identifiera ClipArt
 
@@ -115,4 +115,4 @@ Följande JSON-svar visar vad för visuellt innehåll returnerar när som anger 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig begrepp [tagga bilder](concept-tagging-images.md) och [kategorisera bilder](concept-categorizing-images.md).
+Se den [analysera bild](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) referensdokumentation och lär dig att identifiera bildtyper.

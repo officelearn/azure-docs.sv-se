@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: a4f9fee0c405c893d76d044278c80e7b31823fce
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 60489e3fc7fc6482a14a241e777066b3805a4d5e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881353"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095117"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Säkerhetskopiera och återställa en server i Azure Database for PostgreSQL med Azure-portalen
 
@@ -58,10 +58,10 @@ Följande steg återställer exempelservern till point-in-time:
 3. Fyll i formuläret återställning med informationen som krävs:
 
    ![Azure Database för PostgreSQL - information för återställningspunkter](./media/howto-restore-server-portal/3-restore.png)
-  - **Återställningspunkt**: Välj du vill återställa till point-in-time.
-  - **Målserver**: Ange ett namn för den nya servern.
-  - **Plats**: Du kan inte välja region. Som standard är det samma som källservern.
-  - **Prisnivå**: Du kan inte ändra dessa parametrar när du gör en point-in-time-återställning. Det är samma som källservern. 
+   - **Återställningspunkt**: Välj du vill återställa till point-in-time.
+   - **Målserver**: Ange ett namn för den nya servern.
+   - **Plats**: Du kan inte välja region. Som standard är det samma som källservern.
+   - **Prisnivå**: Du kan inte ändra dessa parametrar när du gör en point-in-time-återställning. Det är samma som källservern. 
 
 4. Klicka på **OK** att återställa servern att återställa till point-in-time. 
 

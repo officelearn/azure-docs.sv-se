@@ -8,21 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 0d20d147bc77698e97630ad3bd5e58348db45f5b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8282838f778516e31080960400e5b1435f0b5673
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187482"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57866334"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-java"></a>Snabbstart: Söka på webben med hjälp av REST-API för webbsökning i Bing och Java
 
-Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få JSON-svaret. Det här Java-programmet skickar en sökbegäran till API:et och visar svaret. Även om det här programmet är skrivet i Java, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få ett JSON-svar. Den här Java-program skickar en sökbegäran-API: et och visas svaret. Även om det här programmet är skrivet i Java, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
+
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
 * [JDK 7 eller 8](https://aka.ms/azure-jdks)
@@ -54,7 +55,7 @@ Om du använder Maven deklarerar du Gson i `POM.xml`. Hoppa över det här stege
 <dependency>
     <groupId>com.google.code.gson</groupId>
     <artifactId>gson</artifactId>
-    <version>2.8.1</version>
+    <version>2.8.5</version>
 </dependency>
 ```
 
@@ -72,7 +73,7 @@ public class BingWebSearch {
 
 ## <a name="define-variables"></a>Definiera variabler
 
-Den här koden ställer in `subscriptionKey`, `host`, `path` och `searchTerm`. Bekräfta att slutpunkten är korrekt och ersätt värdet `subscriptionKey` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `searchTerm`.
+Den här koden ställer in `subscriptionKey`, `host`, `path` och `searchTerm`. Bekräfta att slutpunkten är korrekt och ersätt värdet `subscriptionKey` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `searchTerm`. Kom ihåg att lägga till koden för den `BingWebSearch` klassen som anges ovan.
 
 ```java
 // Enter a valid subscription key.
@@ -184,8 +185,8 @@ class SearchResults{
 Det sista steget är att kompilera koden och köra den! Nedan visas kommandona:
 
 ```powershell
-javac BingWebSearch.java -classpath ./gson-2.8.1.jar -encoding UTF-8
-java -cp ./gson-2.8.1.jar BingWebSearch
+javac BingWebSearch.java -classpath ./gson-2.8.5.jar -encoding UTF-8
+java -cp ./gson-2.8.5.jar BingWebSearch
 ```
 
 Om du vill jämföra din kod med vår [finns exempelkoden på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingWebSearchv7.java).

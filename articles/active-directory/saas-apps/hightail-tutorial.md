@@ -4,282 +4,259 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: e15206ac-74b0-46e4-9329-892c7d242ec0
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/15/2018
+ms.topic: tutorial
+ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd49d97431efc3e1902e700a54627d5ee095cc74
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c8ca8c0a72dadb4ee4a5e84d3bd3da79d5d8a25d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180036"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856047"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Självstudier: Azure Active Directory-integrering med Hightail
 
 I den här självstudien får du lära dig hur du integrerar Hightail med Azure Active Directory (AD Azure).
-
 Integrera Hightail med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Hightail
-- Du kan aktivera användarna att automatiskt få loggat in på Hightail (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+* Du kan styra i Azure AD som har åtkomst till Hightail.
+* Du kan aktivera användarna att vara automatiskt inloggad till Hightail (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Hightail, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En Hightail enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Hightail enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Hightail från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+
+* Hightail stöder **SP och IDP** -initierad SSO
+* Hightail stöder **Just In Time** etableringen av användare
 
 ## <a name="adding-hightail-from-the-gallery"></a>Att lägga till Hightail från galleriet
+
 För att konfigurera integrering av Hightail i Azure AD, som du behöver lägga till Hightail från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Hightail från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Appar][2]
-    
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Appar][3]
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I sökrutan skriver **Hightail**.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/hightail-tutorial/tutorial_hightail_search.png)
+4. I sökrutan skriver **Hightail**väljer **Hightail** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-1. I resultatpanelen väljer **Hightail**, och klicka sedan på **Lägg till** för att lägga till programmet.
+     ![Hightail i resultatlistan](common/search-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/hightail-tutorial/tutorial_hightail_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Hightail baserat på en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Hightail är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Hightail upprättas.
-
-I Hightail, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Hightail baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Hightail upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Hightail, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare Hightail](#creating-a-hightail-test-user)**  – du har en motsvarighet för Britta Simon i Hightail som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Hightail enkel inloggning](#configure-hightail-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa testanvändare Hightail](#create-hightail-test-user)**  – du har en motsvarighet för Britta Simon i Hightail som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Hightail program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Hightail:**
+Utför följande steg för att konfigurera Azure AD enkel inloggning med Hightail:
 
-1. I Azure-portalen på den **Hightail** program integration-sidan klickar du på **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **Hightail** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_samlbase.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-1. På den **Hightail domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_url.png)
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    I den **svars-URL** textrutan skriver du URL: en som: `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
+4. Om du vill konfigurera appen i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
+
+    ![Hightail domän och URL: er enkel inloggning för information](common/both-replyurl.png)
+
+    I den **svars-URL** text skriver du URL: en som:  `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
 
     > [!NOTE]
     > Svars-URL-värdet är inte verkliga värdet. Du uppdaterar svars-URL-värdet med faktiska svars-URL som beskrivs senare i självstudien.
 
-1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_url1.png)
+    ![Hightail domän och URL: er enkel inloggning för information](common/both-signonurl.png)
 
-    I den **inloggning på URL: en** textrutan skriver du URL: en som: `https://www.hightail.com/loginSSO`
+    I den **inloggnings-URL** text skriver du URL: en som:  `https://www.hightail.com/loginSSO`
 
-1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+6. Programmets Hightail förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen **Redigera** för att öppna dialogrutan Användarattribut.
 
-    ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_certificate.png) 
+    ![image](common/edit-attribute.png)
 
-1. Hightail program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **”attributet”** fliken av programmet. Följande skärmbild visar ett exempel på detta. 
+7. Dessutom för att senare Hightail program förväntar sig att få fler attribut som ska skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
 
-    ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_attribute.png) 
-
-1. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan Konfigurera SAML-token attributet som visas i bilden och utför följande steg:
-    
-    | Attributnamn | Attributvärde |
-    | ------------------- | -------------------- |
+    | Namn | Källattribut|
+    | -------- |-------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
-    | E-post | user.mail |    
+    | E-post | user.mail |
     | UserIdentity | user.mail |
-    
-    a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
 
-    ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_officespace_04.png)
+    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_officespace_05.png)
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-    c. Från den **värdet** anger attributvärdet som visas för den raden.
+    c. Lämna **Namnrymd** tom.
 
-    d. Lämna **Namnrymd** tom.
+    d. Välj Källa som **Attribut**.
 
-    e. Klicka på **OK**.
+    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
-1. Klicka på knappen **Spara**.
+    f. Klicka på **Ok**
 
-    ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_general_400.png)
+    g. Klicka på **Spara**.
 
-1. På den **Hightail Configuration** klickar du på **konfigurera Hightail** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+8. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_configure.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-    >[!NOTE]
-    >Innan du konfigurerar den enkel inloggning på Hightail app, kan du lista för tillåten din e-postdomän med Hightail team så att alla användare som använder den här domänen kan använda enkel inloggning funktioner.
+9. På den **konfigurera Hightail** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+    > [!NOTE]
+    > Innan du konfigurerar den enkel inloggning på Hightail app, kan du lista för tillåten din e-postdomän med Hightail team så att alla användare som använder den här domänen kan använda enkel inloggning funktioner.
+
+### <a name="configure-hightail-single-sign-on"></a>Konfigurera Hightail enkel inloggning
 
 1. Öppna i ett nytt webbläsarfönster i **Hightail** administrationsportalen.
 
-1. Klicka på **Användarikon** från det övre högra hörnet på sidan. 
+2. Klicka på **Användarikon** från det övre högra hörnet på sidan. 
 
     ![Konfigurera enkel inloggning](./media/hightail-tutorial/configure1.png)
 
-1. Klicka på **visa administratörskonsolen** fliken.
+3. Klicka på **visa administratörskonsolen** fliken.
 
     ![Konfigurera enkel inloggning](./media/hightail-tutorial/configure2.png)
 
-1. Klicka på menyn längst upp i **SAML** fliken och utför följande steg:
+4. Klicka på menyn längst upp i **SAML** fliken och utför följande steg:
 
     ![Konfigurera enkel inloggning](./media/hightail-tutorial/configure3.png)
 
-    a. I den **inloggnings-URL** textrutan klistra in värdet för **SAML enkel inloggning för tjänst-URL** kopieras från Azure-portalen.
+    a. I den **inloggnings-URL** textrutan klistra in värdet för **inloggnings-URL** kopieras från Azure-portalen.
 
     b. Öppna din Base64-kodat certifikat i anteckningar som hämtats från Azure-portalen, kopiera innehållet i den till Urklipp och klistra in den till den **SAML-certifikatet** textrutan.
 
-    c. Klicka på **kopia** Kopiera URL för SAML-konsument för din instans och klistra in den i **svars-URL** -textrutan i **Hightail domän och URL: er** avsnittet på Azure-portalen.
+    c. Klicka på **kopia** Kopiera URL för SAML-konsument för din instans och klistra in den i **svars-URL** -textrutan i **grundläggande SAML-konfiguration** avsnittet på Azure-portalen.
 
     d. Klicka på **spara konfigurationer**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/hightail-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/hightail-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/hightail-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/hightail-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-a-hightail-test-user"></a>Skapa en Hightail testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Hightail. 
-
-Det finns inget åtgärdsobjekt för dig i det här avsnittet. Hightail stöder just-in-time-användaretablering baserat på de anpassade anspråk. Om du har konfigurerat anpassade anspråk som visas i avsnittet **[konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)** ovan, en användare skapas automatiskt i programmet som det inte finns ännu. 
-
->[!NOTE]
->Om du vill skapa en användare manuellt kan du behöva kontakta den [Hightail supportteamet](mailto:support@hightail.com). 
-
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Hightail.
 
-![Tilldela användare][200] 
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Hightail**.
 
-**Om du vill tilldela Britta Simon Hightail, utför du följande steg:**
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+2. I listan med program väljer **Hightail**.
 
-    ![Tilldela användare][201] 
+    ![Länken Hightail i listan med program](common/all-applications.png)
 
-1. I listan med program väljer **Hightail**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_app.png) 
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Tilldela användare][202]
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Tilldela användare][203]
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+### <a name="create-hightail-test-user"></a>Skapa Hightail testanvändare
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
+I det här avsnittet skapas en användare som kallas Britta Simon i Hightail. Hightail stöder just-in-time användaretablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Hightail, skapas en ny efter autentisering.
 
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+> [!NOTE]
+> Om du vill skapa en användare manuellt kan du behöva kontakta den [Hightail supportteamet](mailto:support@hightail.com).
 
-Målet med det här avsnittet är att prova Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-När du klickar på panelen Hightail i åtkomstpanelen du bör få automatiskt loggat in på ditt Hightail program.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
+När du klickar på panelen Hightail i åtkomstpanelen, bör det vara loggas in automatiskt till Hightail som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/hightail-tutorial/tutorial_general_01.png
-[2]: ./media/hightail-tutorial/tutorial_general_02.png
-[3]: ./media/hightail-tutorial/tutorial_general_03.png
-[4]: ./media/hightail-tutorial/tutorial_general_04.png
-
-[100]: ./media/hightail-tutorial/tutorial_general_100.png
-
-[200]: ./media/hightail-tutorial/tutorial_general_200.png
-[201]: ./media/hightail-tutorial/tutorial_general_201.png
-[202]: ./media/hightail-tutorial/tutorial_general_202.png
-[203]: ./media/hightail-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

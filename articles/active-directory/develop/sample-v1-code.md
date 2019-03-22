@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a05b1885871c83da79839448fce2814016f0c082
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 64c199df2012e6ce3b3de5f34989cf5cbc135fdc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194571"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101031"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Kodexempel för Azure Active Directory (v1.0 slutpunkt)
 
@@ -45,7 +45,7 @@ Du kan också bidra till vårt exempel på GitHub. Läs hur genom att läsa [Mic
 Detta exempel visar hur du skriver ett enkelsidigt program som skyddas med Azure AD.
 
  Plattform | En egen API-anrop | Anropar en annan webb-API
- -------- |  --------------------- | ------------------ | ----------------
+ -------- |  --------------------- | ------------------ 
 ![JavaScript](media/sample-v2-code/logo_js.png) | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
 ![Angular JS](media/sample-v2-code/logo_angular.png) | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) | [angularjs-singlepageapp-cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
 
@@ -67,8 +67,8 @@ Följande exempel illustrerar webbprogram som registrerar användare. Vissa av d
 
 Följande exempel visar hur du implementerar rollbaserad åtkomstkontroll (RBAC). RBAC används för att begränsa behörigheterna för vissa funktioner i en webbapp till vissa användare. Användarna har behörighet beroende på om de hör till en **Azure AD-grupp** eller har ett visst program **rollen**.
 
-Plattform | Exempel
- -------- | -------------------
+Plattform | Exempel |
+ -------- | ------------------- |
 ![ASP.NET 4.5](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) <p/>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | En .NET 4.5 MVC-webbapp som använder Azure AD **roller** för auktorisering
 
 ## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>Stationära och mobila offentliga klientprogram anropar Microsoft Graph eller ett webb-API
@@ -88,14 +88,14 @@ Mobile (Android)           | ![Android / Java](media/sample-v2-code/logo_Android
 Mobile (iOS)           | ![iOS / Objective C eller swift](media/sample-v2-code/logo_iOS.png) | Interaktiv |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
 Fjärrskrivbord (konsol)          | ![.NET/C#](media/sample-v2-code/logo_NET.png) | Användarnamn / lösenord </p>  Integrerad Windows-autentisering | | [DotNet-intern-fjärradministrerad](https://github.com/azure-samples/active-directory-dotnet-native-headless)
 Fjärrskrivbord (konsol)          | ![Java-konsolen](media/sample-v2-code/logo_Java.png) | Användarnamn / lösenord | | [java-native-headless](https://github.com/Azure-Samples/active-directory-java-native-headless)
-Fjärrskrivbord (konsol)           | ![.NET Core/C#](media/sample-v2-code/logo_NETcore.png) | Kodflöde för enhet | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
+Fjärrskrivbord (konsol)           | ![.NET Core/C#](media/sample-v2-code/logo_NETcore.png) | Enhetskodflöde | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
 
 ## <a name="daemon-applications-accessing-web-apis-with-the-applications-identity"></a>Daemon-program (åtkomst till webb-API: er med programmets identitet)
 
 Följande exempel visar desktop eller web program som har åtkomst till Microsoft Graph eller ett webb-API utan användare (med Programidentitet).
 
 Klientprogram | Plattform | Flow/bevilja | Ett ASP.NET eller ASP.NET Core 2.0 webb-API-anrop
------------------- | -------- | ---------- | -------------------- | -------------------------
+------------------ | -------- | ---------- | -------------------- 
 Daemon för app (konsol)          | ![.NET](media/sample-v2-code/logo_NETframework.png) | Klientens autentiseringsuppgifter med apphemlighet eller certifikat | [dotnet-daemon](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [dotnet-daemon-certificate-credential](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
 Daemon för app (konsol)         | ![.NET](media/sample-v2-code/logo_NETcore.png) | Klientens autentiseringsuppgifter med certifikat| [dotnetcore-daemon-certificate-credential](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)
 ASP.NET-Webbapp  | ![.NET](media/sample-v2-code/logo_NETframework.png) | Klientautentiseringsuppgifter | [dotnet-webapp-webapi-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)

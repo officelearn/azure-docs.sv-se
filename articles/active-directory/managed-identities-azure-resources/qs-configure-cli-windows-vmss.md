@@ -1,6 +1,6 @@
 ---
-title: Hur du konfigurerar system- och användartilldelade hanterade identiteter på en Azure-VMSS med Azure CLI
-description: Steg för steg-instruktioner för att konfigurera system- och användartilldelade hanterade identiteter på en Azure-VMSS med Azure CLI.
+title: Hur du konfigurerar system och användartilldelade hanterade identiteter på en virtuell dator i Azure-skala för att ställa in med Azure CLI
+description: Steg för steg ange instruktioner för att konfigurera system- och användartilldelade hanterade identiteter på en virtuell dator i Azure-skala, med hjälp av Azure CLI.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/15/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34cd03ad6640ac809ce8ac2e8f4fc1070246df27
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 88bcd38890baea2d6bc0460937fe4b7882f7fd23
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886872"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226054"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Konfigurera hanterade identiteter för Azure-resurser på en VM-skalningsuppsättning med Azure CLI
 
@@ -28,9 +28,9 @@ ms.locfileid: "57886872"
 
 Hanterade identiteter för Azure-resurser tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering utan autentiseringsuppgifter i din kod. 
 
-I den här artikeln får du lära dig hur du utför följande hanterade identiteter för Azure-resurser på en Azure VM Scale ange (VMSS), med hjälp av Azure CLI:
-- Aktivera och inaktivera systemtilldelade hanterad identitet i en Azure VMSS
-- Lägga till och ta bort en Användartilldelad hanterad identitet i en Azure VMSS
+I den här artikeln får du lära dig hur du utför följande hanterade identiteter för Azure-resurser på en Azure VM-skalningsuppsättning med Azure CLI:
+- Aktivera och inaktivera systemtilldelade hanterad identitet på en Azure VM-skalningsuppsättning
+- Lägga till och ta bort en Användartilldelad hanterad identitet på en Azure VM-skalningsuppsättning
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -57,7 +57,7 @@ I den här artikeln får du lära dig hur du utför följande hanterade identite
 
 ## <a name="system-assigned-managed-identity"></a>Systemtilldelade hanterad identitet
 
-I det här avsnittet får du lära dig hur du aktiverar och inaktiverar systemtilldelade hanterad identitet för en Azure-VMSS med Azure CLI.
+I det här avsnittet får du lära dig hur du aktiverar och inaktiverar systemtilldelade hanterad identitet för en Azure VM-skalningsuppsättning med Azure CLI.
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Aktivera systemtilldelade hanterad identitet under skapandet av en Azure VM-skalningsuppsättning
 
@@ -114,11 +114,8 @@ Om du har en virtuell dator som inte längre behöver systemtilldelade hanterad 
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-Ta bort hanterade identiteter för VM-tillägg för Azure-resurser (planerad för utfasning i januari 2019) med [az vmss-identitet ta bort](/cli/azure/vmss/identity/) till att ta bort den systemtilldelade hanterad identitet från en Skalningsuppsättningen:
-
-```azurecli-interactive
-az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
-```
+> [!NOTE]
+> Om du har etablerat den hanterade identitet för VM-tillägg för Azure-resurser (för att bli inaktuell) kan du behöva ta bort den med [az vmss tillägget delete](https://docs.microsoft.com/cli/azure/vm/). Mer information finns i [migrera från VM-tillägg till Azure IMDS för autentisering](howto-migrate-vm-extension.md).
 
 ## <a name="user-assigned-managed-identity"></a>Användartilldelade hanterad identitet
 
@@ -126,7 +123,7 @@ I det här avsnittet får du lära dig hur du aktiverar och ta bort en Användar
 
 ### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-a-virtual-machine-scale-set"></a>Tilldela en hanterad Användartilldelad identitet när du skapar en VM-skalningsuppsättning
 
-Det här avsnittet vägleder dig genom skapandet av en VMSS och tilldelningen av en hanterad Användartilldelad identitet till VMSS. Om du redan har en VMSS som du vill använda kan du hoppa över det här avsnittet och gå vidare till nästa.
+Det här avsnittet vägleder dig genom skapandet av en VM-skalningsuppsättning och tilldelningen av en hanterad Användartilldelad identitet till virtuella datorns skalningsuppsättning. Om du redan har en skalningsuppsättning för virtuella datorer som du vill använda kan du hoppa över det här avsnittet och gå vidare till nästa.
 
 1. Du kan hoppa över det här steget om du redan har en resursgrupp som du vill använda. Skapa en [resursgrupp](~/articles/azure-resource-manager/resource-group-overview.md#terminology) för inneslutning och distribution av din användartilldelade hanterad identitet, med hjälp av [az gruppen skapa](/cli/azure/group/#az-group-create). Ersätt parametervärdena `<RESOURCE GROUP>` och `<LOCATION>` med dina egna värden. :
 
@@ -158,7 +155,7 @@ Det här avsnittet vägleder dig genom skapandet av en VMSS och tilldelningen av
    }
    ```
 
-3. Skapa en VMSS med [az vmss skapa](/cli/azure/vmss/#az-vmss-create). I följande exempel skapas en VMSS som är associerade med det nya användartilldelade hanterad identitet, enligt den `--assign-identity` parametern. Ersätt parametervärdena `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>` och `<USER ASSIGNED IDENTITY>` med dina egna värden. 
+3. Skapa en VM-skalningsuppsättning med hjälp av [az vmss skapa](/cli/azure/vmss/#az-vmss-create). I följande exempel skapas en skalningsuppsättning för virtuell dator som är associerade med det nya användartilldelade hanterad identitet, enligt den `--assign-identity` parametern. Ersätt parametervärdena `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>` och `<USER ASSIGNED IDENTITY>` med dina egna värden. 
 
    ```azurecli-interactive 
    az vmss create --resource-group <RESOURCE GROUP> --name <VMSS NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY>
@@ -188,18 +185,18 @@ Det här avsnittet vägleder dig genom skapandet av en VMSS och tilldelningen av
    }
    ```
 
-2. Tilldela Användartilldelad hanterad identitet till VMSS med [az vmss-identitet tilldela](/cli/azure/vmss/identity). Ersätt parametervärdena `<RESOURCE GROUP>` och `<VMSS NAME>` med dina egna värden. Den `<USER ASSIGNED IDENTITY>` är identiteten för användartilldelade resurs `name` egenskapen, som du skapade i föregående steg:
+2. Tilldela hanterade Användartilldelad identitet till VM-skalningsuppsättning som anges med [az vmss-identitet tilldela](/cli/azure/vmss/identity). Ersätt parametervärdena `<RESOURCE GROUP>` och `<VIRTUAL MACHINE SCALE SET NAME>` med dina egna värden. Den `<USER ASSIGNED IDENTITY>` är identiteten för användartilldelade resurs `name` egenskapen, som du skapade i föregående steg:
 
     ```azurecli-interactive
-    az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY>
+    az vmss identity assign -g <RESOURCE GROUP> -n <VIRTUAL MACHINE SCALE SET NAME> --identities <USER ASSIGNED IDENTITY>
     ```
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Ta bort en hanterad Användartilldelad identitet från en Azure VM-skalningsuppsättning
 
-Ta bort en hanterad Användartilldelad identitet från en VM scale set användning [az vmss-identitet ta bort](/cli/azure/vmss/identity#az-vmss-identity-remove). Om det här är den enda användartilldelade hanterade identiteten som tilldelats virtuella datorns skaluppsättning `UserAssigned` tas bort från TYPVÄRDE identitet.  Ersätt parametervärdena `<RESOURCE GROUP>` och `<VMSS NAME>` med dina egna värden. Den `<USER ASSIGNED IDENTITY>` blir användartilldelade hanterade identitetens `name` egenskapen, som finns i identitetsavsnittet i VM-skaluppsättning som anges med `az vmss identity show`:
+Ta bort en hanterad Användartilldelad identitet från en VM scale set användning [az vmss-identitet ta bort](/cli/azure/vmss/identity#az-vmss-identity-remove). Om det här är den enda användartilldelade hanterade identiteten som tilldelats virtuella datorns skaluppsättning `UserAssigned` tas bort från TYPVÄRDE identitet.  Ersätt parametervärdena `<RESOURCE GROUP>` och `<VIRTUAL MACHINE SCALE SET NAME>` med dina egna värden. Den `<USER ASSIGNED IDENTITY>` blir användartilldelade hanterade identitetens `name` egenskapen, som finns i identitetsavsnittet i VM-skaluppsättning som anges med `az vmss identity show`:
 
 ```azurecli-interactive
-az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY>
+az vmss identity remove -g <RESOURCE GROUP> -n <VIRTUAL MACHINE SCALE SET NAME> --identities <USER ASSIGNED IDENTITY>
 ```
 
 Om din skalningsuppsättning för virtuell dator inte har en automatiskt genererad hanterad vill identitet och du ta bort alla användartilldelade hanterade identiteter från den, använder du följande kommando:

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 5c3314f61344dd56e0c96ca76fe143128c279b68
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: f7623c126e47a05b5a4be0c23baa191c4de8a766
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870596"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856319"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-nodejs-in-computer-vision"></a>Snabbstart: Extrahera utskriven text (OCR) med hjälp av REST API:et och Node.js i Visuellt innehåll
 
@@ -24,7 +24,7 @@ I den här snabbstarten extraherar du tryckt text med optisk teckenläsning (OCR
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha [Node.js](https://nodejs.org) 4.x eller senare installerat.
 - Du måste ha [npm](https://www.npmjs.com/) installerat.
@@ -53,7 +53,7 @@ Så här skapar du och kör exemplet:
 1. Öppna ett kommandotolksfönster.
 1. Kör filen i kommandotolken med kommandot `node`. Till exempel `node get-printed-text.js`.
 
-```nodejs
+```javascript
 'use strict';
 
 const request = require('request');

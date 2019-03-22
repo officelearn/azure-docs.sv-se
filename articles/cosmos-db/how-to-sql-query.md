@@ -1,17 +1,17 @@
 ---
 title: SQL-frågor för Azure Cosmos DB
-description: Läs mer om SQL-syntax, databasbegrepp och SQL-frågor för Azure Cosmos DB. SQL kan användas som JSON-frågespråk i Azure Cosmos DB.
+description: Läs mer om SQL-syntax, databasbegrepp och SQL-frågor för Azure Cosmos DB. SQL kan användas som en JSON-frågespråket i Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5833ee3964958437b7834ff25f1bce7837370fb1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 822c4631c08da27ef7b92af2df5e5e0d04f063b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550591"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013892"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>SQL-exempelfrågor för Azure Cosmos DB
 
@@ -2113,9 +2113,9 @@ Det andra exemplet visar en mer komplex fråga som returnerar flera resultat fr�
 
 Om resultatet för en fråga inte ryms inom en enda resultatsida returnerar REST API en fortsättningstoken via `x-ms-continuation-token`-svarshuvudet. Klienter kan sidnumrera resultat genom att inkludera rubriken i efterföljande resultat. Antalet resultat per sida kan även styras via `x-ms-max-item-count`-nummerrubriken. Om den angivna frågan har en sammansättningsfunktion som `COUNT` kan frågan returnera ett delvis sammansatt värde över sidan med resultat. Klienterna måste utföra en sammansättning på andra nivån över dessa resultat för att bilda slutresultatet, till exempel summan över de mängder som returneras på de enskilda sidorna för att returnera totalmängden.
 
-För att hantera datakonsekvensprincipen för frågor använder du `x-ms-consistency-level`-huvudet som med alla REST API-begäranden. För sessionskonsekvens krävs det att det senaste `x-ms-session-token` Cookie-huvudet ekosänds i frågebegäran. Den befrågade containerns indexeringsprincip kan också påverka konsekvensen för frågeresultatet. Med standardinställningarna för indexeringsprincip är index för containrar alltid aktuellt med de objektinnehåll och frågeresultat som matchar den konsekvens som valts för data. Om indexprincipen sänks till Lazy (Lat) kan frågorna returnera inaktuella resultat. Mer information finns i [Konsekvensnivåer i Azure Cosmos DB][consistency-levels].
+För att hantera datakonsekvensprincipen för frågor använder du `x-ms-consistency-level`-huvudet som med alla REST API-begäranden. För sessionskonsekvens krävs det att det senaste `x-ms-session-token` Cookie-huvudet ekosänds i frågebegäran. Den befrågade containerns indexeringsprincip kan också påverka konsekvensen för frågeresultatet. Med standardinställningarna för indexeringsprincip är index för containrar alltid aktuellt med de objektinnehåll och frågeresultat som matchar den konsekvens som valts för data. Mer information finns i [Konsekvensnivåer i Azure Cosmos DB][consistency-levels].
 
-Om den konfigurerade indexeringsprincipen i containern inte har stöd för den angivna frågan returnerar Azure Cosmos DB-servern 400 ”Bad Request” (Felaktig begäran). Det här felmeddelandet returneras för intervallfrågor mot sökvägar som konfigurerats för hash-sökningar (likhet) och för sökvägar som uttryckligen exkluderas från indexering. `x-ms-documentdb-query-enable-scan`-huvudet kan anges att tillåta att frågan utför en genomsökning när ett index inte är tillgängligt.
+Om den konfigurerade indexeringsprincipen i containern inte har stöd för den angivna frågan returnerar Azure Cosmos DB-servern 400 ”Bad Request” (Felaktig begäran). Det här felmeddelandet returneras för frågor med sökvägar som uttryckligen är undantagen från indexering. `x-ms-documentdb-query-enable-scan`-huvudet kan anges att tillåta att frågan utför en genomsökning när ett index inte är tillgängligt.
 
 Du kan få detaljerade mått om frågekörning genom att ange `x-ms-documentdb-populatequerymetrics`-huvudet till `True`. Mer information finns i avsnittet om [SQL-frågemått för Azure Cosmos DB](sql-api-query-metrics.md).
 

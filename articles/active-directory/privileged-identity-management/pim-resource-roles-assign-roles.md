@@ -15,12 +15,12 @@ ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87c92387c14cd0b82ec26acb411609c794c2601e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ee09526c2bf1ebf9821e1f84dc99bfc8635b9ee2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171272"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086198"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>Tilldela Azure-resursroller i PIM
 
@@ -32,8 +32,8 @@ Azure AD PIM kan hantera inbyggda Azure-resursroller, samt anpassade roller, ink
 - Säkerhetsadministratör
 - Säkerhetshanteraren och mycket mer
 
->[!NOTE]
-Användare eller medlemmar i en grupp som tilldelats ägare eller administratör för användaråtkomst roller och globala administratörer som aktiverar prenumerationshantering i Azure AD är resursen administratörer. Dessa administratörer kan tilldela roller, konfigurera inställningar för serverrollen och granska åtkomst med hjälp av PIM för Azure-resurser. Visa en lista över [inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
+> [!NOTE]
+> Användare eller medlemmar i en grupp som tilldelats ägare eller administratör för användaråtkomst roller och globala administratörer som aktiverar prenumerationshantering i Azure AD är resursen administratörer. Dessa administratörer kan tilldela roller, konfigurera inställningar för serverrollen och granska åtkomst med hjälp av PIM för Azure-resurser. Visa en lista över [inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="assign-a-role"></a>Tilldela en roll
 

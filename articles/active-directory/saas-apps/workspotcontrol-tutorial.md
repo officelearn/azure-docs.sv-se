@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8716d018756d1e6eadcd6ebeeaf4f67ad0bc4741
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 97f375c6f48d3dc497eb59e76f19fc64cf906b56
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211163"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886515"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Självstudier: Azure Active Directory-integrering med Workspot kontroll
 
@@ -179,7 +179,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
@@ -206,7 +206,7 @@ Om du vill aktivera Azure AD-användare att logga in på Workspot kontroll, mås
 
     b. I textrutan **Efternamn** anger du efternamnet på användaren som **simon**.
 
-    c. I textrutan **E-post** anger du användarens e-postadress, som **Brittasimon@contoso.com**.
+    c. I **e-post** text, ange den e-postadressen för användaren som **Brittasimon\@contoso.com**.
 
     d. Välj en lämplig användarroll från den **rollen** listrutan.
 
@@ -247,5 +247,5 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-direct
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

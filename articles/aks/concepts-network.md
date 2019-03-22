@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 360caaec0033136ffa250d636864fbed8359b8ef
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: cbdbf7dcd6269991d23c61d316dcee68e6678171
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244255"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175674"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverkskoncept för program i Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ Den här artikeln innehåller grundläggande begrepp som tillhandahåller nätve
 
 För att tillåta åtkomst till dina program eller om programkomponenter som ska kommunicera med varandra, tillhandahåller Kubernetes ett Abstraktionslager för virtuella nätverk. Kubernetes-noderna är anslutna till ett virtuellt nätverk och kan tillhandahålla inkommande och utgående anslutningar till poddar. Den *kube-proxy* komponenten körs på alla noder att tillhandahålla dessa nätverks-funktioner.
 
-I Kubernetes, *Services* gruppera poddarna för direkt åtkomst via en IP-adress eller DNS-namn och på en viss port. Du kan även distribuera trafik med hjälp av en *belastningsutjämnare*. Mer komplex routning av programtrafik kan även uppnås med *Ingress-styrenheter*. Säkerhet och filtrering av nätverkstrafik för poddar som är möjligt med Kubernetes *nätverksprinciper*.
+I Kubernetes, *Services* gruppera poddarna för direkt åtkomst via en IP-adress eller DNS-namn och på en viss port. Du kan även distribuera trafik med hjälp av en *belastningsutjämnare*. Mer komplex routning av programtrafik kan även uppnås med *Ingress-styrenheter*. Säkerhet och filtrering av nätverkstrafik för poddar som är möjligt med Kubernetes *nätverksprinciper* (i förhandsversion i AKS).
 
 Azure-plattformen hjälper också till att förenkla virtuella nätverk för AKS-kluster. När du skapar en belastningsutjämnare för Kubernetes är underliggande Azure belastningsutjämningsresursen skapas och konfigureras. När du öppnar nätverksportar till poddar konfigureras de motsvarande Azure reglerna för nätverkssäkerhetsgrupper. För HTTP-routning för program, Azure kan också konfigurera *externa DNS* som ny inkommande vägar har konfigurerats.
 
@@ -108,7 +108,7 @@ En nätverkssäkerhetsgrupp filtrerar trafik för virtuella datorer, till exempe
 
 Som standard kan alla poddar i ett AKS-kluster skicka och ta emot trafik utan begränsningar. För ökad säkerhet kan du definiera regler som styr flödet av trafik. Serverdelsprogrammen exponeras ofta bara till nödvändiga frontend-tjänster eller databaskomponenter är endast tillgängliga på nivån för program som ansluter till dem.
 
-Nätverksprincip är en Kubernetes-funktion som låter dig styra trafikflödet mellan poddar. Du kan välja att tillåta eller neka trafik baserat på inställningar, till exempel tilldelade etiketter, namnområde eller trafik port. Nätverkssäkerhetsgrupper är mer för AKS-noder inte poddar. Användningen av principer för nätverk är ett mer passande och molnbaserade sätt att styra flödet av trafik. Då poddar skapas dynamiskt i ett AKS-kluster, kan de nödvändiga nätverksprinciperna tillämpas automatiskt.
+Nätverksprincip är en Kubernetes-funktion för närvarande i förhandsversion i AKS som låter dig styra trafikflödet mellan poddar. Du kan välja att tillåta eller neka trafik baserat på inställningar, till exempel tilldelade etiketter, namnområde eller trafik port. Nätverkssäkerhetsgrupper är mer för AKS-noder inte poddar. Användningen av principer för nätverk är ett mer passande och molnbaserade sätt att styra flödet av trafik. Då poddar skapas dynamiskt i ett AKS-kluster, kan de nödvändiga nätverksprinciperna tillämpas automatiskt.
 
 Mer information finns i [skydda trafik mellan poddar med hjälp av principer för nätverk i Azure Kubernetes Service (AKS)][use-network-policies].
 

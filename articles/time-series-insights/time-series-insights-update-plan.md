@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 09fef060a58723624796fe6192fef2444251cc1c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 251e95744f57d9b5e42df9bdc3743f4880ff5381
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556092"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077004"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planera förhandsversion av Azure Time Series Insights-miljön
 
@@ -90,7 +90,7 @@ Time Series Insights är en tjänst för hög tillgänglighet som använder upps
 Information om inbyggda funktioner i Azure för affärskontinuitet och haveriberedskap (BCDR) finns i [teknisk vägledning för Azure business continuity](https://docs.microsoft.com/azure/resiliency/resiliency-technical-guidance). För arkitekturvägledning om strategier för Azure-program att uppnå hög tillgänglighet och katastrofåterställning finns i dokumentet på [haveriberedskap och hög tillgänglighet för Azure-program](https://docs.microsoft.com/azure/architecture/resiliency/index).
 
 > [!NOTE]
-
+> 
 >  Time Series Insights har inte inbyggda BCDR.
 > Som standard har inbyggd återställning av Azure Storage, Azure IoT Hub och Azure Event Hubs.
 

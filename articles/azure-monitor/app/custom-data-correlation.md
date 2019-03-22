@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: b7814ce2ae94216da691b9a54049d20a03aafdd9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: cbb144cc8aac6dc8e90d196147b0c154471b7239
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994824"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102068"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Korrelera Application Insights-data med anpassade datakällor
 
@@ -44,7 +44,7 @@ Att börja skicka loggdata i Azure Monitor. Det finns flera alternativ:
 
 - En synkron metod du kan antingen direkt kalla den [API för datainsamling](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) eller använda vår Logic App-anslutningsapp – helt enkelt leta efter ”Azure Log Analytics” och välj alternativet ”Skicka Data”:
 
- ![Välj skärmbild och åtgärd](./media/custom-data-correlation/01-logic-app-connector.png)  
+  ![Välj skärmbild och åtgärd](./media/custom-data-correlation/01-logic-app-connector.png)  
 
 - För en asynkron alternativet att använda Data Collector API för att skapa en process-pipelinen. Se [i den här artikeln](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) information.
 

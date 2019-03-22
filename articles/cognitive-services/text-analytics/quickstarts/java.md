@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: aahi
-ms.openlocfilehash: 6462e48e2edb662c9968a9e22e431638a054e98b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 70f95ca83e225d7fe66875907afb1f829a2c896b
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326280"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189095"
 ---
 # <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av Java
 <a name="HOLTop"></a>
@@ -24,11 +24,11 @@ Den här artikeln visar hur du [identifierar språk](#Detect), [analyserar senti
 
 Se [API-definitionerna](//go.microsoft.com/fwlink/?LinkID=759346) för teknisk dokumentation för API:erna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-Du måste även ha [den slutpunkt och den åtkomstnyckel](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig vid registreringen. 
+Du måste även ha [den slutpunkt och den åtkomstnyckel](../How-tos/text-analytics-how-to-access-key.md) som genererades åt dig vid registreringen.
 
 <a name="Detect"></a>
 
@@ -36,11 +36,12 @@ Du måste även ha [den slutpunkt och den åtkomstnyckel](../How-tos/text-analyt
 
 API:et för språkidentifiering identifierar språket i ett textdokument med hjälp av metoden  [Detect Language](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) (Identifiera språk).
 
-1. Skapa ett nytt Java-projekt i din favoritutvecklingsmiljö.
-2. Lägg till koden nedan.
-3. Ersätt värdet `accessKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Ersätt platsen i `host` (för närvarande `westus`) till den region du har registrerat dig för.
-5. Kör programmet.
+1. Skapa ett nytt Java-projekt i din favorit-IDE (eller en ny mapp på skrivbordet). Skapa en klass med namnet `DetectLanguage.java`.
+1. Lägg till koden nedan i klassen.
+1. Ersätt den `accessKey` värdet med nyckeln från din Text Analytics-prenumeration i [Azure](https://ms.portal.azure.com).
+1. Ersätt platsen i `host` (för närvarande `westus`) till den region du har registrerat dig för.
+1. Kontrollera att du har den [Gson](https://github.com/google/gson) biblioteket som är installerat.
+1. Kör programmet i din IDE eller använda kommandoraden för att köra (instruktioner i kommentarerna kod).
 
 ```java
 import java.io.*;
@@ -59,6 +60,7 @@ import javax.net.ssl.HttpsURLConnection;
  * same folder as this file (DetectLanguage.java), you can compile and run this program at
  * the command line as follows.
  *
+ * Execute the following two commands to build and run (change gson version if needed):
  * javac DetectLanguage.java -classpath .;gson-2.8.1.jar -encoding UTF-8
  * java -cp .;gson-2.8.1.jar DetectLanguage
  */
@@ -107,7 +109,7 @@ public class DetectLanguage {
     static String host = "https://westus.api.cognitive.microsoft.com";
 
     static String path = "/text/analytics/v2.0/languages";
-    
+
     public static String GetLanguage (Documents documents) throws Exception {
         String text = new Gson().toJson(documents);
         byte[] encoded_text = text.getBytes("UTF-8");
@@ -160,7 +162,7 @@ public class DetectLanguage {
 }
 ```
 
-**Svar vid språkidentifiering**
+### <a name="language-detection-response"></a>Svaret för identifiering av språk
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -208,13 +210,14 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="analyze-sentiment"></a>Analysera sentiment
 
-API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) (Attityd). I följande exempel poängsätts två dokument, ett på engelska och ett annat på spanska.
+API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) (Attityd). Attitydanalys kan användas för att ta reda på vad kunderna tycker om ditt märke eller ämne genom att analysera rå text efter ledtrådar om positiv eller negativ attityd. I följande exempel ger poäng för två dokument, en på engelska och en annan på spanska.
 
-1. Skapa ett nytt Java-projekt i din favoritutvecklingsmiljö.
-2. Lägg till koden nedan.
-3. Ersätt värdet `accessKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Ersätt platsen i `uriBase` (för närvarande `westus`) till den region du har registrerat dig för.
-5. Kör programmet.
+1. Skapa ett nytt Java-projekt i din favorit-IDE (eller en ny mapp på skrivbordet). Skapa en klass i den med namnet `GetSentiment.java`.
+1. Lägg till koden nedan i klassen.
+1. Ersätt den `accessKey` värdet med nyckeln från din Text Analytics-prenumeration i [Azure](https://ms.portal.azure.com).
+1. Ersätt platsen i `host` (för närvarande `westus`) till den region du har registrerat dig för.
+1. Kontrollera att du har den [Gson](https://github.com/google/gson) biblioteket som är installerat.
+1. Kör programmet i din IDE eller använda kommandoraden för att köra (instruktioner i kommentarerna kod).
 
 ```java
 import java.io.*;
@@ -233,6 +236,7 @@ import javax.net.ssl.HttpsURLConnection;
  * same folder as this file (GetSentiment.java), you can compile and run this program at
  * the command line as follows.
  *
+ * Execute the following two commands to build and run (change gson version if needed):
  * javac GetSentiment.java -classpath .;gson-2.8.1.jar -encoding UTF-8
  * java -cp .;gson-2.8.1.jar GetSentiment
  */
@@ -283,7 +287,7 @@ public class GetSentiment {
 
     static String path = "/text/analytics/v2.0/sentiment";
     
-    public static String GetSentiment (Documents documents) throws Exception {
+    public static String getTheSentiment (Documents documents) throws Exception {
         String text = new Gson().toJson(documents);
         byte[] encoded_text = text.getBytes("UTF-8");
 
@@ -324,7 +328,7 @@ public class GetSentiment {
             documents.add ("1", "en", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.");
             documents.add ("2", "es", "Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.");
 
-            String response = GetSentiment (documents);
+            String response = getTheSentiment (documents);
             System.out.println (prettify (response));
         }
         catch (Exception e) {
@@ -333,9 +337,11 @@ public class GetSentiment {
     }
 }
 ```
-**Svar vid attitydanalys**
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
+### <a name="sentiment-analysis-response"></a>Sentiment analysis svar
+
+Resultatet mäts som positivt om den får närmare 1.0 och negativt om det beräknas närmare 0,0.
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 
 ```json
 {
@@ -357,13 +363,14 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="extract-key-phrases"></a>Extrahera nyckelfraser
 
-API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
+API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). Extrahering av diskussionsämne används för att snabbt identifiera de viktigaste aspekterna av ett dokument eller text. I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
 
-1. Skapa ett nytt Java-projekt i din favoritutvecklingsmiljö.
-2. Lägg till koden nedan.
-3. Ersätt värdet `accessKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Ersätt platsen i `uriBase` (för närvarande `westus`) till den region du har registrerat dig för.
-5. Kör programmet.
+1. Skapa ett nytt Java-projekt i din favorit-IDE (eller en ny mapp på skrivbordet). Skapa en klass i kallas `GetKeyPhrases.java`.
+1. Lägg till koden nedan i klassen.
+1. Ersätt den `accessKey` värdet med nyckeln från din Text Analytics-prenumeration i [Azure](https://ms.portal.azure.com).
+1. Ersätt platsen i `host` (för närvarande `westus`) till den region du har registrerat dig för.
+1. Kontrollera att du har den [Gson](https://github.com/google/gson) biblioteket som är installerat.
+1. Kör programmet i din IDE eller använda kommandoraden för att köra (instruktioner i kommentarerna kod).
 
 ```java
 import java.io.*;
@@ -382,6 +389,7 @@ import javax.net.ssl.HttpsURLConnection;
  * same folder as this file (GetKeyPhrases.java), you can compile and run this program at
  * the command line as follows.
  *
+ * Execute the following two commands to build and run (change gson version if needed):
  * javac GetKeyPhrases.java -classpath .;gson-2.8.1.jar -encoding UTF-8
  * java -cp .;gson-2.8.1.jar GetKeyPhrases
  */
@@ -483,9 +491,10 @@ public class GetKeyPhrases {
     }
 }
 ```
-**Svar vid extrahering av diskussionsämne**
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
+### <a name="key-phrase-extraction-response"></a>Svaret för extrahering av diskussionsämne
+
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 
 ```json
 {
@@ -526,13 +535,14 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="identify-entities"></a>Identifiera entiteter
 
-API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). I följande exempel identifieras entiteter för engelska dokument.
+API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). [Entiteter](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extrahera ord i texten, som ”USA”, och sedan typ och/eller Wikipedia länk ger dig den här Ordfilter. Typen för ”USA” är `location`, medan en länk till Wikipedia är `https://en.wikipedia.org/wiki/United_States`.  I följande exempel identifieras entiteter för engelska dokument.
 
-1. Skapa ett nytt Java-projekt i din favoritutvecklingsmiljö.
-2. Lägg till koden nedan.
-3. Ersätt värdet `accessKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Ersätt platsen i `uriBase` (för närvarande `westus`) till den region du har registrerat dig för.
-5. Kör programmet.
+1. Skapa ett nytt Java-projekt i din favorit-IDE (eller en ny mapp på skrivbordet). Skapa en klass i den med namnet `GetEntities.java`.
+1. Lägg till koden nedan i klassen.
+1. Ersätt den `accessKey` värdet med nyckeln från din Text Analytics-prenumeration i [Azure](https://ms.portal.azure.com).
+1. Ersätt platsen i `host` (för närvarande `westus`) till den region du har registrerat dig för.
+1. Kontrollera att du har den [Gson](https://github.com/google/gson) biblioteket som är installerat.
+1. Kör programmet i din IDE eller använda kommandoraden för att köra (instruktioner i kommentarerna kod).
 
 ```java
 import java.io.*;
@@ -551,6 +561,7 @@ import javax.net.ssl.HttpsURLConnection;
  * same folder as this file (GetEntities.java), you can compile and run this program at
  * the command line as follows.
  *
+ * Execute the following two commands to build and run (change gson version if needed):
  * javac GetEntities.java -classpath .;gson-2.8.1.jar -encoding UTF-8
  * java -cp .;gson-2.8.1.jar GetEntities
  */
@@ -651,9 +662,10 @@ public class GetEntities {
     }
 }
 ```
-**Svar vid entitetextrahering**
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
+### <a name="entity-extraction-response"></a>Svar vid entitetsextrahering
+
+Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 
 ```json
 {
@@ -816,7 +828,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Textanalys med Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Se även 
+## <a name="see-also"></a>Se också
 
  [Översikt över Textanalys](../overview.md)  
  [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)

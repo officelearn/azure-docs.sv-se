@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: bfc80318eb43992e292159a0cd99a9b2f4a3c041
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: d5a411e227704eb80b0020f68fad072491576f18
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233110"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883805"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>Interagera med Power BI-rapporter med JavaScript API
 
@@ -43,29 +43,29 @@ Med JavaScript API kan du hantera rapporter, navigera till sidor i en rapport, f
 ### <a name="manage-reports"></a>Hantera rapporter
 Med Javascript API kan du hantera beteende på rapporten och sidan:
 
-* Bädda in en Power BI-rapport på ett säkert sätt i ditt program, prova med [inbäddade demoprogram](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
+* Bädda in en Power BI-rapport på ett säkert sätt i ditt program, prova med [inbäddade demoprogram](https://azure-samples.github.io/powerbi-angular-client/#/scenario1)
   * Ange åtkomst-token
 * Konfigurera rapporten
-  * Aktivera och inaktivera filterfönstret och sidnavigeringsfönstret, och prova med [uppdatera inställningsdemoprogram](http://azure-samples.github.io/powerbi-angular-client/#/scenario6)
-  * Ange standard för sidor och filter, prova med [ange standarddemo](http://azure-samples.github.io/powerbi-angular-client/#/scenario5)
+  * Aktivera och inaktivera filterfönstret och sidnavigeringsfönstret, och prova med [uppdatera inställningsdemoprogram](https://azure-samples.github.io/powerbi-angular-client/#/scenario6)
+  * Ange standard för sidor och filter, prova med [ange standarddemo](https://azure-samples.github.io/powerbi-angular-client/#/scenario5)
 * Gå in och ur fullskärmsläge
 
 [Läs mer om att bädda in en rapport](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics)
 
 ### <a name="navigate-to-pages-in-a-report"></a>Navigera till sidor i en rapport
-Med JavaScript API kan du identifiera alla sidor i en rapport och ange den aktuella sidan. Prova med [navigeringsdemoprogram](http://azure-samples.github.io/powerbi-angular-client/#/scenario3).
+Med JavaScript API kan du identifiera alla sidor i en rapport och ange den aktuella sidan. Prova med [navigeringsdemoprogram](https://azure-samples.github.io/powerbi-angular-client/#/scenario3).
 
 [Läs mer om sidnavigering](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Page-Navigation)
 
 ### <a name="filter-a-report"></a>Filtrera en rapport
-JavaScript API innehåller grundläggande och avancerade filtreringsfunktioner för inbäddade rapporter och rapportsidor. Prova med [filtreringsdemoprogram](http://azure-samples.github.io/powerbi-angular-client/#/scenario4), och granska grundläggande koder här.
+JavaScript API innehåller grundläggande och avancerade filtreringsfunktioner för inbäddade rapporter och rapportsidor. Prova med [filtreringsdemoprogram](https://azure-samples.github.io/powerbi-angular-client/#/scenario4), och granska grundläggande koder här.
 
 #### <a name="basic-filters"></a>Grundläggande filter
 Ett grundläggande filter placeras på en kolumn eller hierarkinivå och innehåller en lista med värden som ska tas med eller undantas.
 
 ```typescript
 const basicFilter: pbi.models.IBasicFilter = {
-  $schema: "http://powerbi.com/product/schema#basic",
+  $schema: "https://powerbi.com/product/schema#basic",
   target: {
     table: "Store",
     column: "Count"
@@ -94,7 +94,7 @@ Avancerade filter använder logisk operator OCH eller ELLER, och godkänner ett 
 
 ```typescript
 const advancedFilter: pbi.models.IAdvancedFilter = {
-  $schema: "http://powerbi.com/product/schema#advanced",
+  $schema: "https://powerbi.com/product/schema#advanced",
   target: {
     table: "Store",
     column: "Name"

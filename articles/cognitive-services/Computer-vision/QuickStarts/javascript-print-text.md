@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 004b7033666dd575c94992b9a099944033680bdf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: fc755c888d2f5affd755ea8de8febcdf0a49663f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875137"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892701"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-javascript-in-computer-vision"></a>Snabbstart: Extrahera tryckt text (OCR) med hjälp av REST-API och JavaScript i Visuellt innehåll
 
@@ -24,7 +24,7 @@ I den här snabbstarten extraherar du tryckt text med optisk teckenläsning (OCR
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan skaffa en prenumerationsnyckel genom att följa anvisningarna i [Skaffa prenumerationsnycklar](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
@@ -47,7 +47,7 @@ Så här skapar du och kör exemplet:
 <html>
 <head>
     <title>OCR Sample</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
 
@@ -243,10 +243,6 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan t
   ]
 }
 ```
-
-## <a name="clean-up-resources"></a>Rensa resurser
-
-Ta bort filen när den inte längre behövs.
 
 ## <a name="next-steps"></a>Nästa steg
 

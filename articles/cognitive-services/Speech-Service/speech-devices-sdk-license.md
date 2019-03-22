@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: a9f6dfb0de2cf09b27d08eb6b7dc425c8cd1f17d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 825a6035a997eb27a3e8e5833a792bdd985997c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549229"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084631"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Licensavtal för tal Devices SDK
 
@@ -83,9 +83,9 @@ f) du måste använda programvaran endast i kombination med Microsoft Azure Cogn
 (c) Tyskland och Österrike.
 
 > (i) garanti. Korrekt licensierad programvara utför enligt beskrivningen i Microsofts material som medföljer programvaran. Microsoft ger dock ingen avtalsmässig garanti avseende den licensierade programvaran.
-
+> 
 > (ii) ansvarsbegränsning. Microsoft är ansvariga enligt lagstadgade lag vid avsiktligt beteende, grov vårdslöshet, krav som baseras på Product Liability Act, samt, vid dödsfall, personlig eller fysisk skada.
-
+> 
 > Omfattas av föregående instruktionen (ii) hållas Microsoft endast ansvariga för ringa försumlighet om Microsoft bryter mot sådana väsentliga avtalsmässiga skyldigheter, som underlättar fullgörelser i detta avtal, överträdelser som skulle äventyra syftet med det här avtalet och efterlevnaden som en part ha ständigt förtroende för (så kallade ”väsentliga skyldigheter”). Microsoft kan inte hållas ansvariga för ringa försumlighet i andra fall av ringa försumlighet.
 
 **15\. FRISKRIVNING FRÅN GARANTIANSVAR. PROGRAMVARAN LICENSIERAS ”I BEFINTLIGT SKICK”. DU BÄR RISKEN FÖR ANVÄNDNINGEN AV DEN. MICROSOFT LÄMNAR INGA UTTRYCKLIGA GARANTIER, GARANTIER ELLER VILLKOR. I DEN UTSTRÄCKNING SOM TILLÅTS ENLIGT GÄLLANDE LAGSTIFTNING UTESLUTER MICROSOFT ALLA UNDERFÖRSTÅDDA GARANTIER INKLUSIVE SÄLJBARHET, LÄMPLIGHET FÖR ETT SÄRSKILT ÄNDAMÅL OCH FRÅNVARO AV INTRÅNG.**

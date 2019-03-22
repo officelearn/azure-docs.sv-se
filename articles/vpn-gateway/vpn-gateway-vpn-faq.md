@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: yushwang
-ms.openlocfilehash: 98252f7faf7a456edae71dda5fda44850eef74dc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a4f8e2b6a1367658514cc1bf9711825959ee371e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766996"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095661"
 ---
 # <a name="vpn-gateway-faq"></a>Vanliga frågor och svar om VPN Gateway
 
@@ -71,11 +71,11 @@ Routningsbaserade gateways implementerar routningsbaserade VPN:er. Routningsbase
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Kan jag uppdatera min principbaserade VPN-gateway till att bli routningsbaserad?
 Nej. En Azure Vnet-gatewaytyp kan inte ändras från principbaserad till routningsbaserad eller tvärtom. Gatewayen måste tas bort och återskapas, en process som tar cirka 60 minuter. IP-adressen till gatewayen bevaras inte och inte heller den i förväg delade nyckeln (PSK).
 1. Ta bort alla anslutningar som är associerade med gatewayen som ska tas bort.
-2. Ta bort gatewayen:
-* [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
-* [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-* [Azure Powershell – klassisk](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-3. [Skapa en ny gateway av efterfrågad typ och slutför VPN-konfigurationen](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+1. Ta bort gatewayen:
+1. [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
+1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+1. [Azure Powershell – klassisk](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. [Skapa en ny gateway av efterfrågad typ och slutför VPN-konfigurationen](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>Behöver jag ett gatewayundernät?
 

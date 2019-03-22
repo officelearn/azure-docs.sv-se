@@ -3,7 +3,7 @@ title: Web service - loggning i Azure Machine Learning Studio | Microsoft Docs
 description: 'Lär dig hur du aktiverar loggning för Machine Learning Studio-webbtjänster. Loggning ger ytterligare information för felsökning av API: erna.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
 editor: cgronlun
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 23a160ee15547bea7d5ee832cd1032b2e899966b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821840"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857563"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Aktivera loggning för Azure Machine Learning Studio-webbtjänster
 Det här dokumentet innehåller information om funktionen loggning av Machine Learning Studio-webbtjänster. Loggning ger ytterligare information, utöver just en felkod och ett meddelande som kan hjälpa dig att felsöka dina anrop till API: er för Machine Learning Studio.  
@@ -57,7 +57,7 @@ Du aktiverar loggning från den [Azure Machine Learning Studio-webbtjänster](ht
 
    3. Om behållaren **ml-diagnostics** inte finns, klickar du på **+ behållare**, ge den namnet ”ml-diagnostiken” för behållaren och välj den **åtkomsttyp** som ”Blob”. Klicka på **OK**.
 
-      ![Välj loggningsnivån](./media/web-services-logging/create-ml-diagnostics-container.png)
+      ![Skapa en ny behållare för att lagra dina diagnostikloggar](./media/web-services-logging/create-ml-diagnostics-container.png)
 
 > [!TIP]
 >

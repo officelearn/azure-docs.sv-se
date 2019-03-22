@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 33ada343738e113e8f14e1e5ac4a0e8aee481670
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 144b3f8ae210d515695c2184c2c3193084755746
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185473"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57841029"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Övervaka och diagnostisera tjänster i en inställning för utveckling av lokal dator
 
@@ -35,7 +35,7 @@ ms.locfileid: "55185473"
 
 ## <a name="debugging-service-fabric-java-applications"></a>Felsöka Service Fabric Java-program
 
-För Java-program, [flera loggningsramverk](http://en.wikipedia.org/wiki/Java_logging_framework) är tillgängliga. Eftersom `java.util.logging` är standardalternativet med JRE, det används också för de [kodexempel i GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started). Följande information beskriver hur du konfigurerar den `java.util.logging` framework.
+För Java-program, [flera loggningsramverk](https://en.wikipedia.org/wiki/Java_logging_framework) är tillgängliga. Eftersom `java.util.logging` är standardalternativet med JRE, det används också för de [kodexempel i GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started). Följande information beskriver hur du konfigurerar den `java.util.logging` framework.
 
 Du kan använda java.util.logging för att omdirigera programloggarna minne, utdataströmmar, konsolfiler eller sockets. Det finns standard hanterare som redan ges inom ramen för var och en av dessa alternativ. Du kan skapa en `app.properties` filen för att konfigurera Hanteraren för filen för ditt program att omdirigera alla loggar till en lokal fil.
 
@@ -64,7 +64,7 @@ Den här konfigurationen leder loggarna som samlas in på ett roterande sätt p�
 
 Som standard om någon hanterare uttryckligen har konfigurerats i konsolen hanteraren är registrerad. En kan visa loggarna i syslog under /var/log/syslog.
 
-Mer information finns i den [kodexempel i GitHub](http://github.com/Azure-Samples/service-fabric-java-getting-started).
+Mer information finns i den [kodexempel i GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 
 ## <a name="debugging-service-fabric-c-applications"></a>Felsöka Service Fabric C#-program

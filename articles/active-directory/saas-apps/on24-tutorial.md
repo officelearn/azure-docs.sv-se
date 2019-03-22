@@ -4,119 +4,108 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: d4028fb5-b2ad-4c5d-b123-7b675c509d64
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/08/2018
+ms.topic: tutorial
+ms.date: 03/13/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0827895d58b0b7633ee4543495014c62b5394312
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f95420397a502af8e939c8a53fe5635b82dc0f39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209497"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893653"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Självstudier: Azure Active Directory-integrering med ON24 virtuell miljö SAML anslutning
 
 I den här självstudien får du lära dig hur du integrerar ON24 virtuell miljö SAML anslutning med Azure Active Directory (AD Azure).
-
 Integrera ON24 virtuell miljö SAML anslutning med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till ON24 virtuell miljö SAML anslutning.
-- Du kan aktivera användarna att automatiskt få loggat in på ON24 virtuell miljö SAML anslutning (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan styra i Azure AD som har åtkomst till ON24 virtuell miljö SAML anslutning.
+* Du kan aktivera användarna att vara automatiskt inloggad till ON24 virtuell miljö SAML-anslutning (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med ON24 virtuell miljö SAML anslutning behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En ON24 virtuell miljö SAML anslutning enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* ON24 virtuell miljö SAML anslutning enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till ON24 virtuell miljö SAML-anslutning från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+
+* Har stöd för ON24 virtuell miljö SAML anslutning **SP** och **IDP** -initierad SSO
 
 ## <a name="adding-on24-virtual-environment-saml-connection-from-the-gallery"></a>Att lägga till ON24 virtuell miljö SAML-anslutning från galleriet
+
 Om du vill konfigurera integreringen av ON24 virtuell miljö SAML anslutning till Azure AD, som du behöver lägga till ON24 virtuell miljö SAML anslutning från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till ON24 virtuell miljö SAML anslutning från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![image](./media/on24-tutorial/selectazuread.png)
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![image](./media/on24-tutorial/a_select_app.png)
-    
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![image](./media/on24-tutorial/a_new_app.png)
+    ![Knappen Nytt program](common/add-new-app.png)
 
 4. I sökrutan skriver **ON24 virtuell miljö SAML anslutning**väljer **ON24 virtuell miljö SAML anslutning** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-     ![image](./media/on24-tutorial/tutorial_on24_addfromgallery.png)
+     ![ON24 virtuell miljö SAML-anslutningen i listan med resultat](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med ON24 virtuell miljö SAML anslutning baserat på en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användare i ON24 virtuell miljö SAML anslutning till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i ON24 virtuell miljö SAML anslutning upprättas.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med ON24 virtuell miljö SAML anslutning baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i ON24 virtuell miljö SAML anslutning ska upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med ON24 virtuell miljö SAML-anslutning, måste du utföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-3. **[Skapa en testanvändare ON24 virtuell miljö SAML anslutning](#create-an-on24-virtual-environment-saml-connection-test-user)**  – du har en motsvarighet för Britta Simon i ON24 virtuell miljö SAML anslutning som är länkad till en Azure AD-representation av användaren.
+2. **[Konfigurera ON24 virtuell miljö SAML anslutning enkel inloggning](#configure-on24-virtual-environment-saml-connection-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+5. **[Skapa ON24 virtuell miljö SAML anslutning testanvändare](#create-on24-virtual-environment-saml-connection-test-user)**  – du har en motsvarighet för Britta Simon i ON24 virtuell miljö SAML anslutning som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för ON24 virtuell miljö SAML anslutning.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med ON24 virtuell miljö SAML-anslutning:**
+Utför följande steg för att konfigurera Azure AD enkel inloggning med ON24 virtuell miljö SAML-anslutning:
 
 1. I den [Azure-portalen](https://portal.azure.com/)på den **ON24 virtuell miljö SAML anslutning** application integration markerar **enkel inloggning**.
 
-    ![image](./media/on24-tutorial/B1_B2_Select_SSO.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. Klicka på **ändra enkel inloggning läge** på skärmen för att välja den **SAML** läge.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-      ![image](./media/on24-tutorial/b1_b2_saml_ssso.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. På den **väljer du en metod för enkel inloggning** dialogrutan Välj **SAML** läge för att aktivera enkel inloggning.
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    ![image](./media/on24-tutorial/b1_b2_saml_sso.png)
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+4. I avsnittet **Grundläggande SAML-konfiguration**, om du vill konfigurera appen i **IDP**-initierat läge, gör du följande:
 
-    ![image](./media/on24-tutorial/b1-domains_and_urlsedit.png)
+    ![ON24 virtuell miljö SAML anslutning domän och URL: er med enkel inloggning för information](common/idp-relay.png)
 
-5. På den **SAML grundkonfiguration** avsnittet utför följande steg om du vill konfigurera programmet i **IDP** intiated läge:
-
-    ![image](./media/on24-tutorial/tutorial_on24_url.png)
-
-    a. I den **identifierare** text skriver en URL:
+    a. I textrutan **Identifierare** skriver du en URL:
 
      **URL: en för produktion-miljö**
     
@@ -133,9 +122,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     `SAMLQA-Gateway.on24.com` 
 
     `SAMLQA-EliteAudience.on24.com`
- 
+
     b. I textrutan **Svars-URL** skriver du en URL:
-    
+
      **URL: en för produktion-miljö**
     
     `https://federation.on24.com/sp/ACS.saml2`
@@ -160,76 +149,99 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     d. Skriv en URL i textrutan **Vidarebefordransstatus**: `https://vshow.on24.com/vshow/ms_azure_saml_test?r=<ID>`
 
-    e. Om du vill konfigurera programmet i **SP** intiated läge i den **inloggnings-URL** text skriver en URL: `https://vshow.on24.com/vshow/<INSTANCENAME>`
+5.  Om du vill konfigurera programmet i **SP** initierade läge, utföra följande steg:
 
-6. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att ladda ned rätt certifikat som uppfyller dina krav och spara den på din dator.
+    ![ON24 virtuell miljö SAML anslutning domän och URL: er med enkel inloggning för information](common/both-signonurl.png)
 
-    ![image](./media/on24-tutorial/tutorial_on24_certificate.png) 
+    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://vshow.on24.com/vshow/<INSTANCENAME>`
 
-7. Att konfigurera enkel inloggning på **ON24 virtuell miljö SAML anslutning** sida, som du behöver skicka certifikat/metadata som du har hämtat från Azure portal för att [ON24 virtuell miljö SAML anslutning supportteam](https://www.on24.com/about-us/support/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska Vidarebefordransstatus och inloggnings-URL: en. Kontakta [ON24 virtuell miljö SAML anslutning klienten supportteamet](https://www.on24.com/contact-us/) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+4. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
+
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+
+6. På den **konfigurera ON24 virtuell miljö SAML anslutning** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-on24-virtual-environment-saml-connection-single-sign-on"></a>Konfigurera ON24 virtuell miljö SAML anslutning enkel inloggning
+
+Att konfigurera enkel inloggning på **ON24 virtuell miljö SAML anslutning** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopieras URL: er från Azure portal för att [ ON24 virtuell miljö SAML anslutning supportteamet](https://www.on24.com/about-us/support/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    ![image](./media/on24-tutorial/d_users_and_groups.png)
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
 2. Välj **Ny användare** överst på skärmen.
 
-    ![image](./media/on24-tutorial/d_adduser.png)
+    ![Knappen Ny användare](common/new-user.png)
 
 3. Genomför följande steg i Användaregenskaper.
 
-    ![image](./media/on24-tutorial/d_userproperties.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
-    c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
-    d. Välj **Skapa**.
- 
-### <a name="create-an-on24-virtual-environment-saml-connection-test-user"></a>Skapa en testanvändare ON24 virtuell miljö SAML anslutning
-
-I det här avsnittet skapar du en användare som kallas Britta Simon i ON24 virtuell miljö SAML anslutning. Arbeta med [ON24 virtuell miljö SAML anslutning supportteamet](https://www.on24.com/about-us/support/) att lägga till användare i ON24 virtuell miljö SAML anslutning-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+    d. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till ON24 virtuell miljö SAML anslutning.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**.
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **ON24 virtuell miljö SAML anslutning**.
 
-    ![image](./media/on24-tutorial/d_all_applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 2. I listan med program väljer **ON24 virtuell miljö SAML anslutning**.
 
-    ![image](./media/on24-tutorial/tutorial_on24_app.png)
+    ![Länken ON24 virtuell miljö SAML anslutning i listan med program](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![image](./media/on24-tutorial/d_leftpaneusers.png)
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. Välj den **Lägg till** knappen och välj **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![image](./media/on24-tutorial/d_assign_user.png)
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-4. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-5. I dialogrutan **Lägg till tilldelning** väljer du knappen **Tilldela**.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-on24-virtual-environment-saml-connection-test-user"></a>Skapa ON24 virtuell miljö SAML anslutning testanvändare
+
+I det här avsnittet skapar du en användare som kallas Britta Simon i ON24 virtuell miljö SAML anslutning. Arbeta med [ON24 virtuell miljö SAML anslutning supportteamet](https://www.on24.com/about-us/support/) att lägga till användare i ON24 virtuell miljö SAML anslutning-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen ON24 virtuell miljö SAML anslutning i åtkomstpanelen du bör få automatiskt loggat in på programmets ON24 virtuell miljö SAML anslutning.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen ON24 virtuell miljö SAML anslutning i åtkomstpanelen, bör det vara loggas in automatiskt till ON24 virtuell miljö SAML anslutningen som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

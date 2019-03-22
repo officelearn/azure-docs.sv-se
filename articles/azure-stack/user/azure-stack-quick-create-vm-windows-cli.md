@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d2e29e183ab898635f550290b6ebd6eddd42c4d2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 15dd878b7ff322ac8243b37649f16fed4e068af4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659209"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091723"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Snabbstart: skapa en Windows Server-dator med hjälp av Azure CLI i Azure Stack
 
@@ -42,8 +42,8 @@ Du kan skapa en virtuell Windows Server 2016-dator med hjälp av Azure CLI. Föl
 
 En resursgrupp är en logisk behållare där du kan distribuera och hantera Azure Stack-resurser. Från Azure Stack-miljön, kör den [az gruppen skapa](/cli/azure/group#az-group-create) kommando för att skapa en resursgrupp.
 
->[!NOTE]
- Värdena tilldelas för alla variabler i kodexemplen. Du kan dock tilldela nya värden om du vill.
+> [!NOTE]
+>  Värdena tilldelas för alla variabler i kodexemplen. Du kan dock tilldela nya värden om du vill.
 
 I följande exempel skapas en resursgrupp med namnet myResourceGroup i den lokala platsen.
 

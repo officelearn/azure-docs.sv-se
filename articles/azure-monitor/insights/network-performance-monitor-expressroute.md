@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: abshamsft
-ms.openlocfilehash: 2dcbe170a69c0c285cb6425427f94b5efced8712
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d0819b57307fc037b3be6ab04ed9ec6c8720a618
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747466"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103595"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute-övervakning
 
@@ -55,7 +55,7 @@ Mer information om Nätverkssäkerhetsgrupper finns i [Nätverkssäkerhetsgrup
 
     ![Konfiguration av ExpressRoute-övervakning](media/network-performance-monitor-expressroute/expressroute-configure.png)
  
- När identifieringen är klar visas de identifierade privata peering-anslutningarna i en tabell. Övervakning för dessa peer-kopplingar är först i ett inaktiverat tillstånd. 
+   När identifieringen är klar visas de identifierade privata peering-anslutningarna i en tabell. Övervakning för dessa peer-kopplingar är först i ett inaktiverat tillstånd. 
 
 ### <a name="enable-monitoring-of-the-expressroute-peering-connections"></a>Aktivera övervakning av ExpressRoute-peering-anslutningar 
 

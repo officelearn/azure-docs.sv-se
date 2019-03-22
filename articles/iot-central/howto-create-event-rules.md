@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 2fd06a2164761489af6ee84d56806ef858e3b5d8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f350d0ae6602fb393da3ddc350f33ec89e86078e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782691"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081448"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Skapa en regel för händelsen och ställa in meddelanden i Azure IoT Central programmet
 
@@ -59,15 +59,15 @@ Villkoret definierar de kriterier som övervakas av regeln.
 
 1. Du kan också ange **antal** som **aggregering** och ger motsvarande tröskelvärdet.
 
-    - Utan aggregering, regeln utlöses för varje datapunkt för händelsen som uppfyller villkoret. Till exempel om du konfigurerar regelns villkor som utlöser när en **fläkt meddelar fel** händelse inträffar och sedan regeln utlöser nästan omedelbart när enheten rapporterar att den händelsen.
-    - Om antalet används som en mängdfunktion så du måste ange en **tröskelvärdet** och en **sammanställd tidsfönster** över som villkoret måste utvärderas. I det här fallet antal händelser slås samman och regeln utlöses endast om aggregerade händelseantal matchar tröskelvärdet.
+   - Utan aggregering, regeln utlöses för varje datapunkt för händelsen som uppfyller villkoret. Till exempel om du konfigurerar regelns villkor som utlöser när en **fläkt meddelar fel** händelse inträffar och sedan regeln utlöser nästan omedelbart när enheten rapporterar att den händelsen.
+   - Om antalet används som en mängdfunktion så du måste ange en **tröskelvärdet** och en **sammanställd tidsfönster** över som villkoret måste utvärderas. I det här fallet antal händelser slås samman och regeln utlöses endast om aggregerade händelseantal matchar tröskelvärdet.
 
-    Om du vill att varna när det finns fler än tre enhetshändelser inom 5 minuter, därefter händelsen och ange mängdfunktionen som ”antal”, operator som ”större än” och ”tröskelvärde” som 3. Ange ”aggregering tidsperiod” som ”5 minuter”. Regeln utlöses när fler än tre händelser skickas av enheten inom 5 minuter. Utvärderingsfrekvensen regeln är samma som den **sammanställd tidsfönster**, vilket innebär att, i det här exemplet regeln utvärderas var femte minut.
+     Om du vill att varna när det finns fler än tre enhetshändelser inom 5 minuter, därefter händelsen och ange mängdfunktionen som ”antal”, operator som ”större än” och ”tröskelvärde” som 3. Ange ”aggregering tidsperiod” som ”5 minuter”. Regeln utlöses när fler än tre händelser skickas av enheten inom 5 minuter. Utvärderingsfrekvensen regeln är samma som den **sammanställd tidsfönster**, vilket innebär att, i det här exemplet regeln utvärderas var femte minut.
 
-    ![Lägg till Händelsevillkor](media/howto-create-event-rules/Aggregate_Condition_Filled_Out.png)
+     ![Lägg till Händelsevillkor](media/howto-create-event-rules/Aggregate_Condition_Filled_Out.png)
 
-    >[!NOTE]
-    >Mer än en händelse mätning kan läggas till under **villkor**. När flera villkor har angetts måste alla villkor vara uppfyllda för regeln för att utlösa. Varje villkor får sällskap av en 'Och'-sats implicit. När du använder aggregering, måste varje mätning aggregeras.
+     >[!NOTE]
+     >Mer än en händelse mätning kan läggas till under **villkor**. När flera villkor har angetts måste alla villkor vara uppfyllda för regeln för att utlösa. Varje villkor får sällskap av en 'Och'-sats implicit. När du använder aggregering, måste varje mätning aggregeras.
 
 ### <a name="configure-actions"></a>Konfigurera åtgärder
 

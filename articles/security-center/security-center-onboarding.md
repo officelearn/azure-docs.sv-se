@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 19/02/2019
 ms.author: monhaber
-ms.openlocfilehash: ab99116cabc14c70698a962c803adb87394e1796
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: d9c9a079198a8ff263c729b8e90c1fc8d0e64cd0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651112"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100078"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Kom igång med Azure Security Center Standard för ökad säkerhet
 Uppgradera till Security Center Standard att dra nytta av förbättrad säkerhetshantering och skydd mot hot i dina hybridmolnarbetsbelastningar.  Du kan prova Standard kostnadsfritt. Se de Säkerhetscenter [prissättningssidan](https://azure.microsoft.com/pricing/details/security-center/) för mer information.
@@ -65,11 +65,11 @@ Security Center kan övervaka säkerhetsstatusen för icke-Azure-datorer men du 
 1. Gå tillbaka till **komma igång**.   
 2. Välj fliken **Kom igång**.
 
-  ![Icke-Azure](./media/security-center-onboarding/non-azure.png)
+   ![Icke-Azure](./media/security-center-onboarding/non-azure.png)
 
 3. Klicka på **Konfigurera** under **Lägg till datorer som inte är Azure-datorer**. En lista över dina Log Analytics-arbetsytor visas. Om det är tillämpligt innehåller listan standardarbetsytan som har skapats för dig av Security Center när automatisk etablering aktiverades. Välj den här arbetsytan eller någon annan arbetsyta som du vill använda.
 
-  ![Lägga till en dator som inte är en Azure-dator][7]
+   ![Lägga till en dator som inte är en Azure-dator][7]
 
 Om du har befintliga arbetsytor kan de visas under **lägga till nya icke-Azure-datorer**. Du kan lägga till datorer till en befintlig arbetsyta eller skapa en ny arbetsyta. Klicka på länken om du vill skapa en ny arbetsyta **lägga till en ny arbetsyta**.
 
@@ -82,8 +82,8 @@ Om du har befintliga arbetsytor kan de visas under **lägga till nya icke-Azure-
    ![Lägg till en ny arbetsyta][4]
 
 2. Under **säkerhet och granskning**väljer **OMS-arbetsyta** att skapa en ny arbetsyta.
-> [!NOTE]
-> OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.
+   > [!NOTE]
+   > OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.
 3. Under **OMS-arbetsyta**, anger du informationen för din arbetsyta.
 4. Under **OMS-arbetsyta**väljer **OK**.  När du väljer OK, du får en länk för att hämta en Windows- eller Linux-agent och nycklar för arbetsyte-ID för användning vid konfigureringen av agenten.
 5. Under **säkerhet och granskning**väljer **OK**.
@@ -105,7 +105,7 @@ Du kan lägga till en dator genom att följa arbetsflödet från **Onboarding**,
 
    ![Lägga till datorer][7]
 
- Den **Direktagent** bladet innehåller en länk för att ladda ned en Windows- eller Linux-agenten samt arbetsyte-ID och nycklar för att använda vid konfigureringen av agenten.   
+   Den **Direktagent** bladet innehåller en länk för att ladda ned en Windows- eller Linux-agenten samt arbetsyte-ID och nycklar för att använda vid konfigureringen av agenten.   
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln beskrivs hur du integrera Azure och icke-Azure-resurser för att kunna dra nytta av avancerad säkerhet i Security Center.  Om du vill göra mer med din integrerade resurser finns i

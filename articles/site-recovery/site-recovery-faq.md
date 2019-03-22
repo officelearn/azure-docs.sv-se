@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/3/2019
 ms.author: mayg
-ms.openlocfilehash: c63a5205f58d014d06b79b075b3d3d9328502e48
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.openlocfilehash: 1abd18e294ef73e989191d189ea599bca2b4d903
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338050"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881086"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: vanliga frågor (och svar FAQ)
 Den här artikeln innehåller vanliga frågor och svar om Azure Site Recovery. Om du har frågor när du har läst den här artikeln kan publicera dem på den [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -91,7 +91,7 @@ För virtuella datorer och fysiska servrar stöds replikerar mellan lokala plats
 Azure Site Recovery replikerar data till ett Azure storage-konto eller hanterade diskar via en offentlig slutpunkt. Replikering är inte via ett plats-till-plats-VPN. Du kan skapa en plats-till-plats-VPN, med ett Azure-nätverk. Detta stör inte Site Recovery-replikering.
 
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>Kan jag använda ExpressRoute för att replikera virtuella datorer till Azure?
-Ja, [ExpressRoute kan användas för](concepts-expressroute-with-site-recovery.md) att replikera lokala virtuella datorer till Azure. Azure Site Recovery replikerar data till en Azure Storage via en offentlig slutpunkt. Du måste konfigurera [offentlig peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) eller [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) använder ExpressRoute under Site Recovery-replikering. Microsoft-peering är den rekommenderade routningsdomän för replikering. När de virtuella datorerna har redundansväxlats till en Azure-nätverk kan du komma åt dem med hjälp av den [privat peering](../expressroute/expressroute-circuit-peerings.md#privatepeering) installation med virtuella Azure-nätverket. Replikering stöds inte över privat peering. Om du skyddar VMware-datorer eller fysiska datorer kan du se till att den [nätverk krav](vmware-azure-configuration-server-requirements.md#network-requirements) uppfylls också för replikering. 
+Ja, [ExpressRoute kan användas för](concepts-expressroute-with-site-recovery.md) att replikera lokala virtuella datorer till Azure. Azure Site Recovery replikerar data till Azure Storage via en offentlig slutpunkt. Du måste konfigurera [offentlig peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) eller [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) använder ExpressRoute under Site Recovery-replikering. Microsoft-peering är den rekommenderade routningsdomän för replikering. När de virtuella datorerna har redundansväxlats till en Azure-nätverk kan du komma åt dem med hjälp av den [privat peering](../expressroute/expressroute-circuit-peerings.md#privatepeering) installation med virtuella Azure-nätverket. Replikering stöds inte över privat peering. Om du skyddar VMware-datorer eller fysiska datorer kan du se till att den [nätverk krav](vmware-azure-configuration-server-requirements.md#network-requirements) uppfylls också för replikering. 
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Finns det några krav för att replikera virtuella datorer till Azure?
 [Virtuella VMware-datorer](vmware-physical-azure-support-matrix.md#replicated-machines) och [Hyper-V-datorer](hyper-v-azure-support-matrix.md#replicated-vms) du vill replikera till Azure måste uppfylla kraven för Azure.
@@ -119,10 +119,10 @@ Du behöver en LRS eller GRS-lagring. Vi rekommenderar GRS så att dina data är
 * **Azure VM: ar, VMware och fysiska servrar:** En replikeringsfrekvensen är irrelevant här. Replikeringen är kontinuerlig.
 
 ### <a name="can-i-extend-replication-from-existing-recovery-site-to-another-tertiary-site"></a>Kan jag utöka replikeringen från den befintliga återställningsplatsen till en annan tertiär plats?
-Utökad eller länkad replikering stöds inte. Begär den här funktionen i [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+Utökad eller länkad replikering stöds inte. Begär den här funktionen i [Feedbackforum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### <a name="can-i-do-an-offline-replication-the-first-time-i-replicate-to-azure"></a>Kan jag göra en offlinereplikering första gången jag replikerar till Azure?
-Det stöds inte. Begär den här funktionen i den [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+Det stöds inte. Begär den här funktionen i den [Feedbackforum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-specific-disks-from-replication"></a>Kan jag undanta specifika diskar från replikeringen?
 Detta stöds när du replikerar virtuella VMware-datorer och Hyper-V-datorer till Azure med Azure-portalen.

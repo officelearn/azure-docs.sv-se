@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 10/12/2018
-ms.openlocfilehash: 76f09af66e362fb6b03346b43a6be1a3ec7cf681
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: a8ed25f761e3109b0b97ee9b604a7a2d58e5aa8e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976774"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081346"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Snabbstart: Skapa ett Apache Kafka på HDInsight-kluster
 
@@ -28,7 +28,7 @@ I den här snabbstarten lär du dig hur du skapar ett [Apache Kafka](https://kaf
 >
 > Mer information finns i dokumentet [Anslut till Apache Kafka via ett virtuellt nätverk](apache-kafka-connect-vpn-gateway.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -36,9 +36,9 @@ I den här snabbstarten lär du dig hur du skapar ett [Apache Kafka](https://kaf
 
     Kommandot `ssh` tillhandahålls som standard i Linux-, Unix- och macOS-system. I Windows 10 använder du någon av följande metoder för att installera kommandot `ssh`:
 
-    * Använd [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). Cloud Shell tillhandahåller `ssh`-kommandot och kan konfigureras för att använda antingen Bash eller PowerShell som gränssnittsmiljö.
+  * Använd [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). Cloud Shell tillhandahåller `ssh`-kommandot och kan konfigureras för att använda antingen Bash eller PowerShell som gränssnittsmiljö.
 
-    * [Installera Windows-undersystemet för Linux](https://docs.microsoft.com/windows/wsl/install-win10). De Linux-distributioner som är tillgängliga via Microsoft Store tillhandahåller `ssh`-kommandot.
+  * [Installera Windows-undersystemet för Linux](https://docs.microsoft.com/windows/wsl/install-win10). De Linux-distributioner som är tillgängliga via Microsoft Store tillhandahåller `ssh`-kommandot.
 
     > [!IMPORTANT]  
     > Stegen i det här dokumentet förutsätter att du använder någon av de SSH-klienter som nämns ovan. Om du använder en annan SSH-klient och stöter på problem så sök efter en lösning i SSH-klientens dokumentation.
@@ -180,6 +180,9 @@ I det här avsnittet hämtar du värdinformation från om värden från Apache A
     ```
 
 2. Använd följande kommando om du vill ange en miljövariabel i klustrets namn:
+
+    > [!Important]
+    > Ange klusternamnet med små bokstäver för det här kommandot, även om den har etablerats med versaler i namnet. Versaler namn kan inte användas med Zookeeper och broker information.
 
     ```bash
     read -p "Enter the Kafka on HDInsight cluster name: " CLUSTERNAME

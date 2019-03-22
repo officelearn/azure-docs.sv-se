@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8cbe391f756dab35abda411c3a6c943a51eae302
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: fcec410df631a58b76878a4cb327ca2fb04a2105
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115988"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117863"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Hantera användardata i Azure Security Center
 Den här artikeln innehåller information om hur du kan hantera användardata i Azure Security Center. Hantera användardata ger möjlighet att komma åt, ta bort eller exportera data.
@@ -68,25 +68,25 @@ En Security Center-användare har tilldelats rollen Läsare, ägare, deltagare e
 
 - Utföra en kopia från Azure portal
 - Kör Azure REST API-anrop, få HTTP:
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
+  ```
 
 En Security Center-användare som har tilldelats rollen av kontoadministratören kan exportera de [just-in-time-principer](security-center-just-in-time.md) som innehåller IP-adresser genom att:
 
 - Utföra en kopia från Azure portal
 - Kör Azure REST API-anrop, få HTTP:
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
+  ```
 
 En kontoadministratör kan exportera aviseringsinformation genom att:
 
 - Utföra en kopia från Azure portal
 - Kör Azure REST API-anrop, få HTTP:
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
+  ```
 
 Se [få säkerhetsaviseringar (hämta samling)](https://msdn.microsoft.com/library/mt704050.aspx) för mer information.
 

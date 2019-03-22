@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3442ced47e50485da1ffdd475d9649243b1c8583
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 37f85afbdd55d3f14638f0833f69bb1992770449
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116702"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086079"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Snabbstart: Publicera din Azure-prenumeration till Security Center Standard
 Azure Security Center erbjuder enhetlig säkerhetshantering och skydd mot hot i olika hybridmolnarbetsbelastningar. På den kostnadsfria nivån erbjuds endast begränsad säkerhet för dina Azure-resurser, medan Standard-nivån utökar funktionerna till lokala resurser och andra moln. Med Security Center Standard kan du hitta och åtgärda säkerhetsproblem, tillämpa åtkomst- och programkontroller för att blockera skadlig aktivitet, upptäcka hot med analys och intelligens och svara snabbt under attacker. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
@@ -37,7 +37,7 @@ Om du vill uppgradera en prenumeration till standardnivån måste du vara tillde
 1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
 2. På menyn **Microsoft Azure** väljer du **Security Center**. **Security Center – Översikt** öppnas.
 
- ![Översikt över Security Center][2]
+   ![Översikt över Security Center][2]
 
 **Security Center – Översikt** ger en enhetlig överblick över säkerhetstillståndet för dina hybridarbetsbelastningar, vilket gör det lättare att identifiera och utvärdera säkerheten för arbetsbelastningarna samt identifiera och minimera risker. Security Center aktiverar automatiskt Azure-prenumerationer som inte tidigare har registrerats av dig eller någon annan prenumerationsanvändare på den kostnadsfria nivån.
 
@@ -55,13 +55,13 @@ Du måste uppgradera till standardnivån för att kunna använda snabbstart och 
 
 1. På huvudmenyn i Security Center väljer du **Komma igång**.
  
-  ![Kom igång][4]
+   ![Kom igång][4]
 
 2. Under **Uppgradera** listar Security Center prenumerationer och arbetsytor som är behöriga för registrering. 
    - Du kan klicka på den expanderbara texten **Använd din utvärderingsversion** för att se en lista över alla prenumerationer och arbetsytor med deras berättigandestatus för utvärderingsversion.
    -    Du kan uppgradera prenumerationer och arbetsytor som inte är berättigade till utvärderingsversionen.
    -    Du kan välja berättigade arbetsytor och prenumerationer för att påbörja din utvärderingsperiod.
-3.  Klicka på **Starta utvärdering** för att påbörja din utvärderingsperiod för de valda prenumerationerna.
+3. Klicka på **Starta utvärdering** för att påbörja din utvärderingsperiod för de valda prenumerationerna.
 
 
   ![Säkerhetsaviseringar][9]

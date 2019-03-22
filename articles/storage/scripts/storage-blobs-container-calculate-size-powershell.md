@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: tamram
-ms.openlocfilehash: ec8254478786825d0333e8be24b0dfbea8c18e60
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: d8baec875c25556f1080cdd105c7fa466ffce74e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245158"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094015"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>Beräkna storleken på en container för Blob-lagring
 
@@ -52,7 +52,7 @@ Det här skriptet använder följande kommandon för att beräkna storleken på 
 | Kommando | Anteckningar |
 |---|---|
 | [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) | Hämtar ett angivet lagringskonto eller alla lagringskonton i en resursgrupp eller i prenumerationen. |
-| [Get-AzStorageBlob](/powershell/module/az.storage/Get-AzStorageBlob) | Visar en lista över blobar i en container. ||
+| [Get-AzStorageBlob](/powershell/module/az.storage/Get-AzStorageBlob) | Visar en lista över blobar i en container. |
 
 ## <a name="next-steps"></a>Nästa steg
 

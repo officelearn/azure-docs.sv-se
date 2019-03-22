@@ -11,19 +11,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: dc9b58402ed0fcc48d60b51d30f891ffcadddbe0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: 52a12486add25cd32400af755aa6cd8cac07c6f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315630"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905075"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Skapa och hantera SQL Database elastiska jobb med PowerShell (förhandsversion)
 
 PowerShell-APIs för **elastiska databasjobb** (i förhandsversion), kan du definiera en grupp med databaser mot vilken skript ska köras. Den här artikeln visar hur du skapar och hanterar **elastiska databasjobb** med PowerShell-cmdletar. Se [elastiska jobb översikt](sql-database-elastic-jobs-overview.md). 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
 
 ## <a name="prerequisites"></a>Förutsättningar
 * En Azure-prenumeration. En kostnadsfri utvärderingsversion, se [kostnadsfri utvärderingsmånad](https://azure.microsoft.com/pricing/free-trial/).

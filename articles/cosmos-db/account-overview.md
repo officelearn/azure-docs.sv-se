@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: cbc11e2fc54ecffbea22a66354f334f3562e3339
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e40b763aa2a36e3afd85a82b66e393ac78d3afaa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459221"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839584"
 ---
-# <a name="work-with-azure-cosmos-account"></a>Arbeta med Azure Cosmos-konto
+# <a name="work-with-azure-cosmos-account"></a>Arbeta med ett Azure Cosmos-konto
 
 Azure Cosmos DB är en fullständigt hanterad platform-as-a-service (PaaS). För att börja använda Azure Cosmos DB, bör du först skapa ett Azure Cosmos-konto i Azure-prenumerationen. Ditt Azure Cosmos-konto innehåller ett unikt DNS-namn och du kan hantera ett konto med hjälp av Azure-portalen, Azure CLI eller genom att använda olika språkspecifika SDK: er. Mer information finns i [så här hanterar du ditt Azure Cosmos-konto](how-to-manage-database-account.md).
 
@@ -29,7 +29,7 @@ Azure Cosmos DB-behållare är den grundläggande körningsenheten på skalbarhe
 
 För närvarande kan du skapa upp till 100 Azure Cosmos-konton i en Azure-prenumeration. Ett enda Azure Cosmos-konto hantera i stort sett obegränsad mängd data och etablerade dataflöden. För att hantera dina data och dataflöde, kan du skapa en eller flera Azure-Cosmos-databaser under ditt konto och i den här databasen kan du skapa en eller flera behållare. Följande bild visar hierarkin av element i ett Azure Cosmos-konto:
 
-![Hierarki med en Azure Cosmos-konto](./media/account-overview/hierarchy.png)
+![Hierarki för ett Azure Cosmos-konto](./media/account-overview/hierarchy.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

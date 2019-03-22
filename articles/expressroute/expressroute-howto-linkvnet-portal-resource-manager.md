@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 16d85510efb055d7d564ffadb9fff2b200771bc6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 66c43556e698063b95ce1c3787458e40c9d71504
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438837"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079476"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Ansluta ett virtuellt nätverk till en ExpressRoute-krets med hjälp av portalen
 > [!div class="op_single_selector"]
@@ -54,13 +54,13 @@ Den här artikeln hjälper dig att skapa en anslutning för att länka ett virtu
 
 1. Se till att dina ExpressRoute-krets och Azures privata peering har konfigurerats. Följ instruktionerna i [skapa en ExpressRoute-krets](expressroute-howto-circuit-arm.md) och [konfigurera routning](expressroute-howto-routing-arm.md). ExpressRoute-kretsen bör se ut som på följande bild:
 
-  ![Skärmbild för ExpressRoute-krets](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
+   ![Skärmbild för ExpressRoute-krets](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
 2. Du kan nu börja etablera en anslutning för att länka din virtuella nätverksgateway för ExpressRoute-kretsen. Klicka på **anslutning** > **Lägg till** att öppna den **Lägg till anslutning** sidan och sedan konfigurera värden.
 
-  ![Lägg till anslutning skärmbild](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)
+   ![Lägg till anslutning skärmbild](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)
 3. När anslutningen har konfigurerats, kommer din anslutningsobjektet visas information om anslutningen.
 
-  ![Skärmbild av anslutningen objekt](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
+   ![Skärmbild av anslutningen objekt](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
 
 ## <a name="connect-a-vnet-to-a-circuit---different-subscription"></a>Ansluta ett virtuellt nätverk till en krets - annan prenumeration
 
@@ -95,10 +95,10 @@ Kretsägaren skapar en auktorisering. Detta resulterar i att skapa en auktoriser
 
 1. I ExpressRoute-sidan klickar du på **auktoriseringar** och skriv sedan en **namn** för auktorisering och klicka på **spara**.
 
-  ![Auktoriseringar](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
+   ![Auktoriseringar](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 2. När konfigurationen har sparats kan du kopiera den **resurs-ID** och **Auktoriseringsnyckeln**.
 
-  ![Auktoriseringsnyckel](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
+   ![Auktoriseringsnyckel](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
 
 **Att ta bort en anslutningsauktorisering**
 
@@ -112,18 +112,18 @@ Kretsen användaren måste resurs-ID och en auktoriseringsnyckeln från kretsäg
 
 1. Klicka på den **+ ny** knappen.
 
-  ![Klicka på ny](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
+   ![Klicka på ny](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
 2. Sök efter **”anslutning”** på Marketplace, markerar du det och klicka på **skapa**.
 
-  ![Sök efter anslutning](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
+   ![Sök efter anslutning](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
 3. Kontrollera att den **anslutningstypen** är inställd på ”ExpressRoute”.
 4. Fyll i information och klicka sedan på **OK** på sidan grunderna.
 
-  ![Grunderna sidan](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
+   ![Grunderna sidan](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. I den **inställningar** markerar, den **virtuell nätverksgateway** och kontrollera den **Lös in auktorisering** markerar du kryssrutan.
 6. Ange den **auktoriseringsnyckeln** och **Peer-kretsens URI** och ge ett namn för anslutningen. Klicka på **OK**.
 
-  ![Sidan Inställningar](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
+   ![Sidan Inställningar](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. Granska informationen i den **sammanfattning** och klicka på **OK**.
 
 **Att släppa en anslutningsauktorisering**

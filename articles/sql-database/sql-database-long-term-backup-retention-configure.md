@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/07/2019
-ms.openlocfilehash: 3594ff05e0f58671e8566b3b69972de32a58855a
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: ec0c3b7943db87e5c6fb31dc173a5c3b36377e6c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308456"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855477"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Hantera Azure SQL Database långsiktig kvarhållning av säkerhetskopior
 
@@ -75,6 +75,8 @@ Visa säkerhetskopior som finns kvar för en viss databas med LTR-princip och å
 ## <a name="use-powershell-to-configure-long-term-retention-policies-and-restore-backups"></a>Använd PowerShell för att konfigurera principer för långsiktig kvarhållning och återställa säkerhetskopior
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
 
 I följande avsnitt visas hur du använder PowerShell för att konfigurera den långsiktig kvarhållning av säkerhetskopior, visa säkerhetskopior i Azure SQL-lagring och återställning från en säkerhetskopia i Azure SQL-lagring.
 

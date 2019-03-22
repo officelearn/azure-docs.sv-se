@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbb50d22b5e0bd1a247dd806f45d9e4519214aba
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 328393d78514b236707cff1cedb9c34680900015
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208188"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120337"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Snabbstart: Konfigurera namngivna platser i Azure Active Directory
 
@@ -31,7 +31,7 @@ Du kan använda namngivna platser för att sätta etiketter på betrodda IP-adre
 
 I den här snabbstarten får du lära dig att konfigurera namngivna platser i din miljö.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att slutföra den här snabbstarten:
 
@@ -41,7 +41,7 @@ Följande krävs för att slutföra den här snabbstarten:
 
 ## <a name="configure-named-locations"></a>Konfigurera namngivna platser
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. I den vänstra rutan väljer du **Azure Active Directory** och sedan **Villkorlig åtkomst** från avsnittet **Säkerhet**.
 
@@ -53,11 +53,11 @@ Följande krävs för att slutföra den här snabbstarten:
 
 6. Fyll i formuläret på den nya sidan. 
 
-    * I rutan **Namn** skriver du ett namn på din namngivna plats.
-    * I rutan **IP-intervall** skriver du ett IP-adressintervall i CIDR-format.  
-    * Klicka på **Skapa**.
+   * I rutan **Namn** skriver du ett namn på din namngivna plats.
+   * I rutan **IP-intervall** skriver du ett IP-adressintervall i CIDR-format.  
+   * Klicka på **Skapa**.
     
-    ![Det nya bladet](./media/quickstart-configure-named-locations/61.png)
+     ![Det nya bladet](./media/quickstart-configure-named-locations/61.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

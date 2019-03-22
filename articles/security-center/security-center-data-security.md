@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 165617270bef58f7a92fab0adc75c916129ef317
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 7a327c963f32d6bf5b0cf7751557c61327fd26e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242708"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902798"
 ---
 # <a name="azure-security-center-data-security"></a>Datasäkerhet i Azure Security Center
 Azure Security Center hjälper kunder att förhindra, upptäcka och svara på hot genom att samla in och bearbeta säkerhetsrelaterade data, inklusive konfigurationsinformation, metadata, händelseloggar, kraschdumpfiler och annat. Microsoft följer strikta riktlinjer för efterlevnad och säkerhet – från kodning till driften av en tjänst.
@@ -38,7 +38,7 @@ Azure Security Center analyserar data från följande källor för att ge dig in
 ## <a name="data-protection"></a>Dataskydd
 **Dataavgränsning**: Data lagras logiskt separerade på varje komponent i tjänsten. Alla data taggas efter organisation. Den här taggningen finns kvar i informationens hela livscykel och används på varje lager i tjänsten.
 
-**Dataåtkomst**: För att kunna erbjuda säkerhetsrekommendationer och undersöka möjliga säkerhetshot kan komma Microsofts Personal åt information som samlas in eller analyseras av Azure-tjänster, inklusive kraschdumpfiler, processgenereringshändelser, ögonblicksbilder av Virtuella datordiskar och artefakter där kan oavsiktligt innehålla kunddata eller personuppgifter från dina virtuella datorer. Vi följer [villkoren för Microsoft Online Services och tillhörande sekretesspolicy](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), som garanterar att Microsoft inte använder kunddata eller härleder information från dem för reklamändamål eller i liknande kommersiellt syfte. Vi använder bara kunddata i den mån det är nödvändigt för att tillhandahålla Azure-tjänsterna, samt för därtill relaterade ändamål. Du äger alla rättigheter till dina kunddata.
+**Dataåtkomst**: För att kunna erbjuda säkerhetsrekommendationer och undersöka möjliga säkerhetshot kan komma Microsofts Personal åt information som samlas in eller analyseras av Azure-tjänster, inklusive kraschdumpfiler, processgenereringshändelser, ögonblicksbilder av Virtuella datordiskar och artefakter där kan oavsiktligt innehålla kunddata eller personuppgifter från dina virtuella datorer. Vi följer [villkoren för Microsoft Online Services och tillhörande sekretesspolicy](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), som garanterar att Microsoft inte använder kunddata eller härleder information från dem för reklamändamål eller i liknande kommersiellt syfte. Vi använder bara kunddata i den mån det är nödvändigt för att tillhandahålla Azure-tjänsterna, samt för därtill relaterade ändamål. Du äger alla rättigheter till dina kunddata.
 
 **Dataanvändning**: Microsoft använder mönster och hotinformation som identifieras över flera klienter för att förbättra våra skydds- och identifieringsfunktioner funktioner; Vi har gjort i enlighet med sekretessåtaganden som beskrivs i vår [sekretesspolicy](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
 

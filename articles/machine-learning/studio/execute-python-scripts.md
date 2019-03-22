@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.date: 03/05/2019
-ms.openlocfilehash: f508d16330bad7044a69ccff2ddf84ece74e78a2
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.date: 03/12/2019
+ms.openlocfilehash: 4b4f3877b56752756050de0af226571ac2a93293
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729426"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888168"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Kör skript för Python-maskininlärning i Azure Machine Learning Studio
 
@@ -62,13 +62,14 @@ Studio datauppsättningar är inte samma som Panda dataramar. Därför indataupp
 | Index vektorer | Stöds inte * |
 | Kolumnnamn för icke-sträng | Anropa `str` på kolumnnamn |
 | Dubbletter av kolumnnamn | Lägg till numeriskt suffix: (1), (2), (3), och så vidare.
+
 **Alla indata bildrutor i Python-funktionen alltid ska ha ett 64-bitars numeriskt index från 0 till antalet rader minus 1*
 
 ## <a id="import-modules"></a>Importera befintliga Python-skript-moduler
 
-Serverdelen som används för att köra Python baseras på [Anaconda](https://store.continuum.io/cshop/anaconda/), ett används mycket vetenskapliga Python-distribution. Medföljer nära 200 av de vanligaste Python-paketen som används i datacentrerade arbetsbelastningar. Dock hända att behöva lägga till fler bibliotek.
+Serverdelen som används för att köra Python baseras på [Anaconda](https://store.continuum.io/cshop/anaconda/), ett används mycket vetenskapliga Python-distribution. Medföljer nära 200 av de vanligaste Python-paketen som används i datacentrerade arbetsbelastningar. Studio stöder för närvarande inte användning av paketet av innehållshanteringssystem som Pip eller Conda för att installera och hantera externa bibliotek.  Om du upptäcker att behöva lägga till ytterligare bibliotek, Använd följande scenario som en vägledning.
 
-Det är ett vanligt användningsfall att införliva befintliga Python-skript i Studio-experiment. Den [kör Python-skript] [ execute-python-script] accepterar en zip-fil som innehåller Python-moduler på den tredje indataporten för modulen. Filen är packat av ramverket för körning vid körning och innehållet läggs till i sökvägen till bibliotek för Python-tolk. Den `azureml_main` startpunkt funktion kan sedan importera dessa moduler direkt.
+Det är ett vanligt användningsfall att införliva befintliga Python-skript i Studio-experiment. Den [kör Python-skript] [ execute-python-script] accepterar en zip-fil som innehåller Python-moduler på den tredje indataporten för modulen. Filen är packat av ramverket för körning vid körning och innehållet läggs till i sökvägen till bibliotek för Python-tolk. Den `azureml_main` startpunkt funktion kan sedan importera dessa moduler direkt. 
 
 Överväg att filen Hello.py som innehåller en enkel ”Hello, World”-funktion som ett exempel.
 
@@ -87,6 +88,25 @@ Ladda upp zip-filen som en datauppsättning i Studio. Sedan skapar och kör ett 
 Modulen utdata visar att zip-filen har oförpackat och att funktionen `print_hello` har körts.
 
 ![Modulen utdata visar användardefinierad funktion](./media/execute-python-scripts/figure7.png)
+
+## <a name="accessing-azure-storage-blobs"></a>Åtkomst till Azure Storage-Blobbar
+
+Du kan komma åt data som lagras i ett Azure Blob Storage-konto med de här stegen:
+
+1. Ladda ned den [Azure Blob Storage-paketet för Python](https://azuremlpackagesupport.blob.core.windows.net/python/azure.zip) lokalt.
+1. Ladda upp zip-filen till Studio-arbetsyta som en datauppsättning.
+1. Skapa BlobService-objekt med `protocol='http'`
+
+```
+from azure.storage.blob import BlockBlobService
+
+# Create the BlockBlockService that is used to call the Blob service for the storage account
+block_blob_service = BlockBlobService(account_name='account_name', account_key='account_key', protocol='http')
+```
+
+1. Inaktivera **säker överföring krävs** i Storage **Configuration** inställningsfliken
+
+![Inaktivera säker överföring krävs i Azure portal](./media/execute-python-scripts/disable-secure-transfer-required.png)
 
 ## <a name="operationalizing-python-scripts"></a>Operationalisera Python-skript
 

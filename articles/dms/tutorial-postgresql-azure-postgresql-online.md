@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: eb18fd521ca885b37c60c4f3a53e2bce1508fda2
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 9633b6c083b6e7286435c8c3867339868ae53458
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382816"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105428"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Självstudie: Migrera PostgreSQL till Azure Database for PostgreSQL online med DMS
 Du kan använda Azure Database Migration Service till att migrera databaserna från en lokal PostgreSQL-instans till [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) med minimal avbrottstid. Du kan med andra ord migrera med minimal stilleståndstid i programmet. I den här självstudien migrerar du exempeldatabasen **DVD Rental** från en lokal instans av PostgreSQL 9.6 till Azure Database for PostgreSQL genom att använda en onlinemigreringsaktivitet i Azure Database Migration Service.
@@ -43,8 +43,17 @@ För att slutföra den här kursen behöver du:
     Dessutom måste den lokala PostgreSQL-version matcha Azure Database for PostgreSQL-versionen. Exempelvis kan PostgreSQL 9.5.11.5 endast migreras till Azure Database for PostgreSQL 9.5.11 och inte till version 9.6.7.
 
 - [Skapa en instans i Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).  
-- Skapa virtuellt nätverk för Azure Database Migration Service genom att använda Azure Resource Manager-distributionsmodellen, som ger plats-till-plats-anslutning för dina lokala källservrar genom att använda [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Kontrollera att dina regler för nätverkssäkerhetsgrupp (NSG) för Azure Virtual Network (VNET) inte blockerar följande kommunikationsportar: 443, 53, 9354, 445, 12000. Mer information om trafikfiltrering för Azure VNET NSG finns i artikeln om att [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+- Skapa ett virtuellt Azure-nätverk för Azure Database Migration Service genom att använda Azure Resource Manager-distributionsmodellen, som ger plats-till-plats-anslutning för dina lokala källservrar genom att använda [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+
+    > [!NOTE]
+    > Under installationen av virtuellt nätverk, om du använder ExpressRoute med nätverks-peering till Microsoft, lägger du till följande tjänst [slutpunkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) till undernätet där tjänsten ska etableras:
+    > - Mål-database-slutpunkten (till exempel SQL-slutpunkten och Cosmos DB-slutpunkt)
+    > - Slutpunkt för lagring
+    > - Service bus-slutpunkt
+    >
+    > Den här konfigurationen är nödvändigt eftersom Azure Database Migration Service saknar Internetanslutning.
+
+- Se till att din VNET Nätverkssäkerhetsgrupp regler gör inte blockera följande kommunikationen portarna 443, 53, 9354, 445, 12000. Mer information om trafikfiltrering för Azure VNET NSG finns i artikeln om att [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 - Konfigurera din [Windows-brandvägg för databasmotoråtkomst](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Öppna Windows-brandväggen så att Azure Database Migration Service kommer åt käll-PostgreSQL Server, som har standardinställningen TCP-port 5432.
 - När du använder en brandväggsinstallation framför dina källdatabaser kanske du måste lägga till brandväggsregler för att tillåta Azure Database Migration Service att komma åt källdatabaserna för migrering.
@@ -126,7 +135,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
 
     Kör släpp sekundärnyckeln (som är den andra kolumnen) i frågeresultatet.
 
-5.  Utlösare i dina data (infoga eller uppdatera utlösare) tillämpar den dataintegritet i målet före replikerade data från källan. Rekommendationen är att du inaktiverra utlösare i alla tabeller **vid målet** under migreringen och sedan aktivera utlösare när migreringen är klar.
+5.  Utlösare i dina data (infoga eller uppdatera utlösare) tillämpar den dataintegritet i målet före replikerade data från källan. Vi rekommenderar att du inaktiverar utlösare i alla tabeller **på angivna** under migreringen och sedan återaktivera utlösare när migreringen är slutföra.
 
     Om du vill inaktivera utlösare i måldatabasen använder du följande kommando:
 
@@ -135,68 +144,68 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
     from information_schema.triggers;
     ```
 
-6.  Om det finns ENUM-datatyp i någon tabell, rekommenderar vi att du tillfälligt uppdaterar den till en teckenvarierande datatyp i måltabellen. När replikering av data är klar kan du återställa datatypen till ENUM.
+6.  Om det finns data uppräkningstypen i alla tabeller, rekommenderar vi att du tillfälligt uppdatera den till en tecken varierande datatyp i måltabellen. När replikering av data är klar kan du återställa datatypen till ENUM.
 
 ## <a name="provisioning-an-instance-of-dms-using-the-cli"></a>Etablera en instans av DMS med hjälp av CLI
 
-1.  Installera tillägget dms-synkronisering:
-    - Logga in på Azure genom att köra följande kommando:        
-        ```
-        az login
-        ```
+1. Installera tillägget dms-synkronisering:
+   - Logga in på Azure genom att köra följande kommando:        
+       ```
+       az login
+       ```
 
-    - När du uppmanas, öppna en webbläsare och ange en kod för att autentisera din enhet. Följ anvisningarna som anges.
-    - Lägg till dms-tillägget:
-        - Om du vill visa tillgängliga tillägg, kör du följande kommando:
+   - När du uppmanas, öppna en webbläsare och ange en kod för att autentisera din enhet. Följ anvisningarna som anges.
+   - Lägg till dms-tillägget:
+       - Om du vill visa tillgängliga tillägg, kör du följande kommando:
 
-            ```
-            az extension list-available –otable
-            ```
-        - Kör följande kommando om du vill installera tillägget:
+           ```
+           az extension list-available –otable
+           ```
+       - Kör följande kommando om du vill installera tillägget:
 
-            ```
-            az extension add –n dms-preview
-            ```
+           ```
+           az extension add –n dms-preview
+           ```
 
-    - För att verifiera att du har dms-tillägget installerat korrekt, kör du följande kommando:
+   - För att verifiera att du har dms-tillägget installerat korrekt, kör du följande kommando:
  
-        ```
-        az extension list -otable
-        ```
-        Du bör se följande utdata:     
+       ```
+       az extension list -otable
+       ```
+       Du bör se följande utdata:     
+
+       ```
+       ExtensionType    Name
+       ---------------  ------
+       whl              dms
+       ```
+
+   - Visa alla kommandon som stöds i DMS genom att köra:
+       ```
+       az dms -h
+       ```
+   - Om du har flera Azure-prenumerationer kör du följande kommando för att välja den prenumeration du vill använda för att etablera en instans av DMS-tjänsten.
 
         ```
-        ExtensionType    Name
-        ---------------  ------
-        whl              dms
+       az account set -s 97181df2-909d-420b-ab93-1bff15acb6b7
         ```
 
-    - Visa alla kommandon som stöds i DMS genom att köra:
-        ```
-        az dms -h
-        ```
-    - Om du har flera Azure-prenumerationer kör du följande kommando för att välja den prenumeration du vill använda för att etablera en instans av DMS-tjänsten.
+2. Etablera en instans av DMS genom att köra följande kommando:
 
-         ```
-        az account set -s 97181df2-909d-420b-ab93-1bff15acb6b7
-         ```
+   ```
+   az dms create -l [location] -n <newServiceName> -g <yourResourceGroupName> --sku-name BusinessCritical_4vCores --subnet/subscriptions/{vnet subscription id}/resourceGroups/{vnet resource group}/providers/Microsoft.Network/virtualNetworks/{vnet name}/subnets/{subnet name} –tags tagName1=tagValue1 tagWithNoValue
+   ```
 
-2.  Etablera en instans av DMS genom att köra följande kommando:
+   Till exempel skapar följande kommando en tjänst i:
+   - Plats: USA, östra 2
+   - Prenumeration: 97181df2-909d-420b-ab93-1bff15acb6b7
+   - Namn på resursgrupp: PostgresDemo
+   - DNS-tjänstnamn: PostgresCLI
 
-    ```
-    az dms create -l [location] -n <newServiceName> -g <yourResourceGroupName> --sku-name BusinessCritical_4vCores --subnet/subscriptions/{vnet subscription id}/resourceGroups/{vnet resource group}/providers/Microsoft.Network/virtualNetworks/{vnet name}/subnets/{subnet name} –tags tagName1=tagValue1 tagWithNoValue
-    ```
-
-    Till exempel skapar följande kommando en tjänst i:
-    - Plats: USA, östra 2
-    - Prenumeration: 97181df2-909d-420b-ab93-1bff15acb6b7
-    - Namn på resursgrupp: PostgresDemo
-    - DNS-tjänstnamn: PostgresCLI
-
-    ```
-    az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores
-    ```
-    Det tar cirka 10–12 minuter att skapa en instans av DMS-tjänsten.
+   ```
+   az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores
+   ```
+   Det tar cirka 10–12 minuter att skapa en instans av DMS-tjänsten.
 
 3. För att identifiera IP-adressen för DMS-agenten så att du kan lägga till den i filen Postgres pg_hba.conf, kör du följande kommando:
 
@@ -233,103 +242,103 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
     ```
     Till exempel skapar följande kommando ett projekt med dessa parametrar:
 
-      - Plats: Västra centrala USA
-      - Namn på resursgrupp: PostgresDemo
-      - Tjänstnamn: PostgresCLI
-      - Projektnamn: PGMigration
-      - Källplattform: PostgreSQL
-      - Målplattform: AzureDbForPostgreSql
+   - Plats: Västra centrala USA
+   - Namn på resursgrupp: PostgresDemo
+   - Tjänstnamn: PostgresCLI
+   - Projektnamn: PGMigration
+   - Källplattform: PostgreSQL
+   - Målplattform: AzureDbForPostgreSql
  
-    ```
-    az dms project create -l eastus2 -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
-    ```
+     ```
+     az dms project create -l eastus2 -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
+     ```
                 
 6. Skapa en uppgift för migrering av PostgreSQL med följande steg.
 
     Det här steget inkluderar användning av käll-IP, användar-ID och lösenord, mål-IP-, användar-ID, lösenord och aktivitetstyp för att upprätta en anslutning.
 
-    - Om du vill se en fullständig lista över alternativ, kör du kommandot:
-        ```
-        az dms project task create -h
-        ```
+   - Om du vill se en fullständig lista över alternativ, kör du kommandot:
+       ```
+       az dms project task create -h
+       ```
 
-        För både käll- och målanslutning refererar indataparametern till en json-fil som har objektlistan.
+       För både käll- och målanslutning refererar indataparametern till en json-fil som har objektlistan.
  
-        Formatet för anslutning till JSON-objekt för PostgreSQL-anslutningar.
+       Formatet för anslutning till JSON-objekt för PostgreSQL-anslutningar.
         
-        ```
-        {
-                    "userName": "user name",    // if this is missing or null, you will be prompted
-                    "password": null,           // if this is missing or null (highly recommended) you will
-                be prompted
-                    "serverName": "server name",
-                    "databaseName": "database name", // if this is missing, it will default to the 'postgres'
-                server
-                    "port": 5432                // if this is missing, it will default to 5432
-                }
-        ```
+       ```
+       {
+                   "userName": "user name",    // if this is missing or null, you will be prompted
+                   "password": null,           // if this is missing or null (highly recommended) you will
+               be prompted
+                   "serverName": "server name",
+                   "databaseName": "database name", // if this is missing, it will default to the 'postgres'
+               server
+                   "port": 5432                // if this is missing, it will default to 5432
+               }
+       ```
 
-    - Det finns också en json-fil för databasalternativ som innehåller json-objekten. För PostgreSQL visas formatet för JSON-objekt för databasalternativet nedan:
+   - Det finns också en databas alternativet json-fil som innehåller de json-objekt. För PostgreSQL visas formatet för JSON-objekt för databasalternativet nedan:
 
-        ```
-        [
-            {
-                "name": "source database",
-                "target_database_name": "target database",
-            },
-            ...n
-        ]
-        ```
+       ```
+       [
+           {
+               "name": "source database",
+               "target_database_name": "target database",
+           },
+           ...n
+       ]
+       ```
 
-    - Skapa en json-fil i anteckningar, kopiera följande kommandon och klistra in dem i filen och spara filen på C:\DMS\source.json.
-         ```
-        {
-                    "userName": "postgres",    
-                    "password": null,           
-                be prompted
-                    "serverName": "13.51.14.222",
-                    "databaseName": "dvdrental", 
-                    "port": 5432                
-                }
-         ```
-    - Skapa en annan fil med namnet target.json och spara som C:\DMS\target.json. Inkludera följande kommandon:
+   - Skapa en json-fil i anteckningar, kopiera följande kommandon och klistra in dem i filen och spara filen på C:\DMS\source.json.
         ```
-        {
-                "userName": " dms@builddemotarget",    
-                "password": null,           
-                "serverName": " builddemotarget.postgres.database.azure.com",
-                "databaseName": "inventory", 
-                "port": 5432                
-            }
+       {
+                   "userName": "postgres",    
+                   "password": null,           
+               be prompted
+                   "serverName": "13.51.14.222",
+                   "databaseName": "dvdrental", 
+                   "port": 5432                
+               }
         ```
-    - Skapa en json-fil för databasalternativ som visar inventeringen som den databas som ska migreras:
-        ``` 
-        [
-            {
-                "name": "dvdrental",
-                "target_database_name": "dvdrental",
-            }
-        ]
-        ```
-    - Kör följande kommando, som tar in källan, målet och DB-alternativet för json-filer.
+   - Skapa en annan fil med namnet target.json och spara som C:\DMS\target.json. Inkludera följande kommandon:
+       ```
+       {
+               "userName": " dms@builddemotarget",    
+               "password": null,           
+               "serverName": " builddemotarget.postgres.database.azure.com",
+               "databaseName": "inventory", 
+               "port": 5432                
+           }
+       ```
+   - Skapa en json-fil för databasalternativ som visar inventeringen som den databas som ska migreras:
+       ``` 
+       [
+           {
+               "name": "dvdrental",
+               "target_database_name": "dvdrental",
+           }
+       ]
+       ```
+   - Kör följande kommando, som tar in källan, målet och DB-alternativet för json-filer.
 
-        ``` 
-        az dms project task create -g PostgresDemo --project-name PGMigration --source-platform postgresql --target-platform azuredbforpostgresql --source-connection-json c:\DMS\source.json --database-options-json C:\DMS\option.json --service-name PostgresCLI --target-connection-json c:\DMS\target.json –task-type OnlineMigration -n runnowtask    
-        ``` 
+       ``` 
+       az dms project task create -g PostgresDemo --project-name PGMigration --source-platform postgresql --target-platform azuredbforpostgresql --source-connection-json c:\DMS\source.json --database-options-json C:\DMS\option.json --service-name PostgresCLI --target-connection-json c:\DMS\target.json –task-type OnlineMigration -n runnowtask    
+       ``` 
 
-    Du har nu har skickat en migreringsuppgift.
+     Du har nu har skickat en migreringsuppgift.
 
-7.  Om du vill visa förloppet för uppgiften, kör du följande kommando:
+7. Om du vill visa förloppet för uppgiften, kör du följande kommando:
+
+   ```
+   az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
+   ```
+
+   ELLER
 
     ```
-    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
+   az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output
     ```
-
-    ELLER
-
-     ```
-    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output
-     ```
 
 8. Du kan också fråga efter migrationState från expanderade utdata:
 

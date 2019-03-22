@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f0a10a56aeecf9973ea12b022e0030fb4635fbf
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: MT
+ms.openlocfilehash: 63bdbeb08872988fb043413f8233281d22423731
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984556"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284756"
 ---
-# <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Förhandsversion: Azure AD-lösenordsskydd lokalt – vanliga frågor och svar
-
-|     |
-| --- |
-| Azure AD-lösenordsskydd är en funktion i offentliga förhandsversionen av Azure Active Directory. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD-lösenordsskydd lokalt – vanliga frågor och svar
 
 ## <a name="general-questions"></a>Allmänna frågor
 
@@ -86,6 +81,10 @@ Nej. Eftersom proxyservern är tillståndslösa, är det inte viktigt vilken spe
 **F: Är det bra att distribuera tjänsten för Azure AD-lösenord Protection Proxy sida vid sida med andra tjänster som Azure AD Connect?**
 
 Ja. Azure AD-lösenord Protection Proxy-tjänst och Azure AD Connect bör aldrig står i konflikt med varandra.
+
+**F: I vilken ordning bör DC-agenter och proxyservrar installeras och registreras?**
+
+Några sorteringen av Proxy agentinstallation, DC-agentinstallationen, skog registrering och Proxyregistrering stöds.
 
 **F: Bör jag vara bekymrade över prestandan nåddes på domänkontrollanter från att distribuera den här funktionen?**
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 47f27746-9057-4b9c-991e-3abf77710f73
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d1bac1e9fee9b06fb88237ddc3a7374eed32e40
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 4156ef264069b5f926f28f766a201dceb29a512b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879653"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834803"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Självstudier: Azure Active Directory-integrering med Coupa
 
@@ -34,7 +34,7 @@ Integreringen av Coupa med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Coupa behöver du följande:
 
@@ -53,7 +53,7 @@ För att konfigurera integreringen av Coupa i Azure AD måste du lägga till Cou
 
 **Utför följande steg för att lägga till Coupa från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -111,6 +111,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Coupa
     > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [kundsupporten för Coupa](https://success.coupa.com/Support/Contact_Us?) och be om det här värdet.
 
     b. I textrutan **Identifierare** skriver du in en URL:
+
     | Miljö  | URL |
     |:-------------|----|
     | Begränsat läge | `devsso35.coupahost.com`|
@@ -118,6 +119,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Coupa
     | | |
 
     c. I textrutan **Svars-URL** skriver du en URL:
+
     | Miljö | URL |
     |------------- |----|
     | Begränsat läge | `https://devsso35.coupahost.com/sp/ACS.saml2`|
@@ -174,14 +176,14 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Coupa.
 
@@ -242,7 +244,7 @@ För att Azure AD-användare ska kunna logga in i Coupa måste de etableras till
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
 När du klickar på Coupa-panelen i åtkomstpanelen bör du automatiskt loggas in på Coupa som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

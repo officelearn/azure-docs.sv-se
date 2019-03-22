@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 03/12/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: af6a32d7e32f23561b207c729402eaea7925f520
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 6ae7037ad4cd532b6661a56e6e37a88df3eb54a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453859"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121714"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Låsa en App Service Environment
 
@@ -91,7 +91,6 @@ Följande information är endast krävs om du vill konfigurera en brandväggsins
 - Jokertecken HTTP/HTTPS-slutpunkterna är beroenden som kan variera beroende på din ASE baserat på ett antal kvalificerare. 
 - Linux-beroenden är endast ett problem om du distribuerar Linux-appar i din ASE. Om du inte distribuerar Linux-appar i din ASE, behöver inte dessa adresser som ska läggas till i brandväggen. 
 
-
 #### <a name="service-endpoint-capable-dependencies"></a>Tjänsteslutpunkt kan beroenden 
 
 | Slutpunkt |
@@ -106,6 +105,14 @@ Följande information är endast krävs om du vill konfigurera en brandväggsins
 |----------| ----- |
 | \*:123 | NTP-klockkontrollen. Trafiken är markerad på flera slutpunkter på porten 123 |
 | \*:12000 | Den här porten används för systemövervakning av vissa. Om den blockeras och sedan några problem blir svårare att prioritering men din ASE fortsätter att fungera |
+| 40.77.24.27:80 | Krävs för att övervakning och aviseringar om problem med ASE |
+| 40.77.24.27:443 | Krävs för att övervakning och aviseringar om problem med ASE |
+| 13.90.249.229:80 | Krävs för att övervakning och aviseringar om problem med ASE |
+| 13.90.249.229:443 | Krävs för att övervakning och aviseringar om problem med ASE |
+| 104.45.230.69:80 | Krävs för att övervakning och aviseringar om problem med ASE |
+| 104.45.230.69:443 | Krävs för att övervakning och aviseringar om problem med ASE |
+| 13.82.184.151:80 | Krävs för att övervakning och aviseringar om problem med ASE |
+| 13.82.184.151:443 | Krävs för att övervakning och aviseringar om problem med ASE |
 
 Med en Azure-brandväggen får automatiskt du allt nedan konfigurerad med FQDN-taggar. 
 
@@ -140,7 +147,8 @@ Med en Azure-brandväggen får automatiskt du allt nedan konfigurerad med FQDN-t
 |cacerts.digicert.com:80 |
 |azperfcounters1.blob.core.windows.net:443 |
 |azurewatsonanalysis-prod.core.windows.net:443 |
-|global.metrics.nsatc.net:80   |
+|global.metrics.nsatc.net:80 |
+|global.metrics.nsatc.net:443 |
 |az-prod.metrics.nsatc.net:443 |
 |antares.metrics.nsatc.net:443 |
 |azglobal-black.azglobal.metrics.nsatc.net:443 |
@@ -175,12 +183,6 @@ Med en Azure-brandväggen får automatiskt du allt nedan konfigurerad med FQDN-t
 | \*.management.azure.com:443 |
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
-|grmdsprod\*mini\*.servicebus.windows.net:443 |
-|grmdsprod\*lini\*.servicebus.windows.net:443 |
-|grsecprod\*mini\*.servicebus.windows.net:443 |
-|grsecprod\*lini\*.servicebus.windows.net:443 |
-|graudprod\*mini\*.servicebus.windows.net:443 |
-|graudprod\*lini\*.servicebus.windows.net:443 |
 
 #### <a name="linux-dependencies"></a>Linux-beroenden 
 

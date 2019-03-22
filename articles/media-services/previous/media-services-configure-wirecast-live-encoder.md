@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/14/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: c734c8033947c4f4d5636bc8d82d38a3d871bdbd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d0da69601bfc6fd09c10b30d45195722781d87d6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998577"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890057"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Använd Wirecast-kodare för att skicka en direktsänd dataström med enkel bithastighet 
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "55998577"
 >
 >
 
-Den här artikeln visar hur du konfigurerar den [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) livekodare för att skicka en enda bithastighet till AMS kanaler som är aktiverade för live encoding.  Mer information finns i [Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+Den här artikeln visar hur du konfigurerar den [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) livekodare för att skicka en enda bithastighet till AMS kanaler som är aktiverade för live encoding.  Mer information finns i [Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 Den här självstudien visar hur du hanterar Azure Media Services (AMS) med Azure Media Services Explorer (AMSE)-verktyget. Det här verktyget körs bara på Windows-dator. Om du använder Mac- eller Linux kan du använda Azure-portalen för att skapa [kanaler](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) och [program](media-services-portal-creating-live-encoder-enabled-channel.md).
 
@@ -109,7 +109,7 @@ I den här självstudien används följande utdatainställningar för. Resten av
    * Profil: Huvud
    * Viktiga ramens varje: 60 bildrutor
 
-    **Ljud**
+     **Ljud**
 
    * Bithastighet för mål: 192 kbits/sek
    * Samplingshastighet: 44.100 kHz
@@ -134,7 +134,7 @@ I den här självstudien används följande utdatainställningar för. Resten av
 1. Välj **OK**.
 2. På huvudsidan **Wirecast** skärmen, bekräfta indatakällor för video och ljud är klar och tryck sedan på **Stream** i det övre vänstra hörnet.
 
-   ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
+    ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
 > [!IMPORTANT]
 > Innan du klickar på **Stream**, du **måste** se till att kanalen är redo.

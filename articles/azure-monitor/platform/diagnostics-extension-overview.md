@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 6c59b97a8deec78149775a147d6476e67f405d3f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 8a287f118c126967d2cf8cad77a434cfecc098eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310465"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078547"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Vad är Azure Diagnostics-tillägget
 Azure Diagnostics-tillägget är en agent i Azure som aktiverar insamlingen av diagnostikdata på ett distribuerat program. Du kan använda diagnostiktillägget från ett antal olika källor. För närvarande är Azure-molntjänst (klassisk) rollerna Web och Worker, virtuella datorer, virtuella datorer skala uppsättningar och Service Fabric. Andra Azure-tjänster har olika diagnostik metoder. Se [översikt över övervakning i Azure](../../azure-monitor/overview.md).
@@ -50,6 +50,9 @@ Du har också valet av skickar du data till Azure Monitor metrics time series-da
 * Behandla jokertecken operator i prestandaräknare som dimensionen ”instans” på din mått.  Till exempel om du samlat in den ”logisk disk (\*) / DiskWrites/sek” räknare du skulle kunna filtrera och dela upp på dimensionen ”instans” för diagram eller Varna vid den Diskskrivningar/sek för varje logisk Disk på den virtuella datorn (till exempel C:)
 
 Mer information om hur du konfigurerar den här mottagare som avser den [Azure diagnostics schema-dokumentationen.](diagnostics-extension-schema-1dot3.md)
+
+## <a name="costs"></a>Kostnader
+Vart och ett av alternativen ovan kan tillkomma kostnader. Glöm inte att undersöka dem för att undvika oväntade fakturor.  Application Insights, Event hub och Azure Storage har olika kostnader i samband med datainmatning och den tid som lagras. I synnerhet innehåller Azure Storage några data alltid så kan du ta bort äldre data efter en viss tidsperiod att hålla kostnaderna nere.    
 
 ## <a name="versioning-and-configuration-schema"></a>Schema för versionshantering och konfiguration
 Se [versionshistorik för Azure-diagnostik och Schema](diagnostics-extension-schema.md).

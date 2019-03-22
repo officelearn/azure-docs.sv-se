@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 569f89d389e4bc8c7f2d1f46f3713e9792d4e466
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: afb344418f843e54c3172c17d28bde7055e101b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159697"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093464"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Säkerhet och dataskydd i Azure Data Box Disk
 
@@ -71,17 +71,17 @@ Azure Data Box Disk samlar in och visar personlig information i följande viktig
 
 - **Orderdetaljer** – När ordern har skapats lagras leveransadressen, e-postadressen och kontaktuppgifterna för användare på Azure Portal. Informationen som sparas omfattar:
 
-    - Kontaktnamn
-    - Telefonnummer
-    - E-post
-    - Gatuadress
-    - Ort
-    - Postnummer
-    - Status
-    - Land/region
-    - Enhets-ID
-    - Transportföretagets kontonummer
-    - Spårningsnummer för leveransen
+  - Kontaktnamn
+  - Telefonnummer
+  - E-post
+  - Gatuadress
+  - Ort
+  - Postnummer
+  - Status
+  - Land/region
+  - Enhets-ID
+  - Transportföretagets kontonummer
+  - Spårningsnummer för leveransen
 
     Orderinformationen tas bort av Data Box-tjänsten när jobbet har slutförts eller när du tar bort ordern.
 

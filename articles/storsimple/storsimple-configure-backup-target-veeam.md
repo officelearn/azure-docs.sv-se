@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
-ms.openlocfilehash: f06b74493bad546997f82ed6eef0a89cffb7c75b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e7659cca9081834d41f64ef0fbd8ea3686044bfd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261986"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012006"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple som ett säkerhetskopieringsmål med Veeam
 
@@ -81,7 +81,7 @@ StorSimple erbjuder följande fördelar:
 
 StorSimple presenterar två huvudsakliga distributionsscenarier (primära mål för säkerhetskopian och sekundära säkerhetskopieringsmål) grunden, är det en vanlig, blocklagringsenhet. StorSimple har alla komprimering och deduplicering. Sömlöst skickar och hämtar data mellan molnet och program och filsystemet.
 
-Läs mer om StorSimple, [StorSimple 8000-serien: hybridmolnlagringslösning](storsimple-overview.md). Du kan också granska den [tekniska specifikationer för StorSimple 8000-serien](storsimple-technical-specifications-and-compliance.md).
+Läs mer om StorSimple, [StorSimple 8000-serien: Hybridmolnlagringslösning](storsimple-overview.md). Du kan också granska den [tekniska specifikationer för StorSimple 8000-serien](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > Med hjälp av en StorSimple-enheten som ett säkerhetskopieringsmål stöds endast för StorSimple 8000 uppdatering 3 och senare versioner.
@@ -170,7 +170,7 @@ För lösningen ska fungera optimalt, rekommenderar vi att du följer dessa nät
 -   Den länk som ansluter StorSimple lagringsnivåer till Azure måste uppfylla dina krav på bandbredd. Uppnå detta genom att använda den nödvändiga nivån för tjänstkvalitet (QoS) för din infrastruktur växlar som motsvarar dina RPO och återställning tid mål för Återställningstid serviceavtal.
 -   Maximal Azure Blob storage-åtkomstfördröjning ska vara cirka 80 ms.
 
-### <a name="deploy-storsimple"></a>Distribuera StorSimple
+### <a name="deploy-storsimple"></a>Deploy StorSimple
 
 Stegvisa anvisningar för StorSimple-distribution, se [distribuera din lokala StorSimple-enhet](storsimple-deployment-walkthrough-u2.md).
 
@@ -186,7 +186,7 @@ I det här avsnittet visar vi några Konfigurationsexempel. Följande exempel oc
 
 | StorSimple distributionsuppgifter  | Ytterligare kommentarer |
 |---|---|
-| Distribuera din lokala StorSimple-enhet. | Versioner som stöds: uppdatera 3 och senare versioner. |
+| Distribuera din lokala StorSimple-enhet. | Versioner som stöds: Uppdatering 3 och senare versioner. |
 | Aktivera målet för säkerhetskopian. | Använd dessa kommandon för att aktivera eller inaktivera säkerhetskopieringsmål läge och för att hämta status. Mer information finns i [Anslut via en fjärranslutning till en StorSimple-enhet](storsimple-remote-connect.md).</br> Aktivera säkerhetskopieringsläge: `Set-HCSBackupApplianceMode -enable`. </br> Inaktivera säkerhetskopieringsläge: `Set-HCSBackupApplianceMode -disable`. </br> Att hämta det aktuella tillståndet för inställningar för säkerhetskopiering: `Get-HCSBackupApplianceMode`. |
 | Skapa en gemensam volymbehållare för volymen som lagrar säkerhetskopierade data. Alla data i en volymbehållare är deduplicerad. | StorSimple volymbehållare definierar deduplicering domäner.  |
 | Skapa StorSimple-volymer. | Skapa volymer med storlekar som nära den förväntade användningen som möjligt, eftersom volymstorleken påverkar varaktighetstiden av ögonblicksbild av molndata. Information om hur du kan ändra storlek på en volym, Läs om [bevarandeprinciper](#retention-policies).</br> </br> Använd StorSimple nivåindelade volymer och välj den **Använd volymen för arkivdata mindre ofta** markerar du kryssrutan. </br> Med hjälp av endast lokalt fixerade volymer stöds inte. |
@@ -209,16 +209,16 @@ Konfigurera din lösning enligt riktlinjerna i följande avsnitt.
 
 ### <a name="operating-system-best-practices"></a>Metodtips för operativsystem
 
--   Inaktivera Windows Server-kryptering och deduplicering för NTFS-filsystemet.
--   Inaktivera Windows Server defragmentering på StorSimple-volymer.
--   Inaktivera Windows Server-indexering på StorSimple-volymer.
--   Kör en virusgenomsökning källvärden (inte mot StorSimple-volymer).
--   Inaktivera [Windows serverunderhåll](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) i Aktivitetshanteraren. Gör detta på något av följande sätt:
-    - Inaktivera Underhåll configurator i Schemaläggaren i Windows.
-    - Ladda ned [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) från Windows Sysinternals. När du har hämtat PsExec kör du Windows PowerShell som administratör och skriv:
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- Inaktivera Windows Server-kryptering och deduplicering för NTFS-filsystemet.
+- Inaktivera Windows Server defragmentering på StorSimple-volymer.
+- Inaktivera Windows Server-indexering på StorSimple-volymer.
+- Kör en virusgenomsökning källvärden (inte mot StorSimple-volymer).
+- Inaktivera [Windows serverunderhåll](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) i Aktivitetshanteraren. Gör detta på något av följande sätt:
+  - Inaktivera Underhåll configurator i Schemaläggaren i Windows.
+  - Ladda ned [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) från Windows Sysinternals. När du har hämtat PsExec kör du Windows PowerShell som administratör och skriv:
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### <a name="storsimple-best-practices"></a>Metodtips för StorSimple
 
@@ -265,6 +265,7 @@ Baserat på föregående antaganden kan du skapa en 26-TiB StorSimple nivåindel
 | Årlig fullständig | 1  | 10 | 10 |
 | GFS krav |   | 38 |   |
 | Större kvot  | 4  |   | 42 GFS totalkravet  |
+
 \* Multiplikatorn som GFS är antalet kopior måste du skydda och bevara så att de uppfyller dina krav för princip för säkerhetskopiering.
 
 ## <a name="set-up-veeam-storage"></a>Konfigurera Veeam lagring
@@ -319,7 +320,7 @@ Här är ett exempel på ett schema för rotation av GFS för fyra veckor, måna
 |---|---|---|
 | Varje vecka (1 – 4 veckor) | Lördag | Måndag-fredag |
 | Månadsvis  | Lördag  |   |
-| Varje år | Lördag  |   |   |
+| Varje år | Lördag  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-backup-job"></a>Tilldela ett säkerhetskopieringsjobb för Veeam StorSimple-volymer
@@ -384,6 +385,7 @@ I följande tabell visar hur du konfigurerar säkerhetskopieringar att köras p�
 | Månatliga fullständig |StorSimple-disk (långsiktig) | 1 | 12 | 12 |
 | Årlig fullständig |StorSimple-disk (långsiktig) | 1 | 1 | 1 |
 |GFS volymer kravet |  |  |  | 18*|
+
 \* Total kapacitet innehåller 17 TiB av StorSimple-diskar och 1 TiB lokal RAID-volym.
 
 
@@ -398,7 +400,7 @@ GFS rotation veckovisa, månatliga och årliga schema
 | Vecka 3 | StorSimple veckor 2 – 4 |   |   |   |   |   |
 | Vecka 4 | StorSimple veckor 2 – 4 |   |   |   |   |   |
 | Månadsvis | StorSimple per månad |   |   |   |   |   |
-| Varje år | StorSimple varje år  |   |   |   |   |   |   |
+| Varje år | StorSimple varje år  |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>Tilldela ett Veeam kopieringsjobb StorSimple-volymer
 
@@ -469,9 +471,9 @@ I följande avsnitt beskrivs hur du skapar ett kort skript för att starta och t
 1. [Installera Azure PowerShell](/powershell/azure/overview).
 2. Ladda ned och konfigurera [hantera CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell-skript.
 3. Kör PowerShell som administratör på den server som kör skriptet. Kontrollera att du kört skriptet med `-WhatIf $true` att se vad ändrar skriptet gör. När verifieringen är klar kan du skicka `-WhatIf $false`. Kör i kommandot nedan:
-```powershell
-.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
-```
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
 4. Redigera Veeam jobbet avancerade alternativ för att lägga till skriptet säkerhetskopieringsjobbet.
 
     ![Veeam avancerade inställningar för säkerhetskopiering skript fliken](./media/storsimple-configure-backup-target-using-veeam/veeamimage22.png)
@@ -510,7 +512,7 @@ En katastrof kan ha orsakats av olika faktorer. I följande tabell visas vanliga
 Följande dokument har referenser till den här artikeln:
 
 - [StorSimple multipath i/o-installationen](storsimple-configure-mpio-windows-server.md)
-- [Lagringsscenarier: tunn allokering](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Storage-scenarier: Tunn allokering](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [Använda GPT-enheter](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Konfigurera skuggkopior för delade mappar](https://technet.microsoft.com/library/cc771893.aspx)
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 09d43386b994ffc046f8c3e22c82f13ec15acd38
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: bfe4abe4a83a6b22d05942f91f4152d5c0e62be9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428979"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124107"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Självstudier: Logga nätverkstrafik till och från en virtuell dator med hjälp av Azure-portalen
 
@@ -100,7 +100,10 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
 
 6. Välj nätverkssäkerhetsgruppen **myVm-nsg** i listan med nätverkssäkerhetsgrupper.
 7. Välj **På** under **Flödesloggsinställningar**.
-8. Välj version av flödesloggning. Version 2 innehåller flödessessionens statistik (byte och paket) A. ![Välj version av flödesloggar](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+8. Välj version av flödesloggning. Version 2 innehåller flow-sessionen statistik (byte och paket)
+
+   ![Välj flödet loggar version](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+
 9. Välj lagringskontot som du skapade i steg 3.
 10. Ange **Bevarande (dagar)** till 5 och välj sedan **Spara**.
 
@@ -109,17 +112,13 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
 1. Välj **NSG-flödesloggar** under **LOGGAR** från Network Watcher på portalen.
 2. Välj **You can download flow logs from configured storage accounts** (Du kan ladda ned flödesloggar från konfigurerade lagringskonton), som du ser i följande bild:
 
-  ![Ladda ned flödesloggar](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
+   ![Ladda ned flödesloggar](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Välj lagringskontot som du konfigurerade i steg 2 i [Aktivera NSG-flödesloggar](#enable-nsg-flow-log).
-4. Välj **Container** under **BLOB SERVICE** och välj sedan containern **insights-logs-networksecuritygroupflowevent**, som du ser i följande bild:
+4. Under **Blobtjänst**väljer **Blobar**, och välj sedan den **insights-logs-networksecuritygroupflowevent** behållare.
+5. I behållaren, navigera i mapphierarkin tills du kommer till en pt1h.JSON enligt bilden nedan. Loggfilerna skrivs till en mapphierarki som följer följande namngivningskonvention: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/ RESOURCEGROUPS/{resourceGroupName}/providers/Microsoft.Network/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.JSON
 
-    ![Välj container](./media/network-watcher-nsg-flow-logging-portal/select-container.png)
-5. Navigera i mapphierarkin tills du kommer till en PT1H.json-fil, som du ser i följande bild:
-
-    ![Loggfil](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
-
-    Loggfiler skrivs till en mapphierarki som använder följande namnkonvention:  https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+   ![Flödeslogg](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
 6. Välj **...** till höger om PT1H.json-filen och välj **Ladda ned**.
 
@@ -196,7 +195,6 @@ Följande JSON-kod är ett exempel på vad du ser i PT1H.json-filen för varje f
 }
 ```
 
-
 Värdet för **mac** i föregående utdata är nätverksgränssnittets MAC-adress som skapades när den virtuella datorn skapades. Den kommateckenavgränsade informationen för **flowTuples** är som följer:
 
 | Exempeldata | Vad data representerar   | Förklaring                                                                              |
@@ -213,7 +211,7 @@ Värdet för **mac** i föregående utdata är nätverksgränssnittets MAC-adres
 | 30 | Skickade paket – källa till mål **endast version 2** | Det totala antalet TCP- eller UDP-paket som skickats från källa till mål sedan den senaste uppdateringen. |
 | 16978 | Skickade byte – källa till mål **endast version 2** | Det totala antalet TCP- eller UDP-paketbyte som skickats från källa till mål sedan den senaste uppdateringen. Paketbyte omfattar paketets huvud och nyttolast. | 
 | 24 | Skickade paket – mål till källa **endast version 2** | Det totala antalet TCP- eller UDP-paket som skickats från mål till källa sedan den senaste uppdateringen. |
-| 14008| Skickade byte – mål till källa **endast version 2** | Det totala antalet TCP- och UDP-paketbyte som skickats från mål till källa sedan den senaste uppdateringen. Paketbyte omfattar paketets huvud och nyttolast.| |
+| 14008| Skickade byte – mål till källa **endast version 2** | Det totala antalet TCP- och UDP-paketbyte som skickats från mål till källa sedan den senaste uppdateringen. Paketbyte omfattar paketets huvud och nyttolast.|
 
 ## <a name="next-steps"></a>Nästa steg
 

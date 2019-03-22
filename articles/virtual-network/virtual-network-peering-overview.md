@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: 5687075b8b63755b8b04f8c8fd0d0706ec8e27bc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e32bc2f4697b5ac32993a5da66e5c38cb7add03f
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774531"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200590"
 ---
 # <a name="virtual-network-peering"></a>Virtuell nätverkspeering
 
@@ -59,11 +59,12 @@ Varje virtuellt nätverk, oavsett om det är peer-kopplat med ett annat virtuell
 
 När båda alternativen för anslutningar mellan virtuella nätverk har konfigurerats flödar trafiken mellan de virtuella nätverken genom peering-konfigurationen (det vill säga genom Azures stamnätverk).
 
-När virtuella nätverk har peer-kopplats i samma region kan du också konfigurera gatewayen i det peer-kopplade virtuella nätverket som en överföringspunkt till det lokala nätverket. I detta fall kan det virtuella nätverket som använder en fjärr-gateway inte ha sin egen gateway. Ett virtuellt nätverk kan bara ha en gateway. Det kan antingen vara en lokal gateway eller en fjärr-gateway (i det peerkopplade virtuella nätverket), som du ser på följande bild:
+När virtuella nätverk har peer-kopplats kan du också konfigurera gatewayen i det peer-kopplade virtuella nätverket som en överföringspunkt till det lokala nätverket. I detta fall kan det virtuella nätverket som använder en fjärr-gateway inte ha sin egen gateway. Ett virtuellt nätverk kan bara ha en gateway. Det kan antingen vara en lokal gateway eller en fjärr-gateway (i det peerkopplade virtuella nätverket), som du ser på följande bild:
 
 ![Överföring vid VNET-peering](./media/virtual-networks-peering-overview/figure04.png)
 
-Gatewayöverföring stöds inte i peer-relationer mellan virtuella nätverk som skapats i olika regioner. Båda virtuella nätverk i peer-relationen måste finnas i samma region för att gatewayöverföringen ska fungera. Gatewayöverföring mellan virtuella nätverk som skapats med olika distributionsmodeller (Resource Manager och klassisk) stöds endast om gatewayen (VPN eller ExpressRoute) finns i det virtuella nätverket (Resource Manager). Mer information om hur du använder en gateway för överföring finns i [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Konfigurera en VPN-gateway för överföring i peer-kopplade virtuella nätverk).
+Gatewayöverföring stöds för både VNet-Peering och Global VNet-Peering (förhandsversion). Du kan Använd fjärrgateway eller Tillåt gatewayöverföring i globalt peer-kopplade virtuella nätverk i förhandsversion. Förhandsgranskningen är tillgänglig i alla Azure-regioner, Kina-molnområden och Government cloud-regioner. Det krävs ingen lista över tillåtna. Du kan testa förhandsversion via CLI, PowerShell, mallar eller API: et. Portal stöds inte i förhandsversionen.
+Gateway-överföring mellan virtuella nätverk som skapats via olika distributionsmodeller (Resource Manager och klassisk) stöds endast om gatewayen är i det virtuella nätverket (Resource Manager). Mer information om hur du använder en gateway för överföring finns i [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Konfigurera en VPN-gateway för överföring i peer-kopplade virtuella nätverk).
 
 När de virtuella nätverken som delar samma Azure ExpressRoute-anslutning är peer-kopplade går trafiken mellan dem genom peering-relationen (dvs. genom Azures stamnätverk). Du kan fortfarande använda lokala gateways i varje virtuellt nätverk för att ansluta till den lokala kretsen. Du kan även använda en delad gateway och konfigurera överföringen för lokala anslutningar.
 
@@ -78,8 +79,8 @@ Du kan också prova att gå igenom [felsökningsstegen för problem relaterade t
 ## <a name="requirements-and-constraints"></a>Krav och begränsningar
 
 Följande begränsningar gäller endast när virtuella nätverk peerkopplas globalt:
-- Resurser i ett virtuellt nätverk kan inte kommunicera med frontend IP-adressen för en intern belastningsutjämnare i ett globalt peer-kopplade virtuella nätverk. Det finns bara stöd för grundläggande belastningsutjämnare inom samma region. Det finns stöd för Standard Load Balancer för både, Global VNet-Peering och VNet-Peering. 
-- Du kan inte använda fjärrgatewayer eller tillåta gatewayöverföring. Om du vill använda fjärrgatewayer eller tillåta gatewayöverföring måste peerkopplade virtuella nätverk finnas i samma region.
+- Resurser i ett virtuellt nätverk kan inte kommunicera med frontend IP-adressen för en intern belastningsutjämnare i ett globalt peer-kopplade virtuella nätverk. Det finns bara stöd för grundläggande belastningsutjämnare inom samma region. Det finns stöd för Standard Load Balancer för Global VNet-Peering.
+- Du kan Använd fjärrgateway eller Tillåt gatewayöverföring i globalt peer-kopplade virtuella nätverk i förhandsversion. Förhandsgranskningen är tillgänglig i alla Azure-regioner, Kina-molnområden och Government cloud-regioner. Det krävs ingen lista över tillåtna. Du kan testa förhandsversion via CLI, PowerShell, mallar eller API: et. Portal stöds inte i förhandsversionen.
 
 Läs mer om krav och begränsningar i avsnittet om [krav och begränsningar för peering för virtuella nätverk](virtual-network-manage-peering.md#requirements-and-constraints). Du kan läsa om gränserna för hur många peerkopplingar du kan skapa för ett virtuellt nätverk i [Nätverksbegränsningar för Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 

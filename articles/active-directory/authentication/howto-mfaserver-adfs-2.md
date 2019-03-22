@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3064b3eb5f29e2b2d1ff8516dce97bbb3fb8062
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 09ff573683ef681a053f2bcd37325d48b3823371
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166274"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100827"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Konfigurera Azure Multi-Factor Authentication Server så att den fungerar med AD FS 2.0
 
@@ -32,7 +32,9 @@ Om du vill skydda AD FS 2.0 med en proxy installerar du Azure Multi-Factor Authe
 2. Klicka på fliken **Formulärbaserad**.
 3. Klicka på **Lägg till**.
 
-   <center>![Installation](./media/howto-mfaserver-adfs-2/setup1.png)</center>
+   <center>
+   
+   ![Installation](./media/howto-mfaserver-adfs-2/setup1.png)</center>
 
 4. Om du vill identifiera användarnamn, lösenord och domänvariabler automatiskt anger du inloggnings-URL:en (som https://sso.contoso.com/adfs/ls) i dialogrutan Konfigurera formulärbaserad webbplats automatiskt och klickar på **OK**.
 5. Markera rutan **Kräv Azure Multi-Factor Authentication-användarmatchning** om alla användare har importerats eller ska importeras till servern och använda tvåstegsverifiering. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från tvåstegsverifiering, lämnar du rutan avmarkerad.
@@ -41,7 +43,9 @@ Om du vill skydda AD FS 2.0 med en proxy installerar du Azure Multi-Factor Authe
 8. Ange formatet för begäran till **POST eller GET**.
 9. Ange användarnamnsvariabeln (ctl00$ContentPlaceHolder1$UsernameTextBox) och lösenordsvariabeln (ctl00$ContentPlaceHolder1$PasswordTextBox). Om en textruta för domänen visas på den formulärbaserade inloggningssidan anger du även domänvariabeln. Du kan behöva gå till inloggningssidan i en webbläsare, högerklicka på sidan och välja **Visa källa** för att hitta namnen på inmatningsrutorna på inloggningssidan.
 10. Markera rutan **Kräv Azure Multi-Factor Authentication-användarmatchning** om alla användare har importerats eller ska importeras till servern och använda tvåstegsverifiering. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från tvåstegsverifiering, lämnar du rutan avmarkerad.
-    <center>![Installation](./media/howto-mfaserver-adfs-2/manual.png)</center>
+    <center>
+    
+    ![Installation](./media/howto-mfaserver-adfs-2/manual.png)</center>
 11. Klicka på **Avancerat...** och granska de avancerade inställningarna. Bland de inställningar som du kan konfigurera finns följande:
 
     - Välj en anpassad nekandeväxlingsfil
@@ -63,13 +67,17 @@ Du har aktiverat IIS-autentisering, men för att kunna utföra förautentisering
 1. Det gör du genom att klicka på ikonen **Katalogintegrering**.
 2. På fliken Inställningar väljer du alternativknappen **Använd specifik LDAP-konfiguration**.
 
-   <center>![Installation](./media/howto-mfaserver-adfs-2/ldap1.png)</center>
+   <center>
+    
+   ![Installation](./media/howto-mfaserver-adfs-2/ldap1.png)</center>
 
 3. Klicka på **Redigera**.
 4. I dialogrutan Redigera LDAP-konfiguration fyller du i fälten med den information som krävs för att ansluta till AD-domänkontrollanten. Fältbeskrivningar finns inkluderade i hjälpfilen för Azure Multi-Factor Authentication-server.
 5. Testa LDAP-anslutningen genom att klicka på knappen **Testa**.
 
-   <center>![Installation](./media/howto-mfaserver-adfs-2/ldap2.png)</center>
+   <center>
+    
+   ![Installation](./media/howto-mfaserver-adfs-2/ldap2.png)</center>
 
 6. Klicka på **OK** om LDAP-anslutningstestet lyckas.
 
@@ -79,9 +87,11 @@ Du har aktiverat IIS-autentisering, men för att kunna utföra förautentisering
 3. Om användare anger sina användarnamn i ”domän\användarnamn”-format måste servern kunna extrahera domänen från användarnamnet när LDAP-frågan skapas. Detta kan göras via en registerinställning.
 4. Öppna Registereditorn och gå till HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor på en 64-bitarsserver. Om du arbetar på en 32-bitarsserver utelämnar du ”Wow6432Node” i sökvägen. Skapa en DWORD-registernyckel med namnet ”UsernameCxz_stripPrefixDomain” och ange värdet till 1. Nu skyddas AD FS-proxyn av Azure Multi-Factor Authentication.
 
-Se till att användarna har importerats från Active Directory till servern. Se avsnittet [Tillförlitliga IP-adresser](#trusted-ips) om du vill vitlista interna IP-adresser så att tvåstegsverifiering inte krävs vid inloggning till webbplatsen från dessa platser.
+Se till att användarna har importerats från Active Directory till servern. Se avsnittet [Tillförlitliga IP-adresser](#trusted-ips) om du vill lista godkända interna IP-adresser så att tvåstegsverifiering inte krävs vid inloggning till webbplatsen från
 
-<center>![Installation](./media/howto-mfaserver-adfs-2/reg.png)</center>
+<center>
+
+![Installation](./media/howto-mfaserver-adfs-2/reg.png)</center>
 
 ## <a name="ad-fs-20-direct-without-a-proxy"></a>AD FS 2.0 direkt utan någon proxy
 Du kan skydda AD FS när AD FS-proxy inte används. Installera Azure Multi-Factor Authentication Server på AD FS-servern och konfigurera servern genom att följa stegen nedan:
@@ -94,7 +104,9 @@ Du kan skydda AD FS när AD FS-proxy inte används. Installera Azure Multi-Facto
 6. Markera rutan **Kräv Azure Multi-Factor Authentication-användarmatchning** om alla användare har importerats eller ska importeras till servern och använda tvåstegsverifiering. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från tvåstegsverifiering, lämnar du rutan avmarkerad.
 7. Markera kryssrutan för cachelagring av cookies om du vill.
 
-   <center>![Installation](./media/howto-mfaserver-adfs-2/noproxy.png)</center>
+   <center>
+   
+   ![Installation](./media/howto-mfaserver-adfs-2/noproxy.png)</center>
 
 8. Klicka på **OK**.
 9. Klicka på fliken **Ursprunglig modul** och välj servern, webbplatsen (t.ex. ”Standardwebbplats”) eller ADFS-programmet (t.ex. ”Is” under ”adfs”) för att aktivera IIS-pluginprogrammet på önskad nivå.
@@ -113,4 +125,6 @@ Tillförlitliga IP-adresser låter användarna kringgå Azure Multi-Factor Authe
 3. När dialogrutan Lägg till tillförlitlig IP-adress visas väljer du en av alternativknapparna **Enkel IP**, **IP-intervall** eller **Undernät**.
 4. Ange IP-adressen, IP-adressintervallet eller undernätet som ska vitlistas. Om du anger ett undernät väljer du lämplig nätmask och klickar på **OK**. Nu har den tillförlitliga IP-adressen lagts till.
 
-<center>![Installation](./media/howto-mfaserver-adfs-2/trusted.png)</center>
+<center>
+
+![Installation](./media/howto-mfaserver-adfs-2/trusted.png)</center>

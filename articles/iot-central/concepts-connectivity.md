@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: eb16778e0e7050dfda92fcc1b92afffe5860268d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0790b7d5280b3fdf26c34c3903a6257d21bc877c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767591"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835840"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Enhetsanslutning i Azure IoT Central
 
@@ -33,9 +33,9 @@ Med hjälp av DPS kan:
 I den här artikeln beskrivs följande fyra användningsfall:
 
 1. [Anslut snabbt en enskild enhet med hjälp av SAS](#connect-a-single-device)
-1. [Anslut enheter i stor skala med hjälp av SAS](#connect-devices-at-scale-using-shared-access-signatures)
+1. Anslut enheter i stor skala med hjälp av SAS
 1. [Anslut enheter i stor skala med X.509-certifikat](#connect-devices-using-x509-certificates) detta är den rekommendera metoden för produktionsmiljöer.
-1. [Ansluta utan att första registrera enheter](#connect-without-first-registering-devices) 
+1. Ansluta utan att första registrera enheter 
 
 ## <a name="connect-a-single-device"></a>Ansluta en enskild enhet
 
@@ -69,7 +69,7 @@ Registrera ett stort antal enheter med ditt IoT Central-program genom att använ
 Att hämta anslutningsinformationen för de importera enheterna, [exportera en CSV-fil från programmets IoT Central](howto-manage-devices.md#export-devices).
 
 > [!NOTE]
-> Information om hur du kan ansluta enheter utan att första registrera dem i IoT Central finns [Anslut utan första registrera enheter](#connect-without-first-registering-devices).
+> Information om hur du kan ansluta enheter utan att första registrera dem i IoT Central finns i avsnittet ansluta utan första registrera enheter.
 
 ### <a name="set-up-your-devices"></a>Konfigurera dina enheter
 

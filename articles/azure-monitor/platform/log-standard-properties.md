@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 03/20/2019
 ms.author: bwren
-ms.openlocfilehash: 2309e7762ad36f59e0833e675e7012ee3c459e3e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c01cdb967fd7f9516b4403aa4f0c76f2577d5050
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997047"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294730"
 ---
 # <a name="standard-properties-in-azure-monitor-log-records"></a>Standardegenskaper i Azure Monitor loggposter
 Loggdata i Azure Monitor är [lagras som en uppsättning poster](../log-query/log-query-overview.md), var och en med en viss datatyp som har en unik uppsättning egenskaper. Många datatyper har standardegenskaper som är gemensamma för flera typer. Den här artikeln beskriver de här egenskaperna och innehåller exempel på hur du kan använda dem i frågor.
@@ -84,6 +84,18 @@ AzureActivity
    | summarize LoggedOnAccounts = makeset(Account) by _ResourceId 
 ) on _ResourceId  
 ```
+
+Följande fråga Parsar **_ResourceId** och aggregeringar faktureras datavolymer per Azure-prenumeration.
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
+    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last 
+```
+
+Använd de här `union withsource = tt *` frågar sparsamt eftersom sökningar över datatyper är dyrt att köra.
 
 ## <a name="isbillable"></a>\_IsBillable
 Den  **\_IsBillable** egenskapen anger om insamlade data är fakturerbara. Data med  **\_IsBillable** lika _FALSKT_ samlas in kostnadsfritt och debiteras inte för ditt Azure-konto.

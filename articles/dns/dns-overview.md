@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 07230b061f9b18e1efe6ce8c65abe0f7e7f73b34
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 62043128b6415a064e35adca6be4d60ccfcae308
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893502"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294322"
 ---
 # <a name="what-is-azure-dns"></a>Vad är Azure DNS?
 
@@ -38,6 +38,8 @@ DNS-domäner i Azure DNS finns på Azures globala nätverk med DNS-namnservrar. 
 
 Mer information finns i [Så skyddar du DNS-zoner och -poster](dns-protect-zones-recordsets.md). 
 
+## <a name="dnssec"></a>DNSSEC
+Azure DNS stöder för närvarande inte DNSSEC. I de flesta fall kan du minska behovet av DNSSEC med hjälp av HTTPS/TLS konsekvent i dina program. Om DNSSEC är det viktigaste kravet för dina DNS-zoner, kan du vara värd för zonerna med tredjeparts DNS-värdleverantörer.
 
 ## <a name="ease-of-use"></a>Användbarhet
 

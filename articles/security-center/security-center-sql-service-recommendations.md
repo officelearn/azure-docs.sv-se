@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: d6121a0255b809deccb3c70d56585bab76935900
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 86d50092ccffd5ab958df5d54ea49cd56d815e2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110361"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082168"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Skydda Azure SQL-tjänst och data i Azure Security Center
 Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera kontrollfunktioner som behövs.  Rekommendationer gäller för Azure-resurstyper: virtuella datorer (VM), nätverk, SQL och data och program.
@@ -65,7 +65,7 @@ Du aktiverar granskning genom att välja **PÅ** under alternativet **Granskning
 |SQL|30|Åtgärda sårbarheter i SQL-databaser|Sårbarhetsbedömning för SQL söker igenom din databas för säkerhetsrisker och visar alla avvikelser från regelverk som felkonfigurationer, onödigt generösa behörigheter och oskyddade känsliga data. Åtgärda sårbarheter upptäcktes kan förbättra din säkerhet datasekretesstandarder för databasen.|
 |SQL|20|Etablera en Azure AD-administratör för SQL Server|Etablera en Azure AD-administratör för SQL-servern om du vill aktivera Azure AD-autentisering. Azure AD-autentisering möjliggör förenklad behörighetshantering och centraliserad Identitetshantering för databasanvändare och andra Microsoft-tjänster.|
 |Lagringskonto|15|Inaktivera obegränsad nätverksåtkomst till lagringskonto|Granska obegränsad nätverksåtkomst i brandväggsinställningarna för storage-konto. Konfigurera i stället Nätverksregler så att endast program från tillåtna nätverk har åtkomst till lagringskontot. Om du vill tillåta anslutningar från specifika Internet eller en lokal klienter beviljas åtkomst till trafik från specifika Azure-nätverk eller till offentliga Internet-IP-adressintervall.|
-|Lagringskonto|1||Migrera lagringskonton till nya AzureRM-resurser|Använd den nya Azure Resource Manager v2 för storage-konton att tillhandahålla förbättringar av säkerhet som: starkare åtkomstkontroll (RBAC), bättre granskning, Resource Manager-baserade distributionen och styrning åtkomst till hanterade identiteter, åtkomst till nyckelvalvet för hemligheter, Azure AD-baserad autentisering och stöd för taggar och resursgrupper för enklare säkerhetshantering.|
+|Lagringskonto|1|Migrera lagringskonton till nya AzureRM-resurser|Använd den nya Azure Resource Manager v2 för storage-konton att tillhandahålla förbättringar av säkerhet som: starkare åtkomstkontroll (RBAC), bättre granskning, Resource Manager-baserade distributionen och styrning åtkomst till hanterade identiteter, åtkomst till nyckelvalvet för hemligheter, Azure AD-baserad autentisering och stöd för taggar och resursgrupper för enklare säkerhetshantering.|
 
 
 

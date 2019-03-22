@@ -10,12 +10,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: fb61935c7e7b45699d4142293f31bbfe39e4cb78
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: ebf858ba86758b11ee896d745d70bdf2f0d0cde6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457072"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878388"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrera 3270 skärmen-drivna appar på IBM-stordatorer med Azure med Azure Logic Apps och IBM 3270-anslutningen
 
@@ -410,7 +410,7 @@ När du är klar med alla de här stegen du använder åtgärden som du skapar i
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om utlösare och åtgärder gränsen som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska kopplingens [referenssida](/connectors/<*replace-with-api-topic-file-name*>).
+Teknisk information om utlösare och åtgärder gränsen som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska kopplingens referenssida: [ https://docs.microsoft.com/connectors/<replace-with-api-topic-file-name> ](/connectors/).
 
 ## <a name="get-support"></a>Få support
 

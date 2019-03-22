@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 4b4706baa5148bba955a980b6184e0747f023066
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1d6f4bb2bda550c72566243b2d2d98b1685e9147
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875101"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119810"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>Snabbstart: Utför en nyhetssökning med SDK för nyhetssökning i Bing för Python
 
 Använd den här snabbstarten om du vill börja söka efter nyheter med SDK för nyhetssökning i Bing för Python. Även om Nyhetssökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/news_search_samples.py).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Python](https://www.python.org/) 2.x eller 3.x
 
@@ -86,4 +86,4 @@ else:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-[Skapa en enkelsidig webbapp](tutorial-bing-news-search-single-page-app.md)
+> [Skapa en enkelsidig webbapp](tutorial-bing-news-search-single-page-app.md)

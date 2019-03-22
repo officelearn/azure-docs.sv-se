@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0d8bb451c821a4883c81e0e51c5d98e146e3008e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2d59235b067d9571bc8b64c33799431be6489502
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243546"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087218"
 ---
 # <a name="restore-azure-sql-data-warehouse-portal"></a>Återställa Azure SQL Data Warehouse (portal)
 > [!div class="op_single_selector"]
@@ -23,9 +23,9 @@ ms.locfileid: "55243546"
 > * [Portal][Portal]
 > * [PowerShell][PowerShell]
 > * [REST][REST]
->
->
-I den här artikeln får lära du dig att återställa Azure SQL Data Warehouse med hjälp av Azure portal.
+> 
+> 
+> I den här artikeln får lära du dig att återställa Azure SQL Data Warehouse med hjälp av Azure portal.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 **Kontrollera din DTU-kapacitet.** Varje instans av SQL Data Warehouse finns på en SQL-server (t.ex, myserver.database.windows.net) som har en kvot för standard data throughput unit (DTU). Innan du kan återställa SQL Data Warehouse, kan du kontrollera att SQLServer har tillräckligt återstående DTU-kvot för den databas som du återställa. Läs hur du beräkna DTU-kvot eller begär mer dtu: er i [begära en DTU-kvot ändring][Request a DTU quota change].

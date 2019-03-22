@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5e8e634bfb69d7c274322d34d26ff614f75905af
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 01da5f0798316517869fcc94eed2a7428fffba7b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215938"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850708"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synkronisera data i flera moln och lokala databaser med SQL Data Sync
 
@@ -40,7 +40,7 @@ Datasynkronisering är inte det en bättre lösningen för följande scenarier:
 |----------|----------------------------|
 | Haveriberedskap | [Azure geo-redundanta säkerhetskopieringar](sql-database-automated-backups.md) |
 | Läsa skala | [Använd skrivskyddade repliker för att läsa in balansera skrivskyddad frågearbetsbelastningar (förhandsversion)](sql-database-read-scale-out.md) |
-| ETL (OLTP till OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) eller [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| ETL (OLTP till OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) eller [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
 | Migrering från en lokal SQLServer till Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 

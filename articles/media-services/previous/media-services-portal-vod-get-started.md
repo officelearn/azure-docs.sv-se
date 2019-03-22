@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 0cf0f196884cb39899c74cce396fa3a3930e8969
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5ad846a3d8a304e01425407cb2bf5297c36615e7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766520"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257968"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Kom igång med att leverera innehåll på begäran med hjälp av Azure-portalen
 
@@ -151,7 +151,7 @@ Vissa förutsättningar gäller:
 
 * Starta direktuppspelningen genom att börja köra standardslutpunkten för direktuppspelning.
 * Kontrollera att videon har publicerats.
-* Azure-portalens mediaspelare spelar upp från den slutpunkt för direktuppspelning som är standard. Klicka för att kopiera URL:en och klistra in den i en annan spelare om du vill spela upp från en slutpunkt för direktuppspelning som inte är standard. Du kan till exempel testa videon i [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* Azure-portalens mediaspelare spelar upp från den slutpunkt för direktuppspelning som är standard. Klicka för att kopiera URL:en och klistra in den i en annan spelare om du vill spela upp från en slutpunkt för direktuppspelning som inte är standard. Du kan till exempel testa videon i [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

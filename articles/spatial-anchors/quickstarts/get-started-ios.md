@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: bb64e2b633957ca92636a03333be40aa275dfd25
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: a5d34b2964d805cdbeced0d4fad3dd889da9f3e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870252"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900632"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Snabbstart: Skapa en iOS-app med Azure Spatial Anchors i antingen Swift eller Objective-C
 
@@ -28,16 +28,19 @@ Du lär dig följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
 - En utvecklaraktiverad macOS-dator med <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10+</a> och <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installerat.
+- Git installerade via HomeBrew. Ange följande kommando i en enda rad terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Kör sedan `brew install git`.
 - En utvecklaraktiverad <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit-kompatibel</a> iOS-enhet.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## <a name="open-the-sample-project"></a>Öppna exempelprojektet
+
+Använda terminalen för att utföra följande åtgärder.
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
@@ -81,7 +84,7 @@ open ./SampleObjC.xcworkspace
 
 ## <a name="configure-account-identifier-and-key"></a>Konfigurera kontoidentifierare och nyckel
 
-Nästa steg är att använda kontoidentifierare och kontonyckeln som registrerades tidigare vid konfiguration av Spatial Anchors-resursen för att konfigurera appen.
+Nästa steg är att konfigurera appen att använda ditt konto-ID och kontonyckeln. Du kopierade dem i en textredigerare när [konfigurerar Spatial ankare resursen](#create-a-spatial-anchors-resource).
 
 # <a name="swifttabopenproject-swift"></a>[Swift](#tab/openproject-swift)
 

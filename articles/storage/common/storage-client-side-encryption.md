@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2f646df3cab0320b574023cd543015921c640cab
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c8f9b17bf5b572128348b22de62566ba06d5d766
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478329"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992412"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Client Side Encryption och Azure Key Vault för Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -48,10 +48,10 @@ Dekryptering via kuvert-tekniken fungerar på följande sätt:
 4. Innehåll krypteringsnyckeln (CEK) används sedan för att dekryptera krypterade informationen.
 
 ## <a name="encryption-mechanism"></a>Krypteringsalgoritm
-Storage-klientbiblioteket använder [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) för att kryptera användardata. Mer specifikt [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) läge med AES. Var och en service fungerar på ett något annorlunda så vi upp vart och ett av dem här.
+Storage-klientbiblioteket använder [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) för att kryptera användardata. Mer specifikt [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) läge med AES. Var och en service fungerar på ett något annorlunda så vi upp vart och ett av dem här.
 
 ### <a name="blobs"></a>Blobar
-Klientbiblioteket stöder för närvarande kryptering av hela blobar. Mer specifikt kryptering stöds när användarna använder den **UploadFrom*** metoder eller **OpenWrite** metod. För nedladdningar, både fullständig och intervallet nedladdningar stöds.
+Klientbiblioteket stöder för närvarande kryptering av hela blobar. Mer specifikt kryptering stöds när användarna använder den **UploadFrom** metoder eller **OpenWrite** metod. För nedladdningar, både fullständig och intervallet nedladdningar stöds.
 
 Under krypteringen ska klientbiblioteket generera ett slumpmässigt initieringen vektor (IV) med 16 byte, tillsammans med en slumpmässig innehåll krypteringsnyckel (CEK) på 32 byte och utföra kuvert kryptering av blob-data med den här informationen. Den omslutna CEK och vissa ytterligare krypteringsmetadata lagras sedan som blob-metadata tillsammans med krypterade blobben på tjänsten.
 
@@ -60,9 +60,9 @@ Under krypteringen ska klientbiblioteket generera ett slumpmässigt initieringen
 > 
 > 
 
-Ladda ned en krypterad blob innebär att du hämtar innehållet i hela bloben med den **DownloadTo *** /** BlobReadStream ** bekväma metoder. Den omslutna CEK oinslagna och används tillsammans med IV (som lagras som blob-metadata i det här fallet) för att returnera dekrypterade data till användarna.
+Ladda ned en krypterad blob innebär att du hämtar innehållet i hela bloben med den **DownloadTo**/**BlobReadStream** bekväma metoder. Den omslutna CEK oinslagna och används tillsammans med IV (som lagras som blob-metadata i det här fallet) för att returnera dekrypterade data till användarna.
 
-Ladda ned ett godtyckligt adressintervall (**DownloadRange*** metoder) innebär att området som tillhandahålls av användare för att få en liten mängd ytterligare data som kan användas för att kunna dekryptera den begärda i krypterad blob intervallet.
+Ladda ned ett godtyckligt adressintervall (**DownloadRange** metoder) innebär att området som tillhandahålls av användare för att få en liten mängd ytterligare data som kan användas för att kunna dekryptera den begärda i krypterad blob intervallet.
 
 Alla blob-typer (blockblobbar, sidblobbar och tilläggsblobbar) kan krypterade/dekrypteras med hjälp av det här schemat.
 
@@ -102,7 +102,7 @@ I batchåtgärder används samma KEK på alla rader i den batchåtgärd eftersom
 > Eftersom entiteterna som är krypterade, kan du inte köra frågor som filtrerar på en krypterad egenskap.  Om du försöker att resultaten vara felaktig, eftersom tjänsten skulle ha försökt att jämföra krypterade data med okrypterade data.
 > 
 > 
-Om du vill utföra frågeåtgärder, måste du ange en nyckel matchare som kan matcha alla nycklar i resultatuppsättningen. Om en entitet i frågeresultatet inte kan matchas till en leverantör, genereras klientbiblioteket ett fel. För en fråga som utför serversidan projektioner läggs klientbiblioteket metadataegenskaper särskilda kryptering (_ClientEncryptionMetadata1 och _ClientEncryptionMetadata2) som standard till de markerade kolumnerna.
+> Om du vill utföra frågeåtgärder, måste du ange en nyckel matchare som kan matcha alla nycklar i resultatuppsättningen. Om en entitet i frågeresultatet inte kan matchas till en leverantör, genereras klientbiblioteket ett fel. För en fråga som utför serversidan projektioner läggs klientbiblioteket metadataegenskaper särskilda kryptering (_ClientEncryptionMetadata1 och _ClientEncryptionMetadata2) som standard till de markerade kolumnerna.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Genom att använda Azure Key Vault kan kryptera användare nycklar och hemligheter (till exempel autentiseringsnycklar, lagringskontonycklar, datakrypteringsnycklar. PFX-filer och lösenord) med hjälp av nycklar som skyddas av maskinvarusäkerhetsmoduler (HSM). Mer information finns i [vad är Azure Key Vault?](../../key-vault/key-vault-whatis.md).
@@ -243,5 +243,5 @@ Observera att kryptera din lagring data resulterar i ytterligare prestanda förs
 ## <a name="next-steps"></a>Nästa steg
 * [Självstudier: Kryptera och dekryptera blobbar i Microsoft Azure Storage med Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 * Ladda ned den [Azure Storage-klientbiblioteket för .NET NuGet-paket](https://www.nuget.org/packages/WindowsAzure.Storage)
-* Ladda ned Azure Key Vault NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [klienten](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), och [tillägg](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) paket  
+* Ladda ned Azure Key Vault NuGet [Core](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [klienten](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/), och [tillägg](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) paket  
 * Gå till den [dokumentation om Azure Key Vault](../../key-vault/key-vault-whatis.md)

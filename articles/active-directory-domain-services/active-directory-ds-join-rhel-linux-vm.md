@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: bb2ebeedb1b34288a3d402ffdf4df80aa3be83cd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1102a8c80b0040c7044d64c674d956d339238623
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154083"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086657"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Ansluta en Red Hat Enterprise Linux 7-virtuell dator till en hanterad domän
 Den här artikeln visar hur du kopplar en Red Hat Enterprise Linux (RHEL) 7-dator till en Azure AD Domain Services-hanterad domän.
@@ -86,12 +86,11 @@ Nu när de nödvändiga paketen har installerats på Linux-dator, är nästa upp
     sudo realm discover CONTOSO100.COM
     ```
 
-     > [!NOTE]
-     > **Felsökning:** Om *sfär identifiera* gick inte att hitta din hanterade domän:
-     * Se till att domänen kan nås från den virtuella datorn (försök ping).
-     * Kontrollera att den virtuella datorn faktiskt har distribuerats till samma virtuella nätverk som den hanterade domänen är tillgängligt.
-     * Kontrollera om du har uppdaterat DNS-serverinställningarna för det virtuella nätverket så att den pekar till domänkontrollanterna för den hanterade domänen.
-     >
+   > [!NOTE]
+   > **Felsökning:** Om *sfär identifiera* gick inte att hitta din hanterade domän:
+   >   * Se till att domänen kan nås från den virtuella datorn (försök ping).
+   >   * Kontrollera att den virtuella datorn faktiskt har distribuerats till samma virtuella nätverk som den hanterade domänen är tillgängligt.
+   >   * Kontrollera om du har uppdaterat DNS-serverinställningarna för det virtuella nätverket så att den pekar till domänkontrollanterna för den hanterade domänen.
 
 2. Initiera Kerberos. Skriv följande kommando i terminalen SSH:
 

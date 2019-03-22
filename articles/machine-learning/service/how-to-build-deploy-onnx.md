@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3f7afb6478d2780af17720fa57c17130588f7d6e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 97464115b87ca5facdc055e0031bc5fc4e962a22
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770211"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295665"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX och Azure Machine Learning: Skapa och distribuera samverkande AI-modeller
 
@@ -36,7 +36,7 @@ Det finns också ett ekosystem av verktyg för att visualisera och påskynda ONN
 
 [ONNX-modeller kan distribueras](#deploy) till molnet med Azure Machine Learning och ONNX-Runtime. De kan också distribueras till Windows 10-enheter med hjälp av [Windows ML](https://docs.microsoft.com/windows/ai/). De kan även distribueras till andra plattformar med hjälp av konverterare som är tillgängliga från ONNX-communityn. 
 
-[![ONNX flow diagram som visar utbildning, konverterare och distribuera](media/concept-onnx/onnx.png) ] (. / media/concept-onnx/onnx.png#lightbox)
+[![ONNX flow diagram som visar utbildning, konverterare och distribution](media/concept-onnx/onnx.png) ](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>Hämta ONNX-modeller
 
@@ -127,7 +127,7 @@ Här är ett exempel för att distribuera en ONNX-modell:
 
    ```python
    from azureml.core.image import ContainerImage
-   
+
    image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                      runtime = "python",
                                                      conda_file = "myenv.yml",
@@ -154,21 +154,29 @@ Här är ett exempel för att distribuera en ONNX-modell:
    from azureml.core.model import Model
 
    def init():
-       global model_path
-       model_path = Model.get_model_path(model_name = 'MyONNXmodel')
+       global session
+       model = Model.get_model_path(model_name = 'MyONNXModel')
+       session = onnxruntime.InferenceSession(model)
 
-   def run(raw_data):
+   def preprocess(input_data_json):
+       # convert the JSON data into the tensor input
+       return np.array(json.loads(input_data_json)['data']).astype('float32')
+
+   def postprocess(result):
+       return np.array(result).tolist()
+
+   def run(input_data_json):
        try:
-           data = json.loads(raw_data)['data']
-           data = np.array(data)
-        
-           sess = onnxruntime.InferenceSession(model_path)
-           result = sess.run(["outY"], {"inX": data})
-        
-           return json.dumps({"result": result.tolist()})
+           start = time.time()   # start timer
+           input_data = preprocess(input_data_json)
+           input_name = session.get_inputs()[0].name  # get the id of the first input of the model   
+           result = session.run([], {input_name: input_data})
+           end = time.time()     # stop timer
+           return {"result": postprocess(result),
+                   "time": end - start}
        except Exception as e:
            result = str(e)
-           return json.dumps({"error": result})
+           return {"error": result}
    ```
 
    Filen `myenv.yml` beskriver de beroenden som krävs för avbildningen. Se den här [självstudien](tutorial-deploy-models-with-aml.md#create-environment-file) anvisningar om hur du skapar en miljöfil, t.ex den här exempelfilen:
@@ -176,10 +184,7 @@ Här är ett exempel för att distribuera en ONNX-modell:
    ```python
    from azureml.core.conda_dependencies import CondaDependencies 
 
-   myenv = CondaDependencies()
-   myenv.add_pip_package("numpy")
-   myenv.add_pip_package("azureml-core")
-   myenv.add_pip_package("onnxruntime")
+   myenv = CondaDependencies.create(pip_packages=["numpy","onnxruntime","azureml-core"])
 
    with open("myenv.yml","w") as f:
     f.write(myenv.serialize_to_string())
@@ -189,9 +194,9 @@ Här är ett exempel för att distribuera en ONNX-modell:
 
 
 ## <a name="examples"></a>Exempel
- 
+
 Se [How-to-till-användning – azureml/distribution/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx) till exempel anteckningsböcker som skapar och distribuerar ONNX-modeller.
- 
+
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="more-info"></a>Mer information

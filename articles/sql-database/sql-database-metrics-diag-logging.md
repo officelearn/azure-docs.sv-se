@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 03/06/2019
-ms.openlocfilehash: 02f5b98026699be4c71e0cecf94634c7a139d21e
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
-ms.translationtype: MT
+ms.date: 03/12/2019
+ms.openlocfilehash: 76c7519a166bfbfe5d2a7695a077b809aa971489
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727016"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904039"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning
 
@@ -141,7 +141,7 @@ Du kan ställa in en hanterad instans-resurs för att samla in följande diagnos
 
 | Resurs | Övervakning av telemetri |
 | :------------------- | ------------------- |
-| **Hanterad instans** | [ResourceUsageStats](#logs-for-managed-instances) innehåller antal virtuella kärnor, Genomsnittlig CPU-procent, i/o-begäranden, byte lästa/skrivna, reserverade lagringsutrymme och använt lagringsutrymme. |
+| **Hanterad instans** | ResourceUsageStats innehåller antal virtuella kärnor, Genomsnittlig CPU-procent, i/o-begäranden, byte lästa/skrivna, reserverade lagringsutrymme och använt lagringsutrymme. |
 
 Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för en hanterad instans-resurs:
 
@@ -189,6 +189,8 @@ Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri exempelvi
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
 
 Du kan aktivera mätvärden och diagnostikloggning med hjälp av PowerShell.
 

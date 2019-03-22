@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 8/22/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 9bf4c25b416edf86d29c27bcb19901bf43073bb4
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
-ms.translationtype: HT
+ms.openlocfilehash: f5cfa3de962c51ac7ff43d9b83bdea9f408f5bcf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616197"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097431"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Säkerhetskopiera Windows Server till Azure
 
@@ -31,7 +31,7 @@ Du kan använda Azure Backup för att skydda Windows Server från skador, attack
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på http://portal.azure.com.
+Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
@@ -88,11 +88,11 @@ MARS-agenten (Microsoft Azure Recovery Services) skapar en koppling mellan Windo
 
 1. Leta upp och dubbelklicka på **MARSagentinstaller.exe** som du laddade ned.
 2. **Installationsguide för Microsoft Azure Recovery Services-agenten** visas. När du går igenom guiden anger du följande information när den efterfrågas och klickar på **Registrera**.
-    - Plats för installationen och cachelagringsmappen.
-    - Information om proxyservern om du använder en proxyserver för att ansluta till Internet.
-    - Ditt användarnamn och lösenord om du använder en autentiserad proxyserver.
+   - Plats för installationen och cachelagringsmappen.
+   - Information om proxyservern om du använder en proxyserver för att ansluta till Internet.
+   - Ditt användarnamn och lösenord om du använder en autentiserad proxyserver.
 
-    ![förbereda infrastrukturen](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
+     ![förbereda infrastrukturen](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
 
 3. I slutet av guiden klickar du på **Fortsätt till registreringen** och tillhandahåller filen med **valvautentiseringsuppgifter** som du hämtade i föregående steg.
  

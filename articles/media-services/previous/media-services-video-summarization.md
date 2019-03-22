@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: c0a6feb1eba1e409c29a650741eadc31f1017342
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: 30c342ca31b33d910406bf74d90d49979e5c46bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004816"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838109"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Använd Azure Media Video miniatyrer för att skapa en Videosammanfattning  
 ## <a name="overview"></a>Översikt
@@ -37,10 +37,10 @@ I vissa fall, om videon inte består av olika scener kommer utdata bara vara en 
 Här följer några exempel på vad Azure Media Video Thumbnails mediebearbetare kan göra:
 
 ### <a name="original-video"></a>Ursprungsvideo
-[Ursprungsvideo](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
+[Ursprungsvideo](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
 
 ### <a name="video-thumbnail-result"></a>Video miniatyr resultat
-[Video miniatyr resultat](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+[Video miniatyr resultat](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
 ## <a name="task-configuration-preset"></a>Uppgiftskonfiguration (förinställning)
 När du skapar en video miniatyr aktivitet med **Azure Media Videominiatyrer**, måste du ange en förinställning för konfigurationen. Miniatyr exemplet ovan har skapats med följande grundläggande JSON-konfiguration:
@@ -62,7 +62,7 @@ För närvarande kan du ändra följande parametrar:
 I följande tabell beskrivs standardlängden när **maxMotionThumbnailInSecs** används inte.
 
 |  |  |  |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | Videovaraktighet |d < 3 min |för 3 min < d < 15 min |
 | Varaktighet för miniatyr |15 sek (2-3 scener) |30 sekunder (3 – 5 scener) |
 
@@ -276,7 +276,7 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 ```
 
 ### <a name="video-thumbnail-output"></a>Miniatyr videoutgång
-[Miniatyr videoutgång](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+[Miniatyr videoutgång](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -287,5 +287,5 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 ## <a name="related-links"></a>Relaterade länkar
 [Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
-[Azure Medieanalys-demonstrationer](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Medieanalys-demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 7fa2dad124b5ef9e93402d6d4c03d956b00184af
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: da20e4601b75bcb22546d21f6ad218ac9ba2728b
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442384"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188364"
 ---
-# <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Direktsänd strömning med lokala kodare som skapar strömmar med flera bithastigheter
+# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Arbeta med kanaler som tar emot liveström med flera bithastigheter från lokala kodare
 
 > [!NOTE]
 > Startar den 12 maj 2018 livekanaler kommer inte längre stöd för RTP/MPEG-2-transportström infogningsprotokollet. Migrera från RTP/MPEG-2 till RTMP eller fragmenterad MP4 (Smooth Streaming) inmatningsprotokollen.
@@ -146,7 +146,7 @@ Kanaler ger förhandsgranskningsslutpunkten (förhandsgransknings-URL) som anvä
 
 Du kan hämta förhandsgransknings-URL när du skapar kanalen. Om du vill hämta URL: en måste kanalen behöver inte finnas i den **kör** tillstånd. När kanalen har startat mata in data kan du förhandsgranska dataströmmen.
 
-För närvarande kan förhandsgranska dataströmmen levereras endast i fragmenterad MP4 (Smooth Streaming)-format, oavsett angivna Indatatyp. Du kan använda den [Smooth Streaming Health Monitor](http://playready.directtaps.net/smoothstreaming/) player att testa smooth stream. Du kan också använda en spelare som ligger i Azure portal för att visa din dataström.
+För närvarande kan förhandsgranska dataströmmen levereras endast i fragmenterad MP4 (Smooth Streaming)-format, oavsett angivna Indatatyp. Du kan använda den [Smooth Streaming Health Monitor](https://playready.directtaps.net/smoothstreaming/) player att testa smooth stream. Du kan också använda en spelare som ligger i Azure portal för att visa din dataström.
 
 #### <a name="allowed-ip-addresses"></a>Tillåtna IP-adresser
 Du kan definiera de IP-adresser som ska kunna ansluta till förhandsgranskningsslutpunkten. Om inga IP-adresser anges, tillåts IP-adresser. Tillåtna IP-adressen kan anges som något av följande:
@@ -185,7 +185,7 @@ Möjliga värden för det aktuella tillståndet för en kanal är:
 Följande tabell visar hur kanaltillstånd mappas till faktureringsläget.
 
 | Kanaltillstånd | Portalgränssnittsindikatorer | Fakturerad? |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Startar** |**Startar** |Nej (övergångsläge) |
 | **Körs** |**Redo** (inga program som körs)<p><p>eller<p>**Strömning** (minst ett aktivt program) |Ja |
 | **Stoppar** |**Stoppar** |Nej (övergångsläge) |

@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 947740ed28deea9682d10eecf9a66dab7540669e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 608792d8389a87bad3521d3a48947b20dd036d67
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880316"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887110"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Security ram: Kryptografi | Åtgärder 
+
 | Produkt/tjänst | Artikel |
 | --------------- | ------- |
 | **Webbprogram** | <ul><li>[Använd endast godkända symmetriska blockchiffer och nyckellängder](#cipher-length)</li><li>[Använd godkända block chiffer lägen och initiering angreppsmetoderna symmetriska chiffer](#vector-ciphers)</li><li>[Använd godkända asymmetriska algoritmer, nyckellängder och utfyllnad](#padding)</li><li>[Använd godkända slumpmässigt nummer generatorer](#numgen)</li><li>[Använd inte symmetriska stream-chiffer](#stream-ciphers)</li><li>[Använd godkända MAC/HMAC/registreras hash-algoritmer](#mac-hash)</li><li>[Använd endast godkända kryptografiska hash-funktioner](#hash-functions)</li></ul> |
@@ -96,7 +97,7 @@ ms.locfileid: "56880316"
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
-| **Steg** | <p>Produkter måste använda endast godkända meddelandeautentiseringskod (MAC) eller hash-baserade kod (HMAC) för meddelandeautentisering.</p><p>En message authentication code (MAC) är en del av informationen som är kopplat till ett meddelande som tillåter mottagaren att verifiera både avsändarens giltighet och integriteten i meddelandet med hjälp av en hemlig nyckel. Användning av antingen en hash-baserade MAC ([HMAC](http://csrc.nist.gov/publications/nistpubs/800-107-rev1/sp800-107-rev1.pdf)) eller [cipher-blockbaserade MAC](http://csrc.nist.gov/publications/nistpubs/800-38B/SP_800-38B.pdf) är tillåten som länge som alla underliggande hash eller symmetrisk kryptering algoritmer också är godkända för användning; Detta omfattar för närvarande HMAC SHA2-funktioner (HMAC-SHA256, HMAC-SHA384 och SHA512 av HMAC) och CMAC/OMAC1 och OMAC2 blockera cipher-baserade Mac-datorer (de bygger på AES).</p><p>Användning av HMAC-SHA1 kan det vara tillåtet för plattformskompatibilitet, men du kommer att behöva filen ett undantag till den här proceduren och genomgå krypto granskning i din organisation. Trunkering av HMAC till mindre än 128 bitar är inte tillåtet. Med hjälp av kunden metoder för att hash en nyckel och data inte är godkänd och måste genomgå organisationens Crypto tavla granska före användning.</p>|
+| **Steg** | <p>Produkter måste använda endast godkända meddelandeautentiseringskod (MAC) eller hash-baserade kod (HMAC) för meddelandeautentisering.</p><p>En message authentication code (MAC) är en del av informationen som är kopplat till ett meddelande som tillåter mottagaren att verifiera både avsändarens giltighet och integriteten i meddelandet med hjälp av en hemlig nyckel. Användning av antingen en hash-baserade MAC ([HMAC](https://csrc.nist.gov/publications/nistpubs/800-107-rev1/sp800-107-rev1.pdf)) eller [cipher-blockbaserade MAC](https://csrc.nist.gov/publications/nistpubs/800-38B/SP_800-38B.pdf) är tillåten som länge som alla underliggande hash eller symmetrisk kryptering algoritmer också är godkända för användning; Detta omfattar för närvarande HMAC SHA2-funktioner (HMAC-SHA256, HMAC-SHA384 och SHA512 av HMAC) och CMAC/OMAC1 och OMAC2 blockera cipher-baserade Mac-datorer (de bygger på AES).</p><p>Användning av HMAC-SHA1 kan det vara tillåtet för plattformskompatibilitet, men du kommer att behöva filen ett undantag till den här proceduren och genomgå krypto granskning i din organisation. Trunkering av HMAC till mindre än 128 bitar är inte tillåtet. Med hjälp av kunden metoder för att hash en nyckel och data inte är godkänd och måste genomgå organisationens Crypto tavla granska före användning.</p>|
 
 ## <a id="hash-functions"></a>Använd endast godkända kryptografiska hash-funktioner
 

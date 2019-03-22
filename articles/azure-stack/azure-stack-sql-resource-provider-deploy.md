@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
-ms.lastreviewed: 01/11/2019
+ms.date: 03/18/2019
+ms.lastreviewed: 03/18/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
-ms.openlocfilehash: ea8669189b5fc8d797fc03f579ea52e7c11a7078
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: a2f1321e5c6774c585353b9bd7602ecc1ccb8c5e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246967"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177508"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Distribuera SQL Server-resursprovider i Azure Stack
 
@@ -38,7 +38,7 @@ Det finns flera förutsättningar som måste vara uppfyllda innan du kan distrib
 - Lägg till nödvändiga Windows Server core VM på Azure Stack Marketplace genom att ladda ned den **Windows Server 2016 Datacenter - Server Core** bild.
 - Ladda ned den SQL-resursprovidern binära och kör sedan Self-Extractor för att extrahera innehållet till en tillfällig katalog. Resursprovidern har en minsta motsvarande Azure Stack skapa.
 
-  |Lägsta version av Azure Stack|SQL RP-version|
+  |Lägsta version av Azure Stack|SQL RP version|
   |-----|-----|
   |Version 1808 (1.1808.0.97)|[SQL RP version 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
   |Version 1808 (1.1808.0.97)|[SQL RP version 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
@@ -89,7 +89,7 @@ Du kan ange följande parametrar från kommandoraden. Om du inte, eller om någo
 | **AzCredential** | Autentiseringsuppgifter för Azure Stack-tjänstadministratörskonto. Använd samma autentiseringsuppgifter som du använde för att distribuera Azure Stack. | _Krävs_ |
 | **VMLocalCredential** | Autentiseringsuppgifterna för det lokala administratörskontot för SQL-resursprovider VM. | _Krävs_ |
 | **PrivilegedEndpoint** | IP-adressen eller DNS-namnet på den privilegierade slutpunkten. |  _Krävs_ |
-| **AzureEnvironment** | Azure-miljön för admin kontot som du använde för att distribuera Azure Stack. Krävs endast för Azure AD-distributioner. Miljö som stöds är **AzureCloud**, **azureusgovernment eller**, eller om du använder en Kina Azure Active Directory, **AzureChinaCloud**. | AzureCloud |
+| **AzureEnvironment** | Azure-miljön för admin-tjänstkontot används för att distribuera Azure Stack. Krävs endast för Azure AD-distributioner. Miljö som stöds är **AzureCloud**, **azureusgovernment eller**, eller om du använder en Kina Azure Active Directory, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | För integrerade system, måste din .pfx-certifikatfil placeras i den här katalogen. Du kan också kopiera här ett Windows Update MSU-paket. | _Valfritt_ (_obligatoriska_ för integrerade system) |
 | **DefaultSSLCertificatePassword** | Lösenordet för PFX-certifikat. | _Krävs_ |
 | **MaxRetryCount** | Antal gånger som du vill försöka utföra varje åtgärd om det uppstår ett fel.| 2 |
@@ -105,10 +105,7 @@ Du kan anpassa följande skript för att minimera ingen manuell konfiguration n�
 
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
-Install-Module -Name AzureRm.BootStrapper -Force
-Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.5.0
+# Install the Azure and Azure Stack PowerShell modules as described in the prerequisites section above before running these commands.
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 3c4f1be97308062adc28a0b49ee36c3492906d63
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: 791c63b7b7fed55f95905ba7131d6a1d4bb414ff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990224"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010490"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Konfigurera Pacemaker på Red Hat Enterprise Linux i Azure
 
@@ -183,7 +183,7 @@ STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Mi
    Gå till egenskaper och anteckna Directory-ID. Det här är den **klient-ID**.
 1. Klicka på App-registreringar
 1. Klicka på Lägg till
-1. Ange ett namn, väljer typen ”Web app/API”, ange en inloggnings-URL (till exempel http://localhost) och klicka på Skapa
+1. Ange ett namn, väljer typen ”Web app/API”, ange en inloggnings-URL (till exempel `http://localhost`) och klicka på Skapa
 1. Inloggnings-URL: en används inte och kan vara vilken giltig URL
 1. Välj den nya appen och klicka på nycklar på fliken Inställningar
 1. Ange en beskrivning för en ny nyckel, Välj ”upphör aldrig att gälla” och klicka på Spara

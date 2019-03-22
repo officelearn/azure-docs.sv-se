@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/14/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 0e3d6255d6e2787d407d24a4217a0262ae4c974d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 411a3d606ac8ec2f262ec9a1aabac7b74ccd110a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098485"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010932"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Ansluta till en Amazon Web Services-konto
 
@@ -45,9 +45,9 @@ Det första steget är att få unika anslutning lösenfrasen från Cloudyn-porta
 1. Logga in på AWS-konsolen i https://console.aws.amazon.com/iam/home och välj **roller**.
 2. Klicka på **skapa roll** och välj sedan **en annan AWS-konto**.
 3. I den **konto-ID** rutan, klistra in `432263259397`. Detta konto-ID är Cloudyn data collector kontot som tilldelats av AWS Cloudyn-tjänsten. Använd det exakta konto-ID som visas.
-4. Bredvid **alternativ**väljer **kräver externt ID**. Klistra in din unikt värde som tidigare har kopierat från den **externt ID** i Cloudyn. Klicka sedan på **nästa: behörigheter**.  
+4. Bredvid **alternativ**väljer **kräver externt ID**. Klistra in din unikt värde som tidigare har kopierat från den **externt ID** i Cloudyn. Klicka sedan på **nästa: Behörigheter**.  
     ![Klistra in externt ID från Cloudyn på sidan Skapa roll](./media/connect-aws-account/create-role01.png)
-5. Under **bifoga säkerhetsbehörighetsprinciper**i den **principtypen** filter rutan Sök, skriver du in `ReadOnlyAccess`väljer **ReadOnlyAccess**, klicka sedan på **nästa: Granska**.  
+5. Under **bifoga säkerhetsbehörighetsprinciper**i den **principtypen** filter rutan Sök, skriver du in `ReadOnlyAccess`väljer **ReadOnlyAccess**, klicka sedan på **nästa: Granskning**.  
     ![Välj skrivskyddad åtkomst i listan över Principnamn](./media/connect-aws-account/readonlyaccess.png)
 6. På sidan Granska kontrollerar du att inställningarna är korrekta och Skriv en **rollnamn**. Till exempel *Azure-kostnad-Mgt*. Ange en **Rollbeskrivning**. Till exempel _rolltilldelningen för Cloudyn_, klicka sedan på **skapa roll**.
 7. I den **roller** listan, klicka på den roll som du har skapat och kopiera den **rollen ARN** värdet på sammanfattningssidan. Använd rollen ARN (Amazon resursnamnet) värdet senare när du registrerar din konfiguration i Cloudyn.  
@@ -80,10 +80,10 @@ I följande avsnitt vägleder dig genom att skapa en skrivskyddad användare fö
 1. Logga in på AWS-konsolen i https://console.aws.amazon.com/iam/home och välj **användare**.
 2. Klicka på **lägga till användare**.
 3. I den **användarnamn** skriver ett användarnamn.
-4. För **åtkomsttyp**väljer **Programmeringsåtkomst** och klicka på **nästa: behörigheter**.  
+4. För **åtkomsttyp**väljer **Programmeringsåtkomst** och klicka på **nästa: Behörigheter**.  
     ![Ange ett användarnamn på sidan Lägg till användare](./media/connect-aws-account/add-user01.png)
 5. Behörigheter, Välj **koppla befintliga principer direkt**.
-6. Under **bifoga säkerhetsbehörighetsprinciper**i den **principtypen** filter rutan Sök, skriver du in `ReadOnlyAccess`väljer **ReadOnlyAccess**, och klicka sedan på **nästa : Granska**.  
+6. Under **bifoga säkerhetsbehörighetsprinciper**i den **principtypen** filter rutan Sök, skriver du in `ReadOnlyAccess`väljer **ReadOnlyAccess**, och klicka sedan på **nästa : Granskning**.  
     ![Välj ReadOnlyAccess att ange behörigheter för användaren](./media/connect-aws-account/set-permission-for-user.png)
 7. Se till att inställningarna är korrekta och klicka sedan på sidan Granska **skapa användare**.
 8. På sidan har slutförts visas din nyckel-ID och hemlighet åtkomst åtkomstnyckel. Du kan använda den här informationen för att konfigurera registrering i Cloudyn.
@@ -127,11 +127,11 @@ Du skapar en S3-bucket för att lagra detaljerad faktureringsinformation.
 6. På sidan Granska **skapa bucket**. Bucket-listan visas.
 7. Klicka på en bucket som du skapade och välj den **behörigheter** fliken och välj sedan **Bucket princip**. Bucket-principredigeraren öppnas.
 8. Kopiera följande JSON-exempel och klistra in den i Redigeraren för grupprinciper Bucket.
-  - Ersätt `<BillingBucketName>` med namnet på din S3-bucket.
-  - Ersätt `<ReadOnlyUserOrRole>` med rollen eller användaren ARN som du hade tidigare kopierade.
+   - Ersätt `<BillingBucketName>` med namnet på din S3-bucket.
+   - Ersätt `<ReadOnlyUserOrRole>` med rollen eller användaren ARN som du hade tidigare kopierade.
 
-  ```json
-  {
+   ```json
+   {
     "Version": "2012-10-17",
     "Id": "Policy1426774604000",
     "Statement": [
@@ -169,8 +169,8 @@ Du skapar en S3-bucket för att lagra detaljerad faktureringsinformation.
             "Resource": "arn:aws:s3:::<BillingBucketName>/*"
         }
     ]
-  }
-  ```
+   }
+   ```
 
 9. Klicka på **Spara**.  
     ![Klicka på Spara i principredigeraren Bucket](./media/connect-aws-account/bucket-policy-editor.png)

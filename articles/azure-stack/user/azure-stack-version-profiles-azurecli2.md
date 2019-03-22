@@ -14,12 +14,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 261efda18b7cecc6370743c604622a8884ff8364
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 519046081a7f9778fb430daa0cd418cf9863a2b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732310"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57975635"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Använd API-versionsprofiler med Azure CLI i Azure Stack
 
@@ -47,7 +47,7 @@ Så här exporterar ASDK rotcertifikat i PEM-format:
 
 2. Logga in på datorn, öppna en upphöjd PowerShell-kommandotolk och kör sedan följande skript:
 
-      ```powershell  
+    ```powershell  
       $label = "AzureStackSelfSignedRootCert"
       Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
       $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
@@ -56,13 +56,13 @@ Så här exporterar ASDK rotcertifikat i PEM-format:
           Write-Error "Certificate with subject CN=$label not found"
           return
       }
-      
+
     Write-Host "Exporting certificate"
     Export-Certificate -Type CERT -FilePath root.cer -Cert $root
 
     Write-Host "Converting certificate to PEM format"
     certutil -encode root.cer root.pem
-```
+    ```
 
 3. Kopiera certifikatet till den lokala datorn.
 
@@ -75,15 +75,15 @@ Du kan ställa in en offentligt tillgänglig slutpunkt som är värd för en vir
 
 2. Ladda ned den [exempelfilen](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) från GitHub.
 
-4. Skapa ett lagringskonto i Azure Stack. När det är klart kan du skapa en blobbehållare. Skapa princip för åtkomst till ”offentliga”.  
+3. Skapa ett lagringskonto i Azure Stack. När det är klart kan du skapa en blobbehållare. Skapa princip för åtkomst till ”offentliga”.  
 
-3. Ladda upp JSON-filen till den nya behållaren. När det är klart kan du visa blobens URL. Välj blob-namnet och sedan välja URL: en från blobegenskaper.
+4. Ladda upp JSON-filen till den nya behållaren. När det är klart kan du visa blobens URL. Välj blob-namnet och sedan välja URL: en från blobegenskaper.
 
-### <a name="install-or-ugrade-cli"></a>Installera eller uppgraderar CLI
+### <a name="install-or-upgrade-cli"></a>Installera eller uppgradera CLI
 
 Logga in på utvecklingsdatorn och installera CLI. Azure Stack kräver version 2.0 eller senare av Azure CLI. Den senaste versionen av API-profiler kräver en aktuell version av CLI.  Du kan installera CLI med hjälp av stegen som beskrivs i den [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) artikeln. Kontrollera om installationen lyckades, öppna en terminal eller kommandotolk och kör följande kommando:
 
-```azurecli
+```shell
 az --version
 ```
 
@@ -151,7 +151,7 @@ Det här avsnittet vägleder dig genom hur du konfigurerar CLI om du använder A
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Lita på Azure Stack Certifikatutfärdarens rotcertifikat
 
-Om du använder ASDK behöver ska lita på Certifikatutfärdarens rotcertifikat på din fjärrdatorn. Du behöver inte göra detta med intregrated-system.
+Om du använder ASDK behöver ska lita på Certifikatutfärdarens rotcertifikat på din fjärrdatorn. Du behöver inte göra detta med integrerade system.
 
 Om du vill lita på rotcertifikatet för Azure Stack-CA, lägger du till dem i det befintliga certifikatet för Python.
 
@@ -206,11 +206,12 @@ Om du vill lita på rotcertifikatet för Azure Stack-CA, lägger du till dem i d
     ```
 
 2. Registrera din miljö. Använd följande parametrar när du kör `az cloud register`.
+
     | Värde | Exempel | Beskrivning |
     | --- | --- | --- |
     | Miljönamn | AzureStackUser | Använd `AzureStackUser` för användarmiljön. Om du är operatör kan du ange `AzureStackAdmin`. |
-    | Resource manager-slutpunkt | https://management.local.azurestack.external | Den **ResourceManagerUrl** i Azure Stack Development Kit (ASDK) är: `https://management.local.azurestack.external/` Den **ResourceManagerUrl** integrerade system är: `https://management.<region>.<fqdn>/` Att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Om du har en fråga om integrerade system-slutpunkten kan du kontakta din molnoperator. |
-    | Slutpunkt för lagring | local.azurestack.external | `local.azurestack.external` avser ASDK. För en intregrated-system, kommer du att använda en slutpunkt för ditt system.  |
+    | Resource Manager-slutpunkten | https://management.local.azurestack.external | Den **ResourceManagerUrl** i Azure Stack Development Kit (ASDK) är: `https://management.local.azurestack.external/` Den **ResourceManagerUrl** integrerade system är: `https://management.<region>.<fqdn>/` Att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Om du har en fråga om integrerade system-slutpunkten kan du kontakta din molnoperator. |
+    | Slutpunkt för lagring | local.azurestack.external | `local.azurestack.external` avser ASDK. För ett integrerat system, kommer du att använda en slutpunkt för ditt system.  |
     | Keyvalut suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` avser ASDK. För ett integrerat system, kommer du att använda en slutpunkt för ditt system.  |
     | VM-avbildning alias doc-slutpunkt- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI för det dokument som innehåller VM-avbildning alias. Mer information finns i [### Konfigurera virtuella datorns alias slutpunkt](#set-up-the-virtual-machine-aliases-endpoint). |
 
@@ -235,24 +236,24 @@ Om du vill lita på rotcertifikatet för Azure Stack-CA, lägger du till dem i d
  
 1. Logga in på Azure Stack-miljön med hjälp av den `az login` kommando. Du kan logga in på Azure Stack-miljön som en användare eller som en [tjänstens huvudnamn](../../active-directory/develop/app-objects-and-service-principals.md). 
 
-  - Logga in som en *användaren*: 
+   - Logga in som en *användaren*: 
 
-    Du kan antingen ange användarnamnet och lösenordet direkt inom den `az login` kommandot eller autentisera med hjälp av en webbläsare. Om ditt konto har aktiverat multifaktorautentisering måste du göra det senare:
+     Du kan antingen ange användarnamnet och lösenordet direkt inom den `az login` kommandot eller autentisera med hjälp av en webbläsare. Om ditt konto har aktiverat multifaktorautentisering måste du göra det senare:
 
-    ```azurecli
-    az login -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
-    ```
+     ```azurecli
+     az login -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
+     ```
 
-    > [!NOTE]
-    > Om ditt konto har aktiverat multifaktorautentisering, kan du använda den `az login` kommandot utan att ange den `-u` parametern. Kör det här kommandot ger dig en URL och en kod som du måste använda för att autentisera.
+     > [!NOTE]
+     > Om ditt konto har aktiverat multifaktorautentisering, kan du använda den `az login` kommandot utan att ange den `-u` parametern. Kör det här kommandot ger dig en URL och en kod som du måste använda för att autentisera.
 
-  - Logga in som en *tjänstens huvudnamn*: 
+   - Logga in som en *tjänstens huvudnamn*: 
     
-    Innan du loggar in, [skapa ett huvudnamn för tjänsten via Azure portal](azure-stack-create-service-principals.md) eller CLI och tilldela den till en roll. Nu kan logga in med hjälp av följande kommando:
+     Innan du loggar in, [skapa ett huvudnamn för tjänsten via Azure portal](azure-stack-create-service-principals.md) eller CLI och tilldela den till en roll. Nu kan logga in med hjälp av följande kommando:
 
-    ```azurecli  
-    az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
-    ```
+     ```azurecli  
+     az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
+     ```
 
 ### <a name="test-the-connectivity"></a>Testa anslutningen
 
@@ -272,7 +273,7 @@ Det här avsnittet vägleder dig genom hur du konfigurerar CLI om du använder A
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Lita på Azure Stack Certifikatutfärdarens rotcertifikat
 
-Om du använder ASDK behöver ska lita på Certifikatutfärdarens rotcertifikat på din fjärrdatorn. Du behöver inte göra detta med intregrated-system.
+Om du använder ASDK behöver ska lita på Certifikatutfärdarens rotcertifikat på din fjärrdatorn. Du behöver inte göra detta med integrerade system.
 
 1. Hitta certifikatsplats på din dator. Platsen kan variera beroende på var du har installerat Python. Öppna en kommandotolk eller en förhöjd PowerShell och Skriv följande kommando:
 
@@ -325,11 +326,12 @@ Om du använder ASDK behöver ska lita på Certifikatutfärdarens rotcertifikat 
     ```
 
 2. Registrera din miljö. Använd följande parametrar när du kör `az cloud register`.
+
     | Värde | Exempel | Beskrivning |
     | --- | --- | --- |
     | Miljönamn | AzureStackUser | Använd `AzureStackUser` för användarmiljön. Om du är operatör kan du ange `AzureStackAdmin`. |
-    | Resource manager-slutpunkt | https://management.local.azurestack.external | Den **ResourceManagerUrl** i Azure Stack Development Kit (ASDK) är: `https://management.local.azurestack.external/` Den **ResourceManagerUrl** integrerade system är: `https://management.<region>.<fqdn>/` Att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Om du har en fråga om integrerade system-slutpunkten kan du kontakta din molnoperator. |
-    | Slutpunkt för lagring | local.azurestack.external | `local.azurestack.external` avser ASDK. För en intregrated-system, kommer du att använda en slutpunkt för ditt system.  |
+    | Resource Manager-slutpunkten | https://management.local.azurestack.external | Den **ResourceManagerUrl** i Azure Stack Development Kit (ASDK) är: `https://management.local.azurestack.external/` Den **ResourceManagerUrl** integrerade system är: `https://management.<region>.<fqdn>/` Att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Om du har en fråga om integrerade system-slutpunkten kan du kontakta din molnoperator. |
+    | Slutpunkt för lagring | local.azurestack.external | `local.azurestack.external` avser ASDK. För ett integrerat system, kommer du att använda en slutpunkt för ditt system.  |
     | Keyvalut suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` avser ASDK. För ett integrerat system, kommer du att använda en slutpunkt för ditt system.  |
     | VM-avbildning alias doc-slutpunkt- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI för det dokument som innehåller VM-avbildning alias. Mer information finns i [### Konfigurera virtuella datorns alias slutpunkt](#set-up-the-virtual-machine-aliases-endpoint). |
 
@@ -354,34 +356,34 @@ Om du använder ASDK behöver ska lita på Certifikatutfärdarens rotcertifikat 
 
 1. Logga in på Azure Stack-miljön med hjälp av den `az login` kommando. Du kan logga in på Azure Stack-miljön som en användare eller som en [tjänstens huvudnamn](../../active-directory/develop/app-objects-and-service-principals.md). 
 
-  - Logga in som en *användaren*:
+   - Logga in som en *användaren*:
 
-    Du kan antingen ange användarnamnet och lösenordet direkt inom den `az login` kommandot eller autentisera med hjälp av en webbläsare. Om ditt konto har aktiverat multifaktorautentisering måste du göra det senare:
+     Du kan antingen ange användarnamnet och lösenordet direkt inom den `az login` kommandot eller autentisera med hjälp av en webbläsare. Om ditt konto har aktiverat multifaktorautentisering måste du göra det senare:
 
-    ```azurecli
-    az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/" --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2018-03-01-hybrid"
-    ```
+     ```azurecli
+     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/" --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2018-03-01-hybrid"
+     ```
 
-    > [!NOTE]
-    > Om ditt konto har aktiverat multifaktorautentisering, kan du använda den `az login` kommandot utan att ange den `-u` parametern. Kör det här kommandot ger dig en URL och en kod som du måste använda för att autentisera.
+     > [!NOTE]
+     > Om ditt konto har aktiverat multifaktorautentisering, kan du använda den `az login` kommandot utan att ange den `-u` parametern. Kör det här kommandot ger dig en URL och en kod som du måste använda för att autentisera.
 
-  - Logga in som en *tjänstens huvudnamn*: 
+   - Logga in som en *tjänstens huvudnamn*: 
     
-    Förbered PEM-filen som ska användas för huvudsaklig inloggning på tjänsten.
+     Förbered PEM-filen som ska användas för huvudsaklig inloggning på tjänsten.
 
-    Exportera tjänstobjektscertifikatet på klientdatorn där huvudkontot som har skapats, som en pfx med den privata nyckeln som finns på `cert:\CurrentUser\My`; cert namn har samma namn som huvudnamnet.
+     Exportera tjänstobjektscertifikatet på klientdatorn där huvudkontot som har skapats, som en pfx med den privata nyckeln som finns på `cert:\CurrentUser\My`; cert namn har samma namn som huvudnamnet.
 
-    Konvertera pfx till pem (Använd verktyget OpenSSL).
+     Konvertera pfx till pem (Använd verktyget OpenSSL).
 
-    Logga in på CLI:
+     Logga in på CLI:
   
-    ```azurecli  
-    az login --service-principal \
+     ```azurecli  
+     az login --service-principal \
       -u <Client ID from the Service Principal details> \
       -p <Certificate's fully qualified name, such as, C:\certs\spn.pem>
       --tenant <Tenant ID> \
       --debug 
-    ```
+     ```
 
 ### <a name="test-the-connectivity"></a>Testa anslutningen
 
@@ -402,7 +404,7 @@ Det här avsnittet vägleder dig genom hur du konfigurerar CLI om du använder A
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Lita på Azure Stack Certifikatutfärdarens rotcertifikat
 
-Om du använder ASDK behöver ska lita på Certifikatutfärdarens rotcertifikat på din fjärrdatorn. Du behöver inte göra detta med intregrated-system.
+Om du använder ASDK behöver ska lita på Certifikatutfärdarens rotcertifikat på din fjärrdatorn. Du behöver inte göra detta med integrerade system.
 
 Lita på Azure Stack Certifikatutfärdarens rotcertifikat genom att den läggs till det befintliga certifikatet för Python.
 
@@ -416,17 +418,17 @@ Lita på Azure Stack Certifikatutfärdarens rotcertifikat genom att den läggs t
 
 2. Kör följande bash-kommando med sökvägen till ditt certifikat.
 
-  - För en fjärransluten Linux-dator:
+   - För en fjärransluten Linux-dator:
 
-    ```bash  
-    sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
-    ```
+     ```bash  
+     sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
+     ```
 
-  - För en Linux-dator i Azure Stack-miljön:
+   - För en Linux-dator i Azure Stack-miljön:
 
-    ```bash  
-    sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
-    ```
+     ```bash  
+     sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
+     ```
 
 ### <a name="connect-to-azure-stack"></a>Anslut till Azure Stack
 
@@ -440,11 +442,12 @@ Använd följande steg för att ansluta till Azure Stack:
    ```
 
 2. Registrera din miljö. Använd följande parametrar när du kör `az cloud register`.
+
     | Värde | Exempel | Beskrivning |
     | --- | --- | --- |
     | Miljönamn | AzureStackUser | Använd `AzureStackUser` för användarmiljön. Om du är operatör kan du ange `AzureStackAdmin`. |
-    | Resource manager-slutpunkt | https://management.local.azurestack.external | Den **ResourceManagerUrl** i Azure Stack Development Kit (ASDK) är: `https://management.local.azurestack.external/` Den **ResourceManagerUrl** integrerade system är: `https://management.<region>.<fqdn>/` Att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Om du har en fråga om integrerade system-slutpunkten kan du kontakta din molnoperator. |
-    | Slutpunkt för lagring | local.azurestack.external | `local.azurestack.external` avser ASDK. För en intregrated-system, kommer du att använda en slutpunkt för ditt system.  |
+    | Resource Manager-slutpunkten | https://management.local.azurestack.external | Den **ResourceManagerUrl** i Azure Stack Development Kit (ASDK) är: `https://management.local.azurestack.external/` Den **ResourceManagerUrl** integrerade system är: `https://management.<region>.<fqdn>/` Att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Om du har en fråga om integrerade system-slutpunkten kan du kontakta din molnoperator. |
+    | Slutpunkt för lagring | local.azurestack.external | `local.azurestack.external` avser ASDK. För ett integrerat system, kommer du att använda en slutpunkt för ditt system.  |
     | Keyvalut suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` avser ASDK. För ett integrerat system, kommer du att använda en slutpunkt för ditt system.  |
     | VM-avbildning alias doc-slutpunkt- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI för det dokument som innehåller VM-avbildning alias. Mer information finns i [### Konfigurera virtuella datorns alias slutpunkt](#set-up-the-virtual-machine-aliases-endpoint). |
 
@@ -469,30 +472,30 @@ Använd följande steg för att ansluta till Azure Stack:
 
 5. Logga in på Azure Stack-miljön med hjälp av den `az login` kommando. Du kan logga in på Azure Stack-miljön som en användare eller som en [tjänstens huvudnamn](../../active-directory/develop/app-objects-and-service-principals.md). 
 
-    * Logga in som en *användaren*:
+   * Logga in som en *användaren*:
 
-    Du kan antingen ange användarnamnet och lösenordet direkt inom den `az login` kommandot eller autentisera med hjälp av en webbläsare. Om ditt konto har aktiverat multifaktorautentisering måste du göra det senare:
+     Du kan antingen ange användarnamnet och lösenordet direkt inom den `az login` kommandot eller autentisera med hjälp av en webbläsare. Om ditt konto har aktiverat multifaktorautentisering måste du göra det senare:
 
-      ```azurecli
-      az login \
-        -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> \
-        --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
-      ```
+     ```azurecli
+     az login \
+       -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> \
+       --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
+     ```
 
-    > [!NOTE]
-    > Om ditt konto har aktiverat multifaktorautentisering, kan du använda den `az login` kommandot utan att ange den `-u` parametern. Kör det här kommandot ger dig en URL och en kod som du måste använda för att autentisera.
+     > [!NOTE]
+     > Om ditt konto har aktiverat multifaktorautentisering, kan du använda den `az login` kommandot utan att ange den `-u` parametern. Kör det här kommandot ger dig en URL och en kod som du måste använda för att autentisera.
    
-    * Logga in som en *tjänstens huvudnamn*
+   * Logga in som en *tjänstens huvudnamn*
     
-    Innan du loggar in, [skapa ett huvudnamn för tjänsten via Azure portal](azure-stack-create-service-principals.md) eller CLI och tilldela den till en roll. Nu kan logga in med hjälp av följande kommando:
+     Innan du loggar in, [skapa ett huvudnamn för tjänsten via Azure portal](azure-stack-create-service-principals.md) eller CLI och tilldela den till en roll. Nu kan logga in med hjälp av följande kommando:
 
-      ```azurecli  
-      az login \
-        --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
-        --service-principal \
-        -u <Application Id of the Service Principal> \
-        -p <Key generated for the Service Principal>
-      ```
+     ```azurecli  
+     az login \
+       --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
+       --service-principal \
+       -u <Application Id of the Service Principal> \
+       -p <Key generated for the Service Principal>
+     ```
 
 ### <a name="test-the-connectivity"></a>Testa anslutningen
 
@@ -512,7 +515,7 @@ Det här avsnittet vägleder dig genom hur du konfigurerar CLI om du använder A
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Lita på Azure Stack Certifikatutfärdarens rotcertifikat
 
-Om du använder ASDK behöver ska lita på Certifikatutfärdarens rotcertifikat på din fjärrdatorn. Du behöver inte göra detta med intregrated-system.
+Om du använder ASDK behöver ska lita på Certifikatutfärdarens rotcertifikat på din fjärrdatorn. Du behöver inte göra detta med integrerade system.
 
 Lita på Azure Stack Certifikatutfärdarens rotcertifikat genom att den läggs till det befintliga certifikatet för Python.
 
@@ -526,17 +529,17 @@ Lita på Azure Stack Certifikatutfärdarens rotcertifikat genom att den läggs t
 
 2. Kör följande bash-kommando med sökvägen till ditt certifikat.
 
-  - För en fjärransluten Linux-dator:
+   - För en fjärransluten Linux-dator:
 
-    ```bash  
-    sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
-    ```
+     ```bash  
+     sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
+     ```
 
-  - För en Linux-dator i Azure Stack-miljön:
+   - För en Linux-dator i Azure Stack-miljön:
 
-    ```bash  
-    sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
-    ```
+     ```bash  
+     sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
+     ```
 
 ### <a name="connect-to-azure-stack"></a>Anslut till Azure Stack
 
@@ -550,11 +553,12 @@ Använd följande steg för att ansluta till Azure Stack:
    ```
 
 2. Registrera din miljö. Använd följande parametrar när du kör `az cloud register`.
+
     | Värde | Exempel | Beskrivning |
     | --- | --- | --- |
     | Miljönamn | AzureStackUser | Använd `AzureStackUser` för användarmiljön. Om du är operatör kan du ange `AzureStackAdmin`. |
-    | Resource manager-slutpunkt | https://management.local.azurestack.external | Den **ResourceManagerUrl** i Azure Stack Development Kit (ASDK) är: `https://management.local.azurestack.external/` Den **ResourceManagerUrl** integrerade system är: `https://management.<region>.<fqdn>/` Att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Om du har en fråga om integrerade system-slutpunkten kan du kontakta din molnoperator. |
-    | Slutpunkt för lagring | local.azurestack.external | `local.azurestack.external` avser ASDK. För en intregrated-system, kommer du att använda en slutpunkt för ditt system.  |
+    | Resource Manager-slutpunkten | https://management.local.azurestack.external | Den **ResourceManagerUrl** i Azure Stack Development Kit (ASDK) är: `https://management.local.azurestack.external/` Den **ResourceManagerUrl** integrerade system är: `https://management.<region>.<fqdn>/` Att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Om du har en fråga om integrerade system-slutpunkten kan du kontakta din molnoperator. |
+    | Slutpunkt för lagring | local.azurestack.external | `local.azurestack.external` avser ASDK. För ett integrerat system, kommer du att använda en slutpunkt för ditt system.  |
     | Keyvalut suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` avser ASDK. För ett integrerat system, kommer du att använda en slutpunkt för ditt system.  |
     | VM-avbildning alias doc-slutpunkt- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI för det dokument som innehåller VM-avbildning alias. Mer information finns i [### Konfigurera virtuella datorns alias slutpunkt](#set-up-the-virtual-machine-aliases-endpoint). |
 
@@ -581,24 +585,24 @@ Använd följande steg för att ansluta till Azure Stack:
 
 6. Logga in: 
 
-  *  Som en **användaren** via en webbläsare med en kod för enheten:  
+   *  Som en **användaren** via en webbläsare med en kod för enheten:  
 
-  ```azurecli  
+   ```azurecli  
     az login --use-device-code
-  ```
+   ```
 
-  > [!NOTE]  
-  >Kör kommandot ger dig en URL och en kod som du måste använda för att autentisera.
+   > [!NOTE]  
+   >Kör kommandot ger dig en URL och en kod som du måste använda för att autentisera.
 
-  * Som ett huvudnamn för tjänsten:
+   * Som ett huvudnamn för tjänsten:
         
-    Förbered PEM-filen som ska användas för huvudsaklig inloggning på tjänsten.
+     Förbered PEM-filen som ska användas för huvudsaklig inloggning på tjänsten.
 
       * Exportera tjänstobjektscertifikatet på klientdatorn där huvudkontot som har skapats, som en pfx med den privata nyckeln som finns på `cert:\CurrentUser\My`; cert namn har samma namn som huvudnamnet.
   
       * Konvertera pfx till pem (Använd verktyget OpenSSL).
 
-    Logga in på CLI:
+     Logga in på CLI:
 
       ```azurecli  
       az login --service-principal \

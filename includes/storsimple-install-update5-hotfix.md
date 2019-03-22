@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 8abc6129e1179378ac90278fd2032737b2b828b2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 19d2dedc2ccf7015696504a94f5ef7c43a90d3be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889427"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125208"
 ---
 #### <a name="to-download-hotfixes"></a>Ladda ned snabbkorrigerar
 
@@ -100,12 +100,12 @@ Utför följande steg för att installera och verifiera snabbkorrigeringar i nor
     Du bör se följande versioner:
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 5.0`
-   *  `HcsSoftwareVersion: 6.3.9600.17845`
+   * `HcsSoftwareVersion: 6.3.9600.17845`
    
-    Om versionsnumret inte ändras efter att uppdateringen har tillämpats indikerar det att snabbkorrigeringen har misslyckats. Kontakta [Microsoft Support](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) för ytterligare hjälp om du ser det här.
+     Om versionsnumret inte ändras efter att uppdateringen har tillämpats indikerar det att snabbkorrigeringen har misslyckats. Kontakta [Microsoft Support](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) för ytterligare hjälp om du ser det här.
      
-    > [!IMPORTANT]
-    > Du måste starta om den aktiva kontrollenheten via den `Restart-HcsController` cmdlet innan du tillämpar nästa uppdatering.
+     > [!IMPORTANT]
+     > Du måste starta om den aktiva kontrollenheten via den `Restart-HcsController` cmdlet innan du tillämpar nästa uppdatering.
      
 8. Upprepa steg 3 – 6 för att installera den _CisMDSAgentupdate.exe_ agenten hämtas till din _FirstOrderUpdate_ mapp.
 8. Upprepa steg 3 – 6 för att installera andra orderuppdateringar. 

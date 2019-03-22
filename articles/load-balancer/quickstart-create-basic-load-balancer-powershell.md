@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 6b27c21944131d01254e75c7120520a119998132
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 0bdad2d59528775d23d882831cfdbdc09471e12e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673776"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109805"
 ---
 # <a name="get-started"></a>Snabbstart: Skapa en offentlig lastbalanserare med Azure PowerShell
 
@@ -229,7 +229,7 @@ Skapa virtuella nätverkskort med [New-AzNetworkInterface](/powershell/module/az
 $nicVM1 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic1' `
+-Name 'MyVM1' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule1 `
@@ -239,7 +239,7 @@ $nicVM1 = New-AzNetworkInterface `
 $nicVM2 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic2' `
+-Name 'MyVM2' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule2 `
@@ -268,7 +268,7 @@ Ange ett administratörsanvändarnamn och lösenord för de virtuella datorerna 
 $cred = Get-Credential
 ```
 
-Nu kan du skapa de virtuella datorerna med hjälp av [New-AzVM](/powershell/module/az.compute/new-azvm). I följande exempel skapas två virtuella datorer och de virtuella nätverkskomponenter som krävs, om de inte redan finns. När den virtuella exempeldatorn skapades kopplades nätverkskorten till de virtuella datorerna eftersom de tilldelas samma virtuella nätverk (*myVnet*) och undernät (*mySubnet*):
+Nu kan du skapa de virtuella datorerna med hjälp av [New-AzVM](/powershell/module/az.compute/new-azvm). I följande exempel skapas två virtuella datorer och de virtuella nätverkskomponenter som krävs, om de inte redan finns. I det här exemplet nätverkskorten (*VM1* och *VM2*) skapade i föregående steg automatiskt tilldelas virtuella datorer *VM1* och *VM2*eftersom de har identiska namn och tilldelas samma virtuella nätverk (*myVnet*) och undernät (*mySubnet*). Dessutom eftersom nätverkskorten är kopplad till belastningsutjämnarens serverdelspool är läggs de virtuella datorerna automatiskt till i serverdelspoolen.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
@@ -295,18 +295,18 @@ Installera IIS med en anpassad webbsida på de båda virtuella datorerna på ser
 
 1. Hämta den offentliga IP-adressen för lastbalanseraren. Med `Get-AzPublicIPAddress` hämtar du den offentliga IP-adressen för lastbalanseraren.
 
-  ```azurepowershell-interactive
+   ```azurepowershell-interactive
     Get-AzPublicIPAddress `
     -ResourceGroupName "myResourceGroupLB" `
     -Name "myPublicIP" | select IpAddress
-  ```
+   ```
 2. Skapa en anslutning till fjärrskrivbord till VM1 med den offentliga IP-adress du hämtade i föregående steg. 
 
-  ```azurepowershell-interactive
+   ```azurepowershell-interactive
 
       mstsc /v:PublicIpAddress:4221  
   
-  ```
+   ```
 3. Ange autentiseringsuppgifterna för *VM1* för att starta RDP-sessionen.
 4. Starta Windows PowerShell på VM1 och använd följande kommandon för att installera IIS-servern och uppdatera standard-HTML-filen.
     ```azurepowershell-interactive

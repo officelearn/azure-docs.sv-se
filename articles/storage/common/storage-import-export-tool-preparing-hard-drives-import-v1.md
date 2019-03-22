@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 5ea510d8335437cb43f3e8824ec73175c35dcd03
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 7db50e8bd1de609256bad58b293af8b7b1ea5dbb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452376"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086725"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Förbereda hårddiskar för ett importjobb
 Följ dessa steg för att förbereda en eller flera hårddiskar för ett importjobb:
 
--   Identifiera data som ska importeras till Blob-tjänsten
+- Identifiera data som ska importeras till Blob-tjänsten
 
--   Identifiera mål virtuella kataloger och blobar i Blob-tjänsten
+- Identifiera mål virtuella kataloger och blobar i Blob-tjänsten
 
--   Fastställa hur många enheter som du behöver
+- Fastställa hur många enheter som du behöver
 
--   Kopiera data till var och en av dina hårddiskar
+- Kopiera data till var och en av dina hårddiskar
 
- Läs ett Exempelarbetsflöde [Exempelarbetsflöde för att förbereda hårddiskar för ett importjobb](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
+  Läs ett Exempelarbetsflöde [Exempelarbetsflöde för att förbereda hårddiskar för ett importjobb](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
 
 ## <a name="identify-the-data-to-be-imported"></a>Identifiera vilka data som ska importeras
  Det första steget för att skapa ett importjobb är att avgöra vilka kataloger och filer som du tänker importera. Detta kan vara en lista över kataloger, en lista med unika filer eller en kombination av dessa två. När en katalog finns kommer alla filer i katalogen och dess underkataloger att ingå i importjobbet.
@@ -51,11 +51,11 @@ Följ dessa steg för att förbereda en eller flera hårddiskar för ett importj
 ## <a name="determine-how-many-drives-are-needed"></a>Avgör hur många enheter som krävs
  Därefter måste du fastställa:
 
--   Antalet hårddiskar som behövs för att lagra data.
+- Antalet hårddiskar som behövs för att lagra data.
 
--   Den kataloger och/eller fristående filer som ska kopieras till var och en på hårddisken.
+- Den kataloger och/eller fristående filer som ska kopieras till var och en på hårddisken.
 
- Kontrollera att antalet hårddiskar som du behöver för att lagra de data som överförs.
+  Kontrollera att antalet hårddiskar som du behöver för att lagra de data som överförs.
 
 ## <a name="copy-data-to-your-hard-drive"></a>Kopieringsdata på hårddisken
  Det här avsnittet beskrivs hur du anropar Azure Import/Export-verktyget för att kopiera dina data till en eller flera hårddiskar. Varje gång du anropar Azure Import/Export-verktyget kan du skapa en ny *kopiera session*. Du skapar minst en kopia session för varje enhet som du kopiera data. i vissa fall kan behöva mer än en kopia session att kopiera alla dina data till en enda enhet. Här följer några orsaker till att du kan behöva flera kopia sessioner:

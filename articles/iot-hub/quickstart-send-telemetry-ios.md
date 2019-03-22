@@ -1,20 +1,20 @@
 ---
 title: Snabbstart – Skicka telemetri till Azure IoT Hub | Microsoft Docs
 description: I den här snabbstarten kör du ett iOS-exempelprogram som skickar simulerad telemetri till en IoT-hubb, läser telemetrin från IoT-hubben och bearbetar den i molnet.
-author: kgremban
+author: wesmc7777
 manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/20/2019
-ms.author: kgremban
-ms.openlocfilehash: 05ae99425bbe16c27ca7efd475757499996e06b9
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 5def12acf3aa87c06ea7cd2f8a1102018750d36d
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672125"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009502"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Snabbstart: Skicka telemetri från en enhet till en IoT-hubb (iOS)
 
@@ -28,7 +28,7 @@ I den här artikeln används ett färdigt Swift-program till att skicka telemetr
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ladda ned kodexemplet från [Azure-exemplen](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip) 
 - Den senaste versionen av [XCode](https://developer.apple.com/xcode/) med den senaste versionen av iOS SDK. Denna snabbstart har testats med XCode 9.3 och iOS 11.3.

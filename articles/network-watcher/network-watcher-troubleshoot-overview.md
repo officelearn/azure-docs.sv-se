@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 8048dde6158d9eaa9bf38a8c3020420b81bdd55b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: aa7fce21228d4413dc4964d6e828bf60478aee27
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099789"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901839"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduktion till felsökning i Azure Network Watcher-resurs
 
@@ -107,7 +107,7 @@ Resursen felsökning loggfilerna lagras i ett lagringskonto efter resurs felsök
 > [!NOTE]
 > I vissa fall kan skrivs endast en delmängd av loggfilerna till lagring.
 
-Instruktioner om att ladda ned filer från azure storage-konton finns i [komma igång med Azure Blob storage med hjälp av .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Ett annat verktyg som kan användas är Storage Explorer. Mer information om Storage Explorer finns här på följande länk: [Storage Explorer](http://storageexplorer.com/)
+Instruktioner om att ladda ned filer från azure storage-konton finns i [komma igång med Azure Blob storage med hjälp av .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Ett annat verktyg som kan användas är Storage Explorer. Mer information om Storage Explorer finns här på följande länk: [Storage Explorer](https://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

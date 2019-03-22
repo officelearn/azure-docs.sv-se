@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 9ca4ca1f-8f68-4225-81a6-1666b486d6a8
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5483d4e50770f3e4cd323c654cbab8cc7794a517
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.openlocfilehash: 9fd2e9c90a7ae2593b2b4d6502ce55b3aee579db
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984364"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903580"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jostle"></a>Självstudier: Azure Active Directory-integrering med Jostle
 
@@ -147,7 +147,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

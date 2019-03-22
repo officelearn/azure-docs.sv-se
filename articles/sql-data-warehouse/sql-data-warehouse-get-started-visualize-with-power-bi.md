@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: df1fe833a5b0cb65372f8df73fb17231463d4d64
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b2377466ba830eed9fed0e9a4033b3eca3d351c4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466276"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834633"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualisera data med Power BI
 De här självstudierna visar hur du använder Power BI för att ansluta till SQL Data Warehouse och skapa några grundläggande visualiseringar.
@@ -93,4 +93,4 @@ När du använder direkt ansluta:
 Dessa begränsningar och anteckningar kan ändras när upplevelserna förbättra.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har värmt upp med exempeldata, kan du se mer information om att [utveckla](sql-data-warehouse-overview-develop.md), [läsa in](design-elt-data-loading.md) eller [migrera](sql-data-warehouse-overview-migrate.md). Eller ta en titt på [Power BI-webbplatsen](http://www.powerbi.com/).
+Nu när du har värmt upp med exempeldata, kan du se mer information om att [utveckla](sql-data-warehouse-overview-develop.md), [läsa in](design-elt-data-loading.md) eller [migrera](sql-data-warehouse-overview-migrate.md). Eller ta en titt på [Power BI-webbplatsen](https://www.powerbi.com/).

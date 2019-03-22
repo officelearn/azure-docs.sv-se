@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 6f5b53b7-6d1d-4bed-a95a-127e2d4d8b3f
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f9fe3f53d9d54c2a8fdc0b0c663d0085d137188
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 426162d6655a107aad6fc7dd1081ca9352099449
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873737"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899340"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-korn-ferry-alp"></a>Självstudier: Azure Active Directory-katalogintegrering med Korn Ferry ALP
 
@@ -34,7 +34,7 @@ När du integrerar Korn Ferry ALP med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Korn Ferry ALP behöver du följande objekt:
 
@@ -53,7 +53,7 @@ För att konfigurera integrering av Korn Ferry ALP i Azure AD behöver du lägga
 
 **Utför följande steg för att lägga till Korn Ferry ALP från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -106,6 +106,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Korn Fe
     ![Korn Ferry ALP-domän och information om URL:er för enkel inloggning](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster:
+
     | |
     |--|
     | `https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>` | 
@@ -113,6 +114,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Korn Fe
     | `https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>` |
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster:
+    
     | |
     |--|
     | `https://intappextin01/portalweb/sso/client/audience?guid=<customerguid>` |
@@ -148,14 +150,14 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Korn Ferry ALP.
 
@@ -187,7 +189,7 @@ I det här avsnittet ska du skapa en användare med namnet Britta Simon i Korn F
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
 När du klickar på Korn Ferry ALP-panelen på åtkomstpanelen bör du automatiskt loggas in i Korn Ferry ALP som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 7cfcf68a7725ba6c8a7ad4e0a88c5eed814b38ba
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: 4b8d26868c3880852e0d2f9c43b06ca1b25d094f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729720"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176386"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>Snabbstart: Slå upp ord med en tvåspråkig ordlista med hjälp av Node.js
 
@@ -23,7 +23,7 @@ I den här snabbstarten lär du dig att hitta alternativa översättningar och a
 
 För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
@@ -32,7 +32,7 @@ För den här snabbstarten krävs:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
-Skapa ett nytt projekt med valfri IDE eller redigeringsprogram. Kopiera sedan det här kodavsnittet till projektet i en fil med namnet `dictionary-lookup.js`.
+Skapa ett nytt projekt med din favorit-IDE eller redigerare eller skapa en ny mapp på skrivbordet. Kopiera det här kodfragmentet till ditt projekt/mapp till en fil med namnet `alt-translations.js`.
 
 ```javascript
 const request = require('request');
@@ -92,7 +92,7 @@ let options = {
 };
 ```
 
-### <a name="authentication"></a>Autentisering
+### <a name="authentication"></a>Authentication
 
 Det enklaste sättet att autentisera en begäran är att skicka din prenumerationsnyckel som ett `Ocp-Apim-Subscription-Key`-sidhuvud, vilket är det vi använder i det här exemplet. Alternativt kan du byta din prenumerationsnyckel mot en åtkomsttoken och skicka vidare åtkomsttoken som ett `Authorization`-sidhuvud för att verifiera din begäran. Mer information finns i [Autentisering](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
@@ -114,7 +114,7 @@ request(options, function(err, res, body){
 Det var allt – du har skapat ett enkelt program som anropar Translator Text API och returnerar en JSON-svar. Nu är det dags att köra programmet:
 
 ```console
-node dictionary-lookup.js
+node alt-translations.js
 ```
 
 Om du vill jämföra din kod med vår finns det fullständiga exemplet på [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS).
@@ -156,7 +156,7 @@ Om du har hårdkodat din prenumerationsnyckel i programmet ser du till att ta bo
 > [!div class="nextstepaction"]
 > [Utforska Node.js-exempel på GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 Utöver språkidentifiering lär du dig hur du använder Translator Text API för att:
 

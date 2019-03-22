@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 390cd17d667785c7bf9531d86dab00bc922a2df5
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: cd6cb68014eea00077328f39c2c9bf0a1f7fb679
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351734"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436297"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Ta bort data med Azure Cosmos DB:s API för MongoDB
 
@@ -74,7 +74,7 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 
 TTL-funktionen per dokument kan aktiveras med Azure Cosmos DB:s API för MongoDB.
 
-![Skärmbild av aktiveringen av TTL-funktionen per dokument i portalen](./media/mongodb-ttl/mongodb_portal_ttl.png) 
+![Skärmbild av aktiveringen av Per dokument TTL-funktionen i portalen](./media/mongodb-ttl/mongodb_portal_ttl.png) 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Ta bort data från Azure Cosmos DB automatiskt med hjälp av förfallodatum](../cosmos-db/time-to-live.md)

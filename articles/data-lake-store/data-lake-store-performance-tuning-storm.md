@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: aa4d42a53e6fb8ea236a9d544102aab3dff19013
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 8066a759cf80be6e9ca232bcd3693a5fa4d2f2f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129241"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084818"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Prestandajusteringsvägledning för Storm på HDInsight och Azure Data Lake Storage Gen1
 
@@ -82,7 +82,7 @@ Du kan ändra följande inställningar för att justera kanal.
 
 - **Max spout väntande: topology.max.spout.pending**. Den här inställningen anger antalet tupplar i kan vara flygning (har ännu inte bekräftas på alla noder i topologin) per kanal tråd när som helst.
 
- En bra beräkning göra är att beräkna storleken på var och en av dina tupplar. Ta sedan reda på hur mycket minne en kanal trådar har. Den totala mängden minne som allokerats till en tråd, dividerat med det här värdet bör ge dig den övre gränsen för högsta spout väntar på parametern.
+  En bra beräkning göra är att beräkna storleken på var och en av dina tupplar. Ta sedan reda på hur mycket minne en kanal trådar har. Den totala mängden minne som allokerats till en tråd, dividerat med det här värdet bör ge dig den övre gränsen för högsta spout väntar på parametern.
 
 ## <a name="tune-the-bolt"></a>Finjustera bulten
 När du skriver till Data Lake Storage Gen1, kan du ange en princip för synkronisering (buffert på klientsidan) till 4 MB. Rensa eller hsync() utförs sedan endast när buffertstorleken är den på det här värdet. Data Lake Storage Gen1 drivrutinen på worker VM gör automatiskt den här buffring, såvida inte du uttryckligen utföra en hsync().
@@ -98,7 +98,7 @@ Storm har en kanal att en tuppel tills tillämpas explicit av bulten. Om en tupp
 För bästa prestanda på Data Lake Storage Gen1 har bulten buffra 4 MB tuppel data. Sedan skriva till Data Lake Storage Gen1 tillbaka slutet som en skrivning av 4 MB. När data har skrivits till arkivet (genom att anropa hflush()) bulten kan bekräftar data tillbaka till kanal. Detta är det exempel bulten anges här. Det går också att innehålla ett större antal tupplar innan hflush() anrop görs och tuppeln bekräftas. Detta ökar dock antalet tupplar som rör sig att kanal som behöver lagra och därför ökar mängden minne som behövs per JVM.
 
 > [!NOTE]
-Program kan ha ett krav att bekräfta tupplar oftare (i data är mindre än 4 MB) för andra prestandaskäl. Men som kan påverka i/o-dataflöde till backend-server för lagring. Noggrant väga den här kompromiss mot den bult i/o-prestanda.
+> Program kan ha ett krav att bekräfta tupplar oftare (i data är mindre än 4 MB) för andra prestandaskäl. Men som kan påverka i/o-dataflöde till backend-server för lagring. Noggrant väga den här kompromiss mot den bult i/o-prestanda.
 
 Om takt av tupplar inte är högt, så 4 MB bufferten tar lång tid att fylla bör du överväga att åtgärda detta genom att:
 * Minska antalet bultar, så det finns färre buffertar att fylla.

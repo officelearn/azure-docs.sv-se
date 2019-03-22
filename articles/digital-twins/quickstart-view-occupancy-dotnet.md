@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 12/17/2018
 ms.author: alinast
-ms.openlocfilehash: d2588090ced3e82e63397a416245ca69204f3d87
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: 4c41fbaa00dc3460df3f94433428c448a7b41250
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583093"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089713"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Snabbstart: Hitta tillgängliga rum med hjälp av Azure Digital Twins
 
@@ -27,7 +27,7 @@ Följande videoklipp innehåller en sammanfattning av snabbstartsinstallationen:
 
 >[!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Om du inte har något Azure-konto [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -115,8 +115,8 @@ Sensorexemplet simulerar slumpmässiga datavärden för två sensorer. Det är r
 1. Titta på den här kommandotolken och sensordatas kommandotolk sida vid sida.
 
     En kommandotolk skickar simulerade data för rörelse och koldioxid till Digital Twins var femte sekund. Det andra kommandot läser grafen i realtid för att ta reda på tillgängliga rum med frisk luft baserat på slumpmässiga simulerade data. Den visar ett av dessa villkor i nära realtid baserat på sensordata som skickades senast:
-    - Tillgängliga rum med frisk luft.
-    - Upptaget eller dålig luftkvalitet i rummet.
+   - Tillgängliga rum med frisk luft.
+   - Upptaget eller dålig luftkvalitet i rummet.
 
      ![Hämta tillgängliga utrymmen med frisk luft][3]
 
@@ -149,7 +149,7 @@ Självstudierna visar i detalj hur du:
 Om du vill fortsätta med självstudierna ska du inte rensa resurserna som du skapade i den här snabbstarten. Om du inte planerar att fortsätta tar du bort alla resurser som har skapats i den här snabbstarten.
 
 1. Ta bort mappen som skapades när du laddade ned exempellagringsplatsen.
-1. Välj **Alla resurser** på menyn på vänster sida av [Azure-portalen](http://portal.azure.com). Välj sedan din Digital Twins-resurs. Välj **Ta bort** överst i fönstret **Alla resurser**.
+1. Välj **Alla resurser** på menyn på vänster sida av [Azure-portalen](https://portal.azure.com). Välj sedan din Digital Twins-resurs. Välj **Ta bort** överst i fönstret **Alla resurser**.
 
     > [!TIP]
     > Om det inträffade problem när du skulle ta bort Digital Twins-instansen finns det nu en tjänstuppdatering som åtgärdar det. Försök att ta bort instansen igen.

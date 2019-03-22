@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 246ee5f8360869c1b0f901ee54d56e017ac8aeb7
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: HT
+ms.openlocfilehash: 36815010c3e8fccc2ec24ce344071d0836da219b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649687"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097465"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Skapa och distribuera Azure-resursgrupper via Visual Studio
 
@@ -221,7 +221,7 @@ Du är inte begränsad till de resurser som är tillgängliga via Visual Studio-
 
 1. Öppna filen WebsiteSqlDeploy.json och lägg till följande JSON efter lagringskontot, men före den avslutande `]`, i resursavsnittet.
 
-  ```json
+   ```json
     ,{
       "properties": {
         "lenses": {
@@ -296,7 +296,7 @@ Du är inte begränsad till de resurser som är tillgängliga via Visual Studio-
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
       }
     }
-  ```
+   ```
 
 2. Distribuera om din resursgrupp. Titta på instrumentpanelen i Azure Portal så ser du att den delade instrumentpanelen har lagts till i listan med alternativ.
 

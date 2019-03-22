@@ -1,31 +1,31 @@
 ---
-title: 'Snabbstart: API för automatiska förslag i Bing, PHP'
+title: 'Snabbstart: Föreslå sökfrågor med REST API för automatiska förslag i Bing och PHP'
 titlesuffix: Azure Cognitive Services
-description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API:et för automatiska förslag i Bing.
+description: Lär dig hur du snabbt börja föreslå söktermer i realtid med automatiska förslag i Bing.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 09/14/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 139c7149173285283041f5f4b30d2002e40810c2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 02/20/2019
+ms.author: aahi
+ms.openlocfilehash: bfaab155c98b0721868a46a6d34c3402d08c053f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872925"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547919"
 ---
-# <a name="quickstart-for-bing-autosuggest-api-with-php"></a>Snabbstart för API för automatiska förslag i Bing med PHP
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Snabbstart: Föreslå sökfrågor med REST API för automatiska förslag i Bing och PHP
 
-Den här artikeln visar hur du använder [API:et för automatiska förslag i Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/)  med PHP. API för automatiska förslag i Bing returnerar en lista över föreslagna frågor baserat på den partiella frågesträng som användaren anger i sökrutan. Normalt skulle du anropa detta API varje gång som användaren skriver ett nytt tecken i sökrutan, och sedan visa förslagen i listrutan i sökrutan. I den här artikeln kan du se hur du skickar en begäran som returnerar de föreslagna frågesträngarna för *sail* (segla).
+Använd den här snabbstarten ska börja göra anrop till API för automatiska förslag i Bing och hämta JSON-svar. Det här enkla PHP-programmet skickar en partiell sökfråga till API: et och returnerar förslag på sökningar. Även om det här programmet är skrivet i PHP är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver [PHP 5.6.x](http://php.net/downloads.php) för att köra den här koden.
+* [PHP 5.6.x](https://php.net/downloads.php) eller senare
 
-Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API v7 för automatiska förslag i Bing**. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/#search) för den här snabbstarten. Du behöver den åtkomstnyckel som du fick när du aktiverade din kostnadsfria utvärderingsversion, eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
 ## <a name="get-autosuggest-results"></a>Hämta resultat för automatiska förslag
 
@@ -61,7 +61,7 @@ function get_suggestions ($host, $path, $key, $mkt, $query) {
     "Ocp-Apim-Subscription-Key: $key\r\n";
 
   // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-  // http://php.net/manual/en/function.stream-context-create.php
+  // https://php.net/manual/en/function.stream-context-create.php
   $options = array (
     'http' => array (
       'header' => $headers,
@@ -152,7 +152,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Självstudie för automatiska förslag i Bing](../tutorials/autosuggest.md)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Vad är automatiska förslag i Bing?](../get-suggested-search-terms.md)
 - [Referens för API v7 för automatiska förslag i Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)

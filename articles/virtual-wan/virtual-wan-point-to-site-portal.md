@@ -5,15 +5,15 @@ services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/27/2019
 ms.author: alzam
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 87b8543d8cb658b46ab5e589a310a17a69508a47
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 9fe0c7f7ae0c19833421b647449f0e4100904f5b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411398"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226240"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Självstudier: Skapa en punkt-till-plats-anslutning med Azure Virtual WAN (förhandsversion)
 
@@ -38,11 +38,13 @@ I den här guiden får du lära dig att:
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
 ## <a name="register"></a>Registrera funktionen
 
-Klicka på **TryIt** för att registrera funktionen enkelt med Azure Cloud Shell. Om du skulle i stället Kör PowerShell lokalt ska du kontrollera att du har den senaste versionen och logga in med kommandona **Connect-AzureRmAccount** och **Select-AzureRmSubscription**.
+Klicka på **TryIt** för att registrera funktionen enkelt med Azure Cloud Shell. Om du skulle i stället Kör PowerShell lokalt, kontrollera att du har den senaste versionen och logga in med den **Connect AzAccount** och **Välj AzSubscription** kommandon.
 
 >[!NOTE]
 >Om du inte registrerar funktionen kan du inte använda den eller se den i portalen.
@@ -52,25 +54,25 @@ Klicka på **TryIt** för att registrera funktionen enkelt med Azure Cloud Shell
 När du har klickat på **TryIt** för att öppna Azure Cloud Shell kopierar du och klistrar in följande kommandon:
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
 ```
  
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
-När funktionen visas som registrerad registrerar du prenumerationen på nytt i Microsoft.Network-namnrymden.
+När funktionen visas som registrerad, registrera prenumerationen till Microsoft.Network-namnområde.
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ## <a name="vnet"></a>1. Skapa ett virtuellt nätverk
@@ -101,13 +103,13 @@ En P2S-konfiguration definierar parametrarna för att ansluta fjärrklienter.
 4. Klicka på **+Add point-to-site config** (Lägg till punkt-till-plats-konfiguration) överst på sidan för att öppna sidan **Create new point-to-site configuration** (Skapa ny punkt-till-plats-konfiguration).
 5. På sidan **Create new point-to-site configuration** (Skapa ny punkt-till-plats-konfiguration) fyller du i följande fält:
 
-  *  **Konfigurationsnamn** – Det här är det namn som du vill använda för att referera till konfigurationen.
-  *  **Tunneltyp** – Protokollet som ska användas för tunneln.
-  *  **Adresspool** – Det här är den IP-adresspool som klienterna kommer att tilldelas från.
-  *  **Root Certificate Name** (Rotcertifikatnamn) – Ett beskrivande namn för certifikatet.
-  *  **Root Certificate Data** (Rotcertifikatdata) – Base-64-kodade X.509-certifikatdata.
+   *  **Konfigurationsnamn** – Det här är det namn som du vill använda för att referera till konfigurationen.
+   *  **Tunneltyp** – Protokollet som ska användas för tunneln.
+   *  **Adresspool** – Det här är den IP-adresspool som klienterna kommer att tilldelas från.
+   *  **Root Certificate Name** (Rotcertifikatnamn) – Ett beskrivande namn för certifikatet.
+   *  **Root Certificate Data** (Rotcertifikatdata) – Base-64-kodade X.509-certifikatdata.
 
-5. Klicka på **Skapa** för att skapa konfigurationen.
+6. Klicka på **Skapa** för att skapa konfigurationen.
 
 ## <a name="hub"></a>5. Redigera hubbtilldelning
 
@@ -115,15 +117,16 @@ En P2S-konfiguration definierar parametrarna för att ansluta fjärrklienter.
 2. Välj den hubb som du vill tilldela punkt-till-plats-konfigurationen till.
 3. Klicka på **”...”** och välj **Redigera virtuell hubb**
 4. Markera **Inkludera punkt-till-plats-gateway**.
-5. Välj **Gateway-skalningsenheter** och **Punkt-till-plats-konfiguration** samt en **Adresspool** för klienterna.
-6. Klicka på **Bekräfta**. 
-7. Åtgärden kan ta upp till 30 minuter att slutföra.
+5. I listrutan väljer du den **Gateway skalningsenheter**.
+6. I listrutan väljer du den **punkt-till-plats-konfiguration** som du skapade.
+7. Konfigurera den **-adresspoolen** för klienter.
+8. Klicka på **Bekräfta**. Åtgärden kan ta upp till 30 minuter att slutföra.
 
 ## <a name="vnet"></a>6. Ansluta ett virtuellt nätverk till en hubb
 
 I det här steget skapar du peeringanslutningen mellan hubben och ett virtuellt nätverk. Upprepa de här stegen för varje virtuellt nätverk du vill ansluta.
 
-1. På sidan för det virtuella WAN-nätverket klickar du på **virtuell nätverksanslutning**.
+1. På sidan för det virtuella WAN-nätverket klickar du på **Virtuella nätverksanslutningar**.
 2. På sidan för virtuell nätverksanslutning klickar du på **+Lägg till anslutning**.
 3. Fyll i följande fält på sidan **Lägg till anslutning**:
 
@@ -131,6 +134,7 @@ I det här steget skapar du peeringanslutningen mellan hubben och ett virtuellt 
     * **Hubbar** – Välj den hubb du vill koppla till anslutningen.
     * **Prenumeration** – Kontrollera prenumerationen.
     * **Virtuellt nätverk** – Välj det virtuella nätverk du vill ansluta till hubben. Det virtuella nätverket får inte ha någon befintlig gateway för virtuellt nätverk.
+4. Klicka på **OK** att lägga till anslutningen.
 
 ## <a name="device"></a>7. Ladda ned VPN-profil
 
@@ -149,7 +153,7 @@ Använd den nedladdade profilen för att konfigurera fjärråtkomstklienterna. P
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Ladda ned och installera OpenVPN-klienten från den officiella webbplatsen.
-2.  Ladda ned VPN-profilen för gatewayen. Detta kan göras från fliken för punkt-till-plats-konfigurationer på Azure-portalen eller via New-AzureRmVpnClientConfiguration i PowerShell.
+2.  Ladda ned VPN-profilen för gatewayen. Detta kan göras från fliken punkt-till-plats-konfigurationer i Azure-portalen eller New-AzVpnClientConfiguration i PowerShell.
 3.  Packa upp profilen. Öppna konfigurationsfilen vpnconfig.ovpn från OpenVPN-mappen i Anteckningar.
 4.  Fyll i avsnittet för P2S-klientcertifikatet med P2S-klientcertifikatets offentliga nyckel i base64. I ett PEM-formaterat certifikat öppnar du bara CER-filen och kopierar över base64-nyckeln mellan certifikathuvudena. Här ser du hur du exporterar ett certifikat för att hämta den kodade offentliga nyckeln.
 5.  Fyll i avsnittet för den privata nyckeln med P2S-klientcertifikatets privata nyckel i base64. Här ser du hur du extraherar den privata nyckeln.
@@ -168,7 +172,7 @@ Använd den nedladdade profilen för att konfigurera fjärråtkomstklienterna. P
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Ladda ned och installera en OpenVPN-klient, till exempel TunnelBlik från https://tunnelblick.net/downloads.html 
-2.  Ladda ned VPN-profilen för gatewayen. Detta kan göras från fliken för punkt-till-plats-konfigurationer på Azure-portalen eller via New-AzureRmVpnClientConfiguration i PowerShell.
+2.  Ladda ned VPN-profilen för gatewayen. Detta kan göras från fliken för punkt-till-plats-konfiguration i Azure-portalen eller New-AzVpnClientConfiguration i PowerShell.
 3.  Packa upp profilen. Öppna konfigurationsfilen vpnconfig.ovpn från OpenVPN-mappen i Anteckningar.
 4.  Fyll i avsnittet för P2S-klientcertifikatet med P2S-klientcertifikatets offentliga nyckel i base64. I ett PEM-formaterat certifikat öppnar du bara CER-filen och kopierar över base64-nyckeln mellan certifikathuvudena. Här ser du hur du exporterar ett certifikat för att hämta den kodade offentliga nyckeln.
 5.  Fyll i avsnittet för den privata nyckeln med P2S-klientcertifikatets privata nyckel i base64. Här ser du hur du extraherar den privata nyckeln.
@@ -201,10 +205,10 @@ Skapa en anslutning för att övervaka kommunikation mellan en virtuell Azure-da
 
 ## <a name="cleanup"></a>12. Rensa resurser
 
-Du kan använda [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) för att ta bort resursgruppen och alla resurser den innehåller när du inte längre behöver dem. Ersätt myResourceGroup med namnet på resursgruppen och kör följande PowerShell-kommando:
+När du inte längre behöver dessa resurser kan du använda [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) att ta bort resursgruppen och alla resurser den innehåller. Ersätt myResourceGroup med namnet på resursgruppen och kör följande PowerShell-kommando:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Nästa steg

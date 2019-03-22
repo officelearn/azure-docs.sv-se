@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 372275740b7d4fd757e97a3966e4e87c9d2de940
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 807a6b38b9f2cbe2a3c8787fe09c2ea14106a942
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105397"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864906"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Kopiera data från en REST-slutpunkt med hjälp av Azure Data Factory
 
@@ -173,7 +173,7 @@ Om du vill kopiera data från REST, stöds följande egenskaper:
 | relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen har inte angetts används bara den URL som anges i länkade tjänstedefinition. | Nej |
 | requestMethod | HTTP-metoden. Tillåtna värden är **hämta** (standard) och **Post**. | Nej |
 | additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
-| RequestBody | Brödtexten för HTTP-begäran. | Nej |
+| requestBody | Brödtexten för HTTP-begäran. | Nej |
 | paginationRules | Sidbrytning regler till att skapa nästa sidförfrågningar. Referera till [stöd för sidbrytning](#pagination-support) avsnittet med information. | Nej |
 
 **Exempel 1: Med Get-metoden med sidbrytning**
@@ -274,8 +274,8 @@ Normalt sett begränsa REST API dess svarsstorlek nyttolasten för en enskild f�
 
 Den här allmän REST-anslutningsapp stöder följande sidbrytning mönster: 
 
-* Nästa förfrågan absolut URL = egenskapsvärdet i aktuella svarstext
-* Nästa förfrågan absolut URL = huvudvärde i aktuella svarshuvuden
+* Nästa förfrågan absolut eller relativ URL = egenskapsvärdet i aktuella svarstext
+* Nästa förfrågan absolut eller relativ URL = huvudvärde i aktuella svarshuvuden
 * Nästa förfrågan Frågeparametern = egenskapsvärdet i aktuella svarstext
 * Nästa förfrågan Frågeparametern = huvudvärde i aktuella svarshuvuden
 * Nästa begärandehuvudet = egenskapsvärdet i aktuella svarstext
@@ -287,8 +287,8 @@ Den här allmän REST-anslutningsapp stöder följande sidbrytning mönster:
 
 | Nyckel | Beskrivning |
 |:--- |:--- |
-| AbsoluteUrl | Anger URL: en för att skicka nästa begäran. |
-| QueryParameters. *request_query_parameter* eller QueryParameters [request_query_parameter] | ”request_query_parameter” är en användardefinierad som hänvisar till en fråga parameternamn i nästa HTTP-begärans-URL. |
+| AbsoluteUrl | Anger URL: en för att skicka nästa begäran. Det kan vara **absolut URL eller relativ URL**. |
+| QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | ”request_query_parameter” är en användardefinierad som hänvisar till en fråga parameternamn i nästa HTTP-begärans-URL. |
 | Rubriker. *request_header* eller rubriker [request_header] | ”request_header” är en användardefinierad som hänvisar till en rubriknamn i nästa HTTP-begäran. |
 
 **Värden som stöds** i sidbrytning regler:

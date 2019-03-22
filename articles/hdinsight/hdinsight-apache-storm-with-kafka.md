@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: 341278237bc18bfbb8f4bb1e5d600e2cab894926
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: b6717bc76caffb9c4b6f7743cc5356a80a8f742b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343365"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111862"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Självstudie: Använda Apache Storm med Apache Kafka i HDInsight
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 > * Stoppa topologierna
 > * Rensa resurser
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Känna till hur man skapar Kafka-ämnen. Mer information finns i dokumentet [Snabbstart för Kafka i HDInsight](./kafka/apache-kafka-get-started.md).
 
@@ -129,7 +129,7 @@ Två topologier medföljer den här självstudien:
     >
     > Om du inte använder mallen i det här dokumentet för att skapa Storm-kluster, måste du tillämpa skriptåtgärden i klustret manuellt.
     >
-    > Skriptåtgärden finns på `https://hdiconfigactions2.blob.core.windows.net/stormextlib/stormextlib.sh` och denna tillämpas på överordnade noder och Nimbus-noder i Storm-klustret. Mer information om hur du använder skriptåtgärder finns i dokumentet [Anpassa HDInsight med hjälp av skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
+    > Skriptåtgärden finns på `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh` och denna tillämpas på överordnade noder och Nimbus-noder i Storm-klustret. Mer information om hur du använder skriptåtgärder finns i dokumentet [Anpassa HDInsight med hjälp av skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
 
 Topologierna definieras med hjälp av [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Flux introducerades i Storm-0.10.x för att du ska kunna avgränsa topologikonfigurationen från koden. För topologier som använder Flux-ramverket definieras topologin i en YAML-fil. YAML-filen kan ingå i topologin. Den kan också vara en fristående fil som används när du skickar topologin. Flux stöder också variabelersättning vid körning, vilket används i det här exemplet.
 
@@ -400,26 +400,26 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Storm-klus
     * Kafka i HDInsight version 3.6 (tre arbetarnoder)
     * Storm i HDInsight version 3.6 (tre arbetarnoder)
 
-  > [!WARNING]  
-  > Klustret måste innehålla minst tre arbetsnoder för att garantera tillgängligheten för Kafka i HDInsight. Den här mallen skapar ett Kafka-kluster som innehåller tre arbetarnoder.
+   > [!WARNING]  
+   > Klustret måste innehålla minst tre arbetsnoder för att garantera tillgängligheten för Kafka i HDInsight. Den här mallen skapar ett Kafka-kluster som innehåller tre arbetarnoder.
 
 2. Använd följande vägledning för att fylla i posterna i avsnittet **Anpassad distribution**:
 
-    2. Använd följande information för att fylla i posterna i avsnittet **Anpassad mall**:
+   1. Använd följande information för att fylla i posterna i avsnittet **Anpassad mall**:
 
-    | Inställning | Värde |
-    | --- | --- |
-    | Prenumeration | Din Azure-prenumeration |
-    | Resursgrupp | Resursgruppen som innehåller resurserna. |
-    | Plats | Azure-regionen som resurserna skapas i. |
-    | Kafka-klusternamn | Namnet på Kafka-klustret. |
-    | Namn på Storm-kluster | Namnet på Storm-klustret. |
-    | Användarnamn för klusterinloggning | Ett administratörsanvändarnamn för klustren. |
-    | Lösenord för klusterinloggning | Ett administratörslösenord för klustren. |
-    | SSH-användarnamn | SSH-användare som ska skapas för klustren. |
-    | SSH-lösenord | Lösenord för SSH-användaren. |
+      | Inställning | Värde |
+      | --- | --- |
+      | Prenumeration | Din Azure-prenumeration |
+      | Resursgrupp | Resursgruppen som innehåller resurserna. |
+      | Plats | Azure-regionen som resurserna skapas i. |
+      | Kafka-klusternamn | Namnet på Kafka-klustret. |
+      | Namn på Storm-kluster | Namnet på Storm-klustret. |
+      | Användarnamn för klusterinloggning | Ett administratörsanvändarnamn för klustren. |
+      | Lösenord för klusterinloggning | Ett administratörslösenord för klustren. |
+      | SSH-användarnamn | SSH-användare som ska skapas för klustren. |
+      | SSH-lösenord | Lösenord för SSH-användaren. |
    
-    ![Bild av mallparametrarna](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
+      ![Bild av mallparametrarna](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
 
 3. Granska **villkoren** och välj sedan **Jag godkänner villkoren ovan**.
 
@@ -434,17 +434,17 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Storm-klus
 
 2. Från katalogen **hdinsight-storm-java-kafka** använder du följande kommando för att kompilera projektet och skapa ett paket för distributionen:
 
-  ```bash
-  mvn clean package
-  ```
+   ```bash
+   mvn clean package
+   ```
 
     Paketet skapar en fil med namnet `KafkaTopology-1.0-SNAPSHOT.jar` i katalogen `target`.
 
 3. Använd följande kommandon för att kopiera paketet till Storm i ditt HDInsight-kluster. Ersätt `sshuser` med SSH-användarnamnet för klustret. Ersätt `stormclustername` med namnet på __Storm__-klustret.
 
-  ```bash
-  scp ./target/KafkaTopology-1.0-SNAPSHOT.jar sshuser@stormclustername-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
-  ```
+   ```bash
+   scp ./target/KafkaTopology-1.0-SNAPSHOT.jar sshuser@stormclustername-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+   ```
 
     När du uppmanas till det anger du det lösenord som du använde när du skapade klustren.
 
@@ -518,7 +518,7 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Storm-klus
 4. Spara `dev.properties`-filen och använd sedan följande kommando till att ladda upp den till **Storm**-klustret:
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
+    scp dev.properties USERNAME@BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     Ersätt **USERNAME** med SSH-användarnamnet för klustret. Ersätt **BASENAME** med basnamnet som du använde när du skapade klustret.
@@ -577,9 +577,9 @@ Kafka lagrar data i ett _ämne_. Du måste skapa ämnet innan du startar Storm-t
 
 1. Använd följande kommando från SSH-sessionen till Storm-klustret för att starta läsartopologin:
 
-  ```bash
-  storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
-  ```
+   ```bash
+   storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
+   ```
 
 2. Vänta en minut och använd sedan följande kommando för att se filerna som skapats av läsartopologin:
 

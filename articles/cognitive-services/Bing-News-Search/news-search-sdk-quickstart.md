@@ -11,22 +11,22 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 39c2416bb692c9b97571eebbcb590c955744cac6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 51de0397e246d3b9e7d4878fd2c8050af1f0ce6f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857098"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090057"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Snabbstart: Utför en nyhetssökning med SDK för nyhetssökning i Bing för C#
 
 Använd den här snabbstarten om du vill börja söka efter nyheter med SDK för nyhetssökning i Bing för C#. Även om Nyhetssökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Valfri version av [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
-* Om du använder Linux/Mac OS kan det här programmet köras med [Mono](http://www.mono-project.com/).
+* Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
 
 * [NuGet-paket för SDK för Nyhetssökning i Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0). Installering av det här paketet installerar även följande:
     * Microsoft.Rest.ClientRuntime
@@ -91,4 +91,4 @@ Se även [Priser för Cognitive Services – API för Bing-sökning](https://azu
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-[Skapa en enkelsidig webbapp](tutorial-bing-news-search-single-page-app.md)
+> [Skapa en enkelsidig webbapp](tutorial-bing-news-search-single-page-app.md)

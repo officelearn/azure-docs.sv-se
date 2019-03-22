@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: nitinme
-ms.openlocfilehash: e52cf99e3bdd1960ca361ccde50d85dfaa2209c0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 1b18bd5aae398d2ec942120af5d96943636c346c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544928"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101119"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Stream-data från Azure Storage Blob till Azure Data Lake Storage Gen1 med Azure Stream Analytics
 I den här artikeln får du lära dig hur du använder Azure Data Lake Storage Gen1 som utdata för Azure Stream Analytics-jobb. Den här artikeln visar ett enkelt scenario som läser data från en Azure Storage blob (indata) och skriver data till Data Lake Storage Gen1 (utdata).
@@ -54,17 +54,17 @@ Börja med att skapa ett Stream Analytics-jobb som innehåller en indatakälla o
 
     ![Lägg till indata för jobbet](./media/data-lake-store-stream-analytics/create.input.2.png "Lägg till indata för jobbet")
 
-    * För **indata alias**, ange ett unikt namn för jobbet som indata.
-    * För **källtyp**väljer **dataströmmen**.
-    * För **källa**väljer **Blob-lagring**.
-    * För **prenumeration**väljer **använda blob storage från aktuell prenumeration**.
-    * För **lagringskonto**, Välj det lagringskonto som du har skapat som en del av förutsättningarna. 
-    * För **behållare**, markera den behållare som du skapade i det valda lagringskontot.
-    * För **händelseserialiseringsformat**väljer **CSV**.
-    * För **avgränsare**väljer **fliken**.
-    * För **Encoding**väljer **UTF-8**.
+   * För **indata alias**, ange ett unikt namn för jobbet som indata.
+   * För **källtyp**väljer **dataströmmen**.
+   * För **källa**väljer **Blob-lagring**.
+   * För **prenumeration**väljer **använda blob storage från aktuell prenumeration**.
+   * För **lagringskonto**, Välj det lagringskonto som du har skapat som en del av förutsättningarna. 
+   * För **behållare**, markera den behållare som du skapade i det valda lagringskontot.
+   * För **händelseserialiseringsformat**väljer **CSV**.
+   * För **avgränsare**väljer **fliken**.
+   * För **Encoding**väljer **UTF-8**.
 
-    Klicka på **Skapa**. Portalen nu lägger till indata och testar anslutningen till den.
+     Klicka på **Skapa**. Portalen nu lägger till indata och testar anslutningen till den.
 
 
 ## <a name="create-a-data-lake-storage-gen1-output-for-the-job"></a>Skapa ett Data Lake Storage Gen1 utdata för jobbet
@@ -84,15 +84,15 @@ Börja med att skapa ett Stream Analytics-jobb som innehåller en indatakälla o
 
     ![Lägg till utdata för jobbet](./media/data-lake-store-stream-analytics/create.output.3.png "Lägg till utdata för jobbet")
 
-    * För **kontonamn**, väljer du det Data Lake Storage Gen1-konto som du redan skapat där du vill att jobbet utdata skickas till.
-    * För **prefixmönster för sögväg**, ange en filsökväg som används för att skriva dina filer inom det angivna Gen1 för Data Lake Storage-kontot.
-    * För **datumformat**, om du använde en datumtoken i prefixsökvägen kan du välja datumformat där filerna ordnas.
-    * För **tidsformat**, om du använde en time-token i prefixsökvägen, ange tidsformatet där filerna ordnas.
-    * För **händelseserialiseringsformat**väljer **CSV**.
-    * För **avgränsare**väljer **fliken**.
-    * För **Encoding**väljer **UTF-8**.
+   * För **kontonamn**, väljer du det Data Lake Storage Gen1-konto som du redan skapat där du vill att jobbet utdata skickas till.
+   * För **prefixmönster för sögväg**, ange en filsökväg som används för att skriva dina filer inom det angivna Gen1 för Data Lake Storage-kontot.
+   * För **datumformat**, om du använde en datumtoken i prefixsökvägen kan du välja datumformat där filerna ordnas.
+   * För **tidsformat**, om du använde en time-token i prefixsökvägen, ange tidsformatet där filerna ordnas.
+   * För **händelseserialiseringsformat**väljer **CSV**.
+   * För **avgränsare**väljer **fliken**.
+   * För **Encoding**väljer **UTF-8**.
     
-    Klicka på **Skapa**. Portalen nu lägger till utdata och testar anslutningen till den.
+     Klicka på **Skapa**. Portalen nu lägger till utdata och testar anslutningen till den.
     
 ## <a name="run-the-stream-analytics-job"></a>Köra Stream Analytics-jobbet
 

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 000f8de4d40fda39f183b0824bea6a09605e6e9d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: a47a30995f651204782325a9f984086fdf382a03
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977617"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202205"
 ---
 # <a name="use-time-based-apache-oozie-coordinator-with-apache-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Använda tidsbaserad Apache Oozie-koordinator med Apache Hadoop i HDInsight för att definiera arbetsflöden och samordna jobb
 I den här artikeln får lära du dig hur du definierar arbetsflöden och koordinatorer och hur du utlöser coordinator jobben, baserat på tiden. Är det bra att gå igenom [Använd Apache Oozie med HDInsight] [ hdinsight-use-oozie] innan du läser den här artikeln. Förutom Oozie, kan du också schemalägga jobb med hjälp av Azure Data Factory. Läs Azure Data Factory i [använda Apache Pig- och Apache Hive med Data Factory](../data-factory/transform-data.md).
@@ -73,7 +73,7 @@ Innan du påbörjar de här självstudierna måste du ha:
     |HDInsight-klusternamnet|$clusterName||HDInsight-kluster som du vill köra den här självstudien.|
     |Användarnamn för HDInsight-kluster|$clusterUsername||Användarnamn för HDInsight-kluster. |
     |Användarlösenord för HDInsight-kluster |$clusterPassword||Användarlösenord för HDInsight-kluster.|
-    |Azure storage-kontonamn|$storageAccountName||Ett Azure Storage-konto är tillgänglig för HDInsight-klustret. Använd standardkontot för lagring som du angav när klustret etablera den här självstudien.|
+    |Azure Storage-kontonamn|$storageAccountName||Ett Azure Storage-konto är tillgänglig för HDInsight-klustret. Använd standardkontot för lagring som du angav när klustret etablera den här självstudien.|
     |Azure Blob-behållarnamn|$containerName||I det här exemplet använder du Azure Blob storage-behållaren som används för standardfilsystemet för HDInsight-kluster. Som standard har samma namn som HDInsight-klustret.|
 
 
@@ -87,7 +87,7 @@ Innan du påbörjar de här självstudierna måste du ha:
     |SQL-databasnamn|$sqlDatabaseName||Azure SQL-databasen som Sqoop exporterar data. |
 
   > [!NOTE]   
-  > Som standard tillåter anslutningar från Azure-tjänster, till exempel Azure HDInsight i en Azure SQL database. Om brandväggsinställningen är inaktiverad, måste du aktivera det från Azure Portal. Anvisningar om att skapa en SQL-databas och konfigurera brandväggsregler finns i [skapa och konfigurera SQL Database][sqldatabase-get-started].
+  > Som standard tillåter anslutningar från Azure-tjänster, till exempel Azure HDInsight i en Azure SQL database. Om brandväggsinställningen är inaktiverad, måste du aktivera det från Azure-portalen. Anvisningar om att skapa en SQL-databas och konfigurera brandväggsregler finns i [skapa och konfigurera SQL Database][sqldatabase-get-started].
 
 > [!NOTE]  
 > Egna värden i tabeller. Det kan vara bra för att gå igenom den här kursen.
@@ -192,7 +192,7 @@ Hive-åtgärden i arbetsflödet anropar en skriptfil för HiveQL. Den här skrip
     |Arbetsflödesvariabler|Beskrivning|
     |---|---|
     |${jobTracker}|Ange Webbadressen till spårningsverktyget för Hadoop-jobb. Använd **jobtrackerhost:9010** på HDInsight-kluster version 3.0 och 2.0.|
-    |${nameNode}|Ange URL: en för noden Hadoop namn. Använd standard file system wasb: / / adress, till exempel *wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net*.|
+    |${nameNode}|Ange URL: en för noden Hadoop namn. Använd standard file system wasb: / / adress, till exempel *wasb: / /&lt;containerName&gt;\@&lt;storageAccountName&gt;. blob.core.windows.net*.|
     |${queueName}|Anger namnet på kön som jobbet ska skickas till. Använd **standard**.|
 
     Åtgärdsvariabler för hive
@@ -655,15 +655,15 @@ Azure PowerShell erbjuder inte för närvarande cmdlets för att definiera Oozie
 
 Ta bort #-tecken om du vill köra ytterligare funktioner.
 
-9. Om ditt HDinsight-kluster är version 2.1 ersätter du ”https://$clusterName.azurehdinsight.net:443/oozie/v2/” med ”https://$clusterName.azurehdinsight.net:443/oozie/v1/”. HDInsight-kluster av version 2.1 har inte stöd för version 2 av web services.
-10. Klicka på **kör skript** eller tryck på **F5** att köra skriptet. Utdata ska vara detsamma som:
+1. Om ditt HDInsight-kluster är version 2.1 ersätter du ”https://$clusterName.azurehdinsight.net:443/oozie/v2/” med ”https://$clusterName.azurehdinsight.net:443/oozie/v1/”. HDInsight-kluster av version 2.1 har inte stöd för version 2 av web services.
+1. Klicka på **kör skript** eller tryck på **F5** att köra skriptet. Utdata ska vara detsamma som:
 
-     ![Självstudie kör arbetsflödets utdata][img-runworkflow-output]
-11. Anslut till SQL Database för att se exporterade data.
+    ![Självstudie kör arbetsflödets utdata][img-runworkflow-output]
+1. Anslut till SQL Database för att se exporterade data.
 
 **Kontrollera i felloggen för jobbet**
 
-Om du vill felsöka ett arbetsflöde, finns Oozie loggfilen på C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log från klustrets huvudnod. Information om RDP finns [administrera HDInsight-kluster med Azure portal][hdinsight-admin-portal].
+Om du vill felsöka ett arbetsflöde, finns Oozie loggfilen på C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log från klustrets huvudnod. Information om RDP finns [hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure portal](hdinsight-administer-use-portal-linux.md).
 
 **Att köra självstudien**
 
@@ -719,7 +719,6 @@ I den här självstudien beskrivs hur du definierar ett Oozie-arbetsflöde och O
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 [hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md

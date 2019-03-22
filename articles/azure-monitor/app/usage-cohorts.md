@@ -13,12 +13,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 810ccae08b540c417a0e7dfecb6ad5a8b110cd7b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a575161be0a339973f9c59cc13c2320b38939d04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54046033"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108533"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights kohorter
 
@@ -105,16 +105,16 @@ Föregående två kohorter definierades med hjälp av listrutorna. Men du kan oc
     ![Kohort för tomma användare](./media/usage-cohorts/001.png)
 
     Det finns tre avsnitt:
-    * Ett Markdown textavsnitt, där du beskriver kohort i detalj för andra i din grupp.
+   * Ett Markdown textavsnitt, där du beskriver kohort i detalj för andra i din grupp.
 
-    * Ett avsnitt med parametrar, där du kan göra dina egna parametrar som **aktiviteter** och andra listrutorna i föregående två exempel.
+   * Ett avsnitt med parametrar, där du kan göra dina egna parametrar som **aktiviteter** och andra listrutorna i föregående två exempel.
 
-    * Ett fråga avsnitt, där du kan definiera kohorten med hjälp av en analytics-fråga.
+   * Ett fråga avsnitt, där du kan definiera kohorten med hjälp av en analytics-fråga.
 
-    I avsnittet frågan du [skriva en analytics-fråga](/azure/kusto/query). Frågan väljer vissa uppsättningen rader som beskriver den kohort som du vill definiera. Verktyget kohorter implicit lägger till en ”| summera efter user_Id ”-sats i frågan. Dessa data förhandsgranskas nedan frågan i en tabell, så kontrollera att frågan returnerar resultat.
+     I avsnittet frågan du [skriva en analytics-fråga](/azure/kusto/query). Frågan väljer vissa uppsättningen rader som beskriver den kohort som du vill definiera. Verktyget kohorter implicit lägger till en ”| summera efter user_Id ”-sats i frågan. Dessa data förhandsgranskas nedan frågan i en tabell, så kontrollera att frågan returnerar resultat.
 
-    > [!NOTE]
-    > Om du inte ser frågan kan du prova att ändra storlek i avsnittet om du vill göra den högre och visa frågan. Animerad GIF i början av det här avsnittet visar vad storleksändring.
+     > [!NOTE]
+     > Om du inte ser frågan kan du prova att ändra storlek i avsnittet om du vill göra den högre och visa frågan. Animerad GIF i början av det här avsnittet visar vad storleksändring.
 
 2. Kopiera och klistra in följande text i frågeredigeraren:
 

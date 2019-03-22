@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: e4bc5de9345bcb65f82ca7ac0095b3e0fd3907e9
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.openlocfilehash: aefbe4265cb97a003b908c5631e1f9ed4e0192cc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166006"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102136"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Använda Azure-portalen för att hantera bandbreddsscheman på din Azure Data Box Gateway  
 
@@ -43,13 +43,13 @@ Lägg till en användare genom att följa de här instruktionerna på Azure-port
 
 3. I **Lägg till schema**: 
 
-    1. Ange **Startdag**, **Slutdag**, **Starttid** och **Sluttid** för schemat. 
-    2. Om schemat körs dygnet runt kan du markera alternativet **Dygnet runt**. 
-    3. **Bandbreddshastighet** är den bandbredd i megabit per sekund (Mbit/s) som används av din enhet i åtgärder som rör molnet (upp- och nedladdning). Ange ett tal mellan 1 och 1 000 för det här fältet. 
-    4. Markera **Obegränsad** bandbredd om du inte vill begränsa upp- och nedladdningen. 
-    5. Klicka på **Lägg till**.
+   1. Ange **Startdag**, **Slutdag**, **Starttid** och **Sluttid** för schemat. 
+   2. Om schemat körs dygnet runt kan du markera alternativet **Dygnet runt**. 
+   3. **Bandbreddshastighet** är den bandbredd i megabit per sekund (Mbit/s) som används av din enhet i åtgärder som rör molnet (upp- och nedladdning). Ange ett tal mellan 1 och 1 000 för det här fältet. 
+   4. Markera **Obegränsad** bandbredd om du inte vill begränsa upp- och nedladdningen. 
+   5. Klicka på **Lägg till**.
 
-    ![Klicka på Lägg till användare](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
+      ![Klicka på Lägg till användare](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
 
 3. Ett schema skapas med de angivna parametrarna. Schemat visas sedan i listan över bandbreddsscheman i portalen.
 

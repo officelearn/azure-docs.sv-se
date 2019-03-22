@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 7b99dcf621eac90d4b75d6827102b656f95aafbb
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 8d369800bdc9817856eeb7039fe47e5b870735ba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958889"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107380"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Hantera kluster skalbar för att hantera ändrade behov
 
@@ -42,7 +42,7 @@ Följande bild visar flödet av de kommande stegen. Mer information finns under 
     **Kriterie**
 
     | Inställning | Beskrivning och värde |
-    | --- | --- | --- |
+    | --- | --- |
     | **Tidsmängd** | Välj en aggregering villkor, till exempel **genomsnittlig**. |
     | **Måttnamn** | Välj det mått som du vill att åtgärden ska baseras på, till exempel **Cache användning**. |
     | **Tidsintervallstatistik** | Välj mellan **genomsnittliga**, **minsta**, **maximala**, och **summan**. |
@@ -54,7 +54,7 @@ Följande bild visar flödet av de kommande stegen. Mer information finns under 
     **Åtgärd**
 
     | Inställning | Beskrivning och värde |
-    | --- | --- | --- |
+    | --- | --- |
     | **Åtgärd** | Välj rätt alternativ för att skala in eller skala ut. |
     | **Instansantal** | Välj antal noder eller instanser som du vill lägga till eller ta bort när ett mått villkor är uppfyllt. |
     | **Väntetid (minuter)** | Välj en lämplig tidsintervallet mellan skalningsåtgärder. Börja med standardvärdet på fem minuter. |
@@ -65,7 +65,7 @@ Följande bild visar flödet av de kommande stegen. Mer information finns under 
 1. I den **Instansgränser** till vänster och ange värden för varje inställning.
 
     | Inställning | Beskrivning och värde |
-    | --- | --- | --- |
+    | --- | --- |
     | **Minimum** | Antalet instanser som klustret inte skalas nedan, oavsett användning. |
     | **Maximalt** | Antalet instanser som klustret inte skalas ovan, oavsett användning. |
     | **Standard** | Standardantalet instanser. Den här inställningen används om det är problem med att läsa. |

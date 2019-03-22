@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 02/22/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 97123ec795353073b912bd83e0abb45e23549a75
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: HT
+ms.openlocfilehash: b9c89b6cb6dbc6cb217be671eb0e52c0416811ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749808"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889853"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Börja utveckla med Media Services v3 API med hjälp av SDK:er/verktyg
 
@@ -29,7 +29,7 @@ Som utvecklare kan du använda Media Services [REST API](https://aka.ms/ams-v3-r
 
 Det här avsnittet innehåller länkar till SDK:er, verktyg och dokumentation. Där finns även användbar information för olika utvecklarmiljöer.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att börja utveckla mot Media Services behöver du:
 
@@ -95,7 +95,7 @@ Utforska Media Services [.NET-referensdokumentationen](https://aka.ms/ams-v3-dot
 - [Använda dynamisk DRM-kryptering och tjänsten för licensleverans – .NET](protect-with-drm.md)
 - [Hämta en signeringsnyckel från den befintliga principen – .NET](get-content-key-policy-dotnet-howto.md)
 - [Skapa filter med Media Services – .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Avancerad exempel på video på begäran för Azure Functions v2 med Media Services v3](http://aka.ms/ams3functions)
+- [Avancerad exempel på video på begäran för Azure Functions v2 med Media Services v3](https://aka.ms/ams3functions)
 
 ## <a name="java"></a>Java
 

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: adsolank;juliako;johndeu
-ms.openlocfilehash: 4bc11e4f622943cdb72253ecd758c27a026495fa
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a11ae0414d6737f1588515ec19524bcf499f0c74
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991166"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189112"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexera mediefiler med Azure Media Indexer
 Azure Media Indexer kan du göra innehållet i mediefiler sökbart och att generera en fulltextavskrift för dold textning och nyckelord. Du kan bearbeta en mediefil eller flera mediefiler i en batch.  

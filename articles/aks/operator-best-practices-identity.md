@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 7d846f28e78959b6962add51070f04857f6463d7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 201fef6b3e773daa18ae252d1d5734d8d87419b5
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852823"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287136"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Metodtips för autentisering och auktorisering i Azure Kubernetes Service (AKS)
 
@@ -67,7 +67,7 @@ rules:
 En RoleBinding skapas som binder Azure AD-användare *developer1\@contoso.com* till RoleBinding, enligt följande YAML-manifest:
 
 ```yaml
-ind: RoleBinding
+kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: finance-app-full-access-role-binding
@@ -90,7 +90,7 @@ När *developer1\@contoso.com* autentiseras mot AKS-kluster som de har fullstän
 
 När poddar behöver åtkomst till andra Azure-tjänster, till exempel Cosmos DB, Key Vault eller Blob-lagring, måste din pod autentiseringsuppgifter. Dessa autentiseringsuppgifter kan definieras med behållaravbildningen eller matas in som en Kubernetes-hemlighet, men måste skapas och tilldelas manuellt. Ofta autentiseringsuppgifterna som återanvänds i poddar och regelbundet roteras med inte.
 
-Hanterade identiteter för Azure-resurser kan du automatiskt begära åtkomst till tjänster via Azure AD. Du inte manuellt definiera autentiseringsuppgifter för poddar, i stället de begär en åtkomsttoken i realtid och använda den för att få åtkomst till endast sina tilldelade tjänster. I AKS distribueras två komponenter av kluster-operatorn för att tillåta poddar hanterade identiteter:
+Hanterade identiteter för Azure-resurser (för närvarande implementeras som ett tillhörande AKS-öppenkällkodsprojekt) kan du automatiskt begära åtkomst till tjänster via Azure AD. Du inte manuellt definiera autentiseringsuppgifter för poddar, i stället de begär en åtkomsttoken i realtid och använda den för att få åtkomst till endast sina tilldelade tjänster. I AKS distribueras två komponenter av kluster-operatorn för att tillåta poddar hanterade identiteter:
 
 * **Noden Management identitet (NMI)-server** är en pod som körs som en DaemonSet på varje nod i AKS-klustret. NMI servern lyssnar efter pod-begäranden till Azure-tjänster.
 * **Hanterad identitet Controller (MIC)** är en central pod med behörighet att fråga Kubernetes API-servern och söker efter en Azure identitet mappning som motsvarar en pod.
@@ -105,6 +105,8 @@ I följande exempel skapar en utvecklare en pod som använder en hanterad identi
 1. NMI servern och MIC distribueras för att vidarebefordra alla pod-begäranden för åtkomst-token till Azure AD.
 1. En utvecklare distribuerar en pod med en hanterad identitet som begär en åtkomsttoken via NMI-servern.
 1. Token tillbaka till din pod och används för åtkomst till en Azure SQL Server-instans.
+
+Hanterade pod identiteter är ett öppenkällkodsprojekt i AKS och stöds inte av teknisk support för Azure. Den tillhandahålls för att samla in feedback och buggar från vår community. Projektet rekommenderas inte för användning i produktion.
 
 Om du vill använda pod identiteter, se [Azure Active Directory-identiteter för Kubernetes-program][aad-pod-identity].
 

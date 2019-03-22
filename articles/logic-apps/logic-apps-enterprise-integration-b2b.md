@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.date: 07/08/2016
-ms.openlocfilehash: ad7a29f4a554d599b17576921542b1ac6e403911
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 05368f627c5e9482a43d5e30b0e16b1d47f6217c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127772"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074734"
 ---
 # <a name="receive-b2b-data-with-azure-logic-apps-and-enterprise-integration-pack"></a>Ta emot B2B-data med Azure Logic Apps och Enterprise-Integrationspaket
 
@@ -47,11 +47,13 @@ Följ stegen nedan för att skapa en B2B-logikapp som använder AS2 och X12 åtg
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-6.png)
 
-6. Lägg till den **brödtext** som du vill använda som indata. I det här exemplet väljer du brödtexten i HTTP-begäran som utlöser logikappen. Eller ange ett uttryck som indata huvudena i den **RUBRIKER** fält:
+6. Lägg till den **brödtext** som du vill använda som indata. 
+   I det här exemplet väljer du brödtexten i HTTP-begäran som utlöser logikappen. Eller ange ett uttryck som indata huvudena i den **RUBRIKER** fält:
 
     @triggerOutputs() [”headers”]
 
-7. Lägg till de nödvändiga **rubriker** för AS2-, som du hittar i HTTP-begärans sidhuvud. I det här exemplet väljer du sidhuvuden för HTTP-begäran som utlöser logikappen.
+7. Lägg till de nödvändiga **rubriker** för AS2-, som du hittar i HTTP-begärans sidhuvud. 
+   I det här exemplet väljer du sidhuvuden för HTTP-begäran som utlöser logikappen.
 
 8. Nu ska du lägga till åtgärden för avkodningen X12-meddelande. Välj **Lägg till en åtgärd**.
 
@@ -65,12 +67,13 @@ Följ stegen nedan för att skapa en B2B-logikapp som använder AS2 och X12 åtg
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-as2message.png)
 
-11. Du måste nu ange indata till den här åtgärden. Indata för det här är utdata från föregående AS2-åtgärd.
+11. Du måste nu ange indata till den här åtgärden. 
+    Indata för det här är utdata från föregående AS2-åtgärd.
 
     Faktiska meddelandeinnehåll är i ett JSON-objekt och är base64-kodat, så du måste ange ett uttryck som indata. 
     Ange följande uttryck i den **X12 för platt fil meddelandet till AVKODNINGEN** inmatningsfält:
     
-    @base64ToString(body('Decode_AS2_message')? ['AS2Message']? ['Content'])
+    @base64ToString(body('Decode_AS2_message')?['AS2Message']?['Content'])
 
     Nu ska du lägga till stegen för att avkoda X12 data togs emot från handelspartner och utdata objekt i ett JSON-objekt. 
     För att meddela partnern att data togs emot, kan du skicka tillbaka ett svar som innehåller Disposition meddelande AS2 meddelande (MDN) i en åtgärd för HTTP-svar.
@@ -89,7 +92,7 @@ Följ stegen nedan för att skapa en B2B-logikapp som använder AS2 och X12 åtg
 
 15. Åtkomst till MDN från utdata från den **avkodningen X12 meddelande** , anger svaret **BRÖDTEXT** fältet med det här uttrycket:
 
-    @base64ToString(body('Decode_AS2_message')? ['OutgoingMdn']? ['Content'])
+    @base64ToString(body('Decode_AS2_message')?['OutgoingMdn']?['Content'])
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-17.png)  
 

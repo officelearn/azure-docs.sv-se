@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 2aa5522b8200f87df633759ee136f744cd1b8099
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6588690629d2e266469a4b8ea533c5650f3fc0ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471240"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890890"
 ---
 # <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Introduktion till Geo AI Data Science Virtual Machine
 
@@ -44,7 +44,7 @@ Integrera geografi och plats med dina data ger en kraftfull ny dimension till at
 
 Den [Data Science Virtual Machine (DSVM)](overview.md) från Microsoft är en populär experimentering och modellering miljön i Azure, som ger en mängd AI, Machine Learning och data science-verktyg. Dessa plattformar och verktyg är allt bekvämt förkonfigurerade för att vara produktiv direkt. 
 
-Genom att kombinera förutsägande funktionerna i den virtuella datorn för datavetenskap med skalbarheten i Azure-molnet och analytics geodataprogramvara från [ESRI](http://www.esri.com), dataforskare och geospatial analytiker har en produktiv plattform från nu som du vill få nya insikter från sina data och hitta nya möjligheter. 
+Genom att kombinera förutsägande funktionerna i den virtuella datorn för datavetenskap med skalbarheten i Azure-molnet och analytics geodataprogramvara från [ESRI](https://www.esri.com), dataforskare och geospatial analytiker har en produktiv plattform från nu som du vill få nya insikter från sina data och hitta nya möjligheter. 
 
 
 ## <a name="next-steps"></a>Nästa steg

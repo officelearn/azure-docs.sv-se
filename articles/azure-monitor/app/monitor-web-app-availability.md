@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: b5bca3b4c9f5fbe4c9d7dd917b4e2f0767abf145
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9b04ca359a0c71a04e762452fa33345201f37e84
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341025"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124328"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Övervaka tillgänglighet och svarstider på valfri webbplats
 När du har distribuerat din webbapp eller webbplats till en server kan du konfigurera tester för att övervaka appens tillgänglighet och svarstider. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) skickar begäranden till ditt program med jämna mellanrum från platser över hela världen. Den varnar dig om programmet inte svarar eller svarar långsamt.
@@ -92,7 +92,7 @@ Spela in en webbsession med Visual Studio Enterprise.
 
     ![Skapa ett projekt i Visual Studio Enterprise från mallen Webbprestanda- och inläsningstest.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
- * *Kan du inte se mallen Webbprestanda- och inläsningstest?* - Stäng Visual Studio Enterprise. Öppna **installationsprogrammet för Visual Studio** för att ändra Visual Studio Enterprise-installationen. Välj **Web Performance and load testing tools** (Verktyg för webbprestanda- och inläsningstest) under **Individual Components** (Enskilda komponenter).
+   * *Kan du inte se mallen Webbprestanda- och inläsningstest?* - Stäng Visual Studio Enterprise. Öppna **installationsprogrammet för Visual Studio** för att ändra Visual Studio Enterprise-installationen. Välj **Web Performance and load testing tools** (Verktyg för webbprestanda- och inläsningstest) under **Individual Components** (Enskilda komponenter).
 
 2. Öppna filen .webtest och börja inspelningen.
 

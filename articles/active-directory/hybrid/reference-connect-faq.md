@@ -15,16 +15,33 @@ ms.date: 11/02/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 594fb736b8ec4b49cf1525047ff8a7ce5e5dc959
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a392fd03016f83f86364d8f92e8bb4da0aa3364a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194979"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840910"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect – vanliga frågor och svar
 
 ## <a name="general-installation"></a>Allmän installation
+
+**F: Hur kan jag skydda mitt Azure AD Connect-servern för att minska risken för angrepp säkerhet?**
+
+Microsoft rekommenderar Härdning av din Azure AD Connect-servern för att minska risken för angrepp säkerhet för den här viktig komponent i din IT-miljö.  Följa rekommendationerna nedan kommer att minska riskerna för din organisation.
+
+* Distribuera Azure AD Connect på en domänansluten server och begränsa administrativ åtkomst till Domänadministratörer eller andra strikt kontrollerad säkerhetsgrupper
+
+Du kan läsa mer här: 
+
+* [Att säkra administratörsgrupper](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+
+* [Skydda inbyggda administratörskonton](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+
+* [Nya säkerhetsförbättringarna och sustainment genom att minska attack Surface-enheter](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+
+* [Minska angreppsytan för Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+
 **F: Fungerar installationen om den globala administratören för Azure Active Directory (Azure AD) har tvåfaktorautentisering (2FA) aktiverad?**  
 Det här scenariot stöds från och med februari 2016-versioner.
 

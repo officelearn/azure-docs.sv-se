@@ -16,12 +16,12 @@ ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 09/28/2018
-ms.openlocfilehash: c7a6330f8e0197092f4c581f46c3cc6e68dba247
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: eef9e45d71dd5a8c29112f74deaf8342dc0d1406
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540276"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101507"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Använd API-versionsprofiler med Java i Azure Stack
 
@@ -62,11 +62,11 @@ Observera att du kan kombinera alla alternativ i samma program.
 
 Använd följande steg för att installera Java SDK:
 
-1.  Följ officiella anvisningarna för att installera Git. Anvisningar finns i [komma igång - installerar Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+1. Följ officiella anvisningarna för att installera Git. Anvisningar finns i [komma igång - installerar Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-2.  Följ officiella anvisningarna för att installera den [Java SDK](https://zulu.org/download/) och [Maven](https://maven.apache.org/). Rätt version är version 8 av Java Developer Kit. Rätt Apache Maven är version 3.0 eller senare. Miljövariabeln JAVA_HOME måste anges till installationsplatsen för Java Development Kit för att slutföra snabbstarten. Mer information finns i [skapa din första funktion med Java och Maven](../../azure-functions/functions-create-first-java-maven.md).
+2. Följ officiella anvisningarna för att installera den [Java SDK](https://zulu.org/download/) och [Maven](https://maven.apache.org/). Rätt version är version 8 av Java Developer Kit. Rätt Apache Maven är version 3.0 eller senare. Miljövariabeln JAVA_HOME måste anges till installationsplatsen för Java Development Kit för att slutföra snabbstarten. Mer information finns i [skapa din första funktion med Java och Maven](../../azure-functions/functions-create-first-java-maven.md).
 
-3.  Installera rätt beroendepaketen genom att öppna filen Pom.xml i ditt Java-program. Lägg till ett beroende som visas i följande kod:
+3. Installera rätt beroendepaketen genom att öppna filen Pom.xml i ditt Java-program. Lägg till ett beroende som visas i följande kod:
 
    ```xml  
    <dependency>
@@ -76,17 +76,17 @@ Använd följande steg för att installera Java SDK:
    </dependency>
    ```
 
-4.  De paket som måste installeras beror på vilken profil-version som du vill använda. Paketnamn för profilversioner är:
+4. De paket som måste installeras beror på vilken profil-version som du vill använda. Paketnamn för profilversioner är:
     
    - **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**
    - **com.microsoft.azure**
-      - **latest**
+     - **latest**
 
-5.  Om det inte finns skapar du en prenumeration och spara prenumerations-ID för senare användning. Anvisningar om hur du skapar en prenumeration finns i [skapa prenumerationer för erbjudanden i Azure Stack](../azure-stack-subscribe-plan-provision-vm.md).
+5. Om det inte finns skapar du en prenumeration och spara prenumerations-ID för senare användning. Anvisningar om hur du skapar en prenumeration finns i [skapa prenumerationer för erbjudanden i Azure Stack](../azure-stack-subscribe-plan-provision-vm.md).
 
-6.  Skapa ett huvudnamn för tjänsten och spara klient-ID och Klienthemlighet. Anvisningar om hur du skapar ett huvudnamn för tjänsten för Azure Stack finns i [ge program åtkomst till Azure Stack](../azure-stack-create-service-principals.md). Observera att klient-ID är även känd som program-ID när du skapar ett huvudnamn för tjänsten.
+6. Skapa ett huvudnamn för tjänsten och spara klient-ID och Klienthemlighet. Anvisningar om hur du skapar ett huvudnamn för tjänsten för Azure Stack finns i [ge program åtkomst till Azure Stack](../azure-stack-create-service-principals.md). Observera att klient-ID är även känd som program-ID när du skapar ett huvudnamn för tjänsten.
 
-7.  Kontrollera att tjänstens huvudnamn har rollen deltagare/ägare av prenumerationen. Anvisningar om hur du tilldelar en roll till tjänstens huvudnamn finns i [ge program åtkomst till Azure Stack](../azure-stack-create-service-principals.md).
+7. Kontrollera att tjänstens huvudnamn har rollen deltagare/ägare av prenumerationen. Anvisningar om hur du tilldelar en roll till tjänstens huvudnamn finns i [ge program åtkomst till Azure Stack](../azure-stack-create-service-principals.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -98,7 +98,7 @@ Om du vill använda Azure Java SDK med Azure Stack, måste du ange följande vä
 | Klientorganisations-ID                 | AZURE_CLIENT_ID             | Tjänsten huvudnamn program-ID sparas när tjänstens huvudnamn har skapats i föregående avsnitt i det här dokumentet.                                                                                              |
 | Prenumerations-ID:t           | AZURE_SUBSCRIPTION_ID      | Den [ <span class="underline">prenumerations-ID</span> ](../azure-stack-plan-offer-quota-overview.md#subscriptions) är hur du kommer åt erbjudanden i Azure Stack.                |
 | Klienthemlighet             | AZURE_CLIENT_SECRET        | Huvudnamn tjänstprogrammet hemlighet sparas när tjänstens huvudnamn har skapats.                                                                                                                                   |
-| Resource Manager-slutpunkten | ARM_ENDPOINT              | Se [ <span class="underline">Azure Stack resource manager-slutpunkten</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Resource Manager-slutpunkten | ARM_ENDPOINT              | Se [ <span class="underline">Azure Stack Resource Manager-slutpunkten</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Plats                  | RESOURCE_LOCATION    | Lokal för Azure Stack                                                                                                                                                                                                |
 
 Du hittar klient-ID för Azure Stack, följer du instruktionerna [här](../azure-stack-csp-ref-operations.md). Ange din miljövariabler genom att göra följande:
@@ -119,7 +119,23 @@ I Unix-baserat system, kan du använda följande kommando:
 Export AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
-### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack resource manager-slutpunkt
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Lita på Azure Stack Certifikatutfärdarens rotcertifikat
+
+Om du använder ASDK behöver ska lita på Certifikatutfärdarens rotcertifikat på din fjärrdatorn. Du behöver inte göra detta med integrerade system.
+
+#### <a name="windows"></a>Windows
+
+1. Exportera de Azure Stack självsignerat certifikatet på skrivbordet
+
+1. Ändra katalogen till %JAVA_HOME%\bin i en cmd-gränssnitt
+
+1. Kör den här cmd:
+
+```shell
+      .\keytool.exe -importcert -noprompt -file <location of the exported certificate here> -alias root -keystore %JAVA_HOME%\lib\security\cacerts -trustcacerts -storepass changeit
+```
+
+### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack Resource Manager-slutpunkten
 
 Microsoft Azure Resource Manager är en management-ramverk som gör att administratörer kan distribuera, hantera och övervaka Azure-resurser. Azure Resource Manager kan hantera dessa uppgifter som en grupp i stället, i en enda åtgärd.
 
@@ -162,10 +178,10 @@ Följande kod autentiserar tjänstens huvudnamn i Azure Stack. Skapas en token g
 
 ```java
 AzureTokenCredentials credentials = new ApplicationTokenCredentials(client, tenant, key, AZURE_STACK)
-                    .withDefaultSubscriptionId(subscriptionId);
+                    .withDefaultSubscriptionID(subscriptionID);
 Azure azureStack = Azure.configure()
                     .withLogLevel(com.microsoft.rest.LogLevel.BASIC)
-                    .authenticate(credentials, credentials.defaultSubscriptionId());
+                    .authenticate(credentials, credentials.defaultSubscriptionID());
 ```
 
 På så sätt kan du använda beroenden för API-profil för att distribuera programmet till Azure Stack.
@@ -181,8 +197,8 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
                     put("resourceManagerEndpointUrl", armEndpoint);
                     put("galleryEndpointUrl", settings.get("galleryEndpoint"));
                     put("activeDirectoryEndpointUrl", settings.get("login_endpoint"));
-                    put("activeDirectoryResourceId", settings.get("audience"));
-                    put("activeDirectoryGraphResourceId", settings.get("graphEndpoint"));
+                    put("activeDirectoryResourceID", settings.get("audience"));
+                    put("activeDirectoryGraphResourceID", settings.get("graphEndpoint"));
                     put("storageEndpointSuffix", armEndpoint.substring(armEndpoint.indexOf('.')));
                     put("keyVaultDnsSuffix", ".vault" + armEndpoint.substring(armEndpoint.indexOf('.')));
                 }
@@ -226,33 +242,33 @@ Du kan använda följande GitHub-exempel som referens för att skapa lösningar 
 
 ### <a name="sample-unit-test-project"></a>Exempelprojektet enhet Test 
 
-1.  Klona databasen med hjälp av följande kommando:
+1. Klona databasen med hjälp av följande kommando:
     
-    `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
+   `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
 
-2.  Skapa en Azure-tjänstens huvudnamn och tilldela en roll får åtkomst till prenumerationen. Anvisningar om hur du skapar ett huvudnamn för tjänsten finns i [med Azure PowerShell för att skapa ett huvudnamn för tjänsten med ett certifikat](../azure-stack-create-service-principals.md).
+2. Skapa en Azure-tjänstens huvudnamn och tilldela en roll får åtkomst till prenumerationen. Anvisningar om hur du skapar ett huvudnamn för tjänsten finns i [med Azure PowerShell för att skapa ett huvudnamn för tjänsten med ett certifikat](../azure-stack-create-service-principals.md).
 
-3.  Hämta de följande obligatoriska värdena för miljövariabler:
+3. Hämta de följande obligatoriska värdena för miljövariabler:
     
-    -  AZURE_TENANT_ID
-    -  AZURE_CLIENT_ID
-    -  AZURE_CLIENT_SECRET
-    -  AZURE_SUBSCRIPTION_ID
-    -  ARM_ENDPOINT
-    -  RESOURCE_LOCATION
+   -  AZURE_TENANT_ID
+   -  AZURE_CLIENT_ID
+   -  AZURE_CLIENT_SECRET
+   -  AZURE_SUBSCRIPTION_ID
+   -  ARM_ENDPOINT
+   -  RESOURCE_LOCATION
 
-4.  Ange följande miljövariabler med hjälp av informationen som du hämtade från tjänstens huvudnamn du skapat med hjälp av Kommandotolken:
+4. Ange följande miljövariabler med hjälp av informationen som du hämtade från tjänstens huvudnamn du skapat med hjälp av Kommandotolken:
     
-    - Exportera AZURE_TENANT_ID = {ditt klient-id}
-    - Exportera AZURE_CLIENT_ID = {din klient-id}
-    - Exportera AZURE_CLIENT_SECRET = {klienthemlighet}
-    - Exportera AZURE_SUBSCRIPTION_ID = {ditt prenumerations-id}
-    - Exportera ARM_ENDPOINT = {din Azure Stack Resource manager-URL}
-    - Exportera RESOURCE_LOCATION = {platsen för Azure Stack}
+   - Exportera AZURE_TENANT_ID = {ditt klient-ID}
+   - Exportera AZURE_CLIENT_ID = {din klient-ID}
+   - Exportera AZURE_CLIENT_SECRET = {klienthemlighet}
+   - Exportera AZURE_SUBSCRIPTION_ID = {ditt prenumerations-ID}
+   - Exportera ARM_ENDPOINT = {Azure Stack Resource Manager URL}
+   - Exportera RESOURCE_LOCATION = {platsen för Azure Stack}
 
    I Windows, använder **ange** i stället för **exportera**.
 
-5.  Använd den `getactivedirectorysettings` kod för att hämta slutpunkten för arm-metadata och Ställ in information om slutpunkten med hjälp av HTTP-klienten.
+5. Använd den `getactivedirectorysettings` kod för att hämta slutpunkten för arm-metadata och Ställ in information om slutpunkten med hjälp av HTTP-klienten.
 
    ```java
    public static HashMap<String, String> getActiveDirectorySettings(String armEndpoint) {
@@ -274,7 +290,7 @@ Du kan använda följande GitHub-exempel som referens för att skapa lösningar 
    HttpResponse response = httpClient.execute(getRequest);
    ```
 
-6.  Lägg till beroende nedan om du vill använda 2018-03-01-hybrid-profil för Azure Stack i pom.xml-filen. Det här beroendet installerar moduler som är associerade med den här profilen för beräkning, nätverk, lagring, KeyVault och App Services-resursprovidrar.
+6. Lägg till beroende nedan om du vill använda 2018-03-01-hybrid-profil för Azure Stack i pom.xml-filen. Det här beroendet installerar moduler som är associerade med den här profilen för beräkning, nätverk, lagring, KeyVault och App Services-resursprovidrar.
       
    ```xml
    <dependency>
@@ -284,7 +300,7 @@ Du kan använda följande GitHub-exempel som referens för att skapa lösningar 
    </dependency>
    ```
 
-8.  Ange följande rad i Kommandotolken som öppnades att ställa in miljövariablerna som:
+8. Ange följande rad i Kommandotolken som öppnades att ställa in miljövariablerna som:
     
    ```shell
    mvn clean compile exec:java

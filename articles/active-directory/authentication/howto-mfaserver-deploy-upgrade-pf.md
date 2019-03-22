@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d341eddffea57e06ca6024bb84bfe868c557c60
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 5ecb66b18cf03a843234a4bca3469b8433d25d47
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161617"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096647"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Uppgradera PhoneFactor Agent till Azure Multi-Factor Authentication Server
 
@@ -27,17 +27,17 @@ Om du vill uppgradera PhoneFactor-agent v5.x eller senare till Azure Multi-Facto
 1. Börja med att säkerhetskopiera PhoneFactor-datafilen. Standardinstallationsplatsen är C:\Program\PhoneFactor\Data\Phonefactor.pfdata.
 
 2. Om Användarportalen installeras:
-  1. Navigera till installationsmappen och säkerhetskopiera filen web.config. Standardinstallationsplatsen är C:\inetpub\wwwroot\PhoneFactor.
+   1. Navigera till installationsmappen och säkerhetskopiera filen web.config. Standardinstallationsplatsen är C:\inetpub\wwwroot\PhoneFactor.
 
-  2. Om du har lagt till anpassade teman på portalen säkerhetskopierar du din anpassade mapp under katalogen C:\inetpub\wwwroot\PhoneFactor\App_Themes.
+   2. Om du har lagt till anpassade teman på portalen säkerhetskopierar du din anpassade mapp under katalogen C:\inetpub\wwwroot\PhoneFactor\App_Themes.
 
-  3. Avinstallera användarportalen antingen via PhoneFactor-agenten (endast tillgängligt om den installerats på samma server som PhoneFactor Agent) eller via Program och funktioner i Windows.
+   3. Avinstallera användarportalen antingen via PhoneFactor-agenten (endast tillgängligt om den installerats på samma server som PhoneFactor Agent) eller via Program och funktioner i Windows.
 
 3. Om Mobile Apps-webbtjänsten är installerad:
 
-  1. Gå till installationsmappen och säkerhetskopiera filen web.config. Standardinstallationsplatsen är C:\inetpub\wwwroot\PhoneFactorPhoneAppWebService.
+   1. Gå till installationsmappen och säkerhetskopiera filen web.config. Standardinstallationsplatsen är C:\inetpub\wwwroot\PhoneFactorPhoneAppWebService.
 
-  2. Avinstallera Mobile App-webbtjänsten via Program och funktioner i Windows.
+   2. Avinstallera Mobile App-webbtjänsten via Program och funktioner i Windows.
 
 4. Om webbtjänst-SDK är installerat avinstallerar du det antingen via PhoneFactor-agenten eller via Program och funktioner i Windows.
 
@@ -51,21 +51,21 @@ Installationssökvägen hämtas från registret från den tidigare installatione
 
 2. Om webbtjänst-SDK var installerat tidigare installerar du nya webbtjänst-SDK via användargränssnittet för Multi-Factor Authentication Server.
 
-  Standardnamnet för den virtuella katalogen nu är **MultiFactorAuthWebServiceSdk** i stället för **PhoneFactorWebServiceSdk**. Om du vill använda det förra namnet måste du ändra namnet på den virtuella katalogen under installationen. Annars, om du tillåter att installationen använder standardnamnet, så måste du ändra URL:en i program som refererar till webbtjänst-SDK (till exempel användarportalen och webbtjänsten Mobile Apps) så att den pekar på rätt plats.
+   Standardnamnet för den virtuella katalogen nu är **MultiFactorAuthWebServiceSdk** i stället för **PhoneFactorWebServiceSdk**. Om du vill använda det förra namnet måste du ändra namnet på den virtuella katalogen under installationen. Annars, om du tillåter att installationen använder standardnamnet, så måste du ändra URL:en i program som refererar till webbtjänst-SDK (till exempel användarportalen och webbtjänsten Mobile Apps) så att den pekar på rätt plats.
 
 3. Om användarportalen var installerad tidigare på PhoneFactor Agent-servern installerar du den nya Multi-Factor Authentication-användarportalen via Multi-Factor Authentication Server-användargränssnittet.
 
-  Standardnamnet för den virtuella katalogen nu är **MultiFactorAuth** i stället för **PhoneFactor**. Om du vill använda det förra namnet måste du ändra namnet på den virtuella katalogen under installationen. Annars, om du tillåter att installationen använder det nya standardnamnet, klickar du på ikonen för användarportalen i Multi-Factor Authentication Server och uppdaterar URL:en för användarportalen på fliken Inställningar.
+   Standardnamnet för den virtuella katalogen nu är **MultiFactorAuth** i stället för **PhoneFactor**. Om du vill använda det förra namnet måste du ändra namnet på den virtuella katalogen under installationen. Annars, om du tillåter att installationen använder det nya standardnamnet, klickar du på ikonen för användarportalen i Multi-Factor Authentication Server och uppdaterar URL:en för användarportalen på fliken Inställningar.
 
 4. Om användarportalen och/eller webbtjänsten Mobile Apps tidigare var installerade på en annan server än PhoneFactor-agenten:
 
-  1. Gå till installationsplatsen (t.ex. C:\Program\Microsoft Files\PhoneFactor) och kopiera relevanta installationsprogram till den andra servern. Det finns 32- och 64-bitars installationsprogram för både användarportalen och webbtjänsten Mobile Apps. De heter MultiFactorAuthenticationUserPortalSetupXX.msi och MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi.
+   1. Gå till installationsplatsen (t.ex. C:\Program\Microsoft Files\PhoneFactor) och kopiera relevanta installationsprogram till den andra servern. Det finns 32- och 64-bitars installationsprogram för både användarportalen och webbtjänsten Mobile Apps. De heter MultiFactorAuthenticationUserPortalSetupXX.msi och MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi.
 
-  2. Installera användarportalen på webbservern genom att öppna en kommandotolk som administratör och köra MultiFactorAuthenticationUserPortalSetupXX.msi.
+   2. Installera användarportalen på webbservern genom att öppna en kommandotolk som administratör och köra MultiFactorAuthenticationUserPortalSetupXX.msi.
 
-    Standardnamnet för den virtuella katalogen nu är **MultiFactorAuth** i stället för **PhoneFactor**. Om du vill använda det förra namnet måste du ändra namnet på den virtuella katalogen under installationen. Annars, om du tillåter att installationen använder det nya standardnamnet, klickar du på ikonen för användarportalen i Multi-Factor Authentication Server och uppdaterar URL:en för användarportalen på fliken Inställningar. Befintliga användare måste informeras om den nya URL:en.
+      Standardnamnet för den virtuella katalogen nu är **MultiFactorAuth** i stället för **PhoneFactor**. Om du vill använda det förra namnet måste du ändra namnet på den virtuella katalogen under installationen. Annars, om du tillåter att installationen använder det nya standardnamnet, klickar du på ikonen för användarportalen i Multi-Factor Authentication Server och uppdaterar URL:en för användarportalen på fliken Inställningar. Befintliga användare måste informeras om den nya URL:en.
 
-  3. Gå till installationsplatsen för användarportalen (t.ex. C:\inetpub\wwwroot\MultiFactorAuth) och redigera filen web.config. Kopiera värdena i avsnitten appSettings och applicationSettings från den ursprungliga web.config-filen som du säkerhetskopierade före uppgraderingen och klistra in dem i den nya web.config-filen. Om du behöll det nya standardnamnet för den virtuella katalogen när du installerade webbtjänst-SDK ändrar du URL:en i avsnittet applicationSettings så att den pekar på rätt plats. Om du ändrade andra standardvärden i den tidigare web.config-filen tillämpar du samma ändringar i den nya web.config-filen.
+   3. Gå till installationsplatsen för användarportalen (t.ex. C:\inetpub\wwwroot\MultiFactorAuth) och redigera filen web.config. Kopiera värdena i avsnitten appSettings och applicationSettings från den ursprungliga web.config-filen som du säkerhetskopierade före uppgraderingen och klistra in dem i den nya web.config-filen. Om du behöll det nya standardnamnet för den virtuella katalogen när du installerade webbtjänst-SDK ändrar du URL:en i avsnittet applicationSettings så att den pekar på rätt plats. Om du ändrade andra standardvärden i den tidigare web.config-filen tillämpar du samma ändringar i den nya web.config-filen.
 
 > [!NOTE]
 > Vid uppgradering från en version Azure MFA Server som är äldre än 8.0 till 8.0 eller senare kan webbtjänsten för mobila appar avinstalleras efter uppgraderingen

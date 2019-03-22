@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: e6a24bfe25513b1b4eacd8bc192caa5518c896c6
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: HT
+ms.openlocfilehash: 12ca210e1fe7aa60515f5b8c4c0ad830dcdd9594
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593207"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078966"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
 I den här självstudiekursen kommer du att skapa en Azure-datafabrik med en pipeline som läser in deltadata från flera tabeller på en lokal SQL-server till en Azure SQL-databas.    
@@ -65,7 +65,7 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * **SQL Server**. Du använder en lokal SQL Server-databas som källdatalager i den här självstudien. 
 * **Azure SQL Database**. Du använder en SQL-databas som måldatalager. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL Database](../sql-database/sql-database-get-started-portal.md). 
 
@@ -382,7 +382,7 @@ I det här steget skapar du datauppsättningar som representerar datakällan, da
    ![Datauppsättning för mottagare – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
    
- 1. När du klickar på **Finish** (Slutför) visas **@dataset().SinkTableName** som tabellens namn.
+   1. När du klickar på **Slutför**, visas  **\@dataset(). SinkTableName** som tabellnamn.
    
    ![Datauppsättning för mottagare – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
@@ -424,11 +424,11 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
     ![Namn på pipeline](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-name.png)
 1. Gör följande i fönstret **Egenskaper**: 
 
-    1. Klicka på **+ Ny**. 
-    1. Ange **tableList** som parameterns **namn**. 
-    1. Välj **Object** som parameterns **typ**.
+   1. Klicka på **+ Ny**. 
+   1. Ange **tableList** som parameterns **namn**. 
+   1. Välj **Object** som parameterns **typ**.
 
-    ![Pipeline-parametrar](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
+      ![Pipeline-parametrar](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
 1. I verktygslådan **Aktiviteter** expanderar du **Iteration & Conditions** (Iteration och villkor) och drar och släpper aktiviteten **ForEach** till pipelinedesignytan. På fliken **Allmänt** i fönstret Egenskaper skriver du **IterateSQLTables** som **namn**. 
 
     ![Aktiviteten ForEach – namn](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
@@ -457,69 +457,69 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
     ![Andra Lookup-aktiviteten – namn](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-name.png)
 1. Växla till fliken **Settings** (Inställningar).
 
-    1. Markera **SourceDataset** för **Källdatauppsättning**. 
-    1. Välj **Fråga** för **Använd fråga**.
-    1. Ange följande SQL-fråga för **Fråga**.
+     1. Markera **SourceDataset** för **Källdatauppsättning**. 
+     1. Välj **Fråga** för **Använd fråga**.
+     1. Ange följande SQL-fråga för **Fråga**.
 
-        ```sql    
-        select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
-        ```
+         ```sql    
+         select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
+         ```
     
-        ![Andra Lookup-aktiviteten – inställningar](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
+         ![Andra Lookup-aktiviteten – inställningar](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
 1. Dra och släpp aktiviteten **Copy** (Kopiera) från verktygslådan **Aktiviteter** och ange **IncrementalCopyActivity** som **namn**. 
 
-    ![Kopiera aktivitet – namn](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
+     ![Kopiera aktivitet – namn](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
 1. Koppla aktiviteterna **Lookup** (Sökning) till aktiviteten **Copy** (Kopiering), en i taget. Koppla genom att börja dra den **gröna** rutan som hör till **Lookup**-aktiviteten och släpp den på **Copy**-aktiviteten. Släpp musknappen när du ser att kantlinjefärgen för kopieringsaktiviteten ändras till **blått**.
 
-    ![Koppla sökningsaktiviteter till kopieringsaktivitet](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
+     ![Koppla sökningsaktiviteter till kopieringsaktivitet](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
 1. Markera **Copy**-aktiviteten i pipeline. Växla till fliken **Source** (Käll) i **egenskapsfönstret**. 
 
-    1. Markera **SourceDataset** för **Källdatauppsättning**. 
-    1. Välj **Fråga** för **Använd fråga**. 
-    1. Ange följande SQL-fråga för **Fråga**.
+     1. Markera **SourceDataset** för **Källdatauppsättning**. 
+     1. Välj **Fråga** för **Använd fråga**. 
+     1. Ange följande SQL-fråga för **Fråga**.
 
-        ```sql
-        select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
-        ```
+         ```sql
+         select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
+         ```
 
-        ![Kopiera aktivitet – källinställningar](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
+         ![Kopiera aktivitet – källinställningar](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
 1. Växla till fliken **Sink** (Mottagare) och markera **SinkDataset** för **Sink Dataset** (Datauppsättning för mottagare). 
         
-    ![Kopiera aktivitet – inställningar för mottagare](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
+     ![Kopiera aktivitet – inställningar för mottagare](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
 1. Växla till fliken **Parametrar** och gör följande:
 
-    1. För egenskapen **Sink Stored Procedure Name** (Lagrat procedurnamn för mottagare) anger du `@{item().StoredProcedureNameForMergeOperation}`.
-    1. För egenskapen **Sink Table Type** (Tabelltyp för mottagare) anger du `@{item().TableType}`.
-    1. I avsnittet **Sink Dataset** (Datauppsättning för mottagare), för parametern **SinkTableName** anger du `@{item().TABLE_NAME}`.
+     1. För egenskapen **Sink Stored Procedure Name** (Lagrat procedurnamn för mottagare) anger du `@{item().StoredProcedureNameForMergeOperation}`.
+     1. För egenskapen **Sink Table Type** (Tabelltyp för mottagare) anger du `@{item().TableType}`.
+     1. I avsnittet **Sink Dataset** (Datauppsättning för mottagare), för parametern **SinkTableName** anger du `@{item().TABLE_NAME}`.
 
-        ![Kopieringsaktiviteten – parametrar](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
+         ![Kopieringsaktiviteten – parametrar](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Dra och släpp aktiviteten **Lagrad procedur** från verktygslådan **Aktiviteter** till pipelinedesignytan. Koppla aktiviteten **Copy** (Kopiera) till aktiviteten **Lagrad procedur**. 
 
-    ![Kopieringsaktiviteten – parametrar](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
+     ![Kopieringsaktiviteten – parametrar](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
 1. Välj aktiviteten **Lagrad procedur** i pipelinen och ange **StoredProceduretoWriteWatermarkActivity** för **namn** på fliken **Allmänt** i fönstret **Egenskaper**. 
 
-    ![Lagrad proceduraktivitet – namn](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
+     ![Lagrad proceduraktivitet – namn](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
 1. Växla till fliken **SQL-konto** och välj **AzureSqlDatabaseLinkedService** som **Länkad tjänst**.
 
-    ![Lagrad proceduraktivitet – SQL-konto](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
+     ![Lagrad proceduraktivitet – SQL-konto](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 1. Växla till fliken **Lagrad procedur** och gör följande:
 
-    1. Som **Namn på lagrad procedur** väljer du `usp_write_watermark`. 
-    1. Välj **Importera parameter**. 
-    1. Ange följande värden för parametrarna: 
+     1. Som **Namn på lagrad procedur** väljer du `usp_write_watermark`. 
+     1. Välj **Importera parameter**. 
+     1. Ange följande värden för parametrarna: 
 
-        | Namn | Typ | Värde | 
-        | ---- | ---- | ----- |
-        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-        | TableName | Sträng | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+         | Namn | Typ | Värde | 
+         | ---- | ---- | ----- |
+         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+         | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
-        ![Lagrad proceduraktivitet – inställningar för lagrad procedur](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
+         ![Lagrad proceduraktivitet – inställningar för lagrad procedur](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. Klicka på **Publicera** i rutan till vänster. Den här åtgärden publicerar de enheter du skapade till Data Factory-tjänsten. 
 
-    ![Knappen Publicera](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
+     ![Knappen Publicera](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
 1. Vänta tills du ser meddelandet om att entiteterna **har publicerats**. Klicka på länken **Visa meddelanden** om du vill se dem. Stäng meddelandefönstret genom att klicka på **X**.
 
-    ![Visa meddelanden](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
+     ![Visa meddelanden](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
 
  
 ## <a name="run-the-pipeline"></a>Köra en pipeline

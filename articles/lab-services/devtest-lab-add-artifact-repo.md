@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: fe4134d322c87c199f24cbd7966a8d6fca7256d9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5d7665cbfdf855e194f61910f0c8ee2bce5469b1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538875"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852499"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Lägg till en Git-lagringsplats för att lagra anpassade artefakter och Resource Manager-mallar
 
@@ -30,7 +30,7 @@ Vi erbjuder en [GitHub-lagringsplats för artefakter](https://github.com/Azure/a
 När du skapar en virtuell dator kan du spara Resource Manager-mallen, anpassa den om du vill ha och sedan använda den senare för att skapa fler virtuella datorer. Du måste skapa din egen privata lagringsplatsen för att lagra dina anpassade Resource Manager-mallar.  
 
 * Läs hur du skapar en GitHub-lagringsplats i [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-* Läs hur du skapar ett Azure-tjänster för DevOps-projekt som har en Git-lagringsplats i [Anslut till Azure DevOps-tjänsterna](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+* Läs hur du skapar ett Azure DevOps-Services-projekt som har en Git-lagringsplats i [Anslut till Azure DevOps-tjänsterna](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
 Följande bild är ett exempel på hur en databas som har artefakter kan se i GitHub:  
 
@@ -78,13 +78,13 @@ Om du vill lägga till en lagringsplats i labbet, först få viktig information 
 
     ![Knappen Lägg till databasen](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. På andra **databaser** anger du följande information:
-  1. **Namn**. Ange ett namn för databasen.
-  2. **Url för Git-klonen**. Ange URL för Git HTTPS-klonen som du kopierade tidigare från GitHub eller Azure DevOps-tjänsterna.
-  3. **Branch**. Ange grenen för att få definitionerna.
-  4. **Personlig åtkomsttoken**. Ange din personliga åtkomsttoken som du tidigare fått från GitHub eller Azure DevOps-tjänsterna.
-  5. **Mappsökvägar**. Ange minst en mappsökväg i förhållande till den klon-URL som innehåller din artefakt eller Malldefinitioner för Resource Manager. När du anger en underkatalog måste du kontrollera att du inkluderar snedstreck i mappsökvägen.
+   1. **Namn**. Ange ett namn för databasen.
+   2. **Url för Git-klonen**. Ange URL för Git HTTPS-klonen som du kopierade tidigare från GitHub eller Azure DevOps-tjänsterna.
+   3. **Branch**. Ange grenen för att få definitionerna.
+   4. **Personlig åtkomsttoken**. Ange din personliga åtkomsttoken som du tidigare fått från GitHub eller Azure DevOps-tjänsterna.
+   5. **Mappsökvägar**. Ange minst en mappsökväg i förhållande till den klon-URL som innehåller din artefakt eller Malldefinitioner för Resource Manager. När du anger en underkatalog måste du kontrollera att du inkluderar snedstreck i mappsökvägen.
 
-     ![Lagringsplatser området](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+      ![Lagringsplatser området](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 6. Välj **Spara**.
 
 ### <a name="related-blog-posts"></a>Relaterade blogginlägg

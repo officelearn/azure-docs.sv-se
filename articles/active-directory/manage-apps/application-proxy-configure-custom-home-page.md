@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9fc6b9ad5227bc5bffd1f44f664351843896aec
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e8017049218bed5a1b1bd86b68dc4342b4044723
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181628"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109788"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Ange en anpassad startsida för publicerade appar med hjälp av Azure AD Application Proxy
 
@@ -30,10 +30,10 @@ Den här artikeln beskrivs hur du konfigurerar appar för att dirigera användar
 När användarna startar appen, är de skickas som standard till rot-URL för domänen för den publicerade appen. Landningssida anges vanligtvis som URL för startsidan. Använda Azure AD PowerShell-modulen för att definiera anpassade startsida URL: er när du vill att app-användare alltid landar på en viss sida i appen. 
 
 Här är ett exempel på varför ett företag skulle ange en anpassad startsida:
-- I företagsnätverket, användarna gå till *https://ExpenseApp/login/login.aspx* att logga in och komma åt din app.
-- Eftersom du har andra tillgångar som bilder som Application Proxy behöver åtkomst till på den översta nivån av mappstrukturen kan du publicera appen med *https://ExpenseApp* som den interna URL: en.
-- Den externa URL som standard är *https://ExpenseApp-contoso.msappproxy.net*, vilket inte ta dina användare på inloggningssidan.  
-- Ange *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* som URL för startsidan. 
+- I företagsnätverket, användarna gå till `https://ExpenseApp/login/login.aspx` att logga in och komma åt din app.
+- Eftersom du har andra tillgångar som bilder som Application Proxy behöver åtkomst till på den översta nivån av mappstrukturen kan du publicera appen med `https://ExpenseApp` som den interna URL: en.
+- Den externa URL som standard är `https://ExpenseApp-contoso.msappproxy.net`, vilket inte ta dina användare på inloggningssidan.  
+- Ange `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` som URL för startsidan. 
 
 >[!NOTE]
 >När du ger användare åtkomst till publicerade appar appar visas i den [Azure AD-åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md) och [Office 365-appstartaren](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
@@ -113,7 +113,7 @@ Skapa hemsidans URL och uppdatera ditt program med detta värde. Fortsätta att 
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
- Nu när du har bekräftat appen, är du redo att uppdatera startsidan på följande sätt.
+   Nu när du har bekräftat appen, är du redo att uppdatera startsidan på följande sätt.
 
 2. Skapa en tom programobjektet för att lagra de ändringar som du vill göra. Den här variabeln innehåller de värden som du vill uppdatera. Ingenting har skapats i det här steget.
 

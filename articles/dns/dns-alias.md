@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: d751d4898be3fd19f9e6f5d03e9313e9d98e9dd2
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: MT
+ms.openlocfilehash: 1f6d6b2ae5fd3a0c08d37b93c73656ac6bb71d67
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446103"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295648"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS alias poster översikt
 
@@ -58,7 +58,14 @@ Den här begränsningen utgör ett problem för programägare som har belastning
 
 Det här problemet kan lösas med hjälp av alias poster. Till skillnad från CNAME-poster, alias poster kan skapas i basdomänen och programägare kan använda den för att rikta sin zon apex-post till en Traffic Manager-profil som har externa slutpunkter. Programägare kan peka på samma Traffic Manager-profilen som används för andra domäner i sina DNS-zonen.
 
-Till exempel kan contoso.com och www.contoso.com peka på samma Traffic Manager-profilen. Om du vill lära dig mer om att använda alias poster med Azure Traffic Manager-profiler finns i avsnittet nästa steg.
+Till exempel contoso.com och www\.contoso.com kan peka på samma Traffic Manager-profilen. Om du vill lära dig mer om att använda alias poster med Azure Traffic Manager-profiler finns i avsnittet nästa steg.
+
+### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Peka zonens apex på Azure CDN-slutpunkter
+Precis som en Traffic Manager-profil kan du också använda alias poster för att peka DNS-basdomänen på Azure CDN-slutpunkter. Detta är användbart när du skapar statiska webbplatser som använder Azure storage och Azure CDN. Du kan sedan komma åt webbplatsen utan prepending ”www” till din DNS-namnet.
+
+Till exempel om din statiska webbplats har namnet www.contoso.com, dina användare kan komma åt din webbplats med hjälp av contoso.com utan att behöva lägga till åtkomstgruppen för www till DNS-namn.
+
+Som tidigare nämnts, stöds inte CNAME-poster i basdomänen. Så det går inte att du använder en CNAME-post för att peka contoso.com till CDN-slutpunkten. Använd istället en aliaspost för att peka zonens apex direkt på en CDN-slutpunkt.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61739d381d5c668b5f1a9467b10398d173601b33
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cf496e448cbc11b9e986ca3b58c956c4cd18a34e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178540"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113460"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problem med att konfigurera användaretablering för ett Azure AD-galleriprogram
 
@@ -62,13 +62,13 @@ Azure AD kräver giltiga autentiseringsuppgifter som gör att den kan ansluta ti
 
 När en användare visas som ”skipped” i granskningsloggarna, är det mycket viktigt att läsa utökade informationen i loggmeddelande att fastställa orsaken. Nedan visas vanliga orsaker och lösningar:
 
--   **Ett Omfångsfilter har konfigurerats** **som filtrerar användaren baserat på ett attributvärde**. Läs mer på Omfångsfilter <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>.
+- **Ett Omfångsfilter har konfigurerats** **som filtrerar användaren baserat på ett attributvärde**. Läs mer på Omfångsfilter <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>.
 
--   **Användaren har ”inte effektivt rätt”.** Om du ser det aktuella felmeddelandet, beror det på att det finns ett problem med användarposten för tilldelning lagras i Azure AD. För att åtgärda det här problemet, tilldela användaren (eller grupp) från appen och tilldela den igen. Läs mer på tilldelning <https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal>.
+- **Användaren har ”inte effektivt rätt”.** Om du ser det aktuella felmeddelandet, beror det på att det finns ett problem med användarposten för tilldelning lagras i Azure AD. För att åtgärda det här problemet, tilldela användaren (eller grupp) från appen och tilldela den igen. Läs mer på tilldelning <https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal>.
 
--   **Ett obligatoriskt attribut är inte ifyllt för en användare eller saknas.** En viktig sak att tänka på när du konfigurerar etablering är att granska och konfigurera attributmappningar och arbetsflöden som definierar vilka användare (eller grupp) egenskaper flow från Azure AD till programmet. Detta inkluderar egenskapen ”matchande” som används för att identifiera och matcha användare/grupper mellan de två systemen. Läs mer om den här viktiga processen <https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings>.
+- **Ett obligatoriskt attribut är inte ifyllt för en användare eller saknas.** En viktig sak att tänka på när du konfigurerar etablering är att granska och konfigurera attributmappningar och arbetsflöden som definierar vilka användare (eller grupp) egenskaper flow från Azure AD till programmet. Detta inkluderar egenskapen ”matchande” som används för att identifiera och matcha användare/grupper mellan de två systemen. Läs mer om den här viktiga processen <https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings>.
 
-   * **Attributmappningar för grupper:** Etablering av namn- och gruppinformation, förutom medlemmarna, om det stöds för vissa program. Du kan aktivera eller inaktivera den här funktionen genom att aktivera eller inaktivera den **mappning** för grupp-objekt som visas i den **etablering** fliken. Om etablering grupper är aktiverad, bör du granska attributmappningar för att säkerställa att ett lämpligt fält som används för ”matchande ID”. Det kan vara Visa namn eller e-postalias), som gruppen och dess medlemmar inte etableras om matchning av egenskap är tom eller inte fylls i automatiskt för en grupp i Azure AD.
+  * **Attributmappningar för grupper:** Etablering av namn- och gruppinformation, förutom medlemmarna, om det stöds för vissa program. Du kan aktivera eller inaktivera den här funktionen genom att aktivera eller inaktivera den **mappning** för grupp-objekt som visas i den **etablering** fliken. Om etablering grupper är aktiverad, bör du granska attributmappningar för att säkerställa att ett lämpligt fält som används för ”matchande ID”. Det kan vara Visa namn eller e-postalias), som gruppen och dess medlemmar inte etableras om matchning av egenskap är tom eller inte fylls i automatiskt för en grupp i Azure AD.
 
 ## <a name="next-steps"></a>Nästa steg
 [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md)

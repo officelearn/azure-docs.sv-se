@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: e39904378edd9583cd7802d0a75f2f365a35d2b6
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 58be7b6dc9eeeadd69fe82f1dc03d959aa94f9c8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791961"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088442"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Innan du sätter igång med App Service i Azure Stack
 
@@ -304,10 +304,10 @@ För produktion och upprätthålla hög tillgänglighet, du bör använda en ful
 
 SQL Server-instans för Azure App Service i Azure Stack måste kunna nås från alla App Service-roller. Du kan distribuera SQL Server inom Providerprenumeration standard i Azure Stack. Eller så kan du använda den befintliga infrastrukturen i din organisation (så länge det finns en anslutning till Azure Stack). Om du använder en Azure Marketplace-avbildning, Kom ihåg att du konfigurerar brandväggen på lämpligt sätt.
 
->[!NOTE]
+> [!NOTE]
 > Ett antal SQL IaaS avbildningar av virtuella datorer är tillgängliga via Marketplace-hanteringsfunktionen. Se till att du alltid hämta den senaste versionen av SQL IaaS-tillägget innan du distribuerar en virtuell dator med en Marketplace-objekt. SQL-avbildningar är samma som den virtuella SQL-datorer som är tillgängliga i Azure. För virtuella SQL-datorer skapas från dessa avbildningar, IaaS-tillägg och förbättringar av motsvarande portalen tillhandahåller funktioner som automatisk uppdatering och säkerhetskopiering.
->
-Du kan använda en standardinstans eller namngiven instans för SQL Server-roller. Om du använder en namngiven instans, måste du manuellt starta SQL Server Browser-tjänsten och öppna porten 1434.
+> 
+> Du kan använda en standardinstans eller namngiven instans för SQL Server-roller. Om du använder en namngiven instans, måste du manuellt starta SQL Server Browser-tjänsten och öppna porten 1434.
 
 App Service-installationsprogrammet kontrollerar om du vill att SQL Server database inneslutning aktiverat. Om du vill aktivera inneslutning för databasen på SQL Server som är värd för App Service-databaser, kör du följande SQL-kommandon:
 

@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 60617261e14b77e9ef3a2968dc37159e961bb947
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6f3f06ff54fc76416ba63f4f09835897d546f8dc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735391"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861918"
 ---
-# <a name="azure-data-factory-mapping-data-flow-window-transformation"></a>Azure Data Factory mappning Dataomvandling Flow fönster
+# <a name="azure-data-factory-window-transformation"></a>Azure Data Factory-fönstret transformering
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -46,3 +46,6 @@ Använd uttrycksverktyget definiera aggregeringar som du vill använda med data 
 
 En fullständig lista över aggregering och analytiska funktioner som är tillgängliga för dig att använda i den ADF Data flöda Uttrycksspråk via Uttrycksverktyget visas här: https://aka.ms/dataflowexpressions.
 
+## <a name="next-steps"></a>Nästa steg
+
+Om du letar efter en enkel att gruppera efter-aggregering, använder du den [aggregera omvandling](data-flow-aggregate.md)

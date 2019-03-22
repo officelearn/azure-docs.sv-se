@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 03/14/2019
 ms.author: barclayn
-ms.openlocfilehash: 4dd81fd03c39dec3c34e614234a563ec8c2ced38
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 0902e3fb64a73a095b457306aa561c13519e4066
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117110"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000612"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med hjälp av Azure-portalen
 
@@ -28,7 +28,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på http://portal.azure.com.
+Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Skapa ett valv
 
@@ -43,7 +43,6 @@ Logga in på Azure Portal på http://portal.azure.com.
     - **Prenumeration**: Välj en prenumeration.
     - Under **Resursgrupp** väljer du **Skapa ny** och anger ett resursgruppsnamn.
     - Välj en plats i listrutan **Plats**.
-    - Markera kryssrutan **Fäst på instrumentpanelen**.
     - Lämna standardvärdena för de andra alternativen.
 6. När du har angett den här informationen väljer du **Skapa**.
 
@@ -70,7 +69,11 @@ När du ska lägga till en hemlighet i valvet behöver du bara utföra några yt
 
 När du får ett meddelande om att hemligheten har skapats kan du klicka på den i listan. Du ser då vissa av egenskaperna. Om du klickar på den aktuella versionen så kan du se värdet du angav i föregående steg.
 
-![Egenskaper för hemlighet](./media/quick-create-portal/version.png)
+![Egenskaper för hemlighet](./media/quick-create-portal/current-version-hidden.png)
+
+Du kan se det dolda värdet genom att klicka på ”Visa hemligt värde”-knappen i den högra rutan. 
+
+![Hemligt värde visas](./media/quick-create-portal/current-version-shown.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

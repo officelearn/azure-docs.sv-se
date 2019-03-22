@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 47d5616f86c8f4cb62773d0b92a24a5fb63b2ea7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c4b178cc7e0604f38e4da25452a3bad01f8145de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240480"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858158"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Etablera en Geo artificiell intelligens virtuell dator på Azure 
 
@@ -33,7 +33,7 @@ Geo-DSVM innehåller flera verktyg för AI, inklusive:
 - Verktyg för att hämta och förprocess bild, textdata, 
 - Verktyg för utveckling av aktiviteter, till exempel Microsoft R Server Developer Edition, Anaconda Python, Jupyter-anteckningsböcker för Python och R IDE: er för Python och R, SQL-databaser
 - ESRIS ArcGIS Pro programvara tillsammans med Python- och R-gränssnitt som fungerar med geospatiala data från dina AI-program. 
-
+ 
 
 ## <a name="create-your-geo-ai-data-science-vm"></a>Skapa din Geo-spatial AI Data Science VM
 
@@ -64,19 +64,19 @@ Här följer stegen för att skapa en instans av Geo AI Data Science VM:
 
    - **Inställningar för**: Välj en av NC-serien GPU VM-storlek om du planerar att köra deep learning på GPU på Geo-DSVM. I annat fall kan du välja någon av Processorn baserad instans.  Skapa ett lagringskonto för den virtuella datorn. 
    
-   - **Sammanfattning av**: Kontrollera att all information du angett är korrekt.
+   - **Sammanfattning**: Kontrollera att all information du angett är korrekt.
 
    - **Köpa**: Klicka på **köpa** att starta etableringen. Det finns en länk till användningsvillkor. Den virtuella datorn har inte några ytterligare avgifter utöver beräkning för serverstorlek som du valde i den **storlek** steg. 
-
+ 
 >[!NOTE]
 > Etableringen tar cirka 20 – 30 minuter. Status för etableringen visas på Azure portal.
 
-
+ 
 ## <a name="how-to-access-the-geo-ai-data-science-virtual-machine"></a>Hur du kommer åt Geo AI Data Science Virtual Machine
 
-När den virtuella datorn har skapats är du redo att börja använda de verktyg som är installerade och redan har konfigurerats på den. Det finns paneler för start-menyn och ikoner på skrivbordet för många av verktygen. Du kan fjärrskrivbord till den med hjälp av autentiseringsuppgifter som administratör-konto som du konfigurerade i föregående **grunderna** avsnittet. 
+ När den virtuella datorn har skapats är du redo att börja använda de verktyg som är installerade och redan har konfigurerats på den. Det finns paneler för start-menyn och ikoner på skrivbordet för många av verktygen. Du kan fjärrskrivbord till den med hjälp av autentiseringsuppgifter som administratör-konto som du konfigurerade i föregående **grunderna** avsnittet. 
 
-
+ 
 ## <a name="using-arcgis-pro-installed-in-the-vm"></a>Med hjälp av ArcGIS Pro installerad på den virtuella datorn
 
 Geo-DSVM har redan ArcGIS Pro desktop förinstallerat och den miljö som redan har konfigurerats för att fungera med alla verktyg i DSVM. När du startar ArcGIS uppmanar dig för en inloggning på ArcGIS-konto. Om du redan har en ArcGIS-konto och har licenser för programvaran, kan du använda din befintliga autentiseringsuppgifter.  
@@ -87,7 +87,7 @@ Annars kan du kan registrera dig för nya ArcGIS-konto och licens eller få en [
 
 ![ArcGIS-Free-Trial](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-När du har registreringen för en antingen en betald eller ett kostnadsfritt utvärderingskonto ArcGIS kan du kan auktorisera ArcGIS Pro för ditt konto genom att följa anvisningarna i den [komma igång med ArcGIS Pro dokumentation](http://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
+När du har registreringen för en antingen en betald eller ett kostnadsfritt utvärderingskonto ArcGIS kan du kan auktorisera ArcGIS Pro för ditt konto genom att följa anvisningarna i den [komma igång med ArcGIS Pro dokumentation](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
 
 När du loggar in på ArcGIS Pro desktop med ArcGIS-konto är du redo att börja använda data science-verktygen som installeras och konfigureras på den virtuella datorn för geospatiala analytics och machine learning-projekt.
 

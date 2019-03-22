@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: bee2a715e9e9b163af342b70c4cdd63d24ccee3b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e9e78d3226f90ef780a1ed2114ba256c293463dc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450047"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001593"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Använda signaturer för delad åtkomst (SAS)
 
@@ -40,11 +40,11 @@ Ett vanligt scenario där en SAS är användbart är en tjänst där användare 
 
 1. Klienter ladda upp och ned data via en för frontend-proxytjänst som utför autentisering. Den här tjänsten för klientdelen proxy har fördelen att det tillåter validering av affärsregler, men för stora mängder data eller hög volym transaktioner, skapa en tjänst som kan skalas för att möta efterfrågan kan vara dyrt eller svårt.
 
-  ![Scenario-diagram: Frontend-proxytjänst](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
+   ![Scenario-diagram: Frontend-proxytjänst](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
 
 1. En förenklad tjänst autentiserar klienten efter behov och genererar en SAS. När klienten får SAS, kan de komma åt lagringskontoresurserna direkt med de behörigheter som definierats av SAS och för intervallet som tillåts av SAS. SAS minskar behovet av Routning av alla data via frontend proxytjänsten.
 
-  ![Scenario-diagram: SAS provider-tjänsten](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
+   ![Scenario-diagram: SAS provider-tjänsten](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
 
 Många verkliga tjänster kan använda en kombination av dessa två metoder. Exempelvis kanske vissa data bearbetas och godkänts via frontend proxy, medan andra data har sparats och/eller läsa direkt med hjälp av SAS.
 
@@ -230,8 +230,8 @@ Nedan följer några exempel på båda typerna av signaturer för delad åtkomst
 
 Om du vill köra dessa C#-exempel, måste du referera till följande NuGet-paketen i projektet:
 
-* [Azure Storage-klientbiblioteket för .NET](http://www.nuget.org/packages/WindowsAzure.Storage), version 6.x eller senare (för att använda SAS-konto).
-* [Azure Configuration Manager](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
+* [Azure Storage-klientbiblioteket för .NET](https://www.nuget.org/packages/WindowsAzure.Storage), version 6.x eller senare (för att använda SAS-konto).
+* [Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
 
 Ytterligare exempel som visar hur du skapar och testar en SAS finns i [kodexempel för Azure för lagring](https://azure.microsoft.com/documentation/samples/?service=storage).
 

@@ -1,23 +1,23 @@
 ---
 title: Självstudie – Skapa och hantera exporterade data från Azure Cost Management | Microsoft Docs
-description: Den här artikeln visar hur du kan skapa en hantera exporterade Azure Cost Management-data så att du kan använda dem i externa system.
+description: Den här artikeln visar hur du kan skapa och hantera exporterade Azure Cost Management-data så att du kan använda den i externa system.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a7c503fba534b72323472fa58b14188bc412003c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: a0b50b86ca164199ca723354e39e194c6cd7423f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100716"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014129"
 ---
-# <a name="tutorial-create-and-manage-exported-data"></a>Självstudie: Skapa och hantera exporterade data
+# <a name="tutorial-create-and-manage-exported-data"></a>Självstudier: Skapa och hantera exporterade data
 
 Om du har läst självstudien om kostnadsanalys är du bekant med att manuellt ladda ned Cost Management-data. Du kan dock skapa en återkommande uppgift som automatiskt exporterar Cost Management-data till Azure Storage varje dag, vecka eller månad. Exporterade data är i CSV-format och innehåller all information som samlas in av Cost Management. Du kan sedan använda exporterade data i Azure Storage med externa system och kombinera dem med dina egna anpassade data. Och du kan använda din exporterade data i ett externt system, till exempel en instrumentpanel eller något annat ekonomisystem.
 
@@ -29,8 +29,8 @@ I den här guiden får du lära dig att:
 > * Skapa en daglig export
 > * Kontrollera att data samlas in
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-Dataexport är tillgänglig för en mängd olika typer av Azure-konton, exempelvis för [EA-kunder (Enterprise Agreement)](https://azure.microsoft.com/pricing/enterprise-agreement/). Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Följande Azure-behörigheter stöds per prenumeration för dataexport efter användare och grupp:
+## <a name="prerequisites"></a>Förutsättningar
+Dataexport är tillgänglig för en mängd olika typer av Azure-konton, exempelvis för [EA-kunder (Enterprise Agreement)](https://azure.microsoft.com/pricing/enterprise-agreement/). Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Följande Azure-behörigheter eller scope, stöds per prenumeration för export av data för användare och grupp. Mer information om scope finns [förstå och arbeta med omfattningar](understand-work-scopes.md).
 
 - Ägare – kan skapa, ändra eller ta bort schemalagda exporter för en prenumeration.
 - Deltagare – kan skapa, ändra eller ta bort sina egna schemalagda exporter. Kan ändra namnet på schemalagda exporter som skapats av andra.
@@ -45,9 +45,9 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-daily-export"></a>Skapa en daglig export
 
-Cost Management + fakturering &gt; Cost Management &gt; välj en prenumeration eller en resursgrupp i en prenumeration &gt; Exportera &gt; **Lägg till**.
+Att skapa eller visa en export av data eller för att schemalägga en export, öppna det önskade omfånget i Azure portal och väljer **analys av kostnader** på menyn. Till exempel Gå till **prenumerationer**, Välj en prenumeration i listan och välj sedan **analys av kostnader** på menyn. Längst upp på sidan Cost analysis, klickar du på **exportera** och välj sedan ett exportalternativ för. Klicka till exempel **schemalägga export**. Mer information om scope finns [förstå och arbeta med omfattningar](understand-work-scopes.md).
 
-Skriv ett namn för exporten och välj alternativet ”Daily export of month-to-date costs” (Daglig export av kostnader hittills under månaden). Klicka på **Nästa**.
+Klicka på **Lägg till**, Skriv ett namn för exporten och välj sedan den **dagliga export av månad hittills kostnader** alternativet. Klicka på **Nästa**.
 
 ![Nytt exempel som visar exporttyp](./media/tutorial-export-acm-data/basics_exports.png)
 

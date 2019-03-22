@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: anzaman
 ms.custom: seodec18
-ms.openlocfilehash: 98a4e8a75958b377cdbeff353db89b1cb40dea92
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0332f189feb1b266eac29c9ea8a7f3ed86d6207a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406617"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116579"
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>Återställa en misslyckad ExpressRoute-krets
 
@@ -27,26 +27,26 @@ När en åtgärd på en ExpressRoute-krets inte slutförs korrekt kan kretsen g�
 
 2. Öppna PowerShell-konsolen med utökad behörighet och anslut till ditt konto. Använd följande exempel för att ansluta:
 
-  ```azurepowershell-interactive
-  Connect-AzAccount
-  ```
+   ```azurepowershell-interactive
+   Connect-AzAccount
+   ```
 3. Om du har flera Azure-prenumerationer anger du prenumerationerna för kontot.
 
-  ```azurepowershell-interactive
-  Get-AzSubscription
-  ```
+   ```azurepowershell-interactive
+   Get-AzSubscription
+   ```
 4. Ange den prenumeration som du vill använda.
 
-  ```azurepowershell-interactive
-  Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
+   ```azurepowershell-interactive
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   ```
 5. Kör följande kommandon för att återställa en krets som är i ett felaktigt tillstånd:
 
-  ```azurepowershell-interactive
-  $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+   ```azurepowershell-interactive
+   $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
 
 Nu bör kretsen felfritt. Öppna ett supportärende med [Microsoft-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om kretsen är fortfarande i ett felaktigt tillstånd.
 

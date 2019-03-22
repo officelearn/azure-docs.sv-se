@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 76cc22f614b7877db54fb5af0e58ff90105a8194
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d921d0907d7481b842fd98db2c0d7cb5f402f24f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961779"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835985"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Utforska data i Azure blob storage med pandas
 
-Den här artikeln beskriver hur du utforska data som lagras i Azure blob-behållaren med [pandas](http://pandas.pydata.org/) Python-paketet.
+Den här artikeln beskriver hur du utforska data som lagras i Azure blob-behållaren med [pandas](https://pandas.pydata.org/) Python-paketet.
 
 Den här uppgiften är ett steg i den [Team Data Science Process](overview.md).
 
@@ -53,7 +53,7 @@ t2=time.time()
 print(("It takes %s seconds to download "+blobname) % (t2 - t1))
 ```
 
-2. Läsa in datan i en pandas-DataFrame från den hämta filen.
+1. Läsa in datan i en pandas-DataFrame från den hämta filen.
 
 ```python
 #LOCALFILE is the file path
@@ -71,7 +71,7 @@ Här följer några exempel på hur du kan utforska data med hjälp av pandas:
 print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 ```
 
-2. **Inspektera** de första eller sista få **rader** i följande datauppsättningen:
+1. **Inspektera** de första eller sista få **rader** i följande datauppsättningen:
 
 ```python
 dataframe_blobdata.head(10)
@@ -79,33 +79,33 @@ dataframe_blobdata.head(10)
 dataframe_blobdata.tail(10)
 ```
 
-3. Kontrollera den **datatypen** varje kolumn har importerats som med hjälp av följande exempelkod
+1. Kontrollera den **datatypen** varje kolumn har importerats som med hjälp av följande exempelkod
 
 ```python
 for col in dataframe_blobdata.columns:
     print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
 ```
 
-4. Kontrollera den **grundläggande statistik** för kolumnerna i följande data
+1. Kontrollera den **grundläggande statistik** för kolumnerna i följande data
 
 ```python
 dataframe_blobdata.describe()
 ```
 
-5. Titta på antalet poster för varje kolumnvärde enligt följande
+1. Titta på antalet poster för varje kolumnvärde enligt följande
 
 ```python
 dataframe_blobdata['<column_name>'].value_counts()
 ```
 
-6. **Räkna värden som saknas** jämfört med det faktiska antalet poster i varje kolumn med hjälp av följande exempelkod
+1. **Räkna värden som saknas** jämfört med det faktiska antalet poster i varje kolumn med hjälp av följande exempelkod
 
 ```python
 miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
 print miss_num
 ```
 
-7. Om du har **saknade värden** för en viss kolumn i data, kan du släppa dem på följande sätt:
+1. Om du har **saknade värden** för en viss kolumn i data, kan du släppa dem på följande sätt:
 
 ```python
 dataframe_blobdata_noNA = dataframe_blobdata.dropna()
@@ -118,7 +118,7 @@ Ett annat sätt att ersätta värden som saknas är med funktionen läge:
 dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})
 ```
 
-8. Skapa en **histogram** rita med hjälp av variabeln antal lagerplatser ska ritas distributionen av en variabel
+1. Skapa en **histogram** rita med hjälp av variabeln antal lagerplatser ska ritas distributionen av en variabel
 
 ```python
 dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
@@ -126,7 +126,7 @@ dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
 np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
 ```
 
-9. Titta på **korrelationer** mellan variabler med hjälp av en spridningsdiagrammet eller inbyggda korrelationen
+1. Titta på **korrelationer** mellan variabler med hjälp av en spridningsdiagrammet eller inbyggda korrelationen
 
 ```python
 #relationship between column_a and column_b using scatter plot

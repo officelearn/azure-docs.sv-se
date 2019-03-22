@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 389a8ac729cf5f4f95aa37654434245d08ecc87e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533637"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894554"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Konfigurera ditt faktureringskonto för en Microsoft-kundavtal
 
@@ -47,7 +47,7 @@ Vi rekommenderar innan du börjar installationen måste du göra följande:
 - **Förstå ändringar i din faktureringsadministratörer åtkomst**
   - Administratörer från din Enterprise Agreement-registrering får åtkomst till faktureringen Omfattningarna i det nya kontot. [Förstå ändringar av deras åtkomst](#understand-changes-to-your-billing-administrators-access).
 - **Visa Enterprise Agreement-funktioner som ersätts med det nya kontot**
-  - Visa funktioner för Enterprise Agreement-registrering som är [ersättas med funktioner i det nya kontot](#review-features-replaced-by-the-new-billing-account).
+  - Visa funktioner för Enterprise Agreement-registrering som har ersatts av funktioner i det nya kontot.
 - **Visa svar på vanliga frågor**
   - Visa [ytterligare information](#additional-information) mer information om installationen.
 

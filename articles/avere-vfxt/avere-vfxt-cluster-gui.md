@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 30c03d52e31f70448eef07b4567083061605d8dd
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f989f4d103efecf2b6e206287dd8b7b300a1796d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300480"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856849"
 ---
 # <a name="access-the-vfxt-cluster"></a>Åtkomst till vFXT klustret
 
@@ -31,7 +31,7 @@ Innan du ansluter ska du kontrollera att SSH offentliga/privata nyckelparet som 
 
 Om du använder en Linux-baserad klient Använd en SSH tunneling kommandot med det här formuläret: 
 
-ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*@*controller_public_IP*
+ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_public_IP*
 
 Det här kommandot ansluter till klustrets hantering av IP-adress via kontrollanten kluster IP-adress.
 
@@ -47,7 +47,7 @@ Autentisering sker automatiskt om du har använt din offentliga SSH-nyckel för 
 
 Det här exemplet används vanliga Windows-baserade terminal verktyget PuTTY.
 
-Fyll i PuTTY **värdnamn** med controller klusternamn och IP-adress: *your_username*@*controller_public_IP*.
+Fyll i PuTTY **värdnamn** med controller klusternamn och IP-adress: *your_username*\@*controller_public_IP*.
 
 Exempel: ``azureuser@203.0.113.51``
 
@@ -69,7 +69,7 @@ Autentisering sker automatiskt om du har använt din offentliga SSH-nyckel för 
 
 Det här steget använder en webbläsare för att ansluta till konfigurationsverktyget körs i klustret vFXT.
 
-* För en SSH-tunnel-anslutning, öppna webbläsaren och navigera till https://127.0.0.1:8443. 
+* För en SSH-tunnel-anslutning, öppna webbläsaren och navigera till `https://127.0.0.1:8443`. 
 
   Du ansluts till klustret IP-adress när du har skapat tunneln, så du behöver bara använda localhost-IP-adress i webbläsaren. Om du använder en annan lokal port än 8443, använder du din portnummer.
 

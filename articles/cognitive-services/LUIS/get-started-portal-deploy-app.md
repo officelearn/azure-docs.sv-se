@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: 9c6ce826569b9c198e747a7977de3d346b1d3230
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0cf7464188bb502d77c673284cba226ce91a5725
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57783153"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259728"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Snabbstart: Distribuera en app i LUIS-portalen
 
@@ -134,4 +134,4 @@ När du är klar med den här snabbstarten, Välj **Mina appar** från den övre
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Identifiera vanliga avsikter och entiteter](/luis-tutorial-prebuilt-intents-entities.md)
+> [Identifiera vanliga avsikter och entiteter](luis-tutorial-prebuilt-intents-entities.md)

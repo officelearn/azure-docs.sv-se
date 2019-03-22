@@ -12,12 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: anithaa
-ms.openlocfilehash: 06c034968b2577d6321ffe6f55f969547a35931f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: aaa07759ed8b10578d024d5838ac1d2658778695
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054443"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999886"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Skapa, ändra eller ta bort tjänstslutpunktsprincipen med Azure portal
 
@@ -35,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure 
 
-Logga in på Azure Portal på http://portal.azure.com.
+Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-service-endpoint-policy"></a>Skapa en tjänstslutpunktsprincip
 
@@ -66,7 +66,7 @@ Logga in på Azure Portal på http://portal.azure.com.
    - Nyckel: Välj din nyckel för principen. Exempel: Avd     
    - Värde: Ange värde-par för nyckeln. Exempel: Ekonomi
 
-6. Välj **granska + skapa**. Verifiera information och klicka på **skapa**. Om du vill göra ytterligare redigeringar, klickar du på **föregående**. 
+6. Välj **Granska + Skapa**. Verifiera information och klicka på **skapa**. Om du vill göra ytterligare redigeringar, klickar du på **föregående**. 
 
    ![Skapa princip sista verifieringar för tjänstslutpunkt](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-finalcreatereview.PNG)
   

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3881026c1877059639b550f3d0342674b2f8b29
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8770648a3683c4f612536c9a04921682a01bcd0c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187210"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089819"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Lägga till eller ta bort användare som använder Azure Active Directory
 Lägga till nya användare eller ta bort befintliga användare från din Azure Active Directory (Azure AD)-klient.
@@ -37,17 +37,17 @@ Du kan skapa en ny användare med hjälp av Azure Active Directory-portalen.
 
     ![Lägg till ny användare, användarsidan med användarinformation](media/add-users-azure-active-directory/new-user-user-blade.png)
 
-    - **Namn (krävs).** Första och sista namnet på den nya användaren. Till exempel Mary Parker.
+   - **Namn (krävs).** Första och sista namnet på den nya användaren. Till exempel Mary Parker.
 
-    - **Användarnamn (krävs).** Användarnamn för den nya användaren. Till exempel mary@contoso.com. 
+   - **Användarnamn (krävs).** Användarnamn för den nya användaren. Till exempel mary@contoso.com. 
     
-        Domändelen av användarnamnet måste använda antingen det initiala standarddomännamnet, <_domännamn_>. onmicrosoft.com eller ett anpassat domännamn, till exempel contoso.com. Läs mer om hur du skapar ett anpassat domännamn, [lägga till ett anpassat domännamn i Azure Active Directory](add-custom-domain.md).
+       Domändelen av användarnamnet måste använda antingen det initiala standarddomännamnet, <_domännamn_>. onmicrosoft.com eller ett anpassat domännamn, till exempel contoso.com. Läs mer om hur du skapar ett anpassat domännamn, [lägga till ett anpassat domännamn i Azure Active Directory](add-custom-domain.md).
 
-    - **Profil.** Alternativt kan du lägga till mer information om användaren. Du kan också lägga till användarinformation vid ett senare tillfälle. Läs mer om att lägga till användarinformation [lägga till eller ändra information om användarprofiler](active-directory-users-profile-azure-portal.md).
+   - **Profil.** Alternativt kan du lägga till mer information om användaren. Du kan också lägga till användarinformation vid ett senare tillfälle. Läs mer om att lägga till användarinformation [lägga till eller ändra information om användarprofiler](active-directory-users-profile-azure-portal.md).
 
-    - **Grupper.** Du kan också kan du lägga till användaren till en eller flera befintliga grupper. Du kan också lägga till användaren till grupper vid ett senare tillfälle. Mer information om att lägga till användare till grupper finns i [hur du skapar en grundläggande grupp och Lägg till medlemmar](active-directory-groups-create-azure-portal.md).
+   - **Grupper.** Du kan också kan du lägga till användaren till en eller flera befintliga grupper. Du kan också lägga till användaren till grupper vid ett senare tillfälle. Mer information om att lägga till användare till grupper finns i [hur du skapar en grundläggande grupp och Lägg till medlemmar](active-directory-groups-create-azure-portal.md).
 
-    - **Katalogroll.** Alternativt kan du lägga till användaren till en directory-roll. Du kan tilldela användare till global administratör, eller till en eller flera av de andra administratörsroller i Azure AD. Mer information om hur du tilldelar roller finns i [tilldela roller till användare](active-directory-users-assign-role-azure-portal.md).
+   - **Katalogroll.** Alternativt kan du lägga till användaren till en directory-roll. Du kan tilldela användare till global administratör, eller till en eller flera av de andra administratörsroller i Azure AD. Mer information om hur du tilldelar roller finns i [tilldela roller till användare](active-directory-users-assign-role-azure-portal.md).
 
 4. Kopiera det automatiskt genererade lösenordet som angavs i den **lösenord** box. Du behöver ge det här lösenordet till användaren för första inloggningsprocess.
 

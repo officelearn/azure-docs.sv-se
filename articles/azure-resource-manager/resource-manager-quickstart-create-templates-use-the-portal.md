@@ -10,19 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/11/2019
+ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: c7759b9f0787b7926b3642b8b912ec5391347adf
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 84025953e74cb2ace358aa041f55dc1498d22f2f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911497"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079068"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Snabbstart: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen
 
 Lär dig hur du genererar en Resource Manager-mall med hjälp av Azure-portalen samt hur du redigerar och distribuerar mallen från portalen. Resource Manager-mallar är JSON-filer som definierar de resurser du behöver för att distribuera lösningen. En beskrivning av de begrepp som används i samband med distribution och hantering av Azure-lösningar finns i [Översikt över Azure Resource Manager](resource-group-overview.md).
+
+![Resource manager-mall portal snabbstartsdiagram](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
 När du har slutfört självstudien kan du distribuera ett Azure Storage-konto. Samma process kan användas till att distribuera andra Azure-resurser.
 
@@ -32,16 +34,18 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 Att skapa en Resource Manager-mall från grunden är inte helt enkelt, i synnerhet om du är ny på Azure-distribution och inte känner till JSON-formatet. Med hjälp av Azure-portalen kan du konfigurera en resurs, till exempel ett Azure Storage-konto. Innan du distribuerar resursen kan du exportera konfigurationen till en Resource Manager-mall. Du kan spara mallen och använda den igen senare.
 
-Många erfarna mallutvecklare använder den här metoden för att generera fungerande mallar när de ska distribuera Azure-resurser som de inte är bekanta med.
+Många mall för erfarna utvecklare använder den här metoden för att generera mallar när de försöker distribuera Azure-resurser som de inte är bekant med. Mer information om hur du exporterar mallar med hjälp av portalen finns i [exportera resursgrupper till mallar](./manage-resource-groups-portal.md#export-resource-groups-to-templates). Det andra sättet att hitta en fungerande mall är från [Azure-snabbstartmallar](https://azure.microsoft.com/resources/templates/).
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **Skapa en resurs** > **Lagring** > **Lagringskonto – blob, fil, tabell, kö**.
 
     ![Skapa ett Azure-lagringskonto med hjälp av Azure-portalen](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 3. Ange följande information:
 
-    - **Resursgrupp**: Välj **Skapa ny** och ge resursgruppen ett namn. På skärmbilden är namnet på resursgruppen *mystorage1016rg*. En resursgrupp är en container för Azure-resurser. Med resursgrupper är det enklare att hantera Azure-resurser.
-    - **Namn**: Ge lagringskontot ett unikt namn. På skärmbilden är namnet *mystorage1016*.
+    |Namn|Värde|
+    |----|----|
+    |**Resursgrupp**|Välj **Skapa ny** och ge resursgruppen ett namn. På skärmbilden är namnet på resursgruppen *mystorage1016rg*. En resursgrupp är en container för Azure-resurser. Med resursgrupper är det enklare att hantera Azure-resurser. |
+    |**Namn**|Ge lagringskontot ett unikt namn. Lagringskontonamnet måste vara unikt för alla Azure och den bara innehålla gemena bokstäver och siffror. Namnet måste vara mellan 3 och 24 tecken. Om du får ett felmeddelande om ”lagringskontonamnet” mystorage1016 ”är redan upptagen” kan du prova med att använda  **&lt;ditt namn > storage&lt;dagens datum i MMDD >**, till exempel  **johndolestorage1016**. Mer information finns i [namngivningsregler och begränsningar](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions).|
 
     Du kan använda standardvärdena för resten av egenskaperna.
 
@@ -50,7 +54,7 @@ Många erfarna mallutvecklare använder den här metoden för att generera funge
     > [!NOTE]
     > Vissa av de exporterade mallarna kräver vissa ändringar innan du kan distribuera dem.
 
-4. Välj **Granska + skapa** längst ned på skärmen.
+4. Välj **Granska + skapa** längst ned på skärmen. Markera inte **skapa** i nästa steg.
 5. Välj **Ladda ned en mall för automatisering** längst ned på skärmen. Portalen visar den genererade mallen:
 
     ![Generera en mall från portalen](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
@@ -59,13 +63,14 @@ Många erfarna mallutvecklare använder den här metoden för att generera funge
 
     Det finns sex parametrar angivna. En av dem heter **storageAccountName**. Den andra markerade delen på den föregående skärmbilden visar hur den här parametern ska anges i mallen. I nästa avsnitt kan du redigera mallen för att använda ett genererat namn för lagringskontot.
 
-    En Azure-resurs har definierats i mallen. Typen är [Microsoft.Storage/storageAccounts]. Se hur resursen definieras samt definitionsstrukturen.
-6. Välj **Ladda ned**. Spara **template.json** från det nedladdade paketet till datorn. I nästa avsnitt använder du ett malldistributionsverktyg för att redigera mallen.
-7. Välj fliken **Parameter** för att se de värden som du angav för parametrarna. Anteckna dessa värden, eftersom du behöver dem i nästa avsnitt när du distribuerar mallen.
+    En Azure-resurs har definierats i mallen. Typen är `Microsoft.Storage/storageAccounts`. Ta en titt på hur resursen definieras och definitionsstruktur.
+6. Välj **hämta** högst upp på skärmen. 
+7. Öppna den hämta zip-filen och spara **template.json** till datorn. I nästa avsnitt använder du ett malldistributionsverktyg för att redigera mallen.
+8. Välj fliken **Parameter** för att se de värden som du angav för parametrarna. Anteckna dessa värden, eftersom du behöver dem i nästa avsnitt när du distribuerar mallen.
 
     ![Generera en mall från portalen](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
 
-    Med hjälp av både mallen och parameterfilerna kan du skapa en resurs. Här skapar du ett Azure-lagringskonto.
+    Med både mallfilen och parameterfilen kan skapa du en resurs i den här självstudien, ett Azure storage-konto.
 
 ## <a name="edit-and-deploy-the-template"></a>Redigera och distribuera mallen
 
@@ -81,79 +86,82 @@ Azure kräver att varje Azure-tjänst har ett unikt namn. Distributionen kan mis
 4. Välj **Skapa**.
 5. Välj alternativet för att **skapa din egen mall i redigeringsprogrammet**.
 6. Välj **Läs in fil** och följ sedan anvisningarna för att läsa in template.json som du laddade ned i det sista avsnittet.
-7. Lägg till en variabel så som det visas på följande skärmbild:
+7. Gör följande tre ändringar i mallen:
 
-    ```json
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
-    ```
     ![Azure Resource Manager-mallar](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
 
-    Här används två mallfunktioner: `concat()` och `uniqueString()`.
+   - Ta bort den **storageAccountName** parameter som visas i föregående skärmbild.
+   - Lägg till en variabel som kallas **storageAccountName** som visas i föregående skärmbild:
 
-8. Ta bort parametern för **storageAccountName** som är markerad i föregående skärmbild.
-9. Uppdatera namnelementet för resursen **Microsoft.Storage/storageAccounts** för att använda den nyligen definierade variabeln i stället för parametern:
+       ```json
+       "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+       ```
 
-    ```json
-    "name": "[variables('storageAccountName')]",
-    ```
+       Här används två mallfunktioner: `concat()` och `uniqueString()`.
+   - Uppdatera namnelementet för resursen **Microsoft.Storage/storageAccounts** för att använda den nyligen definierade variabeln i stället för parametern:
 
-    Den slutliga mallen bör se ut så här:
+       ```json
+       "name": "[variables('storageAccountName')]",
+       ```
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "location": {
-                "type": "string"
-            },
-            "accountType": {
-                "type": "string"
-            },
-            "kind": {
-                "type": "string"
-            },
-            "accessTier": {
-                "type": "string"
-            },
-            "supportsHttpsTrafficOnly": {
-                "type": "bool"
-            }
-        },
-        "variables": {
-            "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
-        },
-        "resources": [
-            {
-                "name": "[variables('storageAccountName')]",
-                "type": "Microsoft.Storage/storageAccounts",
-                "apiVersion": "2018-07-01",
-                "location": "[parameters('location')]",
-                "properties": {
-                    "accessTier": "[parameters('accessTier')]",
-                    "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
-                },
-                "dependsOn": [],
-                "sku": {
-                    "name": "[parameters('accountType')]"
-                },
-                "kind": "[parameters('kind')]"
-            }
-        ],
-        "outputs": {}
-    }
-    ```
-7. Välj **Spara**.
-8. Ange följande värden:
+     Den slutliga mallen bör se ut så här:
 
-    - **Resursgrupp**: Välj **Skapa ny** och ge resursgruppen ett unikt namn.
-    - **Plats**: Välj en plats för resursgruppen. Välj till exempel **USA, centrala**. 
-    - **Plats**: Välj en plats för lagringskontot. Välj till exempel **USA, centrala**.
-    - **Kontotyp**: Ange **Standard_LRS** för den här snabbstarten.
-    - **Variant**: Ange **StorageV2** för den här snabbstarten.
-    - **Åtkomstnivå**: Ange **Frekvent** för den här snabbstarten.
-    - **Https Traffic Only Enabled** (Endast HTTPS-trafik aktiverat).  Välj **true** för den här snabbstarten.
-    - **Jag godkänner villkoren ovan**: (välj)
+     ```json
+     {
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion": "1.0.0.0",
+       "parameters": {
+           "location": {
+               "type": "string"
+           },
+           "accountType": {
+               "type": "string"
+           },
+           "kind": {
+               "type": "string"
+           },
+           "accessTier": {
+               "type": "string"
+           },
+           "supportsHttpsTrafficOnly": {
+               "type": "bool"
+           }
+       },
+       "variables": {
+           "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+       },
+       "resources": [
+           {
+               "name": "[variables('storageAccountName')]",
+               "type": "Microsoft.Storage/storageAccounts",
+               "apiVersion": "2018-07-01",
+               "location": "[parameters('location')]",
+               "properties": {
+                   "accessTier": "[parameters('accessTier')]",
+                   "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
+               },
+               "dependsOn": [],
+               "sku": {
+                   "name": "[parameters('accountType')]"
+               },
+               "kind": "[parameters('kind')]"
+           }
+       ],
+       "outputs": {}
+     }
+     ```
+8. Välj **Spara**.
+9. Ange följande värden:
+
+    |Namn|Värde|
+    |----|----|
+    |**Resursgrupp**|Välj resursgruppens namn du skapade i det sista avsnittet. |
+    |**Plats**|Välj en plats för lagringskontot. Välj till exempel **USA, centrala**. |
+    |**Kontotyp**|Ange **Standard_LRS** för den här snabbstarten. |
+    |**Kind**|Ange **StorageV2** för den här snabbstarten. |
+    |**Åtkomstnivå**|Ange **Frekvent** för den här snabbstarten. |
+    |**HTTPS-trafik endast aktiverad**| Välj **true** för den här snabbstarten. |
+    |**Jag godkänner villkoren som anges ovan**|(Välj)|
 
     Här är en skärmbild på en exempeldistribution:
 

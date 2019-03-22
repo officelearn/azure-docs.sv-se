@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: c66ce1d59cf7bd4878b2903615457b3d1dbf2ba0
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: e9efe96490ea1c9351d87b5b2477474ef68fbda9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670459"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875245"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -184,13 +184,13 @@ Följ dessa steg om du vill använda hanterad identitet-autentisering:
 
 1. **Skapa en grupp i Azure AD.** Se den hanterade identitet som en medlem i gruppen.
     
-    1. Hitta data factory hanterad identitet från Azure-portalen. Gå till din datafabrik **egenskaper**. Kopiera SERVICE IDENTITY-ID.
+   1. Hitta data factory hanterad identitet från Azure-portalen. Gå till din datafabrik **egenskaper**. Kopiera SERVICE IDENTITY-ID.
     
-    1. Installera den [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) modulen. Logga in med den `Connect-AzureAD` kommando. Kör följande kommandon för att skapa en grupp och Lägg till den hanterade identitet som en medlem.
-    ```powershell
-    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
-    ```
+   1. Installera den [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) modulen. Logga in med den `Connect-AzureAD` kommando. Kör följande kommandon för att skapa en grupp och Lägg till den hanterade identitet som en medlem.
+      ```powershell
+      $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+      Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
+      ```
     
 1. **[Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  för Azure SQL-servern på Azure portal om du inte redan gjort det. Azure AD-administratör kan vara en Azure AD-användare eller Azure AD-grupp. Om du ger gruppen med hanterad identitet en administratörsroll kan du hoppa över steg 3 och 4. Administratören har fullständig åtkomst till databasen.
 
@@ -582,7 +582,7 @@ BEGIN
       UPDATE SET State = source.State
   WHEN NOT MATCHED THEN
       INSERT (ProfileID, State, Category)
-      VALUES (source.ProfileID, source.State, source.Category)
+      VALUES (source.ProfileID, source.State, source.Category);
 END
 ```
 
@@ -592,14 +592,11 @@ I databasen, definierar du tabelltyp med samma namn som den **sqlWriterTableType
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
     [ProfileID] [varchar](256) NOT NULL,
     [State] [varchar](256) NOT NULL,
-    [Category] [varchar](256) NOT NULL,
+    [Category] [varchar](256) NOT NULL
 )
 ```
 
 Den lagrade proceduren funktionen utnyttjar [Table-Valued parametrar](https://msdn.microsoft.com/library/bb675163.aspx).
-
->[!NOTE]
->Om du skriver till pengar/Smallmoney-datatypen som anropar lagrade proceduren, är det möjligt att värden ska avrundas. Ange den motsvarande datatypen i TVP som decimaltal i stället för pengar/Smallmoney för att minska. 
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Datatypsmappningen för Azure SQL Database
 

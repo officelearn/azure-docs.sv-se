@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: cf16f27a8d39871491b7cf46a509b9714a669667
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 87e006cc5d56e0c7eb5455147c5ce9eb40afc162
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873822"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086623"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>Självstudier: Identifiera vanliga avsikter och entiteter
 
@@ -55,13 +55,13 @@ LUIS har flera fördefinierade avsikter som hjälper dig med vanliga användarav
 
 1. Välj följande avsikter och välj **Done** (Klar): 
 
-    * Utilities.Cancel (Verktyg.Avbryt)
-    * Utilities.Confirm (Verktyg.Bekräfta)
-    * Utilities.Help (Verktyg.Hjälp)
-    * Utilities.StartOver (Verktyg.Börja_om)
-    * Utilities.Stop (Verktyg.Stoppa)
+   * Utilities.Cancel (Verktyg.Avbryt)
+   * Utilities.Confirm (Verktyg.Bekräfta)
+   * Utilities.Help (Verktyg.Hjälp)
+   * Utilities.StartOver (Verktyg.Börja_om)
+   * Utilities.Stop (Verktyg.Stoppa)
 
-    Dessa avsikter är till hjälp när du ska avgöra var i en konversation användaren är och vad de ber dig att göra. 
+     Dessa avsikter är till hjälp när du ska avgöra var i en konversation användaren är och vad de ber dig att göra. 
 
 
 ## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>Lägg till fördefinierade entiteter för att få hjälp med vanlig extrahering av datatyp
@@ -74,12 +74,12 @@ LUIS har flera fördefinierade entiteter för extrahering av data.
 
 1. Välj följande entiteter från listan över fördefinierade entiteter och välj sedan **Klart**:
 
-    * **[PersonName](luis-reference-prebuilt-person.md)** 
-    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
+   * **[PersonName](luis-reference-prebuilt-person.md)** 
+   * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
-    ![Skärmbild på dialogrutan för fördefinierade entiteter med nummer markerat](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+     ![Skärmbild på dialogrutan för fördefinierade entiteter med nummer markerat](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-    Med dessa entiteter kan du lägga till namn och plats till ditt klientprogram.
+     Med dessa entiteter kan du lägga till namn och plats till ditt klientprogram.
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Lägg till exempelyttranden till avsikten Ingen 
 

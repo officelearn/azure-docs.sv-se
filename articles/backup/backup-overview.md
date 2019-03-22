@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b590d75abb9e3f6465594a5c8c684b94e6f2e07f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: d1debbcc8f225a0d4608d67b19e5e00aca580ce1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864310"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122020"
 ---
 # <a name="what-is-azure-backup"></a>Vad är Azure Backup?
 
@@ -55,10 +55,10 @@ De här två tjänsterna innehåller kompletterande men också olika funktioner.
 Bestäm dina behov för affärskontinuitet och haveriberedskap med hjälp av tabellen nedan. 
 
 **Mål** | **Detaljer** | **Jämförelse**
---- | --- | --- | --- |
+--- | --- | --- 
 **Säkerhetskopiera/bevara data** | Säkerhetskopierade data kan bevaras och lagras i flera dagar, månader eller år, om det behövs i efterlevnadssyfte. | Med säkerhetskopieringslösningar som Azure Backup kan du välja vilka data som ska säkerhetskopieras och skräddarsy principer för säkerhetskopiering och kvarhållning.<br/><br/> Site Recovery har inte lika detaljerad anpassning.
 **Mål för återställningspunkt (RPO)** | Mängden godtagbar dataförlust om en återställning krävs. | Säkerhetskopieringar har större variation vad gäller mål för återställningspunkter.<br/><br/> Säkerhetskopieringar av virtuella datorer har vanligtvis ett återställningspunktmål på en dag, medan säkerhetskopieringar av databaser har återställningspunktmål på så lite som 15 minuter.<br/><br/> Site Recovery tillhandahåller låga återställningspunktmål eftersom replikeringen är kontinuerlig eller frekvent, vilket innebär att deltat mellan källa och replikering är litet.
-**Mål för återställningstid (RTO)** |Hur lång tid det tar att slutföra en återställning. | På grund av det större återställningspunktmålet är mängden data som en säkerhetskopieringslösning behöver bearbeta normalt mycket högre, vilket leder till längre mål för återställningstid. Det kan till exempel ta dagar att återställa data från band, beroende på hur lång tid det tar att överföra bandet från den externa platsen. | Lösningar för haveriberedskap som Site Recovery har låga återställningspunktmål eftersom kontinuerlig/frekvent replikering vanligtvis innebär att målet är mycket mer synkroniserat med källan. |
+**Mål för återställningstid (RTO)** |Hur lång tid det tar att slutföra en återställning. | På grund av det större återställningspunktmålet är mängden data som en säkerhetskopieringslösning behöver bearbeta normalt mycket högre, vilket leder till längre mål för återställningstid. Det kan till exempel ta dagar att återställa data från band, beroende på hur lång tid det tar att överföra bandet från den externa platsen. 
 
 ## <a name="what-backup-scenarios-are-supported"></a>Vilka säkerhetskopieringsscenarier stöds?
 

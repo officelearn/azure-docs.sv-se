@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: a46f2b4ed1bb3fc5fff65a627bd3d808ed85ffce
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4e32d2357636cb488d3a58b78b025860da3f74c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967290"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091366"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Förbered en CentOS-baserad virtuell dator för Azure
 
@@ -172,7 +172,7 @@ Den här artikeln förutsätter att du redan har installerat en CentOS (eller li
     Grafiska och tyst start är inte användbart i en molnmiljö där vi vill att alla loggar som ska skickas till den seriella porten.  Den `crashkernel` alternativet kanske vänster konfigureras om så önskas, men Observera att den här parametern minskar mängden tillgängligt minne på den virtuella datorn med 128 MB eller mer, som kan vara problematiskt på mindre storlekar för Virtuella datorer.
 
     > [!Important]
-    > CentOS 6.5 och tidigare måste också ange parametern kernel `numa=off`. Se Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
+    > CentOS 6.5 och tidigare måste också ange parametern kernel `numa=off`. See Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 
 14. Kontrollera att SSH-servern är installerad och konfigurerad för att starta när datorn startas.  Detta är vanligtvis standardinställningen.
 
@@ -196,7 +196,7 @@ Den här artikeln förutsätter att du redan har installerat en CentOS (eller li
 
 - - -
 
-## <a name="centos-70"></a>CentOS 7.0 +
+## <a name="centos-70"></a>CentOS 7.0+
 
 **Ändringar i CentOS 7 (och liknande derivat)**
 
@@ -299,13 +299,13 @@ Förbereda en virtuell CentOS 7-dator för Azure är mycket lik CentOS 6, men de
 
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-10. Om att skapa avbildningen från **VMware, VirtualBox eller KVM:** Kontrollera Hyper-V-drivrutiner som ingår i initramfs:
+10. Om att skapa avbildningen från **VMware, VirtualBox eller KVM:** Kontrollera att Hyper-V-drivrutiner som ingår i initramfs:
 
-   Redigera `/etc/dracut.conf`, lägga till innehåll:
+    Redigera `/etc/dracut.conf`, lägga till innehåll:
 
         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
-   Återskapa initramfs:
+    Återskapa initramfs:
 
         # sudo dracut -f -v
 
@@ -316,7 +316,7 @@ Förbereda en virtuell CentOS 7-dator för Azure är mycket lik CentOS 6, men de
 
 12. Skapa inte växlingsutrymme på OS-disken.
 
-   Azure Linux Agent kan automatiskt konfigurera växlingsutrymme använder den lokala resursdisk som är kopplad till den virtuella datorn när du har etablerat på Azure. Observera att den lokala resurs disken är en *tillfälliga* disk och kan tömmas när Virtuellt datorn avetableras. När du har installerat Azure Linux Agent (se föregående steg), ändra följande parametrar i `/etc/waagent.conf` på rätt sätt:
+    Azure Linux Agent kan automatiskt konfigurera växlingsutrymme använder den lokala resursdisk som är kopplad till den virtuella datorn när du har etablerat på Azure. Observera att den lokala resurs disken är en *tillfälliga* disk och kan tömmas när Virtuellt datorn avetableras. När du har installerat Azure Linux Agent (se föregående steg), ändra följande parametrar i `/etc/waagent.conf` på rätt sätt:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4

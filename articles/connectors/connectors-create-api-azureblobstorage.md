@@ -1,5 +1,5 @@
 ---
-title: Ansluta till Azure blob storage - Azure Logic Apps | Microsoft Docs
+title: Ansluta till Azure blob storage - Azure Logic Apps
 description: Skapa och hantera blobar i Azure storage med Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -10,36 +10,36 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: 7d6845624c838ac0cf49e5963cae1ca0ea15ec15
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ea3e97db9ec560306788943d92a7670025f38bdc
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230615"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310378"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Skapa och hantera blobbar i Azure blob storage med Azure Logic Apps
 
 Den här artikeln visar hur du kan komma åt och hantera filer som lagras som blobar i Azure storage-kontot från inuti en logikapp med Azure Blob Storage connector. På så sätt kan du skapa logikappar som automatiserar uppgifter och arbetsflöden för att hantera dina filer. Du kan till exempel skapa logikappar som att skapa, hämta, uppdatera och ta bort filer i ditt storage-konto.
 
-Anta att du har ett verktyg som uppdateras på en Azure-webbplats. den fungerar som en utlösare för din logikapp. Om den här händelsen inträffar kan ha du logikappen vissa filen i din blob storage-behållare, vilket är en åtgärd i din logikapp. 
+Anta att du har ett verktyg som uppdateras på en Azure-webbplats. den fungerar som en utlösare för din logikapp. Om den här händelsen inträffar kan ha du logikappen vissa filen i din blob storage-behållare, vilket är en åtgärd i din logikapp.
 
 > [!NOTE]
-> Logic Apps stöder inte att ansluta direkt till Azure storage-konton genom brandväggar. För att få åtkomst till dessa konton måste du använda något av alternativen här: 
+> Logic Apps stöder inte att ansluta direkt till Azure storage-konton genom brandväggar. För att få åtkomst till dessa konton måste du använda något av alternativen här:
 >
-> * Skapa en [integreringstjänstmiljön](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), som kan ansluta till resurser i Azure-nätverk. 
-> 
+> * Skapa en [integreringstjänstmiljön](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), som kan ansluta till resurser i Azure-nätverk.
+>
 > * Om du redan använder API Management kan du använda den här tjänsten för det här scenariot. Mer information finns i [enkel integrering företagsarkitektur](https://aka.ms/aisarch).
 
-Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Snabbstart: skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabbstarten: Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Specifika teknisk information finns i den <a href="https://docs.microsoft.com/connectors/azureblobconnector/" target="blank">Azure Blob Storage-anslutning för referens</a>.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
+* Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
 
 * En [Azure storage-konto och storage-behållare](../storage/blobs/storage-quickstart-blobs-portal.md)
 
-* Logikappen där du behöver åtkomst till Azure blob storage-kontot. Om du vill starta logikappen med en Azure Blob Storage-utlösare, som du behöver en [tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+* Logikappen där du behöver åtkomst till Azure blob storage-kontot. Om du vill starta logikappen med en Azure Blob Storage-utlösare, som du behöver en [tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="add-trigger"></a>
 
@@ -53,7 +53,7 @@ Det här exemplet visar hur du kan starta en logikapparbetsflöde med den **Azur
 
 2. I sökrutan anger du ”azure blob” som filter. Välj utlösaren som du vill använda från listan över utlösare.
 
-   Det här exemplet används den här utlösaren: **Azure Blob Storage - när en blob läggs till eller ändras (enbart egenskaper)**
+   Det här exemplet använder den här utlösaren: **Azure Blob Storage - när en blob läggs till eller ändras (enbart egenskaper)**
 
    ![Välj utlösare](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
 
@@ -63,7 +63,7 @@ Det här exemplet visar hur du kan starta en logikapparbetsflöde med den **Azur
 
    1. I den **behållare** väljer du mappikonen.
 
-   2. I listan väljer du vinkelparentesen ( **>** ), och sedan bläddra tills du hittar och välj den mapp som du vill. 
+   2. I listan väljer du vinkelparentesen ( **>** ), och sedan bläddra tills du hittar och välj den mapp som du vill.
 
       ![Välj mapp](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
 
@@ -94,7 +94,7 @@ I Azure Logic Apps, en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app
 
    ![Välj åtgärd](./media/connectors-create-api-azureblobstorage/azure-blob-action.png) 
 
-4. Om du uppmanas anslutningsinformation [skapa anslutningen Azure Blob Storage nu](#create-connection). Eller om anslutningen redan finns, ange informationen som krävs för åtgärden. 
+4. Om du uppmanas anslutningsinformation [skapa anslutningen Azure Blob Storage nu](#create-connection). Eller om anslutningen redan finns, ange informationen som krävs för åtgärden.
 
    För det här exemplet väljer du den fil du vill.
 
@@ -119,7 +119,7 @@ Det här exemplet hämtar endast innehållet för en blob. Lägg till en annan �
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information, till exempel utlösare och åtgärder gränser, enligt beskrivningen av kopplingens Swagger-fil, finns i den [anslutningsappens-referenssida](/connectors/azureblobconnector/). 
+Teknisk information, till exempel utlösare och åtgärder gränser, enligt beskrivningen av kopplingens öppna API: et (tidigare Swagger) fil, finns i den [anslutningsappens-referenssida](/connectors/azureblobconnector/).
 
 ## <a name="get-support"></a>Få support
 

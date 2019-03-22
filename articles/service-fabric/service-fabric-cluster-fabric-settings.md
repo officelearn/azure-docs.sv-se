@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: dc0e326cf3b188a51708115e5496cfbb52a95611
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 46da7c7931eaf163c24f057bac5de35f3c727519
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57836972"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311874"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa inställningar för Service Fabric-kluster
 Den här artikeln beskrivs de olika fabric-inställningarna för Service Fabric-kluster som du kan anpassa. För kluster i Azure kan du anpassa inställningar via den [Azure-portalen](https://portal.azure.com) eller genom att använda en Azure Resource Manager-mall. Mer information finns i [uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). Fristående kluster kan du anpassa inställningar genom att uppdatera den *ClusterConfig.json* fil- och utför en konfiguration som uppgraderar på ditt kluster. Mer information finns i [uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -614,13 +614,13 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 ## <a name="security"></a>Säkerhet
 | **Parametern** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-|AADCertEndpointFormat|sträng, standardvärdet är ””|Statisk|AAD Cert Endpoint Format, standard Azure Commercial angetts för icke-standard-miljö, till exempel Azure Government ”https://login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml” |
+|AADCertEndpointFormat|sträng, standardvärdet är ””|Statisk|AAD Cert Endpoint Format, standard Azure Commercial angetts för icke-standard-miljö, till exempel Azure Government ”https:\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml” |
 |AADClientApplication|sträng, standardvärdet är ””|Statisk|Native Client-programnamn eller ID som representerar Fabric klienter |
 |AADClusterApplication|sträng, standardvärdet är ””|Statisk|Webb-API-programnamn eller ID som representerar klustret |
-|AADLoginEndpoint|sträng, standardvärdet är ””|Statisk|AAD Inloggningsslutpunkt, standard Azure Commercial angetts för icke-standard-miljö, till exempel Azure Government ”https://login.microsoftonline.us” |
+|AADLoginEndpoint|sträng, standardvärdet är ””|Statisk|AAD Inloggningsslutpunkt, standard Azure Commercial angetts för icke-standard-miljö, till exempel Azure Government ”https:\//login.microsoftonline.us” |
 |AADTenantId|sträng, standardvärdet är ””|Statisk|Klient-ID (GUID) |
 |AdminClientCertThumbprints|sträng, standardvärdet är ””|Dynamisk|Tumavtryck för certifikat som används av klienter i rollen som administratör. Det är en kommaavgränsad lista med namn på. |
-|AADTokenEndpointFormat|sträng, standardvärdet är ””|Statisk|AAD Tokenslutpunkten, standard Azure Commercial angetts för icke-standard-miljö, till exempel Azure Government ”https://login.microsoftonline.us/{0}” |
+|AADTokenEndpointFormat|sträng, standardvärdet är ””|Statisk|AAD Tokenslutpunkten, standard Azure Commercial angetts för icke-standard-miljö, till exempel Azure Government ”https:\//login.microsoftonline.us/{0}” |
 |AdminClientClaims|sträng, standardvärdet är ””|Dynamisk|Alla möjliga anspråk förväntades från admin-klienter. samma format som ClientClaims; den här listan läggs internt till ClientClaims; så du behöver inte att lägga till samma poster till ClientClaims. |
 |AdminClientIdentities|sträng, standardvärdet är ””|Dynamisk|Windows-identiteter för fabric klienter administratörsroll; används för att auktorisera Privilegierade fabric åtgärder. Det är en kommaavgränsad lista. varje post är ett Domänkontonamn eller gruppnamn. För att underlätta; det konto som kör fabric.exe tilldelas automatiskt administratörsroll; så är gruppera ServiceFabricAdministrators. |
 |AppRunAsAccountGroupX509Folder|sträng, standard är /home/sfuser/sfusercerts |Statisk|Mapp där AppRunAsAccountGroup X509 certifikat och privata nycklar finns |

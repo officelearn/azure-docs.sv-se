@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f06446cb6af1fa145e5fcec41cc85a1452af207a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5202d2775e830264543719cafefb5c48fca822d6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839261"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316430"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratör i Azure Active Directory
 
@@ -134,7 +134,7 @@ Följande administratörsroller är tillgängliga:
 
 * **[Partner – nivå 2-stöd](#partner-tier2-support)**: Använd inte. Den här rollen har gjorts inaktuell och kommer att tas bort från Azure AD i framtiden. Den här rollen är avsedd att användas av ett litet antal Microsoft återförsäljning-partner och är inte avsedd för allmänt bruk.
 
-* **[Lösenordsadministratör / Supportavdelningsadministratör](#helpdesk-administrator)**: Användare med den här rollen kan ändra lösenord, ogiltigförklara uppdateringstoken, hanterar tjänstbegäranden och kontrollera tjänstens hälsotillstånd. Ogiltigförklara en uppdateringstoken Tvingar användaren att logga in igen. Helpdeks-administratörer kan återställa lösenord och ogiltigförklara uppdateringstoken för andra användare som är icke-administratörer eller tilldelats följande roller:
+* **[Supportavdelningsadministratören (lösenord)](#helpdesk-administrator)**: Användare med den här rollen kan ändra lösenord, ogiltigförklara uppdateringstoken, hanterar tjänstbegäranden och kontrollera tjänstens hälsotillstånd. Ogiltigförklara en uppdateringstoken Tvingar användaren att logga in igen. Helpdeks-administratörer kan återställa lösenord och ogiltigförklara uppdateringstoken för andra användare som är icke-administratörer eller tilldelats följande roller:
   * Katalogläsare
   * Gäst bjuder in
   * Supportavdelningsadministratör
@@ -149,7 +149,7 @@ Följande administratörsroller är tillgängliga:
   * Icke-administratörer som chefer, juridiska ombud och Personal anställda som kan ha åtkomst till känslig eller privat information.
 
   > [!NOTE]
-  > I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som ”Supportavdelningsadministratör”. Det är ”Lösenordsadministratör” i den [Azure-portalen](https://portal.azure.com/).
+  > Den här rollen kallades tidigare ”Lösenordsadministratör” [Azure-portalen](https://portal.azure.com/). Vi ändrar dess namn till ”Supportavdelningsadministratör” som matchar dess namn i Azure AD PowerShell, Azure AD Graph API och Microsoft Graph API. För en kort stund kommer vi ändra namnet till ”(lösenord) Supportavdelningsadministratör” i Azure-portalen innan ändringen ”Supportavdelningsadministratör”.
   >
   
 * **[Power BI-administratör](#power-bi-service-administrator)**: Användare med den här rollen har globala behörigheter inom Microsoft Power BI när tjänsten finns närvarande, liksom möjlighet att hantera supportbegäranden och kontrollera tjänstens hälsotillstånd. Mer information på [förstå administratörsrollen för Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
@@ -164,7 +164,7 @@ Följande administratörsroller är tillgängliga:
 
   <b>Viktiga</b>: Den här rollen ger dig möjlighet att hantera tilldelningar för alla Azure AD-roller, inklusive den globala administratörsrollen. Den här rollen omfattar inte andra Privilegierade funktioner i Azure AD, som skapar eller uppdaterar användare. Dock kan användare som tilldelats den här rollen bevilja sig själva eller andra ytterligare behörighet genom att tilldela ytterligare roller.
 
-* **[Rapporterar läsare](#reports-reader)**: Användare med den här rollen kan visa användning rapporteringsdata och instrumentpanelen rapporter i Administrationscenter för Office 365 och införande kontexten pack i Power BI. Dessutom rollen ger åtkomst till loggar in rapporter och aktivitet i Azure AD och data som returneras av Microsoft Graph rapporterings-API. En användare som tilldelats rollen rapportläsare kan komma åt endast relevanta användnings- och användningsstatistik. De har inte någon administratörsbehörighet för att konfigurera inställningar eller åtkomst till produktspecifika Administrationscenter som Exchange. Den här rollen har ingen behörighet att visa, skapa eller hantera supportärenden.
+* **[Rapporterar läsare](#reports-reader)**: Användare med den här rollen kan visa användning rapporteringsdata och instrumentpanelen rapporter i Microsoft 365 Administrationscenter och införande kontexten pack i Power BI. Dessutom rollen ger åtkomst till loggar in rapporter och aktivitet i Azure AD och data som returneras av Microsoft Graph rapporterings-API. En användare som tilldelats rollen rapportläsare kan komma åt endast relevanta användnings- och användningsstatistik. De har inte någon administratörsbehörighet för att konfigurera inställningar eller åtkomst till produktspecifika Administrationscenter som Exchange. Den här rollen har ingen behörighet att visa, skapa eller hantera supportärenden.
 
 * **[Säkerhetsadministratör](#security-administrator)**: Användare med den här rollen har behörighet att hantera säkerhetsrelaterade funktioner i Microsoft 365 Säkerhetscenter, Azure Active Directory Identity Protection, Azure Information Protection och Office 365-säkerhet och Efterlevnadscenter. Mer information om behörigheter för Office 365 finns på [behörigheter i Office 365 säkerhets- och Efterlevnadscenter](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
   
@@ -208,9 +208,9 @@ Följande administratörsroller är tillgängliga:
   [Azure Security Center](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Visa rekommendationer och aviseringar, visa IPSec-principer security tillstånd, men det går inte att göra ändringar
   [Tjänstehälsa för Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Visa hälsotillståndet för Office 365-tjänster
 
-* **[Tjänstsupportadministratör](#service-support-administrator)**: Användare med den här rollen kan öppna supportbegäranden med Microsoft för Azure och Office 365-tjänster och visa tjänstinstrumentpanelen och meddelandecenter i Azure-portalen och Office 365-administratörsportalen. Mer information på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Tjänstsupportadministratör](#service-support-administrator)**: Användare med den här rollen kan öppna supportbegäranden med Microsoft för Azure och Office 365-tjänster och visa tjänstinstrumentpanelen och meddelandecenter i datacentret i den [Azure-portalen](https://portal.azure.com) och [Microsoft 365 Administrationscenter](https://admin.microsoft.com). Mer information på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
   > [!NOTE]
-  > I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som ”Tjänstsupportadministratör”. Det är ”tjänstadministratör” i den [Azure-portalen](https://portal.azure.com), administrationsportalen för Office 365 och Intune-portalen.
+  > I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som ”Tjänstsupportadministratör”. Det är ”tjänstadministratör” i den [Azure-portalen](https://portal.azure.com), [Microsoft 365 Administrationscenter](https://admin.microsoft.com), och Intune-portalen.
 
 * **[SharePoint Administrator](#sharepoint-service-administrator)**: Användare med den här rollen har globala behörigheter inom Microsoft SharePoint Online när tjänsten finns närvarande, liksom möjligheten att skapa och hantera alla Office 365-grupper, hantera supportbegäranden och kontrollera tjänstens hälsotillstånd. Mer information på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
   > [!NOTE]

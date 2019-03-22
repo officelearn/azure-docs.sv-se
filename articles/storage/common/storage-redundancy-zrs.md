@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
 ms.subservice: common
-ms.openlocfilehash: 11891153f1ffce438597dc4f2799a9f25d76c2f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8928e59b97143038e0850132196f1ce9a1da131d
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992610"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337892"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Zonredundant lagring (ZRS): Azure Storage-program med hög tillgänglighet
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -64,7 +64,7 @@ Om du vill utföra en manuell migrering, har du alternativ:
 
 En manuell migrering kan resultera i driftstopp i programmet. Om programmet kräver hög tillgänglighet, tillhandahåller Microsoft även ett alternativ för Direktmigrering. En Direktmigrering är en migrering på plats. 
 
-Du kan använda ditt lagringskonto medan dina data migreras mellan käll- och storage-stämplar under en Direktmigrering. Under migreringsprocessen har samma nivå av hållbarhet och tillgänglighet som du brukar göra.
+Du kan använda ditt lagringskonto medan dina data migreras mellan käll- och storage-stämplar under en Direktmigrering. Under migreringsprocessen har samma nivå av hållbarhet och tillgänglighet serviceavtal som du vanligtvis utför.
 
 Tänk på följande begränsningar för Direktmigrering:
 
@@ -88,7 +88,33 @@ Du kan begära Direktmigrering via den [Support för Azure-portalen](https://ms.
 6. Kontrollera att kontaktinformationen är korrekt på den **kontaktinformation** bladet.
 7. Välj **Skapa**.
 
-Supporttekniker kommer att kontakta dig och ge någon hjälp du behöver. 
+Supporttekniker kommer att kontakta dig och ge någon hjälp du behöver.
+
+## <a name="live-migration-to-zrs-faq"></a>Direktmigrering ZRS vanliga frågor och svar
+
+**Ska jag planera för någon stilleståndstid under migreringen?**
+
+Det finns inga driftstopp som orsakas av migreringen. Du kan fortsätta ditt lagringskonto medan dina data migreras mellan käll- och storage-stämplar under en Direktmigrering. Under migreringsprocessen har samma nivå av hållbarhet och tillgänglighet serviceavtal som du vanligtvis utför.
+
+**Finns det någon förlust av data som är associerade med migreringen?**
+
+Det finns inga data går förlorade som är associerade med migreringen. Under migreringsprocessen har samma nivå av hållbarhet och tillgänglighet serviceavtal som du vanligtvis utför.
+
+**Är alla uppdateringar som krävs för att programmen när migreringen är klar?**
+
+När migreringen är klar ändras replikeringstyp av konto till ”zonredundant lagring (ZRS)”. Tjänstslutpunkter kan komma åt SAS-nycklar och andra konto konfigurationsalternativ som förblir oförändrade och intakta.
+
+**Kan jag begära en Direktmigrering av min general-purpose v1-konton till ZRS?**
+
+ZRS stöder endast gpv2-konton så innan du skickar en begäran för en Direktmigrering till ZRS ser du till att uppgradera dina konton till gpv2. Se [översikt över Azure storage-konton](https://docs.microsoft.com/azure/storage/common/storage-account-overview) och [uppgradera till ett gpv2-lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) för mer information.
+
+**Kan jag begära en Direktmigrering av min läsåtkomst till geografiskt redundant lagring (RA-GRS) eller till ZRS-konton?**
+
+Innan du skickar en begäran för en Direktmigrering till ZRS ser du till ditt program eller workload(s) inte längre behöver åtkomst till den sekundära skrivskyddade slutpunkten och ändra replikering av dina lagringskonton till geo-redundant lagring (GRS). Se [ändra replikeringsstrategi](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) för mer information.
+
+**Kan jag begära en Direktmigrering av min lagringskonton till ZRS till en annan region?**
+
+Om du vill migrera dina data till ett ZRS-konto finns i en region som skiljer sig från regionen som källkontot, måste du utföra en manuell migrering.
 
 ## <a name="zrs-classic-a-legacy-option-for-block-blobs-redundancy"></a>ZRS Classic: Ett äldre alternativ för block BLOB-redundans
 > [!NOTE]
@@ -101,6 +127,8 @@ ZRS Classic replikerar data asynkront mellan datacenter i en eller två regioner
 ZRS Classic är endast tillgänglig för **blockblobbar** i allmänna V1 (GPv1)-konton. Mer information om lagringskonton finns i [kontoöversikten för Azure Storage](storage-account-overview.md).
 
 Om du vill migrera manuellt ZRS-kontodata till eller från ett LRS, ZRS Classic, GRS eller RA-GRS-konto, använder du något av följande verktyg: AzCopy, Azure Storage Explorer, Azure PowerShell eller Azure CLI. Du kan också skapa egna migreringslösning med någon av Azure Storage-klientbibliotek.
+
+Du kan också uppgradera dina ZRS Classic-konton till ZRS i portalen eller med hjälp av Azure PowerShell eller Azure CLI.
 
 ## <a name="see-also"></a>Se också
 - [Azure Storage-replikering](storage-redundancy.md)

@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 76c7519a166bfbfe5d2a7695a077b809aa971489
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 7cb1632fe8c0ae873afcf37504dbd13bcfc753e8
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904039"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338079"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning
 
@@ -104,7 +104,7 @@ Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för en e
 
    ![Konfigurera diagnostik för elastiska pooler](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Utöver att konfigurera diagnostiktelemetri för elastisk pool behöver du även konfigurera diagnostiktelemetri för varje databas i elastisk pool, enligt beskrivningen nedan. 
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-datatbase-or-database-in-elastic-pool"></a>Konfigurera strömning av diagnostiktelemetri för enkel datatbase eller databasen i elastisk pool
@@ -159,7 +159,7 @@ Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för en h
 
    ![Konfigurera diagnostik för den hanterade instansen](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Utöver att konfigurera diagnostiktelemetri för en hanterad instans, måste du också konfigurera diagnostiktelemetri för varje instans-databas, enligt beskrivningen nedan. 
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>Konfigurera strömning av diagnostiktelemetri exempelvis databaser

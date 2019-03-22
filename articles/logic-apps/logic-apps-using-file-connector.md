@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: c5128e904e540deeb3293fb687da4e8cafcfa1e0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a933824e9553ee7f638da495b46ebed19e04169d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871002"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316974"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ansluta till lokala filsystem med Azure Logic Apps
 
@@ -48,7 +48,7 @@ Om du vill följa exemplet behöver du följande objekt:
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna logikappen i Logic App Designer, om inte redan är öppna.
 
-1. I sökrutan anger du ”dropbox” som filter. Välj den här utlösaren från listan över utlösare: **När en fil skapas** 
+1. I sökrutan anger du ”dropbox” som filter. Välj den här utlösaren från listan över utlösare: **När en fil skapas**
 
    ![Välj Dropbox-utlösare](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
@@ -78,7 +78,7 @@ Om du vill följa exemplet behöver du följande objekt:
    | **Gateway** | Ja | <*installed-gateway-name*> | Namn för din tidigare installerade gateway | 
    ||| 
 
-1. När du är klar väljer du **Skapa**. 
+1. När du är klar väljer du **Skapa**.
 
    Logic Apps konfigurerar och testar anslutningen, se till att anslutningen fungerar korrekt. 
    Om anslutningen är korrekt konfigurerad, visas alternativ för den åtgärd som du valde tidigare. 

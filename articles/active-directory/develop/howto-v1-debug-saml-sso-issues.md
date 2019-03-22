@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, smalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f854c8b27065c2d2bf0c9964fe9dfce66aba423a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 9fcc6cb40d83c06a1c9f0a97c72565464e74e655
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104513"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336090"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Felsöka SAML-baserad enkel inloggning till program i Azure Active Directory
 
@@ -29,7 +29,7 @@ Lär dig att hitta och åtgärda [enkel inloggning](../manage-apps/what-is-singl
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Vi rekommenderar att du installerar den [Mina appar skyddat Inloggningstillägg](../user-help/active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension). Den här webbläsartillägget gör det enkelt att samla in SAML-begäran och SAML-Svarsinformation som du behöver för att lösa problem med enkel inloggning. Om du inte kan installera tillägget visar den här artikeln hur du löser problem med både med och utan filnamnstillägget installerad.
+Vi rekommenderar att du installerar den [Mina appar skyddat Inloggningstillägg](../user-help/my-apps-portal-end-user-troubleshoot.md#im-having-trouble-installing-the-my-apps-secure-sign-in-extension). Den här webbläsartillägget gör det enkelt att samla in SAML-begäran och SAML-Svarsinformation som du behöver för att lösa problem med enkel inloggning. Om du inte kan installera tillägget visar den här artikeln hur du löser problem med både med och utan filnamnstillägget installerad.
 
 Ladda ned och installera den Mina appar skyddat Inloggningstillägg genom att använda någon av följande länkar.
 
@@ -64,7 +64,7 @@ När du försöker logga in kan du se ett fel på ditt företag på inloggningss
 
 Om du vill felsöka det här felet, behöver du ett felmeddelande och SAML-begäran. I Mina appar skyddat Inloggningstillägg denna information samlas in automatiskt och visar vägledning för lösning på Azure AD. 
 
-### <a name="to-resolve-the-sign-in-error-with-the-myapps-secure-sign-in-extension-installed"></a>För att lösa problemet logga in med MyApps säker inloggning-tillägget installerat
+### <a name="to-resolve-the-sign-in-error-with-the-my-apps-secure-sign-in-extension-installed"></a>Om du vill åtgärda felet logga in med den Mina appar skyddat Inloggningstillägg har installerats
 
 1. När ett fel uppstår tillägget omdirigeras du tillbaka till Azure AD **testa enkel inloggning** bladet. 
 1. På den **testa enkel inloggning** bladet väljer **hämta SAML-begäran**. 
@@ -73,14 +73,14 @@ Om du vill felsöka det här felet, behöver du ett felmeddelande och SAML-begä
 
 Vi rekommenderar att du använder feedback textrutan för att informera oss om det finns ingen lösning för inloggning-fel.
 
-### <a name="to-resolve-the-error-without-installing-the-myapps-secure-sign-in-extension"></a>Att lösa problemet utan att installera MyApps säker inloggning tillägget
+### <a name="to-resolve-the-error-without-installing-the-my-apps-secure-sign-in-extension"></a>Att lösa problemet utan att installera den Mina appar skyddat Inloggningstillägg
 
 1. Kopiera felmeddelandet i det nedre högra hörnet på sidan. Felmeddelandet innehåller:
     - Ett Korrelations-ID och tidsstämpel. Dessa värden är viktigt när du skapar ett supportärende med Microsoft, eftersom de hjälper tekniker för att identifiera problemet och tillhandahålla en korrekt lösning på problemet.
     - En uppgift som identifierar orsaken till problemet.
 1. Gå tillbaka till Azure AD och hitta den **testa enkel inloggning** bladet.
 1. I textrutan ovan **få vägledning för lösning**, klistra in ett felmeddelande.
-1. Klicka på **få vägledning för lösning** ska visas stegen för att lösa problemet. Riktlinjerna kan kräva information från SAML-begäran eller SAML-svar. Om du inte använder MyApps säker inloggning tillägget, kanske du behöver ett verktyg som [Fiddler](https://www.telerik.com/fiddler) att hämta SAML-begäran och svaret.
+1. Klicka på **få vägledning för lösning** ska visas stegen för att lösa problemet. Riktlinjerna kan kräva information från SAML-begäran eller SAML-svar. Om du inte använder den Mina appar skyddat Inloggningstillägg, kanske du behöver ett verktyg som [Fiddler](https://www.telerik.com/fiddler) att hämta SAML-begäran och svaret.
 1. Kontrollera att mål i SAML-begäran motsvarar SAML enkel inloggning för tjänstens URL hämtas från Azure AD.
 1. Kontrollera utfärdaren i SAML-begäran är samma ID som du har konfigurerat för program i Azure AD. Azure AD använder utfärdaren för att hitta ett program i din katalog.
 1. Kontrollera AssertionConsumerServiceURL där programmet förväntas ta emot SAML-token från Azure AD. Du kan konfigurera det här värdet i Azure AD, men det är inte obligatoriskt om det är en del av SAML-begäran.

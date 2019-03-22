@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4d1a9ae622de103b459d256cb48c5823f5866a3b
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: 984c5d6b5e6e2010489533a3889501c5b524a6bd
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294084"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311330"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Innehållsskydd med dynamisk kryptering
 
@@ -204,7 +204,7 @@ Resurserna som ska krypteras av kryptering för lagring på serversidan för att
 
 Om du får den `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` fel, kontrollera att du anger lämplig princip för direktuppspelning.
 
-Om det uppstår fel som slutar med `_NOT_SPECIFIED_IN_URL`, se till att du anger krypteringsformat i URL: en. Till exempel .../manifest (format = m3u8-cmaf kryptering = cbcs aapl). Se [Streaming protokoll och krypteringstyper](#streaming-protocols-and-encryption types).
+Om det uppstår fel som slutar med `_NOT_SPECIFIED_IN_URL`, se till att du anger krypteringsformat i URL: en. Till exempel `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Se [Streaming protokoll och krypteringstyper](#streaming-protocols-and-encryption-types).
 
 
 ## <a name="next-steps"></a>Nästa steg

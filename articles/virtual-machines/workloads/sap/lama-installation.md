@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 432dcf4608d23f269c5005b86d2c58b7f70b3068
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f09f66e81ec4878aedebfee9be4c0c67b75c8ad6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007589"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313608"
 ---
 # <a name="sap-lama-connector-for-azure"></a>SAP LaMa connector för Azure
 
@@ -77,7 +77,7 @@ Azure connector levereras från och med SAP LaMa 3.0 SP05. Vi rekommenderar att 
 1. Öppna bladet Azure Active Directory
 1. Klicka på App-registreringar
 1. Klicka på Lägg till
-1. Ange ett namn, väljer typen ”Web app/API”, ange en inloggnings-URL (till exempel `http://localhost`) och klicka på Skapa
+1. Ange ett namn, väljer typen ”Web app/API”, ange en inloggnings-URL (till exempel http:\//localhost) och klicka på Skapa
 1. Inloggnings-URL: en används inte och kan vara vilken giltig URL
 1. Välj den nya appen och klicka på nycklar på fliken Inställningar
 1. Ange en beskrivning för en ny nyckel, Välj ”upphör aldrig att gälla” och klickar på Spara

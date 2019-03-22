@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d784941c43da13a2c1bd120599aa02fe14e5a5b4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4fd946b53956509844ad0a9396575f1ee2450414
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456827"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338606"
 ---
 <a name="logic-app-test-drive"></a>Logic App-provkörning
 ====================
@@ -137,6 +137,10 @@ Får vi använder programmet för att distribuera till prenumerationen, behöver
 **Azure AD App Key -** *[obligatoriskt fält]* sista fältet är att generera en autentiseringsnyckel. Under nycklar, Lägg till en beskrivning av nyckeln, ange hur lång tid att aldrig upphöra, sedan väljer Spara. Det är **viktiga** för att förhindra att ett utgånget nyckel, vilket bryter din provkörning i produktion. Kopiera detta värde och klistra in den i din Test Drive-obligatoriskt.
 
 ![Azure Active Directory-nycklar-avsnittet](./media/azure-resource-manager-test-drive/subdetails8.png)
+
+> [!CAUTION]
+> Du kan inte använda förhandsversionen av Azure App registreringen eftersom den inte för närvarande genererar en base64-kodad nyckel.
+
 
 <a name="next-steps"></a>Nästa steg
 ----------

@@ -1,5 +1,5 @@
 ---
-title: Återställning av lösenord för självbetjäning av Azure AD, Windows 7- och 8.1
+title: Återställning av lösenord för självbetjäning av Azure AD, Windows 7- och 8.1 - Azure Active Directory
 description: Hur du aktiverar Självbetjäning för återställning av lösenord med hjälp av har glömt lösenord på Windows 7- eller 8.1 inloggningsskärmen
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 933ac9b8f7d381db0111ee50385f11e8a22d92f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7a7752fac54f9dfb2f8fb0aecd3b6249c52c3bcf
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217827"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316362"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Anvisningar: Aktivera lösenordsåterställning från Windows 7, 8 och 8.1
 

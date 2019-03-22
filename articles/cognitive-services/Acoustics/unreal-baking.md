@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: afe4421bea27ff029bd4a1a7808241a54027a6ac
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 544de5a3ac48c12d75f05a1c9adb56f48bb540f4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136397"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311578"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Projektet Akustik Unreal ändamålet självstudien
 Det här dokumentet beskriver processen för att skicka in en Akustik ändamålet med hjälp av Redigeraren för Unreal-tillägget.
@@ -32,7 +32,7 @@ Det finns fem steg för att göra en ändamålet:
 
 Importera projekt Akustik plugin-programmet paketet i projektet. Om du vill ha hjälp med detta finns i den [Unreal integrering](unreal-integration.md) avsnittet. När du har integrerat plugin-programmet, öppna Gränssnittet Akustik genom att klicka på ikonen nytt Akustik läge.
 
-![Öppna Akustik läge](media/acoustics-mode.png)
+![Skärmbild av Unreal Akustik redigeringsläget alternativet](media/acoustics-mode.png)
 
 ## <a name="tag-actors-for-acoustics"></a>Taggen aktörer för Akustik
 
@@ -42,7 +42,7 @@ Välj ett eller flera objekt i världen Outliner eller Använd den **flera** avs
 
 ### <a name="for-reference-the-objects-tab-parts"></a>Referens: Objekt fliken delar
 
-![Unreal fliken Objektinformation](media/unreal-objects-tab-details.png)
+![Skärmbild av Akustik objekt flik i Unreal](media/unreal-objects-tab-details.png)
 
 1. Fliken val av knapparna (**objekt** fliken markerad). Använd knapparna för att gå igenom de olika stegen för att göra en Akustik ändamålet uppifrån och ned.
 2. En kort beskrivning av vad du behöver göra med hjälp av den här sidan.
@@ -75,11 +75,11 @@ Akustiska material styra mängden ljud energi som visas från varje ytan. Det ak
 
 Genljudet tidpunkten för ett visst material i ett rum är relaterat till dess absorptionskoefficient, med de flesta material med absorption värden i intervallet 0,01 0.20 omvänt. Det är mycket absorberande material med absorptionskoefficient ovanför det här intervallet. Till exempel om ett rum ljud för reverberant ändra akustiska materialet väggar, våning eller taket till något högre absorptivity. Akustiska samband tilldelningen gäller för alla aktörer som använder scen materialet.
 
-![Eko graf](media/reverb-time-graph.png)
+![Diagram som visar negativt korrelation genljudet tid med större](media/reverb-time-graph.png)
 
 ### <a name="for-reference-parts-of-the-materials-tab"></a>Referens: Delar av fliken material
 
-![Unreal fliken Objektinformation](media/unreal-materials-tab-details.png)
+![Skärmbild av Akustik objekt flik i Unreal](media/unreal-materials-tab-details.png)
 
 1. Den **material** fliken knapp, som används för att få fram den här sidan.
 2. En kort beskrivning av vad du behöver göra med hjälp av den här sidan.
@@ -94,7 +94,7 @@ När du har tilldelat material, växla till den **avsökningar** fliken.
 
 ### <a name="for-reference-parts-of-the-probes-tab"></a>Referens: Delar av fliken avsökningar
 
-![Avsökningar fliken information](media/unreal-probes-tab-details.png)
+![Skärmbild av Akustik avsökningar flik i Unreal](media/unreal-probes-tab-details.png)
 
 1. Den **avsökningar** fliken knapp som används för att få fram den här sidan
 2. En kort beskrivning av vad du behöver göra med hjälp av den här sidan
@@ -124,11 +124,11 @@ När dessa beräkningar är klar kan förhandsgranska du både voxel data och av
 
 När avsökningen beräkningen har slutförts, en ny aktören kommer att visas i världen-Outliner kallas **AcousticsDebugRenderer**. Kontrollera den **rendera avsökningar** och **rendera Voxels** kryssrutorna aktiverar debug visas inom visningsområdet redigeraren.
 
-![Akustik felsöka återgivning](media/acoustics-debug-renderer.png)
+![Skärmbild som visar Akustik felsöka återgivning aktör i Unreal Editor](media/acoustics-debug-renderer.png)
 
 Om du inte ser några voxels eller avsökningar som finns på din nivå kan du kontrollera i realtid rendering är aktiverat i visningsområdet.
 
-![Aktivera i realtid rendering](media/unreal-real-time-rendering.png)
+![Skärmbild av i realtid rendering alternativ i Unreal](media/unreal-real-time-rendering.png)
 
 ### <a name="voxels"></a>Voxels
 
@@ -137,7 +137,7 @@ Flytta din scen och kontrollera att den akustiskt occluding geometrin har voxels
 
 Om du jämför voxels som skapats med grov upplösning vs bra lösning, visas grov voxels är två gånger så stora.
 
-![Voxel förhandsversion](media/unreal-voxel-preview.png)
+![Skärmbild av Akustik voxels förhandsversion i Unreal redigeraren](media/unreal-voxel-preview.png)
 
 ### <a name="probe-points"></a>Avsökningen punkter
 
@@ -145,7 +145,7 @@ Avsökningen punkter är synonyma med möjliga player (lyssnare)-platser. När g
 
 Det är viktigt att kontrollera att avsökningen punkter finns var som helst spelaren förväntas färdas i scenen. Avsökningen pekar placeras på nätet navigering av projektet Akustik-motorn och kan inte flyttas eller redigeras, så se till navigering nät omfattar alla möjliga player platser genom att kontrollera avsökning punkter.
 
-![Avsökningar förhandsversion](media/unreal-probes-preview.png)
+![Skärmbild av Akustik avsökningar förhandsversion i Unreal](media/unreal-probes-preview.png)
 
 ### <a name="Coarse-vs-Fine-Resolution"></a>Grov vs bra lösning
 
@@ -159,9 +159,9 @@ Den enda skillnaden mellan grov och bra lösning inställningar är den frekvens
 * Ljud källor får inte finnas inuti ”fyllts” voxels, som är voxels som innehåller geometri – detta resulterar i utan ljud. Det är svårare att placera ljud källor så att de inte är i större voxels av grov än när du använder inställningen bra.
 * Större voxels kommer intrude mer till portaler, enligt nedan. Den första bilden har skapats med hjälp av grov, medan andra är samma nyckeln med hjälp av bra lösning. Som anges med röd markeringar, är det mycket mindre intrång i nyckeln med hjälp av bra inställningen. Den blå linjen är nyckeln som definieras av geometri, medan den röda linjen är effektiva akustiska portalen definieras av voxel storlek. Hur den här intrång spelar i en viss situation beror helt på hur voxels stämmer överens med portalen, vilket avgörs av storlek och platserna för dina objekt i scenen geometri.
 
-![Grov nyckeln](media/unreal-coarse-bake.png)
+![Skärmbild av grov voxels fylla något i Unreal](media/unreal-coarse-bake.png)
 
-![Bra nyckeln](media/unreal-fine-bake.png)
+![Skärmbild av bra voxels i något i Unreal](media/unreal-fine-bake.png)
 
 ## <a name="bake-your-level-using-azure-batch"></a>Skapa din nivå med hjälp av Azure Batch
 
@@ -169,7 +169,7 @@ Du kan skapa din scen med ett beräkningskluster i molnet med Azure Batch-tjäns
 
 ### <a name="for-reference-parts-of-the-bake-tab"></a>Referens: Delar av fliken ändamålet
 
-![Skapa fliken](media/unreal-bake-tab-details.png)
+![Skärmbild av Akustik skapa flik i Unreal](media/unreal-bake-tab-details.png)
 
 1. Knappen Skapa flik används för att ta fram den här sidan.
 2. En kort beskrivning av vad du gör på den här sidan.

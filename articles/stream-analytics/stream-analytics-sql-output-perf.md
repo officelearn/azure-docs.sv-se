@@ -2,19 +2,19 @@
 title: Azure Stream Analytics-utdata till Azure SQL Database
 description: Läs om skickar data till SQL Azure från Azure Stream Analytics och uppnå högre hastigheter för skrivning.
 services: stream-analytics
-author: chetang
-ms.author: chetang
-manager: katicad
+author: chetanmsft
+ms.author: chetanmsft
+manager: katiiceva
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/21/2018
-ms.openlocfilehash: 794e2f3db44c29707400f96970159578d9e83f2d
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.date: 3/18/2019
+ms.openlocfilehash: d259fd5fc8c60837c6b6110eb751360227d70836
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303283"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338436"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics-utdata till Azure SQL Database
 
@@ -33,7 +33,7 @@ Här följer några konfigurationer inom varje tjänst som bidrar till att förb
 
 - **Batchstorlek** -konfiguration av SQL-utdata kan du ange den maximala batchstorleken i Azure Stream Analytics SQL utdata baserat på typen av mål tabell/arbetsbelastningen. Batch är det maximala antalet poster som skickas med varje bulk insert transaktion. I klustrade columnstore-index, batch-storlekar runt [100 kB](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) tillåter flera parallellisering, minimal loggning och låsa optimeringar. I diskbaserade tabeller vara 10K (standard) eller lägre optimala för din lösning som högre batch-storlekar kan utlösa Lås eskalering under bulkinfogningar.
 
-- **Ange meddelande justering** – om du har optimerats med ärver partitionering och batch-storlek, ökar antalet inkommande händelser per meddelande per partition hjälper dig att skicka ytterligare upp genomströmning för skrivning. Indatameddelande justering kan batch-storlekar i Azure Stream Analytics vara upp till den angivna storleken för Batch, vilket ger bättre genomflöde. Detta kan uppnås med hjälp av [komprimering](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs) eller större meddelande storlekar som är tillgängliga i Premium-SKU för EventHub.
+- **Ange meddelande justering** – om du har optimerats med ärver partitionering och batch-storlek, ökar antalet inkommande händelser per meddelande per partition hjälper dig att skicka ytterligare upp genomströmning för skrivning. Indatameddelande justering kan batch-storlekar i Azure Stream Analytics vara upp till den angivna storleken för Batch, vilket ger bättre genomflöde. Detta kan uppnås med hjälp av [komprimering](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs) eller att öka indatameddelande storlekar i EventHub- eller Blob.
 
 ## <a name="sql-azure"></a>SQL Azure
 
@@ -43,7 +43,16 @@ Här följer några konfigurationer inom varje tjänst som bidrar till att förb
 
 ## <a name="azure-data-factory-and-in-memory-tables"></a>Azure Data Factory och InMemory-tabeller
 
-- **InMemory-tabell som temporär tabell** – [InMemory-tabeller](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) tillåta för mycket hög hastighet Datainläsningen men data som ska få plats i minnet. Prestandamått show massinläsning från en InMemory tabell till en diskbaserad tabell är ungefär 10 gånger snabbare än direkt bulk infoga med en enda skrivare till diskbaserad-tabell med en identity-kolumn och ett grupperat index. Om du vill utnyttja det här bulk insert prestanda ställer du in en [kopieringsjobbet med Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database) som kopierar data från InMemory-tabell till diskbaserad tabell.
+- **InMemory-tabell som temporär tabell** – [InMemory-tabeller](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) tillåta för mycket snabba Datainläsningen men data som ska få plats i minnet. Prestandamått show massinläsning från en InMemory tabell till en diskbaserad tabell är ungefär 10 gånger snabbare än direkt bulk infoga med en enda skrivare till diskbaserad-tabell med en identity-kolumn och ett grupperat index. Om du vill utnyttja det här bulk insert prestanda ställer du in en [kopieringsjobbet med Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database) som kopierar data från InMemory-tabell till diskbaserad tabell.
+
+## <a name="avoiding-performance-pitfalls"></a>Undvika vanliga problem
+Samtidigt som infogar data är mycket snabbare än att läsa in data med enskilda infogningar eftersom det upprepade arbetet med att överföra data, parsning insert-instruktionen, som kör instruktionen och utfärda en transaktion post undviks. I stället används en mer effektiv sökväg till lagringsmotorn för att strömma data. Installationsprogrammet kostnaden för den här sökvägen är dock mycket högre än en enda insert-instruktionen i en diskbaserad tabell. Brytpunkten är vanligtvis cirka 100 rader, utöver massbearbetning läser in nästan alltid är mer effektiv. 
+
+Om takt händelser är låg, kan det enkelt skapa batch-storlekar lägre än 100 rader, vilket gör bulk insert ineffektiv och använder för mycket diskutrymme. För att undvika denna begränsning, kan du göra något av följande:
+* Skapa en INSTEAD OF [utlösaren](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-trigger-transact-sql) att använda enkla insert för varje rad.
+* Använda en temporär tabell i minnet som beskrivs i föregående avsnitt.
+
+Ett annat scenario inträffar när du skriver till ett icke-grupperade columnstore-index (NCCI), där mindre bulkinfogningar kan skapa för många segment som kan krascha indexet. I det här fallet är rekommendationen att använda ett grupperat Columnstore-index i stället.
 
 ## <a name="summary"></a>Sammanfattning
 

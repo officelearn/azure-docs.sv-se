@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 023662f0293debb1b40fc8ea10bb725eab7be4d8
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 22090bf89e469f7e8defcd50b311c555949b9bde
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649942"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317732"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Filtrera nätverkstrafik med en nätverkssäkerhetsgrupp med hjälp av PowerShell
 
@@ -101,7 +101,7 @@ I den här artikeln exponeras RDP (port 3389) mot internet för den *myAsgMgmtSe
 
 ### <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
-Skapa en nätverkssäkerhetsgrupp med [New AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNsg*:
+Skapa en nätverkssäkerhetsgrupp med [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNsg*:
 
 ```powershell-interactive
 $nsg = New-AzNetworkSecurityGroup `
@@ -242,7 +242,7 @@ Det tar några minuter att skapa den virtuella datorn. Fortsätt inte med nästa
 
 ## <a name="test-traffic-filters"></a>Testa trafikfilter
 
-Använd [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) att returnera den offentliga IP-adressen för en virtuell dator. I följande exempel returneras den offentliga IP-adressen för den virtuella datorn *myVmMgmt*:
+Använd [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) för att returnera den offentliga IP-adressen för en virtuell dator. I följande exempel returneras den offentliga IP-adressen för den virtuella datorn *myVmMgmt*:
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress `
@@ -277,7 +277,7 @@ Använd följande kommando för att installera Microsoft IIS på den virtuella d
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-När IIS-installationen är klar kopplar du från den virtuella datorn *myVmWeb*, vilket lämnar dig i fjärrskrivbordsanslutningen med den virtuella datorn *myVmMgmt*. Visa IIS-välkomstskärmen genom att öppna en webbläsare och gå till http://myVmWeb.
+När IIS-installationen är klar kopplar du från den virtuella datorn *myVmWeb*, vilket lämnar dig i fjärrskrivbordsanslutningen med den virtuella datorn *myVmMgmt*. Visa IIS-välkomstskärmen genom att öppna en webbläsare och gå till http:\//myVmWeb.
 
 Koppla från den virtuella datorn *myVmMgmt*.
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 8b5c5f316ff2c3ada035736755c7898270c49dee
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3752e9c227e4db0f583b2f6b21d6c0aa3106d248
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551831"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337705"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om Azure DevTest Labs.
@@ -27,8 +27,27 @@ Få svar på några av de vanligaste frågorna om Azure DevTest Labs.
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 **Allmänt**
+
+## <a name="blog-post"></a>Blogginlägg
+Vår Teamblogg för DevTest Labs har tagits bort från och med den 20 mars 2019. 
+
+### <a name="where-can-i-track-feature-updates-going-forward"></a>Var kan jag för att spåra funktionsuppdateringar framöver?
+Framöver kommer vi kommer att skicka funktionsuppdateringar och/eller informativa blogginlägg i Azure-bloggen och Azure uppdateras. Dessa blogginlägg också länkar till dokumentationen när det behövs.
+
+Prenumerera på den [DevTest Labs Azure-bloggen](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) och [DevTest Labs Azure uppdaterar](https://azure.microsoft.com/updates/?product=devtest-lab) att hålla dig informerad om nya funktioner i DevTest Labs.
+
+### <a name="what-happens-to-the-existing-blog-posts"></a>Vad händer med befintliga blogginlägg?
+Vi arbetar för närvarande med migrera befintliga blogginlägg (exklusive avbrott uppdateringar) till vår [dokumentation för DevTest Labs](devtest-lab-overview.md). När MSDN-blogg är inaktuell, omdirigeras den till översikten dokumentation för DevTest Labs. När omdirigeras, kan du söka efter artikeln du söker i rubriken ”filtrera efter”. Observera att vi inte har migrerat alla inlägg ännu, men bör utföras av den här månadens slut. 
+
+
+### <a name="where-do-i-see-outage-updates"></a>Var ser jag avbrott uppdateringar?
+Vi ska skicka avbrott uppdateringar med hjälp av vår Twitter-referens framöver. Följ oss på Twitter om du vill få senaste uppdateringarna på avbrott och kända buggar.
+
+### <a name="twitter"></a>Twitter 
+Vår Twitter-referens: azlabservices
+
 ## <a name="what-if-my-question-isnt-answered-here"></a>Vad händer om min fråga inte besvaras här?
-Om din fråga inte listas här, berätta för oss, så att vi kan hjälpa dig hitta något svar.
+Om din fråga inte listas här, berätta för oss och vi kan hjälpa dig hitta något svar.
 
 * Ställa en fråga i slutet av den här vanliga frågor och svar. Kommunicera med Azure Cache-teamet och andra community-medlemmar om den här artikeln.
 * För att nå en bredare publik, ställa en fråga på den [Azure DevTest Labs MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Kommunicera med Azure DevTest Labs-teamet och andra medlemmar i communityn.
@@ -41,7 +60,7 @@ Azure DevTest Labs kan spara ditt team tid och pengar. Utvecklare kan skapa egna
 Problemfri självbetjäning innebär att utvecklare och testare skapa egna miljöer efter behov. Administratörer har säkerheten för att känna till att DevTest Labs kan du minimera avfall och kontrollera kostnaderna. Administratörer kan ange vilka VM-storlekar är tillåtna, det maximala antalet virtuella datorer, och när virtuella datorer är igång och stänga av. DevTest Labs gör det också enkelt att övervaka kostnader och Ställ in aviseringar som hjälper dig vara medveten om hur labbresurser används.
 
 ## <a name="how-can-i-use-devtest-labs"></a>Hur kan jag använda DevTest Labs?
-DevTest Labs är användbart när som helst krävs utveckling eller testmiljöer och vill du återskapa dem snabbt, eller hantera dem med hjälp av kostnadsbesparande principer.
+DevTest Labs är användbar när du kräver dev testmiljöer eller vill du återskapa dem snabbt, eller hantera dem med hjälp av kostnadsbesparande principer.
 
 Här följer några scenarier som våra kunder använder labb för:
 
@@ -106,8 +125,8 @@ För andra kontinuerlig integrering (CI) / kontinuerlig leverans (CD) verktygske
 
 
 **Virtuella datorer**
-## <a name="why-cant-i-see-vms-on-the-virtual-machines-blade-that-i-see-in-devtest-labs"></a>Varför visas inte virtuella datorer på bladet Virtual Machines som syns i DevTest Labs?
-När du skapar en virtuell dator i DevTest Labs kan ges behörighet att komma åt den virtuella datorn. Du kan visa den virtuella datorn både på bladet labs och på den **virtuella datorer** bladet. Användare som har tilldelats till rollen DevTest Labs labb kan se alla virtuella datorer som har skapats i laboratoriet på testmiljön **alla virtuella datorer** bladet. Användare som har rollen DevTest Labs lab är dock inte automatiskt beviljats läsbehörighet till VM-resurser som har skapats av andra användare. Därför visas inte dessa virtuella datorer på den **virtuella datorer** bladet.
+## <a name="why-cant-i-see-vms-on-the-virtual-machines-page-that-i-see-in-devtest-labs"></a>Varför visas inte virtuella datorer på sidan virtuella datorer som syns i DevTest Labs?
+När du skapar en virtuell dator i DevTest Labs kan ges behörighet att komma åt den virtuella datorn. Du kan visa den virtuella datorn på sidan labs såväl på den **virtuella datorer** sidan. Användare som har tilldelats till rollen DevTest Labs labb kan se alla virtuella datorer som har skapats i laboratoriet på testmiljön **alla virtuella datorer** sidan. Användare som har rollen DevTest Labs lab är dock inte automatiskt beviljats läsbehörighet till VM-resurser som har skapats av andra användare. Därför visas inte dessa virtuella datorer på den **virtuella datorer** sidan.
 
 ## <a name="what-is-the-difference-between-a-custom-image-and-a-formula"></a>Vad är skillnaden mellan en anpassad avbildning och en formel?
 En anpassad avbildning är en virtuell hårddisk (VHD). En formel är en avbildning som du kan konfigurera med ytterligare inställningar och sedan spara och återskapa. En anpassad avbildning vara att föredra om du vill att snabbt skapa flera miljöer genom att använda samma avbildning för basic, inte kan ändras. En formel kan vara bättre om du vill återskapa konfigurationen av den virtuella datorn med de senaste nyheterna, som en del av ett virtuellt nätverk eller undernät eller som en virtuell dator av en viss storlek. En mer detaljerad förklaring finns i [jämföra anpassade bilder och formler i DevTest Labs](devtest-lab-comparing-vm-base-image-types.md).
@@ -184,7 +203,7 @@ Du kan ta bort virtuella datorer från ditt labb i Azure-portalen. Du kan också
 
 **Artefakter**
 ## <a name="what-are-artifacts"></a>Vad är artefakter?
-Artefakter är anpassningsbara element som du kan använda för att distribuera de senaste bitarna eller distribuera utvecklingsverktyg till en virtuell dator. Koppla artefakter till den virtuella datorn när du skapar den virtuella datorn. När den virtuella datorn har etablerats artefakter att distribuera och konfigurera den virtuella datorn. Olika redan befintliga artefakter finns i vår [offentliga GitHub-lagringsplatsen](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). Du kan också [skapa dina egna artefakter](devtest-lab-artifact-author.md).
+Artefakter är anpassningsbara element som du kan använda för att distribuera de senaste bitarna eller distribuera utvecklingsverktyg till en virtuell dator. Koppla artefakter till den virtuella datorn när du skapar den virtuella datorn. När den virtuella datorn har etablerats artefakter att distribuera och konfigurera den virtuella datorn. Olika befintliga artefakter finns i vår [offentliga GitHub-lagringsplatsen](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). Du kan också [skapa dina egna artefakter](devtest-lab-artifact-author.md).
 
 
 **Konfiguration av testlabb**
@@ -232,7 +251,7 @@ När en resurs är en överordnad till en annan resurs, måste den överordnade 
 Virtuella datorer är underordnade resurser under ett labb i en resursgrupp. När du använder Resource Manager-mallar för att distribuera virtuella datorer med hjälp av PowerShell, vara resursgruppens namn anges i PowerShell-skriptet resursgruppens namn labbet. Mer information finns i [felsöka vanliga Azure-distributionsfel](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Var hittar jag mer information om fel om en VM-distributionen misslyckas?
-Distributionsfel för virtuell dator som avbildas i aktivitetsloggarna. Du kan hitta lab VM aktivitetsloggar under **granskningsloggar** eller **VM diagnostics** på resurs-menyn på bladet för den lab VM (bladet visas när du har valt den virtuella datorn från den **min virtuella datorer** listan).
+Distributionsfel för virtuell dator som avbildas i aktivitetsloggarna. Du kan hitta lab VM aktivitetsloggar under **granskningsloggar** eller **VM diagnostics** på resurs-menyn på den lab VM sida (sidan visas när du har valt den virtuella datorn från den **min virtuella datorer** listan).
 
 Ibland inträffar distributionsfel innan du påbörjar distribution av virtuella datorer. Ett exempel är när gränsen för en resurs som har skapats med den virtuella datorn har överskridits. I det här fallet fångas felinformationen i labb-nivå aktivitetsloggar. Aktivitetsloggar är placerad längst ned i den **konfiguration och principer** inställningar. Mer information om hur du använder aktiviteten loggar i Azure finns i [visa aktivitetsloggar till granska åtgärder på resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 

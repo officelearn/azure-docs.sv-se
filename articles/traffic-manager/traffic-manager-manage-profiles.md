@@ -1,6 +1,6 @@
 ---
 title: Hantera Azure Traffic Manager-profiler | Microsoft Docs
-description: Den här artikeln beskriver hur du skapar, inaktiverar, aktiverar och tar bort en Azure Traffic Manager-profil.
+description: Den här artikeln hjälper dig att skapa, inaktivera, aktivera och ta bort en Azure Traffic Manager-profilen.
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: 11e63f95067a9ad6bb61a91da56fe22dc4962ae5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7b52d07db076b62845465ee9f22a3d794c8cdf76
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778476"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839533"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Hantera en Azure Traffic Manager-profil
 
@@ -29,7 +29,7 @@ Du kan skapa en Traffic Manager-profil med Azure Portal. När du har skapat din 
 
 ### <a name="to-create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 
-1. Logga in på [Azure Portal](http://portal.azure.com) från en webbläsare. Om du inte redan har ett konto kan du [registrera dig för en kostnadsfri utvärderingsmånad](https://azure.microsoft.com/free/). 
+1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare. Om du inte redan har ett konto kan du [registrera dig för en kostnadsfri utvärderingsmånad](https://azure.microsoft.com/free/). 
 2. Klicka på **Skapa en resurs** > **Nätverk** > **Traffic Manager-profil** > **Skapa**.
 4. I **Skapa Traffic Manager-profil** gör du följande:
     1. Ge profilen ett namn i **Namn**. Namnet måste var unikt inom trafficmanager.net-zonen och genererar DNS-namnet <name>, trafficmanager.net, som används för att öppna din Traffic Manager-profil.
@@ -48,14 +48,14 @@ Du kan inaktivera en befintlig profil så att Traffic Manager inte refererar anv
 
 1. Om du använder ett anpassat domännamn, ändra då CNAME-posten på din Internet-DNS-server så att den inte längre pekar mot din Traffic Manager-profil.
 2. Trafiken slutar att dirigeras till slutpunkterna via Traffic Manager-profilinställningarna.
-3. Logga in på [Azure Portal](http://portal.azure.com) från en webbläsare.
+3. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare.
 2. Leta efter namnet på **Traffic Manager-profilen** som du vill modifiera och klicka sedan på Traffic Manager-profilen i resultaten som visas.
 3. Klicka på **Översikt** > **Inaktivera**.
 4. Bekräfta att du vill inaktivera Traffic Manager-profilen.
 
 ### <a name="to-enable-a-profile"></a>Så här aktiverar du en profil
 
-1. Logga in på [Azure Portal](http://portal.azure.com) från en webbläsare.
+1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare.
 2. Leta efter namnet på **Traffic Manager-profilen** som du vill modifiera och klicka sedan på Traffic Manager-profilen i resultaten som visas.
 3. Klicka på **Översikt** > **Aktivera**.
 1. Om du använder ett anpassat domännamn, skapar du en CNAME-resurspost på din Internet-DNS-server som pekar mot domännamnet för din Traffic Manager-profil.

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 05f8c1898e565e145aedbfdc13e0a88ad09486dc
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: HT
+ms.openlocfilehash: 4c7de6738e30cd883257f3b2ea873c933364c003
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804664"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311891"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Snabbstart: Distribuera Windows-containrar till Service Fabric
 
@@ -37,7 +37,7 @@ I den här snabbstarten lär du dig att:
 * Utveckla och distribuera ett Service Fabric-program
 * Distribuera containerprogrammet till Azure
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration (du kan skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * En utvecklingsdator som kör:
@@ -149,7 +149,7 @@ Klicka på **Publicera**.
 
 Varje program i klustret måste ha ett unikt namn. Om det finns en namnkonflikt byter du namn på Visual Studio-projektet och distribuerar igen.
 
-Öppna en webbläsare och navigera till adressen du angav i fältet **Slutpunkt för anslutningen** i föregående steg. Alternativt kan du lägga till schemaidentifierare `http://` innan och lägga till porten `:80` efter i URL:en. Till exempel http://mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
+Öppna en webbläsare och navigera till adressen du angav i fältet **Slutpunkt för anslutningen** i föregående steg. Alternativt kan du lägga till schemaidentifierare `http://` innan och lägga till porten `:80` efter i URL:en. Exempel: http:\//mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
 
  Du borde se standardwebbsidan för IIS: ![IIS-standardwebbsidan][iis-default]
 

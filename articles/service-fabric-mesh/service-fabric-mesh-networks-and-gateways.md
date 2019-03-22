@@ -3,7 +3,7 @@ title: Introduktion till Azure Service Fabric-nätverk | Microsoft Docs
 description: Läs mer om nätverk, gatewayer och intelligent trafikdirigering i Service Fabric-nät.
 services: service-fabric-mesh
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/26/2018
-ms.author: ryanwi
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8d9f5c71d05477094d733fd6b798831b3ff02ce1
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b0e1047c5bbd7d8caaf2afd8b002be1c46837852
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892608"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339269"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Introduktion till nätverk i Service Fabric-nät program
 Den här artikeln beskrivs olika typer av belastningsutjämnare, hur gateways ansluter nätverket med dina program till andra nätverk och hur trafik dirigeras mellan tjänster i dina program.
@@ -32,7 +32,7 @@ Utjämning av nätverksbelastning kan utföras på olika nivåer i den [OSI-mode
 
 - En belastningsutjämnare för L7 fungerar på programnivå som behandlar innehållet i varje paket. Den kontrollerar paketinnehållet eftersom den förstår protokoll som HTTP, HTTPS och WebSockets. Detta ger belastningsutjämnaren möjligheten att utföra avancerade routning. Exempelvis kan gör en klient en enkel HTTP/2-TCP-anslutning till belastningsutjämnaren. Belastningsutjämnaren fortsätter sedan att skapa två backend-anslutningar. När klienten skickar två HTTP/2-dataströmmar till belastningsutjämnaren, stream något skickas till serverdelen något och stream två skickas till serverdelen två. Därför kommer även multiplexering klienter som har avsevärt olika begäran belastning att balanseras effektivt mellan serverdelen. 
 
-## <a name="networks-and-gateways"></a>Nätverk och gateways
+## <a name="networks-and-gateways"></a>Nätverk och gatewayer
 I den [Service Fabric-Resursmodell](service-fabric-mesh-service-fabric-resources.md), en nätverksresurs är en separat distribuerbar resurs, oberoende av en resurs för programmet eller tjänsten som kan referera till den som deras beroende. Den används för att skapa ett nätverk för dina program som är öppen för internet. Flera tjänster från olika program kan ingå i samma nätverk. Den här privata nätverk skapas och hanteras av Service Fabric och är inte ett Azure-nätverk (VNET). Program kan dynamiskt har lagts till och tas bort från nätverksresursen som du aktiverar och inaktiverar VNET-anslutning. 
 
 En gateway används till överbrygga två nätverk. Gatewayresursen distribuerar en [Envoy proxy](https://www.envoyproxy.io/) som ger L4 routning för alla protokoll och L7 routning för avancerade HTTP (S)-program och routning. Gatewayen dirigerar trafik i ditt nätverk från ett externt nätverk och avgör vilken tjänst för att dirigera trafik till.  Det externa nätverket kan vara ett öppet nätverk (vad som sker är det offentliga internet) eller ett Azure-nätverk, vilket gör att du kan ansluta till andra Azure-program och resurser. 
@@ -44,7 +44,7 @@ När nätverksresursen skapas med `ingressConfig`, en offentlig IP-adress tillde
 När ett nät program skapas, bör det refererar till en befintlig nätverksresurs. Du kan lägga till nya offentliga portar eller befintliga portar kan tas bort från den ingående-konfigurationen. En borttagning av en nätverksresurs misslyckas om en resurs för en refererar till den. När programmet tas bort, tas bort nätverksresursen.
 
 ## <a name="next-steps"></a>Nästa steg 
-Läs översikten om du vill veta mer om Service Fabric-nät kan:
-- [Service Fabric-nät översikt](service-fabric-mesh-overview.md)
+Mer information om Service Fabric Mesh finns i översikten:
+- [Service Fabric Mesh-översikt](service-fabric-mesh-overview.md)
 
 [Image1]: media/service-fabric-mesh-networks-and-gateways/NetworkAndGateway.png

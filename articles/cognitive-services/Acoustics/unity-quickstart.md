@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: b4eedabbc47738eb2f5797ffd67a3e3ebc9529ca
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 468c5584d21c226d6ffce55ff3981e629d872c56
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136229"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317195"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Snabbstart för projektet Akustik Unity
 Använd projektet Akustik exempelinnehåll för Unity att experimentera med kontroller som backas upp av simulering design.
 
 Programvarukrav:
 * [Unity 2018.2 +](http://unity3d.com) för Windows
-* [Projektet Akustik exempel innehållspaket](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+* [Projektet Akustik exempel innehållspaket](https://www.microsoft.com/download/details.aspx?id=57346)
 
 Vad ingår i exemplet paketet?
 * Unity-scen med geometri, ljud källor och spelupplevelse kontroller
@@ -33,7 +33,7 @@ Vad ingår i exemplet paketet?
 Importera exempelpaketet till ett nytt Unity-projekt. 
 * I Unity, går du till **tillgångar > Importera paket > anpassat paket...**
 
-    ![Importera paket](media/import-package.png)  
+    ![Skärmbild av Unity Importera paket alternativ](media/import-package.png)  
 
 * Choose **ProjectAcoustics.unitypackage**
 
@@ -44,23 +44,23 @@ Om du importerar paketet till ett befintligt projekt, se [Unity-integrering](uni
 
 Du kan kontrollera den här inställningen tog effekt genom att öppna den **Player-inställningar**:
 
-![Player-inställningar](media/player-settings.png)
+![Skärmbild av Unity Player inställningspanelen](media/player-settings.png)
 
-![.NET 4.5](media/net45.png)
+![Skärmbild av Unity Player inställningspanelen med .NET 4.5 har valts](media/net45.png)
 
 ## <a name="experiment-with-design-controls"></a>Experimentera med design kontroller
 Öppna exemplet scen i den **ProjectAcousticsSample** mappen och klicka på uppspelningsknappen i Unity-redigeraren. Använd W, A, S, D och musen för att flytta. Om du vill jämföra hur scenen låter med och utan akustik trycker du på knappen **R** tills överläggstexten blir röd och spelar upp ”Acoustics: Disabled.” (”Akustik: inaktiverad”.) Om du vill se tangentbordsgenvägar för fler kontroller trycker du på **F1**. Kontroller är också användbar genom att högerklicka för att välja åtgärden som ska utföras, sedan vänsterklicka på för att utföra åtgärden.
 
 Skriptet **AcousticsAdjust** är kopplad till ljud källor i exemplet scenen, vilket gör att parametrarna per källkod design. 
 
-![AcousticsAdjust](media/acoustics-adjust.png)
+![Skärmbild av Unity AcousticsAdjust skript](media/acoustics-adjust.png)
 
 Följande utforskar några av de effekter som kan produceras med de angivna kontrollerna. Detaljerad information om varje kontroll finns i den [projekt Akustik Unity Design självstudien](unreal-workflow.md).
 
 ### <a name="modify-distance-based-attenuation"></a>Ändra avståndet-baserade dämpning
 Ljudet DSP tillhandahålls av den **projekt Akustik** Unity spatializer plugin-programmet respekterar de per källkod avståndet-baserade dämpning bygger i Unity-redigeraren. Kontroller för avståndet-baserade dämpning finns i den **ljud källa** komponent finns i den **Inspector** med ljud datakällor under **3D-ljudinställningar**:
 
-![Avståndet dämpning](media/distance-attenuation.png)
+![Skärmbild av Unity avståndet dämpning panelen](media/distance-attenuation.png)
 
 Projektet Akustik utför beräkning i en ”simulering region” heldag player-platsen. Ljud dämpning bör utformas för att växla till 0 på ungefär 45 m eftersom Akustik tillgångar i exempelpaketet har inbyggd med en storlek för simulering av 45m omgivande spelaren.
 

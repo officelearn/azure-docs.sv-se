@@ -1,5 +1,5 @@
 ---
-title: Azure MFA-servern eller tjänsten, lokalt eller i molnet?
+title: Azure MFA-servern eller tjänsten, lokalt eller i molnet? - Azure Active Directory
 description: Som en Azure AD-administratör, måste du förstå vilken version av MFA som jag bör distribuera?
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edfc26355933db549b735c4baf9744744f46734c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: dbbcb46c3449750b6ea9ccdbd9a5103be715d8f7
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870483"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312078"
 ---
 # <a name="which-version-of-azure-mfa-is-right-for-my-organization"></a>Vilken version av Azure MFA är rätt för min organisation?
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: 6068f054a2ce695a889351b1f959319c64eb73fd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6e4a83eb8b3488c4ce2816151ca31b4a594dd742
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235606"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338640"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure gäst-OS-support och tillbakadragande princip
 Information om den här sidan som relaterar till Azure gästoperativsystemet ([gäst-OS](cloud-services-guestos-update-matrix.md)) för molntjänster worker och webbtjänst roller (PaaS). Den gäller inte för virtuella datorer (IaaS).
@@ -55,13 +55,15 @@ Gäst-OS-versioner släpps varje månad. På grund av mängden vanliga versioner
 
 60 dagar till livslängden för en version är ”*inaktiverad*”. ”Inaktiverad” innebär att versionen har tagits bort från portalen. Versionen kan inte längre anges i CSCFG-konfigurationsfilen. Befintliga distributioner är igång. Men nya distributioner och kod och konfiguration uppdateringar av befintliga distributioner kommer att tillåtas.
 
-En tid efter blir ”inaktiverad”, Gäst-OS-version ”*upphör att gälla*” och alla installationer som fortfarande kör den här versionen är force uppgraderas och Ställ in att automatiskt uppdatera gäst-OS i framtiden. Upphör att gälla görs i batchar så att tidsperioden från avstängning upphör att gälla kan variera.
+Någon gång när du har blivit ”inaktiverad”, Gäst-OS-version ”upphör att gälla” och alla installationer som fortfarande körs den utgångna versionen exponeras för säkerhets- och säkerhetsproblem problem. Normalt görs upphör att gälla i batchar, så perioden Invalid-upphör att gälla kan variera.
+
+Kunder som konfigurerar sina tjänster för att uppdatera gäst-OS manuellt, bör se till att deras distributioner körs på ett Gästoperativsystem som stöds. Om en tjänst är konfigurerad för att automatiskt uppdatera gäst-OS, säkerställa att den underliggande plattformen och uppgraderar till den senaste gäst-OS.
 
 De här perioderna kan göras längre enligt Microsofts bedömning för att underlätta övergången för kund. Alla ändringar som ska förmedlas på den [Azure Gästoperativsystemversioner och SDK-Kompatibilitetsöversikten](cloud-services-guestos-update-matrix.md).
 
 ### <a name="notifications-during-retirement"></a>Meddelanden under pensionering
 * **Programvarufamiljer pensionering** <br>Microsoft använder blogginlägg och portal-meddelande. Kunder som fortfarande använder en pensionerad gästoperativsystemfamilj kommer att meddelas via direktkommunikation (e-post, portal meddelanden, telefonsamtal) till tilldelade tjänstadministratörer. Alla ändringar som ska skickas till den [Azure Gästoperativsystemversioner och SDK-Kompatibilitetsöversikten](cloud-services-guestos-update-matrix.md).
-* **Version pensionering** <br>Alla ändringar och datumen de inträffar ska skickas till den [Azure Gästoperativsystemversioner och SDK-Kompatibilitetsöversikten](cloud-services-guestos-update-matrix.md), inklusive versionen, inaktiverad och upphör att gälla. Services-administratörer får e-postmeddelanden om de har distributioner som körs på en inaktiverad gäst-OS-version eller en serie. Tidsinställningen för dessa e-postmeddelanden kan variera. I allmänhet är de minst en månad innan avstängning, även om den här tiden inte är något officiellt serviceavtal.
+* **Version Retirement** <br>Alla ändringar och datumen de inträffar ska skickas till den [Azure Gästoperativsystemversioner och SDK-Kompatibilitetsöversikten](cloud-services-guestos-update-matrix.md), inklusive versionen, inaktiverad och upphör att gälla. Services-administratörer får e-postmeddelanden om de har distributioner som körs på en inaktiverad gäst-OS-version eller en serie. Tidsinställningen för dessa e-postmeddelanden kan variera. I allmänhet är de minst en månad innan avstängning, även om den här tiden inte är något officiellt serviceavtal.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 **Hur kan jag för att minimera påverkan av migrering?**

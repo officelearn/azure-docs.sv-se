@@ -2,17 +2,18 @@
 title: Migrera lokala datorer till Azure med Azure Site Recovery | Microsoft Docs
 description: Den här artikeln beskriver hur du migrerar lokala datorer till Azure med Azure Site Recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d5b229d96c0f63e27e36fb95122b36d3d8c128ac
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0daa25cce434b2e97995963918e52df974e2ef9c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110315"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336556"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrera lokala datorer till Azure
 
@@ -113,7 +114,7 @@ Kör en redundansväxling för de datorer som du vill migrera.
 5. Kontrollera att den virtuella Azure-datorn visas i Azure som förväntat.
 6. I **Replikerade objekt** högerklickar du på den virtuella datorn > **Slutför migrering**. Det här gör följande:
 
-   - Avslutar migreringsprocessen, stoppar replikeringen för virtuella datorer i AWS och stoppar Site Recovery-debitering för den virtuella datorn.
+   - Avslutar migreringsprocessen, stoppar replikeringen för den lokala virtuella datorn och stoppar Site Recovery-debitering för den virtuella datorn.
    - Det här steget rensar replikeringsdata. Men det raderar inte de migrerade virtuella datorerna.
 
      ![Slutföra migrering](./media/migrate-tutorial-on-premises-azure/complete-migration.png)

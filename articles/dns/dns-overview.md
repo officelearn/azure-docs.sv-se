@@ -2,17 +2,16 @@
 title: Vad är Azure DNS?
 description: Översikt över DNS-värdtjänst på Microsoft Azure. Värd för din domän på Microsoft Azure.
 author: vhorne
-manager: jeconnoc
 ms.service: dns
 ms.topic: overview
-ms.date: 9/24/2018
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 62043128b6415a064e35adca6be4d60ccfcae308
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: cea19ad2ba03d3e71df32912a1d7ee9e6171689a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294322"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339473"
 ---
 # <a name="what-is-azure-dns"></a>Vad är Azure DNS?
 
@@ -39,6 +38,7 @@ DNS-domäner i Azure DNS finns på Azures globala nätverk med DNS-namnservrar. 
 Mer information finns i [Så skyddar du DNS-zoner och -poster](dns-protect-zones-recordsets.md). 
 
 ## <a name="dnssec"></a>DNSSEC
+
 Azure DNS stöder för närvarande inte DNSSEC. I de flesta fall kan du minska behovet av DNSSEC med hjälp av HTTPS/TLS konsekvent i dina program. Om DNSSEC är det viktigaste kravet för dina DNS-zoner, kan du vara värd för zonerna med tredjeparts DNS-värdleverantörer.
 
 ## <a name="ease-of-use"></a>Användbarhet
@@ -57,12 +57,11 @@ Mer information finns på sidan om att [använda Azure DNS för privata domäner
 
 ## <a name="alias-records"></a>Aliasposter
 
-Azure DNS stöder aliaspostuppsättningar. Du kan använda en aliaspostuppsättning för att referera till en Azure-resurs, till exempel en offentlig IP-adress i Azure eller en Azure Traffic Manager-profil. Om IP-adressen för den underliggande resursen ändras uppdateras aliaspostuppsättningen sömlöst under DNS-matchningen. Aliaspostuppsättningen pekar på tjänstinstansen och tjänstinstansen associeras med en IP-adress. 
+Azure DNS stöder aliaspostuppsättningar. Du kan använda en alias-postuppsättning för att referera till en Azure-resurs, till exempel en Azure offentlig IP-adress, en Azure Traffic Manager-profil eller en slutpunkt för Azure Content Delivery Network (CDN). Om IP-adressen för den underliggande resursen ändras uppdateras aliaspostuppsättningen sömlöst under DNS-matchningen. Aliaspostuppsättningen pekar på tjänstinstansen och tjänstinstansen associeras med en IP-adress.
 
-Dessutom kan du nu peka ditt apex eller din domän utan www mot en Traffic Manager-profil med hjälp av en aliaspost. Ett exempel kan vara contoso.com.
+Dessutom peka du nu din apex eller en domän utan www till en Traffic Manager-profil eller CDN-slutpunkten med hjälp av en aliaspost. Ett exempel kan vara contoso.com.
 
 Mer information finns i [översikten över Azure DNS-aliasposter](dns-alias.md).
-
 
 ## <a name="next-steps"></a>Nästa steg
 

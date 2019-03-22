@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 5580d67f796efc809ef536818419ab91e8ee54a2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: edaa0cdcd98ce529ccbf9bf6aafaacf57a3ea383
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540019"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337535"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordna enheten anslutningshändelser från Azure IoT Hub med Azure Cosmos DB
 
@@ -24,9 +24,9 @@ Sekvensnumret är en strängrepresentation av ett hexadecimalt tal. Du kan anvä
 
 * Ett aktivt Azure-konto. Om du inte redan har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
-* Ett aktivt Azure Cosmos DB SQL API-konto. Om du inte har skapat en ännu, se [skapa ett databaskonto](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-a-database-account) en genomgång.
+* Ett aktivt Azure Cosmos DB SQL API-konto. Om du inte har skapat en ännu, se [skapa ett databaskonto](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-an-account) en genomgång.
 
-* En samling i din databas. Se [Lägg till en samling](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#add-a-collection) en genomgång.
+* En samling i din databas. Se [Lägg till en samling](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#add-a-database-and-a-collection) en genomgång.
 
 * En IoT-hubb i Azure. Om du inte redan har skapat en hubb läser du genomgången i [Kom igång med IoT Hub](../iot-hub/iot-hub-csharp-csharp-getstarted.md). 
 
@@ -350,5 +350,3 @@ Om du vill ta bort ett Azure Cosmos DB-konto från Azure-portalen, högerklickar
 * [Prova guiden för IoT Hub-händelser](../event-grid/publish-iot-hub-events-to-logic-apps.md)
 
 * Läs om vad du kan göra med [Event Grid](../event-grid/overview.md)
-
-

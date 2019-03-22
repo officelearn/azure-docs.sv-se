@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a8f756385b62dfb21e910b9373dc275c7f679d3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eac10cd735ae16cf1c7c6d6987a3b53060caa1cd
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009654"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315835"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Självstudier: Skapa en stack för MongoDB, Express, AngularJS och Node.js (MEAN) på en virtuell Linux-dator i Azure
 
@@ -324,7 +324,7 @@ sudo apt-get install -y nodejs
     nodejs server.js
     ```
 
-2. Öppna en webbläsare på den adress som du registrerade för den virtuella datorn. Till exempel *http://13.72.77.9:3300*. Du bör se något som liknar följande sida:
+2. Öppna en webbläsare på den adress som du registrerade för den virtuella datorn. Till exempel *http:\//13.72.77.9:3300*. Du bör se något som liknar följande sida:
 
     ![Bokpost](media/tutorial-mean/meanstack-init.png)
 

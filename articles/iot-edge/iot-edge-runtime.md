@@ -4,17 +4,17 @@ description: Lär dig hur moduler, säkerhet, kommunikation och rapportering på
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/13/2018
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a2412a286015cb403fe9a2af7754c7e5346fe98c
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: bb2df9c32d5adc8160da82148e4a66a4ab68d182
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230432"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311607"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Förstå Azure IoT Edge-körningen och dess arkitektur
 
@@ -23,16 +23,16 @@ IoT Edge-körningen är en uppsättning program som måste installeras på en en
 IoT Edge-körningen utför följande funktioner på IoT Edge-enheter:
 
 * Installerar och uppdaterar arbetsbelastningar på enheten.
-* Underhåller Azure IoT Edge-säkerhetsstandarder på enheten.
-* Säkerställer att [IoT Edge-moduler](iot-edge-modules.md) alltid körs.
+* Upprätthåller Azure IoT Edge-säkerhetsstandarder på enheten.
+* Se till att [IoT Edge-moduler](iot-edge-modules.md) alltid körs.
 * Rapporterar modulens hälsa till molnet för fjärrövervakning.
-* Underlättar kommunikationen mellan nedströms lövenheter och IoT Edge-enheter.
-* Underlättar kommunikationen mellan moduler på IoT Edge-enheten.
-* Underlättar kommunikationen mellan IoT Edge-enheten och molnet.
+* Underlätta kommunikationen mellan nedströms lövenheter och IoT Edge-enheter.
+* Underlätta kommunikationen mellan moduler på IoT Edge-enhet.
+* Underlätta kommunikationen mellan IoT Edge-enheten och molnet.
 
 ![Runtime kommunicerar insikter och modulens hälsa till IoT Hub](./media/iot-edge-runtime/Pipeline.png)
 
-Ansvaret för IoT Edge-körningen är indelade i två kategorier: kommunikation och modulen. Dessa två roller som utförs av två komponenter som utgör IoT Edge-körningen. IoT Edge hub ansvarar för kommunikation, medan IoT Edge-agenten hanterar distribution och övervakning av moduler. 
+Ansvaret för IoT Edge-körningen är indelade i två kategorier: kommunikation och modulen. Dessa två roller som utförs av två komponenter som utgör IoT Edge-körningen. Den *IoT Edge hub* ansvarar för kommunikationen, medan den *IoT Edge-agenten* distribuerar och övervakar moduler. 
 
 Både IoT Edge hub och IoT Edge-agenten är moduler, precis som andra moduler som körs på en IoT Edge-enhet. 
 
@@ -52,11 +52,11 @@ För att minska bandbredden som din IoT Edge-lösning använder, IoT Edge hub op
 
 ![IoT Edge hub är en gateway mellan fysiska enheter och IoT Hub](./media/iot-edge-runtime/Gateway.png)
 
- IoT Edge hub kan avgöra om den är ansluten till IoT Hub. Om anslutningen bryts, sparar IoT Edge hub meddelanden eller twin uppdateringar lokalt. När en anslutningen återupprättas synkroniserar alla data. Platsen som används för den här tillfälliga cachen bestäms av en egenskap för modultvilling för IoT Edge-hubben. Storleken på cacheminnet är inte begränsat och kommer att växa så länge enheten har lagringskapacitet. 
+IoT Edge hub kan avgöra om den är ansluten till IoT Hub. Om anslutningen bryts, sparar IoT Edge hub meddelanden eller twin uppdateringar lokalt. När en anslutningen återupprättas synkroniserar alla data. Platsen som används för den här tillfälliga cachen bestäms av en egenskap för modultvilling för IoT Edge-hubben. Storleken på cacheminnet är inte begränsat och kommer att växa så länge enheten har lagringskapacitet. 
 
 ### <a name="module-communication"></a>Modulen kommunikation
 
- IoT Edge hub underlättar modulen till modulen kommunikationen. Med IoT Edge behåller hub som en asynkron meddelandekö moduler oberoende av varandra. Moduler behöver bara ange indata som de godkänner meddelanden och utdata som de skriva meddelanden. En för lösningsutvecklare sedan häftar samman dessa indata och utdata tillsammans så att modulerna som bearbetar data i ordningen som är specifika för lösningen. 
+IoT Edge hub underlättar modulen till modulen kommunikationen. Med IoT Edge behåller hub som en asynkron meddelandekö moduler oberoende av varandra. Moduler behöver bara ange indata som de godkänner meddelanden och utdata som de skriva meddelanden. En för lösningsutvecklare sedan häftar samman dessa indata och utdata tillsammans så att modulerna som bearbetar data i ordningen som är specifika för lösningen. 
 
 ![IoT Edge Hub underlättar modulen till modulen kommunikationen](./media/iot-edge-runtime/module-endpoints.png)
 

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: tamram
-ms.openlocfilehash: d57023063fe23db9f57d52ab9cdf99e0687c1fdf
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: df9bc1680f20fe6264da0109cd52db1072fd9fc5
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217299"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311143"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uppgradera till ett gpv2-konto
 
@@ -29,14 +29,14 @@ Det är enkelt att uppgradera till ett gpv2-konto från dina allmänna v1- eller
 2. Navigera till ditt lagringskonto.
 3. I den **inställningar** klickar du på **Configuration**.
 4. Klicka på **Uppgradera** under **Typ av konto**.
-5. Ange namnet på ditt konto under **Bekräfta uppgradering**. 
+5. Ange namnet på ditt konto under **Bekräfta uppgradering**.
 6. Klicka på **uppgradera** längst ned på bladet.
 
 ## <a name="upgrade-with-powershell"></a>Uppgradera med PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Om du vill uppgradera ett general-purpose v1-konto till ett gpv2-konto med hjälp av PowerShell, först uppdatera PowerShell om du vill använda den senaste versionen av den **Az.Storage** modulen. Mer information om hur du installerar PowerShell finns i [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
+Om du vill uppgradera ett general-purpose v1-konto till ett gpv2-konto med hjälp av PowerShell, först uppdatera PowerShell om du vill använda den senaste versionen av den **Az.Storage** modulen. Mer information om hur du installerar PowerShell finns i [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 Anropa sedan följande kommando för att uppgradera kontot genom att ersätta namnet på resursgruppen och lagringskontot:
 
@@ -46,17 +46,17 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 
 ## <a name="upgrade-with-azure-cli"></a>Uppgradera med Azure CLI
 
-Om du vill uppgradera ett general-purpose v1-konto till ett gpv2-konto med Azure CLI, först installera den senaste versionen av Azure CLI. Information om att installera CLI finns i [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+Om du vill uppgradera ett general-purpose v1-konto till ett gpv2-konto med Azure CLI, först installera den senaste versionen av Azure CLI. Information om att installera CLI finns i [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Anropa sedan följande kommando för att uppgradera kontot genom att ersätta namnet på resursgruppen och lagringskontot:
 
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
-``` 
+```
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Ange en åtkomstnivå för blob-data
 
-Gpv2-konton stöder alla Azure-lagringstjänster och dataobjekt, men åtkomstnivåerna är endast tillgängligt för blockblobbar i Blob storage. När du uppgraderar till ett gpv2-lagringskonto kan du ange åtkomstnivå för blob-data. 
+Gpv2-konton stöder alla Azure-lagringstjänster och dataobjekt, men åtkomstnivåerna är endast tillgängligt för blockblobbar i Blob storage. När du uppgraderar till ett gpv2-lagringskonto kan du ange åtkomstnivå för blob-data.
 
 Åtkomstnivåer kan du välja den mest kostnadseffektiva lagring baserat på ditt förväntade användningsmönster. Blockblob-objekt kan lagras i en frekvent, lågfrekvent eller Arkiv-nivå. Läs mer på åtkomstnivåerna [Azure Blob storage: Frekvent, lågfrekvent, och Arkivlagringsnivån](../blobs/storage-blob-storage-tiers.md).
 
@@ -96,7 +96,7 @@ Om du vill beräkna kostnaden för att lagra och komma åt blobdata i ett gpv2-l
     - Hur mycket data lagras i lagringskontot?
     - Hur ändras datavolymen på månadsbasis; ersätter nya data ständigt gamla data?
 * Primär åtkomstmönstret för dina Blob storage-data, inklusive:
-    - Hur mycket data läses in och skrivs till storage-kontot? 
+    - Hur mycket data läses in och skrivs till storage-kontot?
     - Hur många läsåtgärder jämfört med skriva utförs på data i storage-konto?
 
 När du ska välja bästa åtkomstnivå för dina behov, kan det vara bra att fastställa din kapacitet för blob-data och hur dessa data används. Detta kan göras bäst genom att titta på övervakning mått för ditt konto.
@@ -108,7 +108,7 @@ Om du vill övervaka dina befintliga lagringskonton och samla in dessa data kan 
 Mer information finns i [Om mätvärden i Storage Analytics](https://msdn.microsoft.com/library/azure/hh343258.aspx) och [Schema över måttabeller i Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
-> Blob Storage-konton exponerar endast tabelltjänstens slutpunkt för att lagra och komma åt mätvärden för det aktuella kontot. 
+> Blob Storage-konton exponerar endast tabelltjänstens slutpunkt för att lagra och komma åt mätvärden för det aktuella kontot.
 
 Om du vill övervaka lagringsanvändningen för Blob Storage måste du aktivera kapacitetsmåtten.
 När du har gjort det registreras kapacitetsdata varje dag för ett lagringskontos Blob Service och registreras som en tabellpost som skrivs till tabellen *$MetricsCapacityBlob* i samma lagringskonto.
@@ -120,7 +120,7 @@ Om du vill övervaka dataåtkomstmönstren för Blob Storage måste du aktivera 
 
 För att få en bra uppskattning av din dataförbrukning och ditt åtkomstmönster rekommenderar vi att du väljer en kvarhållningsperiod för mätvärden som är representativ för din normala användning, och att du utgår därifrån. Ett alternativ är att spara mätvärdena i sju dagar och samla in data varje vecka, för att sedan analysera dessa data i slutet av månaden. Ett annat alternativ är att spara mätvärden i 30 dagar och samla in och analysera dessa data i slutet av 30-dagarsperioden.
 
-Mer information om hur du aktiverar, samlar in och visar mätvärden finns i [Aktivera Azure Storage-mätvärden och visa måttdata](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Mer information om hur du aktiverar, samlar in och visar mätvärden finns i [mätvärden i Storage analytics](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Lagring, åtkomst och hämtning av analysdata debiteras på samma sätt som vanliga användardata.

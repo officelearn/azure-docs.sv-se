@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a85fb65ad971bfc70bdab0689e99921e616b56ac
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 07fdaa22532f48cc39b6c524d85fdfe625f8b80c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308867"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337147"
 ---
 # <a name="categorize-images"></a>Kategorisera bilder
 
@@ -24,7 +24,7 @@ Förutom taggar och en beskrivning returnerar för visuellt innehåll taxonomi-b
 
 ## <a name="the-86-category-concept"></a>Konceptet 86-kategori
 
-Visuellt innehåll kan kategorisera en avbildning brett eller mer specifikt med hjälp av listan över 86 andra i följande diagram. Läs den fullständiga taxonomin i textformat i [Kategoritaxonomi](category-taxonomy.md).
+Visuellt innehåll kan kategorisera en avbildning brett eller mer specifikt med hjälp av listan över kategorier som 86 i följande diagram. Läs den fullständiga taxonomin i textformat i [Kategoritaxonomi](category-taxonomy.md).
 
 ![grupperade listor över alla kategorier i kategoritaxonomi](./Images/analyze_categories-v2.png)
 

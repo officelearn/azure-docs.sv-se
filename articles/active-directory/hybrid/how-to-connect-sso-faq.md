@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8de47aab231c66f3539c2d2f0f0e4c535a04038a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4822de6f6470547b47ecaa3874bed0df4ad20cf6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085379"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309596"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sömlös enkel inloggning: Vanliga frågor och svar
 
@@ -45,16 +45,16 @@ Nedan följer en ofullständig lista över program som kan skicka dessa parametr
 
 | Programnamn | Programmets URL som ska användas |
 | -- | -- |
-| Åtkomstpanel | https://myapps.microsoft.com/contoso.com |
-| Outlook på webben | https://outlook.office365.com/contoso.com |
-| Office 365-portaler | <https://portal.office.com?domain_hint=contoso.com>, <https://www.office.com?domain_hint=contoso.com> |
+| Åtkomstpanel | https:\//myapps.microsoft.com/contoso.com |
+| Outlook på webben | https:\//outlook.office365.com/contoso.com |
+| Office 365-portaler | https:\//portal.office.com?domain_hint=contoso.com, https:\//www.office.com?domain_hint=contoso.com |
 
-Dessutom kan användare får en tyst inloggning om ett program skickar inloggningsförfrågningar till Azure AD-slutpunkter som klienter – det vill säga https://login.microsoftonline.com/contoso.com/<..> eller https://login.microsoftonline.com/<tenant_ID>/<..> – i stället för Azure AD: s vanliga slutpunkt - det vill säga https://login.microsoftonline.com/common/<...>. Nedan följer en ofullständig lista över program som gör att dessa typer av inloggningsförfrågningar.
+Dessutom kan användare får en tyst inloggning om ett program skickar inloggningsförfrågningar till Azure AD-slutpunkter som klienter – det vill säga https:\//login.microsoftonline.com/contoso.com/ <... >- eller https:\//login.microsoftonline.com/ < tenant_ID > / <... > – i stället för Azure AD-vanliga slutpunkten – det vill säga https:\//login.microsoftonline.com/common/ <... >. Nedan följer en ofullständig lista över program som gör att dessa typer av inloggningsförfrågningar.
 
 | Programnamn | Programmets URL som ska användas |
 | -- | -- |
-| sharepoint online | https://contoso.sharepoint.com |
-| Azure Portal | https://portal.azure.com/contoso.com |
+| sharepoint online | https:\//contoso.sharepoint.com |
+| Azure Portal | https:\//portal.azure.com/contoso.com |
 
 I tabellerna ovan ersätter du ”contoso.com” med ditt domännamn för att hämta rätt program-URL: er för din klient.
 

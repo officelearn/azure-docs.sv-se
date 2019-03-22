@@ -1,25 +1,25 @@
 ---
-title: Anslut till Excel Online – Azure Logic Apps | Microsoft Docs
+title: Anslut till Excel Online – Azure Logic Apps
 description: 'Hantera data med Excel Online REST API: er och Azure Logic Apps'
-ms.service: logic-apps
 services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.suite: integration
 tags: connectors
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 917b9abd4a32b7951313c5555f4111dff990078c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 28739ad65462acc9f2d2ed7db1e9ed14d19f032c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230959"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314527"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Hantera Excel Online-data med Azure Logic Apps
 
-Du kan skapa automatiserade uppgifter och arbetsflöden baserat på dina data i Excel Online för företag eller OneDrive med Azure Logic Apps och Excel Online connector. Den här anslutningstjänsten tillhandahåller åtgärder som hjälper dig att arbeta med dina data och hantera kalkylblad, till exempel: 
+Du kan skapa automatiserade uppgifter och arbetsflöden baserat på dina data i Excel Online för företag eller OneDrive med Azure Logic Apps och Excel Online connector. Den här anslutningstjänsten tillhandahåller åtgärder som hjälper dig att arbeta med dina data och hantera kalkylblad, till exempel:
 
 * Skapa nya kalkylblad och tabeller.
 * Hämta och hantera kalkylblad, tabeller och rader.
@@ -34,9 +34,9 @@ Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../log
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. 
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
 
-* En [Office 365-konto](https://www.office.com/) för ditt arbete eller personligt Microsoft-konto 
+* En [Office 365-konto](https://www.office.com/) för ditt arbete eller personligt Microsoft-konto
 
   Dina Excel-data kan finnas som en fil med kommaavgränsade värden (CSV)-fil i en mapp, till exempel i OneDrive. 
   Du kan också använda samma CSV-filen med den [fast-file connector](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
@@ -53,7 +53,7 @@ Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../log
 
 1. I sökrutan anger du ”excel” som filter. Välj vilken åtgärd du önska under åtgärder.
 
-1. Om du uppmanas att logga in på Office 365-konto, väljer **logga in**. 
+1. Om du uppmanas att logga in på Office 365-konto, väljer **logga in**.
 
    Dina autentiseringsuppgifter för tillåta din logikapp för att skapa en anslutning till Excel Online och komma åt dina data.
 
@@ -61,10 +61,10 @@ Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../log
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information, till exempel åtgärder och begränsningar som beskrivs av de kopplingar Swagger-filerna finns i dessa referenssidor för anslutningen:
+Teknisk information, till exempel utlösare och åtgärder gränser, som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) filer, finns i dessa referenssidor för anslutningen:
 
-* [Excel Online för företag](/connectors/excelonlinebusiness/) 
-* [Excel Online för OneDrive](/connectors/excelonline/) 
+* [Excel Online för företag](/connectors/excelonlinebusiness/)
+* [Excel Online för OneDrive](/connectors/excelonline/)
 
 ## <a name="get-support"></a>Få support
 

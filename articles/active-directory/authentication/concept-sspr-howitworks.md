@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory lösenord för självbetjäning djupdykning
+title: Lösenordsåterställning via självbetjäning djupdykning - Azure Active Directory
 description: Hur Självbetjäning för lösenordsåterställning fungerar
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76af36de833bc496df7c24ddb1cbfd75c91c7976
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 65c64e420bd22498fa2d778095def96cce218055
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214766"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313965"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: Återställning av lösenord för självbetjäning av Azure AD
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery-supportmatrisen för haveriberedskap för virtuella Azure IaaS-datorer mellan Azure-regioner med Azure Site Recovery | Microsoft Docs
+title: Stöd matrix för haveriberedskap för virtuella Azure-datorer mellan Azure-regioner med Azure Site Recovery | Microsoft Docs
 description: Sammanfattning av de operativsystem som stöds och konfigurationer för Azure Site Recovery-replikering av virtuella Azure-datorer (VM) från en region till en annan för disaster recovery (DR) behov.
 services: site-recovery
 author: rayne-wiselman
@@ -8,32 +8,32 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: 0dac046c359bb8affd69145c73a66cf4ac079012
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: b0fb84131f33d216e099978a7c9ba5481c1691d1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287204"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312826"
 ---
-# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
+# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Stödmatris för att replikera virtuella Azure-datorer från en region till en annan
 
 Den här artikeln sammanfattas konfigurationer som stöds och komponenter när du distribuerar haveriberedskap med replikering, redundans och återställning av virtuella Azure-datorer från en Azure-region till en annan, med hjälp av den [Azure Site Recovery](site-recovery-overview.md) service.
 
 
 ## <a name="deployment-method-support"></a>Metoden distributionsstöd
 
-**Distributionsmetod** |  **Stöds / stöds inte**
+**Distribution** |  **Support**
 --- | ---
-**Azure Portal** | Stöds
-**PowerShell** | [Replikering från Azure till Azure med PowerShell](azure-to-azure-powershell.md)
-**REST-API** | Stöds
+**Azure Portal** | Stöds.
+**PowerShell** | Stöds. [Läs mer](azure-to-azure-powershell.md)
+**REST-API** | Stöds.
 **CLI** | Stöds för närvarande inte
 
 
 ## <a name="resource-support"></a>Resursstöd för
 
 **Resursåtgärden** | **Detaljer**
---- | --- 
+--- | --- | ---
 **Flytta valv mellan resursgrupper** | Stöds inte
 **Flytta resurser för beräkning/lagringsnätverk mellan resursgrupper** | Stöds ej.<br/><br/> Om du flyttar en virtuell dator eller tillhörande komponenter, till exempel lagringsnätverk/när Virtuellt datorn replikeras, måste du inaktivera och återaktivera replikering för den virtuella datorn.
 **Replikera virtuella Azure-datorer från en prenumeration till en annan för katastrofåterställning** | Stöd för inom samma Azure Active Directory-klientorganisation.
@@ -57,12 +57,12 @@ Kina | Kina, östra, Kina, norra, North2 för Kina, östra 2 Kina
 
 >[!NOTE]
 >
-> - För **södra Brasilien** region, som du kan replikera och redundansväxla till något av följande: Södra centrala USA, västra centrala USA, östra USA, östra USA 2, västra USA, västra USA 2 och USA, norra centrala regioner. Det bör noteras att Site Recovery har bara aktiverat södra Brasilien som ska användas som en källregionen från där virtuella datorer kan skyddas. Den **kan inte användas som en DR för mål-region** för alla Azure-regioner som södra centrala USA. Anledningen svarstid som observerats på grund av geografiska avståndet rekommenderar vi att du väljer alla andra America region än södra Brasilien.
->
-> - Om du är **kunde inte finns i en region** där du vill att **att skapa ett valv** Kontrollera din prenumeration har behörighet att skapa resurser i den regionen. Exempel: Om du inte kan skapa valv i Frankrike, södra sedan har din prenumeration inte åtkomst till Frankrike, södra region. Skriv in filen supportärende under problemet typen ”prenumerationshantering” och problemet ”övriga allmänna frågor” ämne ”godkända prenumerationen för XXX Azure-region”
->
-> - Om du är **kunde inte finns i en region** inom ett geografiskt kluster **under replikering** Kontrollera din prenumeration har behörighet att skapa virtuella datorer i den regionen. Exempel: Om du försöker skydda virtuella datorer mellan Frankrike, centrala och Frankrike, södra och inte ser Frankrike, södra under regionen nedrullningsbara din prenumeration har åtkomst till distribuera virtuell dator i den regionen. Skriv in filen supportärende under problemet typen ”prenumerationshantering” och problemet ”övriga allmänna frågor” ämne ”godkända prenumerationen för XXX Azure-region”
-> - Du kan inte välja regioner över geografiska kluster som nämns ovan.
+> - För **södra Brasilien**, du kan replikera och redundansväxla till dessa regioner: Södra centrala USA, västra centrala USA, östra USA, östra USA 2, västra USA, västra USA 2 och norra centrala USA.
+> - Södra Brasilien kan bara användas som en källa-region där virtuella datorer kan replikera med Site Recovery. Den fungera inte som en målregion. Det här är på grund av problem med nätverkssvarstiden på grund av geografiska avstånd. 
+> - Du kan arbeta i regioner som du har lämplig åtkomst.
+> - Om den region där du vill skapa ett valv inte redan visas, kontrollera att din prenumeration har behörighet att skapa resurser i den regionen. 
+> - Om du inte ser en region inom ett geografiskt kluster när du aktiverar replikering, kontrollera att din prenumeration har behörighet att skapa virtuella datorer i den regionen. 
+
 
 
 ## <a name="cache-storage"></a>Cachelagring
@@ -195,7 +195,7 @@ Kryptering i vila (SSE) | Stöds | SSE är standardinställningen på storage-ko
 Azure Disk Encryption (ADE) för Windows OS | Virtuella datorer som har aktiverats för [kryptering med Azure AD-app](https://aka.ms/ade-aad-app) stöds |
 Azure Disk Encryption (ADE) för Linux OS | Stöds inte |
 Frekvent Lägg till/ta bort disk | Stöds inte | Om du lägger till eller ta bort datadisk på den virtuella datorn, måste du inaktivera replikering och aktiverar replikering igen för den virtuella datorn.
-Uteslut disk | [stöds via powershell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine) |   Temporär disk är undantagen som standard.
+Uteslut disk | Stöd för. Du måste använda [Powershell](azure-to-azure-exclude-disks.md) att konfigurera. |  Temporära diskar undantas som standard.
 Storage Spaces Direct  | Stöd för krascher konsekventa återställningspunkter. Konsekvent programåterställningspunkter stöds inte. |
 Skalbar filserver  | Stöd för krascher konsekventa återställningspunkter. Konsekvent programåterställningspunkter stöds inte. |
 LRS | Stöds |
@@ -203,17 +203,22 @@ GRS | Stöds |
 RA-GRS | Stöds |
 ZRS | Stöds inte |
 Frekventa och lågfrekventa lagring | Stöds inte | Virtuella diskar stöds inte på frekventa och lågfrekventa lagring
-Azure Storage-brandväggar för virtuella nätverk  | Stöds | Om du är att begränsa åtkomst till virtuellt nätverk till storage-konton, se till att du [”Tillåt att betrodda Microsoft-tjänster”](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+Azure Storage-brandväggar för virtuella nätverk  | Stöds | Om begränsa åtkomst till virtuellt nätverk till storage-konton måste du aktivera [Tillåt att betrodda Microsoft-tjänster](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 Storage-konton för generell användning V2 (både frekvent och lågfrekvent nivå) | Nej | Transaktionen kostnaderna ökar avsevärt jämfört med generell användning V1-lagringskonton
 
 >[!IMPORTANT]
-> Se till att du ser Virtuella disken skalbarhets- och prestandamål för [Linux](../virtual-machines/linux/disk-scalability-targets.md) eller [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtuella datorer för att undvika eventuella prestandaproblem. Om du följer standardinställningarna skapar Site Recovery begärda diskar och lagringskonton baserat på käll-konfigurationen. Om du anpassar och välja egna inställningar, kontrollerar du att du följer disk-mål för skalbarhet och prestanda för dina virtuella källdatorer.
+> För att undvika prestandaproblem kan du kontrollera att du följer VM disk skalbarhets- och prestandamål för [Linux](../virtual-machines/linux/disk-scalability-targets.md) eller [Windows](../virtual-machines/windows/disk-scalability-targets.md) virtuella datorer. Om du använder standardinställningarna, skapar Site Recovery begärda diskar och lagringskonton, baserat på käll-konfigurationen. Om du anpassar och välja egna inställningar, följ disk mål för skalbarhet och prestanda för dina virtuella källdatorer.
 
-## <a name="azure-site-recovery-limits-to-replicate-data-change-rates"></a>Azure Site Recovery-gränserna för att replikera Data ändras priser
-Följande tabell innehåller gränserna för Azure Site Recovery. Dessa gränser är baserade på våra tester, men de täcker inte alla möjliga kombinationer av program-I/O. De faktiska resultaten kan variera beroende på blandningen av I/O i ditt program. Vi ska också Observera att det finns två gränser för hur per disk data churn och per virtuell datordata omsättning.
-Till exempel, om vi tittar på P20 Premium disk i den tabellen, nedan Site Recovery kan hantera 5 MB/s dataomsättningen per disk med med max för fem dessa diskar per virtuell dator på grund av att gränsen på 25 MB/s totala dataomsättningen per virtuell dator.
+## <a name="limits-and-data-change-rates"></a>Ändra priserna gränser och data
 
-**Replication Storage Target** (Lagringsmål för replikering) | **Average Source Disk I/O Size** (Genomsnittlig I/O-storlek för källdisk) |**Average Source Disk Data Churn** (Genomsnittlig dataomsättning för källdisk) | **Total Source Disk Data Churn Per Day** (Total dataomsättning per dag för källdisk)
+I följande tabell sammanfattas gränserna för Site Recovery.
+
+- Dessa gränser är baserade på våra tester, men omfattar naturligtvis inte alla möjliga i/o kombinationer av program.
+- De faktiska resultaten kan variera beroende på appen i/o blandningen.
+- Det finns två begränsningar att överväga per disk data churn och per virtuell datordata omsättning.
+- Till exempel om vi använder en Premium P20-disk som beskrivs i tabellen nedan, kan Site Recovery hantera 5 MB om dataomsättningen per disk, med på max för fem dessa diskar per virtuell dator, på grund av att gränsen på 25 MB/s totala dataomsättningen per virtuell dator.
+
+**Lagringsmålet** | **Genomsnittlig källdisken i/o** |**Average Source Disk Data Churn** (Genomsnittlig dataomsättning för källdisk) | **Total Source Disk Data Churn Per Day** (Total dataomsättning per dag för källdisk)
 ---|---|---|---
 Standard Storage | 8 kB | 2 MB/s | 168 GB per disk
 Premium P10- eller P15-disk | 8 kB  | 2 MB/s | 168 GB per disk
@@ -222,7 +227,7 @@ Premium P10- eller P15-disk | 32 kB eller mer | 8 MB/s | 672 GB per disk
 Premium P20-, P30-, P40- eller P50-disk | 8 kB    | 5 MB/s | 421 GB per disk
 Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |20 MB/s | 1684 GB per disk
 ## <a name="replicated-machines---networking"></a>Replikerade datorer - nätverk
-**Konfiguration** | **Support** | **Detaljer**
+**Inställning** | **Support** | **Detaljer**
 --- | --- | ---
 Nätverkskort | Högsta antal som stöds för en viss Azure VM-storlek | Nätverkskort skapas när den virtuella datorn skapas under en redundansväxling.<br/><br/> Antal nätverkskort på den virtuella datorn som redundansväxlingen beror på antalet nätverkskort på den Virtuella källdatorn när replikering har aktiverats. Om du lägger till eller ta bort ett nätverkskort efter att ha aktiverat replikering, kan den inte påverkar antalet nätverkskort på den replikerade virtuella datorn efter redundans.
 Internet-lastbalanserare | Stöds | Associera förkonfigurerade belastningsutjämnaren med hjälp av en Azure Automation-skript i en återställningsplan.
@@ -235,15 +240,15 @@ Dynamisk IP-adress | Stöds | Om nätverkskortet på källan har dynamiska IP-ad
 Traffic Manager     | Stöds | Du kan förkonfigurera Traffic Manager så att trafiken dirigeras till slutpunkten i källregionen regelbundet och till slutpunkten i målregionen vid redundans.
 Azure DNS | Stöds |
 Anpassad DNS  | Stöds |
-Via oautentiserad proxyserver | Stöds | Referera till [nätverk vägledningsdokumentet.](site-recovery-azure-to-azure-networking-guidance.md)    
+Via oautentiserad proxyserver | Stöds | [Läs mer]. (site-recovery-azure-to-azure-networking-guidance.md)   
 Autentiserad Proxy | Stöds inte | Om den virtuella datorn använder en autentiserad proxyserver för utgående anslutningar, kan inte replikeras med Azure Site Recovery.    
-VPN för plats till plats med en lokal (med eller utan ExpressRoute)| Stöds | Se till att Udr och NSG: er konfigureras så att Site recovery trafiken inte dirigeras till den lokala. Referera till [nätverk vägledningsdokumentet.](site-recovery-azure-to-azure-networking-guidance.md)  
-Anslutning mellan virtuella nätverk | Stöds | Referera till [nätverk vägledningsdokumentet.](site-recovery-azure-to-azure-networking-guidance.md)  
+VPN plats-till-plats-anslutning till lokalt<br/><br/>(med eller utan ExpressRoute)| Stöds | Se till att Udr och NSG: er konfigureras så att Site recovery trafiken inte dirigeras till den lokala. [Läs mer](site-recovery-azure-to-azure-networking-guidance.md)    
+Anslutning mellan virtuella nätverk | Stöds | [Läs mer](site-recovery-azure-to-azure-networking-guidance.md)  
 Slutpunkter för virtuellt nätverk | Stöds | Om du är att begränsa åtkomst till virtuellt nätverk till storage-konton, kontrollerar du att betrodda Microsoft-tjänster har åtkomst till lagringskontot.
-Accelererat nätverk | Stöds | Accelererat nätverk måste vara aktiverat på den Virtuella källdatorn. [Läs mer](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Snabbare nätverk | Stöds | Accelererat nätverk måste vara aktiverat på den Virtuella källdatorn. [Läs mer](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs [nätverk vägledning för att replikera virtuella Azure-datorer](site-recovery-azure-to-azure-networking-guidance.md).
+- Läs [nätverk vägledning](site-recovery-azure-to-azure-networking-guidance.md) för replikering av virtuella Azure-datorer.
 - Distribuera återställning av [replikering av virtuella Azure-datorer](site-recovery-azure-to-azure.md).

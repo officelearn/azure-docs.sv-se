@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7ac210d9b30a05fd5dbfd46c41c3e62a1d610357
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b30ef7d0b373f0d9a440b6649f819e429e28328c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891111"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314934"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Blueprint för säkerhet och efterlevnad: PaaS-webbprogram som är värd för Storbritannien officiella arbetsbelastningar
 
@@ -119,7 +119,7 @@ Den här mallen distribuerar följande App Service-funktioner:
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 
-SQL-databasen är en hanterad, allmän relationsdatabastjänst i Microsoft Azure som har stöd för strukturer som relationsdata, JSON, spatial och XML. SQL Database erbjuder hanterade enskild SQL-databaser, hanterade SQL-databaser i en [elastisk pool](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool), och SQL [instanser som hanteras av](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (i allmänt tillgänglig förhandsversion). Det ger [dynamiskt skalbar prestanda])https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) och innehåller alternativ som [kolumnlagringsindex](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) för extremanalys och rapporter, och [minnesintern OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) för extreme transaktionsbearbetning. Microsoft hanterar alla korrigeringar och uppdateringar av SQL-kodbasen sömlöst och avlägsnar all hantering av underliggande den infrastrukturen.
+SQL-databasen är en hanterad, allmän relationsdatabastjänst i Microsoft Azure som har stöd för strukturer som relationsdata, JSON, spatial och XML. SQL Database erbjuder hanterade enskild SQL-databaser, hanterade SQL-databaser i en [elastisk pool](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool), och SQL [instanser som hanteras av](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (i allmänt tillgänglig förhandsversion). Ger [dynamiskt skalbar prestanda](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) och innehåller alternativ som [kolumnlagringsindex](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) för extremanalys och rapporter, samt [minnesintern OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) för extrem transaktionell bearbetning. Microsoft hanterar alla korrigeringar och uppdateringar av SQL-kodbasen sömlöst och avlägsnar all hantering av underliggande den infrastrukturen.
 
 Azure SQL-databas i den här skissen
 

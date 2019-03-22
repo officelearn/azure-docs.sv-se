@@ -1,5 +1,5 @@
 ---
-title: Säkerhetsvägledning för Azure Multi-Factor Authentication
+title: Säkerhetsvägledning för Azure Multi-Factor Authentication - Azure Active Directory
 description: Det här dokumentet innehåller vägledning för Azure MFA med Azure-konton
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bccaa7e1f2e0752ac1cde52a446cb942c80aa838
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4441bf945b14a275f5b19ffe39f5ffd419e74e58
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166019"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310667"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Säkerhetsvägledning för att använda Azure Multi-Factor Authentication med Azure AD-konton
 

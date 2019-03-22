@@ -1,19 +1,19 @@
 ---
-title: Använda Azure-portalen för att hantera Azure AD-åtkomstbehörigheter till behållare och köer med RBAC (förhandsversion), Azure Storage | Microsoft Docs
+title: Använda Azure-portalen för att hantera Azure AD-åtkomstbehörigheter till behållare och köer med RBAC (förhandsversion), Azure Storage
 description: Använda rollbaserad åtkomstkontroll (RBAC från Azure-portalen) för att tilldela åtkomst till behållare och köer till säkerhetsobjekt. Azure Storage stöder inbyggda och anpassade RBAC-roller för autentisering via Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8050027bac3d2f13ac457edcdad9275c040305da
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a38cce7d15b4796bb66803d06f3589569985cb37
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431864"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319507"
 ---
 # <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>Bevilja åtkomst till Azure-behållare och köer med RBAC i Azure portal (förhandsversion)
 
@@ -101,14 +101,6 @@ Följ dessa steg för att tilldela den **läsare** rollen så att en användare 
 
 > [!NOTE]
 > Tilldela rollen Läsare krävs endast för användare som behöver åtkomst till blobar eller köer med hjälp av Azure-portalen. 
-
-## <a name="use-azure-ad-credentials-with-the-portal"></a>Använda Azure AD-autentiseringsuppgifter med portalen
-
-För att komma åt blobar eller köer i Azure-portalen med dina autentiseringsuppgifter för Azure AD, använda preview-länkarna som visas i följande bild:
-
-![Komma åt blobar eller köer med Azure AD-autentiseringsuppgifter på portalen](media/storage-auth-aad-rbac/access-data-azure-ad.png)
-
-Om du använder blob eller kön data med hjälp av produktion-länkar i stället för länkar för förhandsversionen kan använder Azure-portalen din kontonyckel för att godkänna åtkomst, snarare än att använda Azure AD.
 
 ## <a name="next-steps"></a>Nästa steg
 

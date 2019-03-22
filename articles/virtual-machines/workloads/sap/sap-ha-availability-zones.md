@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 687f99fb6447eddb4ce10ce81bc349181ec5c48c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3772dbdc8582eea1b2eac368784878a8a36d34ad
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094760"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339499"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Konfigurationer för SAP-arbetsbelastning med Tillgänglighetszoner i Azure
 [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview) är en av de funktioner för hög tillgänglighet som Azure tillhandahåller. Med hjälp av Tillgänglighetszoner förbättrar den övergripande tillgängligheten för SAP-arbetsbelastningar på Azure. Den här funktionen finns redan i vissa [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/). I framtiden kommer blir den tillgänglig i fler regioner.
@@ -93,7 +93,7 @@ I de här besluten också beakta konto SAP nätverksrekommendationer till svarst
 > Det förväntas att mätningar som beskrivs ovan ger olika resultat i varje Azure-region som har stöd för [Tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview). Även om dina nätverkskrav för svarstid är samma, kan du behöva använda olika distributionsstrategier i olika Azure-regioner eftersom Nätverksfördröjningen mellan zoner kan vara olika. Nätverksfördröjningen mellan de tre olika zonerna kan vara avsevärt olika i vissa Azure-regioner. Nätverksfördröjningen mellan de tre olika zonerna kan vara mer enhetlig i andra regioner. Anspråk som det finns alltid en Nätverksfördröjningen mellan 1 och 2 millisekunder är inte korrekt. Nätverksfördröjningen mellan Tillgänglighetszoner i Azure-regioner kan inte generaliseras.
 
 ## <a name="activeactive-deployment"></a>Aktiv/aktiv distribution
-Den här distributionsarkitekturen kallas aktiv/aktiv eftersom du distribuera dina aktiva SAP dialogrutan instanser i två eller tre zoner. SAP Central Services-instans som använder sätta replikering ska distribueras mellan två zoner. Detsamma gäller för DBMS-lager, som ska distribueras till samma zoner som SAP Central tjänst.
+Den här distributionsarkitekturen kallas aktiv/aktiv eftersom du distribuera dina aktiva SAP-programservrar i två eller tre zoner. SAP Central Services-instans som använder sätta replikering ska distribueras mellan två zoner. Detsamma gäller för DBMS-lager, som ska distribueras till samma zoner som SAP Central tjänst.
 
 När du överväger den här konfigurationen behöver du hitta två Tillgänglighetszoner i din region som erbjudandet mellan zoner Nätverksfördröjningen som är godtagbar för din arbetsbelastning och din synkron DBMS-replikering. Du bör också försäkra delta mellan Nätverksfördröjningen inom de områden som du har valt och Nätverksfördröjningen mellan zoner stöds inte för stor. Det beror på att du inte vill att stora variationer, beroende på om ett jobb körs i zonen med DBMS-servern eller i flera zoner, i körs tidsskillnad på affärsprocesserna eller batch-jobb. Vissa varianter accepteras, men inte faktorer med skillnaden.
 

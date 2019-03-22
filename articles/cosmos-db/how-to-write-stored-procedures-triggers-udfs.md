@@ -6,18 +6,21 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: b0c09c5b425beef6badff7fb6ec298f96591abc5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f890a8468eaa22fbfce326fc16afe545fd515d6
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990542"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339320"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Skriva lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB
 
 Azure Cosmos DB tillhandahåller språkintegrerad, transaktionell körning av JavaScript som gör att du kan skriva **lagrade procedurer**, **utlösare** och **användardefinierade funktioner**. När du använder SQL-API:et i Azure Cosmos DB kan du definiera de lagrade procedurerna, utlösarna och de användardefinierade funktionerna i JavaScript. Du kan skriva logiken i JavaScript och köra den i databasmotorn. Du kan skapa och köra utlösare, lagrade procedurer och användardefinierade funktioner med hjälp av [Azure Portal](https://portal.azure.com/), [det språkintegrerade fråge-API:et för JavaScript i Azure Cosmos DB](javascript-query-api.md) och [SQL-API:et för klient-SDK i Azure Cosmos DB](sql-api-dotnet-samples.md). 
 
 Innan du kan anropa en lagrad procedur, utlösare eller användardefinierad funktion måste du registrera den. Mer information finns i [How to work with stored procedures, triggers, user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md) (Arbeta med lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB).
+
+> [!NOTE]
+> När du kör en lagrad procedur med partitionerade behållare måste ett partitionsnyckelvärde anges i alternativen för begäran. Lagrade procedurer är alltid begränsade till en partitionsnyckel. Objekt som har ett annan partitionsnyckelvärde visas inte för den lagrade proceduren. Detta gäller även för utlösare.
 
 ## <a id="stored-procedures"></a>Skriva lagrade procedurer
 

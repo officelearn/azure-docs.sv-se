@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 61b3a9e066a3ee20effa97f1c6c7a0bd1ae90ac0
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: 18013050546cc5e204d9cc07a2f499388596164c
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285846"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319456"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway-konfiguration
 
@@ -33,9 +33,9 @@ Application gateway är en särskild distribution i det virtuella nätverket. I 
 
 #### <a name="size-of-the-subnet"></a>Storleken på undernätet
 
-Application Gateway förbrukar en privat IP-adress per instans, plus en annan privat IP-adress om en privat klientdels-IP-konfiguration har konfigurerats. Dessutom Azure reserverar fyra första och sista IP-adress i varje undernät för intern användning. Till exempel om en application gateway är inställt på tre instanser och ingen privat klientdels-IP-adress, måste sedan minst åtta IP-adresser i undernät – fem IP-adresser för intern användning och tre IP-adresserna för de tre instanserna av application gateway. Därför i det här fallet ett/29 undernät storlek eller högre krävs. Om du har tre instanser och en IP-adress för privata klientdelens IP-konfiguration och sedan nio IP-adresser måste utföras - tre IP-adresserna för de tre instanserna av application gateway, en IP-adress för privat klientdels-IP och fem IP-adresser för intern användning. Därför i det här fallet en/28 undernät storlek eller högre krävs.
+Application Gateway förbrukar en privat IP-adress per instans, plus en annan privat IP-adress om en privat klientdels-IP-konfiguration har konfigurerats. Dessutom Azure reserverar fem IP-adresser – fyra första och sista IP-adress – i varje undernät för intern användning. Till exempel om en application gateway är inställd på 15 instanser och ingen privat klientdels-IP-adress, måste sedan minst 20 IP-adresser i undernät – fem IP-adresser för intern användning och 15 IP-adresser för 15-instanserna av application gateway. Därför i det här fallet en/27 undernät storlek eller högre krävs. Om du har 27 instanser och en IP-adress för klientdelen privata IP-konfiguration, och sedan 33 IP-adresser måste utföras - 27 IP-adresser för 27-instanserna av application gateway, en IP-adress för privat klientdels-IP och fem IP-adresser för intern användning. Därför i det här fallet en /26 undernät storlek eller högre krävs.
 
-Ett bra tips är att använda minst en/28 undernätets storlek. Detta ger dig 11 användbara adresser. Om programbelastningen kräver mer än 10 instanser, bör du överväga en/27 eller/26 undernätets storlek.
+Det rekommenderas att använda minst en/28 undernätets storlek. Detta ger dig 11 användbara adresser. Om programbelastningen kräver mer än 10 instanser, bör du överväga en/27 eller/26 undernätets storlek.
 
 #### <a name="network-security-groups-supported-on-the-application-gateway-subnet"></a>Nätverkssäkerhetsgrupper som stöds på Application Gateway-undernät
 

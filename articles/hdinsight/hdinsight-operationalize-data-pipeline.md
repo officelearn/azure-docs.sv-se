@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 175fdcc1bf8d28c0eeb6eeccaa54c996c837ef81
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: b5e7864eae56a6f066590191373d35cb57693f37
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744453"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311687"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Operationalisera en pipeline för dataanalys
 
@@ -150,7 +150,7 @@ Om du vill använda Oozie Web Console för att visa status för dina coordinator
 
 2. Kontrollera tunneln fungerar genom att gå till Ambari på din huvudnoden genom att bläddra till:
 
-    http://headnodehost:8080
+    http:\//headnodehost:8080
 
 3. Åtkomst till den **Oozie webbkonsolen** från Ambari, väljer **Oozie**, **snabblänkar**, och välj sedan **Oozie webbkonsolen**.
 
@@ -176,7 +176,7 @@ Du kan kopiera filen med SCP i din `bash` shell session.
 
 Exempeldata är nu tillgänglig. Pipelinen kräver dock två Hive-tabeller för bearbetning, en för inkommande (`rawFlights`) och en för sammanfattningsdata (`flights`). Skapa tabellerna i Ambari på följande sätt.
 
-1. Logga in på Ambari genom att gå till [ http://headnodehost:8080 ](http://headnodehost:8080).
+1. Logga in på Ambari genom att gå till http:\//headnodehost:8080.
 2. Välj i listan över tjänster **Hive**.
 
     ![Att välja Hive i Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
@@ -414,12 +414,12 @@ I följande tabell sammanfattas var och en av egenskaperna och anger var du hitt
 
 | Egenskap  | Värdekälla |
 | --- | --- |
-| NameNode | Den fullständiga sökvägen till Azure Storage-behållare som är kopplad till ditt HDInsight-kluster. |
+| nameNode | Den fullständiga sökvägen till Azure Storage-behållare som är kopplad till ditt HDInsight-kluster. |
 | jobTracker | För interna värdnamnet till din aktiva klustret YARN gå noden. På startsidan Ambari Välj YARN från listan över tjänster och välj sedan aktiv Resource Manager. Värdnamnet URI visas överst på sidan. Lägga till porten 8050. |
-| Könamn | Namnet på den YARN-kö som används när du schemalägger Hive-åtgärder. Lämna som standard. |
-| oozie.Use.system.libpath | Lämna som true. |
+| queueName | Namnet på den YARN-kö som används när du schemalägger Hive-åtgärder. Lämna som standard. |
+| oozie.use.system.libpath | Lämna som true. |
 | programbasen | Sökvägen till undermappen i Azure Storage där du distribuerar Oozie-arbetsflöde och stödfiler. |
-| oozie.WF.Application.PATH | Platsen för Oozie-arbetsflöde `workflow.xml` ska köras. |
+| oozie.wf.application.path | Platsen för Oozie-arbetsflöde `workflow.xml` ska köras. |
 | hiveScriptLoadPartition | Sökvägen i Azure Storage till Hive-fråga filen `hive-load-flights-partition.hql`. |
 | hiveScriptCreateDailyTable | Sökvägen i Azure Storage till Hive-fråga filen `hive-create-daily-summary-table.hql`. |
 | hiveDailyTableName | Det dynamiskt genererade namnet för mellanlagringstabellen. |
@@ -607,7 +607,7 @@ Endast nya egenskaper som presenteras i det här `job.properties` filen är:
 
 | Egenskap  | Värdekälla |
 | --- | --- |
-| oozie.coord.Application.PATH | Platsen för den `coordinator.xml` -fil som innehåller Oozie-koordinator för att köra. |
+| oozie.coord.application.path | Platsen för den `coordinator.xml` -fil som innehåller Oozie-koordinator för att köra. |
 | hiveDailyTableNamePrefix | Prefixet som används för att dynamiskt skapa tabellnamnet på mellanlagringstabellen. |
 | hiveDataFolderPrefix | Prefix för sökvägen där alla mellanlagringstabeller kommer att lagras. |
 

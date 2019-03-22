@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: c0a86b76622862b477d539c25dd98c925f09192c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5d3525952ec09474d60618c4f99138cef1fce57a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812046"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317518"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Distribuera StorSimple Virtual Array – ange dig som en iSCSI-server via Azure-portalen
 
@@ -98,7 +98,7 @@ Använd följande steg för steg-instruktioner för att installera och konfigure
    
     På den **webbproxy** sidan:
    
-   1. Ange den **webbadress proxy** i följande format:  *http://host-IP adress* eller *Fully nummer*. Observera att HTTPS-URL: er inte stöds.
+   1. Ange den **webbadress proxy** i följande format: *http:\//host-IP adress* eller *Fully nummer*. Observera att HTTPS-URL: er inte stöds.
    2. Ange **autentisering** som **grundläggande** eller **ingen**.
    3. Om du använder autentisering måste du också ange en **användarnamn** och **lösenord**.
    4. Klicka på **Verkställ**. På så sätt validera och tillämpa konfigurerade Webbproxyinställningar.

@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Beskriver processerna som power Azure Dev blanksteg och hur de konfigureras i konfigurationsfilen azds.yaml
 keywords: azds.yaml Azure Dev blanksteg, Dev blanksteg, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänst, behållare
-ms.openlocfilehash: 4d0b2d24335b03fb1afc729e4cb8f7fc07f8a77e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8d17be31acc6868399e8f785255d28fa2314d48c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456876"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316124"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Hur Azure Dev blanksteg fungerar och är konfigurerad
 
@@ -59,7 +59,7 @@ Verktyg för klientsidan gör att användaren kan:
 
 När programmet körs, klientsidan verktyg också:
 * Tar emot och visar stdout och stderr från ditt program som körs i AKS.
-* Använder [port och tydlig](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) att tillåta Internetåtkomst till appen med http://locahost.
+* Använder [port och tydlig](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) att tillåta Webbåtkomst till ditt program via http:\//localhost.
 * Bifogar en felsökare till programmet som körs i AKS.
 * Synkroniseringar källkod ditt dev adressutrymme när en ändring identifieras för inkrementella versioner, vilket ger snabb iteration.
 

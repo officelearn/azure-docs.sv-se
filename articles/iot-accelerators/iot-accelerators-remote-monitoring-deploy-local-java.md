@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: e1918d527afbe5aad647d84ab82889099f5f22b9
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: ccdb3e16ea60cf85ae28e533e3b2d9f473cc90c8
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55106025"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316396"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Distribuera lösningsacceleratorn för fjärrövervakning lokalt - IntelliJ
 
@@ -148,7 +148,7 @@ npm install
 npm start
 ```
 
-När början är klar visas sidan i webbläsaren **http://localhost:3000/dashboard**. Fel på den här sidan förväntas. Följ anvisningarna nedan om du vill visa programmet utan fel.
+När början är klar visas sidan i webbläsaren **http:\//localhost:3000 / instrumentpanel**. Fel på den här sidan förväntas. Följ anvisningarna nedan om du vill visa programmet utan fel.
 
 ### <a name="configure-and-run-nginx"></a>Konfigurera och köra NGINX
 
@@ -161,7 +161,7 @@ Mer information om att köra **nginx**, se [nginx för Windows](https://nginx.or
 
 ### <a name="connect-to-the-dashboard"></a>Ansluta till instrumentpanelen
 
-För att komma åt instrumentpanelen för fjärrövervakning lösningen går du till [ http://localhost:9000 ](http://localhost:9000) i webbläsaren.
+Om du vill komma åt instrumentpanelen för fjärrövervakning lösningen måste gå till http:\//localhost:9000 i webbläsaren.
 
 ## <a name="clean-up"></a>Rensa
 

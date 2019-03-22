@@ -6,22 +6,28 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 3/3/2019
+ms.date: 3/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ccd62c0b0832622bbc74542674c1d09f59ea301b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 06d18ccd6f14f0a2b31f579b0ed7250b2c4f0c92
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848838"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310599"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Konfigurera katastrofåterställning till Azure för lokala virtuella VMware-datorer
 
 [Azure Site Recovery](site-recovery-overview.md) bidrar till din BCDR-strategi för affärskontinuitet och haveriberedskap genom att hålla dina företagsprogram igång och köra dem vid planerade och oplanerade avbrott. Site Recovery hanterar och samordnar haveriberedskap för lokala datorer och virtuella Azure-datorer, inklusive replikering, redundans och återställning.
 
 
-I den här självstudien visar vi hur du konfigurerar och aktiverar replikering för en virtuell VMware-dator till Azure med Azure Site Recovery. Självstudier är utformade för att visa dig hur du distribuerar Site Recovery med grundläggande inställningar. De använder den enklaste sökvägen och visar inte alla alternativ. I den här guiden får du lära dig att:
+Den här självstudien visar hur du distribuerar Site Recovery med grundläggande inställningar, utan anpassning av. Granska artiklar under How To för mer komplexa alternativ.
+
+    - Konfigurera [replikeringskällan](vmware-azure-set-up-source.md) och [konfigurationsservern](vmware-azure-deploy-configuration-server.md).
+    - Konfigurera [replikeringsmålet](vmware-azure-set-up-target.md).
+    - Konfigurera en [replikeringsprincip](vmware-azure-set-up-replication.md) och [aktivera replikering](vmware-azure-enable-replication.md).
+
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Ange replikeringskälla och mål.
@@ -37,14 +43,10 @@ Innan du börjar är det bra att:
 - Om du vill lära dig om att ställa in haveriberedskap för virtuella VMware-datorer i detalj kan du granska och använda följande resurser:
     - [Läs vanliga frågor](vmware-azure-common-questions.md) om haveriberedskap för VMware.
     - [Läs](vmware-physical-azure-support-matrix.md) vad som stöds och krävs för VMware.
--  Läs våra **instruktionsguider** för detaljerade anvisningar som omfattar alla distributionsalternativ för VMware:
-    - Konfigurera [replikeringskällan](vmware-azure-set-up-source.md) och [konfigurationsservern](vmware-azure-deploy-configuration-server.md).
-    - Konfigurera [replikeringsmålet](vmware-azure-set-up-target.md).
-    - Konfigurera en [replikeringsprincip](vmware-azure-set-up-replication.md) och [aktivera replikering](vmware-azure-enable-replication.md).
 - I den här självstudien visar vi dig hur du replikerar en enda virtuell dator. Om du distribuerar flera virtuella datorer bör du använda den [verktyget Distributionshanteraren](https://aka.ms/asr-deployment-planner) för att planera distributionen. [Läs mer](site-recovery-deployment-planner.md) om det här verktyget.
 
 Och granska dessa tips:
-- I den här självstudien används en OVA-mall för att skapa konfigurationsserverns virtuella VMware-dator. Om du inte kan göra detta, följer du [dessa instructins](physical-manage-configuration-server.md) du ställer in konfigurationsservern manuellt.
+- I den här självstudien används en OVA-mall för att skapa konfigurationsserverns virtuella VMware-dator. Om du inte kan göra detta, följer du [instruktionerna](physical-manage-configuration-server.md) du ställer in konfigurationsservern manuellt.
 - I den här självstudien hämtar och installerar Site Recovery MySQL till konfigurationsservern. Om du vill kan konfigurera du det manuellt i stället. [Läs mer](vmware-azure-deploy-configuration-server.md#configure-settings).
   >Du kan ladda ned den senaste versionen av konfigurationsservermallen direkt från [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
   Licensnumret du fått med OVF-mall är en utvärderingslicens som är giltig i 180 dagar. Windows som körs på den virtuella datorn måste aktiveras med licensen som krävs. 

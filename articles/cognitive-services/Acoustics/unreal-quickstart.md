@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1314e393d292145ef112e700abf6ab1ef199db7d
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 1575c4f4a1c96a84823f76e8e98e76de3c2ace86
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138189"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313030"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Projektet Akustik Unreal/Wwise Snabbstart
 I den här snabbstarten ska du experimentera med projekt Akustik design kontroller med angivna exemplen för Unreal Engine och Wwise.
@@ -25,7 +25,7 @@ Programvarukrav:
 * [Wwise 2018.1.6](https://www.audiokinetic.com/products/wwise/)
 
 ## <a name="download-the-sample-package"></a>Ladda ned exempelpaketet
-Ladda ned den [projekt Akustik Unreal + Wwise exempel paketet](http://www.microsoft.com/downloads/details.aspx?FamilyID=f03dff5a-5780-462e-87ef-e6d039d0748d). Exempelpaketet innehåller ett projekt med Unreal Engine, Wwise projektet för Unreal projektet och projekt Akustik Wwise plugin-programmet.
+Ladda ned den [projekt Akustik Unreal + Wwise exempel paketet](https://www.microsoft.com/download/details.aspx?id=58090). Exempelpaketet innehåller ett projekt med Unreal Engine, Wwise projektet för Unreal projektet och projekt Akustik Wwise plugin-programmet.
 
 ## <a name="set-up-the-project-acoustics-sample-project"></a>Konfigurera projektet Akustik exempelprojektet
 Om du vill konfigurera projektet Akustik Unreal/Wwise exempelprojektet måste du först installera plugin-programmet projekt Akustik i Wwise. Sedan distribuerar Wwise binärfiler till Unreal projektet och justera den Wwise Unreal plugin-programmet för att stödja projekt Akustik.
@@ -33,26 +33,26 @@ Om du vill konfigurera projektet Akustik Unreal/Wwise exempelprojektet måste du
 ### <a name="install-the-project-acoustics-wwise-plugin"></a>Installera plugin-programmet för projektet Akustik Wwise
 Öppna Wwise starta sedan i den **plugin-program** fliken, under **installera nya plugin-program**väljer **Lägg till från katalog**. Välj den `AcousticsWwisePlugin\ProjectAcoustics` katalog som ingick i paketet som du hämtade.
 
-![Installera Wwise plugin-programmet](media/wwise-install-new-plugin.png)
+![Skärmbild av Wwise starta som visar alternativet Installera Wwise plugin-programmet](media/wwise-install-new-plugin.png)
 
 ### <a name="add-wwise-binaries-to-the-project-acoustics-unreal-sample-project"></a>Lägg till Wwise binärfiler till projektet Akustik Unreal exempelprojektet
 Från Wwise starta klickar du på den **Unreal Engine** och klicka sedan på hamburgarmenyn bredvid **senaste Unreal Engine projekt** och välj **Bläddra efter projekt**. Öppna exempelprojektet Unreal `.uproject` filen i paketet `AcousticsSample\AcousticsGame\AcousticsGame.uproject`.
 
-![Wwise Unreal fliken](media/wwise-unreal-tab.png)
+![Skärmbild av Wwise starta, Unreal fliken](media/wwise-unreal-tab.png)
 
 Bredvid exempelprojektet projekt Akustik Klicka **integrera Wwise i projektet**.
 
-![Wwise Acoustics Game Unreal Project](media/wwise-acoustics-game-project.png)
+![Skärmbild av Wwise starta som visar Akustik spel Unreal projekt](media/wwise-acoustics-game-project.png)
 
 ### <a name="extend-wwises-unreal-plugin-functionality"></a>Utöka funktionerna i Wwise's Unreal plugin-programmet
 Projektet Akustik Unreal plugin-programmet kräver ytterligare beteenden exponeras från Wwise Unreal plugin-programmet API. Kör kommandofilen medföljer projekt Akustik Unreal plugin-programmet att automatisera dessa ändringar:
 * Inuti `AcousticsGame\Plugins\ProjectAcoustics\Resources`kör `PatchWwise.bat`.
 
-    ![Korrigera Wwise skript](media/patch-wwise-script.png)
+    ![Skärmbild av Windows Explorer-fönstret som visar skript för att korrigera Wwise projekt](media/patch-wwise-script.png)
 
 * Om du inte har DirectX-SDK är installerat, måste du kommentera ut den rad som innehåller DXSDK_DIR i `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
 
-    ![DXSDK kommentera ut](media/directx-sdk-comment.png)
+    ![Skärmbild av Kodredigerare som visar DXSDK utkommenterad](media/directx-sdk-comment.png)
 
 ### <a name="open-the-unreal-project"></a>Öppna Unreal projektet. 
 Det blir du ombedd att återskapa moduler. Klicka på Ja.
@@ -65,7 +65,7 @@ Lyssna på hur scenen låter genom att klicka på uppspelningsknappen i Unreal r
 ### <a name="modify-occlusion-and-transmission"></a>Ändra ocklusion och överföring
 Det finns per källkod projekt Akustik design kontroller på varje Unreal ljud skådespelare:
 
-![DemoSceneSoundSourceDesignControls](media/demo-scene-sound-source-design-controls.png)
+![Skärmbild av Unreal redigeraren Akustik design kontroller](media/demo-scene-sound-source-design-controls.png)
 
 Om den **ocklusion** multiplikatorn är större än 1 (standardvärdet är 1), är spärrat vara överdrivna. Ange den mindre än 1 gör ocklusion i kraft mer diskreta.
 
@@ -79,7 +79,7 @@ Du kan ändra hur snabbt wetness ändras med avståndet med den **Perceptuell av
 ### <a name="modify-distance-based-attenuation"></a>Ändra avståndet-baserade dämpning
 Plugin-programmet för projektet Akustik Wwise mixer värnar om den per källkod avståndet-baserade dämpning inbyggda Wwise. Om du ändrar den här kurvan ändras torr-path-nivå. Plugin-programmet projekt Akustik justerar våt nivån för att underhålla den igång torr kombination som anges av simulering och design.
 
-![DemoSoundsAttenuation](media/demo-sounds-attenuation.png)
+![Skärmbild av Wwise dämpning kurvan panelen dämpning kommer att noll innan simulering gräns](media/demo-sounds-attenuation.png)
 
 Projektet Akustik gör beräkningen i en ”simulering region” inriktade på varje simulerad player-plats. Akustik tillgångar i exempelpaketet har inbyggd med en simulering region radien för 45 m och attenuations har utformats för att växla till 0 innan 45 m. Den här utfall är inte ett strikta krav, innebär det villkor för att endast geometri inom 45 m för lyssnare kommer occlude ljud.
 

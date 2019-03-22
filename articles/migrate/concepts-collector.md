@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 228d7b6994c67f9e14424624d264061634d80f27
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 78ef88d0710e8a82d30fa26b60073aa75e363c15
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080073"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315308"
 ---
 # <a name="about-the-collector-appliance"></a>Om insamlingsprogrammet
 
@@ -82,7 +82,7 @@ Insamlaren måste klara några nödvändiga kontroller för att säkerställa at
 ### <a name="connect-to-the-internet-via-a-proxy"></a>Ansluta till internet via en proxyserver
 
 - Om proxyservern kräver autentisering, kan du ange det användarnamn och lösenord när du konfigurerar insamlaren.
-- IP-adressen/FQDN för proxyservern bör anges som *http://IPaddress* eller *http://FQDN*.
+- IP-adressen/FQDN för proxyservern bör anges som *http:\//IPaddress* eller *http:\//FQDN*.
 - Endast HTTP-proxy stöds. HTTPS-baserade proxyservrar stöds inte av insamlaren.
 - Om proxyservern är en spärrande proxy, måste du importera proxy-certifikatet för VM-insamlaren.
   1. I den Virtuella insamlardatorn, går du till **Start-menyn** > **hantera datorcertifikat**.

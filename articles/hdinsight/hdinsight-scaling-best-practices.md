@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: ashish
-ms.openlocfilehash: e8a85401c0c7282d64ebcbe2f9180f25f36f7289
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cae0c97cb3084b0578f277852d646c199d1e2313
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108162"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316260"
 ---
 # <a name="scale-hdinsight-clusters"></a>Skala HDInsight-kluster
 
@@ -120,7 +120,7 @@ Efter att ha lämnat felsäkert läge, kan du manuellt bort temporära filer ell
 
 * H100 inte går att skicka instruktionen Visa databaser: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: Ansluta till hn0-clustername.servername.internal.cloudapp.net:10001 [hn0 clustername.servername. Det gick inte att internal.cloudapp.NET/1.1.1.1]: **Anslutningen nekades**
 
-* H020 gick inte att upprätta någon anslutning till hn0 hdisrv.servername.bx.internal.cloudapp .net: 10001: org.apache.thrift.transport.TTransportException: Det gick inte att skapa http-anslutning till http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Anslut till hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] misslyckades: Anslutningen nekades: org.apache.thrift.transport.TTransportException: Det gick inte att skapa http-anslutning till http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Anslut till hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] misslyckades: **Anslutningen nekades**
+* H020 gick inte att upprätta någon anslutning till hn0 hdisrv.servername.bx.internal.cloudapp .net: 10001: org.apache.thrift.transport.TTransportException: Det gick inte att skapa http-anslutning till http:\//hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Anslut till hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] misslyckades: Anslutningen nekades: org.apache.thrift.transport.TTransportException: Det gick inte att skapa http-anslutning till http:\//hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Anslut till hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] misslyckades: **Anslutningen nekades**
 
 * Från Hive-loggar: Varna [main]: server. HiveServer2 (HiveServer2.java:startHiveServer2(442)) – gick inte att starta HiveServer2 vid försöket 21, kommer att försöka igen i 60 sekunder java.lang.RuntimeException: Fel vid tillämpningen av auktoriseringsprincip på hive-konfiguration: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Det går inte att skapa katalog** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **Namn på noden är i felsäkert läge**.
     De rapporterade blocken 0 måste ytterligare 9 förutsättningarna för att nå tröskelvärdet 0.9900 av totalt antal block 9.
@@ -326,4 +326,4 @@ Det sista alternativet är att bevaka sällsynta fall där HDFS försätts i fel
 
 * [Introduktion till Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Skala kluster](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Hantera HDInsight-kluster med hjälp av Apache Ambari-Webbgränssnittet](hdinsight-hadoop-manage-ambari.md)
+* [Hantera HDInsight-kluster med hjälp av Apache Ambari-webbgränssnittet](hdinsight-hadoop-manage-ambari.md)

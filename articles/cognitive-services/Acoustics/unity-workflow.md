@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 7f079c511a32cfcf0fa018d40abb737ad08f3821
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 01783aa12f586f61583b1503c796f9b523770104
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137964"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310633"
 ---
 # <a name="project-acoustics-unity-design-tutorial"></a>Projektet Akustik Unity Design självstudien
 Den här självstudien beskrivs designverktyg och arbetsflöde för projektet Akustik i Unity.
@@ -37,16 +37,16 @@ Projektet Akustik innehåller ett antal kontroller för specifik Akustik design.
 ### <a name="adjust-distance-based-attenuation"></a>Justera avståndet-baserade dämpning
 Ljudet DSP tillhandahålls av den **projekt Akustik** Unity spatializer plugin-programmet respekterar de per källkod avståndet-baserade dämpning bygger i Unity-redigeraren. Kontroller för avståndet-baserade dämpning finns i den **ljud källa** komponent finns i den **Inspector** med ljud datakällor under **3D-ljudinställningar**:
 
-![Avståndet dämpning](media/distance-attenuation.png)
+![Skärmbild av Unity avståndet dämpning panelen](media/distance-attenuation.png)
 
 Akustik utför beräkning i en ”simulering region” heldag player-platsen. Om en bra källa är långt från spelare, utanför den här regionen för simulering, påverkas endast geometri i rutan ljud spridning (till exempel orsakar ocklusion) som fungerar förhållandevis bra när occluders är i närheten av spelaren. Men i fall kan när spelaren är i öppet område men occluders närmar sig avlägsna ljudkälla ljudet bli orealistiskt disoccluded. Vår Föreslagen lösning är att säkerställa i sådana fall att ljud dämpning ligger till 0 på ungefär 45 m, standardavståndet spelaren vid gränsen till rutan.
 
-![SpeakerMode](media/speaker-mode.png)
+![Skärmbild av Unity SpeakerMode alternativpanel](media/speaker-mode.png)
 
 ### <a name="adjust-occlusion-and-transmission"></a>Justera ocklusion och överföring
 Koppla den **AcousticsAdjust** skriptet till en datakälla kan justering parametrar för den här källan. Om du vill koppla skriptet, klickar du på **Lägg till komponent** längst ned på den **Inspector** panelen och gå till **skript > Akustik justera**. Skriptet har sex kontroller:
 
-![AcousticsAdjust](media/acoustics-adjust.png)
+![Skärmbild av Unity AcousticsAdjust skript](media/acoustics-adjust.png)
 
 * **Aktivera Akustik** – styr om Akustik tillämpas på den här källan. När alternativet är avmarkerat källan ska vara spatialized med HRTFs eller panorering men det finns inga Akustik. Det innebär att inga hinder eller ocklusion dynamisk genljudet parametrar, t.ex nivå och decay tid. Genljudet används fortfarande med ett fast nivå och decay tid.
 * **Ocklusion** -gäller en multiplikator för ocklusion dB-nivån beräknas av Akustik-system. Om den här multiplikatorn är större än 1, är spärrat vara överdrivna när värden mindre än 1 är spärrat effekten mer diskreta och kontrollera värdet 0 inaktiverar ocklusion.
@@ -59,14 +59,14 @@ Koppla den **AcousticsAdjust** skriptet till en datakälla kan justering paramet
 
 Koppla den **AcousticsAdjustExperimental** skriptet till en datakälla kan ytterligare experimentella justering parametrar för den här källan. Om du vill koppla skriptet, klickar du på **Lägg till komponent** längst ned på den **Inspector** panelen och gå till **skript > Akustik justera experimentella**. Det finns för närvarande en experimentell kontroll:
 
-![AcousticsAdjustExperimental](media/acoustics-adjust-experimental.png)
+![Skärmbild av Unity AcousticsAdjustExperimental skript](media/acoustics-adjust-experimental.png)
 
 * **Perceptuell avståndet tänja** -använda en exponentiell förvrängning avståndet används för att beräkna förhållandet torr igång. Akustik beräknas våt nivåer i hela utrymmet som kan variera smidigt med avståndet och ger Perceptuell avståndet tips. Skev värden som är större än 1 exaggerate detta genom att öka avståndet-relaterade genljudet nivåer, vilket gör ljudet ”avlägsna”. Avståndet-baserade genljudet förvrängning värden mindre än 1 Kontrollera ändra mer diskreta, och det bra mer ”aktuella”.
 
 ## <a name="design-acoustics-for-all-sources"></a>Design Akustik för alla källor
 Om du vill justera parametrarna för alla källor, klicka på kanalen remsans i Unity's **ljud Mixer**, och justera parametrarna på den **projekt Akustik Mixer** effekt.
 
-![Mixer-anpassning](media/mixer-parameters.png)
+![Skärmbild av projektet Akustik Unity Mixer anpassning panelen](media/mixer-parameters.png)
 
 * **Wetness justera** -justerar eko-kraften i dB från alla källor i scenen baserat på käll-listener avstånd. Positiva värden göra ett ljud mer reverberant medan negativa värden göra ett ljud mer torr.
 * **RT60 skala** – Multiplicerande skalära för eko tid.
@@ -75,7 +75,7 @@ Om du vill justera parametrarna för alla källor, klicka på kanalen remsans i 
 ## <a name="check-proper-sound-source-placement"></a>Kontrollera att rätt ljudkälla placering
 Ljud källor som placeras inuti upptagna voxels kommer inte att hämta akustiska behandling. Eftersom voxels sträcka synliga scen geometri, är det möjligt att placera en källa inuti en voxel när den visas unoccluded genom visual geometri. Du kan visa projekt Akustik voxels genom att använda voxel grid kryssrutan i den **Gizmos** menyn uppe till höger på den **scen** vy.
 
-![Gizmos menyn](media/gizmos-menu.png)  
+![Skärmbild av Unity Gizmos menyn](media/gizmos-menu.png)  
 
 Voxel visningen kan också avgör om visuella komponenter i spelet har en transformering som tillämpas. I så fall gäller samma transformering för värd för GameObject den **Akustik Manager**.
 
@@ -84,11 +84,11 @@ Det är möjligt att visa voxels i fönstret redigeraren vid designtillfället s
 
 Utforma tid voxels:
 
-![VoxelsDesignTime](media/voxels-design-time.png)
+![Skärmbild av projektet Akustik voxels vid designtillfället](media/voxels-design-time.png)
 
 Runtime voxels:
 
-![VoxelsRuntime](media/voxels-runtime.png)
+![Skärmbild av projektet Akustik voxels under körning](media/voxels-runtime.png)
 
 ## <a name="next-steps"></a>Nästa steg
 * Utforska fallstudier markering koncepten bakom den [utforma processen](design-process.md)

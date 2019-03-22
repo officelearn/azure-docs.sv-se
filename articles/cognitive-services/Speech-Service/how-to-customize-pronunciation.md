@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 0a3dfce10fc8ea76bc8f99e2459295bc637017dc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 139c5d47fe6ea82148e2d5e1cf2f5fcb72d4020e
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878416"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339405"
 ---
 # <a name="enable-custom-pronunciation"></a>Aktivera anpassad uttal
 
-Genom att använda anpassade uttal kan definiera du fonetiska, formulär och visning av ett ord eller en term. Det är användbart för att hantera anpassade villkor, till exempel produktnamn eller förkortningar. Allt du behöver för att komma igång är en uttal-fil – en enkel txt-fil.
+Du kan definiera fonetiska, formulär och visning av ett ord eller en term (förkortning) med hjälp av anpassade uttal. Det är användbart för att hantera anpassade villkor, till exempel produktnamn eller förkortningar. Allt du behöver för att komma igång är en uttal-fil – en enkel txt-fil.
 
 Här är hur det fungerar. Du kan ange flera anpassade uttal av poster i en enda txt-fil. Strukturen är följande:
 
@@ -32,11 +32,12 @@ Flera exempel visas i följande tabell:
 
 | Visa formulär | Talat formulär |
 |----------|-------|
-| C3PO | Se tre högsta användningsnivå o |
+| 3CPO | Se tre högsta användningsnivå o |
 | L8R | sent är |
-| CNTK | Se n te k|
+| CNTK | s n t k|
 
 ## <a name="requirements-for-the-spoken-form"></a>Krav för talat formuläret
+
 Formuläret talat måste vara gemener, som du kan tvinga under importen. Du måste också ange checkar in importören data. Ingen flik i formuläret talat eller visa formulär tillåts. Men det kan vara mer tillåts inte tecken i Visa formulär (exempelvis ~ och ^).
 
 Varje txt-fil kan ha flera poster, enligt följande bild:
@@ -46,18 +47,20 @@ Varje txt-fil kan ha flera poster, enligt följande bild:
 Formuläret talat är de fonetiska, visa formulär. Den består av bokstäver, ord eller stavelser. Det finns för närvarande inga ytterligare vägledning eller uppsättning standarder för att hjälpa dig att formulera talat formuläret.
 
 ## <a name="supported-pronunciation-characters"></a>Stöds uttal tecken
+
 Anpassade uttal är för närvarande stöd för engelska (en-US) och tyska (de-de). Teckenuppsättningar som du kan använda för att uttrycka talat form av en term (i anpassade uttal-fil) visas i följande tabell:
 
 | Språk | Karaktärer |
 |---------- |----------|
-| Engelska (en-US) | a, b, c, d, e, f, g, h, i, j, k, l, o, p, frågor och, r, s, t, u, v, w, x, y, z |
-| Tyska (de-de) | ä, ö, ü,?, a, b, c, d, e, f, g, h, i, j, k, l, o, p, frågor och, r, s, t, u, v, w, x, y, z |
+| Engelska (en-US) | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, frågor och, r, s, t, u, v, w, x, y, z |
+| Tyska (de-de) | ä, ö, ü, ?, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 
 > [!NOTE]
 > En term Visa formulär (i en uttal-fil) ska skrivas på samma sätt i en datauppsättning för anpassning av språk.
 
 ## <a name="requirements-for-the-display-form"></a>Krav för Visa formulär
-Visningsformulär kan vara endast ett anpassat ord, en term, en förkortning eller sammansatta ord som kombinerar befintliga ord. Du kan också ange alternativa uttal för vanliga ord.
+
+Visningsformulär kan vara endast ett anpassat ord, en förkortning eller sammansatta ord som kombinerar befintliga ord.
 
 >[!NOTE]
 >Vi rekommenderar inte att du använder den här funktionen att reformulate vanliga ord eller ändra talat formuläret. Är det bättre att köra avkodaren för att se om några ovanliga ord (till exempel förkortningar, teknisk ord eller främmande ord) felaktigt avkodas. Om de kan du lägga till dem till anpassade uttal av filen. I språkmodell, bör du alltid och endast använda Visningsformulär ett ord.

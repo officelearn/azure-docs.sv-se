@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: bc5c4648a5efe53e3aa645bf1d6b121008eb86dd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 0942d5ba7b31ddb2c0dec5fe979f1331d1bf3bfd
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854933"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336039"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Hur du använder hanterade identiteter för App Service och Azure Functions
 
@@ -252,7 +252,7 @@ Där `<PRINCIPALID>` och `<CLIENTID>` har ersatts med GUID. PrincipalId är en u
 En app kan använda sin identitet för att hämta token till andra resurser som skyddas av AAD, till exempel Azure Key Vault. Dessa token representerar programmet åtkomst till resursen och inte någon specifik användare av programmet. 
 
 > [!IMPORTANT]
-> Du kan behöva konfigurera målresursen för att tillåta åtkomst från ditt program. Om du begär en token för Key Vault, måste du kontrollera att du har lagt till en åtkomstprincip som innehåller ditt programs identitet. I annat fall avvisas dina anrop till Key Vault, även om de innehåller token. Läs mer om vilka resurser som stöder Azure Active Directory-token i [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication).
+> Du kan behöva konfigurera målresursen för att tillåta åtkomst från ditt program. Om du begär en token för Key Vault, måste du kontrollera att du har lagt till en åtkomstprincip som innehåller ditt programs identitet. I annat fall avvisas dina anrop till Key Vault, även om de innehåller token. Läs mer om vilka resurser som stöder Azure Active Directory-token i [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 Det finns ett enkelt REST-protokoll för att hämta en token i App Service och Azure Functions. För .NET-program, Microsoft.Azure.Services.AppAuthentication biblioteket ger en abstraktion över det här protokollet och har stöd för en lokal utvecklingsmiljö.
 
@@ -287,7 +287,7 @@ Den **MSI_ENDPOINT** är en lokal URL som din app kan begära token. För att f�
 
 > |Parameternamn|I|Beskrivning|
 > |-----|-----|-----|
-> |resurs|Söka i data|AAD resurs-URI för resursen för som en token ska hämtas. Detta kan vara någon av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) eller någon annan resurs URI.|
+> |resurs|Söka i data|AAD resurs-URI för resursen för som en token ska hämtas. Detta kan vara någon av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) eller någon annan resurs URI.|
 > |API-versionen|Söka i data|Versionen av token API: et som ska användas. ”2017-09-01” är för närvarande den enda versionen som stöds.|
 > |hemlighet|Huvud|Värdet för miljövariabeln MSI_SECRET. Den här rubriken används för att minska serversidan begäran attacker med förfalskning (SSRF).|
 > |clientid|Söka i data|(Valfritt) ID för Användartilldelad identitet som ska användas. Om det utelämnas används systemtilldelad identitet.|

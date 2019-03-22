@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: 4c2ed5fa65528a690d618e45c118d2433820ddc6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 223486ec2dc184e6bbe02e1f6862b9d79d773a2c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871501"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339567"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service i Linux vanliga frågor och svar
 
@@ -42,10 +42,10 @@ Du hittar alla Docker-filer på [GitHub](https://github.com/azure-app-service). 
 | Stack     | Förväntat värde                                                                |
 |-----------|-------------------------------------------------------------------------------|
 | Java SE   | ett kommando för att starta din `.jar` program                                    |
-| Tomcat    | platsen för ett skript för att utföra alla nödvändiga configruations för din app |
-| Node.js   | PM2-konfigurationsfilen eller skriptfilen                                |          
+| Tomcat    | platsen för ett skript för att köra alla konfigurationer för din app          |
+| Node.js   | PM2-konfigurationsfilen eller skriptfilen                                |
 | .NET core | Det kompilerade DLL-namnet som `dotnet <myapp>.dll`                                 |
-| Ruby      | Ruby-skript som du vill initiera din app med                     
+| Ruby      | Ruby-skript som du vill initiera din app med                     |
 
 ## <a name="management"></a>Hantering
 

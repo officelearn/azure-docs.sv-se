@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
-ms.openlocfilehash: 5ac05991bc79dcfd24a527a13084b3a9383b4839
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b67f3c590be290515329af390b4d3d79a9746112
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904004"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339235"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Registrera dig för en prenumeration på Office 365 med ditt Azure-konto
 Om du är Azure-prenumerant kan använda du ditt Azure-konto för att registrera dig för en prenumeration på Office 365. Om du är en del av en organisation som har en Azure-prenumeration kan skapa du Office 365-prenumerationer för användare i din befintliga Azure Active Directory (AD Azure). Logga på Office 365 med ett konto som har behörighet som Global administratör eller faktureringsadministratör i din Azure Active Directory-klient. Mer information finns i [Kontrollera kontobehörigheter för mitt i Azure AD](#RoleInAzureAD) och [Tilldela administratörsroller i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
@@ -43,12 +43,13 @@ Om du redan har både ett Office 365-konto och en Azure-prenumeration kan du [as
 
     ![Skärmbild av Office 365-orderkvittot](./media/billing-use-existing-azure-account-office-365-subscription/15-office-365-order-receipt.png)
 
-Nu var allt klart. Om du har skapat Office 365-prenumeration för din organisation kan du använda följande steg för att kontrollera att din Azure AD-användare är nu i Office 365.
+Nu var allt klart.
+Om du har skapat Office 365-prenumeration för din organisation kan du använda följande steg för att kontrollera att din Azure AD-användare är nu i Office 365.
 
-1. Öppna administrationscentret för Office 365.
+1. Öppna Administrationscenter för Microsoft 365.
 2. Expandera **användare**, och klicka sedan på **aktiva användare**.
 
-    ![Skärmbild av Office 365 admin center-användare](./media/billing-use-existing-azure-account-office-365-subscription/16-office-365-admin-center-users.png)
+    ![Skärmbild av Microsoft 365 admin center-användare](./media/billing-use-existing-azure-account-office-365-subscription/16-microsoft-365-admin-center-users.png)
 
 När du registrerar dig läggs Office 365-prenumeration i samma Azure Active Directory-instans som tillhör din Azure-prenumeration. Mer information finns i [mer om Azure och Office 365-prenumerationer](billing-use-existing-office-365-account-azure-subscription.md#more-about-subs) och [hur Azure-prenumerationer är associerade med Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -58,12 +59,12 @@ När du registrerar dig läggs Office 365-prenumeration i samma Azure Active Dir
 
     ![Skärmbild av Active Directory i Azure portal](./media/billing-use-existing-azure-account-office-365-subscription/billing-more-services-active-directory.png)
 3. Klicka på **användare och grupper** > **alla användare**.
-4. Välj användarnamnet. 
+4. Välj användarnamnet.
 
     ![Skärmbild som visar Azure Active Directory-användare](./media/billing-use-existing-azure-account-office-365-subscription/billing-users-groups.png)
 
 5. Klicka på **katalogroll**.
-  
+
     ![Skärmbild som visar Azure portal katalogrollen](./media/billing-use-existing-azure-account-office-365-subscription/billing-user-directory-role.png)
 6.  Rollen **Global administratör** eller **begränsad administratör** > **faktureringsadministratör** krävs för att skapa en Office 365-prenumeration för användare i befintliga Azure Active Directory.
 
@@ -71,4 +72,4 @@ När du registrerar dig läggs Office 365-prenumeration i samma Azure Active Dir
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458). 
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).

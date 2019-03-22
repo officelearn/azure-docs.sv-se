@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 197010271518347025157968012be31c71b3b667
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c31f3ec503f22ab0d272ff96b85cf0f76a837d11
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121034"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316081"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric för Visual Studio Code
 
@@ -107,7 +107,7 @@ Den **Service Fabric: Publicera program** kommandot distribuerar Service Fabric-
 Den **Service Fabric: Distribuera program** kommandot distribuerar Service Fabric-programmet till ditt lokala kluster. Kontrollera att det lokala klustret körs innan du använder kommandot. 
 
 1. Välj den **Service Fabric: Distribuera program** kommando
-2. Visa det lokala klustret med Service Fabric Explorer (http://localhost:19080/Explorer) att bekräfta att programmet har installerats. Det kan ta lite tid, så ha tålamod.
+2. Visa det lokala klustret med Service Fabric Explorer (http:\//localhost:19080 / Explorer) att bekräfta att programmet har installerats. Det kan ta lite tid, så ha tålamod.
 3. Du kan också använda **Service Fabric: Publicera program** kommandot utan parametrar som angetts i filen Cloud.json att distribuera till ett lokalt kluster.
 
 > [!NOTE]

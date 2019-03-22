@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 4d9dfbcfc1dd00209a90386bf75f0c2515a28060
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ed8159f38e2763cb897212ae4f51fecb7343a683
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854474"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315599"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Distribuera flera körbara gäster
 Den här artikeln visar hur du paketera och distribuera flera körbara gäster till Azure Service Fabric. Läs om hur för att skapa och distribuera ett enda Service Fabric-paket till [distribuera en körbar Gäst till Service Fabric](service-fabric-deploy-existing-app.md).
@@ -204,7 +204,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-När programmet har publicerats till det lokala klustret kan du komma åt Node.js-program på den port som vi har angett i tjänstmanifestet för Node.js-program – till exempel http://localhost:3000.
+När programmet har publicerats till det lokala klustret kan du komma åt Node.js-program på den port som vi har angett i tjänstmanifestet för Node.js-program – till exempel http:\//localhost:3000.
 
 I den här självstudien har du sett hur du enkelt paketera två befintliga program som en Service Fabric-program. Du har också lärt dig hur du distribuerar den till Service Fabric, så att den kan dra nytta av några av Service Fabric-funktioner, till exempel hög tillgänglighet och systemintegrering för hälsotillstånd.
 

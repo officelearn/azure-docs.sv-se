@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7d877f467f06768c31679752d9deff1ca19d0003
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 023d12764e3dcfcf2f5471cb431528a14fbc1fed
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882883"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339643"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för appar i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -115,7 +115,7 @@ För att hämta filerna med hjälp av Azure-kommandoradsgränssnittet, öppna en
 
     az webapp log download --resource-group resourcegroupname --name appname
 
-Det här kommandot sparar loggar för appen med namnet ”appname” till en fil med namnet **diagnostics.zip** i den aktuella katalogen.
+Det här kommandot sparar loggar för appen med namnet ”appname” till en fil med namnet **webapp_logs.zip** i den aktuella katalogen.
 
 > [!NOTE]
 > Om du inte har installerat Azure CLI eller inte har konfigurerat den att använda din Azure-prenumeration, se [hur du använder Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).

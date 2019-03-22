@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: 2b2f5a441209b76f4c90c1a4682215d388b2d53a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 29e851772e665b4130ee58b04c264d55bcd54523
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242899"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317790"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence på Azure Virtuella datorer
 > [!IMPORTANT] 
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
 Microsoft Azure-dator-galleriet innehåller avbildningar som innehåller SQL Server-installationer. SQL Server-versioner som stöds i galleriavbildningar är samma installationsfilerna som du kan installera på lokala datorer och virtuella datorer. Det här avsnittet sammanfattas de SQL Server Business Intelligence (BI)-funktioner som installeras på bilderna och konfigurationssteg som krävs när en virtuell dator har etablerats. Det här avsnittet beskriver också distributionstopologier som stöds för BI-funktioner och bästa praxis.
 
@@ -81,7 +81,7 @@ I följande tabell sammanfattas de Business Intelligence-funktioner som installe
 | **Reporting Services enhetligt läge** |Ja |Installerad men kräver konfiguration, inklusive URL: en för report manager. Se avsnittet [konfigurera Reporting Services](#configure-reporting-services). |
 | **Reporting Services SharePoint Mode** |Nej |Microsoft Azure-dator galleriet bilden inte innehåller SharePoint- eller SharePoint installationsfilerna. <sup>1</sup> |
 | **Flerdimensionella Analysis Services och Data-utvinning (OLAP)** |Ja |Installerat och konfigurerat som standard Analysis Services-instans |
-| **Analysis Services-tabell** |Nej |Stöds i SQL Server 2012, installeras 2014 och 2016-avbildningar, men det inte som standard. Installera en annan instans av Analysis Services. Finns i avsnittet installera andra SQL Server-tjänster och funktioner i det här avsnittet. |
+| **Analysis Services Tabular** |Nej |Stöds i SQL Server 2012, installeras 2014 och 2016-avbildningar, men det inte som standard. Installera en annan instans av Analysis Services. Finns i avsnittet installera andra SQL Server-tjänster och funktioner i det här avsnittet. |
 | **Analysis Services PowerPivot för SharePoint** |Nej |Microsoft Azure-dator galleriet bilden inte innehåller SharePoint- eller SharePoint installationsfilerna. <sup>1</sup> |
 
 <sup>1</sup> ytterligare information om SharePoint och Azure-datorer finns i [Microsoft Azure-arkitekturer för SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) och [SharePoint-distributionen på Microsoft Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598).
@@ -107,13 +107,13 @@ I följande tabell sammanfattas de Business Intelligence-funktioner som installe
   > [!NOTE]
   > SQL Server database engine krävs i de BI-scenarierna som stöds. I en enda server VM-topologi krävs database engine för att köras på samma virtuella dator.
   
-    Mer information finns i följande: [avinstallera Reporting Services](https://msdn.microsoft.com/library/hh479745.aspx) och [avinstallera en instans av Analysis Services](https://msdn.microsoft.com/library/ms143687.aspx).
+    Mer information finns i följande: [Avinstallera Reporting Services](https://msdn.microsoft.com/library/hh479745.aspx) och [avinstallera en instans av Analysis Services](https://msdn.microsoft.com/library/ms143687.aspx).
 * Kontrollera **Windows Update** för nya ”viktiga uppdateringar”. Microsoft Azure VM-avbildningar uppdateras ofta; dock viktiga uppdateringar kan bli tillgänglig från **Windows Update** när avbildningen senast uppdaterades.
 
 ## <a name="example-deployment-topologies"></a>Exempeltopologier för distribution
 Följande är exempeldistributioner som använder Microsoft Azure Virtual Machines. Topologier i dessa diagram är endast några av de möjliga topologier som du kan använda med SQL Server BI-funktioner och Microsoft Azure Virtual Machines.
 
-### <a name="single-virtual-machine"></a>Virtuell dator
+### <a name="single-virtual-machine"></a>Enstaka virtuell dator
 Analysis Services, Reporting Services, SQL Server Database Engine och datakällor på en virtuell dator.
 
 ![BI IAS-scenario med 1 virtuell dator](./media/virtual-machines-windows-classic-ps-sql-bi/IC650108.gif)
@@ -174,7 +174,7 @@ I **Windows Server 2008 R2**:
 
 Eller:
 
-1. Klicka på **starta**.
+1. Klicka på **Starta**.
 2. I den **Sök program och filer** dialogrutan skriver **Rapporteringstjänster**. Om den virtuella datorn kör Windows Server 2012, Skriv **Rapporteringstjänster** på startskärmen i Windows Server 2012.
 3. Högerklicka på **Konfigurationshanteraren för Reporting Services** och klicka på **kör som administratör**.
    
@@ -217,7 +217,7 @@ Information om report server-behörigheter finns i [bevilja behörigheter på en
 Kontrollera konfigurationen genom att bläddra till report manager på den virtuella datorn.
 
 1. Starta Internet Explorer med administratörsbehörighet på den virtuella datorn.
-2. Bläddra till http://localhost/reports på den virtuella datorn.
+2. Bläddra till http: \/ /localhost/rapporter på den virtuella datorn.
 
 ### <a name="to-connect-to-remote-web-portal-or-report-manager-for-2014-and-2012"></a>Att ansluta till fjärranslutna webbportal eller Report Manager för 2014 och 2012
 Om du vill ansluta till webbportalen eller Report Manager för 2014 och 2012 på den virtuella datorn från en fjärrdator, kan du skapa en ny virtuell dator TCP-slutpunkt. Som standard rapportservern lyssnar efter HTTP-begäranden på **port 80**. Om du konfigurerar report server URL: er för att använda en annan port måste du ange det portnummer i följande anvisningar.
@@ -226,22 +226,22 @@ Om du vill ansluta till webbportalen eller Report Manager för 2014 och 2012 på
 2. Öppna port 80 i brandväggen för den virtuella datorn.
 3. Bläddra till webbportalen, eller rapportera manager, med hjälp av Azure-dator **DNS-namnet** som servernamn i URL: en. Exempel:
    
-    **Rapportservern**: http://uebi.cloudapp.net/reportserver **webbportalen**:   http://uebi.cloudapp.net/reports
+    **Rapportservern**: http://uebi.cloudapp.net/reportserver  **Webbportalen**: http://uebi.cloudapp.net/reports
    
     [Konfigurera en brandvägg för Reportserveråtkomst](https://msdn.microsoft.com/library/bb934283.aspx)
 
 ### <a name="to-create-and-publish-reports-to-the-azure-virtual-machine"></a>Skapa och publicera rapporter till Azure-dator
 I följande tabell sammanfattas några av de tillgängliga alternativ för att publicera befintliga rapporter från en lokal dator till rapportservern finns på Microsoft Azure-dator:
 
-* **Report Builder**: den virtuella datorn innehåller klicka-en gång version av Microsoft SQL Server Report Builder för SQL 2014 och 2012. Starta Report builder först gången på den virtuella datorn med SQL 2016:
+* **Report Builder**: Den virtuella datorn innehåller klicka-en gång version av Microsoft SQL Server Report Builder för SQL 2014 och 2012. Starta Report builder först gången på den virtuella datorn med SQL 2016:
   
   1. Starta din webbläsare med administrativa privilegier.
   2. Bläddra till webbportalen, på den virtuella datorn och välj den **hämta** ikonen i det övre högra hörnet.
   3. Välj **Report Builder**.
      
      Mer information finns i [starta Report Builder](https://msdn.microsoft.com/library/ms159221.aspx).
-* **SQL Server Data Tools**: VM: SQL Server Data Tools är installerat på den virtuella datorn och kan användas för att skapa **Report Server-projekt** och rapporter på den virtuella datorn. SQL Server Data Tools kan publicera rapporter till rapportservern på den virtuella datorn.
-* **SQL Server Data Tools: Remote**: skapa ett Reporting Services-projekt i SQL Server Data Tools som innehåller Reporting Services-rapporter på din lokala dator. Konfigurera projektet för att ansluta till webbtjänstens URL.
+* **SQL Server Data Tools**: VM:  SQL Server Data Tools är installerat på den virtuella datorn och kan användas för att skapa **Report Server-projekt** och rapporter på den virtuella datorn. SQL Server Data Tools kan publicera rapporter till rapportservern på den virtuella datorn.
+* **SQL Server Data Tools: Remote**:  Skapa en Reporting Services-projekt i SQL Server Data Tools som innehåller Reporting Services-rapporter på din lokala dator. Konfigurera projektet för att ansluta till webbtjänstens URL.
   
     ![SSDT Projektegenskaper för SSRS-projekt](./media/virtual-machines-windows-classic-ps-sql-bi/IC650114.gif)
 * Skapa en. VHD-hårddisk som innehåller rapporter över och sedan ladda upp och ansluta enheten.
@@ -317,7 +317,7 @@ Det här avsnittet sammanfattas Microsoft Azure VM-slutpunkter för att skapa oc
   * Skapa virtuella datorers slutpunkter för meddelanden portar (*).
 * Om den virtuella datorn är ansluten till en domän med en VPN-tunnel, till exempel Azure virtuellt nätverk, sedan är slutpunkterna inte obligatoriska. Men öppna portarna i brandväggen på den virtuella datorn.
   
-  | Port | Typ | Beskrivning |
+  | Port | Type | Beskrivning |
   | --- | --- | --- |
   | **80** |TCP |Rapportserver fjärråtkomst (*). |
   | **1433** |TCP |SQL Server Management Studio (*). |
@@ -329,7 +329,7 @@ Det här avsnittet sammanfattas Microsoft Azure VM-slutpunkter för att skapa oc
 Mer information om hur du skapar slutpunkter finns i:
 
 * Skapa slutpunkter:[så här konfigurerar du slutpunkter till en virtuell dator](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-* SQLServer: Se avsnittet ”hela konfigurationen steg för att ansluta till den virtuella datorn med hjälp av SQL Server Management Studio” i [etablera en SQL Server-dator på Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
+* SQL Server: Se avsnittet ”hela konfigurationen steg för att ansluta till den virtuella datorn med hjälp av SQL Server Management Studio” i [etablera en SQL Server-dator på Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
 
 Följande diagram illustrerar portarna som ska öppnas i VM-brandväggen att tillåta fjärråtkomst till funktioner och komponenter på den virtuella datorn.
 

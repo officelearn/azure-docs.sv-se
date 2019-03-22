@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3711277ca11346cf73ff37c37ef4185d8bfdf6b9
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: e20e2a094e1fd88dfc2a25b586dc6c894f92b418
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329879"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312452"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Konfigurera Azure Key Vault-integrering för SQLServer på Azure Virtual Machines (klassisk)
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "54329879"
 Det finns flera funktioner för SQL Server-kryptering, till exempel [transparent datakryptering (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [kolumnen filnivåkryptering (CLE)](https://msdn.microsoft.com/library/ms173744.aspx), och [kryptering](https://msdn.microsoft.com/library/dn449489.aspx). Dessa typer av kryptering måste du hantera och lagra de kryptografiska nycklarna som du använder för kryptering. Tjänsten Azure Key Vault (AKV) är utformad för att förbättra säkerhet och hantering av de här nycklarna på en säker och mycket tillgänglig plats. Den [SQL Server-anslutningen](https://www.microsoft.com/download/details.aspx?id=45344) gör det möjligt för SQL Server att använda de här nycklarna från Azure Key Vault.
 
 > [!IMPORTANT] 
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
 Om du kör SQL Server med lokala datorer, finns [steg som du kan följa för att få åtkomst till Azure Key Vault från en lokal SQL Server-dator](https://msdn.microsoft.com/library/dn198405.aspx). Men för SQL Server i virtuella Azure-datorer, kan du spara tid genom att använda den *Azure Key Vault-integrering* funktionen. Med några Azure PowerShell-cmdletar för att aktivera den här funktionen, kan du automatisera konfigurationen som krävs för en SQL-VM till ditt nyckelvalv.
 
@@ -53,7 +53,7 @@ I följande tabell visas de parametrar som krävs för att köra PowerShell-skri
 
 | Parameter | Beskrivning | Exempel |
 | --- | --- | --- |
-| **$akvURL** |**Key vault-Webbadress** |"https://contosokeyvault.vault.azure.net/" |
+| **$akvURL** |**Key vault-Webbadress** |"https:\//contosokeyvault.vault.azure.net/" |
 | **$spName** |**Tjänstens huvudnamn** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
 | **$spSecret** |**Hemlighet för tjänstens huvudnamn** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
 | **$credName** |**Namn på autentiseringsuppgift**: AKV-integreringen skapar autentiseringsuppgifter på SQL Server så att den virtuella datorn ska ha åtkomst till nyckelvalvet. Välj ett namn för autentiseringsuppgifterna. |"mycred1" |
@@ -65,7 +65,7 @@ Den **New AzureVMSqlServerKeyVaultCredentialConfig** cmdlet skapar ett konfigura
 
 1. I Azure PowerShell först konfigurera indataparametrarna med din specifika värden enligt beskrivningen i föregående avsnitt i det här avsnittet. Följande skript är ett exempel.
    
-        $akvURL = "https://contosokeyvault.vault.azure.net/"
+        $akvURL = "https:\//contosokeyvault.vault.azure.net/"
         $spName = "fde2b411-33d5-4e11-af04eb07b669ccf2"
         $spSecret = "9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="
         $credName = "mycred1"

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 321dfaa1a58cc806394f4807c38cbdc599cfd7a0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: ac0a84aa3121c6ebb91860c96c0f6692827c8a3f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311571"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336532"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Hur du använder hanterade identiteter med Azure Container Instances
 
@@ -33,7 +33,7 @@ Anpassa exemplen för att aktivera och använda identiteter i Azure Container In
 
 ## <a name="why-use-a-managed-identity"></a>Varför ska jag använda en hanterad identitet?
 
-Använda en hanterad identitet i en behållare som körs för att autentisera till någon [tjänst som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) utan att hantera autentiseringsuppgifter i din kod för behållaren. För tjänster som inte stöder AD-autentisering, kan du lagra hemligheter i Azure Key Vault och använda den hanterade identitet för åtkomst till Key Vault för att hämta autentiseringsuppgifter. Läs mer om hur du använder en hanterad identitet, [vad är hanterade identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md)
+Använda en hanterad identitet i en behållare som körs för att autentisera till någon [tjänst som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) utan att hantera autentiseringsuppgifter i din kod för behållaren. För tjänster som inte stöder AD-autentisering, kan du lagra hemligheter i Azure Key Vault och använda den hanterade identitet för åtkomst till Key Vault för att hämta autentiseringsuppgifter. Läs mer om hur du använder en hanterad identitet, [vad är hanterade identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!IMPORTANT]
 > Den här funktionen är för närvarande en förhandsversion. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA). För närvarande stöds endast hanterade identiteter på Linux-behållarinstanser.
@@ -252,7 +252,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-Nu Använd åtkomsttoken för att autentisera till Key Vault och läsa en hemlighet. Se till att ersätta namnet på ditt nyckelvalv i URL-Adressen (*https://mykeyvault.vault.azure.net/...*):
+Nu Använd åtkomsttoken för att autentisera till Key Vault och läsa en hemlighet. Se till att ersätta namnet på ditt nyckelvalv i URL-Adressen (*https:\//mykeyvault.vault.azure.net/...* ):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"

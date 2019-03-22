@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 4128ad53f30e74fb72f6256b78587cc222f4c282
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 38d403be1dc35b8ab4cd1b15fa259b5e6917197c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838722"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314458"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Använda StorSimple Device Manager-tjänsten för att visa och hantera aviseringar för StorSimple
 
@@ -202,7 +202,7 @@ Om molnanslutning misslyckas på din StorSimple-enhet för produktion, kan sedan
 | Det gick inte att starta StorSimple-tjänst(er). |DataPath fel |Kontakta Microsoft-supporten om problemet kvarstår. |
 | Duplicerad IP-adress har identifierats för 'Data0'. | |Systemet har upptäckt en konflikt för IP-adress ”10.0.0.1”. Nätverksresursen 'Data0' på enheten *<device1>* är offline. Se till att den här IP-adressen inte används av någon annan enhet i det här nätverket. Om du vill felsöka nätverksproblem, gå till [felsöka med cmdleten Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Kontakta administratören för hjälp med att lösa problemet. Kontakta Microsoft-supporten om problemet kvarstår. |
 | IPv4 (eller IPv6)-adress för 'Data0' är offline. | |Nätverksresursen 'Data0 ”med IP-adressen 10.0.0.1. och prefixlängden ”22” på enheten *<device1>* är offline. Säkerställa att växelportarna som gränssnittet är anslutet till fungerar. Om du vill felsöka nätverksproblem, gå till [felsöka med cmdleten Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
-| Det gick inte att ansluta till Autentiseringstjänsten. |DataPath fel |URLthat används för att autentisera kan inte nås. Se till att brandväggsreglerna omfattar URL-mönster som angetts för StorSimple-enheten. Mer information om URL-mönster i Azure-portalen går du till https://aka.ms/ss-8000-network-reqs. Om du använder Azure Government-molnet, gå till URL-mönster i https://aka.ms/ss8000-gov-network-reqs.|
+| Det gick inte att ansluta till Autentiseringstjänsten. |DataPath fel |URLthat används för att autentisera kan inte nås. Se till att brandväggsreglerna omfattar URL-mönster som angetts för StorSimple-enheten. Mer information om URL-mönster i Azure-portalen går du till https:\//aka.ms/ss-8000-network-reqs. Om du använder Azure Government-molnet, gå till URL-mönster i https:\//aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Aviseringar om programprestanda
 

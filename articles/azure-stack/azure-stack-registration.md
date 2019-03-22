@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/21/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 1f6edd871d6815dab93bf9e8d582b0cb1ba6c78f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ab5679f374753d6620b6a0eccca12ac9f162f199
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109247"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337933"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 
@@ -62,6 +62,9 @@ Efter registreringen krävs inte behörighet för Azure Active Directory global 
 Den användare som registrerar Azure Stack är ägare till tjänstens huvudnamn i Azure Active Directory. Endast den användare som registrerade Azure Stack kan ändra Azure Stack-registrering. Om en icke-administratörsanvändare som inte är ägare till registreringen tjänstens huvudnamn försöker registrera eller registrera Azure Stack, de kan stöta på ett 403-svar. Ett 403 svaret anger att användaren har inte behörighet att slutföra åtgärden.
 
 Om du inte har en Azure-prenumeration som uppfyller dessa krav, kan du [skapa ett kostnadsfritt konto här](https://azure.microsoft.com/free/?b=17.06). Registrera Azure Stack medför utan kostnad på din Azure-prenumeration.
+
+> [!NOTE]
+> Om du har mer än en Azure Stack är bästa praxis att registrera varje Azure Stack till sin egen prenumeration. Det gör det enklare för dig att spåra användning.
 
 ### <a name="powershell-language-mode"></a>PowerShell-läget för språk
 
@@ -240,7 +243,7 @@ Om du registrerar Azure Stack i en frånkopplad miljö (som saknar Internetanslu
 2. Kör följande PowerShell-cmdletar för att hämta registreringstoken:  
 
    ```Powershell
-   $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
+   $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -UsageReportingEnabled:$False -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
    Mer information om cmdleten Get-AzsRegistrationToken finns [referens för registrering av](#registration-reference).

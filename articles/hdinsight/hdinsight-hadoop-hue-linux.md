@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: be6b50b5cb4ea7d32f47d6eb0e19ba43a3217cb6
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 9a5a3e7354d3d89a53e94553ed504df7c8117922
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202698"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315002"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installera och använda Hue på HDInsight Hadoop-kluster
 
@@ -95,7 +95,7 @@ SSH-tunnlar är det enda sättet att komma åt Hue i klustret när den körs. Vi
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
     Det här är värdnamnet för den primära huvudnoden där Hue-webbplats finns.
-4. Använda webbläsaren för att öppna Hue-portalen på http://HOSTNAME:8888. Ersätt VÄRDDATORNAMN med namnet som du hämtade i föregående steg.
+4. Använda webbläsaren för att öppna Hue-portalen på http:\//HOSTNAME:8888. Ersätt VÄRDDATORNAMN med namnet som du hämtade i föregående steg.
 
    > [!NOTE]  
    > När du loggar in för första gången uppmanas du att skapa ett konto för att logga in på Hue-portalen. De autentiseringsuppgifter som du anger här begränsas till portalen och inte är relaterade till administratören eller SSH-autentiseringsuppgifterna som du angav när du etablera klustret.

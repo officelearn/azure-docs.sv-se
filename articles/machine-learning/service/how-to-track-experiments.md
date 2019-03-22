@@ -1,7 +1,7 @@
 ---
-title: Spåra experiment och utbildning mått
+title: Log mått under träningskörningar
 titleSuffix: Azure Machine Learning service
-description: Du kan använda Azure Machine Learning-tjänsten för att spåra dina experiment och övervaka mått för att förbättra modellen skapandeprocessen. Lär dig hur du lägger till loggning i utbildningsskript, skicka experimentet, kontrollera status för ett jobb som körs och hur du visar resultatet av en körning.
+description: Du kan spåra dina experiment och övervaka mått för att förbättra modellen skapandeprocessen. Lär dig hur du lägger till loggning i utbildningsskript, skicka experimentet, kontrollera status för ett jobb som körs och hur du visar resultatet av en körning.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 79247c4c1f26fadcd5f0291b55c9dd8d4d9aa2af
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 835d1f41ffe940422554a8ca59d0a91ac8e98607
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008829"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336603"
 ---
-# <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Spåra experiment och utbildning mått i Azure Machine Learning
+# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Log mått vid träning körs i Azure Machine Learning
 
 I Azure Machine Learning-tjänsten kan du spåra dina experiment och övervaka mått för att förbättra modellen skapandeprocessen. I den här artikeln lär du dig hur du Lägg till loggning i dina utbildningsskript, skicka en körning av experiment, övervaka körningen och visa resultatet av en körning.
 
@@ -218,7 +218,7 @@ Det här exemplet kan utökas med grundläggande sklearn upphöjning modellen ov
    ```
 
 ## <a name="cancel-a-run"></a>Avbryt en körning
-Enare en körning har skickats kan du avbryta den även om du har tappat bort objektreferensen, så länge som du känner till experimentnamnet och körnings-id. 
+När en körning har skickats kan du avbryta den även om du har tappat bort objektreferensen, så länge som du känner till experimentnamnet och körnings-id. 
 
 ```python
 from azureml.core import Experiment

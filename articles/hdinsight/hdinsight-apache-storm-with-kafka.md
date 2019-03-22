@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: b6717bc76caffb9c4b6f7743cc5356a80a8f742b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: dca789a850e5df58024d13b8f592765e55c39485
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111862"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316957"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Självstudie: Använda Apache Storm med Apache Kafka i HDInsight
 
@@ -129,7 +129,7 @@ Två topologier medföljer den här självstudien:
     >
     > Om du inte använder mallen i det här dokumentet för att skapa Storm-kluster, måste du tillämpa skriptåtgärden i klustret manuellt.
     >
-    > Skriptåtgärden finns på `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh` och denna tillämpas på överordnade noder och Nimbus-noder i Storm-klustret. Mer information om hur du använder skriptåtgärder finns i dokumentet [Anpassa HDInsight med hjälp av skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
+    > Skriptåtgärd finns på [ https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh ](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh) och denna tillämpas på övervakaren och nimbus-noder för Storm-kluster. Mer information om hur du använder skriptåtgärder finns i dokumentet [Anpassa HDInsight med hjälp av skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
 
 Topologierna definieras med hjälp av [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Flux introducerades i Storm-0.10.x för att du ska kunna avgränsa topologikonfigurationen från koden. För topologier som använder Flux-ramverket definieras topologin i en YAML-fil. YAML-filen kan ingå i topologin. Den kan också vara en fristående fil som används när du skickar topologin. Flux stöder också variabelersättning vid körning, vilket används i det här exemplet.
 

@@ -5,14 +5,14 @@ author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 03/19/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3da4662885b2b09c6474a1a6ceafd627e71cf236
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: d34ef1bb5bea6f5f099f7fa2a24ddec2362b44ea
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081040"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336192"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Hur du använder Key Vault mjuk borttagning med PowerShell
 
@@ -101,7 +101,7 @@ Aktiverad med mjuk borttagning:
 Du kan visa tillståndet deleted nyckelvalv, som är associerade med din prenumeration med hjälp av följande kommando:
 
 ```powershell
-PS C:\> Get-AzKeyVault -InRemovedState 
+Get-AzKeyVault -InRemovedState 
 ```
 
 - *ID* kan användas för att identifiera resursen när återställa eller rensa. 
@@ -233,8 +233,27 @@ Visa en lista över objekt som borttaget nyckelvalv visar även när de är sche
 >[!IMPORTANT]
 >En borttagen valvobjekt som utlöses av dess *schemalagda Rensa datum* fältet, bort permanent. Det kan inte återställas!
 
+## <a name="enabling-purge-protection"></a>Aktivering av Rensa skydd
+
+När rensningsskydd aktiveras, ett valv eller ett objekt i borttagna kan inte tillstånd rensas tills kvarhållningsperiod på 90 dagar har passerat. Sådana valv eller ett objekt kan fortfarande återställas. Den här funktionen ger extra trygghet som ett valv eller ett objekt kan aldrig vara permanent ta bort förrän kvarhållning tidsperiod har passerat.
+
+Du kan aktivera rensningsskydd endast om mjuk borttagning har aktiverats. 
+
+Om du vill aktivera både mjuk borttagning och rensa skydd när du skapar ett valv genom att använda den [New AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) cmdlet:
+
+```powershell
+New-AzKeyVault -Name ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete -EnablePurgeProtection
+```
+
+Om du vill lägga till Rensa skydd i ett befintligt valv (som redan har aktivera mjuk borttagning) använder du den [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0), [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0), och [Set-AzResource](/powershell/module/az.resources/set-azresource?view=azps-1.5.0) cmdletar:
+
+```
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true"
+
+Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
+```
+
 ## <a name="other-resources"></a>Andra resurser
 
 - En översikt över funktionen för mjuk borttagning för Key Vault finns i [Azure Key Vault mjuk borttagning översikt](key-vault-ovw-soft-delete.md).
-- En allmän översikt över Azure Key Vault fungerar, se [vad är Azure Key Vault?](key-vault-overview.md).
-
+- En allmän översikt över Azure Key Vault fungerar, se [vad är Azure Key Vault?](key-vault-overview.md). apa = lyckades}

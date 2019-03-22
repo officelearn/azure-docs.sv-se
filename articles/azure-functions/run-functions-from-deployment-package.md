@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: 292b25987f183df2091667312d4e6730b7f40dda
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 57126c87879da9f99d224457433bbbd5f95ef021
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990908"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336736"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Kör dina Azure-funktioner från en paketfil
 
@@ -44,7 +44,7 @@ Om du vill aktivera funktionsappen att köra från ett paket, du lägger bara ti
 
 | Värde  | Beskrivning  |
 |---------|---------|
-| **`1`**  | Rekommenderas för funktionsappar som körs på Windows. Kör en paketfil i från den `d:\home\data\SitePackages` mapp på din funktionsapp. Om inte [distribuerar med zip distribuera] (#integration med-zip-distribution], det här alternativet kräver mappen också ha en fil med namnet `packagename.txt`. Den här filen innehåller bara namnet på den paketfil i mappen, utan några blanksteg. |
+| **`1`**  | Rekommenderas för funktionsappar som körs på Windows. Kör en paketfil i från den `d:\home\data\SitePackages` mapp på din funktionsapp. Om inte [distribuerar med zip distribuera](#integration-with-zip-deployment), det här alternativet kräver mappen också ha en fil med namnet `packagename.txt`. Den här filen innehåller bara namnet på den paketfil i mappen, utan några blanksteg. |
 |**`<url>`**  | Platsen för en specifik paketfil som du vill köra. När du använder Blob storage, bör du använda en privat behållare med en [signatur för delad åtkomst (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) att aktivera Functions-körningen får tillgång till paketet. Du kan använda den [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) ladda upp paketfiler till Blob storage-kontot.         |
 
 > [!CAUTION]

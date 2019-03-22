@@ -3,7 +3,7 @@ title: Självstudie – uppgradera en app som körs i Azure Service Fabric Mesh 
 description: I den här självstudien lär du dig hur du uppgraderar ett program som körs i Service Fabric Mesh.
 services: service-fabric-mesh
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/11/2019
-ms.author: ryanwi
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d27cc555a8cf96a07818e83b342cf145d9e98a96
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 3567ede82f2eebf602e95dcd012f5c88a40af796
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265915"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337637"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Självstudier: Uppgradera ett program som körs i Service Fabric Mesh
 
-Den här självstudien är den tredje delen i en serie. Du får lära dig hur du uppgraderar ett Service Fabric-program som [tidigare har distribuerat till Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md) genom att öka de tilldelade CPU-resurserna.  När du är klar har du en webbtjänst för klientdelen som körs med högre CPU-resurser.
+Den här självstudiekursen är den tredje delen i en serie. Du får lära dig hur du uppgraderar ett Service Fabric-program som [tidigare har distribuerat till Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md) genom att öka de tilldelade CPU-resurserna.  När du är klar har du en webbtjänst för klientdelen som körs med högre CPU-resurser.
 
 I den tredje delen i serien får du lära dig att:
 

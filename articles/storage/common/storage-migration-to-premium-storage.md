@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 5f2052576d0c6a1e663e3b84534fa0784a26e175
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fd72e2a75c00c30fdc5497e0d88e9c83dc5fcad8
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006505"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317365"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrera till Azure Premium Storage (ohanterade diskar)
 
@@ -158,7 +158,7 @@ Skapa ett lagringskonto för att underhålla de virtuella hårddiskarna. Tänk p
 Du kan välja att behålla vissa datadiskar i ett standardlagringskonto (till exempel diskar med mer lågfrekvent lagring) för datadiskar, men bör du flytta alla data för produktionsarbetsbelastning använda premium storage.
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>Steg 3. Kopiera virtuella Hårddisken med AzCopy eller PowerShell
-Du behöver att hitta din behållare sökväg och lagringskontonyckeln att bearbeta något av de här två alternativen. Behållare-sökväg och lagringskontonyckeln hittar du i **Azure-portalen** > **Storage**. Behållaren för URL: en blir som ”https://myaccount.blob.core.windows.net/mycontainer/”.
+Du behöver att hitta din behållare sökväg och lagringskontonyckeln att bearbeta något av de här två alternativen. Behållare-sökväg och lagringskontonyckeln hittar du i **Azure-portalen** > **Storage**. Behållaren för URL: en blir som ”https:\//myaccount.blob.core.windows.net/mycontainer/”.
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Alternativ 1: Kopiera en virtuell Hårddisk med AzCopy (asynkron copy)
 Med AzCopy kan överföra du enkelt den virtuella Hårddisken via Internet. Det kan ta tid beroende på storleken på de virtuella hårddiskarna. Kom ihåg att kontrollera lagringskontogränser för ingående/utgående trafik när du använder det här alternativet. Se [skalbarhet för lagring av Azure- och prestandamål](storage-scalability-targets.md) mer information.

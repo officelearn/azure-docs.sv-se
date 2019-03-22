@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 0b578bfdb75b0ad4d4065d8793a74e7c4284eb74
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: dec5ce37aa3b4e9d4d6fcab964c1e48b606a4cd0
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781596"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338062"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Dokumentera format och naming convention vägledning
 
@@ -31,7 +31,7 @@ Den här tabellen innehåller alla filformat som stöds som du kan använda för
 | Microsoft Word    | .DOCX        | Microsoft Word-dokument                                                                                                                                                                                                                                                        |
 | Adobe Acrobat     | .PDF         | Adobe Acrobat bärbar dokumentet                                                                                                                                                                                                                                                |
 | HTML              | .HTML, .HTM  | HTML-dokument                                                                                                                                                                                                                                                                  |
-| Textfil         | .TXT         | UTF-16- eller UTF-8-kodade textfiler                                                                                                                                                                                                                                             |
+| Textfil         | .TXT         | UTF-16- eller UTF-8-kodade textfiler. Filnamnet får inte innehålla japanska tecken.                                                                                                                                                                                        |
 | Justerade textfil | .ALIGN       | Tillägget `.ALIGN` är ett särskilt tillägg som du kan använda om du vet att meningar i dokumentet paret perfekt justerad. Om du anger en `.ALIGN` fil, anpassade Translator inte anpassas meningarna åt dig. |
 | Excel-fil        | .XLSX        | Excel-fil (2013 eller senare). Första raden / raden i kalkylbladet bör vara språkkod.                                                                                                                                                                                                                                                      |
 

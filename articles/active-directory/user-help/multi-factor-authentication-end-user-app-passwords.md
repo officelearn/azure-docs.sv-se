@@ -14,12 +14,12 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47128bce8dbbee1b28f6b0a3a5783e5ccee501bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6d0dbfeaf3fb018c8dd3f671ce7ad9d7d50e5fca
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177406"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336311"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Hantera lösenord för tvåstegsverifiering
 
@@ -40,7 +40,7 @@ När du använder lösenord, är det viktigt att komma ihåg:
 
 Du får ett applösenord under inledande tvåstegsverifiering verifiering registreringen. Om du behöver fler än en lösenordet kan skapa du ytterligare lösenord, baserat på hur du använder tvåstegsverifiering:
 
-- **Du kan använda tvåstegsverifiering med ditt arbets- eller skolkonto och MyApps-portalen.** Skapa och ta bort ditt lösenord med hjälp av anvisningarna i den [skapa och ta bort applösenord med hjälp av MyApps-portalen](#create-and-delete-app-passwords-using-the-myapps-portal) i den här artikeln. Mer information om MyApps-portalen och hur du använder den finns i [vad är MyApps-portalen i Azure Active Directory?](active-directory-saas-access-panel-introduction.md).
+- **Du kan använda tvåstegsverifiering med ditt arbets- eller skolkonto och MyApps-portalen.** Skapa och ta bort ditt lösenord med hjälp av anvisningarna i den [skapa och ta bort applösenord med hjälp av MyApps-portalen](#create-and-delete-app-passwords-using-the-my-apps-portal) i den här artikeln. Mer information om MyApps-portalen och hur du använder den finns i [vad är MyApps-portalen i Azure Active Directory?](active-directory-saas-access-panel-introduction.md).
 
 - **Du kan använda tvåstegsverifiering med ditt arbets- eller skolkonto och Office 365-portalen.** Skapa och ta bort ditt lösenord med hjälp av anvisningarna i den [skapa och ta bort applösenord med hjälp av Office 365-portalen](#create-and-delete-app-passwords-using-the-office-365-portal) i den här artikeln.
 

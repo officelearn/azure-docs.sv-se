@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 938d8efeaa88cc5bebbf33e525132a030f1b3c7c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
-ms.translationtype: HT
+ms.openlocfilehash: 689207339db0250d42fc64c33f43c42c18317d41
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112511"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313013"
 ---
-# <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Självstudie: Övervaka dina Service Fabric-program med ELK
+# <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Självstudier: Övervaka dina Service Fabric-program med ELK
 
 Den här självstudien är del fyra i en serie. Den visar hur du använder ELK (Elasticsearch, Logstash och Kibana) för att övervaka Service Fabric-tillämpningar som körs i Azure.
 
@@ -40,7 +40,7 @@ I den här självstudieserien får du lära du dig att:
 > * Konfigurera övervakning och diagnostik för programmet
 > * [konfigurera CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Innan du börjar den här självstudien:
 
@@ -109,7 +109,7 @@ Du kan använda en förkonfigurerad ELK-miljö för den här självstudiekursen,
     logstash-plugin install logstash-input-azureeventhub
     ```
 
-4. Skapa eller ändra din befintliga Logstash config-fil med följande innehåll: Om du skapar filen måste den skapas på ```/opt/bitnami/logstash/conf/access-log.conf``` om du använder ELK Bitnami-avbildningen i Azure.
+4. Skapa eller ändra din befintliga Logstash config-fil med följande innehåll: Om du skapar filen, har det som ska skapas vid ```/opt/bitnami/logstash/conf/access-log.conf``` om du använder ELK Bitnami-avbildningen i Azure.
 
     ```json
     input
@@ -149,7 +149,7 @@ Du kan använda en förkonfigurerad ELK-miljö för den här självstudiekursen,
     curl 'localhost:9200/_cat/indices?v'
     ```
 
-8. Öppna Kibana-instrumentpanelen på **http://SERVER-IP** och ange användarnamn och lösenord för Kibana. Har du använt ELK-avbildningen i Azure så är standardanvändarnamnet 'user', och lösenordet är det som du hämtade från **Startdiagnostik**.
+8. Öppna Kibana-instrumentpanelen på **http:\//SERVER-IP** och ange användarnamn och lösenord för Kibana. Har du använt ELK-avbildningen i Azure så är standardanvändarnamnet 'user', och lösenordet är det som du hämtade från **Startdiagnostik**.
 
     ![Kibana](./media/service-fabric-tutorial-java-elk/kibana.png)
 

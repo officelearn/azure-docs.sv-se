@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: b323836ff804d9e4af3765a2d4ea713a34bcf284
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 6fb95d43bff79ca91988549114daa91e5d41f358
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226529"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319371"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
 
@@ -171,7 +171,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
     ![Alternativ för användare och grupper](./media/backup-azure-backup-server-vmware/vmware-userandgroup-panel.png)
 
-    Den **vCenter användare och grupper** visas panelen.
+    Den **vCenter användare och grupper** panelen visas.
 
 
 2. I den **vCenter användare och grupper** fönstret väljer den **användare** fliken och klicka sedan på ikonen Lägg till användare (den symbolen +).
@@ -365,13 +365,13 @@ Att säkerhetskopiera vSphere 6.7 göra följande:
 
   Windows Registry Editor Version 5.00
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft.NETFramework\v2.0.50727] ”SystemDefaultTlsVersions” = DWORD: 00000001 ”SchUseStrongCrypto” = DWORD: 00000001
+  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
+  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\v2.0.50727] ”SystemDefaultTlsVersions” = DWORD: 00000001 ”SchUseStrongCrypto” = DWORD: 00000001
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\. NETFramework\v2.0.50727] ”SystemDefaultTlsVersions” = DWORD: 00000001 ”SchUseStrongCrypto” = DWORD: 00000001
 
-  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\v4.0.30319] ”SystemDefaultTlsVersions” = DWORD: 00000001 s ”SchUseStrongCrypto” = DWORD: 00000001
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 s"SchUseStrongCrypto"=dword:00000001
 
 
 ## <a name="next-steps"></a>Nästa steg

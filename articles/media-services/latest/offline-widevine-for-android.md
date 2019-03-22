@@ -2,7 +2,7 @@
 title: Konfigurera ditt konto för offline strömning av Widevine-skyddat innehåll – Azure
 description: Det här avsnittet visar hur du konfigurerar ditt Azure Media Services-konto för offline strömning av Widevine-skyddat innehåll.
 services: media-services
-keywords: DASH, DRM, Widevine Offline-läge, ExoPlayer, Android
+keywords: DASH, DRM, Widevine Offline Mode, ExoPlayer, Android
 documentationcenter: ''
 author: willzhan
 manager: steveng
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 18c83717e761f22363ccc69c827f5e383f8a9e85
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5d7dccfecc47b14be62a78600561a8ff0f7ca501
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122350"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312265"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline Widevine för direktuppspelning för Android
 
@@ -101,16 +101,16 @@ ExoPlayer version 2.6 och senare innehåller många klasser som har stöd för o
 
 Följande lista över klasser underlättar offline-läge i ExoPlayer SDK för Android:
 
-- Library/Core/src/main/Java/com/Google/Android/exoplayer2/DRM/OfflineLicenseHelper.Java  
-- Library/Core/src/main/Java/com/Google/Android/exoplayer2/DRM/DefaultDrmSession.Java
-- Library/Core/src/main/Java/com/Google/Android/exoplayer2/DRM/DefaultDrmSessionManager.Java
-- Library/Core/src/main/Java/com/Google/Android/exoplayer2/DRM/DrmSession.Java
-- Library/Core/src/main/Java/com/Google/Android/exoplayer2/DRM/ErrorStateDrmSession.Java
+- library/core/src/main/java/com/google/android/exoplayer2/drm/OfflineLicenseHelper.java  
+- library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSession.java
+- library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSessionManager.java
+- library/core/src/main/java/com/google/android/exoplayer2/drm/DrmSession.java
+- library/core/src/main/java/com/google/android/exoplayer2/drm/ErrorStateDrmSession.java
 - library/core/src/main/java/com/google/android/exoplayer2/drm/ExoMediaDrm.java
-- Library/Core/src/main/Java/com/Google/Android/exoplayer2/offline/SegmentDownloader.Java
-- Library/Core/src/main/Java/com/Google/Android/exoplayer2/offline/DownloaderConstructorHelper.Java 
-- Library/Core/src/main/Java/com/Google/Android/exoplayer2/offline/Downloader.Java
-- Library/dash/src/main/Java/com/Google/Android/exoplayer2/Source/dash/offline/DashDownloader.Java 
+- library/core/src/main/java/com/google/android/exoplayer2/offline/SegmentDownloader.java
+- library/core/src/main/java/com/google/android/exoplayer2/offline/DownloaderConstructorHelper.java 
+- library/core/src/main/java/com/google/android/exoplayer2/offline/Downloader.java
+- library/dash/src/main/java/com/google/android/exoplayer2/source/dash/offline/DashDownloader.java 
 
 Utvecklare ska referera till den [ExoPlayer Utvecklarguide](https://google.github.io/ExoPlayer/guide.html) och motsvarande [utvecklarblogg](https://medium.com/google-exoplayer) under utvecklingen av ett program. Google har inte publicerat en fullständigt dokumenterad referens implementering eller exempel-kod för appen ExoPlayer stöder Widevine offline för tillfället så att informationen är begränsad till utvecklarna guide och blogg. 
 
@@ -144,7 +144,7 @@ Om du uppgraderar mobila webbläsaren Chrome till v62 (eller högre) på en Andr
 
 Appen PWA ovan öppen källkod har skrivits i Node.js. Om du vill ha en egen version på en Ubuntu-server, Tänk på följande vanliga påträffades problem som kan förhindra att spela upp:
 
-1. CORS-problem: Exemplet video i exempelappen finns i https://storage.googleapis.com/biograf-video-files/videos/. Google har ställt in CORS för alla sina test-exempel finns i Google Cloud Storage bucket. De hanteras med CORS-huvuden, att uttryckligen ange CORS-post: https://biograf-155113.appspot.com (domän i vilken google är värd för sin exemplet) att förhindra åtkomst av andra platser. Om du, visas följande HTTP-fel: Det gick inte att läsa in https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: ingen ”Access-Control-Allow-Origin”-rubrik finns på den begärda resursen. Ursprung ”https://13.85.80.81:8080” är därför inte tillåten åtkomst. Om ett täckande svar har dina behov, Ställ in på begäran för 'Nej cors' att hämta resursen med CORS inaktiverad.
+1. CORS-problem: Exemplet video i exempelappen finns i https://storage.googleapis.com/biograf-video-files/videos/. Google har ställt in CORS för alla sina test-exempel finns i Google Cloud Storage bucket. De hanteras med CORS-huvuden, att uttryckligen ange CORS-post: https://biograf-155113.appspot.com (domän i vilken google är värd för sin exemplet) att förhindra åtkomst av andra platser. Om du, visas följande HTTP-fel: Det gick inte att läsa in https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: ingen ”Access-Control-Allow-Origin”-rubrik finns på den begärda resursen. Ursprung ”https:\//13.85.80.81:8080' är därför inte tillåten åtkomst. Om ett täckande svar har dina behov, Ställ in på begäran för 'Nej cors' att hämta resursen med CORS inaktiverad.
 2. Problemet med certifikatet: EME för Widevine kräver från Chrome v 58 HTTPS. Du måste därför vara värd för exempelappen över HTTPS med ett X509 certifikat. Ett vanligt testcertifikat fungerar inte på grund av följande krav: Du måste skaffa ett certifikat som uppfyller minimikraven för följande:
     - Chrome och Firefox kräver SAN det alternativa ämnesnamnet inställningen finns i certifikatet
     - Certifikatet måste ha betrott CA och ett självsignerat utvecklingscertifikat fungerar inte
@@ -160,7 +160,7 @@ Hur kan jag ge beständiga licenser (offline-aktiverat) för vissa klienter/anv�
 Eftersom en tillgång så att du har flera StreamingLocators tillåter att Media Services v3. Du kan ha
 
 1.  En ContentKeyPolicy med license_type = ”permanent”, ContentKeyPolicyRestriction med anspråk på ”beständiga” och dess StreamingLocator;
-2.  En annan ContentKeyPolicy med license_type = ”ickebeständig” ContentKeyPolicyRestriction med anspråk på ”ickebeständig” och dess StreamingLocator.
+2.  Another ContentKeyPolicy with license_type="nonpersistent", ContentKeyPolicyRestriction with claim on "nonpersistent", and its StreamingLocator.
 3.  Två StreamingLocators har olika ContentKey.
 
 Beroende på affärslogiken i anpassade STS utfärdas olika anspråk i JWT-token. Med denna token får endast motsvarande licens kan hämtas och endast motsvarande URL: en kan spelas upp.
@@ -189,9 +189,9 @@ Båda säkerhetsnivåer definieras av Google Widevine. Skillnaden finns i dess f
 
 | **Säkerhetsnivåer som definierats i Widevine-arkitektur** |**Säkerhetsnivåer som används i Widevine API**|
 |---|---| 
-| **Skyddsnivå 1**: Alla innehållet bearbetas, kryptering och kontrollen utförs inom betrodda körning miljö (TEE). I vissa implementering modeller kan security bearbetningen utföras i olika kretsar.|**security_level = 5**: Den krypto avkodning och alla hantering av media (komprimerade och okomprimerade) måste hanteras inom en maskinvara backas upp TEE.<br/><br/>**security_level = 4**: Kryptering och avkodning av innehåll måste utföras inom en maskinvara backas upp TEE.|
-**Skyddsnivå 2**: Utför kryptografi (men inte videobearbetning) inom TEE: dekrypterade buffertar returneras till programdomänen och bearbetats med separata video maskinvara eller programvara. På nivå 2 kan dock kryptografiska information fortfarande bearbetas endast inom TEE.| **security_level = 3**: Nyckelmaterial och krypto åtgärder måste utföras inom en maskinvara backas upp TEE. |
-| **Skyddsnivå 3**: Har inte en TEE på enheten. Lämpliga åtgärder kan vidtas för att skydda kryptografiska information och krypterade innehållet på värdens operativsystem. En nivå 3-implementering kan även innehålla en kryptografisk maskinvara-motor, men det endast förbättrar prestanda, inte säkerhet. | **security_level = 2**: Programvara crypto och en dold avkodare måste anges.<br/><br/>**security_level = 1**: Programvarubaserad whitebox crypto krävs.|
+| **Skyddsnivå 1**: Alla innehållet bearbetas, kryptering och kontrollen utförs inom betrodda körning miljö (TEE). I vissa implementering modeller kan security bearbetningen utföras i olika kretsar.|**security_level=5**: Den krypto avkodning och alla hantering av media (komprimerade och okomprimerade) måste hanteras inom en maskinvara backas upp TEE.<br/><br/>**security_level = 4**: Kryptering och avkodning av innehåll måste utföras inom en maskinvara backas upp TEE.|
+**Skyddsnivå 2**: Utför kryptografi (men inte videobearbetning) inom TEE: dekrypterade buffertar returneras till programdomänen och bearbetats med separata video maskinvara eller programvara. På nivå 2 kan dock kryptografiska information fortfarande bearbetas endast inom TEE.| **security_level=3**: Nyckelmaterial och krypto åtgärder måste utföras inom en maskinvara backas upp TEE. |
+| **Skyddsnivå 3**: Har inte en TEE på enheten. Lämpliga åtgärder kan vidtas för att skydda kryptografiska information och krypterade innehållet på värdens operativsystem. En nivå 3-implementering kan även innehålla en kryptografisk maskinvara-motor, men det endast förbättrar prestanda, inte säkerhet. | **security_level=2**: Programvara crypto och en dold avkodare måste anges.<br/><br/>**security_level = 1**: Programvarubaserad whitebox crypto krävs.|
 
 ### <a name="question"></a>Fråga
 

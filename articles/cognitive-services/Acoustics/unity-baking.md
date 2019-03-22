@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: cb5ad8e4ff3d5a28fa38c7e8972e7e3e69d2762d
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: f44b6f9ed42770fe830346de08058e33ed68a249
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136961"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309650"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Projektet Akustik Unity ändamålet självstudien
 Den här självstudien beskrivs Akustik gräddning med projekt Akustik i Unity.
@@ -28,7 +28,7 @@ Programvarukrav:
 ## <a name="open-the-project-acoustics-bake-window"></a>Öppna projektet Akustik skapa fönster
 Välj **Fönster > Akustik** Unity-menyn:
 
-![Öppna Akustik fönster](media/window-acoustics.png)
+![Skärmbild av Unity-redigerare med menyalternativet för Akustik fönstret markerat](media/window-acoustics.png)
 
 ## <a name="create-a-navigation-mesh"></a>Skapa en navigering nät
 Projektet Akustik använder ett navigering nät så att lyssnare avsökningen punkter för simulering. Du kan använda Unity's [navigering nät arbetsflöde](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html), eller använda en annan 3D-modellering paketet för att utforma din egen nät. 
@@ -68,15 +68,15 @@ Delar av sidan är:
 
 Om du har inget valt på scenen ser fliken objekt som på följande bild:
 
-![Objekt fliken ingen markering](media/objects-tab-no-selection-detail.png)
+![Skärmbild av Akustik objekt fliken med ingen markering](media/objects-tab-no-selection-detail.png)
 
 Om du har något valde i fönstret scen eller hierarki, ser den ut som på följande bild:
 
-![Objekt fliken ingen markering](media/objects-tab-selection-detail.png)
+![Skärmbild av Akustik objekt fliken med val av visas](media/objects-tab-selection-detail.png)
 
 Om vissa objekt markeras och andra inte, visas en ”blandat” värdet i respektive kryssruta:
 
-![Blandat värde kryssrutan](media/mixed-object-selection-detail.png)
+![Skärmbild av Akustik objekt fliken med blandad val av ikonen markerat](media/mixed-object-selection-detail.png)
 
 Klicka på kryssrutan tvingar alla objekt har markerats och klickar på igen kommer avmarkera alla objekt.
 
@@ -89,10 +89,10 @@ Akustiska material styra mängden ljud energi som visas från varje ytan. Det ak
 
 Genljudet tidpunkten för ett visst material i ett rum är relaterat till dess absorptionskoefficient, med de flesta material med absorption värden i intervallet 0,01 0.20 omvänt. Material med absorptionskoefficient utanför det här intervallet är mycket absorberande.
 
-![Eko graf](media/reverb-time-graph.png)
+![Diagram som visar negativt korrelation genljudet tid med större](media/reverb-time-graph.png)
 
 ### <a name="for-reference-parts-of-the-materials-tab"></a>Referens: Delar av fliken material
-![Material fliken information](media/materials-tab-detail.png)
+![Skärmbild av Akustik material flik i Unity](media/materials-tab-detail.png)
 
 1. Den **material** fliken knapp, som används för att få fram den här sidan.
 2. En kort beskrivning av vad du behöver göra med hjälp av den här sidan.
@@ -117,23 +117,23 @@ Dessa beräkningar kan ta flera minuter beroende på storleken på din scen och 
 ### <a name="review-voxel-and-probe-placement"></a>Granska voxel och avsökning placering
 Förhandsgranska både voxel data och objekt så är du redo att skapa din scen avsökningen. En ofullständig navigering nät eller saknas eller är extra akustiska geometri syns vanligtvis snabbt i förhandsversionen. Placering av Voxel och avsökning kan aktiveras eller inaktiveras med hjälp av menyn Gizmos:
 
-![Gizmos menyn](media/gizmos-menu.png)
+![Skärmbild av Gizmos menyn i Unity](media/gizmos-menu.png)
 
 Voxels som innehåller akustiska geometri visas som grön kuber. Utforska din scen och kontrollera att allt som ska vara geometri har voxels. Scen kameran måste vara inom cirka 5 taxor för objektet för voxels ska visas.
 
 Om du jämför voxels som skapats med grov upplösning vs bra lösning, visas grov voxels är två gånger så stora.
 
-![Voxel förhandsversion](media/voxel-cubes-preview.png)
+![Skärmbild av grov voxels förhandsversion i Unity-redigeraren](media/voxel-cubes-preview.png)
 
 Simuleringsresultat interpolerade mellan lyssnare avsökningen platser vid körning. Kontrollera att det finns avsökningen poäng nära helst spelaren förväntas färdas i scenen.
 
-![Avsökningar förhandsversion](media/probes-preview.png)
+![Skärmbild av avsökningar förhandsversion i Unity-redigeraren](media/probes-preview.png)
 
 ### <a name="take-care-with-scene-renames"></a>Var noga med scen byter namn på
 Scennamnet används för att ansluta scenen till lagring avsökningen punkt placering och voxelization-filer. Om scenen har bytt namn när avsökningen beräknas, material tilldelning och placering av data går förlorad och ska köras igen.
 
 ### <a name="for-reference-parts-of-the-probes-tab"></a>Referens: Delar av fliken avsökningar
-![Avsökningar fliken information](media/probes-tab-detail.png)
+![Skärmbild av Akustik avsökningar flik i Unity](media/probes-tab-detail.png)
 
 1. Den **avsökningar** fliken knapp som används för att få fram den här sidan
 2. En kort beskrivning av vad du behöver göra med hjälp av den här sidan
@@ -157,15 +157,15 @@ Den enda skillnaden mellan grov och bra lösning inställningar är den frekvens
 * Ljud källor får inte finnas inuti ”fyllts” voxels, som är voxels som innehåller geometri – detta resulterar i utan ljud. Det är svårare att hitta bra källor så att de inte är i större voxels av grov än den använder inställningen bra.
 * Större voxels kommer intrude mer till portaler, enligt nedan. Den första bilden har skapats med hjälp av grov, medan andra är samma nyckeln med hjälp av bra lösning. Som anges med röd markeringar, är det mycket mindre intrång i nyckeln med hjälp av bra inställningen. Den blå linjen är nyckeln som definieras av geometri, medan den röda linjen är effektiva akustiska portalen definieras av voxel storlek. Hur den här intrång spelar i en viss situation beror helt på hur voxels stämmer överens med portalen, vilket avgörs av storlek och platserna för dina objekt i scenen geometri.
 
-![Grov nyckeln](media/coarse-voxel-doorway.png)
+![Skärmbild av grov voxels i nyckeln](media/coarse-voxel-doorway.png)
 
-![Bra nyckeln](media/fine-voxel-doorway.png)
+![Skärmbild av bra voxels i nyckeln](media/fine-voxel-doorway.png)
 
 ## <a name="bake-your-scene-using-azure-batch"></a>Skapa din scen med Azure Batch
 Du kan skapa din scen med ett beräkningskluster i molnet med Azure Batch-tjänsten. Projektet Akustik Unity-plugin-programmet ansluter direkt till Azure Batch för att skapa en instans av, hantera och plocka ner ett Azure Batch-kluster för varje ändamålet. På den **skapa** fliken, ange dina autentiseringsuppgifter för Azure, Välj en typ av kluster-dator och storlek och klicka på **skapa**.
 
 ### <a name="for-reference-parts-of-the-bake-tab"></a>Referens: Delar av fliken ändamålet
-![Skapa fliken](media/bake-tab-details.png)
+![Skärmbild av Akustik skapa flik i Unity](media/bake-tab-details.png)
 
 1. Knappen Skapa flik används för att ta fram den här sidan.
 2. En kort beskrivning av vad du gör på den här sidan.
@@ -209,8 +209,8 @@ Till exempel i våra tester på en dator 8 kärnor med Intel Xeon E5-1660 @ 3 GH
 ### <a name="setup-docker"></a>Konfigurera Docker
 Installera och konfigurera Docker på den dator som kommer att bearbeta simuleringen-
 1. Installera den [Docker verktygsuppsättningen](https://www.docker.com/products/docker-desktop).
-2. Starta Docker-inställningar, navigera till ”avancerat”-alternativ och konfigurera resurser för att ha minst 8GB RAM-minne. Fler processorer som du kan allokera till Docker, desto snabbare ändamålet slutförs. ![Exempel på Docker-inställningar](media/docker-settings.png)
-3. Navigera till ”delade enheter” och aktivera delning av enheten som används för bearbetning.![DockerDriveSharing](media/docker-shared-drives.png)
+2. Starta Docker-inställningar, navigera till ”avancerat”-alternativ och konfigurera resurser för att ha minst 8GB RAM-minne. Fler processorer som du kan allokera till Docker, desto snabbare ändamålet slutförs. ![Skärmbild av exempel på Docker-inställningar](media/docker-settings.png)
+3. Navigera till ”delade enheter” och aktivera delning av enheten som används för bearbetning.![Screnshot Docker delade Enhetsalternativ](media/docker-shared-drives.png)
 
 ### <a name="run-local-bake"></a>Kör lokala ändamålet
 1. Klicka på ”förbereda lokala skapa” på den **skapa** fliken och välj en mapp där indatafiler och köra skript kommer att sparas. Du kan sedan köra ändamålet på valfri dator så länge som den uppfyller minimikraven på maskinvara och har Docker installerat genom att kopiera mappen till den datorn.
@@ -234,11 +234,11 @@ Redigeraren för filer:
 ## <a name="set-up-the-acoustics-lookup-table"></a>Konfigurera Akustik uppslagstabell
 Dra och släpp den **projekt Akustik** prefab från projektpanelen i din scen:
 
-![Acoustics Prefab](media/acoustics-prefab.png)
+![Skärmbild av Akustik prefab i Unity](media/acoustics-prefab.png)
 
 Klicka på den **ProjectAcoustics** spel objektet och gå till dess inspector panel. Ange platsen för ändamålet resultatet (. FÖRBERED-fil i **tillgångar/AcousticsData**) genom att dra och släppa den till skriptet Akustik Manager eller genom att klicka på knappen cirkel bredvid textrutan.
 
-![Acoustics Manager](media/acoustics-manager.png)  
+![Skärmbild av Akustik Manager prefab i Unity](media/acoustics-manager.png)  
 
 ## <a name="next-steps"></a>Nästa steg
 * Utforska den [utforma kontroller för Unity](unity-workflow.md)

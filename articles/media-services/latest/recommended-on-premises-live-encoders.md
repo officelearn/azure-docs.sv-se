@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: cc55466dac7344053e0cce3cad5f8161cef5226a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c7d895cd87122374a79a520643580a179961fba3
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438133"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317331"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Rekommenderade livekodare för direktuppspelning
 
@@ -34,8 +34,7 @@ Detaljerad information om live encoding med Media Services finns i [direktsänd 
 Media Services rekommenderar att du använder något av följande livekodare som har RTMP som utdata. URL-scheman som stöds är `rtmp://` eller `rtmps://`.
 
 > [!NOTE]
- > När strömmande via RTMP, kontrollerar du inställningarna för brandväggen och/eller proxyn för att bekräfta att utgående TCP-portarna 1935 och 1936 är öppna.<br/>
- När strömmande via RTMPS, kontrollerar du inställningarna för brandväggen och/eller proxyn för att bekräfta att utgående TCP-portarna 2935 och 2936 är öppna.
+> När strömmande via RTMP, kontrollerar du inställningarna för brandväggen och/eller proxyn för att bekräfta att utgående TCP-portarna 1935 och 1936 är öppna.
 
 - Adobe Flash Media Live Encoder 3.2
 - Haivision KB

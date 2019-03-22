@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/12/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2d7dc6eb5ee77804f0c8c87ee2e5a5dd1d0dc30a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 61ebebaf61d1cbbc72f3e12b5ff516924cc9b8c7
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841131"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317756"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Riktlinjer för att flytta från Media Services v2 till v3
 
@@ -29,7 +29,7 @@ Den här artikeln redogörs för ändringar som introducerades i Azure Media Ser
 Om du har en videotjänst som har utvecklats i dag ovanpå den [äldre Media Services v2 API: er](../previous/media-services-overview.md), bör du granska följande riktlinjer och att tänka på innan du migrerar till v3-API: er. Det finns många fördelar och nya funktioner i v3-API som förbättrar utvecklarupplevelse och funktionerna i Media Services. Dock som kallas ut i den [kända problem](#known-issues) avsnitt av den här artikeln, det finns även vissa begränsningar på grund av ändringar mellan API-versioner. Den här sidan bevaras som Media Services-teamet gör fortsatt förbättringar till v3-API: er och bemöta luckor mellan versionerna. 
 
 > [!NOTE]
-> För närvarande kan använda du inte Azure-portalen för att hantera v3-resurser. Använd den [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, eller någon av de stödda SDK: erna.
+> För närvarande kan använda du inte Azure-portalen för att hantera v3-resurser. Använd den [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), eller någon av stöds [SDK: er](developers-guide.md).
 
 ## <a name="benefits-of-media-services-v3"></a>Fördelarna med Media Services v3
 

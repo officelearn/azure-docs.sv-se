@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 68ac03a8aba4042a842b5e740d67ab4198236275
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f22311af277f860c1501287b5be0f5dc149880b9
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013170"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317739"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Kopiera data från ruta med Azure Data Factory (förhandsversion)
 
@@ -48,7 +48,7 @@ Följande egenskaper har stöd för kvadratisk länkade tjänsten:
 | värd | URL till kvadratisk instansen. (d.v.s. mystore.mysquare.com)  | Ja |
 | ClientId | Klient-ID som är associerade med ditt kvadratisk program.  | Ja |
 | ClientSecret | Klienthemlighet som är kopplad till kvadratisk programmet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| RedirectUri | Omdirigerings-URL som tilldelats i instrumentpanelen för kvadratisk program. (dvs.) http://localhost:2500)  | Ja |
+| RedirectUri | Omdirigerings-URL som tilldelats i instrumentpanelen för kvadratisk program. (d.v.s. http:\//localhost:2500)  | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
 | useHostVerification | Anger om värdnamnet i servercertifikatet så att de matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
 | usePeerVerification | Anger om du vill kontrollera identiteten på servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |

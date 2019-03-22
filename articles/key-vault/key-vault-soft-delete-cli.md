@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4311d71775ef877e0090abca9c6caabab503ef08
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aa9b89b9afec069e97236b7652e0f1d37644f5cf
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097618"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336087"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Hur du använder Key Vault mjuk borttagning med CLI
 
@@ -222,6 +222,24 @@ Visa en lista över objekt som borttaget nyckelvalv visar även när de är sche
 
 >[!IMPORTANT]
 >En borttagen valvobjekt som utlöses av dess *schemalagda Rensa datum* fältet, bort permanent. Det kan inte återställas!
+
+## <a name="enabling-purge-protection"></a>Aktivering av Rensa skydd
+
+När rensningsskydd aktiveras, ett valv eller ett objekt i borttagna kan inte tillstånd rensas tills kvarhållningsperiod på 90 dagar har passerat. Sådana valv eller ett objekt kan fortfarande återställas. Den här funktionen ger extra trygghet som ett valv eller ett objekt kan aldrig vara permanent ta bort förrän kvarhållning tidsperiod har passerat.
+
+Du kan aktivera rensningsskydd endast om mjuk borttagning har aktiverats. 
+
+Om du vill aktivera både mjuk borttagning och rensa skydd när du skapar ett valv genom att använda den [az keyvault skapa](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) kommando:
+
+```
+az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
+```
+
+Om du vill lägga till Rensa skydd i ett befintligt valv (som redan har aktivera mjuk borttagning) använder du den [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) kommando:
+
+```
+az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
+```
 
 ## <a name="other-resources"></a>Andra resurser
 

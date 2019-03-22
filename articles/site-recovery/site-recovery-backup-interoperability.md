@@ -1,46 +1,29 @@
 ---
-title: Azure Site Recovery - säkerhetskopiering samverkan | Microsoft Docs
+title: Stöd för användning av Azure Site Recovery med Azure Backup | Microsoft Docs
 description: Innehåller en översikt över hur Azure Site Recovery och Azure Backup kan användas tillsammans.
 services: site-recovery
 author: sideeksh
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/18/2019
 ms.author: sideeksh
-ms.openlocfilehash: 6658ab8c967c70ac1deaeba3d1dfeac602515591
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: e902f70225ec0eb0caa98f7e19a16c87220cb6f9
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731878"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312894"
 ---
-# <a name="about-site-recovery-and-backup-interoperability"></a>Om Site Recovery och säkerhetskopiering samverkan
+# <a name="support-for-using-site-recovery-with-azure-backup"></a>Stöd för att använda Site Recovery med Azure Backup
 
-Den här artikeln innehåller riktlinjer för säkerhetskopiering av Virtuella Azure IaaS och Virtuella Azure-haveriberedskap med.
+Den här artikeln sammanfattas stöd för användning av den [Site Recovery-tjänsten](site-recovery-overview.md) tillsammans med den [Azure Backup-tjänsten](https://docs.microsoft.com/azure/backup/backup-overview).
 
-## <a name="azure-backup"></a>Azure Backup
-
-Azure Backup kan skydda data för lokala servrar, virtuella datorer, virtualiserade arbetsbelastningar, SQL-servrar, SharePoint-servrar och mer. Azure Site Recovery dirigerar och hanterar haveriberedskap för virtuella Azure-datorer, lokala virtuella datorer och fysiska servrar.
-
-## <a name="azure-site-recovery"></a>Azure Site Recovery
-
-Det är möjligt att konfigurera både Azure Backup och Azure Site Recovery på en virtuell dator eller en grupp virtuella datorer. Båda produkterna är kompatibla. Några scenarier där samverkan mellan Backup och Azure Site Recovery viktigare är följande:
-
-### <a name="file-backuprestore"></a>Filen säkerhetskopiering/återställning
-
-Om säkerhetskopiering och replikering finns både aktiverat och en säkerhetskopia görs, är det något problem med att återställa alla filer på käll-VM eller en grupp av virtuella datorer. Replikering fortsätter som vanligt med ingen ändring i replikeringen.
-
-### <a name="disk-backuprestore"></a>Disk säkerhetskopiering/återställning
-
-Om du vill återställa disken från säkerhetskopian har skyddet av den virtuella datorn aktiveras igen.
-
-### <a name="vm-backuprestore"></a>VM-säkerhetskopiering/återställning
-
-Säkerhetskopiering och återställning av en virtuell dator eller en grupp med virtuella datorer stöds inte. Skydd måste aktiveras på nytt så att den fungerar.
-
-**Scenario** | **Stöds av Azure Site Recovery?** | **Lösning, om sådana**  
+**Åtgärd** | **Site Recovery-stöd** | **Detaljer**
 --- | --- | ---
-Säkerhetskopiering av fil/mapp | Ja | Inte tillämpligt
-Säkerhetskopiering på disk | För närvarande inte | Inaktivera och aktivera skydd
-Säkerhetskopiering av virtuella datorer | Nej | Inaktivera och aktivera skydd
+**Distribuera tjänster tillsammans** | Stöds | Tjänster är kompatibla och kan konfigureras tillsammans.
+**Filen säkerhetskopiering/återställning** | Stöds | När säkerhetskopiering och replikering har aktiverats för en virtuell dator och säkerhetskopior tas, finns det något problem i återställningen på käll-virtuella datorer eller grupp med virtuella datorer. Replikering fortsätter som vanligt med ingen ändring i replikeringen.
+**Disk säkerhetskopiering/återställning** | Inga aktuella support | Om du återställer en säkerhetskopierade disk måste du inaktivera och återaktivera replikering för den virtuella datorn igen.
+**VM-säkerhetskopiering/återställning** | Inga aktuella support | Om du säkerhetskopierar eller återställer en virtuell dator eller en grupp med virtuella datorer måste du inaktivera och återaktivera replikering för den virtuella datorn.  
+
+

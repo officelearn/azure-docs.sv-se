@@ -6,71 +6,54 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/11/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 68eb3f3e5c568bb518251aca2a4e76932ce2eee5
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 58f666d7ebf8ac02d393a42f55e00f08d82b8cae
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416216"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337097"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Runbook- och gallerier för Azure Automation
 
 I stället för att skapa egna runbooks och moduler i Azure Automation kan du komma åt scenarier som redan har skapats av Microsoft och communityn.
 
-Du kan hämta runbooks från den [Runbook-galleriet](#runbooks-in-runbook-gallery) och moduler från den [PowerShell-galleriet](#modules-in-powerShell-gallery).  Du kan också bidra till gruppen genom att dela scenarier som du utvecklar, se [att lägga till en runbook i galleriet](automation-runbook-gallery.md#adding-a-runbook-to-the-runbook-gallery)
+Du kan hämta [PowerShell-runbooks](#runbooks-in-runbook-gallery) och [moduler](#modules-in-powerShell-gallery) från PowerShell-galleriet och [Python runbooks](#python-runbooks) från Script Center-galleriet. Du kan också bidra till gruppen genom att dela scenarier som du utvecklar, se [att lägga till en runbook i galleriet](#adding-a-runbook-to-the-runbook-gallery)
 
-## <a name="runbooks-in-runbook-gallery"></a>Runbooks i Runbook-galleriet
+## <a name="runbooks-in-powershell-gallery"></a>Runbooks i PowerShell-galleriet
 
-Den [Runbook-galleriet](https://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation) erbjuder en mängd olika runbooks från Microsoft och communityn som du kan importera till Azure Automation. Om du vill använda ett, ladda ned en runbook från galleriet, som ligger i den [TechNet Script Center](https://gallery.technet.microsoft.com/scriptcenter/site/upload), eller direkt kan du importera runbooks från galleriet i Azure-portalen.
+Den [PowerShell-galleriet](https://www.powershellgallery.com/packages) erbjuder en mängd olika runbooks från Microsoft och communityn som du kan importera till Azure Automation. Om du vill använda ett, ladda ned en runbook från galleriet eller direkt importera runbooks från galleriet eller från ditt Automation-konto i Azure-portalen.
 
-Du kan bara importera direkt från Runbook-galleriet med hjälp av Azure portal. Du kan inte utföra den här funktionen med hjälp av Windows PowerShell.
+Du kan bara importera direkt från PowerShell-galleriet med hjälp av Azure portal. Du kan inte utföra den här funktionen med hjälp av PowerShell.
 
 > [!NOTE]
-> Du bör kontrollera innehållet i runbooks som du får från Runbook-galleriet och mycket försiktig installera och köra dem i en produktionsmiljö.
+> Du bör kontrollera innehållet i alla runbooks som du får från PowerShell-galleriet och mycket försiktig installera och köra dem i en produktionsmiljö.
 
-### <a name="to-import-a-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Importera en runbook från Runbook-galleriet med Azure portal
+### <a name="to-import-a-powershell-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Så här importerar du en PowerShell-runbook från Runbook-galleriet med Azure portal
 
 1. Öppna ditt Automation-konto på Azure Portal.
 2. Under **Processautomatisering**, klicka på **runbookgalleri**
-3. Leta upp det Galleriobjekt som du vill och väljer den för att visa dess egenskaper. Du kan ange ytterligare sökparametrar för utgivaren och typen till vänster.
+3. Välj **källa: PowerShell-galleriet**.
+4. Leta upp det Galleriobjekt som du vill och väljer den för att visa dess egenskaper. Du kan ange ytterligare sökparametrar för utgivaren och typen till vänster.
 
    ![Bläddra i galleri](media/automation-runbook-gallery/browse-gallery.png)
 
-4. Klicka på **visa källprojekt** att visa objektet i den [TechNet Script Center](https://gallery.technet.microsoft.com/).
-5. Om du vill importera ett objekt, klickar du på den för att visa dess egenskaper och klicka sedan på den **importera** knappen.
+5. Klicka på **visa källprojekt** att visa objektet i den [TechNet Script Center](https://gallery.technet.microsoft.com/).
+6. Om du vill importera ett objekt, klickar du på den för att visa dess egenskaper och klicka sedan på den **importera** knappen.
 
    ![Knappen Importera](media/automation-runbook-gallery/gallery-item-detail.png)
 
-6. Du kan också ändra namnet på runbooken och klicka sedan på **OK** att importera runbooken.
-7. Runbook visas på den **Runbooks** fliken för Automation-kontot.
+7. Du kan också ändra namnet på runbooken och klicka sedan på **OK** att importera runbooken.
+8. Runbook visas på den **Runbooks** fliken för Automation-kontot.
 
-### <a name="adding-a-runbook-to-the-runbook-gallery"></a>Att lägga till en runbook till runbook-galleriet
+### <a name="adding-a-powershell-runbook-to-the-gallery"></a>Att lägga till en PowerShell-runbook i galleriet
 
-Microsoft rekommenderar att du vill lägga till runbooks i Runbook-galleriet som du tror kan vara användbar för andra kunder.  Du kan lägga till en runbook med [överföra den till Script Center](https://gallery.technet.microsoft.com/site/upload) med hänsyn till följande information.
+Microsoft rekommenderar att du vill lägga till runbooks i PowerShell-galleriet som du tror kan vara användbar för andra kunder. PowerShell-galleriet accepterar PowerShell-moduler och PowerShell-skript. Du kan lägga till en runbook med [överföra den till PowerShell-galleriet](/powershell/gallery/how-to/publishing-packages/publishing-a-package).
 
-* Du måste ange *Windows Azure* för den **kategori** och *Automation* för den **underkategori** för den runbook som ska visas i den guiden.  
-* Överföringen måste vara en enda `.ps1` eller `.graphrunbook` fil.  Om runbook kräver alla moduler, underordnade runbooks och tillgångar, ska du visa de objekt i beskrivningen av överföringen och i avsnittet med kommentarer om runbook.  Om du har ett scenario som kräver flera runbooks kan ladda upp varje separat och lista med namn på relaterade runbooks i var och en av deras beskrivningar. Se till att du använder samma taggar så att de visas i samma kategori. En användare måste läsa beskrivning om du vill veta att andra runbooks är nödvändiga scenariot ska fungera.
-* Lägga till taggen ”GraphicalPS” om du publicerar en **grafisk runbook** (inte ett grafiskt arbetsflöde).
-* Infoga en PowerShell- eller PowerShell-arbetsflöde kodfragmentet i beskrivning med **Infoga avsnitt med exempelkod** ikon.
-* Sammanfattning för överföringen visas i resultaten för Runbook-galleriet så att du ska ange detaljerad information som hjälper till att en användare som identifierar funktionerna i runbook.
-* Du bör tilldela en till tre av följande taggar om du till överföringen.  Runbook visas i guiden under de kategorier som matchar dess taggar.  Taggar som inte finns i den här listan ignoreras av guiden. Om du inte anger någon matchande taggar som visas runbook under kategorin andra.
-  
-  * Backup
-  * Kapacitetshantering
-  * Ändringshantering
-  * Efterlevnad
-  * Dev / Test-miljöer
-  * Haveriberedskap
-  * Övervakning
-  * Uppdatering
-  * Etablering
-  * Åtgärd
-  * Livscykelhantering för virtuell dator
-
-* Automation uppdaterar galleriet en gång i timmen, så att du inte se dina bidrag omedelbart.
+> [!NOTE]
+> Grafiska runbooks stöds inte i PowerShell-galleriet.
 
 ## <a name="modules-in-powershell-gallery"></a>Moduler i PowerShell-galleriet
 
@@ -100,7 +83,7 @@ PowerShell-moduler innehåller cmdletar som du kan använda i dina runbooks och 
 6. För att installera modulen direkt till Azure Automation, klickar du på den **Import** knappen.
 7. När du klickar på knappen Importera på den **importera** fönstret du ser Modulnamn som du håller på att importera. Om alla beroenden är installerade på **OK** knappen aktiveras. Om du saknar beroenden, måste du importera dessa beroenden innan du kan importera den här modulen.
 8. På den **importera** klickar du på **OK** att importera modulen. Medan Azure Automation importerar en modul till ditt konto, extraherar metadata om modulen och cmdletar. Den här åtgärden kan ta några minuter eftersom varje aktivitet måste ska extraheras.
-9.  Du får ett inledande meddelande om att modulen distribueras och ett nytt meddelande när den har slutförts.
+9. Du får ett inledande meddelande om att modulen distribueras och ett nytt meddelande när den har slutförts.
 10. Du kan se de tillgängliga aktiviteterna när modulen har importerats. Du kan använda dess resurser i dina runbooks och Desired State Configuration.
 
 > [!NOTE]
@@ -108,7 +91,10 @@ PowerShell-moduler innehåller cmdletar som du kan använda i dina runbooks och 
 
 ## <a name="python-runbooks"></a>Python Runbooks
 
-Python-Runbooks är tillgängliga i den [Script Center galleriet](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=). Du kan bidra Python runbooks i Script Center-galleriet. När du, se till att du lägger till taggen **Python** när du laddar upp ditt bidrag.
+Python-Runbooks är tillgängliga i den [Script Center galleriet](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=). Du kan bidra Python runbooks i Script Center-galleriet genom att klicka på **ladda upp ett bidrag**. När du, se till att du lägger till taggen **Python** när du laddar upp ditt bidrag.
+
+> [!NOTE]
+> För att överföra innehåll till [Script Center](https://gallery.technet.microsoft.com/scriptcenter) minst 100 punkter krävs. 
 
 ## <a name="requesting-a-runbook-or-module"></a>Begär en runbook eller en modul
 

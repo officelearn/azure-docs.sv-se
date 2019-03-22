@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 79440cf69f921e5933ed410e276cdf304e94fa4f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 64cfac0d689df88c4d432e772bcd0a0cc7ab4ade
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817283"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317688"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Övervaka ett lagringskonto i Azure portal
 
-[Azure Storage Analytics](../storage-analytics.md) tillhandahåller mått för alla lagringstjänster och loggar för blobbar, köer och tabeller. Du kan använda den [Azure-portalen](https://portal.azure.com) konfigurera vilka mått och loggar sparas för ditt konto och konfigurera diagram som ger visuella representationer av dina måttdata.
+[Azure Storage Analytics](storage-analytics.md) tillhandahåller mått för alla lagringstjänster och loggar för blobbar, köer och tabeller. Du kan använda den [Azure-portalen](https://portal.azure.com) konfigurera vilka mått och loggar sparas för ditt konto och konfigurera diagram som ger visuella representationer av dina måttdata.
 
 > [!NOTE]
-> Det finns kostnader i samband med att undersöka övervakningsdata i Azure-portalen. Mer information finns i [Lagringsanalys och fakturering](/rest/api/storageservices/Storage-Analytics-and-Billing).
+> Det finns kostnader i samband med att undersöka övervakningsdata i Azure-portalen. Mer information finns i [Lagringsanalys](storage-analytics.md).
 >
 > Azure Files kan du för närvarande stöder Storage Analytics mätvärden, men har stöd inte för loggning.
-> 
-> Utförliga instruktioner om hur du använder Storage Analytics och andra verktyg för att identifiera, diagnostisera och felsöka Azure Storage-relaterade problem, se [övervaka, diagnostisera och Felsök Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting.md).
+>
+> Utförliga instruktioner om hur du använder Storage Analytics och andra verktyg för att identifiera, diagnostisera och felsöka Azure Storage-relaterade problem, se [övervaka, diagnostisera och Felsök Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 >
 
 ## <a name="configure-monitoring-for-a-storage-account"></a>Konfigurera övervakning för ett lagringskonto
@@ -41,7 +41,7 @@ ms.locfileid: "55817283"
    Om du vill ange databevarandeprincip, flytta den **Kvarhållning (dagar)** skjutreglaget eller ange antalet dagar för att behålla kan mellan 1 och 365. Standard för nya lagringskonton som är sju dagar. Om du inte vill ange en kvarhållningsprincip ange noll. Om det finns ingen bevarandeprincip, är det upp till dig att ta bort övervakningsdata.
 
    > [!WARNING]
-   > Du debiteras när du manuellt ta bort mätvärden. Inaktuella analytics-data (data äldre än bevarandeprincipen) tas bort av systemet utan kostnad. Vi rekommenderar att en bevarandeprincip som baseras på hur länge du vill behålla storage analytics-data för ditt konto. Se [vilka avgifter medför du när du aktiverar lagringsmått?](../common/storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics) för mer information.
+   > Du debiteras när du manuellt ta bort mätvärden. Inaktuella analytics-data (data äldre än bevarandeprincipen) tas bort av systemet utan kostnad. Vi rekommenderar att en bevarandeprincip som baseras på hur länge du vill behålla storage analytics-data för ditt konto. Se [faktureringen för lagringsmått](storage-analytics-metrics.md#billing-on-storage-metrics) för mer information.
    >
 
 1. När du är klar med konfigurationen av övervakningen väljer **spara**.
@@ -51,12 +51,12 @@ En standarduppsättning av mått visas i diagrammen på bladet för storage-kont
 Du kan inaktivera insamling av mätvärden och loggning genom att ange **Status** till **av**.
 
 > [!NOTE]
-> Azure Storage använder [tabellagring](../common/storage-introduction.md#table-storage) att lagra mått för ditt lagringskonto och lagrar mått i tabeller i ditt konto. Mer information finns i. [Hur mått lagras](../common/storage-analytics.md#how-metrics-are-stored).
+> Azure Storage använder [tabellagring](storage-introduction.md#table-storage) att lagra mått för ditt lagringskonto och lagrar mått i tabeller i ditt konto. Mer information finns i. [Hur mått lagras](storage-analytics-metrics.md#how-metrics-are-stored).
 >
 
 ## <a name="customize-metrics-charts"></a>Anpassa måttdiagram
 
-Använd följande procedur för att välja vilka storage-mått att visa i ett diagram med prestandamått. 
+Använd följande procedur för att välja vilka storage-mått att visa i ett diagram med prestandamått.
 
 1. Starta genom att visa ett måttdiagram för lagring i Azure-portalen. Du kan hitta diagram på den **bladet lagringskonto** och i den **mått** bladet för en enskild tjänst (blob, kö, tabell, fil).
 
@@ -130,17 +130,16 @@ Du kan instruera Azure Storage för att spara diagnostikloggar för läsa, skriv
 1. Välj **diagnostik** i den **övervakning** på menyn-bladet.
 
     ![Diagnostik menyalternativet under övervakning i Azure-portalen.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
-    
+
 1. Se till att **Status** är inställd på **på**, och välj den **services** för vilket du vill aktivera loggning.
 
     ![Konfigurera loggning i Azure-portalen.](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. Klicka på **Spara**.
 
-Diagnostik-loggarna sparas i en blobbehållare med namnet *$logs* i ditt lagringskonto. Du kan visa loggdata med en lagringsutforskare som den [Microsoft Lagringsutforskaren](http://storageexplorer.com), eller via programmering med storage-klientbibliotek eller PowerShell.
+Diagnostik-loggarna sparas i en blobbehållare med namnet *$logs* i ditt lagringskonto. Du kan visa loggdata med en lagringsutforskare som den [Microsoft Lagringsutforskaren](https://storageexplorer.com), eller via programmering med storage-klientbibliotek eller PowerShell.
 
-Läs om hur åtkomst till behållaren $logs [aktivera loggning för lagring och åtkomst till loggdata](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
+Läs om hur åtkomst till behållaren $logs [loggningen i Storage analytics](storage-analytics-logging.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Hitta mer information om [mätvärden, loggning och fakturering](../storage-analytics.md) för Storage Analytics.
-* [Aktivera Azure Storage-mätvärden och visa måttdata](../storage-enable-and-view-metrics.md) med hjälp av PowerShell och genom programmering med C#.
+* Hitta mer information om [mätvärden, loggning och fakturering](storage-analytics.md) för Storage Analytics.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: how-to
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: d3b761630124ef7f72269fe0712bf22647968d59
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7a7f5f6738b4bc96b6248deb062c7b3f63048148
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137036"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309681"
 ---
 # <a name="project-acoustics-azure-batch-account-setup"></a>Projektkonfiguration Akustik Azure Batch-konto
 Den här anvisningen beskriver hur du konfigurerar ett Azure Batch-konto för användning med projekt Akustik Unity och Unreal engine-integreringar.
@@ -28,39 +28,39 @@ Följ sedan [dessa instruktioner](https://docs.microsoft.com/azure/batch/batch-a
 
 Välj standardalternativen för Batch- och Storage-konton:
   
-  ![Nytt Batch-konto](media/new-batch-account-create.png)
+  ![Skärmbild av Azure Batch nya konton alternativ som visar standardinställningarna](media/new-batch-account-create.png)
 
-  ![Nytt Lagringskonto](media/batch-storage-account-create.png)
+  ![Skärmbild av Azure Storage nya konton alternativ som visar standardinställningarna](media/batch-storage-account-create.png)
 
 Det tar några minuter för Azure för att distribuera kontona. Leta efter ett meddelande för slutförande i det övre högra hörnet på portalen.
   
-  ![Konton som har distribuerats](media/batch-accounts-deploy-notification.png)
+  ![Skärmbild av Azure-konton distribueras meddelande](media/batch-accounts-deploy-notification.png)
 
 Dina konton ska nu visas på instrumentpanelen.
   
-  ![Portalens instrumentpanel](media/azure-portal-dashboard.png)
+  ![Skärmbild av Azure portal instrumentpanelen som visar ett Batch- och Storage-konto](media/azure-portal-dashboard.png)
 
 ## <a name="set-up-acoustics-bake-ui-with-azure-credentials"></a>Konfigurera Akustik ändamålet Användargränssnittet med autentiseringsuppgifter för Azure
 Klicka på länken för Batch-konto på instrumentpanelen, och klicka sedan på den **nycklar** länken på sidan Batch-konto för att få åtkomst till dina autentiseringsuppgifter.
   
-  ![Länk för batch-nycklar](media/batch-access-keys.png)
+  ![Skärmbild av Azure Batch-konto med länk till sidan nycklar markerat](media/batch-access-keys.png)
 
-  ![Autentiseringsuppgifterna för batch-konto](media/batch-keys-info.png)
+  ![Skärmbild av Azure Batch-konto nycklar sida med åtkomstnycklar](media/batch-keys-info.png)
 
 Klicka på den **Lagringskonto** länk på sidan för att komma åt autentiseringsuppgifterna för ditt Azure Storage-konto.
   
-  ![Autentiseringsuppgifter för lagringskonto](media/storage-keys-info.png)
+  ![Skärmbild av Azure Storage-konto nycklar sida med åtkomstnycklar](media/storage-keys-info.png)
 
 Ange autentiseringsuppgifterna i den [Unity ändamålet plugin-programmet](unity-baking.md) eller [Unreal ändamålet plugin-programmet](unreal-baking.md).
 
 ## <a name="node-types-and-region-support"></a>Nodtyper och regionsstöd
 Projektet Akustik kräver Fsv2 - och H-serien compute optimized Azure VM-noder som inte kanske stöds i alla Azure-regioner. Kontrollera [den här tabellen](https://azure.microsoft.com/global-infrastructure/services) att se till att du väljer rätt plats för Batch-kontot.
-![Azure-datorer per Region](media/azure-regions.png) 
+![Skärmbild som visar Azure-datorer per Region](media/azure-regions.png) 
 
 ## <a name="upgrading-your-quota"></a>Uppgradera din kvot
 Azure Batch-konton har etablerats för kontot som skapas med en gräns på 20 compute-kärnor. Vi kanske vill öka gränsen för ändamålet snabbare, eftersom du kan parallellisera Akustik arbetsbelastningen över flera noder, upp till antalet avsökningen punkter i din scen. Du kan begära en kvot genom att klicka på den **kvot** länka på portalsidan Azure Batch och klicka sedan på **begäran kvot öka**:
 
-![Azure-kvot](media/azure-quotas.png)
+![Skärmbild av Azure-kvoten sidan](media/azure-quotas.png)
 
 ## <a name="next-steps"></a>Nästa steg
 * Integrera projekt Akustik plugin-programmet i din [Unity](unity-integration.md) eller [Unreal](unreal-integration.md) projekt

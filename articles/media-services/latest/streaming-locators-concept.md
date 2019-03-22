@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: be66dcf8115258b6f593ec913e75785a3f8dbe1f
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 51aa33e4ff387a1030dac42bce8d12cf72343b35
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743488"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317484"
 ---
 # <a name="streaming-locators"></a>Positionerare för direktuppspelning
 
@@ -32,7 +32,11 @@ Om du vill ange alternativ för kryptering på din stream skapar den [innehåll 
 > * Egenskaper för **positionerare för direktuppspelning** som är av typen är alltid i UTC-format för datum/tid.
 > * Du bör utforma en begränsad uppsättning principer för ditt Media Services-konto och återanvända dem för din positionerare för direktuppspelning när samma alternativ behövs. 
 
-## <a name="filtering-ordering-paging"></a>Filtrering, skrivordning, växling
+## <a name="associate-filters-with-streaming-locators"></a>Associera filter med positionerare för direktuppspelning
+
+Du kan ange en lista över [tillgång eller konto filter](filters-concept.md), vilket skulle gälla för dina [Strömningspositionerare](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). Den [dynamisk Paketeraren](dynamic-packaging-overview.md) gäller den här listan över filter tillsammans med de som klienten anger i URL: en. Den här kombinationen genererar en [dyanamic manifest](filters-dynamic-manifest-overview.md), som grundar sig på filter i URL: en + filter som du anger på Strömningspositionerare. Vi rekommenderar att du använder den här funktionen om du vill använda filter men inte vill exponera filternamn i URL: en.
+
+## <a name="filter-order-page-streaming-locator-entities"></a>Filtrera, ordning, sidan Strömningspositionerare entiteter
 
 Se [filtrering, sortering, växling av Media Services entiteter](entities-overview.md).
 

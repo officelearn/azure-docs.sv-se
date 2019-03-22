@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: d194a5929e648c09eb204860c528e48bc55259ee
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5f6708a9c22939395f992c2ac58a7e510b35f763
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635416"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317280"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Distribuera och hantera Apache Storm-topologier i Azure HDInsight 
 
@@ -187,7 +187,7 @@ Att välja en länk från den **Topology summary** avsnittet visar följande inf
   * **Balansera om**: Justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Den här åtgärden gör att topologin kan justera parallelliteten och kompensera för ökat eller minskat antalet noder i klustret.
 
     Mer information finns i <a href="https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">förstå parallellitet i en Apache Storm-topologi</a>.
-  * **Avsluta**: Avslutar en Storm-topologi efter en angiven tidsgräns.
+  * **Kill**: Avslutar en Storm-topologi efter en angiven tidsgräns.
 * **Topology stats**: Statistik om topologin. Om du vill ange en mer specifik tidsram för de övriga objekten på sidan i länkarna i den **fönstret** kolumn.
 * **Spouts**: Kanaler som används av topologin. Använd länkarna i det här avsnittet om du vill visa mer information om specifika kanaler.
 * **Bolts**: Bultar som används av topologin. Använd länkarna i det här avsnittet om du vill visa mer information om specifika bultar.
@@ -215,15 +215,15 @@ Mer information finns i [Apache Storm UI REST API](https://storm.apache.org/rele
 
 ### <a name="base-uri"></a>Bas-URI
 
-Bas-URI för REST-API: et på Linux-baserade HDInsight-kluster är tillgängliga på klustrets huvudnod vid **https://HEADNODEFQDN:8744/api/v1/**. Domännamnet för huvudnoden genereras när klustret skapas och är inte statiska.
+Bas-URI för REST-API: et på Linux-baserade HDInsight-kluster är tillgängliga på klustrets huvudnod vid **https:\//HEADNODEFQDN:8744/api/v1/**. Domännamnet för huvudnoden genereras när klustret skapas och är inte statiska.
 
 Du kan hitta det fullständigt kvalificerade domännamnet (FQDN) för klustrets huvudnod på flera olika sätt:
 
 * **Från en SSH-session**: Använd kommandot `headnode -f` från en SSH-session till klustret.
 * **Från Ambari Web**: Välj **Services** högst upp på sidan Välj **Storm**. Från den **sammanfattning** fliken **Storm UI Server**. Det fullständiga Domännamnet för den nod som är värd för Storm-Användargränssnittet och REST API visas överst på sidan.
-* **Från Ambari REST API: et**: Använd kommandot `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` att hämta information om den nod som Storm-Användargränssnittet och REST API körs på. Ersätt **CLUSTERNAME** med klustrets namn. När du uppmanas, anger du lösenordet för inloggningskonto (admin). I svaret innehåller posten ”värddatornamn” FQDN för noden.
+* **Från Ambari REST API: et**: Använd kommandot `curl -u admin -G "https:\//CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` att hämta information om den nod som Storm-Användargränssnittet och REST API körs på. Ersätt **CLUSTERNAME** med klustrets namn. När du uppmanas, anger du lösenordet för inloggningskonto (admin). I svaret innehåller posten ”värddatornamn” FQDN för noden.
 
-### <a name="authentication"></a>Autentisering
+### <a name="authentication"></a>Authentication
 
 REST API-begäranden måste använda **grundläggande autentisering**, så att du använder HDInsight-kluster databasadministratörens namn och lösenord.
 

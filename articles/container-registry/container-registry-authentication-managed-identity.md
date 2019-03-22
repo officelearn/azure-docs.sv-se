@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
-ms.openlocfilehash: fdba8969ad326565834625fe1ca7ece5e089a904
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: b09348e98a0dee85338cc9f20289d83b658eb719
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984213"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338470"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Använd en Azure-hanterad identitet för att autentisera till Azure container registry 
 
@@ -31,7 +31,7 @@ Om du vill konfigurera ett behållarregister och push-överföra en behållaravb
 
 ## <a name="why-use-a-managed-identity"></a>Varför ska jag använda en hanterad identitet?
 
-En hanterad identitet för Azure-resurser tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (AD Azure). Du kan konfigurera [vissa Azure-resurser](../active-directory/managed-identities-azure-resources/services-support-msi.md), inklusive virtuella datorer med en hanterad identitet. Använd sedan identiteten för att få åtkomst till andra Azure-resurser utan att skicka autentiseringsuppgifter i kod eller skript.
+En hanterad identitet för Azure-resurser tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (AD Azure). Du kan konfigurera [vissa Azure-resurser](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md), inklusive virtuella datorer med en hanterad identitet. Använd sedan identiteten för att få åtkomst till andra Azure-resurser utan att skicka autentiseringsuppgifter i kod eller skript.
 
 Hanterade identiteter finns två typer av:
 
@@ -41,7 +41,7 @@ Hanterade identiteter finns två typer av:
 
 När du har konfigurerat en Azure-resurs med en hanterad identitet, ge identiteten åtkomst som du vill ha en annan resurs, precis som alla säkerhetsobjekt. Till exempel tilldela en hanterad identitet en roll med pull, push och pull eller andra behörigheter till ett privat register i Azure. (En fullständig lista över registret roller finns [Azure Container Registry roller och behörigheter](container-registry-roles.md).) Du kan ge en identity-åtkomst till en eller flera resurser.
 
-Använd sedan identiteten för att autentisera till någon [tjänst som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication), utan några autentiseringsuppgifter i din kod. Om du vill använda identiteten för att få åtkomst till ett Azure container registry från en virtuell dator måste autentisera du med Azure Resource Manager. Välj hur du autentiserar med hjälp av den hanterade identitet, beroende på ditt scenario:
+Använd sedan identiteten för att autentisera till någon [tjänst som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), utan några autentiseringsuppgifter i din kod. Om du vill använda identiteten för att få åtkomst till ett Azure container registry från en virtuell dator måste autentisera du med Azure Resource Manager. Välj hur du autentiserar med hjälp av den hanterade identitet, beroende på ditt scenario:
 
 * [Hämta en Azure AD-åtkomsttoken](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) programmässigt med hjälp av HTTP- eller REST-anrop
 
@@ -164,13 +164,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 SSH till den Docker-dator som har konfigurerats med identiteten. Kör följande Azure CLI-kommandon, med hjälp av Azure CLI installerat på den virtuella datorn.
 
-Logga först in på Azure CLI med [az-inloggning][az-login], med det identitet som du har konfigurerat på den virtuella datorn. För <userID>, Ersätt ID för den identitet som du hämtade i föregående steg. 
+Först måste autentisera till Azure CLI med [az-inloggning][az-login], med det identitet som du har konfigurerat på den virtuella datorn. För <userID>, Ersätt ID för den identitet som du hämtade i föregående steg. 
 
 ```azurecli
 az login --identity --username <userID>
 ```
 
-Logga sedan in i registret med [docker login][az-acr-login]. När du använder det här kommandot CLI använder Active Directory-token som skapas när du körde `az login` att sömlöst autentisera din session med container registry. (Beroende på den Virtuella datorns inställningar kan du behöva köra det här kommandot och docker-kommandon med `sudo`.)
+Sedan kan autentisera till registret med [docker login][az-acr-login]. När du använder det här kommandot CLI använder Active Directory-token som skapas när du körde `az login` att sömlöst autentisera din session med container registry. (Beroende på den Virtuella datorns inställningar kan du behöva köra det här kommandot och docker-kommandon med `sudo`.)
 
 ```azurecli
 az acr login --name myContainerRegistry
@@ -216,13 +216,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 SSH till den Docker-dator som har konfigurerats med identiteten. Kör följande Azure CLI-kommandon, med hjälp av Azure CLI installerat på den virtuella datorn.
 
-Logga först in på Azure CLI med [az-inloggning][az-login], med systemtilldelade identiteten på den virtuella datorn.
+Först autentisera Azure CLI med [az-inloggning][az-login], med systemtilldelade identiteten på den virtuella datorn.
 
 ```azurecli
 az login --identity
 ```
 
-Logga sedan in i registret med [docker login][az-acr-login]. När du använder det här kommandot CLI använder Active Directory-token som skapas när du körde `az login` att sömlöst autentisera din session med container registry. (Beroende på den Virtuella datorns inställningar kan du behöva köra det här kommandot och docker-kommandon med `sudo`.)
+Sedan kan autentisera till registret med [docker login][az-acr-login]. När du använder det här kommandot CLI använder Active Directory-token som skapas när du körde `az login` att sömlöst autentisera din session med container registry. (Beroende på den Virtuella datorns inställningar kan du behöva köra det här kommandot och docker-kommandon med `sudo`.)
 
 ```azurecli
 az acr login --name myContainerRegistry

@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/20/2019
 ms.author: victorh
-ms.openlocfilehash: ae55f2abf9815174e7258c2ace949078794c380d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: f549f9c612797c1c956d6921fe4898a5f8bee9e6
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286201"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319422"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Vanliga frågor om Application Gateway
 
@@ -59,7 +59,7 @@ Omdirigering av stöds. Se [översikt för omdirigering i Application Gateway](a
 
 ### <a name="in-what-order-are-listeners-processed"></a>I vilken ordning bearbetas lyssnare?
 
-Lyssnare bearbetas i den ordning som de visas. Därför om en grundläggande lyssnare matchar en inkommande begäran bearbetas först.  Lyssnare för flera platser bör konfigureras innan en grundläggande lyssnare så att trafik dirigeras till rätt serverdel.
+Se [Bearbetningsordning för lyssnare](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-listeners).
 
 ### <a name="where-do-i-find-application-gateways-ip-and-dns"></a>Var hittar jag Application Gateway IP och DNS?
 
@@ -83,16 +83,13 @@ Endast en offentlig IP-adress har stöd för en Programgateway.
 
 ### <a name="how-large-should-i-make-my-subnet-for-application-gateway"></a>Hur stor ska jag göra mitt undernät för Application Gateway?
 
-Application Gateway förbrukar en privat IP-adress per instans, plus en annan privat IP-adress om en privat klientdels-IP-konfiguration har konfigurerats. Dessutom Azure reserverar fyra första och sista IP-adress i varje undernät för intern användning.
-Exempel: om en application gateway är inställd på tre instanser och ingen privat klientdels-IP, sedan ett/29 undernät storlek eller högre krävs. I det här fallet använder application gateway tre IP-adresser. Om du har tre instanser och en IP-adress för privata klientdelens IP-konfiguration, sedan en/28 undernät storlek eller högre krävs eftersom det krävs fyra IP-adresser.
-
-Ett bra tips är att använda minst en/28 undernätets storlek. Detta ger dig 11 användbara adresser. Om programbelastningen kräver mer än 10 instanser, bör du överväga en/27 eller/26 undernätets storlek.
+Se [Application Gateway-undernätet storlek överväganden](https://docs.microsoft.com/azure/application-gateway/configuration-overview#size-of-the-subnet) att förstå storleken på undernätet krävs för distributionen.
 
 ### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>F. Kan jag distribuera fler än en Application Gateway-resurs till ett enda undernät?
 
 Ja, förutom att ha flera instanser av en viss Application Gateway-distribution, kan du etablera en annan unik Application Gateway-resurs i ett befintligt undernät som innehåller en annan resurs i Application Gateway.
 
-Blanda Standard_v2 och Standard Application Gateway i samma undernät stöds inte. Dessutom om autoskalning är aktiverat, kan ett undernät bara ha en application gateway.
+Blanda Standard_v2 och Standard Application Gateway i samma undernät stöds inte.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Application Gateway har stöd för x-vidarebefordrade-för-huvuden?
 
@@ -152,13 +149,7 @@ Nej, men du kan distribuera andra application gatewayer i undernätet.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Stöds Nätverkssäkerhetsgrupper på application gateway-undernät?
 
-Nätverkssäkerhetsgrupper (NSG) stöds i application gateway-undernätet med följande begränsningar:
-
-* Undantag måste placeras i inkommande trafik på portarna 65503 65534 för Application Gateway v1-SKU och portar 65200 – 65535 för v2-SKU. Den här portintervall krävs för Azures infrastrukturkommunikation. De är skyddade (låsta) med Azure-certifikat. Utan rätt certifikat kommer går externa entiteter, inklusive kunderna till dessa gateways, inte att initiera alla ändringar på dessa slutpunkter.
-
-* Det går inte att blockera utgående internet-anslutning. Utgående standardregler i NSG: N kan redan ansluten till internet. Vi rekommenderar att du inte tar bort utgående standardregler och att du inte skapar andra utgående regler som nekar utgående internet-anslutning.
-
-* Trafik från taggen AzureLoadBalancer måste tillåtas.
+Se [Nätverkssäkerhetsgrupper begränsningar för Application Gateway-undernätet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-supported-on-the-application-gateway-subnet) Lär dig mer om Nätverkssäkerhetsgrupper som stöds på application gateway-undernätet.
 
 ### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>Användardefinierade vägar stöds på application gateway-undernät?
 
@@ -190,7 +181,7 @@ Anpassade avsökningar stöder inte jokertecken eller regex på svarsdata.
 
 ### <a name="how-are-rules-processed"></a>Hur bearbetas regler?
 
-Regler bearbetas i den ordning som de är konfigurerade. Du rekommenderas att multisite regler konfigureras innan grundläggande regler för att minska risken att trafik dirigeras till olämplig serverdelen som grundläggande regel matchar trafik baserat på port innan multisite-regeln som utvärderas.
+Se [ordningen på bearbetar regler](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-rules) för att förstå hur routning regler är processer i Application Gateway.
 
 ### <a name="what-does-the-host-field-for-custom-probes-signify"></a>Vad fältet värden för anpassade avsökningar en obestämd?
 
@@ -356,7 +347,7 @@ Vi har också publicerat en Resource Manager-mall som installerar och kör popul
 
 ### <a name="backend-health-returns-unknown-status-what-could-be-causing-this-status"></a>Serverdelens hälsotillstånd returnerar okänd status, vad som kan vara orsaken denna status?
 
-Den vanligaste orsaken är blockeras åtkomsten till serverdelen av en NSG eller anpassad DNS. Se [serverdelens hälsotillstånd, diagnostikloggning och mått för Application Gateway](application-gateway-diagnostics.md) vill veta mer.
+Den vanligaste orsaken är åtkomst till serverdelen blockeras av en NSG, anpassad DNS, eller om du har en UDR på application gateway-undernätet. Se [serverdelens hälsotillstånd, diagnostikloggning och mått för Application Gateway](application-gateway-diagnostics.md) vill veta mer.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: bf2f2db57f33645389fd751c8c00f9f135416c50
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9570982e18f2698400c2798dd3e29b0ca6160b8c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864141"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309750"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline Widevine för direktuppspelning för Android  
 
@@ -153,7 +153,7 @@ Om du uppgraderar mobila webbläsaren Chrome till v62 (eller högre) på en Andr
 
 Appen PWA ovan öppen källkod har skrivits i Node.js. Om du vill ha en egen version på en Ubuntu-server, Tänk på följande vanliga påträffades problem som kan förhindra att spela upp:
 
-1. CORS-problem: Exemplet video i exempelappen finns i https://storage.googleapis.com/biograf-video-files/videos/. Google har ställt in CORS för alla sina test-exempel finns i Google Cloud Storage bucket. De hanteras med CORS-huvuden, att uttryckligen ange CORS-post: https://biograf-155113.appspot.com (domän i vilken google är värd för sin exemplet) att förhindra åtkomst av andra platser. Om du, visas följande HTTP-fel: Det gick inte att läsa in https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: ingen ”Access-Control-Allow-Origin”-rubrik finns på den begärda resursen. Ursprung ”https://13.85.80.81:8080” är därför inte tillåten åtkomst. Om ett täckande svar har dina behov, Ställ in på begäran för 'Nej cors' att hämta resursen med CORS inaktiverad.
+1. CORS-problem: Exemplet video i exempelappen finns i https://storage.googleapis.com/biograf-video-files/videos/. Google har ställt in CORS för alla sina test-exempel finns i Google Cloud Storage bucket. De hanteras med CORS-huvuden, att uttryckligen ange CORS-post: https://biograf-155113.appspot.com (domän i vilken google är värd för sin exemplet) att förhindra åtkomst av andra platser. Om du, visas följande HTTP-fel: Det gick inte att läsa in https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: ingen ”Access-Control-Allow-Origin”-rubrik finns på den begärda resursen. Ursprung ”https:\//13.85.80.81:8080' är därför inte tillåten åtkomst. Om ett täckande svar har dina behov, Ställ in på begäran för 'Nej cors' att hämta resursen med CORS inaktiverad.
 2. Problemet med certifikatet: EME för Widevine kräver från Chrome v 58 HTTPS. Du måste därför vara värd för exempelappen över HTTPS med ett X509 certifikat. Ett vanligt testcertifikat fungerar inte på grund av följande krav: Du måste skaffa ett certifikat som uppfyller minimikraven för följande:
     - Chrome och Firefox kräver SAN det alternativa ämnesnamnet inställningen finns i certifikatet
     - Certifikatet måste ha betrott CA och ett självsignerat utvecklingscertifikat fungerar inte

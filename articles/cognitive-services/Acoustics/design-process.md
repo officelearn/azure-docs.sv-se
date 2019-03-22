@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: dd27b660dfdd1f4bcec89291b10fd87750ad4c49
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 4a1a0b15da091a1c020eb132f6b14b9ee14d334c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136164"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316090"
 ---
 # <a name="project-acoustics-design-process-concepts"></a>Projektet Akustik designbegrepp Process
 
@@ -29,7 +29,7 @@ I en interaktiv rubrik, när ljud och lyssnare flyttar i hela 3D-utrymmet, hur p
 
 3D-rubriker använda belysning och kinematiska fysik-system som motiveras av fysik men designer justeras att uppnå en blandning av introduktion och spelupplevelse mål. Ett visuellt designverktyg Ange inte enskilda pixelvärden, men i stället justerar 3D-modeller, material och ljus transportsystem som är alla fysiskt-baserade att byta ut visual estetik och CPU-kostnader. Vad skulle vara motsvarande processen för ljud? Projektet Akustik är ett första steg i att utforska av den här frågan. Först ska vi pratar vad det innebär att transportera akustiska energi genom ett blanksteg.
 
-![eko zoner](media/reverb-zones-altspace.png)
+![Skärmbild av AltSpace scen i ett lager med eko zoner](media/reverb-zones-altspace.png)
 
 ## <a name="impulse-responses-acoustically-connecting-two-points-in-space"></a>Impuls svar: Akustiskt ansluter två punkter i utrymmet
 
@@ -45,7 +45,7 @@ En impuls svaret innehåller varje intressanta (och varje ointressanta) akustisk
 
 Men om simuleringen är ansluten direkt till ljud DSP-parametrar, där är designer justering? Vad vi får? Bra, får vi en betydande mängd minne igen genom att kasta impuls svar och behålla några DSP-parametrar. Och för att ge designern del ström över slutresultatet, behöver vi bara hitta ett sätt att infoga designer mellan simuleringen och ljud DSP.
 
-![impuls svarsparametrar](media/acoustic-parameters.png)
+![Diagram med snygg impuls svar med parametrar som ett överlägg](media/acoustic-parameters.png)
 
 ## <a name="sound-design-by-transforming-audio-dsp-parameters-from-simulation"></a>Bra design genom att omvandla ljud DSP-parametrar från simulering
 

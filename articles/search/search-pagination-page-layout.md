@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ef29dafe32c3c5988cd33f59c8436eeef4b45886
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7a4423449931b74afa15ca238c611f54b071402f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849286"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339303"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Hur du arbetar med sökning resulterar i Azure Search
 Den här artikeln innehåller råd om hur du implementerar standardelement på en sökresultatsida, till exempel totala antalet, hämta dokument, sorteringsordningar och navigering. Sidan-relaterade alternativ som bidrar data eller information till dina sökresultat anges via den [Dokumentsökningsoperationer](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) begäranden som skickas till din Azure Search-tjänst. 
@@ -25,8 +25,8 @@ Förfrågningar innehålla en GET-command, sökväg, och frågeparametrar som in
 Kodexempel är ett webbgränssnitt för klientdelen som du hittar här: [New York City jobb demoappen](https://azjobsdemo.azurewebsites.net/) och [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
-> En giltig begäran innehåller ett antal element, till exempel en tjänstens URL och en sökväg, HTTP-verb `api-version`och så vidare. Av utrymmesskäl trimmas vi exemplen för att fokusera på just den syntax som är relevant för sidbrytning. Mer information om syntax som begäran finns i [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice). > 
-> 
+> En giltig begäran innehåller ett antal element, till exempel en tjänstens URL och en sökväg, HTTP-verb `api-version`och så vidare. Av utrymmesskäl trimmas vi exemplen för att fokusera på just den syntax som är relevant för sidbrytning. Mer information om syntax som begäran finns i [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice).
+>
 
 ## <a name="total-hits-and-page-counts"></a>Totalt antal träffar och Sidräkningar
 Visar det totala antalet resultat som returnerats från en fråga och returnerar sedan dessa resultat i mindre segment är grundläggande för i stort sett alla söksidor.

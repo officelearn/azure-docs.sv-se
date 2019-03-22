@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
-ms.openlocfilehash: 4133379ff7c1c0a64bd2d9aefdafdd5cdb530491
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 91b694070147cb0591bcc1763905f471161bf07b
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875076"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336770"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-containerapp i Windows
 
@@ -153,7 +153,7 @@ Om kommandot inte returnerar något, kör du följande kommando och inspekterar 
 docker inspect my-web-site
 ```
 
-Anslut till den container som körs. Öppna en webbläsare som pekar på den returnerade IP-adressen, till exempel ”<http://172.31.194.61>”. Nu visas normalt rubriken "Hello World!" i webbläsaren.
+Anslut till den container som körs. Öppna en webbläsare och gå till IP-adressen returneras, till exempel ”http:\//172.31.194.61”. Nu visas normalt rubriken "Hello World!" i webbläsaren.
 
 Om du vill stoppa containern kör du:
 
@@ -360,10 +360,12 @@ Service Fabric använder sedan standardautentiseringsuppgifter för databasen so
 * IsDefaultContainerRepositoryPasswordEncrypted (bool)
 * DefaultContainerRepositoryPasswordType (sträng)---stöds från och med 6.4 runtime
 
-Här är ett exempel på vad du kan lägga till i den `Hosting` -avsnittet i ClusterManifestTemplate.json. Mer information finns i [ändra Azure Service Fabric-klusterinställningar](service-fabric-cluster-fabric-settings.md) och [hantera Azure Service Fabric-programhemligheter](service-fabric-application-secret-management.md)
+Här är ett exempel på vad du kan lägga till i den `Hosting` -avsnittet i ClusterManifestTemplate.json. Den `Hosting` avsnittet kan läggas till i klustret har skapats eller senare i en uppgradering av configuration. Mer information finns i [ändra Azure Service Fabric-klusterinställningar](service-fabric-cluster-fabric-settings.md) och [hantera Azure Service Fabric-programhemligheter](service-fabric-application-secret-management.md)
 
 ```json
-      {
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -388,6 +390,7 @@ Här är ett exempel på vad du kan lägga till i den `Hosting` -avsnittet i Clu
           }
         ]
       },
+]
 ```
 
 ## <a name="configure-isolation-mode"></a>Konfigurera isoleringsläge
@@ -618,10 +621,12 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>Ställ in tidsintervall innan containern tvångsavslutas
 
-Du kan ställa in ett tidsintervall för hur lång exekveringstid som ska gå innan containern tas bort när borttagning av tjänsten (eller flytt till en annan nod) har påbörjats. När du ställer in ett tidsintervall skickas kommandot `docker stop <time in seconds>` till containern.  Mer information finns i [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). Tidsintervallet anges i avsnittet `Hosting`. I följande klustermanifestutdrag visas hur du ställer in väntetidsintervallet:
+Du kan ställa in ett tidsintervall för hur lång exekveringstid som ska gå innan containern tas bort när borttagning av tjänsten (eller flytt till en annan nod) har påbörjats. När du ställer in ett tidsintervall skickas kommandot `docker stop <time in seconds>` till containern.  Mer information finns i [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). Tidsintervallet anges i avsnittet `Hosting`. Den `Hosting` avsnittet kan läggas till i klustret har skapats eller senare i en uppgradering av configuration. I följande klustermanifestutdrag visas hur du ställer in väntetidsintervallet:
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -630,7 +635,8 @@ Du kan ställa in ett tidsintervall för hur lång exekveringstid som ska gå in
           },
           ...
         ]
-}
+    }
+]
 ```
 Standardtidsintervallet är inställt på 10 sekunder. Eftersom inställningen är dynamisk uppdateras tidsgränsen med en konfigurationsuppdatering på klustret. 
 
@@ -641,7 +647,9 @@ Du kan ställa in Service Fabric-klustret på att ta bort oanvända containeravb
 
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -655,7 +663,8 @@ Du kan ställa in Service Fabric-klustret på att ta bort oanvända containeravb
           ...
           }
         ]
-} 
+    } 
+]
 ```
 
 Avbildningar som inte ska raderas kan du ange under parametern `ContainerImagesToSkip`.  
@@ -666,7 +675,9 @@ Avbildningar som inte ska raderas kan du ange under parametern `ContainerImagesT
 Service Fabric-körningen tilldelar 20 minuter för att ladda ned och extrahera containeravbildningar, vilket fungerar för de flesta containeravbildningar. För stora avbildningar, eller om nätverksanslutningen är långsam, kan det vara nödvändigt att öka den tid körningen väntar innan nedladdning och extrahering av avbildningen avbryts. Den här timeouten anges med attributet **ContainerImageDownloadTimeout** i avsnittet **Hosting** i klustermanifestet, på det sätt som visas i följande kodavsnitt:
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -674,7 +685,8 @@ Service Fabric-körningen tilldelar 20 minuter för att ladda ned och extrahera 
               "value": "1200"
           }
         ]
-}
+    }
+]
 ```
 
 
@@ -694,7 +706,9 @@ Du kan starta Docker-daemon med anpassade argument med version 6.2 eller högre 
  
 
 ```json
-{ 
+"fabricSettings": [
+    ...,
+    { 
         "name": "Hosting", 
         "parameters": [ 
           { 
@@ -702,8 +716,8 @@ Du kan starta Docker-daemon med anpassade argument med version 6.2 eller högre 
             "value": "-H localhost:1234 -H unix:///var/run/docker.sock" 
           } 
         ] 
-} 
-
+    } 
+]
 ```
 
 ## <a name="next-steps"></a>Nästa steg

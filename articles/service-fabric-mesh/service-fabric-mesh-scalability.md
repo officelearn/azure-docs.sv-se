@@ -3,18 +3,18 @@ title: Skalbarheten i Azure Service Fabric nät appar | Microsoft Docs
 description: Mer information om skalning tjänster i Azure Service Fabric-nät.
 services: service-fabric-mesh
 keywords: ''
-author: rwike77
-ms.author: ryanwi
+author: dkkapur
+ms.author: dekapur
 ms.date: 10/26/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: c58961011231f74b09abdf313b8624ddc8ad52c1
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 1688cac35ea9de43bac529a4994bd4ea55eb0ab7
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892575"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339095"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Skala Service Fabric-nät program
 

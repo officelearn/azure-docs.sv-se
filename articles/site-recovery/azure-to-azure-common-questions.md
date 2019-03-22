@@ -4,30 +4,19 @@ description: Den här artikeln sammanfattas vanliga frågor när du konfigurerar
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 12/12/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: bf7a8ea00fe94e6896c097b8e27c22c0831f71da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 2c1890570f153de68d187c37dc0a7bca156c2d47
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008649"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312061"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Vanliga frågor: Azure till Azure replikering
 
 Den här artikeln innehåller svar på vanliga frågor om hur du distribuerar haveriberedskap (DR) för virtuella Azure-datorer till en annan Azure-region med hjälp av Azure Site Recovery. Om du har frågor när du har läst den här artikeln kan publicera dem på den [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
-
-
-## <a name="in-this-article"></a>Innehåll i artikeln 
-1.  **[Allmänna frågor om Azure till Azure](#general)** 
-1.  **[Replikering](#replication)** 
-1.  **[Replikeringsprincip](#replication-policy)** 
-1.  **[Konsekvens](#multi-vm-consistency)** 
-1.  **[Återställningsplan](#recovery-plan)** 
-1.  **[Återaktivering av skydd och återställning efter fel](#reprotection-and-failback)** 
-2.  **[Kapacitet](#capacity)**
-1.  **[Säkerhet](#security)** 
 
 
 ## <a name="general"></a>Allmänt
@@ -136,7 +125,7 @@ Den första återställningspunkten som skapas har fullständig kopia. Alla efte
 ### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>Kan du öka lagringskostnaderna genom att öka kvarhållningsperioden för återställningspunkter?
 Ja. Om du ökar kvarhållningsperioden från 24 timmar till 72 timmar, sparar Site Recovery återställningspunkterna för en ytterligare 48 timmar. Extra tid tillkommer lagringskostnader. Till exempel om en enda återställningspunkt har deltaändringar på 10 GB och kostnaden per GB är $0.16 per månad, blir ytterligare avgifter $1.6 * 48 per månad.
 
-## <a name="multi-vm-consistency"></a>Konsekvens 
+## <a name="multi-vm-consistency"></a>Multi-VM-konsekvens 
 
 ### <a name="what-is-multi-vm-consistency"></a>Vad är konsekvens?
 Det innebär att se till att återställningspunkten är konsekvent för alla replikerade virtuella datorer.
@@ -186,7 +175,7 @@ Du kan utlösa redundans efter avbrottet. Site Recovery behöver ingen anslutnin
 ### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>Vad är en RTO av redundans för en virtuell dator?
 Site Recovery har en [RTO serviceavtalet för 2 timmar](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Men växla i de flesta fall, Site Recovery över virtuella datorer på några minuter. Du kan beräkna RTO genom att gå till redundans jobb som visar tid det tog för att ta fram den virtuella datorn. Planera RTO för återställning, finns under avsnitt. 
 
-## <a name="recovery-plan"></a>Återställningsplan
+## <a name="recovery-plans"></a>Återställningsplaner
 
 ### <a name="what-is-a-recovery-plan"></a>Vad är en återställningsplan?
 En återställningsplan i Site Recovery samordnar redundansåterställning av virtuella datorer. Det hjälper till att göra återställningen konsekvent korrekt, upprepningsbara och automatiserade. En återställningsplan löser följande behoven för användaren:

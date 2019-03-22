@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 5ad3d7c27b003fb3963333471bceb3226655a5eb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 559c02e74e97093a15b1d768eb5a3b32502db64e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57874889"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314594"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Självstudier: Skapa ett program med en Java Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst i Service Fabric
 
@@ -912,7 +912,7 @@ Programmet är nu redo att distribueras till ett lokalt Service Fabric-kluster.
 
 4. Högerklicka på projektet **Voting** i Package Explorer för Eclipse och klicka på **Service Fabric -> Publicera program ...** 
 5. I fönstret **Publish Application** (Publicera program) väljer du **Local.json** i listrutan och klickar på **Publish** (Publicera).
-6. Gå till din webbläsare och `http://localhost:8080` att visa programmet som körs i det lokala Service Fabric-klustret. 
+6. Gå till din webbserver webbläsare och åtkomst http:\//localhost:8080 att visa programmet som körs i det lokala Service Fabric-klustret. 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 9d18b1382bdb421afcc8aee92fd99b7ef0d09e32
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: a9baf36221c99ece0703e2caa3f3e6c3b9364480
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540154"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312214"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Självstudie: Skapa en enkelsidig Azure Time Series Insights-webbapp
 
@@ -24,7 +24,7 @@ Den här självstudien vägleder dig genom processen att skapa din egen ensidiga
 > * Registrera ditt program med Azure Active Directory (AD)
 > * Hur du skapar, publicerar och testar ditt webbprogram 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har någon kan du registrera dig för en [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/free/). 
 
@@ -54,7 +54,7 @@ Innan du skapar programmet måste du registrera det med Azure AD. Registreringen
    ---|---
    **Namn** | Ange ett meningsfullt registreringsnamn.  
    **Programtyp** | Eftersom du sammanställer en SPA-webbapp, lämna den som ”Web app/API”.
-   **Inloggnings-URL** | Ange en URL för sidan programmets hem-/inloggningssida. Eftersom programmet ska finnas i Azure App Service (senare), måste du använda en URL i domänen ”https://azurewebsites.net”. I det här exemplet baseras namnet på registreringsnamnet.
+   **Inloggnings-URL** | Ange en URL för sidan programmets hem-/inloggningssida. Eftersom programmet kommer att finnas i Azure App Service (senare), måste du använda en URL inom den ”https:\//azurewebsites.net” domän. I det här exemplet baseras namnet på registreringsnamnet.
 
    När du är klar klickar du på **Skapa** att skapa den nya programregistreringen.
 

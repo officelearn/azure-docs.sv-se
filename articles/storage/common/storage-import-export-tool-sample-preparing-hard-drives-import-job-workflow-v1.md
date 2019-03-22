@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: e183ed5ecda3053ed052952f4db5adfb016bfa68
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b80ba1cbe168270ec591bdd38859408eae387bbf
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459062"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311721"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Exempelarbetsflöde för att förbereda hårddiskar för ett importjobb
 Den här artikeln vägleder dig genom processen med att förbereda enheter för ett importjobb.  
@@ -31,12 +31,12 @@ Importjobbet importerar data till med följande mål i storage-konto:
   
 |Källa|Virtuell katalog för mål- eller blob|  
 |------------|-------------------------------------------|  
-|H:\Video|https://mystorageaccount.blob.core.windows.net/video|  
-|H:\Photo|https://mystorageaccount.blob.core.windows.net/photo|  
-|K:\Temp\FavoriteMovie.ISO|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
-|\\\bigshare\john\music|https://mystorageaccount.blob.core.windows.net/music|  
+|H:\Video|https:\//mystorageaccount.blob.core.windows.net/video|  
+|H:\Photo|https:\//mystorageaccount.blob.core.windows.net/photo|  
+|K:\Temp\FavoriteMovie.ISO|https:\//mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
+|\\\bigshare\john\music|https:\//mystorageaccount.blob.core.windows.net/music|  
   
-Med den här mappningen filen `H:\Video\Drama\GreatMovie.mov` har importerats till bloben `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.  
+Med den här mappningen filen `H:\Video\Drama\GreatMovie.mov` har importerats till blob-https:\//mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov.  
   
 Därefter för att avgöra hur många hårddiskar behövs, beräkna storleken på data:  
   
@@ -46,11 +46,11 @@ I det här exemplet bör två 3 TB-hårddiskar vara tillräckliga. Eftersom käl
   
 |Plats|Storlek|Virtuell katalog för mål- eller blob|  
 |--------------|----------|-------------------------------------------|  
-|H:\Video1|2,5 TB|https://mystorageaccount.blob.core.windows.net/video|  
-|H:\Video2|2,5 TB|https://mystorageaccount.blob.core.windows.net/video|  
-|H:\Photo|30 GB|https://mystorageaccount.blob.core.windows.net/photo|  
-|K:\Temp\FavoriteMovies.ISO|25 GB|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
-|\\\bigshare\john\music|10 GB|https://mystorageaccount.blob.core.windows.net/music|  
+|H:\Video1|2,5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  
+|H:\Video2|2,5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  
+|H:\Photo|30 GB|https:\//mystorageaccount.blob.core.windows.net/photo|  
+|K:\Temp\FavoriteMovies.ISO|25 GB|https:\//mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
+|\\\bigshare\john\music|10 GB|https:\//mystorageaccount.blob.core.windows.net/music|  
   
  Även om den `H:\Video`directory har delats till två kataloger som de pekar på samma virtuella målkatalogen i lagringskontot. På så sätt kan alla videofiler bevaras under en enda `video` behållare i lagringskontot.  
   

@@ -1,5 +1,5 @@
 ---
-title: Kom igång Azure MFA i molnet
+title: Kom igång Azure MFA i molnet – Azure Active Directory
 description: Microsoft Azure Multi-Factor Authentication Kom igång med villkorlig åtkomst
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07e98d5a93b8576c06e9be8274a974b1b574da4b
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 0e6b5f9e0f69184e61c224dc7951dc0cac0ec054
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217758"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312316"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Distribuera molnbaserad Azure Multi-Factor Authentication
 

@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: celested
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 225676b144d042c51a97fe14a20a5a78f0a77244
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 623d684f701df8b1a7c4b84a2bd3840f039ad174
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013092"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312707"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problem som loggar in på en galleriprogram som konfigurerats för federerad enkel inloggning
 
@@ -33,7 +33,7 @@ Om du vill felsöka de problem med användarinloggning nedan, rekommenderar vi a
 
 ## <a name="application-not-found-in-directory"></a>Program som inte finns i katalogen
 
-*Fel AADSTS70001: Program med identifierare 'https://contoso.com' hittades inte i katalogen*.
+*Fel AADSTS70001: Program med identifierare ' https:\//contoso.com' hittades inte i katalogen*.
 
 **Möjlig orsak**
 
@@ -63,7 +63,7 @@ Se till att den `Issuer` attribut i SAML-begäran matchar identifierarvärde som
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Svarsadressen matchar inte de svarsadresser som har konfigurerats för programmet
 
-*Fel AADSTS50011: Svarsadressen https://contoso.com' matchar inte svars-adresser som har konfigurerats för programmet*
+*Fel AADSTS50011: Svarsadressen ' https:\//contoso.com' matchar inte svars-adresser som har konfigurerats för programmet*
 
 **Möjlig orsak**
 

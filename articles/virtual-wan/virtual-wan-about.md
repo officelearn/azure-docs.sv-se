@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 6f2f002c5ff08e21741927d07a0facfd09ec0914
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: 6dae42dcc8b74b682c7226916482228058db6154
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295699"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336260"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Vad är Azure Virtual WAN?
 
@@ -21,7 +21,7 @@ Azure virtuellt WAN-nätverk är en nätverkstjänst som tillhandahåller optime
 
 Azure virtuellt WAN-nätverk innehåller många Azure-molnet anslutning tjänster, till exempel plats-till-plats VPN (allmänt tillgänglig), ExpressRoute (förhandsversion) användare punkt-till-plats VPN (förhandsversion) i ett enda gränssnitt som fungerar. Upprätta en anslutning till virtuella Azure-nätverk är med hjälp av virtuella nätverksanslutningar.
 
-![Virtual WAN-diagram](./media/virtual-wan-about/vwangraphic.png)
+![Virtual WAN-diagram](./media/virtual-wan-about/virtualwan1.png)
 
 Den här artikeln ger en snabb överblick över nätverksanslutningar i Azure virtuellt WAN-nätverk. Virtual WAN har följande fördelar:
 
@@ -71,7 +71,7 @@ En lista över tillgängliga partner och platser finns i den [virtuella WAN-part
 
 ### <a name="p2s"></a>Punkt-till-plats VPN-anslutningar (förhandsversion)
 
-En P2S-anslutning (punkt-till-plats) kan du skapa en säker anslutning till ditt virtuella nätverk från en enskild klientdator. En P2S-anslutning upprättas genom att du startar den från klientdatorn. Den här lösningen är praktisk för distansarbetare som vill ansluta från en fjärransluten plats, t.ex. hemifrån eller från en konferens. VPN för punkt-till-plats är också ett bra alternativ till VPN för plats-till-plats om du bara har ett fåtal klienter som behöver ansluta.
+En anslutning för punkt-till-plats (P2S) kan du skapa en säker anslutning till din virtuella hubben från en enskild klientdator. En P2S-anslutning upprättas genom att du startar den från klientdatorn. Den här lösningen är praktisk för distansarbetare som vill ansluta från en fjärransluten plats, t.ex. hemifrån eller från en konferens. VPN för punkt-till-plats är också ett bra alternativ till VPN för plats-till-plats om du bara har ett fåtal klienter som behöver ansluta.
 
 För att skapa anslutningen, se [skapa en punkt-till-plats-anslutning med virtuellt WAN-nätverk](virtual-wan-point-to-site-portal.md).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: d2e890110194b1fbe0528191fa645628cc3a1345
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9da735f10063649222a38498af17e0404137a706
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161370"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315376"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Utveckla C# Service Fabric-program med Visual Studio Code
 
@@ -70,11 +70,11 @@ När du har skapat programmet kan distribuera du den till det lokala klustret.
 
    ![Distribuera programmet kommandot i VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
-4. När distributionen är klar, starta en webbläsare och öppna Service Fabric Explorer: http://localhost:19080/Explorer. Du bör se att programmet körs. Det kan ta lite tid, så ha tålamod. 
+4. När distributionen är klar, starta en webbläsare och öppna Service Fabric Explorer: http:\//localhost:19080 / Explorer. Du bör se att programmet körs. Det kan ta lite tid, så ha tålamod. 
 
    ![Räknaren tjänstprogram i Service Fabric Explorer](./media/service-fabric-develop-csharp-applications-with-vs-code/sfx-verify-deploy.png)
 
-4. När du har kontrollerat programmet körs, starta en webbläsare och öppna den här sidan: http://localhost:31002. Det här är en webbklient för programmet. Uppdatera sidan om du vill se det aktuella värdet för räknaren som ökas.
+4. När du har kontrollerat programmet körs, starta en webbläsare och öppna den här sidan: http:\//localhost:31002. Det här är en webbklient för programmet. Uppdatera sidan om du vill se det aktuella värdet för räknaren som ökas.
 
    ![Räknaren tjänstprogram i webbläsare](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
 
@@ -91,7 +91,7 @@ Om du vill ange en brytpunkt och felsökning, gör du följande:
 
    ![Felsöka ikon i VS Code-arbetsyta](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. Öppna Service Fabric Explorer i en webbläsare: http://localhost:19080/Explorer. Klicka på **program** och öka detaljrikedomen för att fastställa den primära noden som CounterService körs på. I bilden nedan den primära noden för CounterService är noden 0.
+3. Öppna Service Fabric Explorer i en webbläsare: http:\//localhost:19080 / Explorer. Klicka på **program** och öka detaljrikedomen för att fastställa den primära noden som CounterService körs på. I bilden nedan den primära noden för CounterService är noden 0.
 
    ![Primära noden för CounterService](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 

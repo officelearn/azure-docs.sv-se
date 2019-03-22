@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 1a07661d97561319b847323981dd2aa8522b0e84
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537600"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337875"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Skapa ett grundläggande index i Azure Search
 
@@ -46,7 +46,7 @@ Rätt index-design som kommer uppnås vanligtvis via flera iterationer. Använda
 
 6. Fortsätt att använda kod till att iterera över din design.  
 
-Eftersom fysiska strukturer skapas i tjänsten [släppa och återskapa index](search-howto-reindex.md) är nödvändigt när du gör betydande ändringar av ab befintliga definitionen för fältet. Det innebär att under utvecklingen, bör du planera på ofta behöver. Kan du arbeta med en delmängd av dina data så återskapar gå snabbare. 
+Eftersom fysiska strukturer skapas i tjänsten [släppa och återskapa index](search-howto-reindex.md) är nödvändigt när du gör betydande ändringar av en befintlig fältdefinition. Det innebär att under utvecklingen, bör du planera på ofta behöver. Kan du arbeta med en delmängd av dina data så återskapar gå snabbare. 
 
 Koden i stället för en portal metod som rekommenderas för upprepad konstruktion. Om du förlitar dig på portalen för indexdefinitionen, måste du fylla i indexdefinitionen på varje återskapning. Alternativt kan verktyg som [Postman och REST API](search-fiddler.md) är användbara för proof-of-concept testning när utvecklingsprojekt är fortfarande under tidiga faser. Du kan göra inkrementella ändringar i en Indexdefinition i en begärandetext och skicka begäran till din tjänst att återskapa ett index med en uppdaterade schemat.
 

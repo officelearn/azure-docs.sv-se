@@ -1,0 +1,98 @@
+---
+title: Skapa en klient i Windows virtuellt skrivbord (förhandsversion), Azure
+description: Beskriver hur du konfigurerar virtuella skrivbordet i Windows-klienter i Azure Active Directory.
+services: virtual-desktop
+author: Heidilohr
+ms.service: virtual-desktop
+ms.topic: tutorial
+ms.date: 03/21/2019
+ms.author: helohr
+ms.openlocfilehash: 2dafb58a805a2da89852c84ebad08f1c495adb83
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318122"
+---
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Självstudier: Skapa en klient i virtuella Windows-skrivbordet (förhandsversion)
+
+Skapa en klient i virtuella Windows-skrivbordet (förhandsversion) är det första steget mot att bygga ut din skrivbordsvirtualisering-lösning. En klient är en grupp med en eller flera värden pooler. Varje värd-pool består av flera session värdar som körs som virtuella datorer i Azure och registrerats hos tjänsten virtuella Windows-skrivbordet. Varje värd-pool består även av en eller flera appgrupper som används för att publicera fjärrprogram för fjärrskrivbord och resurser för användare. Med en klient kan du bygga ut värden pooler, skapa app-grupper, tilldela användare och skapa anslutningar via tjänsten.
+
+I den här självstudiekursen får du lära du dig att:
+
+> [!div class="checklist"]
+> * Bevilja Azure Active Directory-behörigheter till virtuella skrivbord i Windows-tjänsten.
+> * Tilldela rollen TenantCreator program till en användare i din Azure Active Directory-klient.
+> * Skapa ett virtuellt skrivbord i Windows-klient.
+
+Här är vad du behöver att konfigurera din virtuella skrivbordet i Windows-klient:
+
+* Den [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) klient-ID för Windows virtuellt skrivbord användare.
+* Ett globalt administratörskonto i Azure Active Directory-klient.
+   * Detta gäller även för Cloud Solution Provider (CSP) organisationer som skapar ett virtuellt skrivbord i Windows-klient för sina kunder. Om du är en CSP-organisation, måste du kunna logga in som global administratör för kundens Azure Active Directory.
+* En Azure-prenumerations-ID
+
+## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-service"></a>Bevilja Azure Active Directory-behörigheter till tjänsten Windows virtuellt skrivbord
+
+Om du redan har beviljat behörigheter till virtuella Windows-skrivbordet för den här Azure Active Directory, kan du hoppa över det här avsnittet.
+
+Bevilja behörigheter till virtuella skrivbord i Windows-tjänsten kan den fråga efter Azure Active Directory för administrativa och slutanvändarnas aktiviteter.
+
+För att ge Tjänstbehörigheter:
+
+1. Öppna en webbläsare och Anslut till den [virtuella Windows-skrivbordet samtyckessida](https://rdweb.wvd.microsoft.com).
+2. För **godkänna alternativet** > **Serverapp**, ange namn för Azure Active Directory-klient eller katalog-ID och välj sedan **skicka**.
+        ID: T är kundens Microsoft-ID från partnerportalen för Cloud Solution Provider-kunder. För företagskunder, ID: T finns under **Azure Active Directory** > **egenskaper** > **katalog-ID**.
+3. Logga in på det virtuella Windows-skrivbordet medgivande sida med ett globalt administratörskonto. Till exempel om du har med Contoso-organisationen ditt konto kanske admin@contoso.com eller admin@contoso.onmicrosoft.com.  
+4. Välj **Acceptera**.
+5. Vänta en minut.
+6. Gå tillbaka till den [virtuella Windows-skrivbordet samtyckessida](https://rdweb.wvd.microsoft.com).
+7. Gå till **godkänna alternativet** > **Klientappen**, anger du samma Azure AD-klientnamn eller katalog-ID och välj sedan **skicka**.
+8. Logga in på virtuella Windows-skrivbordet samtyckessida som global administratör som du gjorde i steg 3.
+9. Välj **Acceptera**.
+
+## <a name="assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant"></a>Tilldela rollen TenantCreator program till en användare i din Azure Active Directory-klient
+
+Programroll TenantCreator kan genom att tilldela en Azure Active Directory-användare användaren skapa ett virtuellt skrivbord i Windows-klient som är associerade med Azure Active Directory. Du måste du tilldela rollen TenantCreator till ditt globala administratörskonto.
+
+Tilldela rollen TenantCreator tillämpning för ditt globala administratörskonto:
+
+1. Öppna en webbläsare och Anslut till den [Azure Active Directory-portalen](https://aad.portal.azure.com) med ditt globala administratörskonto.
+   - Om du arbetar med flera Azure AD-klienter, är det bäst att öppna en privat webbläsarsession och kopiera och klistra in URL: er i adressfältet.
+2. Välj **företagsprogram**, Sök efter **virtuella Windows-skrivbordet** och väljer önskat program.
+3. Välj **användare och grupper**och välj sedan **Lägg till användare**.
+4. Välj användare och grupper i den **Lägg till tilldelning** bladet
+5. Sök efter ett användarkonto som kommer att skapa din virtuella skrivbordet i Windows-klient. 
+   - Detta kan vara kontot som global administratör för enkelhetens skull.
+6. Välj användarkontot, klickar du på den **Välj** och välj sedan **tilldela**.
+
+## <a name="create-a-windows-virtual-desktop-tenant"></a>Skapa ett virtuellt skrivbord i Windows-klient
+
+Nu när du har beviljats behörigheter för virtuellt skrivbord i Windows-tjänsten att fråga efter Azure Active Directory och har tilldelats rollen TenantCreator till ett användarkonto kan skapa du ett virtuellt skrivbord i Windows-klient.
+
+Först [hämta och importera modulen Windows virtuellt skrivbord](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) ska användas i PowerShell-sessionen om du inte redan har gjort.
+
+Logga in på Windows virtuella skrivbord som använder användarkontot TenantCreator med denna cmdlet:
+
+```powershell
+Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
+```
+
+Därefter skapar du en ny virtuellt skrivbord i Windows-klient som är associerade med Azure Active Directory-klient:
+
+```powershell
+New-RdsTenant -Name <TenantName> -AadTenantId <DirectoryID> -AzureSubscriptionId <SubscriptionID>
+```
+
+Inom hakparenteser värdena ska ersättas med värden som är relevanta för din organisation och klient. Anta exempelvis att du är Windows Virtual Desktop TenantCreator för Contoso-organisationen. Kör du cmdlet: en ut så här:
+
+```powershell
+New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999
+```
+
+## <a name="next-steps"></a>Nästa steg
+
+När du har skapat din klient, måste du göra en värd-pool. Om du vill veta mer om värden pooler kan du fortsätta till självstudien för att skapa en pool med värden i virtuella Windows-skrivbordet.
+
+> [!div class="nextstepaction"]
+> [Virtuella Windows-skrivbordet värd pool självstudien](./create-host-pools-azure-marketplace.md)

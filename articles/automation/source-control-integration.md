@@ -6,21 +6,21 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2019
+ms.date: 03/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5b8ec726c81dfab710d30c37d6fb1aac97c12265
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: c689a8fe35133456c476106e96336420640ebf66
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293983"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335988"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Källkontrollintegrering i Azure Automation
 
 Källkontroll kan du behålla dina runbooks i ditt Automation-konto är uppdaterade med skripten i centrallagret för källkontroll GitHub eller Azure-databaser. Källkontroll kan du enkelt kan samarbeta med ditt team, spåra ändringar och återställa tidigare versioner av dina runbooks. Till exempel kan källkontroll du synkronisera olika grenar i källkontrollen till ditt Automation-konton som utveckling, testning eller produktion. Detta gör det enkelt att flytta upp kod som har testats i din utvecklingsmiljö till din Automation-konto i produktionsmiljön. Källkontrollsintegrering med automation har stöd för en riktning som synkroniseras från centrallagret för källkontroll.
 
-Azure Automation har stöd för 3 typer av källkontroll:
+Azure Automation stöder tre typer av källkontroll:
 
 * GitHub
 * Azure-lagringsplatser (Git)
@@ -30,6 +30,7 @@ Azure Automation har stöd för 3 typer av källkontroll:
 
 * Ett källkontrollscentrallager (GitHub eller Azure-databaser)
 * En [kör som-konto](manage-runas-account.md)
+* Kontrollera att du har den [senaste Azure-modulerna](automation-update-azure-modules.md) i ditt Automation-konto
 
 > [!NOTE]
 > Synkronisering för källkontrolljobb körs under användare Automation-konto och debiteras enligt samma taxa som andra Automation-jobb.
@@ -49,7 +50,7 @@ På den **källa kontroll sammanfattning** sidan, Fyll i informationen och klick
 |Namn på datakälla kontroll     | Ett eget namn för källkontrollen        |
 |Källkontrolltyp     | Typ av kontroll av källa. De tillgängliga alternativen är:</br> GitHub</br>Azure-lagringsplatser (Git)</br> Azure-lagringsplatser (TFVC)        |
 |Lagringsplats     | Namnet på databasen eller projekt. De första 200 lagringsplatserna returneras. För att söka efter en lagringsplats, skriver du namnet i fältet och klickar på **Sök på GitHub**.|
-|Branch     | Den gren som ska hämta källfiler från. Gren mål är inte tillgänglig för TFVC-källkontrollstypen.          |
+|Branch     | Den gren som ska hämta källfiler från. Gren mål är inte tillgängligt för TFVC-källkontrollstypen.          |
 |Mappsökväg     | Den mapp som innehåller runbooks för att synkronisera. Exempel: /Runbooks </br>*Endast runbooks i mappen som specificerats synkroniseras. Rekursion stöds inte.*        |
 |Automatisk synkronisering     | Aktiverar eller inaktivera automatisk synkronisering när ett genomförande görs i källkontroll         |
 |Publicera Runbook     | Om inställd **på**, när runbooks har synkroniserats från källkontroll som de kommer att publiceras automatiskt.         |
@@ -62,7 +63,7 @@ På den **källa kontroll sammanfattning** sidan, Fyll i informationen och klick
 
 ## <a name="configure-source-control---powershell"></a>Konfigurera källkontroll – PowerShell
 
-Du kan också använda PowerShell för att konfigurera källkontroll i Azure Automation. Du konfigurerar källkontroll med PowerShell-cmdletar en [personlig åtkomsttoken (PAT)](#personal-access-token) krävs. Du använder den [New AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) att skapa källkontrollanslutning. Cmdlet: en kräver en säker sträng för din personliga åtkomsttoken, att lära dig hur du skapar en säker sträng finns [ConvertTo SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+Du kan också använda PowerShell för att konfigurera källkontroll i Azure Automation. Om du vill konfigurera källkontroll med PowerShell-cmdletar, krävs en personlig åtkomsttoken (PAT). Du använder den [New AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) att skapa källkontrollanslutning. Cmdlet: en kräver en säker sträng för din personliga åtkomsttoken, att lära dig hur du skapar en säker sträng finns [ConvertTo SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
 
 ### <a name="azure-repos-git"></a>Azure-lagringsplatser (Git)
 
@@ -113,7 +114,7 @@ Mer information om hur du skapar en personlig åtkomsttoken i Azure-lagringsplat
 |Arbetsobjekt (läsa)    |
 |Tjänstanslutningar (läsa, fråga och hantera)<sup>1</sup>    |
 
-<sup>1</sup>the Tjänstanslutningar behörigheten är endast krävs om du har aktiverat automatisk synkronisering.
+<sup>1</sup> the Tjänstanslutningar behörigheten är endast krävs om du har aktiverat automatisk synkronisering.
 
 ## <a name="syncing"></a>Synkroniserar
 
@@ -168,7 +169,7 @@ Välj källkontroll som du vill ta bort. På den **källa kontroll sammanfattnin
 
 ## <a name="encoding"></a>Kodning
 
-Om flera personer redigerar runbooks i centrallagret för källkontroll med olika redigerare finns en risk att köra i kodningsproblem. Detta kan infoga felaktiga tecken i din runbook. Mer information om detta finns [vanliga orsaker till kodningsproblem](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+Om flera personer redigerar runbooks i centrallagret för källkontroll med olika redigerare, finns en risk att köra i kodningsproblem. Den här situationen kan leda till felaktiga tecken i din runbook. Mer information om detta finns [vanliga orsaker till kodningsproblem](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 03/21/2018
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: 2845bb09fa44c3bd9cee914e2446403b4182b0d5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 29e4bb23b4b80f6e472d2dcb27fe5e5279a35890
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871051"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337722"
 ---
 # <a name="region-management-in-azure-stack"></a>Regionshantering i Azure Stack
 
@@ -29,9 +29,9 @@ ms.locfileid: "56871051"
 
 Azure Stack används begreppet *regioner*, som är logiska entiteter som består av maskinvaruresurser som utgör Azure Stack-infrastruktur. Du kan hitta alla resurser som krävs för att använda Azure Stack-infrastruktur i regionshantering av.
 
-Ett integrerat system-distribution (kallas en *Azure Stack-molnet*) utgör en enda region. Varje Azure Stack Development Kit har en region med namnet **lokala**. Om du distribuerar ett andra integrerade Azure Stack-system eller om du ställer in en annan instans av i development kit på separata maskinvara, är Azure Stack-molnet en annan region.
+Ett integrerat system-distribution (kallas en *Azure Stack-molnet*) utgör en enda region. Varje Azure Stack Development Kit (ASDK) har en region med namnet **lokala**. Om du distribuerar ett andra integrerade Azure Stack-system eller om du ställer in en annan instans av i development kit på separata maskinvara, är Azure Stack-molnet en annan region.
 
-## <a name="information-available-through-the-region-management-tile"></a>Information som är tillgängliga via Region management panelen
+## <a name="information-available-through-the-region-management-tile"></a>Information som är tillgängliga via region management panelen
 
 Azure Stack har en uppsättning region hanteringsfunktioner som är tillgängliga i den **regionshantering** panelen. Den här panelen är tillgänglig för Azure Stack-operatör på standardinstrumentpanelen i administratörsportalen. Du kan övervaka och uppdatera din Azure Stack-region och dess komponenter som finns regionspecifikt via den här panelen.
 
@@ -43,7 +43,7 @@ Om du klickar på en region i den **regionshantering** panelen, du kan komma åt
 
 1. **Resurs-menyn**. Få åtkomst till specifika infrastruktur hanteringsområden, och visa och hantera användarresurser, till exempel lagringskonton och virtuella nätverk.
 
-2. **Aviseringar**. Visar en lista över hela systemet aviseringar och innehåller information om var och en av dessa aviseringar.
+2. **Aviseringar**. Lista över hela systemet aviseringar och innehåller detaljerad information om var och en av dessa aviseringar.
 
 3. **Uppdateringar**. Visa den aktuella versionen av Azure Stack-infrastruktur, tillgängliga uppdateringar och update-historiken. Du kan också uppdatera din integrerat system.
 

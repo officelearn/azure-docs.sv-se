@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 4c63cb69cd5ce824648d2bf0a6735e316791c44e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ec1b75e7bd2defe96948e9830c25488ecd8289da
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079937"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336362"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Självstudier: Konfigurera ett labbkonto med Azure Lab Services
 I Azure Lab Services, fungerar ett labbkonto som det centrala kontot där alla din organisations labbar hanteras. I ditt labbkonto, ger du behörighet till andra att skapa labbar och konfigurera principer som gäller för alla labbar under labbkontot. I den här självstudien, får du lära dig hur du skapar ett labbkonto som en labbadministratör. 
@@ -37,10 +37,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 Följande steg visar hur du använder Azure Portal till att skapa ett labbkonto med Azure Lab Services. 
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. På menyn till vänster väljer du **Alla tjänster**. Välj **Labbkonton** i **DEVOPS**-avsnittet. Om du väljer stjärnan (`*`) bredvid **Labbkonton** läggs det till i avsnittet **FAVORITER** på den vänstra menyn. Från och med nästa gång väljer du **Labbkonton** under **FAVORITER**.
+2. På menyn till vänster väljer du **Alla tjänster**. Välj **Lab Services** i den **DEVOPS** avsnittet. Om du väljer star (`*`) bredvid **Lab Services**, läggs den till den **Favoriter** avsnitt i den vänstra menyn. Nästa gång och senare, väljer du **Lab Services** under **Favoriter**.
 
-    ![Alla tjänster -> Labbkonton](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
-3. På sidan **Labbkonton** väljer du **+ Lägg till** i verktygsfältet. 
+    ![Alla tjänster -> Lab Services](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+3. På den **Lab Services** väljer **Lägg till** i verktygsfältet. 
 
     ![Välj Lägg till på sidan Labbkonton](../media/tutorial-setup-lab-account/add-lab-account-button.png)
 4. Utför följande åtgärder i fönstret **Labbkonton**: 

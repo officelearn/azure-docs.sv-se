@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: ea41f09269e3ad46db1f254965fd7d7df25232be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d66db88dd1e962acc63c960270bb5685218aa391
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095610"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316082"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid säkerhet och autentisering 
 
@@ -88,7 +88,7 @@ Hantera prenumeration verifiering handskakningen exempelvis se ett [ C# exempel]
 
 ### <a name="checklist"></a>Checklista
 
-När händelsen prenumeration skapas om det uppstår ett felmeddelande visas som ”försök att verifiera den angivna slutpunkten https://your-endpoint-here misslyckades. Mer information på https://aka.ms/esvalidation”, betyder det att det finns ett fel i valideringen-handskakningen. Lös felet genom att kontrollera följande aspekter:
+När händelsen prenumeration skapas om det uppstår ett felmeddelande visas som ”försök att verifiera den angivna slutpunkten https:\//your-endpoint-here misslyckades. Mer information finns i https:\//aka.ms/esvalidation ”, betyder det att det finns ett fel i valideringen-handskakningen. Lös felet genom att kontrollera följande aspekter:
 
 * Har du kontroll över programkoden i mål-slutpunkten? Till exempel om du skapar en HTTP-utlösare baserade Azure-funktion, har du åtkomst till programkod för att göra ändringar i den?
 * Om du har åtkomst till programkoden kan implementera ValidationCode baserat handskakning mekanism som visas i exemplet ovan.

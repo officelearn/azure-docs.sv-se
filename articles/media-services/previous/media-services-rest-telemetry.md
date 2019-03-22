@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: b1eb6e1458fab6de3472d68352ba7764b71007c8
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: 9c654c65577c44b1773ff98cb1206beeb5206ba4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58292589"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317654"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Konfigurera telemetri för Azure Media Services med REST
 
@@ -34,7 +34,7 @@ Stegen som beskrivs i det här avsnittet är:
 - Hämta Notification-slutpunkterna
 - Skapa en Aviseringsslutpunkten för övervakning. 
 
-    Om du vill skapa en Aviseringsslutpunkten inställd på EndPointType AzureTable (2) och endPontAddress inställd på storage-tabell (till exempel https://telemetryvalidationstore.table.core.windows.net/).
+    Om du vill skapa en Aviseringsslutpunkten inställd på EndPointType AzureTable (2) och endPontAddress inställd på storage-tabell (till exempel https:\//telemetryvalidationstore.table.core.windows.net/).
   
 - Hämta övervakningsinställningar
 
@@ -121,12 +121,12 @@ Stegen som beskrivs i det här avsnittet är:
     
     {  
         "Name":"monitoring",
-        "EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/",
+        "EndPointAddress":"https:\//telemetryvalidationstore.table.core.windows.net/",
         "EndPointType":2
     }
 
 > [!NOTE]
-> Glöm inte att ändra den ”https://telemetryvalidationstore.table.core.windows.net” värde till ditt lagringskonto.
+> Glöm inte att ändra den ”https:\//telemetryvalidationstore.table.core.windows.net” värde till ditt lagringskonto.
 
 ### <a name="response"></a>Svar
 

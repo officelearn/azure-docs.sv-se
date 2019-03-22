@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 2/20/2019
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 1f6d6b2ae5fd3a0c08d37b93c73656ac6bb71d67
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: 87ca7cae8e9170c8c437d0961cb1acb2e0dd0eb1
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295648"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337654"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS alias poster översikt
 
@@ -20,9 +20,9 @@ Azure DNS alias poster är kvalifikationerna på en DNS-postuppsättning. De kan
 
 En alias-postuppsättning stöds för följande typer av poster i en Azure DNS-zon: 
 
-- A 
-- AAAA 
-- CNAME 
+- A
+- AAAA
+- CNAME
 
 > [!NOTE]
 > Om du planerar att använda en aliasresurspost för posttyper A eller AAAA för att peka mot en [Azure Traffic Manager-profil](../traffic-manager/quickstart-create-traffic-manager-profile.md) måste du se till att Traffic Manager-profilen har bara [externa slutpunkter](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Du måste ange IPv4 eller IPv6-adress för externa slutpunkter i Traffic Manager. Vi rekommenderar använda statiska IP-adresser.
@@ -32,7 +32,7 @@ En alias-postuppsättning stöds för följande typer av poster i en Azure DNS-z
 - **Peka på en offentlig IP-adressresurs från DNS A/AAAA-postuppsättning.** Du kan skapa en A/AAAA-postuppsättning och gör det till ett alias postuppsättningen så att den pekar till en offentlig IP-resurs. DNS-postuppsättning är automatiskt om den offentliga IP-adressen ändras eller har tagits bort. Överflödiga DNS undviks-poster som pekar på felaktig IP-adresser.
 
 - **Peka på en Traffic Manager-profil från en CNAME-DNS A/AAAA-postuppsättning.** Du kan skapa en A/AAAA eller CNAME-post och använda alias poster för att peka på en Traffic Manager-profil. Det är särskilt användbart när du vill dirigera trafik på en basdomänen som traditionella CNAME-poster inte stöds för en zonens apex. Anta exempelvis att Traffic Manager-profilen är myprofile.trafficmanager.net och företag DNS-zonen contoso.com. Du kan skapa ett alias postuppsättningen av typen A/AAAA för contoso.com (basdomänen) och pekar på myprofile.trafficmanager.net.
-
+- **Peka på en Azure Content Delivery Network (CDN) slutpunkt**. Detta är användbart när du skapar statiska webbplatser som använder Azure storage och Azure CDN.
 - **Peka på en annan DNS-postuppsättning i samma zon.** Aliasposter kan referera till andra postuppsättningar av samma typ. En DNS CNAME-postuppsättning kan till exempel vara ett alias till en annan CNAME-postuppsättning. Det här är användbart om du vill att vissa postuppsättningar vara alias och vissa alias.
 
 ## <a name="scenarios"></a>Scenarier
@@ -61,6 +61,7 @@ Det här problemet kan lösas med hjälp av alias poster. Till skillnad från CN
 Till exempel contoso.com och www\.contoso.com kan peka på samma Traffic Manager-profilen. Om du vill lära dig mer om att använda alias poster med Azure Traffic Manager-profiler finns i avsnittet nästa steg.
 
 ### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Peka zonens apex på Azure CDN-slutpunkter
+
 Precis som en Traffic Manager-profil kan du också använda alias poster för att peka DNS-basdomänen på Azure CDN-slutpunkter. Detta är användbart när du skapar statiska webbplatser som använder Azure storage och Azure CDN. Du kan sedan komma åt webbplatsen utan prepending ”www” till din DNS-namnet.
 
 Till exempel om din statiska webbplats har namnet www.contoso.com, dina användare kan komma åt din webbplats med hjälp av contoso.com utan att behöva lägga till åtkomstgruppen för www till DNS-namn.

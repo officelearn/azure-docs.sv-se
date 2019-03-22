@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: bb1f4861f3867c592ecab86e85d3a4dfbab6738e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5e65965678ed042081e4a406d3a207fb7ede299f
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002950"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313659"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Cross-Origin Resource Sharing (CORS) Support för Azure Storage-tjänster
 Från och med version 2013-08-15, stöder Azure storage-tjänster Cross-Origin Resource Sharing (CORS) för tjänsterna Blob, tabell, kö och filen. CORS är en HTTP-funktion som gör ett webbprogram som körs i en domän att komma åt resurser i en annan domän. Webbläsare implementerar en säkerhetsbegränsning som kallas [princip om samma ursprung](https://www.w3.org/Security/wiki/Same_Origin_Policy) som förhindrar att en webbsida från anropa API: er i en annan domän. CORS erbjuder ett säkert sätt att tillåta en domän (ursprungsdomänen) att anropa API: er i en annan domän. Se den [CORS-specifikationen](https://www.w3.org/TR/cors/) mer information om CORS.
@@ -67,7 +67,7 @@ Här är ett exempel på en enda CORS-regel som angetts via en ange egenskaper f
 
 Varje element som ingår i CORS-regel beskrivs nedan:
 
-* **AllowedOrigins**: Ursprungsdomäner som tillåts att göra en begäran mot lagringstjänsten via CORS. Den ursprungliga domänen är den domän som förfrågan kommer från. Observera att ursprunget måste vara en skiftlägeskänslig matchning med ursprung som användaren ålder skickar till tjänsten. Du kan också använda jokertecknet ”*” så att alla ursprungsdomäner att göra förfrågningar via CORS. I exemplet ovan domänerna [ http://www.contoso.com ](http://www.contoso.com) och [ http://www.fabrikam.com ](http://www.fabrikam.com) kan göra förfrågningar till tjänsten med hjälp av CORS.
+* **AllowedOrigins**: Ursprungsdomäner som tillåts att göra en begäran mot lagringstjänsten via CORS. Den ursprungliga domänen är den domän som förfrågan kommer från. Observera att ursprunget måste vara en skiftlägeskänslig matchning med ursprung som användaren ålder skickar till tjänsten. Du kan också använda jokertecknet ”*” så att alla ursprungsdomäner att göra förfrågningar via CORS. I exemplet ovan domäner http:\//www.contoso.com och http: \/ /www.fabrikam.com kan göra förfrågningar till tjänsten med hjälp av CORS.
 * **AllowedMethods**: De metoder (HTTP-förfrågningsverb) som ursprungsdomänen kan använda för en CORS-förfrågan. I exemplet ovan tillåts endast PUT- och GET-begäranden.
 * **AllowedHeaders**: Sidhuvuden för begäran som ursprungsdomänen kan ange vid CORS-förfrågan. I exemplet ovan får alla rubriker för arbetsflödesmetadata som börjar med x-ms-metadata, x-ms-meta-mål och x-ms-meta-abc. Observera att jokertecknet ”*” anger att alla rubrik som börjar med det angivna prefixet tillåts.
 * **ExposedHeaders**: De svarshuvuden som kan skickas som svar på CORS-förfrågan och visas i webbläsaren för utfärdaren av förfrågan. I exemplet ovan instrueras webbläsaren att exponera alla rubrik som börjar med x-ms-metadata.
@@ -130,9 +130,9 @@ Därefter ska du tänka på följande CORS-begäranden:
 | Förfrågan |  |  | Svar |  |
 | --- | --- | --- | --- | --- |
 | **Metod** |**Ursprung** |**Rubriker för begäran** |**Regeln matchar** |**Resultatet** |
-| **PUT** |http://www.contoso.com |x-ms-blob-content-type |Första regeln |Lyckades |
-| **GET** |http://www.contoso.com |x-ms-blob-content-type |Andra regeln |Lyckades |
-| **GET** |http://www.contoso.com |x-ms-client-request-id |Andra regeln |Fel |
+| **PUT** |http:\//www.contoso.com |x-ms-blob-content-type |Första regeln |Lyckades |
+| **GET** |http:\//www.contoso.com |x-ms-blob-content-type |Andra regeln |Lyckades |
+| **GET** |http:\//www.contoso.com |x-ms-client-request-id |Andra regeln |Fel |
 
 Den första begäran matchar den första regeln – den ursprungliga domänen matchar tillåtna ursprung, metoden matchar tillåtna metoder och rubriken matchar tillåtna huvuden – och därför lyckas.
 

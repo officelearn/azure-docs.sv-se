@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1ab9fcd50ad7081f8047d62e545287fa75db75e4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5057c0c781cb9ec60ecde7dd3f4bf96089b902df
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457051"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312690"
 ---
 # <a name="hosted-test-drive"></a>Värdbaserade provkörning
 
@@ -48,12 +48,12 @@ Ange följande fält i den \'teknisk konfiguration\' avsnittet:
 - **Typ av Test Drive**: Välj \'Microsoft Hosted (exempel Dynamics 365 för kundengagemang)-alternativet. Detta anger att Microsoft ska vara värd för och underhålla den tjänst som utför Test Drive användaren etablering och borttagning.
 - **Maxantal samtidiga Provkörningar**: Ange fältet till antalet samtidiga användare som kan ha en aktiv provkörning vid en given tidpunkt tid. Varje användare kommer att använda en Dynamics-licens när deras Test Drive är aktiv, så du måste se till att du har minst detta antal Dynamics licenser som är tillgängliga för Test Drive-användare. Rekommenderat värde från 3 till 5.
 - **Driv varaktighet (timmar)**: Ange fältet till antalet timmar Test Drive ska aktiveras för användarna. Efter detta antal timmar, kommer användaren avetableras från din klient. Rekommenderat värde på 2 – 24 timmar beroende på komplexiteten för din App. Användaren kan begära ett annat Test Drive alltid om de körs utanför tid och vill använda Test Drive igen.
-- **Instans-URL: en**: Ange en URL som användaren provkörning först öppnas när de startar Test Drive. Detta är vanligtvis URL: en för din Dynamics 365-instans som har din App och exempeldata som installeras på. Exempelvärde:https://testdrive.crm.dynamics.com
+- **Instans-URL: en**: Ange en URL som användaren provkörning först öppnas när de startar Test Drive. Detta är vanligtvis URL: en för din Dynamics 365-instans som har din App och exempeldata som installeras på. Exempelvärde: https:\//testdrive.crm.dynamics.com
 - **Azure AD-klient-ID**: Ange ID för Azure-klient för din Dynamics 365-instans. Att hämta det här värdet, logga in på Azure-portalen och gå till \'Azure Active Directory\'  - \> väljer Egenskaper från menyn bladet –\> kopiera Directory-ID. Exempelvärde: 72f988bf-86f1-41af-91ab-2d7cd0111234
 - **Azure AD App ID**: ID för den Azure AD-App som du skapade i steg 7. \ exempelvärde: 53852862-a2ae-4e43-9461-faa49650a096
 - **Azure AD-Appnyckeln**: Hemligheten för den Azure AD-App som skapats i steg 7. \ exempelvärde: IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=
 - **Namn på Azure AD-klient**: Ange namnet på Azure-klient för din Dynamics 365-instans. Använd formatet \<tenantname.\> onmicrosoft.com. Exempelvärde: testdrive.onmicrosoft.com
-- **Instans-URL: en för webb-API**: Ange URL: en för webb-API för din Dynamics 365-instans. Du kan hämta det här värdet genom att logga in på din Microsoft Dynamics 365-instans och navigera till inställning -\> anpassning -\> utvecklarresurser -\> instans webb-API (kopiera URL: en). Exempelvärde:  https://testdrive.crm.dynamics.com/api/data/v9.0 
+- **Instans-URL: en för webb-API**: Ange URL: en för webb-API för din Dynamics 365-instans. Du kan hämta det här värdet genom att logga in på din Microsoft Dynamics 365-instans och navigera till inställning -\> anpassning -\> utvecklarresurser -\> instans webb-API (kopiera URL: en). Exempelvärde: https:\//testdrive.crm.dynamics.com/api/data/v9.0 
 - **Rollnamnet**: Ange namnet på den anpassade Dynamics 365 säkerhetsrollen du har skapat för Test Drive. Det här är den roll som ska tilldelas användare under deras Test Drive. Exempelvärde: testdriverole
 
 ## <a name="next-steps"></a>Nästa steg

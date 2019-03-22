@@ -7,15 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 11/27/2018
+ms.date: 03/21/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: dda3725be7549d90223b33608939c392bdf66852
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 69b33b9629863702d576eac39fb4097a2bff2e57
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217979"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337594"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Övervaka användning och fråga aktivitet för resurs i Azure SQL Data Warehouse
 Azure SQL Data Warehouse är en omfattande övervakning i Azure portal och ytinsikter till din arbetsbelastning i informationslager. Azure-portalen är det rekommendera verktyget när du övervakar ditt informationslager eftersom den innehåller konfigurerbara kvarhållningsperioder, aviseringar, rekommendationer, och anpassningsbara diagram och instrumentpaneler för mått och loggar. På portalen kan du integrera med andra Azures övervakningstjänster, till exempel Operations Management Suite (OMS) och Azure Monitor (loggar) för att tillhandahålla en holistisk övervakningsupplevelse för inte bara din data warehouse utan även din hela Azure analytics plattform för en integrerad upplevelse för övervakning. Den här dokumentationen beskriver vilka övervakningsfunktioner som är tillgängliga för att optimera och hantera dina analysplattform med SQL Data Warehouse. 
@@ -46,7 +46,7 @@ Tjänsten ger en uppsättning med dynamiska hanteringsvyer (DMV) för en program
 Om du vill visa listan med DMV: er som tillhandahåller SQL Data Warehouse, referera till denna [dokumentation](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 
 
 ## <a name="metrics-and-diagnostics-logging"></a>Mått och diagnostikloggning
-Både mått och loggar kan exporteras till Azure Monitor, särskilt de [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) komponent och kan nås via programmering genom [Loggsökning](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata).
+Både mått och loggar kan exporteras till Azure Monitor, särskilt de [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) komponent och kan nås via programmering genom [logga frågor](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata). Svarstiden i loggen för SQL Data Warehouse är ungefär 10 – 15 minuter. Mer information om de faktorer som påverkar svarstiden finns följande dokumentation.
 
 
 ## <a name="next-steps"></a>Nästa steg

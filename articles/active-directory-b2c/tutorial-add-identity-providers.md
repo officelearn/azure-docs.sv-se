@@ -4,21 +4,22 @@ description: Lär dig hur du lägger till Identitetsproviders i dina program i A
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: davidmu
-ms.openlocfilehash: 2a1843f941c6abc46928b38a66025fa87c4bcea5
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.subservice: B2C
+ms.openlocfilehash: ef264622be1e66c98f8c7f17cf3e04b3239e8553
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757710"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338283"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Självstudier: Lägg till Identitetsproviders i dina program i Azure Active Directory B2C
 
-I dina program, kanske du vill aktivera användare att logga in med olika identitetsprovidrar. En *identitetsprovider* skapar, underhåller och hanterar identitetsinformation samtidigt autentiseringstjänster till program. Du kan lägga till identitetsleverantörer som stöds av Azure Active Directory (Azure AD) B2C till din [användarflöden](active-directory-b2c-reference-policies.md) med Azure portal.
+Du kanske vill att användarna ska kunna logga in på dina program med olika identitetsprovidrar. En *identitetsprovider* skapar, underhåller och hanterar identitetsinformation samt autentiseringstjänster till program. Du kan lägga till identitetsleverantörer som stöds av Azure Active Directory (Azure AD) B2C till din [användarflöden](active-directory-b2c-reference-policies.md) med Azure portal.
 
 I den här artikeln kan du se hur du:
 
@@ -91,7 +92,7 @@ När du har skapat programmet för den identitetsprovider som du vill lägga til
 ### <a name="add-the-azure-active-directory-identity-provider"></a>Lägg till Azure Active Directory-identitetsprovider
 
 1. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din Azure AD B2C-klient.
-2. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
+2. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 3. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.
 4. Ange en **namn**. Ange till exempel *Contoso Azure AD*.
 5. Välj **identifiera providertyp**väljer **öppna ID Connect (förhandsversion)**, och klicka sedan på **OK**.
@@ -142,7 +143,7 @@ Du har skapat ett användarflöde i självstudien som du har slutfört som en de
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du:
+I den här artikeln lärde du dig att:
 
 > [!div class="checklist"]
 > * Skapa identiteten provider-program

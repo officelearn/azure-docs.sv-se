@@ -1,35 +1,34 @@
 ---
-title: Ansluta till Azure Event Hubs – Azure Logic Apps | Microsoft Docs
+title: Ansluta till Azure Event Hubs – Azure Logic Apps
 description: Hantera och övervaka händelser med Azure Event Hubs och Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 05/21/2018
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.topic: article
+ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: a91daf08a56470e4d1e112e37b51150c2c5f00ef
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: a59f21478f85f238d91c01faed44d8e49cb15f0a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230326"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310803"
 ---
-# <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Övervaka, ta emot och skicka händelser med Azure Event Hubs och Azure Logic Apps 
+# <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Övervaka, ta emot och skicka händelser med Azure Event Hubs och Azure Logic Apps
 
-Den här artikeln visar hur du kan övervaka och hantera händelser som skickas till [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) från inuti en logikapp med Azure Event Hubs-anslutningsprogrammet. På så sätt kan du skapa logikappar som automatiserar uppgifter och arbetsflöden för att kontrollera, skicka och ta emot händelser från Event Hub. 
+Den här artikeln visar hur du kan övervaka och hantera händelser som skickas till [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) från inuti en logikapp med Azure Event Hubs-anslutningsprogrammet. På så sätt kan du skapa logikappar som automatiserar uppgifter och arbetsflöden för att kontrollera, skicka och ta emot händelser från Event Hub.
 
-Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Snabbstart: skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabbstarten: Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Specifika teknisk information finns i den <a href="https://docs.microsoft.com/connectors/eventhubs/" target="blank">referens för Azure Event Hubs-anslutningsapp</a>.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En [Event Hubs-namnområde och Händelsehubb](../event-hubs/event-hubs-create.md)
 
-* Logikappen där du vill få åtkomst till din Event Hub. Du behöver för att starta din logikapp med en utlösare för Azure Event Hubs, en [tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+* Logikappen där du vill få åtkomst till din Event Hub. Du behöver för att starta din logikapp med en utlösare för Azure Event Hubs, en [tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="permissions-connection-string"></a>
 
@@ -37,15 +36,15 @@ Specifika teknisk information finns i den <a href="https://docs.microsoft.com/co
 
 Kontrollera din behörighet för din logikapp att få åtkomst till din Event Hub och hämta anslutningssträngen för Event Hubs-namnområdet.
 
-1. Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a>. 
+1. Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
 
 2. Gå till Händelsehubbar *namnområde*, inte en specifik Händelsehubb. På sidan namnområde under **inställningar**, Välj **principer för delad åtkomst**. Under **anspråk**, kontrollera att du har **hantera** behörigheter för det namnområdet.
 
    ![Hantera behörigheter för namnområdet för Event Hub](./media/connectors-create-api-azure-event-hubs/event-hubs-namespace.png)
 
-3. Om du vill ange information om din senare manuellt kan du hämta anslutningssträngen för Event Hubs-namnområdet. 
+3. Om du vill ange information om din senare manuellt kan du hämta anslutningssträngen för Event Hubs-namnområdet.
 
-   1. Under **princip**, Välj **RootManageSharedAccessKey**. 
+   1. Under **princip**, Välj **RootManageSharedAccessKey**.
 
    2. Hitta anslutningssträngen för den primära nyckeln. Välj kopieringsknappen och spara anslutningssträngen för senare användning.
 
@@ -62,13 +61,14 @@ Kontrollera din behörighet för din logikapp att få åtkomst till din Event Hu
 
 I Azure Logic Apps varje logikapp måste börja med en [utlösaren](../logic-apps/logic-apps-overview.md#logic-app-concepts), som utlöses när en specifik händelse sker eller när ett specifikt villkor uppfylls. Varje gång utlösaren Logic Apps-motorn skapar en logikappinstans och börjar köras appens arbetsflöde.
 
-Det här exemplet visar hur du kan starta en logikapparbetsflöde när nya händelser skickas till din Event Hub. 
+Det här exemplet visar hur du kan starta en logikapparbetsflöde när nya händelser skickas till din Event Hub.
 
 1. I Azure portal eller Visual Studio, skapar du en tom logikapp som öppnas Logic Apps Designer. Det här exemplet används Azure-portalen.
 
-2. I sökrutan anger du ”händelsehubbar” som filter. Välj utlösaren som du vill använda från listan över utlösare. 
+2. I sökrutan anger du ”händelsehubbar” som filter. Välj utlösaren som du vill använda från listan över utlösare.
 
-   Det här exemplet används den här utlösaren: 
+   Det här exemplet använder den här utlösaren:
+
    **Event Hubs – när händelser är tillgängliga i Event Hub**
 
    ![Välj utlösare](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
@@ -80,9 +80,9 @@ Det här exemplet visar hur du kan starta en logikapparbetsflöde när nya händ
       ![Ange Event Hub eller konsumentgrupp](./media/connectors-create-api-azure-event-hubs/select-event-hub.png)
 
    2. Välj intervall och frekvens för hur ofta du vill att utlösaren ska kontrollera Event Hub.
- 
+
    3. Välj för att du kan också välja några av de avancerade utlösarvillkor **visa avancerade alternativ**.
-   
+
       ![Aktivera avancerade alternativ](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-advanced.png)
 
       | Egenskap  | Information | 
@@ -108,7 +108,7 @@ Det här exemplet visar hur du kan starta en logikapparbetsflöde när nya händ
 
 ## <a name="add-an-event-hubs-action"></a>Lägg till en åtgärd för Event Hubs
 
-I Azure Logic Apps, en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) är ett steg i arbetsflödet som följer en utlösare eller en annan åtgärd. I det här exemplet börjar logic app med ett Event Hubs-utlösare som söker efter nya händelser i din Event Hub. 
+I Azure Logic Apps, en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) är ett steg i arbetsflödet som följer en utlösare eller en annan åtgärd. I det här exemplet börjar logic app med ett Event Hubs-utlösare som söker efter nya händelser i din Event Hub.
 
 1. Öppna logikappen i Logic Apps Designer i Azure portal eller Visual Studio. Det här exemplet används Azure-portalen.
 
@@ -118,22 +118,22 @@ I Azure Logic Apps, en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app
    Välj plustecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
 
 3. I sökrutan anger du ”händelsehubbar” som filter.
-Välj vilken åtgärd du önska från åtgärdslistan över. 
+Välj vilken åtgärd du önska från åtgärdslistan över.
 
-   I det här exemplet väljer du den här åtgärden: **Event Hubs - överföringshändelse**
+   I det här exemplet väljer du den här åtgärden: **Event Hubs – överföringshändelse**
 
    ![Välj ”Event Hubs - överföringshändelse”](./media/connectors-create-api-azure-event-hubs/find-event-hubs-action.png)
 
 4. Om du uppmanas anslutningsinformation [skapa Händelsehubbar anslutningen nu](#create-connection). Eller om anslutningen redan finns, ange informationen som krävs för åtgärden.
 
-   | Egenskap  | Krävs | Beskrivning | 
+   | Egenskap  | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | Namn på händelsehubb | Ja | Välj Event Hub där du vill skicka händelsen | 
-   | Händelse-innehåll | Nej | Innehåll för händelsen som du vill skicka | 
-   | Egenskaper | Nej | Egenskaper och värden för att skicka | 
-   |||| 
+   | Namn på händelsehubb | Ja | Välj Event Hub där du vill skicka händelsen |
+   | Händelse-innehåll | Nej | Innehåll för händelsen som du vill skicka |
+   | Egenskaper | Nej | Egenskaper och värden för att skicka |
+   ||||
 
-   Exempel: 
+   Exempel:
 
    ![Välj Event Hub-namn och ange händelse-innehåll](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
@@ -147,10 +147,10 @@ Välj vilken åtgärd du önska från åtgärdslistan över.
 
 1. När du uppmanas att ange anslutningsinformationen Tillhandahåll följande information:
 
-   | Egenskap  | Krävs | Värde | Beskrivning | 
+   | Egenskap  | Krävs | Value | Beskrivning |
    |----------|----------|-------|-------------|
-   | Anslutningsnamn | Ja | <*Anslutningens namn*> | Namn för att skapa för anslutningen |
-   | Event Hubs-namnområde | Ja | <*namnområde för Event hubs*> | Välj Event Hubs-namnområde som du vill använda. | 
+   | Anslutningsnamn | Ja | <*connection-name*> | Namn för att skapa för anslutningen |
+   | Event Hubs-namnområde | Ja | <*event-hubs-namespace*> | Välj Event Hubs-namnområde som du vill använda. |
    |||||  
 
    Exempel:
@@ -168,7 +168,7 @@ Välj vilken åtgärd du önska från åtgärdslistan över.
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information, till exempel utlösare och åtgärder gränser, enligt beskrivningen av kopplingens Swagger-fil, finns i den [anslutningsappens-referenssida](/connectors/eventhubs/). 
+Teknisk information, till exempel utlösare och åtgärder gränser, enligt beskrivningen av kopplingens Swagger-fil, finns i den [anslutningsappens-referenssida](/connectors/eventhubs/).
 
 ## <a name="get-support"></a>Få support
 

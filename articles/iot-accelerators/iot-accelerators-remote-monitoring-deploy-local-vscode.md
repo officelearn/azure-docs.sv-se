@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 93935aa36c53e1d5de1bba215826d0754ee83b8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 946f815cecea4cc172fac35c0b260d795317e6e1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902849"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316226"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Distribuera lösningsacceleratorn för fjärrövervakning lokalt – Visual Studio Code
 
@@ -79,7 +79,7 @@ npm install
 npm start
 ```
 
-När början är klar visas sidan i webbläsaren **http://localhost:3000/dashboard**. Fel på den här sidan förväntas. Följ anvisningarna nedan om du vill visa programmet utan fel.
+När början är klar visas sidan i webbläsaren **http:\//localhost:3000 / instrumentpanel**. Fel på den här sidan förväntas. Följ anvisningarna nedan om du vill visa programmet utan fel.
 
 ### <a name="configure-and-run-nginx"></a>Konfigurera och köra NGINX
 
@@ -92,7 +92,7 @@ Mer information om att köra **nginx**, se [nginx för Windows](https://nginx.or
 
 ### <a name="connect-to-the-dashboard"></a>Ansluta till instrumentpanelen
 
-För att komma åt instrumentpanelen för fjärrövervakning lösningen går du till [ http://localhost:9000 ](http://localhost:9000) i webbläsaren.
+Om du vill komma åt instrumentpanelen för fjärrövervakning lösningen måste gå till http:\//localhost:9000 i webbläsaren.
 
 ## <a name="clean-up"></a>Rensa
 

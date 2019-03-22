@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 58be8a222f649abe4be6de272a1ef2b686336262
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847135"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310025"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Konfigurera programmet i Publiceringsportalen
 
@@ -53,7 +53,7 @@ Erbjudandet inställningar formuläret är en grundläggande och ange inställni
 
 Det här är en unik identifierare för erbjudandet i en utgivarprofil för. Detta ID syns i URL: er i produkten. Det får bara innehålla gemena alfanumeriska tecken och bindestreck (-). ID: T får inte sluta med ett bindestreck och kan ha högst 50 tecken. Det här fältet är låst när ett erbjudande lanseras.
 
-Exempel: om en utgivare **”contoso”** utgivare skapar ett erbjudande med erbjudande-ID **”exempel WebApp”**, den visas i AppSource som ”https://appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview”
+Exempel: om en utgivare **”contoso”** utgivare skapar ett erbjudande med erbjudande-ID **”exempel WebApp”**, den visas i AppSource som ”https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview”
 
 ### <a name="publisher-id"></a>Utgivar-ID
 

@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 0ca3cee0c818bf9d5dda4a7ea8a1f356ed017973
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6e8883870cc0f035df5122e91449f04203836218
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891094"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319473"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Datavetenskap med en Linux virtuell dator för datavetenskap på Azure
 Den här genomgången visar hur du utför flera vanliga datavetenskapsuppgifter med den virtuella datorn datavetenskap för Linux. Linux Data Science Virtual Machine (DSVM) är en avbildning av virtuell dator som är tillgängliga på Azure som är förinstallerade med en uppsättning verktyg som ofta används för dataanalys och maskininlärning. Viktiga programkomponenterna är uppdelat i den [etablera Linux Data Science Virtual Machine](linux-dsvm-intro.md) avsnittet. VM-avbildning gör det enkelt att komma igång datavetenskap på några minuter, utan att behöva installera och konfigurera var och en av verktyg individuellt. Du kan enkelt skala upp den virtuella datorn, om det behövs och stoppa den när den inte används. Den här resursen är därför både elastisk och kostnadseffektiv.
@@ -423,7 +423,7 @@ En bra funktioner i spännen är förmågan att köra flera machine learning-met
 När du är klar att skapa modeller, väljer den **Log** fliken för att visa R-kod som körs av spännen under sessionen. Du kan välja den **exportera** för att spara den.
 
 > [!NOTE]
-> Det finns en bugg i aktuella versionen av spännen. Om du vill ändra skriptet eller använda den för att upprepa steg senare, måste du infoga tecknet # framför * exportera den här loggen... * i texten i loggen.
+> Det finns en bugg i aktuella versionen av spännen. Om du vill ändra skriptet eller använda den för att upprepa steg senare, måste du infoga tecknet # framför *exportera den här loggen...*  texten i loggen.
 >
 >
 

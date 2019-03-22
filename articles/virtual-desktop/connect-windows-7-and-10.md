@@ -1,0 +1,51 @@
+---
+title: Anslut med Windows 7 och Windows 10 (förhandsversion), Azure
+description: Hur du ansluter till Windows Virtual Desktop HTML5-webbklienten.
+services: virtual-desktop
+author: Heidilohr
+ms.service: virtual-desktop
+ms.topic: how-to
+ms.date: 03/21/2019
+ms.author: helohr
+ms.openlocfilehash: 925d762bb065567f6462fdb1614fc308e87b5247
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318246"
+---
+# <a name="connect-with-windows-7-and-windows-10-preview"></a>Anslut med Windows 7 och Windows 10 (förhandsversion)
+
+> Gäller för Windows 7 och Windows 10.
+
+En nedladdningsbar klient är tillgänglig som ger åtkomst till resurser för virtuella Windows-skrivbordet (förhandsversion) från enheter som kör Windows 7 och Windows 10.
+
+## <a name="install-the-client"></a>Installera klienten
+
+[Ladda ned](https://go.microsoft.com/fwlink/?linkid=2068602) och installera klienten på din lokala dator. Detta kräver administratörsrättigheter.
+
+## <a name="subscribe-to-a-feed"></a>Prenumerera på en feed
+
+Hämta listan över resurser som är tillgängliga för dig från din lokala dator genom att prenumerera på den feed som tillhandahålls av din administratör.
+
+Prenumerera på en feed:
+
+1. Starta klienten från listan över alla appar, leta efter fjärrskrivbord.
+2. Välj antingen ett arbets- eller skolkonto konto på huvudsidan. Detta kommer prenumerera med standardfeed URL: en.
+   - Du kan också ange en annan URL Om det behövs med den **använda en URL i stället** alternativet.
+3. Logga in med ditt användarkonto.
+
+> [!NOTE]
+> Om din administratör har konfigurerat e-identifiering, klienten automatiskt Leta upp ditt flöde URL: en när du anger din e-postadress.
+
+Efter autentisering, bör du nu se en lista över resurser som är tillgängliga för dig.
+
+Du kan starta resurser genom någon av två metoder.
+
+- Gå till huvudsidan för klientens och välj en resurs.
+- Starta en resurs som du vanligtvis använder andra appar från Start-menyn.
+  -  Du kan också söka efter appar i sökfältet.
+
+## <a name="update-the-client"></a>Uppdatera klienten
+
+När en ny version av klienten är tillgänglig, kommer du att meddelas av klienten och Windows Åtgärdscenter. Välj meddelandet för att starta uppdateringen.

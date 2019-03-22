@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: b740aa205982bc0c1104b59e3ea89e2d5980d461
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e4995890a1f2ceec8ddf5d4dafafdd13382864db
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240349"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311466"
 ---
-# <a name="tutorial-install-and-create-service-fabric-cluster"></a>Självstudie: Installera och skapa Service Fabric-kluster
+# <a name="tutorial-install-and-create-service-fabric-cluster"></a>Självstudier: Installera och skapa Service Fabric-kluster
 
 Med fristående Service Fabric-kluster kan du välja miljö och skapa kluster enligt metoden ”valfritt operativsystem, valfritt moln” som präglar Service Fabric. I den här självstudieserien skapar du ett fristående kluster som hanteras av AWS och installerar ett program i det.
 
@@ -129,7 +129,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ### <a name="bring-up-service-fabric-explorer"></a>Hämta Service Fabric Explorer
 
-Nu kan du ansluta till klustret med Service Fabric Explorer, antingen direkt från en av datorerna med http://localhost:19080/Explorer/index.html eller via en fjärranslutning med http://<*IPAddressofaMachine*>: 19080/Explorer/index.html.
+Nu kan du ansluta till klustret med Service Fabric Explorer antingen direkt från en av datorerna med http:\//localhost:19080/Explorer/index.html eller via en fjärranslutning med http:\/ /<  *IPAddressofaMachine*>: 19080/Explorer/index.html.
 
 ## <a name="add-and-remove-nodes"></a>Lägga till och ta bort noder
 

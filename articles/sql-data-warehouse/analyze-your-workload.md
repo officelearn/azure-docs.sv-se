@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7b5ca738ef71e25dfe5e71a1983d701bb8868fe5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 434cbb18a109308844dbc7ff219d40948678e86e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896814"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310735"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analysera din arbetsbelastning i Azure SQL Data Warehouse
 
@@ -67,7 +67,7 @@ SQL Data Warehouse har följande vänta typer:
 * **LocalQueriesConcurrencyResourceType**: Frågor som finns utanför ramen för samtidighet fack. DMV frågor och systemet fungerar som `SELECT @@VERSION` är exempel på lokala frågor.
 * **UserConcurrencyResourceType**: Frågor som finns inom ramen för samtidighet fack. Frågor mot slutanvändare tabeller representerar exempel som använder den här resurstypen.
 * **DmsConcurrencyResourceType**: Väntar som härrör från dataflyttningsåtgärder.
-* **BackupConcurrencyResourceType**: Den här vänta indikerar att en databas säkerhetskopieras. Det maximala värdet för den här resurstypen är 1. Om flera säkerhetskopieringar har begärts på samma gång, de andra kön.
+* **BackupConcurrencyResourceType**: Den här vänta indikerar att en databas säkerhetskopieras. Det maximala värdet för den här resurstypen är 1. Om flera säkerhetskopieringar har begärts på samma gång, de andra kön. I allmänhet rekommenderar vi en minsta tiden mellan på varandra följande ögonblicksbilder av 10 minuter. 
 
 Den `sys.dm_pdw_waits` DMV kan användas för att se vilka resurser som väntar på en begäran.
 

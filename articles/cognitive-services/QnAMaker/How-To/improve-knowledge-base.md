@@ -1,29 +1,29 @@
 ---
 title: Förbättra kunskapsbas - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: ''
+description: Aktiv inlärning kan du förbättra kvaliteten på din kunskapsbas genom att föreslå alternativa frågor, baserat på användare-bidrag till dina frågor och svar-par. Du kan granska dessa förslag, antingen lägga till dem i befintliga frågor eller avvisa dem. Kunskapsbasen ändras inte automatiskt. Du måste acceptera förslag om alla eventuella ändringar ska börja gälla. Förslagen lägga till frågor men inte ändra eller ta bort befintliga frågor.
 author: diberry
 manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: 76005b153d7a7feabdc1b335a23c6aa1f1fa99f3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 739ae64c6b32958271260bcbd01b339c1b108f11
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537906"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337433"
 ---
-# <a name="use-active-learning-to-improve-knowledge-base"></a>Använda aktiv inlärning för att förbättra kunskapsbasen
+# <a name="use-active-learning-to-improve-your-knowledge-base"></a>Använda active learning för att förbättra din kunskapsbas
 
 Aktiv inlärning kan du förbättra kvaliteten på din kunskapsbas genom att föreslå alternativa frågor, baserat på användare-bidrag till dina frågor och svar-par. Du kan granska dessa förslag, antingen lägga till dem i befintliga frågor eller avvisa dem. 
 
 Kunskapsbasen ändras inte automatiskt. Du måste acceptera förslag för att ändringar ska börja gälla. Förslagen lägga till frågor men inte ändra eller ta bort befintliga frågor.
 
-## <a name="active-learning"></a>Aktiv inlärning
+## <a name="what-is-active-learning"></a>Vad är aktiv inlärning?
 
 QnA Maker lär sig nya fråga variationer med implicit och explicit feedback.
  
@@ -42,7 +42,7 @@ När 5 eller mer liknande frågor är klustrade visas föreslår varje halvtimme
 
 När frågor föreslås i QnA Maker-portalen, måste du granska och godkänna eller avvisa dessa förslag. 
 
-## <a name="upgrade-version-to-use-active-learning"></a>Uppgradera versionen om du vill använda aktiv inlärning
+## <a name="upgrade-your-version-to-use-active-learning"></a>Uppgradera din version om du vill använda aktiv inlärning
 
 Aktiv inlärning stöds i körningsversion 4.4.0 och senare. Om din kunskapsbas skapades på en tidigare version [uppgradera din runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) att använda den här funktionen. 
 
@@ -64,12 +64,12 @@ Aktiv inlärning är inaktiverat som standard. Aktivera den föreslagna frågor.
 
 1. Om du vill aktivera active learning på, klicka på din **namn**går du till [ **tjänstinställningar** ](https://www.qnamaker.ai/UserSettings) i QnA Maker-portalen i det övre högra hörnet.  
 
-    ![På sidan för inställningar av tjänsten växla på aktiv inlärning](../media/improve-knowledge-base/Endpoint-Keys.png)
+    ![Aktivera aktiv inlärning föreslagna fråga alternativ från tjänstinställningssidan. Välj användarnamnet i den övre högra menyn och välj sedan inställningarna för tjänsten.](../media/improve-knowledge-base/Endpoint-Keys.png)
 
 
 1. Hitta QnA Maker-tjänsten och sedan växla **aktiv inlärning**. 
 
-    [![På sidan för inställningar av tjänsten växla på aktiv inlärning](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+    [![Växla om funktionen aktiv inlärning på inställningssidan för tjänsten. Om det inte går att växla funktionen, kan du behöva uppgradera din tjänst.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
 
     En gång **aktiv inlärning** är aktiverad, kunskap föreslår nya frågor med jämna mellanrum baserat på Användarinitierat frågor. Du kan inaktivera **aktiv inlärning** genom att ändra inställningen igen.
 
@@ -77,15 +77,15 @@ Aktiv inlärning är inaktiverat som standard. Aktivera den föreslagna frågor.
 
 1. Om du vill se de föreslagna frågorna på den **redigera** kunskapsbas markerar **visa förslag**. 
 
-    [![Växla knappen Visa förslag på inställningssidan för tjänsten](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
+    [![Välj Visa förslag om du vill se aktiv inlärning ny fråga alternativ på Redigera-avsnittet i portalen.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
 1. Filtrera kunskapsbas med frågor och svar par att visa endast förslag genom att välja **filtrera efter förslag**.
 
-    [![Filtrera efter förslag för att se på tjänstinställningssidan, bara de fråga/svar par](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
+    [![Med filtret genom att visa/dölj förslag för att visa endast aktiv inlärning föreslagna fråga alternativ.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
 1.  Varje fråga med förslag visar nya frågor med en bock `✔` , för att godkänna frågan eller en `x` att avvisa förslagen. Klicka på bockmarkeringen för att lägga till frågan. 
 
-    [![På sidan för inställningar av tjänsten växla på aktiv inlärning](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [![Välj eller avvisa aktiv inlärning föreslagna fråga alternativ genom att välja grön bock eller red delete mark.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
     Du kan lägga till eller ta bort _alla förslag_ genom att välja **Lägg till alla** eller **avvisa alla**.
 
@@ -154,7 +154,13 @@ När klientprogrammet (till exempel en chattrobot) tar emot svaret, returneras p
 
 Visar alla frågor i klientprogrammet med ett alternativ för att användaren väljer frågan som representerar sin avsikt. 
 
-När användaren väljer en av de befintliga frågorna. Feedback från användare skickas till QnA Maker [träna](https://www.aka.ms/activelearningsamplebot) API för att fortsätta aktiv inlärning feedback-loop. 
+När användaren väljer en av de befintliga frågorna, skickar klientprogrammet användarens val som feedback med QnA Maker träna API. Denna feedback är klar med aktivt learning feedback-loop. 
+
+Använd den [Azure Bot C# exempel](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot) att se aktiv inlärning i ett scenario för slutpunkt till slutpunkt.
+
+## <a name="train-api"></a>Träna API
+
+Aktiv inlärning feedback skickas till QnA Maker med träna API POST-begäran. API-signaturen är:
 
 ```http
 POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train
@@ -163,9 +169,42 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-Mer information om hur du använder aktiv inlärning med en [Azure Bot C# exempel](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)
+|Egenskapen för HTTP-begäran|Namn|Type|Syfte|
+|--|--|--|--|
+|URL-parameter för väg|Kunskapsbas-ID|sträng|GUID för kunskapsbasen.|
+|Host subdomain|Resursnamnet för QnAMaker|sträng|Värdnamnet för din QnA Maker i Azure-prenumerationen. Detta är tillgängligt på sidan inställningar när du har publicerat i knowledge base. |
+|Huvud|Content-Type|sträng|Medietyp i texten som skickas till API: et. Standardvärdet är: `application/json`|
+|Huvud|Auktorisering|sträng|Din slutpunktsnyckeln (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Publicera brödtext|JSON-objekt|JSON|Utbildning feedback|
 
-## <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>Aktiv inlärning sparas i den exporterade appens tsv-fil
+JSON-texten har flera inställningar:
+
+|Brödtext JSON-egenskap|Type|Syfte|
+|--|--|--|--|
+|`feedbackRecords`|matris|Lista över feedback.|
+|`userId`|sträng|Användar-ID för den person som tar emot de föreslagna frågorna. Format för användar-ID är upp till dig. En e-postadress kan till exempel vara ett giltigt användar-ID i din arkitektur. Valfri.|
+|`userQuestion`|sträng|Exakta texten för frågan. Krävs.|
+|`qnaID`|nummer|ID för fråga, finns i den [GenerateAnswer svar](metadata-generateanswer-usage.md#generateanswer-response-properties). |
+
+Det ser ut som ett exempel på JSON-texten:
+
+```json
+{
+    "feedbackRecords": [
+        {
+            "userId": "1",
+            "userQuestion": "<question-text>",
+            "qnaId": 1
+        }
+    ]
+}
+```
+
+Ett lyckat svar returneras statusen 204 och inget JSON-svarstexten. 
+
+<a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>
+
+## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>Aktiv inlärning sparas i den exporterade kunskapsbasen
 
 När din app har aktiv inlärning aktiverat, och du exportera en app i `SuggestedQuestions` kolumnen i filen tsv behåller data aktiv inlärning. 
 
@@ -193,4 +232,4 @@ När du importera den här appen fortsätter aktiv inlärning att samla in infor
 ## <a name="next-steps"></a>Nästa steg
  
 > [!div class="nextstepaction"]
-> [Använd API för QnA Maker](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Använda metadata med GenerateAnswer API](metadata-generateanswer-usage.md)

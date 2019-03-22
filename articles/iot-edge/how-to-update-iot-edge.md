@@ -5,33 +5,33 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/17/2018
+ms.date: 03/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: b11f11aa3966bc57caa5b8dd0379f4d5c59c8375
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a3dd7f78362b5f5c99dc4a74fe0a32c4d26be5b7
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672907"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311925"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Uppdatera IoT Edge security daemon och runtime
 
-När IoT Edge-tjänsten släpper nya versioner, bör du uppdatera dina IoT Edge-enheter om du vill ha de senaste funktionerna och säkerhetsförbättringar. Den här artikeln innehåller information om hur du uppdaterar din IoT Edge-enheter när en ny version är tillgänglig. 
+När IoT Edge-tjänsten släpper nya versioner, bör du uppdatera dina IoT Edge-enheter för de senaste funktionerna och säkerhetsförbättringar. Den här artikeln innehåller information om hur du uppdaterar din IoT Edge-enheter när en ny version är tillgänglig. 
 
 Två komponenter i en IoT Edge-enhet måste uppdateras om du vill flytta till en nyare version. Först är daemonen säkerhet som kan köras på enheten och startar moduler för körning när enheten startas. Daemonen säkerhet kan för närvarande kan bara uppdateras från själva enheten. Den andra komponenten är körning, består av IoT Edge hub och IoT Edge-moduler för agenten. Beroende på hur du strukturera distributionen av kan körningen uppdateras från enheten eller på distans. 
+
+Du hittar den senaste versionen av Azure IoT Edge [Azure IoT Edge släpper](https://github.com/Azure/azure-iotedge/releases).
 
 >[!IMPORTANT]
 >Om du kör Azure IoT Edge på en Windows-enhet, uppdateras inte till version 1.0.5 om något av följande gäller för din enhet: 
 >* Du har inte uppgraderat din enhet till Windows build 17763. IoT Edge-version 1.0.5 inte har stöd för Windows-versioner äldre än 17763.
 >* Du kan köra Java eller Node.js-moduler på din Windows-enhet. Hoppa över version 1.0.5 även om du har uppdaterat din Windows-enhet till den senaste versionen. 
 >
->Läs mer om IoT Edge version 1.0.5 [1.0.5 viktig](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Mer information om hur du håller utvecklingsverktyg från att uppdatera till den senaste versionen finns i [IoT developer-bloggen](https://devblogs.microsoft.com/iotdev/).
+>Läs mer om IoT Edge version 1.0.5 [1.0.5 viktig](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Läs mer om hur du förhindrar att uppdatera till den senaste versionen av utvecklingsverktyg, [IoT developer-bloggen](https://devblogs.microsoft.com/iotdev/).
 
-
-Du hittar den senaste versionen av Azure IoT Edge [Azure IoT Edge släpper](https://github.com/Azure/azure-iotedge/releases).
 
 ## <a name="update-the-security-daemon"></a>Uppdatera daemonen säkerhet
 
@@ -59,9 +59,9 @@ Avinstallera daemonen säkerhet i en PowerShell-administratörssession.
 Uninstall-SecurityDaemon
 ```
 
-Kör den `Uninstall-SecurityDaemon` kommando utan några parametrar tar bort daemonen säkerhet från din enhet, tillsammans med två runtime-behållaravbildningar. Config.yaml filen sparas på enheten, samt data från Moby container-motorn. Bevara konfigurationen innebär att du inte behöver ange anslutningssträngen eller Device Provisioning-tjänsten information för enheten igen under installationen. 
+Kör den `Uninstall-SecurityDaemon` kommando utan några parametrar bara tar bort daemonen säkerhet från din enhet, tillsammans med två runtime-behållaravbildningar. Config.yaml filen sparas på enheten, samt data från Moby container-motorn. Att hålla den konfigurationen information innebär att du inte behöver ange anslutningssträngen eller Device Provisioning-tjänsten information för enheten igen under installationen. 
 
-Installera om daemonen security beroende på om din IoT Edge-enhet använder behållare i Windows eller Linux-behållare. Ersätt frasen **\<Windows eller Linux\>** med något av operativsystemen behållare. Använd den **- ExistingConfig** flagga för att peka på den befintliga config.yaml-filen på din enhet. 
+Installera om daemonen security beroende på om din IoT Edge-enhet använder behållare i Windows eller Linux-behållare. Ersätt frasen **\<Windows eller Linux\>** med operativsystem att rätt behållare. Använd den **- ExistingConfig** flagga för att peka på den befintliga config.yaml-filen på din enhet. 
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -91,7 +91,7 @@ Om du använder löpande taggar i distributionen (till exempel mcr.microsoft.com
 
 Ta bort den lokala versionen av avbildningen från din IoT Edge-enhet. På Windows-datorer, avinstallera daemonen security tar också bort runtime-avbildningar, så du inte behöver vidta åtgärden igen. 
 
-```cmd/sh
+```bash
 docker rmi mcr.microsoft.com/azureiotedge-hub:1.0
 docker rmi mcr.microsoft.com/azureiotedge-agent:1.0
 ```
@@ -106,7 +106,7 @@ Om du använder specifika taggar i distributionen (till exempel mcr.microsoft.co
 
 I Azure-portalen distributionsavbildningar runtime deklareras i den **konfigurera avancerade Edge-körningsinställningar** avsnittet. 
 
-[Konfigurera avancerade edge-körningsinställningar](./media/how-to-update-iot-edge/configure-runtime.png)
+![Konfigurera avancerade edge-körningsinställningar](./media/how-to-update-iot-edge/configure-runtime.png)
 
 I manifestet för en JSON-distribution, uppdatera modulen avbildningar i den **systemModules** avsnittet. 
 

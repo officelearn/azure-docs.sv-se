@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9fe644b7cc7d1a13cb9ed2f7016f25b3e346dfb
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 690f41e941f2d1db8fc92d225a54d07570299222
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233182"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313143"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Konfigurera SMT server för SUSE Linux
 Stora instanser av SAP HANA har inte direkt anslutning till internet. Det är inte enkelt att registrera till exempel enheter med operativsystem-providern och för att ladda ned och installera uppdateringar. En lösning för SUSE Linux är att ställa in en SMT-server i virtuella Azure-datorer. Vara värd för den virtuella datorn i ett Azure-nätverk som är ansluten till den stora HANA-instansen. Med sådana en SMT-server kan den stora HANA-instansen enheten registrera och hämta uppdateringar. 
@@ -84,7 +84,7 @@ Du kan också använda verktyget YAST för att installera de smt-paket. I YAST, 
 ![Skärmbild av SMT i YAST](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-Acceptera valet för installation på smtserver. När installationen är klar går du till SMT-serverkonfigurationen. Ange organisationens autentiseringsuppgifter från SUSE kunden Center som hämtades tidigare. Ange också Azure VM-värdnamn som SMT-Serveradress. I den här demonstrationen har https://smtserver.
+Acceptera valet för installation på smtserver. När installationen är klar går du till SMT-serverkonfigurationen. Ange organisationens autentiseringsuppgifter från SUSE kunden Center som hämtades tidigare. Ange också Azure VM-värdnamn som SMT-Serveradress. I den här demonstrationen, det är https:\//smtserver.
 
 ![Skärmbild av SMT-serverkonfiguration](./media/hana-installation/image6_configuration_of_smtserver1.png)
 

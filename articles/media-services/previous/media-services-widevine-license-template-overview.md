@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 4b5196a995576e5b00a988e14183eb720d5b2eae
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d0bb72361e1bff3615f6785ac4c91a10ea773498
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989884"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312979"
 ---
 # <a name="widevine-license-template-overview"></a>Översikt över Widevine-licensmallen 
 Du kan använda Azure Media Services för att konfigurera och begära Google Widevine-licenser. När spelaren försöker att spela upp Widevine-skyddat innehåll, skickas en begäran till licensleveranstjänst du erhåller en licens. Om Licenstjänsten godkänner begäran, skickar tjänsten licensen. Den skickas till klienten och används för att dekryptera och spela upp det angivna innehållet.
@@ -63,7 +63,7 @@ En Widevine-licensbegäran formateras som ett JSON-meddelande.
 | --- | --- | --- |
 | nyttolast |Base64-kodad sträng |Licensbegäran som skickats av en klient. |
 | content_id |Base64-kodad sträng |Identifieraren som används för att härleda nyckel-ID och innehåll nyckel för varje content_key_specs.track_type. |
-| Providern |sträng |Används för att söka efter innehåll nycklar och principer. Om du använder Microsoft key leverans för Widevine-licensleverans, ignoreras den här parametern. |
+| provider |sträng |Används för att söka efter innehåll nycklar och principer. Om du använder Microsoft key leverans för Widevine-licensleverans, ignoreras den här parametern. |
 | policy_name |sträng |Namnet på en tidigare registrerad princip. Valfri. |
 | allowed_track_types |Enum |SD_ONLY eller SD_HD. Styr vilka nycklar av innehåll som ingår i en licens. |
 | content_key_specs |Matris med JSON strukturer som stöds, se avsnittet ”Content viktiga specifikationer”.  |En mer detaljerad kontroll på vilka nycklar ska returneras. Mer information finns i avsnittet ”innehåll viktiga specifikationer”. Endast en av de allowed_track_types och content_key_specs värdena kan anges. |

@@ -10,12 +10,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: ebf858ba86758b11ee896d745d70bdf2f0d0cde6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 7388dc0c61dad9c31da0c178febcee4c8481bc50
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878388"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313200"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrera 3270 skärmen-drivna appar på IBM-stordatorer med Azure med Azure Logic Apps och IBM 3270-anslutningen
 
@@ -402,7 +402,7 @@ När du är klar med alla de här stegen du använder åtgärden som du skapar i
 1. När du är klar, spara och kör din logikapp.
 
    När du har dina logic app är klar, stegen från kör visas. 
-   Lyckad stegen visar bockar, medan misslyckade stegen visar bokstaven ”X”.
+   Lyckad stegen visar bockmarkeringar, medan misslyckade stegen visar bokstaven ”X”.
 
 1. Expandera det steget och granska indata och utdata för varje steg.
 
@@ -410,7 +410,7 @@ När du är klar med alla de här stegen du använder åtgärden som du skapar i
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om utlösare och åtgärder gränsen som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska kopplingens referenssida: [ https://docs.microsoft.com/connectors/<replace-with-api-topic-file-name> ](/connectors/).
+Teknisk information om utlösare och åtgärder gränsen som beskrivs av anslutningsappens OpenAPI (tidigare Swagger) beskrivning, granska de [anslutningsappens-referenssida](/connectors/si3270/).
 
 ## <a name="get-support"></a>Få support
 

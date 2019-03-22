@@ -6,16 +6,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 16233c9013e97a7db7ef799b79526abac4741612
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 6f178ef1a0aec7f742bce4c2570962b995876026
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318448"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316277"
 ---
-# <a name="overview-of-failback"></a>Översikt över återställning efter fel
+# <a name="failback-after-disaster-recovery-of-vmware-vms"></a>Återställning efter fel efter haveriberedskap för virtuella VMware-datorer
 
 När du har redundansväxlat till Azure som en del av dina återställningsprocesser kan växla du tillbaka till din lokala plats. Det finns två olika typer av återställning efter fel som är möjligt med Azure Site Recovery: 
 
@@ -25,7 +25,7 @@ När du har redundansväxlat till Azure som en del av dina återställningsproce
 Om du redundansväxlade en virtuell VMware-dator kan du växla tillbaka till samma lokala källdatorn om det fortfarande finns. I det här scenariot replikeras endast ändringar tillbaka. Det här scenariot kallas **ursprungsplatsen**. Om den lokala virtuella datorn inte finns, scenariot som är en **alternativa platsåterställningen**.
 
 > [!NOTE]
-> Du kan bara återställa till ursprungliga vCenter och konfigurationsservern. Du kan inte distribuera en ny Configuration server och växla tillbaka med hjälp av den. Du inte också lägga till en ny vCenter till befintliga konfigurationsservern och växla tillbaka till nya vCenter.
+> Du kan bara växla tillbaka till den ursprungliga vCenter och konfigurationsservern. Du kan inte distribuera en ny Configuration server och växla tillbaka med hjälp av den. Du inte också lägga till en ny vCenter till befintliga konfigurationsservern och växla tillbaka till nya vCenter.
 
 ## <a name="original-location-recovery-olr"></a>Ursprungsplatsen (OLR)
 Om du vill växla tillbaka till den ursprungliga virtuella datorn, måste följande villkor vara uppfyllda:

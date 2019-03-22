@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 73f962cc8e0d4605c0c5f0bace79553033ebe082
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: f615a07352faccc8096752e5ba60360144834907
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110910"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338249"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Använda versioner för att redigera och testa utan att påverka mellanlagring eller produktion appar
 
@@ -56,6 +56,10 @@ Välj en version i listan och välj sedan **göra Active** från verktygsfältet
     ![Hantera avsnittet versioner sidan importerar ny version](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
     När du importerar en version, blir den aktiva versionen i den nya versionen.
+
+### <a name="import-errors"></a>Importfel
+
+* Tokenizer fel: Om du får en **tokenizer fel** när du importerar får du försöker importera en version som använder en annan [tokenizer](luis-language-support.md#custom-tokenizer-versions) än appen använder för närvarande. Lös problemet, har du två alternativ. Se [migrering mellan versioner tokenizer](luis-language-support.md#migrating-between-tokenizer-versions) för mer information.
 
 <a name = "export-version"></a>
 

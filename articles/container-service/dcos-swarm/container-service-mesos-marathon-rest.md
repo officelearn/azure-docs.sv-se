@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 567890f3beec1eff30effeec0ce23284c5fee141
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fd109a72b092e963bc4fda7894bf67f998b7d0c5
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109298"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309819"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(INAKTUELL) Hantering av DC/OS-behållare via Marathon REST API
 
@@ -30,7 +30,7 @@ Innan du börjar med de här exemplen behöver du ett DC/OS-kluster som har konf
 * [Ansluta till ett Azure Container Service-kluster](../container-service-connect.md)
 
 ## <a name="access-the-dcos-apis"></a>Komma åt DC/OS-API: er
-När du är ansluten till Azure Container Service-kluster, du kan komma åt DC/OS och relaterade REST-API: er via http://localhost:local-port. Exemplen i det här dokumentet förutsätter att du använder tunneltrafik på port 80. Till exempel Marathon-slutpunkter kan nås på URI: er från och med `http://localhost/marathon/v2/`. 
+När du har anslutit till Azure Container Service-kluster kan du komma åt DC/OS och relaterade REST API: er via http:\//localhost:local-port. Exemplen i det här dokumentet förutsätter att du använder tunneltrafik på port 80. Till exempel Marathon-slutpunkter kan nås på URI: er från och med http: \/ /localhost/marathon/v2 /. 
 
 Mer information om de olika API:erna finns i Mesosphere-dokumentationen för [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) och [Chronos API](https://mesos.github.io/chronos/docs/api.html), samt Apache-dokumentationen för [Mesos Scheduler API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
@@ -123,7 +123,7 @@ Du kan använda Marathon API för att skala ut eller skala in programdistributio
 Kör följande kommando för att skala ut programmet från din tunneltrafik anslutning.
 
 > [!NOTE]
-> URI: N är http://localhost/marathon/v2/apps/ följt av ID: T för programmet som ska skalas. Om du använder Nginx-exemplet som anges här blir URI: N http://localhost/marathon/v2/apps/nginx.
+> URI: N är http: \/ /localhost/marathon/v2/appar/följt av ID: T för programmet som ska skalas. Om du använder Nginx-exemplet som anges här är URI: N skulle vara http:\//localhost/marathon/v2/apps/nginx.
 
 ```bash
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -180,7 +180,7 @@ Du kan även använda Marathon API för att skala ut eller skala in programdistr
 Kör följande kommando för att skala ut programmet:
 
 > [!NOTE]
-> URI: N är http://localhost/marathon/v2/apps/ följt av ID: T för programmet som ska skalas. Om du använder Nginx-exemplet som anges här blir URI: N blir http://localhost/marathon/v2/apps/nginx.
+> URI: N är http: \/ /localhost/marathon/v2/appar/följt av ID: T för programmet som ska skalas. Om du använder Nginx-exemplet som anges här blir URI: N blir http:\//localhost/marathon/v2/apps/nginx.
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'

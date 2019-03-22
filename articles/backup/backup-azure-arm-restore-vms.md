@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: geg
-ms.openlocfilehash: 44b8d57af83f53c73868a84104da7a7f72cb1e81
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 2253e729daedc3b130919913c1616449245f9cc1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202596"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315393"
 ---
 # <a name="restore-azure-vms"></a>Återställa virtuella Azure-datorer
 
@@ -23,7 +23,7 @@ Den här artikeln beskrivs hur du återställer Azure VM-data från återställn
 För att återställa en virtuell dator Kontrollera att du har de nödvändiga [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) behörighet.
 
 > [!NOTE]
-> Om du inte har [RABAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) behörighet som du kan utföra [återställa disk](backup-azure-arm-restore-vms.md#create-new-restore-disks) och skapa virtuell dator med [distribuera mall](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) funktionen.
+> Om du inte har [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) behörighet som du kan utföra [återställa disk](backup-azure-arm-restore-vms.md#create-new-restore-disks) och skapa virtuell dator med [distribuera mall](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) funktionen.
 
 ### <a name="restore-options"></a>Återställningsalternativ
 

@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/11/2019
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: d0c5260fcc2e7ac2acbeec308c6a0cba7d6a81be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1d0506179f9f0044f9f05edd3395d2677310c2d0
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098101"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337126"
 ---
 # <a name="azure-dns-faq"></a>Vanliga frågor och svar med Azure DNS
 
@@ -103,9 +103,11 @@ Det här stödet är för närvarande inte tillgängligt för TXT-poster som ska
 ## <a name="alias-records"></a>Aliasposter
 
 ### <a name="what-are-some-scenarios-where-alias-records-are-useful"></a>Vilka är några scenarier där alias poster är användbar?
+
 Se scenarier i avsnittet den [Azure DNS alias poster översikt](dns-alias.md).
 
 ### <a name="what-record-types-are-supported-for-alias-record-sets"></a>Vilka typer av poster stöds alias postuppsättningar?
+
 Alias postuppsättningar har stöd för följande typer av poster i en Azure DNS-zon:
  
 - A 
@@ -116,30 +118,36 @@ Alias postuppsättningar har stöd för följande typer av poster i en Azure DNS
 
 - **Peka på en offentlig IP-adressresurs från DNS A/AAAA-postuppsättning.** Du kan skapa en A/AAAA-postuppsättning och gör det till ett alias postuppsättningen så att den pekar till en offentlig IP-resurs.
 - **Peka på en Traffic Manager-profil från en CNAME-DNS A/AAAA-postuppsättning.** Du kan peka till CNAME för en Traffic Manager-profil från en DNS CNAME-postuppsättning. Ett exempel är contoso.trafficmanager.net. Nu kan kan du också peka på en Traffic Manager-profil som har externa slutpunkter från ett A eller AAAA-postuppsättning i din DNS-zon.
+- **Peka på en Azure Content Delivery Network (CDN) slutpunkt**. Detta är användbart när du skapar statiska webbplatser som använder Azure storage och Azure CDN.
 - **Peka på en annan DNS-postuppsättning i samma zon.** Alias poster kan referera till andra postuppsättningar av samma typ. Du kan till exempel låta en DNS CNAME-postuppsättning vara ett alias för en annan CNAME-postuppsättning av samma typ. Det här är användbart om du vill att vissa postuppsättningar vara alias och vissa alias.
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>Kan jag skapa och uppdatera alias poster från Azure-portalen?
+
 Ja. Du kan skapa eller hantera alias-poster i Azure-portalen tillsammans med Azure REST API: er, PowerShell, CLI och SDK: er.
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-deleted-when-the-underlying-public-ip-is-deleted"></a>Alias poster hjälper till att kontrollera att min DNS-postuppsättning tas bort när den underliggande offentliga IP-Adressen har tagits bort?
+
 Ja. Den här funktionen är en av de viktigaste funktionerna i alias poster. Det hjälper dig att undvika eventuella avbrott för användare av ditt program.
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-updated-to-the-correct-ip-address-when-the-underlying-public-ip-address-changes"></a>Alias kommer innehåller hjälp om du vill kontrollera min DNS-postuppsättning uppdateras till rätt IP-adress när den underliggande offentliga IP-adressen ändras?
+
 Ja. Den här funktionen är en av de viktigaste funktionerna i alias poster. Det hjälper dig att undvika eventuella avbrott eller säkerhetsrisker för ditt program.
 
 ### <a name="are-there-any-restrictions-when-using-alias-record-sets-for-a-or-aaaa-records-to-point-to-traffic-manager"></a>Finns det några begränsningar när du använder aliaspost anger för A eller aaa-poster för att peka till Traffic Manager?
+
 Ja. För att peka mot en Traffic Manager-profil som ett alias från ett A eller AAAA-postuppsättning måste Traffic Manager-måste profil använda endast externa slutpunkter. När du skapar de externa slutpunkterna i Traffic Manager kan du ange faktiska IP-adresserna för slutpunkterna.
 
 ### <a name="is-there-an-additional-charge-to-use-alias-records"></a>Finns det en extra avgift för att använda alias poster?
+
 Alias poster är en kvalifikation på en giltig DNS-postuppsättning. Det finns inga ytterligare faktureringen för alias poster.
 
 ## <a name="use-azure-dns"></a>Use Azure DNS
 
-### <a name="can-i-cohost-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Kan jag cohost en domän med hjälp av Azure DNS och en annan DNS-provider?
+### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Kan jag Samkör en domän med hjälp av Azure DNS och en annan DNS-provider?
 
-Ja. Azure DNS stöder cohosting domäner med andra DNS-tjänster.
+Ja. Azure DNS stöder delad hosting domäner med andra DNS-tjänster.
 
-Om du vill konfigurera cohosting ändra NS-poster för domänen så att den pekar till namnservrarna för båda providers. Namnserver (NS) registrerar kontroll vilka leverantörer får DNS-frågor för domänen. Du kan ändra dessa NS-poster i Azure DNS, i en annan provider och i den överordnade zonen. Den överordnade zonen konfigureras vanligtvis via domännamnsregistratorn. Mer information om DNS-delegering finns i [DNS domändelegering](dns-domain-delegation.md).
+Om du vill konfigurera delade hosting ändra NS-poster för domänen så att den pekar till namnservrarna för båda providers. Namnserver (NS) registrerar kontroll vilka leverantörer får DNS-frågor för domänen. Du kan ändra dessa NS-poster i Azure DNS, i en annan provider och i den överordnade zonen. Den överordnade zonen konfigureras vanligtvis via domännamnsregistratorn. Mer information om DNS-delegering finns i [DNS domändelegering](dns-domain-delegation.md).
 
 Kontrollera också att DNS-poster för domänen är synkroniserade mellan båda DNS-providers. Azure DNS stöder inte för närvarande DNS-zonöverföring. DNS-poster måste synkroniseras genom att använda antingen den [hanteringsportalen för Azure DNS](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell-cmdletar](dns-operations-recordsets.md), eller [CLI-verktyget](dns-operations-recordsets-cli.md).
 
@@ -271,10 +279,9 @@ Privata zoner som redan har skapats via API: er, PowerShell, CLI och SDK: er är
 ## <a name="next-steps"></a>Nästa steg
 
 - [Läs mer om Azure DNS](dns-overview.md).
-<br>
-- [Mer information om hur du använder Azure DNS för privata domäner](private-dns-overview.md).
-<br>
-- [Mer information om DNS-zoner och poster](dns-zones-records.md).
-<br>
-- [Kom igång med Azure DNS](dns-getstarted-portal.md).
 
+- [Mer information om hur du använder Azure DNS för privata domäner](private-dns-overview.md).
+
+- [Mer information om DNS-zoner och poster](dns-zones-records.md).
+
+- [Kom igång med Azure DNS](dns-getstarted-portal.md).

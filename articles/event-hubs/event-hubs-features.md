@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 242c2f63735be33fe933ae3229f7aa28356ea697
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e7f292db06d4da9206aabd14a68e6acde867f92d
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548395"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337008"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funktionerna och terminologin i Azure Event Hubs
 
@@ -79,7 +79,7 @@ Event Hubs behåller data under en konfigurerad kvarhållningstid som gäller f�
 
 Antalet partitioner anges när de skapas och måste vara mellan 2 och 32. Eftersom det inte går att ändra antalet partitioner bör du tänka på hur många partitioner som kommer att behövas på längre sikt när du anger antalet partitioner. Partitioner är en mekanism för organisering av data som har att göra med vilken underordnad parallellitet som krävs i de program som används. Antalet partitioner i en händelsehubb är direkt kopplat till antalet samtidiga läsare som du förväntar dig. Du kan öka antalet partitioner till mer än 32 genom att kontakta Event Hubs-teamet.
 
-Du rekommenderas att inte skicka direkt till en partition partitioner kan identifieras och kan skickas till direkt. Du kan i stället använda konstruktioner på högre nivå som beskrivs i avsnitten [Händelseutfärdare](#event-publishers) och [Kapacitet](#capacity). 
+Du rekommenderas att inte skicka direkt till en partition partitioner kan identifieras och kan skickas till direkt. Du kan i stället använda konstruktioner på högre nivå introducerades i den [händelseutfärdare](#event-publishers) och kapacitet avsnitt. 
 
 Partitioner är fyllda med en sekvens av händelsedata som innehåller själva händelsen, en användardefinierad egenskapsuppsättning och metadata, till exempel dess offset i partitionen och dess nummer i dataströmsekvensen.
 
@@ -152,13 +152,15 @@ Händelsedata:
 
 Det är ditt ansvar att hantera positionen (offset).
 
-## <a name="capacity"></a>Kapacitet
+## <a name="scaling-with-event-hubs"></a>Skala med Händelsehubbar
 
-Event Hubs har en mycket skalbar parallell arkitektur och det finns flera viktiga faktorer att tänka på när du ändrar storlek och skala.
+Det finns två faktorerna som påverkar skala med Händelsehubbar.
+*   Genomflödesenheter
+*   Partitioner
 
 ### <a name="throughput-units"></a>Genomflödesenheter
 
-Genomflödeskapaciteten i Event Hubs styrs av *genomflödesenheter*. Genomflödesenheter är färdiga kapacitetsenheter. En dataflödesenhet har följande kapacitet:
+Genomflödeskapaciteten i Event Hubs styrs av *genomflödesenheter*. Genomflödesenheter är färdiga kapacitetsenheter. Ett enda dataflöde kan du:
 
 * Ingång: Upp till 1 MB per sekund eller 1 000 händelser per sekund (beroende på vilket som inträffar först).
 * Utgång: Upp till 2 MB per sekund eller 4096 händelser per sekund.
@@ -167,9 +169,13 @@ Utöver kapaciteten för köpta genomflödesenheter är den inkommande trafiken 
 
 Genomflödesenheter är förköpta och faktureras per timme. När de väl har köpts debiteras de för minst en timme. Upp till 20 genomflödesenheter enheter kan köpas för ett namnområde för Event Hubs och delas över alla händelsehubbar i det namnområdet.
 
-Du kan köpa fler genomflödesenheter i block om 20, upp till 100 genomflödesenheter genom att kontakta Azure-supporten. Utöver denna gräns kan du köpa block med 100 genomflödesenheter.
+### <a name="partitions"></a>Partitioner
 
-Vi rekommenderar att du väga genomflödesenheter och partitioner för att uppnå optimal skala. En enskild partition har en minsta skala på en genomflödesenhet. Antalet dataflödesenheter ska vara mindre än eller lika med antalet partitioner i en händelsehubb.
+Partitioner kan du skala för din nedströms bearbetning. På grund av modellen konsumentmönster indelat i partitioner som Händelsehubbar erbjuder med partitioner, du kan skala ut vid bearbetning av händelser samtidigt. En Händelsehubb kan ha upp till 32 partitioner.
+
+Vi rekommenderar att du balanserar 1:1-genomflödesenheter och partitioner för att uppnå optimal skala. En enskild partition har en garanterad ingående och utgående på upp till en genomflödesenhet. Du kanske kan uppnå högre dataflöde på en partition, garanteras inte prestanda. Det är därför vi rekommenderar starkt att antalet partitioner i en händelsehubb är större än eller lika med antalet dataflödesenheter.
+
+Det totala dataflödet som du planerar att behöva får du vet antal throughput units som du behöver och det minsta antalet partitioner, men hur många partitioner bör du ha? Välj antal partitioner baserat på den underordnade parallellitet som du vill uppnå samt framtida dataflödet behöver. Det finns ingen kostnad för antalet partitioner som du har i en Händelsehubb.
 
 Utförlig prisinformation för Event Hubs finns i [Priser för Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 

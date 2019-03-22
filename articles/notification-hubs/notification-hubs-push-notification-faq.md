@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 863b380d4f36e24119e64fbd4a59e8cd66c911e1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: da24c437a1dbe8744579cd26ee1348f50c4815ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779427"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884752"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: Vanliga frågor och svar
 
@@ -217,22 +217,22 @@ Du kan även programmässigt komma åt mätvärden. Mer information finns i föl
 > Lyckade meddelanden innebär helt enkelt att push-meddelanden har levererats till externa PNS (till exempel APNS för Apple) eller FCM för Google. Ansvarar för att leverera meddelanden till målenheterna pns-systemet. Normalt exponerar PNS inte mått för leverans till tredje part.  
 
 [Azure Portal]: https://portal.azure.com
-[Prisinformation om Notification hub]: http://azure.microsoft.com/pricing/details/notification-hubs/
-[Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
+[Prisinformation om Notification hub]: https://azure.microsoft.com/pricing/details/notification-hubs/
+[Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Fallstudie: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
 [Fallstudie: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
 [Fallstudie: Seattle gånger]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
 [Fallstudie: Mural.LY]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
 [Fallstudie: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [Notification Hub REST API: er]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[Notification Hubs komma igång-Självstudier]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Självstudier för Chrome]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
-[Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
+[Notification Hubs komma igång-Självstudier]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Självstudier för Chrome]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
+[Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [Vägledning för backend-registrering]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Registrering av backend-vägledning 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
 [Säkerhetsmodell för Notification Hubs]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Handledning för Hubs säker Push-meddelande]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[Meddelandehubbar felsökning]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[Handledning för Hubs säker Push-meddelande]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
+[Meddelandehubbar felsökning]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Notification Hubs mått]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Registreringar Export/Import]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure Portal]: https://portal.azure.com

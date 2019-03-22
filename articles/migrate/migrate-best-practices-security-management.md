@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 8b895580f2edc0b7af1c6195212490ce083208ad
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 0bd19492c844e217dc520ae0c189ca467bb7ac0a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991163"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011095"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Metodtips för att skydda och hantera arbetsbelastningar migreras till Azure
 
@@ -267,7 +267,7 @@ Ofta, finns med bara ett Resursgruppsnamn rör resurser inte tillräckligt med m
 
 - [Lär dig mer om](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) taggning och tagga begränsningar.
 - [Granska](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#powershell) PowerShell och CLI-exempel att ställa in taggar och för att lägga till taggar från en resursgrupp på dess resurser.
-- [Läs](http://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) Azure taggning bästa praxis.
+- [Läs](https://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) Azure taggning bästa praxis.
 
 
 ## <a name="best-practice-implement-blueprints"></a>Rekommendation: Implementera skisser

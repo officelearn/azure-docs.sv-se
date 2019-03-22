@@ -9,16 +9,18 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
-ms.openlocfilehash: 1ccb96bc8682ad505bc4b21e90951ea25c4c9954
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eff7f88ec6cbf8064df42fa3b22d61bb44baa451
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898090"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339592"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
 Den här guiden innehåller information om vanliga problem som du kan ha när du använder Azure Dev blanksteg.
+
+Om du har problem när du använder Azure Dev blanksteg, skapar du en [problem i Azure Dev blanksteg GitHub-lagringsplatsen](https://github.com/Azure/dev-spaces/issues).
 
 ## <a name="enabling-detailed-logging"></a>Aktivera detaljerad loggning
 
@@ -262,11 +264,13 @@ az provider register --namespace Microsoft.DevSpaces
 ## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Dev blanksteg tidsgränsen uppnås vid *väntar på behållaren bild build...*  steg med AKS virtuella noder
 
 ### <a name="reason"></a>Orsak
-Detta inträffar när du försöker använda Dev blanksteg för att köra en tjänst som är konfigurerad för att köras en [AKS virtuell nod](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Dev blanksteg stöder för närvarande inte att skapa eller felsöker tjänster i virtuella noder.
+Den här timeout uppstår när du försöker använda Dev blanksteg för att köra en tjänst som är konfigurerad för att köras en [AKS virtuell nod](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Dev blanksteg stöder för närvarande inte att skapa eller felsöker tjänster i virtuella noder.
 
 Om du kör `azds up` med den `--verbose` växel eller aktivera utförlig loggning i Visual Studio visas ytterligare information:
 
 ```cmd
+$ azds up --verbose
+
 Installed chart in 2s
 Waiting for container image build...
 pods/mywebapi-76cf5f69bb-lgprv: Scheduled: Successfully assigned default/mywebapi-76cf5f69bb-lgprv to virtual-node-aci-linux
@@ -274,7 +278,7 @@ Streaming build container logs for service 'mywebapi' failed with: Timed out aft
 Container image build failed
 ```
 
-Detta visar att tjänstens pod har tilldelats till *virtuella-nod-aci-linux*, vilket är en virtuell nod.
+Ovanstående kommando visar att tjänstens pod har tilldelats till *virtuella-nod-aci-linux*, vilket är en virtuell nod.
 
 ### <a name="try"></a>Prova:
 Uppdatera Helm-diagram för tjänsten att ta bort *nodeSelector* och/eller *tolerations* värden som gör att tjänsten körs på en virtuell nod. Dessa värden definieras vanligen i diagrammets `values.yaml` fil.

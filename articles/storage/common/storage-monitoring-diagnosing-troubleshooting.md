@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 25ec52b44f8d5a36868cc609c42b6db5ab939fa4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: MT
+ms.openlocfilehash: bfaa738b0f99594a3bd11541d519701ff5eb98f5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490277"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896168"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -123,9 +123,9 @@ Resten av det här avsnittet beskriver vilka mått som bör du övervaka och var
 Du kan använda den [Azure-portalen](https://portal.azure.com) att visa hälsotillståndet för Storage-tjänsten (och andra Azure-tjänster) i alla Azure-regioner runtom i världen. Övervakning kan påverkar du direkt se om ett problem utanför din kontroll lagringstjänst i den region som du använder för ditt program.
 
 Den [Azure-portalen](https://portal.azure.com) kan också ge meddelanden om incidenter som påverkar olika Azure-tjänster.
-Obs! Den här informationen fanns tidigare, tillsammans med historiska data på den [Azure instrumentpanel](http://status.azure.com).
+Obs! Den här informationen fanns tidigare, tillsammans med historiska data på den [Azure instrumentpanel](https://status.azure.com).
 
-Medan den [Azure-portalen](https://portal.azure.com) samlar in hälsoinformation från inuti Azure datacenter (inom ut övervakning), du kan också fundera på att börja använda en utifrån metod för att generera syntetiska transaktioner som regelbundet använder ditt Azure-värdbaserade webbprogram från flera platser. Tjänster som erbjuds av [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) och Application Insights för Azure DevOps är exempel på den här metoden. Mer information om Application Insights för Azure DevOps finns i bilagan ”[tillägg 5: Övervakning med Application Insights för Azure DevOps](#appendix-5)”.
+Medan den [Azure-portalen](https://portal.azure.com) samlar in hälsoinformation från inuti Azure datacenter (inom ut övervakning), du kan också fundera på att börja använda en utifrån metod för att generera syntetiska transaktioner som regelbundet använder ditt Azure-värdbaserade webbprogram från flera platser. Tjänster som erbjuds av [Dynatrace](https://www.dynatrace.com/en/synthetic-monitoring) och Application Insights för Azure DevOps är exempel på den här metoden. Mer information om Application Insights för Azure DevOps finns i bilagan ”[tillägg 5: Övervakning med Application Insights för Azure DevOps](#appendix-5)”.
 
 ### <a name="monitoring-capacity"></a>Övervakningskapacitet
 Mätvärden i Storage lagrar bara kapacitet för blob-tjänsten eftersom blobar vanligtvis hänsyn till största andelen av lagrade data (vid tidpunkten för skrivning, det går inte att använda Lagringsmått för att övervaka kapaciteten för dina tabeller och köer). Du hittar dessa data i den **$MetricsCapacityBlob** tabellen om du har aktiverat övervakning för Blob-tjänsten. Lagringsmått registrerar dessa data en gång per dag och du kan använda värdet för den **RowKey** att fastställa om raden innehåller en entitet som är kopplad till användarens data (värdet **data**) eller analytics-data (värde **analytics**). Innehåller information om mängden lagringsutrymme som används för varje lagrad entitet (**kapacitet** mätt i byte) och det aktuella antalet behållare (**ContainerCount**) och blobar (**ObjectCount** ) används i lagringskontot. Mer information om kapacitetsmåtten lagras i den **$MetricsCapacityBlob** tabellen, se [Schema över Måttabeller i Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -194,7 +194,7 @@ Användare av ditt program kan meddela dig om felen som rapporteras av klientpro
 > 
 > 
 
-Följande resurser är användbara för att förstå lagringsrelaterade status och felkoder:
+Följande resurser är användbara om du vill förstå lagringsrelaterade statusar och felkoder:
 
 * [Vanliga REST API-felkoder](https://msdn.microsoft.com/library/azure/dd179357.aspx)
 * [Felkoder för Blob Service](https://msdn.microsoft.com/library/azure/dd179439.aspx)
@@ -220,10 +220,10 @@ Storage-klientbiblioteket för .NET kan du samla in loggdata för klientsidan so
 ### <a name="using-network-logging-tools"></a>Med hjälp av verktyg för loggning
 Du kan fånga in trafik mellan klienten och servern som ger detaljerad information om de data som klienten och servern utbyter och underliggande nätverksförhållanden. Användbara verktyg för loggning är:
 
-* [Fiddler](http://www.telerik.com/fiddler) är en kostnadsfri web proxy som hjälper dig att granska rubriker och nyttolasten för HTTP och HTTPS-begäran och svar-meddelanden för felsökning. Mer information finns i [bilaga 1: Med hjälp av Fiddler för att avbilda trafik över HTTP och HTTPS](#appendix-1).
-* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) och [Wireshark](http://www.wireshark.org/) är kostnadsfria network protocol analysverktyg som hjälper dig att visa Paketinformation om detaljerade för en mängd olika nätverksprotokoll. Mer information om Wireshark finns i ”[bilaga 2: Med hjälp av Wireshark för att avbilda nätverkstrafik](#appendix-2)”.
+* [Fiddler](https://www.telerik.com/fiddler) är en kostnadsfri web proxy som hjälper dig att granska rubriker och nyttolasten för HTTP och HTTPS-begäran och svar-meddelanden för felsökning. Mer information finns i [bilaga 1: Med hjälp av Fiddler för att avbilda trafik över HTTP och HTTPS](#appendix-1).
+* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) och [Wireshark](https://www.wireshark.org/) är kostnadsfria network protocol analysverktyg som hjälper dig att visa Paketinformation om detaljerade för en mängd olika nätverksprotokoll. Mer information om Wireshark finns i ”[bilaga 2: Med hjälp av Wireshark för att avbilda nätverkstrafik](#appendix-2)”.
 * Microsoft Message Analyzer är ett verktyg från Microsoft som ersätter Netmon och att hämta paket nätverksdata, hjälper dig att visa och analysera loggdata från andra verktyg. Mer information finns i ”[tillägg 3: Använder Microsoft Message Analyzer för att avbilda nätverkstrafik](#appendix-3)”.
-* Om du vill utföra en grundläggande anslutningstest för att kontrollera att klientdatorn kan ansluta till Azure storage-tjänsten över nätverket, du kan inte göra detta med standarden **ping** verktyget på klienten. Men du kan använda den [ **tcping** verktyget](http://www.elifulkerson.com/projects/tcping.php) att kontrollera anslutningen.
+* Om du vill utföra en grundläggande anslutningstest för att kontrollera att klientdatorn kan ansluta till Azure storage-tjänsten över nätverket, du kan inte göra detta med standarden **ping** verktyget på klienten. Men du kan använda den [ **tcping** verktyget](https://www.elifulkerson.com/projects/tcping.php) att kontrollera anslutningen.
 
 Loggdata från Storage loggning och Storage-klientbiblioteket är tillräckligt för att diagnostisera problem i många fall, men i vissa fall kan du behöva mer detaljerad information som kan ge dessa verktyg för loggning. Med hjälp av Fiddler för att visa meddelanden för HTTP och HTTPS kan du visa huvud och nyttolast data som skickas till och från lagringstjänster, vilket gör att du kan granska hur ett klientprogram försöker lagringsåtgärder. Protokollet analysverktyg, till exempel Wireshark fungerar på paketnivå så att du kan visa data för TCP, vilket gör att du kan felsöka förlorade paket och problem med nätverksanslutningen. Message Analyzer kan fungera både HTTP och TCP-lager.
 
@@ -464,12 +464,12 @@ Din mätningar visar en ökning i **PercentNetworkError** för en storage-tjäns
 Den vanligaste orsaken till felet är en klient kopplar från innan tidsgränsen upphör att gälla i lagringstjänsten. Undersöka koden i din klient för att förstå varför och när klienten kopplas från storage-tjänsten. Du kan också använda Wireshark, Microsoft Message Analyzer eller Tcping för att undersöka problem med nätverksanslutningen från klienten. Dessa verktyg beskrivs i den [tilläggen].
 
 ### <a name="the-client-is-receiving-403-messages"></a>Klienten tar emot HTTP 403 (förbjudet) meddelanden
-Om klientprogrammet som utlöste HTTP 403 (förbjudet) fel, är en trolig orsak att klienten använder en har upphört att gälla signatur för delad åtkomst (SAS) när den skickar en begäran om lagring (även om andra möjliga orsaker inkluderar klockan skeva, ogiltig nycklar och tom rubriker ). Om en har upphört att gälla SAS-nyckel är orsaken, visas inte några poster i Storage Logging loggdata för serversidan. I följande tabell visar ett exempel från klientsidan loggen genereras av Storage-klientbiblioteket som illustrerar det här problemet inträffar:
+Om klientprogrammet utfärdar HTTP 403-fel (förbjudet) beror det förmodligen på att klienten använder en SAS (signatur för delad åtkomst) som har upphört att gälla när den skickar förfrågningar om lagring (även om det finns andra orsaker, som klockförskjutning, ogiltiga nycklar eller tomma rubriker). Om orsaken är en SAS-nyckel som har upphört att gälla visas inte några poster i Storage Logging-loggdata på serversidan. I följande tabell visar ett exempel från klientsidan loggen genereras av Storage-klientbiblioteket som illustrerar det här problemet inträffar:
 
 | Källa | Utförlighet | Utförlighet | ID för klientförfrågan | Åtgärden text |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Startar åtgärden med platsen primära per platsläget PrimaryOnly. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Startar synkron begäran om att https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp; sr = c&amp;si = mypolicy&amp;sig = OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % 3D&amp;api-version = 2014-02-14. |
+| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Startar synkron begäran till <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Väntar på svar. |
 | Microsoft.WindowsAzure.Storage |Varning |2 |85d077ab-... |Ett undantag uppstod under väntan på svar: Fjärrservern returnerade ett fel: (403) Förbjuden. |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Svaret togs emot. Status code = 403, Request ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
@@ -480,20 +480,20 @@ Om klientprogrammet som utlöste HTTP 403 (förbjudet) fel, är en trolig orsak 
 
 Du bör undersöka varför SAS-token upphör att gälla innan klienten skickar token till servern i det här scenariot:
 
-* Normalt bör du inte ange en starttid som när du skapar en SAS för en klient kan använda direkt. Om det finns liten klocka skillnader mellan värden generera SAS med hjälp av den aktuella tiden och storage-tjänsten så är det möjligt för storage-tjänsten för att få en SAS inte är giltigt ännu.
-* Ange inte en mycket kort förfallotid för en SAS. Igen, liten klocka skillnaderna mellan värden generera SAS och storage-tjänsten kan leda till en SAS uppenbarligen upphör tidigare än förväntat.
+* Normalt bör du inte ange någon starttid när du skapar en SAS som klienten ska använda direkt. Om det förekommer små klockskillnader mellan värden som genererar SAS och lagringstjänsten kan tjänsten ta emot en SAS som inte har börjat gälla ännu.
+* Ange inte en mycket kort giltighetstid för en SAS. Återigen kan små klockskillnader mellan värden som genererar SAS och lagringstjänsten göra att SAS tycks upphöra tidigare än förväntat.
 * Har du versionsparametern i SAS-nyckeln (till exempel **SA = 2015-04-05**) matchar versionen av Storage-klientbiblioteket som du använder? Vi rekommenderar att du alltid använder den senaste versionen av den [Lagringsklientbiblioteket](https://www.nuget.org/packages/WindowsAzure.Storage/).
-* Om du återskapar dina lagringsåtkomstnycklar kan eventuella SAS-token vara ogiltig. Det här problemet kan uppstå om du genererar SAS-token med en lång förfallotiden för klientprogram till cachen.
+* Om du genererar om dina lagringsåtkomstnycklar kan befintliga SAS-token bli ogiltiga. Det här problemet kan uppstå om du genererar SAS-token med lång förfallotid som klientappar ska cachelagra.
 
-Om du använder Storage-klientbiblioteket för att generera SAS-token, är det enkelt att skapa en giltig token. Men om du använder Storage REST API och konstruera SAS-token manuellt, se [delegera åtkomst med en signatur för delad åtkomst](https://msdn.microsoft.com/library/azure/ee395415.aspx).
+Om du använder Storage Client Library till att generera SAS-token är det enkelt att skapa en giltig token. Men om du använder Storage REST API och konstruera SAS-token manuellt, se [delegera åtkomst med en signatur för delad åtkomst](https://msdn.microsoft.com/library/azure/ee395415.aspx).
 
 ### <a name="the-client-is-receiving-404-messages"></a>Klienten tar emot meddelanden HTTP 404 (hittades inte)
-Om klientprogrammet får en HTTP 404 (hittades inte)-meddelande från servern, innebär det att objektet som klienten försökte använda (till exempel en entitet, tabell, blob, behållare eller kön) inte finns i lagringstjänsten. Det finns ett antal möjliga orsaker, till exempel:
+Om klientprogrammet tar emot ett HTTP 404-meddelande (hittades inte) från servern innebär det att objektet som klienten försökte använda (till exempel en entitet, tabell, blob, container eller kö) inte finns i lagringstjänsten. Här är några av de möjliga orsakerna:
 
-* [Klienten eller en annan process tidigare bort objektet]
+* [Klienten eller en annan process har tagit bort objektet]
 * [Ett problem med auktorisering delade signatur åtkomst (SAS)]
 * [Klientens JavaScript-kod har inte behörighet att komma åt objektet]
-* [Ett nätverksfel]
+* [Nätverksfel]
 
 #### <a name="client-previously-deleted-the-object"></a>Klienten eller en annan process tidigare bort objektet
 I scenarier där klienten försöker läsa, uppdatera eller ta bort data i en lagringstjänst är det vanligtvis lätt att identifiera i loggarna för serversidan en tidigare åtgärd som tagits bort det aktuella objektet från lagringstjänsten. Ofta visar loggdata att en annan användare eller process bort objektet. I loggen Storage Logging serversidan Visar åtgärdstypen och begärt Objektnyckel kolumner när en klient bort ett objekt.
@@ -589,7 +589,7 @@ SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 > 
 > 
 
-Dessa fel eftersom webbläsaren implementerar den [princip om samma ursprung](http://www.w3.org/Security/wiki/Same_Origin_Policy) säkerhetsbegränsning som förhindrar att en webbsida anropar en API i en annan domän från domänen sidan kommer från.
+Dessa fel eftersom webbläsaren implementerar den [princip om samma ursprung](https://www.w3.org/Security/wiki/Same_Origin_Policy) säkerhetsbegränsning som förhindrar att en webbsida anropar en API i en annan domän från domänen sidan kommer från.
 
 Undvik problemet JavaScript, kan du konfigurera Cross Origin Resource Sharing (CORS) för klienten har åtkomst till storage-tjänsten. Mer information finns i [Cross-Origin Resource Sharing (CORS) Support för Azure Storage-tjänster](https://msdn.microsoft.com/library/azure/dn535601.aspx).
 
@@ -632,9 +632,9 @@ I följande tabell visas ett utdrag ur serversidan loggen för två Klientåtgä
 | 05:10:13.8987407 |GetContainerProperties |404 |mmcont |bc881924-... |
 | 05:10:14.2147723 |CreateContainer |409 |mmcont |bc881924-... |
 
-Koden i klientprogrammet bort och återskapar sedan omedelbart en blobbehållare med samma namn: den **CreateIfNotExists** metod (klienten begär ID bc881924-...) så småningom misslyckas med felet HTTP 409 (konflikt). När en klient tar bort blob-behållare, tabeller eller köer som det finns en kort period före namnet på blir tillgänglig igen.
+Koden i klientprogrammet bort och återskapar sedan omedelbart en blobbehållare med samma namn: den **CreateIfNotExists** metod (klienten begär ID bc881924-...) så småningom misslyckas med felet HTTP 409 (konflikt). När en klient tar bort containrar, tabeller eller köer tar det en liten stund innan namnet blir tillgängligt igen.
 
-Klientprogrammet bör använda unikt behållarnamn när du skapar den nya behållare om ta bort/återskapa mönstret är vanligt.
+Klientappen bör använda unika containernamn när nya containrar skapas om det är ett vanligt mönster att ta bort/återskapa dem.
 
 ### <a name="metrics-show-low-percent-success"></a>Mätningar visar låga PercentSuccess eller analytics loggposter har åtgärder med transaktionsstatus av ClientOtherErrors
 Den **PercentSuccess** mått samlar in procentuella av åtgärder som har genomförts baserat på deras HTTP-statuskod. Åtgärder med statuskoder för 2XX räknas som slutförd, medan åtgärder med statuskoder i 3XX, 4XX och 5XX intervall räknas som misslyckad och lägre den **PercentSuccess** måttvärde. I loggfilerna från serversidan storage de här åtgärderna registreras med transaktionsstatus **ClientOtherErrors**.
@@ -708,7 +708,7 @@ Mer information om hur du använder Microsoft Message Analyzer finns i ”[till�
 Tilläggen beskrivs flera verktyg som kan vara användbart när du diagnostiserar och felsökning av problem med Azure Storage (och andra tjänster). Dessa verktyg är inte en del av Azure Storage och vissa är produkter från tredje part. Därför måste de verktyg som beskrivs i de här tilläggen inte omfattas av alla supportavtal som du kan ha med Microsoft Azure eller Azure Storage och därför som en del av din utvärdering du bör undersöka alternativen licensiering och support tillgänglig från den leverantörer av dessa verktyg.
 
 ### <a name="appendix-1"></a>Bilaga 1: Med hjälp av Fiddler för att avbilda trafik över HTTP och HTTPS
-[Fiddler](http://www.telerik.com/fiddler) är användbart för att analysera HTTP och HTTPS-trafik mellan klientprogrammet och Azure storage-tjänst som du använder.
+[Fiddler](https://www.telerik.com/fiddler) är användbart för att analysera HTTP och HTTPS-trafik mellan klientprogrammet och Azure storage-tjänst som du använder.
 
 > [!NOTE]
 > Fiddler kan avkoda HTTPS-trafik. Läs i dokumentationen för Fiddler noggrant för att förstå hur detta sker och förstå säkerhetsriskerna.
@@ -727,14 +727,14 @@ Om du vill begränsa mängden trafik som Fiddler samlar in, kan du använda filt
 ![][5]
 
 ### <a name="appendix-2"></a>Bilaga 2: Med hjälp av Wireshark för att avbilda nätverkstrafik
-[Wireshark](http://www.wireshark.org/) är en nätverksprotokollanalysator där du kan visa detaljerad paketinformationen för en mängd olika nätverksprotokoll.
+[Wireshark](https://www.wireshark.org/) är en nätverksprotokollanalysator där du kan visa detaljerad paketinformationen för en mängd olika nätverksprotokoll.
 
 Följande procedur visar hur du kan få detaljerad paketinformationen för trafik från den lokala datorn där du installerade Wireshark till tabelltjänsten igen i ditt Azure storage-konto.
 
 1. Starta Wireshark på den lokala datorn.
 2. I den **starta** väljer du det lokala nätverket eller flera gränssnitt som är anslutna till internet.
 3. Klicka på **avbilda alternativ**.
-4. Lägg till ett filter för att den **Capture Filter** textrutan. Till exempel **värd contosoemaildist.table.core.windows.net** konfigurerar Wireshark för att samla in endast paket som skickas till eller från table service-slutpunkt i den **contosoemaildist** storage-konto. Kolla in den [fullständig lista över avbilda filter](http://wiki.wireshark.org/CaptureFilters).
+4. Lägg till ett filter för att den **Capture Filter** textrutan. Till exempel **värd contosoemaildist.table.core.windows.net** konfigurerar Wireshark för att samla in endast paket som skickas till eller från table service-slutpunkt i den **contosoemaildist** storage-konto. Kolla in den [fullständig lista över avbilda filter](https://wiki.wireshark.org/CaptureFilters).
    
    ![][6]
 5. Klicka på **Starta**. Wireshark avbildar nu alla paketen skickar till eller från table service-slutpunkt som du använder klientprogrammet på den lokala datorn.
@@ -745,12 +745,12 @@ WireShark att fokusera på eventuella fel som finns i den **packetlist** fönste
 
 ![][7]
 
-Du kan också välja att visa TCP-data som programnivån ser det genom att högerklicka på TCP-data och välja **följer TCP Stream**. Detta är användbart om du har hämtat dina dump utan ett filter för avbildning. Mer information finns i [följande TCP-strömmar](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
+Du kan också välja att visa TCP-data som programnivån ser det genom att högerklicka på TCP-data och välja **följer TCP Stream**. Detta är användbart om du har hämtat dina dump utan ett filter för avbildning. Mer information finns i [följande TCP-strömmar](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
 ![][8]
 
 > [!NOTE]
-> Mer information om hur du använder Wireshark finns i den [Wireshark användarhandboken](http://www.wireshark.org/docs/wsug_html_chunked).
+> Mer information om hur du använder Wireshark finns i den [Wireshark användarhandboken](https://www.wireshark.org/docs/wsug_html_chunked).
 > 
 > 
 
@@ -845,10 +845,10 @@ Du hittar mer information på [vad är Application Insights](../../azure-monitor
 
 [Klienten får HTTP 403-meddelanden (Förbjudet)]: #the-client-is-receiving-403-messages
 [Klienten får HTTP 404-meddelanden (Hittades inte)]: #the-client-is-receiving-404-messages
-[Klienten eller en annan process tidigare bort objektet]: #client-previously-deleted-the-object
+[Klienten eller en annan process har tagit bort objektet]: #client-previously-deleted-the-object
 [Ett problem med auktorisering delade signatur åtkomst (SAS)]: #SAS-authorization-issue
 [Klientens JavaScript-kod har inte behörighet att komma åt objektet]: #JavaScript-code-does-not-have-permission
-[Ett nätverksfel]: #network-failure
+[Nätverksfel]: #network-failure
 [Klienten tar emot HTTP 409 (konflikt) meddelanden]: #the-client-is-receiving-409-messages
 
 [Mätvärdena visar låg PercentSuccess eller analytics loggposter innehålla åtgärder med transaktionsstatus för ClientOtherErrors]: #metrics-show-low-percent-success

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/06/2019
-ms.openlocfilehash: d94bc570f47d71a7e2b626041acd4bb6e84d0dc1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 36b2f3817c7e96a35c1e8f3aba22db201224ceba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876015"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075943"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Vanliga frågor och svar om Azure SQL hyperskala databaser
 
@@ -45,7 +45,7 @@ Tjänsten vCore-baserade nivåer är främst differentierade baserat på tillgä
 - Affärskritisk tjänstnivån är lämpligt för arbetsbelastningar där i/o-svarstiden är en prioritet.
 
 | | Resurstyp | Generellt syfte |  Hyperskala | Affärskritisk |
-|:---|:---:|:---:|:---:|:---:|:---:|
+|:---|:---:|:---:|:---:|:---:|
 | **Bäst för** |Alla|  De flesta företags arbetsbelastningar. Erbjudanden budgetera objektorienterad belastningsutjämnade beräknings- och lagringsalternativ. | Dataprogram med kapacitetskrav för stora mängder data och möjligheten att automatiskt skala lagringsutrymme och skala databearbetningen smidigt sätt. | OLTP-program med höga transaktionsintervall och lägsta svarstid i/o. Erbjuder högsta återhämtning för fel som använder flera isolerade repliker.|
 |  **Resurstyp** ||Enkel databas / elastisk pool / hanterad instans | Enskild databas | Enkel databas / elastisk pool / hanterad instans |
 | **Beräkna storlek**|Enkel databas / elastisk pool * | 1-80 virtuella kärnor | 1-80 virtuella kärnor * | 1-80 virtuella kärnor |

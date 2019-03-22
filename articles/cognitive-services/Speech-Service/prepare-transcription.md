@@ -1,7 +1,7 @@
 ---
-title: Transkription riktlinjer för Speech Service-utbildning
+title: Transkription riktlinjer för att träna modeller Speech Services
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du förbereder text anpassa- och språkdata och språkmodeller rösttyper för Speech-tjänsten.
+description: Lär dig hur du förbereder text anpassa- och språkdata och språkmodeller röster för Speech Services.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: 31813cbbe4bdb647d43e99e7585d1eb3bb6e8a5c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0d7508ed9cf1807fa05c57a1d60c804af7d2244f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857183"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897222"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>Transkription riktlinjer för att använda Speech-tjänsten
 
 Anpassa **tal till Text** eller **Text till tal**, måste du ange text tillsammans med tal. Varje rad i texten motsvarar en enda uttryck. Texten måste matcha tal så nära som möjligt. Texten kallas en *avskrift*, och du måste skapa den i ett visst format.
 
-Med Taltjänsten normaliserar indata för att bevara text. 
+Speech Services normalisera indata för att bevara text.
 
 Den här artikeln beskrivs båda typerna av normalizations. Riktlinjerna kan variera för olika språk.
 
@@ -39,7 +39,7 @@ Undvik att använda utökade (Latin-1) eller Unicode skiljetecken. Dessa tecken 
 
 ### <a name="text-normalization-rules-for-english"></a>Text normalisering regler för engelska
 
-Speech-tjänsten utför följande normalisering regler:
+Speech Services utföra normalisering följande regler:
 
 * Med gemener för all text
 * Ta bort alla skiljetecken utom word-internt apostrofer
@@ -64,7 +64,7 @@ Gäller följande normalisering för text-avskrifter:
 * Inte är standard numeriska strängar (till exempel vissa datum eller redovisning formulär) ska skrivas ut i orden.
 * Vara bör transkriberas ord med icke-alfabetiska tecken eller blandade alfanumeriska tecken som uttalas.
 * Lämna förkortningar som är uttalas ord vara orört (till exempel ”webbplats”, ”laserskrivare”, ”RAM” eller ”NATO”).
-* Skriva förkortningar som uttalas som separata bokstäver med bokstäver som är avgränsade med blanksteg (till exempel ”IBM”, ”processor”, ”FBI: S”, ”TBD” eller ”NaN”). 
+* Skriva förkortningar som uttalas som separata bokstäver med bokstäver som är avgränsade med blanksteg (till exempel ”IBM”, ”processor”, ”FBI: S”, ”TBD” eller ”NaN”).
 
 Här följer några exempel:
 
@@ -83,7 +83,7 @@ Här följer några exempel:
 
 ## <a name="chinese-zh-cn"></a>Kinesiska (zh-cn)
 
-Textdata som har överförts till Custom Speech Service ska använda UTF-8-kodning med en byte-ordningsmarkering markör. Filen ska skrivas en uttryck per rad.
+Textdata som har överförts till Custom Speech Services ska använda UTF-8-kodning med en byte-ordningsmarkering markör. Filen ska skrivas en uttryck per rad.
 
 Undvik att använda halv bredd skiljetecken. Dessa tecken kan ingå oavsiktligt när du förbereder data i ett ordbehandlingsprogram eller skrapa data från webbsidor. Ersätt dem med lämpliga ändringar i full bredd. Exempel:
 
@@ -94,7 +94,7 @@ Undvik att använda halv bredd skiljetecken. Dessa tecken kan ingå oavsiktligt 
 
 ### <a name="text-normalization-rules-for-chinese"></a>Text normalisering regler för kinesiska
 
-Speech-tjänsten utför följande normalisering regler:
+Speech Services utföra normalisering följande regler:
 
 * Ta bort alla skiljetecken
 * Expandera siffror i talat formulär
@@ -134,7 +134,7 @@ Textdata som överförs till den **tal till Text** -tjänsten måste använda UT
 
 ### <a name="text-normalization-rules-for-german"></a>Text normalisering regler för tyska
 
-Speech-tjänsten utför följande normalisering regler:
+Speech Services utföra normalisering följande regler:
 
 * Med gemener för all text
 * Ta bort alla skiljetecken, inklusive olika typer av citattecken (”test”, 'test', ”test” och «testa» är OK)
@@ -162,13 +162,13 @@ Innan du importerar texten bör du använda följande normalisering för den:
 
 Här följer några exempel:
 
-| Originaltexten | Efter användarens normalisering | När du har system normalisering
+| Originaltexten | Efter användarens normalisering | När du har system normalisering |
 |--------  | ----- | -------- |
 | ES ist 12.23 Uhr | ES ist 12:23 Uhr | ES ist zwölf uhr drei und zwanzig uhr |
-| {12.45} | {12,45} | zwölf komma vier fünf ||
+| {12.45} | {12,45} | zwölf komma vier fünf |
 | 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier|
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hämta en kostnadsfri utvärderingsprenumeration på Speech-tjänsten](https://azure.microsoft.com/try/cognitive-services/)
+- [Hämta en kostnadsfri utvärderingsprenumeration på Speech Services](https://azure.microsoft.com/try/cognitive-services/)
 - [Identifiera tal i C#](quickstart-csharp-dotnet-windows.md)

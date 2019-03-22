@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: bc738dd93a43a1a3610323b9dd05abfd5b5c0091
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: d4c3ab7e33d3d4bd8d5d5ee15c8264d1d41c858e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408810"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081074"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -201,7 +201,7 @@ Några av de insikter som du kanske vill få när konfigurationen är slutförd 
 - Statistik över blockerad trafik.
     - Varför en värd blockerar en betydande mängd ofarlig trafik? Detta kräver ytterligare undersökning och förmodligen optimering av konfigurationen
 - Statistik över skadlig trafik för tillåtna/blockerade
-    - Varför får en värd skadlig trafik och varför det är tillåtet att flöden från skadliga källa? Detta kräver ytterligare undersökning och förmodligen optimering av konfigurationen.
+  - Varför får en värd skadlig trafik och varför det är tillåtet att flöden från skadliga källa? Detta kräver ytterligare undersökning och förmodligen optimering av konfigurationen.
 
     Välj **se alla**under **värden**, enligt följande bild:
 
@@ -260,8 +260,8 @@ Några av de insikter som du kanske vill få när konfigurationen är slutförd 
 **Titta efter**
 
 - Fördelning av trafik per datacenter, till exempel främsta källor för trafik till ett datacenter, övre falsk nätverk konversation med datacenter och top konversation programprotokoll.
-    - Om du upptäcker högre belastning på ett datacenter, kan du planera för effektiv trafikfördelning.
-    - Om falskt nätverk konversation i datacentret, korrigera NSG-regler som blockerar dem.
+  - Om du upptäcker högre belastning på ett datacenter, kan du planera för effektiv trafikfördelning.
+  - Om falskt nätverk konversation i datacentret, korrigera NSG-regler som blockerar dem.
 
     Välj **Visa karta** under **miljön**, enligt följande bild:
 
@@ -282,8 +282,8 @@ Några av de insikter som du kanske vill få när konfigurationen är slutförd 
 **Titta efter**
 
 - Fördelning av trafik per virtuellt nätverk, topologi, främsta källor för trafik till det virtuella nätverket, övre falsk nätverk konversation till det virtuella nätverket och top konversation programprotokoll.
-    - Att veta vilket virtuellt nätverk konversation till vilket virtuellt nätverk. Om konversationen inte förväntas, kan det åtgärdas.
-    - Om falskt nätverk konversation med ett virtuellt nätverk, kan du korrigera NSG-regler för att blockera obehörig-nätverk.
+  - Att veta vilket virtuellt nätverk konversation till vilket virtuellt nätverk. Om konversationen inte förväntas, kan det åtgärdas.
+  - Om falskt nätverk konversation med ett virtuellt nätverk, kan du korrigera NSG-regler för att blockera obehörig-nätverk.
  
     Välj **visa VNets** under **miljön**, enligt följande bild:
 
@@ -323,7 +323,7 @@ Fördelning av trafik per Programgateway och belastningsutjämnare, topologi, fr
 **Titta efter**
 
 - Vilka öppna portar konversation via internet?
-    - Om det oväntade portar finns öppna kan du korrigera konfigurationen:
+  - Om det oväntade portar finns öppna kan du korrigera konfigurationen:
 
     ![Instrumentpanelen visar portarna ta emot och skickar trafik till internet](./media/traffic-analytics/dashboard-showcasing-ports-receiving-and-sending-traffic-to-the-internet.png)
 
@@ -347,9 +347,9 @@ Har du skadlig trafik i din miljö? Där den härstammar från? Där är den är
 
 - Följande bilder visar tiden trender för träffar för nätverkssäkerhetsgruppregler och källa-mål flow-information för en grupp:
 
-    - Upptäck vilka NSG: er och NSG regler passerar skadliga flöden och som är den främsta skadliga IP-adresser åtkomst till din molnmiljö
-    - Identifiera vilka NSG/NSG-regler att tillåta/blockering av betydande nätverkstrafik
-    - Välj upp filter för detaljerad granskning av en NSG eller NSG regler
+  - Upptäck vilka NSG: er och NSG regler passerar skadliga flöden och som är den främsta skadliga IP-adresser åtkomst till din molnmiljö
+  - Identifiera vilka NSG/NSG-regler att tillåta/blockering av betydande nätverkstrafik
+  - Välj upp filter för detaljerad granskning av en NSG eller NSG regler
 
     ![Visar tid trender för träffar för regel och övre NSG-regler](./media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
 

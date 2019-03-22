@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 207d1f7f5eb4db4203f2595a06f943e8ae69881e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432038"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121136"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Hur du utlöser komplexa åtgärder med Azure Monitor-aviseringar
 
@@ -275,19 +275,19 @@ Processen för att skapa en måttavisering liknar [skapar en aktivitetsloggavise
 - Steg 9 och 10 är desamma.
 - För steg 11 till 14, använder du följande process:
 
-   1. Välj **+** **nytt steg** och välj sedan **Lägg till ett villkor**. Ange följande villkor så att logikappen körs bara när indata matchar värdena nedan. När du lägger till versionsvärdet i textrutan, placerar citattecknen runt den (”2.0”) till kontrollerar att utvärderas som en sträng och inte en numerisk typ.  Systemet visar inte citattecken om du går tillbaka till sidan, men den underliggande koden fortfarande underhåller strängtyp. 
-       - `schemaId == AzureMonitorMetricAlert`
-       - `version == "2.0"`
+  1. Välj **+** **nytt steg** och välj sedan **Lägg till ett villkor**. Ange följande villkor så att logikappen körs bara när indata matchar värdena nedan. När du lägger till versionsvärdet i textrutan, placerar citattecknen runt den (”2.0”) till kontrollerar att utvärderas som en sträng och inte en numerisk typ.  Systemet visar inte citattecken om du går tillbaka till sidan, men den underliggande koden fortfarande underhåller strängtyp. 
+     - `schemaId == AzureMonitorMetricAlert`
+     - `version == "2.0"`
        
        ![”Metrisk varning nyttolast villkoret”](media/action-groups-logic-app/metric-alert-payload-condition.png "metrisk varning nyttolast villkor")
 
-   1. I den **om värdet är true** villkoret, lägga till en **för varje** loop och Microsoft Teams-åtgärd. Definiera meddelandet med hjälp av en kombination av HTML och dynamiskt innehåll.
+  1. I den **om värdet är true** villkoret, lägga till en **för varje** loop och Microsoft Teams-åtgärd. Definiera meddelandet med hjälp av en kombination av HTML och dynamiskt innehåll.
 
-       ![”Åtgärd metrisk varning sant villkor efter”](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "åtgärd för metrisk varning sant villkor efter")
+      ![”Åtgärd metrisk varning sant villkor efter”](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "åtgärd för metrisk varning sant villkor efter")
 
-   1. I den **om falskt** villkoret, definiera en Microsoft Teams-åtgärd för att kommunicera att metrisk varning inte matchar kraven för logikappen. Innehåller JSON-nyttolast. Lägg märke till hur du refererar till den `triggerBody` dynamiskt innehåll i den `json()` uttryck.
+  1. I den **om falskt** villkoret, definiera en Microsoft Teams-åtgärd för att kommunicera att metrisk varning inte matchar kraven för logikappen. Innehåller JSON-nyttolast. Lägg märke till hur du refererar till den `triggerBody` dynamiskt innehåll i den `json()` uttryck.
 
-       ![”Åtgärd metrisk varning falskt villkor efter”](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "åtgärd för metrisk varning falskt villkor efter")
+      ![”Åtgärd metrisk varning falskt villkor efter”](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "åtgärd för metrisk varning falskt villkor efter")
 
 - Steg 15 är samma. Följ anvisningarna för att spara logikappen och uppdatera din åtgärdsgruppen.
 

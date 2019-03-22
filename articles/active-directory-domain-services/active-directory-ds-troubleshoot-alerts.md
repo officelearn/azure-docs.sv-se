@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: c71528ed8453bcde05e29eb609ca2cde64bad8de
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7d99f5a5d027c825fa1145328bb9576229ce39b4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309425"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122003"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - felsöka aviseringar
 Den här artikeln innehåller felsökningsguider för alla aviseringar som kan uppstå på din hanterade domän.
@@ -103,13 +103,13 @@ I det virtuella nätverket, kan datorer gör förfrågningar till Azure-resurser
 
 1. [Ta bort den Hantera domänen](active-directory-ds-disable-aadds.md) från din katalog.
 2. Åtgärda IP-adressintervall för undernätet
-  1. Navigera till den [virtuella nätverk-sidan på Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
-  2. Välj det virtuella nätverket som du planerar att använda för Azure AD Domain Services.
-  3. Klicka på **adressutrymme** under inställningar
-  4. Uppdatera adressintervallet genom att klicka på befintliga adressintervallet och redigera eller lägga till ett ytterligare adressintervall. Kontrollera att nya adressintervallet är i ett privat IP-adressintervall. Spara ändringarna.
-  5. Klicka på **undernät** i det vänstra navigeringsfältet.
-  6. Klicka på det undernät som du vill redigera i tabellen.
-  7. Uppdatera adressintervallet och spara dina ändringar.
+   1. Navigera till den [virtuella nätverk-sidan på Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
+   2. Välj det virtuella nätverket som du planerar att använda för Azure AD Domain Services.
+   3. Klicka på **adressutrymme** under inställningar
+   4. Uppdatera adressintervallet genom att klicka på befintliga adressintervallet och redigera eller lägga till ett ytterligare adressintervall. Kontrollera att nya adressintervallet är i ett privat IP-adressintervall. Spara ändringarna.
+   5. Klicka på **undernät** i det vänstra navigeringsfältet.
+   6. Klicka på det undernät som du vill redigera i tabellen.
+   7. Uppdatera adressintervallet och spara dina ändringar.
 3. Följ [guiden komma igång med Azure AD Domain Services](active-directory-ds-getting-started.md) att återskapa din hanterade domän. Se till att du väljer ett virtuellt nätverk med en privat IP-adressintervall.
 4. Domänanslutning dina virtuella datorer till den nya domänen, så [den här guiden](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Säkerställ att aviseringen har lösts genom att kontrollera hälsan för domänen i två timmar.
@@ -160,13 +160,13 @@ Du kan antingen flytta den prenumeration som är associerade med Azure AD Domain
 
 Azure AD Domain Services skapar specifika resurser när du distribuerar för att kunna fungera korrekt, inklusive offentliga IP-adresser, nätverkskort och en belastningsutjämnare. Om någon av den namngivna raderas detta gör att din hanterade domän ska vara tillstånd stöds inte och förhindrar att din domän som hanteras. Den här aviseringen hittas när någon som kan redigera resurser för Azure AD Domain Services tar bort en nödvändig resurs. Följande steg beskriver hur du återställer din hanterade domän.
 
-1.  Gå till sidan om Azure AD Domain Services-health
-  1.    Reser till den [Azure AD Domain Services-sidan](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) i Azure-portalen.
-  2.    I det vänstra navigeringsfältet, klickar du på **hälsotillstånd**
-2.  Kontrollera om aviseringen är mindre än 4 timmar
-  1.    Aviseringen med ID: T på sidan hälsa **AADDS109**
-  2.    Aviseringen har en tidsstämpel för när det först hittades. Om den tidsstämpeln är mindre än 4 timmar sedan, finns en risk att Azure AD Domain Services kan återskapa den borttagna resursen.
-3.  Om aviseringen är mer än 4 timmar, är den hanterade domänen i ett oåterkalleligt tillstånd. Du måste ta bort och återskapa Azure AD Domain Services.
+1. Gå till sidan om Azure AD Domain Services-health
+   1.    Reser till den [Azure AD Domain Services-sidan](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) i Azure-portalen.
+   2.    I det vänstra navigeringsfältet, klickar du på **hälsotillstånd**
+2. Kontrollera om aviseringen är mindre än 4 timmar
+   1.    Aviseringen med ID: T på sidan hälsa **AADDS109**
+   2.    Aviseringen har en tidsstämpel för när det först hittades. Om den tidsstämpeln är mindre än 4 timmar sedan, finns en risk att Azure AD Domain Services kan återskapa den borttagna resursen.
+3. Om aviseringen är mer än 4 timmar, är den hanterade domänen i ett oåterkalleligt tillstånd. Du måste ta bort och återskapa Azure AD Domain Services.
 
 
 ## <a name="aadds110-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS110: Det undernät som är associerade med din hanterade domän är full
@@ -203,13 +203,13 @@ Vår tjänsthuvudnamn behöver åtkomst för att kunna hantera och skapa resurse
 
 1. Ta bort den hanterade domänen från din klient.
 2. Åtgärda IP-adressintervall för undernätet
-  1. Navigera till den [virtuella nätverk-sidan på Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
-  2. Välj det virtuella nätverket som du planerar att använda för Azure AD Domain Services.
-  3. Klicka på **adressutrymme** under inställningar
-  4. Uppdatera adressintervallet genom att klicka på befintliga adressintervallet och redigera eller lägga till ett ytterligare adressintervall. Spara ändringarna.
-  5. Klicka på **undernät** i det vänstra navigeringsfältet.
-  6. Klicka på det undernät som du vill redigera i tabellen.
-  7. Uppdatera adressintervallet och spara dina ändringar.
+   1. Navigera till den [virtuella nätverk-sidan på Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
+   2. Välj det virtuella nätverket som du planerar att använda för Azure AD Domain Services.
+   3. Klicka på **adressutrymme** under inställningar
+   4. Uppdatera adressintervallet genom att klicka på befintliga adressintervallet och redigera eller lägga till ett ytterligare adressintervall. Spara ändringarna.
+   5. Klicka på **undernät** i det vänstra navigeringsfältet.
+   6. Klicka på det undernät som du vill redigera i tabellen.
+   7. Uppdatera adressintervallet och spara dina ändringar.
 3. Följ [guiden komma igång med Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) att återskapa din hanterade domän. Se till att du väljer ett virtuellt nätverk med en privat IP-adressintervall.
 4. Domänanslutning dina virtuella datorer till den nya domänen, så [den här guiden](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 5. Kontrollera hälsan för domänen i två timmar att kontrollera att du har slutfört stegen korrekt.

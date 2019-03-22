@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 3744e51ffb4e0836eba4b1641413d8c0ee240f87
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 20a3b790310153ac5bda23fb72baf2ae61e1da52
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729379"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003715"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
@@ -21,7 +21,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Migrate. Om du h
 
 ### <a name="does-azure-migrate-support-assessment-of-only-vmware-workloads"></a>Stöder Azure Migrate bedömning av VMware-arbetsbelastningar?
 
-Ja, Azure Migrate stöder för närvarande endast bedömning av VMware-arbetsbelastningar. Stöd för Hyper-V är i förhandsversion, måste du registrera dig [här](http://aka.ms/migratefuture) att få åtkomst till förhandsversionen. Stöd för fysiska servrar kommer att aktiveras i framtiden.
+Ja, Azure Migrate stöder för närvarande endast bedömning av VMware-arbetsbelastningar. Stöd för Hyper-V är i förhandsversion, måste du registrera dig [här](https://aka.ms/migratefuture) att få åtkomst till förhandsversionen. Stöd för fysiska servrar kommer att aktiveras i framtiden.
 
 ### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Behöver Azure Migrate vCenter Server för att identifiera en VMware-miljö?
 
@@ -42,7 +42,7 @@ Azure Migrate är ett verktyg för migreringsplanering och Distributionshanterar
 
 **Migrering från VMware till Azure**: Om du planerar att migrera dina lokala arbetsbelastningar till Azure, kan du använda Azure Migrate för för planering av migreringsaktiviteter. Azure Migrate utvärderar lokala arbetsbelastningar och tillhandahåller vägledning, insikter och mekanismer för att hjälpa dig att migrera till Azure. Du kan använda tjänster som Azure Site Recovery och Azure Database Migration Service för att migrera datorerna till Azure när du är klar med din migreringsplan.
 
-**Migrering från Hyper-V till Azure**: Den allmänt tillgängliga versionen av Azure Migrate stöder för närvarande utvärdering av virtuella VMware-datorer för migrering till Azure. Stöd för Hyper-V är för närvarande i förhandsversion med produktionsstöd. Om du är intresserad av att prova förhandsversionen kan du registrera dig [här](http://aka.ms/migratefuture).
+**Migrering från Hyper-V till Azure**: Den allmänt tillgängliga versionen av Azure Migrate stöder för närvarande utvärdering av virtuella VMware-datorer för migrering till Azure. Stöd för Hyper-V är för närvarande i förhandsversion med produktionsstöd. Om du är intresserad av att prova förhandsversionen kan du registrera dig [här](https://aka.ms/migratefuture).
 
 **Haveriberedskap från VMware/Hyper-V till Azure**: Om du vill göra katastrofåterställning (DR) på Azure med hjälp av Azure Site Recovery (Site Recovery), kan du använda Site Recovery Deployment Planner för DR planera. Distributionshanteraren för site Recovery har en djupgående, ASR-specifika bedömning av din lokala miljö. Den innehåller rekommendationer som krävs av Site Recovery för lyckade DR-åtgärder, till exempel replikering, redundans för dina virtuella datorer.  
 

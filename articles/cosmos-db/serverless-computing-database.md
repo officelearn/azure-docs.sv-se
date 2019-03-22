@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: ff202c85f20adce173a375987a5f2250fda565b2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4d259523d3f7fe7165d0ef4c8a5aac12bd7cd823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041194"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123784"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Databas utan Server databehandling med Azure Cosmos DB och Azure Functions
 
@@ -97,11 +97,11 @@ I retail-implementeringar när en användare lägger till ett objekt i deras kor
 
 1. Du kan skapa flera Azure-funktioner genom att lägga till Cosmos DB-utlösare för varje - som lyssnar på samma ändringsflödet att handla kundvagn data. Observera att när flera funktioner som lyssnar på samma ändringsflödet, en ny lånsamling måste anges för varje funktion. Mer information om lån samlingar finns i [förstå biblioteket Change Feed Processor](change-feed-processor.md).
 2. När ett nytt objekt läggs till i kundvagn användare, anropas varje funktion oberoende av ändringsflödet från behållaren i kundvagnen.
-    * En funktion kan använda innehållet i den aktuella korgen för att ändra visning av andra objekt som användaren kan ha intresse.
-    * En annan funktion kan uppdatera inventering summor.
-    * En annan funktion kan skicka kundinformation för vissa produkter till marknadsföringsavdelningen som skickar dem till ett kampanjpris avsändarens. 
+   * En funktion kan använda innehållet i den aktuella korgen för att ändra visning av andra objekt som användaren kan ha intresse.
+   * En annan funktion kan uppdatera inventering summor.
+   * En annan funktion kan skicka kundinformation för vissa produkter till marknadsföringsavdelningen som skickar dem till ett kampanjpris avsändarens. 
 
-    En avdelning som kan skapa en Azure Cosmos DB-utlösare genom att lyssna på ändringsflöde och se till att de inte fördröjning kritiska ordning bearbeta händelser i processen.
+     En avdelning som kan skapa en Azure Cosmos DB-utlösare genom att lyssna på ändringsflöde och se till att de inte fördröjning kritiska ordning bearbeta händelser i processen.
 
 I alla dessa användningsfall, eftersom funktionen har fristående själva appen, behöver du inte skapa nya appinstanser när som helst. I stället startar Azure Functions enskilda funktioner för att slutföra diskreta processer efter behov.
 
@@ -133,7 +133,7 @@ Om du vill integrera med Azure Functions för att lagra data och behöver inte d
 
 Fördelar med Azure Functions: 
 
-* **Händelsedrivna**. Azure Functions är en händelsedriven och kan lyssna på en ändringsflödet från Azure Cosmos DB. Det här innebär att du inte behöver skapa lyssnande logik, du bara hålla utkik efter ändringar som du lyssnar för. 
+* **Event-driven**. Azure Functions är en händelsedriven och kan lyssna på en ändringsflödet från Azure Cosmos DB. Det här innebär att du inte behöver skapa lyssnande logik, du bara hålla utkik efter ändringar som du lyssnar för. 
 
 * **Ingen gräns**. Funktioner som körs parallellt och tjänsten varv upp så många som du behöver. Du kan ange parametrarna.
 

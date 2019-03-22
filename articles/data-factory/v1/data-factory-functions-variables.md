@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a82d871ea232b31b31cfc24585af672141617d88
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 5293c44a3e4494593e069ab45fbc38806c6999ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353023"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57976784"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - funktioner och systemvariabler
 > [!NOTE]
@@ -27,6 +27,7 @@ ms.locfileid: "54353023"
 Den här artikeln innehåller information om funktioner och variabler som stöds av Azure Data Factory.
 
 ## <a name="data-factory-system-variables"></a>Data Factory systemvariabler
+
 | Variabelnamn | Beskrivning | Omfång för källobjekt | JSON-omfång och användningsfall |
 | --- | --- | --- | --- |
 | WindowStart |Början av tidsintervall för aktuell aktivitet som kör Windows |aktivitet |<ol><li>Ange datamarkeringsfrågor. Se connector artiklar som refereras till i den [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikeln.</li> |
@@ -94,7 +95,7 @@ I tabellerna nedan listas funktionerna i Azure Data Factory:
 | Date |EndOfDay(X) |X: DateTime |Hämtar datum / tid som representerar i slutet av dagen (dagkomponenten) för X.<br/><br/>Exempel: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
 | Date |EndOfMonth(X) |X: DateTime |Hämtar slutet av månaden som månadskomponenten för parametern X. <br/><br/>Exempel: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (datum tid som motsvarar slutet av September månad) |
 | Date |StartOfDay(X) |X: DateTime |Hämtar början på dagen som representeras av dagkomponenten för parametern X.<br/><br/>Exempel: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| DateTime |FROM(X) |X: Sträng |Parsa sträng X till en datum-tid. |
+| DateTime |FROM(X) |X: String |Parsa sträng X till en datum-tid. |
 | DateTime |Ticks(X) |X: DateTime |Hämtar ticken egenskapen för parametern X. En puls är lika med 100 nanosekunder. Värdet för den här egenskapen representerar antalet tick som har förflutit sedan 12:00:00 midnatt den 1 januari 0001. |
 | Text |Format(X) |X: Strängvariabeln |Formaterar texten (Använd `\\'` kombination för att undvika `'` tecken).|
 

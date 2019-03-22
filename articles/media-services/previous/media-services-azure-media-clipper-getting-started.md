@@ -6,15 +6,15 @@ keywords: Clip, underklipp, kodning, media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 02/10/2019
+ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: a67315287f90143701ca38b9f42e243b2d4913a3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 51848b9ba4d18b3ac7d652cfbd97cab6b85f2ee8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437708"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842370"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Skapa klipp med Azure Media Clipper
 Det här avsnittet visas de grundläggande stegen för att komma igång med Azure Media Clipper. Avsnitten som följer ger information om hur du konfigurerar Azure Media Clipper.
@@ -100,7 +100,7 @@ Parametrarna för metodanropet initieringen är:
 - `height` {VALFRITT, number} Widgeten totala höjd (minsta höjd är 600 bildpunkter utan tillgångar fönstret och 850 px med fönstret tillgångar).
 - `subclippingMode` (Valfritt, {”alla”, ”återge”, ”filtrera”}): Underklippning-läge(n) tillåts. Standardvärdet är alla.
 - `filterAssetsTypes` (Valfritt, bool): filterAssetsTypes kan du Visa/Dölj filter listrutan från fönstret tillgångar. Standardvärdet är sant.
-- `speedLevels` (Valfritt, matris): speedLevels kan du ange olika hastighet nivåer för videospelaren, se [dokumentation för Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) för mer information.
+- `speedLevels` (Valfritt, matris): speedLevels kan du ange olika hastighet nivåer för videospelaren, se [dokumentation för Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) för mer information.
 - `resetOnJobDone` (Valfritt, bool): resetOnJobDone tillåter Clipper att återställa subclipper till ett inledande tillstånd när ett jobb har skickats.
 - `autoplayVideo` (Valfritt, bool): autoplayVideo tillåter Clipper att spela upp videon på belastning. Standardvärdet är sant.
 - `language` {VALFRI, sträng}: språk anger språket i widgeten. Om inte anges försöker widgeten lokalisera meddelanden baserat på webbläsarens språk. Om inget språk har identifierats i webbläsaren, widgeten som standard till engelska. Mer information finns i den [konfigurera lokalisering](media-services-azure-media-clipper-localization.md) avsnittet.
@@ -108,7 +108,7 @@ Parametrarna för metodanropet initieringen är:
 - `extraLanguages` (Valfritt, JSON): parametern extraLanguages lägger till nya språk i standardordlista. Mer information finns i den [konfigurera lokalisering](media-services-azure-media-clipper-localization.md) avsnittet.
 
 ## <a name="typescript-definition"></a>TypeScript-definition
-En [TypeScript](https://www.typescriptlang.org/) definitionsfilen för Clipper finns [här](http://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).
+En [TypeScript](https://www.typescriptlang.org/) definitionsfilen för Clipper finns [här](https://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).
 
 ## <a name="azure-media-clipper-api"></a>Azure Media Clipper API
 Det här avsnittet beskrivs de API-yta som tillhandahålls av Clipper.

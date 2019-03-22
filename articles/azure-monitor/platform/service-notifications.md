@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2018
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9bd5ec3471fc3447d1e29d875c154793daf8e9e5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ab4aa2f37d5a883c83b8ee09b5de6551ebf13d2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474038"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995158"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visa meddelanden om hälsostatus för tjänsten med hjälp av Azure-portalen
 
@@ -60,24 +60,24 @@ Properties.communicationId | Kommunikation som är associerad till den här hän
 ### <a name="details-on-service-health-level-information"></a>Information om service health nivåinformation
 
 **Åtgärd krävs** (properties.incidentType == åtgärd krävs)
-    - Information - administratör åtgärd som krävs för att förhindra påverkan på befintliga tjänster
+- Information - administratör åtgärd som krävs för att förhindra påverkan på befintliga tjänster
     
 **Underhåll** (properties.incidentType == underhåll)
-    - Varning - nödfall Underhåll
-    - Information - standard planerat underhåll
+- Varning - nödfall Underhåll
+- Information - standard planerat underhåll
 
 **Information** (properties.incidentType == Information)
-    - Information - administratör kan krävas för att förhindra påverkan på befintliga tjänster
+- Information - administratör kan krävas för att förhindra påverkan på befintliga tjänster
 
 **Security** (properties.incidentType == säkerhet)
-    - Fel - utökas problem med att komma åt flera tjänster över flera regioner som påverkar en rad olika kunder.
-    - Varning - problem med åtkomst till specifika tjänster och/eller specifika regioner som påverkar en delmängd av kunderna.
-    - Information - problem som påverkar hanteringsåtgärder och/eller svarstid, inte påverkar tjänstens tillgänglighet.
+- Fel - utökas problem med att komma åt flera tjänster över flera regioner som påverkar en rad olika kunder.
+- Varning - problem med åtkomst till specifika tjänster och/eller specifika regioner som påverkar en delmängd av kunderna.
+- Information - problem som påverkar hanteringsåtgärder och/eller svarstid, inte påverkar tjänstens tillgänglighet.
 
 **Tjänsten problem** (properties.incidentType == Incident)
-    - Fel - utökas problem med att komma åt flera tjänster över flera regioner som påverkar en rad olika kunder.
-    - Varning - problem med åtkomst till specifika tjänster och/eller specifika regioner som påverkar en delmängd av kunderna.
-    - Information - problem som påverkar hanteringsåtgärder och/eller svarstid, inte påverkar tjänstens tillgänglighet.
+- Fel - utökas problem med att komma åt flera tjänster över flera regioner som påverkar en rad olika kunder.
+- Varning - problem med åtkomst till specifika tjänster och/eller specifika regioner som påverkar en delmängd av kunderna.
+- Information - problem som påverkar hanteringsåtgärder och/eller svarstid, inte påverkar tjänstens tillgänglighet.
 
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Visa dina meddelanden om hälsostatus för tjänsten i Azure portal

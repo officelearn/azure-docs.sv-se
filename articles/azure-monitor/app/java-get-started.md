@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 03/14/2019
 ms.author: lagayhar
-ms.openlocfilehash: 224da9285ab0aef312688e4dfa1da49451abfa5a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ece8b4ac3946f543c13975e40b1025bb3cc222f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674658"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013269"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Komma igång med Application Insights i ett Java-webbprojekt
 
@@ -39,10 +39,9 @@ Om du föredrar Spring-ramverket, testa [Guiden konfigurera en Spring Boot-start
 1. Logga in på [Microsoft Azure Portal](https://portal.azure.com).
 2. Skapa en Application Insights-resurs. Ange programtypen till Java-webbapp.
 
-    ![Fyll i ett namn, välj Java-webbapp och klicka på Skapa](./media/java-get-started/02-create.png)
 3. Leta upp instrumenteringsnyckeln för den nya resursen. Du kommer att behöva klistra in den här nyckeln i projektkoden inom kort.
 
-    ![I den nya resursöversikten klickar du på Egenskaper och kopierar instrumenteringsnyckeln.](./media/java-get-started/03-key.png)
+    ![I den nya resursöversikten klickar du på Egenskaper och kopierar instrumenteringsnyckeln.](./media/java-get-started/instrumentation-key-001.png)
 
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. Lägga till Application Insights SDK för Java till ditt projekt
 *Välj lämplig metod för ditt projekt.*
@@ -301,13 +300,13 @@ Gå tillbaka till Application Insights-resursen på [Microsoft Azure Portal](htt
 
 Data om HTTP-förfrågningar visas på översiktsbladet. (Om informationen inte visas väntar du några sekunder och klickar på Uppdatera.)
 
-![exempeldata](./media/java-get-started/5-results.png)
+![Skärmbild av översikt exempeldata](./media/java-get-started/overview-graphs.png)
 
 [Lär dig mer om mätvärden.][metrics]
 
 Klicka dig vidare i diagrammen om du vill visa mer detaljerade aggregerade mätvärden.
 
-![](./media/java-get-started/6-barchart.png)
+![Application Insights fel fönstret med diagram](./media/java-get-started/006-barcharts.png)
 
 > Application Insights förutsätter att formatet för HTTP-begäranden för MVC-program är: `VERB controller/action`. `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` och `GET Home/Product/sdf96vws` grupperas t.ex. i `GET Home/Product`. Denna gruppering gör det möjligt att skapa meningsfulla förfrågningsaggregeringar, t.ex. antal förfrågningar och genomsnittlig körningstid för förfrågningarna.
 >
@@ -316,16 +315,12 @@ Klicka dig vidare i diagrammen om du vill visa mer detaljerade aggregerade mätv
 ### <a name="instance-data"></a>Instansdata
 Klicka dig vidare inom en specifik begärandetyp om du vill visa enskilda instanser.
 
-Två typer av data visas i Application Insights: aggregerade data, som lagras och visas som medelvärden, antal och belopp; och instansdata, som är enskilda rapporter över HTTP-begäranden, undantag, sidvisningar eller anpassade händelser.
-
-När du visar egenskaperna för en begäran kan du se telemetrihändelserna som är associerade med den, till exempel begäranden och undantag.
-
-![](./media/java-get-started/7-instance.png)
+![Öka detaljnivån i en specifik exempelvy](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Analytics: Kraftfullt frågespråk
 Allt eftersom du ackumulerar mer data kan du köra frågor både för att aggregera data och för att hitta enskilda instanser.  [Analytics](../../azure-monitor/app/analytics.md) är ett kraftfullt verktyg både för att bättre förstå prestanda och användning, och för diagnostikändamål.
 
-![Exempel med Analytics](./media/java-get-started/025.png)
+![Exempel med Analytics](./media/java-get-started/0025.png)
 
 ## <a name="7-install-your-app-on-the-server"></a>7. Installera din app på servern
 Publicera appen på servern, låt användarna använda den och se hur telemetrin visas på portalen.
@@ -343,11 +338,25 @@ Publicera appen på servern, låt användarna använda den och se hur telemetrin
 
     (Den här komponenten gör det möjligt att använda prestandaräknare.)
 
+## <a name="azure-app-service-config-spring-boot"></a>Azure App Service-konfiguration (Spring Boot)
+
+Spring Boot-appar som körs på Windows kräver ytterligare konfiguration för att köra på Azure App Services. Ändra **web.config** och Lägg till följande:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <system.webServer>
+        <handlers>
+            <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified"/>
+        </handlers>
+        <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\AzureWebAppExample-0.0.1-SNAPSHOT.jar&quot;">
+        </httpPlatform>
+    </system.webServer>
+</configuration>
+```
 
 ## <a name="exceptions-and-request-failures"></a>Fel relaterade till begäranden och undantag
-Ohanterade undantag samlas in automatiskt:
-
-![Öppna Inställningar, Fel](./media/java-get-started/21-exceptions.png)
+Ohanterade undantag samlas in automatiskt.
 
 Om du vill samla in data om andra undantag kan du välja mellan två alternativ:
 
@@ -366,9 +375,9 @@ Inkommande SDK-konfiguration beskrivs mer i vår artikel om [korrelation](correl
 Utgående SDK-konfiguration har definierats i den [AI-Agent.xml](java-agent.md) fil.
 
 ## <a name="performance-counters"></a>Prestandaräknare
-Öppna **Inställningar**, **Servrar**, om du vill se ett utbud av prestandaräknare.
+Öppna **Undersök**, **mått**, för att se ett utbud av prestandaräknare.
 
-![](./media/java-get-started/11-perf-counters.png)
+![Skärmbild av fönstret mått med privata byte för process valt](./media/java-get-started/011-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>Anpassa samlingen med prestandaräknare
 Om du vill inaktivera datainsamlingen från standarduppsättningen med prestandaräknare lägger du till följande kod under rotnoden i filen ApplicationInsights.xml:
@@ -418,10 +427,6 @@ Varje [Windows-prestandaräknare](https://msdn.microsoft.com/library/windows/des
 * counterName – Namnet på prestandaräknaren.
 * instanceName – Namnet på instansen av prestandaräknarkategorin eller en tom sträng ("") om kategorin innehåller en enda instans. Om categoryName är Process och den prestandaräknare som du vill samla in data från hör till den aktuella JVM-processen som din app körs i anger du `"__SELF__"`.
 
-Dina prestandaräknare visas som anpassade mått i [Metrics Explorer][metrics].
-
-![](./media/java-get-started/12-custom-perfs.png)
-
 ### <a name="unix-performance-counters"></a>Unix-prestandaräknare
 * [Installera collectd med Application Insights-plugin-programmet](java-collectd.md) om du vill samla in en mängd olika system- och nätverksdata.
 
@@ -465,22 +470,12 @@ Nu när du har installerat SDK kan du använda API:et för att skicka din egen t
 * [Sök efter händelser och loggar][diagnostic] för att diagnostisera problem.
 
 ## <a name="availability-web-tests"></a>Webbtester för tillgänglighet
-Application Insights kan testa din webbplats med jämna mellanrum för att kontrollera att tjänsten är tillgänglig och att den svarar. [Du konfigurerar inställningarna][availability] genom att klicka på Webbtest.
+Application Insights kan testa din webbplats med jämna mellanrum för att kontrollera att tjänsten är tillgänglig och att den svarar.
 
-![Klicka först på Webbtester och sedan på Lägg till webbtest](./media/java-get-started/31-config-web-test.png)
-
-Du kan visa diagram över svarstider, samt få e-postaviseringar om platsen kraschar.
-
-![Exempel på webbtest](./media/java-get-started/appinsights-10webtestresult.png)
-
-[Läs mer om webbtester för tillgänglighet.][availability]
+[Läs mer om hur du ställer in webbtester för tillgänglighet.][availability]
 
 ## <a name="questions-problems"></a>Har du några frågor? Har du problem?
 [Felsöka Java](java-troubleshoot.md)
-
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Nästa steg
 * [Övervaka beroende anrop](java-agent.md)

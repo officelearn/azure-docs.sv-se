@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: bd59a9584f6993d768a9aeb790470a1d978c78ae
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ab050a683913e62c6671bf01397e76311a08952b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542462"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006786"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>SignalR Service-bindningar för Azure Functions
 
@@ -82,7 +82,7 @@ public static SignalRConnectionInfo Negotiate(
 
 #### <a name="authenticated-tokens"></a>Autentiserad token
 
-Om funktionen utlöses av en autentiserad klient, kan du lägga till ID användaranspråk till genererade token. Du kan enkelt lägga till autentisering till en funktionsapp med hjälp av [App Service-autentisering] (.. /App-Service/Overview-Authentication-Authorization.MD).
+Om funktionen utlöses av en autentiserad klient, kan du lägga till ID användaranspråk till genererade token. Du kan enkelt lägga till autentisering i en funktionsapp med hjälp [Apptjänstautentisering](../app-service/overview-authentication-authorization.md).
 
 App Service-autentisering anger HTTP-huvuden med namnet `x-ms-client-principal-id` och `x-ms-client-principal-name` som innehåller den autentiserade användaren huvudnamn klient-ID och namn, respektive. Du kan ange den `UserId` egenskapen om bindningen till värdet från antingen rubrik med hjälp av en [bindning uttryck](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` eller `{headers.x-ms-client-principal-name}`. 
 
@@ -127,7 +127,7 @@ module.exports = async function (context, req, connectionInfo) {
 
 #### <a name="authenticated-tokens"></a>Autentiserad token
 
-Om funktionen utlöses av en autentiserad klient, kan du lägga till ID användaranspråk till genererade token. Du kan enkelt lägga till autentisering till en funktionsapp med hjälp av [App Service-autentisering] (.. /App-Service/Overview-Authentication-Authorization.MD).
+Om funktionen utlöses av en autentiserad klient, kan du lägga till ID användaranspråk till genererade token. Du kan enkelt lägga till autentisering i en funktionsapp med hjälp [Apptjänstautentisering](../app-service/overview-authentication-authorization.md).
 
 App Service-autentisering anger HTTP-huvuden med namnet `x-ms-client-principal-id` och `x-ms-client-principal-name` som innehåller den autentiserade användaren huvudnamn klient-ID och namn, respektive. Du kan ange den `userId` egenskapen om bindningen till värdet från antingen rubrik med hjälp av en [bindning uttryck](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` eller `{headers.x-ms-client-principal-name}`. 
 
@@ -174,7 +174,7 @@ public SignalRConnectionInfo negotiate(
 
 #### <a name="authenticated-tokens"></a>Autentiserad token
 
-Om funktionen utlöses av en autentiserad klient, kan du lägga till ID användaranspråk till genererade token. Du kan enkelt lägga till autentisering till en funktionsapp med hjälp av [App Service-autentisering] (.. /App-Service/Overview-Authentication-Authorization.MD).
+Om funktionen utlöses av en autentiserad klient, kan du lägga till ID användaranspråk till genererade token. Du kan enkelt lägga till autentisering i en funktionsapp med hjälp [Apptjänstautentisering](../app-service/overview-authentication-authorization.md).
 
 App Service-autentisering anger HTTP-huvuden med namnet `x-ms-client-principal-id` och `x-ms-client-principal-name` som innehåller den autentiserade användaren huvudnamn klient-ID och namn, respektive. Du kan ange den `UserId` egenskapen om bindningen till värdet från antingen rubrik med hjälp av en [bindning uttryck](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` eller `{headers.x-ms-client-principal-name}`.
 
@@ -260,7 +260,7 @@ public static Task SendMessage(
     return signalRMessages.AddAsync(
         new SignalRMessage
         {
-            // the message will only be sent to this user ID
+            // the message will be sent to the group with this name
             GroupName = "myGroup",
             Target = "newMessage",
             Arguments = new [] { message }

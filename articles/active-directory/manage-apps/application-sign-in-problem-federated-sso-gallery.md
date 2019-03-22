@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: celested
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c5b61dbb3c6dde8dfcabdba015ee41e968cc5dd
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.openlocfilehash: 225676b144d042c51a97fe14a20a5a78f0a77244
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817090"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013092"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problem som loggar in på en galleriprogram som konfigurerats för federerad enkel inloggning
 
@@ -93,7 +93,7 @@ När du har uppdaterat svars-URL-värdet i Azure AD och den matchar det värde s
 
 ## <a name="user-not-assigned-a-role"></a>Användare som inte har tilldelats en roll
 
-*Fel AADSTS50105: Den inloggade användaren 'brian@contoso.com' har inte tilldelats en roll för programmet*.
+*Fel AADSTS50105: Den inloggade användaren ' brian\@contoso.com ”har inte tilldelats en roll för programmet*.
 
 **Möjlig orsak**
 
@@ -145,14 +145,14 @@ De användare som du har valt kommer att kunna starta dessa program med hjälp a
 
 Azure AD stöder inte SAML-begäran som skickas av programmet för enkel inloggning. Några vanliga problem är:
 
--   Saknar obligatoriska fält i SAML-begäran
+-   Obligatoriska fält saknas i SAML-begäran
 -   SAML-begäranskodad metod
 
 **Lösning**
 
-1.  Avbilda SAML-begäran. Följ självstudien [Felsök SAML-baserad enkel inloggning till program i Azure AD](../develop/howto-v1-debug-saml-sso-issues.md) och lär dig att samla in SAML-begäran.
+1. Avbilda SAML-begäran. Följ självstudien [Felsök SAML-baserad enkel inloggning till program i Azure AD](../develop/howto-v1-debug-saml-sso-issues.md) och lär dig att samla in SAML-begäran.
 
-1.  Kontakta programvaruleverantören och dela följande information:
+1. Kontakta programvaruleverantören och dela följande information:
 
    -   SAML-begäran
 

@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 03/06/2019
-ms.openlocfilehash: 2f615214fb7b77614054841af7972eb814525dee
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 03/13/2019
+ms.openlocfilehash: 8654899e0a6dfce8f25855eba6c5f4a88af78665
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549926"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903138"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server
 
@@ -477,7 +477,11 @@ Följande variabler, uppgifter och vyer returnerar olika resultat:
 
 ### <a name="tempdb-size"></a>TEMPDB-storlek
 
-`tempdb` delas upp i 12 filer med maximal storlek på 14 GB per fil. Den här största storleken per fil inte kan ändras och nya filer som kan läggas till `tempdb`. Den här begränsningen tas bort snart. Några frågor kan returnera ett fel om de behöver mer än 168 GB i `tempdb`.
+Största filstorlek för `tempdb` får inte vara greather än 24 GB/core på nivån generell användning. Max `tempdb` storleken på nivån affärskritisk är begränsad med lagringsstorlek instans. `tempdb` är alltid att dela upp till 12 datafiler. Den här största storleken per fil inte kan ändras och nya filer som kan läggas till `tempdb`. Några frågor kan returnera ett fel om de behöver mer än 24GB / kärna i `tempdb`.
+
+### <a name="cannot-restore-contained-database"></a>Det går inte att återställa innesluten databas
+
+Hanterad instans kan inte återställa [inneslutna databaser](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Point-in-time-återställning av befintliga inneslutna databaser fungerar inte på hanterad instans. Det här problemet tas snart och fram till dess rekommenderar vi att ta bort inneslutningsalternativet från databaser som är placerade på hanterad instans och Använd inte inneslutningsalternativet för produktionsdatabaserna.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Överstiger lagringsutrymme med små databasfiler
 
@@ -510,7 +514,7 @@ Visa GUID databasidentifierare i stället för faktiska databasnamn flera system
 
 ### <a name="database-mail-profile"></a>Database mail-profilen
 
-Det kan vara endast en database mail-profilen och den måste anropas `AzureManagedInstance_dbmail_profile`.
+Database mail-profilen som används av SQL-agenten måste anropas `AzureManagedInstance_dbmail_profile`.
 
 ### <a name="error-logs-are-not-persisted"></a>Felloggar är inte beständiga
 
@@ -524,7 +528,7 @@ En hanterad instans placerar utförlig information i felloggarna och många av d
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>Transaktions-Scope på två databaser inom samma instans stöds inte
 
-`TransactionScope` klassen i .net fungerar inte om två frågor skickas till de två databaserna inom samma instans under samma transaktionsomfattning:
+`TransactionScope` klassen i .NET fungerar inte om två frågor skickas till de två databaserna inom samma instans under samma transaktionsomfattning:
 
 ```C#
 using (var scope = new TransactionScope())

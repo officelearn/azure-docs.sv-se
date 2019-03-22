@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 36800071d5e0080ef5d1d791eed12587b114df78
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: dbfb559516177d496f5b16dc31f0ef8d0603cf68
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743641"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904022"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Hantera reservationer för Azure-resurser
 
@@ -38,13 +38,13 @@ Så här uppdaterar en reservationens omfång:
 4. Välj **Inställningar** > **Konfiguration**.
 5. Ändra omfattningen.
 
-Om du ändrar från delade till ett enda scope, kan du bara välja prenumerationer där du är ägare. Endast prenumerationer i samma fakturering kontext som reservationen, kan väljas.
+Om du ändrar från delade till ett enda scope, kan du bara välja prenumerationer där du är ägare. Endast prenumerationer i samma faktureringskontext som reservationen kan väljas.
 
-Området gäller endast för betala per användning-erbjudandet MS-AZR - 0003P eller MS-AZR - 0023P, Enterprise erbjuder MS-AZR - 0017P eller MS-AZR - 0148P eller typer av CSP-prenumerationer.
+Omfånget gäller endast Pay-As-You-Go-erbjudandet MS-AZR-0003P eller MS-AZR-0023P, företagserbjudandet MS-AZR-0017P eller MS-AZR-0148P eller CSP-prenumerationstyper.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Lägga till eller ändra användare som kan hantera en reservation
 
-Du kan delegera hantering av en reservation genom att lägga till användare till roller på reservationen. Som standard personen som har köpt reservationen och kontoadministratören ha rollen ägare på reservationen.
+Du kan delegera hantering av en reservation genom att lägga till användare till roller i reservationen. Som standard har personen som köpte reservationen och kontoadministratören rollen som Ägare för reservationen.
 
 Du kan hantera åtkomst till reservationer oberoende av de prenumerationer som får rabatten. När du ger någon behörighet att hantera en reservation som inte ger dem behörighet att hantera prenumerationen. Och om du ger någon behörighet att hantera en prenumeration inom de reservationsomfånget, som inte ge dem behörighet att hantera reservationen.
 
@@ -53,8 +53,8 @@ Att delegera hantering för en reservation:
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **alla tjänster** > **Reservation** till listan reservationer som du har åtkomst till.
 3. Markerar du den som du vill delegera åtkomst till andra användare.
-4. Välj **åtkomstkontroll (IAM)**.
-5. Välj **Lägg till rolltilldelning** > **rollen** > **ägare**. Eller, om du vill ge begränsad åtkomst, Välj en annan roll.
+4. Välj **Åtkomstkontroll (IAM)**.
+5. Välj **Lägg till rolltilldelning** > **rollen** > **ägare**. Du kan också välja en annan roll om du vill ge begränsad åtkomst.
 6. Ange e-postadressen för den användare som du vill lägga till som ägare.
 7. Välj användaren och sedan **Spara**.
 
@@ -133,4 +133,4 @@ Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).

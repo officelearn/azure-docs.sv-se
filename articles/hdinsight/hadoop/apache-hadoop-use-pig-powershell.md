@@ -1,6 +1,6 @@
 ---
 title: Använda Apache Pig med PowerShell i HDInsight - Azure
-description: Lär dig mer om att skicka Apache Pig-jobb till ett Apache Hadoop-kluster i HDInsight med Azure PowerShell.
+description: Lär dig mer om att skicka Apache Pig-jobb till ett Apache Hadoop-kluster på HDInsight med Azure PowerShell.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 84780d7c432e818153f964522063f29d8540e0ec
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 69a45a0c2c21ffafde8a4b366e1f3e90b7c8f59a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434315"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012611"
 ---
 # <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>Använd Azure PowerShell för att köra Apache Pig-jobb med HDInsight
 
@@ -41,9 +41,9 @@ Azure PowerShell tillhandahåller *cmdletar* som gör det möjligt att köra Pig
 När du kör Pig-jobb i ett fjärranslutet HDInsight-kluster används följande cmdletar:
 
 * **Connect-AzureRmAccount**: Autentiserar Azure PowerShell på Azure-prenumerationen.
-* **Ny AzureRmHDInsightPigJobDefinition**: Skapar en *jobbet definition* med hjälp av de angivna satser i Pig Latin.
+* **New-AzureRmHDInsightPigJobDefinition**: Skapar en *jobbet definition* med hjälp av de angivna satser i Pig Latin.
 * **Start-AzureRmHDInsightJob**: Skickar jobbdefinitionen till HDInsight och startar jobbet. En *jobbet* objekt returneras.
-* **Vänta AzureRmHDInsightJob**: Använder objektet för att kontrollera status för jobbet. Den ska vänta tills jobbet har slutförts eller väntetiden har överskridits.
+* **Wait-AzureRmHDInsightJob**: Använder objektet för att kontrollera status för jobbet. Den ska vänta tills jobbet har slutförts eller väntetiden har överskridits.
 * **Get-AzureRmHDInsightJobOutput**: Används för att hämta utdata för jobbet.
 
 Följande steg visar hur du använder dessa cmdletar för att köra ett jobb i ditt HDInsight-kluster.

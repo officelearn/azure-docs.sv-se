@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: d06b4a0a9823871ffc14d7cfa7148f6e335835d6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 67ddc7a8e9d79d0eef9c017b315385df62c18e33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762678"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997712"
 ---
 # <a name="view-system-test-results"></a>Visa testresultat för system
 
@@ -26,7 +26,7 @@ Välj ett projekt och sedan välja fliken modeller i projektet, letar du upp den
 
 Fliken test visar:
 
-1.  **Testresultat för system:** resultatet av test-processen i utbildningar. Testa processen genererar BLEU poängen.
+1.  **Testresultat för system:** Resultatet av test-processen i utbildningar. Testa processen genererar BLEU poängen.
 
     **Antal meningen:** Hur många parallella meningar användes i test-uppsättningen.
 

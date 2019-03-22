@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 83c3db81b2836fca15c8cac1e9665a73a89ba06d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 5a87563e54e0d932acefc5bd5808ac49b3cbf30a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980269"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005231"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Självstudier: Skala en VM-skalningsuppsättning automatiskt med Azure PowerShell
 
@@ -188,7 +188,7 @@ IpAddress
 52.168.121.216
 ```
 
-Skapa en fjärranslutning till din första virtuella datorinstans. Ange din egna offentliga IP-adress och ditt portnummer för nödvändig VM-instans såsom visas i föregående kommandon. När du uppmanas, anger du de autentiseringsuppgifter som användes när du skapade skalningsuppsättningen (som standard i exempelkommandona, är de *azureuser* och *P@ssw0rd!*). Om du använder Azure Cloud Shell, utför du den här åtgärden från en lokal PowerShell-kommandotolk eller klienten för fjärrskrivbord. Följande exempel ansluter till VM-instans *0*:
+Skapa en fjärranslutning till din första virtuella datorinstans. Ange din egna offentliga IP-adress och ditt portnummer för nödvändig VM-instans såsom visas i föregående kommandon. När du uppmanas, anger du de autentiseringsuppgifter som används när du skapade skalningsuppsättningen (som standard i exempelkommandona är de *azureuser* och *P\@ssw0rd!*). Om du använder Azure Cloud Shell, utför du den här åtgärden från en lokal PowerShell-kommandotolk eller klienten för fjärrskrivbord. Följande exempel ansluter till VM-instans *0*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001

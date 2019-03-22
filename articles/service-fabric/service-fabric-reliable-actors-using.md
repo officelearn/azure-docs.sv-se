@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 89161f3dad68c4b208f4badc548e2057c7ed58c1
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 5ab967cbd630447132300b22da5c5deb31fd50e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022057"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852373"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>Implementera funktioner på servicenivå i actor-tjänst
 
@@ -160,13 +160,13 @@ Remoting V2 (gränssnitt kompatibel, kallas V2_1) stack har alla funktioner i V2
 
 Följande ändringar krävs för att använda fjärrkommunikation V2_1 stack:
 
- 1. Lägg till följande attribut i sammansättningen på aktörsgränssnitt.
+1. Lägg till följande attribut i sammansättningen på aktörsgränssnitt.
   
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
    ```
 
- 2. Bygg och uppgradera actor-tjänst och aktörsprojekt för klienten att börja använda V2-stack.
+2. Bygg och uppgradera actor-tjänst och aktörsprojekt för klienten att börja använda V2-stack.
 
 ### <a name="actor-service-upgrade-to-remoting-v2-interface-compatible-stack-without-affecting-service-availability"></a>Aktören tjänsteuppgraderingen till remoting V2 (interface-kompatibelt) stack utan att påverka tjänsttillgängligheten
 
@@ -174,12 +174,12 @@ Den här ändringen är en uppgradering för tvåstegsverifiering. Följ stegen 
 
 1. Lägg till följande attribut i sammansättningen på aktörsgränssnitt. Det här attributet startar två lyssnare för aktörstjänsten V1 (befintlig) och V2_1 lyssnaren. Uppgradera aktörstjänsten med den här ändringen.
 
-  ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
-  ```
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+   ```
 
 2. Uppgradera klienterna aktören när du har slutfört den tidigare uppgraderingen.
-Det här steget säkerställer att aktören-proxyn använder fjärrkommunikation V2_1 stack.
+   Det här steget säkerställer att aktören-proxyn använder fjärrkommunikation V2_1 stack.
 
 3. Det här steget är valfritt. Ändra attributet tidigare för att ta bort V1-lyssnaren.
 
@@ -193,13 +193,13 @@ Användare kan nu använda remoting V2 stack, som utför bättre och tillhandah�
 
 Följande ändringar krävs för att använda remoting V2-stacken.
 
- 1. Lägg till följande attribut i sammansättningen på aktörsgränssnitt.
+1. Lägg till följande attribut i sammansättningen på aktörsgränssnitt.
 
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
- 2. Bygg och uppgradera actor-tjänst och aktörsprojekt för klienten att börja använda V2-stack.
+2. Bygg och uppgradera actor-tjänst och aktörsprojekt för klienten att börja använda V2-stack.
 
 ### <a name="upgrade-the-actor-service-to-the-remoting-v2-stack-without-affecting-service-availability"></a>Uppgradera aktörstjänsten till remoting V2-stacken utan att påverka tjänsttillgängligheten
 
@@ -207,12 +207,12 @@ Den här ändringen är en uppgradering för tvåstegsverifiering. Följ stegen 
 
 1. Lägg till följande attribut i sammansättningen på aktörsgränssnitt. Det här attributet startar två lyssnare för aktörstjänsten V1 (befintlig) och V2-lyssnare. Uppgradera aktörstjänsten med den här ändringen.
 
-  ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
-  ```
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
+   ```
 
 2. Uppgradera klienterna aktören när du har slutfört den tidigare uppgraderingen.
-Det här steget säkerställer att aktören-proxyn använder remoting V2-stack.
+   Det här steget säkerställer att aktören-proxyn använder remoting V2-stack.
 
 3. Det här steget är valfritt. Ändra attributet tidigare för att ta bort V1-lyssnaren.
 
@@ -226,7 +226,7 @@ Det här steget säkerställer att aktören-proxyn använder remoting V2-stack.
 * [Aktör livscykel och skräpinsamling samling](service-fabric-reliable-actors-lifecycle.md)
 * [Aktörer API-referensdokumentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [.NET-exempelkod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java-exempelkoden](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java-exempelkoden](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

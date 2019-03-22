@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: f54e715f555f01a265ed89ac633f207546a73904
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: ff3f1e405dc7a1e69c3b1d1d20936ca78b97fcda
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576369"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855103"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Återställa en Azure SQL database med hjälp av automatiska databassäkerhetskopieringar
 
@@ -114,9 +114,6 @@ Du kan återställa en borttagen databas till borttagningstid för en borttagen 
 
 Du kan återställa en SQL-databas på en server i valfri Azure-region från de senaste geo-replikerade säkerhetskopiorna. GEO-återställning använder en geo-redundant säkerhetskopia som källa och kan användas för att återställa en databas, även om databasen eller datacenter är otillgängligt på grund av ett avbrott.
 
-> [!Note]
-> GEO-återställning finns inte i hanterade instanser.
-
 GEO-återställning är standardalternativet för återställning när databasen är inte tillgänglig på grund av en incident i den region där databasen finns. Om en storskalig incident i en region blir otillgänglig programmets databas, kan du återställa en databas från geo-replikerade säkerhetskopior till en server i alla andra regioner. Det finns en fördröjning mellan när en säkerhetskopia görs och när det är geo-replikerade till ett Azure blob i en annan region. Den här fördröjningen kan vara upp till en timme, så om en olycka inträffar, det kan ta upp till en timme dataförlust. Följande bild visar återställning av databasen från den senaste tillgängliga säkerhetskopian i en annan region.
 
 ![GEO-återställning](./media/sql-database-geo-restore/geo-restore-2.png)
@@ -133,6 +130,9 @@ Point-in-time-återställning på en geo-secondary stöds inte för närvarande.
 
 Att geo-återställning för en databas under dess [DTU-baserade modellen kvarhållningsperiod](sql-database-service-tiers-dtu.md) eller [vCore-baserade modellen kvarhållningsperiod](sql-database-service-tiers-vcore.md) med Azure portal, öppna sidan SQL-databaser och klicka sedan på **Lägg till** . I den **Välj källa** textrutan väljer **Backup**. Ange säkerhetskopieringen från som du vill utföra återställningen i regionen och på-servern valfri.
 
+> [!Note]
+> GEO-återställning med Azure-portalen är inte tillgänglig i hanterade instanser. Använd PowerShell i stället.
+
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>Programmässigt utföra återställning med hjälp av automatiska säkerhetskopieringar
 
 Som tidigare beskrivs, utöver Azure portal, kan databasåterställning utföras via programmering med Azure PowerShell eller REST API. I följande tabeller beskrivs uppsättningen kommandon som är tillgängliga.
@@ -140,6 +140,8 @@ Som tidigare beskrivs, utöver Azure portal, kan databasåterställning utföras
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
 
 - Om du vill återställa en fristående eller en databas i pool, se [återställning AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
@@ -173,7 +175,7 @@ Du återställer en enda eller grupperade databas med hjälp av REST-API:
 ### <a name="azure-cli"></a>Azure CLI
 
 - Om du vill återställa en enskild eller grupperade databas med Azure CLI, se [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
-- Om du vill återställa en hanterad instans med hjälp av Azure CLI, se [az sql EXTEXTB återställning](/cli/azure/sql/db#az-sql-midb-restore)
+- Om du vill återställa en hanterad instans med hjälp av Azure CLI, se [az sql EXTEXTB återställning](/cli/azure/sql/db)
 
 ## <a name="summary"></a>Sammanfattning
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: acbd41b7203e458a5ed60382354c862748863053
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: ce1afbd5499e798888e77f52d7b652e7e1f548fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328035"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005812"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Hyperledger Fabric konsortienätverk
 
@@ -78,11 +78,11 @@ I **grunderna**, ange värden för standard parametrar för alla distributioner.
 
 | Parameternamn | Beskrivning | Tillåtna värden |
 |---|---|---|
-**Resurs-prefix**| Namnprefixet för resurser som etablerats som en del av distributionen |6 tecken eller mindre |
-**Användarnamn**| Användarnamn för administratören för var och en av de virtuella datorerna som distribueras för den här medlemmen |1 – 64 tecken |
-**Autentiseringstyp**| Metod för att verifiera att den virtuella datorn |Lösenordet eller SSH offentlig nyckel|
-**Lösenord (autentiseringstyp = lösenord)**|Lösenordet för administratörskontot för var och en av de virtuella datorerna som distribueras. Lösenordet måste innehålla tre av följande tecken: 1 versal bokstav, 1 gemen bokstav, 1 siffra och 1 specialtecken<br /><br />Även om alla virtuella datorer har ursprungligen samma lösenord, kan du ändra lösenordet efter etablering|12 – 72 tecken|
-**SSH-nyckel (autentiseringstyp = offentlig SSH-nyckel)**|SSH-nyckel som används för fjärrinloggning ||
+**Resurs-prefix** | Namnprefixet för resurser som etablerats som en del av distributionen |6 tecken eller mindre |
+**Användarnamn** | Användarnamn för administratören för var och en av de virtuella datorerna som distribueras för den här medlemmen |1 – 64 tecken |
+**Autentiseringstyp** | Metod för att verifiera att den virtuella datorn |Lösenordet eller SSH offentlig nyckel|
+**Lösenord (autentiseringstyp = lösenord)** |Lösenordet för administratörskontot för var och en av de virtuella datorerna som distribueras. Lösenordet måste innehålla tre av följande tecken: 1 versal bokstav, 1 gemen bokstav, 1 siffra och 1 specialtecken<br /><br />Även om alla virtuella datorer har ursprungligen samma lösenord, kan du ändra lösenordet efter etablering|12 – 72 tecken|
+**SSH-nyckel (autentiseringstyp = offentlig SSH-nyckel)** |SSH-nyckel som används för fjärrinloggning ||
 **Prenumeration** |Den prenumeration som ska distribueras ||
 **Resursgrupp** |Resursgruppen som ska distribueras consortium network ||
 **Plats** |Azure-region som ska distribueras den första medlemmen i ||
@@ -97,10 +97,10 @@ I **nätverksinställningar**, ange indata för att skapa eller koppla en befint
 
 | Parameternamn | Beskrivning | Tillåtna värden |
 |---|---|---|
-**Nätverkskonfiguration**|Du kan välja att skapa ett nytt nätverk eller Anslut till en befintlig. Om du väljer *ansluta befintliga*, måste du ange ytterligare värden. |Nytt nätverk <br/> Ansluta till befintliga |
-**HLF CA-lösenord**|Ett lösenord som används för de certifikat som genereras av de certifikatutfärdare som har skapats som en del av distributionen. Lösenordet måste innehålla tre av följande tecken: 1 versal bokstav, 1 gemen bokstav, 1 siffra och 1 specialtecken.<br /><br />Även om alla virtuella datorer har ursprungligen samma lösenord, kan du ändra lösenordet när du har etablerat.|1 - 25 tecken |
-**Organisation installationen** |Du kan anpassa namn och certifikat för din organisation eller har standardvärden som ska användas.|Standard <br/> Advanced |
-**Inställningar för VPN-nätverk**| Etablera en VPN-tunnel gateway för att komma åt de virtuella datorerna | Ja <br/> Nej |
+**Nätverkskonfiguration** |Du kan välja att skapa ett nytt nätverk eller Anslut till en befintlig. Om du väljer *ansluta befintliga*, måste du ange ytterligare värden. |Nytt nätverk <br/> Ansluta till befintliga |
+**HLF CA-lösenord** |Ett lösenord som används för de certifikat som genereras av de certifikatutfärdare som har skapats som en del av distributionen. Lösenordet måste innehålla tre av följande tecken: 1 versal bokstav, 1 gemen bokstav, 1 siffra och 1 specialtecken.<br /><br />Även om alla virtuella datorer har ursprungligen samma lösenord, kan du ändra lösenordet när du har etablerat.|1 - 25 tecken |
+**Organisation installationen** |Du kan anpassa namn och certifikat för din organisation eller har standardvärden som ska användas.|Standard <br/> Avancerat |
+**Inställningar för VPN-nätverk** | Etablera en VPN-tunnel gateway för att komma åt de virtuella datorerna | Ja <br/> Nej |
 
 Välj **OK**.
 
@@ -112,8 +112,8 @@ I **infrastrukturresurskonfigurationen**, du konfigurerar nätverkets storlek oc
 
 | Parameternamn | Beskrivning | Tillåtna värden |
 |---|---|---|
-**Skaltyp**|Typen av distribution av en virtuell dator med flera behållare eller flera virtuella datorer i en skalbar-modell.|Enstaka virtuell dator eller med flera virtuella datorer |
-**VM-disktyp**|Typ av säkerhetskopiering av var och en av de distribuerade noderna. <br/> Mer information om tillgängliga disktyper finns [Välj en disktyp av](../../virtual-machines/windows/disks-types.md).|Standard SSD <br/> Premium SSD |
+**Skaltyp** |Typen av distribution av en virtuell dator med flera behållare eller flera virtuella datorer i en skalbar-modell.|Enstaka virtuell dator eller med flera virtuella datorer |
+**VM-disktyp** |Typ av säkerhetskopiering av var och en av de distribuerade noderna. <br/> Mer information om tillgängliga disktyper finns [Välj en disktyp av](../../virtual-machines/windows/disks-types.md).|Standard SSD <br/> Premium SSD |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>Distribution av flera virtuella datorer (ytterligare inställningar)
 
@@ -123,8 +123,8 @@ I **infrastrukturresurskonfigurationen**, du konfigurerar nätverkets storlek oc
 |---|---|---|
 **Antalet orderer noder** |Antalet noder som beställer (organisera) transaktioner i ett block. <br />Ytterligare information om tjänsten skrivordning på Hyperledger [dokumentation](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) |1 – 4 |
 **Orderer nodstorlek för virtuell dator** |VM-storleken som används för orderer noder i nätverket|Standard Bs<br />Standard Ds<br />Standard FS |
-**Antalet peer-noder**| Noder som ägs av medlemmarna som utför transaktioner och underhåller tillståndet och en kopia av huvudboken.<br />Ytterligare information om tjänsten skrivordning på Hyperledger [dokumentation](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|1 – 4 |
-**Noden sessionslägets beständighet** |Persistence-motor som används av peer-noder. Du kan konfigurera den här motorn per peer-nod. Se informationen nedan för flera peer-noder.|CouchDB </br>LevelDB |
+**Antalet peer-noder** | Noder som ägs av medlemmarna som utför transaktioner och underhåller tillståndet och en kopia av huvudboken.<br />Ytterligare information om tjänsten skrivordning på Hyperledger [dokumentation](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|1 – 4 |
+**Noden sessionslägets beständighet** |Persistence-motor som används av peer-noder. Du kan konfigurera den här motorn per peer-nod. Se informationen nedan för flera peer-noder.|CouchDB <br />LevelDB |
 **Peer nodstorlek för virtuell dator** |Storleken på virtuella datorn som används för alla noder i nätverket|Standard Bs<br />Standard Ds<br />Standard FS |
 
 ### <a name="multiple-peer-node-configuration"></a>Flera peer-nodkonfiguration

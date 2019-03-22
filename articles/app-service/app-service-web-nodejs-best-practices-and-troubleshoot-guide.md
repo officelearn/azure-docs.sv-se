@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 6a22600f7d6653da64256d7ec63ba26f272b2184
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 323de505bc1bfa9747f372033392a9fd6e08462c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888278"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898864"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Metodtips och felsökningsguide för nodprogram i Azure App Service Windows
 
@@ -118,7 +118,7 @@ Standardvärdet är FALSKT. När visar inställd på SANT, iisnode HTTP-statusko
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled (aktivera inte på aktiva produktionsplatsen)
 
-Den här inställningen styr felsökningsfunktionen. Iisnode är integrerad med node-inspector. Genom att aktivera den här inställningen kan aktivera du felsökning av nodprogrammet. När du aktiverar den här inställningen skapar iisnode node-inspector filer i katalogen 'debuggerVirtualDir' på den första debug-begäran till nodprogrammet. Du kan läsa in node-inspector genom att skicka en begäran om att http://yoursite/server.js/debug. Du kan styra debug URL-segment med ”debuggerPathSegment” inställningen. Som standard debuggerPathSegment = ”felsöka”. Du kan ange `debuggerPathSegment` GUID, till exempel så att det är svårare att identifieras av andra.
+Den här inställningen styr felsökningsfunktionen. Iisnode är integrerad med node-inspector. Genom att aktivera den här inställningen kan aktivera du felsökning av nodprogrammet. När du aktiverar den här inställningen skapar iisnode node-inspector filer i katalogen 'debuggerVirtualDir' på den första debug-begäran till nodprogrammet. Du kan läsa in node-inspector genom att skicka en begäran om att `http://yoursite/server.js/debug`. Du kan styra debug URL-segment med ”debuggerPathSegment” inställningen. Som standard debuggerPathSegment = ”felsöka”. Du kan ange `debuggerPathSegment` GUID, till exempel så att det är svårare att identifieras av andra.
 
 Läs [Felsök node.js-program på Windows](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) för mer information om hur du felsöker.
 
@@ -133,7 +133,7 @@ Modulen agentkeepalive säkerställer att sockets återanvänds på din Azure we
 Exempel [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) konfiguration:
 
 ```nodejs
-var keepaliveAgent = new Agent({
+let keepaliveAgent = new Agent({
     maxSockets: 40,
     maxFreeSockets: 10,
     timeout: 60000,
@@ -155,9 +155,9 @@ Du kan profilera node-programmet för att ta reda på om du tror att ditt progra
 Anta exempelvis att du har en hello world-app som du vill profilera på följande sätt:
 
 ```nodejs
-var http = require('http');
+const http = require('http');
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }
@@ -173,7 +173,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Gå till webbplatsen Felsökningskonsolen https://yoursite.scm.azurewebsites.net/DebugConsole
+Gå till webbplatsen Felsökningskonsolen `https://yoursite.scm.azurewebsites.net/DebugConsole`
 
 Gå till katalogen site/wwwroot. Du kan se en kommandotolk som visas i följande exempel:
 
@@ -185,12 +185,12 @@ Det här kommandot installerar v8-profiler under noden\_moduler katalogen och al
 Nu kan redigera din server.js för att Profilera ditt program.
 
 ```nodejs
-var http = require('http');
-var profiler = require('v8-profiler');
-var fs = require('fs');
+const http = require('http');
+const profiler = require('v8-profiler');
+const fs = require('fs');
 
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }

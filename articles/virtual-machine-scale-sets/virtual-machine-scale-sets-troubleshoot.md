@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: e4b1153e46625f88c717fd9b7a5336ffe4ca7f6a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 3308b22606e87853aad7e3d3a3995aab8d1b5401
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739557"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005309"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Felsöka automatisk skalning med Virtual Machine Scale Sets
 **Problemet** – du har skapat en infrastruktur för automatisk skalning i Azure Resource Manager med hjälp av VM-skalningsuppsättningar – till exempel genom att distribuera en mall som den här: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – du har din definierade skalningsregler och det fungerar bra, utom Nej betydelse hur mycket inläsning på de virtuella datorerna, inte automatisk skalning.
@@ -52,7 +52,7 @@ Några saker att tänka på är:
     Azure Resource Explorer är ett oumbärligt verktyg för felsökning som visar tillståndet för dina Azure Resource Manager-resurser. Klicka på din prenumeration och titta på den resursgrupp som du felsöker. Titta på virtuella datorns skaluppsättning du skapade och kontrollera instansvyn, som visar tillståndet för en distribution under Compute-resursprovidern. Kontrollera också instansvyn för virtuella datorer i virtuella datorns skalningsuppsättning. Sedan går du till resursprovidern Microsoft.Insights och kontrollera att reglerna för automatisk skalning ser ut.
 * Diagnostiktillägget fungerar och är avger prestandadata?
   
-    **Uppdatering:** automatisk skalning i Azure har förbättrats för att använda en pipeline för värdbaserade mått som kräver inte längre en diagnostiktillägget installeras. Följande stycken gäller inte längre om du skapar ett program med autoskalning med ny pipeline. Ett exempel på Azure-mallar som har konverterats om du vill använda värd pipelinen finns här: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
+    **Uppdatering:** Automatisk skalning i Azure har förbättrats för att använda en pipeline för värdbaserade mått som kräver inte längre en diagnostiktillägget installeras. Följande stycken gäller inte längre om du skapar ett program med autoskalning med ny pipeline. Ett exempel på Azure-mallar som har konverterats om du vill använda värd pipelinen finns här: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
   
     Använder värdbaserade mått för autoskalning är bättre av följande skäl:
   
@@ -72,14 +72,14 @@ Några saker att tänka på är:
     
     ![Cloud Explorer][explorer]
     
-   Du ser en massa tabeller där data från varje virtuell dator lagras. Med Linux- och CPU-mått exempelvis titta på det senaste rader. Visual Studio cloud explorer stöder ett frågespråk så att du kan köra en fråga. Du kan till exempel köra en fråga för ”tidsstämpel gt datetime 2016-02-02T21:20:00Z'” att kontrollera att du får de senaste händelserna. Tidszonen som motsvarar UTC. Stöder de data som du ser i det motsvarar skala regler du ställer in? I följande exempel startas Processorn för datorn 20 öka till 100 procent under de senaste fem minuterna.
+    Du ser en massa tabeller där data från varje virtuell dator lagras. Med Linux- och CPU-mått exempelvis titta på det senaste rader. Visual Studio cloud explorer stöder ett frågespråk så att du kan köra en fråga. Du kan till exempel köra en fråga för ”tidsstämpel gt datetime 2016-02-02T21:20:00Z'” att kontrollera att du får de senaste händelserna. Tidszonen som motsvarar UTC. Stöder de data som du ser i det motsvarar skala regler du ställer in? I följande exempel startas Processorn för datorn 20 öka till 100 procent under de senaste fem minuterna.
     
     ![Storage-tabeller][tables]
     
     Om data inte finns där, innebär det att problemet är med diagnostiktillägg som körs i de virtuella datorerna. Om data är det, innebär det att det finns problem med din skalningsregler eller med Insights-tjänsten. Kontrollera [Azure-Status](https://azure.microsoft.com/status/).
     
     När du har gått igenom de här stegen om du fortfarande har problem med automatisk skalning, försöker du att följande resurser: 
-    * Läs forum på [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows), eller [stackspill](http://stackoverflow.com/questions/tagged/azure) 
+    * Läs forum på [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows), eller [stackspill](https://stackoverflow.com/questions/tagged/azure) 
     * Logga en supportsamtal. Var beredd på att dela mallen och en vy över dina prestandadata.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

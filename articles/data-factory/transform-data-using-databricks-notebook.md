@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 181e2c1d1a9758d6f196c9cb2b281eefa141d81a
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.openlocfilehash: fcf3fe85b6dd184b4f58060aab4fcf3ce146af13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984772"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58015153"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Kör en Databricks Notebook med Databricks Notebook-aktiviteten i Azure Data Factory
 
@@ -39,7 +39,7 @@ Om du vill se en introduktion och demonstration av den här funktionen rekommend
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/ingest-prepare-and-transform-using-azure-databricks-and-data-factory/player]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
   - **Azure Databricks-arbetsyta**. [Skapa en ny Azure Databricks-arbetsyta](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) eller använd en befintlig. Du skapar en Python Notebook i Azure Databricks-arbetsytan. Sedan kör du denna notebook och skickar parametrar till den med hjälp av Azure Data Factory.
 
@@ -151,7 +151,7 @@ I det här avsnittet skapar du en Databricks-länkad tjänst. Den här länkade 
 
           ![Skapa en ny mapp](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       1. [Skapa en ny Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) och namnge den **mynotebook** under **adftutorial**-mappen **,** klicka sedan på **skapa.**
+       1. [Skapa en ny anteckningsbok](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) och vi kan kalla den **mynotebook** under **adftutorial** mapp, klickar du på **skapa.**
 
           ![Skapa en ny notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
@@ -173,13 +173,13 @@ I det här avsnittet skapar du en Databricks-länkad tjänst. Den här länkade 
 
        1. **Notebook-sökvägen** är i det här fallet **/adftutorial/mynotebook**
 
-1.  Växla tillbaka till **redigeringsverktyget för Data Factory-användargränssnittet**. Gå till fliken **inställningar** under **Aktiviteten Notebook1**. 
-    
+1.  Växla tillbaka till **redigeringsverktyget för Data Factory-användargränssnittet**. Gå till fliken **inställningar** under **Aktiviteten Notebook1**.
+
     a.  **Lägg till parameter** i Notebook-aktiviteten. Du använder samma parameter som du lade till tidigare i **Pipeline**.
 
        ![Lägg till parameter](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
-    b.  Namnge parametern **indata** och ange värdet som uttrycket **@pipeline().parameters.name**.
+    b.  Namnge parametern **inkommande** och ange värdet som uttrycket  **\@pipeline ()-.parameters.name**.
 
 1.  Verifiera pipelinen genom att välja knappen **Verifiera** i verktygsfältet. Stäng verifieringsfönstret genom att välja knappen **\>\>** (högerpil).
 

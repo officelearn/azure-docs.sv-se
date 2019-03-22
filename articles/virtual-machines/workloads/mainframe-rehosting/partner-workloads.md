@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: b4ba59ef24ec106c5a5f21f395445ca39b2bd1ea
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: faaba873f20fc0ac04abdd7bd78dd85429d341e7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739798"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996529"
 ---
 # <a name="mainframe-workloads-supported-on-azure"></a>Stordatorprogram arbetsbelastningar som stöds i Azure
 
@@ -26,7 +26,7 @@ Mer hjälp med stordatorprogram emulering och tjänster finns i den [Azure Stord
 - [Micro fokus Visual COBOL](https://www.microfocus.com/products/visual-cobol/) verktyg för utveckling och integration.
 - [Micro fokus PL / jag](https://www.microfocus.com/campaign/download/pli-modernization/) äldre-kompilatorn för .NET-plattformen som stöder stordatorprogram PL / jag syntax, datatyper och beteende.
 - [Micro fokus Enterprise Server](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) stordatorprogram integrationsplattform.
-- [Fujitsu NetCOBOL](http://www.fujitsu.com/global/products/software/developer-tool/netcobol/) verktyg för utveckling och integration.
+- [Fujitsu NetCOBOL](https://www.fujitsu.com/global/products/software/developer-tool/netcobol/) verktyg för utveckling och integration.
 - [NTT Data Enterprise COBOL](https://www.nttdataservices.com/en-ie/services/application-modernization-services) verktyg för utveckling och integration.
 - [Öppna NTT PL / jag](https://www.nttdataservices.com/en-ie/services/application-modernization-services) äldre-kompilatorn för .NET-plattformen som stöder stordatorprogram PL / jag syntax, datatyper och beteende.
 - [Raincode COBOL kompilatorn](https://www.raincode.com/products/cobol/) verktyg för utveckling och integration.

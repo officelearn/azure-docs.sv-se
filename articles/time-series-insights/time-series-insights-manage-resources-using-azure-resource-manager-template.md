@@ -11,18 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: 282a20beb11172aa3a1d2c7326dc38ce8a7acfcf
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: fe348daa4613e0b515244686e48ed63a41991d81
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062663"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009386"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Skapa Time Series Insights-resurser med Azure Resource Manager-mallar
 
 Den här artikeln beskriver hur du skapar och distribuerar Time Series Insights-resurser med hjälp av Azure Resource Manager-mallar, PowerShell och Time Series Insights-resursprovidern.
 
 Time Series Insights har stöd för följande resurser:
+
    | Resurs | Beskrivning |
    | --- | --- |
    | Miljö | En Time Series Insights-miljö är en logisk gruppering av händelser som läses från asynkrona meddelandeköer för händelser, lagras, och blir tillgängliga för frågor. Mer information finns i [planera Azure Time Series Insights-miljön](time-series-insights-environment-planning.md) |
@@ -65,7 +66,7 @@ Om du vill skapa en fil med parametrar, kopiera den [201-timeseriesinsights-milj
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "eventHubNamespaceName": {
@@ -93,7 +94,7 @@ Om du vill skapa en fil med parametrar, kopiera den [201-timeseriesinsights-milj
    | --- | --- |
    | eventHubNamespaceName | Namnområdet för händelsehubben källa. |
    | eventHubName | Namnet på händelsehubben källa. |
-   | consumerGroupName | Namnet på konsumentgrupp som ska användas av Time Series Insights-tjänsten för att läsa data från händelsehubben. **OBS:** För att undvika resurskonflikter kan måste den här konsumentgruppen vara dedikerad till Time Series Insights-tjänsten och inte delas med andra läsare. |
+   | consumerGroupName | Namnet på konsumentgrupp som ska användas av Time Series Insights-tjänsten för att läsa data från händelsehubben. **Obs!** För att undvika resurskonflikter kan måste den här konsumentgruppen vara dedikerad till Time Series Insights-tjänsten och inte delas med andra läsare. |
    | EnvironmentName | Namnet på miljön. Namnet får inte innehålla: ' <', ' >', '%', '&', ': ','\\','?', '/' och något kontrolltecken. Alla andra tecken tillåts.|
    | eventSourceName | Namnet på händelsen källa underordnade resursen. Namnet får inte innehålla: ' <', ' >', '%', '&', ': ','\\','?', '/' och något kontrolltecken. Alla andra tecken tillåts. |
 
@@ -101,7 +102,7 @@ Om du vill skapa en fil med parametrar, kopiera den [201-timeseriesinsights-milj
 
    | Parameter | Beskrivning |
    | --- | --- |
-   | existingEventHubResourceId | En valfri resurs-ID för en befintlig Händelsehubb som ska anslutas till Time Series Insights-miljö via händelsekällan. **OBS:** Du distribuerar mallen måste ha behörighet att utföra åtgärden listnycklar i Event Hub. Om inget värde skickas, skapas en ny händelsehubb av mallen. |
+   | existingEventHubResourceId | En valfri resurs-ID för en befintlig Händelsehubb som ska anslutas till Time Series Insights-miljö via händelsekällan. **Obs!** Du distribuerar mallen måste ha behörighet att utföra åtgärden listnycklar i Event Hub. Om inget värde skickas, skapas en ny händelsehubb av mallen. |
    | environmentDisplayName | Ett valfritt eget namn ska visas i verktyg eller användaren gränssnitt i stället för miljönamn. |
    | environmentSkuName | Namnet på SKU:n. Mer information finns i den [prissättning för Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
    | environmentSkuCapacity | Enhet kapaciteten för SKU: N. Mer information finns i den [prissättning för Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).|
@@ -116,7 +117,7 @@ Till exempel skulle följande parameterfilen användas för att skapa en miljö 
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "eventHubNamespaceName": {
@@ -268,7 +269,7 @@ Outputs                 :
 Den snabbstartsmall startsidan på GitHub omfattar även en **distribuera till Azure** knappen. Att klicka på den öppnas en sida för anpassad distribution i Azure-portalen. Den här sidan kan du ange eller Välj värden för var och en av parametrarna från den [obligatoriska parametrar](time-series-insights-manage-resources-using-azure-resource-manager-template.md#required-parameters) eller [valfria parametrar](time-series-insights-manage-resources-using-azure-resource-manager-template.md#optional-parameters) tabeller. När du har fyllt i inställningar, klicka på **köp** knappen initierar malldistributionen.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
+    <img src="https://azuredeploy.net/deploybutton.png"/>
 </a>
 
 ## <a name="next-steps"></a>Nästa steg

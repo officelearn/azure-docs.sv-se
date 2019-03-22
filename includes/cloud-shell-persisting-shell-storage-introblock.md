@@ -4,12 +4,12 @@ ms.service: cloud-shell
 ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
-ms.openlocfilehash: e175f603e97ccf51e1e13d9c2fc42ba7ed1a475f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c28441b6fe25b3480a55b79682d5067b19e3023a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247175"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58052184"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Spara filer i Azure Cloud Shell
 Cloudshell använder Azure File storage för att spara filer mellan sessioner. På första start uppmanas Cloud Shell du att associera en ny eller befintlig filresurs för att spara filer mellan sessioner.
@@ -48,6 +48,7 @@ När storage installationsprogrammet uppmaning visas väljer du **visa avancerad
 Associerade konton måste finnas i samma region som den Cloud Shell-dator som du montera dem till Azure-lagring. Du hittar din aktuella region som du kan köra `env` i Bash och leta upp variabeln `ACC_LOCATION`. Filresurser får en 5 GB-avbildning som skapats för dig att spara din `$Home` directory.
 
 Cloud Shell-datorer finns i följande regioner:
+
 |Område|Region|
 |---|---|
 |Nord- och Sydamerika|Östra USA, södra centrala USA, västra USA|

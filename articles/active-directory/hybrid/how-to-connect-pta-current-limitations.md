@@ -16,12 +16,12 @@ ms.date: 09/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de42312c580b6bd5b4a5148fd877d55aa00e8804
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 97dc67d46b08bf5765c59806b45edd82f38720cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204601"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011965"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory-direktautentisering: Aktuella begränsningar
 
@@ -34,7 +34,7 @@ Följande scenarier stöds:
 
 - Användarinloggningar till webbläsarbaserade webbprogram.
 - Användarinloggningar till Outlook-klienter med äldre protokoll, till exempel Exchange ActiveSync-, EAS-, SMTP-, POP- och IMAP.
-- Användarinloggningar till äldre Office-program och Office-program som stöder [modern autentisering](https://aka.ms/modernauthga): Office 2010, 2013 och 2016-versioner.
+- Användarinloggningar till äldre Office-program och Office-program som stöder [modern autentisering](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview): Office 2013 och 2016-versioner.
 - Användarinloggningar till äldre protokoll program, till exempel PowerShell version 1.0 och andra.
 - Azure AD kopplar för Windows 10-enheter.
 - Applösenord för Multifaktorautentisering.
@@ -47,11 +47,11 @@ Följande scenarier är _inte_ stöds:
 - Azure AD Domain Services måste synkronisering av Lösenordshash ska vara aktiverat på klienten. Därför klienter som använder direktautentisering _endast_ fungerar inte för scenarier som behöver Azure AD Domain Services.
 - Direktautentisering är inte integrerat med [Azure AD Connect Health](whatis-hybrid-identity-health.md).
 
->[!IMPORTANT]
->Som en lösning för scenarier som inte stöds _endast_ (med undantag för Azure AD Connect Health-integration), aktivera synkronisering av Lösenordshash på den [valfria funktioner](how-to-connect-install-custom.md#optional-features) sida i Azure AD Connect-guiden.
-
->[!NOTE]
-Aktiverar synkronisering av Lösenordshash ger dig möjlighet att redundans-autentisering om din lokala infrastruktur avbryts. Den här redundansen från direktautentisering till synkronisering av Lösenordshash sker inte automatiskt. Du måste växla inloggningsmetod manuellt med hjälp av Azure AD Connect. Om den server som kör Azure AD Connect stängs av, kommer du behöver hjälp från Microsoft Support att stänga av direktautentisering.
+> [!IMPORTANT]
+> Som en lösning för scenarier som inte stöds _endast_ (med undantag för Azure AD Connect Health-integration), aktivera synkronisering av Lösenordshash på den [valfria funktioner](how-to-connect-install-custom.md#optional-features) sida i Azure AD Connect-guiden.
+> 
+> [!NOTE]
+> Aktiverar synkronisering av Lösenordshash ger dig möjlighet att redundans-autentisering om din lokala infrastruktur avbryts. Den här redundansen från direktautentisering till synkronisering av Lösenordshash sker inte automatiskt. Du måste växla inloggningsmetod manuellt med hjälp av Azure AD Connect. Om den server som kör Azure AD Connect stängs av, kommer du behöver hjälp från Microsoft Support att stänga av direktautentisering.
 
 ## <a name="next-steps"></a>Nästa steg
 - [Snabbstart](how-to-connect-pta-quick-start.md): Kom igång med Azure AD-direktautentisering.

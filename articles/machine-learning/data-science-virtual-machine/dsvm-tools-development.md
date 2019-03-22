@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: dd60c5d0210ffba373839fd0f194496c5dbcc20d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7983169c2b1123c57a48471e3f4d9ad6f19c84dc
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999400"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314730"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Utvecklingsverktyg på den virtuella datorn för datavetenskap
 
@@ -65,7 +65,7 @@ Den virtuella datorn på datavetenskap (DSVM) tillhandahåller en produktiv milj
 | Vad är det?   | Webbaserad IDE för R    |
 | Stöds DSVM-versioner      | Linux      |
 | Vanliga användningsområden      |  R-utveckling     |
-| Hur du använder / köra den?      | Aktivera tjänsten med _systemctl aktivera rstudio server_, starta tjänsten med _systemctl starta rstudio server_. Du kan sedan logga in till RStudio Server vid http://your-vm-ip:8787.       |
+| Hur du använder / köra den?      | Aktivera tjänsten med _systemctl aktivera rstudio server_, starta tjänsten med _systemctl starta rstudio server_. Du kan sedan logga in till RStudio Server http-:\// din-vm-ip:8787.       |
 | Relaterade verktyg på DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 

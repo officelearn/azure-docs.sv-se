@@ -537,14 +537,12 @@ items:
       href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
   - name: Skapa utlösare
     items:
+    - name: Skapa en händelsebaserad utlösare
+      href: how-to-create-event-trigger.md
     - name: Skapa en schemautlösare
       href: how-to-create-schedule-trigger.md
     - name: Skapa en utlösare för rullande fönster
       href: how-to-create-tumbling-window-trigger.md
-    - name: Skapa ett beroende för utlösare för rullande fönster
-      href: tumbling-window-trigger-dependency.md
-    - name: Skapa en händelsebaserad utlösare
-      href: how-to-create-event-trigger.md
   - name: Mallar
     items:
     - name: Översikt över mallar
@@ -589,9 +587,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Supportalternativ
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 32411c9ec042a8504ef08ece1359ea9e5ee7ebda
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ac130165fbad1b43cfef531ac6c3aa69a373d82d
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858902"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337043"

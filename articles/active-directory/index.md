@@ -277,7 +277,7 @@ ms.collection: M365-identity-device-management
                                                         <p>
                                                             <a href="managed-identities-azure-resources/tutorial-windows-vm-access-sql.md">Använda en virtuell Windows-dator för att få åtkomst till Azure SQL</a><br>
                                                             <a href="managed-identities-azure-resources/how-to-use-vm-token.md">Använda en virtuell Azure-dator för tokenförvärv</a><br>
-                                                            <a href="managed-identities-azure-resources/services-support-msi.md">Tjänster som stöder hanterade identiteter</a><br>
+                                                            <a href="managed-identities-azure-resources/services-support-managed-identities.md">Tjänster som stöder hanterade identiteter</a><br>
                                                             <a href="managed-identities-azure-resources/index.yml"><i>Mer information &gt;</i></a>
                                                         </p>
                                                         <br><br>

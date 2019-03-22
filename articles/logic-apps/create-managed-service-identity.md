@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: a22512a960426cc21f4f012e06b9df4fa86e637e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 046aed64d3551d5c0b6ddae44b925452c01c297a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807277"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337603"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autentisera och få åtkomst till resurser med hanterade identiteter i Azure Logic Apps
 
@@ -152,7 +152,7 @@ När du har konfigurerat din logikapp med en automatiskt genererad hanterad iden
 
 1. Ange informationen som krävs för åtgärden, till exempel begäran **metoden** och **URI** platsen för den resursen som du vill anropa.
 
-   Anta exempelvis att du använder Azure Active Directory (Azure AD)-autentisering med [något av dessa Azure-tjänster som stöder Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   Anta exempelvis att du använder Azure Active Directory (Azure AD)-autentisering med [något av dessa Azure-tjänster som stöder Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
    I den **URI** anger slutpunkts-URL för den Azure-tjänsten. 
    Så om du använder Azure Resource Manager, anger du det här värdet i den **URI** egenskapen:
 
@@ -167,7 +167,7 @@ När du har konfigurerat din logikapp med en automatiskt genererad hanterad iden
    > [!IMPORTANT]
    > 
    > I den **målgrupp** egenskapen, resurs-ID-värdet måste vara en exakt matchning Azure AD förväntar sig, inklusive alla som krävs för avslutande snedstreck. 
-   > Du hittar dessa resurs-ID-värden i den här [tabell över Azure-tjänster som stöder Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   > Du hittar dessa resurs-ID-värden i den här [tabell över Azure-tjänster som stöder Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
    > Till exempel om du använder Azure resurs Manager resurs-ID, kontrollera att URI: N har ett avslutande snedstreck.
 
 1. Fortsätt att skapa logikappen som du vill.

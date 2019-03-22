@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: 1313616818686c7a03269fc1cc837958665732d8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: fcb2c270b36d5efbe7b799787cf2a123b51bea5c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725243"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337552"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Kontinuerlig distribution till Azure App Service
 Den här artikeln visar hur du konfigurerar kontinuerlig distribution för [Azure App Service](overview.md). App Service möjliggör kontinuerlig distribution från BitBucket, GitHub, och [Azure DevOps-tjänsterna](https://www.visualstudio.com/team-services/) genom att dra i de senaste uppdateringarna från din befintliga lagringsplats i någon av dessa tjänster.
@@ -47,6 +47,16 @@ I den **Build-provider** , Välj build-provider och klicka på > **Fortsätt**.
 ### <a name="option-1-use-app-service-kudu-build-server"></a>Alternativ 1: Använd App Service Kudu-versionsserver
 
 I den **konfigurera** väljer organisation, lagringsplatsen och grenen från vilken du vill distribuera kontinuerligt. När du är klar klickar du på **Fortsätt**.
+
+Om du vill distribuera från en databas i en GitHub-organisation, bläddra till GitHub och gå till **inställningar** > **program** > **behörighet OAuth appar**. Klicka sedan på ”Azure App Service”.
+
+![Inställningar > program > godkända appar OAuth > Azure App Service](media/app-service-continuous-deployment/github-settings-navigation.png)
+
+Bevilja App Service åtkomst till din organisations databaser genom att klicka på ”bidrag” till höger på nästa sida.
+
+![Klicka på ”bidrag” om du vill bevilja App Service åtkomst till organisationens databaser](media/app-service-continuous-deployment/grant-access.png)
+
+Din organisation bör nu visas i listan ”organisation” i den **konfigurera** för Deployment Center.
 
 ### <a name="option-2-use-azure-pipelines-preview"></a>Alternativ 2: Använd Azure Pipelines (förhandsversion)
 

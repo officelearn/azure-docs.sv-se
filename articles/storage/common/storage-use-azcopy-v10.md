@@ -1,6 +1,6 @@
 ---
-title: Kopiera eller flytta data till Azure Storage med AzCopy v10 (förhandsversion) | Microsoft Docs
-description: Använda AzCopy v10 (förhandsversion) verktyg för att flytta eller kopiera data till och från blob-, data lake- och filinnehåll. Kopiera data till Azure Storage från lokala filer eller kopiera data inom eller mellan lagringskonton. Migrera enkelt dina data till Azure Storage.
+title: Kopiera eller flytta data till Azure Storage med hjälp av AzCopy v10 (förhandsversion) | Microsoft Docs
+description: Använda AzCopy v10 (förhandsversion) kommandoradsverktyget för att flytta eller kopiera data till och från blob-, data lake- och filinnehåll. Kopiera data till Azure Storage från lokala filer eller kopiera data inom eller mellan lagringskonton. Migrera enkelt dina data till Azure Storage.
 services: storage
 author: artemuwka
 ms.service: storage
@@ -8,27 +8,27 @@ ms.topic: article
 ms.date: 02/24/2019
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: 111c24c1cd608542a5ef7da85f93ca22082af6d9
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: ca7081bdfedae3abb5ec426a9d3ec0a7867a2ef9
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726727"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337025"
 ---
-# <a name="transfer-data-with-the-azcopy-v10-preview"></a>Överföra data med AzCopy v10 (förhandsversion)
+# <a name="transfer-data-with-azcopy-v10-preview"></a>Överföra data med AzCopy v10 (förhandsversion)
 
-AzCopy v10 (förhandsversion) är nästa generations kommandoradsverktyg för att kopiera data till och från Microsoft Azure Blob- och storage som erbjuder en omarbetad kommandoradsgränssnittet och ny arkitektur för tillförlitlig dataöverföringar med höga prestanda. Du kan använda AzCopy för att kopiera data mellan ett filsystem och ett lagringskonto eller mellan lagringskonton.
+AzCopy v10 (förhandsversion) är kommandoradsverktyg för att kopiera data till eller från Microsoft Azure Blob- och storage. AzCopy v10 erbjuder en omarbetad kommandoradsgränssnittet och ny arkitektur för tillförlitlig data överförs. Med AzCopy kan kopiera du data mellan ett filsystem och ett lagringskonto eller mellan lagringskonton.
 
 ## <a name="whats-new-in-azcopy-v10"></a>Vad är nytt i AzCopy v10
 
-- Synkronisera ett filsystem till Azure Blob eller vice versa. Använd `azcopy sync <source> <destination>`. Perfekt för inkrementell kopia scenarier.
-- Har stöd för Azure Data Lake Storage Gen2 API: er. Använd `myaccount.dfs.core.windows.net` som en URI för att anropa API: er för ADLS Gen2.
+- Synkroniserar filsystem till Azure Blob storage eller vice versa. Använd `azcopy sync <source> <destination>`. Perfekt för inkrementell kopia scenarier.
+- Har stöd för Azure Data Lake Storage Gen2 API: er. Använd `myaccount.dfs.core.windows.net` som en URI för att anropa API: er för Data Lake Storage Gen2.
 - Har stöd för kopiering av ett hela konto (endast Blob-tjänst) till ett annat konto.
-- Konto för att kopiera konto nu använder den nya [placera Block från URL: en](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API: er. Det krävs ingen dataöverföring till klienten vilket gör överföringen snabbare!
-- Lista/ta bort filer och blobar i en viss sökväg.
-- Stöder jokerteckensmönster i en sökväg samt som i--undanta flaggan.
-- Förbättrad flexibilitet: varje AzCopy-instans skapas en jobbet och en tillhörande loggfil. Du kan visa och starta om tidigare jobb och återuppta misslyckade jobb. AzCopy försöker automatiskt en överföring efter ett fel.
-- Förbättringar av allmänna prestanda.
+- Använder den nya [placera Block från URL: en](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API: er för att konto kopia. Dataöverföringen är snabbare, eftersom krävs inte skickades till klienten.
+- Visar en lista över eller tar bort filer och blobar i en viss sökväg.
+- Stöd för mönster med jokertecken i en sökväg och--exkludera flaggor.
+- Skapar en jobbet och en tillhörande loggfil med varje AzCopy-instans. Du kan visa och starta om tidigare jobb och återuppta misslyckade jobb. AzCopy försöker automatiskt en överföring efter ett fel.
+- Allmän prestandaförbättringar för funktioner.
 
 ## <a name="download-and-install-azcopy"></a>Ladda ned och installera AzCopy
 
@@ -49,35 +49,36 @@ Ladda ned den [AzCopy v7.3 stöd för kopiering av data till/från Microsoft Azu
 
 ## <a name="post-installation-steps"></a>Anvisningarna efter installation
 
-AzCopy v10 kräver inte en installation. Öppna ett kommandoradsprogram för önskade och navigera till mappen där `azcopy.exe` (Windows) eller `azcopy` (Linux) körbara filen finns. Om du vill kan du lägga till mappen AzCopy systemsökvägen.
+AzCopy v10 kräver inte en installation. Öppna din önskade kommandoradsprogram och bläddra till mappen där `azcopy.exe` finns. Om det behövs kan du lägga till mappen AzCopy systemsökvägen för enkel användning.
 
 ## <a name="authentication-options"></a>Autentiseringsalternativ
 
-AzCopy v10 kan du använda följande alternativ när du autentiserar med Azure Storage:
-- **Azure Active Directory [stöds för Blob-och ADLS Gen2]**. Använd ```.\azcopy login``` att logga in med Azure Active Directory.  Användaren bör ha [”Storage Blob Data-deltagare” rolltilldelningen](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) att skriva till Blob storage med Azure Active Directory-autentisering. För att autentisera med hjälp av hanterad tjänstidentitet (MSI), Använd `azcopy login --identity` efter att ha beviljat Azure beräkningsinstansen deltagarrollen data.
-- **SAS-token [stöds för Blob-och Filtjänster]**. Lägg till SAS-token till blob-sökväg på kommandoraden för att använda den. Du kan generera SAS-token med hjälp av Azure Portal, [Lagringsutforskaren](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), eller andra verktyg du väljer. Mer information finns i [exempel](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
+AzCopy v10 stöder följande alternativ när du autentiserar med Azure Storage:
+- **Azure Active Directory** (stöds för **Blob-och Data Lake Storage Gen2**). Använd ```.\azcopy login``` att logga in med Azure Active Directory.  Användaren bör ha [”Storage Blob Data-deltagare” rolltilldelningen](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) att skriva till Blob storage med Azure Active Directory-autentisering. Autentisering via hanterade identiteter för Azure-resurser, använda `azcopy login --identity`.
+- **Delad signaturtoken för åtkomst [stöds för Blob-och Filtjänster]**. Lägg till token för delad åtkomst (signatur) till blob-sökväg på kommandoraden för att använda den. Du kan generera SAS-token med Azure-portalen [Lagringsutforskaren](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), eller andra verktyg du väljer. Mer information finns i [exempel](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
 ## <a name="getting-started"></a>Komma igång
 
 > [!TIP]
 > **Föredrar du ett grafiskt användargränssnitt?**
 >
-> Försök [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), en skrivbordsklient som förenklar hantering Azure Storage-data och **nu använder AzCopy** överföra data till och från Azure Storage för snabbare.
+> [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), en skrivbordsklient som förenklar hantering Azure Storage-data nu använder AzCopy överföra data till och från Azure Storage för snabbare.
 >
-> Aktivera bara AzCopy-funktionen i Storage Explorer ”förhandsversion”-menyn. Lagringsutforskaren använder sedan AzCopy när ladda upp och ned data till Blob storage för bättre prestanda.
+> Aktivera AzCopy i Storage Explorer under den **förhandsversion** menyn.
 > ![Aktivera AzCopy som en motor för överföring i Azure Storage Explorer](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
 
-AzCopy v10 har en enkel lokal dokumenterade syntax. Den allmänna syntaxen ser ut så här när du har loggat in med Azure Active Directory:
+AzCopy v10 har en egen dokumenterade syntax. När du har loggat in till Azure Active Directory, ut den allmänna syntaxen som följande:
 
 ```azcopy
 .\azcopy <command> <arguments> --<flag-name>=<flag-value>
+
 # Examples if you have logged into the Azure Active Directory:
 .\azcopy copy <source path> <destination path> --<flag-name>=<flag-value>
 .\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container" --recursive=true
 .\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile"
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/container"
 
-# Examples if you are using SAS tokens to authenticate:
+# Examples if you're using SAS tokens to authenticate:
 .\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?sastoken" --recursive=true
 .\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?sastoken"
 ```
@@ -86,11 +87,11 @@ Här är hur du kan hämta en lista över tillgängliga kommandon:
 
 ```azcopy
 .\azcopy --help
-# Using the alias instead
+# To use the alias instead
 .\azcopy -h
 ```
 
-Se hjälpsidan och exempel för ett visst kommando kör du kommandot nedan:
+Om du vill se hjälpsidan och exempel för ett visst kommando kör du följande kommando:
 
 ```azcopy
 .\azcopy <cmd> --help
@@ -98,7 +99,7 @@ Se hjälpsidan och exempel för ett visst kommando kör du kommandot nedan:
 .\azcopy cp -h
 ```
 
-## <a name="create-a-blob-container-or-file-share"></a>Skapa en Blob-behållare eller filresurs 
+## <a name="create-a-blob-container-or-file-share"></a>Skapa en blob-behållare eller filresurs 
 
 **Skapa en blobbehållare**
 
@@ -112,9 +113,9 @@ Se hjälpsidan och exempel för ett visst kommando kör du kommandot nedan:
 .\azcopy make "https://account.file.core.windows.net/share-name"
 ```
 
-**Skapa en Blob-behållare med hjälp av ADLS Gen2**
+**Skapa en blob-behållare med hjälp av Azure Data Lake Storage Gen2**
 
-Om du har aktiverat hierarkisk namnområden på blob storage-kontot kan använda du följande kommando för att skapa ett nytt filsystem (blobbehållare) så att du kan överföra filer till den.
+Om du har aktiverat hierarkisk namnområden på Blob storage-kontot kan använda du följande kommando för att skapa en ny blobbehållare för att överföra filer.
 
 ```azcopy
 .\azcopy make "https://account.dfs.core.windows.net/top-level-resource-name"
@@ -122,7 +123,7 @@ Om du har aktiverat hierarkisk namnområden på blob storage-kontot kan använda
 
 ## <a name="copy-data-to-azure-storage"></a>Kopiera data till Azure Storage
 
-Använd kopieringskommandot för att överföra data från källan till målet. Käll-och mål kan vara en:
+Använd kopieringskommandot för att överföra data från källan till målet. Käll- och målservrar kan vara en:
 - Lokalt filsystem
 - Azure Blob/virtuell katalog/behållare URI
 - Azure-filen/Directory/filresurs URI
@@ -130,11 +131,11 @@ Använd kopieringskommandot för att överföra data från källan till målet. 
 
 ```azcopy
 .\azcopy copy <source path> <destination path> --<flag-name>=<flag-value>
-# Using alias instead
+# Using the alias instead 
 .\azcopy cp <source path> <destination path> --<flag-name>=<flag-value>
 ```
 
-Följande kommando laddar upp alla filer i mappen `C:\local\path` rekursivt till behållaren `mycontainer1` skapar `path` katalogen i behållaren:
+Följande kommando laddar upp alla filer i mappen `C:\local\path` rekursivt till behållaren `mycontainer1`, skapa `path` katalogen i behållaren:
 
 ```azcopy
 .\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
@@ -146,7 +147,7 @@ Följande kommando laddar upp alla filer i mappen `C:\local\path` (utan recursin
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
 ```
 
-Om du vill ha fler exempel, använder du följande kommando:
+Om du vill söka efter fler exempel, använder du följande kommando:
 
 ```azcopy
 .\azcopy cp -h
@@ -154,53 +155,49 @@ Om du vill ha fler exempel, använder du följande kommando:
 
 ## <a name="copy-data-between-two-storage-accounts"></a>Kopiera data mellan två lagringskonton
 
-Kopiering av data mellan två lagringskonton använder den [placera Block från URL: en](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API och inte använda klientdatorns nätverkets bandbredd. Data kopieras mellan två Azure Storage servrar direkt medan AzCopy samordnar bara kopieringen. Det här alternativet är för närvarande bara tillgänglig för Blob storage.
+Kopiering av data mellan två lagringskonton använder den [placera Block från URL: en](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, och inte använda klientdatorns bandbredd i nätverket. Data kopieras mellan två Azure Storage servrar direkt, medan AzCopy samordnar bara kopieringen. Det här alternativet är för närvarande bara tillgänglig för Blob storage.
 
 Om du vill kopiera data mellan två lagringskonton, använder du följande kommando:
 ```azcopy
-.\azcopy cp "https://account.blob.core.windows.net/<sastoken>" "https://otheraccount.blob.core.windows.net/<sastoken>" --recursive=true
+.\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
 
 > [!NOTE]
-> Kommandot kommer att räkna upp alla blob-behållare och kopiera dem till mål-kontot. Just nu stöder AzCopy v10 kopierar endast blockblob-objekt mellan två lagringskonton. Alla andra storage-konto-objekt (append BLOB-objekt, sidblobar, filer, tabeller och köer) kommer att hoppas över.
+> Det här kommandot kommer att räkna upp alla blob-behållare och kopiera dem till mål-kontot. För närvarande stöder AzCopy v10 kopierar endast blockblob-objekt mellan två lagringskonton. Den hoppar över alla andra storage-konto-objekt (till exempel tilläggsblobbar, sidblobar, filer, tabeller och köer).
 
 ## <a name="copy-a-vhd-image-to-a-storage-account"></a>Kopiera en VHD-avbildning till ett lagringskonto
 
-Använd `--blob-type=PageBlob` att ladda upp en avbildning till Blob storage som en Sidblobb.
+AzCopy v10 som standard överför data till blockblobar. Men om en källfil har en `.vhd` tillägg, AzCopy v10 som standard laddar upp till en sidblobb. Den här åtgärden för tillfället inte kan konfigureras.
 
-```azcopy
-.\azcopy cp "C:\myimages\diskimage.vhd" "https://account.blob.core.windows.net/mycontainer/diskimage.vhd<sastoken>" --blob-type=PageBlob
-```
+## <a name="sync-incremental-copy-and-delete-blob-storage-only"></a>Synkronisering: inkrementell kopiera och ta bort (endast Blob storage)
 
-## <a name="sync-incremental-copy-and-optional-delete-blob-storage-only"></a>Synkronisering: inkrementell kopia och (valfritt) ta bort (endast Blob storage)
+Kommandot Synkronisera synkroniserar innehållet i en källkatalog i en katalog i målet, jämföra filnamn och senast ändrad tidsstämplar. Den här åtgärden innehåller valfria borttagningen av målfilerna om de inte finns i källan när den `--delete-destination=prompt|true` flagga har angetts. Ta bort beteendet är inaktiverad som standard. 
 
-Synkronisera kommandot synkroniserar innehållet i en källkatalog i en katalog i mål jämförelse filnamn och senast ändrade tidsstämplar. Du kan också den här åtgärden innehåller borttagning av målfilerna om de inte finns i källan när `--delete-destination=prompt|true` flagga har angetts. Ta bort beteendet är inaktiverad som standard.
+> [!NOTE] 
+> Använd den `--delete-destination` flaggan med försiktighet. Aktivera den [mjuk borttagning](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) funktionen innan du aktiverar delete beteende synkroniserade att förhindra oavsiktliga borttagningar i ditt konto. 
 
-> [!NOTE]
-> Använd `--delete-destination` flaggan med försiktighet. Aktivera [mjuk borttagning](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) funktionen innan du aktiverar delete beteende synkroniserade att förhindra oavsiktliga borttagningar i ditt konto.
->
 > När `--delete-destination` har angetts till SANT, AzCopy tar bort filer som inte finns i källan från målet utan någon uppmaning till användaren. Om du vill uppmanas att bekräfta använda `--delete-destination=prompt`.
 
 Om du vill synkronisera det lokala filsystemet till storage-konto, använder du följande kommando:
 
 ```azcopy
-.\azcopy sync "C:\local\path" "https://account.blob.core.windows.net/mycontainer<sastoken>"
+.\azcopy sync "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
 ```
 
-På samma sätt som kan du synkronisera en Blob-behållare till ett lokalt filsystem:
+Du kan också synkronisera en blob-behållare till ett lokalt filsystem:
 
 ```azcopy
-# If you're using Azure Active Directory authentication the sastoken is not required
-.\azcopy sync "https://account.blob.core.windows.net/mycontainer" "C:\local\path"
+# The SAS token isn't required for Azure Active Directory authentication.
+.\azcopy sync "https://account.blob.core.windows.net/mycontainer1" "C:\local\path" --recursive=true
 ```
 
-Kommandot kan du synkronisera källan till målet baserat på tidsstämplar som senast ändrade inkrementellt. Om du lägger till eller ta bort en fil i källan, gör AzCopy v10 samma i målet. Om beteendet delete är aktiverad i kommandot synkronisering, AzCopy ska ta bort filer från målet om de inte finns i källan längre.
+Det här kommandot synkroniserar stegvis källan till målet baserat på senaste ändrade tidsstämplar. Om du lägger till eller ta bort en fil i källan, gör AzCopy v10 samma i målet. Före borttagningen uppmanar AzCopy dig att bekräfta.
 
 ## <a name="advanced-configuration"></a>Avancerad konfiguration
 
 ### <a name="configure-proxy-settings"></a>Konfigurera proxyinställningar
 
-För att konfigurera proxyinställningarna för AzCopy v10, anger du den miljö variabeln https_proxy med följande kommando:
+Om du vill konfigurera proxyinställningarna för AzCopy v10 ange miljö variabeln https_proxy med hjälp av följande kommando:
 
 ```cmd
 # For Windows:
@@ -213,7 +210,7 @@ export https_proxy=<proxy IP>:<proxy port>
 
 ### <a name="optimize-throughput"></a>Optimera dataflöde
 
-Ställa in miljövariabeln AZCOPY_CONCURRENCY_VALUE kan konfigurera antalet samtidiga begäranden och styra dataflödesprestanda och användning av databasresurser. Värdet anges till 300 som standard. Minska värdet begränsar bandbredd och Processorn som används av AzCopy v10.
+Ställa in miljövariabeln AZCOPY_CONCURRENCY_VALUE konfigurera antalet samtidiga begäranden och för att kontrollera dataflöde prestanda- och förbrukning. Värdet anges till 300 som standard. Minska värdet begränsar bandbredd och Processorn som används av AzCopy v10.
 
 ```cmd
 # For Windows:
@@ -240,19 +237,11 @@ export AZCOPY_LOG_LOCATION=<value>
 export AZCOPY_LOG_LOCATION=<value>
 # To check the current value of the variable on all the platforms
 .\azcopy env
-# If the value is blank then the default value is currently in use
+# If the value is blank, then the default value is currently in use
 ```
+### <a name="change-the-default-log-level"></a>Ändra standardnivån 
 
-### <a name="change-the-default-log-level"></a>Ändra standardnivån
-
-AzCopy loggningsnivån är som standard information. Om du vill minska log detaljnivå för att spara diskutrymme kan du skriva över den inställningen med hjälp av ``--log-level`` alternativet. Tillgängliga loggningsnivåerna är: FELSÖKNING, INFO, varning, fel, PANIK och oåterkalleligt fel
-
-## <a name="troubleshooting"></a>Felsökning
-
-AzCopy v10 skapar loggfiler och plan filer för alla jobb. Du kan använda loggarna för att undersöka och felsöka eventuella problem. Loggarna innehåller statusen för fel (UPLOADFAILED COPYFAILED och DOWNLOADFAILED), den fullständiga sökvägen och orsaken till felet. Jobbloggar och plan filer finns i % USERPROFILE %\\.azcopy mapp på Windows eller $HOME\\.azcopy mapp på Mac och Linux.
-
-> [!IMPORTANT]
-> När du skickar en supportbegäran om att Microsoft Support (eller felsöka problem som rör en 3 part). dela den redigerade versionen av kommandot som du försöker köra för att säkerställa SAS inte delas av misstag med vem som helst. Du hittar den redigerade versionen i början av loggfilen.
+AzCopy loggningsnivån är som standard information. Om du vill minska log detaljnivå för att spara diskutrymme kan du skriva över den inställningen med hjälp av ``--log-level`` alternativet. Tillgängliga loggningsnivåerna är: FELSÖKNING, INFO, varning, fel, PANIK och oåterkalleligt fel.
 
 ### <a name="review-the-logs-for-errors"></a>Granska loggarna efter fel
 
@@ -261,12 +250,16 @@ Följande kommando får alla fel med UPLOADFAILED status från 04dc9ca9-158f-794
 ```azcopy
 cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
 ```
+## <a name="troubleshooting"></a>Felsökning
 
-Alternativt kan du se filnamnen som inte har överförts med `azcopy jobs show <jobid> --with-status=Failed` kommando.
+AzCopy v10 skapar loggfiler och plan filer för alla jobb. Du kan använda loggarna för att undersöka och felsöka eventuella problem. Loggarna innehåller statusen för fel (UPLOADFAILED COPYFAILED och DOWNLOADFAILED), den fullständiga sökvägen och orsaken till felet. Jobbloggar och plan filer finns i % USERPROFILE\\.azcopy mapp på Windows eller $HOME\\.azcopy mapp på Mac och Linux.
+
+> [!IMPORTANT]
+> När du skickar en begäran om att Microsoft Support (eller felsöka problem som rör tredje part), dela den redigerade versionen av kommandot som du vill köra. Detta säkerställer att Signaturen inte är delas av misstag med vem som helst. Du hittar den redigerade versionen i början av loggfilen.
 
 ### <a name="view-and-resume-jobs"></a>Visa och återuppta jobb
 
-Varje överföring åtgärden skapas ett jobb för AzCopy. Du kan visa historiken för jobb med hjälp av följande kommando:
+Varje överföring åtgärden skapas ett jobb för AzCopy. Använd följande kommando för att visa historiken för jobb:
 
 ```azcopy
 .\azcopy jobs list
@@ -284,7 +277,7 @@ Om du vill filtrera överföringar efter status, använder du följande kommando
 .\azcopy jobs show <job-id> --with-status=Failed
 ```
 
-Du kan återuppta en misslyckades/avbrutna jobb med hjälp av dess identifierare tillsammans med SAS-token (det inte är beständiga av säkerhetsskäl):
+Använd följande kommando för att återuppta ett jobb som misslyckades/har avbrutits. Det här kommandot använder sin identifierare tillsammans med SAS-token. Det är inte beständiga av säkerhetsskäl:
 
 ```azcopy
 .\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere
@@ -292,4 +285,6 @@ Du kan återuppta en misslyckades/avbrutna jobb med hjälp av dess identifierare
 
 ## <a name="next-steps"></a>Nästa steg
 
-Din feedback är alltid välkomnade. Om du har några frågor kan problem eller allmän feedback skicka dem på https://github.com/Azure/azure-storage-azcopy. Tack!
+Om du har frågor eller problem med allmän feedback kan du skicka dem [på GitHub](https://github.com/Azure/azure-storage-azcopy.).
+
+

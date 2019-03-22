@@ -103,9 +103,10 @@ items:
     - name: Redigeringscykel
       href: luis-concept-app-iteration.md
     - name: Samarbete
-      displayName: shared, transfer, ownership, author, access
+      displayName: shared, transfer, ownership, author, access, import
       href: luis-concept-collaborator.md
     - name: Versionshantering
+      displayName: import
       href: luis-concept-version.md
   - name: Utforma modell
     items:
@@ -149,17 +150,19 @@ items:
   - name: Enterprise
     items:
     - name: Utforma strategier
+      displayName: import
       href: luis-concept-enterprise.md
   - name: Säkerhet
     items:
     - name: Appåtkomst
-      displayName: public, public app, AAD, compliance, ISO, certification, trust center
+      displayName: public, public app, AAD, compliance, ISO, certification, trust center, import
       href: luis-concept-security.md
     - name: Redigerings- och slutpunktsnycklar
       href: luis-concept-keys.md
 - name: Instruktionsguider
   items:
   - name: Starta en ny app
+    displayName: import
     href: luis-how-to-start-new-app.md
   - name: Skapa modell
     items:
@@ -168,6 +171,7 @@ items:
     - name: Lägga till entitet i yttrande
       href: luis-how-to-add-example-utterances.md
     - name: Lägga till entitet utan yttrande
+      displayName: import
       href: luis-how-to-add-entities.md
     - name: Använd fördefinierade modeller
       items:
@@ -225,6 +229,7 @@ items:
     - name: Interaktiv testning
       href: luis-interactive-test.md
     - name: Batch-testning
+      displayName: import
       href: luis-how-to-batch-test.md
   - name: Publicera
     href: luis-how-to-publish-app.md
@@ -238,8 +243,9 @@ items:
       href: luis-how-to-azure-subscription.md
     - name: Hantera versioner
       href: luis-how-to-manage-versions.md
+      diplayName: import
     - name: Hantera författare och medarbetare
-      displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership
+      displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md
     - name: Hantera redigeringsnyckel
       href: luis-how-to-account-settings.md
@@ -250,7 +256,7 @@ items:
   - name: Använda containrar
     items:
     - name: Installera och köra containrar
-      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
       href: luis-container-howto.md
     - name: Konfigurera containrar
       href: luis-container-configuration.md
@@ -390,6 +396,7 @@ items:
   - name: Ordlista
     href: luis-glossary.md
   - name: Felsökning
+    displayName: FAQ, import
     href: troubleshooting.md
   - name: Priser och begränsningar
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
@@ -403,9 +410,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Kunskapsbas
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: 59950ced82f3b50ec5d0fe340157016954d2ff0b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8e684b58a3c7106f8ceca3e225b0b904d243984b
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779767"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337909"

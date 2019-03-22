@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 17171096abd4532885e69e84ddf56399e516c84e
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 9dbc6b5de3f2050067dc558be7bffdbcad2cb4eb
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408142"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339371"
 ---
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Felsöka med Azure HDInsight
 
@@ -29,7 +29,7 @@ ms.locfileid: "53408142"
 
 | Information om | Läsa följande artiklar |
 | --- | --- |
-| HDInsight på Linux- och optimering | - [Information om hur du använder HDInsight på Linux](hdinsight-hadoop-linux-information.md)<br>- [Apache Hadoop-minne och prestandafelsökning](hdinsight-hadoop-stack-trace-error-messages.md)<br>- [Apache Hive frågeprestanda](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) |
+| HDInsight på Linux- och optimering | - [Information om hur du använder HDInsight på Linux](hdinsight-hadoop-linux-information.md)<br>- [Apache Hadoop-minne och prestandafelsökning](hdinsight-hadoop-stack-trace-error-messages.md)<br>- [Apache Hive frågeprestanda](https://web.archive.org/web/20190217214250/ https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) |
 | Loggar och minnesdumpar | - [Åtkomst Apache Hadoop YARN-programloggar på Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>- [Aktivera heap dumps för Apache Hadoop-tjänster på Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>- [Analysera HDInsight-loggar](hdinsight-debug-jobs.md)|
 | Fel | - [Förstå och lösa fel med WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Apache Hive inställningar för att åtgärda felet för OutofMemory](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | Verktyg | - [Använd Apache Ambari-vyer för att felsöka Apache Tez-jobb](hdinsight-debug-ambari-tez-view.md)<br>- [Optimera Apache Hive-frågor](hdinsight-hadoop-optimize-hive-query.md)<br>- [Verktyg för HDInsight IntelliJ](./spark/apache-spark-intellij-tool-plugin.md)<br>- [HDInsight Eclipse-verktyget](./spark/apache-spark-eclipse-tool-plugin.md)<br>- [HDInsight VSCode-verktyget](hdinsight-for-vscode.md)<br>- [HDInsight Visual Studio-verktyg](./hadoop/apache-hadoop-visual-studio-tools-get-started.md) |

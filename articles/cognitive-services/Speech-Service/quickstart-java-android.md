@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 2ee5028e0766ec52c407bf0ef0e18885c11734d8
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 9458f052258993ee598ddfbca262faf8f6cb4ab9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961065"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258555"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i Java på Android med hjälp av Speech SDK
 
@@ -28,9 +28,9 @@ Speech SDK är kompatibelt med Android-enheter med 32/64-bitars ARM-processorer 
 > [!NOTE]
 > Information om Speech Devices SDK och Roobo-enheten finns i [Speech Devices SDK](speech-devices-sdk.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver en prenumerationsnyckel för Speech-tjänsten för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Mer information finns i [Prova Speech Service kostnadsfritt](get-started.md).
+Du behöver en Speech Services-prenumeration för att slutföra den här snabbstarten. Du kan skaffa en utan kostnad. Se [testa Speech Services kostnadsfritt](get-started.md) mer information.
 
 ## <a name="create-and-configure-a-project"></a>Skapa och konfigurera ett projekt
 
@@ -61,11 +61,11 @@ Det tar en stund för Android Studio att förbereda det nya projektet för Andro
 Den aktuella versionen av Cognitive Services Speech SDK är `1.3.1`.
 
 Speech SDK för Android kommer som ett [AAR (Android-biblioteket)](https://developer.android.com/studio/projects/android-library), som innehåller nödvändiga bibliotek samt Android behörigheter som krävs.
-Den finns i ett Maven-centrallager på https://csspeechstorage.blob.core.windows.net/maven/.
+Den finns i ett Maven-centrallager på https:\//csspeechstorage.blob.core.windows.net/maven/.
 
 Konfigurera ditt projekt för att använda Speech SDK. Öppna projektstrukturfönstret genom att välja **File** (Fil)  > **Project Structure** (Projektstruktur) på menyraden i Android Studio. I projektstrukturfönstret gör du följande ändringar:
 
-1. I listan till vänster i fönstret väljer du **Projekt**. Redigera inställningarna för **standardbiblioteksdatabasen** genom att lägga till ett kommatecken och vår URL till Maven-lagringsplatsen inom enkla citattecken. 'https://csspeechstorage.blob.core.windows.net/maven/'
+1. I listan till vänster i fönstret väljer du **Projekt**. Redigera inställningarna för **standardbiblioteksdatabasen** genom att lägga till ett kommatecken och vår URL till Maven-lagringsplatsen inom enkla citattecken. ”https:\//csspeechstorage.blob.core.windows.net/maven/”
 
    ![Skärmbild av projektstrukturfönstret](media/sdk/qs-java-android-06-add-maven-repository.png)
 
@@ -137,7 +137,7 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
 
    ![Skärmbild av fönstret för att välja distributionsmål](media/sdk/qs-java-android-12-deploy.png)
 
-Tryck på knappen i programmet för att starta en taligenkänningssession. De nästa 15 sekunderna med engelskt tal skickas till Speech-tjänsten och transkriberas. Resultatet visas i Android-programmet och i fönstret logcat i Android Studio.
+Tryck på knappen i programmet för att starta en taligenkänningssession. Nästa 15 sekunder engelska tal ska skickas till tal-tjänsterna och transkriberas. Resultatet visas i Android-programmet och i fönstret logcat i Android Studio.
 
 ![Skärmbild av Android-programmet](media/sdk/qs-java-android-13-gui-on-device.png)
 
@@ -146,7 +146,7 @@ Tryck på knappen i programmet för att starta en taligenkänningssession. De n�
 > [!div class="nextstepaction"]
 > [Utforska Java-exempel på GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
 - [Anpassa språkmodeller](how-to-customize-language-model.md)

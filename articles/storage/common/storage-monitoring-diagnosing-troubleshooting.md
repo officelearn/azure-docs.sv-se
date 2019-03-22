@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: bfaa738b0f99594a3bd11541d519701ff5eb98f5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 51d8b9bad4bb4a3663b07a711f363b263f5d64db
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896168"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339694"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -25,7 +25,7 @@ Om du vill hantera sådana program har bör du övervaka dem proaktivt och lär 
 
 > [!NOTE]
 > Azure Files stöder inte loggning just nu.
-> 
+>
 
 En praktisk guide till slutpunkt till slutpunkt felsökning i Azure Storage-program finns [slutpunkt till slutpunkt felsökning med hjälp av Azure Storage-mätvärden och loggning, AzCopy och Message Analyzer](../storage-e2e-troubleshooting.md).
 
@@ -100,7 +100,7 @@ Den ”[tilläggen]” innehåller information om hur du använder andra verktyg
 ## <a name="monitoring-your-storage-service"></a>Övervakning av storage-tjänst
 Om du är bekant med Windows prestandaövervakning av kan du se Lagringsmått som motsvarande räknare för prestandaövervakning för Windows Azure Storage. Du hittar en omfattande uppsättning mått (räknare i Windows Prestandaövervakaren terminologi), till exempel tjänstetillgänglighet, totalt antal begäranden till tjänsten eller procentandel av lyckade begäranden till tjänsten i Storage-mått. En fullständig lista över tillgängliga mått finns [Schema över Måttabeller i Storage Analytics](https://msdn.microsoft.com/library/azure/hh343264.aspx). Du kan ange om du vill samla in och sammanställa mätvärden varje timme eller varje minut lagringstjänst. Mer information om hur du aktiverar mått och övervaka dina lagringskonton finns i [aktiverar du lagringsmått och visar mätvärden](https://go.microsoft.com/fwlink/?LinkId=510865).
 
-Du kan välja vilka per timme mått som du vill visa i den [Azure-portalen](https://portal.azure.com) och konfigurera regler som meddela administratörer via e-post när ett timvis mått överskrider ett visst tröskelvärde. Mer information finns i [ta emot varningsmeddelanden](/azure/monitoring-and-diagnostics/monitoring-overview-alerts). 
+Du kan välja vilka per timme mått som du vill visa i den [Azure-portalen](https://portal.azure.com) och konfigurera regler som meddela administratörer via e-post när ett timvis mått överskrider ett visst tröskelvärde. Mer information finns i [ta emot varningsmeddelanden](/azure/monitoring-and-diagnostics/monitoring-overview-alerts).
 
 Storage-tjänsten samlar in mått med en bästa prestanda, men kan inte registrera varje lagringsåtgärd.
 
@@ -132,8 +132,8 @@ Mätvärden i Storage lagrar bara kapacitet för blob-tjänsten eftersom blobar 
 
 > [!NOTE]
 > Du bör övervaka dessa värden för en tidig varning att du närmar kapacitetsbegränsningen för lagringskontot. Du kan lägga till Varningsregler så att du meddelas om användning av sammanställda minne överskrider eller understiger tröskelvärden som du anger i Azure-portalen.
-> 
-> 
+>
+>
 
 Om du behöver hjälp storleken på olika lagringsobjekt som blobbar, finns i bloggposten [förstå Azure Storage-fakturering – bandbredd, transaktioner och kapacitet](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
@@ -191,8 +191,8 @@ Användare av ditt program kan meddela dig om felen som rapporteras av klientpro
 
 > [!NOTE]
 > Kom ihåg att du bör förvänta dig att se vissa tillfälliga fel: till exempel fel på grund av tillfälliga nätverksproblem eller programfel.
-> 
-> 
+>
+>
 
 Följande resurser är användbara om du vill förstå lagringsrelaterade statusar och felkoder:
 
@@ -214,8 +214,8 @@ Storage-klientbiblioteket för .NET kan du samla in loggdata för klientsidan so
 
 > [!NOTE]
 > I vissa fall (t.ex SAS auktoriseringsfel), kan en användare rapporterar ett fel som du hittar inga data om begäran i Storage-loggar från serversidan. Du kan använda funktioner för loggning av Storage-klientbiblioteket för att undersöka om orsaken till problemet finns på klienten eller använda verktyg för nätverksövervakning för att undersöka nätverket.
-> 
-> 
+>
+>
 
 ### <a name="using-network-logging-tools"></a>Med hjälp av verktyg för loggning
 Du kan fånga in trafik mellan klienten och servern som ger detaljerad information om de data som klienten och servern utbyter och underliggande nätverksförhållanden. Användbara verktyg för loggning är:
@@ -242,8 +242,8 @@ Storage-klientbiblioteket genererar automatiskt ett unikt klient-ID för begära
 
 > [!NOTE]
 > Det är möjligt för flera begäranden att dela samma begäran-ID för klienten eftersom klienten kan tilldela det här värdet (även om Storage-klientbiblioteket tilldelar automatiskt ett nytt värde). När klienten försöker delar alla försök samma klient-begäran-ID. När det gäller en batch som skickats från klienten har batch en enskild klient begärande-ID.
-> 
-> 
+>
+>
 
 ### <a name="server-request-id"></a>Server-begäran-ID
 Storage-tjänsten genererar automatiskt server begäran-ID: n.
@@ -254,8 +254,8 @@ Storage-tjänsten genererar automatiskt server begäran-ID: n.
 
 > [!NOTE]
 > Lagringstjänsten tilldelar alltid en unik server-ID för förfrågan till varje begäran som den tar emot så att varje återförsök från klienten och varje åtgärd som ingår i en batch har ett unikt begäran-ID.
-> 
-> 
+>
+>
 
 Om Storage-klientbiblioteket genererar en **StorageException** i klienten, den **RequestInformation** egenskapen innehåller en **RequestResult** objekt som innehåller en  **ServiceRequestID** egenskapen. Du kan också komma åt en **RequestResult** objekt från en **OperationContext** instans.
 
@@ -351,8 +351,8 @@ Lagringstjänsten beräknar endast måttet **AverageE2ELatency** för lyckade be
 
 > [!NOTE]
 > Du kan också visa **E2ELatency** och **ServerLatency** logga data för enskilda lagringsåtgärder i loggning av lagring.
-> 
-> 
+>
+>
 
 #### <a name="investigating-client-performance-issues"></a>Undersöka prestandaproblem för klienten
 Möjliga orsaker till klienten svarar långsamt är att ha ett begränsat antal tillgängliga anslutningar eller trådar eller som ont om resurser, till exempel processor, minne eller bandbredd. Du kanske kan lösa problemet genom att ändra klientkod för att vara mer effektivt (till exempel med hjälp av asynkrona anrop till lagringstjänsten) eller genom att använda en större virtuell dator (med fler kärnor och mer minne).
@@ -402,8 +402,8 @@ Hög **AverageServerLatency** värden kan också vara ett symtom på dåligt utf
 
 > [!NOTE]
 > Du hittar en omfattande checklista prestanda checklista här: [Microsoft Azure Storage-prestanda och Skalbarhetschecklista](storage-performance-checklist.md).
-> 
-> 
+>
+>
 
 ### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>Du upplever oväntade fördröjningar i en köad meddelandeleverans
 Om du upplever en fördröjning mellan den tid som ett program lägger till ett meddelande till en kö och den tid som blir den tillgänglig för att läsa från kö, ska du utföra följande steg för att diagnostisera problemet:
@@ -429,8 +429,8 @@ Om du ser toppar i värdet för **PercentThrottlingError** som sammanfaller med 
 
 > [!NOTE]
 > Du kan också se toppar i värdet för **PercentThrottlingError** som inte krockar med perioder med hög aktivitet för programmet: den mest troliga orsaken är lagringstjänsten flytta partitioner för att förbättra belastningsutjämningen.
-> 
-> 
+>
+>
 
 #### <a name="permanent-increase-in-PercentThrottlingError"></a>Permanent ökning i PercentThrottlingError fel
 Om du ser ett konsekvent högt värde för **PercentThrottlingError** följa ökningen är permanent i din transaktionsvolymer eller när du utför den inledande inläsningen testar på ditt program, måste du utvärdera hur programmet använder partitioner för lagring och om den närmar sig det för skalbarhetsmål för ett lagringskonto. Till exempel om du råkar ut för begränsningsfel i en kö (som räknas som en enda partition), bör sedan du använda ytterligare köer för att sprida transaktioner över flera partitioner. Om du råkar ut för begränsningsfel i en tabell, måste du använda ett annat partitioneringsschema för sprida transaktioner över flera plattformar med hjälp av ett brett spektrum av partitionsnyckelvärdena. En vanlig orsak till detta problem är det prepend/lägga till ett mönster där du väljer datumet som partitionsnyckel och sedan alla data på en viss dag skrivs till en partition: under belastning, kan detta resultera i en flaskhals för skrivning. Antingen du välja en annan partitionering design eller utvärdera om med blob storage kan vara en bättre lösning. Också kontrollera om begränsning sker till följd av toppar i trafiken och undersöka sätt av Utjämning mönstret av begäranden.
@@ -441,16 +441,16 @@ Ineffektiv frågans design kan även orsaka att träffa skalbarhetsgränserna f�
 
 > [!NOTE]
 > Din prestandatestning bör Visa inga ineffektiv fråga Designer i ditt program.
-> 
-> 
+>
+>
 
 ### <a name="metrics-show-an-increase-in-PercentTimeoutError"></a>Mätningar visar en ökning i PercentTimeoutError
 Din mätningar visar en ökning i **PercentTimeoutError** för en storage-tjänster. Klienten får ett stort antal statusmeddelanden som ”tidsgräns för 500 åtgärd” HTTP på samma gång, från lagringsåtgärder.
 
 > [!NOTE]
 > Du kan se timeout-fel tillfälligt som lagringstjänsten läsa in saldon begäranden genom att flytta en partition till en ny server.
-> 
-> 
+>
+>
 
 Den **PercentTimeoutError** mått är en sammanställning av följande mått: **ClientTimeoutError**, **AnonymousClientTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**,  **AnonymousServerTimeoutError**, och **SASServerTimeoutError**.
 
@@ -586,8 +586,8 @@ SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 
 > [!NOTE]
 > Du kan använda F12-utvecklarverktygen i Internet Explorer för att spåra de meddelanden som utbyts mellan webbläsaren och storage-tjänsten när du felsöker problem för klientsidan JavaScript.
-> 
-> 
+>
+>
 
 Dessa fel eftersom webbläsaren implementerar den [princip om samma ursprung](https://www.w3.org/Security/wiki/Same_Origin_Policy) säkerhetsbegränsning som förhindrar att en webbsida anropar en API i en annan domän från domänen sidan kommer från.
 
@@ -712,8 +712,8 @@ Tilläggen beskrivs flera verktyg som kan vara användbart när du diagnostisera
 
 > [!NOTE]
 > Fiddler kan avkoda HTTPS-trafik. Läs i dokumentationen för Fiddler noggrant för att förstå hur detta sker och förstå säkerhetsriskerna.
-> 
-> 
+>
+>
 
 Den här bilagan innehåller en kort genomgång av hur du konfigurerar Fiddler för att fånga in trafik mellan den lokala datorn där du har installerat Fiddler och Azure storage-tjänster.
 
@@ -735,7 +735,7 @@ Följande procedur visar hur du kan få detaljerad paketinformationen för trafi
 2. I den **starta** väljer du det lokala nätverket eller flera gränssnitt som är anslutna till internet.
 3. Klicka på **avbilda alternativ**.
 4. Lägg till ett filter för att den **Capture Filter** textrutan. Till exempel **värd contosoemaildist.table.core.windows.net** konfigurerar Wireshark för att samla in endast paket som skickas till eller från table service-slutpunkt i den **contosoemaildist** storage-konto. Kolla in den [fullständig lista över avbilda filter](https://wiki.wireshark.org/CaptureFilters).
-   
+
    ![][6]
 5. Klicka på **Starta**. Wireshark avbildar nu alla paketen skickar till eller från table service-slutpunkt som du använder klientprogrammet på den lokala datorn.
 6. När du är klar, klicka på huvudmenyn **avbilda** och sedan **stoppa**.
@@ -751,8 +751,8 @@ Du kan också välja att visa TCP-data som programnivån ser det genom att höge
 
 > [!NOTE]
 > Mer information om hur du använder Wireshark finns i den [Wireshark användarhandboken](https://www.wireshark.org/docs/wsug_html_chunked).
-> 
-> 
+>
+>
 
 ### <a name="appendix-3"></a>Tillägg 3: Använder Microsoft Message Analyzer för att avbilda nätverkstrafik
 Du kan använda Microsoft Message Analyzer för att avbilda HTTP och HTTPS-trafik på ett liknande sätt att Fiddler och avbilda nätverkstrafik på ett liknande sätt att Wireshark.
@@ -766,8 +766,8 @@ contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata
 
 > [!NOTE]
 > Ett blanksteg avgränsar värdnamnen.
-> 
-> 
+>
+>
 
 När du är redo att börja samla in spårningsdata, klickar du på den **Start With** knappen.
 
@@ -806,6 +806,17 @@ Du kan också använda funktionen Application Insights för Azure DevOps som en 
 * Diagnostisera snabbt eventuella problem med prestanda eller undantag i din webbtjänst. Lär dig om CPU- eller andra resurser är sträcks, få stackspårningar från undantag och enkelt söka igenom loggspårningar. Om appens prestanda sjunker under rimliga gränser, kan Microsoft skicka ett e-postmeddelande. Du kan övervaka både .NET och Java-webbtjänster.
 
 Du hittar mer information på [vad är Application Insights](../../azure-monitor/app/app-insights-overview.md).
+
+## <a name="next-steps"></a>Nästa steg
+
+Mer information om analytics i Azure Storage finns i följande källor:
+
+* [Övervaka ett lagringskonto i Azure portal](storage-monitor-storage-account.md)
+* [Lagringsanalys](storage-analytics.md)
+* [Mätvärden i Storage analytics](storage-analytics-metrics.md)
+* [Schema över Måttabeller i Storage analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)
+* [Storage analytics-loggar](storage-analytics-logging.md)
+* [Loggformatet för Storage analytics](/rest/api/storageservices/storage-analytics-log-format.md)
 
 <!--Anchors-->
 [Introduktion]: #introduction

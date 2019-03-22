@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3b46acfbfd77015193135d1a8c7646c331340145
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: HT
+ms.openlocfilehash: 96a334b4bd39513bfad128a8f1b59f319fef013e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200658"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317416"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>Installera och använda Apache Giraph på Windows-baserade HDInsight-kluster
 
@@ -49,7 +49,7 @@ Du kan installera Giraph på någon typ av kluster (Hadoop-, Storm, HBase, Spark
     |Egenskap |Värde|  
     |---|---|  
     |Namn|Ange ett namn för skriptåtgärden. Till exempel **installera Giraph**|
-    |Skript-URI|Ange det ID: T URI (Uniform Resource) till det skript som anropas om du vill anpassa klustret. Exempel: *https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1*|
+    |Skript-URI|Ange det ID: T URI (Uniform Resource) till det skript som anropas om du vill anpassa klustret. Till exempel *https:\//hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1*|
     |Nodtyp|Ange de noder som anpassning skriptet körs. Du kan välja **alla noder**, **huvudnoder endast**, eller **arbetsnoder endast**.
     |Parametrar|Ange parametrar, om det krävs av skriptet. Skript för att installera Giraph kräver inte några parametrar, så du kan lämna det tomt.|  
 

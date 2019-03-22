@@ -10,19 +10,17 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/27/2018
+ms.date: 03/05/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9f548fbb9611b6d4b16efe5c4d26db73d85c9654
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: c9cdac53e43d57feb0d2dc5a8a7153dc05be8a7d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882305"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170640"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Självstudier: Använda Azure Deployment Manager med Resource Manager-mallar (privat förhandsgranskning)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Lär dig hur du använder [Azure Deployment Manager](./deployment-manager-overview.md) för att distribuera dina program i flera regioner. För att använda Deployment Manager måste du skapa två mallar:
 
@@ -59,6 +57,13 @@ För att kunna följa stegen i den här artikeln behöver du:
     ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
+
+    Om du har installerat Azure PowerShell Az-modulen, behöver du två ytterligare växlar:
+
+    ```powershell
+    Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease -AllowClobber -Force
+    ```
+
 * [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Azure Storage Explorer krävs inte, men det gör saker enklare.
 
 ## <a name="understand-the-scenario"></a>Förstå scenariot
@@ -107,7 +112,7 @@ De två versionerna (1.0.0.0 och 1.0.0.1) är avsedda för [ändringsdistributio
 
     ![Azure Deployment Manager-självstudie om att skapa en webbprogrammall](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-packageuri.png)
 
-    Mallen anropar ett distributionspaket, som innehåller filerna för webbprogrammet. I den här självstudien innehåller det komprimerade paketet endast en index.html-fil.
+    Mallen anropar ett distributionspaket, som innehåller filerna för webbprogrammet. I de här självstudierna innehåller det komprimerade paketet endast en index.html-fil.
 3. Öppna **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**. 
 
     ![Azure Deployment Manager-självstudie om att skapa containerRoot och parametrar för en webbprogrammall](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-parameters-deploypackageuri.png)
@@ -204,9 +209,6 @@ Följande skärmbild visar endast vissa delar av definitionerna av tjänsttopolo
 - **dependsOn**: Alla resurser för tjänsttopologin är beroende av resursen för artefaktkällan.
 - **artifacts** pekar på mallartefakterna.  Relativa sökvägar används här. Den fullständiga sökvägen skapas genom att artifactSourceSASLocation (definieras i artefaktkällan), artifactRoot (definieras i artefaktkällan) och templateArtifactSourceRelativePath (eller parametersArtifactSourceRelativePath) sammanfogas.
 
-> [!NOTE]
-> Namn på tjänstenheter får innehålla högst 31 tecken. 
-
 ### <a name="topology-parameters-file"></a>Topologiparameterfil
 
 Du skapar en parameterfil som används med topologimallen.
@@ -294,13 +296,13 @@ Azure PowerShell kan användas för att distribuera mallarna.
 
 1. Kör skriptet för att distribuera tjänsttopologin.
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     $resourceGroupName = "<Enter a Resource Group Name>"
     $location = "Central US"  
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
     
     # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location "$location"
     
     # Create the service topology
     New-AzureRmResourceGroupDeployment `
@@ -317,7 +319,7 @@ Azure PowerShell kan användas för att distribuera mallarna.
 
 3. <a id="deploy-the-rollout-template"></a>Distribuera distributionsmallen:
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     # Create the rollout
     New-AzureRmResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
@@ -327,19 +329,60 @@ Azure PowerShell kan användas för att distribuera mallarna.
 
 4. Kontrollera distributionsförloppet med hjälp av följande PowerShell-skript:
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     # Get the rollout status
     $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzureRmDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
-        -Name $rolloutName
+        -Name $rolloutName `
+        -Verbose
     ```
 
-    Du måste installera PowerShell-cmdlets för Deployment Manager innan du kan köra denna cmdlet. Se Förutsättningar.
+    Du måste installera PowerShell-cmdlets för Deployment Manager innan du kan köra denna cmdlet. Se Förutsättningar. -Verbose växel kan användas för att se hela utdata.
 
     Följande exempel visar körningsstatusen:
     
     ```
+    VERBOSE: 
+    
+    Status: Succeeded
+    ArtifactSourceId: /subscriptions/<AzureSubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout
+    BuildVersion: 1.0.0.0
+    
+    Operation Info:
+        Retry Attempt: 0
+        Skip Succeeded: False
+        Start Time: 03/05/2019 15:26:13
+        End Time: 03/05/2019 15:31:26
+        Total Duration: 00:05:12
+    
+    Service: adm0925ServiceEUS
+        TargetLocation: EastUS
+        TargetSubscriptionId: <AzureSubscriptionID>
+    
+        ServiceUnit: adm0925ServiceEUSStorage
+            TargetResourceGroup: adm0925ServiceEUSrg
+    
+            Step: Deploy
+                Status: Succeeded
+                StepGroup: stepGroup3
+                Operation Info:
+                    DeploymentName: 2F535084871E43E7A7A4CE7B45BE06510adm0925ServiceEUSStorage
+                    CorrelationId: 0b6f030d-7348-48ae-a578-bcd6bcafe78d
+                    Start Time: 03/05/2019 15:26:32
+                    End Time: 03/05/2019 15:27:41
+                    Total Duration: 00:01:08
+                Resource Operations:
+    
+                    Resource Operation 1:
+                    Name: txq6iwnyq5xle
+                    Type: Microsoft.Storage/storageAccounts
+                    ProvisioningState: Succeeded
+                    StatusCode: OK
+                    OperationId: 64A6E6EFEF1F7755
+
+    ...
+
     ResourceGroupName       : adm0925rg
     BuildVersion            : 1.0.0.0
     ArtifactSourceId        : /subscriptions/<SubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout

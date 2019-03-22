@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 4dc50de7a97055e336627e34f747a17fcedc7e58
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 37a8882653ffede121d2e2cd3f3357741d8d641a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091553"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336439"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Felsöka Apache HBase med Azure HDInsight
 
@@ -344,7 +344,7 @@ Det här är ett känt problem med tjänsten HMaster. Allmän kluster startåtg�
 
 ### <a name="issue"></a>Problem
 
-En omstart av fel på en regionsserver kan förhindras genom följande säkerhetsmetoder. Vi rekommenderar att du pausar arbetsbelastning aktivitet när du planerar att starta om HBase regionservrar. Om ett program fortsätter att ansluta med regionservrar när shutdown pågår, blir omstarten region server långsammare med flera minuter. Det är också en bra idé att först tömma alla tabeller. En referens för hur du tömma tabeller finns [HDInsight HBase: Hur vi kan förbättra Apache HBase-kluster omstart tid genom att rensa tabellerna](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+En omstart av fel på en regionsserver kan förhindras genom följande säkerhetsmetoder. Vi rekommenderar att du pausar arbetsbelastning aktivitet när du planerar att starta om HBase regionservrar. Om ett program fortsätter att ansluta med regionservrar när shutdown pågår, blir omstarten region server långsammare med flera minuter. Det är också en bra idé att först tömma alla tabeller. En referens för hur du tömma tabeller finns [HDInsight HBase: Hur vi kan förbättra Apache HBase-kluster omstart tid genom att rensa tabellerna](https://web.archive.org/web/20190112153155/ https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
 Om du har initierat omstarten på HBase regionservrar från Apache Ambari UI kan se du direkt att regionservrar fungerar korrekt, men de inte startas om direkt. 
 

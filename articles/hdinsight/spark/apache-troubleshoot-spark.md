@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f6e9641d106c40c061752b57744eda09aac157a5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: aad35aa7a958e8bdaf1479d1ffbbad5bf213d46a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821974"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339252"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Felsöka Apache Spark med Azure HDInsight
 
@@ -23,7 +23,7 @@ Lär dig mer om de viktigaste problemen och sina lösningar när du arbetar med 
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-Konfigurationsvärden för den här proceduren har tidigare angetts i HDInsight. För att avgöra vilka Spark måste anges och se vad som orsakar ett Apache Spark-program OutofMemoryError undantag till vilka värden. 
+Spark-konfigurationsvärden kan ställa in att undvika att ett Apache Spark-program OutofMemoryError undantag. Följande steg visar standard konfigurationsvärden för Spark i Azure HDInsight: 
 
 1. Välj i listan över kluster, **Spark2**.
 
@@ -85,8 +85,7 @@ Dessa ändringar är hela klustret, men kan åsidosättas när du skickar in Spa
 
 ### <a name="additional-reading"></a>Ytterligare resurser
 
-[Jobböverföring för Apache Spark i HDInsight-kluster](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
-
+[Jobböverföring för Apache Spark i HDInsight-kluster](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Hur konfigurerar jag ett Apache Spark-program med hjälp av en Jupyter-anteckningsbok i kluster?
 
@@ -100,7 +99,7 @@ Dessa ändringar är hela klustret, men kan åsidosättas när du skickar in Spa
 
 ### <a name="additional-reading"></a>Ytterligare resurser
 
-[Jobböverföring för Apache Spark i HDInsight-kluster](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Jobböverföring för Apache Spark i HDInsight-kluster](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-livy-on-clusters"></a>Hur konfigurerar jag ett Apache Spark-program med hjälp av Apache Livy på kluster?
@@ -117,8 +116,7 @@ Dessa ändringar är hela klustret, men kan åsidosättas när du skickar in Spa
 
 ### <a name="additional-reading"></a>Ytterligare resurser
 
-[Jobböverföring för Apache Spark i HDInsight-kluster](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
-
+[Jobböverföring för Apache Spark i HDInsight-kluster](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-spark-submit-on-clusters"></a>Hur konfigurerar jag ett Apache Spark program med hjälp av spark-submit på kluster?
 
@@ -134,7 +132,7 @@ Dessa ändringar är hela klustret, men kan åsidosättas när du skickar in Spa
 
 ### <a name="additional-reading"></a>Ytterligare resurser
 
-[Jobböverföring för Apache Spark i HDInsight-kluster](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Jobböverföring för Apache Spark i HDInsight-kluster](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
 ## <a name="what-causes-an-apache-spark-application-outofmemoryerror-exception"></a>Vad som orsakar en OutofMemoryError programundantag Apache Spark?
@@ -205,12 +203,12 @@ Den mest troliga orsaken till det här undantaget är att det finns inte tillrä
     spark.yarn.driver.memoryOverhead (Example: 384m for 384MB) 
     ```
 
-    Att beräkna den totala mängden minne som används av alla executors: 
+    Så här beräknar den totala mängden minne som används av alla executors: 
     
     ```apache
     spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) 
     ```
-   Att beräkna den totala mängden minne som används av drivrutinen:
+   Så här beräknar den totala mängden minne som används av drivrutinen:
     
     ```apache
     spark.driver.memory + spark.yarn.driver.memoryOverhead
@@ -219,9 +217,8 @@ Den mest troliga orsaken till det här undantaget är att det finns inte tillrä
 ### <a name="additional-reading"></a>Ytterligare resurser
 
 - [Översikt över Apache Spark minne](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
-- [Felsöka ett Apache Spark-program på ett HDInsight-kluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
+- [Felsöka ett Apache Spark-program på ett HDInsight-kluster](https://web.archive.org/web/20190112152909/ https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 
 ### <a name="see-also"></a>Se även
 [Felsöka med Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
-

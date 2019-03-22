@@ -10,15 +10,15 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: cede105f0bff9a65f88e06467e4d13419d389f04
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 795facc6148d33592ff8eac5083a273dc3d5cb26
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461567"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314916"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Lathund för Azure SQL Data Warehouse
-Med den här lathunden får du praktiska tips och bästa metoder för att skapa dina Azure SQL Data Warehouse-lösningar. Innan du börjar bör du lära dig mer om varje steg genom att läsa om [mönster och antimönster i arbetsbelastningar i Azure SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), där det står vad SQL Data Warehouse är och vad det inte är.
+Med den här lathunden får du praktiska tips och bästa metoder för att skapa dina Azure SQL Data Warehouse-lösningar. Innan du börjar bör du lära dig mer om varje steg genom att läsa om [mönster och antimönster i arbetsbelastningar i Azure SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns), där det står vad SQL Data Warehouse är och vad det inte är.
 
 Följande bild visar hur du skapar ett informationslager:
 
@@ -50,7 +50,7 @@ Läs mer om [datamigrering], [datainläsning] och [ELT-processen (Extract, Load,
 
 Använd följande strategier, beroende på tabellens egenskaper:
 
-| Typ | Passar bra för...| Se upp om...|
+| Type | Passar bra för...| Se upp om...|
 |:--- |:--- |:--- |
 | Replikerad | • Små dimensionstabeller i ett star-schema med mindre än 2 GB lagring efter komprimering (~5x komprimering) |•  Det finns många skrivtransaktioner i tabellen (som infoga, upsert, ta bort, uppdatera)<br></br>• Du ändrar DWU-etablering (Data Warehouse Units) ofta<br></br>• Du endast använder 2–3 kolumner men tabellen har många kolumner<br></br>•  Du indexerar en replikerad tabell |
 | Resursallokering (standard) | • Tillfällig/mellanlagringstabell<br></br> • Ingen uppenbar kopplingsnyckel eller kolumn för bra kandidater |• Prestanda går långsamt på grund av dataförflyttning |
@@ -70,7 +70,7 @@ Läs mer om [replikerade tabeller] och [distribuerade tabeller].
 
 Indexering är bra när du vill läsa tabeller snabbt. Det finns en unik uppsättning tekniker som du kan använda utifrån dina behov:
 
-| Typ | Passar bra för... | Se upp om...|
+| Type | Passar bra för... | Se upp om...|
 |:--- |:--- |:--- |
 | Heap | • Mellanlagrings-/temporär tabell<br></br>• Små tabeller med små sökningar |• Sökningar som genomsöker hela tabellen |
 | Grupperat index | • Tabeller med upp till 100 miljoner rader<br></br>• Stora tabeller (över 100 miljoner rader) där endast 1–2 kolumner används mycket |•  Används på en replikerad tabell<br></br>•    Du har avancerade frågor som omfattar flera kopplingsåtgärder och Gruppera efter-åtgärder<br></br>•  Du gör uppdateringar för de indexerade kolumnerna: det kräver minne |
@@ -129,7 +129,7 @@ Autoskala nu för den tid du önskar med Azure Functions:
 
 Vi rekommenderar att du överväger SQL Database och Azure Analysis Services i en nav-och-eker-arkitektur. Den här lösningen kan isolera arbetsbelastningen mellan olika grupper av användare när du även använder avancerade funktioner från SQL Database och Azure Analysis Services. Det här är också ett sätt att tillhandahålla obegränsad samtidighet till dina användare.
 
-Läs mer om [vanliga arkitekturer som använder SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/).
+Läs mer om [vanliga arkitekturer som använder SQL Data Warehouse](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
 
 Distribuera dina ekrar med ett klick i SQL-databaser från SQL Data Warehouse:
 
@@ -155,9 +155,9 @@ Distribuera dina ekrar med ett klick i SQL-databaser från SQL Data Warehouse:
 
 
 <!--Other Web references-->
-[typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
-[is and is not]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
-[datamigrering]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/
+[is and is not]:https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
+[datamigrering]:https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 [Azure Data Lake Store]: ../data-factory/connector-azure-data-lake-store.md
 [sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql

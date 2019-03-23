@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d9c59bdb2e8a7b115761554f70ebedeecaf5d04e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9ba1b5a9b231822fd12d5a349e2518bc77669274
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901753"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351413"
 ---
 # <a name="dynamic-packaging"></a>Dynamisk paketering
 
 Microsoft Azure medietjänster kan användas för att leverera många källa mediefilformat, format, för direktuppspelning och innehållsskydd formaterar till en mängd olika tekniker för klient (till exempel iOS och XBOX). Dessa klienter förstå olika protokoll, till exempel iOS kräver en HTTP Live Streaming (HLS)-format och Xbox kräver Smooth Streaming. Om du har en uppsättning med anpassningsbar bithastighet (multibithastighet) MP4 (ISO Base 14496-12) mediefiler eller en uppsättning med anpassningsbar bithastighet Smooth Streaming-filer som du vill ska fungera för klienter som förstå HLS, MPEG DASH och Smooth Streaming, kan du dra nytta av dynamisk Paketering. Förpackningen är oberoende av video lösning, SD/HD/UHD - 4K stöds.
 
-[Slutpunkter för direktuppspelning](streaming-endpoint-concept.md) är tjänsten dynamisk paketering i Media Services som används för att leverera medieinnehåll till klienten spelare. Dynamisk paketering är en funktion som levereras som standard på alla **Strömningsslutpunkter** (Standard eller Premium). Det tillkommer ingen extra kostnad som hör till den här funktionen i Media Services v3. 
+[Slutpunkter för direktuppspelning](streaming-endpoint-concept.md) är tjänsten dynamisk paketering i Media Services som används för att leverera medieinnehåll till klienten spelare. Dynamisk paketering är en funktion som levereras som standard på alla **Strömningsslutpunkter** (Standard eller Premium). 
 
 Att dra nytta av **dynamisk paketering**, måste du ha en **tillgången** med en uppsättning MP4-filer och strömmande konfigurationsfiler som krävs av Media Services dynamisk paketering. Ett sätt att hämta filerna är att koda din mezzaninfil (källa) med Media Services. Om du vill göra videor i den kodade tillgången tillgängliga för klienter för uppspelning, måste du skapa en **Strömningspositionerare** och skapa strömmande URL: er. Sedan, baserat på formatet som anges i klienten strömmande manifestet (HLS, DASH eller Smooth), du får dataströmmen i protokollet som du har valt.
 
@@ -34,24 +34,8 @@ I Media Services används dynamisk paketering om du strömning live eller på be
 
 ![Dynamisk paketering](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-## <a name="common-video-on-demand-workflow"></a>Vanligt arbetsflöde för video på begäran
-
-Följande är en gemensam Media Services streaming arbetsflöde där dynamisk paketering används.
-
-1. Ladda upp en indatafil (kallas en mezzaninfil). Till exempel H.264 MP4 eller WMV (lista över de format som stöds finns i [format som stöds av Media Encoder Standard](media-encoder-standard-formats.md).
-2. Koda din mezzaninfil för H.264 MP4 med anpassningsbar bithastighet uppsättningar.
-3. Publicera tillgången med anpassningsbar bithastighet MP4-uppsättningen. Du publicerar genom att skapa en **Strömningspositionerare**.
-4. Skapa URL: er som är riktade till olika format (HLS, Dash och Smooth Streaming). Den **Strömningsslutpunkt** skulle ta hand om betjänar rätt manifestet och begäranden för dessa olika format.
-
-## <a name="encode-to-adaptive-bitrate-mp4s"></a>Koda till med anpassningsbar bithastighet MP4s
-
-Information om [att koda ett videoklipp med Media Services](encoding-concept.md), se följande exempel:
-
-* [Koda från en HTTPS-URL med hjälp av inbyggda förinställningar](job-input-from-http-how-to.md)
-* [Koda en lokal fil med hjälp av inbyggda förinställningar](job-input-from-local-file-how-to.md)
-* [Skapa en anpassad förinställning om du vill rikta in dina specifika krav för scenario eller enhet](customize-encoder-presets-how-to.md)
-
-En lista över Media Encoder Standard format och -codec finns i [format och -codec](media-encoder-standard-formats.md)
+> [!NOTE]
+> För närvarande kan använda du inte Azure-portalen för att hantera v3-resurser. Använd den [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), eller någon av stöds [SDK: er](developers-guide.md).
 
 ## <a name="delivery-protocols"></a>Leveransprotokoll
 
@@ -64,13 +48,60 @@ En lista över Media Encoder Standard format och -codec finns i [format och -cod
 |MPEG DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
+## <a name="common-on-demand-workflow"></a>Arbetsflöde för vanliga på begäran
+
+Följande är en gemensam Media Services streaming arbetsflöde där dynamisk paketering används.
+
+1. Ladda upp en indatafil (kallas en mezzaninfil). Till exempel H.264 MP4 eller WMV (lista över de format som stöds finns i [format som stöds av Media Encoder Standard](media-encoder-standard-formats.md).
+2. Koda din mezzaninfil för H.264 MP4 med anpassningsbar bithastighet uppsättningar.
+3. Publicera tillgången med anpassningsbar bithastighet MP4-uppsättningen. Du publicerar genom att skapa en **Strömningspositionerare**.
+4. Skapa URL: er som är riktade till olika format (HLS, Dash och Smooth Streaming). Den **Strömningsslutpunkt** skulle ta hand om betjänar rätt manifestet och begäranden för dessa olika format.
+
+### <a name="encode-to-adaptive-bitrate-mp4s"></a>Koda till med anpassningsbar bithastighet MP4s
+
+Information om [att koda ett videoklipp med Media Services](encoding-concept.md), se följande exempel:
+
+* [Koda från en HTTPS-URL med hjälp av inbyggda förinställningar](job-input-from-http-how-to.md)
+* [Koda en lokal fil med hjälp av inbyggda förinställningar](job-input-from-local-file-how-to.md)
+* [Skapa en anpassad förinställning om du vill rikta in dina specifika krav för scenario eller enhet](customize-encoder-presets-how-to.md)
+
+En lista över Media Encoder Standard format och -codec finns i [format och -codec](media-encoder-standard-formats.md)
+
+## <a name="common-live-streaming-workflow"></a>Vanligt arbetsflöde för live direktuppspelning
+
+Här följer stegen för en live arbetsflöde:
+
+1. Skapa en [direktsändning](live-events-outputs-concept.md).
+1. Hämta URL: er för inmatning och konfigurera din lokala kodare för att använda Webbadressen för att skicka bidraget feed.
+1. Få förhandsgransknings-URL och använda den för att kontrollera att indata från kodaren faktiskt tas emot.
+1. Skapa en ny **tillgången**.
+1. Skapa en **Live utdata** och använda Tillgångsnamn som du skapade.<br/>Den **Live utdata** arkiverar dataströmmen till den **tillgången**.
+1. Skapa en **Strömningspositionerare** med inbyggt **Streaming princip** typer.<br/>Om du vill kryptera ditt innehåll, granska [Content protection översikt](content-protection-overview.md).
+1. Lista över sökvägar på den **Strömningspositionerare** att få tillbaka de URL: er för att använda.
+1. Hämta värdnamnet för den **Strömningsslutpunkt** du vill strömma från.
+1. Skapa URL: er som är riktade till olika format (HLS, Dash och Smooth Streaming). Den **Strömningsslutpunkt** skulle ta hand om betjänar rätt manifestet och begäranden för dessa olika format.
+
+En direktsänd händelse kan vara något av två typer: direkt och live encoding. Mer information om liveströmning i Media Services v3 finns [Livestreaming översikt](live-streaming-overview.md).
+
+Följande diagram visar direktsänd strömning med dynamisk paketering arbetsflöde.
+
+![direktautentisering](./media/live-streaming/pass-through.svg)
+
+## <a name="dynamic-encryption"></a>Dynamisk kryptering
+
+**Dynamisk kryptering** kan du dynamiskt kryptera innehållet live eller på begäran med AES-128 eller någon av de tre största digital rights management (DRM) system: Microsoft PlayReady, Google Widevine och FairPlay för Apple. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM (PlayReady, Widevine och FairPlay) licenser till auktoriserade klienter. Mer information finns i [dynamisk kryptering](content-protection-overview.md).
+
+## <a name="dynamic-manifest"></a>Dynamic Manifest
+
+Dynamisk filtrering används för att styra antalet spår, format, olika bithastigheter och presentation tidsfönster som skickas till spelarna. Mer information finns i [filter och dynamiska manifest](filters-dynamic-manifest-overview.md).
+
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>Codec för indatavideo stöds av dynamisk paketering
 
 Dynamisk paketering stöder MP4-filer som innehåller video kodad med [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC eller AVC1) [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (– HEVC, hev1 eller hvc1).
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Ljud-codec som stöds av dynamisk paketering
 
-Dynamisk paketering stöder MP4-filer som innehåller ljud kodad med [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (förbättrad AC-3 eller E-AC3) eller [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) DTS ( Express, DTS LBR, DTS HD, DTS HD förlustfri).
+Dynamisk paketering stöder MP4-filer som innehåller ljud kodad med [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(förbättrad AC-3 eller E-AC3) Dolby Atmos eller [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, DTS LBR, DTS HD, DTS HD förlustfri). Direktuppspelning av Dolby Atmos innehåll stöds för standarder som MPEG-DASH-protokollet med vanliga Streaming Format (CSF) eller vanliga Media program Format (CMAF) fragmenterad MP4 och via HTTP Live Streaming (HLS) med CMAF.
 
 > [!NOTE]
 > Dynamisk paketering har inte stöd för filer som innehåller [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) ljud (det är en äldre codec).

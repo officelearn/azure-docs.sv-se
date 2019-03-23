@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 03e10497b033fc3d97fde4cd524b358c05fdc943
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 94893a5b5716c9bd207ad2a8bc8ca457974dddd4
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57457768"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395717"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -105,7 +105,7 @@ Ja, både ohanterade och hanterade diskar stöds. Vi rekommenderar att du använ
 
 Nej.
 
-**Om jag skapar en 128 GB-disk och sedan öka storleken till 130 GiB, debiteras jag för nästa diskstorleken (256 GB)?**
+**Om jag skapar en 128 GB-disk och sedan öka storleken till 130 gibibyte (GiB), kommer jag att debiteras för nästa diskstorleken (256 GB)?**
 
 Ja.
 
@@ -115,7 +115,7 @@ Azure Managed Disks stöder för närvarande endast lokalt redundant lagring han
 
 **Kan jag minska eller lågsäsong min hanterade diskar?**
 
-Nej. Den här funktionen stöds inte för närvarande. 
+Nej. Den här funktionen stöds inte för närvarande.
 
 **Kan jag dela ett lån på disken?**
 
@@ -179,7 +179,7 @@ Ja, det kan du. Referera till [konvertera Azure managed disks-lagring från stan
 -AccountType StandardSSD_LRS
 
 **Vad är fördelen med att använda Standard SSD-diskar i stället för HDD?**
-Standard SSD-diskar leverera bättre svarstid, konsekvens, tillgänglighet och tillförlitlighet jämfört med HDD-diskar. Arbetsbelastningar för program körs mycket smidigare på Standard SSD på grund av detta. Observera att Premium SSD-diskar är den rekommenderade lösningen för de flesta i/o-intensiva produktionsarbetsbelastningar. 
+Standard SSD-diskar leverera bättre svarstid, konsekvens, tillgänglighet och tillförlitlighet jämfört med HDD-diskar. Arbetsbelastningar för program körs mycket smidigare på Standard SSD på grund av detta. Observera att Premium SSD-diskar är den rekommenderade lösningen för de flesta i/o-intensiva produktionsarbetsbelastningar.
 
 **Kan jag använda Standard SSD-enheter som ohanterade diskar?**
 Standard SSD-diskar är Nej, endast tillgängliga som Managed Disks.
@@ -191,7 +191,7 @@ Standard SSD-enheter har Nej, inte instans VM SLA. Använd Premium SSD-diskar f�
 
 **Finns det någon effekt av migrering på Managed Disks prestanda?**
 
-Migrering innebär att flödet av Disk från en lagringsplats till en annan. Detta är orkestreras via bakgrund kopia av data som kan ta flera timmar att slutföra, vanligtvis mindre än 24 timmar beroende på mängden data på diskarna. Under den tiden kan ditt program högre än vanligt lässvarstid uppleva eftersom vissa läsning kan hämta omdirigeras till den ursprungliga platsen och kan ta längre tid att slutföra. Det finns ingen inverkan på skrivfördröjningen under denna period.  
+Migrering innebär att flödet av Disk från en lagringsplats till en annan. Detta är orkestreras via bakgrund kopia av data, vilket kan ta flera timmar att slutföra, vanligtvis mindre än 24 timmar beroende på mängden data på diskarna. Under den tiden kan ditt program högre än vanligt lässvarstid uppleva eftersom vissa läsning kan hämta omdirigeras till den ursprungliga platsen och kan ta längre tid att slutföra. Det finns ingen inverkan på skrivfördröjningen under denna period.  
 
 **Vilka ändringar krävs i en befintlig Azure Backup service configuration före och efter migrering till Managed Disks?**
 
@@ -205,7 +205,7 @@ Ja, säkerhetskopieringen fungerar smidigt.
 
 Inga ändringar krävs.
 
-**Är automatisk migrering av en befintlig VM-skalningsuppsättning uppsättningar från ohanterade diskar till Managed Disks stöds?**
+**Automatisk migrering av en befintlig VM-skalningsuppsättning anges från ohanterade diskar till Managed Disks stöds?**
 
 Nej. Du kan skapa en ny skalningsuppsättning med hanterade diskar med hjälp av avbildningen från din gamla skalningsuppsättning med ohanterade diskar.
 
@@ -333,7 +333,7 @@ Befintliga små premium-diskar mindre än 64 GiB fortsättningsvis att debiteras
 
 Du kan ta en ögonblicksbild av dina små diskar och sedan skapa en disk för att automatiskt växla prisnivån till P4 eller P6 baserat på den valda storleken.
 
-**Kan du ändra storlek på befintliga hanterade diskar från storlekar mindre än 4 TiB till nya Nyintroducerade diskstorlekar upp till 32 TiB?**
+**Kan du ändra storlek på befintliga hanterade diskar från storlekar färre än 4 tebibyte (TiB) till nya Nyintroducerade diskstorlekar upp till 32 TiB?**
 
 Nya hanterade diskar som är 8 TiB och 16 TiB 32 TiB finns för närvarande i förhandsversion. Vi ännu stöd inte för storleksändring befintliga diskstorlekar till den nya diskstorleken.
 
@@ -341,17 +341,21 @@ Nya hanterade diskar som är 8 TiB och 16 TiB 32 TiB finns för närvarande i f�
 
 Den största diskstorleken som stöds av Azure Backup och Azure Site Recovery-tjänsten är 4 TiB.
 
-**Vad är den rekommenderade VM-storlekar för stora diskar (> 4TiB) för Standard SSD och HDD-Standard-diskar för att uppnå optimerade disk-IOPS och bandbredd?**
+**Vad är den rekommenderade VM-storlekar för större diskstorlekar (> 4 TiB) för Standard SSD och HDD-Standard-diskar för att uppnå optimerade disk-IOPS och bandbredd?**
 
-Att uppnå diskgenomflöde i Standard SSD och HDD-Standard storlekar för stora diskar (> 4TB) utöver 500 IOPS och 60 MiB/s, bör du använda en av de följande storlekarna optimerade prestanda: B-serien, DSv2-serien, Dsv3-serien, ESv3-serien, Fs-serien, Fsv2-serien, M-serien GS-serien, NCv2-serien, NCv3-serien och virtuella datorer i Ls-serien.
+Att uppnå diskgenomflöde i Standard SSD och HDD-Standard storlekar för stora diskar (> 4 TiB) utöver 500 IOPS och 60 MiB/s, rekommenderar vi du distribuerar en ny virtuell dator från en av de följande storlekarna för att optimera dina prestanda: B-serien, DSv2-serien, Dsv3-serien, ESv3-serien, Fs-serien, Fsv2-serien, M-serien GS-serien, NCv2-serien, NCv3-serien och virtuella datorer i Ls-serien. Koppla stora diskar till befintliga virtuella datorer eller virtuella datorer som inte använder storlekarna som rekommenderas ovan kan det uppstå lägre prestanda.
 
-**Vilka regioner är de hanterade diskar som är större än 4 TiB stöds i?**
+**Hur kan jag uppgradera min diskar (> 4 TiB) som har distribuerats i förhandsversionen större disk storlekar för att få högre IOPS och bandbredd vid GA?**
 
-Förhandsversionen av hanterade diskar som är längre än 4 TiB stöds i alla produktion i Azure-regioner utom Government, Kina och Tyskland. 
+Du kan antingen stoppa och starta den virtuella datorn som disken är ansluten till eller koppla från och ansluta disken igen. Prestandamålen för större diskstorlekar har utökats för både premium SSD- och standard SSD-enheter när produkten lanseras.
 
-**Vi har stöd för att aktivera cachelagring av värden på den nya diskstorleken?**
+**Vilka regioner är hanterade diskstorlekar 8 TiB, 16 TiB och 32 TiB som stöds i?**
 
-Vi stöder värd cachelagring av ReadOnly och Läs/Skriv diskar som är mindre än 4TiB. För diskstorlekar fler än 4 TiB vi stöder inte att ange alternativet än None för cachelagring. Vi rekommenderar att utnyttja cachelagring för mindre diskstorlekar där du kan förvänta dig att Observera bättre prestandaökning med data cachelagras till den virtuella datorn.
+8 TiB och 16 TiB 32 TiB disk SKU: er stöds i alla regioner under global Azure. Stöd för Microsoft Azure Government och Azure Kina 21Vianet är inte tillgänglig ännu.
+
+**Vi har stöd för att aktivera cachelagring av värden på alla diskstorlekar?**
+
+Vi stöder värd cachelagring av ReadOnly och Läs/Skriv diskar som är mindre än 4 TiB. För diskstorlekar fler än 4 TiB vi stöder inte att ange alternativet än None för cachelagring. Vi rekommenderar att utnyttja cachelagring för mindre diskstorlekar där du kan förvänta dig att Observera bättre prestandaökning med data cachelagras till den virtuella datorn.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Vad händer om min fråga inte besvaras här?
 

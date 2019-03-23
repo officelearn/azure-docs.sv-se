@@ -12,21 +12,22 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0422cc3376caa6c2f99a0838684d84047a5937ed
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: f97b4ee364ecadde7738b8fe077f21d5732365f6
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313574"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371833"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Katalogintegrering mellan Azure MFA Server och Active Directory
 
 Använd avsnittet Katalogintegrering i Azure MFA Server om du vill integrera med Active Directory eller en annan LDAP-katalog. Du kan konfigurera attribut för att matcha katalogschemat och ställa in automatisk användarsynkronisering.
 
 ## <a name="settings"></a>Inställningar
+
 Som standard konfigureras Azure Multi-Factor Authentication (MFA) Server att importera eller synkronisera användare från Active Directory.  På fliken Katalogintegrering kan du åsidosätta standardbeteendet och binda till en annan LDAP-katalog, en ADAM-katalog eller en särskild Active Directory-domänkontrollant.  Fliken innehåller också inställningar för användning av LDAP-autentisering via proxy eller för LDAP-bindning som ett RADIUS-mål, förautentisering för IIS-autentisering eller primär autentisering för användarportalen.  De enskilda inställningarna beskrivs i följande tabell.
 
-![Inställningar](./media/howto-mfaserver-dir-ad/dirint.png)
+![Redigera LDAP-konfiguration i MFA Server](./media/howto-mfaserver-dir-ad/dirint.png)
 
 | Funktion | Beskrivning |
 | --- | --- |
@@ -50,9 +51,10 @@ LDAP-inställningarna beskrivs i följande tabell.
 | Knappen Testa |Klicka på **Testa** för att testa bindningen till LDAP-servern.  <br><br>Du behöver inte välja alternativet **Använd LDAP** för att testa bindningen. Det betyder att du kan testa bindningen innan du använder LDAP-konfigurationen. |
 
 ## <a name="filters"></a>Filter
+
 Med filter kan du ange villkor för att kvalificera poster när du utför en katalogsökning.  Genom att ange filtret kan du definiera de objekt som du vill synkronisera.  
 
-![Filter](./media/howto-mfaserver-dir-ad/dirint2.png)
+![Konfigurera directory filtrering i MFA Server](./media/howto-mfaserver-dir-ad/dirint2.png)
 
 Azure Multi-Factor Authentication har följande tre filteralternativ:
 
@@ -61,11 +63,12 @@ Azure Multi-Factor Authentication har följande tre filteralternativ:
 * **Användarfilter** – Ange filtervillkoren som används för att kvalificera användarposter när en katalogsökning utförs.  För Active Directory och ADAM används oftast (&(objectClass=user)(objectCategory=person)).  För andra LDAP-kataloger använder du (objectClass=inetOrgPerson) eller liknande, beroende på katalogschemat. <br>Obs!  Om det lämnas tomt används (& (objectCategory=person)(objectClass=User)) som standard.
 
 ## <a name="attributes"></a>Attribut
+
 Du kan anpassa attributen efter behov för en viss katalog.  På så sätt kan du lägga till anpassade attribut och finjustera synkroniseringen till endast de attribut som du behöver. Använd namnet på attributet som definierats i katalogschemat för värdet för varje attributfält. Följande tabell innehåller ytterligare information om varje funktion.
 
 Attribut kan anges manuellt och behöver inte matcha ett attribut i attributlistan.
 
-![Attribut](./media/howto-mfaserver-dir-ad/dirint3.png)
+![Anpassa katalogintegreringsattribut i MFA Server](./media/howto-mfaserver-dir-ad/dirint3.png)
 
 | Funktion | Beskrivning |
 | --- | --- |
@@ -96,9 +99,10 @@ Attribut kan anges manuellt och behöver inte matcha ett attribut i attributlist
 
 Om du vill redigera attribut klickar du på **Redigera** på fliken Attribut.  När du gör det öppnas ett fönster där du kan redigera attributen. Välj **...** bredvid valfritt attribut så öppnas ett fönster där du kan välja vilka attribut som ska visas.
 
-![Redigera attribut](./media/howto-mfaserver-dir-ad/dirint4.png)
+![Redigera directory attributmappning i MFA Server](./media/howto-mfaserver-dir-ad/dirint4.png)
 
 ## <a name="synchronization"></a>Synkronisering
+
 Synkronisering ser till att Azure MFA-databasen synkroniseras med användare i Active Directory eller en annan LDAP-katalog (Lightweight Directory Access Protocol). Processen påminner om när du importerar användare manuellt från Active Directory, men söker regelbundet efter ändringar i Active Directory-användare och säkerhetsgrupper som behöver bearbetas.  Synkronisering tar också bort eller inaktiverar användare som har tagits bort från en container, säkerhetsgrupp eller Active Directory.
 
 Tjänsten Multi-Factor Auth ADSync är en Windows-tjänst som utför den periodiska avsökningen av Active Directory.  Detta ska inte förväxlas med Azure AD Sync eller Azure AD Connect.  Multi-Factor Auth ADSync bygger visserligen på en liknande kodbas, men är specifik för Azure Multi-Factor Authentication-servern.  Den installeras i stoppat läge och startas av Multi-Factor Auth  Server-tjänsten när den konfigurerats att köra.  Om du har en Multi-Factor Auth Server-konfiguration med flera servrar kan Multi-Factor Auth ADSync endast köras på en enskild server.
@@ -107,7 +111,7 @@ Tjänsten Multi-Factor Auth ADSync använder DirSync LDAP-servertillägget från
 
 Om LDAP-katalogen har stöd för och är konfigurerad för DirSync fungerar avsökningen av ändringar i användar- och säkerhetsgrupper på samma sätt som med Active Directory.  Om LDAP-katalogen inte stöder DirSync-kontrollen utförs en fullständig synkronisering under varje cykel.
 
-![Synkronisering](./media/howto-mfaserver-dir-ad/dirint5.png)
+![Synkronisering av katalogobjekt till MFA-servern](./media/howto-mfaserver-dir-ad/dirint5.png)
 
 Följande tabell innehåller ytterligare information om inställningarna på fliken Synkronisering.
 
@@ -133,7 +137,8 @@ Med knapparna Flytta upp och Flytta ned kan administratören ändra ordning på 
 > [!TIP]
 > En fullständig synkronisering bör utföras när du har tagit bort synkroniseringsobjekt.  En fullständig synkronisering bör utföras när du har ändrat ordning på synkroniseringsobjekt.  Klicka på **Synkronisera nu** om du vill utföra en fullständig synkronisering.
 
-## <a name="multi-factor-auth-servers"></a>Multi-Factor Auth-servrar
-Ytterligare Multi-Factor Auth-servrar kan konfigureras och fungera som ett reservalternativ i form av en RADIUS-proxy, LDAP-proxy eller för IIS-autentisering. Synkroniseringskonfigurationen delas av alla agenter. Men Multi-Factor Auth Server-tjänsten kan bara köras på en av dessa agenter. På den här fliken kan du välja den Multi-Factor Auth-server som ska aktiveras för synkronisering.
+## <a name="multi-factor-authentication-servers"></a>Multi-Factor Authentication-servrar
 
-![Multi-Factor Auth-servrar](./media/howto-mfaserver-dir-ad/dirint6.png)
+Ytterligare Multi-Factor Authentication-servrar kan konfigureras att fungera som en säkerhetskopiering RADIUS-proxy, LDAP-proxy eller för IIS-autentisering. Synkroniseringskonfigurationen delas av alla agenter. Endast en av dessa agenter kan dock ha Multi-Factor Authentication server-tjänsten körs. Den här fliken kan du välja de Multi-Factor Authentication-server som ska aktiveras för synkronisering.
+
+![Relaterade Multi-Factor Authentication-servrar](./media/howto-mfaserver-dir-ad/dirint6.png)

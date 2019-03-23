@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/17/2017
-ms.openlocfilehash: d336d659a15f5b4cb1cbc917a8ae10ab8224d029
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b8bad1d0f53ce4e4c924734201165e1b050c153f
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426326"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361480"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Arbeta i Apache Hadoop-ekosystemet i HDInsight från en Windows-dator
 
@@ -30,7 +30,7 @@ Exempel på uppgifter som du kan göra med PowerShell:
 * [Kör Apache Hive-frågor med hjälp av PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 * [Hantera kluster med PowerShell](hdinsight-administer-use-powershell.md).
 
-Följ stegen för att [installera och konfigurera Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) att hämta den senaste versionen. Om du har skript som behöver ändras för att använda de nya cmdletarna för Azure Resource Manager kan du läsa [migrera till Azure Resource Manager-baserade utvecklingsverktyg för HDInsight-kluster](hdinsight-hadoop-development-using-azure-resource-manager.md).
+Följ stegen för att [installera och konfigurera Azure Powershell](https://docs.microsoft.com/powershell/azure/install-az-ps) att hämta den senaste versionen. Om du har skript som behöver ändras för att använda de nya cmdletarna för Azure Resource Manager kan du läsa [migrera till Azure Resource Manager-baserade utvecklingsverktyg för HDInsight-kluster](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Verktyg som du kan köra i en webbläsare
 Följande verktyg har ett webbgränssnitt som körs i en webbläsare:
@@ -41,7 +41,7 @@ Följande verktyg har ett webbgränssnitt som körs i en webbläsare:
     * [Apache Tez vyn i Apache Ambari](hdinsight-debug-ambari-tez-view.md)
 
 ## <a name="data-lake-hadoop-tools-for-visual-studio"></a>Data Lake (Hadoop)-verktyg för Visual Studio
-Använda Data Lake Tools för Visual Studio för att distribuera och hantera Storm-topologier. Data Lake-verktyg installeras också SDK för SCP.NET, där du kan utveckla Storm-topologier med Visual Studio.
+Använda Data Lake Tools för Visual Studio för att distribuera och hantera Storm-topologier. Data Lake-verktyg installeras också SDK för SCP.NET, där du kan utveckla C# Storm-topologier med Visual Studio.
 
 Innan du går till exemplet nedan [installera och testa Data Lake Tools för Visual Studio](hadoop/apache-hadoop-visual-studio-tools-get-started.md). 
 

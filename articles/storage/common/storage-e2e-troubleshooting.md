@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ac30888c9f54c5dc88cb72aeec0f3db81d5a99dc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f88a560d4fa819a055534530ddc0862e4aa330fe
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004945"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351889"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Slutpunkt till slutpunkt felsökning med hjälp av Azure Storage-mätvärden och loggning, AzCopy och Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -29,12 +29,12 @@ Den här självstudien innehåller en praktisk utforskning av ett felsökning sl
 Du kan använda en kombination av verktyg för att avgöra när ett problem har uppstått och vad orsaken till problemet kan uppstå om du vill felsöka klientprogram som använder Microsoft Azure Storage. Dessa verktyg innefattar:
 
 * **Azure Storage Analytics**. [Azure Storage Analytics](/rest/api/storageservices/Storage-Analytics) innehåller mått och loggning för Azure Storage.
-  
+
   * **Lagringsmått** spårar transaktionsmått och kapacitet för ditt lagringskonto. Med hjälp av mätvärden, kan du bestämma hur programmet fungerar enligt en mängd olika mått. Se [Schema över Måttabeller i Storage Analytics](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) för mer information om vilka typer av mått som spåras av Storage Analytics.
   * **Med loggningen i Storage** loggar varje begäran till Azure Storage-tjänster till en logg för serversidan. Loggen spårar detaljerade data för varje begäran, inklusive de åtgärder som utförs, status för åtgärden och latensinformation. Se [Storage Analytics loggformat](/rest/api/storageservices/Storage-Analytics-Log-Format) för mer information om begäranden och svar-data som skrivs till loggarna av Storage Analytics.
 
 * **Azure-portalen**. Du kan konfigurera mått och loggning för ditt lagringskonto i den [Azure-portalen](https://portal.azure.com). Du kan också visa diagram som visar hur programmet fungerar med tiden och konfigurerar aviseringar som meddelar dig om ditt program fungerar annorlunda än förväntat för ett visst mått.
-  
+
     Se [övervaka ett lagringskonto i Azure-portalen](storage-monitor-storage-account.md) information om hur du konfigurerar övervakning i Azure-portalen.
 * **AzCopy**. Serverloggar för Azure Storage lagras som BLOB-objekt, så du kan använda AzCopy för att kopiera loggblobarna till en lokal katalog för analys med hjälp av Microsoft Message Analyzer. Se [överföra data med kommandoradsverktyget Azcopy](storage-use-azcopy.md) för mer information om AzCopy.
 * **Microsoft Message Analyzer**. Message Analyzer är ett verktyg som förbrukar loggfiler och visar loggdata i ett visuellt format som gör det enkelt att filter, search och gruppen loggdata till användbara uppsättningar som du kan använda för att analysera fel och prestandaproblem. Se [fungerar handboken för Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx) för mer information om analysverktyg.
@@ -79,51 +79,7 @@ I den här självstudien använder vi Message Analyzer för att arbeta med tre o
 * Den **HTTP nätverk spårningsloggen**, som samlar in data för HTTP/HTTPS-begäran och svaret data, inklusive för åtgärder mot Azure Storage. Vi ska generera nätverksspårning via Message Analyzer i de här självstudierna.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Konfigurera serversidan loggning och mått
-Först måste du konfigurera Azure Storage-loggning och mått, så att vi har data från klientprogrammet att analysera. Du kan konfigurera loggning och mått i en mängd olika sätt – den [Azure-portalen](https://portal.azure.com), med hjälp av PowerShell, eller programmässigt. Se [aktiverar Storage-mätvärden och visa Måttdata](https://msdn.microsoft.com/library/azure/dn782843.aspx) och [aktivera loggning för lagring och åtkomst till loggdata](https://msdn.microsoft.com/library/azure/dn782840.aspx) på MSDN för mer information om hur du konfigurerar loggning och mått.
-
-**Via Azure portal**
-
-För att konfigurera loggning och mått för ditt storage-konto med hjälp av den [Azure-portalen](https://portal.azure.com), följer du anvisningarna [övervaka ett lagringskonto i Azure-portalen](storage-monitor-storage-account.md).
-
-> [!NOTE]
-> Det går inte att ställa in minutmått med Azure portal. Vi rekommenderar dock att du anger dem för den här kursen och för att undersöka prestandaproblem med ditt program. Du kan ange minutmått med hjälp av PowerShell som visas nedan, eller genom programmering med storage-klientbiblioteket.
-> 
-> Observera att Azure-portalen inte kan visa minutmått, endast timvis mått.
-> 
-> 
-
-**Via PowerShell**
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Kom igång med PowerShell för Azure, se [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
-
-1. Använd den [Lägg till AzAccount](/powershell/module/servicemanagement/azure/add-azureaccount) cmdlet för att lägga till ditt Azure-konto till PowerShell-fönstret:
-   
-    ```powershell
-    Add-AzAccount
-    ```
-
-2. I den **logga in på Microsoft Azure** fönstret anger du e-postadress och lösenord som är associerat med ditt konto. Azure autentiserar och sparar autentiseringsuppgifterna och stänger sedan fönstret.
-3. Ange standardkontot för lagring till det lagringskonto som du använder för den här självstudien genom att köra följande kommandon i PowerShell-fönstret:
-   
-    ```powershell
-    $SubscriptionName = 'Your subscription name'
-    $StorageAccountName = 'yourstorageaccount'
-    Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-    ```
-
-4. Aktivera lagringsloggning för Blob-tjänsten:
-   
-    ```powershell
-    Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
-    ```
-
-5. Aktivera storage-mätvärden för Blob service, se till att ange **- MetricsType** till `Minute`:
-   
-    ```powershell
-    Set-AzStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
-    ```
+Först måste du konfigurera Azure Storage-loggning och mått, så att vi har data från serversidan att analysera. Du kan konfigurera loggning och mått i en mängd olika sätt – den [Azure-portalen](https://portal.azure.com), med hjälp av PowerShell, eller programmässigt. Se [aktivera mätvärden](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) och [aktivera loggning](storage-analytics-logging.md#enable-storage-logging) mer information om hur du konfigurerar loggning och mått.
 
 ### <a name="configure-net-client-side-logging"></a>Konfigurera loggning för klientsidan av .NET
 Aktivera .NET diagnostik i programmets konfigurationsfil (web.config eller app.config) om du vill konfigurera loggning på klientsidan för en .NET-program. Se [Klientloggning med .NET Storage Client Library](https://msdn.microsoft.com/library/azure/dn782839.aspx) och [Klientloggning med Microsoft Azure Storage SDK för Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) på MSDN för mer information.
@@ -159,8 +115,8 @@ Samla in och spara en nätverksspårning först i Message Analyzer och skapa en 
 
 > [!NOTE]
 > När du är klar med att samla in dina nätverksspårning rekommenderar vi starkt att du återställer de inställningar som du har ändrat i Fiddler att dekryptera HTTPS-trafik. I dialogrutan Fiddler alternativ avmarkera den **avbilda HTTPS ansluter** och **dekryptera HTTPS-trafik** kryssrutorna.
-> 
-> 
+>
+>
 
 Se [med hjälp av spårning av nätverksfunktioner](https://technet.microsoft.com/library/jj674819.aspx) på Technet för mer information.
 
@@ -175,8 +131,8 @@ Mer information om att lägga till och anpassa måttdiagram finns i [anpassa må
 
 > [!NOTE]
 > Det kan ta lite tid innan din måttdata visas i Azure-portalen när du har aktiverat lagringsmått. Det beror på att varje timme mått för föregående timma inte visas i Azure portal tills den aktuella timman har gått ut. Dessutom visas minutmått för närvarande inte i Azure-portalen. Därför beroende på när du aktiverar mått, det kan ta upp till två timmar att visa mätvärden.
-> 
-> 
+>
+>
 
 ## <a name="use-azcopy-to-copy-server-logs-to-a-local-directory"></a>Använda AzCopy för att kopiera loggar till en lokal katalog
 Azure Storage skriver server loggdata för blobar, medan mätvärdena skrivs till tabeller. Loggblobarna är tillgängliga i den välkända `$logs` behållare för ditt lagringskonto. Loggblobarna namnges hierarkiskt per år, månad, dag och timme, så att du lätt kan hitta tidsperiod som du vill undersöka. Till exempel i den `storagesample` konto, behållare för loggblobarna för 01/02/2015 från 8 – 9 am, är `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. Enskilda blobbar i den här behållaren namnges sekventiellt, från och med `000000.log`.
@@ -211,8 +167,8 @@ Message Analyzer innehåller tillgångar för Azure Storage som hjälper dig att
 
 > [!NOTE]
 > Installera alla Azure Storage-resurser som visas för den här självstudiekursen.
-> 
-> 
+>
+>
 
 ### <a name="import-your-log-files-into-message-analyzer"></a>Importera loggfilerna till Message Analyzer
 Du kan importera alla dina sparade loggfiler (serversidan, på klientsidan och nätverk) till en enda session i Microsoft Message Analyzer för analys.
@@ -255,8 +211,8 @@ Bilden nedan visar den här layoutvyn tillämpas på log exempeldata, med en del
 
 > [!NOTE]
 > Olika loggfilerna har olika kolumner, så när data från flera loggfiler visas i rutnätet för analys, vissa kolumner inte får innehålla några data för en viss rad. Till exempel i bilden ovan klienten log rader visas inte några data för den **tidsstämpel**, **TimeElapsed**, **källa**, och **mål**kolumner, eftersom dessa kolumner som inte finns i klientloggen för, men finns i nätverksspårningen. På samma sätt kan den **tidsstämpel** kolumnen visar tidsstämpel data från serverloggen, men inga data visas för den **TimeElapsed**, **källa**, och  **Mål** kolumner som inte är en del av serverloggen.
-> 
-> 
+>
+>
 
 Förutom att använda Azure Storage-vylayouter kan du också definiera och spara egna layouter. Du kan välja andra önskade fält för gruppering av data och spara grupperingen som en del av din anpassade layout.
 
@@ -289,12 +245,12 @@ Efter att ha tillämpat det här filtret, ser du att rader från klientloggen un
 
 > [!NOTE]
 > Du kan filtrera efter den **StatusCode** kolumn och fortfarande visa data från alla tre loggar, inklusive klientloggen om du lägger till ett uttryck filter som innehåller poster där statuskoden är null. För att skapa den här filteruttrycket, använder du:
-> 
+>
 > <code>&#42;StatusCode >= 400 or !&#42;StatusCode</code>
-> 
+>
 > Det här filtret returnerar alla rader från klienten logg- och endast rader från serverloggen och HTTP-log där statuskoden är större än 400. Om du använder för att visa layouten grupperade efter ID för klientbegäran och modulen, du kan söka eller bläddra igenom vilka loggposter du hittar sådana där alla tre loggar visas.   
-> 
-> 
+>
+>
 
 ### <a name="filter-log-data-to-find-404-errors"></a>Filtrera loggdata för att hitta 404-fel
 Storage-material inkluderar fördefinierade filter som du kan använda för att begränsa loggdata för att hitta fel eller trender som du letar efter. Nu ska vi ska använda två fördefinierade filter: en som filtrerar servern och nätverket spårningsloggar för 404-fel och en som filtrerar data på ett angivet tidsintervall.

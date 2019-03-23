@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a77c6ce205c40b5814f9b26f9099d868d434d3ce
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d38d93a1c9716cc3a71d904b7b1a46fb8b1c2ee0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316464"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369232"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Anpassa Azure AD-funktionerna för lösenordsåterställning via självbetjäning
 
@@ -26,12 +26,12 @@ IT-proffs som vill distribuera lösenordsåterställning via självbetjäning (S
 
 Även om SSPR inte är aktiverad kan användarna fortfarande att ha en ”Kontakta administratören” länk på lösenordet återställa portalen. Om användaren väljer den här länken det antingen:
 
-   * E-post dina administratörer och ber dem om du behöver hjälp med att ändra användarens lösenord.
-   * Skickar dina användare till en URL som du anger för att få hjälp.
+* E-post dina administratörer och ber dem om du behöver hjälp med att ändra användarens lösenord.
+* Skickar dina användare till en URL som du anger för att få hjälp.
 
 Vi rekommenderar att du ställer in den här kontakten till något som en e-postadress eller en webbplats som användarna redan använder för supportförfrågningar.
 
-![Kontakta][Contact]
+![Exempelförfrågan återställa e-postmeddelande skickas till administratören][Contact]
 
 Kontakta e-postmeddelandet skickas till följande mottagare i följande ordning:
 
@@ -68,8 +68,8 @@ Bilderna som du väljer visas i följande omständigheter:
 
 * När en användare anger sina användarnamn
 * Om användaren har åtkomst till den anpassade URL: en:
-    * Genom att skicka den `whr` parametern till lösenordet för lösenordsåterställning, som `https://login.microsoftonline.com/?whr=contoso.com`
-    * Genom att skicka den `username` parametern till lösenordet för lösenordsåterställning, som `https://login.microsoftonline.com/?username=admin@contoso.com`
+   * Genom att skicka den `whr` parametern till lösenordet för lösenordsåterställning, som `https://login.microsoftonline.com/?whr=contoso.com`
+   * Genom att skicka den `username` parametern till lösenordet för lösenordsåterställning, som `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 Hitta information om hur du konfigurerar företagsanpassning i artikeln [lägga till företagsprofilering för din inloggningssidan i Azure AD](../fundamentals/customize-branding.md).
 

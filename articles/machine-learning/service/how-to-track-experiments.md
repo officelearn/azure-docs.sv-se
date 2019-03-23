@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 835d1f41ffe940422554a8ca59d0a91ac8e98607
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 50cd5969ce02ee5eea0637c950069d684d67b5d3
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336603"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361463"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Log mått vid träning körs i Azure Machine Learning
 
@@ -32,7 +32,7 @@ Följande mått kan läggas till en körning vid utbildning ett experiment. Om d
 |Visar en lista över|Funktionen:<br>`run.log_list(name, value, description='')`<br><br>Exempel:<br>Run.log_list (”noggrannhet” [0,6, 0,7, 0.87]) | Logga in en lista med värden ska köras med det angivna namnet.|
 |Rad|Funktionen:<br>`run.log_row(name, description=None, **kwargs)`<br>Exempel:<br>Run.log_row (”Y över X” x = 1, y = 0.4) | Med hjälp av *log_row* skapar ett mått med flera kolumner enligt beskrivningen i kwargs. Varje namngivna parametern genererar en kolumn med det angivna värdet.  *log_row* kan anropas en gång för att logga en godtycklig tuppel eller flera gånger i en loop för att generera en hel tabell.|
 |Tabell|Funktionen:<br>`run.log_table(name, value, description='')`<br><br>Exempel:<br>Run.log_table (”Y över X”, {”x”: [1, 2, 3], ”y”: [0,6, 0,7, 0,89 tum]}) | Logga ett katalogobjekt ska köras med det angivna namnet. |
-|Avbildningar|Funktionen:<br>`run.log_image(name, path=None, plot=None)`<br><br>Exempel:<br>Run.log_image (”ROC”, plt) | Logga in en avbildning kör posten. Använd log_image för att logga en fil eller en matplotlib ritning körningen.  Dessa avbildningar är synlig och jämförbar i posten kör.|
+|Avbildningar|Funktionen:<br>`run.log_image(name, path=None, plot=None)`<br><br>Exempel:<br>`run.log_image("ROC", plt)` | Logga in en avbildning kör posten. Använd log_image för att logga en fil eller en matplotlib ritning körningen.  Dessa avbildningar är synlig och jämförbar i posten kör.|
 |Tagga en körning|Funktionen:<br>`run.tag(key, value=None)`<br><br>Exempel:<br>Run.tag (”valda”, ”yes”) | Tagga kör med en strängnyckel och ett valfritt strängvärde.|
 |Ladda upp filen eller katalogen|Funktionen:<br>`run.upload_file(name, path_or_stream)`<br> <br> Exempel:<br>Run.upload_file (”best_model.pkl” ”,. / model.pkl”) | Ladda upp en fil till kör posten. Körs automatiskt samla in fil i den angivna katalogen, där standardinställningen är ”. / matar ut” för de flesta typer som körs.  Använd upload_file endast när ytterligare filer måste överföras eller en utdatakatalog har inte angetts. Vi rekommenderar att lägga till `outputs` namn så att den hämtar överförs till utdata-katalogen. Du kan lista alla filer som är associerade med detta kör post efter kallas `run.get_file_names()`|
 
@@ -48,7 +48,7 @@ Om du vill spåra och övervaka ditt experiment, måste du lägga till kod för 
 ## <a name="set-up-the-workspace"></a>Ställ in arbetsytan
 Innan du lägger till loggning och skicka ett experiment, måste du ställa in arbetsytan.
 
-1. Läs in arbetsytan. Om du vill veta mer om hur du arbetsytans konfiguration, följer du de [snabbstarten](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started).
+1. Läs in arbetsytan. Om du vill veta mer om hur du arbetsytans konfiguration, följer du stegen i [skapa en arbetsyta för Azure Machine Learning-tjänsten](setup-create-workspace.md#sdk).
 
    ```python
    from azureml.core import Experiment, Run, Workspace
@@ -218,7 +218,9 @@ Det här exemplet kan utökas med grundläggande sklearn upphöjning modellen ov
    ```
 
 ## <a name="cancel-a-run"></a>Avbryt en körning
-När en körning har skickats kan du avbryta den även om du har tappat bort objektreferensen, så länge som du känner till experimentnamnet och körnings-id. 
+
+ALTER en körning har skickats kan du avbryta den även om du har tappat bort objektreferensen, så länge som du känner till experimentnamnet och köra ID. 
+
 
 ```python
 from azureml.core import Experiment
@@ -239,7 +241,7 @@ print(type(r), r.get_status())
 if r.get_status() not in ['Complete', 'Failed']:
     r.cancel()
 ```
-Observera att för närvarande bara ScriptRun och PipelineRun typer stöder Avbryt åtgärden.
+För närvarande bara ScriptRun och PipelineRun-typerna stöder Avbryt åtgärden.
 
 Du kan dessutom avbryta en körning via CLI med följande kommando:
 ```shell

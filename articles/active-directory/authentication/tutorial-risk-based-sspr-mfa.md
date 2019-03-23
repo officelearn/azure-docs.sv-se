@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e71247c9a6527bc7372af1a902028aae72bf4a73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 35039dc05103ac6528f668fd76e1372ed7cc0708
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162704"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370567"
 ---
 # <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Självstudier: Använda riskhändelser för att utlösa multifaktorautentisering och lösenordsändringar
 
@@ -40,7 +40,7 @@ Mer information om Azure AD Identity Protection finns i artikeln [Vad är Azure 
 > * Aktivera riskbaserade lösenordsändringar
 > * Aktivera riskbaserad multifaktorautentisering
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Åtkomst till en aktiv Azure AD-klientorganisation med minst en utvärderingslicens för Azure AD Premium P2 som tilldelats.
 * Ett konto med behörigheter som global administratör i Azure AD-klientorganisationen.
@@ -54,14 +54,14 @@ Att aktivera riskbaserade principer är en enkel process. Stegen nedan vägleder
 
 Azure AD Identity Protection innehåller en standardprincip som kan hjälpa dig att registrera användarna för multifaktorautentisering och enkelt identifiera den aktuella registreringsstatusen. När den här principen aktiveras kräver den inte att användare utför multifaktorautentisering, men den ber dem att förhandsregistrera sig.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Klicka på **Alla tjänster** och bläddra sedan till **Azure AD Identity Protection**.
 1. Klicka på **MFA-registrering**.
 1. Ange Tillämpa princip till **På**.
    1. Om du anger den här principen måste alla användare registrera metoder för att förbereda användningen av multifaktorautentisering.
 1. Klicka på **Spara**.
 
-   ![Kräv att användare registrerar sig för MFA vid inloggning med Azure AD Identity Protection](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
+   ![Kräv att användare ska registrera för MFA vid inloggning](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
 
 ### <a name="enable-risk-based-password-changes"></a>Aktivera riskbaserade lösenordsändringar
 

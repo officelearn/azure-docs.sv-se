@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: d1e896aee4ba699704ce01e0cff8210d53700993
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8b10cb0d66103410159a09ca156be3ea180c068b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899816"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371935"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Översikt över Azure övervakningsagenter 
 Microsoft Azure tillhandahåller flera olika sätt att samla in olika typer av data från virtuella datorer som kör Microsoft Windows och Linux som ligger i Azure, ditt datacenter eller andra molnleverantörer. Det finns tre typer av agenter som kan övervaka en virtuell dator:
@@ -49,10 +49,10 @@ Azure Diagnostics-agenten ska användas när du vill:
 * Skala VM scale sets och klassiska molntjänster baserat på OS gästmått.
 * Undersöka startproblem med de Virtuella med [Startdiagnostik](../../virtual-machines/troubleshooting/boot-diagnostics.md).
 * Förstå hur dina program fungerar och proaktivt identifierar problem påverkar dem med [Application Insights](../../azure-monitor/overview.md).
-* Konfigurera Log Analytics för att importera mått och loggar data som samlas in från molntjänster, klassiska virtuella datorer, och Service Fabric-noder som lagras i ett Azure storage-konto.
+* Konfigurera Azure Monitor för att importera mått och loggar data som samlas in från molntjänster, klassiska virtuella datorer, och Service Fabric-noder som lagras i ett Azure storage-konto.
 
 ## <a name="log-analytics-agent"></a>Log Analytics-agenten
-För avancerad övervakning där du behöver mer än att samla in mått och en delmängd av loggar, Log Analytics-agenten för Windows (kallas även som Microsoft Monitoring Agent (MMA)) och Linux måste anges. Log Analytics-agenten har utvecklats specifikt för omfattande hantering i den lokala fysiska och virtuella datorer, datorer som övervakas av System Center Operations Manager och virtuella datorer i finns i andra moln. Windows och Linux-agenter ansluter till en Log Analytics-arbetsyta för att samla in såväl lösningen som baseras övervakningsdata som anpassade datakällor som du konfigurerar.
+För avancerad övervakning där du behöver mer än att samla in mått och en delmängd av loggar, Log Analytics-agenten för Windows (kallas även som Microsoft Monitoring Agent (MMA)) och Linux måste anges. Log Analytics-agenten har utvecklats specifikt för omfattande hantering i den lokala fysiska och virtuella datorer, datorer som övervakas av System Center Operations Manager och virtuella datorer i finns i andra moln. Windows och Linux-agenter ansluter till en Log Analytics-arbetsyta i Azure Monitor för att samla in såväl lösningen som baseras övervakningsdata som anpassade datakällor som du konfigurerar.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -70,7 +70,7 @@ Tidigare flera Azure-tjänster har tillsammans i den *Operations Management Suit
 * Azure-tjänster som [Programinsikter](https://docs.microsoft.com/azure/application-insights/) och [Azure Security Center](https://docs.microsoft.com/azure/security-center/), som internt lagrar sina data direkt i Log Analytics.  
 
 ## <a name="dependency-agent"></a>Beroendeagent
-Beroendeagenten har utvecklats som en del av lösningen Tjänstkarta som ursprungligen utvecklades för externt från Microsoft. [Tjänstkarta](../insights/service-map.md) och [Azure Monitor för virtuella datorer](../insights/vminsights-overview.md) kräver en beroende-Agent på Windows och Linux virtuella datorer och den kan integreras med Log Analytics-agenten samlar in identifierade data om processer som körs på den virtuella datorn och extern Processberoenden. Den lagrar dessa data i Log Analytics och hjälper dig att visualisera de identifierade sammankopplade komponenterna.
+Beroendeagenten har utvecklats som en del av lösningen Tjänstkarta som ursprungligen utvecklades för externt från Microsoft. [Tjänstkarta](../insights/service-map.md) och [Azure Monitor för virtuella datorer](../insights/vminsights-overview.md) kräver en beroende-Agent på Windows och Linux virtuella datorer och den kan integreras med Log Analytics-agenten samlar in identifierade data om processer som körs på den virtuella datorn och extern Processberoenden. Den lagrar dessa data i Log Analytics-arbetsytan och hjälper dig att visualisera de identifierade sammankopplade komponenterna.
 
 Du kan behöva en kombination av dessa agenter att övervaka din virtuella dator. Agenter kan installeras sida vid sida som Azure-tillägg, men på Linux, Log Analytics-agenten *måste* installeras först. Annars installationen misslyckas. 
 

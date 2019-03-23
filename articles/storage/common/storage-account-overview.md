@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce9635c108a948b4773c7d27cb254f01d06896f8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ca71fdc8074e56adc8595ee905d5b1db3b60cef1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544247"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371821"
 ---
 # <a name="azure-storage-account-overview"></a>Översikt över Azure storage-konto
 
@@ -84,20 +84,14 @@ Azure Storage tillhandahåller olika alternativ för åtkomst till block blob-da
 
 Tillgängliga åtkomstnivåer är:
 
-> [!NOTE]
-> Den [premium åtkomstnivå (förhandsversion)](../blobs/storage-blob-storage-tiers.md#premium-access-tier), som är optimerad för känsliga program för prestanda, ger låg och konsekvent fördröjning med hög genomströmning och transaktionen. Premium-åtkomstnivå är endast tillgängligt med Block Blob storage-konton (förhandsversion). Mer information finns i [förhandsversion av Azure Premium-Bloblagring](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
-
 * Den **frekvent** åtkomstnivå, vilket är optimerad för frekvent åtkomst med objekt i lagringskontot. Åtkomst till data i den frekventa nivån är mest kostnadseffektiva, medan kostnader för lagring är något högre. Nya lagringskonton som skapas i frekvent nivå som standard.
 * Den **lågfrekvent** åtkomstnivå, vilket är optimerad för att lagra stora mängder data som används sällan och som lagras i minst 30 dagar. Lagra data i den lågfrekventa nivån är mer kostnadseffektivt, men åtkomsten till dessa data kan vara något dyrare än att komma åt data på frekvent lagringsnivå.
 * Den **Arkiv** åtkomstnivå, vilket är endast tillgänglig för enskilda blockblob-objekt. Arkivnivån är optimerad för data som kan tolerera flera timmars svarstid för hämtning och finns kvar på arkivnivån i minst 180 dagar. Arkivnivån är det mest kostnadseffektiva alternativet för att lagra data, men åtkomsten till dessa data är dyrare än att komma åt data i frekvent eller lågfrekvent nivå. 
 
-
-Om det finns en ändring i användningsmönstret för dina data, kan du växla mellan de olika nivåerna när som helst. Läs mer om åtkomstnivåerna [Azure Blob storage: Premium (förhandsversion), frekvent, lågfrekvent och Arkivlagringsnivå](../blobs/storage-blob-storage-tiers.md).
+Om det finns en ändring i användningsmönstret för dina data, kan du växla mellan de olika nivåerna när som helst. Läs mer om åtkomstnivåerna [Azure Blob storage: frekvent, lågfrekvent och arkivnivå åtkomst](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
 > Ändra åtkomstnivå för ett befintligt lagringskonto eller blob kan resultera i ytterligare avgifter. Mer information finns i den [lagringskonto fakturering avsnittet](#storage-account-billing).
-
-
 
 ## <a name="replication"></a>Replikering
 
@@ -135,7 +129,7 @@ Varje begäran som görs mot ditt lagringskonto måste ha behörighet. På nivå
 
 Du kan bevilja åtkomst till data i ditt storage-konto med hjälp av någon av följande metoder:
 
-- **Azure Active Directory:** Använd autentiseringsuppgifter för Azure Active Directory (Azure AD) för att autentisera en användare, grupp eller andra identitet för åtkomst till blob och kö (förhandsversion). Om autentisering av en identitet lyckas returnerar en token som ska användas i auktorisera begäran till Azure Blob storage eller Queue storage med Azure AD. Mer information finns i [autentisera åtkomsten till Azure Storage med Azure Active Directory (förhandsversion)](storage-auth-aad.md).
+- **Azure Active Directory:** Använd autentiseringsuppgifter för Azure Active Directory (Azure AD) för att autentisera en användare, grupp eller andra identitet för åtkomst till blob-och kö. Om autentisering av en identitet lyckas returnerar en token som ska användas i auktorisera begäran till Azure Blob storage eller Queue storage med Azure AD. Mer information finns i [autentisera åtkomsten till Azure Storage med Azure Active Directory](storage-auth-aad.md).
 - **Delad nyckel auktorisering:** Använd din åtkomstnyckel för lagringskontot för att skapa en anslutningssträng som programmet använder vid körning för att få åtkomst till Azure Storage. Värdena i anslutningssträngen som används för att konstruera den *auktorisering* -huvud som skickas till Azure Storage. Mer information finns i [konfigurera Azure Storage-anslutningssträngar](storage-configure-connection-string.md).
 - **Signatur för delad åtkomst:** Använda en signatur för delad åtkomst för att delegera åtkomst till resurser i ditt storage-konto om du inte använder Azure AD-autentisering. En signatur för delad åtkomst är en token som kapslar in all information som behövs för att auktorisera en begäran till Azure Storage på URL: en. Du kan ange i storage resurs- och behörigheterna intervallet behörigheterna som är giltig som en del av signaturen för delad åtkomst. Mer information finns i [använda signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 

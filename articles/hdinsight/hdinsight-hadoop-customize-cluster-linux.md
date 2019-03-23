@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: ccb408a427680cffc339797bd3421ed9f53af640
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 80c2d25fa24acff92a462f0289259792f217fbfd
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200692"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361701"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>Anpassa Linux-baserade HDInsight-kluster med skriptåtgärder
 
@@ -26,6 +26,8 @@ Azure HDInsight är en konfigurationsmetod som kallas **skriptåtgärder** som a
 > Linux är det enda operativsystem som används på HDInsight version 3.4 och senare. Mer information finns i [dras tillbaka HDInsight Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 Skriptåtgärder kan även publiceras på Azure Marketplace som ett HDInsight-program. Mer information om HDInsight-program finns i [publicera ett HDInsight-program på Azure Marketplace](hdinsight-apps-publish-applications.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="permissions"></a>Behörigheter
 
@@ -131,7 +133,7 @@ Ett fel i ett skript som körs på ett pågående kluster att inte automatiskt k
 >
 > Åtgärder som skript körs med rotprivilegier. Se till att du förstår vad en skriptet gör innan du tillämpar den till ditt kluster.
 
-När du använder ett skript för ett kluster, kluster-status ändras från **kör** till **godkända**. Sedan ändras till **HDInsight configuration** och slutligen tillbaka till **kör** för lyckad skript. Skriptstatus för är inloggad i historiken för skriptåtgärder. Den här informationen visar om skriptet har lyckats eller misslyckats. Till exempel den `Get-AzureRmHDInsightScriptActionHistory` PowerShell-cmdlet visar status för ett skript. Den returnerar information liknande följande text:
+När du använder ett skript för ett kluster, kluster-status ändras från **kör** till **godkända**. Sedan ändras till **HDInsight configuration** och slutligen tillbaka till **kör** för lyckad skript. Skriptstatus för är inloggad i historiken för skriptåtgärder. Den här informationen visar om skriptet har lyckats eller misslyckats. Till exempel den `Get-AzHDInsightScriptActionHistory` PowerShell-cmdlet visar status för ett skript. Den returnerar information liknande följande text:
 
     ScriptExecutionId : 635918532516474303
     StartTime         : 8/14/2017 7:40:55 PM
@@ -223,7 +225,7 @@ Få mer information om hur du distribuerar en mall:
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Använda en skriptåtgärd när klustret skapas från Azure PowerShell
 
-I det här avsnittet ska du använda den [Lägg till AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet för att anropa-skript för att anpassa ett kluster. Innan du börjar bör du kontrollera att du installerar och konfigurerar Azure PowerShell. Information om hur du konfigurerar en arbetsstation för att köra HDInsight PowerShell cmdlets finns i [översikt av Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+I det här avsnittet ska du använda den [Lägg till AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet för att anropa-skript för att anpassa ett kluster. Innan du börjar bör du kontrollera att du installerar och konfigurerar Azure PowerShell. Information om hur du konfigurerar en arbetsstation för att köra HDInsight PowerShell cmdlets finns i [översikt av Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
 
 Följande skript visar hur du använder en skriptåtgärd när du skapar ett kluster med hjälp av PowerShell:
 
@@ -368,13 +370,13 @@ Ett exempel på hur du använder .NET SDK för att tillämpa skript till ett klu
 
 | cmdlet | Funktion |
 | --- | --- |
-| `Get-AzureRmHDInsightPersistedScriptAction` |Hämta information om beständiga skriptåtgärder. |
-| `Get-AzureRmHDInsightScriptActionHistory` |Hämta en historik över skriptåtgärder som tillämpas på det kluster eller information om ett visst skript. |
-| `Set-AzureRmHDInsightPersistedScriptAction` |Flytta upp en ad hoc-skriptåtgärd till en bestående skriptåtgärd. |
-| `Remove-AzureRmHDInsightPersistedScriptAction` |Degradera en bestående skriptåtgärd till en ad hoc-åtgärd. |
+| `Get-AzHDInsightPersistedScriptAction` |Hämta information om beständiga skriptåtgärder. |
+| `Get-AzHDInsightScriptActionHistory` |Hämta en historik över skriptåtgärder som tillämpas på det kluster eller information om ett visst skript. |
+| `Set-AzHDInsightPersistedScriptAction` |Flytta upp en ad hoc-skriptåtgärd till en bestående skriptåtgärd. |
+| `Remove-AzHDInsightPersistedScriptAction` |Degradera en bestående skriptåtgärd till en ad hoc-åtgärd. |
 
 > [!IMPORTANT]  
-> `Remove-AzureRmHDInsightPersistedScriptAction` inte ångra åtgärder som utförs av ett skript. Denna cmdlet tar endast bort flaggan beständiga.
+> `Remove-AzHDInsightPersistedScriptAction` inte ångra åtgärder som utförs av ett skript. Denna cmdlet tar endast bort flaggan beständiga.
 
 Följande exempelskript visar hur du använder cmdlets kan marknadsföra och flytta ned ett skript.
 

@@ -4,257 +4,228 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: a5ea18d3-3aaf-4bc6-957c-783e9371d0f1
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/08/2018
+ms.topic: tutorial
+ms.date: 03/19/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41c514706a671f755eb5b0efd5e3eefa5052c6e2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: beb84671db01020f0118502e35128387d36845d6
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450030"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361429"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Självstudier: Azure Active Directory-integrering med Palo Alto Networks - öppning
 
 I den här självstudien får du lära dig hur du integrerar Palo Alto Networks - öppning med Azure Active Directory (AD Azure).
-
 Integrera Palo Alto Networks - öppning med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Palo Alto Networks - öppning.
-- Du kan aktivera användarna att automatiskt få loggat in på Palo Alto Networks - öppning (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan styra i Azure AD som har åtkomst till Palo Alto Networks - öppning.
+* Du kan aktivera användarna att vara automatiskt inloggad till Palo Alto Networks - öppning (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Palo Alto Networks - öppning, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En Palo Alto Networks - öppning enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Palo Alto Networks - öppning enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Palo Alto Networks - öppning från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+
+* Har stöd för Palo Alto Networks - öppning **SP** och **IDP** -initierad SSO
 
 ## <a name="adding-palo-alto-networks---aperture-from-the-gallery"></a>Att lägga till Palo Alto Networks - öppning från galleriet
+
 Om du vill konfigurera integreringen av Palo Alto Networks - öppning i Azure AD som du behöver lägga till Palo Alto Networks - öppning från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Palo Alto Networks - öppning från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
-    
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Knappen Nytt program][3]
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I sökrutan skriver **Palo Alto Networks - öppning**väljer **Palo Alto Networks - öppning** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Palo Alto Networks - öppning i resultatlistan](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_addfromgallery.png)
+4. I sökrutan skriver **Palo Alto Networks - öppning**väljer **Palo Alto Networks - öppning** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+
+     ![Palo Alto Networks - öppning i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Palo Alto Networks - öppning baserat på en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Palo Alto Networks - öppning är till en användare i Azure AD. Med andra ord en länk relationen mellan en Azure AD-användare och relaterade användaren i Palo Alto Networks - öppning måste upprättas.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Palo Alto Networks - öppning baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning till arbete, en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Palo Alto Networks - måste öppning upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Palo Alto Networks - öppning, måste du slutföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-1. **[Skapa en Palo Alto Networks - öppning testanvändare](#create-a-palo-alto-networks---aperture-test-user)**  – du har en motsvarighet för Britta Simon i Palo Alto Networks - öppning som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-1. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+2. **[Konfigurera Palo Alto Networks - öppning Single Sign-On](#configure-palo-alto-networks---aperture-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Palo Alto Networks - öppning testanvändare](#create-palo-alto-networks---aperture-test-user)**  – du har en motsvarighet för Britta Simon i Palo Alto Networks - öppning som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet ska du aktiverar Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i din Palo Alto Networks - öppning program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Om du vill konfigurera Azure AD utför enkel inloggning med Palo Alto Networks - öppning, du följande steg:**
+Om du vill konfigurera Azure AD utför enkel inloggning med Palo Alto Networks - öppning, du följande steg:
 
-1. I Azure-portalen på den **Palo Alto Networks - öppning** program integration-sidan klickar du på **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **Palo Alto Networks - öppning** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. På den **Palo Alto Networks - öppning domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Palo Alto Networks - öppning domän och URL: er med enkel inloggning för information](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/metadata`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+
+4. Om du vill konfigurera programmet i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
+
+    ![Palo Alto Networks - öppning domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/metadata`
 
     b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/auth`
 
-1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Palo Alto Networks - öppning domän och URL: er med enkel inloggning för information](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_url1.png)
+    ![Palo Alto Networks - öppning domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
 
-    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/sign_in`
-     
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Palo Alto Networks - supportteamet för öppning klienten](https://live.paloaltonetworks.com/t5/custom/page/page-id/Support) att hämta dessa värden. 
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/sign_in`
 
-1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Palo Alto Networks - supportteamet för öppning klienten](https://live.paloaltonetworks.com/t5/custom/page/page-id/Support) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Länk för nedladdning av certifikatet](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_certificate.png) 
+6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-1. Klicka på **spara** knappen.
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/paloaltonetworks-aperture-tutorial/tutorial_general_400.png)
+7. På den **konfigurera Palo Alto Networks - öppning** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
 
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-1. På den **Palo Alto Networks - öppning Configuration** klickar du på **konfigurera Palo Alto Networks - öppning** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+    a. Inloggnings-URL
 
-    ![Konfigureringslänken](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_configure.png)
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-palo-alto-networks---aperture-single-sign-on"></a>Konfigurera Palo Alto Networks - öppning enkel inloggning
 
 1. I ett annat webbläsarfönster, logga in på Palo Alto Networks - öppning som administratör.
 
-1. På den övre menyraden klickar du på **inställningar**.
+2. På den övre menyraden klickar du på **inställningar**.
 
     ![Inställningsfliken](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_settings.png)
 
-1. Gå till **programmet** klickar du på avsnittet **autentisering** formuläret till vänster på menyn.
+3. Gå till **programmet** klickar du på avsnittet **autentisering** formuläret till vänster på menyn.
 
     ![Fliken Auth](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_auth.png)
     
-1. På den **autentisering** sidan utför följande steg:
+4. På den **autentisering** sidan utför följande steg:
     
     ![Fliken autentisering](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_singlesignon.png)
 
     a. Kontrollera den **aktivera enkel inloggning-On(Supported SSP Providers are Okta, One login)** från **enkel inloggning** fält.
 
-    b. I den **identitet Provider-ID** textrutan klistra in värdet för **SAML entitets-ID**, som du har kopierat från Azure-portalen.
+    b. I den **identitet Provider-ID** textrutan klistra in värdet för **Azure AD-identifierare**, som du har kopierat från Azure-portalen.
 
     c. Klicka på **Välj fil** att ladda upp det nedladdade certifikatet från Azure AD i den **providern identitetscertifikat** fält.
 
-    d. I den **SSO-URL för identitetsprovider** textrutan klistra in värdet för **SAML enkel inloggning för tjänst-URL**, som du har kopierat från Azure-portalen.
+    d. I den **SSO-URL för identitetsprovider** textrutan klistra in värdet för **inloggnings-URL**, som du har kopierat från Azure-portalen.
 
     e. Granska IdP-informationen från **öppning Info** avsnittet och hämta certifikatet från **öppning nyckeln** fält.
 
     f. Klicka på **Spara**.
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-   ![Skapa en Azure AD-testanvändare][100]
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+2. Välj **Ny användare** överst på skärmen.
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+    ![Knappen Ny användare](common/new-user.png)
 
-    ![Azure Active Directory-knappen](./media/paloaltonetworks-aperture-tutorial/create_aaduser_01.png)
+3. Genomför följande steg i Användaregenskaper.
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/paloaltonetworks-aperture-tutorial/create_aaduser_02.png)
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
-
-    ![Knappen Lägg till](./media/paloaltonetworks-aperture-tutorial/create_aaduser_03.png)
-
-1. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/paloaltonetworks-aperture-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-a-palo-alto-networks---aperture-test-user"></a>Skapa en Palo Alto Networks - öppning testanvändare
-
-I det här avsnittet skapar du en användare som kallas Britta Simon i Palo Alto Networks - öppning. Arbeta med [Palo Alto Networks - supportteamet för öppning klienten](https://live.paloaltonetworks.com/t5/custom/page/page-id/Support) att lägga till användare i Palo Alto Networks - öppning plattform. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Palo Alto Networks - öppning.
 
-![Tilldela rollen][200] 
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Palo Alto Networks - öppning**.
 
-**Om du vill tilldela Britta Simon Palo Alto Networks - öppning, utför du följande steg:**
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+2. I listan med program väljer **Palo Alto Networks - öppning**.
 
-    ![Tilldela användare][201] 
+    ![Palo Alto nätverk - öppning länk i listan med program](common/all-applications.png)
 
-1. I listan med program väljer **Palo Alto Networks - öppning**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Palo Alto nätverk - öppning länk i listan med program](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_app.png)  
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Länken ”användare och grupper”][202]
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Fönstret Lägg till tilldelning][203]
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+### <a name="create-palo-alto-networks---aperture-test-user"></a>Skapa Palo Alto Networks - öppning testanvändare
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+I det här avsnittet skapar du en användare som kallas Britta Simon i Palo Alto Networks - öppning. Arbeta med [Palo Alto Networks - supportteamet för öppning klienten](https://live.paloaltonetworks.com/t5/custom/page/page-id/Support) att lägga till användare i Palo Alto Networks - öppning plattform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på Palo Alto Networks - Öppning panel i åtkomstpanelen, du bör få automatiskt loggat in på ditt Palo Alto Networks - öppning program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på Palo Alto Networks - Öppning panel i åtkomstpanelen, bör du vara automatiskt inloggad på Palo Alto Networks - öppning som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/paloaltonetworks-aperture-tutorial/tutorial_general_01.png
-[2]: ./media/paloaltonetworks-aperture-tutorial/tutorial_general_02.png
-[3]: ./media/paloaltonetworks-aperture-tutorial/tutorial_general_03.png
-[4]: ./media/paloaltonetworks-aperture-tutorial/tutorial_general_04.png
-
-[100]: ./media/paloaltonetworks-aperture-tutorial/tutorial_general_100.png
-
-[200]: ./media/paloaltonetworks-aperture-tutorial/tutorial_general_200.png
-[201]: ./media/paloaltonetworks-aperture-tutorial/tutorial_general_201.png
-[202]: ./media/paloaltonetworks-aperture-tutorial/tutorial_general_202.png
-[203]: ./media/paloaltonetworks-aperture-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

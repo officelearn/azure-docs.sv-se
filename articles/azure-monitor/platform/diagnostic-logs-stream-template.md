@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: e6185a7b62e3c599a7c3588824e3a9c4ac60cb53
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7edce5175a1dda66abf3316cb8f0eb33e9f64ef7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467636"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371477"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Aktivera diagnostikinställningar automatiskt när en resurs skapas med en Resource Manager-mall
-I den här artikeln visar vi hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) att konfigurera diagnostikinställningar på en resurs när den skapas. På så sätt kan du automatiskt starta direktuppspelning av dina diagnostikloggar och mått till Event Hubs, arkivera dem i ett Lagringskonto eller skicka dem till Log Analytics när en resurs skapas.
+I den här artikeln visar vi hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) att konfigurera diagnostikinställningar på en resurs när den skapas. På så sätt kan du starta direktuppspelning av dina diagnostikloggar och mått till Event Hubs, arkivera dem i ett Lagringskonto eller skicka dem till Log Analytics-arbetsytan när en resurs skapas automatiskt.
 
 > [!WARNING]
 > Formatet för loggdata i lagringskontot ändras till JSON Lines den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -40,7 +40,7 @@ Nedan kan vi ge ett exempel på mall för JSON-filen måste du generera för ick
 ## <a name="non-compute-resource-template"></a>Icke-beräkningsresurs mall
 För icke-beräkningsresurser behöver du göra två saker:
 
-1. Lägg till parametrar till bloben parametrar för lagringskontonamn, regel-ID för event hub-auktorisering och/eller Log Analytics arbetsyte-ID (aktivera arkivering av diagnostikloggar i ett lagringskonto, strömning av loggar till Event Hubs och/eller skickar loggar till Log Analytics).
+1. Lägg till parametrar till bloben parametrar för lagringskontonamn, regel-ID för event hub-auktorisering och/eller Log Analytics arbetsyte-ID (aktivera arkivering av diagnostikloggar i ett lagringskonto, strömning av loggar till Event Hubs och/eller skickar loggar till Azure Monitor).
    
     ```json
     "settingName": {

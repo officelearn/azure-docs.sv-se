@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 251a2a3fed57e957de11a20189b6b6d553d98a78
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 88113fee64251344bd84085caedc9dfccfa10933
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310276"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351464"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Vad är Azure Media Services v3?
 
@@ -77,24 +77,11 @@ Exempel på det här kan vara att
 
 Se exemplet [Hämta princip för innehållsnyckel – .NET](get-content-key-policy-dotnet-howto.md).
 
-## <a name="how-can-i-get-started-with-v3"></a>Hur kan jag komma igång med v3?
-
-Information om hur du börjar utveckla med Media Services v3-API med hjälp av olika verktyg och SDK:er finns i [Börja utveckla](developers-guide.md).
-
-## <a name="v3-content-map"></a>Innehållskarta för v3
-
-Innehållet för Media Services v3 är organiserat enligt följande struktur (detta visas även i innehållsförteckningen):
-
-|Avsnitt| Beskrivning|
-|---|---|
-| Översikt | Beskriver funktionerna för Media Services och vad du kan göra med tjänsten.|
-| Snabbstarter | Visar grundläggande dag 1-anvisningar så att nya kunder snabbt kan prova Media Services.|
-| Självstudier | Visa scenariobaserade procedurer för några av de viktigaste Media Services-uppgifterna.|
-| Exempel | Länkar till kodexempel. |
-| Begrepp | Innehåller en detaljerad förklaring av [begrepp och funktioner för Media Services v3](concepts-overview.md). De grundläggande begrepp som beskrivs i de här ämnena bör granskas innan utveckling påbörjas.<br/><br/>* Uppladdning till och lagring i molnet<br/>* Kodning<br/>* Medieanalys<br/>* Paketering, leverans och skydd<br/>* Liveuppspelning<br/>* Övervakning<br/>* Player-klienter<br/><br/>och mer. |
-| Instruktionsguider | Visar hur en uppgift slutförs.|
-
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill se hur lätt det är att börja koda och strömma videofiler, kolla in [Strömma filer](stream-files-dotnet-quickstart.md). 
+Hur kan jag komma igång med v3? 
+
+> [!div class="nextstepaction"]
+> [Lär dig mer om grundläggande begrepp](concepts-overview.md)<br/>
+> [Utveckla med Media Services v3-API med SDK: er](developers-guide.md) 
 

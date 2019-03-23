@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 906b1dde3d145268df4fb1ff5c243c7daa8396ec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a102216a6a2a7dec471678e14f7050cb4ef41d77
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992433"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370116"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomstkontroll i Azure Data Lake Storage Gen2
 
@@ -279,7 +279,18 @@ Den ägande användaren kan lätt ändra behörigheterna för filen för att ge 
 
 ### <a name="why-do-i-sometimes-see-guids-in-acls"></a>Varför ibland visas GUID i ACL: er?
 
-En GUID visas om posten representerar en användare och att användaren finns inte i Azure AD längre. Detta inträffar vanligtvis när användaren har lämnat företaget eller om kontot har tagits bort i Azure AD. Dessutom tjänstens huvudnamn och säkerhetsgrupper har inte ett UPN User Principal Name () att identifiera dem och så de representeras av sina objektidentifierarattribut (en guid). 
+En GUID visas om posten representerar en användare och att användaren finns inte i Azure AD längre. Detta inträffar vanligtvis när användaren har lämnat företaget eller om kontot har tagits bort i Azure AD. Dessutom tjänstens huvudnamn och säkerhetsgrupper har inte ett UPN User Principal Name () att identifiera dem och så de representeras av sina objektidentifierarattribut (en guid).
+
+### <a name="how-do-i-set-acls-correctly-for-a-service-principal"></a>Hur ställer jag in ACL: er korrekt för en tjänst huvudnamn?
+
+När du definierar ACL: er för tjänstens huvudnamn är det viktigt att använda det objekt-ID (OID) för den *tjänstens huvudnamn* för registreringen som du skapade. Det är viktigt att Observera att registrerade appar har en separat tjänstens huvudnamn i specifikt Azure AD-klient. Registrerade appar har en OID som visas i Azure-portalen, men *tjänstens huvudnamn* har en annan (olika) OID.
+
+Du kan använda för att få OID för tjänstens huvudnamn som corresonds till en appregistrering kan den `az ad sp show` kommando. Ange program-ID som parameter. Här är ett exempel på hur du skaffar OID för tjänstens huvudnamn som motsvarar en appregistrering med App-Id = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Kör följande kommando i Azure CLI:
+
+`az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
+<<OID will be displayed>>`
+
+När du har rätt OID för tjänstens huvudnamn, går du till Lagringsutforskaren **hantera åtkomst** att lägga till OID och tilldela lämpliga behörigheter för OID. Kontrollera att du väljer **spara**.
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Stöder Data Lake Storage Gen2 arv av ACL: er?
 

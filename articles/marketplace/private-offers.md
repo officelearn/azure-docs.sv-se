@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: qianw211
-ms.openlocfilehash: 1efe65feaac6e71437958451e8c1a44027495fce
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: c3294aaa2b6c88e08028c8958d2ab3a7297aea74
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620021"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351821"
 ---
 # <a name="private-offers"></a>Privata erbjudanden
 
@@ -55,6 +55,9 @@ Privata erbjudanden är bara synliga via den [Azure-portalen](https://azure.micr
 ![[Privata erbjudanden]](./media/marketplace-publishers-guide/private-offer.png)
 
 Privata erbjudanden kommer också att visas i sökresultaten. Bara utkik efter ”privat” märket.
+
+> [!Note]
+> Privata erbjudanden kan inte användas med prenumerationer som upprättats via en återförsäljare i programmet för leverantörer av Molnlösningar (CSP).
 
 ## <a name="next-steps"></a>Nästa steg
 

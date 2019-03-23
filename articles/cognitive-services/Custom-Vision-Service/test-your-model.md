@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/03/2018
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 21d8f6a3b10de17172ff59463cca4162585fe40f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d516cee81aef66ec58399cb5ff23c89db16bf2ab
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858999"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350444"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Testa och tränar en modell med Custom Vision Service
 
@@ -35,7 +35,7 @@ Den valda bilden visas i mitten på sidan. Resultaten visas under bilden i form 
 
 Du kan nu lägga till den här testbilden till din modell och sedan träna din modell.
 
-## <a name="use-the-predicted-image-for-training"></a>Använd den förväntade avbildningen för utbildning.
+## <a name="use-the-predicted-image-for-training"></a>Använda förutspådda avbildningen för träning
 
 Om du vill använda den avbildning som har skickats tidigare för träning, använder du följande steg:
 

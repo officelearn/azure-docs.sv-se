@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 402a2d6afc7b58d4dfc1c9fa67e354b4d157bd4c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310242"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370198"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory smart kontoutelåsning
 
@@ -40,8 +40,8 @@ Smart kontoutelåsning kan integreras med hybriddistributioner, använder hash-s
 
 När du använder [direktautentisering](../hybrid/how-to-connect-pta.md), måste du se till att:
 
-   * Tröskelvärde för låsning av Azure AD är **mindre** än tröskelvärde för kontoutelåsning Active Directory. Ange värden så att Active Directory-kontoutelåsningströskelvärde är minst två eller tre gånger som är längre än tröskelvärde för låsning av Azure AD. 
-   * Azure AD-utelåsningstid **sekundsnabbt** är **längre** än Active Directory Återställ räknaren för kontoutelåsning efter längd **minuter**.
+* Tröskelvärde för låsning av Azure AD är **mindre** än tröskelvärde för kontoutelåsning Active Directory. Ange värden så att Active Directory-kontoutelåsningströskelvärde är minst två eller tre gånger som är längre än tröskelvärde för låsning av Azure AD. 
+* Azure AD-utelåsningstid **sekundsnabbt** är **längre** än Active Directory Återställ räknaren för kontoutelåsning efter längd **minuter**.
 
 > [!IMPORTANT]
 > En administratör inte för närvarande inte låsa upp användarnas molnkonton om de har låsts ute för Smart kontoutelåsning kapaciteten. Administratören måste vänta tills utelåsningstid att upphöra att gälla.
@@ -55,7 +55,7 @@ Använd följande instruktioner för att verifiera din lokala Active Directory-k
 3. Bläddra till **Datorkonfiguration** > **principer** > **Windows-inställningar** > **säkerhetsinställningar**   >  **Kontoprinciper** > **konto kontoutelåsning princip**.
 4. Kontrollera din **tröskelvärde för kontoutelåsning** och **Återställ räknaren för kontoutelåsning efter** värden.
 
-![Ändra den lokala Active Directory kontoutelåsning med hjälp av ett grupprincipobjekt](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
+![Ändra den lokala Active Directory-kontoutelåsning](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Hantera Azure AD smart kontoutelåsning värden
 
@@ -78,9 +78,7 @@ När smart utelåsningströskeln utlöses får du följande meddelande när kont
 
 **Ditt konto har låsts temporärt för att förhindra obehörig användning. Försök igen senare och kontakta administratören om du fortfarande har problem**
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig hur du förbjuda felaktiga lösenord i din organisation använder Azure AD.](howto-password-ban-bad.md)
-
-[Konfigurera Självbetjäning för återställning av lösenord för att tillåta användare att låsa upp sina egna konton.](quickstart-sspr.md)
+* [Lär dig hur du förbjuda felaktiga lösenord i din organisation använder Azure AD.](howto-password-ban-bad.md)
+* [Konfigurera Självbetjäning för återställning av lösenord för att tillåta användare att låsa upp sina egna konton.](quickstart-sspr.md)

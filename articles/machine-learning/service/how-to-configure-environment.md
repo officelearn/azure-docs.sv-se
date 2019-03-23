@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6a51e57cfac326663d41b545c9f2883a446467d3
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1d4144a2a6cf41d594ee096d8802ccc5b29009a5
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340770"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361803"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -40,7 +40,7 @@ Om du redan har en Python 3-miljö eller bara vill ha de grundläggande stegen f
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En arbetsyta för Azure Machine Learning-tjänsten. Om du vill skapa arbetsytan [Kom igång med Azure Machine Learning-tjänsten](quickstart-get-started.md).
+- En arbetsyta för Azure Machine Learning-tjänsten. Om du vill skapa arbetsytan [skapa en arbetsyta för Azure Machine Learning-tjänsten](setup-create-workspace.md).
 
 - Antingen den [Anaconda](https://www.anaconda.com/download/) eller [Miniconda](https://conda.io/miniconda.html) Pakethanteraren.
 
@@ -61,7 +61,7 @@ Om du redan har en Python 3-miljö eller bara vill ha de grundläggande stegen f
 * SDK: N för Azure Machine Learning är redan installerad.
 * När du skapar en arbetsyta för Azure Machine Learning-tjänsten i Azure-portalen klickar du på en knapp för att automatiskt konfigurera din Azure-anteckningsbok miljö att arbeta med arbetsytan.
 
-Kom igång med att utveckla med Azure-datorer, se [Kom igång med Azure Machine Learning-tjänsten](quickstart-get-started.md).
+Kom igång med att utveckla med Azure-datorer, se [Kom igång med Azure Machine Learning-tjänsten](quickstart-run-cloud-notebook.md).
 
 Som standard använder en kostnadsfri tjänst-nivå som är begränsad till 4GB minne och 1GB data i Azure-anteckningsböcker. Du kan dock ta bort dessa begränsningar genom att koppla en virtuell dator för datavetenskap-instans i Azure-anteckningsböcker-projektet. Mer information finns i [hantera och konfigurera Azure anteckningsböcker projekt - Beräkningsnivån](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
@@ -350,7 +350,7 @@ Om du vill använda den här filen från din kod använder `ws=Workspace.from_co
 
 Du kan skapa konfigurationsfilen på tre sätt:
 
-* **Följ den [Snabbstart för Azure Machine Learning](quickstart-get-started.md)**: En *config.json* fil skapas i biblioteket Azure anteckningsböcker. Filen innehåller konfigurationsinformation för arbetsytan. Du kan ladda ned eller kopiera den *config.json* till andra utvecklingsmiljöer.
+* **Följ stegen i [skapa en arbetsyta för Azure Machine Learning-tjänsten](setup-create-workspace.md#sdk)**: En *config.json* fil skapas i biblioteket Azure anteckningsböcker. Filen innehåller konfigurationsinformation för arbetsytan. Du kan ladda ned eller kopiera den *config.json* till andra utvecklingsmiljöer.
 
 * **Skapa filen manuellt**: Med den här metoden kan använda du en textredigerare. Du kan hitta de värden som ingår i konfigurationsfilen genom att gå till din arbetsyta i den [Azure-portalen](https://portal.azure.com). Kopiera arbetsytans namn, resursgrupp och prenumeration ID-värden och Använd dem i konfigurationsfilen.
 

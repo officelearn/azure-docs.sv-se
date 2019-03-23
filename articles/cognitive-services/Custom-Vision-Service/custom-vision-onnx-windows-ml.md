@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 03/21/2019
 ms.author: larryfr
-ms.openlocfilehash: 7f123187ea869931b0701fd9d68372deb0b272e1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: af1b96b4ab47053a6737893832b484372ed37e99
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879079"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351872"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Självstudier: Använda en ONNX-modell från Custom Vision med Windows ML (förhandsversion)
 
@@ -29,7 +29,7 @@ Informationen i det här dokumentet visar hur du använder en ONNX-fil som expor
 > * Kör exemplet
 > * Använd din egen modell
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Windows 10 version 17738 eller senare
 
@@ -51,7 +51,7 @@ Exempelprogrammet som finns på [https://github.com/Azure-Samples/cognitive-serv
 
 1. Starta programmet från Visual Studio genom att använda `F5`-tangenten. Du kan uppmanas att aktivera utvecklarläget. Mer information finns i dokumentet [Aktivera din enhet för utveckling](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development).
 
-2. När programmet startas använder du knappen för att välja en bild för bedömning.
+1. När programmet startas använder du knappen för att välja en bild för bedömning.
 
 ## <a name="use-your-own-model"></a>Använd din egen modell
 
@@ -65,8 +65,8 @@ Om du vill använda din egen modell gör du så här:
 
 1. Högerklicka på mappen tillgångar i Solutions Explorer och välj __Lägg till befintligt objekt__. Välj ONNX-filen.
 
-1. I Solutions Explorer väljer du ONNX-filen i mappen Tillgångar. Ändra följande egenskaper för filen: 
-    
+1. I Solutions Explorer väljer du ONNX-filen i mappen Tillgångar. Ändra följande egenskaper för filen:
+
     * __Byggåtgärd__ -> __Innehåll__
     * __Kopiera till utdatakatalog__ -> __Kopiera om nyare__
 

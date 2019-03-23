@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25450d49fd32adf12ac6c8a71671a9cb796b06c4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c5d7f9623a7594aaa79c4cff187486360b1befc8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317450"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369028"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Aktivera kombineras security information registrering (förhandsversion)
 
 Innan du aktiverar den nya upplevelsen, granska artikeln [kombineras security information registrering (förhandsversion)](concept-registration-mfa-sspr-combined.md) så att du förstår funktioner och effekten av den här funktionen.
 
-![Registrering av förbättrad upplevelse med kombinerade security information begär mer information vid inloggning. Exemplet visar registrera Microsoft Authenticator-appen som första metoden.](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
+![Kombinerade security information registrering förbättrad upplevelse](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
 
 |     |
 | --- |
@@ -37,7 +37,7 @@ Utför följande steg för att aktivera registreringen av kombinerade:
 2. Bläddra till **Azure Active Directory** > **användarinställningar** > **hantera inställningar för åtkomst till panelen förhandsversionsfunktioner**.
 3. Under **användare kan använda förhandsversionsfunktioner för att registrera och hantera säkerhetsinformation – uppdatera**, väljer att aktivera en **valda** grupp av användare eller **alla** användare.
 
-![Aktivera kombinerade security info förhandsversion upplevelsen för alla användare i Azure AD-portalen](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+![Aktivera kombinerade security info förhandsversion upplevelsen för alla användare](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
 
 > [!IMPORTANT]
 > Från och med mars 2019 telefonsamtal alternativen kommer inte att MFA och SSPR-användare i kostnadsfria/utvärderingsversion Azure AD-klienter. SMS-meddelanden som inte påverkas av den här ändringen. Telefonsamtal fortsätter att vara tillgängliga för användare i betalda Azure AD-klienter. Den här ändringen påverkar endast kostnadsfria/utvärderingsversion Azure AD-klienter.

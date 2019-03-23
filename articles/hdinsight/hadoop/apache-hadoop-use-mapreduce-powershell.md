@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6f1620c9977f997b4037fbf3f823c429e43b4f6a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 015728a43e091e36dcf02b5cc17f0135a64428ca
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436270"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361956"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Kör MapReduce-jobb med Apache Hadoop på HDInsight med hjälp av PowerShell
 
@@ -23,6 +23,8 @@ ms.locfileid: "53436270"
 Det här dokumentet innehåller ett exempel på hur du använder Azure PowerShell kör ett MapReduce-jobb i ett Hadoop på HDInsight-kluster.
 
 ## <a id="prereq"></a>Förhandskrav
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * **Ett kluster i Azure HDInsight (Hadoop på HDInsight)**
 
@@ -37,15 +39,15 @@ Azure PowerShell tillhandahåller *cmdletar* som gör det möjligt att köra Map
 
 Följande cmdletar som används när du kör MapReduce-jobb i ett fjärranslutet HDInsight-kluster.
 
-* **Connect-AzureRmAccount**: Autentiserar Azure PowerShell på Azure-prenumerationen.
+* **Connect-AzAccount**: Autentiserar Azure PowerShell på Azure-prenumerationen.
 
-* **Ny AzureRmHDInsightMapReduceJobDefinition**: Skapar en ny *jobbet definition* med hjälp av den angivna MapReduce-informationen.
+* **New-AzHDInsightMapReduceJobDefinition**: Skapar en ny *jobbet definition* med hjälp av den angivna MapReduce-informationen.
 
-* **Start-AzureRmHDInsightJob**: Skickar jobbdefinitionen till HDInsight och startar jobbet. En *jobbet* objekt returneras.
+* **Start-AzHDInsightJob**: Skickar jobbdefinitionen till HDInsight och startar jobbet. En *jobbet* objekt returneras.
 
-* **Vänta AzureRmHDInsightJob**: Använder objektet för att kontrollera status för jobbet. Den ska vänta tills jobbet har slutförts eller väntetiden har överskridits.
+* **Wait-AzHDInsightJob**: Använder objektet för att kontrollera status för jobbet. Den ska vänta tills jobbet har slutförts eller väntetiden har överskridits.
 
-* **Get-AzureRmHDInsightJobOutput**: Används för att hämta utdata för jobbet.
+* **Get-AzHDInsightJobOutput**: Används för att hämta utdata för jobbet.
 
 Följande steg visar hur du använder dessa cmdletar för att köra ett jobb i HDInsight-klustret.
 
@@ -92,7 +94,7 @@ Om ingen information returneras när jobbet har slutförts, kan du visa fel för
 ```powershell
 # Print the output of the WordCount job.
 Write-Host "Display the standard output ..." -ForegroundColor Green
-Get-AzureRmHDInsightJobOutput `
+Get-AzHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $wordCountJob.JobId `
         -HttpCredential $creds `

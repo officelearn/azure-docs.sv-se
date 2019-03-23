@@ -1,27 +1,27 @@
 ---
-title: Autentisera med Azure Active Directory att komma åt data för blob och kö från dina program (förhandsversion) | Microsoft Docs
-description: Använda Azure Active Directory för att autentisera från inom ett program och sedan godkänna begäranden till blobbar och köer (förhandsversion).
+title: Autentisera med Azure Active Directory att komma åt data för blob och kö från dina program | Microsoft Docs
+description: Använda Azure Active Directory för att autentisera från inom ett program och sedan godkänna begäranden till blobbar och köer.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 11/21/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6d283840116a5e1f996602fd792456d3b8e8d9a0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a313061f89d33ee2bf5379dbd37495db06b64440
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456099"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369521"
 ---
-# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>Autentisera med Azure Active Directory från ett program för åtkomst till blobbar och köer (förhandsversion)
+# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Autentisera med Azure Active Directory från ett program för åtkomst till blobbar och köer
 
 En stor fördel med att använda Azure Active Directory (Azure AD) med Azure Storage är att det inte längre behöver dina autentiseringsuppgifter som ska lagras i din kod. I stället kan du begära en OAuth 2.0-åtkomsttoken från Azure AD. Azure AD hanterar autentisering för säkerhetsobjektet (en användare, grupp eller tjänstens huvudnamn) där programmet körs. Om autentiseringen lyckas, Azure AD tillbaka åtkomsttoken till programmet och programmet kan sedan använda den åtkomst-token för att godkänna begäranden till Azure Storage.
 
 Den här artikeln visar hur du konfigurerar ditt program för autentisering med Azure AD. Använd ett liknande sätt kod exempel funktioner .NET, men andra språk.
 
-Innan du kan autentisera ett säkerhetsobjekt från ditt Azure Storage-program, konfigurera rollbaserad inställningar för åtkomstkontroll (RBAC) för det säkerhetsobjektet. Azure Storage definierar RBAC-roller som omfattar behörigheter för behållare och köer. När RBAC-roll tilldelas till ett säkerhetsobjekt, beviljas det säkerhetsobjektet åtkomst till resursen. Mer information finns i [hantera åtkomsträttigheter till storage-data med RBAC (förhandsversion)](storage-auth-aad-rbac.md).
+Innan du kan autentisera ett säkerhetsobjekt från ditt Azure Storage-program, konfigurera rollbaserad inställningar för åtkomstkontroll (RBAC) för det säkerhetsobjektet. Azure Storage definierar RBAC-roller som omfattar behörigheter för behållare och köer. När RBAC-roll tilldelas till ett säkerhetsobjekt, beviljas det säkerhetsobjektet åtkomst till resursen. Mer information finns i [hantera åtkomsträttigheter till storage-data med RBAC](storage-auth-aad-rbac.md).
 
 En översikt över kod grant-flöde för OAuth 2.0, se [flöde beviljat med auktorisera åtkomst till Azure Active Directory-webbprogram med hjälp av OAuth 2.0-koden](../../active-directory/develop/v1-protocols-oauth-code.md).
 
@@ -29,7 +29,7 @@ En översikt över kod grant-flöde för OAuth 2.0, se [flöde beviljat med aukt
 
 ## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>Tilldela en RBAC-roll till en Azure AD-säkerhetsobjekt
 
-För att autentisera ett säkerhetsobjekt från ditt Azure Storage-program måste du först konfigurera rollbaserad inställningar för åtkomstkontroll (RBAC) för det säkerhetsobjektet. Azure Storage definierar RBAC-roller som omfattar behörigheter för behållare och köer. När RBAC-roll tilldelas till ett säkerhetsobjekt, beviljas det säkerhetsobjektet åtkomst till resursen. Mer information finns i [hantera åtkomsträttigheter till Azure-Blob och kö data med RBAC (förhandsversion)](storage-auth-aad-rbac.md).
+För att autentisera ett säkerhetsobjekt från ditt Azure Storage-program måste du först konfigurera rollbaserad inställningar för åtkomstkontroll (RBAC) för det säkerhetsobjektet. Azure Storage definierar RBAC-roller som omfattar behörigheter för behållare och köer. När RBAC-roll tilldelas till ett säkerhetsobjekt, beviljas det säkerhetsobjektet åtkomst till resursen. Mer information finns i [hantera åtkomsträttigheter till Azure-Blob och kö data med RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registrera ditt program med en Azure AD-klient
 
@@ -73,7 +73,7 @@ Exemplet visar hur du hämta en token från Azure AD. Åtkomsttoken används fö
 > [!NOTE]
 > Ägare för Azure Storage-kontot kan tilldelas du automatiskt inte behörighet att komma åt data. Du måste uttryckligen tilldela dig själv en RBAC-roll för Azure Storage. Du kan tilldela den på nivån för din prenumeration, resursgrupp, storage-konto, eller behållare eller kön. 
 >
-> Till exempel om du vill köra exempelkod för ett lagringskonto där du är ägare och på din egen användaridentitet, måste du tilldela rollen RBAC för Blob Data-deltagare till dig själv. I annat fall misslyckas anropet för att skapa bloben med HTTP-statuskod 403 (förbjudet). Mer information finns i [hantera åtkomsträttigheter till storage-data med RBAC (förhandsversion)](storage-auth-aad-rbac.md).
+> Till exempel om du vill köra exempelkod för ett lagringskonto där du är ägare och på din egen användaridentitet, måste du tilldela rollen RBAC för Blob Data-deltagare till dig själv. I annat fall misslyckas anropet för att skapa bloben med HTTP-statuskod 403 (förbjudet). Mer information finns i [hantera åtkomsträttigheter till storage-data med RBAC](storage-auth-aad-rbac.md).
 
 ### <a name="well-known-values-for-authentication-with-azure-ad"></a>Välkända värden för autentisering med Azure AD
 
@@ -105,7 +105,7 @@ Följ dessa steg om du vill hämta klient-ID:
 
 ### <a name="add-references-and-using-statements"></a>Lägg till referenser och using-satser  
 
-Installera förhandsversionen av Azure Storage-klientbiblioteket i Visual Studio. Från den **verktyg** menyn och välj **Nuget-Pakethanteraren**, sedan **Pakethanterarkonsolen**. Skriv följande kommando i konsolen för att installera den senaste versionen av klientbiblioteket för .NET:
+Installera Azure Storage-klientbibliotek från Visual Studio. Från den **verktyg** menyn och välj **Nuget-Pakethanteraren**, sedan **Pakethanterarkonsolen**. Skriv följande kommando i konsolen för att installera den senaste versionen av klientbiblioteket för .NET:
 
 ```
 Install-Package WindowsAzure.Storage
@@ -187,14 +187,10 @@ x-ms-version: 2017-11-09
 Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 ```
 
-Mer information om hur du auktoriserar Azure Storage-åtgärder från REST finns [autentisera med Azure Active Directory (förhandsversion)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory).
+Mer information om hur du auktoriserar Azure Storage-åtgärder från REST finns [autentisera med Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om RBAC-roller för Azure storage finns [hantera åtkomsträttigheter till storage-data med RBAC (förhandsversion)](storage-auth-aad-rbac.md).
-- Läs om hur du använder hanterade identiteter för Azure-resurser med Azure Storage i [autentisera åtkomst till blobbar och köer med Azure hanterade identiteter för Azure-resurser (förhandsgranskning)](storage-auth-aad-msi.md).
-- Läs hur du logga in på Azure CLI och PowerShell med Azure AD-identitet i [använda en Azure AD-identitet för åtkomst till Azure Storage med CLI eller PowerShell (förhandsversion)](storage-auth-aad-script.md).
-- Ytterligare information om Azure AD-integrering för Azure-Blobbar och köer finns i Azure Storage-teamets blogg publicerar, [meddelande om förhandsversionen av Azure AD-autentisering för Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
-
-
-
+- Mer information om RBAC-roller för Azure storage finns [hantera åtkomsträttigheter till storage-data med RBAC](storage-auth-aad-rbac.md).
+- Läs om hur du använder hanterade identiteter för Azure-resurser med Azure Storage i [autentisera åtkomst till blobbar och köer med Azure hanterade identiteter för Azure-resurser](storage-auth-aad-msi.md).
+- Om du vill lära dig mer om att logga in på Azure CLI och PowerShell med Azure AD-identitet, se [använda en Azure AD-identitet för åtkomst till Azure Storage med CLI eller PowerShell](storage-auth-aad-script.md).

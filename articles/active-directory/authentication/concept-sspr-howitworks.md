@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65c64e420bd22498fa2d778095def96cce218055
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313965"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370014"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: Återställning av lösenord för självbetjäning av Azure AD
 
@@ -76,7 +76,7 @@ Användare kan bara återställa sina lösenord, om de har data som finns i de a
 > [!WARNING]
 > Konton som har tilldelats Azure-administratörsroller kommer att behöva använda metoder som definierats i avsnittet [administratören återställa principen skillnader](concept-sspr-policy.md#administrator-reset-policy-differences).
 
-![Autentisering][Authentication]
+![Autentisering metoder val i Azure portal][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>Antal autentiseringsmetoder krävs
 
@@ -160,7 +160,7 @@ Exempel: Det finns fyra administratörer i en miljö. Administratör A återstä
 
 Om du installerar, konfigurerar och aktiverar Azure AD Connect har du följande ytterligare alternativ för lokal integrationer. Om dessa alternativ är nedtonade har sedan tillbakaskrivning av inte konfigurerats korrekt. Mer information finns i [konfigurera tillbakaskrivning av lösenord](howto-sspr-writeback.md).
 
-![Tillbakaskrivning av][Writeback]
+![Verifiera tillbakaskrivning av lösenord är aktiverad och fungerar][Writeback]
 
 Den här sidan innehåller en snabb status för den lokala tillbakaskrivningsklient, något av följande meddelanden visas baserat på den aktuella konfigurationen:
 
@@ -180,7 +180,7 @@ Den här kontrollen avgör om tillbakaskrivning av lösenord är aktiverat för 
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Tillåt användare att låsa upp konton utan att återställa sitt lösenord
 
-Den här kontrollen anger om användare som besöker portalen för återställning av lösenord ska ges alternativet att låsa upp sina lokala Active Directory-konton utan att behöva återställa sina lösenord. Som standard låser Azure AD upp konton när den utför en återställning av lösenord. Du kan använda den här inställningen för att avgränsa de två åtgärderna. 
+Den här kontrollen anger om användare som besöker portalen för återställning av lösenord ska ges alternativet att låsa upp sina lokala Active Directory-konton utan att behöva återställa sina lösenord. Som standard låser Azure AD upp konton när den utför en återställning av lösenord. Du kan använda den här inställningen för att avgränsa de två åtgärderna.
 
 * Om inställd **Ja**, och användarna har du möjlighet att återställa sina lösenord och låsa upp kontot eller att låsa upp sitt konto utan att behöva återställa lösenordet.
 * Om inställd **nr**, användare är sedan endast att kunna utföra en kombinerad lösenordsåterställning och kontoupplåsning igen.
@@ -193,9 +193,9 @@ Lösenord för självbetjäning av Azure AD lösenordsåterställning utför sam
 
 Återställning av lösenord och ändrar stöds helt för alla konfigurationer för business-to-business (B2B). B2B återställning av användarlösenord stöds i följande tre fall:
 
-   * **Användare från en partnerorganisation med en befintlig Azure AD-klient**: Om du samarbetar med organisationen har en befintlig Azure AD-klient, vi *respekterar principerna för lösenordsåterställning är aktiverade på den klienten*. För lösenordsåterställning för att fungera behöver partnerorganisationen bara se till att Azure AD SSPR är aktiverad. Det finns ingen extra kostnad för Office 365-kunder och den kan aktiveras genom att följa stegen i vår [Kom igång med lösenordshantering](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) guide.
-   * **Användare som registrerar sig via** självanmälan: Om organisationen du samarbetar med den [självanmälan](../users-groups-roles/directory-self-service-signup.md) funktion för att komma åt en klient, vi låter dem återställa lösenord med e-postadress som de registrerade.
-   * **B2B-användare**: Alla nya B2B-användare som skapats med hjälp av den nya [Azure AD B2B-funktioner](../active-directory-b2b-what-is-azure-ad-b2b.md) kommer också att kunna återställa sina lösenord med e-postadress som de registrerade under inbjudan.
+* **Användare från en partnerorganisation med en befintlig Azure AD-klient**: Om du samarbetar med organisationen har en befintlig Azure AD-klient, vi *respekterar principerna för lösenordsåterställning är aktiverade på den klienten*. För lösenordsåterställning för att fungera behöver partnerorganisationen bara se till att Azure AD SSPR är aktiverad. Det finns ingen extra kostnad för Office 365-kunder och den kan aktiveras genom att följa stegen i vår [Kom igång med lösenordshantering](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) guide.
+* **Användare som registrerar sig via** självanmälan: Om organisationen du samarbetar med den [självanmälan](../users-groups-roles/directory-self-service-signup.md) funktion för att komma åt en klient, vi låter dem återställa lösenord med e-postadress som de registrerade.
+* **B2B-användare**: Alla nya B2B-användare som skapats med hjälp av den nya [Azure AD B2B-funktioner](../active-directory-b2b-what-is-azure-ad-b2b.md) kommer också att kunna återställa sina lösenord med e-postadress som de registrerade under inbjudan.
 
 Om du vill testa det här scenariot, går du till https://passwordreset.microsoftonline.com med någon av dessa partneranvändare. Om de har en alternativ e-postadress eller autentisering e-post som definierats för lösenordsåterställning fungerar som förväntat.
 

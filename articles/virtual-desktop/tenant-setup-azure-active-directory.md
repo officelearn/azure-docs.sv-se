@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 2dafb58a805a2da89852c84ebad08f1c495adb83
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 26bcae12ee5e053289dd18c9f378eff43a0b0e04
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318122"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368178"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Självstudier: Skapa en klient i virtuella Windows-skrivbordet (förhandsversion)
 
@@ -53,16 +53,16 @@ För att ge Tjänstbehörigheter:
 
 ## <a name="assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant"></a>Tilldela rollen TenantCreator program till en användare i din Azure Active Directory-klient
 
-Programroll TenantCreator kan genom att tilldela en Azure Active Directory-användare användaren skapa ett virtuellt skrivbord i Windows-klient som är associerade med Azure Active Directory. Du måste du tilldela rollen TenantCreator till ditt globala administratörskonto.
+Programroll TenantCreator kan genom att tilldela en Azure Active Directory-användare användaren skapa ett virtuellt skrivbord i Windows-klient som är associerade med Azure Active Directory. Du behöver använda ditt globala administratörskonto för att tilldela rollen TenantCreator.
 
-Tilldela rollen TenantCreator tillämpning för ditt globala administratörskonto:
+Tilldela rollen TenantCreator program med ditt globala administratörskonto:
 
 1. Öppna en webbläsare och Anslut till den [Azure Active Directory-portalen](https://aad.portal.azure.com) med ditt globala administratörskonto.
    - Om du arbetar med flera Azure AD-klienter, är det bäst att öppna en privat webbläsarsession och kopiera och klistra in URL: er i adressfältet.
-2. Välj **företagsprogram**, Sök efter **virtuella Windows-skrivbordet** och väljer önskat program.
+2. Välj **företagsprogram**, Sök efter **virtuella Windows-skrivbordet**. Du ser de två programmen som du har angett ditt medgivande för i föregående avsnitt. Dessa två appar väljer du **virtuella Windows-skrivbordet**.
 3. Välj **användare och grupper**och välj sedan **Lägg till användare**.
 4. Välj användare och grupper i den **Lägg till tilldelning** bladet
-5. Sök efter ett användarkonto som kommer att skapa din virtuella skrivbordet i Windows-klient. 
+5. Sök efter ett användarkonto som kommer att skapa din virtuella skrivbordet i Windows-klient.
    - Detta kan vara kontot som global administratör för enkelhetens skull.
 6. Välj användarkontot, klickar du på den **Välj** och välj sedan **tilldela**.
 

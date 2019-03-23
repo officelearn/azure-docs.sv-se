@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/12/2019
+ms.date: 03/22/2019
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b475eae337b7e6a7e26b3e5a7518be0e461c9fa4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6a303319a3f87f684b72bcddd8d30cd4a2c60642
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170623"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351532"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Inställningsreferens för villkorlig åtkomst till Azure Active Directory
 
@@ -144,20 +144,25 @@ I princip för villkorlig åtkomst kan du välja **webbläsare** som klientapp.
 Den här inställningen fungerar med alla webbläsare. Dock för att uppfylla en princip, t.ex. krav kompatibel enhet, som följande operativsystem och webbläsare stöds:
 
 
-| Operativsystem                     | Webbläsare                            | Support     |
-| :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     | ![Markera][1] |
-| Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Markera][1] |
-| Windows 7              | Internet Explorer, Chrome           | ![Markera][1] |
-| iOS                    | Safari, Intune Managed Browser      | ![Markera][1] |
-| Android                | Chrome, Intune Managed Browser      | ![Markera][1] |
-| Windows Phone          | Internet Explorer, Microsoft Edge             | ![Markera][1] |
-| Windows Server 2016    | Internet Explorer, Microsoft Edge             | ![Markera][1] |
-| Windows Server 2016    | Chrome                              | Kommer snart |
-| Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Markera][1] |
-| Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Markera][1] |
-| macOS                  | Chrome, Safari                      | ![Markera][1] |
+| Operativsystem                     | Webbläsare                                      |
+| :--                    | :--                                           |
+| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
+| Windows 8 / 8.1        | Internet Explorer, Chrome                     |
+| Windows 7              | Internet Explorer, Chrome                     |
+| iOS                    | Safari, Intune Managed Browser                |
+| Android                | Chrome, Intune Managed Browser                |
+| Windows Phone          | Internet Explorer, Microsoft Edge             |
+| Windows Server 2016    | Internet Explorer, Microsoft Edge             |
+| Windows Server 2016    | Chrome                                        |
+| Windows Server 2012 R2 | Internet Explorer, Chrome                     |
+| Windows Server 2008 R2 | Internet Explorer, Chrome                     |
+| macOS                  | Chrome, Safari                                |
+ 
 
+
+#### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Varför ser jag ett certifikat som frågar i webbläsaren
+
+Azure AD identifierar enheten med ett klientcertifikat som har etablerats när enheten är registrerad med Azure AD på Windows 7, iOS, Android och macOS.  När en användare loggar in via webbläsaren först uppmanas användaren att välja certifikatet. Användaren måste välja det här certifikatet innan du kan använda webbläsaren.
 
 
 #### <a name="chrome-support"></a>Chrome-stöd

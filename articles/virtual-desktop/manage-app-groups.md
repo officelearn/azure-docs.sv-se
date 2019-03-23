@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: d0b5dede5846b3ff9eac3ee865685fe5b3f773f9
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 455e3b4ac4a5020f68b5201bc19f85892ef62cb1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318108"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368994"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Självstudier: Hantera app-grupper för virtuella Windows-skrivbordet (förhandsversion)
 
@@ -68,7 +68,7 @@ Innan du börjar [hämta och importera modulen Windows PowerShell för virtuella
 8. Kör följande cmdlet för att ge användarna åtkomst till RemoteApps i app-gruppen.
 
    ```powershell
-   Add-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname> -UserPrincipalNames <userupn>
+   Add-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname> -UserPrincipalName <userupn>
    ```
 
 ## <a name="next-steps"></a>Nästa steg

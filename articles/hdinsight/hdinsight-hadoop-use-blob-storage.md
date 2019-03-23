@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/28/2019
-ms.openlocfilehash: cf6122b45f82b9304acd28819861b9fda2dcb5ed
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d88a05b03813eb0ec94a84f60bffb903e1344987
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085736"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361922"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Använda Azure-lagring med Azure HDInsight-kluster
 
@@ -31,9 +31,9 @@ Azure Storage är en robust lagringslösning för allmänna ändamål som smidig
 
 | Storage Account-typ | Tjänster som stöds | Stöds prestandanivåer | Stöds åtkomstnivåerna |
 |----------------------|--------------------|-----------------------------|------------------------|
-| Generell användning V2   | Blob               | Standard                    | Frekvent, lågfrekvent, Arkiv *    |
+| Generell användning V2   | Blob               | Standard                    | Frekvent, lågfrekvent, Arkiv\*    |
 | General-Purpose V1   | Blob               | Standard                    | Gäller inte                    |
-| Blob Storage         | Blob               | Standard                    | Frekvent, lågfrekvent, Arkiv *    |
+| Blob Storage         | Blob               | Standard                    | Frekvent, lågfrekvent, Arkiv\*    |
 
 Vi rekommenderar att du inte använder standardcontainern för att lagra företagsdata. Ta bort standardcontainern efter varje användning för att minska lagringskostnaden. Standardbehållaren innehåller program- och loggar. Se till att hämta loggarna innan du tar bort containern.
 
@@ -108,6 +108,9 @@ När du skapar ett HDInsight-kluster från portalen kan du använda ett befintli
 
 
 ### <a name="use-azure-powershell"></a>Använda Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Om du har [installerat och konfigurerat Azure PowerShell][powershell-install] kan du använda följande från Azure PowerShell-prompten för att skapa ett lagringskonto och en container:
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
@@ -119,19 +122,19 @@ Om du har [installerat och konfigurerat Azure PowerShell][powershell-install] ka
     $StorageAccountName = "<New Azure Storage Account Name>"
     $containerName = "<New Azure Blob Container Name>"
 
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId $SubscriptionID
+    Connect-AzAccount
+    Select-AzSubscription -SubscriptionId $SubscriptionID
 
     # Create resource group
-    New-AzureRmResourceGroup -name $ResourceGroupName -Location $Location
+    New-AzResourceGroup -name $ResourceGroupName -Location $Location
 
     # Create default storage account
-    New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS 
+    New-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS 
 
     # Create default blob containers
-    $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
-    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-    New-AzureStorageContainer -Name $containerName -Context $destContext
+    $storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
+    $destContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+    New-AzStorageContainer -Name $containerName -Context $destContext
 
 ### <a name="use-azure-classic-cli"></a>Använda Azure klassiska CLI
 
@@ -223,15 +226,15 @@ $containerName = "<BlobStorageContainerName>"  # The default file system contain
 $blob = "example/data/sample.log" # The name of the blob to be downloaded.
 
 # Use Add-AzureAccount if you haven't connected to your Azure subscription
-Connect-AzureRmAccount 
-Select-AzureRmSubscription -SubscriptionID "<Your Azure Subscription ID>"
+Connect-AzAccount 
+Select-AzSubscription -SubscriptionID "<Your Azure Subscription ID>"
 
 Write-Host "Create a context object ... " -ForegroundColor Green
-$storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
-$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+$storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
+$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 
 Write-Host "Download the blob ..." -ForegroundColor Green
-Get-AzureStorageBlobContent -Container $ContainerName -Blob $blob -Context $storageContext -Force
+Get-AzStorageBlobContent -Container $ContainerName -Blob $blob -Context $storageContext -Force
 
 Write-Host "List the downloaded file ..." -ForegroundColor Green
 cat "./$blob"
@@ -244,26 +247,26 @@ $resourceGroupName = "<AzureResourceGroupName>"
 $clusterName = "<HDInsightClusterName>"
 $blob = "example/data/sample.log" # The name of the blob to be downloaded.
 
-$cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+$cluster = Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
 $defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
-$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
+$defaultStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
 $defaultStorageContainer = $cluster.DefaultStorageContainer
-$storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey 
+$storageContext = New-AzStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey 
 
 Write-Host "Download the blob ..." -ForegroundColor Green
-Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob $blob -Context $storageContext -Force
+Get-AzStorageBlobContent -Container $defaultStorageContainer -Blob $blob -Context $storageContext -Force
 ```
 
 #### <a name="delete-files"></a>Ta bort filer
 
 ```powershell
-Remove-AzureStorageBlob -Container $containerName -Context $storageContext -blob $blob
+Remove-AzStorageBlob -Container $containerName -Context $storageContext -blob $blob
 ```
 
 #### <a name="list-files"></a>Lista filer
 
 ```powershell
-Get-AzureStorageBlob -Container $containerName -Context $storageContext -prefix "example/data/"
+Get-AzStorageBlob -Container $containerName -Context $storageContext -prefix "example/data/"
 ```
 
 #### <a name="run-hive-queries-using-an-undefined-storage-account"></a>Köra Hive-frågor med ett odefinierat lagringskonto
@@ -276,14 +279,14 @@ $clusterName = "<HDInsightClusterName>"
 $undefinedStorageAccount = "<UnboundedStorageAccountUnderTheSameSubscription>"
 $undefinedContainer = "<UnboundedBlobContainerAssociatedWithTheStorageAccount>"
 
-$undefinedStorageKey = Get-AzureStorageKey $undefinedStorageAccount | %{ $_.Primary }
+$undefinedStorageKey = Get-AzStorageKey $undefinedStorageAccount | %{ $_.Primary }
 
-Use-AzureRmHDInsightCluster $clusterName
+Use-AzHDInsightCluster $clusterName
 
 $defines = @{}
 $defines.Add("fs.azure.account.key.$undefinedStorageAccount.blob.core.windows.net", $undefinedStorageKey)
 
-Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
+Invoke-AzHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 ```
 
 ### <a name="use-azure-classic-cli"></a>Använda Azure klassiska CLI

@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25db23ad12dc3494459abe0c7def1008ff21fd36
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0bc47f1f3e7022b566181220e203d33564b5b93b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314486"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372182"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Fjärrskrivbordsgateway och Azure Multi-Factor Authentication Server med RADIUS
 
-Ofta, Remote Desktop (Rdg) använder lokalt [Network Policy Services (NPS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/core-network-guide#BKMK_optionalfeatures) att autentisera användare. I den här artikeln beskrivs hur du dirigerar RADIUS-förfrågningar från Fjärrskrivbordsgateway (via lokal NPS) till Multi-Factor Authentication-servern. Kombinationen Azure MFA och Fjärrskrivbordsgateway innebär att användarna har åtkomst till sina arbetsmiljöer var de än är samtidigt som du kan kräva stark autentisering. 
+Ofta, Remote Desktop (Rdg) använder lokalt [Network Policy Services (NPS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/core-network-guide#BKMK_optionalfeatures) att autentisera användare. I den här artikeln beskrivs hur du dirigerar RADIUS-förfrågningar från Fjärrskrivbordsgateway (via lokal NPS) till Multi-Factor Authentication-servern. Kombinationen Azure MFA och Fjärrskrivbordsgateway innebär att användarna har åtkomst till sina arbetsmiljöer var de än är samtidigt som du kan kräva stark autentisering.
 
-Eftersom Windows-autentisering för Terminal Services inte stöds för Server 2012 R2 använder du Fjärrskrivbordsgateway och RADIUS för integrering med MFA-servern. 
+Eftersom Windows-autentisering för Terminal Services inte stöds för Server 2012 R2 använder du Fjärrskrivbordsgateway och RADIUS för integrering med MFA-servern.
 
 Installera Azure Multi-Factor Authentication Server på en separat server, som sedan skickar RADIUS-begäran via en proxyanslutning till NPS på RDG-servern. När NPS har verifierat användarnamnet och lösenordet returneras ett svar till Multi-Factor Authentication-servern. MFA-servern utför sedan den andra delen i autentiseringen och returnerar ett svar till gatewayen.
 
@@ -36,21 +36,23 @@ Installera Azure Multi-Factor Authentication Server på en separat server, som s
 > Den här artikeln bör användas tillsammans med MFA Server-distributioner, inte Azure MFA (molnbaserade).
 
 ## <a name="configure-the-remote-desktop-gateway"></a>Konfigurera Fjärrskrivbordsgateway
-Konfigurera Fjärrskrivbordsgateway så att RADIUS-autentisering skickas till en Azure Multi-Factor Authentication-server. 
+
+Konfigurera Fjärrskrivbordsgateway så att RADIUS-autentisering skickas till en Azure Multi-Factor Authentication-server.
 
 1. I Hanteraren för fjärrskrivbordsgateway högerklickar du på servernamnet och väljer **Egenskaper**.
-2. Gå till fliken **Arkiv med auktoriseringsprinciper för fjärrskrivbordsanslutning** och välj **Central server som kör NPS**. 
-3. Lägg till en eller flera Azure Multi-Factor Authentication-servrar som RADIUS-servrar genom att ange namnet eller IP-adressen för varje server. 
+2. Gå till fliken **Arkiv med auktoriseringsprinciper för fjärrskrivbordsanslutning** och välj **Central server som kör NPS**.
+3. Lägg till en eller flera Azure Multi-Factor Authentication-servrar som RADIUS-servrar genom att ange namnet eller IP-adressen för varje server.
 4. Skapa en delad hemlighet för varje server.
 
 ## <a name="configure-nps"></a>Konfigurera NPS
+
 Fjärrskrivbordsgateway använder NPS för att skicka RADIUS-begäran till Azure Multi-Factor Authentication. När du konfigurerar NPS börjar du med att ändra tidsgränsinställningarna för att förhindra att tidsgränsen för Fjärrskrivbordsgateway nås innan tvåstegsverifieringen har slutförts. Sedan uppdaterar du NPS för att ta emot RADIUS-autentiseringar från MFA-servern. Följ stegen nedan när du konfigurerar NPS:
 
 ### <a name="modify-the-timeout-policy"></a>Ändra tidsgränsprincipen
 
-1. Öppna menyn för **RADIUS-klienter och RADIUS-server** i den vänstra kolumnen i NPS och klicka på **Fjärr-RADIUS-servergrupper**. 
-2. Välj **TS GATEWAY SERVER GROUP** (TS GATEWAY-SERVERGRUPP). 
-3. Gå till fliken **Belastningsutjämning**. 
+1. Öppna menyn för **RADIUS-klienter och RADIUS-server** i den vänstra kolumnen i NPS och klicka på **Fjärr-RADIUS-servergrupper**.
+2. Välj **TS GATEWAY SERVER GROUP** (TS GATEWAY-SERVERGRUPP).
+3. Gå till fliken **Belastningsutjämning**.
 4. Ändra både **Antal sekunder utan svar innan begäran anses vara förlorad** och **Antal sekunder mellan begäranden när servern anses vara otillgänglig** till mellan 30 och 60 sekunder. (Om du märker att tidsgränsen ändå nås för servern under autentiseringen kan du gå hit igen och öka antalet sekunder.)
 5. Gå till fliken **Autentisering/konto** och kontrollera att de angivna RADIUS-portarna matchar de portar som Multi-Factor Authentication-servern lyssnar på.
 
@@ -59,25 +61,25 @@ Fjärrskrivbordsgateway använder NPS för att skicka RADIUS-begäran till Azure
 1. Högerklicka på **RADIUS-klienter** under RADIUS-klienter och -servrar i den vänstra kolumnen och välj **Ny**.
 2. Lägg till Azure Multi-Factor Authentication Server som en RADIUS-klient. Välj ett eget namn och ange en delad hemlighet.
 3. Öppna **Principer**-menyn i den vänstra kolumnen och välj **Principer för anslutningsbegäran**. Nu kan du se en princip med namnet TS GATEWAY AUTHORIZATION POLICY (TS GATEWAY-AUKTORISERINGSPRINCIP) som skapades när Fjärrskrivbordsgateway konfigurerades. Den här principen dirigerar RADIUS-förfrågningar till Multi-Factor Authentication Server.
-4. Högerklicka på **TS Gateway-auktoriseringsprincipen** och välj **Duplicera princip**. 
+4. Högerklicka på **TS Gateway-auktoriseringsprincipen** och välj **Duplicera princip**.
 5. Öppna den nya principen och gå till fliken **Villkor**.
-6. Lägg till ett villkor som matchar Eget namn för klient med det egna namnet som du angav i steg 2 för RADIUS-klienten för Azure Multi-Factor Authentication Server. 
+6. Lägg till ett villkor som matchar Eget namn för klient med det egna namnet som du angav i steg 2 för RADIUS-klienten för Azure Multi-Factor Authentication Server.
 7. Gå till fliken **Inställningar** och välj **Autentisering**.
-8. Ändra autentiseringsprovider till **Autentisera begäranden på den här servern**. Den här principen säkerställer att när NPS tar emot en RADIUS-begäran från Azure MFA Server så sker autentiseringen lokalt i stället för att en RADIUS-begäran skickas tillbaka till Azure Multi-Factor Authentication Server, vilket skulle resultera i ett looptillstånd. 
+8. Ändra autentiseringsprovider till **Autentisera begäranden på den här servern**. Den här principen säkerställer att när NPS tar emot en RADIUS-begäran från Azure MFA Server så sker autentiseringen lokalt i stället för att en RADIUS-begäran skickas tillbaka till Azure Multi-Factor Authentication Server, vilket skulle resultera i ett looptillstånd.
 9. För att förhindra looptillståndet måste den nya principen placeras OVANFÖR den ursprungliga principen i fönstret **Principer för anslutningsbegäran**.
 
 ## <a name="configure-azure-multi-factor-authentication"></a>Konfigurera Azure Multi-Factor Authentication
 
 Azure Multi-Factor Authentication Server är konfigurerat som en RADIUS-proxy mellan Fjärrskrivbordsgateway och NPS.  Den bör installeras på en domänansluten server som är separat från RDG-servern. Konfigurera Azure Multi-Factor Authentication Server genom att följa stegen nedan.
 
-1. Öppna Azure Multi-Factor Authentication-servern och välj ikonen för RADIUS-autentisering. 
+1. Öppna Azure Multi-Factor Authentication-servern och välj ikonen för RADIUS-autentisering.
 2. Markera kryssrutan **Aktivera RADIUS-autentisering**.
 3. På fliken Klienter kontrollerar du att portarna matchar NPS-konfigurationen. Välj sedan **Lägg till**.
 4. Lägg till fjärrskrivbordsgatewayserverns IP-adress, programnamnet (valfritt) och en delad hemlighet. Den delade hemligheten måste vara samma på både Azure Multi-Factor Authentication-servern och fjärrskrivbordsgatewayen.
 3. Gå till fliken **Mål** och markera alternativknappen **RADIUS-servrar**.
 4. Välj **Lägg till** och ange IP-adressen, den delade hemligheten och portarna för NPS-servern. Om du använder en central NPS-server är RADIUS-klienten och RADIUS-målet samma. Den delade hemligheten måste matcha den som konfigurerats i avsnittet RADIUS-klient på NPS-servern.
 
-![RADIUS-autentisering](./media/howto-mfaserver-nps-rdg/radius.png)
+![RADIUS-autentisering i MFA Server](./media/howto-mfaserver-nps-rdg/radius.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

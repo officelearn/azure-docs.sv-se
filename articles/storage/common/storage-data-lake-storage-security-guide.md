@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/21/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 22b070e6d70208057c85ad6a2322cc440d12a0fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ce01301455c7abcd26006e622fcfbb8127e1c511
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008207"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372496"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Säkerhetsguiden för Azure Data Lake Storage Gen2
 
@@ -134,7 +134,7 @@ Plan för datasäkerhet refererar till de metoder som används för att skydda d
 Det finns tre alternativ för att auktorisera åtkomst till dataobjekt i Azure Storage, inklusive:
 
 - Använda Azure AD för att bevilja åtkomst till filsystem och köer. Azure AD tillhandahåller fördelar jämfört med andra metoder för auktorisering, inklusive ta bort behovet av att lagra hemligheter i din kod. Mer information finns i [autentisera åtkomsten till Azure Storage med Azure Active Directory](storage-auth-aad.md). 
-- Med storage-kontonycklar för att godkänna åtkomst via delad nyckel. Auktorisera via delad nyckel kräver att lagra dina lagringskontonycklar i ditt program, så Microsoft rekommenderar att du använder Azure AD i stället där det är möjligt. Program i produktion eller för att auktorisera åtkomst till Azure-tabeller och filer kan fortsätta att använda delad nyckel medan Azure AD-integrering är en förhandsversion.
+- Med storage-kontonycklar för att godkänna åtkomst via delad nyckel. Auktorisera via delad nyckel kräver att lagra dina lagringskontonycklar i ditt program, så Microsoft rekommenderar att du använder Azure AD i stället där det är möjligt.
 - Använda signaturer för delad åtkomst för att ge kontrollerad behörighet till specifika dataobjekt för en viss tidsperiod.
 
 Förutom att begränsa åtkomst via auktorisering, du kan också använda [brandväggar och virtuella nätverk](storage-network-security.md) att begränsa åtkomsten till lagringskontot baserat på regler.  Den här metoden kan du neka åtkomst till offentliga internet-trafik och att bevilja åtkomst till vissa specifika Azure-nätverk eller offentliga internet IP-adressintervall.

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/08/2017
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: e659367ae13026dbe48ed681d0a68058d686e3ec
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3530dbfe15f6dbdf481df70de6d03979750aa38e
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884359"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352110"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Ordlista för Custom Vision Service
 
-Här följer några termer som används i Custom Vision Service och deras innebörd.
+Här följer några termer som används inom Custom Vision Service:
 
 ## <a name="classifier"></a>Klassificerare
 
@@ -37,33 +37,21 @@ När du skapar ett projekt kan välja du en ”domän” för projektet. Domäne
 
 Modeller som genererats av **komprimera domäner** kan exporteras med exportfunktionen iteration. De är optimerade för begränsningar i realtid klassificeringen på mobila enheter. Klassificerare som skapats med en kompakt domän kan vara något mindre exakt en standard domän med samma mängd träningsdata. Nackdelen är att de är tillräckligt liten för att köras lokalt i nära realtid. 
 
-## <a name="training-image"></a>Bild för utbildning
+## <a name="evaluation"></a>Utvärdering
 
-Om du vill skapa en klassificerare med hög precision måste Custom Vision Service flera inlärningsbilder. En avbildning av en utbildning är ett foto av den önskade Custom Vision Service att klassificera bilden. Om du vill klassificera apelsiner, skulle du behöva överföra flera bilder apelsiner till Custom Vision Service för att skapa en klassificerare som kan identifiera apelsiner-tjänsten. Vi rekommenderar minst 30 bilder per tagg.
+När du har tränats din klassificerare, kan du skicka en avbildning för utvärdering med hjälp av automatiskt genererade https-slutpunkten. Din klassificerare returnerar en uppsättning förväntade taggar i ordning tillförlitlighet.
 
 ## <a name="iteration"></a>Iteration
 
 Varje gång du träna eller nytt lära din klassificerare kan du skapa en ny iteration av din modell. Vi lagrar flera senaste iterationer så att du kan jämföra förloppet över tid. Du kan ta bort eventuella iterationer som du inte längre vara användbara. Kom ihåg att ta bort en iteration är permanent och du också ta bort alla bilder eller ändringar som har unika för den iterationen. 
 
-## <a name="workspace"></a>Arbetsyta
+## <a name="precision"></a>Precision
 
-Din arbetsyta innehåller bilderna för utbildning och återspeglar alla ändringar från din senaste iterationen som har tagits bort eller lagt till avbildningar. När du lära din klassificerare, skapar du en ny iteration av din klassificerare med hjälp av avbildningar finns i din arbetsyta.
-
-## <a name="tags"></a>Taggar
-
-Använd taggar för att märka objekten i dina avbildningar för utbildning. Om du skapar en klassificerare för att identifiera hundar och ponnyer, placerar du en ”hund” tagg på avbildningar som innehåller hundar, en ”programmet pony” tagg på avbildningar som innehåller ponnyer, och både ”hund” och en ”programmet pony” tagg på avbildningar som innehåller både en hund och en programmet pony.
-
-## <a name="evaluation"></a>Utvärdering
-
-När du har tränats din klassificerare, kan du skicka en avbildning för utvärdering med hjälp av automatiskt genererade https-slutpunkten. Din klassificerare returnerar en uppsättning förväntade taggar i ordning tillförlitlighet.
+När du klassificerar en avbildning, hur sannolikt är din klassificerare att klassificera bilden korrekt? Utanför alla bilder som används för att träna klassificerare (hundar och ponnyer), hur många procent modellen fick korrekt? 99 rätt taggar från 100 bilder ger en noggrannhet på 99%.
 
 ## <a name="predictions"></a>Förutsägelser
 
 Eftersom din klassificerare tar emot nya bilder för att klassificera, lagras avbildningarna. Du kan använda dessa avbildningar för att förbättra precisionen för din klassificerare genom att tagga korrekt argumentantal förväntade avbildningar. Du kan sedan använda de nya bilderna för att lära din klassificerare igen.
-
-## <a name="precision"></a>Precision
-
-När du klassificerar en avbildning, hur sannolikt är din klassificerare att klassificera bilden korrekt? Utanför alla bilder som används för att träna klassificerare (hundar och ponnyer), hur många procent modellen fick korrekt? 99 rätt taggar från 100 bilder ger en noggrannhet på 99%.
 
 ## <a name="recall"></a>Återkalla
 
@@ -73,7 +61,7 @@ Från alla avbildningar som bör har klassificerats korrekt, hur många din klas
 
 Det finns två typer av inställningar, inställningar och användarnivå.
 
-- Inställningar: 
+- Inställningar:
   
   Inställningar gäller för ett projekt eller klassificerare. Dessa är:
 
@@ -90,3 +78,15 @@ Det finns två typer av inställningar, inställningar och användarnivå.
    - Användning:
       - Antalet projekt som har skapats
       - Antal utvärdering/förutsägelse-API-anrop.
+
+## <a name="tags"></a>Taggar
+
+Använd taggar för att märka objekten i dina avbildningar för utbildning. Om du skapar en klassificerare för att identifiera hundar och ponnyer, placerar du en ”hund” tagg på avbildningar som innehåller hundar, en ”programmet pony” tagg på avbildningar som innehåller ponnyer, och både ”hund” och en ”programmet pony” tagg på avbildningar som innehåller både en hund och en programmet pony.
+
+## <a name="training-image"></a>Bild för utbildning
+
+Om du vill skapa en klassificerare med hög precision måste Custom Vision Service flera inlärningsbilder. En avbildning av en utbildning är ett foto av den önskade Custom Vision Service att klassificera bilden. Om du vill klassificera apelsiner, skulle du behöva överföra flera bilder apelsiner till Custom Vision Service för att skapa en klassificerare som kan identifiera apelsiner-tjänsten. Vi rekommenderar minst 30 bilder per tagg.
+
+## <a name="workspace"></a>Arbetsyta
+
+Din arbetsyta innehåller bilderna för utbildning och återspeglar alla ändringar från din senaste iterationen som har tagits bort eller lagt till avbildningar. När du lära din klassificerare, skapar du en ny iteration av din klassificerare med hjälp av avbildningar finns i din arbetsyta.

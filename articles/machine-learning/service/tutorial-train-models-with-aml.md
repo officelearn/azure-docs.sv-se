@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 01/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: cc0631052fa915ae946e791c907e405d70713ad2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e7617aec2739daa4f84bcecab060ae0f8e28fabe
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860574"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361599"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Självstudie: Träna en modell för bildklassificering med Azure Machine Learning-tjänsten
 
@@ -65,9 +65,11 @@ När du har slutfört stegen nedan kan du köra anteckningsboken **tutorials/img
 
 ### <a name="server"></a>Använda en egen Jupyter Notebook-server
 
-Skapa en lokal Jupyter Notebook-server på datorn enligt nedan.  När du har slutfört stegen kan du köra anteckningsboken **tutorials/img-classification-part1-training.ipynb**.
+Skapa en lokal Jupyter Notebook-server på datorn enligt nedan. 
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+
+ När du har slutfört stegen kan du köra anteckningsboken **tutorials/img-classification-part1-training.ipynb**.
 
 ## <a name="start"></a>Konfigurera din utvecklingsmiljö
 

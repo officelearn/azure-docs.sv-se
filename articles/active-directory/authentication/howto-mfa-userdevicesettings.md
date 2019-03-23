@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19ae32f5b11d9da5b5e03fc68f1120caa54b4890
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c78d6d901c050f6d1df8b53b34f0088d3ad8b0f8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314339"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368484"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Hantera användarinställningar med Azure Multi-Factor Authentication i molnet
 
@@ -24,56 +24,61 @@ Du kan hantera följande användar- och inställningar som en administratör:
 
 * Kräv att användare ska uppge kontaktmetoder igen
 * Ta bort applösenord
-* Kräva MFA för alla betrodda enheter 
+* Kräva MFA för alla betrodda enheter
 
 ## <a name="require-users-to-provide-contact-methods-again"></a>Kräv att användare ska uppge kontaktmetoder igen
+
 Den här inställningen Tvingar användaren att slutföra registreringsprocessen igen. Icke-webbläsarappar fortsätta att fungera om användaren har applösenord för dessa.  Du kan ta bort applösenord för användare genom att markera **ta bort alla befintliga applösenord som de valda användarna**.
 
 ### <a name="how-to-require-users-to-provide-contact-methods-again"></a>Hur användare ska uppge kontaktmetoder igen
+
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Till vänster, Välj **Azure Active Directory** > **användare** > **alla användare**.
-3. Till höger, Välj **Multifaktorautentisering** i verktygsfältet. Multifaktorautentiseringssidan öppnas. 
-4. Markera kryssrutan bredvid den eller de användare som du vill hantera. En lista med snabba steg alternativ visas till höger. 
+3. Till höger, Välj **Multifaktorautentisering** i verktygsfältet. Multifaktorautentiseringssidan öppnas.
+4. Markera kryssrutan bredvid den eller de användare som du vill hantera. En lista med snabba steg alternativ visas till höger.
 5. Välj **hantera användarinställningar**.
 6. Markera kryssrutan för **Kräv att valda användare ska uppge kontaktmetoder igen**.
-   ![Uppge kontaktmetoder](./media/howto-mfa-userdevicesettings/reproofup.png)
+   ![Kräv att användare ska uppge kontaktmetoder igen](./media/howto-mfa-userdevicesettings/reproofup.png)
 7. Klicka på **Spara**.
 8. Klicka på **Stäng**.
 
 ## <a name="delete-users-existing-app-passwords"></a>Ta bort användare som har befintliga applösenord
+
 Den här inställningen tar bort alla applösenord som en användare har skapat. Icke-webbläsarbaserade appar som är kopplade till dessa applösenord upphör att fungera tills ett nytt applösenord har skapats.
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>Ta bort användare som har befintliga applösenord
+
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Till vänster, Välj **Azure Active Directory** > **användare** > **alla användare**.
-3. Till höger, Välj **Multifaktorautentisering** i verktygsfältet. Multifaktorautentiseringssidan öppnas. 
-6. Markera kryssrutan bredvid den eller de användare som du vill hantera. En lista med snabba steg alternativ visas till höger. 
-7. Välj **hantera användarinställningar**.
-8. Markera kryssrutan för **ta bort alla befintliga applösenord som de valda användarna**.
-   ![Ta bort applösenord](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
-9. Klicka på **Spara**.
-10. Klicka på **Stäng**.
+3. Till höger, Välj **Multifaktorautentisering** i verktygsfältet. Multifaktorautentiseringssidan öppnas.
+4. Markera kryssrutan bredvid den eller de användare som du vill hantera. En lista med snabba steg alternativ visas till höger.
+5. Välj **hantera användarinställningar**.
+6. Markera kryssrutan för **ta bort alla befintliga applösenord som de valda användarna**.
+   ![Ta bort alla befintliga applösenord](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
+7. Klicka på **Spara**.
+8. Klicka på **Stäng**.
 
 ## <a name="restore-mfa-on-all-remembered-devices-for-a-user"></a>Återställ MFA på alla sparade enheter för en användare
+
 En av de konfigurerbara funktionerna i Azure Multi-Factor Authentication ger användarna kan markera enheter som betrodda. Mer information finns i [konfigurera Azure Multi-Factor Authentication-inställningar](howto-mfa-mfasettings.md#remember-multi-factor-authentication).
 
 Användare kan välja bort tvåstegsverifiering för ett konfigurerbart antal dagar för sina vanliga enheter. Om ett konto komprometteras eller en betrodd enhet tappas bort, behöver du för att kunna ta bort den betrodda statusen och kräva tvåstegsverifiering igen.
 
-Den **Återställ multifaktorautentisering på alla sparade enheter** måste inställningen innebär att användaren utför en tvåstegsverifiering nästa gång de loggar in, oavsett om de har valt att markera sin enhet som betrodda. 
+Den **Återställ multifaktorautentisering på alla sparade enheter** måste inställningen innebär att användaren utför en tvåstegsverifiering nästa gång de loggar in, oavsett om de har valt att markera sin enhet som betrodda.
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Så här återställer du MFA på alla pausade enheter för en användare
+
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Till vänster, Välj **Azure Active Directory** > **användare** > **alla användare**.
-3. Till höger, Välj **Multifaktorautentisering** i verktygsfältet. Multifaktorautentiseringssidan öppnas. 
-6. Markera kryssrutan bredvid den eller de användare som du vill hantera. En lista med snabba steg alternativ visas till höger. 
-7. Välj **hantera användarinställningar**.
-8. Markera kryssrutan för **Återställ multifaktorautentisering på alla sparade enheter**
-   ![ta bort applösenord](./media/howto-mfa-userdevicesettings/rememberdevices.png)
-9. Klicka på **Spara**.
-10. Klicka på **Stäng**.
+3. Till höger, Välj **Multifaktorautentisering** i verktygsfältet. Multifaktorautentiseringssidan öppnas.
+4. Markera kryssrutan bredvid den eller de användare som du vill hantera. En lista med snabba steg alternativ visas till höger.
+5. Välj **hantera användarinställningar**.
+6. Markera kryssrutan för **Återställ multifaktorautentisering på alla sparade enheter**
+   ![Återställ multifaktorautentisering på alla sparade enheter](./media/howto-mfa-userdevicesettings/rememberdevices.png)
+7. Klicka på **Spara**.
+8. Klicka på **Stäng**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Få mer information om hur du [konfigurera Azure Multi-Factor Authentication-inställningar](howto-mfa-mfasettings.md)
-
 - Om dina användare behöver hjälp kan peka dem mot den [användarhandboken för tvåstegsverifiering](../user-help/multi-factor-authentication-end-user.md)

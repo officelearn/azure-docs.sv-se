@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b433d8556377206ea53ece2764e251dcb266eb95
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e2ba6b2d33c3fb5d9fda6821718ac61513a958b7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192361"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369147"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Anslut din enhet för arbete till din organisations nätverk
 Anslut Windows 10-enheten ägs av arbetet till din organisations nätverk så att du kan komma åt potentiellt begränsade resurser.

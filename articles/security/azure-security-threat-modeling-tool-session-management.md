@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 18dfc6badf640afb418e661e6c464442fbb41945
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e8f3cf3889b3f79e930630ff0e768a0c4875eec6
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875177"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361735"
 ---
 # <a name="security-frame-session-management"></a>Security ram: Sessionshantering
 | Produkt/tjänst | Artikel |
@@ -389,18 +389,17 @@ void Page_Init (object sender, EventArgs e) {
 ```
 
 ## <a id="threat-detection"></a>Aktivera hotidentifiering i Azure SQL
-```
 
-| Title                   | Details      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
-| **SDL Phase**               | Build |  
-| **Applicable Technologies** | Web Forms |
-| **Attributes**              | N/A  |
-| **References**              | [forms Element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
-| **Steps** | Set the Forms Authentication Ticket cookie timeout to 15 minutes|
+| **Komponent**               | Webbprogram | 
+| **SDL fas**               | Utveckla |  
+| **Tillämpliga tekniker** | Webbformulär |
+| **Attribut**              | Gäller inte  |
+| **Referenser**              | [Element för formulär för autentisering (ASP.NET inställningsschema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **Steg** | Ange tidsgränsen för formulär autentiseringsbiljetten cookie till 15 minuter|
 
-### Example
+### <a name="example"></a>Exempel
 ```XML
 <forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
 </forms>

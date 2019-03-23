@@ -1,7 +1,7 @@
 ---
-title: Användaren avsikter
+title: Avsikter
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Ett intent som representerar en aktivitet eller åtgärd du vill utföra. Det är en syfte eller målet som uttrycks i en användares uttryck.
+description: En enda avsikten representerar en aktivitet eller åtgärd du vill utföra. Det är en syfte eller målet som uttrycks i en användares uttryck. Definiera en uppsättning avsikter som motsvarar för åtgärder som användare vill dra i ditt program.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: ae1dd16e3296c11d6bce6ea623f590deaee8f65d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e635a11cb99d11befc40703d9f5d2abec8559632
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871361"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371119"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>Begrepp om avsikter i LUIS-appen
 
@@ -31,7 +31,7 @@ Resor appavsikter   |   Exempel på yttranden   |
  CheckWeather | ”Vad är vädret som i Boston”? <br/> ”Visa prognosen för den här helgen” |
  Ingen         | ”Hämta mig ett cookie-recept”<br>”Lakers vinna”? |
 
-Alla program som levereras med fördefinierade avsikten ”[ingen](#none-intent-is-fallback-for-app)” som är reserv avsikten. 
+Alla program som levereras med fördefinierade avsikten ”[ingen](#none-intent-is-fallback-for-app)”, vilket är reserv avsikten. 
 
 ## <a name="prebuilt-domains-provide-intents"></a>Fördefinierade domäner tillhandahålla avsikter
 Du kan använda fördefinierade avsikter från någon av de fördefinierade domänerna förutom avsikter som du definierar. Mer information finns i [använda fördefinierade domäner i LUIS appar](luis-how-to-use-prebuilt-domains.md) vill veta mer om hur du anpassar avsikter från en domän som är färdiga för användning i din app.
@@ -57,7 +57,11 @@ På liknande sätt att vidta [yttranden](luis-concept-utterance.md) motsvarar et
 
 [Fördefinierade domäner](luis-how-to-use-prebuilt-domains.md) har avsikter med yttranden.  
 
-## <a name="none-intent-is-fallback-for-app"></a>Ingen avsikt är reserv för app
+## <a name="none-intent"></a>Avsikten Ingen
+
+Den **ingen** avsikt är viktigt att varje app och ska inte ha noll yttranden.
+
+### <a name="none-intent-is-fallback-for-app"></a>Ingen avsikt är reserv för app
 Den **ingen** avsikten är en allomfattande eller återställningsplats avsikt. Den används för att lära LUIS yttranden som inte är viktiga i programdomänen (ämnesområde). Den **ingen** avsikt ska ha mellan 10 och 20 procent av total yttranden i programmet. Lämna inte ingen tomt. 
 
 ### <a name="none-intent-helps-conversation-direction"></a>Ingen avsiktlig hjälper konversationen riktning
@@ -76,6 +80,12 @@ Den **ingen** avsikten är en obligatorisk avsikten och kan inte tas bort eller 
 
 ## <a name="negative-intentions"></a>Negativt avsikter 
 Om du vill fastställa negativa och positiva avsikter som ”jag **vill** en bil” och ”jag **inte** vill ha en bil”, du kan skapa två avsikter (en positiv och en negativ) och Lägg till lämpliga yttranden för varje. Eller du kan skapa en enda avsikten och markera två olika positiva och negativa villkoren som en entitet.  
+
+## <a name="intents-and-patterns"></a>Avsikter och mönster
+
+Om du har exempel yttranden som kan definieras som ett reguljärt uttryck helt eller delvis, bör du använda den [reguljärt uttryck entitet](luis-concept-entity-types.md#regular-expression-entity) tillsammans med en [mönstret](luis-concept-patterns.md). 
+
+En entitet för reguljärt uttryck garanterar extrahering av data så att mönstret matchas. Den mönstermatchning garanterar en exakt avsikt returneras. 
 
 ## <a name="intent-balance"></a>Avsiktshantering saldo
 Domän avsikter ska ha en balans mellan yttranden över varje avsikt. Har inte en avsikt med 10 yttranden och en annan avsikten med 500 yttranden. Detta är inte balanserade. Om du har den här situationen kan du granska avsikten med 500 yttranden att se om många av avsikter kan att ordna i en [mönstret](luis-concept-patterns.md). 
@@ -96,6 +106,8 @@ Läs mer om hur du kombinerar LUIS och QnA maker-appar med den [dispatch modelle
 
 ### <a name="request-help-for-apps-with-significant-number-of-intents"></a>Be om hjälp för appar med betydande antal avsikter
 Om du minskar antalet avsikter eller att dela upp dina avsikter i flera appar inte fungerar för dig, kontakta supporten. Om din Azure-prenumeration innehåller supporttjänster, kontakta [teknisk support för Azure](https://azure.microsoft.com/support/options/). 
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

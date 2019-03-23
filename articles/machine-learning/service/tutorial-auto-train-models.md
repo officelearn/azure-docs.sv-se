@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e30e65ba2efaf60a0e2d0a6df409c96db4d6285e
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 8fa77409f1f5c32bc1e8f8644111c38f6115a92d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295818"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58362058"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Självstudier: Använda automatiserad maskininlärning för att skapa en regressionsmodell
 
@@ -67,22 +67,11 @@ När du har slutfört stegen nedan kan du köra anteckningsboken **tutorials/reg
 
 ### <a name="server"></a>Använda en egen Jupyter Notebook-server
 
-Skapa en lokal Jupyter Notebook-server på datorn enligt nedan.  När du har slutfört stegen kör du anteckningsboken **tutorials/regression-part2-automated-ml.ipynb**.
+Skapa en lokal Jupyter Notebook-server på datorn enligt nedan.  Se till att du installerar `matplotlib` och `automl` och `notebooks` tillägg i din miljö.
 
-1. Slutför [snabbstarten för Azure Machine Learning med Python](quickstart-create-workspace-with-python.md) för att skapa en Miniconda-miljö och en arbetsyta.
-1. Installera extrafunktionerna `automl` och `notebooks` i din miljö med hjälp av `pip install azureml-sdk[automl,notebooks]`.
-1. Installera `maplotlib` med hjälp av `pip install maplotlib`.
-1. Klona [github-lagringsplatsen](https://aka.ms/aml-notebooks).
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-    ```
-    git clone https://github.com/Azure/MachineLearningNotebooks.git
-    ```
-
-1. Starta notebook-servern från den klonade katalogen.
-
-    ```shell
-    jupyter notebook
-    ```
+När du har slutfört stegen kör du anteckningsboken **tutorials/regression-part2-automated-ml.ipynb**.
 
 ## <a name="start"></a>Konfigurera din utvecklingsmiljö
 

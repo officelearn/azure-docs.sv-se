@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 0972df18c65ee6b61db4113eaebc1f2912cd6064
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 88ec8b93e2429fd394eb3a8d10460a2a80d9e56f
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892888"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349492"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>Använd PowerShell till att övervaka och skala en enskild SQL-databas
 
@@ -34,7 +34,10 @@ Om du väljer att installera och använda PowerShell lokalt kräver den här sj�
 [!code-powershell-interactive[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=15-16 "Monitor and scale single database")]
 
 > [!TIP]
-> Använd [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) att hämta status för databasåtgärder och Använd [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity) till avbryter en Uppdateringsåtgärd i databasen.
+> En fullständig lista över mått finns i [mått som stöds](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases).
+
+> [!TIP]
+> Använd [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) att hämta status för databasåtgärder och Använd [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity) att avbryta en Uppdateringsåtgärd i databasen.
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 

@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 03/05/2019
 ms.author: tamram
-ms.openlocfilehash: d3f6009c77618bc043586771a6f67442533b2a0d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fa574558afeec5a7706482a142c0187e6a34bdb3
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444063"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370405"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Hantera inställningar för lagringskonto i Azure portal
 
@@ -20,9 +20,9 @@ Det finns många olika inställningar för ditt lagringskonto i den [Azure-porta
 
 ## <a name="access-control"></a>Åtkomstkontroll
 
-Azure Storage stöder autentisering med Azure Active Directory för Blob storage och Queue storage (förhandsversion) via rollbaserad åtkomstkontroll (RBAC). Mer information om autentisering med Azure AD finns i [autentisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory (förhandsversion)](storage-auth-aad.md).
+Azure Storage stöder autentisering med Azure Active Directory för Blob storage och Queue storage via rollbaserad åtkomstkontroll (RBAC). Mer information om autentisering med Azure AD finns i [autentisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](storage-auth-aad.md).
 
-Den **åtkomstkontroll** inställningar i Azure-portalen erbjuder ett enkelt sätt att tilldela RBAC-roller till användare, grupper, tjänstens huvudnamn och hanterade identiteter. Mer information om att tilldela RBAC-roller finns i [hantera åtkomsträttigheter till blob och kö data med RBAC (förhandsversion)](storage-auth-aad-rbac.md).
+Den **åtkomstkontroll** inställningar i Azure-portalen erbjuder ett enkelt sätt att tilldela RBAC-roller till användare, grupper, tjänstens huvudnamn och hanterade identiteter. Mer information om att tilldela RBAC-roller finns i [hantera åtkomsträttigheter till blob och kö data med RBAC](storage-auth-aad-rbac.md).
 
 > [!NOTE]
 > Autentisera användare eller program med hjälp av autentiseringsuppgifter för Azure AD tillhandahåller överlägsen säkerhet och användarvänlighet över annan typ av auktorisering. Du kan fortsätta använda delad nyckel auktorisering med program, kringgår med hjälp av Azure AD behovet av att spara din åtkomstnyckel med din kod. Du kan också fortsätta att använda signaturer för delad åtkomst (SAS) för att ge detaljerad åtkomst till resurser i ditt storage-konto, men Azure AD erbjuder liknande funktioner utan att behöva hantera SAS-token eller oroa dig om du återkallar en komprometterad SAS. 

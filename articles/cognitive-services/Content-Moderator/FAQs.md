@@ -8,40 +8,49 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 11/21/2016
+ms.date: 03/21/2019
 ms.author: sajagtap
-ms.openlocfilehash: 99b95a26a91d14edbef264ac3b107f8462e0ef5e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: df8d957fc2de620d63567a9cc1b14b24b73052bb
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762185"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351141"
 ---
 # <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
 
-#### <a name="what-does-my-content-moderator-subscription-include"></a>Vad kostar Mina Content Moderator prenumeration innehålla?
+### <a name="what-does-my-content-moderator-subscription-include"></a>Vad kostar Mina Content Moderator prenumeration innehålla?
+
 Content Moderator-prenumeration ingår tillgång till verktyg för granskning och API: erna. Du kan bestämma om du vill använda en eller den andra eller både och, beroende på dina affärsbehov.
 
-#### <a name="what-are-the-limitsrestrictions-of-the-content-that-can-be-moderated-by-using-the-api"></a>Vilka är gränserna/begränsningarna för innehåll som kan modereras med hjälp av API:et?
+### <a name="what-are-the-limitsrestrictions-of-the-content-that-can-be-moderated-by-using-the-api"></a>Vilka är gränserna/begränsningarna för innehåll som kan modereras med hjälp av API:et?
+
 När du använder API: et, måste avbildningar ha minst 128 bildpunkter och en maximal filstorlek på 4 MB. Text får vara högst 1024 tecken. Det finns ingen gräns på videons längd.
 
-#### <a name="what-happens-if-the-content-passed-to-the-text-api-or-the-image-api-exceeds-the-size-limits"></a>Vad händer om innehållet som skickas till text-API:et eller bild-API:et överskrider storleksgränserna?
+### <a name="what-happens-if-the-content-passed-to-the-text-api-or-the-image-api-exceeds-the-size-limits"></a>Vad händer om innehållet som skickas till text-API:et eller bild-API:et överskrider storleksgränserna?
+
 API för textöversättning returnerar en felkod som meddelar att texten är längre än tillåtet. API för bildhantering returnerar också en felkod som meddelar att bilden inte uppfyller storlekskraven.
 
 #### <a name="do-you-keep-the-images-text-or-videos-that-are-submitted-for-moderation"></a>Håller du bilder, text och videor som skickas för moderering?
+
 Innehållet är ditt eget och inte ska bevaras av Microsoft utan ditt medgivande. Microsoft använder branschledande säkerhetsåtgärder för att skydda ditt innehåll.
 
-#### <a name="can-i-use-content-moderator-to-screen-for-illegal-child-exploitation-images"></a>Kan jag använda Content Moderator till skärmen för Ogiltigt underordnat utnyttjande avbildningar?
+### <a name="can-i-use-content-moderator-to-screen-for-illegal-child-exploitation-images"></a>Kan jag använda Content Moderator till skärmen för Ogiltigt underordnat utnyttjande avbildningar?
+
 Nej. Men kvalificerade organisationer kan använda den [PhotoDNA molntjänst](https://www.microsoft.com/photodna "molntjänst från Microsoft PhotoDNA") till skärmen för den här typen av innehåll.
 
-#### <a name="up-to-how-many-review-teams-can-a-user-join-can-the-user-switch-between-teams"></a>Upp till hur många granska team kan en användare ansluta till? Du kan växla mellan team?
-En användare kan ansluta till ett team i taget.
+### <a name="how-many-review-teams-can-a-user-join-can-the-user-switch-between-teams"></a>Hur många granska team kan en koppling för användaren? Du kan växla mellan team?
 
-#### <a name="what-kind-of-team-member-roles-are-supported-by-the-review-tool-how-are-they-different"></a>Vilken typ av teammedlem roller som stöds av granskningsverktyget? Hur skiljer de sig åt?
-Studio kan för närvarande du tilldela rollerna Administratör och granskare. Administratörer kan bjuda in andra användare och har åtkomst till konfigurationsinställningar medan granskare kan endast granska resultaten och tagg eller ta bort taggen innehåll.
+En användare kan bara ansluta till ett team i taget.
 
-#### <a name="what-is-a-tag-does-the-review-tool-support-custom-tags"></a>Vad är en tagg? Stöder anpassade taggar i granskningsverktyget?
-En tagg är en eller två bokstäver kort kod som anger en flagga för moderering, till exempel ”a” för vuxna, ”r” för vågat och så vidare. Administratörer kan definiera nya taggar för sin verksamhet efter behov.
+### <a name="what-kind-of-team-member-roles-are-supported-by-the-review-tool-how-are-they-different"></a>Vilken typ av teammedlem roller som stöds av granskningsverktyget? Hur skiljer de sig åt?
 
-#### <a name="how-many-team-members-can-i-have-in-my-review-team"></a>Hur många teammedlemmar kan jag ha i mitt granskningsteam?
-Du kan ha upp till fem teammedlemmar, inklusive administratören i ett team.
+Verktyg för granskning för närvarande kan du tilldela rollerna Administratör och granskare. Administratörer kan bjuda in andra användare och har åtkomst till konfigurationsinställningar medan granskare kan endast granska resultaten och tagg eller ta bort taggen innehåll.
+
+### <a name="what-is-a-tag-does-the-review-tool-support-custom-tags"></a>Vad är en tagg? Stöder anpassade taggar i granskningsverktyget?
+
+En tagg är en kort kod för en eller två-bokstäver som anger en flagga för moderering, till exempel ”a” för vuxna, r för vågat och så vidare. Administratörer kan definiera nya taggar för sin verksamhet efter behov.
+
+### <a name="how-many-team-members-can-i-have-in-my-review-team"></a>Hur många teammedlemmar kan jag ha i mitt granskningsteam?
+
+Du kan ha upp till fem teammedlemmar, inklusive administratören, i ett team.

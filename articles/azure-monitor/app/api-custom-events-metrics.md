@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4269f4ac24a842bf203456026234182934f1732f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fca93c002fba4d54e8e87ca31e0fd1c258826665
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878473"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369751"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Application Insights API för anpassade händelser och mått
 
@@ -1076,6 +1076,17 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 
 ```vb
 TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
+```
+
+*Node.js*
+
+För Node.js, kan du aktivera utvecklarläget genom att aktivera interna loggning via `setInternalLogging` och inställningen `maxBatchSize` till 0, vilket gör att din telemetri skickas när den har samlats in.
+
+```js
+applicationInsights.setup("ikey")
+  .setInternalLogging(true, true)
+  .start()
+applicationInsights.defaultClient.config.maxBatchSize = 0;
 ```
 
 ## <a name="ikey"></a> Ange instrumenteringsnyckeln för valda anpassad telemetri

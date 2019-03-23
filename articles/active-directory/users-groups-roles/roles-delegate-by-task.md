@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e81d5513f43882093883256cf9eab4a22e9ca01
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 59c06ae83327683942885190e4b401617dc020f9
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875282"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361378"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Administratörsroller av admin-aktivitet i Azure Active Directory
 
@@ -235,13 +235,13 @@ Läsa alla konfigurationen | Global administratör |
 
 Aktivitet | Minst Privilegierade roller | Ytterligare roller
 ---- | --------------------- | ----------------
-Konfigurera autentiseringsmetoder | Global administratör | 
-Konfigurera anpassning | Global administratör | 
-Konfigurera meddelanden | Global administratör | 
-Konfigurera lokal integrering | Global administratör | 
-Konfigurera egenskaper för återställning av lösenord | Global administratör | 
-Konfigurera registrering | Global administratör | 
-Läsa alla konfigurationen | Säkerhetsadministratör administratör användare | 
+Konfigurera autentiseringsmetoder | Global administratör |
+Konfigurera anpassning | Global administratör |
+Konfigurera meddelanden | Global administratör |
+Konfigurera lokal integrering | Global administratör |
+Konfigurera egenskaper för återställning av lösenord | Användaradministratör | Global administratör
+Konfigurera registrering | Global administratör |
+Läsa alla konfigurationen | Säkerhetsadministratör | Användaradministratör |
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 

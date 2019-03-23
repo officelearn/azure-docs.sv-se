@@ -1,6 +1,6 @@
 ---
-title: Skapa ett index i kod med hjälp av PowerShell och REST-API – Azure Search
-description: Skapa ett sökbart fulltextindex i kod med hjälp av HTTP-begäranden och Azure Search REST API.
+title: Skapa, läsa in och fråga ett index med hjälp av PowerShell och REST-API – Azure Search
+description: Skapa, läsa in och fråga ett index med hjälp av PowerShell, Invoke-RestMethod och Azure Search REST API.
 ms.date: 03/15/2019
 author: heidisteen
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 87da5cdd31abb41a774a46d3891006eb58ac5e4d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 9e1b6fc0dc4e6a6c2c191960fa061c810e3a2e79
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285144"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372122"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Snabbstart: Skapa ett Azure Search-index med PowerShell och REST API
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Den här artikeln vägleder dig genom processen att skapa, läsa in och fråga e
 
 [PowerShell 5.1 eller senare](https://github.com/PowerShell/PowerShell)med hjälp av [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) sekventiella och interaktiva anvisningar.
 
-En URL-slutpunkt och admin api-nyckeln för search-tjänsten. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
+Hämta URL-slutpunkt och admin api-nyckeln för search-tjänsten. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
 
 1. Azure-portalen i din söktjänst **översikt** sidan, hämta URL: en. En exempel-slutpunkt kan se ut https:\//my-service-name.search.windows.net.
 
@@ -371,11 +371,7 @@ Försök att lägga till franska beskrivningar i indexet. I följande exempel in
         {
             "@search.action": "merge",
             "hotelId": "2",
-            "description_fr": "Hôtel le moins cher en ville",
-        },
-        {
-            "@search.action": "delete",
-            "hotelId": "6"
+            "description_fr": "Hôtel le moins cher en ville"
         }
     ]
 }

@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 26e4b921b4050efa5217e3b599b9dc942a003090
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 61a4be19000265910493963db9f29df143a7e21c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173931"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360358"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Ta med din egen nyckel för Apache Kafka på Azure HDInsight (förhandsversion)
 
@@ -26,6 +26,8 @@ BYOK kryptering är en autentiseringsprocessen hanteras när klustret skapas uta
 Alla meddelanden till Kafka-klustret (inklusive repliker som underhålls av Kafka) krypteras med en symmetrisk Data Datakrypteringsnyckeln (DEK). DEK skyddas med hjälp av nyckeln kryptering nyckel (KEK) från ditt nyckelvalv. Kryptering och dekryptering processer hanteras helt av Azure HDInsight. 
 
 Du kan använda Azure portal eller Azure CLI för att på ett säkert sätt rotera nycklar i nyckelvalvet. När en nyckel roteras startar HDInsight Kafka-klustret med den nya nyckeln inom några minuter. Aktivera nyckelskydd-funktioner ”Rensa inte” och ”Mjuk borttagning” för att skydda mot utpressningstrojaner scenarier och oavsiktlig borttagning. Nycklar utan dessa funktioner stöds inte.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="get-started-with-byok"></a>Kom igång med BYOK
 
@@ -99,7 +101,7 @@ Du kan använda Azure portal eller Azure CLI för att på ett säkert sätt rote
 
 **Hur kan jag återställa klustret om nycklarna har tagits bort?**
 
-   Eftersom endast ”ej permanent ta bort” aktiverat nycklar stöds om nycklarna har återställts i nyckelvalvet, ska klustret få åtkomst till nycklarna. Om du vill återställa en Azure Key Vault-nyckel, se [Restore-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey).
+   Eftersom endast ”ej permanent ta bort” aktiverat nycklar stöds om nycklarna har återställts i nyckelvalvet, ska klustret få åtkomst till nycklarna. Om du vill återställa en Azure Key Vault-nyckel, se [återställning AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey).
 
 **Kan jag ha producent/konsument-program som arbetar med ett BYOK-kluster och ett icke-BYOK-kluster samtidigt?**
 

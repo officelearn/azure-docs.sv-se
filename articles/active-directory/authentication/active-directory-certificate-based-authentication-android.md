@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0f4a648227e62642bb071a76cbd1f3a50bf78ae
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b55b439f61c76d6d0524c1f01ba5fef745187d04
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314510"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368297"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Azure Active Directory-certifikatbaserad autentisering på Android
 
@@ -35,16 +35,16 @@ Den här funktionen är tillgänglig som förhandsversion i Office 365 US Govern
 
 | Program | Support |
 | --- | --- |
-| Azure Information Protection-appen |![Markera][1] |
-| Intune-Företagsportalen |![Markera][1] |
-| Microsoft Teams |![Markera][1] |
-| OneNote |![Markera][1] |
-| OneDrive |![Markera][1] |
-| Outlook |![Markera][1] |
-| Power BI |![Markera][1] |
-| Skype för företag |![Markera][1] |
-| Word / Excel / PowerPoint |![Markera][1] |
-| Yammer |![Markera][1] |
+| Azure Information Protection-appen |![Markera vilket tyder på stöd för det här programmet][1] |
+| Intune-Företagsportalen |![Markera vilket tyder på stöd för det här programmet][1] |
+| Microsoft Teams |![Markera vilket tyder på stöd för det här programmet][1] |
+| OneNote |![Markera vilket tyder på stöd för det här programmet][1] |
+| OneDrive |![Markera vilket tyder på stöd för det här programmet][1] |
+| Outlook |![Markera vilket tyder på stöd för det här programmet][1] |
+| Power BI |![Markera vilket tyder på stöd för det här programmet][1] |
+| Skype för företag |![Markera vilket tyder på stöd för det här programmet][1] |
+| Word / Excel / PowerPoint |![Markera vilket tyder på stöd för det här programmet][1] |
+| Yammer |![Markera vilket tyder på stöd för det här programmet][1] |
 
 ### <a name="implementation-requirements"></a>Implementeringskrav för
 

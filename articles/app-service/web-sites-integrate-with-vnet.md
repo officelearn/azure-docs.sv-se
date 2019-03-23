@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ed99bd3626bb44bff68e4122d6b50523f19e1797
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112627"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369708"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera din app med Azure-nätverk
 Det här dokumentet beskriver funktionen Azure App Service-integrering för virtuellt nätverk och visar hur du konfigurerar den med appar i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure-nätverk] [ VNETOverview] (Vnet) gör att du kan placera många av dina Azure-resurser i ett icke-internet-dirigerbara nätverk. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med hjälp av VPN-tekniker. 
@@ -247,7 +247,7 @@ Det finns tre funktioner som ger åtkomst till virtuella nätverk finns resurser
 
 Hybridanslutningar måste du installera en relay agent kallas Hybrid anslutning Manager(HCM) i nätverket. Den HCM-system måste kunna ansluta till Azure och i ditt program. Hybridanslutningar kräver inte en inkommande internet-tillgänglig slutpunkt för fjärrnätverk, som krävs för en VPN-anslutning. HCM körs bara på Windows och du kan ha upp till fem instanser som körs för att tillhandahålla hög tillgänglighet. Hybridanslutningar stöder endast TCP om och varje HC-slutpunkten måste matcha till en viss värd: port-kombination. 
 
-App Service Environment-funktionen kan du köra en enda klient-instans i Azure App Service i ditt virtuella nätverk. Om dina appar finns i en App Service Environment, komma dina appar åt resurser i ditt virtuella nätverk utan några extra steg. Med och App Service Environment dina appar körs på mer kraftfulla arbetare och kan skalas upp till 100 ASP-instanser. App Service-miljöer fungerar med alla nätverksfunktioner, inklusive ExpressRoute och Tjänsteslutpunkter.  
+App Service Environment-funktionen kan du köra en enda klient-instans i Azure App Service i ditt virtuella nätverk. Om dina appar finns i en App Service Environment, komma dina appar åt resurser i ditt virtuella nätverk utan några extra steg. Med en App Service Environment dina appar körs på mer kraftfulla arbetare och kan skalas upp till 100 ASP-instanser. App Service-miljöer fungerar med alla nätverksfunktioner, inklusive ExpressRoute och Tjänsteslutpunkter.  
 
 Det finns vissa använder fallet överlappar varandra, kan ingen av dessa funktioner ersätta någon av de andra. Att veta vilken funktion du ska använda är knuten till dina behov. Exempel:
 
@@ -259,7 +259,7 @@ När det virtuella nätverket är redan ansluten till ditt lokala nätverk med V
 
 Utöver de funktionella skillnaderna det också prisskillnaderna. App Service Environment-funktionen är en Premium tjänsterbjudande men erbjuder mest network configuration möjligheter utöver andra fantastiska funktioner. VNet-integrering kan användas med Standard eller Premium ASP och är perfekt för att på ett säkert sätt förbrukar resurser i ditt virtuella nätverk från App Service med flera innehavare. Hybridanslutningar är för närvarande beror på en BizTalk-konto, som har prissättning nivåer som börja kostnadsfritt och få progressivt dyrare baserat på den datamängd som du behöver. När det gäller att arbeta i många nätverk men finns det inga andra funktionen som Hybridanslutningar som gör det möjligt att komma åt resurser i och över 100 separata nätverk. 
 
-## <a name="new-vnet-integration"></a>Nya VNet-integrering ##
+## <a name="new-vnet-integration"></a>Ny VNet-integrering ##
 
 Det finns en ny version av VNet-integrering-funktion som inte är beroende punkt-till-plats VPN-teknik. Till skillnad från den befintliga funktionen fungerar ny förhandsgranskningsfunktion med ExpressRoute och Tjänsteslutpunkter. 
 

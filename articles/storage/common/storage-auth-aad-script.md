@@ -5,21 +5,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f8fd3cdcf73749d787fc6f1c2222946961091f80
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6c57367a3a11aeb5bdded8e19ce57b7e265aeea9
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849847"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369249"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell"></a>Använda en Azure AD-identitet för åtkomst till Azure Storage med CLI eller PowerShell
 
-Azure Storage tillhandahåller tillägg för Azure CLI och PowerShell som gör det möjligt att logga in och kör skriptkommandon under en Azure Active Directory (Azure AD)-identitet. Azure AD-identitet kan vara en användare, grupp eller tjänstens huvudnamn för programmet eller det kan vara en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md). Du kan tilldela behörigheter för att få åtkomst till lagringsresurser till Azure AD-identitet via rollbaserad åtkomstkontroll (RBAC). Mer information om RBAC-roller i Azure Storage finns i [hantera åtkomsträttigheter till Azure Storage-data med RBAC (förhandsversion)](storage-auth-aad-rbac.md).
+Azure Storage tillhandahåller tillägg för Azure CLI och PowerShell så att du kan logga in och kör skriptkommandon under en Azure Active Directory (Azure AD)-identitet. Azure AD-identitet kan vara en användare, grupp eller tjänstens huvudnamn för programmet eller det kan vara en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md). Du kan tilldela behörigheter för att få åtkomst till lagringsresurser till Azure AD-identitet via rollbaserad åtkomstkontroll (RBAC). Mer information om RBAC-roller i Azure Storage finns i [hantera åtkomsträttigheter till Azure Storage-data med RBAC](storage-auth-aad-rbac.md).
 
-När du loggar in till Azure CLI eller PowerShell med Azure AD-identitet, returneras en åtkomsttoken för att komma åt Azure Storage under den identiteten. Den token används sedan automatiskt av CLI eller PowerShell för att auktorisera åtgärder mot Azure Storage. För åtgärder som stöds behöver du inte längre att skicka en nyckel eller en SAS-token med kommandot.
+När du loggar in på Azure CLI eller PowerShell med Azure AD-identitet, returneras en åtkomsttoken för att komma åt Azure Storage under den identiteten. Den token används sedan automatiskt av CLI eller PowerShell för att auktorisera åtgärder mot Azure Storage. För åtgärder som stöds behöver du inte längre att skicka en nyckel eller en SAS-token med kommandot.
 
 ## <a name="supported-operations"></a>Åtgärder som stöds
 
@@ -61,10 +61,10 @@ I följande exempel visar hur du skapar en behållare i ett nytt lagringskonto f
         --encryption-services blob
     ```
     
-1. Innan du skapar behållaren, tilldela den [Storage Blob Data-deltagare (förhandsgranskning)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) rollen till dig själv. Även om du är ägare, måste du explicit behörighet att utföra åtgärder mot lagringskontot. Mer information om att tilldela RBAC-roller finns i [bevilja åtkomst till Azure-behållare och köer med RBAC i Azure portal (förhandsversion)](storage-auth-aad-rbac.md).
+1. Innan du skapar behållaren, tilldela den [Storage Blob Data-deltagare](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) rollen till dig själv. Även om du är ägare, måste du explicit behörighet att utföra åtgärder mot lagringskontot. Mer information om att tilldela RBAC-roller finns i [bevilja åtkomst till Azure-behållare och köer med RBAC i Azure-portalen](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > RBAC-rolltilldelningar kan ta upp till 5 minuter att sprida i förhandsversionen av Azure AD-stöd för blobbar och köer.
+    > RBAC-rolltilldelningar kan ta några minuter att sprida.
     
 1. Anropa den [az storage container skapa](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) med den `--auth-mode` parameteruppsättning till `login` att skapa behållaren med hjälp av Azure AD-autentiseringsuppgifter:
 
@@ -114,10 +114,10 @@ I följande exempel visar hur du skapar en behållare i ett nytt lagringskonto f
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Innan du skapar behållaren, tilldela den [Storage Blob Data-deltagare (förhandsgranskning)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) rollen till dig själv. Även om du är ägare, måste du explicit behörighet att utföra åtgärder mot lagringskontot. Mer information om att tilldela RBAC-roller finns i [bevilja åtkomst till Azure-behållare och köer med RBAC i Azure portal (förhandsversion)](storage-auth-aad-rbac.md).
+1. Innan du skapar behållaren, tilldela den [Storage Blob Data-deltagare](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) rollen till dig själv. Även om du är ägare, måste du explicit behörighet att utföra åtgärder mot lagringskontot. Mer information om att tilldela RBAC-roller finns i [bevilja åtkomst till Azure-behållare och köer med RBAC i Azure-portalen](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > RBAC-rolltilldelningar kan ta upp till 5 minuter att sprida i förhandsversionen av Azure AD-stöd för blobbar och köer.
+    > RBAC-rolltilldelningar kan ta några minuter att sprida.
 
 1. Skapa en behållare genom att anropa [New AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). Eftersom det här anropet använder kontexten som skapades i föregående steg, skapas behållaren med hjälp av Azure AD-autentiseringsuppgifter. 
 
@@ -128,6 +128,6 @@ I följande exempel visar hur du skapar en behållare i ett nytt lagringskonto f
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om RBAC-roller för Azure storage finns [hantera åtkomsträttigheter till storage-data med RBAC (förhandsversion)](storage-auth-aad-rbac.md).
-- Läs om hur du använder hanterade identiteter för Azure-resurser med Azure Storage i [autentisera åtkomst till blobbar och köer med Azure hanterade identiteter för Azure-resurser (förhandsgranskning)](storage-auth-aad-msi.md).
+- Mer information om RBAC-roller för Azure storage finns [hantera åtkomsträttigheter till storage-data med RBAC](storage-auth-aad-rbac.md).
+- Läs om hur du använder hanterade identiteter för Azure-resurser med Azure Storage i [autentisera åtkomst till blobbar och köer med Azure hanterade identiteter för Azure-resurser](storage-auth-aad-msi.md).
 - Läs hur du tillåter åtkomst till behållare och köer från i ditt storage-program i [använda Azure AD med lagring program](storage-auth-aad-app.md).

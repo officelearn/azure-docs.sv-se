@@ -9,18 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 281b4b8d20957cbbbf0f4ff52166e8c3a78b3e7d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5154058bb1562b670e24f8813e979588a536f086
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108145"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359865"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analysera loggar för Apache Kafka på HDInsight
 
 Lär dig hur du använder Azure Monitor-loggar för att analysera loggar som genereras av Apache Kafka på HDInsight.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="enable-azure-monitor-logs-for-apache-kafka"></a>Aktivera Azure Monitor-loggar för Apache Kafka
 
@@ -33,7 +35,7 @@ Stegen för att aktivera Azure Monitor-loggar för HDInsight är desamma för al
 3. Konfigurera Kafka-kluster för att använda Azure Monitor-loggar. Mer information finns i den [Använd Azure Monitor-loggar för att övervaka HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md) dokumentet.
 
     > [!NOTE]  
-    > Du kan också konfigurera kluster för att använda Azure Monitor-loggar med hjälp av den `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet. Denna cmdlet kräver följande information:
+    > Du kan också konfigurera kluster för att använda Azure Monitor-loggar med hjälp av den `Enable-AzHDInsightOperationsManagementSuite` cmdlet. Denna cmdlet kräver följande information:
     >
     > * HDInsight-klustrets namn.
     > * Arbetsyte-ID för Azure Monitor-loggar. Du hittar ID för arbetsyta i Log Analytics-arbetsytan.

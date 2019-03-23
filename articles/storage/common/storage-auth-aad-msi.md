@@ -1,25 +1,25 @@
 ---
-title: Autentisera åtkomsten till blobbar och köer med Azure Active Directory hanterade identiteter för Azure-resurser (förhandsversion), Azure Storage | Microsoft Docs
+title: Autentisera åtkomsten till blobbar och köer med Azure Active Directory hanterade identiteter för Azure-resurser – Azure Storage | Microsoft Docs
 description: Azure Blob- och Queue storage stöder Azure Active Directory-autentisering med hanterade identiteter för Azure-resurser. Du kan använda hanterade identiteter för Azure-resurser för att autentisera åtkomst till blobbar och köer från program som körs i Azure-datorer, funktionsappar, skalningsuppsättningar för virtuella datorer och andra. Med hjälp av hanterade identiteter för Azure-resurser och utnyttja kraften i Azure AD-autentisering kan du undvika lagring av autentiseringsuppgifter med dina program som körs i molnet.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 15c37be3f3b1b3f72c32865e095091fa10ee9750
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4372045590938df701dd00e58a111215f6e8e56d
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251698"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369665"
 ---
-# <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources-preview"></a>Autentisera åtkomsten till blobbar och köer med hanterade identiteter för Azure-resurser (förhandsgranskning)
+# <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources"></a>Autentisera åtkomsten till blobbar och köer med hanterade identiteter för Azure-resurser
 
 Azure Blob- och Queue storage har stöd för Azure Active Directory (Azure AD)-autentisering med [hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md). Hanterade identiteter för Azure-resurser kan autentisera åtkomst till blobbar och köer med hjälp av Azure AD-autentiseringsuppgifter från program som körs i Azure-datorer (VM), funktionsappar, skalningsuppsättningar för virtuella datorer och andra. Med hjälp av hanterade identiteter för Azure-resurser och utnyttja kraften i Azure AD-autentisering kan du undvika lagring av autentiseringsuppgifter med dina program som körs i molnet.  
 
-Om du vill tilldela behörigheter till en hanterad identitet till en blob-behållare eller en kö, tilldelar du rollen rollbaserad åtkomstkontroll (RBAC) till den hanterade identitet som omfattar behörigheter för den resursen i det aktuella området. Mer information om RBAC-roller i storage finns i [hantera åtkomsträttigheter till storage-data med RBAC (förhandsversion)](storage-auth-aad-rbac.md). 
+Om du vill tilldela behörigheter till en hanterad identitet till en blob-behållare eller en kö, tilldelar du rollen rollbaserad åtkomstkontroll (RBAC) till den hanterade identitet som omfattar behörigheter för den resursen i det aktuella området. Mer information om RBAC-roller i storage finns i [hantera åtkomsträttigheter till storage-data med RBAC](storage-auth-aad-rbac.md). 
 
 Den här artikeln visar hur du autentiserar till Azure Blob eller Queue storage med en hanterad identitet från en Azure virtuell dator.  
 
@@ -37,7 +37,7 @@ Innan du kan använda hanterade identiteter för Azure-resurser för att autenti
 
 ## <a name="assign-an-rbac-role-to-an-azure-ad-managed-identity"></a>Tilldela en RBAC-roll till en Azure AD som hanterad identitet
 
-Om du vill autentisera en hanterad identitet från Azure Storage-program måste du först konfigurera rollbaserad inställningar för åtkomstkontroll (RBAC) för den hantera identiteten. Azure Storage definierar RBAC-roller som omfattar behörigheter för behållare och köer. När RBAC-roll tilldelas till en hanterad identitet som hanterad identitet beviljas åtkomst till resursen. Mer information finns i [hantera åtkomsträttigheter till Azure-Blob och kö data med RBAC (förhandsversion)](storage-auth-aad-rbac.md).
+Om du vill autentisera en hanterad identitet från Azure Storage-program måste du först konfigurera rollbaserad inställningar för åtkomstkontroll (RBAC) för den hantera identiteten. Azure Storage definierar RBAC-roller som omfattar behörigheter för behållare och köer. När RBAC-roll tilldelas till en hanterad identitet som hanterad identitet beviljas åtkomst till resursen. Mer information finns i [hantera åtkomsträttigheter till Azure-Blob och kö data med RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="get-a-managed-identity-access-token"></a>Hämta en hanterad identitet åtkomsttoken
 
@@ -49,7 +49,7 @@ Kodexemplet förutsätter att du har en åtkomsttoken för hanterad identitet. �
 
 ### <a name="add-references-and-using-statements"></a>Lägg till referenser och using-satser  
 
-Installera förhandsversionen av Azure Storage-klientbiblioteket i Visual Studio. Från den **verktyg** menyn och välj **Nuget-Pakethanteraren**, sedan **Pakethanterarkonsolen**. Skriv följande kommando i konsolen:
+I Visual Studio, installerar du Azure Storage-klientbiblioteket. Från den **verktyg** menyn och välj **Nuget-Pakethanteraren**, sedan **Pakethanterarkonsolen**. Skriv följande kommando i konsolen:
 
 ```
 Install-Package https://www.nuget.org/packages/WindowsAzure.Storage  
@@ -63,7 +63,7 @@ using Microsoft.WindowsAzure.Storage.Auth;
 
 ### <a name="create-credentials-from-the-managed-identity-access-token"></a>Skapa autentiseringsuppgifter från åtkomsttoken hanterad identitet
 
-Du kan skapa för blockbloben med den **TokenCredentials** klass som tillhandahålls av paketets förhandsversion. Skapa en ny instans av **TokenCredentials**, och skickar hanterad identitet åtkomsttoken som du fick tidigare:
+Du kan skapa för blockbloben med den **TokenCredentials** klass. Skapa en ny instans av **TokenCredentials**, och skickar hanterad identitet åtkomsttoken som du fick tidigare:
 
 ```dotnet
 // Create storage credentials from your managed identity access token.
@@ -79,7 +79,6 @@ CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.co
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om RBAC-roller för Azure storage finns [hantera åtkomsträttigheter till storage-data med RBAC (förhandsversion)](storage-auth-aad-rbac.md).
+- Mer information om RBAC-roller för Azure storage finns [hantera åtkomsträttigheter till storage-data med RBAC](storage-auth-aad-rbac.md).
 - Läs hur du tillåter åtkomst till behållare och köer från i ditt storage-program i [använda Azure AD med lagring program](storage-auth-aad-app.md).
-- Läs hur du logga in på Azure CLI och PowerShell med Azure AD-identitet i [använda en Azure AD-identitet för åtkomst till Azure Storage med CLI eller PowerShell (förhandsversion)](storage-auth-aad-script.md).
-- Ytterligare information om Azure AD-integrering för Azure-Blobbar och köer finns i Azure Storage-teamets blogg publicerar, [meddelande om förhandsversionen av Azure AD-autentisering för Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
+- Om du vill lära dig mer om att logga in på Azure CLI och PowerShell med Azure AD-identitet, se [använda en Azure AD-identitet för åtkomst till Azure Storage med CLI eller PowerShell](storage-auth-aad-script.md).

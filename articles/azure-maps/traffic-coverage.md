@@ -1,99 +1,133 @@
 ---
 title: Trafik täckning i Azure Maps | Microsoft Docs
 description: Lär dig mer om trafiktäckning i Azure Maps
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/12/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 09/22/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3ef9cce659e1173e419e1ea24cf0a414202013b5
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: ad7d4dceefcaa06effa6b2974b0a8a03ad641372
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575685"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372277"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps-trafiktäckning
 
-Azure Maps ger omfattande trafikinformation i form av trafik **flow** och **incidenter**. Dessa data kan visualiseras i maps eller används för att generera smartare vägar som faktor i realtid som driver villkor. 
+Azure Maps ger omfattande trafikinformation i form av trafik **flow** och **incidenter**. Dessa data kan visualiseras i maps eller används för att generera smartare vägar som faktor i realtid som driver villkor.
 
 Maps har dock inte samma grad av information och Precision för alla regioner. I följande tabell innehåller information om vilken typ av information om trafik som du kan begära från varje region: 
 
-|Region  |Incidenter  |Flöde  |
+## <a name="americas"></a>Nord- och Sydamerika
+
+|Land/region  |Incidenter  |Flöde  |
 |---------|:---------:|:---------:|
-|Argentina      |         |✓         |
-|Australien     |✓         |✓        |
-|Österrike     |✓         |✓         |
-|Bahrain     |         |✓         |
-|Belgien     |✓         |✓         |
+|Argentina      |✓         |✓         |
 |Brasilien     |✓         |✓         |
-|Bulgarien     |✓         |✓         |
 |Kanada     |✓         |✓         |
 |Chile     |✓         |✓         |
-|Colombia      |         |✓         |
-|Kroatien     |         |✓         |
+|Colombia      |✓         |✓         |
+|Mexiko     |✓         |✓         |
+|Peru       |✓         |✓         | 
+|USA     |✓         |✓        |
+|+Puerto Rico     |✓         |✓         |
+|Uruguay |✓         |✓         |
+
+
+## <a name="asia-pacific"></a>Asien och stillahavsområdet
+
+|Land/region   |Incidenter  |Flöde  |
+|---------|:---------:|:---------:|
+|Australien     |✓         |✓        |
+|Brunei   |✓         |✓        |
+|Hongkong SAR     |✓         |✓         |
+|Indien   |✓         |✓         |
+|Indonesien     |✓         |✓         |
+|Macao SAR     |✓         |✓         |
+|Malaysia     |✓         |✓         |
+|Nya Zeeland     |✓         |✓         |
+|Filippinerna  |✓         |✓         |
+|Singapore     |✓         |✓         |
+|Taiwan SAR     |✓         |✓        |
+|Thailand     |✓         |✓        |
+|Vietnam   |✓         |✓         |
+
+
+## <a name="europe"></a>Europa
+
+|Land/region   |Incidenter  |Flöde  |
+|---------|:---------:|:---------:|
+|Andorra   |✓         |✓         |
+|Österrike     |✓         |✓         |
+|Belgien     |✓         |✓         |
+|Bulgarien     |✓         |✓         |
+|Kroatien     |✓         |✓         |
 |Tjeckien     |✓         |✓         |
 |Danmark     |✓         |✓         |
-|Egypten     |         |✓         |
 |Estland     |         | ✓        |
 |Finland     |✓         |✓         |
 |+ Åland-öarna      |✓         |✓         |
 |Frankrike     |✓         |✓         |
-|+ Monaco     |✓         |✓         |
+|Monaco     |✓         |✓         |
 |Tyskland     |✓         |✓         |
 |Grekland     |✓         |✓         |
-|Hongkong SAR     |✓         |✓         |
 |Ungern     |✓         |✓         |
-|Island     |         |✓         |
-|Indonesien     |✓         |✓         |
+|Island     |✓         |✓         |
 |Irland     |✓         |✓         |
-|Israel     |         |✓         |
 |Italien     |✓         |✓        |
-|+ San Marino     |✓         |✓         |
-|Kuwait     |✓         |✓         |
-|Lettland     |         |✓         |
+|Lettland     |✓         |✓         |
 |Lesotho     |✓         |✓         |
-|Litauen     |         |✓         |
+|Liechtenstein      |✓         |✓         |
+|Litauen     |✓         |✓         |
 |Luxemburg     |✓         |✓         |
-|Macao SAR     |         |✓         |
-|Malaysia     |✓         |✓         |
 |Malta     |✓         |✓         |
-|Mexiko     |✓         |✓         |
-|Marocko     |         |✓         |
+|Monaco   |✓         |✓         |
 |Nederländerna     |✓         |✓         |
-|Nya Zeeland     |✓         |✓         |
 |Norge     |✓         |✓         |
-|Oman     |         |✓         |
 |Polen     |✓         |✓         |
 |Portugal     |✓         |✓         |
-|+ Azorerna och Madeira     |         |✓         |
-|Qatar     |         |✓         |
-|Rumänien     |         |✓         |
+|+ Azorerna och Madeira     |✓         |✓         |
+|Rumänien     |✓         |✓         |
 |Ryska federationen     |✓         |✓         |
-|Saudiarabien     |✓         |✓         |
-|Singapore     |✓         |✓         |
+|San Marino    |✓         |✓         |
 |Slovakien     |✓         |✓         |
 |Slovenien     |✓         |✓         |
-|Sydafrika     |✓         |✓         |
 |Spanien     |✓         |✓         |
-|+ Andorra     |✓         |✓         |
+|+Andorra     |✓         |✓         |
 |+ Balearerna     |✓         |✓         |
 |+ Kanarieöarna     |✓         |✓         |
-|+ Gibraltar     |✓         |✓         |
 |Sverige     |✓         |✓         |
 |Schweiz     |✓         |✓        |
-|+ Liechtenstein      |✓         |✓         |
-|Taiwan SAR     |✓         |✓        |
-|Thailand     |✓         |✓        |
 |Turkiet     |✓         |✓         |
 |Ukraina     |✓         |✓         |
-|Förenade Arabemiraten     |✓         |✓         |
 |Storbritannien     |✓         |✓         |
-|(Guernsey & Jersey)     |✓         |✓         |
-|Isle of Man     |✓         |✓         |
-|USA     |✓         |✓        |
-|+ Puerto Rico     |✓         |✓         |
+|+Gibraltar     |✓         |✓         |
+|+Guernsey & Jersey     |✓         |✓         |
+|+ Isle of Man     |✓         |✓         |
+|Vatikanstaten   |✓         |✓         |
+
+
+## <a name="middle-east-and-africa"></a>Mellanöstern och Afrika
+
+|Land/region |Incidenter  |Flöde  |
+|---------|:---------:|:---------:|
+|Bahrain     |✓         |✓         |
+|Egypten     |✓         |✓         |
+|Israel     |✓         |✓         |
+|Kenya     |✓         |✓         |
+|Kuwait     |✓         |✓         |
+|Marocko     |✓         |✓         |
+|Moçambique  |✓         |✓         |
+|Nigeria   |✓        |✓        |
+|Oman     |✓         |✓         |
+|Qatar     |✓         |✓         |
+|Saudiarabien     |✓         |✓         |
+|Sydafrika     |✓         |✓         |
+|Förenade Arabemiraten  |✓         |✓         |
+
+## <a name="next-steps"></a>Nästa steg
 
 Läs mer om Azure Maps trafikdata den [trafik](https://docs.microsoft.com/rest/api/maps/traffic) referera till sidorna.

@@ -16,12 +16,12 @@ ms.workload: billing
 ms.date: 5/10/2018
 ms.author: erikre
 ms.custom: seodec18
-ms.openlocfilehash: 944623943fc49f4f6856c3a62f30ea61f901c16d
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: cd1688cd9d3d19242800b04e7e29c8875879cffc
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579421"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351583"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Använd Azure Billing API: er för att programmässigt få insikt i din Azure-användning
 Använda Azure Billing API: er att hämta användnings- och data till din önskade analysverktyg. Azures API:er för resursanvändning och RateCard kan hjälpa dig att korrekt förutse och hantera dina kostnader. API: er implementeras som en Provider för nätverksresurser och en del av familjen av API: er som exponeras av Azure Resource Manager.  
@@ -30,7 +30,7 @@ Använda Azure Billing API: er att hämta användnings- och data till din önska
 När den [anmälan har slutförts](billing-manage-access.md#opt-in), ladda ned fakturor med hjälp av förhandsversionen av [faktura API](/rest/api/billing). Funktionerna omfattar:
 
 * **Azure rollbaserad åtkomstkontroll** -konfigurera åtkomstprinciper på den [Azure-portalen](https://portal.azure.com) eller via [Azure PowerShell-cmdlets](/powershell/azure/overview) att ange vilka användare eller program kan få åtkomst till den Prenumerationens användningsdata. Anropare måste använda standard Azure Active Directory-token för autentisering. Lägg till anroparen till antingen den Billing Reader, läsare, ägare eller deltagare roll för att få åtkomst till användningsdata för en viss Azure-prenumeration.
-* **Datum filtrering** – Använd den `$filter` parametern för att hämta alla fakturor i omvänd kronologisk ordning av periodslut fakturadatum. 
+* **Datum filtrering** – Använd den `$filter` parametern för att hämta alla fakturor i omvänd kronologisk ordning av periodslut fakturadatum.
 
 > [!NOTE]
 > Den här funktionen är i första versionen av förhandsgranskning och kan vara föremål för bakåtkompatibilitet inkompatibel ändringar. För närvarande, är det inte tillgänglig för vissa prenumerationserbjudanden (EA, CSP, AIO som inte stöds) och Azure Germany.
@@ -48,7 +48,7 @@ Använd Azure [Resource användning API](https://msdn.microsoft.com/library/azur
 Använd den [RateCard-API för Azure Resource](https://msdn.microsoft.com/library/azure/mt219005) att hämta listan över tillgängliga Azure-resurser och uppskattade prisinformationen för varje. API: et innehåller:
 
 * **Azure rollbaserad åtkomstkontroll** -konfigurera dina åtkomstprinciper på den [Azure-portalen](https://portal.azure.com) eller via [Azure PowerShell-cmdlets](/powershell/azure/overview) att ange vilka användare eller program kan få åtkomst till den RateCard data. Anropare måste använda standard Azure Active Directory-token för autentisering. Lägg till anroparen läsare, ägare eller deltagare rollen för att få åtkomst till användningsdata för en viss Azure-prenumeration.
-* **Stöd för betala per användning, MSDN, monetära åtaganden och krediterbjudanden (EA och [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) stöds inte)** -API: et tillhandahåller Azure erbjudandet på servernivå rate information.  Anroparen av detta API måste klara i erbjudandeinformation att få information om resursen och priser. Vi kan för närvarande inte att tillhandahålla EA-priser eftersom EA erbjudanden har anpassat kostnader per registrering. 
+* **Stöd för betala per användning, MSDN, monetära åtaganden och krediterbjudanden (EA och [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) stöds inte)** -API: et tillhandahåller Azure erbjudandet på servernivå rate information.  Anroparen av detta API måste klara i erbjudandeinformation att få information om resursen och priser. Vi kan för närvarande inte att tillhandahålla EA-priser eftersom EA erbjudanden har anpassat kostnader per registrering.
 
 ## <a name="scenarios"></a>Scenarier
 Här följer några scenarier som möjliggörs med en kombination av användning och RateCard-APIs:
@@ -58,12 +58,10 @@ Här följer några scenarier som möjliggörs med en kombination av användning
 * **Förutsäga faktura** – Get din uppskattade förbrukning och molnet spendera och använda machine learning-algoritmer för att förutsäga fakturan skulle vara i slutet av faktureringsperioden.
 * **Före förbrukningskostnad analysis** – Använd RateCard-API för att förutspå hur mycket din faktura är för din förväntade användning när du flyttar dina arbetsbelastningar till Azure. Om du har befintliga arbetsbelastningar i andra moln eller privata moln du kan också mappa din användning med Azure priserna för att få en bättre uppfattning av Azure-utgifter. Den här beräkningen ger dig möjlighet att pivotera erbjudande, och jämför och kontrastera mellan olika erbjudandetyper utöver betala per användning, som summa i förskott och kredit. API: et även ger dig möjlighet att se skillnaderna kostnaden per region och kan du göra en vad om kostnadsanalys som hjälper dig att distributionsbeslut.
 * **Konsekvensanalys** -
-  
+
   * Du kan fastställa om det är mer kostnadseffektivt att köra arbetsbelastningar i en annan region eller på en annan konfiguration av Azure-resursen. Kostnader för Azure-resurs kan variera beroende på Azure-region du använder.
   * Du kan också bestämma om en annan typ av Azure-erbjudande ger ett bättre pris på en Azure-resurs.
-  
-## <a name="partner-solutions"></a>Partnerlösningar
-På sidan om [integrering av Cloud Cruiser och Microsoft Azures fakturerings-API](billing-usage-rate-card-partner-solution-cloudcruiser.md) beskrivs [Cloud Cruisers Express för Azure Pack](http://www.cloudcruiser.com/partners/microsoft/) och hur det fungerar direkt från Windows Azure Pack-portalen (WAP). Du kan hantera både driftsmässiga och ekonomiska aspekter av Microsoft Azures privata eller värdbaserade offentliga moln från ett enda användargränssnitt.   
+
 
 ## <a name="next-steps"></a>Nästa steg
 * Kolla in kodexemplen på GitHub:
@@ -73,7 +71,4 @@ På sidan om [integrering av Cloud Cruiser och Microsoft Azures fakturerings-API
 
   * [Kodexempel för API för RateCard](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
-* Läs mer om Azure Resource Manager i [översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
-
-
-
+* Läs mer om Azure Resource Manager i [översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).

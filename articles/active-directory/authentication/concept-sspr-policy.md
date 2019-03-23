@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36959582a3866426f8dc0e9969210e29e751ea60
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 4d9055ef11bc5c117efc6d4de87d4ca8ec73a661
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311908"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360511"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösenordsprinciper och begränsningar i Azure Active Directory
 
@@ -93,7 +93,7 @@ I följande tabell beskrivs de lösenordsprincip som tillämpas på konton som s
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>Ange lösenord upphör att gälla principer i Azure AD
 
-En global administratör för en molntjänst från Microsoft kan använda Microsoft Azure AD-modulen för Windows PowerShell för att ange lösenord inte upphör att gälla. Du kan också använda Windows PowerShell-cmdletar för att ta bort den-upphör aldrig konfiguration, eller för att se vilken användare lösenord ställs in att aldrig upphöra. 
+En global administratör eller Användaradministratör för en molntjänst från Microsoft kan använda Microsoft Azure AD-modulen för Windows PowerShell för att ange lösenord inte upphör att gälla. Du kan också använda Windows PowerShell-cmdletar för att ta bort den-upphör aldrig konfiguration, eller för att se vilken användare lösenord ställs in att aldrig upphöra. 
 
 Den här vägledningen gäller för andra leverantörer, till exempel Intune och Office 365, som också förlitar sig på Azure AD för identitets- och directory services. Lösenordets giltighetstid är den enda delen av den princip som kan ändras.
 
@@ -107,7 +107,7 @@ Om du vill komma igång kan du behöva [ladda ned och installera Azure AD PowerS
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Kontrollera förfalloprincipen för lösenord
 
-1. Ansluta till Windows PowerShell med hjälp av företagets administratörsautentiseringsuppgifter.
+1. Ansluta till Windows PowerShell med hjälp av dina användare med rollen eller företagets autentiseringsuppgifter.
 1. Kör något av följande kommandon:
 
    * Om du vill se om en användares lösenord har angetts att aldrig upphöra, kör du följande cmdlet med hjälp av UPN-namnet (till exempel *aprilr\@contoso.onmicrosoft.com*) eller användar-ID för den användare som du vill kontrollera: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
@@ -115,7 +115,7 @@ Om du vill komma igång kan du behöva [ladda ned och installera Azure AD PowerS
 
 ### <a name="set-a-password-to-expire"></a>Ange ett lösenord att gälla
 
-1. Ansluta till Windows PowerShell med hjälp av företagets administratörsautentiseringsuppgifter.
+1. Ansluta till Windows PowerShell med hjälp av dina användare med rollen eller företagets autentiseringsuppgifter.
 1. Kör något av följande kommandon:
 
    * Kör följande cmdlet för att ange lösenordet för en användare så att lösenordet upphör att gälla, med hjälp av UPN-namnet eller det användar-ID för användaren: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
@@ -123,7 +123,7 @@ Om du vill komma igång kan du behöva [ladda ned och installera Azure AD PowerS
 
 ### <a name="set-a-password-to-never-expire"></a>Ange ett lösenord aldrig upphör att gälla
 
-1. Ansluta till Windows PowerShell med hjälp av företagets administratörsautentiseringsuppgifter.
+1. Ansluta till Windows PowerShell med hjälp av dina användare med rollen eller företagets autentiseringsuppgifter.
 1. Kör något av följande kommandon:
 
    * Kör följande cmdlet för att ange lösenordet för en användare att aldrig upphöra, med hjälp av UPN-namnet eller det användar-ID för användaren: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: cc5aae0e46e181e8063a4e01a832e68eab0eae0e
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 32f96a28e027bfd0e65d934bb47bb98400af459d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226624"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360732"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk – träna en prognosmodell med tidsserie
 
@@ -27,7 +27,7 @@ I den här artikeln får du lära dig hur du tränar en time series-regression p
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En arbetsyta för Azure Machine Learning-tjänsten. Om du vill skapa arbetsytan [Kom igång med Azure Machine Learning-tjänsten](quickstart-get-started.md).
+* En arbetsyta för Azure Machine Learning-tjänsten. Om du vill skapa arbetsytan [skapa en arbetsyta för Azure Machine Learning-tjänsten](setup-create-workspace.md).
 * Den här artikeln förutsätter grundläggande kunskaper om hur du konfigurerar en automatiserad machine learning-experiment. Följ den [självstudien](tutorial-auto-train-models.md) eller [how-to](how-to-configure-auto-train.md) att se de grundläggande automatiserade machine learning-experiment designmönster.
 
 ## <a name="preparing-data"></a>Förbereda data

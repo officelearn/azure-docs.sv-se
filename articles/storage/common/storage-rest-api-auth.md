@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 647d40db87f76a9e1a13a108c5f55fac40524017
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9f6698eebf184d1df80920b7779512e2fda83a0c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012793"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369096"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Använda Azure Storage REST API
 
@@ -266,7 +266,7 @@ Nu när du vet hur du skapar begäran, anropar tjänsten och tolka resultaten ka
 ## <a name="creating-the-authorization-header"></a>Skapa auktoriseringsrubriken
 
 > [!TIP]
-> Azure Storage stöder nu integrering med Azure Active Directory (Azure AD) för tjänsterna Blob och kö (förhandsversion). Azure AD erbjuder en mycket enklare upplevelse för att auktorisera en begäran till Azure Storage. Läs mer om hur du använder Azure AD för att auktorisera REST-åtgärder, [autentisera med Azure Active Directory (förhandsversion)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). En översikt över Azure AD-integrering med Azure Storage finns i [autentisera åtkomsten till Azure Storage med Azure Active Directory (förhandsversion)](storage-auth-aad.md).
+> Azure Storage stöder nu integrering med Azure Active Directory (Azure AD) för blobbar och köer. Azure AD erbjuder en mycket enklare upplevelse för att auktorisera en begäran till Azure Storage. Läs mer om hur du använder Azure AD för att auktorisera REST-åtgärder, [autentisera med Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). En översikt över Azure AD-integrering med Azure Storage finns i [autentisera åtkomsten till Azure Storage med Azure Active Directory](storage-auth-aad.md).
 
 Det finns en artikel som förklarar begreppsmässigt (ingen kod) hur du utför [autentisering för Azure Storage-tjänster](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services).
 Nu ska vi hämta innehållsrik artikeln ned till exakt behövs och visa koden.

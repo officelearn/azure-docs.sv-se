@@ -9,16 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1a8c0ec8a7926d443963075fec576b9e2168d41f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6c57b62d63be55abc51b85327957afffa5dd3a42
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052640"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360205"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för infrastruktur
 
 Den här artikeln ger rekommendationer för hantering av infrastrukturen i Azure HDInsight-kluster. Det är en del i en serie som ger bästa praxis för att hjälpa migrera lokala Apache Hadoop-system till Azure HDInsight.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="plan-for-hdinsight-cluster-capacity"></a>Planera för kapacitet för HDInsight-kluster
 
@@ -50,7 +52,7 @@ Program eller komponenter som var tillgängliga i lokala kluster men inte ingår
 |Arcadia|IaaS 
 |Atlas|Ingen (endast HDP)
 |Datameer|Kantnoden för HDInsight
-|Datastax (Cassandra)|IaaS (CosmosDB ett alternativ i Azure)
+|Datastax (Cassandra)|IaaS (CosmosDB ett alternativ i Azure)
 |DataTorrent|IaaS 
 |Drill|IaaS 
 |Ignite|IaaS
@@ -109,14 +111,14 @@ Mer information finns i följande artiklar:
 # hive-site.xml configuration
 $hiveConfigValues = @{"hive.metastore.client.socket.timeout"="90"}
 
-$config = New—AzureRmHDInsightClusterConfig '
-    | Set—AzureRmHDInsightDefaultStorage
+$config = New—AzHDInsightClusterConfig '
+    | Set—AzHDInsightDefaultStorage
     —StorageAccountName "$defaultStorageAccountName.blob. core.windows.net" `
     —StorageAccountKey "defaultStorageAccountKey " `
-    | Add—AzureRmHDInsightConfigValues `
+    | Add—AzHDInsightConfigValues `
         —HiveSite $hiveConfigValues
 
-New—AzureRmHDInsightCluster `
+New—AzHDInsightCluster `
     —ResourceGroupName $existingResourceGroupName `
     —Cluster-Name $clusterName `
     —Location $location `
@@ -153,7 +155,7 @@ Skalning av klustret kan automatiseras med hjälp av följande metoder:
 ### <a name="powershell-cmdlet"></a>PowerShell-cmdlet
 
 ```powershell
-Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
+Set-AzHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
 ```
 
 ### <a name="azure-cli"></a>Azure CLI

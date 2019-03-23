@@ -1,19 +1,19 @@
 ---
 title: Täckning för geokodning i Azure Maps | Microsoft Docs
 description: Lär dig mer om täckning för Geokodning i Azure Maps
-author: dsk-2015
-ms.author: dkshir
-ms.date: 05/07/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 664d52a96f1e724502f82f5f72567f87c74e716b
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 733d27549542d3ebdd0cfba429aeaaab9f8be473
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444264"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370320"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Täckning för geokodning för Azure Maps
 
@@ -27,25 +27,25 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 
 ## <a name="americas"></a>Nord- och Sydamerika
 
-| Region             | Adress punkter | House siffror | Gatuadress nivå | Stadsnivå | Orienteringspunkter |
+| Land/region                                       | Adress punkter | House siffror | Gatuadress nivå | Stadsnivå | Orienteringspunkter |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Anguilla                                            |                 |                |              |      ✓     |          ✓         |
 | Antarktis                                          |                 |                |              |      ✓     |          ✓         |
 | Antigua och Barbuda                                 |                 |                |       ✓      |      ✓     |          ✓         |
-| Argentina                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Argentina                                           |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
 | Aruba                                               |                 |                |              |      ✓     |          ✓         |
 | Bahamas                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Barbados                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Belize                                              |                 |                |              |      ✓     |          ✓         |
 | Bermuda                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Bolivia                                             |                 |                |       ✓      |      ✓     |          ✓         |
-| Bonaire, Sint Eustatius och Saba|                 |                |              |      ✓     |          ✓         |
+| Bonaire, Sint Eustatius och Saba                   |                 |                |              |      ✓     |          ✓         |
 | Brasilien                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Kanada                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Caymanöarna                                      |                 |                |       ✓      |      ✓     |          ✓         |
-| Chile                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Chile                                               |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
 | $Clippertonön                                   |                 |                |              |      ✓     |                    |
-| Colombia                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Colombia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Costa Rica                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Kuba                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Dominica                                            |                 |                |       ✓      |      ✓     |          ✓         |
@@ -55,10 +55,10 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Falklandsöarna                                    |                 |                |              |      ✓     |          ✓         |
 | Franska Guyana                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Grenada                                             |                 |                |       ✓      |      ✓     |          ✓         |
-| Guadeloupe|                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Guadeloupe                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guam                                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guatemala                                           |                 |                |       ✓      |      ✓     |          ✓         |
-| Guyana        |                |             |           |      ✓     |                 |
+| Guyana                                              |                |             |           |      ✓     |                 |
 | Haiti                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Honduras                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Jamaica                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -67,14 +67,14 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Montserrat                                          |                 |                |              |      ✓     |          ✓         |
 | Nicaragua                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Panama                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Paraguay                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Peru                                                |                 |                |       ✓      |      ✓     |          ✓         |
+| Paraguay                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Peru                                                |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Puerto Rico                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Saint Barthélemy                                    |                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Kitts och Nevis                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Lucia                                         |                 |                |              |      ✓     |          ✓         |
 | Saint Martin                                        |                 |                |       ✓      |      ✓     |          ✓         |
-| Saint Pierre och Miquelon|                 |                |       ✓      |      ✓     |          ✓         |
+| Saint Pierre och Miquelon                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Saint Vincent och Grenadinerna                    |                 |                |              |      ✓     |          ✓         |
 | Sint Maarten                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Sydgeorgien och Sydsandwichöarna        |                 |                |              |      ✓     |          ✓         |
@@ -82,14 +82,14 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Trinidad och Tobago                                 |                 |                |       ✓      |      ✓     |          ✓         |
 | Förenta staternas mindre öar                |                 |                |              |      ✓     |          ✓         |
 | USA                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Uruguay                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Uruguay                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Jungfruöarna - brittiska                            |                 |                |              |      ✓     |          ✓         |
 | Jungfruöarna - USA                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 
 ## <a name="asia-pacific"></a>Asien och stillahavsområdet
 
-| Region             | Adress punkter |House siffror | Gatuadress nivå | Stadsnivå | Orienteringspunkter |
+| Land/region                                      | Adress punkter |House siffror | Gatuadress nivå | Stadsnivå | Orienteringspunkter |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Amerikanska Samoa                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Australien                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -98,26 +98,27 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Brittiska territoriet i Indiska oceanen                      |                 |                |              |      ✓     |          ✓         |
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Kambodja                                            |                 |                |              |      ✓     |          ✓         |
-| Kina |                 |                |              |      ✓     |          ✓         |
+| Kina                                               |        ✓        |        ✓       |              |      ✓     |          ✓         |
 | Kiritimati, Julön                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
-| Kokosöarna|                 |                |              |      ✓     |          ✓         |
-| Komorerna|                 |                |              |      ✓     |          ✓         |
+| Kokosöarna                             |                 |                |              |      ✓     |          ✓         |
+| Komorerna                                             |                 |                |              |      ✓     |          ✓         |
 | Cooköarna                                        |                 |                |              |      ✓     |          ✓         |
-| Fiji |                 |                |              |      ✓     |          ✓         |
+| Fiji                                                |                  |                |              |      ✓     |          ✓         |
 | Franska Polynesien                                    |                 |                |              |      ✓     |          ✓         |
 | Heardön och McDonaldöarna                   |                 |                |              |      ✓     |          ✓         |
 | Hongkong SAR                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonesien                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Indien       |        ✓        |        ✓       |       ✓      |      ✓     |                   |
+| Indien                                               |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Japan                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
+| Korea                                         |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
 | Macao                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malaysia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Mikronesien |                 |                |              |      ✓     |          ✓         |
+| Mikronesien                                          |                 |                |              |      ✓     |          ✓         |
 | Mongoliet                                            |                 |                |              |      ✓     |          ✓         |
 | Nauru                                               |                 |                |              |      ✓     |          ✓         |
-| Napal|                 |                |              |      ✓     |          ✓         |
+| Nepal                                               |                 |                |              |      ✓     |          ✓         |
 | Nya Kaledonien                                       |                 |                |              |      ✓     |          ✓         |
 | Nya Zeeland                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Niue                                                |                 |                |              |      ✓     |          ✓         |
@@ -125,7 +126,7 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Nordkorea                                         |                 |                |              |      ✓     |          ✓         |
 | Nordmarianerna                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Pakistan                                            |                 |                |              |      ✓     |          ✓         |
-| Palau |                 |                |              |      ✓     |          ✓         |
+| Palau                                               |                 |                |              |      ✓     |          ✓         |
 | Papua Nya Guinea                                    |                 |                |              |      ✓     |          ✓         |
 | Paracel-öarna                                     |                 |                |              |      ✓     |                    |
 | Filippinerna                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -134,7 +135,6 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Senkaku-öarna/Diaoyutai-öarna i Oceanien och Västindien                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Singapore                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Salomonöarna                                     |                 |                |              |      ✓     |          ✓         |
-| Sydkorea                                         |                 |                |              |      ✓     |          ✓         |
 | Södra Kurils                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Spratlyöarna i Oceanien och Västindien                                     |                 |                |              |      ✓     |                    |
 | Sri Lanka                                           |                 |                |              |      ✓     |          ✓         |
@@ -146,21 +146,21 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Tuvalu                                              |                 |                |              |      ✓     |          ✓         |
 | Vanuatu                                             |                 |                |              |      ✓     |          ✓         |
 | Vietnam                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Wallis- och Futunaöarna|                 |                |              |      ✓     |          ✓         |
+| Wallis- och Futunaöarna                                   |                 |                |              |      ✓     |          ✓         |
 
 ## <a name="europe"></a>Europa
 
-| Region             | Adress punkter |House siffror | Gatuadress nivå | Stadsnivå | Orienteringspunkter |
+| Land/region                                      | Adress punkter |House siffror | Gatuadress nivå | Stadsnivå | Orienteringspunkter |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Albanien                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Andorra                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Armenien                                             |                 |                |              |      ✓     |          ✓         |
+| Armenien                                             |        ✓        |        ✓       |              |      ✓     |          ✓         |
 | Österrike                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Azerbajdzjan                                          |                 |                |              |      ✓     |          ✓         |
+| Azerbajdzjan                                          |        ✓        |        ✓       |              |      ✓     |          ✓         |
 | Belgien                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Bosnien och Hercegovina                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Bulgarien                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Vitryssland|                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Bosnien och Hercegovina                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Bulgarien                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Vitryssland                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Kroatien                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Cypern                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Tjeckien                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -169,39 +169,40 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Färöarna                                       |                 |                |              |      ✓     |          ✓         |
 | Finland                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Frankrike                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Georgien                                             |                 |                |              |      ✓     |          ✓         |
+| Georgien                                             |        ✓        |        ✓       |              |      ✓     |          ✓         |
 | Tyskland                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Gibralter                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Grekland                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Gibraltar                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Grekland                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Grönland (Danmark)                                           |                 |                |              |      ✓     |          ✓         |
 | Guernsey                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Ungern                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Island                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Irland                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Ungern                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Island                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Irland                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Isle of Man                                         |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Italien                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Jan Mayen                                           |        ✓        |                |              |      ✓     |          ✓         |
 | Jersey                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Kazakhstan                                          |        ✓        |                |       ✓      |      ✓     |          ✓         |
+| Kazakhstan                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Kosovo                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Kirgizistan                                          |                 |                |              |      ✓     |          ✓         |
 | Lettland                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Litauen                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Litauen                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Luxemburg                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Irland                                           |                 |                |       ✓      |      ✓     |          ✓         |
+| Irland                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Moldavien                                             |                 |                |       ✓      |      ✓     |          ✓         |
+| Moldavien                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Monaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Montenegro                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Nederländerna                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Norge                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Polen                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Portugal                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| + Azorerna och Madeira                                 |                 |                |       ✓      |      ✓     |          ✓         |
 | Rumänien                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ryska federationen                                  |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | San Marino                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Serbien                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Serbien                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Slovakien                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Slovenien                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Spanien                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -211,7 +212,7 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Tadzjikistan                                          |                 |                |              |      ✓     |          ✓         |
 | Turkiet                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Turkmenistan                                        |                 |                |              |      ✓     |          ✓         |
-| Ukraina                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Ukraina                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Storbritannien                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uzbekistan                                          |                 |                |              |      ✓     |          ✓         |
 | Vatikanstaten                                        |                 |                |       ✓      |      ✓     |          ✓         |
@@ -219,30 +220,30 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 
 ## <a name="middle-east-and-africa"></a>Mellanöstern och Afrika
 
-| Region             | Adress punkter |House siffror | Gatuadress nivå | Stadsnivå | Orienteringspunkter |
+| Land/region                                      | Adress punkter |House siffror | Gatuadress nivå | Stadsnivå | Orienteringspunkter |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Afghanistan                                         |                 |                |              |      ✓     |          ✓         |
 | Algeriet                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Angola                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Bahrain                                             |                 |                |       ✓      |      ✓     |          ✓         |
+| Bahrain                                             |        ✓        |       ✓        |       ✓      |      ✓     |          ✓         |
 | Benin                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Botswana                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Bouvetön                                       |                 |                |              |      ✓     |          ✓         |
 | Burkina Faso                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Burundi                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Kamerun                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Cabo Verde|                 |                |       ✓      |      ✓     |          ✓         |
+| Cabo Verde                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Centralafrikanska republiken                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Tchad                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Republiken Kongo                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Côte d'Ivoire                                       |                 |                |       ✓      |      ✓     |          ✓         |
-| Demokratiska republiken Kongo                        |                 |                |       ✓      |      ✓     |          ✓         |
+| Demokratiska republiken Kongo                    |                 |                |       ✓      |      ✓     |          ✓         |
 | Djibouti                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Egypten                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ekvatorialguinea, Republiken                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Eritrea                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Etiopien                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Franska sydterritorierna|                 |                |              |      ✓     |          ✓         |
+| Franska sydterritorierna|                        |                |              |      ✓     |          ✓         |
 | Gabon                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Gambia                                              |                 |                |              |      ✓     |          ✓         |
 | Ghana                                               |                 |                |       ✓      |      ✓     |          ✓         |
@@ -250,34 +251,34 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Guinea-Bissau                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Iran                                                |                 |                |              |      ✓     |          ✓         |
 | Irak                                                |                 |                |       ✓      |      ✓     |          ✓         |
-| Israel                                              |                 |                |              |      ✓     |          ✓         |
-| Jordanien                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
+| Israel                                              |        ✓        |       ✓        |              |      ✓     |          ✓         |
+| Jordanien                                              |        ✓        |       ✓        |       ✓      |      ✓     |          ✓         |
 | Kenya                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Kuwait                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Libanon                                             |                 |                |       ✓      |      ✓     |          ✓         |
+| Libanon                                             |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Lesotho                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Liberia                                             |                 |                |       ✓      |      ✓     |          ✓         |
-| Libyen|                 |                |       ✓      |      ✓     |          ✓         |
+| Libyen                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Madagaskar                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Malawi                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Maldiverna |                 |                |              |      ✓     |          ✓         |
+| Maldiverna                                            |                 |                |              |      ✓     |          ✓         |
 | Mali                                                |                 |                |       ✓      |      ✓     |          ✓         |
-| Marshallöarna |                 |                |              |      ✓     |          ✓         |
+| Marshallöarna                                    |                 |                |              |      ✓     |          ✓         |
 | Mauretanien                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Mauritius                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Mayotte                                             |                 |                |       ✓      |      ✓     |          ✓         |
-| Marocko                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Marocko                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Moçambique                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Myanmar                                             |                 |                |              |      ✓     |          ✓         |
 | Namibia                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Niger                                               |                 |                |       ✓      |      ✓     |          ✓         |
-| Nigeria                                             |                 |                |       ✓      |      ✓     |          ✓         |
+| Nigeria                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Oman                                                |                 |                |       ✓      |      ✓     |          ✓         |
-| Qatar                                               |                 |                |       ✓      |      ✓     |          ✓         |
-| Réunion|                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Qatar                                               |        ✓        |                |       ✓      |      ✓     |          ✓         |
+| Réunion                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Rwanda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Sankta Helena                                        |                 |                |              |      ✓     |          ✓         |
-| Saudiarabien                                        |                 |                |       ✓      |      ✓     |          ✓         |
+| Saudiarabien                                        |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Senegal                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Seychellerna                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Sierra Leone                                        |                 |                |       ✓      |      ✓     |          ✓         |
@@ -287,10 +288,10 @@ Möjligheten att geokoda i ett land är beroende av väg data täckning och geok
 | Sudan                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Swaziland                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Syrien                                               |                 |                |              |      ✓     |          ✓         |
-| São Tome och Príncipe, Demokratiska republiken       |                 |                |       ✓      |      ✓     |          ✓         |
+| São Tomé och Príncipe                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Tanzania                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Togo                                                |                 |                |       ✓      |      ✓     |          ✓         |
-| Tunisien                                             |                 |                |       ✓      |      ✓     |          ✓         |
+| Tunisien                                             |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Uganda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Förenade Arabemiraten                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Västbanken                                           |                 |                |              |      ✓     |          ✓         |

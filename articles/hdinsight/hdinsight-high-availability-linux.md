@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 84251b16d91ca74e11298c7aa54c9a7a8b7fd6d6
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: ca6b072ba81f55802bc01d61ed44b06680cedbb2
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576726"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58362007"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Tillgänglighet och tillförlitlighet för Apache Hadoop-kluster i HDInsight
 
@@ -115,7 +115,7 @@ Det finns en serie med ikoner som kan visas bredvid en tjänst för att ange sta
 
 Följande aviseringar hjälpa att övervaka tillgängligheten för ett kluster:
 
-| Namn på påminnelse                               | Beskrivning                                                                                                                                                                                  |
+| Aviseringsnamn                               | Beskrivning                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Metrisk Monitor-Status                    | Den här varningen anger status för mått övervaka processen systemets övervaka status för skriptet.                                                                                   |
 | Ambari Agentpulsslag                   | Den här aviseringen utlöses om servern har tappat kontakten med en agent.                                                                                                                        |
@@ -248,6 +248,8 @@ Ambari-Webbgränssnittet väljer du tjänsten som du vill visa loggarna för (ti
 
 ## <a name="how-to-configure-the-node-size"></a>Så här konfigurerar du nodstorlek
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Storleken på en nod kan endast väljas när klustret skapas. Du hittar en lista över de olika storlekarna som är tillgängliga för HDInsight på den [HDInsight prissättningssidan](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 När du skapar ett kluster kan ange du storleken på noderna. Följande information innehåller råd om hur du anger en storlek med hjälp av den [Azure-portalen][preview-portal], [Azure PowerShell][azure-powershell], och [Azure klassiskt CLI][azure-cli]:
@@ -258,7 +260,7 @@ När du skapar ett kluster kan ange du storleken på noderna. Följande informat
 
 * **Azure klassiskt CLI**: När du använder den `azure hdinsight cluster create` kommandot, du kan ange storleken på head, arbetsroller och ZooKeeper-noder med hjälp av den `--headNodeSize`, `--workerNodeSize`, och `--zookeeperNodeSize` parametrar.
 
-* **Azure PowerShell**: När du använder den `New-AzureRmHDInsightCluster` cmdlet, du kan ange storleken på head, arbetsroller och ZooKeeper-noder med hjälp av den `-HeadNodeVMSize`, `-WorkerNodeSize`, och `-ZookeeperNodeSize` parametrar.
+* **Azure PowerShell**: När du använder den `New-AzHDInsightCluster` cmdlet, du kan ange storleken på head, arbetsroller och ZooKeeper-noder med hjälp av den `-HeadNodeVMSize`, `-WorkerNodeSize`, och `-ZookeeperNodeSize` parametrar.
 
 ## <a name="next-steps"></a>Nästa steg
 

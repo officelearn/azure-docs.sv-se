@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 67876532496aa0a295bf32692534b16d38599492
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a31cd950ae241eb55c840c716f4679c5a67b1379
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839516"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350020"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Liveuppspelning med Azure Media Services v3
 
@@ -28,23 +28,46 @@ Azure Media Services kan du leverera händelser till dina kunder på Azure-molne
 - En live-videokodare som konverterar signaler från en kamera (eller en annan enhet, till exempel en bärbar dator) till ett bidrag feed som skickas till Media Services. Bidrag feed kan innehålla signaler som rör reklam, till exempel SCTE 35 markörer.<br/>En lista över rekommenderade livekodare för direktuppspelning finns i [liveuppspelning kodare](recommended-on-premises-live-encoders.md). Kolla dessutom in den här bloggen: [Live direktuppspelning produktion med OBS](https://link.medium.com/ttuwHpaJeT).
 - Komponenterna i Media Services, som gör det möjligt att mata in, förhandsgranska, paket, registrera, kryptera och sända live-händelse till dina kunder eller till ett nätverk för Innehållsleverans för vidare distribution.
 
-Med medietjänster kan du dra nytta av **dynamisk paketering**, där du kan förhandsgranska och sända direktsändningar i [format som MPEG DASH, HLS och Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) från bidraget feed att skicka till tjänsten. Användarna kan spela upp den direktsända dataströmmen med valfri kompatibel spelare HLS, DASH eller Smooth Streaming. Du kan använda [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) i dina webb- och mobilprogram att leverera din dataström i någon av de här protokollen.
+Den här artikeln ger en översikt och riktlinjerna för direktsänd strömning med Media Services och länkar till andra relevanta artiklar.
 
-Media Services kan du leverera ditt innehåll dynamiskt krypterad (**dynamisk kryptering**) med Advanced Encryption Standard (AES-128) eller någon av de tre största digital rights management (DRM) system: Microsoft PlayReady, Google Widevine och FairPlay för Apple. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM-licenser till auktoriserade klienter. Mer information om hur du kryptera ditt innehåll med Media Services finns i [skyddar innehåll – översikt](content-protection-overview.md)
+> [!NOTE]
+> För närvarande kan använda du inte Azure-portalen för att hantera v3-resurser. Använd den [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), eller någon av stöds [SDK: er](developers-guide.md).
 
-Du kan också använda dynamisk filtrering, som kan användas för att styra antalet spår, format, bithastigheter för utdata, och presentation tidsfönster som skickas till spelarna. Mer information finns i [filter och dynamiska manifest](filters-dynamic-manifest-overview.md).
+## <a name="dynamic-packaging"></a>Dynamisk paketering
 
-Den här artikeln ger en översikt och riktlinjerna för direktsänd strömning med Media Services.
+Med medietjänster kan du dra nytta av dynamisk Packaging](dynamic-packaging-overview.md), där du kan förhandsgranska och sända direktsändningar i [format som MPEG DASH, HLS och Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) från bidraget feed som du skickar till tjänsten. Användarna kan spela upp den direktsända dataströmmen med valfri kompatibel spelare HLS, DASH eller Smooth Streaming. Du kan använda [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) i dina webb- och mobilprogram att leverera din dataström i någon av de här protokollen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="dynamic-encryption"></a>Dynamisk kryptering
 
-För att förstå live direktuppspelning arbetsflödet i Media Services v3, som du behöver och förstå följande begrepp: 
+Dynamisk kryptering kan du dynamiskt kryptera innehållet live eller på begäran med AES-128 eller någon av de tre största digital rights management (DRM) system: Microsoft PlayReady, Google Widevine och FairPlay för Apple. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM (PlayReady, Widevine och FairPlay) licenser till auktoriserade klienter. Mer information finns i [dynamisk kryptering](content-protection-overview.md).
+
+## <a name="dynamic-manifest"></a>Dynamic Manifest
+
+Dynamisk filtrering används för att styra antalet spår, format, olika bithastigheter och presentation tidsfönster som skickas till spelarna. Mer information finns i [filter och dynamiska manifest](filters-dynamic-manifest-overview.md).
+
+## <a name="live-event-types"></a>Live händelsetyper
+
+En direktsänd händelse kan vara något av två typer: direkt och live encoding. Mer information om liveströmning i Media Services v3 finns [Live-händelser och Live utdata](live-events-outputs-concept.md).
+
+### <a name="pass-through"></a>Direkt
+
+![direktautentisering](./media/live-streaming/pass-through.svg)
+
+När du använder direkt **direktsänd händelse**, du förlita dig på din lokala livekodare för att generera en videoström för flera bithastigheter och skicka att som bidraget feed på Live-händelsen (med RTMP eller fragmenterad MP4-protokollet). Live-händelsen har sedan via inkommande video strömmar utan vidare bearbetning. Sådana en direkt direktsänd händelse är optimerad för tidskrävande direktsändningar eller 24 x 365 linjär liveuppspelning. 
+
+### <a name="live-encoding"></a>Live Encoding  
+
+![Live encoding](./media/live-streaming/live-encoding.svg)
+
+När du använder live encoding med Media Services, kan du konfigurera din lokala livekodare för att skicka en enkel bithastighet video som bidrag till Live-händelse (med RTMP eller fragmenterad Mp4-protokollet). Live-händelsen kodar den inkommande, enkel bithastigheten, strömma till en [flera video bithastighet](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), gör den tillgänglig för leverans för uppspelning av protokoll som MPEG-DASH, HLS och Smooth Streaming-enheter. 
+
+## <a name="live-streaming-workflow"></a>Live-arbetsflöde
+
+För att förstå live direktuppspelning arbetsflödet i Media Services v3, du måste först läsa och förstå följande begrepp: 
 
 - [Slutpunkter för direktuppspelning](streaming-endpoint-concept.md)
 - [Händelser och Live utdata](live-events-outputs-concept.md)
 - [Positionerare för direktuppspelning](streaming-locators-concept.md)
-
-## <a name="live-streaming-workflow"></a>Live-arbetsflöde
 
 Här följer stegen för en live arbetsflöde:
 

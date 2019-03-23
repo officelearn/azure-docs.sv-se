@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8fe8b365974086ef530b83988c63eda338a6079f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1ace13b8802c86b3ad40725554c698851ff421b0
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014591"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360528"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Skapa och köra en machine learning-pipeline med hjälp av Azure Machine Learning-SDK
 
@@ -356,7 +356,7 @@ response = requests.post(published_pipeline1.endpoint,
 Se en lista över alla dina pipelines och deras körningsinformation:
 1. Logga in på [Azure Portal](https://portal.azure.com/).  
 
-1. [Visa arbetsytan](how-to-manage-workspace.md#view-a-workspace) att hitta listan över pipeliner.
+1. [Visa arbetsytan](how-to-manage-workspace.md#view) att hitta listan över pipeliner.
  ![lista över machine learning pipelines](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Välj en specifik pipeline för att visa Körningsresultat.

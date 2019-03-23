@@ -10,18 +10,20 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4c1d7357dc78ca6c9387fc594f3d49f043008631
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 95a78fafcd83e6f56f26ef6670beaa179085de62
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120585"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359588"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Utveckla Python-strömmande MapReduce-program för HDInsight
 
 Lär dig hur du använder Python med strömmande MapReduce-åtgärder. Apache Hadoop tillhandahåller en strömmande API för MapReduce där du kan skriva kartan och minska funktioner på andra språk än Java. Stegen i det här dokumentet implementera kartan och minska komponenter i Python.
 
 ## <a name="prerequisites"></a>Förutsättningar
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * En Linux-baserade Apache Hadoop på HDInsight-kluster
 
@@ -33,7 +35,7 @@ Lär dig hur du använder Python med strömmande MapReduce-åtgärder. Apache Ha
   > [!IMPORTANT]
   > Textredigeraren måste använda LF som raden slutar. Med hjälp av en rad avslutades av CRLF orsakar fel när du kör MapReduce-jobb på Linux-baserade HDInsight-kluster.
 
-* Den `ssh` och `scp` kommandon, eller [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-3.8.0)
+* Den `ssh` och `scp` kommandon, eller [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 
 ## <a name="word-count"></a>Räkna ord
 

@@ -10,12 +10,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 9848ed6baab240556e9eda59fbc3815c0767e899
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: bb5770f4e09c0ed764d17998936c0fe97bdaebfb
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108591"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370643"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Tjänstslutpunkter i virtuella nätverk för Azure Key Vault
 
@@ -55,7 +55,7 @@ Mer information finns i [konfigurera Azure Key Vault-brandväggar och virtuella 
 > Tänk på följande konfigurationsbegränsningar:
 > * Högst 127 virtuella Nätverksregler och 127 IPv4-regler är tillåtna. 
 > * Små-adressintervall som använder det ”/ 31” eller ”/ 32” prefix storlekar inte stöds. Konfigurera i stället dessa intervall genom att använda enskilda regler för IP-adress.
-> * IP-Nätverksregler tillåts endast för offentliga IP-adresser. IP-adressintervall som reserverats för privata nätverk (som definieras i RFC 1918) är inte tillåtna i IP-regler. Privata nätverk innehåller adresser som börjar med **10.**, **172.16.**, och **192.168.**. 
+> * IP-Nätverksregler tillåts endast för offentliga IP-adresser. IP-adressintervall som reserverats för privata nätverk (som definieras i RFC 1918) är inte tillåtna i IP-regler. Privata nätverk innehåller adresser som börjar med **10.**, **172.16-31**, och **192.168.**. 
 > * Endast IPv4-adresser stöds just nu.
 
 ## <a name="trusted-services"></a>Betrodda tjänster

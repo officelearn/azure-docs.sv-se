@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 7701ef463124fafd4c750fbb9f23aa03d6bc25ab
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 963fd1bfd67a20033f0712d3b447091abda40d11
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262497"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369913"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Hantering och underhåll av Log Analytics-agenten för Windows och Linux
 
-Efter den första distributionen av Windows eller Linux-agenten för Log Analytics kan du behöva konfigurera om agenten eller ta bort den från datorn om du har nått tillbakadragande steg i livscykeln. Du kan enkelt hantera dessa rutinunderhåll manuellt eller via automatisering, vilket minskar både operativt fel och utgifter.
+Efter den första distributionen av Log Analytics Windows eller Linux-agenten i Azure Monitor kan du behöva konfigurera om agenten eller ta bort den från datorn om du har nått tillbakadragande steg i livscykeln. Du kan enkelt hantera dessa rutinunderhåll manuellt eller via automatisering, vilket minskar både operativt fel och utgifter.
 
 ## <a name="adding-or-removing-a-workspace"></a>Att lägga till eller ta bort en arbetsyta
 
@@ -115,7 +115,7 @@ Konfigurera agenten för kommunikation till tjänsten via en proxyserver eller [
 
 #### <a name="update-settings-using-powershell"></a>Uppdatera inställningar med hjälp av PowerShell
 
-Kopiera följande PowerShell exempelkod, uppdatera den information som är specifika för din miljö och spara det med filnamnstillägget PS1. Kör skriptet på varje dator som ansluter direkt till Log Analytics-tjänsten.
+Kopiera följande PowerShell exempelkod, uppdatera den information som är specifika för din miljö och spara det med filnamnstillägget PS1. Kör skriptet på varje dator som ansluter direkt till Log Analytics-arbetsyta i Azure Monitor.
 
 ```PowerShell
 param($ProxyDomainName="https://proxy.contoso.com:30443", $cred=(Get-Credential))

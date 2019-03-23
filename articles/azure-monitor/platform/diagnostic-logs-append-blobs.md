@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: f626ef4cfb385a62f68ab611b77dd0c307cd3820
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ab5fba6bbbf6ade83c7699edec937ba02b222939
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882387"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370065"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Förbereda för ändring av format till Azure Monitor arkiveras på ett lagringskonto för diagnostikloggar
 
@@ -24,7 +24,7 @@ ms.locfileid: "54882387"
 
 ## <a name="what-is-changing"></a>Vad ändras
 
-Azure Monitor erbjuder en funktion som gör det möjligt att skicka diagnostikdata för resursen och aktivitetsloggdata till ett Azure storage-konto, namnområde för Event Hubs eller till Log Analytics. För att lösa ett systemproblem av prestanda på **1 November 2018 vid midnatt UTC** formatet för log data skicka till blob storage kommer att ändras. Om du har verktyg som läser data från blob-lagring, måste du uppdatera ditt verktyg för att identifiera nya formatet.
+Azure Monitor erbjuder en funktion som gör det möjligt att skicka diagnostikdata för resursen och aktivitetsloggdata till ett Azure storage-konto, namnområde för Event Hubs eller till en Log Analytics-arbetsyta i Azure Monitor. För att lösa ett systemproblem av prestanda på **1 November 2018 vid midnatt UTC** formatet för log data skicka till blob storage kommer att ändras. Om du har verktyg som läser data från blob-lagring, måste du uppdatera ditt verktyg för att identifiera nya formatet.
 
 * Blobbformatet ändras det torsdag, November 1 2018 vid midnatt UTC för att vara [JSON rader](http://jsonlines.org/). Det innebär att varje post ska vara avgränsade med en ny rad med inga yttre poster matris och inga kommatecken mellan JSON-poster.
 * Blob-formatändringar för alla diagnostikinställningar för alla prenumerationer på samma gång. Den första PT1H.json-filen som genereras under den 1 November använder det nya formatet. Namnen på blob och behållare är desamma.

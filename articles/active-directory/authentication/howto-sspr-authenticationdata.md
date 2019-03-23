@@ -11,18 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 580c9080bb2b019e120ea57e5fe4444a71c24e76
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5a0d7edb6c7faafcad55e827c2d9e3d2eeea40f5
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314798"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371374"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuera lösenordsåterställning utan registrerad slutanvändare
 
 Autentiseringsdata måste finnas för att distribuera lösenordsåterställning för Azure Active Directory (Azure AD) via självbetjäning (SSPR). Vissa organisationer har användarna ange sina autentiseringsdata själva. Men många organisationer vill synkronisera med data som redan finns i Active Directory. Synkroniserade data görs tillgänglig för Azure AD och SSPR utan användaråtgärder om du:
-   * Korrekt formatera data i din lokala katalog.
-   * Konfigurera [Azure AD Connect genom att använda standardinställningarna](../hybrid/how-to-connect-install-express.md).
+
+* Korrekt formatera data i din lokala katalog.
+* Konfigurera [Azure AD Connect genom att använda standardinställningarna](../hybrid/how-to-connect-install-express.md).
 
 För att fungera korrekt telefonnummer måste vara i formatet *+ CountryCode PhoneNumber*, till exempel + 1 4255551234.
 
@@ -46,7 +47,7 @@ När en användare har verifierat sitt mobiltelefonnummer, fylls också fältet 
 
 En Global administratör kan manuellt ange kontaktinformation för autentisering för en användare som visas i följande skärmbild.
 
-![Kontakta][Contact]
+![Autentisering kontaktinformation för en användare i Azure AD][Contact]
 
 Om fältet Phone fylls och mobiltelefon är aktiverat i SSPR-principen, kan användaren ser att antalet på registreringssidan för återställning av lösenord och under lösenordet återställning av arbetsflöde.
 
@@ -84,7 +85,7 @@ Om du vill komma igång kan du behöva [ladda ned och installera Azure AD PowerS
 
 #### <a name="set-the-authentication-data-with-powershell-version-1"></a>Ange autentisering med PowerShell version 1
 
-```
+```PowerShell
 Connect-MsolService
 
 Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
@@ -96,7 +97,7 @@ Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("emai
 
 #### <a name="read-the-authentication-data-with-powershell-version-1"></a>Läsa in autentiseringsdata med PowerShell-version 1
 
-```
+```PowerShell
 Connect-MsolService
 
 Get-MsolUser -UserPrincipalName user@domain.com | select AlternateEmailAddresses
@@ -110,7 +111,7 @@ Get-MsolUser | select DisplayName,UserPrincipalName,AlternateEmailAddresses,Mobi
 
 Att läsa den **Autentiseringstelefon** och **e-post för autentisering** när du använder PowerShell version 1 kan du använda följande kommandon:
 
-```
+```PowerShell
 Connect-MsolService
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select PhoneNumber
 Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
@@ -122,7 +123,7 @@ Om du vill komma igång kan du behöva [ladda ned och installera Azure AD-modul 
 
 Kör följande kommandon för att snabbt vill installera från de senaste versionerna av PowerShell som har stöd för Install-Module. (Den första raden kontrollerar om modulen har installerats.)
 
-```
+```PowerShell
 Get-Module AzureADPreview
 Install-Module AzureADPreview
 Connect-AzureAD
@@ -130,7 +131,7 @@ Connect-AzureAD
 
 #### <a name="set-the-authentication-data-with-powershell-version-2"></a>Ange autentisering med PowerShell version 2
 
-```
+```PowerShell
 Connect-AzureAD
 
 Set-AzureADUser -ObjectId user@domain.com -OtherMails @("email@domain.com")
@@ -142,7 +143,7 @@ Set-AzureADUser -ObjectId user@domain.com -OtherMails @("emails@domain.com") -Mo
 
 #### <a name="read-the-authentication-data-with-powershell-version-2"></a>Läs autentiseringsdata med PowerShell version 2
 
-```
+```PowerShell
 Connect-AzureAD
 
 Get-AzureADUser -ObjectID user@domain.com | select otherMails

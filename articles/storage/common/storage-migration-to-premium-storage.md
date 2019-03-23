@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: fd72e2a75c00c30fdc5497e0d88e9c83dc5fcad8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: fdca10c54c798bd47a34eb0f8af091908bcc2711
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317365"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372326"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrera till Azure Premium Storage (ohanterade diskar)
 
@@ -69,10 +69,10 @@ Premium Storage-konton har följande skalbarhetsmål utöver den [skalbarhet fö
 |:--- |:--- |
 | Kapacitet för disk: 35TB<br />Kapacitet för ögonblicksbilder: 10 TB |Upp till 50 Gigabit per sekund för inkommande och utgående |
 
-Mer information om specifikationer för Premium Storage, Kolla in [skalbarhets- och prestandamål i Azure Storage](storage-scalability-targets.md#premium-storage-account-scale-limits).
+Mer information om specifikationer för Premium Storage, Kolla in [skalbarhets- och prestandamål i Azure Storage](storage-scalability-targets.md#premium-performance-storage-account-scale-limits).
 
 #### <a name="disk-caching-policy"></a>Disk-principen för cachelagring
-Som standard disken Cachelagringsprincip är *skrivskyddad* för alla Premium datadiskar, och *skrivskyddad* för Premium operativsystemets disk som är kopplade till den virtuella datorn. Den här inställningen rekommenderas för att uppnå optimala prestanda för ditt programs IOs. Inaktivera diskcachelagring så att du kan få bättre prestanda för hög eller lässkyddad datadiskar (till exempel loggfiler för SQL Server). Inställningar för cachelagring för befintliga datadiskar kan uppdateras med hjälp av [Azure-portalen](https://portal.azure.com) eller *- HostCaching* -parametern för den *Set-AzureDataDisk* cmdlet.
+Som standard disken Cachelagringsprincip är *skrivskyddad* för alla Premium datadiskar, och *skrivskyddad* för Premium operativsystemets disk som är kopplade till den virtuella datorn. Den här inställningen rekommenderas för att uppnå optimala prestanda för ditt programs IOs. Inaktivera diskcachelagring så att du kan få bättre prestanda för hög eller lässkyddad datadiskar (till exempel loggfiler för SQL Server). Inställningar för cachelagring för befintliga datadiskar kan uppdateras med hjälp av den [Azure-portalen](https://portal.azure.com) eller *- HostCaching* -parametern för den *Set-AzureDataDisk* cmdlet.
 
 #### <a name="location"></a>Plats
 Välj en plats där Azure Premium Storage är tillgängligt. Se [Azure-tjänster efter Region](https://azure.microsoft.com/regions/#services) uppdaterad information om tillgängliga platser. Virtuella datorer finns i samma region som lagringskontot som lagrar diskarna för den virtuella datorn får mycket bättre prestanda än om de finns i olika områden.

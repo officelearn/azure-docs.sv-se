@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43c21fb3c3e7c00ecdbadb1e730ba5ce303dc869
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 36172850c345fc190c3326413f2883dc2b070e98
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312197"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58367906"
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Windows-autentisering och Azure Multi-Factor Authentication Server
 
@@ -29,9 +29,10 @@ Använd avsnittet Windows-autentisering för Azure Multi-Factor Authentication S
 > [!NOTE]
 > Den här funktionen stöds inte om du vill skydda Terminal Services i Windows Server 2012 R2.
 
-## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Följ stegen nedan om du vill skydda ett program med Windows-autentisering.
+## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Följ anvisningarna nedan om du vill skydda ett program med Windows-autentisering
+
 1. Klicka på ikonen för Windows-autentisering i Azure Multi-Factor Authentication Server.
-   ![Windows-autentisering](./media/howto-mfaserver-windows/windowsauth.png)
+   ![Windows-autentisering i MFA Server](./media/howto-mfaserver-windows/windowsauth.png)
 2. Markera kryssrutan **Aktivera Windows-autentisering**. Den här rutan är avmarkerad som standard.
 3. På fliken Program kan administratören konfigurera ett eller flera program för Windows-autentisering.
 4. Välj en server eller ett program – ange om servern/programmet är aktiverat. Klicka på **OK**.

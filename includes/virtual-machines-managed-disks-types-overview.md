@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f36ce51a9f385933cbc21e27280828b0ff0e43e2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6eae536bd19a2c0e5707d8e0b379774b6eb2707a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58016711"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395609"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Vilka disktyper är tillgängliga i Azure?
 
@@ -27,9 +27,9 @@ Följande tabell innehåller en jämförelse av ultra solid-state-enheter (SSD) 
 |---------|---------|---------|---------|---------|
 |Disktyp   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |I/o-intensiva arbetsbelastningar som SAP HANA, databaser för övre nivå (till exempel SQL, Oracle) och andra transaktion tunga arbetsbelastningar.   |Produktion och prestandakänsliga arbetsbelastningar   |Webbservrar, används företagsprogram och utveckling/testning   |Säkerhetskopiering, icke-kritiska, lågfrekvent åtkomst   |
-|Diskstorlek   |65 536 gibibyte (GiB) (förhandsversion)   |4095 giB (GA), 32 767 GiB (förhandsversion)    |4095 (GA) GiB, 32 767 GiB (förhandsversion)   |4095 giB (GA), 32 767 GiB (förhandsversion)   |
-|Högsta dataflöde   |2 000 MiB/s (förhandsversion)   |250 (GA) MiB/s, 750 MiB/s (förhandsversion)   |60 MiB/s (GA), 500 MiB/s (förhandsversion)   |60 Mib/s (GA), 500 MiB/s (förhandsversion)   |
-|Max IOPS   |160,000 (förhandsversion)   |7500 (GA), 20 000 (förhandsversion)   |500 (GA), 2 000 (förhandsversion)   |500 (GA), 2 000 (förhandsversion)   |
+|Diskstorlek   |65 536 gibibyte (GiB) (förhandsversion)   |32 767 giB    |32 767 giB   |32 767 giB   |
+|Högsta dataflöde   |2 000 MiB/s (förhandsversion)   |900 MiB/s   |750 MiB/s   |500 MiB/s   |
+|Max IOPS   |160,000 (förhandsversion)   |20,000   |6,000   |2,000   |
 
 ## <a name="ultra-ssd-preview"></a>Ultra SSD (förhandsversion)
 

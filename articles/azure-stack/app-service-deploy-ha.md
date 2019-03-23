@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: ''
-ms.date: 03/13/2019
+ms.date: 03/23/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
-ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: db95be94028fcf16871a9dcfee5f0d87eb5d2cdc
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.lastreviewed: 03/23/2019
+ms.openlocfilehash: 1c105548f19994c4ca0ce161eedcfe11736864c7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285674"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370031"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Distribuera App Service i en konfiguration med hög tillgänglighet
 
@@ -54,8 +54,7 @@ Innan du använder den här mallen, kontrollera att följande [Azure Stack marke
 ### <a name="deploy-the-app-service-infrastructure"></a>Distribuera App Service-infrastrukturen
 Använda stegen i det här avsnittet för att skapa en anpassad distribution med hjälp av den **appservice-filresurs-sqlserver-ha** snabbstartsmall för Azure Stack.
 
-1. 
-   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+1. [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Välj **\+** **skapa en resurs** > **anpassade**, och sedan **malldistributionen**.
 
@@ -94,8 +93,7 @@ Kontrollera att du anteckna var och en av dessa utdatavärden:
 
 Följ dessa steg för att identifiera mallvärden för utdata:
 
-1. 
-   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+1. [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. I administrationsportalen, Välj **resursgrupper** och sedan namnet på resursgruppen du skapade för anpassad distribution (**app-service-ha** i det här exemplet). 
 
@@ -168,9 +166,20 @@ Distribuera App Service-resursprovider genom att följa dessa steg:
 
     ![Information om filresurs utdata](media/app-service-deploy-ha/07.png)
 
-9. Eftersom den datorn som används för att installera App Service inte finns på samma virtuella nätverk som den filserver som används för att vara värd för App Service-filresurs, kommer det inte att matcha namnet. Detta är förväntat.<br><br>Kontrollera att informationen i filresursen UNC-sökväg och konton information är korrekt och tryck på **Ja** på varningsruta att fortsätta installationen av App Service.
+9. Eftersom den datorn som används för att installera App Service inte finns på samma virtuella nätverk som den filserver som används för att vara värd för App Service-filresurs, kommer det inte att matcha namnet. **Detta är förväntat**.<br><br>Kontrollera att informationen i filresursen UNC-sökväg och konton information är korrekt och tryck på **Ja** på varningsruta att fortsätta installationen av App Service.
 
     ![Förväntade feldialogruta](media/app-service-deploy-ha/08.png)
+
+    Om du väljer att distribuera till ett befintligt virtuellt nätverk och en intern IP-adress för att ansluta till filservern, du måste lägga till en utgående säkerhetsregel att aktivera SMB-trafik mellan worker-undernät och filservern. Gå till WorkersNsg i administrationsportalen och lägga till en utgående säkerhetsregel med följande egenskaper:
+    - Källa: Alla
+    - Käll-portintervall: *
+    - Mål: IP-adresser
+    - Mål-IP-adressintervall: Intervall av IP-adresser för din filserver
+    - Målportintervall: 445
+    - Protokoll: TCP
+    - Åtgärd: Tillåt
+    - Prioritet: 700
+    - Namn: Outbound_Allow_SMB445
 
 10. Anger den Identitetsprogram-ID och sökvägen och lösenord för att certifikat som identitet och klickar på **nästa**:
     - Identitetsprogramcertifikat (i formatet **sso.appservice.local.azurestack.external.pfx**)
@@ -189,7 +198,7 @@ Distribuera App Service-resursprovider genom att följa dessa steg:
 
     ![Anslutningsinformationen för SQL Server](media/app-service-deploy-ha/10.png)
 
-12. Eftersom den datorn som används för att installera App Service inte finns på samma virtuella nätverk som SQL-servern som används för att vara värd för App Service-databaserna ska att du inte kunna matcha namnet.  Detta är förväntat.<br><br>Kontrollera att informationen i SQL Server-namn och konton information är korrekt och tryck på **Ja** att fortsätta installationen av App Service. Klicka på **Nästa**.
+12. Eftersom den datorn som används för att installera App Service inte finns på samma virtuella nätverk som SQL-servern som används för att vara värd för App Service-databaserna ska att du inte kunna matcha namnet.  **Detta är förväntat**.<br><br>Kontrollera att informationen i SQL Server-namn och konton information är korrekt och tryck på **Ja** att fortsätta installationen av App Service. Klicka på **Nästa**.
 
     ![Anslutningsinformationen för SQL Server](media/app-service-deploy-ha/11.png)
 
@@ -231,3 +240,5 @@ Distribuera App Service-resursprovider genom att följa dessa steg:
 [Skala ut App Service](azure-stack-app-service-add-worker-roles.md). Du kan behöva lägga till fler App Service-infrastrukturen rollen arbeten för att möta efterfrågan förväntade program i din miljö. Som standard har kostnadsfria och delade arbetarnivåer stöd för App Service i Azure Stack. Om du vill lägga till andra arbetarnivåer, som du behöver lägga till flera worker-roller.
 
 [Konfigurera distributionskällor](azure-stack-app-service-configure-deployment-sources.md). Det krävs ytterligare konfiguration för att stödja distribution av på begäran från flera källkontrollsprovidrar som GitHub, BitBucket, OneDrive och DropBox.
+
+[Säkerhetskopiera Apptjänst](app-service-back-up.md). När du har distribuera och konfigurera App Service, bör du kontrollera att alla komponenter som behövs för haveriberedskap som säkerhetskopieras till att förhindra dataförlust och undvika onödiga service driftstopp under återställningsåtgärder.

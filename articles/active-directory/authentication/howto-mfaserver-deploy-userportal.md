@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbee5316b78838bedc62454e8c1954eb5f9205ff
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 66a75ee7746d0ab04b505544f91f2905fa392902
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317137"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370371"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Användarportal för Azure Multi-Factor Authentication-servern
 
@@ -28,7 +28,7 @@ Administratörer av användarportalen kan konfigureras och beviljas behörighet 
 
 Beroende på din miljö kan du distribuera användarportalen på samma server som Azure Multi-Factor Authentication-servern eller på en annan Internet-ansluten server.
 
-![MFA-användarportal](./media/howto-mfaserver-deploy-userportal/portal.png)
+![MFA-Serveranvändarportal inloggningssidan](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
 > Användarportalen är endast tillgänglig med Multi-Factor Authentication-servern. Om du använder Multi-Factor Authentication i molnet ska du hänvisa användarna till [Set up your account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md) (Konfigurera ditt konto för tvåstegsverifiering) eller [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md) (Hantera dina inställningar för tvåstegsverifiering).
@@ -118,6 +118,7 @@ Nu när användarportalen har installerats måste du konfigurera Azure Multi-Fac
 3. Ange vilka som ska vara administratörer på fliken **Administratörer**. Du kan skapa detaljerade administrativa behörigheter med hjälp av kryssrutorna och listrutorna i rutorna Lägg till/Redigera.
 
 Valfri konfiguration:
+
 - **Säkerhetsfrågor** - definiera godkända säkerhetsfrågor för din miljö och det språk som de visas i.
 - **Slutförda sessioner** – Konfigurera användarportalintegrering med en formulärbaserad webbplats som använder MFA.
 - **Betrodda IP-adresser** – Tillåt användare att hoppa över MFA vid autentisering från en lista över betrodda IP-adresser eller intervall.
@@ -141,9 +142,12 @@ Azure Multi-Factor Authentication-servern tillhandahåller flera alternativ för
 | Använd OATH-token som reserv | Tillåt användning av en OATH-token om tvåstegsverifiering misslyckas. Du kan också ange tidsgränsen för sessionen i antal minuter. |
 | Aktivera loggning | Aktivera loggning på användarportalen. Loggfilerna finns på: C:\Program Files\Multi-Factor Authentication-server\loggar. |
 
+> [!IMPORTANT]
+> Från och med mars 2019 telefonsamtal alternativen kan inte tillgängliga för användare för MFA-servern i kostnadsfria/utvärderingsversion Azure AD-klienter. SMS-meddelanden som inte påverkas av den här ändringen. Telefonsamtal fortsätter att vara tillgängliga för användare i betalda Azure AD-klienter. Den här ändringen påverkar endast kostnadsfria/utvärderingsversion Azure AD-klienter.
+
 De här inställningarna blir synliga för användaren när de är aktiverade och användaren är inloggad på användarportalen.
 
-![Inställningar för användarportalen](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
+![Hantera din MFA Server-konto med användarportalen](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
 
 ### <a name="self-service-user-enrollment"></a>Användarregistrering via självbetjäning
 
@@ -159,7 +163,7 @@ Om användaren måste ange en PIN-kod vid autentiseringen uppmanas han eller hon
 
 Om användaren väljer autentiseringsmetoden för SMS-meddelanden eller om användaren har förkonfigurerats att använda den metoden uppmanas han eller hon att ange sitt mobiltelefonnummer. Om användaren måste ange en PIN-kod vid autentiseringen uppmanas han eller hon också att ange en PIN-kod.  Efter att de angett sitt telefonnummer och PIN-kod (om en sådan krävs), klickar användaren på knappen **Skicka mig ett textmeddelande för att autentisera**. Azure Multi-Factor Authentication utför en SMS-autentisering till användarens mobiltelefon. Användaren får SMS:et med ett engångslösenord (OTP) och svarar på meddelandet med OTP:t och sin PIN-kod (om sådan krävs).
 
-![SMS på användarportalen](./media/howto-mfaserver-deploy-userportal/text.png)
+![Portalen verifiering av användare med SMS](./media/howto-mfaserver-deploy-userportal/text.png)
 
 Om användaren väljer autentiseringsmetoden Mobilapp eller om användaren har förkonfigurerats att använda den metoden uppmanas han eller hon att installera Microsoft Authenticator-appen på sin enhet och att generera en aktiveringskod. Efter installation, klickar användaren på knappen Generera aktiveringskod.
 

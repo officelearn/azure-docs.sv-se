@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 534307cfd71551de5427a196902b275a15ad44b5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e8c06f0a3a33133c7b1595db52204d15b03d6aab
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436382"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372479"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimera din SQL-miljö med lösningen för hälsokontroll för SQL Server i Log Analytics
 
@@ -53,7 +53,7 @@ Om du vill utföra hälsokontroll mot din SQL Server-servrar, kräver de en agen
 
 1. Installera den [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) om servern inte är redan övervakas av System Center 2016 – Operations Manager eller Operations Manager 2012 R2.
 2. Om den är övervakad med System Center 2016 – Operations Manager eller Operations Manager 2012 R2 och hanteringsgruppen är inte integrerat med Log Analytics-tjänsten, kan servern ha flera värdar med Log Analytics för att samla in data och vidarebefordra till tjänsten och fortfarande övervakas av Operations Manager.  
-3. I annat fall om Operations Manager-hanteringsgrupp är integrerad med tjänsten, du måste lägga till domänkontrollanterna för insamling av tjänsten anvisningarna under [lägga till datorer som hanteras med agent](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics) när du har aktiverat lösningen i din arbetsyta.  
+3. I annat fall om Operations Manager-hanteringsgrupp är integrerad med tjänsten, du måste lägga till domänkontrollanterna för insamling av tjänsten anvisningarna under [lägga till datorer som hanteras med agent](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) när du har aktiverat lösningen i din arbetsyta.  
 
 Agenten på vilka rapporter till en Operations Manager-hanteringsgrupp, samlar in data, SQL-servern vidarebefordrar till dess tilldelade hanteringsserver och sedan skickas direkt från en hanteringsserver till Log Analytics-tjänsten.  Data skrivs inte till Operations Manager-databaserna.  
 

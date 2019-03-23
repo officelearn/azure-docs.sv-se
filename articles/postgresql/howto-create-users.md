@@ -1,17 +1,17 @@
 ---
 title: Skapa användare i Azure Database for PostgreSQL-server
 description: Den här artikeln beskrivs hur du kan skapa nya användarkonton för att interagera med en Azure Database for PostgreSQL-server.
-author: jasonwhowell
-ms.author: jasonh
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/16/2018
-ms.openlocfilehash: 8b1bf6f1eccefb9235751c9e113c90566dfdff79
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 33c107c46b314136fa3d43f8e7881e096afa374c
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540833"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351090"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Skapa användare i Azure Database for PostgreSQL-server 
 Den här artikeln beskrivs hur du kan skapa användare i en Azure Database for PostgreSQL-server.

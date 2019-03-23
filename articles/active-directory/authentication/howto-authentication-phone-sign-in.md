@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26dd1bd6717fe0216545d6b3aa729ac2cb19dc9d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 47e8541b82a1cd38f07684508a96b9789df20e92
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313336"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370397"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Lösenord utan telefoninloggning med Microsoft Authenticator-appen (offentlig förhandsversion)
 
 Microsoft Authenticator-appen kan användas för att logga in på alla Azure AD-konto utan lösenord. Liknande teknik för [Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator använder nyckel-baserad autentisering för att aktivera en autentiseringsuppgift för användare som är kopplad till en enhet och använder en biometriska eller PIN-kod.
 
-![Exempel på en webbläsare inloggning där personen ombeds användaren att godkänna försök logga in i sina Microsoft Authenticator-appen](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
+![Exempel på en webbläsare inloggning där personen ombeds användaren att godkänna inloggningen](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
 
 I stället för ett oväntat meddelande för ett lösenord när du har angett ett användarnamn, visas en person som har aktiverat telefoninloggning i Microsoft Authenticator-appen ett meddelande som uppmanar dem att trycka på ett nummer i appen. I appen, användaren måste stämma med numret, väljer du Godkänn och sedan ange sin PIN-kod eller biometriska sedan autentiseringen slutförs.
 
@@ -40,17 +40,20 @@ För en förhandsversion, en administratör måste först lägga till en princip
 ### <a name="steps-to-enable"></a>Steg för att aktivera
 
 1. Kontrollera att du har den senaste versionen av den offentliga förhandsversionen av Azure Active Directory V2 PowerShell-modulen. Du kanske vill avinstallera och installera om för att kontrollera detta genom att köra följande kommandon:
+
     ```powershell
     Uninstall-Module -Name AzureADPreview
     Install-Module -Name AzureADPreview
     ```
 
 2. Autentisera till Azure AD-klienten att använda Azure AD V2 PowerShell-modulen. Det konto som används måste antingen vara en säkerhetsadministratör eller Global administratör.
+
     ```powershell
     Connect-AzureAD
     ```
 
 3. Skapa princip för Authenticator logga In:
+
     ```powershell
     New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
     ```

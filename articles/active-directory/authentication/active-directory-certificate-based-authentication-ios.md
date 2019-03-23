@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7243249e7aabf588115ef74f838be8ca67a94c7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: cda1b1c2a484f3aa627b8b9cf486528d13f27be8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309511"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369436"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Azure Active Directory-certifikatbaserad autentisering på iOS
 
@@ -35,16 +35,16 @@ Den här funktionen är tillgänglig som förhandsversion i Office 365 US Govern
 
 | Program | Support |
 | --- | --- |
-| Azure Information Protection-appen |![Markera][1] |
-| Intune-Företagsportalen |![Markera][1] |
-| Microsoft Teams |![Markera][1] |
-| OneNote |![Markera][1] |
-| OneDrive |![Markera][1] |
-| Outlook |![Markera][1] |
-| Power BI |![Markera][1] |
-| Skype för företag |![Markera][1] |
-| Word / Excel / PowerPoint |![Markera][1] |
-| Yammer |![Markera][1] |
+| Azure Information Protection-appen |![Markera vilket tyder på stöd för det här programmet][1] |
+| Intune-Företagsportalen |![Markera vilket tyder på stöd för det här programmet][1] |
+| Microsoft Teams |![Markera vilket tyder på stöd för det här programmet][1] |
+| OneNote |![Markera vilket tyder på stöd för det här programmet][1] |
+| OneDrive |![Markera vilket tyder på stöd för det här programmet][1] |
+| Outlook |![Markera vilket tyder på stöd för det här programmet][1] |
+| Power BI |![Markera vilket tyder på stöd för det här programmet][1] |
+| Skype för företag |![Markera vilket tyder på stöd för det här programmet][1] |
+| Word / Excel / PowerPoint |![Markera vilket tyder på stöd för det här programmet][1] |
+| Yammer |![Markera vilket tyder på stöd för det här programmet][1] |
 
 ## <a name="requirements"></a>Krav
 

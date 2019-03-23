@@ -4,23 +4,23 @@ description: Lär dig att konfigurera enkel inloggning mellan Azure Active Direc
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 7cb91628-e758-480d-a233-7a3caaaff50d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 03/07/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed1c7cd88bb5abf27066658f175d2447d334ce6b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e76e2b9b4778229fc70e90f1ff3af5f19251d424
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872229"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360920"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Självstudie: Azure Active Directory-integrering med TargetProcess
 
@@ -78,10 +78,11 @@ För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD
 Om du vill konfigurera och testa enkel inloggning i Azure AD med TargetProcess, måste du slutföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-3. **[Skapa testanvändare för TargetProcess](#create-targetprocess-test-user)**  – för att få en motsvarighet till Britta Simon i TargetProcess som är länkad till en Azure AD-representation av användaren.
+2. **[Konfigurera TargetProcess Single Sign-On](#configure-targetprocess-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+5. **[Skapa testanvändare för TargetProcess](#create-targetprocess-test-user)**  – för att få en motsvarighet till Britta Simon i TargetProcess som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -105,12 +106,12 @@ Utför följande steg för att konfigurera enkel inloggning i Azure ADmed Target
 
     ![Information om TargetProcess-domän och URL:er med enkel inloggning](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<subdomain>.tpondemand.com/`
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<subdomain>.tpondemand.com/`
 
-    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<subdomain>.tpondemand.com/`
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<subdomain>.tpondemand.com/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare.  Kontakta [TargetProcess-klientens supportteam](mailto:support@targetprocess.com) för att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [TargetProcess-klientens supportteam](mailto:support@targetprocess.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
@@ -126,44 +127,43 @@ Utför följande steg för att konfigurera enkel inloggning i Azure ADmed Target
 
     c. Utloggnings-URL
 
-7. Om du vill automatisera konfigurationen i **TargetProcess**, måste du installera **webbläsartillägget Enkel inloggning för mina appar** genom att klicka på **Installera tillägget**.
+### <a name="configure-targetprocess-single-sign-on"></a>Konfigurera TargetProcess Single Sign-On
+
+1. Om du vill automatisera konfigurationen i **TargetProcess**, måste du installera **webbläsartillägget Enkel inloggning för mina appar** genom att klicka på **Installera tillägget**.
 
     ![image](./media/target-process-tutorial/install_extension.png)
 
-8. När du har lagt till tillägg i webbläsaren klickar du på **Konfigurera TargetProcess**. Du omdirigeras då till TargetProcess-programmet. Därifrån anger du administratörsautentiseringsuppgifterna för att logga in på TargetProcess. Webbläsartillägget konfigurerar automatiskt programmet åt dig och automatiserar steg 9–13.
+2. När du har lagt till tillägg i webbläsaren klickar du på **Konfigurera TargetProcess**. Du omdirigeras då till TargetProcess-programmet. Därifrån anger du administratörsautentiseringsuppgifterna för att logga in på TargetProcess. Webbläsartillägget konfigurerar automatiskt programmet åt dig och automatiserar steg 3–7.
 
     **Om du vill konfigurera programmet manuellt utför du följande steg:**
 
-9. Logga in på TargetProcess-programmet som administratör.
+3. Logga in på TargetProcess-programmet som administratör.
 
-10. I menyn längst upp klickar du på **Konfiguration**.
+4. I menyn längst upp klickar du på **Konfiguration**.
 
     ![Konfiguration](./media/target-process-tutorial/tutorial_target_process_05.png)
 
-11. Klicka på **Inställningar**.
+5. Klicka på **inställningar** fliken.
 
     ![Inställningar](./media/target-process-tutorial/tutorial_target_process_06.png)
 
-12. Klicka på **Enkel inloggning**.
+6. Klicka på **enkel inloggning** fliken.
 
     ![klicka på Enkel inloggning](./media/target-process-tutorial/tutorial_target_process_07.png)
 
-13. Utför följande steg i inställningsdialogrutan för enkel inloggning:
+7. Utför följande steg i inställningsdialogrutan för enkel inloggning:
 
     ![Konfigurera enkel inloggning](./media/target-process-tutorial/tutorial_target_process_08.png)
 
     a. Klicka på **Aktivera enkel inloggning**.
 
-    b. I textrutan **Inloggnings-URL** klistrar du in värdet för **SAML-tjänstens URL för enkel inloggning** som du kopierade från Azure Portal.
+    b. I **inloggnings-URL** textrutan klistra in värdet för **inloggnings-URL** som du har kopierat från Azure-portalen.
 
     c. Öppna ditt nedladdade certifikatet i Anteckningar, kopiera innehållet och klistra sedan in det i textrutan **Certifikat**.
 
     d. klicka på **Aktivera JIT-etablering**.
 
     e. Klicka på **Spara**.
-
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -198,7 +198,7 @@ I det här avsnittet ser du till att Britta Simon ska kunna använda enkel inlog
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I programlistan anger du och väljer **TargetProcess**.
+2. I listan med program väljer **TargetProcess**.
 
     ![Länken TargetProcess i programlistan](common/all-applications.png)
 
@@ -218,7 +218,7 @@ I det här avsnittet ser du till att Britta Simon ska kunna använda enkel inlog
 
 ### <a name="create-targetprocess-test-user"></a>Skapa TargetProcess-testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i TargetProcess. TargetProcess har stöd för just-in-time-etablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare skapas under ett försök att komma åt TargetProcess, om den inte redan finns.
+I det här avsnittet skapas en användare som kallas Britta Simon i TargetProcess. TargetProcess stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i TargetProcess, skapas en ny efter autentisering.
 
 > [!Note]
 > Om du vill skapa en användare manuellt, kontaktar du  [TargetProcess-supportteamet](mailto:support@targetprocess.com).
@@ -231,8 +231,8 @@ När du klickar på TargetProcess i åtkomstpanelen bör du bli automatiskt inlo
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

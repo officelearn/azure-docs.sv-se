@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: ab235c67e3a0e60999a0348d03a6e938944f7030
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: a350576742a9bcb899405aae19c032cc9b966975
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260202"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351339"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage analytics-loggning
 
@@ -144,15 +144,13 @@ Du kan ange de storage-tjänster som du vill logga in och kvarhållningsperioden
  Följande kommando växlar loggning för läsning, skriva och ta bort begäranden i kö-tjänst i din standardkontot för lagring med kvarhållning inställd på fem dagar:  
 
 ```  
-Set-AzureStorageServiceLoggingProperty -ServiceType Queue   
--LoggingOperations read,write,delete -RetentionDays 5  
+Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
 ```  
 
  Följande kommando växlar stänga av loggning för tabelltjänsten i standardkontot för lagring:  
 
 ```  
-Set-AzureStorageServiceLoggingProperty -ServiceType Table   
--LoggingOperations none  
+Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
  Information om hur du konfigurerar finns Azure PowerShell-cmdletar för att arbeta med din Azure-prenumeration och hur du väljer standardkontot för lagring att använda, i: [Hur du installerar och konfigurerar du Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  

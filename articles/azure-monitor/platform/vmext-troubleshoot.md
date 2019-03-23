@@ -1,5 +1,5 @@
 ---
-title: Felsöka Azure Log Analytics VM-tillägg | Microsoft Docs
+title: Felsöka Azure Log Analytics VM-tillägget i Azure Monitor | Microsoft Docs
 description: Beskriv problem, orsaker och upplösning för de vanligaste problemen med Log Analytics VM-tillägg för Windows och Linux virtuella Azure-datorer.
 services: log-analytics
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.openlocfilehash: f2f50144e188a297468ac8ea8fc8891d2e4ec145
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 17a52cf17c62c930dc3922ded48d659f56016688
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106502"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370507"
 ---
-# <a name="troubleshooting-the-log-analytics-vm-extension"></a>Felsökning av Log Analytics VM-tillägget
+# <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Felsökning av Log Analytics VM-tillägget i Azure Monitor
 Du får hjälp med att felsöka fel som du kan uppleva med Log Analytics VM-tillägg för Windows och Linux-datorer som körs på Microsoft Azure och ger förslag på lösningar för att lösa dem.
 
 Utför följande steg från Azure-portalen för att kontrollera status för tillägget.

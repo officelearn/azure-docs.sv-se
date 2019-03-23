@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 297d32311b6b697b0141488878d170b3f2f4c359
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 81519a9452bf578c2640b547b2102b8e162e2878
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315495"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369793"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Felsöka lösenordsåterställning via självbetjäning
 
@@ -35,7 +35,6 @@ Har du problem med lösenordsåterställning för Azure Active Directory (Azure 
 | UserNotProperlyConfigured = 14 | Vi beklagar, men du inte kan återställa ditt lösenord just nu eftersom det saknas nödvändig information från ditt konto. Det finns inga ytterligare åtgärder du kan vidta för att lösa problemet. Kontaktar du administratören och be dem att återställa lösenordet åt dig. När du har tillgång till ditt konto igen kan behöva du registrera informationen som krävs. Registrera information genom att följa stegen i den [registrera sig för lösenordsåterställning via självbetjäning](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-reset-register) artikeln. | SSPR_0014: Ytterligare säkerhetsinformation behövs för att återställa ditt lösenord. Om du vill fortsätta, kontakta administratören och be dem att återställa ditt lösenord. När du har tillgång till ditt konto kan du registrera ytterligare säkerhetsinformation på https://aka.ms/ssprsetup. Din administratör kan att lägga till ytterligare säkerhetsinformation till ditt konto genom att följa stegen i [uppsättningen och Läs autentiseringsdata för återställning av lösenord](howto-sspr-authenticationdata.md). |
 | OnPremisesAdminActionRequired = 29 | Vi beklagar, men vi inte kan återställa ditt lösenord just nu på grund av ett problem med din organisations lösenordsåterställning av konfigurationen. Det finns inga ytterligare åtgärder du kan vidta för att lösa problemet. Kontakta din administratör och be dem att undersöka. Läs mer om potentiella problem i [felsöka tillbakaskrivning av lösenord](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback). | SSPR_0029: Vi kan inte återställa ditt lösenord på grund av ett fel i din lokala konfiguration. Kontakta din administratör och be dem att undersöka. |
 | OnPremisesConnectivityError = 30 | Vi beklagar, men vi inte kan återställa ditt lösenord just nu på grund av anslutningsproblem till din organisation. Det finns ingen åtgärd ska vidtas just nu, men problemet kan lösas om du försöker igen senare. Om problemet kvarstår, kontakta din administratör och be dem att undersöka. Mer information om anslutningsproblem finns [Felsök anslutning för tillbakaskrivning av lösenord](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity). | SSPR_0030: Vi kan inte återställa lösenordet eftersom anslutningen till din lokala miljö. Kontakta administratören och be dem att undersöka.|
-
 
 ## <a name="troubleshoot-the-password-reset-configuration-in-the-azure-portal"></a>Felsöka konfigurationen på återställning av lösenord i Azure portal
 
@@ -168,8 +167,8 @@ De vanligaste tidpunkten för felet är att ingen brandvägg och eller aktiverin
 
 För Azure AD Connect version 1.1.443.0 och senare, du behöver utgående HTTPS åtkomst till följande:
 
-   - passwordreset.microsoftonline.com
-   - servicebus.windows.net
+* passwordreset.microsoftonline.com
+* servicebus.windows.net
 
 För mer detaljrikedom, referera till den uppdaterade listan med [IP-intervall i Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653) uppdateras varje onsdag och träder i kraft nästa måndag.
 
@@ -184,7 +183,7 @@ Lös problem med nätverksanslutningen eller andra tillfälliga problem med tjä
 1. Leta efter den **Microsoft Azure AD Sync** posten.
 1. Högerklicka på tjänstposten, Välj **starta om**, och sedan vänta tills åtgärden slutförs.
 
-   ![Starta om tjänsten Azure AD Sync][Service restart]
+   ![Starta om tjänsten Azure AD Sync med hjälp av det grafiska Användargränssnittet][Service restart]
 
 De här stegen återupprätta anslutningen med Molntjänsten och lös eventuella avbrott i verksamheten som kan uppstå. Om omstart av ADSync-tjänsten inte löser problemet, rekommenderar vi att du försöker inaktivera och återaktivera funktionen för tillbakaskrivning av lösenord.
 
@@ -215,7 +214,6 @@ Vi rekommenderar att du utför det här steget endast när du försöker de två
 
 > [!WARNING]
 > Om du har anpassat de out-of the box Synkroniseringsregler *säkerhetskopiera dem innan du fortsätter med uppgraderingen och sedan manuellt distribuera dem igen när du är klar.*
->
 
 1. Hämta den senaste versionen av Azure AD Connect från den [Microsoft Download Center](https://go.microsoft.com/fwlink/?LinkId=615771).
 1. Eftersom du redan har installerat Azure AD Connect måste du utföra en uppgradering på plats för att uppdatera din Azure AD Connect-installationen till den senaste versionen.
@@ -231,33 +229,27 @@ Azure AD Connect kräver Active Directory **Återställ lösenord** behörighet 
 
 1. Logga in på Azure AD Connect-servern och starta den **hanteraren för synkroniseringstjänsten** genom att välja **starta** > **synkroniseringstjänsten**.
 1. Under den **Anslutningsappar** väljer du lokalt **Active Directory Domain Services** anslutningen och välj sedan **egenskaper**.  
-   ![Gällande behörigheten – steg 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+   ![Hanteraren för synkroniseringstjänsten som visar hur man redigerar egenskaper](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
 1. I popup-fönstret, Välj **Anslut till Active Directory-skog** och anteckna den **användarnamn** egenskapen. Den här egenskapen är AD DS-kontot som används av Azure AD Connect för att utföra katalogsynkronisering. Att utföra tillbakaskrivning av lösenord Azure AD Connect har AD DS-kontot återställt lösenordet behörighet.  
-   
-   ![Gällande behörigheten – steg 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
+
+   ![Hitta synkronisering tjänsten Active Directory-användarkonto](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
 1. Logga in till en lokal domänkontrollant och starta den **Active Directory-användare och datorer** program.
 1. Välj **visa** och se till att den **avancerade funktioner** är aktiverat.  
-   
-   ![Gällande behörigheten – steg 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
+
+   ![Active Directory-användare och datorer visa avancerade funktioner](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
 1. Leta efter Active Directory-användarkonto som du vill kontrollera. Högerklicka på namnet på kontot och välj **egenskaper**.  
-   
-   ![Gällande behörigheten - steg 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
-
 1. I popup-fönstret går du till den **Security** fliken och markera **Avancerat**.  
-   
-   ![Gällande behörigheten – steg 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
-   
 1. I den **avancerade säkerhetsinställningar för administratören** popup-fönstret, gå till den **gällande åtkomst** fliken.
 1. Välj **väljer en användare**, Välj AD DS-kontot som används av Azure AD Connect (se steg 3) och välj sedan **visa gällande åtkomst**.
 
-   ![Gällande behörigheten - steg 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
+   ![Fliken för gällande åtkomst som visar synkronisering-konto](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
 1. Rulla nedåt och leta efter **Återställ lösenord**. Om transaktionen har markerat, har AD DS-kontot behörighet att återställa lösenordet för det valda Active Directory-kontot.  
-   
-   ![Gällande behörigheten - steg 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
+
+   ![Verifiera att synkronisera-kontot har behörighet för återställning av lösenord](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
 ## <a name="azure-ad-forums"></a>Azure AD-forum
 
@@ -272,17 +264,17 @@ För att hjälpa dig korrekt ombeds ange så mycket information som möjligt nä
 * **Allmän beskrivning av felet**: Vad är felet? Vad var det beteende som upptäcktes? Hur kan vi för att återskapa felet? Ange så mycket information som möjligt.
 * **Sidan**: Vilken sida är du på när du har märkt felet? Är URL: en om du kan till och en skärmbild av sidan.
 * **Supportkod**: Vad hette den supportkod som genererades när användaren såg felet?
-  * För att hitta den här koden, återskapa felet och välj sedan den **supportkod** länken längst ned på skärmen och skicka supportteknikern GUID som är ett resultat.
+   * För att hitta den här koden, återskapa felet och välj sedan den **supportkod** länken längst ned på skärmen och skicka supportteknikern GUID som är ett resultat.
 
-    ![Hitta supportkod längst ned på skärmen][Support code]
+   ![Hitta supportkod längst ned på skärmen][Support code]
 
   * Om du är på en sida utan en supportkod längst ned på sidan Välj F12 och Sök efter SID och CID och skicka dessa två resultat till supportteknikern.
 * **Datum, tid och tidszon**: Ange exakt datum och tid *med tidszonen* som felet inträffade.
 * **Användar-ID**: Vem var den användare som såg felet? Ett exempel är *användaren\@contoso.com*.
-    * Är detta en federerad användare?
-    * Är detta en direktautentisering användare?
-    * Är detta en lösenord-hash-synkroniserade användare?
-    * Är detta en endast molnbaserad användare?
+   * Är detta en federerad användare?
+   * Är detta en direktautentisering användare?
+   * Är detta en lösenord-hash-synkroniserade användare?
+   * Är detta en endast molnbaserad användare?
 * **Licensiering**: Har du en Azure AD Premium eller Azure AD Basic-licens?
 * **Programhändelseloggen**: Om du använder tillbakaskrivning av lösenord och felet finns i din lokala infrastruktur, inkludera en komprimerad kopia av Loggboken program från Azure AD Connect-servern.
 

@@ -3,7 +3,7 @@ title: Självstudie som skapar infrastrukturen för ett Service Fabric-kluster p
 description: I den här självstudien lär du dig att konfigurera AWS-infrastrukturen till att köra ett Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 6b7d2223d33abb429ab5f59b14c80d43c70598dc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 9a0c56ecb20857b8fe2f5e55851e5d0d98ed3038
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209658"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369128"
 ---
-# <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Självstudie: Skapa en AWS-infrastruktur som är värd för ett Service Fabric-kluster
+# <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Självstudier: Skapa AWS-infrastruktur för att vara värd för Service Fabric-kluster
 
 Med fristående Service Fabric-kluster kan du välja miljö och skapa kluster enligt metoden ”valfritt operativsystem, valfritt moln” som präglar Service Fabric. I den här självstudieserien skapar du ett fristående kluster som hanteras av AWS och installerar ett program i det.
 
@@ -36,7 +36,7 @@ I del ett i den här serien lärde du dig att:
 > * Logga in på någon av instanserna
 > * Förbereda instansen för Service Fabric
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver ett AWS-konto för att kunna slutföra den här självstudien.  Om du inte redan har ett konto kan du gå till [AWS-konsolen](https://aws.amazon.com/) för att skapa ett.
 
@@ -50,7 +50,7 @@ Välj **Starta instans**. På nästa skärm väljer du **Välj** bredvid Microso
 
 ![Val av EC2-instans][aws-ec2instance]
 
-Välj **t2.medium** och välj sedan **Nästa: Konfigurera instansinformation**. På nästa skärm ändrar du antalet instanser till `3` och väljer **Avancerad information** för att expandera avsnittet.
+Välj **t2.medium**och välj sedan **nästa: Konfigurera instansinformation**på nästa skärm ändra antalet instanser som `3`och välj sedan **avancerad information** att expandera avsnittet.
 
 För att du ska kunna ansluta dina virtuella datorer tillsammans i Service Fabric, måste de virtuella datorer som är värd för din infrastruktur ha samma autentiseringsuppgifter.  Det finns två vanliga metoder för att få likadana autentiseringsuppgifter: Anslut dem till samma domän, eller ange samma administratörslösenord på varje virtuell dator.  I den här självstudien använder du ett användardataskript till att ange att EC2-instanserna ska ha samma lösenord.  I en produktionsmiljö är det säkrare att ansluta värdarna till en Windows-domän.
 
@@ -110,7 +110,7 @@ När du har alla IP-adresser väljer du en av instanserna som du vill ansluta ti
 
 När du har anslutit till din instans kontrollerar du att du har en anslutning mellan dem och att du kan dela filer.  Du har samlat in IP-adresser för alla instanser. Välj en som du för närvarande inte är ansluten till. Gå till **Start**, ange `cmd` och välj **Kommandotolk**.
 
-I dessa exempel har RDP-anslutningen upprättats till följande IP-adress: 172.31.21.141. Alla anslutningstest utförs till den andra IP-adressen: 172.31.20.163.
+I de här exemplen har RDP-anslutningen upprättats till följande IP-adress: 172.31.21.141. Alla anslutningar testa och sedan slutföras till den andra IP-adressen: 172.31.20.163.
 
 Om du vill kontrollera att den grundläggande anslutningen fungerar, använder du ping-kommandot.
 

@@ -3,7 +3,7 @@ title: Självstudie om rensning av fristående Service Fabric-kluster – Azure 
 description: Den här självstudien visar hur du rensar ditt fristående kluster
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: d92712200920f135e362e15e1d9536dc2342ebaa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: e3e618bfd141e5cf7159d8df5b2b59f0d17d000f
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211097"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372207"
 ---
-# <a name="tutorial-clean-up-your-standalone-cluster"></a>Självstudier: Rensa fristående kluster
+# <a name="tutorial-clean-up-your-standalone-cluster"></a>Självstudier: Rensa upp ditt fristående kluster
 
-Med fristående Service Fabric-kluster kan du välja en egen miljö och skapa ett kluster som en del av metoden ”valfritt operativsystem, valfritt moln” som används i Service Fabric. I den här serien självstudiekurser skapar du ett fristående kluster som hanteras av AWS och installerar ett program i det.
+Med fristående Service Fabric-kluster kan du välja miljö och skapa kluster enligt metoden ”valfritt operativsystem, valfritt moln” som präglar Service Fabric. I den här självstudieserien skapar du ett fristående kluster som hanteras av AWS och installerar ett program i det.
 
 Den här självstudien är del fyra i en serie. Den här delen av kursen visar hur du rensar AWS-resurser som du skapade för att hantera Service Fabric-klustret.
 

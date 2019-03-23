@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
-ms.openlocfilehash: bc4553df239dbb8b62a31414539b10998cd74f02
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: e960f662fda4272bbc9763eb04fdb739c4776af8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189656"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371340"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av C#
 <a name="HOLTop"></a>
@@ -35,7 +35,7 @@ Du måste även ha [slutpunkten och åtkomstnyckeln](../How-tos/text-analytics-h
 1. Högerklicka på lösningen och klicka på **Hantera NuGet-paket för lösningen**
 1. Markera kryssrutan **Inkludera förhandsversion**.
 1. Välj fliken **Bläddra** sök efter **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**
-1. Välj NuGet-paketet och installera det. Du kan behöva v2.8.0 för nu (3-18-2019), i motsats till v3.0.0, tills ett fel i programvaran har lösts.
+1. Välj NuGet-paketet och installera det. Du kan behöva Nedgradera till v2.8.0 för tillfället (som i fråga om 3-18-2019) tills exempelkoden uppdateras med v3.0.0.
 
 > [!Tip]
 >  Du skulle kunna anropa [HTTP-slutpunkterna](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) direkt från C#, men Microsoft.Azure.CognitiveServices.Language SDK gör det mycket enklare att anropa tjänsten utan att behöva bry sig om serialisering och avserialisering av JSON.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f799b671e6216b402aa988aa66da4c2cfc44693
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d926f7312b62e788289939dfd81c236a33503b43
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317535"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370473"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Felsöka kombineras security information registrering (förhandsversion)
 
@@ -31,7 +31,7 @@ Informationen i den här artikeln hjälper administratörer som felsökning av p
 
 Händelser som har loggats för registrering av kombinerade finns under kategorin ”autentiseringsmetoder” i Azure AD granskningsloggar.
 
-![Azure AD-granskningsloggar gränssnittet som visar några security info registreringshändelser för en ny användare i katalogen](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
+![Azure AD-granskningsloggar registreringshändelser för gränssnittet som visar](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
 
 Här nedan listas alla granskningshändelserna som genereras av kombinerade registrering:
 
@@ -162,4 +162,4 @@ Användarna uppmanas inte längre att registrera med hjälp av förhandsversione
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Mer information om den offentliga förhandsversionen av kombinerade registrering för lösenordsåterställning via självbetjäning och Azure Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)
+* [Mer information om den offentliga förhandsversionen av kombinerade registrering för lösenordsåterställning via självbetjäning och Azure Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)

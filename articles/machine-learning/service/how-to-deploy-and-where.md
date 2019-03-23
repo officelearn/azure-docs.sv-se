@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: f2d2ded849af5054935b6bec8f74e021078b7641
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b9dbd644aff3a41bcf38b982ebd46396ad30edca
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860437"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361973"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -27,7 +27,7 @@ Du kan distribuera modeller till följande beräkning:
 | Beräkningsmål | Distributionstyp | Beskrivning |
 | ----- | ----- | ----- |
 | [Azure Kubernetes Service (AKS)](#aks) | I realtid inferens | Bra för Produktionsdistribution av hög skalbarhet. Tillhandahåller automatisk skalning och snabba svarstider. |
-| [Azure ML Compute](#azuremlcompute) | Batch inferens | Kör batch-förutsägelse på beräkning utan server. Stöder normalt och lågprioriterade virtuella datorer. |
+| [Azure Machine Learning Compute (amlcompute)](#azuremlcompute) | Batch inferens | Kör batch-förutsägelse på beräkning utan server. Stöder normalt och lågprioriterade virtuella datorer. |
 | [Azure Container Instances (ACI)](#aci) | Testning | Bra för utveckling och testning. **Inte lämplig för produktionsarbetsbelastningar.** |
 | [Azure IoT Edge](#iotedge) | (Förhandsversion) IoT-modul | Distribuera modeller på IoT-enheter. Inferensjobb sker på enheten. |
 | [Fältet-programmable gate array FPGA)](#fpga) | (Förhandsversion) Webbtjänst | Extremt låg latens för i realtid inferensjobb. |
@@ -50,13 +50,13 @@ Mer information om begrepp som ingår i arbetsflödet finns i [hantera, distribu
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
-- En arbetsyta för Azure Machine Learning-tjänsten och Azure Machine Learning-SDK för Python installerat. Lär dig hur du hämtar dessa krav med hjälp av den [Kom igång med Azure Machine Learning Snabbstart](quickstart-get-started.md).
+- En arbetsyta för Azure Machine Learning-tjänsten och Azure Machine Learning-SDK för Python installerat. Lär dig hur du hämtar dessa krav med hjälp av [skapa en arbetsyta för Azure Machine Learning-tjänsten](setup-create-workspace.md).
 
 - En tränad modell. Om du inte har en tränad modell, Följ stegen i den [träna modeller](tutorial-train-models-with-aml.md) självstudie för att träna och registrera en med Azure Machine Learning-tjänsten.
 
     > [!NOTE]
     > Medan Azure Machine Learning-tjänsten kan arbeta med valfri allmän modell som kan läsas in i Python 3, visar exemplen i det här dokumentet med hjälp av en modell som lagras i Python pickle-format.
-    > 
+    >
     > Mer information om hur du använder ONNX-modeller finns i den [ONNX och Azure Machine Learning](how-to-build-deploy-onnx.md) dokumentet.
 
 ## <a id="registermodel"></a> Registrera en träningsmodell
@@ -83,7 +83,7 @@ Mer information finns i referensdokumentationen för den [Modellklass](https://d
 
 Distribuerade modeller paketeras i en bild. Bilden innehåller de beroenden som behövs för att köra modellen.
 
-För **Azure-Behållarinstans**, **Azure Kubernetes Service**, och **Azure IoT Edge** distributioner, den [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) klassen används för att skapa en konfiguration för avbildningen. Bild-konfigurationen används sedan för att skapa en ny dockeravbildning. 
+För **Azure-Behållarinstans**, **Azure Kubernetes Service**, och **Azure IoT Edge** distributioner, den [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) klassen används för att skapa en konfiguration för avbildningen. Bild-konfigurationen används sedan för att skapa en ny dockeravbildning.
 
 Följande kod visar hur du skapar en ny bildkonfiguration:
 
@@ -126,14 +126,13 @@ Skriptet innehåller två funktioner som att läsa in och kör modellen:
 Följande exempelskript godkänner och returnerar JSON-data. Den `run` funktionen omvandlar data från JSON till ett format att modellen förväntar sig och sedan omvandlar JSON svaret innan det returneras:
 
 ```python
-# import things required by this script
+%%writefile score.py
 import json
 import numpy as np
 import os
 import pickle
 from sklearn.externals import joblib
 from sklearn.linear_model import LogisticRegression
-
 from azureml.core.model import Model
 
 # load the model
@@ -185,7 +184,7 @@ def run(request):
 > [!IMPORTANT]
 > Den `azureml.contrib` namnområde ändras ofta, när vi arbetar för att förbättra tjänsten. Därför ska någonting i det här namnområdet räknas som en förhandsversion, och stöds inte fullt ut av Microsoft.
 >
-> Om du vill testa detta på din lokala utvecklingsmiljö kan du installera komponenterna i den `contrib` namnområde med hjälp av följande kommando: 
+> Om du vill testa detta på din lokala utvecklingsmiljö kan du installera komponenterna i den `contrib` namnområde med hjälp av följande kommando:
 > ```shell
 > pip install azureml-contrib-services
 > ```
@@ -196,7 +195,7 @@ När du har skapat avbildningen konfigurationen, kan du använda det för att re
 
 ```python
 # Register the image from the image configuration
-image = ContainerImage.create(name = "myimage", 
+image = ContainerImage.create(name = "myimage",
                               models = [model], #this is the model object
                               image_config = image_config,
                               workspace = ws
@@ -209,7 +208,7 @@ Bilder är version automatiskt när du registrerar flera avbildningar med samma 
 
 Mer information finns i referensdokumentationen för [ContainerImage klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py).
 
-## <a id="deploy"></a> Distribuera avbildningen
+## <a id="deploy"></a> Distribuera som en webbtjänst
 
 När du kommer till distribution, är processen variera beroende på beräkningsmål som du distribuerar till. Använd informationen i följande avsnitt för att lära dig hur du distribuerar till:
 
@@ -251,7 +250,7 @@ Mer information finns i referensdokumentationen för den [AciWebservice](https:/
 
 Använd Azure Kubernetes Service (AKS) för att distribuera din modell som en webbtjänst i produktionsmiljön för hög skalbarhet. Du kan använda ett befintligt AKS-kluster eller skapa en ny med SDK: N för Azure Machine Learning, CLI eller Azure-portalen.
 
-Skapa ett AKS-kluster är en tid processen för arbetsytan. Du kan återanvända det här klustret för flera distributioner. 
+Skapa ett AKS-kluster är en tid processen för arbetsytan. Du kan återanvända det här klustret för flera distributioner.
 
 > [!IMPORTANT]
 > Om du tar bort klustret, måste du skapa ett nytt kluster nästa gång du behöver distribuera.
@@ -270,7 +269,7 @@ Azure Kubernetes Service innehåller följande funktioner:
 Automatisk skalning kan kontrolleras genom att ange `autoscale_target_utilization`, `autoscale_min_replicas`, och `autoscale_max_replicas` för AKS-webbtjänsten. I följande exempel visar hur du aktiverar automatisk skalning:
 
 ```python
-aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True, 
+aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True,
                                                 autoscale_target_utilization=30,
                                                 autoscale_min_replicas=1,
                                                 autoscale_max_replicas=4)
@@ -315,10 +314,10 @@ from azureml.core.compute import AksCompute, ComputeTarget
 # Use the default configuration (you can also provide parameters to customize this)
 prov_config = AksCompute.provisioning_configuration()
 
-aks_name = 'aml-aks-1' 
+aks_name = 'aml-aks-1'
 # Create the cluster
-aks_target = ComputeTarget.create(workspace = ws, 
-                                    name = aks_name, 
+aks_target = ComputeTarget.create(workspace = ws,
+                                    name = aks_name,
                                     provisioning_configuration = prov_config)
 
 # Wait for the create process to complete
@@ -366,7 +365,7 @@ from azureml.core.webservice import Webservice, AksWebservice
 aks_config = AksWebservice.deploy_configuration()
 aks_service_name ='aks-service-1'
 # Deploy from image
-service = Webservice.deploy_from_image(workspace = ws, 
+service = Webservice.deploy_from_image(workspace = ws,
                                             name = aks_service_name,
                                             image = image,
                                             deployment_config = aks_config,
@@ -393,87 +392,91 @@ Project Brainwave gör det möjligt att uppnå extremt låg latens för i realti
 
 En genomgång för att distribuera en modell med Project Brainwave finns i den [distribuera till en FPGA](how-to-deploy-fpga-web-service.md) dokumentet.
 
-### <a id="iotedge"></a> Distribuera till Azure IoT Edge
+## <a name="define-schema"></a>Definiera schema
 
-En Azure IoT Edge-enhet är en Linux eller Windows-baserad enhet som kör Azure IoT Edge-körningen. Med Azure IoT Hub kan distribuera du machine learning-modeller till dessa enheter som IoT Edge-moduler. Distribuera en modell till en IoT Edge-enhet gör att enheten använder modellen direkt, i stället för att skicka data till molnet för bearbetning. Du får kortare svarstider och överföra mindre data.
+Anpassade dekoratörer kan användas för [OpenAPI](https://swagger.io/docs/specification/about/) specifikationen generation och indata skriver manipulering av när du distribuerar webbtjänsten. I den `score.py` -fil du anger ett exempel på indata/utdata i konstruktorn eller för en definierad typ.-objekt och typ och exemplet används för att generera schemat automatiskt. Följande typer stöds för närvarande:
 
-Azure IoT Edge-moduler distribueras till enheten från ett behållarregister. När du skapar en avbildning från din modell, lagras den i behållarregister för arbetsytan.
+* `pandas`
+* `numpy`
+* `pyspark`
+* standard Python
 
-> [!IMPORTANT]
-> Informationen i det här avsnittet förutsätter att du redan är bekant med Azure IoT Hub och Azure IoT Edge-moduler. Del av informationen i det här avsnittet är specifika för Azure Machine Learning-tjänsten, sker merparten av processen att distribuera till en edge-enhet i Azure IoT-tjänster.
->
-> Om du inte känner till Azure IoT [grunderna i Azure IoT](https://docs.microsoft.com/azure/iot-fundamentals/) och [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) grundläggande information. Använd andra länkarna i det här avsnittet för mer information om specifika åtgärder.
+Kontrollera först beroenden som behövs för den `inference-schema` paket som ingår i din `env.yml` conda miljöfil. Det här exemplet används den `numpy` parametertypen för schemat, så det extra pip `[numpy-support]` installeras också.
 
-#### <a name="set-up-your-environment"></a>Konfigurera din miljö
+```python
+%%writefile myenv.yml
+name: project_environment
+dependencies:
+  - python=3.6.2
+  - pip:
+    - azureml-defaults
+    - scikit-learn
+    - inference-schema[numpy-support]
+```
 
-* En utvecklingsmiljö. Mer information finns i den [så här konfigurerar du en utvecklingsmiljö](how-to-configure-environment.md) dokumentet.
+Sedan ändrar den `score.py` fil att importera den `inference-schema` paket. Definiera indata och utdataformat exemplet i den `input_sample` och `output_sample` variabler, som representerar format för begäran och svar för webbtjänsten. Använd de här exemplen i indata och utdata funktionen dekoratörer på den `run()` funktion.
 
-* En [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) i Azure-prenumerationen. 
+```python
+%%writefile score.py
+import json
+import numpy as np
+import os
+import pickle
+from sklearn.externals import joblib
+from sklearn.linear_model import LogisticRegression
+from azureml.core.model import Model
 
-* En tränad modell. Ett exempel på hur du tränar en modell finns i den [tränar en modell för klassificering av avbildning med Azure Machine Learning](tutorial-train-models-with-aml.md) dokumentet. En förtränade modellen är tillgänglig på den [AI-verktyg för Azure IoT Edge GitHub-lagringsplatsen](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
+from inference_schema.schema_decorators import input_schema, output_schema
+from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 
-#### <a id="getcontainer"></a> Hämta autentiseringsuppgifter för registret
 
-För att distribuera en IoT Edge-modul till din enhet, måste autentiseringsuppgifterna för behållarregistret som Azure Machine Learning-tjänsten lagrar docker-avbildningar i i Azure IoT.
+def init():
+    global model
+    model_path = Model.get_model_path('sklearn_mnist')
+    model = joblib.load(model_path)
 
-Du kan hämta autentiseringsuppgifterna på två sätt:
 
-+ **I Azure-portalen**:
+input_sample = np.array([[1.8]])
+output_sample = np.array([43638.88])
 
-  1. Logga in på [Azure Portal](https://portal.azure.com/signin/index).
+@input_schema('data', NumpyParameterType(input_sample))
+@output_schema(NumpyParameterType(output_sample))
+def run(raw_data):
+    data = np.array(json.loads(raw_data)['data'])
+    y_hat = model.predict(data)
+    return json.dumps(y_hat.tolist())
+```
 
-  1. Gå till din arbetsyta för Azure Machine Learning-tjänsten och välj __översikt__. Gå till behållaren för registerinställningarna genom att välja den __registret__ länk.
+När du har genomfört normala registrering och web service distribution av avbildningar med det uppdaterade `score.py` fil, hämta Swagger-uri från tjänsten. Begär den här URI: n returnerar den `swagger.json` filen.
 
-     ![En bild av registerposten behållare](./media/how-to-deploy-and-where/findregisteredcontainer.png)
+```python
+service.wait_for_deployment(show_output=True)
+print(service.swagger_uri)
+```
 
-  1. Välj en gång i behållarregistret **åtkomstnycklar** och sedan aktivera administratörsanvändare.
- 
-     ![En bild av skärmen för åtkomst-nycklar](./media/how-to-deploy-and-where/findaccesskey.png)
 
-  1. Spara värdena för **inloggningsserver**, **användarnamn**, och **lösenord**. 
 
-+ **Med en Python-skriptet**:
+När du skapar en ny avbildning måste du manuellt uppdatera varje tjänst som du vill använda den nya avbildningen. Om du vill uppdatera webbtjänsten använder den `update` metoden. Följande kod visar hur du uppdaterar webbtjänsten för att använda en ny avbildning:
 
-  1. Använd följande skript i Python efter koden som du körde ovan för att skapa en behållare:
+```python
+from azureml.core.webservice import Webservice
+from azureml.core.image import Image
 
-     ```python
-     # Getting your container details
-     container_reg = ws.get_details()["containerRegistry"]
-     reg_name=container_reg.split("/")[-1]
-     container_url = "\"" + image.image_location + "\","
-     subscription_id = ws.subscription_id
-     from azure.mgmt.containerregistry import ContainerRegistryManagementClient
-     from azure.mgmt import containerregistry
-     client = ContainerRegistryManagementClient(ws._auth,subscription_id)
-     result= client.registries.list_credentials(resource_group_name, reg_name, custom_headers=None, raw=False)
-     username = result.username
-     password = result.passwords[0].value
-     print('ContainerURL{}'.format(image.image_location))
-     print('Servername: {}'.format(reg_name))
-     print('Username: {}'.format(username))
-     print('Password: {}'.format(password))
-     ```
-  1. Spara värdena för ContainerURL, servernamn, användarnamn och lösenord. 
+service_name = 'aci-mnist-3'
+# Retrieve existing service
+service = Webservice(name = service_name, workspace = ws)
 
-     Dessa autentiseringsuppgifter krävs för att tillhandahålla IoT Edge Enhetsåtkomst till avbildningar i ditt privata behållarregister.
+# point to a different image
+new_image = Image(workspace = ws, id="myimage2:1")
 
-#### <a name="prepare-the-iot-device"></a>Förbereda IoT-enhet
+# Update the image used by the service
+service.update(image = new_image)
+print(service.state)
+```
 
-Registrera din enhet med Azure IoT Hub och sedan installera IoT Edge-körningen på enheten. Om du inte är bekant med den här processen finns i [snabbstarten: Distribuera din första IoT Edge-modul till en enhet med Linux x64](../../iot-edge/quickstart-linux.md).
+Mer information finns i referensdokumentationen för den [webbtjänsten](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klass.
 
-Andra metoder för att registrera en enhet är:
-
-* [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
-* [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
-* [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
-
-#### <a name="deploy-the-model-to-the-device"></a>Distribuera modellen till enheten
-
-För att distribuera modellen till enheten, använder du informationen i registret som samlats in den [hämta autentiseringsuppgifter för container-registret](#getcontainer) med distribution av principmodul steg för IoT Edge-moduler. Till exempel när [distribuera Azure IoT Edge-moduler från Azure portal](../../iot-edge/how-to-deploy-modules-portal.md), måste du konfigurera den __registerinställningar__ för enheten. Använd den __inloggningsserver__, __användarnamn__, och __lösenord__ för behållarregistret arbetsyta.
-
-Du kan också distribuera med hjälp av [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) och [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode).
-
-## <a name="testing-web-service-deployments"></a>Testa webbtjänstdistributioner
+## <a name="test-web-service-deployments"></a>Testa webbtjänstdistributioner
 
 Om du vill testa en distribution av webbtjänster som du kan använda den `run` -metoden i Webservice-objektet. I följande exempel anges JSON-dokument till en webbtjänst och resultatet visas. Data som skickas måste matcha modellen förväntas. I det här exemplet matchar dataformatet indata som förväntas av diabetes modellen.
 
@@ -481,7 +484,7 @@ Om du vill testa en distribution av webbtjänster som du kan använda den `run` 
 import json
 
 test_sample = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10], 
+    [1,2,3,4,5,6,7,8,9,10],
     [10,9,8,7,6,5,4,3,2,1]
 ]})
 test_sample = bytes(test_sample,encoding = 'utf8')
@@ -514,6 +517,86 @@ print(service.state)
 
 Mer information finns i referensdokumentationen för den [webbtjänsten](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klass.
 
+## <a id="iotedge"></a> Distribuera till Azure IoT Edge
+
+En Azure IoT Edge-enhet är en Linux eller Windows-baserad enhet som kör Azure IoT Edge-körningen. Med Azure IoT Hub kan distribuera du machine learning-modeller till dessa enheter som IoT Edge-moduler. Distribuera en modell till en IoT Edge-enhet gör att enheten använder modellen direkt, i stället för att skicka data till molnet för bearbetning. Du får kortare svarstider och överföra mindre data.
+
+Azure IoT Edge-moduler distribueras till enheten från ett behållarregister. När du skapar en avbildning från din modell, lagras den i behållarregister för arbetsytan.
+
+> [!IMPORTANT]
+> Informationen i det här avsnittet förutsätter att du redan är bekant med Azure IoT Hub och Azure IoT Edge-moduler. Del av informationen i det här avsnittet är specifika för Azure Machine Learning-tjänsten, sker merparten av processen att distribuera till en edge-enhet i Azure IoT-tjänster.
+>
+> Om du inte känner till Azure IoT [grunderna i Azure IoT](https://docs.microsoft.com/azure/iot-fundamentals/) och [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) grundläggande information. Använd andra länkarna i det här avsnittet för mer information om specifika åtgärder.
+
+### <a name="set-up-your-environment"></a>Konfigurera din miljö
+
+* En utvecklingsmiljö. Mer information finns i den [så här konfigurerar du en utvecklingsmiljö](how-to-configure-environment.md) dokumentet.
+
+* En [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) i Azure-prenumerationen.
+
+* En tränad modell. Ett exempel på hur du tränar en modell finns i den [tränar en modell för klassificering av avbildning med Azure Machine Learning](tutorial-train-models-with-aml.md) dokumentet. En förtränade modellen är tillgänglig på den [AI-verktyg för Azure IoT Edge GitHub-lagringsplatsen](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
+
+### <a id="getcontainer"></a> Hämta autentiseringsuppgifter för registret
+
+För att distribuera en IoT Edge-modul till din enhet, måste autentiseringsuppgifterna för behållarregistret som Azure Machine Learning-tjänsten lagrar docker-avbildningar i i Azure IoT.
+
+Du kan hämta autentiseringsuppgifterna på två sätt:
+
++ **I Azure-portalen**:
+
+  1. Logga in på [Azure Portal](https://portal.azure.com/signin/index).
+
+  1. Gå till din arbetsyta för Azure Machine Learning-tjänsten och välj __översikt__. Gå till behållaren för registerinställningarna genom att välja den __registret__ länk.
+
+     ![En bild av registerposten behållare](./media/how-to-deploy-and-where/findregisteredcontainer.png)
+
+  1. Välj en gång i behållarregistret **åtkomstnycklar** och sedan aktivera administratörsanvändare.
+
+     ![En bild av skärmen för åtkomst-nycklar](./media/how-to-deploy-and-where/findaccesskey.png)
+
+  1. Spara värdena för **inloggningsserver**, **användarnamn**, och **lösenord**.
+
++ **Med en Python-skriptet**:
+
+  1. Använd följande skript i Python efter koden som du körde ovan för att skapa en behållare:
+
+     ```python
+     # Getting your container details
+     container_reg = ws.get_details()["containerRegistry"]
+     reg_name=container_reg.split("/")[-1]
+     container_url = "\"" + image.image_location + "\","
+     subscription_id = ws.subscription_id
+     from azure.mgmt.containerregistry import ContainerRegistryManagementClient
+     from azure.mgmt import containerregistry
+     client = ContainerRegistryManagementClient(ws._auth,subscription_id)
+     result= client.registries.list_credentials(resource_group_name, reg_name, custom_headers=None, raw=False)
+     username = result.username
+     password = result.passwords[0].value
+     print('ContainerURL{}'.format(image.image_location))
+     print('Servername: {}'.format(reg_name))
+     print('Username: {}'.format(username))
+     print('Password: {}'.format(password))
+     ```
+  1. Spara värdena för ContainerURL, servernamn, användarnamn och lösenord.
+
+     Dessa autentiseringsuppgifter krävs för att tillhandahålla IoT Edge Enhetsåtkomst till avbildningar i ditt privata behållarregister.
+
+### <a name="prepare-the-iot-device"></a>Förbereda IoT-enhet
+
+Registrera din enhet med Azure IoT Hub och sedan installera IoT Edge-körningen på enheten. Om du inte är bekant med den här processen finns i [snabbstarten: Distribuera din första IoT Edge-modul till en enhet med Linux x64](../../iot-edge/quickstart-linux.md).
+
+Andra metoder för att registrera en enhet är:
+
+* [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
+* [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
+* [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
+
+### <a name="deploy-the-model-to-the-device"></a>Distribuera modellen till enheten
+
+För att distribuera modellen till enheten, använder du informationen i registret som samlats in den [hämta autentiseringsuppgifter för container-registret](#getcontainer) med distribution av principmodul steg för IoT Edge-moduler. Till exempel när [distribuera Azure IoT Edge-moduler från Azure portal](../../iot-edge/how-to-deploy-modules-portal.md), måste du konfigurera den __registerinställningar__ för enheten. Använd den __inloggningsserver__, __användarnamn__, och __lösenord__ för behållarregistret arbetsyta.
+
+Du kan också distribuera med hjälp av [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) och [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode).
+
 ## <a name="clean-up"></a>Rensa
 
 Ta bort en distribuerad webbtjänst genom att använda `service.delete()`.
@@ -524,21 +607,9 @@ Ta bort registrerade modellen genom att använda `model.delete()`.
 
 Mer information finns i referensdokumentationen för [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--), och [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
-## <a name="troubleshooting"></a>Felsökning
-
-* __Om det uppstår fel under distributionen av__, använda `service.get_logs()` att visa tjänstloggar. Loggade informationen kan tyda på orsaken till felet.
-
-* Loggarna kan innehålla ett fel där du uppmanas att __ange loggningsnivån till DEBUG__. Om du vill ange loggningsnivån, lägger du till följande rader till din bedömningsskriptet skapa avbildningen och sedan skapa en tjänst med avbildningen:
-
-    ```python
-    import logging
-    logging.basicConfig(level=logging.DEBUG)
-    ```
-
-    Den här ändringen kan ytterligare loggning, och kan returnera mer information om varför felet inträffar.
-
 ## <a name="next-steps"></a>Nästa steg
 
+* [Felsökning av distribution](how-to-troubleshoot-deployment.md)
 * [Skydda Azure Machine Learning-webbtjänster med SSL](how-to-secure-web-service.md)
 * [Använd en ML-modell som distribueras som en webbtjänst](how-to-consume-web-service.md)
 * [Hur du kör batch-förutsägelser](how-to-run-batch-predictions.md)

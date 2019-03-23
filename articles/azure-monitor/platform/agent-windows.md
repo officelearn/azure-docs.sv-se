@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: d433a480165424e47d4d84e67e7fd02648ebe2d1
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: f9df65d143fbb0eaf6276a0f38971e19c0741786
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223435"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370966"
 ---
-# <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ansluta Windows-datorer till Log Analytics-tjänsten i Azure
+# <a name="connect-windows-computers-to-azure-monitor"></a>Ansluta Windows-datorer till Azure Monitor
 
-För att övervaka och hantera virtuella datorer eller fysiska datorer i ditt lokala datacenter eller andra moln med Log Analytics kan behöva du distribuera Log Analytics-agenten (kallas även som Microsoft Monitoring Agent (MMA)) och konfigurera den att rapportera till en eller flera Log Analytics-arbetsytor. Agenten stöder också Hybrid Runbook Worker-rollen för Azure Automation.  
+För att övervaka och hantera virtuella datorer eller fysiska datorer i ditt lokala datacenter eller andra moln med Azure Monitor kan behöva du distribuera Log Analytics-agenten (kallas även som Microsoft Monitoring Agent (MMA)) och konfigurera den att rapportera till en eller flera Log Analytics-arbetsytor. Agenten stöder också Hybrid Runbook Worker-rollen för Azure Automation.  
 
-På en övervakad Windows-dator visas agenten som Microsoft Monitoring Agent-tjänsten. Tjänsten Microsoft Monitoring Agent samlar in händelser från loggfiler och Windows-händelseloggen, prestandadata och annan telemetri. Även om agenten är inte kommunicera med den rapporterar till Log Analytics-tjänsten kan agenten fortsätter att köras och placerar insamlade data på disken för den övervakade datorn. När anslutningen återupprättas skickar tjänsten Microsoft Monitoring Agent insamlade data till tjänsten.
+På en övervakad Windows-dator visas agenten som Microsoft Monitoring Agent-tjänsten. Tjänsten Microsoft Monitoring Agent samlar in händelser från loggfiler och Windows-händelseloggen, prestandadata och annan telemetri. Även om agenten är inte kommunicera med Azure Monitor den rapporterar till kan agenten fortsätter att köras och placerar insamlade data på disken för den övervakade datorn. När anslutningen återupprättas skickar tjänsten Microsoft Monitoring Agent insamlade data till tjänsten.
 
 Agenten kan installeras med någon av följande metoder. De flesta installationer använder en kombination av dessa metoder för att installera olika uppsättningar datorer efter behov.  Information om hur du använder varje metod finns senare i artikeln.
 
@@ -40,7 +40,7 @@ Agenten kan installeras med någon av följande metoder. De flesta installatione
 Om du vill förstå konfigurationen som stöds, så granska [de Windows-operativsystem som stöds](log-analytics-agent.md#supported-windows-operating-systems) och [nätverkets brandväggskonfiguration](log-analytics-agent.md#network-firewall-requirements).
 
 ## <a name="obtain-workspace-id-and-key"></a>Hämta arbetsytans ID och nyckel
-Innan du installerar Log Analytics-agenten för Windows, behöver du arbetsytans ID och nyckel för Log Analytics-arbetsytan.  Den här informationen krävs under installationen från olika installationsmetoderna korrekt konfigurera agenten och se till att den kan kommunicera med Log Analytics i Azure kommersiella och US Government-molnet.  
+Innan du installerar Log Analytics-agenten för Windows, behöver du arbetsytans ID och nyckel för Log Analytics-arbetsytan.  Den här informationen krävs under installationen från olika installationsmetoderna korrekt konfigurera agenten och se till att den kan kommunicera med Azure Monitor i kommersiella Azure och molnet för amerikanska myndigheter.  
 
 1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 2. Välj den arbetsyta som du tänker om hur du konfigurerar agenten rapporterar till i din lista över Log Analytics-arbetsytor.
@@ -68,7 +68,7 @@ Konfigurera .NET Framework 4.6 eller senare för att stödja säker kryptering, 
 5. Starta om systemet så att inställningarna ska börja gälla. 
 
 ## <a name="install-the-agent-using-setup-wizard"></a>Installera agenten med installationsguiden
-Följande steg installerar och konfigurerar agenten för Log Analytics i Azure och Azure Government-molnet med hjälp av installationsguiden för agenten på datorn. Om du vill lära dig hur du konfigurerar att också rapportera till en hanteringsgrupp för System Center Operations Manager-agenten finns i [distribuera Operations Manager-agenten med Agentinstallationsguiden](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
+Följande steg installerar och konfigurerar Log Analytics-agenten i Azure och Azure Government-molnet med hjälp av installationsguiden för agenten på datorn. Om du vill lära dig hur du konfigurerar att också rapportera till en hanteringsgrupp för System Center Operations Manager-agenten finns i [distribuera Operations Manager-agenten med Agentinstallationsguiden](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
 
 1. I din Log Analytics-arbetsyta från den **Windows-servrar** sidan du navigerat för att tidigare, väljer du lämplig **ladda ned Windows Agent** versionen för att ladda ned beroende på Processorarkitekturen för Windows-operativsystem.   
 2. Kör installationsprogrammet för att installera agenten på datorn.
@@ -184,15 +184,14 @@ När installationen av agenten är klar, verifierar den anslutits och rapporteri
 
 Från datorn i **Kontrollpanelen**, hitta objektet **Microsoft Monitoring Agent**.  Markera den och på den **Azure Log Analytics** fliken agenten ska visa ett meddelande om: **Microsoft Monitoring Agent har anslutits till tjänsten Microsoft Operations Management Suite.**<br><br> ![MMA-anslutningsstatus till Log Analytics](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
-Du kan också utföra en enkel loggsökning i Azure-portalen.  
+Du kan också utföra en enkel logg-fråga i Azure-portalen.  
 
-1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.  
-2. Välj målarbetsytan på sidan för Log Analytics-arbetsytan och välj sedan den **Loggsökning** panelen. 
-2. I fönstret Loggsökning i skriver:  
+1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver **Azure Monitor**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Azure Monitor**.  
+2. Välj **loggar** på menyn. 
+2. I fönstret loggar i skriver:  
 
     ```
-    search * 
-    | where Type == "Heartbeat" 
+    Heartbeat 
     | where Category == "Direct Agent" 
     | where TimeGenerated > ago(30m)  
     ```

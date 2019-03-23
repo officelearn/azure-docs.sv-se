@@ -1,7 +1,7 @@
 ---
 title: Entitetstyper
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Lägg till entiteter (viktiga data i ditt programs domän) i appar för Language Understanding Intelligent Service (LUIS).
+description: 'Entiteter extrahera data från uttryck. Entitetstyper ger förutsägbar extrahering av data. Det finns två typer av enheter: datorn lärt dig och icke-machine-lärt dig. Det är viktigt att veta vilken typ av enhet som du arbetar med i yttranden.'
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: c8d2ccc197eb8818cfe3fc54449ee982bbe0c087
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d12ea20f9f510b0e2d3d3512d8d8c71a3fb96eec
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57844596"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372530"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Entitetstyper och deras syften i LUIS
 
-Entiteter är ord eller fraser i yttranden som är viktiga data i ditt programs domän.
+Entiteter extrahera data från uttryck. Entitetstyper ger förutsägbar extrahering av data. Det finns två typer av enheter: datorn lärt dig och icke-machine-lärt dig. Det är viktigt att veta vilken typ av enhet som du arbetar med i yttranden. 
 
 ## <a name="entity-compared-to-intent"></a>Entiteten jämfört med avsikt
 
@@ -190,7 +190,7 @@ Entiteten är ett bra passar när:
 
 * Informationen som matchar ett vanligt användningsfall som stöds av färdiga entiteter för språk-kultur. 
 
-Fördefinierade entiteter kan har lagts till och tas bort när som helst. Om du hittar en fördefinierade entitet har identifierats för en exempel-uttryck, vilket gör märkning av din anpassade entitet omöjligt, ta bort fördefinierade entiteten från appen, markera entiteten sedan Lägg till fördefinierade entitet tillbaka. 
+Fördefinierade entiteter kan har lagts till och tas bort när som helst.
 
 ![Antal fördefinierade entitet](./media/luis-concept-entities/number-entity.png)
 
@@ -198,6 +198,29 @@ Fördefinierade entiteter kan har lagts till och tas bort när som helst. Om du 
 [Exempel-JSON-svar för entitet](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 Några av de här fördefinierade entiteter har definierats i öppen källkod [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text) projekt. Om din specifika kultur eller entitet inte stöds för närvarande, bidra till projektet. 
+
+### <a name="troubleshooting-prebuilt-entities"></a>Felsökning av fördefinierade entiteter
+
+LUIS-portalen om en fördefinierade entitet markeras i stället för din anpassade entitet har du några alternativ för hur detta kan åtgärdas.
+
+Fördefinierade entiteter har lagts till i appen kommer _alltid_ returneras, även om uttryck bör extrahera anpassade entiteter för samma text. 
+
+#### <a name="change-tagged-entity-in-example-utterance"></a>Ändra taggade entitet i exempel-uttryck
+
+Om den fördefinierade entiteten är samma text eller token som den anpassade entiteten, markerar du texten i exempel-uttryck och ändra taggade uttryck. 
+
+Om entiteten fördefinierade märks med mer text eller token än din anpassade entitet, har du ett par alternativ för hur du åtgärdar detta:
+
+* [Ta bort exempel uttryck](#remove-example-utterance-to-fix-tagging) metod
+* [Ta bort fördefinierade entitet](#remove-prebuilt-entity-to-fix-tagging) metod
+
+#### <a name="remove-example-utterance-to-fix-tagging"></a>Ta bort exempel uttryck för att åtgärda taggning 
+
+Ditt första val är att ta bort exempel uttryck och träna om appen. Lägg tillbaka till bara ordet eller fras som är enheten som en exempel-uttryck och sedan markera de entiteter och träna. Lägg nu till tillbaka fördefinierade entiteten och den ursprungliga exempel-uttryck. Den anpassade entiteten ska fortsätta att markeras i stället för den fördefinierade entiteten. 
+
+#### <a name="remove-prebuilt-entity-to-fix-tagging"></a>Ta bort fördefinierade entitet för att åtgärda taggning
+
+I andra hand är att ta bort entiteten färdiga appen, sedan tagga den anpassade entiteten i exempel-uttryck och sedan lägga till färdiga entiteten i appen. Den här snabbkorrigeringen förutsätter fördefinierade entiteten är inte en del av en sammansatt entitet. 
 
 ## <a name="regular-expression-entity"></a>Entitet för reguljära uttryck 
 

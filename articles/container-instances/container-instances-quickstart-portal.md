@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 41313a8b140886247b830db7ca9b34a22257de96
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: f4d232d4d6043ede3979db67e5cd35130d931bef
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729158"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369453"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Snabbstart: Distribuera en behållarinstans i Azure med hjälp av Azure-portalen
 
@@ -38,12 +38,12 @@ Välj **Skapa en resurs** > **Behållare** > **Behållarinstanser**.
 Ange följande värden i textfälten **Containernamn**, **Containeravbildning** och **Resursgrupp**. Lämna de övriga standardvärdena oförändrade och välj **OK**.
 
 * Containernamn: `mycontainer`
-* Containeravbildning: `microsoft/aci-helloworld`
+* Containeravbildning: `mcr.microsoft.com/azuredocs/aci-helloworld`
 * Resursgrupp: **Skapa ny** > `myResourceGroup`
 
 ![Konfigurera grundläggande inställningar för en ny containerinstans i Azure Portal][aci-portal-03]
 
-Lämna standardinställningen för den här snabbstarten **offentliga** att distribuera offentligt `microsoft/aci-helloworld` bild. Den här avbildningen paketerar en liten webbapp som skrivits i Node.js och som hanterar en statisk HTML-sida.
+Lämna standardinställningen för den här snabbstarten **offentliga** att distribuera offentliga Microsoft `aci-helloworld` bild. Den här avbildningen paketerar en liten webbapp som skrivits i Node.js och som hanterar en statisk HTML-sida.
 
 Under **Konfiguration** anger du en **DNS-namnetikett** för din container. Namnet måste vara unikt inom Azure-region där du skapar behållarinstansen. Din container kan nås offentligt på `<dns-name-label>.<region>.azurecontainer.io`. Om du får felmeddelandet ”DNS name label not available” (DNS-namnetikett inte tillgänglig) kan du prova en annan DNS-namnetikett.
 
@@ -89,7 +89,7 @@ Välj **Ja** i bekräftelsedialogrutan när den visas.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat en Azure-containerinstans utifrån en avbildning som finns i det offentliga Docker Hub-registret. Om du vill skapa en container på egen hand och distribuera den från ett privat Azure-containerregister går du vidare till självstudien för Azure Container Instances.
+I den här snabbstarten har skapat du ett Azure container-instans från en offentlig avbildning av Microsoft. Om du vill skapa en container på egen hand och distribuera den från ett privat Azure-containerregister går du vidare till självstudien för Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances-självstudie](./container-instances-tutorial-prepare-app.md)

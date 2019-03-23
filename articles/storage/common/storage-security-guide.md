@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 56c09d9c6d1249713de7c6a0428ad2a124eee157
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e0c8d4883bb9183f866450477df972fc66c960c5
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013069"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369759"
 ---
 # <a name="azure-storage-security-guide"></a>Säkerhetsguiden för Azure Storage
 
@@ -22,7 +22,7 @@ Azure Storage tillhandahåller en omfattande uppsättning funktioner för säker
 - Alla data som skrivs till Azure Storage krypteras automatiskt med [Storage Service Encryption (SSE)](storage-service-encryption.md). Mer information finns i [presenterar standard kryptering för Azure-Blobar, filer, tabeller och Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - Azure Active Directory (Azure AD) och rollbaserad åtkomstkontroll (RBAC) stöds för Azure Storage för både resource management-åtgärder och åtgärder, enligt följande:   
     - Du kan tilldela RBAC-roller som är begränsade till storage-konto till säkerhetsobjekt och Använd Azure AD för att auktorisera resource management-åtgärder, till exempel nyckelhantering.
-    - Azure AD-integrering stöds i förhandsversionen av dataåtgärder på tjänsterna Blob och kö. Du kan tilldela RBAC-roller som är begränsade till en prenumeration, resursgrupp, storage-konto, eller en enskild behållare eller kön på ett säkerhetsobjekt eller en hanterad identitet för Azure-resurser. Mer information finns i [autentisera åtkomsten till Azure Storage med Azure Active Directory (förhandsversion)](storage-auth-aad.md).   
+    - Azure AD-integrering stöds för åtgärder för blob och kö. Du kan tilldela RBAC-roller som är begränsade till en prenumeration, resursgrupp, storage-konto, eller en enskild behållare eller kön på ett säkerhetsobjekt eller en hanterad identitet för Azure-resurser. Mer information finns i [autentisera åtkomsten till Azure Storage med Azure Active Directory](storage-auth-aad.md).   
 - Data kan skyddas i rörelse mellan ett program och Azure med hjälp av [Client Side Encryption](../storage-client-side-encryption.md), HTTPS och SMB 3.0.  
 - OS- och diskar som används av virtuella Azure-datorer kan krypteras med [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
 - Delegerad åtkomst till dataobjekt i Azure Storage kan tilldelas via [signaturer för delad åtkomst](../storage-dotnet-shared-access-signature-part-1.md).
@@ -155,8 +155,8 @@ Plan för datasäkerhet refererar till de metoder som används för att skydda d
 
 Det finns tre alternativ för att auktorisera åtkomst till dataobjekt i Azure Storage, inklusive:
 
-- Använda Azure AD för att bevilja åtkomst till behållare och köer (förhandsversion). Azure AD tillhandahåller fördelar jämfört med andra metoder för auktorisering, inklusive ta bort behovet av att lagra hemligheter i din kod. Mer information finns i [autentisera åtkomsten till Azure Storage med Azure Active Directory (förhandsversion)](storage-auth-aad.md). 
-- Med storage-kontonycklar för att godkänna åtkomst via delad nyckel. Auktorisera via delad nyckel kräver att lagra dina lagringskontonycklar i ditt program, så Microsoft rekommenderar att du använder Azure AD i stället där det är möjligt. Program i produktion eller för att auktorisera åtkomst till Azure-tabeller och filer kan fortsätta att använda delad nyckel medan Azure AD-integrering är en förhandsversion.
+- Använda Azure AD för att bevilja åtkomst till behållare och köer. Azure AD tillhandahåller fördelar jämfört med andra metoder för auktorisering, inklusive ta bort behovet av att lagra hemligheter i din kod. Mer information finns i [autentisera åtkomsten till Azure Storage med Azure Active Directory](storage-auth-aad.md). 
+- Med storage-kontonycklar för att godkänna åtkomst via delad nyckel. Auktorisera via delad nyckel kräver att lagra dina lagringskontonycklar i ditt program, så Microsoft rekommenderar att du använder Azure AD i stället där det är möjligt.
 - Använda signaturer för delad åtkomst för att ge kontrollerad behörighet till specifika dataobjekt för en viss tidsperiod.
 
 Dessutom för Blob Storage, kan du tillåta offentlig åtkomst till dina blobar genom att ange åtkomstnivån för den behållare som innehåller blobar i enlighet med detta. Om du ställer in åtkomst för en behållare för Blob eller behållare kommer du att kunna offentlig läsbehörighet för blobar i behållaren. Det innebär att vem som helst med en URL som pekar till en blobb i behållaren kan du öppna den i en webbläsare utan med hjälp av en signatur för delad åtkomst eller lagringskontonycklarna.

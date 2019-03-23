@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ff8beb1995359bad93449744718091c338e4994
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 334f69390e4506c6db76c1814f8ec8f1e4417ee9
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226563"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372343"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Hur du skapar en Linux-dator med Azure Resource Manager-mallar
 
-Den här artikeln visar hur du snabbt distribuerar en Linux-dator (VM) med Azure Resource Manager-mallar och Azure CLI. 
+Lär dig hur du skapar en Linux-dator (VM) med hjälp av en Azure Resource Manager-mall och Azure CLI från Azure Cloud shell. Om du vill skapa en Windows-dator, se [skapa en Windows-dator från en Resource Manager-mall](../windows/ps-template.md).
 
 ## <a name="templates-overview"></a>Översikt över mallar
 
@@ -38,7 +38,7 @@ Skapa en Azure virtuell dator vanligtvis innehåller två steg:
 1. Skapa en resursgrupp. En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas före den virtuella datorn.
 1. Skapa en virtuell dator.
 
-I följande exempel skapas en virtuell dator från [en Azure-snabbstartsmall](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). SSH-autentisering tillåts för den här distributionen. När du uppmanas, anger du värdet för en egen offentlig SSH-nyckel, t.ex innehållet i *~/.ssh/id_rsa.pub*. Om du vill skapa ett SSH-nyckelpar kan du läsa [hur du skapar och använder en SSH-nyckelpar för virtuella Linux-datorer i Azure](mac-create-ssh-keys.md). Här är en kopia av mallen:
+I följande exempel skapas en virtuell dator från en [Azure-snabbstartsmall](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json). SSH-autentisering tillåts för den här distributionen. När du uppmanas, anger du värdet för en egen offentlig SSH-nyckel, t.ex innehållet i *~/.ssh/id_rsa.pub*. Om du vill skapa ett SSH-nyckelpar kan du läsa [hur du skapar och använder en SSH-nyckelpar för virtuella Linux-datorer i Azure](mac-create-ssh-keys.md). Här är en kopia av mallen:
 
 [!code-json[create-linux-vm](~/quickstart-templates/101-vm-sshkey/azuredeploy.json)]
 
@@ -84,8 +84,8 @@ I det här exemplet skapade du en grundläggande Linux-VM. Fler Resource Manager
 
 Mer information om hur du skapar mallar, visa JSON-syntax och egenskaper för resurstyper som du har distribuerat:
 
-* [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
-* [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
-* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
-* [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
-* [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)
+- [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
+- [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+- [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+- [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
+- [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)

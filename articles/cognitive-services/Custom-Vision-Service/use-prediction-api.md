@@ -7,26 +7,26 @@ author: anrothMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: sample
-ms.date: 05/03/2018
+ms.topic: article
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: a285bc4c6eecf1a8cdda758af9df1a697c374b5a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e50933ea0231b4be22c2d0f82d33fd02dd0918f5
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533977"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351617"
 ---
-# <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Använd förutsägelseslutpunkten för att testa bilder programmatiskt med en klassificerare för Custom Vision Service
+# <a name="use-the-prediction-endpoint-to-test-images-programmatically"></a>Använd förutsägelse-slutpunkten för att testa avbildningar programmässigt
 
-När du tränar din modell kan du testa bilder programmatiskt genom att skicka dem till förutsägelse-API:et. 
+När du tränar din modell kan du testa bilder programmatiskt genom att skicka dem till förutsägelse-API:et.
 
 > [!NOTE]
 > Det här dokumentet visar hur du använder C# för att skicka en bild till förutsägelse-API:et. Mer information och exempel på användning av API:et finns i [Referens för förutsägelse-API](https://go.microsoft.com/fwlink/?linkid=865445).
 
 ## <a name="get-the-url-and-prediction-key"></a>Hämta URL och förutsägelsenyckel
 
-Från [Custom Vision-webbsidan](https://customvision.ai), markera projektet och välj sedan fliken __prestanda__. För att visa information om hur du använder förutsägelse-API, inklusive __förutsägelsenyckel__ väljer du __förutsägelse-URL__. För projekt som är kopplade till en Azure-resurs kan din __förutsägelsenyckel__ också hittas i [Azure Portal](https://portal.azure.com) för associerad Azure-resurs under __nycklar__. Kopiera följande information för användning i programmet:
+Från [Custom Vision-webbsidan](https://customvision.ai), markera projektet och välj sedan fliken __prestanda__. För att visa information om hur du använder förutsägelse-API, inklusive __förutsägelsenyckel__ väljer du __förutsägelse-URL__. För projekt som är kopplade till en Azure-resurs din __förutsägelse-key__ finns också i den [Azure-portalen](https://portal.azure.com) för associerade Azure-resurs under __nycklar__. Kopiera följande information för användning i programmet:
 
 * __URL__ för att använda en __bildfil__.
 * Värde för __Förutsägelsenyckel__.
@@ -40,7 +40,7 @@ Från [Custom Vision-webbsidan](https://customvision.ai), markera projektet och 
 
 1. Skapa ett nytt C#-konsolprogram från Visual Studio.
 
-2. Använd följande kod som brödtext i filen __Program.cs__.
+1. Använd följande kod som brödtext i filen __Program.cs__.
 
     > [!IMPORTANT]
     > Ändra följande information:

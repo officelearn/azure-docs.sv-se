@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34cfd37caf45d709fdc0b3639a218e2e587e8164
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0c1a05cc25be7a5763a8891b92e870a92792191d
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314356"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372190"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Integrera RADIUS-autentisering och Azure Multi-Factor Authentication Server
 
@@ -27,7 +27,7 @@ RADIUS är ett standardprotokoll för att acceptera autentiseringsförfrågninga
 >
 > I den här konfigurationen fungerar inte enkelriktade SMS- och OATH-token eftersom MFA-servern inte kan initiera ett lyckat RADIUS-svar med hjälp av alternativa protokoll.
 
-![RADIUS-autentisering](./media/howto-mfaserver-dir-radius/radius.png)
+![RADIUS-autentisering i MFA Server](./media/howto-mfaserver-dir-radius/radius.png)
 
 ## <a name="add-a-radius-client"></a>Lägga till en RADIUS-klient
 
@@ -66,9 +66,10 @@ Upprepa steg 4 till och med 8 och lägg till så många RADIUS-klienter som du b
 
 Upprepa dessa steg om du vill lägga till fler RADIUS-servrar. Använd knapparna **Flytta upp** och **Flytta ned** för att konfigurera i vilken ordning Azure MFA-servern anropar dem.
 
-Du har konfigurerat Azure Multi-Factor Authentication-servern. Nu lyssnar servern på de konfigurerade portarna för RADIUS-åtkomstförfrågningar från de konfigurerade klienterna.   
+Du har konfigurerat Azure Multi-Factor Authentication-servern. Nu lyssnar servern på de konfigurerade portarna för RADIUS-åtkomstförfrågningar från de konfigurerade klienterna.
 
 ## <a name="radius-client-configuration"></a>RADIUS-klientkonfiguration
+
 Följ dessa riktlinjer när du konfigurerar RADIUS-klienten:
 
 * Konfigurera enheten/servern att autentisera via RADIUS till Azure Multi-Factor Authentication-serverns IP-adress, som fungerar som RADIUS-servern.

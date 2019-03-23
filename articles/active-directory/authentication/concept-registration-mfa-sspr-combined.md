@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2865c19e747ca1c5b0a6cda84b8be18bfaeb9335
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 536d26abf563f18ed7cec6668fcd1d4223f5a135
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317671"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370167"
 ---
 # <a name="combined-security-information-registration-preview"></a>Kombinerade security information registrering (förhandsversion)
 
 Innan kombinerade registrerades registrerad användare autentiseringsmetoder för Azure Multi-Factor Authentication (MFA) och lösenordsåterställning via självbetjäning (SSPR) via två olika kanaler. Personer har förväxlas att liknande metoder har använts för både Azure MFA och SSPR, men de tvungna att registrera separat för varje funktion. Nu med kombinerade registration kan användare registrera en gång och få fördelarna med både Azure MFA och SSPR.
 
-![Kombineras säkerhetsinformation - min profil som visar registrerade säkerhetsinformation för en användare, inklusive Microsoft Authenticator och Phone för en exempelanvändare i katalogen.](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
+![Min profil som visar registrerade säkerhetsinformation för en användare](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
 Granska den här administratören designmiljöer dokumentationen och fokus på användaren dokumentationen så att du förstår funktioner och effekten av den här funktionen innan du aktiverar den nya upplevelsen. Basera din utbildning om användardokumentation för att förbereda dina användare för den nya upplevelsen och bidra till att säkerställa en lyckad distribution.
 
@@ -36,7 +36,7 @@ Granska den här administratören designmiljöer dokumentationen och fokus på a
 
 Min profil sidorna är lokaliserade baserat på de aktuella språkinställningarna på datorn som kommer åt sidan. Microsoft lagrar det senaste språk som används i webbläsarens cacheminne så efterföljande försök att komma åt kommer fortsätta att visas i det senaste språk som används. Rensa cacheminnet kommer sidorna att visas igen. Om du vill tvinga fram ett visst språk att lägga till en `?lng=de-DE` i slutet av URL: en där `de-DE` har angetts till rätt språk kod tvingar sidorna att visas på det språket.
 
-![Min profil gränssnitt som visar säkerhetsinformation och möjlighet för användaren att konfigurera SSPR eller andra verifieringsmetoder för ytterligare säkerhet.](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
+![Konfigurera SSPR eller andra verifieringsmetoder för ytterligare säkerhet](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
 ## <a name="methods-available-in-converged-registration"></a>Metoder som finns tillgängliga i konvergerade registreringen
 
@@ -99,7 +99,7 @@ Exempel:
 
 I följande flödesschema beskrivs vilka metoder visas för en användare avbruten att registrera när de loggar in:
 
-![Flödesschema för säkerhet info förklarar antalet metoder som krävs när det krävs mer information när du loggar in i kombination. Detta kan ändras om endast MFA eller bara SSPR krävs](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
+![Flödesschema för kombinerade security info](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
 
 Om du har både MFA och SSPR aktiverat, rekommenderar vi att använda MFA-registrering.
 

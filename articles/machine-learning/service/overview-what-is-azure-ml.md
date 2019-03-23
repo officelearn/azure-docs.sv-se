@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f8f3da82d5c8747398882fd589e3ff91aaaa9739
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c9f8e13ad089fd40cde22bb76587b171a1c52c7b
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849218"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361905"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Vad är tjänsten Azure Machine Learning?
 
@@ -87,7 +87,7 @@ Du får krediter som du kan använda för att köpa Azure-tjänster. När de är
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Skapa en arbetsyta för Machine Learning-tjänsten för att komma igång [med hjälp av Azure-portalen](quickstart-get-started.md) (metoden utan installation) eller [i Python](quickstart-create-workspace-with-python.md) (metoden med SDK-installation).
+- [Skapa en arbetsyta för Machine Learning-tjänsten](setup-create-workspace.md) att komma igång.
 
 - Följ de fullständiga självstudierna: 
   + [Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md) 
@@ -99,4 +99,4 @@ Du får krediter som du kan använda för att köpa Azure-tjänster. När de är
 
 - Läs den ingående artikeln om [arkitekturen och begrepp för Azure Machine Learning-tjänsten](concept-azure-machine-learning-architecture.md).
 
-- Mer information finns i [andra produkter för maskininlärning från Microsoft](./overview-more-machine-learning.md).
+- Mer information finns i [andra produkter för maskininlärning från Microsoft](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning).

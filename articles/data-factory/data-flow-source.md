@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 20491981cb02e428ff4114b9456d74b0de651be8
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 54302f97913fd01dc8f8e4a8d987a407c8bdf9a7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569033"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369181"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Mappningen Dataomvandling Flow källa
 
@@ -74,7 +74,7 @@ Du kan välja att partitionera anslutningar baserat på en fråga. För det här
 ## <a name="source-file-management"></a>Hantering av källa
 ![Nya inställningar för datakälla](media/data-flow/source2.png "nya inställningar")
 
-* Wilcard sökväg för att välja ett antal filer från din källmapp som matchar ett mönster. Detta åsidosätter alla filer som du har angett i definitionen av datauppsättningen.
+* Jokersökväg att välja ett antal filer från din källmapp som matchar ett mönster. Detta åsidosätter alla filer som du har angett i definitionen av datauppsättningen.
 * Lista över filer. Samma som en uppsättning. Peka en textfil som du skapar en lista med relativa sökvägen filer som ska bearbetas.
 * Kolumnen för att lagra filnamn lagrar namnet på filen från källan i en kolumn i dina data. Ange ett nytt namn för att lagra filen namnsträngen.
 * När du har slutfört (kan du göra något med källfilen när dataflödet körs tar du bort källfiler eller flytta källfilerna. Sökvägar för flytt är relativa sökvägar.
@@ -83,7 +83,7 @@ Du kan välja att partitionera anslutningar baserat på en fråga. För det här
 
 När du använder Azure SQL DB eller Azure SQL DW som källan, har du ytterligare alternativ.
 
-* Fråga: Ange en SQL-fråga för källan. Ställa en fråga åsidosätter en tabell som du har valt i datauppsättningen. Observera att Order By-satser inte stöds här.
+* Fråga: Ange en SQL-fråga för källan. Ställa en fråga åsidosätter en tabell som du har valt i datauppsättningen. Observera att Order By-satser inte stöds här. Men du kan ange en fullständig SELECT FROM-instruktion här.
 
 * Batchstorlek: Ange en batchstorlek för att dela upp stora mängder data till batch medelstora läsningar.
 

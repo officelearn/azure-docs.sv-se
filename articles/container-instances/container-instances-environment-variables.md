@@ -5,20 +5,20 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 03/21/2019
 ms.author: danlep
-ms.openlocfilehash: 0c43c81528c2de656e1d788f6af6ba337d7aacb8
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 3e7e292f36296ce09af89f03e8b154b57e18b55c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403030"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370006"
 ---
 # <a name="set-environment-variables"></a>Ange miljövariabler
 
 Ställa in miljövariabler i container instances kan du tillhandahålla dynamisk konfiguration av program eller skript som körs av behållaren. Ange miljövariabler i en behållare genom att ange dem när du skapar en behållarinstans. Du kan ange miljövariabler när du startar en behållare med den [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example), och [Azure-portalen](#azure-portal-example).
 
-Exempel: Om du kör den [microsoft/aci-wordcount] [ aci-wordcount] behållaravbildningen, du kan ändra sitt beteende genom att ange följande miljövariabler:
+Exempel: Om du kör Microsofts [aci wordcount] [ aci-wordcount] behållaravbildningen, du kan ändra sitt beteende genom att ange följande miljövariabler:
 
 *NumWords*: Antalet ord som skickas till STDOUT.
 
@@ -28,13 +28,13 @@ Om du vill skicka hemligheter som miljövariabler kan Azure Container Instances 
 
 ## <a name="azure-cli-example"></a>Exempel på Azure CLI
 
-Se standardutdata från den [microsoft/aci-wordcount] [ aci-wordcount] behållare, kör först med den här [az container skapa] [ az-container-create] kommando (Nej miljövariabler anges):
+Se standardutdata från den [aci wordcount] [ aci-wordcount] behållare, kör först med den här [az container skapa] [ az-container-create] kommando (Nej miljövariabler anges):
 
 ```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer1 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure
 ```
 
@@ -44,7 +44,7 @@ Om du vill ändra utdata, starta en andra behållare med den `--environment-vari
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer2 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
@@ -83,13 +83,13 @@ azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name myc
 
 Ange miljövariabler i PowerShell liknar CLI, men använder den `-EnvironmentVariable` kommandoradsargument.
 
-Starta först den [microsoft/aci-wordcount] [ aci-wordcount] behållare med standardkonfigurationen med den här [New-AzContainerGroup] [ new-Azcontainergroup] kommandot:
+Starta först den [aci wordcount] [ aci-wordcount] behållare med standardkonfigurationen med den här [New-AzContainerGroup] [ new-Azcontainergroup] kommando:
 
 ```azurepowershell-interactive
 New-AzContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer1 `
-    -Image microsoft/aci-wordcount:latest
+    -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest
 ```
 
 Kör nu följande [New-AzContainerGroup] [ new-Azcontainergroup] kommando. Den här anger den *NumWords* och *MinLength* miljövariabler när du har fyllt en matrisvariabel `envVars`:
@@ -99,7 +99,7 @@ $envVars = @{'NumWords'='5';'MinLength'='8'}
 New-AzContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer2 `
-    -Image microsoft/aci-wordcount:latest `
+    -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest `
     -RestartPolicy OnFailure `
     -EnvironmentVariable $envVars
 ```
@@ -143,7 +143,7 @@ Om du vill ange miljövariabler när du startar en behållare i Azure-portalen, 
 
 När du distribuerar med portalen, du är för närvarande begränsad till tre variablerna och du måste ange dem i det här formatet: `"variableName":"value"`
 
-Om du vill se ett exempel kan starta den [microsoft/aci-wordcount] [ aci-wordcount] behållaren med den *NumWords* och *MinLength* variabler.
+Om du vill se ett exempel kan starta den [aci wordcount] [ aci-wordcount] behållaren med den *NumWords* och *MinLength* variabler.
 
 1. I **Configuration**, ange den **omstartsprincip** till *vid fel*
 2. Ange `"NumWords":"5"` för den första variabeln, väljer **Ja** under **lägga till ytterligare miljövariabler**, och ange `"MinLength":"8"` för den andra variabeln. Välj **OK** att verifiera och sedan distribuerar du behållaren.
@@ -246,7 +246,7 @@ Uppgiftsbaserade scenarier, till exempel en stor datauppsättning med flera beh�
 [portal-env-vars-02]: ./media/container-instances-environment-variables/portal-env-vars-02.png
 
 <!-- LINKS - External -->
-[aci-wordcount]: https://hub.docker.com/r/microsoft/aci-wordcount/
+[aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

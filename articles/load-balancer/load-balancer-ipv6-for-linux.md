@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/22/2019
 ms.author: kumud
-ms.openlocfilehash: ea1ef845f55fbdadeea1992e167ef6568572abc9
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 66777ec314e95d81a4be57082f06ef16dc170186
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141721"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369640"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Konfigurera DHCPv6 för virtuella Linux-datorer
 
@@ -54,7 +54,18 @@ Det här dokumentet beskriver hur du aktiverar DHCPv6 så att din Linux-dator h�
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
+Från och med Ubuntu 17.10 kan standardmekanism för konfiguration av nätverk är [NETPLAN]( https://netplan.io).  Installera/instansiering samtidigt läser NETPLAN nätverkskonfiguration från YAML konfigurationsfiler på den här platsen: / {lib,etc,run}/netplan/*.yaml.
 
+Inkludera en *dhcp6:true* instruktionen för varje ethernet-gränssnitt i konfigurationen.  Exempel:
+  
+        network:
+          version: 2
+          ethernets:
+            eno1:
+              dhcp6: true
+
+Under tidig start i netplan ”network återgivning” skriver konfiguration/run för hand av kontroll över enheter till den angivna nätverk daemonen referensinformation om NETPLAN, se https://netplan.io/reference.
+ 
 ## <a name="debian"></a>Debian
 
 1. Redigera den */etc/dhcp/dhclient6.conf* filen och Lägg till följande rad:

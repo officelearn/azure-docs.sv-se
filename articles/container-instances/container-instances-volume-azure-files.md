@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f3d4bfa7d8ffda1ab2789927d03a777fab0ed89c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 365264d40554f45533e2ddf0aeb9d85f3e8f8d2d
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281589"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370626"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montera en Azure-filresurs i Azure Container Instances
 
@@ -70,7 +70,7 @@ Ange om du vill montera en Azure-filresurs som en volym i en behållare, resurs 
 az container create \
     --resource-group $ACI_PERS_RESOURCE_GROUP \
     --name hellofiles \
-    --image microsoft/aci-hellofiles \
+    --image mcr.microsoft.com/azuredocs/aci-hellofiles \
     --dns-name-label aci-demo \
     --ports 80 \
     --azure-file-volume-account-name $ACI_PERS_STORAGE_ACCOUNT_NAME \
@@ -83,7 +83,7 @@ Värdet `--dns-name-label` måste vara unikt i den Azure-region där du skapar c
 
 ## <a name="manage-files-in-mounted-volume"></a>Hantera filer i monterad volym
 
-När behållaren startas, kan du använda en enkel webbapp som distribuerats via den [microsoft/aci-hellofiles] [ aci-hellofiles] bilden för att skapa små textfiler i Azure-filresursen på monteringssökväg som du har angett. Hämta webbappens fullständigt kvalificerade domännamnet (FQDN) med den [az container show] [ az-container-show] kommando:
+När behållaren startas, kan du använda enkla webbappen distribueras via Microsoft [aci hellofiles] [ aci-hellofiles] bilden för att skapa små textfiler i Azure-filresursen på monteringssökväg som du har angett. Hämta webbappens fullständigt kvalificerade domännamnet (FQDN) med den [az container show] [ az-container-show] kommando:
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn
@@ -140,7 +140,7 @@ Lär dig hur du monterar andra volymtyper i Azure Container Instances:
 * [Montera en hemlig volym i Azure Container Instances](container-instances-volume-secret.md)
 
 <!-- LINKS - External -->
-[aci-hellofiles]: https://hub.docker.com/r/microsoft/aci-hellofiles/
+[aci-hellofiles]: https://hub.docker.com/_/microsoft-azuredocs-aci-hellofiles 
 [portal]: https://portal.azure.com
 [storage-explorer]: https://storageexplorer.com
 

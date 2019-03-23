@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6bd67e500756fe5a7ba5ee29db88b9aedb103e4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3e21f7a67b11caf0180959de68d698f0ff4a1af1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315988"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371867"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
 
@@ -155,13 +155,13 @@ Användare kan ha en kombination av upp till 5 OATH-maskinvarutoken eller authen
 
 OATH är en öppen standard som anger hur enstaka lösenord (OTP) koder genereras. Azure AD stöder användning av OATH-TOTP SHA-1-token på 30 sekunder eller 60-sekunders olika. Kunder kan skaffa dessa token från leverantören av valfri. Observera att hemliga nycklar är begränsad till 128 tecken, vilket inte kanske är kompatibel med alla token.
 
-![Ladda upp OATH-token till bladet MFA Server OATH-token i Azure portal](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+![Ladda upp OATH-token till bladet MFA Server OATH-token](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
 OATH-token för maskinvara som stöds som en del av en offentlig förhandsversion. Mer information om förhandsversioner finns [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 När token är upptagna måste de laddas upp i en fil med kommaavgränsade värden (CSV)-filformat, inklusive UPN, serienummer, hemlig nyckel, tidsintervall, tillverkare och modell som exemplet nedan visar.
 
-```
+```csv
 upn,serial number,secret key,timeinterval,manufacturer,model
 Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
 ```

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: 83c286be6429376d4d0b4009b18c5f751a4b158f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: cd0369f45529082ac929b1d87608204033cd78f6
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226699"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370524"
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -517,7 +517,14 @@ Klientsidan (JavaScript) SDK deltar i fast räntesats sampling tillsammans med S
 
 *Det finns vissa sällsynta händelser som du alltid vill se. Hur får jag dem tidigare sampling modulen?*
 
-* Initiera en separat instans av TelemetryClient med en ny TelemetryConfiguration (inte standard är aktiva). Använda den för att skicka din sällsynta händelser.
+* Det bästa sättet att uppnå detta är att skriva en anpassad [TelemetryProcessor](../../azure-monitor/app/api-filtering-sampling.md#filtering), som konfigurerar den `SamplingPercentage` 100 på telemetri objektet du vill sparade, enligt nedan. Detta säkerställer att alla provtagningar kommer att ignorera det här objektet från alla sampling överväganden.
+
+```csharp
+    if(somecondition)
+    {
+        ((ISupportSampling)item).SamplingPercentage = 100;
+    }
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

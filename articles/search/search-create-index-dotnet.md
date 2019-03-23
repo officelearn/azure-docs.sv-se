@@ -1,6 +1,6 @@
 ---
-title: Skapa ett index i kod med hjälp av .NET API – Azure Search
-description: Lär dig hur du skapar ett sökbart fulltextindex med hjälp av Azure Search .NET SDK och exempelkoden C#.
+title: Skapa ett index i C# – Azure Search
+description: Lär dig hur du skapar ett sökbart fulltextindex i C# med hjälp av Azure Search .NET SDK.
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -9,13 +9,13 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/20/2019
-ms.openlocfilehash: dbaac1478fdbf1b42fc6b597c3a5c541e007e413
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/22/2019
+ms.openlocfilehash: a5861faaf26962d34d1c356e29dce1be40f8716b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287153"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370592"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Snabbstart: 1 – skapa ett Azure Search-index iC#
 
@@ -23,7 +23,7 @@ Den här artikeln vägleder dig genom processen för att skapa [ett Azure Search
 
 > [!div class="checklist"]
 > * Skapa en [ `SearchServiceClient` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) objekt för att ansluta till en söktjänst.
-> * Skapa en [ `Index` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) objekt för att skicka som en parameter `Indexes.Create`.
+> * Skapa en [ `Index` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) objekt ska skickas som en parameter till `Indexes.Create`.
 > * Anropa den `Indexes.Create` metoden på `SearchServiceClient` att skicka den `Index` till en tjänst.
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -32,7 +32,7 @@ Den här artikeln vägleder dig genom processen för att skapa [ett Azure Search
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), alla versioner. Exempelkod och instruktioner har testats på den kostnadsfria Community-versionen.
 
-En URL-slutpunkt och admin api-nyckeln för search-tjänsten. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
+Hämta URL-slutpunkt och admin api-nyckeln för search-tjänsten. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
 
   1. Azure-portalen i din söktjänst **översikt** sidan, hämta URL: en. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
@@ -200,7 +200,9 @@ serviceClient.Indexes.Delete("hotels");
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här snabbstarten har skapat du en tom Azure Search-index baserat på ett schema som definierar datatyper och beteenden. Nästa Snabbstart i den här serien beskriver hur du läser in indexet med sökbart innehåll.
+I den här snabbstarten har skapat du en tom Azure Search-index baserat på ett schema som definierar datatyper och beteenden. Indexet är ett ”utan ben” index som består av ett namn och en samling av attributet fält. En mer realistisk indexet skulle innehålla andra element, till exempel [poängprofiler](index-add-scoring-profiles.md), [förslagsställare](index-add-suggesters.md) typeahead support, [synonymer](search-synonyms.md), och eventuellt [ anpassade analysverktyg](index-add-custom-analyzers.md). Vi rekommenderar att du besöker dessa funktioner när du förstår det grundläggande arbetsflödet.
+
+Nästa Snabbstart i den här serien beskriver hur du läser in indexet med sökbart innehåll.
 
 > [!div class="nextstepaction"]
 > [Läsa in data till ett Azure Search index med hjälp avC#](search-import-data-dotnet.md)

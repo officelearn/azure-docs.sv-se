@@ -16,12 +16,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: aff9dade7fe0238c0ea8ccc3ae5bba57437c6f89
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 3d9376ba5945c97d18f6cf68c242d5217beee679
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339575"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349713"
 ---
 # <a name="quota-types-in-azure-stack"></a>Kvottyper i Azure Stack
 
@@ -40,7 +40,10 @@ ms.locfileid: "58339575"
 | Maximal kapacitet (i GB) för hanterade standarddiskar | 2048 | Maximal kapacitet för hanterade standarddiskar som kan skapas på den här platsen. |
 | Maximal kapacitet (i GB) av premium-hanterad disk | 2048 | Den maximala kapaciteten på premium-hanterade diskar som kan skapas på den här platsen. |
 
-## <a name="storage-quota-types"></a>Kvot lagringstyper
+> [!NOTE]  
+> Högsta kapacitet för ohanterade diskar (sidblob) skiljer sig från hanterade diskkvot, det ska ställas in i kvoten för lagringsutrymmet.
+
+## <a name="storage-quota-types"></a>Kvot lagringstyper 
 
 | **Objekt** | **Standardvärde** | **Beskrivning** |
 | --- | --- | --- |
@@ -48,7 +51,7 @@ ms.locfileid: "58339575"
 | Totalt antal lagringskonton |20 |Det maximala antalet lagringskonton som en prenumeration kan skapa i den här platsen. |
 
 > [!NOTE]  
-> Det kan ta upp till två timmar innan en lagringskvoten tillämpas.
+> Det kan ta upp till två timmar innan en lagringskvoten tillämpas. Högsta kapacitet för hanterad disk är separat från totala lagringskvoten, det ska ställas in i Compute-kvoten.
 
 ## <a name="network-quota-types"></a>Nätverkstyper kvot
 

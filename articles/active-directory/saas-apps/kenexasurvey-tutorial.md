@@ -4,230 +4,206 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: c7aac6da-f4bf-419e-9e1a-16b460641a52
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/30/2017
+ms.topic: tutorial
+ms.date: 03/08/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f67b24ca0008a03474b54a1bf226261c3f395fec
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ed34267aa1f18b4c66fe841164e6a2cde4e27d47
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183232"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361055"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Självstudier: Azure Active Directory-integrering med IBM Kenexa undersökningen Enterprise
 
 Lär dig hur du integrerar IBM Kenexa undersökningen Enterprise med Azure Active Directory (AD Azure) i den här självstudien.
-
 Integrera IBM Kenexa undersökningen Enterprise med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till IBM Kenexa undersökningen Enterprise.
-- Du kan aktivera användarna att logga in automatiskt till IBM Kenexa undersökningen Enterprise med hjälp av enkel inloggning (SSO) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats: Azure-portalen.
+* Du kan styra i Azure AD som har åtkomst till IBM Kenexa undersökningen Enterprise.
+* Du kan aktivera användarna att vara automatiskt inloggad till IBM Kenexa undersökningen Enterprise (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om programvara som en tjänst (SaaS) app-integrering med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med IBM Kenexa undersökningen Enterprise, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En prenumeration på IBM Kenexa undersökningen Enterprise SSO-aktiverad
-
-> [!NOTE]
-> När du testar stegen i den här självstudien rekommenderar vi att du inte använder en produktionsmiljö.
-
-Följ dessa rekommendationer för att testa stegen i den här självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* IBM Kenexa undersökningen Enterprise enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien får testa du Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i kursen består av två viktigaste byggstenarna:
 
-* Att lägga till IBM Kenexa undersökningen Enterprise från galleriet
-* Konfigurera och testa Azure AD SSO
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="add-ibm-kenexa-survey-enterprise-from-the-gallery"></a>Lägg till IBM Kenexa undersökningen Enterprise från galleriet
-Lägg till IBM Kenexa undersökningen Enterprise från galleriet i din lista över hanterade SaaS-appar för att konfigurera integrering av IBM Kenexa undersökningen Enterprise i Azure AD.
+* Har stöd för IBM Kenexa undersökningen Enterprise **IDP** -initierad SSO
 
-Om du vill lägga till IBM Kenexa undersökningen Enterprise från galleriet, gör du följande:
+## <a name="adding-ibm-kenexa-survey-enterprise-from-the-gallery"></a>Att lägga till IBM Kenexa undersökningen Enterprise från galleriet
 
-1. I den [Azure-portalen](https://portal.azure.com), i den vänstra rutan klickar du på den **Azure Active Directory** knappen. 
+Om du vill konfigurera integreringen av IBM Kenexa undersökningen Enterprise till Azure AD, som du behöver lägga till IBM Kenexa undersökningen Enterprise från galleriet i din lista över hanterade SaaS-appar.
 
-    ![Azure Active Directory-knappen][1]
+**Utför följande steg för att lägga till IBM Kenexa undersökningen Enterprise från galleriet:**
 
-1. Välj **företagsprogram**, och välj sedan **alla program**.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Bladet Företagsprogram][2]
-    
-1. Lägg till ett program, klicka på den **nytt program** knappen.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Knappen Nytt program][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-1. I sökrutan skriver **IBM Kenexa undersökningen Enterprise**.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_search.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I resultatlistan väljer **IBM Kenexa undersökningen Enterprise**, och klicka sedan på den **Lägg till** för att lägga till programmet.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![IBM Kenexa undersökningen Enterprise i resultatlistan](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_addfromgallery.png)
+4. I sökrutan skriver **IBM Kenexa undersökningen Enterprise**väljer **IBM Kenexa undersökningen Enterprise** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med IBM Kenexa undersökningen Enterprise baserat på en testanvändare som kallas ”Britta Simon”.
+     ![IBM Kenexa undersökningen Enterprise i resultatlistan](common/search-new-app.png)
 
-Azure AD måste identifiera IBM Kenexa undersökningen Enterprise användaren motsvarigheten i Azure AD för SSO ska fungera. Azure AD måste alltså upprätta en länk relation mellan Azure AD-användare och en tillhörande användare i IBM Kenexa undersökningen företag.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-För att upprätta länken relationen, tilldela värdet för den **användarnamn** i IBM Kenexa undersökningen företag som värde för den **användarnamn** i Azure AD.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med IBM Kenexa undersökningen Enterprise baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i IBM Kenexa undersökningen Enterprise upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med IBM Kenexa undersökningen Enterprise, slutför du byggstenarna i följande två avsnitt.
+Om du vill konfigurera och testa Azure AD enkel inloggning med IBM Kenexa undersökningen Enterprise, måste du utföra följande byggblock:
 
-### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera IBM Kenexa undersökningen Enterprise enkel inloggning](#configure-ibm-kenexa-survey-enterprise-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa testanvändare för IBM Kenexa undersökningen Enterprise](#create-ibm-kenexa-survey-enterprise-test-user)**  – du har en motsvarighet för Britta Simon i IBM Kenexa undersökningen företag som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt IBM Kenexa undersökningen Enterprise-program genom att göra följande:
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-1. I Azure-portalen på den **IBM Kenexa undersökningen Enterprise** program integration-sidan klickar du på **enkel inloggning**.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-    ![IBM Kenexa undersökningen Enterprise Konfigurera enkel inloggning för länk][4]
+Utför följande steg för att konfigurera Azure AD enkel inloggning med IBM Kenexa undersökningen Enterprise:
 
-1. I den **enkel inloggning** i dialogrutan den **läge** väljer **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_samlbase.png)
+1. I den [Azure-portalen](https://portal.azure.com/)på den **IBM Kenexa undersökningen Enterprise** application integration markerar **enkel inloggning**.
 
-1. I den **IBM Kenexa undersökningen Enterprise domän och URL: er** avsnittet, utför följande steg:
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-    ![IBM Kenexa undersökningen Enterprise domän och URL: er med enkel inloggning för information](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_url.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    a. I den **identifierare** textrutan anger du ett URL med följande mönster: `https://surveys.kenexa.com/<companycode>`
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    b. I den **svars-URL** textrutan anger du ett URL med följande mönster: `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    > [!NOTE] 
-    > Föregående värden är inte verkliga. Uppdatera dem med det faktiska ID: t och svars-URL. För att få de faktiska värdena kan kontakta den [IBM Kenexa undersökningen Enterprise support-teamet](https://www.ibm.com/support/home/?lnk=fcw).
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. Under **SAML-signeringscertifikat**, klickar du på **certifikat (Base64)**, och sedan spara certifikatfilen på datorn.
+4. På sidan **Konfigurera enkel inloggning med SAML** utför du följande steg:
 
-    ![Länk för hämtning av certifikat (Base64)](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_certificate.png) 
+    ![IBM Kenexa undersökningen Enterprise domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
 
-    IBM Kenexa undersökningen Enterprise-programmet förväntas ta emot Security intyg Markup Language (SAML) intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar konfigurationen av SAML-tokenattribut. Värdet för användar-ID-anspråk i svaret måste matcha SSO-ID som har konfigurerats i Kenexa-system. Om du vill mappa lämplig användaridentifieraren i din organisation som SSO Internet Datagram Protocol (IDP) som fungerar med den [IBM Kenexa undersökningen Enterprise support-teamet](https://www.ibm.com/support/home/?lnk=fcw). 
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://surveys.kenexa.com/<companycode>`
 
-    Som standard Anger användar-ID som värde för användarens huvudnamn (UPN) i Azure AD. Du kan ändra värdet på den **attributet** fliken enligt följande skärmbild. Integrationen fungerar bara när du har slutfört mappningen korrekt.
-    
-    ![Dialogrutan användarattribut](./media/kenexasurvey-tutorial/tutorial_attribute.png) 
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
 
-1. Klicka på **Spara**.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [IBM Kenexa undersökningen Enterprise Client supportteamet](https://www.ibm.com/support/home/?lnk=fcw) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Den Konfigurera enkel inloggning spara knappen](./media/kenexasurvey-tutorial/tutorial_general_400.png)
+5. IBM Kenexa undersökningen Enterprise-programmet förväntas ta emot Security intyg Markup Language (SAML) intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar konfigurationen av SAML-tokenattribut. Värdet för användar-ID-anspråk i svaret måste matcha SSO-ID som har konfigurerats i Kenexa-system. Om du vill mappa lämplig användaridentifieraren i din organisation som SSO Internet Datagram Protocol (IDP) som fungerar med den [IBM Kenexa undersökningen Enterprise support-teamet](https://www.ibm.com/support/home/?lnk=fcw).
 
-1. Öppna den **konfigurera inloggning** fönstret under **företagskonfiguration för IBM Kenexa undersökningen**, klickar du på **konfigurera IBM Kenexa undersökningen Enterprise**. 
- 
-    ![Konfigurera IBM Kenexa undersökningen Enterprise-länk](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_configure.png)
+    Som standard Anger användar-ID som värde för användarens huvudnamn (UPN) i Azure AD. Du kan ändra värdet på den **användarattribut** fliken enligt följande skärmbild. Integrationen fungerar bara när du har slutfört mappningen korrekt.
 
-1. Kopiera den **URL: en för utloggning**, **SAML entitets-ID**, och **SAML enkel inloggning för tjänst-URL** värden från den **Snabbreferens** avsnittet.
+    ![image](common/edit-attribute.png)
 
-1. I den **konfigurera inloggning** fönstret under **Snabbreferens**, kopiera den **URL: en för utloggning**, **SAML entitets-ID**, och **SAML enkel inloggning för tjänst-URL** värden.
+6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-1. Att konfigurera enkel inloggning på den **IBM Kenexa undersökningen Enterprise** sida, skicka de hämtade **certifikat (Base64)**, **URL: en för utloggning**, **SAML entitets-ID**, och **SAML enkel inloggning för tjänst-URL** värden till den [IBM Kenexa undersökningen Enterprise support-teamet](https://www.ibm.com/support/home/?lnk=fcw).
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-> [!TIP]
-> Du kan referera till en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com) medan du installerar appen. När du har lagt till appen från den **Active Directory** > **företagsprogram** bara klickar du på den **enkel inloggning** fliken och öppna den Embedded-dokumentation via den **Configuration** i slutet. Mer information om funktionen embedded-dokumentation finns [embedded-dokumentation för Azure AD](https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+7. På den **konfigurera IBM Kenexa undersökningen Enterprise** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-ibm-kenexa-survey-enterprise-single-sign-on"></a>Konfigurera IBM Kenexa undersökningen Enterprise enkel inloggning
+
+Att konfigurera enkel inloggning på **IBM Kenexa undersökningen Enterprise** sida, som du behöver skicka de hämtade **certifikat (Base64)** och lämpliga kopierade URL: er från Azure portal för att [IBM Kenexa Enkät Enterprise support-teamet](https://www.ibm.com/support/home/?lnk=fcw). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
-I det här avsnittet skapar du testanvändare Britta Simon i Azure portal genom att göra följande:
 
-![Skapa en Azure AD-testanvändare][100]
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    ![Azure Active Directory-knappen](./media/kenexasurvey-tutorial/create_aaduser_01.png) 
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
-    
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/kenexasurvey-tutorial/create_aaduser_02.png) 
+2. Välj **Ny användare** överst på skärmen.
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
- 
-    ![Knappen Lägg till](./media/kenexasurvey-tutorial/create_aaduser_03.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. I den **användaren** dialogrutan utför följande steg:
- 
-    ![Dialogrutan användare](./media/kenexasurvey-tutorial/create_aaduser_04.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-    a. I den **namn** skriver **BrittaSimon**.
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-an-ibm-kenexa-survey-enterprise-test-user"></a>Skapa en testanvändare för IBM Kenexa undersökningen Enterprise
-
-I det här avsnittet skapar du en användare som kallas Britta Simon i IBM Kenexa undersökningen företag. 
-
-För att skapa användare i systemet för IBM Kenexa undersökningen Enterprise och mappa SSO-ID för dem, kan du arbeta med den [IBM Kenexa undersökningen Enterprise support-teamet](https://www.ibm.com/support/home/?lnk=fcw). Det här SSO-ID-värdet bör också mappas till användar-ID-värde från Azure AD. Du kan ändra denna standardinställning på den **attributet** fliken.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du användaren Britta Simon att använda enkel inloggning för Azure genom att bevilja åtkomst till IBM Kenexa undersökningen Enterprise.
+I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till IBM Kenexa undersökningen Enterprise.
 
-![Tilldela rollen][200] 
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **IBM Kenexa undersökningen Enterprise**.
 
-Om du vill tilldela användaren Britta Simon IBM Kenexa undersökningen Enterprise, gör du följande:
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-1. I Azure-portalen öppnar du den **program** visa, gå till den **Directory** väljer **företagsprogram**, och klicka sedan på **alla program** .
+2. I listan med program väljer **IBM Kenexa undersökningen Enterprise**.
 
-    ![”Program” och ”alla program”-länkar][201] 
+    ![IBM Kenexa undersökningen Enterprise-länk i listan med program](common/all-applications.png)
 
-1. I den **program** väljer **IBM Kenexa undersökningen Enterprise**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![IBM Kenexa undersökningen Enterprise-länk i listan med program](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_app.png) 
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. I den vänstra rutan klickar du på **användare och grupper**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Länken ”Användare och grupper”][202] 
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-1. Klicka på den **Lägg till** knappen och klicka sedan på **Lägg till tilldelning** väljer **användare och grupper**.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Fönstret Lägg till tilldelning][203]
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-1. I den **användare och grupper** i dialogrutan den **användare** väljer **Britta Simon**.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. I den **användare och grupper** dialogrutan klickar du på den **Välj** knappen.
+### <a name="create-ibm-kenexa-survey-enterprise-test-user"></a>Skapa IBM Kenexa undersökningen Enterprise testanvändare
 
-1. I den **Lägg till tilldelning** dialogrutan klickar du på den **tilldela** knappen.
-    
+I det här avsnittet skapar du en användare som kallas Britta Simon i IBM Kenexa undersökningen företag.
+
+För att skapa användare i systemet för IBM Kenexa undersökningen Enterprise och mappa SSO-ID för dem, kan du arbeta med den [IBM Kenexa undersökningen Enterprise support-teamet](https://www.ibm.com/support/home/?lnk=fcw). Det här SSO-ID-värdet bör också mappas till användar-ID-värde från Azure AD. Du kan ändra denna standardinställning på den **attributet** fliken.
+
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du din Azure AD SSO-konfiguration med hjälp av åtkomstpanelen.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på den **IBM Kenexa undersökningen Enterprise** panelen i åtkomstpanelen, du bör vara loggas in automatiskt dina IBM Kenexa undersökningen företagsprogram.
+När du klickar på panelen IBM Kenexa undersökningen Enterprise i åtkomstpanelen, bör det vara loggas in automatiskt till IBM Kenexa undersökningen Enterprise som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/kenexasurvey-tutorial/tutorial_general_01.png
-[2]: ./media/kenexasurvey-tutorial/tutorial_general_02.png
-[3]: ./media/kenexasurvey-tutorial/tutorial_general_03.png
-[4]: ./media/kenexasurvey-tutorial/tutorial_general_04.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/kenexasurvey-tutorial/tutorial_general_100.png
-
-[200]: ./media/kenexasurvey-tutorial/tutorial_general_200.png
-[201]: ./media/kenexasurvey-tutorial/tutorial_general_201.png
-[202]: ./media/kenexasurvey-tutorial/tutorial_general_202.png
-[203]: ./media/kenexasurvey-tutorial/tutorial_general_203.png
-
- 

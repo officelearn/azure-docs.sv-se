@@ -1,23 +1,25 @@
 ---
-title: Exempel för att lägga till automatisk komplettering din sökrutan – Azure Search
-description: Exempel på hur du kan förbättra slutanvändarens upplevelse av dina datacentrerade program med hjälp av Azure Search-API:er för automatisk komplettering och förslag.
+title: Exempel på Komplettera automatiskt för att lägga till typeahead en sökruta – Azure Search
+description: Aktivera typeahead fråga åtgärder i Azure Search genom att skapa förslagsställare och utformningen av begäranden som fyller du i en sökruta med färdiga termer eller fraser.
 manager: pablocas
 author: mrcarter8
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 03/22/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: b754f00e9bed34717734c4aec81e5489d2c12b63
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: b78fdf0c493e4631e4cdd7e26b154570b6226d1f
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200284"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369589"
 ---
-# <a name="example-add-autocomplete-to-your-search-box-using-azure-search"></a>Exempel: Lägga till automatisk komplettering i sökrutan med hjälp av Azure Search
+# <a name="example-add-autocomplete-to-partial-term-inputs-in-azure-search"></a>Exempel: Lägg till automatisk komplettering i partiella termen indata i Azure Search
+
+Den här funktionen för förhandsgranskning ”är klar” en partiell termen indata genom att tillhandahålla en slutförd term från dokument i ett Azure Search-index. Du kanske har märkt den här funktionen i kommersiella sökmotorer. Du kan nu lägga till den här funktionen för närvarande i förhandsversion, en Azure Search-lösning för att förenkla intag en fråga.
 
 I det här exemplet får du lära dig hur du använder [förslag](https://docs.microsoft.com/rest/api/searchservice/suggestions), [automatisk komplettering](https://docs.microsoft.com/rest/api/searchservice/autocomplete) och [fasetter](search-faceted-navigation.md) i den [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) och [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) att skapa en kraftfull sökrutan. 
 

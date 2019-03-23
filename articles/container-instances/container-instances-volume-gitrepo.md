@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: danlep
-ms.openlocfilehash: af1fbe66c805517c07975b2e4cf6e13e87ec661c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 70593bffbf30b3a0c0978e56c2af1a856a22f2ec
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388280"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369674"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Montera en gitRepo volym i Azure Container Instances
 
@@ -33,17 +33,17 @@ När du monterar en *gitRepo* volym, kan du ange tre egenskaper för att konfigu
 | `directory` | Nej | Katalogen som dit databasen bör klonas. Sökvägen måste inte innehålla eller börja med ”`..`”.  Om du anger ”`.`”, databasen klonas till katalogen för den volymen. I annat fall klona på Git-lagringsplatsen i en underkatalog till det angivna namnet i katalogen volym. |
 | `revision` | Nej | Commit-hash för revision kloning. Om inget anges den `HEAD` revision klonas. |
 
-## <a name="mount-gitrepo-volume-azure-cli"></a>GitRepo montera volymen: Azure CLI
+## <a name="mount-gitrepo-volume-azure-cli"></a>Montera gitRepo volym: Azure CLI
 
 Montera en gitRepo volym när du distribuerar behållarinstanser med den [Azure CLI](/cli/azure), varor den `--gitrepo-url` och `--gitrepo-mount-path` parametrar till den [az container skapa] [ az-container-create] kommando. Alternativt kan du ange katalogen i volymen för att klona till (`--gitrepo-dir`) och commit-hash för revision kloning (`--gitrepo-revision`).
 
-Det här exemplet kommandot klonar den [aci-helloworld] [ aci-helloworld] exempelprogrammet i `/mnt/aci-helloworld` i container-instans:
+Det här exemplet kommandot klonar Microsofts [aci-helloworld] [ aci-helloworld] exempelprogrammet i `/mnt/aci-helloworld` i container-instans:
 
 ```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
     --name hellogitrepo \
-    --image microsoft/aci-helloworld \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --dns-name-label aci-demo \
     --ports 80 \
     --gitrepo-url https://github.com/Azure-Samples/aci-helloworld \
@@ -62,13 +62,14 @@ total 16
 drwxr-xr-x    2 root     root          4096 Apr 16 16:35 app
 ```
 
-## <a name="mount-gitrepo-volume-resource-manager"></a>GitRepo montera volymen: Resource Manager
+## <a name="mount-gitrepo-volume-resource-manager"></a>Montera gitRepo volym: Resource Manager
 
 Montera en gitRepo volym när du distribuerar behållarinstanser med en [Azure Resource Manager-mall](/azure/templates/microsoft.containerinstance/containergroups), först fylla i `volumes` matris i behållargruppen `properties` avsnitt i mallen. Sedan för varje behållare i behållargruppen där du vill montera den *gitRepo* volym, Fyll i den `volumeMounts` matrisen i den `properties` avsnitt i behållardefinitionen.
 
 Till exempel skapar följande Resource Manager-mallen en behållargrupp som består av en enskild behållare. Behållaren klonar två GitHub-lagringsplatser som anges av den *gitRepo* volymblock. Den andra volymen innehåller ytterligare egenskaper som anger en katalog för att klona till och commit-hash för en specifik version att klona.
 
-<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-gitrepo.json --> [!code-json[volume-gitrepo](~/azure-docs-json-samples/container-instances/aci-deploy-volume-gitrepo.json)]
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-gitrepo.json -->
+[!code-json[volume-gitrepo](~/azure-docs-json-samples/container-instances/aci-deploy-volume-gitrepo.json)]
 
 Resulterande katalogstrukturen på två klonade databaser som definierats i föregående mall är:
 
@@ -97,9 +98,9 @@ Ange ett användarnamn (du kan använda ”azurereposuser” som i följande exe
 
 Mer information om personlig åtkomsttoken för GitHub och Azure-databaser finns i följande:
 
-GitHub: [skapar en personlig åtkomsttoken för kommandoraden][pat-github]
+GitHub: [Skapa en personlig åtkomsttoken för kommandoraden][pat-github]
 
-Azure-databaser: [skapa personliga åtkomsttoken för att autentisera åtkomst][pat-repos]
+Azure Repos: [Skapa personliga åtkomsttoken för att autentisera åtkomst][pat-repos]
 
 ## <a name="next-steps"></a>Nästa steg
 

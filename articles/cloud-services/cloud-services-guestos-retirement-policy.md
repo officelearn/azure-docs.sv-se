@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: 6e4a83eb8b3488c4ce2816151ca31b4a594dd742
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ce66d44c0ddb84ed8c2908d02b8062195d6b461d
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338640"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351024"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure gäst-OS-support och tillbakadragande princip
 Information om den här sidan som relaterar till Azure gästoperativsystemet ([gäst-OS](cloud-services-guestos-update-matrix.md)) för molntjänster worker och webbtjänst roller (PaaS). Den gäller inte för virtuella datorer (IaaS).
@@ -57,7 +57,7 @@ Gäst-OS-versioner släpps varje månad. På grund av mängden vanliga versioner
 
 Någon gång när du har blivit ”inaktiverad”, Gäst-OS-version ”upphör att gälla” och alla installationer som fortfarande körs den utgångna versionen exponeras för säkerhets- och säkerhetsproblem problem. Normalt görs upphör att gälla i batchar, så perioden Invalid-upphör att gälla kan variera.
 
-Kunder som konfigurerar sina tjänster för att uppdatera gäst-OS manuellt, bör se till att deras distributioner körs på ett Gästoperativsystem som stöds. Om en tjänst är konfigurerad för att automatiskt uppdatera gäst-OS, säkerställa att den underliggande plattformen och uppgraderar till den senaste gäst-OS.
+Kunder som konfigurerar sina tjänster för att uppdatera gäst-OS manuellt, bör se till att deras tjänster körs på ett Gästoperativsystem som stöds. Om en tjänst är konfigurerad för att automatiskt uppdatera gäst-OS, säkerställa att den underliggande plattformen och uppgraderar till den senaste gäst-OS.
 
 De här perioderna kan göras längre enligt Microsofts bedömning för att underlätta övergången för kund. Alla ändringar som ska förmedlas på den [Azure Gästoperativsystemversioner och SDK-Kompatibilitetsöversikten](cloud-services-guestos-update-matrix.md).
 

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 3829fb3c045b149552d3f022e31f30f9cfae8182
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a56f391aa76bd1216fd51d516adb836a2093bcba
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852448"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371147"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Mappningen Dataomvandling Flow mottagare
 
@@ -57,7 +57,7 @@ Om du vill återställa dina kolumnmappningar genom att trycka på knappen ”ma
 ## <a name="file-name-options"></a>Alternativ för namn
 
    * Standard: Gör att Spark kan namnge filer baserat på standardinställningarna för en del
-   * Mönster: Ange ett namn för din utdatafiler
+   * Mönster: Ange ett mönster för din utdatafilerna. Till exempel ”lån [n]” skapar loans1.csv, loans2.csv,...
    * Per partition: Ange ett filnamn per partition
    * Som data i kolumnen: Ange utdatafilen till värdet för en kolumn
 
@@ -66,11 +66,16 @@ Om du vill återställa dina kolumnmappningar genom att trycka på knappen ”ma
 
 ## <a name="database-options"></a>Databasalternativ
 
-* Tillåt insert-, update-, delete-, upsertar. Standardvärdet är att tillåta infogningar. Om du vill uppdatera, upsert eller infoga rader måste du först lägga till en alter rad transformering taggen rader för dessa specifika åtgärder.
+* Tillåt insert-, update-, delete-, upsertar. Standardvärdet är att tillåta infogningar. Om du vill uppdatera, upsert eller ta bort rader, måste du först lägga till en alter rad transformering taggen rader för dessa specifika åtgärder. Om du inaktiverar ”Tillåt insert” stoppas ADF från att lägga till rader från källan.
 * Trunkera tabellen (tar bort alla rader från din måltabellen innan du slutför dataflödet)
 * Skapa tabellen (utför släpp/skapa din måltabellen innan du slutför dataflödet)
 * Batchstorlek för stora mängder data läses in. Ange ett tal till bucketen skrivningar i segment
 * Aktivera mellanlagring: Detta instruerar ADF om du vill använda Polybase vid inläsning av Azure Data Warehouse som din datauppsättning för mottagare
+
+> [!NOTE]
+> I dataflöde, kan du be ADF om du vill skapa en ny tabelldefinition i måldatabasen genom att ange en datauppsättning i transformeringen mottagare som har ett nytt tabellnamn. Klicka på ”Redigera” nedan tabellnamnet och ange ett nytt tabellnamn i SQL-datauppsättning. Omvandling mottagare aktivera sedan ”Tillåt schemat Drift”. Seth ”Importschema” inställningen ingen.
+
+![Källans omvandling schema](media/data-flow/dataset2.png "SQL-schemat")
 
 ![Alternativ för SQL-mottagare](media/data-flow/alter-row2.png "SQL-alternativ")
 

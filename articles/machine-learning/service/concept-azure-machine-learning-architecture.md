@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1640b1cdb9410f33f6556667f36aafcfe575a082
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ec35e383a182cf783c253b9242e6abb73e39385d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080330"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361106"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning-tjänsten: Arkitektur och begrepp
 
@@ -70,7 +70,7 @@ En taxonomi för arbetsytan illustreras i följande diagram:
 
 Ett experiment är en gruppering av många körs från ett angivet skript. Det är alltid hör till en arbetsyta. När du skickar in en körning ska ange du ett namn på experiment. Information om körningen lagras under försöket. Om du skickar en körning och ange ett namn på experiment som inte finns, skapas automatiskt ett nytt experiment med det nyss angivna namnet.
 
-Ett exempel på hur du använder ett experiment finns i [snabbstarten: Kom igång med Azure Machine Learning-tjänsten](quickstart-get-started.md).
+Ett exempel på hur du använder ett experiment finns i [snabbstarten: Kom igång med Azure Machine Learning-tjänsten](quickstart-run-cloud-notebook.md).
 
 ## <a name="model"></a>Modell
 
@@ -80,7 +80,7 @@ En modell produceras av en körning i Azure Machine Learning. Du kan också anv�
 
 Azure Machine Learning-tjänsten är framework oberoende. När du skapar en modell kan använda du alla populära machine learning-ramverk, som lär du dig Scikit, XGBoost, PyTorch, TensorFlow, Chainer och Microsoft Cognitive Toolkit (kallades tidigare CNTK).
 
-Ett exempel för att träna en modell finns i [snabbstarten: Skapa en arbetsyta för Machine Learning-tjänsten](quickstart-get-started.md).
+Ett exempel för att träna en modell finns i [självstudien: Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).
 
 ### <a name="model-registry"></a>Modell-registret
 
@@ -143,7 +143,7 @@ Information om att välja beräkningsmål för distribution finns i den [distrib
 
 För att träna en modell kan du ange den katalog som innehåller inlärningsskript och tillhörande filer. Du kan även ange ett namn på experiment, som används för att lagra information som samlas in under utbildning. Hela katalogen kopieras till miljön (beräkningsmål) vid träning, och skriptet som anges av körningskonfigurationen har startats. En ögonblicksbild av katalogen lagras också under experiment på arbetsytan.
 
-Ett exempel finns i [skapa en arbetsyta med Python](quickstart-get-started.md).
+Ett exempel finns i [Självstudier: Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).
 
 ## <a name="run"></a>Kör
 
@@ -156,7 +156,7 @@ En körning är en post som innehåller följande information:
 
 Du kan skapa en körning när du skickar in ett skript för att träna en modell. En körning kan ha noll eller flera underordnade körs. Den översta körningen kan till exempel ha två underordnade körningar, som kan ha sin egen underordnade kör.
 
-Ett exempel med att visa körningar som genereras av träna en modell finns i [snabbstarten: Kom igång med Azure Machine Learning-tjänsten](quickstart-get-started.md).
+Ett exempel med att visa körningar som genereras av träna en modell finns i [snabbstarten: Kom igång med Azure Machine Learning-tjänsten](quickstart-run-cloud-notebook.md).
 
 ## <a name="snapshot"></a>Ögonblicksbild
 
@@ -206,7 +206,7 @@ Ett exempel för att distribuera en modell som en webbtjänst finns i [distribue
 
 ### <a name="iot-module"></a>IoT-modul
 
-En distribuerad IoT-modul är en Docker-behållare som innehåller din modell och associerade skript eller program och eventuella ytterligare beroenden. Du kan distribuera dessa moduler med hjälp av Azure IoT Edge på Edge-enheter.
+En distribuerad IoT-modul är en Docker-behållare som innehåller din modell och associerade skript eller program och eventuella ytterligare beroenden. Du kan distribuera dessa moduler med hjälp av Azure IoT Edge på edge-enheter.
 
 Om du har aktiverat övervakning, Azure att samlar in telemetridata från modellen i Azure IoT Edge-modul. Dessa data är tillgänglig för dig och lagras i din instans av storage-konto.
 
@@ -227,6 +227,6 @@ När du utvecklar din lösning kan du använda Azure Machine Learning Python SDK
 Kom igång med Azure Machine Learning-tjänsten, se:
 
 * [Vad är Azure Machine Learning Service?](overview-what-is-azure-ml.md)
-* [Snabbstart: Skapa en arbetsyta med Python](quickstart-get-started.md)
-* [Självstudie: Träna en modell](tutorial-train-models-with-aml.md)
-* [Skapa en arbetsyta med en resource manager-mall](how-to-create-workspace-template.md)
+* [Skapa en arbetsyta för Azure Machine Learning-tjänsten](setup-create-workspace.md)
+* [Självstudier: Träna en modell](tutorial-train-models-with-aml.md)
+* [Skapa en arbetsyta med en Resource Manager-mall](how-to-create-workspace-template.md)

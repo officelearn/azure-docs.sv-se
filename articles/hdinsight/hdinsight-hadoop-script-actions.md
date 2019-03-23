@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 93313557781c6b3788d8b4d43d6676fc17625709
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: d8f7808401b2e11a38b239a353e3b7af2ffcffb3
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201321"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361310"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Utveckla skriptåtgärder skript för HDInsight Windows-baserade kluster
 Lär dig hur du skriver skript för skriptåtgärd för HDInsight. Information om hur du använder skriptåtgärd skript finns i [anpassa HDInsight-kluster med skriptåtgärd](hdinsight-hadoop-customize-cluster-linux.md). Samma artikel skrivna för Linux-baserade HDInsight-kluster finns i [utveckla skriptåtgärder skript till HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -32,6 +32,8 @@ Skriptåtgärd kan användas för att installera ytterligare programvara som kö
 > System.Management.Automation.CommandNotFoundException; ExceptionMessage : Termen ”spara HDIFile' identifieras inte som namnet på en cmdlet, funktion, skriptfil eller ett körbart program. Kontrollera stavningen av namnet, eller om en sökväg har inkluderats, kontrollera att sökvägen är korrekt och försök igen.
 > 
 > Det beror på att du skickat helper-metoder.  Se [hjälpkomponentmetoder för anpassade skript](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="sample-scripts"></a>Exempelskript
 För att skapa HDInsight-kluster på Windows-operativsystem, är den skriptåtgärd Azure PowerShell-skript. Följande skript är ett exempel för att konfigurera site konfigurationsfiler:
@@ -191,8 +193,8 @@ Skript som används för att anpassa ett kluster måste antingen vara i standard
 
 I det här exemplet måste du kontrollera att behållaren `somecontainer` i storage-konto `somestorageaccount` är allmänt tillgänglig. I annat fall skriptet genererar ett ”kunde inte hittas”-undantag och misslyckas.
 
-### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>Skicka parametrar till cmdleten Add-AzureRmHDInsightScriptAction
-Om du vill skicka flera parametrar till cmdleten Add-AzureRmHDInsightScriptAction, måste du formatera strängvärde så att den innehåller alla parametrar för skriptet. Exempel:
+### <a name="pass-parameters-to-the-add-azhdinsightscriptaction-cmdlet"></a>Skicka parametrar till cmdleten Add-AzHDInsightScriptAction
+Om du vill skicka flera parametrar till cmdleten Add-AzHDInsightScriptAction, måste du formatera strängvärde så att den innehåller alla parametrar för skriptet. Exempel:
 
     "-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
 

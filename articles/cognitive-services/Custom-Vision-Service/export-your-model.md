@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/03/2018
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 080a4691869c4deaf86f0e27961e80b60d439f05
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 405b6ebd06091536749751a94362d8c4a6495dbc
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857261"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351310"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>Exportera din modell för användning med mobila enheter
 
-Custom Vision Service gör klassificerare som ska exporteras för att köra offline. Du kan bädda in din exporterade klassificerare i ett program och köra det lokalt på en enhet för i realtid klassificering. 
+Custom Vision Service gör klassificerare som ska exporteras för att köra offline. Du kan bädda in din exporterade klassificerare i ett program och köra det lokalt på en enhet för i realtid klassificering.
 
 Custom Vision Service har stöd för följande export:
 
@@ -37,7 +37,7 @@ Custom Vision Service har stöd för följande export:
 
 > [!NOTE]
 > Stegen i det här avsnittet gäller endast om du har en befintlig klassificerare som inte är inställt på att komprimera domän.
- 
+
 Använd följande steg om du vill konvertera en befintlig klassificerare domän:
 
 1. Från den [Custom vision sidan](https://customvision.ai)väljer den __Start__ ikon för att visa en lista över dina projekt. Du kan också använda den [ https://customvision.ai/projects ](https://customvision.ai/projects) att se dina projekt.

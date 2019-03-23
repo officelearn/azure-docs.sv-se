@@ -5,21 +5,21 @@ services: storage
 author: cbrooksmsft
 ms.service: storage
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c7f7768406ae64615b46abeb396b5469caf2f6e9
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: c34af90f946542608eaf20f4f21d4986f3c80e6b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750658"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369402"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage-brandväggar och virtuella nätverk
 
 Azure Storage tillhandahåller en skiktbaserad säkerhetsmodell. Den här modellen kan du skydda dina storage-konton till en specifik uppsättning stöds nätverk. Om Nätverksregler har konfigurerats endast program som begär data via den angivna uppsättningen nätverk kan komma åt ett storage-konto.
 
-Ett program som ansluter till ett lagringskonto när Nätverksregler tillämpas kräver rätt behörighet på begäran. Auktorisering stöds med Azure Active Directory (AD)-autentiseringsuppgifter (för blobbar och köer) (förhandsversion), en giltig åtkomstnyckel eller en SAS-token.
+Ett program som ansluter till ett lagringskonto när Nätverksregler tillämpas kräver rätt behörighet på begäran. Auktorisering stöds med autentiseringsuppgifter för Azure Active Directory (Azure AD) för blobbar och köer, med en giltig åtkomstnyckel eller med en SAS-token.
 
 > [!IMPORTANT]
 > Aktivera brandväggsregler för ditt lagringskonto blockerar inkommande begäranden om data som standard inte begäranden som kommer från en tjänst som körs i Azure Virtual Network (VNet). Begäranden som blockeras är de från andra Azure-tjänster från Azure-portalen från loggning och mått tjänster, och så vidare.

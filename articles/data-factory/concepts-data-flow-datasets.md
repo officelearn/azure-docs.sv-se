@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory mappning av datauppsättningar för flödet av Data
-description: Azure Data Factory mappning dataflöde har sepecific datauppsättning kompatibilitet
+description: Azure Data Factory mappning dataflöde har specifik datauppsättning kompatibilitet
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: ad6cfdad519ab3901c58979970ea07439b3106e9
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 4e36e96947e6a8595230023065eb9f44a5a1f3d2
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726931"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371323"
 ---
 # <a name="mapping-data-flow-datasets"></a>Mappning av datauppsättningar för flödet av Data
 
@@ -42,6 +42,12 @@ När du skapar en ny datauppsättning, det finns en kryssruta med etiketten ”D
 ## <a name="import-schemas"></a>Importera scheman
 
 När du importerar schemat för dataflöde datauppsättningar, visas en Importschema-knappen. Du klickar på knappen visas du två alternativ: Importera från källan eller importera från en lokal fil. I de flesta fall kommer du importera schemat direkt från källan. Men om du har ett befintligt schema-fil (Parquet-filer eller CSV med rubriker) kan peka du på att lokala filer och Data Factory definierar schemat baserat på den schemafilen.
+
+## <a name="create-new-table"></a>Skapa ny tabell
+
+I dataflöde, kan du be ADF om du vill skapa en ny tabelldefinition i måldatabasen genom att ange en datauppsättning i transformeringen mottagare som har ett nytt tabellnamn. Klicka på ”Redigera” nedan tabellnamnet och ange ett nytt tabellnamn i SQL-datauppsättning. Omvandling mottagare aktivera sedan ”Tillåt schemat Drift”. Seth ”Importschema” inställningen ingen.
+
+![Källans omvandling schema](media/data-flow/dataset2.png "SQL-schemat")
 
 ## <a name="delimited-text-dataset"></a>Avgränsad text datauppsättning
 

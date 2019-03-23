@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8bd754533758d2c736e3951e5c7a10f63bb72bd8
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 77d2d0b5b9f994668abdd02640a9c6d5f463e137
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410184"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360766"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>Kör Apache Hive-frågor med hjälp av PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -25,6 +25,8 @@ Det här dokumentet innehåller ett exempel på hur du använder Azure PowerShel
 > Det här dokumentet ger inte en detaljerad beskrivning av vad HiveQL-instruktioner som används i exemplen göra. Information om HiveQL som används i det här exemplet finns i [använda Apache Hive med Apache Hadoop på HDInsight](hdinsight-use-hive.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * En Linux-baserade Apache Hadoop på HDInsight-kluster av version 3.4 och senare.
 
@@ -41,13 +43,13 @@ Azure PowerShell tillhandahåller *cmdletar* som gör det möjligt att köra Hiv
 
 När du kör Hive-frågor i ett fjärranslutet HDInsight-kluster används följande cmdletar:
 
-* `Connect-AzureRmAccount`: Autentiserar Azure PowerShell på Azure-prenumerationen.
-* `New-AzureRmHDInsightHiveJobDefinition`: Skapar en *jobbet definition* med hjälp av de angivna HiveQL-instruktionerna.
-* `Start-AzureRmHDInsightJob`: Skickar jobbdefinitionen till HDInsight och startar jobbet. En *jobbet* objekt returneras.
-* `Wait-AzureRmHDInsightJob`: Använder objektet för att kontrollera status för jobbet. Den ska vänta tills jobbet har slutförts eller väntetiden har överskridits.
-* `Get-AzureRmHDInsightJobOutput`: Används för att hämta utdata för jobbet.
-* `Invoke-AzureRmHDInsightHiveJob`: Används för att köra HiveQL-instruktioner. Den här cmdlet-block frågan har slutförts och returnerar sedan resultatet.
-* `Use-AzureRmHDInsightCluster`: Anger det aktuella klustret ska användas för den `Invoke-AzureRmHDInsightHiveJob` kommando.
+* `Connect-AzAccount`: Autentiserar Azure PowerShell på Azure-prenumerationen.
+* `New-AzHDInsightHiveJobDefinition`: Skapar en *jobbet definition* med hjälp av de angivna HiveQL-instruktionerna.
+* `Start-AzHDInsightJob`: Skickar jobbdefinitionen till HDInsight och startar jobbet. En *jobbet* objekt returneras.
+* `Wait-AzHDInsightJob`: Använder objektet för att kontrollera status för jobbet. Den ska vänta tills jobbet har slutförts eller väntetiden har överskridits.
+* `Get-AzHDInsightJobOutput`: Används för att hämta utdata för jobbet.
+* `Invoke-AzHDInsightHiveJob`: Används för att köra HiveQL-instruktioner. Den här cmdlet-block frågan har slutförts och returnerar sedan resultatet.
+* `Use-AzHDInsightCluster`: Anger det aktuella klustret ska användas för den `Invoke-AzHDInsightHiveJob` kommando.
 
 Följande steg visar hur du kan använda dessa cmdletar för att köra ett jobb i HDInsight-klustret:
 
@@ -81,7 +83,7 @@ Följande steg visar hur du kan använda dessa cmdletar för att köra ett jobb 
    > [!NOTE]  
    > Du kan använda Azure PowerShell för frågor med längre HiveQL **här strängar** cmdlet eller HiveQL skriptfiler. Följande kodfragment visar hur du använder den `Invoke-Hive` cmdlet för att köra en skriptfil för HiveQL. HiveQL skriptfilen måste överföras till wasb: / /.
    >
-   > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
+   > `Invoke-AzHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
    > Mer information om **här strängar**, se <a href="https://technet.microsoft.com/library/ee692792.aspx" target="_blank">med hjälp av Windows PowerShell här anslutningssträngar</a>.
 
@@ -91,7 +93,7 @@ Om ingen information returneras när jobbet har slutförts kan visa felloggarna.
 
 ```powershell
 # Print the output of the Hive job.
-Get-AzureRmHDInsightJobOutput `
+Get-AzHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $job.JobId `
         -HttpCredential $creds `

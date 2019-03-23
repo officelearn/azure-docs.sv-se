@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 7cb1632fe8c0ae873afcf37504dbd13bcfc753e8
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: da7dfdb1217e41b7dcb7c7fb6ade55c33488e54b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338079"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372615"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning
 
@@ -107,7 +107,7 @@ Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för en e
 > [!IMPORTANT]
 > Utöver att konfigurera diagnostiktelemetri för elastisk pool behöver du även konfigurera diagnostiktelemetri för varje databas i elastisk pool, enligt beskrivningen nedan. 
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-single-datatbase-or-database-in-elastic-pool"></a>Konfigurera strömning av diagnostiktelemetri för enkel datatbase eller databasen i elastisk pool
+### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>Konfigurera strömning av diagnostiktelemetri för enkel databas eller databas i en elastisk pool
 
    ![Ikon för SQL-databas](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
 
@@ -418,14 +418,14 @@ Information om telemetri som är tillgängliga för alla loggar är detta i tabe
 |SourceSystem|Alltid: Azure|
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
 |Type|Alltid: AzureDiagnostics |
-|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
+|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL |
 |Kategori|Namnet på kategorin. Alltid: ResourceUsageStats |
 |Resurs|Namn på resursen |
 |ResourceType|Namnet på resurstypen. Alltid: MANAGEDINSTANCES |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på den hanterade instansen |
-|ResourceId|Resurs-URI |
+|Resurs-ID|Resurs-URI |
 |SKU_s|Hanterad instans produkt-SKU |
 |virtual_core_count_s|Antal virtuella kärnor tillgängliga |
 |avg_cpu_percent_s|Genomsnittlig CPU-procent |
@@ -443,17 +443,17 @@ Information om telemetri som är tillgängliga för alla loggar är detta i tabe
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
 |Type|Alltid: AzureDiagnostics |
-|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
+|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL |
 |Kategori|Namnet på kategorin. Alltid: QueryStoreRuntimeStatistics |
 |OperationName|Åtgärdens namn. Alltid: QueryStoreRuntimeStatisticsEvent |
 |Resurs|Namn på resursen |
-|ResourceType|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
+|ResourceType|Namnet på resurstypen. Alltid: SERVRAR/DATABASER |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
 |ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om sådana |
 |DatabaseName_s|Namnet på databasen |
-|ResourceId|Resurs-URI |
+|Resurs-ID|Resurs-URI |
 |query_hash_s|Fråge-hash |
 |query_plan_hash_s|Fråge-hash för plan |
 |statement_sql_handle_s|Sql instruktionsreferensen |
@@ -494,17 +494,17 @@ Läs mer om [Query Store runtime statistikdata](https://docs.microsoft.com/sql/r
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
 |Type|Alltid: AzureDiagnostics |
-|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
+|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL |
 |Kategori|Namnet på kategorin. Alltid: QueryStoreWaitStatistics |
 |OperationName|Åtgärdens namn. Alltid: QueryStoreWaitStatisticsEvent |
 |Resurs|Namn på resursen |
-|ResourceType|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
+|ResourceType|Namnet på resurstypen. Alltid: SERVRAR/DATABASER |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
 |ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om sådana |
 |DatabaseName_s|Namnet på databasen |
-|ResourceId|Resurs-URI |
+|Resurs-ID|Resurs-URI |
 |wait_category_s|Kategori för väntan |
 |is_parameterizable_s|Är frågan parameteriseringsbar |
 |statement_type_s|Typ av instruktionen |

@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: c7dd2fba852881680b43ceabafec2ac6b2751df4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e65f739a9641181381205c7255d0472325e8055c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839601"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359928"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Skapa och hantera Azure Machine Learning-tjänstens arbetsytor
 
@@ -28,24 +28,19 @@ Du behöver en Azure-prenumeration för att skapa en arbetsyta. Om du inte har e
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="view-a-workspace"></a>Visa en arbetsyta
+## <a name="view"></a>Visa en arbetsyta
 
 1. I det övre vänstra hörnet i portalen, väljer **alla tjänster**. 
 
-1. I den **alla tjänster** filter och skriver **Machine Learning-tjänstens arbetsyta**.  
+1. I den **alla tjänster** filter och skriver **machine learning-tjänsten**.  
 
-   ![Sök efter Azure Machine Learning-tjänstens arbetsyta](media/how-to-manage-workspace/allservices-search1.png)
+1. Välj **Machine Learning-tjänstens arbetsytor**.
 
-1. Filtrera resultaten och välj **Machine Learning-tjänstens arbetsyta** att visa en lista över dina arbetsytor. 
-
-   ![Lista över Azure Machine Learning-tjänstens arbetsytor](media/how-to-manage-workspace/allservices-search.PNG)
+   ![Sök efter Azure Machine Learning-tjänstens arbetsyta](media/how-to-manage-workspace/all-services.png)
 
 1. Titta igenom listan över arbetsytor hittades. Du kan filtrera baserat på prenumerationen, resursgrupper och platser.  
 
-   ![Visa arbetsytor](media/how-to-manage-workspace/allservices_view_workspace.PNG)
-
-1. Välj den arbetsyta som du nyss skapade om du vill visa dess egenskaper.
-
+1. Välj en arbetsyta för att visa dess egenskaper.
    ![Egenskaper för arbetsyta](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## <a name="delete-a-workspace"></a>Ta bort en arbetsyta

@@ -13,39 +13,39 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: a497662ac7a885b53e69bb8c86a646045bd2eef7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 47b589d32accc4a699e7260b9e4b2de4cca58f2b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314678"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369623"
 ---
-# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway"></a>Ansluta datorer utan Internetåtkomst med hjälp av Log Analytics-gateway
+# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Ansluta datorer utan Internetåtkomst med hjälp av Log Analytics-gateway i Azure Monitor
 
 >[!NOTE]
 >Eftersom Microsoft Operations Management Suite (OMS) övergår till Microsoft Azure Monitor, ändrar terminologi. Den här artikeln refererar till OMS-Gateway som en Azure Log Analytics-gateway. 
 >
 
-Den här artikeln beskriver hur du konfigurerar kommunikationen med Azure Automation och Log Analytics med hjälp av Log Analytics-gateway när datorer som är anslutna direkt eller som övervakas av Operations Manager har ingen Internetåtkomst. 
+Den här artikeln beskriver hur du konfigurerar kommunikationen med Azure Automation och Azure Monitor med hjälp av Log Analytics-gateway när datorer som är anslutna direkt eller som övervakas av Operations Manager har ingen Internetåtkomst. 
 
-Log Analytics-gateway är en vanlig HTTP-proxy som har stöd för HTTP-tunnel med hjälp av kommandot HTTP ansluta. Den här gatewayen kan samla in data och skicka den till Azure Automation och Log Analytics för de datorer som inte är anslutna till internet.  
+Log Analytics-gateway är en vanlig HTTP-proxy som har stöd för HTTP-tunnel med hjälp av kommandot HTTP ansluta. Den här gatewayen kan samla in data och skicka den till Azure Automation och Log Analytics-arbetsytan i Azure Monitor för de datorer som inte är anslutna till internet.  
 
 Log Analytics-gateway har stöd för:
 
 * Rapporterar upp till samma fyra Log Analytics arbetsyta-agenter som ligger bakom den och som har konfigurerats med Azure Automation Hybrid Runbook Worker.  
-* Windows-datorer där Microsoft Monitoring Agent är direkt ansluten till en Log Analytics-arbetsyta.
-* Linux-datorer där en Log Analytics-agenten för Linux är direkt ansluten till en Log Analytics-arbetsyta.  
+* Windows-datorer där Microsoft Monitoring Agent är direkt ansluten till en Log Analytics-arbetsyta i Azure Monitor.
+* Linux-datorer där en Log Analytics-agenten för Linux är direkt ansluten till en Log Analytics-arbetsyta i Azure Monitor.  
 * System Center Operations Manager 2012 SP1 med UR7 eller Operations Manager 2012 R2 med UR3 en hanteringsgrupp i Operations Manager 2016 eller senare som är integrerat med Log Analytics.  
 
-Vissa IT-säkerhetspolicyer Tillåt inte internet-anslutning för datorer i nätverket. Datorerna är anslutna kan vara av försäljning (POS) enheter eller servrar som stöder IT-tjänster, till exempel. För att ansluta enheterna till Azure Automation eller Log Analytics så att du kan hantera och övervaka konfigurera dem, dem för att kommunicera direkt med Log Analytics-gateway. Log Analytics-gateway kan ta emot konfigurationer och vidarebefordra data å deras vägnar. Om datorerna som har konfigurerats med Log Analytics-agenten för att ansluta direkt till en Log Analytics-arbetsyta, på datorer i stället att kommunicera med Log Analytics-gateway.  
+Vissa IT-säkerhetspolicyer Tillåt inte internet-anslutning för datorer i nätverket. Datorerna är anslutna kan vara av försäljning (POS) enheter eller servrar som stöder IT-tjänster, till exempel. För att ansluta enheterna till Azure Automation eller Log Analytics-arbetsytan så att du kan hantera och övervaka konfigurera dem, dem för att kommunicera direkt med Log Analytics-gateway. Log Analytics-gateway kan ta emot konfigurationer och vidarebefordra data å deras vägnar. Om datorerna som har konfigurerats med Log Analytics-agenten för att ansluta direkt till en Log Analytics-arbetsyta, på datorer i stället att kommunicera med Log Analytics-gateway.  
 
 Log Analytics-gateway överför data från agenter till tjänsten direkt. Det inte att analysera data under överföring.
 
 När en hanteringsgrupp för Operations Manager är integrerat med Log Analytics kan-hanteringsservrar konfigureras för att ansluta till Log Analytics-gatewayen till mottagning av konfigurationsinformation och skicka insamlade data, beroende på lösningen som du har aktiverat .  Operations Manager-agenter skickar vissa data till hanteringsservern. Agenter kan till exempel skicka aviseringar, konfigurationsbedömningsdata, utrymmesinstansdata och kapacitetsdata i Operations Manager. Andra stora volymer data, till exempel Internet Information Services (IIS)-loggar, prestandadata och säkerhetshändelser, skickas direkt till Log Analytics-gateway. 
 
-Om en eller flera Operations Manager Gateway-servrar distribueras för att övervaka obetrodd system i ett perimeternätverk eller ett isolerat nätverk, kommer dessa servrar kan inte kommunicera med en Log Analytics-gateway.  Operations Manager Gateway-servrar kan rapportera endast till en hanteringsserver.  När en Operations Manager-hanteringsgrupp konfigureras för att kommunicera med Log Analytics-gateway, distribueras konfigurationsinformation proxy automatiskt till alla agenthanterade datorer som konfigureras för att samla in data för Log Analytics, även Om inställningen är tom.    
+Om en eller flera Operations Manager Gateway-servrar distribueras för att övervaka obetrodd system i ett perimeternätverk eller ett isolerat nätverk, kommer dessa servrar kan inte kommunicera med en Log Analytics-gateway.  Operations Manager Gateway-servrar kan rapportera endast till en hanteringsserver.  När en Operations Manager-hanteringsgrupp konfigureras för att kommunicera med Log Analytics-gateway, distribueras konfigurationsinformation proxy automatiskt till varje agenthanterad dator som är konfigurerad för att samla in loggdata för Azure Monitor även om inställningen är tom.    
 
-Att tillhandahålla hög tillgänglighet för direkt ansluten eller Operations Management-grupper som kommunicerar med Log Analytics via gatewayen, använda Utjämning av nätverksbelastning (NLB) för att omdirigera och distribuerar trafik över flera gateway-servrar. På så sätt kan om en gateway-servern slutar fungera kan dirigeras trafik till en annan tillgänglig nod.  
+Att tillhandahålla hög tillgänglighet för direkt ansluten eller Operations Management-grupper som kommunicerar med en Log Analytics-arbetsytan via gatewayen, använda Utjämning av nätverksbelastning (NLB) för att omdirigera och distribuerar trafik över flera gateway-servrar. På så sätt kan om en gateway-servern slutar fungera kan dirigeras trafik till en annan tillgänglig nod.  
 
 Den dator som kör Log Analytics-gatewayen kräver att Log Analytics-Windows-agenten att identifiera Tjänsteslutpunkter som gatewayen behöver kommunicera med. Agenten måste också att dirigera gateway till samma arbetsytor som agenter eller Operations Manager-hanteringsgrupp bakom gatewayen har konfigurerats med. Den här konfigurationen kan gatewayen och agenten kan kommunicera med sina tilldelade arbetsyta.
 

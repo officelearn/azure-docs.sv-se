@@ -3,17 +3,17 @@ title: Rendera täckning i Azure Maps | Microsoft Docs
 description: Lär dig mer om rendering täckning i Azure Maps
 author: jingjing-z
 ms.author: jinzh
-ms.date: 03/07/2018
+ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 6e4ebd5bfd7225537046d34dd885d04e8a94878f
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 536a74046f46c7f83907833846e9ec99e8d8a289
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42055165"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370286"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps rendera täckning
 
@@ -32,7 +32,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 ## <a name="africa"></a>Afrika 
 
 
-| Region | Raster paneler Unified | Vektorkartbilder Unified |
+| Land/region | Raster Tiles Unified | Vektorkartbilder Unified |
 | ------ | :------------------: | :------------------: |
 | Algeriet                          | ✓ | ✓ |
 | Angola                           | ✓ | ✓ |
@@ -40,32 +40,32 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 | Botswana                         | ✓ | ✓ |
 | Burkina Faso                     | ✓ | ✓ |
 | Burundi                          | ✓ | ✓ |
-| Cabo Verde                       |   | ✓ |
+| Cabo Verde                       | ✓ | ✓ |
 | Kamerun                         | ✓ | ✓ |
-| Centralafrikanska republiken         |   | Ø |
-| Tchad                             |   | Ø |
-| Komorerna                          |   | Ø |
+| Centralafrikanska republiken         | ✓ | Ø |
+| Tchad                             | ✓ | Ø |
+| Komorerna                          | ✓ | Ø |
 | Republiken Kongo                            | ✓ | ✓ |
 | Demokratiska republiken Kongo | ✓ | ✓ |
-| Côte d'Ivoire                    |   | Ø |
-| Djibouti                         |   | Ø |
+| Côte d'Ivoire                    | ✓ | Ø |
+| Djibouti                         | ✓ | Ø |
 | Egypten                            | ✓ | ✓ |
-| Ekvatoralguinea                |   | Ø |
-| Eritrea                          |   | Ø |
-| Etiopien                         |   | Ø |
+| Ekvatoralguinea                | ✓ | Ø |
+| Eritrea                          | ✓ | Ø |
+| Etiopien                         | ✓ | Ø |
 | Gabon                            | ✓ | ✓ |
-| Gambia                           |   | Ø |
+| Gambia                           | ✓ | Ø |
 | Ghana                            | ✓ | ✓ |
-| Guinea                           |   | Ø |
-| Guinea-Bissau                    |   | Ø |
+| Guinea                           | ✓ | Ø |
+| Guinea-Bissau                    | ✓ | Ø |
 | Kenya                            | ✓ | ✓ |
 | Lesotho                          | ✓ | ✓ |
-| Liberia                          |   | Ø |
-| Libyen                            |   | Ø |
-| Madagaskar                       |   | Ø |
+| Liberia                          | ✓ | Ø |
+| Libyen                            | ✓ | Ø |
+| Madagaskar                       | ✓ | Ø |
 | Malawi                           | ✓ | ✓ |
 | Mali                             | ✓ | ✓ |
-| Mauritanien                       | ✓ | ✓ |
+| Mauretanien                       | ✓ | ✓ |
 | Mauritius                        | ✓ | ✓ |
 | Mayotte                          | ✓ | ✓ |
 | Marocko                          | ✓ | ✓ |
@@ -75,14 +75,14 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 | Nigeria                          | ✓ | ✓ |
 | Réunion                          | ✓ | ✓ |
 | Rwanda                           | ✓ | ✓ |
-| Sankta Helena, Ascension och Tristan da Cunha |   | Ø |
-| São Tomé och Príncipe            |   | Ø |
+| Sankta Helena, Ascension och Tristan da Cunha | ✓ | Ø |
+| São Tomé och Príncipe            | ✓ | Ø |
 | Senegal                          | ✓ | ✓ |
-| Sierra Leone                     |   | Ø |
-| Somalia                          |   | Ø |
+| Sierra Leone                     | ✓ | ✓ |
+| Somalia                          | ✓ | ✓ |
 | Sydafrika                     | ✓ | ✓ |
-| Sydsudan                      |   | Ø |
-| Sudan                            |   | Ø |
+| Sydsudan                      | ✓ | ✓ |
+| Sudan                            | ✓ | ✓ |
 | Swaziland                        | ✓ | ✓ |
 | Förenade republiken Tanzania      | ✓ | ✓ |
 | Togo                             | ✓ | ✓ |
@@ -93,7 +93,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 
 ## <a name="americas"></a>Nord- och Sydamerika
 
-| Region | Raster paneler Unified | Vektorkartbilder Unified |
+| Land/region | Raster Tiles Unified | Vektorkartbilder Unified |
 | ------ | :------------------: | :------------------: |
 | Anguilla                  | ✓ | ✓ |
 | Antigua och Barbuda       | ✓ | ✓ |
@@ -102,27 +102,27 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 | Bahamas                   | ✓ | ✓ |
 | Barbados                  | ✓ | ✓ |
 | Belize                    | ✓ | ✓ |
-| Bermuda                   |   | ✓ |
-| Mångnationella staten Bolivia |   | ✓ |
-| Bonaire, Sint Eustatius och Saba |   | ✓ |
+| Bermuda                   | ✓ | ✓ |
+| Mångnationella staten Bolivia | ✓ | ✓ |
+| Bonaire, Sint Eustatius och Saba | ✓ | ✓ |
 | Brasilien                    | ✓ | ✓ |
 | Kanada                    | ✓ | ✓ |
 | Caymanöarna            | ✓ | ✓ |
 | Chile                     | ✓ | ✓ |
-| $Clippertonön         |   | ✓ |
+| $Clippertonön         | ✓ | ✓ |
 | Colombia                  | ✓ | ✓ |
-| Costa Rica                |   | ✓ |
+| Costa Rica                | ✓ | ✓ |
 | Kuba                      | ✓ | ✓ |
 | Curaçao                   | ✓ | ✓ |
 | Dominica                  | ✓ | ✓ |
 | Dominikanska republiken        | ✓ | ✓ |
-| Ecuador                   |   | ✓ |
-| Falklandsöarna |   | ✓ |
+| Ecuador                   | ✓ | ✓ |
+| Falklandsöarna | ✓ | ✓ |
 | Franska Guyana             | ✓ | ✓ |
-| Grönland (Danmark)                 |   | Ø |
+| Grönland (Danmark)                 | ✓ | Ø |
 | Grenada                   | ✓ | ✓ |
 | Guadeloupe                | ✓ | ✓ |
-| Guatemala                 |   | ✓ |
+| Guatemala                 | ✓ | ✓ |
 | Guyana                    | ✓ | ✓ |
 | Haiti                     | ✓ | ✓ |
 | Honduras                  | ✓ | ✓ |
@@ -131,21 +131,21 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 | Mexiko                    | ✓ | ✓ |
 | Montserrat                | ✓ | ✓ |
 | Nicaragua                 | ✓ | ✓ |
-| Nordmarianerna  |   | ✓ |
+| Nordmarianerna  | ✓ | ✓ |
 | Panama                    | ✓ | ✓ | 
-| Paraguay                  |   | ✓ |
+| Paraguay                  | ✓ | ✓ |
 | Peru                      | ✓ | ✓ |
 | Puerto Rico               | ✓ | ✓ |
-| Quebec (Kanada)           |   | ✓ |
+| Quebec (Canada)           | ✓ | ✓ |
 | Saint Barthélemy          | ✓ | ✓ |
 | Saint Kitts och Nevis     | ✓ | ✓ |
 | Saint Lucia               | ✓ | ✓ |
 | Saint Martin (franska)     | ✓ | ✓ |
-| Saint Pierre och Miquelon |   | ✓ |
+| Saint Pierre och Miquelon | ✓ | ✓ |
 | Saint Vincent och Grenadinerna | ✓ | ✓ |
 | Sint Maarten (nederländska)      | ✓ | ✓ |
-| Sydgeorgien och Sydsandwichöarna |   | ✓ |
-| Surinam                  |   | ✓ |
+| Sydgeorgien och Sydsandwichöarna | ✓ | ✓ |
+| Surinam                  | ✓ | ✓ |
 | Trinidad och Tobago       | ✓ | ✓ |
 | Turks- och Caicosöarna  | ✓ | ✓ |
 | USA             | ✓ | ✓ |
@@ -156,7 +156,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 
 ## <a name="asia"></a>Asien 
 
-| Region | Raster paneler Unified | Vektorkartbilder Unified |
+| Land/region | Raster Tiles Unified | Vektorkartbilder Unified |
 | ------ | :------------------: | :------------------: |
 | Afghanistan               |   | Ø |
 | Bahrain                   | ✓ | ✓ |
@@ -170,23 +170,24 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 | Demokratiska folkrepubliken Korea |   | Ø |
 | Dokdo och Takeshima       |   | Ø |
 | Hongkong SAR                 | ✓ | ✓ |
+| Indien                     | Ø | ✓ | 
 | Indonesien                 | ✓ | ✓ |
 | Iran                      |   | Ø |
 | Irak                      | ✓ | ✓ |
 | Israel                    |   | ✓ |
 | Japan                     |   | Ø |
 | Jordanien                    | ✓ | ✓ |
-| Kazakstan                |   | ✓ |
+| Kazakhstan                |   | ✓ |
 | Kuwait                    | ✓ | ✓ |
 | Kirgizistan                |   | Ø |
 | Demokratiska folkrepubliken Laos |   | Ø |
 | Libanon                   | ✓ | ✓ |
-| Macao SAR                     | ✓ | ✓ |
+| Macao                     | ✓ | ✓ |
 | Malaysia                  | ✓ | ✓ |
 | Maldiverna                  |   | Ø |
 | Mongoliet                  |   | Ø |
 | Myanmar                   |   | Ø |
-| Napal                     |   | Ø |
+| Nepal                     |   | Ø |
 | Oman                      | ✓ | ✓ |
 | Pakistan                  |   | Ø |
 | Filippinerna               | ✓ | ✓ |
@@ -197,7 +198,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 | Singapore                 | ✓ | ✓|
 | Sri Lanka                 |   | Ø |
 | Arabrepubliken Syrien      |   | Ø |
-| Taiwan SAR                    | ✓ | ✓ |
+| Taiwan (Taiwan)                    | ✓ | ✓ |
 | Tadzjikistan                |   | Ø |
 | Thailand                  | ✓ | ✓ |
 | Timor-Leste               |   | Ø |
@@ -210,7 +211,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 
 ## <a name="oceania"></a>Oceanien
 
-| Region | Raster paneler Unified | Vektorkartbilder Unified |
+| Land/region | Raster Tiles Unified | Vektorkartbilder Unified |
 | ------ | :------------------: | :------------------: |
 | Amerikanska Samoa            |   | ✓ |
 | Australien                 | ✓ | ✓ |
@@ -240,13 +241,13 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 
 ## <a name="europe"></a>Europa
 
-| Region | Raster paneler Unified | Vektorkartbilder Unified |
+| Land/region | Raster Tiles Unified | Vektorkartbilder Unified |
 | ------ | :------------------: | :------------------: |
 | Albanien                   | ✓ | ✓ |
 | Andorra                   | ✓ | ✓ |
-| Armenien                   |   | Ø |
+| Armenien                   | ✓ | Ø |
 | Österrike                   | ✓ | ✓ |
-| Azerbajdzjan                |   | Ø |
+| Azerbajdzjan                | ✓ | Ø |
 | Vitryssland                   | Ø | ✓ |
 | Belgien                   | ✓ | ✓ |
 | Bosnien och Hercegovina        | ✓ | ✓ |
@@ -256,21 +257,21 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 | Tjeckien            | ✓ | ✓ |
 | Danmark                   | ✓ | ✓ |
 | Estland                   | ✓ | ✓ |
-| Färöarna             |   | Ø |
+| Färöarna             | ✓ | Ø |
 | Finland                   | ✓ | ✓ |
 | Frankrike                    | ✓ | ✓ |
-| Georgien                   |   | Ø |
-| Tyskland                   | ✓ |✓ |
-| Gibraltar                 | ✓ |   |
+| Georgien                   | ✓ | Ø |
+| Tyskland                   | ✓ | ✓ |
+| Gibraltar                 | ✓ | ✓ |
 | Grekland                    | ✓ | ✓ |
-| Guernsey                  |   | ✓ |
+| Guernsey                  | ✓ | ✓ |
 | Ungern                   | ✓ | ✓ |
 | Island                   | ✓ | ✓ |
-| Irland     | ✓ | ✓ |
-| Isle of Man               |   | ✓ |
+| Irland                   | ✓ | ✓ |
+| Isle of Man               | ✓ | ✓ |
 | Italien                     | ✓ | ✓ |
-| Jan Mayen                 |   | ✓ |
-| Jersey                    |   | ✓ |
+| Jan Mayen                 | ✓ | ✓ |
+| Jersey                    | ✓ | ✓ |
 | Lettland                    | ✓ | ✓ |
 | Liechtenstein             | ✓ | ✓ |
 | Litauen                 | ✓ | ✓ |
@@ -290,10 +291,10 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 | Serbien                    | ✓ | ✓ |
 | Slovakien                  | ✓ | ✓ |
 | Slovenien                  | ✓ | ✓ |
-| Södra Kurils           |   | ✓ |
+| Södra Kurils           | ✓ | ✓ |
 | Spanien                     | ✓ | ✓ |
-| Svalbard                  |   | ✓ |
-| Sverige                    | ✓ |   |
+| Svalbard                  | ✓ | ✓ |
+| Sverige                    | ✓ | ✓ |
 | Schweiz               | ✓ | ✓ |
 | Turkiet                    | ✓ | ✓ |
 | Ukraina                   | ✓ | ✓ |

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/11/2019
+ms.date: 03/22/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97e5976603ee1574e8410702069b97a9f0ef6198
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: be66ead6521bdb21626caaecd582fac4da6f664b
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768765"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351277"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Anvisningar: Blockera äldre autentisering till Azure AD med villkorlig åtkomst   
 
@@ -54,6 +54,8 @@ Azure AD stöder flera av de mest använda protokoll för autentisering och aukt
 En faktor autentisering (till exempel användarnamn och lösenord) är inte tillräckligt med dessa dagar. Lösenord är felaktigt eftersom de är lätta att gissa och vi (mänsklig) är felaktig på välja bra lösenord. Lösenord är också sårbara för attacker som nätfiske och lösenord besprutningsmedel olika. En av de enklaste saker som du kan göra för att skydda mot hot för lösenord är att implementera MFA. Med MFA, även om en angripare får tillgång till en användares lösenord räcker lösenordet enbart inte att autentisera och komma åt data.
 
 Hur kan du förhindra att appar som använder äldre autentisering från att komma åt resurser i din klient Rekommendationen är att bara blockera dem med en princip för villkorlig åtkomst. Om det behövs kan tillåta du enbart vissa användare och specifika nätverksplatser du använder appar som baseras på äldre autentisering.
+
+Principer för villkorlig åtkomst tillämpas efter det att den första faktorautentiseringen har slutförts. Därför är inte villkorlig åtkomst avsedd som första åtgärd vid exempelvis DoS-attacker (överbelastningsattacker), men kan använda signaler från dessa händelser (t.ex. risknivån för inloggning, platsen för begäran och så vidare) för att fastställa åtkomst.
 
 
 

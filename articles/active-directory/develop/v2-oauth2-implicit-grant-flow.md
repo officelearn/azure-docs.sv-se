@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd0ce02a92c0a2e803866b6f070dba113c566f5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9ce388c53a28d6b04bf7685da397eade4b1fd94
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112219"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371782"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokoll – SPA med det implicita flödet
 
@@ -55,7 +55,7 @@ Följande diagram visar hur det hela implicita inloggning flödet ser ut och avs
 Om du vill logga först in användaren i din app, kan du skicka en [OpenID Connect](v2-protocols-oidc.md) auktoriseringsbegäran och få en `id_token` från v2.0-slutpunkten.
 
 > [!IMPORTANT]
-> Att begära appregistreringen i en ID-token har den [registreringsportalen](https://apps.dev.microsoft.com) måste ha den **Tillåt Implicit flöde** aktiverad för webbklienten. Om den inte är aktiverad, en `unsupported_response` fel returneras: **Det angivna värdet för Indataparametern 'response_type ”är inte tillåtet för den här klienten. Förväntat värde är ”code”**
+> Att begära appregistreringen i en ID-token har den [Azure portal – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan måste ha implicit beviljande av flödet aktiverats korrekt, genom att välja **åtkomsttoken** och **ID-token** under den **Implicit beviljande** avsnittet. Om den inte är aktiverad, en `unsupported_response` fel returneras: **Det angivna värdet för Indataparametern 'response_type ”är inte tillåtet för den här klienten. Förväntat värde är ”code”**
 
 ```
 // Line breaks for legibility only
@@ -77,7 +77,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
 | `tenant` | obligatorisk |Den `{tenant}` värdet i sökvägen för begäran som kan användas för att styra vem som kan logga in i programmet. Tillåtna värden är `common`, `organizations`, `consumers`, och klient-ID: n. Mer information finns i [protokollet grunderna](active-directory-v2-protocols.md#endpoints). |
-| `client_id` | obligatorisk |Program-Id som portalen för registrering av ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) tilldelats din app. |
+| `client_id` | obligatorisk |Programmet (klient)-ID som den [Azure portal – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan som tilldelats din app. |
 | `response_type` | obligatorisk |Måste innehålla `id_token` för OpenID Connect-inloggning. De kan också innehålla response_type `token`. Med hjälp av `token` här gör att din app för att få en åtkomsttoken direkt från slutpunkten för auktorisering utan att behöva göra en andra begäran till slutpunkten för auktorisering. Om du använder den `token` response_type, den `scope` parametern måste innehålla en omfattning som anger vilken resurs för att utfärda token för. |
 | `redirect_uri` | Rekommenderas |Redirect_uri för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av redirect_uris som du registrerade i portalen, men det måste vara url-kodas. |
 | `scope` | obligatorisk |En blankstegsavgränsad lista över [scope](v2-permissions-and-consent.md). Det måste innehålla omfånget för OpenID Connect, `openid`, vilket innebär att behörigheten ”logga du in” i godkännande-UI. Alternativt kan du också vill ska ingå i `email` eller `profile` omfång för att få åtkomst till ytterligare användardata. Du kan också omfatta andra scope i den här begäran för att begära tillstånd att olika resurser. |

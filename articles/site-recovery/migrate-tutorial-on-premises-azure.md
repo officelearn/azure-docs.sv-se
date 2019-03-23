@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0daa25cce434b2e97995963918e52df974e2ef9c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 31d08c0dac63662568bf55a021e85ec414c61e52
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336556"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360375"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrera lokala datorer till Azure
 
@@ -38,7 +38,7 @@ Detta är den tredje självstudien i en serie. Självstudien förutsätter att d
 Innan du börjar är det bra att granska [VMware](vmware-azure-architecture.md)- eller [Hyper-V](hyper-v-azure-architecture.md)-arkitekturen för haveriberedskap.
 
 > [!TIP]
-> Letar du efter en agentfri metod för att migrera virtuella VMware-datorer till Azure? [Klicka här](https://aka.ms/migrateVMs-signup)
+> Om du vill delta i vår nya utan Agent webbplats för att migrera virtuella VMware-datorer till Azure? [Lär dig mer](https://aka.ms/migrateVMs-signup).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -129,7 +129,7 @@ I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 m
 
 När datorerna har migrerats till Azure, finns det ett antal steg du bör utföra.
 
-Vissa steg kan automatiseras som en del av migreringsprocessen med den inbyggda funktionen automationsskript i [återställningsplanerna]( https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation)   
+Vissa steg kan automatiseras som en del av migreringsprocessen med den inbyggda funktionen automationsskript i [återställningsplanerna](site-recovery-runbook-automation.md)   
 
 
 ### <a name="post-migration-steps-in-azure"></a>Eftermigreringssteg i Azure
@@ -140,7 +140,7 @@ Vissa steg kan automatiseras som en del av migreringsprocessen med den inbyggda 
     - Om du migrerar VMware-datorer och fysiska servrar, installerar installationsprogrammet för Mobilitetstjänsten tillgängliga Azure VM-agenter på Windows-datorer. På virtuella Linux-datorer rekommenderar vi att du installerar agenten efter redundansväxling.
     - Om du migrerar virtuella Azure-datorer till en sekundär region, måste Azure VM-agenten etableras på den virtuella datorn före migreringen.
     - Om du migrerar virtuella Hyper-V-datorer till Azure, ska du installera Azure VM-agenten på den virtuella Azure-datorn efter migreringen.
-- Ta bort alla Site Recovery-providers/agenter manuellt från den virtuella datorn. Om du migrerar virtuella VMware-datorer eller fysiska servrar [avinstallera Mobilitetstjänsten][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer] från den virtuella Azure-datorn.
+- Ta bort alla Site Recovery-providers/agenter manuellt från den virtuella datorn. Om du migrerar virtuella VMware-datorer eller fysiska servrar, avinstallera mobilitetstjänsten från den virtuella datorn.
 - För ökat skydd:
     - Skydda data genom att säkerhetskopiera virtuella Azure-datorer med Azure Backup-tjänsten. [Läs mer]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
     - Håll arbetsbelastningar i körning och kontinuerligt tillgängliga genom att replikera virtuella Azure-datorer till en sekundär region med Site Recovery. [Läs mer](azure-to-azure-quickstart.md).

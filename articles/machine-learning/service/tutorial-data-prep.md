@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: ca49cb65331373832b00b8489d731d51e8a8e004
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0ee49299dbbe8095ef98be51dc8619c28891abc5
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182922"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361395"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Självstudier: Förbereda data för regressionsmodellering
 
@@ -58,7 +58,7 @@ När du har slutfört stegen nedan kan du köra anteckningsboken **tutorials/reg
 
 Skapa en lokal Jupyter Notebook-server på datorn enligt nedan.  När du har slutfört stegen kan du köra anteckningsboken **tutorials/regression-part1-data-prep.ipynb**.
 
-1. Slutför [snabbstarten för Azure Machine Learning med Python](quickstart-create-workspace-with-python.md) för att skapa en Miniconda-miljö.  Passa på att hoppa över avsnittet **Skapa en arbetsyta** om du vill, men du behöver det för [del 2](tutorial-auto-train-models.md) i den här självstudieserien.
+1. Slutför installationen av stegen i [ [Snabbstart för Azure Machine Learning Python](quickstart-run-local-notebook.md) ](setup-create-workspace.md#python) att skapa en Miniconda-miljö.  Passa på att hoppa över avsnittet **Skapa en arbetsyta** om du vill, men du behöver det för [del 2](tutorial-auto-train-models.md) i den här självstudieserien.
 1. Installera SDK för dataförberedelser i din miljö med `pip install azureml-dataprep`.
 1. Klona [github-lagringsplatsen](https://aka.ms/aml-notebooks).
 
@@ -70,17 +70,18 @@ Skapa en lokal Jupyter Notebook-server på datorn enligt nedan.  När du har slu
 
     ```shell
     jupyter notebook
+    ```
 
-## <a name="start"></a>Set up your development environment
+## <a name="start"></a>Konfigurera din utvecklingsmiljö
 
-All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+All konfiguration under utvecklingsarbetet kan utföras i en Python-anteckningsbok. Konfigurationen inkluderar följande åtgärder:
 
-* Install the SDK
-* Import Python packages
+* Installera SDK:n
+* Importera Python-paket
 
-### Install and import packages
+### <a name="install-and-import-packages"></a>Installera och importera paket
 
-Use the following to install necessary packages if you don't already have them.
+Använd följande för att installera nödvändiga paket om du inte redan har dem.
 
 ```shell
 pip install azureml-dataprep

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 0553bd904cfaabaefce4e6ab3f7fbf5d356922d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f685521adbbd8b9be9128ff77ab38b42860518b6
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100368"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351056"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Spårningsmeddelanden Azure IoT-enhet till molnet med distribuerad spårning (förhandsversion)
 
@@ -170,9 +170,16 @@ Dessa instruktioner är för att skapa exemplet på Windows. Andra miljöer, se 
 
 <!-- For a client app that can receive sampling decisions from the cloud, check out [this sample](https://aka.ms/iottracingCsample).  -->
 
-### <a name="using-third-party-clients"></a>Med hjälp av klienter från tredje part
+### <a name="workaround-for-third-party-clients"></a>Lösning för klienter från tredje part
 
-Om du inte använder C SDK och ändå vill förhandsgranska distribuerad spårning för IoT-hubb, skapar du meddelanden som ska innehålla en `tracestate` programegenskap med tiden för skapandet av meddelande i formatet för unix-tidsstämpel. Till exempel `tracestate=timestamp=1539243209`. Om du vill styra hur stor andel av meddelanden som innehåller den här egenskapen, implementera logik för att lyssna på molnet-initierad händelser, t.ex uppdateringar för enhetstvilling.
+Den har **inte trivial** att förhandsgranska distribuerad spårningsfunktionen utan att använda C SDK. Den här metoden rekommenderas därför inte.
+
+Först måste du implementera alla primitiver för IoT Hub-protokollet i dina meddelanden genom att följa anvisningarna i guiden för dev [skapa och läsa meddelanden från IoT Hub](iot-hub-devguide-messages-construct.md). Sedan redigera protokollegenskaper för i den MQTT/AMQP-meddelanden för att lägga till `tracestate` som **Systemegenskapen**. Mer specifikt:
+
+* MQTT, lägger du till `%24.tracestate=timestamp%3d1539243209` till meddelande-avsnitt där `1539243209` ska ersättas med tiden för skapandet av meddelande i formatet för unix-tidsstämpel. Till exempel referera till implementeringen [i C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
+* AMQP, lägger du till `key("tracestate")` och `value("timestamp=1539243209")` som meddelandet anteckning. Läs en referensimplementering [här](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
+
+Om du vill styra hur stor andel av meddelanden som innehåller den här egenskapen, implementera logik för att lyssna på molnet-initierad händelser, t.ex uppdateringar för enhetstvilling.
 
 ## <a name="update-sampling-options"></a>Uppdatera alternativ för datainsamling 
 

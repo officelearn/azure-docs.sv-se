@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f508475166346c56b3bd0c8607c27beb7aba66c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0abf2eca52616638f0c4dce89691c0d4f7875106
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316481"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371536"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Skydda molnresurser med Azure Multi-Factor Authentication och AD FS
 
@@ -30,15 +30,15 @@ Ställ in en anspråksregel så att Active Directory Federation Services generer
 2. Välj **Förlitande partsförtroenden** till vänster.
 3. Högerklicka på **Microsoft Office 365 Identity Platform** och välj **Redigera anspråksregler**.
 
-   ![Molnet](./media/howto-mfa-adfs/trustedip1.png)
+   ![Konsolen för AD FS - förtroenden för förlitande part](./media/howto-mfa-adfs/trustedip1.png)
 
 4. För Utfärdande av transformeringsregler klickar du på **Lägg till regel**.
 
-   ![Molnet](./media/howto-mfa-adfs/trustedip2.png)
+   ![Redigera regler för Utfärdandetransformering](./media/howto-mfa-adfs/trustedip2.png)
 
 5. I guiden Lägg till anspråksregel för transformering väljer du **Släpp igenom eller Filtrera ett inkommande anspråk** i listrutan och klickar sedan på **Nästa**.
 
-   ![Molnet](./media/howto-mfa-adfs/trustedip3.png)
+   ![Transformera anspråk regeln guiden Lägg till](./media/howto-mfa-adfs/trustedip3.png)
 
 6. Namnge din regel. 
 7. Välj **Autentiseringsmetodreferenser** som den inkommande anspråkstypen.
@@ -58,15 +58,15 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två ans
 
 1. Öppna AD FS-hantering.
 2. Välj **Förlitande partsförtroenden** till vänster.
-3. Högerklicka på **Microsoft Office 365-identitetsplattform** och välj **Redigera anspråksregler...**
-   ![Molnet](./media/howto-mfa-adfs/trustedip1.png)
-4. För Utfärdande av transformeringsregler klickar du på **Lägg till regel.**
-   ![Molnet](./media/howto-mfa-adfs/trustedip2.png)
+3. Högerklicka på **Microsoft Office 365-Identitetsplattform** och välj **redigera Anspråksregler... ** 
+    ![ADFS-konsolen – redigera Anspråksregler](./media/howto-mfa-adfs/trustedip1.png)
+4. För utfärdande av Transformeringsregler klickar du på **Lägg till regel.** 
+    ![Att lägga till en Anspråksregel](./media/howto-mfa-adfs/trustedip2.png)
 5. I guiden Lägg till anspråksregel för transformering väljer du **Släpp igenom eller Filtrera ett inkommande anspråk** i listrutan och klickar sedan på **Nästa**.
-   ![Molnet](./media/howto-mfa-adfs/trustedip3.png)
+   ![Guiden Lägg till anspråksregel för transformering](./media/howto-mfa-adfs/trustedip3.png)
 6. I rutan bredvid Anspråksregelns namn ger du regeln ett namn. Exempel: InsideCorpNet.
 7. Välj **Inom företagsnätverket** i listrutan bredvid Typ av inkommande anspråk.
-   ![Molnet](./media/howto-mfa-adfs/trustedip4.png)
+   ![När du lägger till i ett företagsnätverkanspråk](./media/howto-mfa-adfs/trustedip4.png)
 8. Klicka på **Slutför**.
 9. För Utfärdande av transformeringsregler klickar du på **Lägg till regel**.
 10. I guiden Lägg till anspråksregel för transformering väljer du **Skicka anspråk med hjälp av en anpassad regel** i listrutan och klickar sedan på **Nästa**.
@@ -75,7 +75,7 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två ans
 
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
-    ![Molnet](./media/howto-mfa-adfs/trustedip5.png)
+    ![Skapa anpassade anspråk för att förhindra att användare som loggat in](./media/howto-mfa-adfs/trustedip5.png)
 13. Klicka på **Slutför**.
 14. Klicka på **Verkställ**.
 15. Klicka på **OK**.

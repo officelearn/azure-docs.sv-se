@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 3d187851fda9054bbfbae245ef34440b66ad017e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: bd760fca20a602127e7d33913547dcb2c6bc95f6
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309323"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351575"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream Azure diagnostikloggar till Log Analytics
 
@@ -100,6 +100,39 @@ Den `--resource-group` argumentet är bara krävs om `--workspace` är inte ett 
 ## <a name="how-do-i-query-the-data-in-log-analytics"></a>Hur jag för att fråga data i Log Analytics?
 
 På bladet Loggsökning i portalen eller Advanced Analytics-upplevelse som en del av Log Analytics kan du fråga diagnostikloggar som en del av Log Management-lösningen under tabellen AzureDiagnostics. Det finns även [flera lösningar för Azure-resurser](../../azure-monitor/insights/solutions.md) du kan installera för att få omedelbar insyn i loggdata som skickas till Log Analytics.
+
+### <a name="known-limitation-column-limit-in-azurediagnostics"></a>Känd begränsning: kolumngräns i AzureDiagnostics
+Eftersom många resurser skicka datatyper skickas till samma tabell (_AzureDiagnostics_), schemat för den här tabellen är en uppsättning scheman för alla de olika datatyper som samlas in. Till exempel om du har skapat diagnostikinställningar för insamling av följande datatyper som alla skickas till samma arbetsyta:
+- Granska loggar på resurs-1 (med ett schema som består av kolumnerna A, B och C)  
+- Felloggar resurs 2 (med ett schema som består av kolumnerna D, E och F)  
+- Data flödesloggar Resource 3 (med ett schema som består av kolumnerna G, H och jag)  
+ 
+Tabellen AzureDiagnostics ut enligt följande, med lite exempeldata:  
+ 
+| ResourceProvider | Kategori | A | B | C | D | E | F | G | H | I |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
+| Microsoft.Resource2 | Felvillkoren | | | | q1 | W1 | e1 |
+| Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
+| Microsoft.Resource2 | Felvillkoren | | | | q2 | w2 | e2 |
+| Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
+| Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
+| ... |
+ 
+Det finns en explicit gräns för alla angivna Azure logganalys-tabellen som inte har fler än 500 kolumner. När detta uppnåtts kommer att tas bort alla rader som innehåller data med valfri kolumn utanför de första 500 vid inmatning tidpunkt. Tabellen AzureDiagnostics är särskilt sårbara påverkas om du vill att den här gränsen. Detta sker vanligtvis antingen eftersom en stor mängd datakällor som ska skickas till samma arbetsyta, eller flera mycket utförlig datakällor som skickas till samma arbetsyta. 
+ 
+#### <a name="azure-data-factory"></a>Azure Data Factory  
+Azure Data Factory, på grund av en mycket detaljerad uppsättning med loggar, är en resurs som du känner till särskilt påverkas av den här gränsen. Särskilt:  
+- *Användarparametrar som definierats mot alla aktiviteter i din pipeline*: det blir en ny kolumn som skapats för varje unikt med namnet user-parameter mot alla aktiviteter. 
+- *Aktivitetens indata och utdata*: dessa variera aktivitet till aktiviteten och generera en stor mängd kolumner på grund av deras utförlig natur. 
+ 
+Som med bredare lösning förslagen nedan, rekommenderas att isolera ADF loggar i deras egen arbetsyta för att minimera risken för de här loggarna som påverkar andra loggtyper som samlas in i dina arbetsytor. Vi räknar med att du har samlat ihop loggar för Azure Data Factory tillgängligt genom mitten April 2019.
+ 
+#### <a name="workarounds"></a>Lösningar
+Kort sikt, tills den 500 kolumngräns omdefinieras, rekommenderar vi att du separera utförlig datatyper i olika arbetsytor att minska risken att du nått gränsen.
+ 
+Långsiktiga Azure Diagnostics kommer rör sig från en enhetlig, null-optimerade schemat till enskilda tabeller per varje datatypen. tillsammans med stöd för dynamisk typer ger förbättrar detta avsevärt användbarheten av data som kommer in Azure loggar via Azure Diagnostics-mekanism. Du kan redan se detta för väljer Azure-resurstyper, till exempel [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) eller [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) loggar. Håll utkik efter nyheter om nya resurstyper i Azure som stöd för dessa granskad loggar på den [Azure uppdaterar](https://azure.microsoft.com/updates/) blogg!
+
 
 ## <a name="next-steps"></a>Nästa steg
 

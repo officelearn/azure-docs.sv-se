@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
-ms.openlocfilehash: 34076b790a91b1c0e9d8bee224423aab0db7c8f3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6f878e05255be8f65868d8d1dcdbacb3ccfa2729
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891815"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369946"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Säker åtkomst i Azure Logic Apps
 
@@ -34,7 +34,7 @@ Här följer element i din logikapp där du kan skydda åtkomst:
 När logikappen använder en HTTP-begäran-baserade utlösare, till exempel den [begäran](../connectors/connectors-native-reqres.md) eller [Webhook](../connectors/connectors-native-webhook.md) utlösare, du kan begränsa åtkomst så att endast auktoriserade klienter kan börja din logikapp. Alla begäranden som tas emot av en logikapp krypteras och skyddas med Secure Sockets Layer (SSL)-protokollet. Här finns olika sätt som du kan skydda åtkomst till den här utlösartypen:
 
 * [Skapa signaturer för delad åtkomst](#sas)
-* [Begränsa inkommande IP-adresser](#restrict-incoming-IP)
+* [Begränsa inkommande IP-adresser](#restrict-incoming-ip-addresses)
 * [Lägg till Azure Active Directory, OAuth eller andra](#add-authentication)
 
 <a name="sas"></a>

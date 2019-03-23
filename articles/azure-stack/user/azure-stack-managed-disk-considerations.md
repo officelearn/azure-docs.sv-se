@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: c1a0e77f98d269185bc065c86a367c3ed6519fb5
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 28210048cd007fc10dcd4cf5e92577cbd121e2a3
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961983"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368280"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack Managed Disks: skillnader och överväganden
 
@@ -134,13 +134,27 @@ Azure Stack-stöder *hanteras avbildningar*, vilka aktivera du att skapa en hant
 - Du har generaliserats ohanterade virtuella datorer och vill använda hanterade diskar framöver.
 - Du har en generaliserad hanterad virtuell dator och vill skapa flera, liknande hanterade virtuella datorer.
 
-### <a name="migrate-unmanaged-vms-to-managed-disks"></a>Migrera ohanterade virtuella datorer till managed disks
+### <a name="step-1-generalize-the-vm"></a>Steg 1: Generalisera den virtuella datorn
+För Windows, se ”Generalize Windows VM med hjälp av Sysprep” avsnitt här: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep Följ steg 1 för Linux, här: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm 
+
+Obs! Glöm inte att generalisera den virtuella datorn. Skapa en virtuell dator från en avbildning som inte har generaliserats korrekt leder till ett VMProvisioningTimeout-fel.
+
+### <a name="step-2-create-the-managed-image"></a>Steg 2: Skapa hanterad avbildning
+Du kan använda portalen, powershell eller cli för att göra detta. Följ Azure dokumentet här: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource
+
+### <a name="step-3-choose-the-use-case"></a>Steg 3: Välj användningsfallet:
+#### <a name="case-1-migrate-unmanaged-vms-to-managed-disks"></a>Fall 1: Migrera ohanterade virtuella datorer till managed disks
+Glöm inte att generalisera den virtuella datorn korrekt innan du gör det här steget. Publicera kan generalisering, den här virtuella datorn inte använda information. Skapa en virtuell dator från en avbildning som inte har generaliserats korrekt leder till ett VMProvisioningTimeout-fel. 
 
 Följ instruktionerna [här](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) att skapa en hanterad avbildning från en generaliserad virtuell Hårddisk i ett lagringskonto. Den här avbildningen kan användas för att skapa hanterade virtuella datorer framöver.
 
-### <a name="create-managed-image-from-vm"></a>Skapa en hanterad avbildning från virtuell dator
+#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>Fall 2: Skapa hanterade virtuella datorn från hanterad avbildning med hjälp av Powershell
 
 När du har skapat en avbildning från en befintlig hanterad disk i virtuell dator med hjälp av skriptet [här](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell) , följande exempelskript skapar en liknande Linux VM från ett befintligt bildobjekt:
+
+Azure Stack powershell-modul 1.7.0 eller senare: Följ instruktionerna [här](../../virtual-machines/windows/create-vm-generalized-managed.md) 
+
+Azure Stack powershell-modul 1.6.0 eller senare eller nedan:
 
 ```powershell
 # Variables for common values
@@ -191,7 +205,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-Mer information finns i Azure hanteras bild artiklar [skapa en hanterad avbildning av en generaliserad virtuell dator i Azure](../../virtual-machines/windows/capture-image-resource.md) och [skapa en virtuell dator från en hanterad avbildning](../../virtual-machines/windows/create-vm-generalized-managed.md).
+Du kan också använda portalen för att skapa en virtuell dator från en hanterad avbildning. Mer information finns i Azure hanteras bild artiklar [skapa en hanterad avbildning av en generaliserad virtuell dator i Azure](../../virtual-machines/windows/capture-image-resource.md) och [skapa en virtuell dator från en hanterad avbildning](../../virtual-machines/windows/create-vm-generalized-managed.md).
 
 ## <a name="configuration"></a>Konfiguration
 

@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 03/21/2019
 ms.author: danlep
-ms.openlocfilehash: b254adb050aa9826170c0849c3811380db6d9b38
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: ef34985e7897aa751275231a28c6031d6c9747b0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321041"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369984"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Köra behållarbaserade uppgifter med principer för omstart
 
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Kör till exempel för slutförande
 
-Om du vill se omstartsprincip i praktiken skapar en behållarinstans från den [microsoft/aci-wordcount] [ aci-wordcount-image] bild och ange den `OnFailure` omstartsprincip. Den här behållaren exempel körs ett Python-skript som standard, analyserar du texten i Shakespeare's [samhälle](http://shakespeare.mit.edu/hamlet/full.html)skriver de 10 vanligaste ord till STDOUT och sedan avslutas.
+Om du vill se omstartsprincip i praktiken skapar en behållarinstans från Microsofts [aci wordcount] [ aci-wordcount-image] bild och ange den `OnFailure` omstartsprincip. Den här behållaren exempel körs ett Python-skript som standard, analyserar du texten i Shakespeare's [samhälle](http://shakespeare.mit.edu/hamlet/full.html)skriver de 10 vanligaste ord till STDOUT och sedan avslutas.
 
 Kör exemplet behållaren med följande [az container skapa] [ az-container-create] kommando:
 
@@ -54,7 +54,7 @@ Kör exemplet behållaren med följande [az container skapa] [ az-container-crea
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure
 ```
 
@@ -129,7 +129,7 @@ Du kan till exempel ändra beteendet för skriptet i behållaren exempel genom a
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer2 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables NumWords=5 MinLength=8
 ```
@@ -164,7 +164,7 @@ Till exempel för att fastställa topp 3 femsiffrig orden i *Romeo och Juliet*:
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer3 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables NumWords=3 MinLength=5 \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
@@ -189,7 +189,7 @@ Utdata:
 Mer information om hur du bevarar utdata för dina behållare att slutföras finns [montera en Azure-filresurs med Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 
 <!-- LINKS - External -->
-[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
+[aci-wordcount-image]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create

@@ -8,14 +8,15 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: f7bfb4f403104bb91fb1a9ba4b70cb164e0738b4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e9b562cb04bb8916245d9df7b9b6d526bd443a24
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113307"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352144"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
+
 Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inklusive diagram dem i portalen, få åtkomst till dem via REST API eller frågor till dem med PowerShell eller CLI. Nedan visas en fullständig lista över alla mått som är tillgänglig med Azure Monitor mått pipeline. Andra mått kan finnas i portalen eller med äldre API: er. Listan nedan innehåller endast mått som är tillgängliga med hjälp av konsoliderade pipelinen för Azure Monitor-mått. Fråga efter och komma åt de här måtten Använd den [2018-01-01 api-versionen](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 
 > [!NOTE]
@@ -660,7 +661,6 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 | MetadataRequests |    Metadata Requests   |Antal| Antal   | Antalet metadataförfrågningar. Azure Cosmos DB upprätthåller samling för varje konto, där du kan räkna upp samlingar, databaser osv och konfigurationer, utan kostnad.    | DatabaseName, CollectionName, Region, StatusCode| Alla|  |Används för att övervaka begränsningar på grund av metadataförfrågningar.|
 | MongoRequests |   Mongo-begäranden| Antal | Antal|  Antal Mongo-begäranden gjorda   | DatabaseName, CollectionName, Region, CommandName, ErrorCode| Alla |Mongo Query Request Rate, Mongo Update Request Rate, Mongo Delete Request Rate, Mongo Insert Request Rate, Mongo Count Request Rate|   Används för att övervaka Mongo begäran fel, skriver du användningar per kommando. |
 
-
 ### <a name="request-unit-metrics"></a>Begär enhetsmått
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner| Tid Precision| Äldre mått mappning | Användning |
@@ -673,7 +673,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner| Tid Precision| Äldre mått mappning | Användning |
 |---|---|---|---|---|---| ---| ---| ---|
-| AvailableStorage| Tillgängligt lagringsutrymme   |Byte| Totalt|  Totalt tillgängligt lagringsutrymme per 5 minuter kornighet per region|   DatabaseName, samlingsnamn, Region|   5M| Tillgängligt lagringsutrymme|   Används för att övervaka tillgängligt lagringsutrymme kapacitet (gäller endast för fast storage samlingar) lägsta Granulariteten bör vara 5 minuter.| 
+| AvailableStorage| Tillgängligt lagringsutrymme   |Byte| Totalt|  Totalt tillgängligt lagringsutrymme per 5 minuter kornighet per region|   DatabaseName, samlingsnamn, Region|   5M| Tillgängligt lagringsutrymme|   Används för att övervaka tillgängligt lagringsutrymme kapacitet (gäller endast för fast storage samlingar) lägsta Granulariteten bör vara 5 minuter.|
 | DataUsage |Dataanvändning |Byte| Totalt   |Total dataanvändning rapporteras med 5 minuter Precision per region|    DatabaseName, samlingsnamn, Region|   5M  |Datastorlek  | Används för att övervaka total dataanvändning vid insamling och region, bör lägsta Granulariteten vara 5 minuter.|
 | IndexUsage|   Index användning|    Byte|  Totalt   |Total användning för Index rapporteras med 5 minuter Precision per region|    DatabaseName, samlingsnamn, Region|   5M| Indexstorlek| Används för att övervaka total dataanvändning vid insamling och region, bör lägsta Granulariteten vara 5 minuter. |
 | DocumentQuota|    Dokumentet kvot| Byte|  Totalt|  Totala lagringskvoten rapporterade med 5 minuter Precision per region. Gäller för fast storage samlingar| DatabaseName, samlingsnamn, Region|   5M  |Lagringskapacitet|  Används för att övervaka totala kvoten för insamling och region, bör lägsta Granulariteten vara 5 minuter.|
@@ -749,7 +749,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |Storlek|Storlek (förhandsversion)|Byte|Medel|Storlek på en EventHub i byte. (Förhandsversion)|EntityName|
 |INREQS|Inkommande förfrågningar|Antal|Totalt|Totat antal inkommande sändningsförfrågningar för ett namnområde|Inga dimensioner|
 |SUCCREQ|Slutförda förfrågningar|Antal|Totalt|Totalt antal slutförda begäranden för ett namnområde|Inga dimensioner|
-|FAILREQ|Misslyckade förfrågningar|Antal|Totalt|Totalt antal misslyckade begäranden för ett namnområde|Inga dimensioner|
+|FAILREQ|Misslyckade begäranden|Antal|Totalt|Totalt antal misslyckade begäranden för ett namnområde|Inga dimensioner|
 |SVRBSY|Upptagen server|Antal|Totalt|Totalt antal fel med upptagen server för ett namnområde|Inga dimensioner|
 |INTERR|Interna serverfel|Antal|Totalt|Totalt antal interna serverfel för ett namnområde|Inga dimensioner|
 |MISCERR|Övriga fel|Antal|Totalt|Totalt antal misslyckade begäranden för ett namnområde|Inga dimensioner|
@@ -805,6 +805,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |ScaleActionsInitiated|Skalningsåtgärder har initierats|Antal|Totalt|Riktningen på skalningsåtgärden.|ScaleDirection|
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
+
 (Förhandsversion)
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
@@ -1014,7 +1015,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |UnhealthyHostCount|Defekt antal värdar per Backendpool|Antal|Medel|Antalet felaktiga backend-värdar|BackendSettingsPool|
 |HealthyHostCount|Felfri värd-antal|Antal|Medel|Antalet felfri backend-värdar|BackendSettingsPool|
 |TotalRequests|Totalt antal förfrågningar|Antal|Totalt|Antal lyckade begäranden som Application Gateway har hämtats|BackendSettingsPool|
-|FailedRequests|Misslyckade förfrågningar|Antal|Totalt|Antal misslyckade begäranden som Application Gateway har hämtats|BackendSettingsPool|
+|FailedRequests|Misslyckade begäranden|Antal|Totalt|Antal misslyckade begäranden som Application Gateway har hämtats|BackendSettingsPool|
 |ResponseStatus|Svarsstatus|Antal|Totalt|HTTP-svarsstatus som returneras av Application Gateway|HttpStatusGroup|
 |CurrentConnections|Aktuella anslutningar|Antal|Totalt|Antal aktuella anslutningar som upprättats via Application Gateway|Inga dimensioner|
 
@@ -1223,7 +1224,6 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |Pulsslag|Pulsslag|Antal|Totalt|Pulsslag|Computer, OSType, Version, SourceComputerId|
 |Uppdatering|Uppdatering|Antal|Medel|Uppdatering|Dator, produkt, klassificering, UpdateState, valfritt, godkända|
 |Händelse|Händelse|Antal|Medel|Händelse|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
-
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 
@@ -1608,7 +1608,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |MemoryPercentage|Minnesprocent|Procent|Medel|Minnesprocent|Instans|
 
 ## <a name="next-steps"></a>Nästa steg
+
 * [Läs mer om mätvärden i Azure Monitor](../../azure-monitor/platform/data-collection.md)
 * [Skapa aviseringar för mått](../../azure-monitor/platform/alerts-overview.md)
 * [Exportera mått till lagring, Event Hub eller Log Analytics](../../azure-monitor/platform/diagnostic-logs-overview.md)
-

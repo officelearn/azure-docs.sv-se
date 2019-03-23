@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/18/2019
+ms.date: 03/22/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 859f0d168dcf1cc999f79ef22b5ba6669da79593
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: e7ab09522184f5c2d1c5168b24b2948f58e5189e
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189572"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368977"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximera radgrupps kvalitet för columnstore
 
@@ -67,7 +67,7 @@ from cte;
 ```
 
 Trim_reason_desc meddelar om radgrupps har tas bort (trim_reason_desc = NO_TRIM innebär det fanns ingen beskrivande text och radgrupp är av hög kvalitet). Följande trim anger för tidig Trimning av radgrupps:
-- BULKLOAD: Den här trim orsaken används när inkommande batch med rader för arbetsbelastning har mindre än 1 miljon rader. Motorn skapar komprimerade radgrupper om det är större än 100 000 rader infogas (i stället för att infoga i arkivet delta) men anger trim orsaken till BULKLOAD. Överväg att öka belastningen batch fönstret för att ackumuleras fler rader i det här scenariot. Dessutom att omvärdera ditt partitioneringsschema och kontrollera att det inte är för detaljerad eftersom radgrupper inte kan omfatta partitionsgränser.
+- BULKLOAD: Den här trim orsaken används när inkommande batch med rader för arbetsbelastning har mindre än 1 miljon rader. Motorn skapar komprimerade radgrupper om det är större än 100 000 rader infogas (i stället för att infoga i arkivet delta) men anger trim orsaken till BULKLOAD. Överväg att öka dina batch-belastningen för att inkludera fler rader i det här scenariot. Dessutom att omvärdera ditt partitioneringsschema och kontrollera att det inte är för detaljerad eftersom radgrupper inte kan omfatta partitionsgränser.
 - MEMORY_LIMITATION: Om du vill skapa radgrupper med 1 miljon rader, krävs en viss mängd arbetsminne av motorn. När tillgängligt minne på den läser in sessionen är mindre än det nödvändiga arbetsminnet, radgrupper hämta tidigt tas bort. I följande avsnitt beskrivs hur du beräkna minne som krävs och tilldela mer minne.
 - DICTIONARY_SIZE: Därför trim anger att radgrupps trimning inträffat eftersom det inte fanns minst en strängkolumn med bred och/eller hög kardinalitet strängar. Ordlista storlek är begränsad till 16 MB i minnet och komprimeras när den här gränsen har nåtts i radgrupp. Om du kör i den här situationen, Överväg att isolera den problematiska kolumnen i en separat tabell.
 

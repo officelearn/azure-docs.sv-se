@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2f5d623c23f2d3dd661f725a8d7999bfbd28377
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 58cfac56af9074e065431f6adbd44496adc7c7a6
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314544"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369691"
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>Komma igång med Azure Multi-Factor Authentication och Active Directory Federation Services
 
 <center>
 
-![Molnet](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
+![Azure MFA och AD FS komma igång](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 Om din organisation har federerat det lokala Active Directory med Azure Active Directory med hjälp av AD FS finns det två Azure Multi-Factor Authentication-alternativ tillgängliga.
 

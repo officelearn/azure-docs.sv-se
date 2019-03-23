@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05c537b061619aa458663a9dcfcc97155d8a6614
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 59663346fce415d73609f09345048ff321f1a234
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106805"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359841"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Arbeta med anpassade domäner i Azure AD Application Proxy
 
@@ -60,7 +60,8 @@ När du har dessa tre krav som är redo, följer du dessa steg för att konfigur
 
 6. Ladda upp PFX-certifikatet och ange lösenordet för certifikatet. 
 7. Välj **spara** att spara dina ändringar. 
-8. Lägg till en [DNS-post](../../dns/dns-operations-recordsets-portal.md) som omdirigerar den nya externa URL: en till domänen msappproxy.net. 
+8. Lägg till en [DNS-post](../../dns/dns-operations-recordsets-portal.md) som omdirigerar den nya externa URL: en till domänen msappproxy.net.
+9. Kontrollera att DNS-posten har konfigurerats korrekt genom att använda den [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) kommando för att se om din externa URL: en kan nås och msapproxy.net domänen som visas som ett alias.
 
 >[!TIP] 
 >Du behöver bara ladda upp ett certifikat per egen domän. När du överför ett certifikat, kan du välja den anpassade domänen när du publicerar en ny app och inte behöver göra ytterligare konfigurationsinställningar förutom DNS-posten. 

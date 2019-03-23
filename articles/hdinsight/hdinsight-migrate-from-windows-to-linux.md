@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: ea808609add942c5cac36e7f0306e4a27ac3bb3a
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 02f698d531555aa9b5498060918a2a361b28817e
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743654"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361259"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migrera från ett Windows-baserade HDInsight-kluster till ett Linux-baserade kluster
 
@@ -24,6 +24,8 @@ Medan Windows-baserade HDInsight ger ett enkelt sätt att använda Apache Hadoop
 
 > [!NOTE]  
 > HDInsight-kluster använder långsiktigt stöd för Ubuntu (LTS) som operativsystem för noderna i klustret. Information om versionen av Ubuntu som är tillgängliga med HDInsight, tillsammans med annan information för versionshantering av komponenten finns [HDInsight komponenten versioner](hdinsight-component-versioning.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="migration-tasks"></a>Migreringsåtgärder
 
@@ -63,7 +65,7 @@ Använd följande steg för att kopiera data från produktionskluster till test-
 
     ```powershell
     $clusterName="Your existing HDInsight cluster name"
-    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+    $clusterInfo = Get-AzHDInsightCluster -ClusterName $clusterName
     write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
     write-host "Default container: $clusterInfo.DefaultStorageContainer"
     ```
@@ -93,7 +95,7 @@ Använd följande steg för att kopiera data från produktionskluster till test-
 
 #### <a name="direct-copy-between-blobs-in-azure-storage"></a>Direct kopiering mellan blobar i Azure Storage
 
-Alternativt kan du använda den `Start-AzureStorageBlobCopy` Azure PowerShell-cmdlet för att kopiera BLOB-objekt mellan lagringskonton utanför HDInsight. Mer information finns i hur du hanterar Azure Blobs-avsnittet i med hjälp av Azure PowerShell med Azure Storage.
+Alternativt kan du använda den `Start-AzStorageBlobCopy` Azure PowerShell-cmdlet för att kopiera BLOB-objekt mellan lagringskonton utanför HDInsight. Mer information finns i hur du hanterar Azure Blobs-avsnittet i med hjälp av Azure PowerShell med Azure Storage.
 
 ## <a name="client-side-technologies"></a>Klientsidan tekniker
 
@@ -195,7 +197,7 @@ Följande diagram innehåller råd om hur du migrerar dina Hive-arbetsbelastning
 
 | På Windows-baserade, jag använder... | På Linux-baserade... |
 | --- | --- |
-| **Hive-redigeraren** |[Apache Hive-vyn i Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md) |
+| **Hive Editor** |[Apache Hive-vyn i Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md) |
 | `set hive.execution.engine=tez;` Aktivera Tez |Apache Tez är standard-motorn för körning för Linux-baserade kluster så set-instruktionen är inte längre behövs. |
 | C#-användardefinierade funktioner | Information om hur du verifierar C#-komponenter med Linux-baserat HDInsight finns i [migrera .NET-lösningar till Linux-baserat HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD-filer eller skript på den server som anropas som en del av ett Hive-jobb |Använd Bash-skript |

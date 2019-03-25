@@ -1,0 +1,69 @@
+items:
+- name: Dokumentation om Scheduler
+  href: index.md
+- name: Översikt
+  items:
+  - name: Vad är Azure Scheduler?
+    href: scheduler-intro.md
+- name: Kom igång
+  items:
+  - name: Skapa och hantera jobb – portalen
+    href: scheduler-get-started-portal.md
+  - name: Migrera från Scheduler till Logic Apps
+    href: migrate-from-scheduler-to-logic-apps.md
+- name: Begrepp
+  items:
+  - name: Begrepp, terminologi och enheter
+    href: scheduler-concepts-terms.md
+- name: Instruktionsguider
+  items:
+  - name: Planera och designa
+    items:
+    - name: Planer och fakturering
+      href: scheduler-plans-billing.md
+    - name: Gränser, kvoter och standardvärden
+      href: scheduler-limits-defaults-errors.md
+    - name: Hög tillgänglighet och tillförlitlighet
+      href: scheduler-high-availability-reliability.md
+  - name: Utveckla
+    items:
+    - name: Skapa komplexa scheman och avancerad upprepning
+      href: scheduler-advanced-complexity.md
+    - name: Skapa och hantera scheman – Azure PowerShell
+      href: scheduler-powershell-reference.md
+  - name: Skydda
+    items:
+    - name: Autentisera utgående anrop
+      href: scheduler-outbound-authentication.md
+- name: Referens
+  items:
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.scheduler
+  - name: REST-API
+    href: /rest/api/scheduler
+  - name: Resource Manager-mall
+    href: /azure/templates/microsoft.scheduler/allversions
+- name: Resurser
+  items:
+  - name: Azure Scheduler-översikt
+    href: https://azure.microsoft.com/updates/?product=scheduler
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/updates/
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-scheduler
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/scheduler/
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Tjänstuppdateringar
+    href: https://azure.microsoft.com/updates/?product=scheduler
+  - name: Videoklipp
+    href: https://azure.microsoft.com/documentation/videos/index/?services=scheduler
+ms.openlocfilehash: fa4c53b0061f9ef23f8086cdcd6bcc73fc55986c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341483"

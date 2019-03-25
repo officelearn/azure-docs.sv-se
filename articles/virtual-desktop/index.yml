@@ -1,0 +1,47 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 06b95c24914574a2aea59c6c597e3d9b3d5097cc
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318743"
+documentType: LandingData
+title: Dokumentation om Windows Virtual Desktop
+metadata:
+  title: Dokumentation om Windows Virtual Desktop – Självstudier, snabbstarter, API-referenser | Microsoft Docs
+  description: Windows Virtual Desktop för Azure är en Windows 10 Enterprise-upplevelse för flera användare som är virtualiserad i molnet.
+  author: Heidilohr
+  manager: dansimp
+  ms.service: virtual-desktop
+  services: virtual-desktop
+  ms.topic: landing-page
+  ms.date: 02/20/2019
+  ms.author: helohr
+abstract:
+  description: Leverera en virtuell datorupplevelse och fjärrappar till valfri enhet. Sammanför Microsoft 365 och Azure för att ge användarna den enda Windows 10-upplevelsen med flera sessioner – med utomordentlig skala och minskade IT-kostnader.
+sections:
+- title: Översikt
+  items:
+  - type: paragraph
+    text: Läs mer om Windows Virtual Desktop och hur den används. Med hjälp av självstudier, instruktioner, referensinnehåll och mer får du lära dig att konfigurera värdpooler och klientorganisationer samt tilldela roller till användare i din Windows Virtual Desktop-miljö.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/virtual-desktop/overview">Vad är Windows Virtual Desktop? (Förhandsversion)</a>
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: Lär dig hur du installerar och konfigurerar Windows Virtual Desktop och hur du ansluter till klienten när du är klar.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Skapa en klientorganisation i Windows Virtual Desktop</a>
+    - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Skapa en värdpool med Azure Marketplace</a>
+    - html: <a href="/azure/virtual-desktop/manage-app-groups">Hantera appgrupper för Windows Virtual Desktop</a>
+    - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">Skapa tjänstens huvudnamn och rolltilldelningar med PowerShell</a>
+- title: Referens
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell (förhandsversion)</a>

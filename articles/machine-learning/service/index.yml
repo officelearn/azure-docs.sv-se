@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b7765fc5506129cdf594ef3fd0424f8771de5ef4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: a97c11b49574d0014ea7fa97f42420b22f9568d7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651676"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371164"
 documentType: LandingData
 title: Dokumentation om Azure Machine Learning-tjänsten
 metadata:
@@ -36,12 +36,12 @@ sections:
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: 'Om du vill använda den här tjänsten behöver du en arbetsyta och associerade resurser.  Kom igång med:'
+    text: 'När du har  <a href="setup-create-workspace">skapat en arbetsyta</a> för Azure Machine Learning Service kan du komma igång med hjälp av dessa snabbstarter:'
   - type: list
     style: unordered
     items:
-    - html: '<a href="quickstart-get-started">snabbstarten för Azure-portalen</a>: hämta en arbetsyta och kör experiment utan att installera något.'
-    - html: '<a href="quickstart-create-workspace-with-python">snabbstarten för Python</a>: installera huvudsaklig SDK, skapa en arbetsyta och kör ett experiment i en lokal notebook-server.'
+    - html: <a href="quickstart-run-cloud-notebook">Köra ett experiment i molnet</a> (ingen installation krävs).
+    - html: <a href="quickstart-run-local-notebook">Köra ett experiment med hjälp av en lokal notebook-server</a> (installation av lokal SDK).
 - title: Steg för steg-självstudier
   items:
   - type: paragraph

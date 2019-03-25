@@ -1,0 +1,29 @@
+items:
+- name: Skapa en supportbegäran för Azure
+  href: how-to-create-azure-support-request.md
+- name: Ladda upp filer för en supportbegäran
+  href: how-to-use-file-uploader.md
+- name: Åtkomsträttigheter för att skapa och hantera supportbegäranden
+  href: create-manage-support-requests-using-access-control.md
+- name: Begäranden om att öka kvoten
+  href: resource-manager-core-quotas-request.md
+- name: Felsökningsregion eller problem med SKU-prenumeration
+  href: sku-series-unavailable.md
+- name: Referens
+  items:
+  - name: Azure CLI
+    href: /cli/azure
+  - name: Azure PowerShell
+    href: /powershell/azure
+- name: Resurser
+  items:
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+ms.openlocfilehash: 31120ea857d0e080bc9629d781ac2cdd73d31bc0
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340922"

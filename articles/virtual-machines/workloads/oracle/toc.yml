@@ -1,0 +1,35 @@
+items:
+- name: Översikt
+  items:
+  - name: Överväganden för virtuella Oracle-datorer
+    href: oracle-considerations.md
+- name: Snabbstarter
+  items:
+  - name: Skapa en Oracle-databas
+    href: oracle-database-quick-create.md
+- name: Självstudier
+  items:
+  - name: Konfigurera Oracle ASM
+    href: configure-oracle-asm.md
+  - name: Konfigurera Oracle DataGuard
+    href: configure-oracle-dataguard.md
+  - name: Konfigurera Oracle GoldenGate
+    href: configure-oracle-golden-gate.md
+- name: Begrepp
+  items:
+  - name: Skapa en Oracle-databas
+    href: oracle-design.md
+  - name: Säkerhetskopieringsstrategi för Oracle-databas
+    href: oracle-backup-recovery.md
+  - name: Haveriberedskapsalternativ för Oracle
+    href: oracle-disaster-recovery.md
+- name: Resurser
+  items:
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
+ms.openlocfilehash: 9c8aba887e728904aed51d3db2db5bb02c03d7b8
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340616"

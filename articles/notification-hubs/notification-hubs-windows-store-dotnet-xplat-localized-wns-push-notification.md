@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: b4f308e7053e000115f22abd291d934d90c11a94
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f3880db813072ca0bcecf073a8db24b21c87189f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57837600"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402721"
 ---
 # <a name="tutorial-push-localized-notifications-to-windows-apps-by-using-azure-notification-hubs"></a>Självstudier: Skicka lokaliserade meddelanden till Windows-appar med hjälp av Azure Notification Hubs
 
@@ -116,7 +116,7 @@ Mer information om mallar finns i avsnittet om [push-mallar](notification-hubs-t
     {
         ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
         ApplicationData.Current.LocalSettings.Values["locale"] = locale;
-        return await SubscribeToCategories(categories);
+        return await SubscribeToCategories(locale, categories);
     }
 
     public async Task<Registration> SubscribeToCategories(string locale, IEnumerable<string> categories = null)
@@ -190,7 +190,21 @@ Mer information om mallar finns i avsnittet om [push-mallar](notification-hubs-t
     }
     ```
 
-## <a name="send-localized-notifications-from-your-back-end"></a>Skicka lokaliserade meddelanden från serverdelen
+
+
+## <a name="run-the-uwp-application"></a>Kör UWP-appen
+
+1. Kör Universal Windows Platform-programmet. Vänta tills du ser meddelandet **Registreringen lyckades**.
+
+    ![Mobilprogram och registrering](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
+2. Välj **kategorier** och **språk** och klicka på **Prenumerera**. Appen konverterar de valda kategorierna till taggar och begär en ny enhetsregistrering för de valda taggarna från meddelandehubben.
+
+    ![Mobilprogram](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/mobile-app.png)
+3. En **bekräftelse** om **prenumerationerna** visas.
+
+    ![Prenumerationsmeddelande](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
+
+## <a name="update-console-app-to-send-localized-notifications"></a>Uppdatera konsolapp för att skicka lokaliserade meddelanden
 
 När du skickar mallmeddelanden behöver du bara ange en uppsättning egenskaper. I den här självstudiekursen skickar serverdelsprogrammet en uppsättning egenskaper som innehåller den lokaliserade versionen av senaste nytt:
 
@@ -243,20 +257,10 @@ private static async void SendTemplateNotificationAsync()
 
 Detta enkla anrop levererar de lokaliserade nyheterna till **alla** enheter, oavsett plattform, eftersom din meddelandehubb skapar och levererar korrekt intern nyttolast för alla enheter som prenumererar på en specifik tagg.
 
-## <a name="test-the-app"></a>Testa appen
+## <a name="run-console-app-to-send-localized-notification"></a>Kör konsolappen för att skicka lokaliserade meddelanden
+Kör den **konsolapp** att skicka meddelanden för varje kategori och i varje språk som stöds. Kontrollera att du bara får ett meddelande i de kategorier som du prenumererar på och meddelandet gäller för det språk du valt.
 
-1. Kör Universal Windows Store-programmet. Vänta tills du ser meddelandet **Registreringen lyckades**.
-
-    ![Mobilprogram och registrering](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
-2. Välj **kategorier** och **språk** och klicka på **Prenumerera**. Appen konverterar de valda kategorierna till taggar och begär en ny enhetsregistrering för de valda taggarna från meddelandehubben.
-
-    ![Mobilprogram](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/mobile-app.png)
-3. En **bekräftelse** om **prenumerationerna** visas.
-
-    ![Prenumerationsmeddelande](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
-4. När du tagit emot en bekräftelse kör du **konsolappen** för att skicka meddelanden för varje kategori och i varje språk som stöds. Kontrollera att du bara får ett meddelande i de kategorier som du prenumererar på och meddelandet gäller för det språk du valt.
-
-    ![Meddelanden](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
+![Meddelanden](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,0 +1,474 @@
+items:
+- name: Dokumentation om Azure Marketplace och AppSource
+  href: index.md
+  items:
+  - name: Översikt över Azure Marketplace och AppSource
+    href: ./marketplace-roadmap.md
+  - name: Policyer och villkor för Azure Marketplace
+    href: ./policies-terms.md
+  - name: Översikt och fördelar med Azure Marketplace och AppSource
+    href: ./marketplace-publishers-guide.md
+    items:
+    - name: Publicera på marknadsplatsen
+      href: ./become-publisher.md
+      items:
+      - name: Skapa ett Microsoft-konto
+        href: ./guidelines.md
+      - name: Registrera i Dev Center
+        href: ./register-dev-center.md
+      - name: Spårning av kundanvändning för Azure-partner
+        href: ./azure-partner-customer-usage-attribution.md
+    - name: En marknadsplats, två butiker
+      href: ./comparing-appsource-azure-marketplace.md
+    - name: Publiceringsalternativ och överväganden
+      href: ./determine-your-listing-type.md
+      items:
+      - name: Leadhantering
+        href: ./lead-management-for-cloud-marketplace.md
+      - name: Transaktioner på Azure Marketplace
+        href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
+      - name: Privata erbjudanden
+        href: ./private-offers.md
+      - name: Standardavtal
+        href: ./standard-contract.md
+    - name: Publiceringsguide efter erbjudandetyp
+      href: ./publisher-guide-by-offer-type.md
+      items:
+      - name: Virtuella datorer
+        href: ./marketplace-virtual-machines.md
+      - name: 'Azure-program: lösningsmallar'
+        href: ./marketplace-solution-templates.md
+      - name: 'Azure-program: hanterade program'
+        href: ./marketplace-managed-apps.md
+      - name: SaaS-appar
+        href: ./marketplace-saas-applications-technical-publishing-guide.md
+      - name: Containrar
+        href: ./marketplace-containers.md
+      - name: IoT Edge-moduler
+        href: ./iot-edge-module.md
+      - name: Konsulttjänst
+        href: ./consulting-services.md
+      - name: Publiceringsguide för Office 365, Dynamics 365 och Power BI
+        href: ./appsource-offer-publishing-guide.md
+      - name: Aktivera en AppSource- och Marketplace-lista genom att använda Azure Active Directory
+        href: ./enable-appsource-marketplace-using-azure-ad.md
+    - name: Metodtips för marknadsföring
+      href: ./gtm-marketing-best-practices.md
+      items:
+      - name: Metodtips för erbjudandelistor
+        href: ./gtm-offer-listing-best-practices.md
+      - name: Så här gör du för att sticka ut i mängden
+        href: ./gtm-how-to-get-featured.md
+      - name: Validering av Marketplace-innehåll
+        href: ./marketplace-criteria-content-validation.md
+      - name: Leverantörer av molnlösningar
+        href: ./cloud-solution-providers.md
+    - name: Dina Marketplace-förmåner
+      href: ./gtm-your-marketplace-benefits.md
+      items:
+      - name: Marknadsför din verksamhet med Microsoft
+        href: ./gtm-promote-your-business.md
+      - name: Önskade lösningar
+        href: ./preferred-solutions.md
+      - name: Integrerade lösningar
+        href: ./integrated-solutions.md
+    - name: Support för Azure Marketplace och AppSource
+      href: ./support-azure-marketplace.md
+      items:
+      - name: Vanliga frågor om Marketplace
+        href: ./marketplace-faq-publisher-guide.md
+      - name: Geografisk tillgänglighet och valutor
+        href: ./marketplace-geo-availability-currencies.md
+- name: Partnerportalen i molnet
+  href: ./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md
+  items:
+  - name: Presentation av portalen
+    href: ./cloud-partner-portal/portal-tour/cpp-portal-tour.md
+    items:
+    - name: Navigering i portalen
+      href: ./cloud-partner-portal/portal-tour/cpp-portal-navigation.md
+    - name: Meny för nya erbjudanden
+      href: ./cloud-partner-portal/portal-tour/cpp-new-offer-menu.md
+    - name: Sidan med alla erbjudanden
+      href: ./cloud-partner-portal/portal-tour/cpp-all-offers-page.md
+    - name: Sidan med godkännanden
+      href: ./cloud-partner-portal/portal-tour/cpp-approvals-page.md
+    - name: Sidan med alla utgivare
+      href: ./cloud-partner-portal/portal-tour/cpp-all-publishers-page.md
+    - name: Användarsidan
+      href: ./cloud-partner-portal/portal-tour/cpp-users-page.md
+    - name: Sidan med granskningshistorik
+      href: ./cloud-partner-portal/portal-tour/cpp-history-page.md
+    - name: Sidan med insikter
+      href: ./cloud-partner-portal/portal-tour/cpp-insights-page.md
+  - name: Portalhantering
+    items:
+    - name: Kontoregistrering i Dev Center
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md
+    - name: Hantera utgivarprofil
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md
+    - name: Hantera användare
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md
+  - name: Verksamhetsstyrning
+    items:
+    - name: Riktlinjer för SEO
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md
+    - name: GDPR-efterlevnad
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md
+    - name: Privata SKU:er
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md
+    - name: Överväganden för prissättning
+      items:
+      - name: Förenklad valutaprissättning
+      - name: Information om skatter och priser
+      - name: Prissättning för export/import
+    - name: Hantera leads
+      items:
+      - name: Konfigurera kundleads
+        href: ./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md
+      - name: Azure-tabell
+        href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md
+      - name: Dynamics
+        href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md
+      - name: HTTPS-slutpunkt
+        href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md
+      - name: Marketo
+        href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md
+      - name: Salesforce
+        href: ./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md
+    - name: Säljarinsikter
+      items:
+      - name: Komma igång
+        href: ./cloud-partner-portal-orig/si-getting-started.md
+      - name: Nyheter
+        href: ./cloud-partner-portal-orig/si-changes.md
+      - name: Webbanalys
+        href: ./cloud-partner-portal-orig/web-analytics.md
+      - name: Definitioner
+        href: ./cloud-partner-portal-orig/si-insights-definitions-v4.md
+      - name: Vanliga frågor och svar om Insights
+        href: ./cloud-partner-portal-orig/si-faqs.md
+  - name: Marketplace-erbjudanden
+    href: ./cloud-partner-portal/cpp-marketplace-offers.md
+    items:
+    - name: Hantera erbjudanden
+      href: ./cloud-partner-portal/manage-offers/cpp-manage-offers.md
+      items:
+      - name: Skapa erbjudande
+        href: ./cloud-partner-portal/manage-offers/cpp-create-offer.md
+      - name: Publicera erbjudande
+        href: ./cloud-partner-portal/manage-offers/cpp-publish-offer.md
+      - name: Visa erbjudandestatus
+        href: ./cloud-partner-portal/manage-offers/cpp-view-status-offer.md
+      - name: Uppdatera erbjudande
+        href: ./cloud-partner-portal/manage-offers/cpp-update-offer.md
+      - name: Ta bort erbjudande
+        href: ./cloud-partner-portal/manage-offers/cpp-delete-offer.md
+    - name: Test Drive
+      items:
+      - name: Vad är Test Drive?
+        href: ./cloud-partner-portal/test-drive/what-is-test-drive.md
+      - name: Azure Resource Manager Test Drive
+        href: ./cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md
+      - name: Värdbaserad Test Drive
+        href: ./cloud-partner-portal/test-drive/hosted-test-drive.md
+      - name: Logikappen Test Drive
+        href: ./cloud-partner-portal/test-drive/logic-app-test-drive.md
+      - name: Omvandla exempel för Test Drive
+        href: ./cloud-partner-portal/test-drive/transforming-examples-for-test-drive.md
+      - name: Marknadsföring och regelverk
+        href: ./cloud-partner-portal/test-drive/marketing-and-best-practices.md
+    - name: Erbjudande för Azure-program
+      href: ./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md
+      items:
+      - name: Nödvändiga komponenter
+        href: ./cloud-partner-portal/azure-applications/cpp-prerequisites.md
+      - name: Skapa ett erbjudande för Azure-program
+        href: ./cloud-partner-portal/azure-applications/cpp-create-offer.md
+        items:
+        - name: Fliken Erbjudandeinställningar
+          href: ./cloud-partner-portal/azure-applications/cpp-offer-settings-tab.md
+        - name: Fliken SKU:er
+          href: ./cloud-partner-portal/azure-applications/cpp-skus-tab.md
+        - name: Fliken Test Drive
+          href: ./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md
+        - name: Fliken Marketplace
+          href: ./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md
+        - name: Fliken Stöd
+          href: ./cloud-partner-portal/azure-applications/cpp-support-tab.md
+      - name: Skapa tekniska tillgångar
+        href: ./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md
+      - name: Publicera ett erbjudande för Azure-program
+        href: ./cloud-partner-portal/azure-applications/cpp-publish-offer.md
+      - name: Hantera feedback från granskning
+        href: ./cloud-partner-portal/azure-applications/cpp-handling-review-feedback.md
+      - name: Uppdatera befintligt erbjudande
+        href: ./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md
+    - name: Konsulttjänster
+      href: ./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md
+      items:
+      - name: Nödvändiga komponenter
+        href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md
+      - name: Skapa ett konsulttjänsterbjudande
+        href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md
+        items:
+        - name: Fliken Erbjudandeinställningar
+          href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-define-offer-settings.md
+        - name: Fliken Butiksinformation
+          href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md
+      - name: Publicera ett konsulttjänsterbjudande
+        href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md
+    - name: Containererbjudande
+      href: ./cloud-partner-portal/containers/cpp-containers-offer.md
+      items:
+      - name: Nödvändiga komponenter
+        href: ./cloud-partner-portal/containers/cpp-prerequisites.md
+      - name: Erbjudande om att skapa containrar
+        href: ./cloud-partner-portal/containers/cpp-create-offer.md
+        items:
+        - name: Fliken Erbjudandeinställningar
+          href: ./cloud-partner-portal/containers/cpp-offer-settings-tab.md
+        - name: Fliken SKU:er
+          href: ./cloud-partner-portal/containers/cpp-skus-tab.md
+        - name: Fliken Marketplace
+          href: ./cloud-partner-portal/containers/cpp-marketplace-tab.md
+        - name: Fliken Stöd
+          href: ./cloud-partner-portal/containers/cpp-support-tab.md
+      - name: Tekniska tillgångar för att skapa containrar
+        href: ./cloud-partner-portal/containers/cpp-create-technical-assets.md
+      - name: Erbjudande om att skapa containrar
+        href: ./cloud-partner-portal/containers/cpp-publish-offer.md
+      - name: Uppdatera befintligt erbjudande
+        href: ./cloud-partner-portal/containers/cpp-update-existing-offer.md
+    - name: Erbjudande för Dynamics 365 for Business Central
+      href: ./cloud-partner-portal-orig/cpp-business-central-offer.md
+      items:
+      - name: Publicera översikt
+        href: ./cloud-partner-portal-orig/d365-finance-overview-publish-your-app.md
+      - name: Skapa nytt erbjudande
+        href: ./cloud-partner-portal-orig/d365-finance-create-new-offer.md
+      - name: Erbjudandeinställningar
+        href: ./cloud-partner-portal-orig/d365-finance-create-offer-settings.md
+      - name: Teknisk information
+        href: ./cloud-partner-portal-orig/d365-finance-create-offer-technical-details.md
+      - name: Butiksinformation
+        href: ./cloud-partner-portal-orig/d365-finance-create-storefront-details.md
+      - name: Publicera process
+        href: ./cloud-partner-portal-orig/d365-finance-app-publishing-process.md
+    - name: Erbjudande för Dynamics 365 for Customer Engagement
+      href: ./cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer.md
+      items:
+      - name: Nödvändiga komponenter
+        href: ./cloud-partner-portal/dyn365ce/cpp-prerequisites.md
+      - name: Skapa Customer Engagement-erbjudande
+        href: ./cloud-partner-portal/dyn365ce/cpp-create-offer.md
+        items:
+        - name: Fliken Erbjudandeinställningar
+          href: ./cloud-partner-portal/dyn365ce/cpp-offer-settings-tab.md
+        - name: Fliken Teknisk information
+          href: ./cloud-partner-portal/dyn365ce/cpp-technical-info-tab.md
+        - name: Fliken Test Drive
+          href: ./cloud-partner-portal/dyn365ce/cpp-testdrive-tab.md
+        - name: Fliken Butiksinformation
+          href: ./cloud-partner-portal/dyn365ce/cpp-storefront-details-tab.md
+        - name: Fliken Kontakter
+          href: ./cloud-partner-portal/dyn365ce/cpp-contacts-tab.md
+      - name: Skapa tekniska tillgångar för Customer Engagement
+        href: ./cloud-partner-portal/dyn365ce/cpp-create-technical-assets.md
+      - name: Publicera Customer Engagement-erbjudande
+        href: ./cloud-partner-portal/dyn365ce/cpp-publish-offer.md
+    - name: Erbjudande för Dynamics 365 for Operations
+      href: ./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md
+      items:
+      - name: Nödvändiga komponenter
+        href: ./cloud-partner-portal-orig/pre-requisites.md
+      - name: Så här publicerar du
+        href: ./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md
+      - name: LCS-prenumeration
+        href: ./cloud-partner-portal-orig/lcs-subscription.md
+      - name: Koduppgradering
+        href: ./cloud-partner-portal-orig/code-upgrade.md
+      - name: Dataentiteter
+        href: ./cloud-partner-portal-orig/data-entities.md
+      - name: BPM och metoder
+        href: ./cloud-partner-portal-orig/bpm-and-methodologies.md
+      - name: Hjälp-wiki
+        href: ./cloud-partner-portal-orig/help-wiki.md
+    - name: Erbjudande för IoT Edge-moduler
+      href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
+      items:
+      - name: Nödvändiga komponenter
+        href: ./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md
+      - name: Skapa erbjudande för IoT Edge-moduler
+        href: ./cloud-partner-portal/iot-edge-module/cpp-create-offer.md
+        items:
+        - name: Fliken Erbjudandeinställningar
+          href: ./cloud-partner-portal/iot-edge-module/cpp-offer-settings-tab.md
+        - name: Fliken SKU:er
+          href: ./cloud-partner-portal/iot-edge-module/cpp-skus-tab.md
+        - name: Fliken Marketplace
+          href: ./cloud-partner-portal/iot-edge-module/cpp-marketplace-tab.md
+        - name: Fliken Stöd
+          href: ./cloud-partner-portal/iot-edge-module/cpp-support-tab.md
+      - name: Skapa tekniska tillgångar för IoT Edge-moduler
+        href: ./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md
+      - name: Publicera erbjudande för IoT Edge-moduler
+        href: ./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md
+      - name: Uppdatera befintligt erbjudande
+        href: ./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md
+    - name: Erbjudande för Power BI-appen
+      href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
+      items:
+      - name: Nödvändiga komponenter
+        href: ./cloud-partner-portal/power-bi/cpp-prerequisites.md
+      - name: Skapa erbjudande för Power BI-appen
+        href: ./cloud-partner-portal/power-bi/cpp-create-offer.md
+        items:
+        - name: Fliken Erbjudandeinställningar
+          href: ./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md
+        - name: Fliken Teknisk information
+          href: ./cloud-partner-portal/power-bi/cpp-technical-info-tab.md
+        - name: Fliken Butiksinformation
+          href: ./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md
+        - name: Fliken Kontakter
+          href: ./cloud-partner-portal/power-bi/cpp-contacts-tab.md
+      - name: Tekniska resurser för att skapa Power BI-appen
+        href: ./cloud-partner-portal/power-bi/cpp-create-technical-assets.md
+      - name: Publicera erbjudande för Power BI-appen
+        href: ./cloud-partner-portal/power-bi/cpp-publish-offer.md
+      - name: Uppdatera befintligt erbjudande
+        href: ./cloud-partner-portal/power-bi/cpp-update-existing-offer.md
+    - name: Erbjudande för SaaS-program
+      href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
+      items:
+      - name: Nödvändiga komponenter
+        href: ./cloud-partner-portal/saas-app/cpp-prerequisites.md
+      - name: Skapa ett erbjudande för SaaS-program
+        href: ./cloud-partner-portal/saas-app/cpp-create-offer.md
+        items:
+        - name: Fliken Erbjudandeinställningar
+          href: ./cloud-partner-portal/saas-app/cpp-offer-settings-tab.md
+        - name: Fliken Teknisk information
+          href: ./cloud-partner-portal/saas-app/cpp-technical-info-tab.md
+        - name: Fliken Planer
+          href: ./cloud-partner-portal/saas-app/cpp-plans-tab.md
+        - name: Fliken Kanalinformation
+          href: ./cloud-partner-portal/saas-app/cpp-channel-info-tab.md
+        - name: Fliken Test Drive
+          href: ./cloud-partner-portal/saas-app/cpp-testdrive-tab.md
+        - name: Fliken Butiksinformation
+          href: ./cloud-partner-portal/saas-app/cpp-storefront-tab.md
+        - name: Fliken Kontakter
+          href: ./cloud-partner-portal/saas-app/cpp-contacts-tab.md
+      - name: Publicera erbjudande
+        href: ./cloud-partner-portal/saas-app/cpp-publish-offer.md
+      - name: Uppdatera befintligt erbjudande
+        href: ./cloud-partner-portal/saas-app/cpp-update-existing-offer.md
+      - name: API:er för uppfyllnad av SaaS
+        href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md
+        items:
+        - name: API för SaaS V1
+          href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v1.md
+        - name: API för SaaS V2
+          href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2.md
+    - name: Erbjudande på virtuella datorer
+      href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
+      items:
+      - name: Nödvändiga komponenter
+        href: ./cloud-partner-portal/virtual-machine/cpp-prerequisites.md
+      - name: Skapa erbjudande på virtuella datorer
+        href: ./cloud-partner-portal/virtual-machine/cpp-create-offer.md
+        items:
+        - name: Fliken Erbjudandeinställningar
+          href: ./cloud-partner-portal/virtual-machine/cpp-offer-settings-tab.md
+        - name: Fliken SKU:er
+          href: ./cloud-partner-portal/virtual-machine/cpp-skus-tab.md
+        - name: Fliken Test Drive
+          href: ./cloud-partner-portal/virtual-machine/cpp-test-drive-tab.md
+        - name: Fliken Marketplace
+          href: ./cloud-partner-portal/virtual-machine/cpp-marketplace-tab.md
+        - name: Fliken Stöd
+          href: ./cloud-partner-portal/virtual-machine/cpp-support-tab.md
+      - name: Skapa tekniska tillgångar för virtuella datorer
+        href: ./cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md
+        items:
+        - name: Skapa virtuell hårddisk
+          href: ./cloud-partner-portal/virtual-machine/cpp-create-vhd.md
+        - name: Vanliga problem när virtuella hårddiskar skapas
+          href: ./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md
+        - name: Ansluta till virtuell dator
+          href: ./cloud-partner-portal/virtual-machine/cpp-connect-vm.md
+        - name: Konfigurera virtuella datorer
+          href: ./cloud-partner-portal/virtual-machine/cpp-configure-vm.md
+        - name: Windows Remote Management
+          href: ./cloud-partner-portal/virtual-machine/cpp-winrm-over-https.md
+          items:
+          - name: Konfigurera WinRM när en virtuell dator har skapats
+            href: ./cloud-partner-portal/virtual-machine/cpp-configure-winrm-after-vm-creation.md
+        - name: Distribuera virtuell dator
+          href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md
+          items:
+          - name: Skapa en användaravbildning av en virtuell dator
+            href: ./cloud-partner-portal/virtual-machine/cpp-create-user-image.md
+          - name: Skapa ett certifikat för nyckelvalv
+            href: ./cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert.md
+            items:
+            - name: Distributionsmall för nyckelvalv
+              href: ./cloud-partner-portal/virtual-machine/cpp-key-vault-deploy-template.md
+        - name: Distribuera en virtuell dator från en virtuell hårddisk för användare
+          href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image.md
+          items:
+          - name: Distributionsmall för virtuell hårddisk
+            href: ./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md
+          - name: Distribuera en virtuell dator från en marknadsplats
+            href: ./cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md
+        - name: Certifiera avbildning av virtuell dator
+          href: ./cloud-partner-portal/virtual-machine/cpp-certify-vm.md
+        - name: VM-klient för självtest
+          href: ./cloud-partner-portal/virtual-machine/cpp-selftest-client.md
+        - name: Hämta SAS-URI
+          href: ./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md
+        - name: Vanliga problem med SAS-URL
+          href: ./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md
+      - name: Publicera erbjudande för VM
+        href: ./cloud-partner-portal/virtual-machine/cpp-publish-offer.md
+      - name: Uppdatera befintligt erbjudande
+        href: ./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md
+  - name: API-referens
+    items:
+    - name: Översikt
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
+    - name: Nödvändiga komponenter
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
+    - name: Överväganden
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md
+    - name: Samtidighetskontroll
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-concurrency-control.md
+    - name: Hämta erbjudanden
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md
+    - name: Hämta särskilt erbjudande
+      href: ./cloud-partner-portal-orig//cloud-partner-portal-api-retrieve-specific-offer.md
+    - name: Lägga till eller ändra ett erbjudande
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md
+    - name: Hämta erbjudandestatus
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offer-status.md
+    - name: Publicera ett erbjudande
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-publish-offer.md
+    - name: Hämta åtgärder
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-operations.md
+    - name: Avbryt åtgärder
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-cancel-operations.md
+    - name: Sätt igång
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md
+    - name: Prissättning för erbjudanden på virtuella datorer
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md
+    - name: Felsöka autentiseringsfel
+      href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
+  - name: Få support
+    href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
+ms.openlocfilehash: 90243803c7637e12cc1e72dc7b3e698fd3b9c273
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341194"

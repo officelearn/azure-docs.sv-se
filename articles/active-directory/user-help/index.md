@@ -134,8 +134,11 @@ Det här innehållet är avsett som hjälp att konfigurera och använda säkerhe
                     <div class="cardText">
                         <h3>Hjälp om portalen Mina appar</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/active-directory-saas-access-panel-introduction">Vad är portalen Mina appar?</a><br/>
-                        <a href="/azure/active-directory/active-directory-saas-access-panel-user-help">Felsöka</a>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-access">Komma åt och använda portalen Mina appar</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-update-profile">Uppdatera din profil- och kontoinformation</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-groups">Uppdatera grupprelaterad information</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-access-reviews">Utföra egna åtkomstgranskningar</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-troubleshoot">Felsöka</a>
                         </p>
                     </div>
                 </div>

@@ -1,0 +1,63 @@
+items:
+- name: Dokumentation till SQL Server Stretch Database
+  href: index.md
+- name: Översikt
+  items:
+  - name: Vad är Stretch Database?
+    href: /sql/sql-server/stretch-database/stretch-database
+  - name: Begränsningar och blockeringsproblem
+    href: /sql/sql-server/stretch-database/limitations-for-stretch-database
+- name: Kom igång
+  items:
+  - name: Identifiera databaser och tabeller
+    href: /sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor
+  - name: Kör guiden
+    href: /sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard
+- name: Gör så här för att
+  items:
+  - name: Aktivera
+    items:
+    - name: Aktivera en databas
+      href: /sql/sql-server/stretch-database/enable-stretch-database-for-a-database
+    - name: Aktivera en tabell
+      href: /sql/sql-server/stretch-database/enable-stretch-database-for-a-table
+    - name: Välj rader att migrera
+      href: /sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database
+  - name: Hantera
+    items:
+    - name: Övervaka migrering av data
+      href: /sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database
+    - name: Pausa och återuppta migrering
+      href: /sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database
+    - name: Hantera och felsök
+      href: /sql/sql-server/stretch-database/manage-and-troubleshoot-stretch-database
+    - name: Säkerhetskopiera
+      href: /sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database
+    - name: Återställ
+      href: /sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database
+    - name: Inaktivera Stretch Database
+      href: /sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data
+- name: Referens
+  items:
+  - name: Kodexempel
+    href: https://azure.microsoft.com/resources/samples/?service=sql-server-database
+- name: Resurser
+  items:
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
+  - name: Blogg
+    href: https://blogs.technet.microsoft.com/dataplatforminsider/tag/stretch-database/
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/sql-server-stretch-database/
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Tjänstuppdateringar
+    href: https://azure.microsoft.com/updates/?product=sql-server-stretch-database
+  - name: Videoklipp
+    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-server-stretch-database
+ms.openlocfilehash: ba3a3cfe763f17e07dc4bcd0c3106acbc352577f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340667"

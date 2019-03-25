@@ -1,0 +1,614 @@
+items:
+- name: Dokumentation om Azure Active Directory
+  href: index.md
+- name: Översikt
+  items:
+  - name: Vad är Azure Active Directory?
+    href: fundamentals/active-directory-whatis.md
+  - name: Om Azures identitetshantering
+    href: fundamentals/identity-fundamentals.md
+  - name: Förstå Azure-identitetslösningar
+    href: fundamentals/understand-azure-identity-solutions.md
+  - name: Associera Azure-prenumerationer
+    href: fundamentals/active-directory-how-subscriptions-associated-directory.md
+  - name: Överväganden för lagring och data
+    href: fundamentals/active-directory-data-storage-eu.md
+  - name: Vanliga frågor och svar
+    href: fundamentals/active-directory-faq.md
+  - name: Nyheter
+    href: fundamentals/whats-new.md
+- name: Kom igång
+  items:
+  - name: Registrera dig för Azure AD Premium
+    href: fundamentals/active-directory-get-started-premium.md
+  - name: Lägg till ett anpassat domännamn
+    href: fundamentals/add-custom-domain.md
+  - name: Konfigurera varumärkesexponering
+    href: fundamentals/customize-branding.md
+  - name: Lägga till användare i Azure AD
+    href: fundamentals/add-users-azure-active-directory.md
+  - name: Tilldela licenser till användare
+    href: fundamentals/license-users-groups.md
+  - name: Konfigurera självbetjäning av lösenordsåterställning
+    href: authentication/quickstart-sspr.md
+  - name: Lägg till din organisations sekretessinformation i Azure AD
+    href: active-directory-properties-area.md
+  - name: Komma åt Azure Active Directory för att skapa en ny klientorganisation
+    href: fundamentals/active-directory-access-create-new-tenant.md
+- name: Gör så här för att
+  items:
+  - name: Planera och designa
+    items:
+    - name: Förstå Azure AD-arkitektur
+      href: fundamentals/active-directory-architecture.md
+    - name: Anspråksmappning i Azure Active Directory
+      href: develop/active-directory-claims-mapping.md
+    - name: Distribuera en hybrididentitetslösning
+      href: hybrid/plan-hybrid-identity-design-considerations-overview.md
+      items:
+      - name: Fastställa krav
+        items:
+        - name: Identitet
+          href: hybrid/plan-hybrid-identity-design-considerations-business-needs.md
+        - name: Katalogsynkronisering
+          href: hybrid/plan-hybrid-identity-design-considerations-directory-sync-requirements.md
+        - name: Multifaktorautentisering
+          href: hybrid/plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md
+        - name: Strategi för identitetslivscykel
+          href: hybrid/plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md
+      - name: Planera för datasäkerhet
+        href: hybrid/plan-hybrid-identity-design-considerations-data-protection-strategy.md
+        items:
+        - name: Dataskydd
+          href: hybrid/plan-hybrid-identity-design-considerations-dataprotection-requirements.md
+        - name: Innehållshantering
+          href: hybrid/plan-hybrid-identity-design-considerations-contentmgt-requirements.md
+        - name: Åtkomstkontroll
+          href: hybrid/plan-hybrid-identity-design-considerations-accesscontrol-requirements.md
+        - name: Incidenthantering
+          href: hybrid/plan-hybrid-identity-design-considerations-incident-response-requirements.md
+      - name: Planera din identitetslivscykel
+        items:
+        - name: Uppgifter
+          href: hybrid/plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md
+        - name: Införandestrategi
+          href: hybrid/plan-hybrid-identity-design-considerations-identity-adoption-strategy.md
+      - name: Nästa steg
+        href: hybrid/plan-hybrid-identity-design-considerations-nextsteps.md
+      - name: Jämförelse av verktyg
+        href: hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md
+  - name: Hantera användare
+    items:
+    - name: Lägga till nya användare i Azure AD
+      href: fundamentals/add-users-azure-active-directory.md
+    - name: Hantera användarprofiler
+      href: fundamentals/active-directory-users-profile-azure-portal.md
+    - name: Återställa användarlösenord
+      href: fundamentals/active-directory-users-reset-password-azure-portal.md
+    - name: Tilldela användare administrativa roller
+      href: fundamentals/active-directory-users-assign-role-azure-portal.md
+    - name: Lägga till gästanvändare från annan katalog (B2B)
+      href: b2b/what-is-b2b.md
+      items:
+      - name: Administratörer som lägger till B2B-användare
+        href: b2b/add-users-administrator.md
+      - name: Informationsarbetare som lägger till B2B-användare
+        href: b2b/add-users-information-worker.md
+      - name: API och anpassning
+        href: b2b/customize-invitation-api.md
+      - name: Google-federation
+        href: b2b/google-federation.md
+      - name: Kod och Azure PowerShell-exempel
+        href: b2b/code-samples.md
+      - name: Exempel på registreringsportal för självbetjäning
+        href: b2b/self-service-portal.md
+      - name: E-postinbjudan
+        href: b2b/invitation-email-elements.md
+      - name: Inlösning av inbjudan
+        href: b2b/redemption-experience.md
+      - name: Lägga till B2B-användare utan inbjudan
+        href: b2b/add-user-without-invite.md
+      - name: Tillåta eller blockera inbjudningar
+        href: b2b/allow-deny-list.md
+      - name: Villkorlig åtkomst för B2B
+        href: b2b/conditional-access.md
+      - name: B2B-delningsprinciper
+        href: b2b/delegate-invitations.md
+      - name: Lägga till en B2B-användare till en roll
+        href: b2b/add-guest-to-role.md
+      - name: Dynamiska grupper och B2B-användare
+        href: b2b/use-dynamic-groups.md
+      - name: Lämna en organisation
+        href: b2b/leave-the-organization.md
+      - name: Granskning och rapporter
+        href: b2b/auditing-and-reporting.md
+      - name: B2B för hybridorganisationer
+        href: b2b/hybrid-organizations.md
+        items:
+        - name: Bevilja B2B-användare åtkomst till lokala appar
+          href: b2b/hybrid-cloud-to-on-premises.md
+        - name: Bevilja lokala användare åtkomst till molnappar
+          href: b2b/hybrid-on-premises-to-cloud.md
+      - name: Extern delning av B2B och Office 365
+        href: b2b/o365-external-user.md
+      - name: B2B-licensiering
+        href: b2b/licensing-guidance.md
+      - name: Aktuella begränsningar
+        href: b2b/current-limitations.md
+      - name: VANLIGA FRÅGOR OCH SVAR
+        href: b2b/faq.md
+      - name: Felsökning av B2B
+        href: b2b/troubleshoot.md
+      - name: Förstå B2B-användaren
+        href: b2b/user-properties.md
+      - name: Användartoken för B2B
+        href: b2b/user-token.md
+      - name: B2B för Azure AD-integrerade appar
+        href: b2b/configure-saas-apps.md
+      - name: Mappning av användaranspråk för B2B
+        href: b2b/claims-mapping.md
+      - name: Jämför B2B-samarbete med B2C
+        href: b2b/compare-with-b2c.md
+      - name: Få support för B2B
+        href: b2b/get-support.md
+  - name: Hantera grupper och medlemmar
+    href: fundamentals/active-directory-manage-groups.md
+    items:
+    - name: Hantera grupper
+      href: fundamentals/active-directory-groups-create-azure-portal.md
+    - name: Ta bort en grupp och dess medlemmar
+      href: fundamentals/active-directory-groups-delete-group.md
+    - name: Hantera gruppinställningar
+      href: fundamentals/active-directory-groups-settings-azure-portal.md
+  - name: Hantera rapporter
+    href: reports-monitoring/overview-reports.md
+    items:
+    - name: Inloggningsaktiviteter
+      href: reports-monitoring/concept-sign-ins.md
+    - name: Granska aktivitet
+      href: reports-monitoring/concept-audit-logs.md
+    - name: Användare i riskzonen
+      href: reports-monitoring/concept-user-at-risk.md
+    - name: Riskfyllda inloggningar
+      href: reports-monitoring/concept-risky-sign-ins.md
+    - name: Riskhändelser
+      href: reports-monitoring/concept-risk-events.md
+    - name: Övervaka loggar med Azure Monitor
+      href: reports-monitoring/concept-activity-logs-in-azure-monitor.md
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: reports-monitoring/reports-faq.md
+    - name: Uppgifter
+      items:
+      - name: Ladda ned en inloggningsrapport
+        href: reports-monitoring/quickstart-download-sign-in-report.md
+      - name: Ladda ned en granskningsrapport
+        href: reports-monitoring/quickstart-download-audit-report.md
+      - name: Konfigurera namngivna platser
+        href: reports-monitoring/quickstart-configure-named-locations.md
+      - name: Hitta aktivitetsrapporter
+        href: reports-monitoring/howto-find-activity-reports.md
+      - name: Använda Azure AD Power BI-innehållspaket
+        href: reports-monitoring/howto-power-bi-content-pack.md
+      - name: Åtgärda användare som har flaggats för risk
+        href: reports-monitoring/howto-remediate-users-flagged-for-risk.md
+      - name: Dirigera aktivitetsloggar till en Azure-händelsehubb
+        href: reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md
+      - name: Arkivera aktivitetsloggar till ett Azure Storage-konto
+        href: reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md
+      - name: Integrera aktivitetsloggar med Splunk med Azure Monitor
+        href: reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md
+      - name: Integrera aktivitetsloggar med SumoLogic med Azure Monitor
+        href: reports-monitoring/howto-integrate-activity-logs-with-sumologic.md
+      - name: Integrera aktivitetsloggar med Log Analytics med Azure Monitor
+        href: reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md
+    - name: Referens
+      items:
+      - name: Kvarhållning
+        href: reports-monitoring/reference-reports-data-retention.md
+      - name: Svarstider
+        href: reports-monitoring/reference-reports-latencies.md
+      - name: Granska aktivitetsreferens
+        href: reports-monitoring/reference-audit-activities.md
+      - name: Felkoder för inloggningsaktivitet
+        href: reports-monitoring/reference-sign-ins-error-codes.md
+      - name: Tolka schemat för spårningsloggen i Azure Monitor
+        href: reports-monitoring/reference-azure-monitor-audit-log-schema.md
+      - name: Tolka schemat för inloggningsloggen i Azure Monitor
+        href: reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md
+    - name: Felsöka
+      items:
+      - name: Saknade data i Azure AD-aktivitetsloggar
+        href: reports-monitoring/troubleshoot-missing-audit-data.md
+      - name: Data som saknas i nedladdningar
+        href: reports-monitoring/troubleshoot-missing-data-download.md
+      - name: Fel i innehållspaket för Azure Active Directory-aktivitetsloggar
+        href: reports-monitoring/troubleshoot-content-pack.md
+      - name: Fel i Azure AD Reporting-API:et
+        href: reports-monitoring/troubleshoot-graph-api.md
+    - name: Programmässig åtkomst
+      href: reports-monitoring/concept-reporting-api.md
+      items:
+      - name: Nödvändiga komponenter
+        href: reports-monitoring/howto-configure-prerequisites-for-reporting-api.md
+      - name: Använda certifikat
+        href: reports-monitoring/tutorial-access-api-with-certificates.md
+  - name: Hantera lösenord
+    href: authentication/concept-sspr-howitworks.md
+  - name: Hantera appar
+    items:
+    - name: Översikt
+      href: manage-apps/what-is-application-management.md
+    - name: Komma igång
+      href: manage-apps/plan-an-application-integration.md
+    - name: Självstudier om SaaS-appintegration
+      href: saas-apps/tutorial-list.md
+    - name: Användaretablering och -avetablering till SaaS-appar
+      href: manage-apps/user-provisioning.md
+      items:
+      - name: Självstudier om appintegration
+        href: saas-apps/tutorial-list.md
+      - name: Automatisera etablering till SCIM-aktiverade appar
+        href: manage-apps/use-scim-to-provision-users-and-groups.md
+      - name: Anpassa attributmappningar
+        href: manage-apps/customize-application-attributes.md
+      - name: Skriva uttryck för attributmappningar
+        href: manage-apps/functions-for-customizing-application-data.md
+      - name: Använda omfångsfilter
+        href: manage-apps/define-conditional-rules-for-provisioning-user-accounts.md
+      - name: Rapportera om automatisk användaretablering
+        href: manage-apps/check-status-user-account-provisioning.md
+      - name: Felsöka användaretablering
+        href: active-directory-application-provisioning-content-map.md
+    - name: Få fjärråtkomst till appar med App Proxy
+      href: manage-apps/application-proxy.md
+      items:
+      - name: Kom igång
+        items:
+        - name: Aktivera App Proxy
+          href: manage-apps/application-proxy-enable.md
+        - name: Publicera appar
+          href: manage-apps/application-proxy-publish-azure-portal.md
+        - name: Anpassade domäner
+          href: manage-apps/application-proxy-configure-custom-domain.md
+      - name: Enkel inloggning
+        href: manage-apps/application-proxy-single-sign-on.md
+        items:
+        - name: Enkel inloggning med KCD
+          href: manage-apps/application-proxy-configure-single-sign-on-with-kcd.md
+        - name: Enkel inloggning med rubriker
+          href: manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md
+        - name: Enkel inloggning med lösenordsvalv
+          href: manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md
+      - name: Begrepp
+        items:
+        - name: Anslutningar
+          href: manage-apps/application-proxy-connectors.md
+        - name: Säkerhet
+          href: manage-apps/application-proxy-security.md
+        - name: Nätverk
+          href: manage-apps/application-proxy-network-topology.md
+        - name: Uppgradera från TMG eller UAG
+          href: manage-apps/application-proxy-migration.md
+      - name: Avancerade konfigurationer
+        items:
+        - name: Publicera på separata nätverk
+          href: manage-apps/application-proxy-connector-groups.md
+        - name: Proxyservrar
+          href: manage-apps/application-proxy-configure-connectors-with-proxy-servers.md
+        - name: Anspråksmedvetna appar
+          href: manage-apps/application-proxy-configure-for-claims-aware-applications.md
+        - name: Ursprungliga klientappar
+          href: manage-apps/application-proxy-configure-native-client-application.md
+        - name: Tyst installation
+          href: manage-apps/application-proxy-register-connector-powershell.md
+        - name: Anpassad startsida
+          href: manage-apps/application-proxy-configure-custom-home-page.md
+        - name: Översätt infogade länkar
+          href: manage-apps/application-proxy-configure-hard-coded-link-translation.md
+        - name: Jokertecken
+          href: manage-apps/application-proxy-wildcard.md
+        - name: Ta bort personliga data
+          href: manage-apps/application-proxy-remove-personal-data.md
+      - name: Publicera genomgångar
+        items:
+        - name: Fjärrskrivbord
+          href: manage-apps/application-proxy-integrate-with-remote-desktop-services.md
+        - name: SharePoint
+          href: manage-apps/application-proxy-integrate-with-sharepoint-server.md
+        - name: Microsoft Teams
+          href: manage-apps/application-proxy-integrate-with-teams.md
+        - name: Tableau
+          href: manage-apps/application-proxy-integrate-with-tableau.md
+        - name: Qlik
+          href: manage-apps/application-proxy-qlik.md
+      - name: PowerShell
+        href: https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management
+      - name: Felsöka
+        href: manage-apps/application-proxy-troubleshoot.md
+    - name: Hantera företagets appar
+      items:
+      - name: Lägga till ett program
+        href: manage-apps/add-application-portal.md
+      - name: Visa klientorganisationsappar
+        href: manage-apps/view-applications-portal.md
+      - name: Konfigurera enkel inloggning
+        href: manage-apps/configure-single-sign-on-portal.md
+      - name: Tilldela användare
+        href: manage-apps/assign-user-or-group-access-portal.md
+      - name: Anpassa profilering
+        href: manage-apps/change-name-or-logo-portal.md
+      - name: Inaktivera användarinloggningar
+        href: manage-apps/disable-user-sign-in-portal.md
+      - name: Ta bort användare
+        href: manage-apps/remove-user-or-group-access-portal.md
+      - name: Hantera användarens kontoetablering
+        href: manage-apps/configure-automatic-user-provisioning-portal.md
+      - name: Avancerad certifikatsignering för SAML-appar
+        href: manage-apps/certificate-signing-options.md
+      - name: Dölja ett program från en användarmiljö
+        href: manage-apps/hide-application-from-user-portal.md
+    - name: Konfigurera automatisk acceleration för inloggning med hjälp av HRD-princip
+      href: manage-apps/configure-authentication-for-federated-users-portal.md
+    - name: Migrera AD FS-appar till Azure AD
+      href: manage-apps/migrate-adfs-apps-to-azure.md
+    - name: Hantera åtkomst till appar
+      href: manage-apps/what-is-access-management.md
+      items:
+      - name: Åtkomst med enkel inloggning
+        href: manage-apps/what-is-single-sign-on.md
+      - name: Certifikat för enkel inloggning
+        href: manage-apps/manage-certificates-for-federated-single-sign-on.md
+      - name: Begränsningar för klientorganisation
+        href: manage-apps/tenant-restrictions.md
+      - name: Använd SCIM-etablering av användare
+        href: manage-apps/use-scim-to-provision-users-and-groups.md
+    - name: Förstå medgivande i Azure AD-program
+      href: develop/application-consent-experience.md
+    - name: Felsöka
+      items:
+      - name: Åtkomstpanel
+        items:
+        - name: Appen visas inte
+          href: manage-apps/access-panel-troubleshoot-application-not-appearing.md
+        - name: Oväntad app visas
+          href: manage-apps/access-panel-troubleshoot-unexpected-application.md
+        - name: Det går inte att logga in
+          href: manage-apps/access-panel-troubleshoot-web-sign-in-problem.md
+        - name: Fel vid installation av webbläsartillägg
+          href: manage-apps/access-panel-extension-problem-installing.md
+        - name: Så här använder du appåtkomst via självbetjäning
+          href: manage-apps/access-panel-manage-self-service-access.md
+        - name: Fel vid användning av appåtkomst via självbetjäning
+          href: manage-apps/access-panel-troubleshoot-self-service-access.md
+      - name: Lägga till en app
+        items:
+        - name: Välj apptyp
+          href: manage-apps/choose-application-type.md
+        - name: Vanliga problem – galleriappar
+          href: manage-apps/adding-gallery-app-common-problems.md
+        - name: Vanliga problem – inte galleriappar
+          href: manage-apps/adding-non-gallery-app-common-problems.md
+      - name: Programproxy
+        items:
+        - name: Problem med att visa appsida
+          href: manage-apps/application-proxy-page-appearance-broken-problem.md
+        - name: För lång programinläsning
+          href: manage-apps/application-proxy-page-load-speed-problem.md
+        - name: Länkar på programsidan fungerar inte
+          href: manage-apps/application-proxy-page-links-broken-problem.md
+        - name: Vilka portar ska jag öppna för min app?
+          href: manage-apps/application-proxy-connectivity-ports-how-to.md
+        - name: Ingen fungerande anslutning i en grupp med anslutningar för min app
+          href: manage-apps/application-proxy-connectivity-no-working-connector.md
+        - name: Konfigurera i administratörsportalen
+          href: manage-apps/application-proxy-config-how-to.md
+        - name: Konfigurera enkel inloggning till min app
+          href: manage-apps/application-proxy-config-sso-how-to.md
+        - name: Problem med att skapa en app i administratörsportalen
+          href: manage-apps/application-proxy-config-problem.md
+        - name: Konfigurera begränsad Kerberos-delegering
+          href: manage-apps/application-proxy-back-end-kerberos-constrained-delegation-how-to.md
+        - name: Konfigurera med PingAccess
+          href: manage-apps/application-proxy-back-end-ping-access-how-to.md
+        - name: 'Fel: Det går inte att få åtkomst till det här företagsprogrammet'
+          href: manage-apps/application-proxy-sign-in-bad-gateway-timeout-error.md
+        - name: Problem med att installera anslutningsappen för programproxyagenten
+          href: manage-apps/application-proxy-connector-installation-problem.md
+      - name: Programregistrering
+        items:
+        - name: Ange fält för programobjektet
+          href: develop/registration-config-specific-application-property-how-to.md
+        - name: Ändra standardinställningarna för livslängd för token
+          href: develop/registration-config-change-token-lifetime-how-to.md
+      - name: Autentisering
+        items:
+        - name: Konfigurera slutpunkter
+          href: develop/registration-config-how-to.md
+      - name: Villkorlig åtkomst
+        items:
+        - name: Kunden uppfyllde inte förhandskraven för enhetsregistrering
+          href: active-directory-conditional-access.md
+        - name: Hur och när träder regler utanför företagsnätverk i kraft?
+          href: https://aka.ms/calocation
+        - name: Hur ökar jag antalet enheter som användaren har tillåtelse att registrera i Azure AD?
+          href: active-directory-azureadjoin-setup.md
+        - name: Hur konfigurerar jag villkorlig åtkomst för Exchange Online?
+          href: https://aka.ms/csforexchange
+        - name: Hur konfigurerar jag villkorlig åtkomst för Windows 7-enheter?
+          href: active-directory-conditional-access.md#device-based-conditional-access
+        - name: Vilka program stöds med villkorlig åtkomst?
+          href: active-directory-conditional-access-supported-apps.md
+      - name: Hitta ett API
+        items:
+        - name: Hitta ett API
+          href: develop/api-find-an-api-how-to.md
+      - name: Hantera åtkomst
+        items:
+        - name: Tilldela användare och grupper till en app
+          href: manage-apps/methods-for-assigning-users-and-groups.md
+        - name: Ta bort användaråtkomst till en app
+          href: manage-apps/methods-for-removing-user-access.md
+        - name: Konfigurera apptilldelning via självbetjäning
+          href: manage-apps/manage-self-service-access.md
+        - name: Oväntad tilldelad användare
+          href: manage-apps/ways-users-get-assigned-to-applications.md
+        - name: Oväntad app i programlistan
+          href: manage-apps/application-types.md
+      - name: Appar för flera klienter
+        items:
+        - name: Konfigurera en ny app
+          href: develop/setup-multi-tenant-app.md
+        - name: Lägga till i appgalleriet
+          href: develop/registration-config-multi-tenant-application-add-to-gallery-how-to.md
+      - name: Behörigheter
+        items:
+        - name: Välja behörigheter för ett API
+          href: develop/perms-for-given-api.md
+        - name: Delegerat/programbehörigheter
+          href: develop/delegated-and-app-perms.md
+        - name: Programmedgivande
+          href: develop/consent-framework.md
+      - name: Etablering
+        items:
+        - name: Hur lång tid det tar
+          href: manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md
+        - name: Tar flera timmar – galleriapp
+          href: manage-apps/application-provisioning-when-will-provisioning-finish.md
+        - name: Konfigurera användaretablering – galleriapp
+          href: manage-apps/application-provisioning-config-how-to.md
+        - name: Problem med att konfigurera användaretablering – galleriapp
+          href: manage-apps/application-provisioning-config-problem.md
+        - name: Problem med att spara autentiseringsuppgifterna för administratören när användaretablering konfigureras – galleriapp
+          href: manage-apps/application-provisioning-config-problem-storage-limit.md
+        - name: Användare har inte etablerats – galleriapp
+          href: manage-apps/application-provisioning-config-problem-no-users-provisioned.md
+        - name: Fel användare har etablerats – galleriapp
+          href: manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md
+        - name: SCIM-kompatibilitetsproblem – app som inte finns i galleriet
+          href: manage-apps/application-provisioning-config-problem-scim-compatibility.md
+      - name: Enkel inloggning
+        items:
+        - name: Välj en metod
+          href: manage-apps/single-sign-on-modes.md
+        - name: Konfigurera
+          href: develop/registration-config-sso-how-to.md
+        - name: Konfigurera externa – galleriappar
+          href: manage-apps/configure-federated-single-sign-on-gallery-applications.md
+        - name: Vanliga problem vid konfiguration av externa – galleriappar
+          href: manage-apps/configure-federated-single-sign-on-gallery-applications-problems.md
+        - name: Konfigurera externa – inte galleriappar
+          href: manage-apps/configure-federated-single-sign-on-non-gallery-applications.md
+        - name: Vanliga problem vid konfiguration av externa – inte galleriappar
+          href: manage-apps/configure-federated-single-sign-on-non-gallery-applications-problems.md
+        - name: Konfigurera lösenord – galleriappar
+          href: manage-apps/configure-password-single-sign-on-gallery-applications.md
+        - name: Vanliga problem vid konfiguration av lösenord – galleriappar
+          href: manage-apps/configure-password-single-sign-on-gallery-applications-problems.md
+        - name: Konfigurera lösenord – inte galleriappar
+          href: manage-apps/configure-password-single-sign-on-non-gallery-applications.md
+        - name: Vanliga problem vid konfiguration av lösenord – inte galleriappar
+          href: manage-apps/configure-password-single-sign-on-non-gallery-applications-problems.md
+      - name: Problem med användarinloggning
+        items:
+        - name: Oväntad fråga om medgivande
+          href: manage-apps/application-sign-in-unexpected-user-consent-prompt.md
+        - name: Fel vid användarmedgivande
+          href: manage-apps/application-sign-in-unexpected-user-consent-error.md
+        - name: Problem vid inloggning från den anpassade portalen
+          href: manage-apps/application-sign-in-other-problem-deeplink.md
+        - name: Problem vid inloggning från åtkomstpanelen
+          href: manage-apps/application-sign-in-other-problem-access-panel.md
+        - name: Fel på inloggningssidan för programmet
+          href: manage-apps/application-sign-in-problem-application-error.md
+        - name: Problem med enkel inloggning med lösenord – inte galleriapp
+          href: manage-apps/application-sign-in-problem-password-sso-non-gallery.md
+        - name: Problem med enkel inloggning med lösenord – galleriapp
+          href: manage-apps/application-sign-in-problem-password-sso-gallery.md
+        - name: Problem med att logga in i en Microsoft-app
+          href: manage-apps/application-sign-in-problem-first-party-microsoft.md
+        - name: Problem med extern enkel inloggning – inte galleriapp
+          href: manage-apps/application-sign-in-problem-federated-sso-non-gallery.md
+        - name: Problem med extern enkel inloggning – galleriapp
+          href: manage-apps/application-sign-in-problem-federated-sso-gallery.md
+        - name: Problem med egenutvecklad app
+          href: manage-apps/application-sign-in-problem-custom-dev.md
+        - name: Problem med lokal app – programproxy
+          href: manage-apps/application-sign-in-problem-on-premises-application-proxy.md
+  - name: Hantera din katalog
+    items:
+    - name: Azure AD Connect
+      href: hybrid/whatis-hybrid-identity.md
+    - name: Egna domännamn
+      items:
+      - name: Snabbstart
+        href: fundamentals/add-custom-domain.md
+    - name: Administrera din katalog
+      href: fundamentals/active-directory-administer.md
+    - name: Integrera lokala identiteter med Azure AD Connect
+      href: hybrid/whatis-hybrid-identity.md
+    - name: Konfigurera livslängd för token
+      href: develop/active-directory-configurable-token-lifetimes.md
+  - name: Skydda dina identiteter
+    items:
+    - name: Privileged Identity Management
+      href: privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json
+  - name: Felsöka
+    href: fundamentals/active-directory-troubleshooting-support-howto.md
+  - name: Distribuera Azure AD PoC (Proof of Concept)
+    items:
+    - name: 'PoC-spelbok: Introduktion'
+      href: active-directory-playbook-intro.md
+    - name: 'PoC-spelbok: Ingredienser'
+      href: active-directory-playbook-ingredients.md
+    - name: 'PoC-spelbok: Implementering'
+      href: active-directory-playbook-implementation.md
+    - name: 'PoC-spelbok: Byggblock'
+      href: active-directory-playbook-building-blocks.md
+- name: Referens
+  items:
+  - name: Kodexempel
+    href: https://azure.microsoft.com/resources/samples/?service=active-directory
+  - name: Azure PowerShell-cmdletar
+    href: /powershell/azure/overview
+  - name: Java API-referens
+    href: /java/api
+  - name: .NET-API
+    href: /active-directory/adal/microsoft.identitymodel.clients.activedirectory
+- name: Relaterat
+  items:
+  - name: Multi-Factor Authentication
+    href: /azure/multi-factor-authentication/
+  - name: Azure AD Connect
+    href: hybrid/whatis-hybrid-identity.md
+  - name: Azure AD Connect Health
+    href: hybrid/whatis-hybrid-identity-health.md
+  - name: Azure AD för utvecklare
+    href: ./develop/active-directory-how-to-integrate.md
+  - name: Azure AD Privileged Identity Management
+    href: ./privileged-identity-management/pim-configure.md
+- name: Resurser
+  items:
+  - name: Distributionsscheman för Azure AD
+    href: ./fundamentals/active-directory-deployment-plans.md
+  - name: Azures feedbackforum
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/active-directory/
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Tjänstuppdateringar
+    href: https://azure.microsoft.com/updates/?product=active-directory
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-active-directory
+  - name: Videoklipp
+    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+ms.openlocfilehash: 91b16e11806ca9c7f5fc931110ae337ddc2ecec3
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341568"

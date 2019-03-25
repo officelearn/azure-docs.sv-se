@@ -13,56 +13,60 @@ items:
     href: configure-notification-hub-portal-pns-settings.md
 - name: Självstudier
   items:
-  - name: 1 – Push-meddelanden till alla registrerade enheter
+  - name: Android
     items:
-    - name: Ursprunglig Android (Firebase Cloud Messaging)
+    - name: Skicka push-meddelanden till Android-enheter med hjälp av Firebase Cloud Messaging
       href: notification-hubs-android-push-notification-google-fcm-get-started.md
-    - name: Ursprunglig Android (Google Cloud Messaging)
+    - name: Skicka push-meddelanden till Android-enheter med hjälp av Google Cloud Messaging
       href: notification-hubs-android-push-notification-google-gcm-get-started.md
-    - name: Android Xamarin
+    - name: Skicka push-meddelanden till Xamarin Android-appar
       href: xamarin-notification-hubs-push-notifications-android-gcm.md
-    - name: Baidu
-      href: notification-hubs-baidu-china-android-notifications-get-started.md
-    - name: Chrome
-      href: notification-hubs-chrome-push-notifications-get-started.md
-    - name: iOS
-      href: notification-hubs-ios-apple-push-notification-apns-get-started.md
-    - name: iOS Xamarin
-      href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md
-    - name: Kindle
-      href: notification-hubs-kindle-amazon-adm-push-notification.md
-    - name: Windows
-      href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-    - name: Windows Phone
-      href: notification-hubs-windows-mobile-push-notifications-mpns.md
-  - name: 2 – Push-meddelanden till specifika enheter
-    items:
-    - name: Android
+    - name: Skicka push-meddelanden till specifika Android-enheter
       href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-    - name: iOS
-      href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
-    - name: Windows
-      href: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-    - name: Windows Phone
-      href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
-  - name: 3 – Skicka lokaliserade meddelanden
-    items:
-    - name: iOS
-      href: notification-hubs-ios-xplat-localized-apns-push-notification.md
-    - name: Windows
-      href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
-  - name: 4 – Push-meddelanden till specifika användare
-    items:
-    - name: Android
+    - name: Skicka push-meddelanden till specifika användare av Android-program
       href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-    - name: iOS
-      href: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
-    - name: Windows
-      href: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-  - name: 5 – Platsbaserade push-meddelanden
+  - name: iOS
     items:
-    - name: Windows
+    - name: Skicka push-meddelanden till iOS-appar
+      href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+    - name: Skicka push-meddelanden till Xamarin iOS-appar
+      href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md
+    - name: Skicka push-meddelanden till specifika enheter
+      href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
+    - name: Skicka push-meddelanden till iOS-enheter
+      href: notification-hubs-ios-xplat-localized-apns-push-notification.md
+    - name: Skicka push-meddelanden till specifika användare
+      href: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+  - name: Windows Phone
+    items:
+    - name: Skicka push-meddelanden till Windows Phone-appar
+      href: notification-hubs-windows-mobile-push-notifications-mpns.md
+    - name: Skicka push-meddelanden till specifika Windows Phone-enheter
+      href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
+  - name: Windows
+    items:
+    - name: Skicka push-meddelanden till appar för Universell Windows-plattform
+      href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+    - name: Skicka push-meddelanden till specifika Windows-enheter
+      href: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+    - name: Skicka lokaliserade push-meddelanden till Windows-appar
+      href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+    - name: Skicka push-meddelanden till specifika användare
+      href: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+    - name: Skicka platsbaserade push-meddelanden
       href: notification-hubs-push-bing-spatial-data-geofencing-notification.md
+  - name: Baidu
+    items:
+    - name: Skicka push-meddelanden med hjälp av Baidu Cloud Push
+      href: notification-hubs-baidu-china-android-notifications-get-started.md
+  - name: Chrome
+    items:
+    - name: Skicka push-meddelanden till Chrome-appar
+      href: notification-hubs-chrome-push-notifications-get-started.md
+  - name: Kindle
+    items:
+    - name: Skicka push-meddelanden till ett Kindle-program med hjälp av Amazon Device Messaging
+      href: notification-hubs-kindle-amazon-adm-push-notification.md
 - name: Exempel
   items:
   - name: Kodexempel
@@ -96,6 +100,8 @@ items:
     href: notification-hubs-deploy-and-manage-powershell.md
   - name: Skicka säkert push-meddelanden till användare
     href: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
+  - name: Exportera och importera många registreringar samtidigt
+    href: export-modify-registrations-bulk.md
   - name: Skapa meddelandehub med SDK:er
     items:
     - name: Skapa meddelandehub – .NET
@@ -121,6 +127,8 @@ items:
   - name: PowerShell
     href: /powershell/module/az.notificationhubs
   - name: REST-API
+    href: https://docs.microsoft.com/previous-versions/azure/reference/dn223264(v%3dazure.100)
+  - name: Hanterings-API
     href: /rest/api/notificationhubs
   - name: Resource Manager-mall
     href: /azure/templates/microsoft.notificationhubs/allversions
@@ -144,9 +152,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Supportalternativ
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 67ddd379992757c3fe6a0bc2e37c70ef3718559b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 537b2bdaeccd185d9df4f1f986b586c9e976847f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835154"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400306"

@@ -1,0 +1,59 @@
+items:
+- name: Översikt
+  href: overview.md
+- name: Snabbstart
+  items:
+  - name: Bash – snabbstart
+    href: quickstart.md
+  - name: PowerShell – snabbstart
+    href: quickstart-powershell.md
+- name: Funktioner och verktyg
+  items:
+  - name: Funktioner och verktyg
+    href: features.md
+- name: Självstudier
+  items:
+  - name: Ansible
+    items:
+    - name: Köra Ansible-spelbok
+      href: /azure/ansible/ansible-run-playbook-in-cloudshell?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
+    - name: Hantera dina dynamiska Azure-lager
+      href: /azure/ansible/ansible-manage-azure-dynamic-inventories?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
+  - name: Terraform
+    items:
+    - name: Skapa en körningsplan
+      href: example-terraform-bash.md
+- name: Instruktionsguider
+  items:
+  - name: PowerShell Cloud Shell för Windows-användare
+    href: cloud-shell-windows-users.md
+  - name: Spara filer i Storage
+    href: persisting-shell-storage.md
+  - name: Använda fönstret
+    href: using-the-shell-window.md
+  - name: Använda MSI i Cloud Shell
+    href: msi-authorization.md
+  - name: Bädda in Cloud Shell
+    href: embed-cloud-shell.md
+- name: Använda Cloud Shell-redigeringsverktyget
+  href: using-cloud-shell-editor.md
+- name: Felsökning och begränsningar
+  href: troubleshooting.md
+- name: Referens
+  items:
+  - name: Azure CLI
+    href: /cli/azure
+  - name: Azure PowerShell
+    href: /powershell/azure
+- name: Resurser
+  items:
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+ms.openlocfilehash: 873308d775fd7451d89bd05771d3a1c5f5e22995
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341313"

@@ -24,6 +24,12 @@ items:
       href: azure-to-azure-tutorial-failover-failback.md
     - name: Köra återställning efter fel
       href: azure-to-azure-tutorial-failback.md
+  - name: Migrera virtuella Azure-datorer
+    items:
+    - name: Migrera virtuella Azure-datorer till en annan region
+      href: azure-to-azure-tutorial-migrate.md
+    - name: Flytta virtuella Azure-datorer till tillgänglighetszoner
+      href: move-Azure-VMs-AVset-Azone.md
   - name: Haveriberedskap för virtuell VMware-dator till Azure
     items:
     - name: Förbereda Azure
@@ -60,19 +66,11 @@ items:
       href: migrate-tutorial-windows-server-2008.md
     - name: Migrera AWS-instanser till Azure
       href: migrate-tutorial-aws-azure.md
-  - name: Migrera virtuella Azure-datorer
-    items:
-    - name: Översikt
-      href: azure-to-azure-move-overview.md
-    - name: Migrera virtuella Azure-datorer till en annan region
-      href: azure-to-azure-tutorial-migrate.md
-    - name: Flytta virtuella Azure-datorer till tillgänglighetszoner
-      href: move-Azure-VMs-AVset-Azone.md
 - name: Begrepp
   items:
   - name: Vanliga frågor om Site Recovery
     href: site-recovery-faq.md
-  - name: Om haveriberedskap för virtuell Azure-dator till Azure
+  - name: Om haveriberedskap för virtuella Azure-datorer
     items:
     - name: Arkitektur för Azure till Azure
       href: azure-to-azure-architecture.md
@@ -80,12 +78,14 @@ items:
       href: azure-to-azure-common-questions.md
     - name: Stödmatris för Azure till Azure
       href: azure-to-azure-support-matrix.md
+    - name: Använda Site Recovery med Azure Backup
+      href: site-recovery-backup-interoperability.md
     - name: Accelererat nätverk med haveriberedskap för virtuella Azure-datorer
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute med Azure VM-haveriberedskap
       href: azure-vm-disaster-recovery-with-expressroute.md
-    - name: Azure VM-haveriberedskap och Azure Backup-interoperabilitet
-      href: site-recovery-backup-interoperability.md
+  - name: Om att flytta virtuella Azure-datorer
+    href: azure-to-azure-move-overview.md
   - name: Om haveriberedskap för virtuell VMware-dator till Azure
     items:
     - name: Översikt över haveriberedskap för VMware
@@ -468,9 +468,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Tjänstuppdateringar
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 5286e3479561e6effd279978e84f045207a0a7a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 66b14ba7100b8bd8e4bb3a100e8fd10d226f555e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835307"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317110"

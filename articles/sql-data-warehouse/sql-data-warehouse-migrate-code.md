@@ -10,17 +10,19 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 14b3d62235cfcc8bbc8a929757a16cf99b860753
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: fae3ae16ee0100ad446c0b6c7851553a3376bb4f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815769"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400984"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migrera din SQL-kod till SQL Data Warehouse
+
 Den här artikeln förklarar ändringar i koden behöver du förmodligen göra när du migrerar din kod från en annan databas till SQL Data Warehouse. Vissa SQL Data Warehouse-funktioner kan avsevärt förbättra prestanda eftersom de har utformats för att arbeta i en distribuerad sätt. Men för att upprätthålla prestanda och skalning, är vissa funktioner också inte tillgängliga.
 
 ## <a name="common-t-sql-limitations"></a>Vanliga T-SQL-begränsningar
+
 I följande lista sammanfattas de vanligaste funktioner som inte har stöd för SQL Data Warehouse. Länken tar dig till lösningar för funktionerna som inte stöds:
 
 * [ANSI kopplingar på uppdateringar][ANSI joins on updates]
@@ -45,12 +47,12 @@ I följande lista sammanfattas de vanligaste funktioner som inte har stöd för 
 * [Group by-satser med Samlad / kub / grupperingsalternativ uppsättningar][group by clause with rollup / cube / grouping sets options]
 * [kapslingsnivåer utöver 8][nesting levels beyond 8]
 * [Uppdatera via vyer][updating through views]
-* [användning av väljer för variabeltilldelning][use of select for variable assignment]
 * [Inga MAX datatyp för dynamisk SQL-strängar][no MAX data type for dynamic SQL strings]
 
 Som tur är kan de flesta av dessa begränsningar utföras runt. Förklaringar finns i de relevanta utvecklingsartiklarna som anges ovan.
 
 ## <a name="supported-cte-features"></a>CTE-funktioner som stöds
+
 Vanliga tabelluttryck (cte-referenser) stöds delvis i SQL Data Warehouse.  Följande CTE-funktioner stöds för närvarande:
 
 * En CTE kan anges i en SELECT-instruktion.
@@ -63,6 +65,7 @@ Vanliga tabelluttryck (cte-referenser) stöds delvis i SQL Data Warehouse.  Föl
 * Flera CTE fråga definitioner kan definieras i en CTE.
 
 ## <a name="cte-limitations"></a>CTE begränsningar
+
 Vanliga tabelluttryck har vissa begränsningar i SQL Data Warehouse, inklusive:
 
 * En CTE måste följas av en enda SELECT-instruktion. INSERT, UPDATE-, DELETE och MERGE-instruktioner stöds inte.
@@ -73,9 +76,11 @@ Vanliga tabelluttryck har vissa begränsningar i SQL Data Warehouse, inklusive:
 * När det används i rapporter som sammanställts av sp_prepare fungerar cte-referenser på samma sätt som andra SELECT-uttryck i PDW. Men om cte-referenser används som en del av CETAS som sammanställts av sp_prepare kan beteendet fördröja från SQL Server och andra PDW-instruktioner på grund av det sätt som bindningen har implementerats för sp_prepare. Om du väljer att refererar till CTE använder en fel kolumn som inte finns i CTE, skickar sp_prepare utan att identifiera felet, men felet uppstod under ett sp_execute i stället.
 
 ## <a name="recursive-ctes"></a>Rekursiva cte-referenser
+
 Rekursiva cte-referenser stöds inte i SQL Data Warehouse.  Migreringen av rekursiva CTE kan vara ganska komplicerat och på bästa sätt är att bryta ned den i flera steg. Du kan normalt använda en slinga och fylla i en tillfällig tabell som du kan iterera över rekursiva mellanliggande frågor. När den temporära tabellen fylls kan du sedan returnera data som en enda resultatmängd. Ett liknande tillvägagångssätt som har använts för att lösa `GROUP BY WITH CUBE` i den [group by-satser med Samlad / kub / grupperingsalternativ uppsättningar] [ group by clause with rollup / cube / grouping sets options] artikeln.
 
 ## <a name="unsupported-system-functions"></a>Funktioner som inte stöds
+
 Det finns även vissa systemfunktioner som inte stöds. Några av de huvudsakliga som kanske vanligtvis används i datalagret är:
 
 * NEWSEQUENTIALID()
@@ -88,11 +93,12 @@ Det finns även vissa systemfunktioner som inte stöds. Några av de huvudsaklig
 Vissa av dessa problem går att arbeta runt.
 
 ## <a name="rowcount-workaround"></a>@@ROWCOUNT lösning
+
 Att kringgå avsaknaden av stöd för @@ROWCOUNT, skapa en lagrad procedur som ska hämta senaste radantalet från sys.dm_pdw_request_steps och sedan köra `EXEC LastRowCount` efter en DML-instruktionen.
 
 ```sql
 CREATE PROCEDURE LastRowCount AS
-WITH LastRequest as 
+WITH LastRequest as
 (   SELECT TOP 1    request_id
     FROM            sys.dm_pdw_exec_requests
     WHERE           session_id = SESSION_ID()
@@ -111,6 +117,7 @@ SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 En fullständig lista över alla T-SQL-uttryck som stöds finns i [Transact-SQL-ämnen][Transact-SQL topics].
 
 <!--Image references-->

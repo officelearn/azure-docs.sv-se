@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5ff065816e287e0d4e37cdea9a7770c9ff806520
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 22615d07e69d707c90e3ff9bda83bfa6f0852996
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890754"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360292"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Vad hände med Azure Machine Learning Workbench?
 
@@ -40,7 +40,7 @@ Den senaste versionen av Azure Machine Learning Service innehåller följande fu
 + Ett nytt och mer omfattande Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>.
 + Det nya, utökade [Azure CLI-tillägget](reference-azure-machine-learning-cli.md) för maskininlärning.
 
-[Arkitekturen](concept-azure-machine-learning-architecture.md) har gjorts om för enklare användning. I stället för flera Azure-resurser och konton behöver du bara en [Azure Machine Learning-tjänstarbetsyta](concept-azure-machine-learning-architecture.md#workspace). Du kan skapa arbetsytor snabbt i [Azure-portalen](quickstart-get-started.md). Genom att använda en arbetsyta kan flera användare lagra tränings- och distributionsberäkningsmål, modellexperiment, Docker-avbildningar, distribuerade modeller och så vidare.
+[Arkitekturen](concept-azure-machine-learning-architecture.md) har gjorts om för enklare användning. I stället för flera Azure-resurser och konton behöver du bara en [Azure Machine Learning-tjänstarbetsyta](concept-azure-machine-learning-architecture.md#workspace). Du kan snabbt skapa arbetsytor i [Azure portal]((setup-create-workspace.md#portal). Genom att använda en arbetsyta kan flera användare lagra tränings- och distributionsberäkningsmål, modellexperiment, Docker-avbildningar, distribuerade modeller och så vidare.
 
 Även om det finns nya förbättrade CLI- och SDK-klienter i den aktuella versionen, har själva Workbench-skrivbordsprogrammet tagits ur bruk. Experiment kan hanteras i [instrumentpanelen för arbetsytan i Azure-portalen](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal). Använd instrumentpanelen för att hämta din experimenthistorik, hantera beräkningsmål som är kopplade till din arbetsyta, hantera modeller och Docker-avbildningar och även distribuera webbtjänster.
 
@@ -50,7 +50,7 @@ Den senaste versionen av Azure Machine Learning Service innehåller följande fu
 
 Den 9 januari 2019 upphörde stödet för Machine Learning Workbench-, Azure Machine Learning-experimenterings- och modellhanteringskonton, och associerade SDK och CLI har avslutats. 
 
-Alla nya funktioner är tillgängliga med hjälp av detta <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, [kommandoradsgränssnittet](reference-azure-machine-learning-cli.md) och [portalen](quickstart-get-started.md).
+Alla nya funktioner är tillgängliga med hjälp av detta <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, [kommandoradsgränssnittet](reference-azure-machine-learning-cli.md) och [portalen](setup-create-workspace.md#portal).
 
 ## <a name="what-about-run-histories"></a>Vad händer med körhistorik?
 
@@ -81,7 +81,7 @@ Mycket av projektinnehållet finns redan på den lokala datorn. Så du behöver 
 run = exp.submit(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 ```
 
-Lär dig hur du kommer igång i [Python med huvudsaklig SDK](quickstart-create-workspace-with-python.md) med hjälp av [Azure Portal](quickstart-get-started.md).
+[Skapa en arbetsyta](setup-create-workspace.md#portal) att komma igång.
 
 ## <a name="what-about-my-registered-models-and-images"></a>Vad händer med mina registrerade modeller och bilder?
 
@@ -121,6 +121,6 @@ Lär dig mer om den [senaste arkitekturen för Azure Machine Learning Service](c
 
 En översikt över tjänsten finns i [Vad är tjänsten Azure Machine Learning?](overview-what-is-azure-ml.md)
 
-Söker du en snabbstart som visar hur du skapar en arbetsyta, skapar ett projekt, kör ett skript och utforskar körningshistoriken för skriptet med den senaste versionen av Azure Machine Learning-tjänsten kan du prova med [Komma igång med Azure Machine Learning-tjänsten](quickstart-get-started.md).
+En Snabbstart som visar hur du kör ett skript och utforska körningshistoriken för skriptet med den senaste versionen av Azure Machine Learning-tjänsten, försök [Kom igång med Azure Machine Learning-tjänsten](quickstart-run-cloud-notebook.md).
 
 För en mer ingående beskrivning av det här arbetsflödet kan du följa den [fullständiga självstudien](tutorial-train-models-with-aml.md), som innehåller detaljerade anvisningar för att träna och distribuera modeller med Azure Machine Learning-tjänsten. 

@@ -1,0 +1,57 @@
+items:
+- name: Windows Virtual Desktop
+  href: index.yml
+- name: Översikt
+  items:
+  - name: Vad är Windows Virtual Desktop?
+    href: overview.md
+- name: Självstudier
+  items:
+  - name: 1. Skapa en klientorganisation i Windows Virtual Desktop
+    href: tenant-setup-azure-active-directory.md
+  - name: 2. Skapa en värdpool med Azure Marketplace
+    href: create-host-pools-azure-marketplace.md
+  - name: 3. Hantera appgrupper
+    href: manage-app-groups.md
+  - name: 4. Skapa tjänstens huvudnamn och rolltilldelningar med PowerShell
+    href: create-service-principal-role-powershell.md
+- name: Så här gör du
+  items:
+  - name: Ansluta till Windows Virtual Desktop-resurser
+    items:
+    - name: Ansluta med Windows 7 och Windows 10
+      href: connect-windows-7-and-10.md
+    - name: Ansluta med webbklienten
+      href: connect-web.md
+  - name: Skapa en värdpool med en Azure Resource Manager-mall
+    href: create-host-pools-arm-template.md
+  - name: Skapa en värdpool med PowerShell
+    href: create-host-pools-powershell.md
+  - name: Skapa en användarprofilresurs för en värdpool
+    href: create-host-pools-user-profile.md
+  - name: Konfigurera metoden för belastningsutjämning för Windows Virtual Desktop
+    href: configure-host-pool-load-balancing.md
+  - name: Identifiera problem med diagnostikfunktionen
+    href: diagnostics-role-service.md
+  - name: Förbereda och anpassa en VHD-huvudavbildning
+    href: set-up-customize-master-image.md
+  - name: Skala sessionsvärdar automatiskt
+    href: set-up-scaling-script.md
+- name: Begrepp
+  items:
+  - name: Windows Virtual Desktop-miljö
+    href: environment-setup.md
+  - name: Delegerad åtkomst i Windows Virtual Desktop
+    href: delegated-access-virtual-desktop.md
+  - name: Belastningsutjämningsmetoder för värdpool
+    href: host-pool-load-balancing.md
+- name: Referens
+  items:
+  - name: PowerShell
+    href: /powershell/windows-virtual-desktop/overview
+ms.openlocfilehash: 2f321b25d6ba1ad8545bf161dd37e270890efcec
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318777"

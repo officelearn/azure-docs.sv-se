@@ -1,22 +1,22 @@
 ---
-title: Identifiera problem med diagnostikfunktion (förhandsversion), Azure
-description: Beskriver diagnostikfunktion virtuella Windows-skrivbordet och hur du använder den.
+title: Identifiera problem med Windows Virtual Desktop förhandsversion diagnostikfunktion - Azure
+description: Beskriver Windows Virtual Desktop förhandsversion diagnostikfunktion och hur du använder den.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f44f4d632fa1fc607f3933be8e15eb939e20a8ae
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a9b8be58e8dfb27fbe896cf1c8d8dc0e91e3b24c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318621"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402855"
 ---
-# <a name="identify-issues-with-the-diagnostics-feature-preview"></a>Identifiera problem med diagnostikfunktion (förhandsversion)
+# <a name="identify-issues-with-the-diagnostics-feature"></a>Identifiera problem med funktionen diagnostik
 
-Virtuella Windows-skrivbordet (förhandsversion) erbjuder en diagnostikfunktion (förhandsversion) som gör att administratören ska kunna identifiera problem med hjälp av ett enda gränssnitt. Roller för virtuella Windows-skrivbordet logga en diagnostisk aktivitet när en användare interagerar med systemet. Varje logg innehåller relevant information, till exempel de som ingår i transaktionen, felmeddelanden, klientinformation och användarinformation rollerna för virtuella Windows-skrivbordet. Diagnostiska aktiviteter skapas av både slutanvändare och administrativa åtgärder och kan vara indelade i tre huvudsakliga buckets:
+Windows Virtual Desktop förhandsversionen erbjuder en diagnostikfunktion som administratören kan identifiera problem med hjälp av ett enda gränssnitt. Roller för virtuella Windows-skrivbordet logga en diagnostisk aktivitet när en användare interagerar med systemet. Varje logg innehåller relevant information, till exempel de som ingår i transaktionen, felmeddelanden, klientinformation och användarinformation rollerna för virtuella Windows-skrivbordet. Diagnostiska aktiviteter skapas av både slutanvändare och administrativa åtgärder och kan vara indelade i tre huvudsakliga buckets:
 
 * Feed prenumeration aktiviteter: slutanvändaren utlöser aktiviteterna när de försöker ansluta till sina feed via Microsoft Remote Desktop program.
 * Aktiviteter för anslutning: slutanvändaren utlöser aktiviteterna när de försöker ansluta till en stationär eller RemoteApp via Microsoft Remote Desktop program.
@@ -145,7 +145,7 @@ I följande tabell listas vanliga fel som dina administratörer stöta på.
 |8000|InvalidAuthorizationRoleScope|Rollnamnet du angav matchar inte någon befintlig rollnamn. Granska rollnamn för stavfel och försök igen. |
 |8001|UserNotFound |Det angivna användarnamnet matchar inte något befintligt användarnamn. Granska namn för stavfel och försök igen.|
 |8005|UserNotFoundInAAD |Det angivna användarnamnet matchar inte något befintligt användarnamn. Granska namn för stavfel och försök igen.|
-|8008|TenantConsentRequired|Följ instruktionerna [här](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-service) att ge medgivande för din klient.|
+|8008|TenantConsentRequired|Följ instruktionerna [här](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service) att ge medgivande för din klient.|
 
 ### <a name="external-connection-error-codes"></a>Felkoder för extern anslutning
 
@@ -164,6 +164,6 @@ I följande tabell listas vanliga fel som dina administratörer stöta på.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om roller i virtuella Windows-skrivbordet i [miljö för virtuella Windows-skrivbordet](environment-setup.md).
+Läs mer om roller i virtuella Windows-skrivbordet i [Windows Virtual Desktop förhandsversionsmiljön](environment-setup.md).
 
 Om du vill se en lista över tillgängliga PowerShell-cmdletar för virtuella Windows-skrivbordet kan se den [PowerShell-referens](/powershell/windows-virtual-desktop/overview).

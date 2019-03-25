@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 51d8b9bad4bb4a3663b07a711f363b263f5d64db
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
+ms.openlocfilehash: 6edb1abae91a675a3fe47b417a112f0951886aaf
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339694"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351923"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -246,7 +246,7 @@ Storage-klientbiblioteket genererar automatiskt ett unikt klient-ID för begära
 >
 
 ### <a name="server-request-id"></a>Server-begäran-ID
-Storage-tjänsten genererar automatiskt server begäran-ID: n.
+Storage-tjänsten genererar automatiskt serverbegäran ID: N.
 
 * Log Storage Logging serversidan server begäran-ID visas den **huvud för begäran-ID** kolumn.
 * I en nätverksspårning, till exempel en avbildas av Fiddler server begäran-ID som visas i svarsmeddelanden som den **x-ms-request-id** http-huvudets värde.
@@ -814,9 +814,9 @@ Mer information om analytics i Azure Storage finns i följande källor:
 * [Övervaka ett lagringskonto i Azure portal](storage-monitor-storage-account.md)
 * [Lagringsanalys](storage-analytics.md)
 * [Mätvärden i Storage analytics](storage-analytics-metrics.md)
-* [Schema över Måttabeller i Storage analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)
+* [Schema över Måttabeller i Storage analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema)
 * [Storage analytics-loggar](storage-analytics-logging.md)
-* [Loggformatet för Storage analytics](/rest/api/storageservices/storage-analytics-log-format.md)
+* [Loggformatet för Storage analytics](/rest/api/storageservices/storage-analytics-log-format)
 
 <!--Anchors-->
 [Introduktion]: #introduction

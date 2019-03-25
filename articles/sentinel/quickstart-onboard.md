@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/12/2019
 ms.author: rkarlin
-ms.openlocfilehash: 30f6d08594bdf2e5d78bc8c7881a135d6e57f397
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6ea852c9a1bb8ea6eb51df310aab97e9b10d48e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852240"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399683"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Integrera Azure Sentinel-förhandsversion
 
@@ -75,7 +75,6 @@ Klicka till exempel **Azure Active Directory**. Om du ansluter den här datakäl
 Längst ned, du Azure Sentinel innehåller rekommendationer för vilka instrumentpaneler som du bör installera för varje koppling så att du kan omedelbart få intressanta insikter i dina data. <br> Följ installationsanvisningarna eller [i uppgraderingshandboken för aktuella](connect-data-sources.md) för mer information. Information om dataanslutningar finns i [ansluta Microsoft services](connect-data-sources.md).
 
 När dina data som är anslutna källor, dina data börjar strömning i Azure Sentinel och är redo att börja arbeta med. Du kan visa loggar i den [inbyggda instrumentpaneler](quickstart-get-visibility.md) och börja skapa frågor i Log Analytics för att [undersöka data](tutorial-investigate-cases.md).
-
 
 
 

@@ -8,22 +8,26 @@ ms.topic: include
 ms.date: 03/30/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 19352df7abff23ed44521a11e7907c84c8c0327f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
-ms.translationtype: HT
+ms.openlocfilehash: ce8496596f25b85719b8a6dff849ebf0fc3e5dc3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "33835856"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58405609"
 ---
 I det här avsnittet skickar du de senaste nyheterna som taggade mallmeddelanden från en .NET-konsolapp. 
 
-1. Skapa en ny Visual C#-konsolapp i Visual Studio:
+1. Skapa en ny visualisering i Visual Studio C# konsolapp: en. På menyn, Välj **filen** > **New** > **projekt**.
+    b. Expandera **Visual C#** , och välj **Windows Desktop**. 
+    c. Välj **Konsolapp (.NET Framework)** i listan över mallar. 
+    d. Ange en **namn** för appen. 
+    e. Välj en **mappen** för appen.
+    f. Klicka på **OK** för att skapa projektet. 
+2. På huvudmenyn i Visual Studio väljer **verktyg** > **NuGet-Pakethanteraren** > **Pakethanterarkonsolen** och sedan i konsolfönstret Ange följande sträng:
    
-      ![Konsolapplänken][13]
-
-2. På huvudmenyn i Visual Studio, markera **Verktyg** > **Library Package Manager** > **Package Manager Console** och sedan, i konsolfönstret, anger du följande sträng:
-   
-        Install-Package Microsoft.Azure.NotificationHubs
+    ```
+    Install-Package Microsoft.Azure.NotificationHubs
+    ```
    
 3. Välj **Retur**.  
     Den här åtgärden lägger till en referens i Azure Notification Hubs SDK med hjälp av [Microsoft.Azure.Notification Hubs NuGet-paketet].

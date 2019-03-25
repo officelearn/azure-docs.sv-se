@@ -11,20 +11,23 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 04/03/2018
+ms.topic: how-to-article
+ms.date: 03/07/2019
 ms.author: b-juche
-ms.openlocfilehash: c67d8f1226117cac5a19f81bb0508b8f26ed93fc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d8d6f51adb80bfc4b666799888c74f21d6335486
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771913"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400337"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montera eller demontera en volym för Windows eller Linux-datorer 
 
 Du kan montera eller demontera en volym för Windows eller Linux-datorer efter behov.  Montera instruktioner för Linux-datorer finns på Azure NetApp-filer.  
 
-1. Klicka på den **volymer** bladet och välj sedan den volym som du vill montera NFS exporterar. 
-2. Klicka på **monteringsanvisningar** från den valda volymen och följ sedan instruktionerna. 
+1. Klicka på den **volymer** bladet och sedan väljer du den volym som du vill montera. 
+2. Klicka på **monteringsanvisningar** från den valda volymen och följ sedan anvisningarna för att montera volymen. 
 
+    ![Monteringsanvisningar NFS](../media/azure-netapp-files/azure-netapp-files-mount-instructions-nfs.png)
+
+    ![Monteringsanvisningar SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)

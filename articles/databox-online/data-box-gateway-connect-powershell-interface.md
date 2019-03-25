@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 0ca570235ac2a87b62c5d0fcebbd24dc5186e37d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 67caaa2c6c9bd615d0b88bdd5de3442b46aa32cb
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57555222"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403501"
 ---
 # <a name="manage-an-azure-data-box-gateway-device-via-windows-powershell"></a>Hantera en Azure Data Box Gateway-enheten via Windows PowerShell
 
@@ -30,18 +30,9 @@ Den här artikeln innehåller följande procedurer:
 - Starta i icke-DHCP-miljö
 - Visa enhetsinformation
 
-> [!IMPORTANT]
-> Azure Data Box-Gateway är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="connect-to-the-powershell-interface"></a>Ansluta till PowerShell-gränssnittet
 
 [!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
-
-## <a name="start-a-support-session"></a>Starta en supportsession
-
-[!INCLUDE [Connect to support runspace](../../includes/data-box-edge-gateway-connect-support.md)]
 
 ## <a name="create-a-support-package"></a>Skapa ett supportpaket
 

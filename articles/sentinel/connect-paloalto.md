@@ -1,6 +1,6 @@
 ---
-title: Samla in Palo Alto data i Azure-Sentinel-förhandsversionen | Microsoft Docs
-description: Lär dig mer om att samla in Palo Alto data i Azure Sentinel.
+title: Samla in Palo Alto Networks-data i Azure Sentinel-förhandsgranskning | Microsoft Docs
+description: Lär dig mer om att samla in Palo Alto Networks-data i Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 149b3b813091033bf5c1685e8b0793f955169808
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6145d77e6485a33ea3a9f9d66a4356587966bc5f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841216"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403569"
 ---
 # <a name="connect-your-palo-alto-networks-appliance"></a>Ansluta din Palo Alto Networks-installation
 
@@ -27,14 +27,14 @@ ms.locfileid: "57841216"
 > Azure Sentinel är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Du kan ansluta Azure Sentinel till alla Palo Alto Networks-installation för genom att spara loggfilerna som Syslog CEF. Integrering med Azure Sentinel kan du enkelt köra analyser och frågor över loggfilsdata från Palo Alto. Mer information om hur Azure Sentinel matar in data som CEF Se [ansluta CEF installationer](connect-common-event-format.md).
+Du kan ansluta Azure Sentinel till alla Palo Alto Networks-installation för genom att spara loggfilerna som Syslog CEF. Integrering med Azure Sentinel kan du enkelt köra analyser och frågor över loggfilsdata från Palo Alto Networks. Mer information om hur Azure Sentinel matar in data som CEF Se [ansluta CEF installationer](connect-common-event-format.md).
 
 > [!NOTE]
-> - Data lagras i den geografiska platsen för arbetsytan där du kör Azure Sentinel.
+> Data lagras i den geografiska platsen för arbetsytan där du kör Azure Sentinel.
 
-## <a name="step-1-connect-your-palo-alto-appliance-using-an-agent"></a>Steg 1: Ansluta din Palo Alto-installation med hjälp av en agent
+## <a name="step-1-connect-your-palo-alto-networks-appliance-using-an-agent"></a>Steg 1: Ansluta din Palo Alto Networks-installation med hjälp av en agent
 
-För att ansluta din Palo Alto-installation till Azure Sentinel, måste du distribuera en agent på en dedikerad dator (VM eller lokalt) för kommunikationen mellan enheten och Azure Sentinel. Du kan distribuera agenten automatiskt eller manuellt. Automatisk distribution är endast tillgänglig om den dedikerade datorn är en ny virtuell dator som du skapar i Azure. 
+För att ansluta din Palo Alto Networks-enheten till Azure Sentinel, måste du distribuera en agent på en dedikerad dator (VM eller lokalt) för kommunikationen mellan enheten och Azure Sentinel. Du kan distribuera agenten automatiskt eller manuellt. Automatisk distribution är endast tillgänglig om den dedikerade datorn är en ny virtuell dator som du skapar i Azure. 
 
 Du kan också distribuera agenten manuellt på en befintlig Azure-dator på en virtuell dator i ett annat moln eller på en lokal dator.
 
@@ -98,12 +98,12 @@ Om du inte använder Azure, distribuera manuellt Azure Sentinel-agenten ska kör
       1. Starta om Syslog-agenten med hjälp av det här kommandot: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Bekräfta att det inte finns några fel i agentloggen genom att köra det här kommandot: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
-## <a name="step-2-forward-palo-alto-logs-to-the-syslog-agent"></a>Steg 2: Vidarebefordra Palo Alto loggar till Syslog-agent
+## <a name="step-2-forward-palo-alto-networks-logs-to-the-syslog-agent"></a>Steg 2: Vidarebefordra Palo Alto Networks-loggar till Syslog-agent
 
 Konfigurera Palo Alto Networks för att vidarebefordra Syslog-meddelanden i CEF-format till Azure-arbetsytan via Syslog-agenten:
-1.  Gå till [guider för enhetskonfiguration i Common Event Format (CEF)](https://docs.paloaltonetworks.com/resources/cef) och ladda ned PDF-filen för din typ av installation. Alla i anvisningarna i guiden för att ställa in din Palo Alto-installation för att samla in CEF-händelser. 
+1.  Gå till [guider för enhetskonfiguration i Common Event Format (CEF)](https://docs.paloaltonetworks.com/resources/cef) och ladda ned PDF-filen för din typ av installation. Alla i anvisningarna i guiden för att ställa in din Palo Alto Networks-installation för att samla in CEF-händelser. 
 
-1.  Gå till [konfigurera Syslog-övervakning](https://aka.ms/asi-syslog-paloalto-forwarding) och följ steg 2 och 3 Konfigurera CEF vidarebefordran från Palo Alto-installation till Sentinel-Azure.
+1.  Gå till [konfigurera Syslog-övervakning](https://aka.ms/asi-syslog-paloalto-forwarding) och följ steg 2 och 3 Konfigurera CEF vidarebefordran från Palo Alto Networks-enheten till Azure Sentinel.
 
     1. Se till att ange den **Syslog-servern format** till **BSD**.
     1. Se till att ange den **anläggning nummer** till samma värde som du anger i Syslog-agenten.
@@ -130,7 +130,7 @@ Det kan ta höjningen tjugonde minut tills loggarna börjar visas i Log Analytic
 
 
 ## <a name="next-steps"></a>Nästa steg
-I det här dokumentet har du lärt dig hur du ansluter Palo Alto installationer till Sentinel-Azure. Mer information om Azure Sentinel finns i följande artiklar:
+I det här dokumentet har du lärt dig hur du ansluter Palo Alto Networks-enheter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [få insyn i dina data och potentiella hot](quickstart-get-visibility.md).
 - Kom igång [upptäcka hot med Azure Sentinel](tutorial-detect-threats.md).
 

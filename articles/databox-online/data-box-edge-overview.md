@@ -6,27 +6,22 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 11/13/2018
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 60186ee6aa614c83691c9ce4ab9d8124fd5925fd
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
-ms.translationtype: HT
+ms.openlocfilehash: 696f4fee95926009ebda0be3c28672838d89edda
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685964"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400440"
 ---
-# <a name="what-is-azure-data-box-edge-preview"></a>Vad är Azure Data Box Edge (förhandsversion)? 
+# <a name="what-is-azure-data-box-edge"></a>Vad är Azure Data Box Edge? 
 
 Azure Data Box Edge är en lagringslösning som gör det möjligt att bearbeta data och skicka dem via nätverk till Azure. Den här artikeln ger dig en översikt över Data Box Edge-lösningen, dess fördelar, viktiga funktioner och scenarier där du kan distribuera den här enheten. 
 
 Data Box Edge använder en fysisk enhet som tillhandahålls av Microsoft för att påskynda säker dataöverföring. Den fysiska enheten finns lokalt hos dig och du skriver data till den med hjälp av NFS- och SMB-protokoll. 
 
 Data Box Edge har alla gateway-funktioner hos Data Box Gateway. Data Box är även utrustat med AI-aktiverade edge-beräkningsfunktioner som hjälper till att analysera, bearbeta eller filtrera data som flyttas till Azure-blockblob, sidblob eller Azure Files.  
-
-> [!IMPORTANT]
-> - Data Box Edge är i förhandsversion. [Registrera dig](#sign-up) för den här tjänsten!
-> - Läs [användningsvillkoren för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du distribuerar den här lösningen.
-
 
 ## <a name="use-cases"></a>Användningsfall
 
@@ -76,7 +71,7 @@ Den fysiska Data Box Edge-enheten har följande funktioner:
 
 | Funktioner/specifikationer                                          | Beskrivning              |
 |---------------------------------------------------------|--------------------------|
-| Dimensioner   | Bredd: 43,82 cm (17,25 tum), djup: 69,22 cm (27,25 tum), höjd: 4,45 cm (1,75 tum)<br>(exklusive öron och nätaggregatshandtag)  |            
+| Dimensioner   | Bredd: 17.25 ”djup: 27.25 ”höjd: 1.75”<br>(exklusive öron och nätaggregatshandtag)  |            
 | Rackutrymme|1U vid placering i racket|
 | Kablar| 2 x strömkabel<br>2 x 1 Gbit/s RJ45-kablar<br>2 x 10 Gbit/s SFP+-kopparkablar|
 | Komponenter|2 inbyggda nätaggregat (PSU:er)|

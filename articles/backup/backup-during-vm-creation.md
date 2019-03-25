@@ -1,114 +1,80 @@
 ---
-title: Aktivera säkerhetskopiering av Azure virtuella datorer under skapandet
-description: Hur du aktiverar säkerhetskopiering av Azure virtuella datorer under skapandeprocessen.
-services: backup, virtual-machines
+title: Aktivera säkerhetskopiering när du skapar en Azure-dator med Azure Backup
+description: Beskriver hur du aktiverar säkerhetskopiering när du skapar en Azure-dator med Azure Backup.
 author: rayne-wiselman
 manager: carmonm
-tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/08/2018
-ms.author: trinadhk
-ms.openlocfilehash: fd2beaa39f03d4f2342c94bf1cd8b8aea7440e62
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.date: 03/22/2019
+ms.author: raynew
+ms.openlocfilehash: d96b898c8f72abd7e4eb3522ae046e9fc926f387
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780451"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403586"
 ---
-# <a name="enable-backup-when-you-create-an-azure-virtual-machine"></a>Aktivera säkerhetskopiering när du skapar en Azure virtuell dator
+# <a name="enable-backup-when-you-create-an-azure-vm"></a>Aktivera säkerhetskopiering när du skapar en virtuell Azure-dator
 
 Använda Azure Backup-tjänsten för att säkerhetskopiera virtuella Azure-datorer (VM). Virtuella datorer säkerhetskopieras enligt ett schema som anges i en princip för säkerhetskopiering och återställningspunkterna har skapats från säkerhetskopior. Återställningspunkter som lagras i Recovery Services-valv.
 
-Den här artikeln beskriver hur du aktiverar säkerhetskopiering medan du skapar en virtuell dator (VM) i Azure-portalen.  
+Den här artikeln beskriver hur du aktiverar säkerhetskopiering när du skapar en virtuell dator (VM) i Azure-portalen.  
+
+## <a name="before-you-start"></a>Innan du börjar
+
+- [Kontrollera](backup-support-matrix-iaas.md#supported-backup-actions) vilka operativsystem som stöds om du aktiverar säkerhetskopiering när du skapar en virtuell dator.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Om du inte redan loggat in på ditt konto, logga in på den [Azure-portalen](https://portal.azure.com).
  
-## <a name="create-a-vm-with-backup-configured"></a>Skapa en virtuell dator med säkerhetskopiering har konfigurerats 
+## <a name="create-a-vm-with-backup-configured"></a>Skapa en virtuell dator med säkerhetskopiering har konfigurerats
 
-1. I det övre vänstra hörnet i Azure Portal, Välj **New**.
+1. I Azure-portalen klickar du på **skapa en resurs**.
 
-1. Välj **Compute**, och välj sedan en avbildning av den virtuella datorn.
+2. I Azure Marketplace, klickar du på **Compute**, och välj sedan en VM-avbildning.
 
-1. Ange informationen för den virtuella datorn. Användarnamnet och lösenordet som du anger används för att logga in på den virtuella datorn. När du är klar väljer du **OK**. 
+3. Konfigurera den virtuella datorn i enlighet med den [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) eller [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) instruktioner.
 
-1. Välj en storlek för den virtuella datorn.  
+4. På den **Management** fliken **Aktivera säkerhetskopiering**, klickar du på **på**.
+5. Azure Backup-säkerhetskopiering till ett Recovery Services-valv. Klicka på **Skapa ny** om du inte har ett befintligt valv.
+6. Acceptera det föreslagna valvnamnet eller ange en egen.
+7. Ange eller skapa en resursgrupp som valvet kommer att finnas. Resource group valvet kan skilja sig från resursgrupp för virtuell dator.
 
-1. Under **inställningar** > **säkerhetskopiering**väljer **aktiverad** att öppna inställningarna för konfiguration av säkerhetskopiering.
+    ![Aktivera säkerhetskopiering för en virtuell dator](./media/backup-during-vm-creation/enable-backup.png) 
 
-   - Om du vill acceptera standardvärdena, Välj **OK** på den **inställningar** sidan. Går du sedan till den **sammanfattning** sidan för att skapa den virtuella datorn. Hoppa över steg 6 – 8.
-   - Följ stegen nedan om du vill ändra konfigurationen för säkerhetskopiering-värden.  
+8. Acceptera standardprincip för säkerhetskopiering eller ändra inställningarna.
+    - En princip för säkerhetskopiering anger hur ofta du vill ta ögonblicksbilder av säkerhetskopior för den virtuella datorn och hur lång tid att göra dessa säkerhetskopior. 
+    - Standardprincipen säkerhetskopierar den virtuella datorn en gång om dagen.
+    - Du kan anpassa dina egna princip för säkerhetskopiering för en Azure virtuell dator att göra säkerhetskopior dagliga och veckovisa.
+    - [Läs mer](backup-azure-vms-introduction.md#backup-and-restore-considerations) om backup-överväganden för virtuella Azure-datorer.
+    - [Läs mer](backup-instant-restore-capability.md) om ögonblicket återställningsfunktionen.
 
-1. Skapa eller välj ett Recovery Services-valv för att lagra säkerhetskopior av den virtuella datorn. Om du skapar ett Recovery Services-valv, kan du välja en resursgrupp för valvet.  
+      ![Standardprincip för säkerhetskopiering](./media/backup-during-vm-creation/daily-policy.png) 
 
-    ![Konfiguration av säkerhetskopiering inställningar på sidan Skapa en virtuell dator](./media/backup-during-vm-creation/create-vm-backup-config.png) 
-
-    > [!NOTE] 
-    > Resursgrupp för Recovery Services-valvet kan skilja sig från resursgruppen för den virtuella datorn.  
-
-1. Som standard väljs en säkerhetskopieringsprincip för dig att skydda den virtuella datorn. Anger hur ofta du vill ta ögonblicksbilder av säkerhetskopior för en princip för säkerhetskopiering och hur lång tid att göra dessa säkerhetskopior. 
-
-   - Du kan acceptera standardprincipen, eller du kan skapa eller välj en annan säkerhetskopieringspolicy. 
-   - Om du vill redigera principen för säkerhetskopiering, Välj **säkerhetskopieringspolicy** och ändra värdena.  
-
-1. När du är klar med att ange värden för konfiguration av säkerhetskopiering väljer **OK** på den **inställningar** sidan.  
-
-1. På den **sammanfattning** efter verifiering har passerat, Välj **skapa** skapa en virtuell dator som använder de konfigurerade inställningarna för säkerhetskopiering. 
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>Starta en säkerhetskopiering när du har skapat den virtuella datorn 
 
-Även om du har konfigurerat en princip för säkerhetskopiering för den virtuella datorn, är det en bra idé att skapa någon säkerhetskopia. 
+Säkerhetskopiering av virtuella datorer körs i enlighet med din princip för säkerhetskopiering. Vi rekommenderar dock att du kör någon säkerhetskopia. 
 
-När mallen för virtuella datorer skapas är klar går du till **Operations** i den vänstra menyn och välj **säkerhetskopiering** visa säkerhetskopierade informationen för den virtuella datorn. Du kan använda den här sidan:
+När den virtuella datorn har skapats kan du göra följande:
 
-- Utlösa en säkerhetskopiering på begäran.
-- Återställa en fullständig virtuell dator eller alla diskar.
-- Återställa filer från en säkerhetskopiering av virtuella datorer.
-- Ändra principen för säkerhetskopiering som är associerade med den virtuella datorn.  
+1. I virtuella datorns egenskaper klickar du på **Backup**. Virtuella datorns status är inledande säkerhetskopiering väntar tills den första säkerhetskopieringen körs
+2. Klicka på **Säkerhetskopiera nu** att köra en säkerhetskopiering på begäran.
+
+    ![Köra en säkerhetskopiering på begäran](./media/backup-during-vm-creation/run-backup.png) 
 
 ## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>Använda Resource Manager-mall för att distribuera en skyddad virtuell dator
 
 Föregående steg beskriver hur du använder Azure-portalen för att skapa en virtuell dator och skydda den i ett Recovery Services-valv. Se mallen för att snabbt distribuera en eller flera virtuella datorer och skydda dem i ett Recovery Services-valv, [distribuera en virtuell Windows-dator och aktivera säkerhetskopiering](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar 
 
-### <a name="which-vm-images-support-backup-configuration-during-vm-creation"></a>Vilka VM-avbildningar stöd för konfiguration av säkerhetskopiering under skapandet av VM?
-
-Följande core avbildningar som publicerats av Microsoft har stöd för att aktivera säkerhetskopiering under skapandet av VM. För andra virtuella datorer kan aktivera du säkerhetskopiering när den virtuella datorn har skapats. Mer information finns i [Aktivera säkerhetskopiering när datorn har skapats](quick-backup-vm-portal.md).
-
-- **Windows** -Windows Server 2016 Datacenter, kärna för Windows Server 2016 Datacenter, Windows Server 2012 Datacenter, Windows Server 2012 R2 Datacenter, Windows Server 2008 R2 SP1 
-- **Ubuntu** – Ubuntu Server 17.10, Ubuntu Server nr 17.04 från, Ubuntu Server 16.04 (LTS), Ubuntu Server 14.04 (LTS) 
-- **Red Hat** - RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4 
-- **SUSE** -SP4 för SUSE Linux Enterprise Server 11, 12 SP2, 12 SP3 
-- **Debian** - Debian 8, Debian 9 
-- **CentOS** -CentOS 6,9, CentOS 7.3 
-- **Oracle Linux** -Oracle Linux 6.7, 6.8, 6,9, 7.2, 7.3 
- 
-### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Är kostnaden för säkerhetskopiering i VM-kostnad? 
-
-Nej. Kostnader för Backup skiljer sig från en virtuell dators kostnader. Läs mer om prissättning för backup [prissättning för Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
- 
-### <a name="which-permissions-are-required-to-enable-backup-on-a-vm"></a>Vilka behörigheter krävs för att aktivera säkerhetskopiering på en virtuell dator? 
-
-Om du är deltagare VM, kan du aktivera säkerhetskopiering på den virtuella datorn. Om du använder en anpassad roll, behöver du följande behörigheter till Aktivera säkerhetskopiering på den virtuella datorn: 
-
-- Microsoft.RecoveryServices/Vaults/write 
-- Microsoft.RecoveryServices/Vaults/read 
-- Microsoft.RecoveryServices/locations/* 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/read 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/write 
- 
-Om dina Recovery Services-valv och en virtuell dator har olika resursgrupper kan du kontrollera att du har skrivbehörighet i resursgruppen för Recovery Services-valvet.  
 
 ## <a name="next-steps"></a>Nästa steg 
 
-Nu när du har skyddat den virtuella datorn finns i följande artiklar om hur du hanterar och återställa virtuella datorer:
+Nu när du har skyddat den virtuella datorn, lär du dig hur du hanterar och återställa dem.
 
-- [Hantera och övervaka dina virtuella datorer](backup-azure-manage-vms.md) 
-- [Återställa virtuella datorer](backup-azure-arm-restore-vms.md) 
+- [Hantera och övervaka virtuella datorer](backup-azure-manage-vms.md) 
+- [Återställa virtuell dator](backup-azure-arm-restore-vms.md) 
+
+Om du får problem, [granska](backup-azure-vms-troubleshoot.md) felsökningsguiden.

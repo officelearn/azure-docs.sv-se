@@ -6,31 +6,27 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 03/08/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 4fd52510abd61c4d319a3fcbc8f722df5edbc476
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0aaee4b0582f8acb9302c75463c0bc52698acaeb
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120609"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403484"
 ---
-# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge-preview"></a>Självstudier: Ansluta, konfigurera och aktivera Azure Data Box Edge (förhandsversion) 
+# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Självstudier: Ansluta, konfigurera och aktivera Azure Data Box Edge 
 
-Den här självstudien beskrivs hur du kan ansluta, konfigurera och aktivera din Azure Data Box Edge-enhet med hjälp av det lokala webbgränssnittet. 
+Den här självstudien beskrivs hur du kan ansluta, konfigurera och aktivera din Azure Data Box Edge-enhet med hjälp av det lokala webbgränssnittet.
 
-Installationen och aktiveringen kan ta cirka 20 minuter för att slutföra. 
+Installationen och aktiveringen kan ta cirka 20 minuter för att slutföra.
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Ansluta till en fysisk enhet
 > * Konfigurera och aktivera den fysiska enheten
-
-> [!IMPORTANT]
-> Data Box Edge är i förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen. 
-
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -41,25 +37,28 @@ Kontrollera följande innan du konfigurerar och ställer in din Data Box Edge-en
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Ansluta till lokala web UI-installationen 
 
-1. Konfigurera Ethernet-adaptern på datorn för att ansluta till Edge-enhet med en statisk IP-adress på 192.168.100.5 och undernät 255.255.255.0.
+1. Konfigurera Ethernet-adaptern på datorn för att ansluta till Data Box Edge-enhet med en statisk IP-adress på 192.168.100.5 och undernät 255.255.255.0.
 
-1. Anslut datorn till PORT 1 på din enhet. 
+2. Anslut datorn till PORT 1 på din enhet. Använd följande bild för att identifiera PORT 1 på din enhet.
 
-1. Öppna ett webbläsarfönster och åtkomst till lokalt Webbgränssnitt för enheten på https://192.168.100.10.  
+    ![Baksidan på en kabelansluten enhet](./media/data-box-edge-deploy-install/backplane-cabled.png)
+
+
+3. Öppna ett webbläsarfönster och åtkomst till lokalt Webbgränssnitt för enheten på https://192.168.100.10.  
     Den här åtgärden kan ta några minuter när du har aktiverat på enheten. 
 
     Du ser ett fel eller en varning som anger att det finns ett problem med webbplatsens säkerhetscertifikat. 
    
     ![Felmeddelande för webbplatsen security-certifikat](./media/data-box-edge-deploy-connect-setup-activate/image2.png)
 
-1. Välj **Fortsätt till den här webbsidan**.  
+4. Välj **Fortsätt till den här webbsidan**.  
     De här stegen kan variera beroende på vilken webbläsare du använder.
 
-1. Logga in på webbgränssnittet på din enhet. Standardlösenordet är *Password1*. 
+5. Logga in på webbgränssnittet på din enhet. Standardlösenordet är *Password1*. 
    
     ![Data Box-Edge-enhet på inloggningssidan](./media/data-box-edge-deploy-connect-setup-activate/image3.png)
 
-1. Ändra administratörslösenordet för enheten i Kommandotolken.  
+6. Ändra administratörslösenordet för enheten i Kommandotolken.  
     Det nya lösenordet måste innehålla mellan 8 och 16 tecken. Det måste innehålla tre av följande tecken: versaler, gemener, siffror och specialtecken.
 
 Du är nu på instrumentpanelen för din enhet.
@@ -68,17 +67,17 @@ Du är nu på instrumentpanelen för din enhet.
  
 Instrumentpanelen visar olika inställningar som krävs för att konfigurera och registrera den fysiska enheten med Edge för Data Box-tjänsten. Den **enhetsnamn**, **nätverksinställningar**, **Web proxyinställningar**, och **tidsinställningar** är valfria. De enda obligatoriska inställningarna är **Molninställningar**.
    
-![Instrumentpanelen för Data Box Edge-enheten](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)
+![Lokala webbgränssnittet ”instrumentpanel” sidan](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)
 
 1. I den vänstra rutan väljer **enhetsnamn**, och sedan ange ett eget namn för din enhet.  
-    Det egna namnet måste innehålla mellan 1 och 15 tecken och innehålla bokstäver, siffror och bindestreck.
+    Det egna namnet måste innehålla mellan 1 och 15 tecken och ha bokstäver, siffror och bindestreck.
 
-    ![Sidan ”enhetsnamn”](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
+    ![Lokala Användargränssnittet ”enhetsnamn” webbsida](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
-1. (Valfritt) I den vänstra rutan väljer **nätverksinställningar** och konfigurerar sedan inställningarna.  
-    Finns sex nätverksgränssnitt på den fysiska enheten. PORT 1 och PORT 2 är 1 Gbit/s-nätverksgränssnitt. PORT 3, PORT 4, PORT 5 och 6 PORT är alla 25 Gbit/s-nätverksgränssnitt. PORT 1 konfigureras automatiskt som en endast management port och PORT 2 till 6 för PORTEN är alla dataportar. Den **nätverksinställningar** sidan som visas nedan.
+2. (Valfritt) I den vänstra rutan väljer **nätverksinställningar** och konfigurerar sedan inställningarna.  
+    Finns sex nätverksgränssnitt på den fysiska enheten. PORT 1 och PORT 2 är 1 Gbit/s-nätverksgränssnitt. PORT 3, PORT 4, 5 PORT och PORT 6 är alla 25 Gbit/s-nätverksgränssnitt som kan också fungera som 10 Gbit/s-nätverksgränssnitt. PORT 1 konfigureras automatiskt som en endast management port och PORT 2 till 6 för PORTEN är alla dataportar. Den **nätverksinställningar** är enligt nedan.
     
-    ![Sidan ”nätverksinställningar”](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
+    ![Lokala Användargränssnittet ”nätverksinställningar” webbsida](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
     När du konfigurerar inställningarna för ha i åtanke:
 
@@ -89,9 +88,9 @@ Instrumentpanelen visar olika inställningar som krävs för att konfigurera och
      >[!NOTE] 
      > Vi rekommenderar att du inte växla lokala IP-adressen för nätverksgränssnittet från statisk till DCHP, såvida du inte har en annan IP-adress att ansluta till enheten. Om du använder ett nätverksgränssnitt och du växlar till DHCP och det är inget sätt att avgöra DHCP-adress. Om du vill ändra till en DHCP-adress, vänta tills enheten har registrerats med tjänsten och sedan ändra. Du kan visa IP-adresserna för alla kort i den **enhetsegenskaper** i Azure-portalen för din tjänst.
 
-1. (Valfritt) I den vänstra rutan väljer **Web proxyinställningar**, och sedan konfigurera din webbproxyserver. Även om webbproxykonfigurationen är valfritt, om du använder en webbproxy kan du konfigurera det på den här sidan endast.
+3. (Valfritt) I den vänstra rutan väljer **Web proxyinställningar**, och sedan konfigurera din webbproxyserver. Även om webbproxykonfigurationen är valfritt, om du använder en webbproxy kan du konfigurera det på den här sidan endast.
    
-   ![Sidan ”Webbproxyinställningar”](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)
+   ![Lokala Användargränssnittet ”Webbproxyinställningar” webbsida](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)
    
    På den **Web proxyinställningar** gör följande:
    
@@ -103,37 +102,41 @@ Instrumentpanelen visar olika inställningar som krävs för att konfigurera och
 
    d. Om du vill verifiera och tillämpa konfigurerade web proxy-inställningar, Välj **tillämpa inställningar**.
 
-1. (Valfritt) I den vänstra rutan väljer **tidsinställningar**, och sedan konfigurera tidszonen och de primära och sekundära NTP-servrarna för din enhet.  
+4. (Valfritt) I den vänstra rutan väljer **tidsinställningar**, och sedan konfigurera tidszonen och de primära och sekundära NTP-servrarna för din enhet.  
     NTP-servrar krävs eftersom din enhet måste synkronisera tiden så att den kan autentisera med molntjänstleverantören.
-    
-    ![Sidan ”tidsinställningar”](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
-    
+       
     På den **tidsinställningar** gör följande:
     
-    a. I den **tidszon** listrutan väljer du den tidszon som motsvarar den geografiska plats där enheten ska distribueras.  
+    1. I den **tidszon** listrutan väljer du den tidszon som motsvarar den geografiska plats där enheten ska distribueras.
         Standardtidszon för din enhet är PST. Enheten använder den här tidszonen för alla schemalagda åtgärder.
 
-    b. I den **primär NTP-server** anger du den primära servern för enheten eller godkänner du standardvärdet för time.windows.com.  
+    2. I den **primär NTP-server** anger du den primära servern för enheten eller godkänner du standardvärdet för time.windows.com.  
         Se till att ditt nätverk tillåter att NTP-trafik skickas från ditt datacenter till internet.
 
-    c. Valfritt: i den **sekundär NTP-server** anger en sekundär server för din enhet.
+    3. Valfritt: i den **sekundär NTP-server** anger en sekundär server för din enhet.
 
-    d. Om du vill verifiera och tillämpa inställningarna för konfigurerade tid, Välj **tillämpa**.
+    4. Om du vill verifiera och tillämpa inställningarna för konfigurerade tid, Välj **tillämpa inställningar**.
 
-6. I den vänstra rutan väljer **Molninställningar**, och sedan aktivera din enhet med Data Box Edge-tjänsten i Azure-portalen.
+        ![Local web UI "Time settings" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
+
+5. I den vänstra rutan väljer **Molninställningar**, och sedan aktivera din enhet med Data Box Edge-tjänsten i Azure-portalen.
     
-    a. I den **aktiveringsnyckeln** anger aktiveringsnyckeln som du fick i [hämta aktiveringsnyckeln](data-box-edge-deploy-prep.md#get-the-activation-key) för Data Box Edge.
-
-    b. Välj **Använd**. 
+    1. I den **aktiveringsnyckeln** anger aktiveringsnyckeln som du fick i [hämta aktiveringsnyckeln](data-box-edge-deploy-prep.md#get-the-activation-key) för Data Box Edge.
+    2. Välj **Använd**.
        
-    ![Sidan ”molninställningar”](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
-    
-    När enheten har har aktiverats kan visas med alternativ för läge. Dessa inställningar konfigureras om du vill arbeta med enheten i delvis frånkopplade eller frånkopplat läge. 
+        ![Local web UI "Cloud settings" page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
 
-    ![Bekräftelse för ”Molninställningar” aktivering](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)    
+    3. Enheten aktiveras först. Enheten genomsöks sedan viktiga uppdateringar och om det finns uppdateringar tillämpas automatiskt. Du ser ett meddelande om detta.
+
+        Dialogrutan har också en återställningsnyckel som du bör kopiera och spara den på en säker plats. Den här nyckeln används för att återställa dina data i den händelse att enheten inte kan starta.
+
+        ![Local web UI "Cloud settings" page updated](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)
+
+    4. Du kan behöva vänta flera minuter när uppdateringen har slutförts. Sidan att uppdateras för att indikera att enheten har aktiverats.
+
+        ![Local web UI "Cloud settings" page updated](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 
 Installationen av enheten har slutförts. Du kan nu lägga till resurser på din enhet.
-
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -142,7 +145,6 @@ I den här självstudiekursen lärde du dig att:
 > [!div class="checklist"]
 > * Ansluta till en fysisk enhet
 > * Konfigurera och aktivera den fysiska enheten
-
 
 Om du vill lära dig mer om att överföra data med din Data Box Edge-enhet, se:
 

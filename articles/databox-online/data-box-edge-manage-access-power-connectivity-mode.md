@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/21/2019
 ms.author: alkohli
-ms.openlocfilehash: e0aa3468bda9f904d62e9e20545ac5f990cef521
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: e0b8b35c654f0716fae1e6ab785f57dcf04e1a5a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57902148"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400890"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge-preview"></a>Hantera åtkomst, power och anslutningsläget för din Azure Data Box Edge (förhandsversion)
 
@@ -31,11 +31,11 @@ I den här artikeln kan du se hur du:
 
 ## <a name="manage-device-access"></a>Hantera Enhetsåtkomst
 
-Åtkomst till din Data Box Edge-enhet är kontrolleras med hjälp av ett administratörslösenord för enheten. Du kan ändra administratörslösenordet via det lokala webbgränssnittet. Du kan också återställa administratörslösenordet för enheten i Azure-portalen.
+Åtkomst till din Data Box Edge-enhet är kontrolleras med hjälp av enhetens lösenord. Du kan ändra lösenordet via det lokala webbgränssnittet. Du kan också återställa lösenordet för enheten i Azure-portalen.
 
-### <a name="change-device-administrator-password"></a>Ändra enhetens administratörslösenord
+### <a name="change-device-password"></a>Ändra enhetens lösenord
 
-Följ dessa steg i det lokala Användargränssnittet för att ändra enhetens administratörslösenord.
+Följ dessa steg i det lokala Användargränssnittet för att ändra lösenordet för enheten.
 
 1. I det lokala webbgränssnittet går du till **Underhåll > lösenordsändring**.
 2. Ange det aktuella lösenordet och sedan det nya lösenordet. Det angivna lösenordet måste vara mellan 8 och 16 tecken. Lösenordet måste innehålla 3 av följande tecken: versaler, gemener, siffror och specialtecken. Bekräfta det nya lösenordet.
@@ -44,7 +44,7 @@ Följ dessa steg i det lokala Användargränssnittet för att ändra enhetens ad
 
 3. Välj **ändra lösenord**.
  
-### <a name="reset-device-administrator-password"></a>Återställa administratörslösenord för enheten
+### <a name="reset-device-password"></a>Återställ enhetslösenord
 
 Återställ arbetsflöde kräver inte användare att komma ihåg det gamla lösenordet och är användbart när lösenordet går förlorat. Det här arbetsflödet utförs i Azure-portalen.
 
@@ -63,7 +63,7 @@ Förutom de fullständigt anslutna standardläget, kan enheten också köra i de
 
 - **Anslutas fullständigt** – detta är normalt standardläget där enheten fungerar. Både molnöverföring och hämtning av data är aktiverat i det här läget. Du kan använda Azure portal eller det lokala webbgränssnittet för att hantera enheten.
 
-- **Delvis frånkopplad** – i det här läget enheten kan inte ladda upp några data till filresurser men kan hanteras via Azure portal.
+- **Delvis frånkopplad** – i det här läget enheten kan inte överföra eller hämta alla dela data men kan hanteras via Azure portal.
 
     Det här läget används vanligtvis när du är i ett bevakat satelliten nätverk och målet är att minimera bandbreddsanvändning i nätverket. Minimal nätverksförbrukning kan fortfarande ha åtgärder för enhetsövervakning.
 

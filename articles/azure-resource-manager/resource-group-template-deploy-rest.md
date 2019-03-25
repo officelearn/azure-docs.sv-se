@@ -1,6 +1,6 @@
 ---
 title: Distribuera resurser med REST API och en mall | Microsoft Docs
-description: Använda Azure Resource Manager och Resource Manager REST API för att distribuera en resurser till Azure. Resurserna definieras i en Resource Manager-mall.
+description: Använda Azure Resource Manager och Resource Manager REST API för att distribuera resurser till Azure. Resurserna definieras i en Resource Manager-mall.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -10,28 +10,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: bd574eb2d3537d3e5c0774f57e37283817cc7879
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3468f5b625911cd637b22e2c1d35a47fb7d7b0e4
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112032"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402838"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Distribuera resurser med Resource Manager-mallar och Resource Manager REST API
 
 Den här artikeln förklarar hur du använder Resource Manager REST API med Resource Manager-mallar för att distribuera dina resurser till Azure.  
 
-> [!TIP]
-> Om du behöver hjälp med felsökning av ett fel under distributionen, se:
-> 
-> * [Visa distributionsåtgärder](resource-manager-deployment-operations.md) vill veta mer om att hämta information som hjälper till att du felsöker din fel
-> * [Felsök vanliga fel när du distribuerar resurser till Azure med Azure Resource Manager](resource-manager-common-deployment-errors.md) och lär dig att lösa vanliga distributionsfel
-> 
-> 
-
 Du kan antingen inkludera mallen i förfrågans text eller länk till en fil. När du använder en fil, kan det vara en lokal fil eller en extern fil som är tillgänglig via en URI. När mallen är i ett lagringskonto kan du begränsa åtkomsten till mallen och ange en token för delad åtkomst (signatur) under distributionen.
+
+## <a name="deployment-scope"></a>Distributionsomfattningen
+
+Du kan begränsa distributionen till en Azure-prenumeration eller resursgrupp inom en prenumeration. I de flesta fall kommer du rikta distribution till en resursgrupp. Använda prenumerationsdistributioner för att tillämpa principer och rolltilldelningar i prenumerationen. Du kan också använda prenumerationsdistributioner för att skapa en resursgrupp och distribuera resurser till den. Beroende på omfattningen av distributionen, kan du använda olika kommandon.
+
+Distribuera till en **resursgrupp**, använda [distributioner – skapa](/rest/api/resources/deployments/createorupdate).
+
+Distribuera till en **prenumeration**, använda [distributioner – skapa på Prenumerationsomfattningen](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+
+I exemplen i den här artikeln används distribution av resursgrupper. Mer information om prenumerationsdistributioner finns i [skapa resursgrupper och resurser på prenumerationsnivå](deploy-to-subscription.md).
 
 ## <a name="deploy-with-the-rest-api"></a>Distribuera med REST API
 1. Ange [gemensamma parametrar och rubriker](/rest/api/azure/), inklusive autentiseringstoken.

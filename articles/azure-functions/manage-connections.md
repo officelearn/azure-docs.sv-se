@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 965fa1e82be3fb87bf58a0114f97091bad212738
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 079fe74ec11570b26cbba93e4aba26d7359bef20
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450744"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402379"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Hantera anslutningar i Azure Functions
 
@@ -57,7 +57,7 @@ public static async Task Run(string input)
 
 Vanliga frågor om [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) i .NET är ”bör jag använda min klient”? I allmänhet du kasta objekt som implementerar `IDisposable` när du är klar med dessa. Men du inte förfara med en statisk klient eftersom du inte är klar med den när funktionen har upphört. Du vill att statisk klienten TTL-värde för varaktigheten för ditt program.
 
-### <a name="http-agent-examples-nodejs"></a>HTTP-agenten exempel (Node.js)
+### <a name="http-agent-examples-javascript"></a>HTTP-agenten exempel (JavaScript)
 
 Eftersom det ger bättre anslutning hanteringsalternativ, bör du använda inbyggt [ `http.agent` ](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) klassen i stället för icke-intern metoder, till exempel den `node-fetch` modulen. Anslutningsparametrar konfigureras via alternativen på den `http.agent` klass. Detaljerade alternativ tillgängliga med HTTP-agenten finns i [ny Agent (\[alternativ\])](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options).
 
@@ -105,6 +105,25 @@ public static async Task Run(string input)
     await documentClient.UpsertDocumentAsync(collectionUri, document);
     
     // Rest of function
+}
+```
+
+### <a name="cosmosclient-code-example-javascript"></a>Kodexempel för CosmosClient (JavaScript)
+[CosmosClient](/javascript/api/@azure/cosmos/cosmosclient) ansluter till en Azure Cosmos DB-instans. Azure Cosmos DB-dokumentationen rekommenderar att du [använder en singleton Azure Cosmos DB-klienten för hela ditt programs livslängd](../cosmos-db/performance-tips.md#sdk-usage). I följande exempel visar ett mönster för att göra som i en funktion:
+
+```javascript
+const cosmos = require('@azure/cosmos');
+const endpoint = process.env.COSMOS_API_URL;
+const masterKey = process.env.COSMOS_API_KEY;
+const { CosmosClient } = cosmos;
+
+const client = new CosmosClient({ endpoint, auth: { masterKey } });
+// All function invocations also reference the same database and container.
+const container = client.database("MyDatabaseName").container("MyContainerName");
+
+module.exports = async function (context) {
+    const { result: itemArray } = await container.items.readAll().toArray();
+    context.log(itemArray);
 }
 ```
 

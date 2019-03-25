@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: fd58bf9582663e64e1aefd8193d48d92f51dcd0e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.openlocfilehash: 50a505b7f4cc1e8fd840703b1f1aa0111dafdec4
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165683"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400578"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Använda Azur-portalen för att hantera resurser i Azure Data Box Gateway 
 
 Den här artikeln beskriver hur du hanterar resurser i din Azure Data Box Gateway. Du kan hantera Azure Data Box Gateway via Azure-portalen eller via det lokala webbgränssnittet. Använd Azure-portalen för att lägga till, ta bort och uppdatera resurser eller för att synkronisera lagringsnyckeln för det lagringskonto som är associerat med resurserna.
-
-> [!IMPORTANT]
-> - Data Box Gateway är en förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen.
-
 
 ## <a name="about-shares"></a>Om resurser
 

@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
-ms.date: 04/17/2018
+ms.date: 03/22/2019
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 605598d1470cbb535d626c15a5e8e4e08aa4d571
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3a260102e9964cfc248ed3dbabab487bd1c5dfc2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883822"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403773"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Använd Azure Stream Analytics med SQL Data Warehouse
 Azure Stream Analytics är en helt hanterad tjänst som ger låg latens, hög tillgänglighet och skalbar komplex händelsebearbetning över strömmande data i molnet. Du kan lära dig grunderna genom att läsa [introduktion till Azure Stream Analytics][Introduction to Azure Stream Analytics]. Sedan kan du lära dig hur du skapar en slutpunkt till slutpunkt-lösning med Stream Analytics genom att följa den [komma igång med Azure Stream Analytics] [ Get started using Azure Stream Analytics] självstudien.
@@ -34,12 +34,10 @@ Skapa sedan en Azure SQL Data Warehouse-databas
 
 ## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Ange jobbutdata: Azure SQL Data Warehouse-databas
 ### <a name="step-1"></a>Steg 1
-I ditt Stream Analytics-jobb klickar du på **utdata** högst upp på sidan och klicka sedan på **lägga till utdata**.
+I ditt Stream Analytics-jobb klickar du på **utdata** högst upp på sidan och klicka sedan på **lägga till**.
 
 ### <a name="step-2"></a>Steg 2
-Välj SQL-databas och klicka på Nästa.
-
-![][add-output]
+Välj SQL-databas.
 
 ### <a name="step-3"></a>Steg 3
 Ange följande värden på nästa sida:
@@ -62,9 +60,7 @@ Ange följande värden på nästa sida:
 ### <a name="step-4"></a>Steg 4
 Klicka på knappen Kontrollera för att lägga till den här jobbutdata och kontrollera att Stream Analytics kan ansluta till databasen.
 
-![][test-connection]
-
-När anslutningen till databasen lyckas visas ett meddelande längst ned i portalen. Du kan klicka på Testa anslutning längst ned för att testa anslutningen till databasen.
+När anslutningen till databasen lyckas visas ett meddelande i portalen. Du kan klicka på Testa för att testa anslutningen till databasen.
 
 ## <a name="next-steps"></a>Nästa steg
 En översikt över integration finns i [översikt över SQL Data Warehouse-integration][SQL Data Warehouse integration overview].

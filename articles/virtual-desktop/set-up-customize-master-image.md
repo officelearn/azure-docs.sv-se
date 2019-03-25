@@ -1,22 +1,22 @@
 ---
 title: Förbereda och anpassa en virtuell Hårddisk huvudavbildning - Azure
-description: Hur du förbereder, anpassa och ladda upp en huvudavbildning för virtuella Windows-skrivbordet (förhandsversion) till Azure.
+description: Hur du förbereder, anpassa och ladda upp en huvudavbildning för virtuellt skrivbord i Windows-förhandsversion till Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 53bf33aad6511cc282f53659bbe43873cacfc3ff
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ca186090f28f04811030e83b159782a9bfeb87f9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318426"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400781"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en master VHD-avbildning
 
-Den här artikeln kommer berättar hur du förbereder en avbildning av master virtuell hårddisk (VHD) för överföring till Azure, inklusive hur du skapar virtuella datorer (VM) och installera och konfigurera programvara på dem. Dessa instruktioner är för en virtuell Windows Desktop (förhandsversion) konfiguration som kan användas med din organisations befintliga processer.
+Den här artikeln kommer berättar hur du förbereder en avbildning av master virtuell hårddisk (VHD) för överföring till Azure, inklusive hur du skapar virtuella datorer (VM) och installera och konfigurera programvara på dem. Dessa instruktioner är för en virtuell Windows-skrivbordet förhandsversion konfiguration som kan användas med din organisations befintliga processer.
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
@@ -370,8 +370,8 @@ Följande instruktioner berätta hur du överför huvudavbildningen till ett Azu
 
 Nu när du har någon bild kan du skapa eller uppdatera värd pooler. Mer information om hur du skapar och uppdatera värden pooler finns i följande artiklar:
 
-- [Skapa en värd-pool med en Azure Resource Manager-mall (förhandsversion)](create-host-pools-arm-template.md)
-- [Självstudier: Skapa en värd-pool med Azure Marketplace (förhandsversion)](create-host-pools-azure-marketplace.md)
-- [Skapa en värd-pool med PowerShell (förhandsversion)](create-host-pools-powershell.md)
+- [Skapa en värd-pool med en Azure Resource Manager-mall](create-host-pools-arm-template.md)
+- [Självstudier: Skapa en värd-pool med Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Skapa en värd-pool med PowerShell](create-host-pools-powershell.md)
 - [Skapa en användare profil resurs för en värd-pool](create-host-pools-user-profile.md)
 - [Konfigurera den virtuella Windows-skrivbordet belastningsutjämningsmetoden](configure-host-pool-load-balancing.md)

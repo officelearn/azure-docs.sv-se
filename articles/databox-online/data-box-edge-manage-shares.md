@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/11/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 79648e30e832a056016b8842fdc39e27e206c9ee
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: ec5fbffdf7df5ef3a952e21b79ab02f355fb8e29
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57897819"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403654"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Använda Azure-portalen för att hantera resurser på din Azure Data Box Edge
 
 Den här artikeln beskriver hur du hanterar resurser på din Azure Data Box Edge. Du kan hantera Azure Data Box Edge via Azure portal eller via lokalt webbgränssnitt. Använd Azure-portalen för att lägga till, ta bort, uppdatera resurser eller synkronisera lagringskontots åtkomstnyckel för lagringskontot som är associerat med filresurser.
-
-> [!IMPORTANT]
-> Data Box Edge är i förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen.
-
 
 ## <a name="about-shares"></a>Om resurser
 
@@ -67,8 +63,10 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
 
         ![Lägga till NFS-resurs](media/data-box-edge-manage-shares/add-nfs-share.png)
 
-7. Klicka på **Skapa** för att skapa resursen. Du får ett meddelande om att resursen skapas. När resursen har skapats med de angivna inställningarna uppdateras bladet **Resurser** med den nya resursen.
- 
+7. Använda lokala monteringspunkten så att du enkelt vill komma åt filresurser från Edge-moduler för beräkning. Välj **använder resursen med Edge-beräkning** så att resursen är automatiskt monteras efter den som den är skapad. När det här alternativet väljs, kan Edge-modul också använda beräkningarna med lokala monteringspunkten.
+
+8. Klicka på **Skapa** för att skapa resursen. Du får ett meddelande om att resursen skapas. När resursen har skapats med de angivna inställningarna uppdateras bladet **Resurser** med den nya resursen.
+
 ## <a name="add-a-local-share"></a>Lägg till en lokal resurs
 
 1. Gå till din Data Box Edge-resurs i Azure-portalen och gå sedan till **Gateway > resurser**. Välj **+ Lägg till resurs** i kommandofältet.
@@ -93,11 +91,32 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
 
     Du ser ett meddelande om att skapa resursen håller på att skapas. När resursen har skapats med de angivna inställningarna uppdateras bladet **Resurser** med den nya resursen.
 
-    ![Visa uppdateringar resurser bladet](media/data-box-edge-manage-shares/add-local-share-4.png)
+    ![Visa uppdateringar resurser bladet](media/data-box-edge-manage-shares/add-local-share-3.png)
     
     Markera resursen som Visa lokala monteringspunkt för Edge-moduler för beräkning för den här resursen.
 
     ![Visa lokala resursinformation](media/data-box-edge-manage-shares/add-local-share-4.png)
+
+
+## <a name="unmount-a-share"></a>Demontera en resurs
+
+Utför följande steg i Azure portal för att demontera en resurs.
+
+1. Gå till din Data Box Edge-resurs i Azure-portalen och gå sedan till **Gateway > resurser**.
+
+    ![Välja resurs](media/data-box-edge-manage-shares/select-share-unmount.png)
+
+2. Välj den resurs som du vill demontera från listan över resurser. Du vill se till att resursen du demontera inte används av alla moduler. Om resursen används av en modul, ser du problem med modulen motsvarande. Välj **demontera**.
+
+    ![Välj demontera](media/data-box-edge-manage-shares/select-unmount.png)
+
+3. När du uppmanas att bekräfta väljer **Ja**. Detta kommer demontera resursen.
+
+    ![Bekräfta demontera](media/data-box-edge-manage-shares/confirm-unmount.png)
+
+4. När resursen är demonterad, går du till listan över resurser. Ser du att **används för beräkning** kolumnen visar status för resursen som **inaktiverad**.
+
+    ![Demontera filresursen](media/data-box-edge-manage-shares/share-unmounted.png)
 
 ## <a name="delete-a-share"></a>Ta bort en resurs
 

@@ -2,23 +2,18 @@
 title: Vad är Azure Reservations? | Microsoft Docs
 description: Läs mer om Azure-reservationer och priser för att spara på dina virtuella datorer, SQL-databaser, Azure Cosmos DB och andra resurskostnader.
 services: billing
-documentationcenter: ''
 author: yashesvi
 manager: yashar
-editor: ''
 ms.service: billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/06/2019
+ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: a4ad3574849d3c80f671abc93e463b06454289e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3081ab352152d6d736f20da94ed0b513121e231b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904175"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401803"
 ---
 # <a name="what-are-azure-reservations"></a>Vad är Azure Reservations?
 
@@ -44,17 +39,11 @@ För Windows-datorer och SQL-databas, kan du täcker licensieringskostnaderna me
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>Vem är kvalificerad att köpa en reservation?
 
-Azure-kunder med följande typer av prenumerationer kan köpa en reservation:
+Du måste ha en prenumeration ägarrollen i ett företag (MS-AZR - 0017P eller MS-AZR - 0148P) eller en prenumeration med användningsbaserad betalning (MS-AZR - 003P eller MS-AZR - 0023P) om du vill köpa en plan. Cloud solution providers kan använda Azure-portalen eller [Partnercenter](/partner-center/azure-reservations) att köpa reservationer för Azure.
 
-- Enterprise agreement-prenumeration erbjudandetyp (MS-AZR - 0017P eller MS-AZR - 0148P).
-- Betala per användning typ av prenumerationserbjudande (MS-AZR - 003P eller MS-AZR - 0023P).
-- Cloud Solution Provider (CSP) partner kan använda Azure-portalen eller [Partnercenter](https://docs.microsoft.com/partner-center/azure-reservations) att köpa reservationer för Azure.
+EA-kunder kan begränsa inköp till EA-administratörer genom att inaktivera den **lägga till reserverade instanser** alternativ i EA-portalen. EA-administratörer måste vara prenumerationsägare för minst en EA-prenumeration att köpa en reservation. Alternativet är användbart för företag som vill ha en centraliserad team att köpa reservationer för olika kostnadsställen. Efter köpet, centraliserad team kan lägga till kostnaden center ägare reservationerna. Ägare kan sedan begränsa reservationen prenumerationerna. Centralt team behöver inte ha ägaråtkomst för prenumerationen där reservationen köps.
 
 En reservationsrabatten gäller bara för resurser som är associerade med Enterprise, betala per användning eller CSP-prenumeration-typer.
-
- Att köpa en plan:
-
-- Du måste vara i en ägarrollen för minst en Enterprise eller användningsbaserad betalning.
 
 ## <a name="how-is-a-reservation-billed"></a>Hur faktureras en reservation?
 

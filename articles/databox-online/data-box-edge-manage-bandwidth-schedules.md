@@ -6,23 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/12/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 2c8d21a9494bace7d60b90637450cb10a5f3576e
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: f88003e38a34eb3396b83158ff71e4739080cd9d
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58109366"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401395"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-edge"></a>Använd Azure-portalen kan du hantera scheman för bandbredd på din Azure Data Box Edge  
 
 Den här artikeln beskriver hur du hanterar användare på din Azure Data Box Edge. Med bandbreddsscheman kan du konfigurera användningen av nätverksbandbredd mellan scheman under olika tider på dagen. Schemana kan användas för upp- och nedladdningar mellan din enhet och molnet.
 
 Du kan lägga till, ändra eller ta bort schemana bandbredd för din Data Box Edge via Azure portal.
-
-> [!IMPORTANT]
-> Data Box Edge är i förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen.
 
 I den här artikeln kan du se hur du:
 

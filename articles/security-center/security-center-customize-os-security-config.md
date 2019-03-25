@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2018
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 15707e9854e79b3aa05ff9024fc5b3c7a38fa8f2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c0c37724e61490c8c33b5e2d37879549bbc6d7ce
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106893"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402124"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Anpassa OS-säkerhetskonfigurationer i Azure Security Center (förhandsversion)
 
@@ -112,7 +112,7 @@ Varje kategori har en egen uppsättning attribut. Du kan ändra följande attrib
 
     - Lista över tillåtna användargrupper, till exempel: *Administratörer*, *ansvariga för säkerhetskopiering*
 
--   **tillstånd**: Strängen kan innehålla alternativ *inaktiverad* eller *aktiverad*. För den här privata förhandsversionen är strängen skiftlägeskänsligt.
+-   **tillstånd**: Strängen kan innehålla alternativ *inaktiverad* eller *aktiverad*. Den här versionen är är strängen skiftlägeskänsligt.
 
 Det här är de enda fält som kan konfigureras. Om du bryter mot file format eller storlek, kan du inte spara ändringen. Du får ett fel som säger att du behöver ladda upp en giltig JSON-konfigurationsfil.
 
@@ -281,7 +281,7 @@ Alla eventuella fel visas i följande tabell:
 | BaselineRuleCceIdNotUniqueError          | CCE-ID *{0}* är inte unikt.                                                                                                                  |
 | BaselineRuleEmptyProperty                | Egenskapen *{0}* är ogiltig eller saknas.                                                                                                       |
 | BaselineRuleIdNotInDefault               | Regeln har ett source-egenskapen *Microsoft* men hittades inte i Microsoft standard regeluppsättning.                                                   |
-| BaselineRuleIdNotUniqueError             | Regel-Id är inte unikt.                                                                                                                       |
+| BaselineRuleIdNotUniqueError             | Regel-ID är inte unikt.                                                                                                                       |
 | BaselineRuleInvalidGuid                  | Egenskapen *{0}* hittades ogiltig. Värdet är inte ett giltigt GUID.                                                                             |
 | BaselineRuleInvalidHive                  | Hive måste vara LocalMachine.                                                                                                                   |
 | BaselineRuleNameNotUniqueError           | Regelnamnet är inte unikt.                                                                                                                 |

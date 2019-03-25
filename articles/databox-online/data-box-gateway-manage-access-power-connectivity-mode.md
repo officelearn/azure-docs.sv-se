@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 0ad94799320e25d88f616117f1bfcf9f0513aadf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d46d74544181a6b9cbfd049b2f5461b20b928483
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873027"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401438"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway-preview"></a>Hantera åtkomst, kraft och anslutningsläget för din Azure Data Box-Gateway (förhandsversion)
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Hantera åtkomst, kraft och anslutningsläget för din Azure Data Box-Gateway
 
 Den här artikeln beskriver hur du hanterar åtkomst, kraft och anslutningen läge för din Azure Data Box-Gateway. Dessa åtgärder utförs via det lokala webbgränssnittet eller Azure-portalen.
 
@@ -26,16 +26,13 @@ I den här artikeln kan du se hur du:
 > * Hantera anslutningsläget
 > * Hantera power
 
-> [!IMPORTANT]
-> Data Box Gateway är en förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen.
-
 ## <a name="manage-device-access"></a>Hantera Enhetsåtkomst
 
-Åtkomst till din Data Box-gatewayenhet styrs med hjälp av ett administratörslösenord för enheten. Du kan ändra administratörslösenordet via det lokala webbgränssnittet. Du kan också återställa administratörslösenordet för enheten i Azure-portalen.
+Åtkomst till din Data Box-gatewayenhet styrs av användning av enhetens lösenord. Du kan ändra lösenordet via det lokala webbgränssnittet. Du kan också återställa lösenordet för enheten i Azure-portalen.
 
-### <a name="change-device-administrator-password"></a>Ändra enhetens administratörslösenord
+### <a name="change-device-password"></a>Ändra enhetens lösenord
 
-Följ dessa steg i det lokala Användargränssnittet för att ändra enhetens administratörslösenord.
+Följ dessa steg i det lokala Användargränssnittet för att ändra lösenordet för enheten.
 
 1. I det lokala webbgränssnittet går du till **Underhåll > lösenordsändring**.
 2. Ange det aktuella lösenordet och sedan det nya lösenordet. Det angivna lösenordet måste vara mellan 8 och 16 tecken. Lösenordet måste innehålla 3 av följande tecken: versaler, gemener, siffror och specialtecken. Bekräfta det nya lösenordet.
@@ -44,7 +41,7 @@ Följ dessa steg i det lokala Användargränssnittet för att ändra enhetens ad
 
 3. Klicka på **ändra lösenord**.
  
-### <a name="reset-device-administrator-password"></a>Återställa administratörslösenord för enheten
+### <a name="reset-device-password"></a>Återställ enhetslösenord
 
 Återställ arbetsflöde kräver inte användare att komma ihåg det gamla lösenordet och är användbart när lösenordet går förlorat. Det här arbetsflödet utförs i Azure-portalen.
 

@@ -1,22 +1,22 @@
 ---
-title: Skapa en klient i Windows virtuellt skrivbord (förhandsversion), Azure
-description: Beskriver hur du konfigurerar virtuella skrivbordet i Windows-klienter i Azure Active Directory.
+title: Skapa en klient i Windows Virtual Desktop förhandsgranskning – Azure
+description: Beskriver hur du ställer in förhandsversion för virtuella skrivbord i Windows-klienter i Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 26bcae12ee5e053289dd18c9f378eff43a0b0e04
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: b8b5c2cef1db5018ce0d61e1950f49a3bd215ac2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368178"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402906"
 ---
-# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Självstudier: Skapa en klient i virtuella Windows-skrivbordet (förhandsversion)
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Självstudier: Skapa en klient i förhandsversion för virtuella skrivbord i Windows
 
-Skapa en klient i virtuella Windows-skrivbordet (förhandsversion) är det första steget mot att bygga ut din skrivbordsvirtualisering-lösning. En klient är en grupp med en eller flera värden pooler. Varje värd-pool består av flera session värdar som körs som virtuella datorer i Azure och registrerats hos tjänsten virtuella Windows-skrivbordet. Varje värd-pool består även av en eller flera appgrupper som används för att publicera fjärrprogram för fjärrskrivbord och resurser för användare. Med en klient kan du bygga ut värden pooler, skapa app-grupper, tilldela användare och skapa anslutningar via tjänsten.
+Skapa en klient i förhandsversion för virtuella skrivbord i Windows är det första steget mot att bygga ut din skrivbordsvirtualisering-lösning. En klient är en grupp med en eller flera värden pooler. Varje värd-pool består av flera session värdar som körs som virtuella datorer i Azure och registrerats hos tjänsten virtuella Windows-skrivbordet. Varje värd-pool består även av en eller flera appgrupper som används för att publicera fjärrprogram för fjärrskrivbord och resurser för användare. Med en klient kan du bygga ut värden pooler, skapa app-grupper, tilldela användare och skapa anslutningar via tjänsten.
 
 I den här självstudiekursen får du lära du dig att:
 
@@ -32,7 +32,7 @@ Här är vad du behöver att konfigurera din virtuella skrivbordet i Windows-kli
    * Detta gäller även för Cloud Solution Provider (CSP) organisationer som skapar ett virtuellt skrivbord i Windows-klient för sina kunder. Om du är en CSP-organisation, måste du kunna logga in som global administratör för kundens Azure Active Directory.
 * En Azure-prenumerations-ID
 
-## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-service"></a>Bevilja Azure Active Directory-behörigheter till tjänsten Windows virtuellt skrivbord
+## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>Bevilja Azure Active Directory-behörigheter till tjänsten Windows Virtual Desktop-förhandsversion
 
 Om du redan har beviljat behörigheter till virtuella Windows-skrivbordet för den här Azure Active Directory, kan du hoppa över det här avsnittet.
 
@@ -66,7 +66,7 @@ Tilldela rollen TenantCreator program med ditt globala administratörskonto:
    - Detta kan vara kontot som global administratör för enkelhetens skull.
 6. Välj användarkontot, klickar du på den **Välj** och välj sedan **tilldela**.
 
-## <a name="create-a-windows-virtual-desktop-tenant"></a>Skapa ett virtuellt skrivbord i Windows-klient
+## <a name="create-a-windows-virtual-desktop-preview-tenant"></a>Skapa en förhandsversion för virtuella skrivbord i Windows-klient
 
 Nu när du har beviljats behörigheter för virtuellt skrivbord i Windows-tjänsten att fråga efter Azure Active Directory och har tilldelats rollen TenantCreator till ett användarkonto kan skapa du ett virtuellt skrivbord i Windows-klient.
 

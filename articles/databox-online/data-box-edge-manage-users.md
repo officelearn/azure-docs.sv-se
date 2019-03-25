@@ -8,19 +8,16 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 03/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 5642f0c1bcb7d7d8dcb17885aa6d3e9197889685
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: 1fae648b4dc946227564e588c6cd9b70b910b2f7
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57888443"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403450"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-edge"></a>Använda Azure portal för att hantera användare på din Azure Data Box-Edge
 
 Den här artikeln beskriver hur du hanterar användare på din Azure Data Box Edge. Du kan hantera Azure Data Box Edge via Azure portal eller via lokalt webbgränssnitt. Använd Azure-portalen om du vill lägga till, ändra eller ta bort användare.
-
-> [!IMPORTANT]
-> Data Box Edge är i förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen.
 
 I den här artikeln kan du se hur du:
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 18216c636ebcd84172154ac46fdcd54de64c9bb9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d2dcb1eb9132e68bebbe84d81a4e4f17df79f2d3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241807"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399779"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel-preview"></a>Användbara resurser för att arbeta med Azure Sentinel-förhandsgranskning
 
@@ -36,7 +36,7 @@ Azure Logic Apps-anslutningsprogram: <https://docs.microsoft.com/connectors/>
 
 | **Leverantör**  | **Användningsfall i ett Azure Sentinel** | **Länk**|
 |----|----|----|
-| GitHub| Används för åtkomst till communityn| <https://github.com/join> |
+| GitHub| Används för åtkomst till communityn| <https://github.com/Azure/Azure-Sentinel> |
 | PaloAlto| Konfigurera CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
 | PluralSight | Kusto-frågespråket kursen| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
 

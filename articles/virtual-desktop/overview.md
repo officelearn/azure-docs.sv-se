@@ -1,22 +1,22 @@
 ---
-title: Vad är virtuella Windows-skrivbordet? (förhandsversion) – Azure
-description: En översikt över virtuella Windows-skrivbordet.
+title: Vad är Windows Virtual Desktop förhandsversionen?  – Azure
+description: En översikt över Windows Virtual Desktop-förhandsversion.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 679c7d3c84237747fd341f92c5dfcc0588d23be2
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 4443d71d5c0b84ac7dbc18129338229c40323d2c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338555"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401038"
 ---
-# <a name="what-is-windows-virtual-desktop"></a>Vad är virtuella Windows-skrivbordet? 
+# <a name="what-is-windows-virtual-desktop-preview"></a>Vad är Windows Virtual Desktop förhandsversionen? 
 
-Nu tillgängligt i offentlig förhandsversion, virtuellt skrivbord i Windows är ett skrivbords- och app-virtualiseringstjänsten som körs i molnet.
+Nu tillgängligt i offentlig förhandsversion, Windows virtuella skrivbord Preview är en skrivbords- och app-virtualiseringstjänsten som körs i molnet.
 
 Här är vad du kan göra när du kör virtuella Windows-skrivbordet på Azure:
 
@@ -39,7 +39,7 @@ Med virtuella Windows-skrivbordet, kan du ställa in en skalbar och flexibel mil
 
 Du kan distribuera och hantera virtuella skrivbord:
 
-* Använda Windows PowerShell för virtuella skrivbord och REST-gränssnitt för att konfigurera värd-pooler, skapa app-grupper, tilldela användare och publicera resurser
+* Använda Windows PowerShell för virtuella skrivbord och REST-gränssnitt för att konfigurera värd-pooler, skapa app-grupper, tilldela användare och publicera resurser.
 * Publicera helt skrivbord eller enskilda remote appar från en enda värd-pool, skapa grupper med enskilda appar för olika uppsättningar med användare eller även tilldela användare till flera appgrupper för att minska antalet avbildningar.
 * När du hanterar din miljö kan du använda inbyggda delegerad åtkomst att tilldela roller och samla in diagnostik för att förstå konfiguration eller användaren fel.
 * Använd den nya diagnostik-tjänsten för att felsöka.
@@ -97,4 +97,4 @@ Gå till den [Windows Desktop Tech-Community virtuella](https://techcommunity.mi
 För att komma igång, måste du skapa en klient. Om du vill veta mer om hur du skapar en klient kan du fortsätta till självstudien för klient-skapa.
 
 > [!div class="nextstepaction"]
-> [Skapa en klient i virtuella Windows-skrivbordet](tenant-setup-azure-active-directory.md)
+> [Skapa en klient i förhandsversion för virtuella skrivbord i Windows](tenant-setup-azure-active-directory.md)

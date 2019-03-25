@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: e3a24117cfd01c1c0bd0f08e8eca5adddf5ee7b6
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: 43de22f7e56178559df4fc45980d064962580d2b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58119793"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403399"
 ---
-# <a name="data-box-edge-security-and-data-protection-preview"></a>Data Box Edge säkerhet och dataskydd (förhandsversion)
+# <a name="data-box-edge-security-and-data-protection"></a>Data Box Edge säkerhet och dataskydd
 
 Säkerhet är av stor betydelse när en ny teknik, särskilt om tekniken används med konfidentiell eller upphovsrättsskyddad information. Microsoft Azure Data Box Edge lösningen säkerställer att endast auktoriserade entiteter kan visa, ändra eller ta bort dina data.
 
@@ -27,9 +27,6 @@ Azure Data Box Edge-lösningen består av fyra huvudsakliga komponenter som inte
 - **Data Box-Edge-enhet** – överföringsenhet som levereras till dig att importera dina lokala data till Azure.
 - **Klienter/värdar som är anslutna till enheten** – klienter i din infrastruktur som ansluter till Data Box Edge-enhet och innehåller data som måste skyddas.
 - **Molnlagring** – Platsen i Azure-molnet där data lagras. Den här platsen är vanligtvis storage-konto som är länkad till Data Box Edge-resurs som du skapade.
-
-> [!IMPORTANT]
-> Data Box Edge är i förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen. 
 
 
 ## <a name="data-box-edgedata-box-gateway-service-protection"></a>Box Edge/Data Box Gateway-tjänsten för dataskydd
@@ -44,7 +41,7 @@ Data Box Edge/Data Box Gateway-tjänsten är en management-tjänst från Microso
 Data Box Edge-enhet är en lokal enhet som hjälper dig att transformera data med bearbetning av lokalt och sedan skicka den till Azure. Din enhet:
 
 - Behöver en aktiveringsnyckel åtkomst till Data Box Edge/Data Box Gateway-tjänsten.
-- Skyddas vid alla tidpunkter av ett administratörslösenord för enheten.
+- Skyddas vid alla tidpunkter av enhetens lösenord.
 - Är en låst enhet. Enheten BMC och BIOS är lösenordsskyddad med begränsad användaråtkomst för BIOS.
 - Har säker Start aktiverat.
 - Kör Windows Defender Device Guard. Device Guard kan du köra de betrodda program som du definierar i dina kodintegritetsprinciper. 
@@ -68,14 +65,14 @@ Lösenord kan du kontrollera att dina data är tillgängliga för auktoriserade 
 Du kan:
 
 - Ansluta till det lokala webbgränssnittet på enheten via en webbläsare och ange sedan ett lösenord för att logga in på enheten.
-- Fjärransluta till enheten PowerShell-gränssnittet via HTTP. Fjärrhantering är aktiverat som standard. Du kan sedan ange enhetens administratörslösenord att logga in på enheten. Mer information går du till [Anslut via en fjärranslutning till din Data Box Edge-enhet](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
+- Fjärransluta till enheten PowerShell-gränssnittet via HTTP. Fjärrhantering är aktiverat som standard. Du kan sedan ange lösenordet för enheten att logga in på enheten. Mer information går du till [Anslut via en fjärranslutning till din Data Box Edge-enhet](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 Tänk på följande metodtips:
 
 - Data Box Edge-tjänsten kan inte hämta befintliga lösenord: den kan bara återställa dem via Azure portal. Vi rekommenderar att du lagrar alla lösenord på en säker plats så att du inte har att återställa ett lösenord om det glöms bort. Om du återställer ett lösenord, måste du meddela alla användare innan du återställa den.
 - Använd lokalt webbgränssnitt till [ändra lösenordet](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). Om du ändrar lösenordet, måste du meddela alla fjärranslutna användare så att de inte drabbas av ett tecken i fel.
 - Du kan komma åt Windows PowerShell-gränssnittet på enheten via en fjärranslutning via HTTP. Som en säkerhetsåtgärd bör du använda HTTP betrodda nätverk.
-- Kontrollera att enhetens administratörslösenord är stark och väl skyddade. Följ den [Metodtips för lösenord](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
+- Kontrollera att enhetens lösenord är stark och väl skyddade. Följ den [Metodtips för lösenord](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
 
 ## <a name="protect-the-data"></a>Skydda data
 

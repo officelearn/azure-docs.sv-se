@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 03/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 08f84a3e037301837da984b0891d978027dc2e11
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a0a16fbda662ee1d3718dbafc4231de67aab277e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083172"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400678"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Självstudier: Identifiera hot med Azure Sentinel-förhandsgranskning
 
@@ -27,18 +27,21 @@ ms.locfileid: "58083172"
 > Azure Sentinel är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Den här kursen hjälper dig att identifiera hot med Azure Sentinel.
-
 När du [anslutna datakällor](quickstart-onboard.md) Azure Sentinel du vill meddelas när misstänkta något händer. Så att du kan göra detta, avancerade Sentinel-Azure kan du skapa aviseringsregler som genererar ärenden som du kan tilldela och använda djupt undersöka avvikelser och hot i din miljö. 
 
-
+Den här kursen hjälper dig att identifiera hot med Azure Sentinel.
 > [!div class="checklist"]
 > * Skapa regler för identifiering
 > * Reagera på hot
 
 ## <a name="create-detection-rules"></a>Skapa regler för identifiering
 
-Om du vill undersöka fall måste du först skapa regler för identifiering. Regler för identifiering baseras på de typer av hot och avvikelser som kan vara misstänkta i din miljö som du vill veta om utan att se till att de visas, undersökas och åtgärdas. 
+Om du vill undersöka fall måste du först skapa regler för identifiering. 
+
+> [!NOTE]
+> Aviseringar som genereras i Azure Sentinel är tillgängliga via [Microsoft Graph Security](https://aka.ms/securitygraphdocs). Referera till den [Microsoft Graph säkerhetsvarningar dokumentation](https://aka.ms/graphsecurityreferencebetadocs) för ytterligare information och integreringspartners.
+
+Regler för identifiering baseras på de typer av hot och avvikelser som kan vara misstänkta i din miljö som du vill veta om utan att se till att de visas, undersökas och åtgärdas. 
 
 1. I Azure-portalen under Azure Sentinel väljer **Analytics**.
 
@@ -87,7 +90,9 @@ Azure Sentinel ger dig två huvudsakliga alternativ för att svara på hot med h
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien lärde du dig att komma igång med att identifiera hot med hjälp av Azure Sentinel. Fortsätta till självstudien för [hur du svarar på hot med hjälp av automatiserade spelböcker](tutorial-respond-threats-playbook.md).
+I den här självstudien lärde du dig att komma igång med att identifiera hot med hjälp av Azure Sentinel. 
+
+Lär dig hur du kan automatisera dina svar på hot genom [hur du svarar på hot med hjälp av automatiserade spelböcker](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
 > [Svara på hot](tutorial-respond-threats-playbook.md) att automatisera dina svar på hot.
 

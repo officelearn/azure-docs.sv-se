@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: be51e6c829c5f12d17c6302bb951039711f12075
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 73f97128dc7b71179c0b0ab41340af6c0f371da1
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113234"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402974"
 ---
-# <a name="azure-data-box-gateway-system-requirements-preview"></a>Systemkrav för Azure Data Box-Gateway (förhandsversion)
+# <a name="azure-data-box-gateway-system-requirements"></a>Azure Data Box Gateway-systemkrav
 
 Den här artikeln beskriver viktiga systemkraven för din Microsoft Azure Data Box Gateway-lösning och för klienter som ansluter till Azure Data Box-Gateway. Vi rekommenderar att du läser informationen noggrant innan du distribuerar din Data Box-Gateway och sedan refererar tillbaka till det som behövs under distributionen och efterföljande driften.
 
@@ -24,8 +24,6 @@ Systemkrav för den virtuella enheten Data Box-Gateway är:
 - **Programvarukrav för värdar** -beskriver plattformarna som stöds, webbläsare för den lokala konfigurationen Användargränssnittet, SMB-klienter och ytterligare krav för värdar som ansluter till enheten.
 - **Nätverkskrav för enheten** – innehåller information om alla nätverkskrav för driften av den virtuella enheten.
 
-> [!IMPORTANT]
-> Data Box Gateway är en förhandsversion. Läs [användningsvillkoren för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du distribuerar den här lösningen. 
 
 ## <a name="specifications-for-the-virtual-device"></a>Specifikationer för den virtuella enheten
 

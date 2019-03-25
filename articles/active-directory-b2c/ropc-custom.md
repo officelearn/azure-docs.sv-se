@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 816d25473bfe5f9dc61d6d6f2e50d6cd82ace50c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 265f1405a8779cdca101f18cf37b64f1933c2ff3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562210"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400751"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurera resursägarens lösenord autentiseringsuppgifter flöde i Azure Active Directory B2C med hjälp av en anpassad princip
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 I Azure Active Directory (Azure AD) B2C är resursägarens lösenord autentiseringsuppgifter (ROPC) flöde en flöde för OAuth-standardautentisering. I det här flödet utbyter ett program, även kallat den förlitande parten, giltiga autentiseringsuppgifter för token. Autentiseringsuppgifterna som innehåller användar-ID och lösenord. De token som returneras är en ID-token, åtkomst-token och en uppdateringstoken.
 
@@ -42,9 +42,9 @@ Utför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C
 ## <a name="register-an-application"></a>Registrera ett program
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
-4. Välj **program**, och välj sedan **Lägg till**.
+2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
+4. Välj **Program** och därefter **Lägg till**.
 5. Ange ett namn för programmet, till exempel *ROPC_Auth_app*.
 6. Välj **nr** för **Web App/Web API**, och välj sedan **Ja** för **Native client**.
 7. Lämna övriga värden som de är och välj sedan **skapa**.

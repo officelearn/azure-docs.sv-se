@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/25/2019
+ms.date: 3/20/2019
 ms.author: monhaber
-ms.openlocfilehash: dd7dad51f29b4b5034c72085cd789077747faa0b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa664952f3eb7d6f9e611fb87a9e484e97f388a2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106567"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403841"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Skydda dina datorer och program i Azure Security Center
-Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera kontrollfunktioner som behövs. Rekommendationer gäller för Azure-resurstyper: virtuella datorer (VM) och datorer, program, nätverk, SQL, och identitet och åtkomst.
+Azure Security Center analyserar säkerhetstillståndet för dina Azure-resurser, icke-Azure-servrar och virtuella datorer. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera kontrollfunktioner som behövs. Rekommendationer gäller för Azure-resurstyper: virtuella datorer (VM) och datorer, program, nätverk, SQL, och identitet och åtkomst.
 
 Den här artikeln belyser rekommendationer som gäller för datorer och program.
 
@@ -53,7 +53,7 @@ Om du vill fortsätta, Välj **Compute och appar** under **Resource security hyg
 På varje flik kan det finnas olika alternativ, och i de olika avsnitten kan du välja ett individuellt alternativ och visa mer information om de åtgärder som rekommenderas för att åtgärda problemet.
 
 ### Oövervakade virtuella datorer och datorer <a name="unmonitored-vms-and-computers"></a>
-En virtuell dator eller en dator övervakas av Security Center om datorn inte kör tillägget Microsoft Monitoring Agent. En dator kan ha en lokal agent installerad, exempelvis OMS direktagent eller SCOM-agenten. Datorer med dessa agenter identifieras som oövervakade eftersom dessa agenter inte stöds fullt ut i Security Center. För att kunna utnyttja Security Center fullt ut krävs tillägget Microsoft Monitoring Agent.
+En virtuell dator eller en dator övervakas av Security Center om datorn inte kör tillägget Microsoft Monitoring Agent. En dator kan ha en lokal agent installerad, exempelvis OMS direktagent eller System Center Operations Manager-agenten. Datorer med dessa agenter identifieras som oövervakade eftersom dessa agenter inte stöds fullt ut i Security Center. För att kunna utnyttja Security Center fullt ut krävs tillägget Microsoft Monitoring Agent.
 
 Du kan installera tillägget på den oövervakade virtuella datorn eller datorn förutom redan installerade lokal agent. Konfigurera båda agenterna på samma sätt och anslut dem till samma arbetsyta. Det gör att Security Center kan interagera med tillägget Microsoft Monitoring Agent och samla in data. I [Aktivera tillägget för virtuella datorer](../azure-monitor/learn/quick-collect-azurevm.md) finns anvisningar om hur du installerar tillägget Microsoft Monitoring Agent.
 
@@ -103,7 +103,7 @@ Det finns fyra typer av ikoner i den här listan:
 ![Klassiska virtuella Azure-datorer](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png) Azure klassisk virtuell dator.
 
 
-![Virtuella datorer identifieras från arbetsytan](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) Virtuella datorer som endast identifieras från arbetsytan som är en del av den visade prenumerationen. Detta omfattar alla virtuella datorer från andra prenumerationer som rapporterar till arbetsytan i denna prenumeration, och virtuella datorer som installerades med SCOM-direktagent och som inte har något resurs-ID.
+![Virtuella datorer identifieras från arbetsytan](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) Virtuella datorer som endast identifieras från arbetsytan som är en del av den visade prenumerationen. Detta inkluderar virtuella datorer från andra prenumerationer som rapporterar till arbetsytan i den här prenumerationen och virtuella datorer som installerades med Operations Manager-direktagent och har inga resurs-ID.
 
 Genom ikonerna under de olika rekommendationerna hjälper dig att snabbt identifiera den virtuella datorn och datorn som behöver åtgärdas och typ av rekommendation. Du kan också använda filter för att söka i listan efter **resurstyp** och av **allvarlighetsgrad**.
 

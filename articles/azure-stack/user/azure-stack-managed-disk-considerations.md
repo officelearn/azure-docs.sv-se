@@ -1,6 +1,6 @@
 ---
-title: Skillnader och överväganden för Managed Disks i Azure Stack | Microsoft Docs
-description: Läs mer om skillnader och överväganden när du arbetar med Managed Disks i Azure Stack.
+title: Skillnader och överväganden för hanterade diskar och hanteras avbildningar i Azure Stack | Microsoft Docs
+description: Läs mer om skillnader och överväganden när du arbetar med hanterade diskar och hanterade avbildningar i Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,27 +12,27 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 28210048cd007fc10dcd4cf5e92577cbd121e2a3
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.lastreviewed: 03/23/2019
+ms.openlocfilehash: c1975c885efc0a2a22b2ab478f8bc9afbcc8bce3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368280"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400367"
 ---
-# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack Managed Disks: skillnader och överväganden
+# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack hanterade diskar: skillnader och överväganden
 
-Den här artikeln sammanfattas de kända skillnaderna mellan [Azure Stack Managed Disks](azure-stack-manage-vm-disks.md) och [Managed Disks för Azure](../../virtual-machines/windows/managed-disks-overview.md). Läs mer om övergripande skillnader mellan Azure Stack och Azure, i den [viktiga överväganden](azure-stack-considerations.md) artikeln.
+Den här artikeln sammanfattas de kända skillnaderna mellan [Azure Stack hanterade diskar](azure-stack-manage-vm-disks.md) och [managed disks för Azure](../../virtual-machines/windows/managed-disks-overview.md). Läs mer om övergripande skillnader mellan Azure Stack och Azure, i den [viktiga överväganden](azure-stack-considerations.md) artikeln.
 
 Hanterade diskar förenklar Diskhantering för virtuella IaaS-datorer genom att hantera den [lagringskonton](../azure-stack-manage-storage-accounts.md) som är associerade med de Virtuella diskarna.
 
 > [!Note]  
-> Hanterade diskar på Azure Stack är tillgänglig från 1808 update. Det är aktiverat som standard när du skapar virtuella datorer med Azure Stack-portalen från 1811 update.
+> Hanterade diskar på Azure Stack är tillgänglig från 1808 uppdateringen. Det är aktiverat som standard när du skapar virtuella datorer med Azure Stack-portalen, från och med uppdateringen 1811.
   
-## <a name="cheat-sheet-managed-disk-differences"></a>Lathund: Managed disk skillnader
+## <a name="cheat-sheet-managed-disk-differences"></a>Lathund: managed disk skillnader
 
 | Funktion | Azure (global) | Azure Stack |
 | --- | --- | --- |
@@ -50,7 +50,7 @@ Hanterade diskar förenklar Diskhantering för virtuella IaaS-datorer genom att 
 |Migrering      |Innehåller verktyg för att migrera från befintliga ohanterade virtuella Azure Resource Manager-datorer utan att behöva återskapa den virtuella datorn  |Stöds inte än |
 
 > [!NOTE]  
-> Hanterade diskar IOPs och dataflöde i Azure Stack är en cap-nummer i stället för ett etablerade tal, som kan påverkas av maskin- och arbetsbelastningar som körs i Azure Stack.
+> Hanterade diskar IOPs och dataflöde i Azure Stack är ett tak antal i stället för ett etablerade tal, som kan påverkas av maskin- och arbetsbelastningar som körs i Azure Stack.
 
 ## <a name="metrics"></a>Mått
 
@@ -61,7 +61,7 @@ Det finns också skillnader med mätvärden i storage:
 
 ## <a name="api-versions"></a>API-versioner
 
-Managed Disks för Azure Stack stöd för följande API-versioner:
+Azure Stack hanterade diskar stöder följande API-versioner:
 
 - 2017-03-30
 - 2017-12-01
@@ -135,26 +135,31 @@ Azure Stack-stöder *hanteras avbildningar*, vilka aktivera du att skapa en hant
 - Du har en generaliserad hanterad virtuell dator och vill skapa flera, liknande hanterade virtuella datorer.
 
 ### <a name="step-1-generalize-the-vm"></a>Steg 1: Generalisera den virtuella datorn
-För Windows, se ”Generalize Windows VM med hjälp av Sysprep” avsnitt här: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep Följ steg 1 för Linux, här: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm 
 
-Obs! Glöm inte att generalisera den virtuella datorn. Skapa en virtuell dator från en avbildning som inte har generaliserats korrekt leder till ett VMProvisioningTimeout-fel.
+För Windows, följer du de [Generalisera Windows-VM med hjälp av Sysprep](/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep) avsnittet. Följ steg 1 för Linux, [här](/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm).
+
+> [!NOTE]
+> Se till att generalisera den virtuella datorn. Skapa en virtuell dator från en avbildning som inte har generaliserats korrekt leder till en **VMProvisioningTimeout** fel.
 
 ### <a name="step-2-create-the-managed-image"></a>Steg 2: Skapa hanterad avbildning
-Du kan använda portalen, powershell eller cli för att göra detta. Följ Azure dokumentet här: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource
 
-### <a name="step-3-choose-the-use-case"></a>Steg 3: Välj användningsfallet:
+Du kan använda portal, PowerShell eller CLI för att skapa hanterade avbildningen. Följ stegen i Azure artikeln [här](/azure/virtual-machines/windows/capture-image-resource).
+
+### <a name="step-3-choose-the-use-case"></a>Steg 3: Välj användningsfallet
+
 #### <a name="case-1-migrate-unmanaged-vms-to-managed-disks"></a>Fall 1: Migrera ohanterade virtuella datorer till managed disks
-Glöm inte att generalisera den virtuella datorn korrekt innan du gör det här steget. Publicera kan generalisering, den här virtuella datorn inte använda information. Skapa en virtuell dator från en avbildning som inte har generaliserats korrekt leder till ett VMProvisioningTimeout-fel. 
 
-Följ instruktionerna [här](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) att skapa en hanterad avbildning från en generaliserad virtuell Hårddisk i ett lagringskonto. Den här avbildningen kan användas för att skapa hanterade virtuella datorer framöver.
+Se till att generalisera den virtuella datorn korrekt innan du utför det här steget. Efter generalisering, kan du inte längre använda den här virtuella datorn. Skapa en virtuell dator från en avbildning som inte har generaliserats korrekt leder till en **VMProvisioningTimeout** fel.
 
-#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>Fall 2: Skapa hanterade virtuella datorn från hanterad avbildning med hjälp av Powershell
+Följ instruktionerna [här](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) att skapa en hanterad avbildning från en generaliserad virtuell Hårddisk i ett lagringskonto. Du kan använda den här avbildningen framöver för att skapa hanterade virtuella datorer.
 
-När du har skapat en avbildning från en befintlig hanterad disk i virtuell dator med hjälp av skriptet [här](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell) , följande exempelskript skapar en liknande Linux VM från ett befintligt bildobjekt:
+#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>Fall 2: Skapa den hanterade virtuella datorn från hanterad avbildning med hjälp av Powershell
 
-Azure Stack powershell-modul 1.7.0 eller senare: Följ instruktionerna [här](../../virtual-machines/windows/create-vm-generalized-managed.md) 
+När du har skapat en avbildning från en befintlig hanterad disk i virtuell dator med hjälp av skriptet [här](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell), följande exempelskript skapar en liknande Linux VM från ett befintligt bildobjekt:
 
-Azure Stack powershell-modul 1.6.0 eller senare eller nedan:
+Azure Stack PowerShell-modulen 1.7.0 eller senare: Följ anvisningarna [här](../../virtual-machines/windows/create-vm-generalized-managed.md).
+
+Azure Stack PowerShell-modulen 1.6.0 eller senare eller tidigare:
 
 ```powershell
 # Variables for common values
@@ -195,6 +200,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
 $image = get-azurermimage -ResourceGroupName $imagerg -ImageName $imagename
+
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
 Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred | `
@@ -209,7 +215,7 @@ Du kan också använda portalen för att skapa en virtuell dator från en hanter
 
 ## <a name="configuration"></a>Konfiguration
 
-Efter att ha tillämpat 1808 uppdatera eller senare, måste du utföra följande konfigurationssteg innan du använder Managed Disks:
+Efter att ha tillämpat 1808 uppdatera eller senare, måste du utföra följande konfigurationssteg innan du använder hanterade diskar:
 
 - Om en prenumeration skapades före uppdateringen 1808, följer du stegen nedan för att uppdatera prenumerationen. Annars kan misslyckas distribuera virtuella datorer i den här prenumerationen med felmeddelandet ”internt fel i Diskhanteraren”.
    1. I klient-portalen går du till **prenumerationer** och hitta prenumerationen. Klicka på **Resursprovidrar**, klicka sedan på **Microsoft.Compute**, och klicka sedan på **Omregistrera**.

@@ -6,35 +6,28 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 26b560434e6305689781b8c39c7cf814af9bf8aa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: de2ef4908260a62acf28a270dda6ad738a1760b9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112304"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402345"
 ---
-# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Självstudier: Ansluta, konfigurera, aktiverar Azure Data Box-Gateway (förhandsversion) 
+# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Självstudier: Ansluta, konfigurera, aktiverar Azure Data Box-Gateway
 
 ## <a name="introduction"></a>Introduktion
 
-Den här självstudien beskrivs hur du ansluter för att konfigurera och aktivera din Data Box-Gateway-enhet med hjälp av det lokala webbgränssnittet. 
+Den här självstudien beskrivs hur du ansluter till, konfigurera och aktivera din Data Box-Gateway-enhet med hjälp av det lokala webbgränssnittet. 
 
 Installationen och aktiveringen kan ta upp till 10 minuter för att slutföra. 
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Ansluta till virtuella enheten
-> * Konfigurera och aktivera virtuell enhet
-
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-
-
-> [!IMPORTANT]
-> - Data Box Gateway är en förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen. 
-
+> * Ansluta till en virtuell enhet
+> * Konfigurera och aktivera den virtuella enheten
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -46,97 +39,108 @@ Kontrollera följande innan du konfigurerar och ställa in din Data Box-Gateway:
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Ansluta till lokala web UI-installationen 
 
-1. Öppna ett webbläsarfönster och Anslut till det lokala webbgränssnittet. Ange:
+1. Öppna ett webbläsarfönster och åtkomst till lokalt Webbgränssnitt för enheten på:
    
    [https://ip-address-of-network-interface](https://ip-address-of-network-interface)
    
-   Använd anslutnings-URL som anges i föregående självstudie. Du ser ett felmeddelande om att det finns ett problem med webbplatsens säkerhetscertifikat. Klicka på **Fortsätt till den här webbsidan**. (De här stegen kan vara annorlunda utifrån webbläsaren som används.)
-   
-    ![Ett fel uppstod vid anslutning](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
+   Använd anslutnings-URL som anges i föregående självstudie. Du ser ett fel eller en varning som anger att det finns ett problem med webbplatsens säkerhetscertifikat.
 
-2. Logga in på webbgränssnittet på den virtuella enheten. Standardlösenordet är *Password1*. 
+2. Välj **Fortsätt till den här webbsidan**. De här stegen kan variera beroende på vilken webbläsare du använder.
+   
+    ![Felmeddelande för webbplatsen security-certifikat](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
+
+3. Logga in på webbgränssnittet på den virtuella enheten. Standardlösenordet är *Password1*. 
    
     ![Logga in på lokala webbgränssnittet](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
 
-3. Du uppmanas att ändra enhetens administratörslösenord. Ange ett nytt lösenord som innehåller mellan 8 och 16 tecken. Lösenordet måste innehålla 3 av följande: versaler, gemener, siffror och specialtecken.
+4. Ändra lösenordet för enheten i Kommandotolken. Det nya lösenordet måste innehålla mellan 8 och 16 tecken. Det måste innehålla 3 av följande: versaler, gemener, siffror och specialtecken.
 
-    ![Ändra lösenordet för enhetsadministratörer](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
+    ![Ändra enhetens lösenord](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
 
-Du har kommit till den **instrumentpanelen** för din enhet.
+Nu är du på den **instrumentpanelen** för din enhet.
 
 ## <a name="set-up-and-activate-the-virtual-device"></a>Konfigurera och aktivera den virtuella enheten
  
-1. Du kan gå till olika inställningar som krävs för att konfigurera och registrera den virtuella enheten med Data Box-Gateway-tjänsten från instrumentpanelen. Den **nätverksinställningar**, **Web proxyinställningar**, och **tidsinställningar** är valfria. De enda obligatoriska inställningarna är **enhetsnamn** och **Molninställningar**.
+Instrumentpanelen visar olika inställningar som krävs för att konfigurera och registrera den virtuella enheten med Data Box-Gateway-tjänsten. Den **enhetsnamn**, **nätverksinställningar**, **Web proxyinställningar**, och **tidsinställningar** är valfria. De enda obligatoriska inställningarna är **Molninställningar**.
    
-    ![Lokala webbgränssnittet ”instrumentpanel” sidan](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
+![Lokala webbgränssnittet ”instrumentpanel” sidan](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
 
-2. I den **enhetsnamn** konfigurerar du ett eget namn för din enhet. Det egna namnet kan vara 1 och 15 tecken långt och får innehålla bokstäver, siffror och bindestreck.
+1. I den vänstra rutan väljer **enhetsnamn**, och sedan ange ett eget namn för din enhet. Det egna namnet måste innehålla mellan 1 och 15 tecken långt och ha bokstäver, siffror och bindestreck.
 
     ![Lokala Användargränssnittet ”enhetsnamn” webbsida](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
 
-3. (Valfritt) Konfigurera din **nätverksinställningar**. Du kan se minst 1 nätverksgränssnitt och beroende på hur många du konfigurerade i den underliggande virtuella datorn. Den **nätverksinställningar** sidan för en virtuell enhet med ett nätverksgränssnitt som är aktiverad är enligt nedan.
+2. (Valfritt) I den vänstra rutan väljer **nätverksinställningar** och konfigurerar sedan inställningarna. På din virtuella enhet ser du minst ett nätverksgränssnitt och beroende på hur många du konfigurerade i den underliggande virtuella datorn. Den **nätverksinställningar** sidan för en virtuell enhet med ett nätverksgränssnitt som är aktiverad är enligt nedan.
     
     ![Lokala Användargränssnittet ”nätverksinställningar” webbsida](./media/data-box-gateway-deploy-connect-setup-activate/image7.png)
    
-    När du konfigurerar nätverksinställningar, Tänk på följande:
+    När du konfigurerar nätverksinställningar ha i åtanke:
 
-   - Om DHCP har aktiverats i din miljö konfigureras nätverksgränssnitten automatiskt. Därför kan tilldelas automatiskt en IP-adress, undernät, gateway och DNS.
-   - Om DHCP inte är aktiverad kan du tilldela statiska IP-adresser om det behövs.
-   - Du kan konfigurera nätverksgränssnittets som IPv4.
+    - Om DHCP har aktiverats i din miljö konfigureras nätverksgränssnitten automatiskt. En IP-adress, undernät, gateway och DNS-tilldelas automatiskt.
+    - Om DHCP inte är aktiverad kan du tilldela statiska IP-adresser om det behövs.
+    - Du kan konfigurera nätverksgränssnittets som IPv4.
 
      >[!NOTE] 
      > Vi rekommenderar att du inte växla lokala IP-adressen för nätverksgränssnittet från statisk till DHCP, om du inte har en annan IP-adress att ansluta till enheten. Om du använder ett nätverksgränssnitt och du växlar till DHCP och det är inget sätt att avgöra DHCP-adress. Om du vill ändra till en DHCP-adress, vänta tills enheten har registrerats med tjänsten och sedan ändra. Du kan visa IP-adresserna för alla kort i den **enhetsegenskaper** i Azure-portalen för din tjänst.
 
-4. (Valfritt) Konfigurera din webbproxyserver. Men webbproxykonfigurationen är valfritt, Tänk på att om du använder en webbproxy, du kan bara konfigurera den här.
+3. (Valfritt) konfigurera din webbproxyserver. Även om webbproxykonfigurationen är valfritt, om du använder en webbproxy kan du konfigurera det endast på den här sidan.
    
    ![Lokala Användargränssnittet ”Webbproxyinställningar” webbsida](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
    
-   I den **webbproxy** sidan:
+   På den **webbproxy** gör följande:
    
-   1. Ange den **webbadress proxy** i följande format: *http://&lt;värd-IP-adress eller FQDN&gt;: portnummer*. Observera att HTTPS-URL: er inte stöds.
-   2. Ange **autentisering** som **grundläggande** eller **ingen**.
-   3. Om du använder autentisering, du måste också tillhandahålla en **användarnamn** och **lösenord**.
-   4. Klicka på **Verkställ**. På så sätt validera och tillämpa konfigurerade Webbproxyinställningar.
+   1. I den **webbadress proxy** anger Webbadressen i följande format: `http://&lt;host-IP address or FQDN&gt;:Port number`. HTTPS-URL: er stöds inte.
+   2. Under **autentisering**väljer **ingen** eller **NTLM**.
+   3. Om du använder autentisering anger du en **användarnamn** och **lösenord**.
+   4. Om du vill verifiera och tillämpa konfigurerade web proxy-inställningar, Välj **tillämpa**.
 
-5. (Valfritt) Konfigurera inställningarna för tid för din enhet, till exempel tidszon och de primära och sekundära NTP-servrarna. NTP-servrar krävs eftersom din enhet måste synkronisera tiden så att den kan autentisera med molntjänstleverantören.
+4. (Valfritt) I den vänstra rutan väljer **tidsinställningar**, och sedan konfigurera tidszonen och de primära och sekundära NTP-servrarna för din enhet. 
+
+    NTP-servrar krävs eftersom din enhet måste synkronisera tiden så att den kan autentisera med molntjänstleverantören.
     
     ![Local web UI "Time settings" page](./media/data-box-gateway-deploy-connect-setup-activate/image9.png)
     
-    I den **tidsinställningar** sidan:
+    I den **tidsinställningar** gör följande:
     
-    1. I listrutan, Välj den **tidszon** baserat på den geografiska plats där enheten ska distribueras. Standardtidszon för din enhet är PST. Enheten använder den här tidszonen för alla schemalagda åtgärder.
-    2. Ange en **primär NTP-server** för din enhet eller acceptera standardvärdet för time.windows.com. Kontrollera att ditt nätverk tillåter att NTP-trafik skickas från ditt datacenter till Internet.
-    3. Om du vill ange en **sekundär NTP-server** för din enhet.
-    4. Klicka på **Verkställ**. På så sätt validera och tillämpa inställningarna för konfigurerade tid.
+    1. I den **tidszon** listrutan väljer du den tidszon som motsvarar den geografiska plats där enheten distribueras.
+        Standardtidszon för din enhet är PST. Enheten använder den här tidszonen för alla schemalagda åtgärder.
 
-6. I den **Molninställningar** sidan, aktiverar din enhet med Data Box-Gateway-tjänsten i Azure-portalen.
+    2. Ange en **primär NTP-server** för din enhet eller acceptera standardvärdet för `time.windows.com`.   
+        Kontrollera att ditt nätverk tillåter att NTP-trafik skickas från ditt datacenter till Internet.
+
+    3. Valfritt: i den **sekundär NTP-server** anger en sekundär server för din enhet.
+
+    4. Om du vill verifiera och tillämpa inställningarna för konfigurerade tid, Välj **tillämpa**.
+
+6. I den vänstra rutan väljer **Molninställningar**, och sedan aktivera din enhet med Data Box-Gateway-tjänsten i Azure-portalen.
     
-    1. Ange den **aktiveringsnyckeln** som du fick i [hämta aktiveringsnyckeln](data-box-gateway-deploy-prep.md#get-the-activation-key) för Data Box-Gateway.
+    1. I den **aktiveringsnyckeln** anger du den **aktiveringsnyckeln** som du fick i [hämta aktiveringsnyckeln](data-box-gateway-deploy-prep.md#get-the-activation-key) för Data Box-Gateway.
 
-    2. Klicka på **Aktivera**. 
+    2. Välj **aktivera**.
        
          ![Local web UI "Cloud settings" page](./media/data-box-gateway-deploy-connect-setup-activate/image10a.png)
     
-    3. Först aktiveras enheten. Enheten genomsöks sedan viktiga uppdateringar och om det finns uppdateringar tillämpas automatiskt. Du ser ett meddelande om detta. 
+    3. Enheten aktiveras och viktiga uppdateringar, i förekommande fall, tillämpas automatiskt. Du ser ett meddelande om detta. Övervaka uppdateringsförloppet via Azure portal.
 
-        Dialogrutan har också en återställningsnyckel som du bör kopiera och spara den på en säker plats. Den här nyckeln används för att återställa dina data i den händelse att enheten inte kan starta.
+        ![Local web UI "Cloud settings" page](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)
+        
+        **Dialogrutan har också en återställningsnyckel som du bör kopiera och spara på en säker plats. Den här nyckeln används för att återställa dina data i den händelse att enheten inte kan starta.**
 
-        ![Local web UI "Cloud settings" page](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)    
 
-    4. Du kan behöva vänta flera minuter när uppdateringen har slutförts. Sidan att uppdateras för att indikera att enheten har aktiverats.
+    4. Du kan behöva vänta några minuter att slutföra uppdateringen. När uppdateringen är slutförd, logga in på enheten. Den **Molninställningar** sidan uppdateras för att visa att enheten har aktiverats.
 
         ![Local web UI "Cloud settings" page updated](./media/data-box-gateway-deploy-connect-setup-activate/image13.png)
 
+Installationen av enheten har slutförts. Du kan nu lägga till resurser på din enhet.
+
 ## <a name="next-steps"></a>Nästa steg
 
-I den här kursen har du lärt dig om Data Gateway-ämnen som att:
+I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Ansluta till virtuella enheten
-> * Konfigurera och aktivera virtuell enhet
+> * Ansluta till en virtuell enhet
+> * Konfigurera och aktivera den virtuella enheten
 
-
-Gå vidare till nästa självstudie och lär dig att överföra data med din Data Box-Gateway.
+Mer information om hur du överför data med din Data Box-Gateway finns:
 
 > [!div class="nextstepaction"]
 > [Överföra data med Data Box Gateway](./data-box-gateway-deploy-add-shares.md).

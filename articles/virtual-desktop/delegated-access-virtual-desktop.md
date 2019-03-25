@@ -1,22 +1,22 @@
 ---
-title: Delegerad åtkomst i Windows virtuellt skrivbord (förhandsversion), Azure
-description: Hur du delegerar administrativa funktioner på en distribution med virtuella Windows-skrivbordet, inklusive exempel.
+title: Delegerad åtkomst i Windows Virtual Desktop förhandsgranskning – Azure
+description: Hur du delegerar administrativa funktioner på en distribution av Windows virtuella skrivbord Preview, inklusive exempel.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 49645b697071abb8a2f8c85ebde1e6761a3536ab
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 250aea52de63a6397ce00e9cadcadf3a8ba39858
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336107"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399987"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Delegerad åtkomst i Windows virtuellt skrivbord (förhandsversion)
+# <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Delegerad åtkomst i Windows Virtual Desktop-förhandsversion
 
-Virtuella Windows-skrivbordet (förhandsversion) har en delegerad åtkomst-modell som kan du definiera mängden åtkomst som en viss användare tillåts ha genom att tilldela dem en roll. En rolltilldelning har tre komponenter: säkerhetsobjekt, rolldefinitionen och omfång. Virtuella Windows-skrivbordet delegerad åtkomstmodellen baseras på Azure RBAC-modellen. Läs mer om specifika rolltilldelningar och komponenter i [i Azure rollbaserad åtkomstkontroll: översikt](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
+Förhandsversion för virtuella skrivbord i Windows har en delegerad åtkomst-modell som kan du definiera mängden åtkomst som en viss användare tillåts ha genom att tilldela dem en roll. En rolltilldelning har tre komponenter: säkerhetsobjekt, rolldefinitionen och omfång. Virtuella Windows-skrivbordet delegerad åtkomstmodellen baseras på Azure RBAC-modellen. Läs mer om specifika rolltilldelningar och komponenter i [i Azure rollbaserad åtkomstkontroll: översikt](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
 
 Virtuella Windows-skrivbordet delegerad åtkomst stöder följande värden för varje element i rolltilldelningen:
 
@@ -66,4 +66,4 @@ Du kan ändra grundläggande tre cmdletar med följande parametrar:
 
 En fullständig lista över varje roll kan använda PowerShell-cmdlets, se den [PowerShell-referens](/powershell/windows-virtual-desktop/overview).
 
-Riktlinjer för hur du ställer in en virtuellt skrivbord i Windows-miljö finns i [ställer in en miljö för virtuella Windows-skrivbordet](environment-setup.md).
+Riktlinjer för hur du ställer in en virtuellt skrivbord i Windows-miljö finns i [Windows Virtual Desktop förhandsversionsmiljön](environment-setup.md).

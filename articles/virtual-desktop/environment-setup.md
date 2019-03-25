@@ -1,22 +1,22 @@
 ---
-title: Virtuella Windows-skrivbordet miljö (förhandsversion), Azure
-description: De grundläggande delarna i en miljö för virtuella Windows-skrivbordet.
+title: Windows Virtual Desktop förhandsversionsmiljön - Azure
+description: De grundläggande delarna i en förhandsversion för virtuella skrivbord i Windows-miljö.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: c503f665e3e2f99cd59f207c3fc4823b927eaac3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ceed6a8bb74206b7c6689ce542482148800e4ba9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318456"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403518"
 ---
-# <a name="windows-virtual-desktop-environment-preview"></a>Miljö för virtuella Windows-skrivbordet (förhandsversion)
+# <a name="windows-virtual-desktop-preview-environment"></a>Förhandsversionsmiljön Windows virtuella skrivbord
 
-Virtuella Windows-skrivbordet (förhandsversion) är en tjänst som ger användarna enkel och säker åtkomst till sina virtualiserade skrivbord och RemoteApps. Det här avsnittet får du veta lite mer om den allmänna strukturen för virtuellt skrivbord i Windows-miljön.
+Windows Virtual Desktop Preview är en tjänst som ger användarna enkel och säker åtkomst till sina virtualiserade skrivbord och RemoteApps. Det här avsnittet får du veta lite mer om den allmänna strukturen för virtuellt skrivbord i Windows-miljön.
 
 ## <a name="tenants"></a>Klienter
 
@@ -57,11 +57,11 @@ När du har tilldelat användare till deras app-grupper, kan de ansluta till en 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om delegerad åtkomst och tilldela roller till användare i [delegerad åtkomst i virtuella Windows-skrivbordet](delegated-access-virtual-desktop.md).
+Mer information om delegerad åtkomst och tilldela roller till användare i [delegerad åtkomst i Windows Virtual Desktop förhandsversion](delegated-access-virtual-desktop.md).
 
-Läs hur du ställer in din klient för virtuella Windows-skrivbordet i [skapa en klient i virtuella Windows-skrivbordet](tenant-setup-azure-active-directory.md).
+Läs hur du ställer in din klient för virtuella Windows-skrivbordet i [skapa en klient i förhandsversion för virtuella skrivbord i Windows](tenant-setup-azure-active-directory.md).
 
 Om du vill lära dig mer om att ansluta till virtuella Windows-skrivbordet, finns i följande artiklar:
 
 - [Ansluta till fjärrskrivbord-klienten på Windows 7 och Windows 10](connect-windows-7-and-10.md)
-- [Ansluta till virtuella Windows-skrivbordet webbklienten](connect-web.md)
+- [Ansluta till webbklienten förhandsversion för virtuella skrivbord i Windows](connect-web.md)

@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/4/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1d54ac521fb8b81ed5fa135f68af420bda261661
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: a80c4db1b81dd2bc0b223a2781e28ccb1f5ba68e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246958"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402889"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel-preview"></a>Snabbstart: Kom igång med Azure Sentinel-förhandsversionen
 
@@ -118,7 +118,22 @@ Du kanske vill skapa en fråga som innehåller data från flera källor. Du kan 
 
 Du kan skapa olika instrumentpaneler som baseras på roll person som tittar på data och vad de letar efter. Exempelvis kan du skapa en instrumentpanel för nätverket administratören som innehåller data för brandväggen. Du kan också skapa instrumentpaneler som baseras på hur ofta du vill titta på dem, oavsett om det finns saker som du vill gå igenom varje dag och andra objekt som du vill kontrollera en gång i timmen, till exempel du kanske vill titta på din Azure AD-inloggningar varje timme för att söka efter anomali ES. 
 
+## <a name="create-new-detections"></a>Skapa nya identifieringar
 
+Generera identifieringar på den [datakällor som du är ansluten till Azure Sentinel](connect-data-sources.md) att undersöka hot i din organisation.
+
+När du skapar en ny identifiering kan utnyttja inbyggda identifieringar särskild genom Microsofts säkerhetsforskare som är specialanpassade för datakällor som du är ansluten.
+
+1. [I GitHub-gemenskapen](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) går du till den **identifieringar** mapp och Välj relevanta mappar.
+   ![relevanta mappar](./media/qs-get-visibility/detection-folders.png)
+ 
+3.  Gå till den **Analytics** fliken och markera **lägga till**.
+   ![Skapa regel i Log Analytics](./media/qs-get-visibility/query-params.png)
+
+3.  Kopiera alla parametrar för regeln och klicka på **skapa**.
+   ![Skapa aviseringsregel](./media/qs-get-visibility/create-alert-rule.png)
+
+ 
 ## <a name="next-steps"></a>Nästa steg
 I den här snabbstarten lärde du dig att komma igång med Azure Sentinel. Fortsätta till självstudien för [så identifierar hot](tutorial-detect-threats.md).
 > [!div class="nextstepaction"]

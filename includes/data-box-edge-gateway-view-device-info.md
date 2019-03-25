@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 757d6aeecc6c97726e890076b0e27a82a1a45d27
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d5af557a62f4bd35c242d334c28a38c3d632f7cf
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57555283"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58404096"
 ---
 1. [Ansluta till PowerShell-gränssnittet](#connect-to-the-powershell-interface).
 2. Använd den `Get-HcsApplianceInfo` att hämta information för din enhet.
@@ -54,5 +54,5 @@ ms.locfileid: "57555283"
     | HcsVersion                     | Programvaruversion HCS som körs på din enhet. Exempelvis är HCS programvaruversionen för Data Box Edge 1902 1.4.771.324.            |   |
     | LocalCapacityInMb              | Totalt antal lokal kapacitet för enheten i megabit.                                                                                                        |   |
     | IsRegistered                   | Det här värdet anger om enheten har aktiverats med tjänsten.                                                                                         |   |
-    ```
+
 

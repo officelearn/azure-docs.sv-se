@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f4a04f1598b3ab0efd9ff95a707d3837bb37503
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2fcc400f952cc89f5fb4bf6e8d6f0f331483868e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196033"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401302"
 ---
 # <a name="whats-new-for-authentication"></a>Vad är nytt för autentisering? 
 
@@ -42,6 +42,37 @@ System för användarautentisering ändrar och lägger till funktioner med jämn
 ## <a name="upcoming-changes"></a>Kommande ändringar
 
 Ingen schemalagd just nu. 
+
+## <a name="march-2019"></a>Mars 2019
+
+### <a name="looping-clients-will-be-interrupted"></a>Slingor klienter avbryts
+
+**Ikraftträdandedatum**: Den 25 mars 2019
+
+**Slutpunkter som påverkas**: Både v1.0 och v2.0
+
+**Protokollet som påverkas**: Alla flöden
+
+Klientprogram kan ibland förstöra, utfärda hundratals samma inloggningsförfrågan under en kort tidsperiod.  Dessa begäranden kan eller inte lyckas, men alla bidra till dålig användarupplevelsen och förhöjd arbetsbelastningar för IDP: N, ökar svarstiden för alla användare och minska tillgängligheten för IDP: N.  Dessa program arbetar utanför gränserna för normal användning och ska uppdateras för att fungera korrekt.  
+
+Klienter som utfärda duplicerade flera gånger skickas en `invalid_grant` fel: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`. 
+
+De flesta klienter behöver inte att ändra beteende för att undvika det här felet.  Endast felkonfigurerad klienter (de som saknar tokencachelagring eller de uppvisar fråga slingor redan) påverkas av det här felet.  Klienter spåras på basis av per instans lokalt (via cookie) på följande faktorer:
+
+* Användare-tipset eventuellt
+
+* Scope- eller resursen som efterfrågades
+
+* Klientorganisations-ID
+
+* Omdirigerings-URI
+
+* Svarstypen och läge
+
+Appar som har att göra flera förfrågningar (15 +) i en kort tidsperiod (5 minuter) får en `invalid_grant` felmeddelande om att de slingor.  De token som begärts ha tillräckligt långlivade livslängd (10 minuter minst, 60 minuter som standard), så upprepade begäranden under den här tidsperioden är onödiga.  
+
+Alla appar som ska hantera `invalid_grant` genom som visar en interaktiv prompt i stället för att begära ett token tyst.  För att undvika det här felet, klienter bör se till att de korrekt cachelagring de token som de får.
+
 
 ## <a name="october-2018"></a>Oktober 2018
 

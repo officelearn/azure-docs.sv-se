@@ -1,22 +1,22 @@
 ---
-title: Skapa en användare profil resurs för en värd-pool – Azure
-description: Hur du ställer in en FSLogix profil-behållare för en pool för virtuella Windows-skrivbordet (förhandsversion) värden.
+title: Skapa en användare profil resurs för en förhandsversion för virtuella skrivbord i Windows-värd pool - Azure
+description: Hur du ställer in en FSLogix profil-behållare för en pool för förhandsversion för virtuella skrivbord i Windows-värd.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 9dfbda6e17cf954369fd6caa533ba9eef41fd451
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c9c2ca2cc27c5fa757b8ff6846e0a6a8f7087875
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336022"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403722"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Skapa en användare profil resurs för en värd-pool
 
-Tjänsten Windows virtuellt skrivbord (förhandsversion) erbjuder FSLogix profil behållare som rekommenderade användarens profil lösning. Vi rekommenderar inte lösningen användarens profil Disk (UPD) och upphör att gälla i framtida versioner av virtuella Windows-skrivbordet.
+Windows Virtual Desktop förhandsversionen av tjänsten erbjuder FSLogix profil behållare som rekommenderade användarens profil lösning. Vi rekommenderar inte lösningen användarens profil Disk (UPD) och upphör att gälla i framtida versioner av virtuella Windows-skrivbordet.
 
 Det här avsnittet kommer berättar hur du ställer in en resurs FSLogix profil behållare för en värd-pool.
 

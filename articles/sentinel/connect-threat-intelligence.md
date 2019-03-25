@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2c5a7dc08886e21ef8e287540d9139ec555b11a2
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bc8a644f99d9a84e1f2c177a87e2668ae9a57868
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242300"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400635"
 ---
 # <a name="collect-data-from-threat-intelligence-providers"></a>Samla in data från säkerhetsexperter 
 
@@ -31,6 +31,8 @@ När du strömma data till Azure Sentinel, kan du utöka den med hotinformatione
 Så att du mellan efter dina aviseringar och regler med SANT hotinformation, till exempel om du får en avisering från en specifik IP-adress kommer din threat intelligence providern integrering att kunna meddela dig om IP-adress nyligen visade sig vara skadliga , Azure Sentinel möjliggör integrering med [hot intelligence providers](https://aka.ms/graphsecuritytips). 
 
 Du kan strömma loggar från säkerhetsexperter till Sentinel-Azure med ett enda klick. Den här anslutningen gör att du kan införliva indikatorer som innehåller olika typer av observables, till exempel IP-adress, domän, URL: en och hash-värdet att söka efter och skapa anpassade varnar regler i Azure Sentinel.  
+> [!NOTE]
+> Du kan ange anpassade threat indikatorer i Azure-Sentinel för användning i Varningsregler, instrumentpaneler och jakt scenarier genom att integrera med den [Microsoft Graph Security tiIndicator](https://aka.ms/graphsecuritytiindicators) entitet eller genom att använda en [Microsoft Graph-säkerheten integrerad plattform för Threat Intelligence](https://aka.ms/graphsecuritytips).
 
 ## <a name="prerequisites"></a>Förutsättningar  
 

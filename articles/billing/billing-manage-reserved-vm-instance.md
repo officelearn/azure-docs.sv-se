@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: dbfb559516177d496f5b16dc31f0ef8d0603cf68
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b37f198052ee927ea986d2a6046bfd93b6ee5d5e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904022"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399980"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Hantera reservationer för Azure-resurser
 
@@ -28,7 +28,7 @@ Om du har köpt Azure Reserved Virtual Machine Instances kan du ändra inställn
 
 ## <a name="change-the-scope-for-a-reservation"></a>Ändra omfattningen för en reservation
 
- Din reservationsrabatten gäller för virtuella datorer, SQL-databaser, Azure Cosmos DB eller andra resurser som matchar din reservation och kör inom reservationsomfånget. En reservationens omfång kan vara enskild prenumeration eller i alla prenumerationer i din faktureringskontexten. Om du ställer in omfånget för enskild prenumeration matchade reservationen att köra resurser i den valda prenumerationen. Om du ställer in omfånget som delas matchar reservationen till resurser som körs i alla prenumerationer i kontexten fakturering i Azure. Fakturering kontexten är beroende av den prenumeration som används för att köpa reservationer.
+ Din reservationsrabatten gäller för virtuella datorer, SQL-databaser, Azure Cosmos DB eller andra resurser som matchar din reservation och kör omfång för reservation. Fakturering kontexten är beroende av den prenumeration som används för att köpa reservationer.
 
 Så här uppdaterar en reservationens omfång:
 
@@ -115,6 +115,10 @@ Så här uppdaterar du optimera inställningen för reservationen:
 4. Välj **Inställningar** > **Konfiguration**.
 5. Ändra den **Optimera för** inställningen.
 
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
+
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## <a name="next-steps"></a>Nästa steg
 
 Om du vill veta mer om Azure reservationer, finns i följande artiklar:
@@ -130,7 +134,3 @@ Om du vill veta mer om Azure reservationer, finns i följande artiklar:
 - [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](billing-understand-reserved-instance-usage.md)
 - [Förstå användningen av reserverade för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)
 - [Kostnader för Windows-programvara ingår inte i reservationer](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
-
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).

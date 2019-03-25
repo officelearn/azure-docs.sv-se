@@ -1,22 +1,22 @@
 ---
-title: Skapa tjänstens huvudnamn och rolltilldelningar med PowerShell (förhandsversion), Azure
-description: Hur du skapar tjänstens huvudnamn och tilldela roller med PowerShell i virtuella Windows-skrivbordet.
+title: Skapa Windows Virtual Desktop förhandsversion tjänstens huvudnamn och rolltilldelningar med PowerShell - Azure
+description: Hur du skapar tjänstens huvudnamn och tilldela roller med PowerShell i förhandsversion för virtuella skrivbord i Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 86dafa5ccfb28a174a268c23d7dbc847272aaa3f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1bbe89484d72a21c4432d452d4ddae83ea2d2553
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318150"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400034"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Självstudier: Skapa tjänstens huvudnamn och rolltilldelningar med PowerShell
 
-Tjänstens huvudnamn är identiteter som du kan skapa i Azure Active Directory för att tilldela roller och behörigheter för ett visst syfte. I Windows virtuellt skrivbord (förhandsversion), kan du skapa en tjänst tjänstobjekt för att:
+Tjänstens huvudnamn är identiteter som du kan skapa i Azure Active Directory för att tilldela roller och behörigheter för ett visst syfte. I Windows Virtual Desktop förhandsversion, kan du skapa en tjänst huvudnamn till:
 
 - Automatisera hanteringsuppgifter för specifika virtuella Windows-skrivbordet
 - Använd som autentiseringsuppgifter i stället för MFA-krävs användare när du kör en Windows Virtual Desktop Azure Resource Manager-mall
@@ -58,7 +58,7 @@ $svcPrincipal = New-AzureADApplication -AvailableToOtherTenants $true -DisplayNa
 $svcPrincipalCreds = New-AzureADApplicationPasswordCredential -ObjectId $svcPrincipal.ObjectId
 ```
 
-## <a name="create-a-role-assignment-in-windows-virtual-desktop"></a>Skapa en rolltilldelning i virtuella Windows-skrivbordet
+## <a name="create-a-role-assignment-in-windows-virtual-desktop-preview"></a>Skapa en rolltilldelning i förhandsversion för virtuella skrivbord i Windows
 
 Nu när du har skapat ett tjänstens huvudnamn kan använda du det för att logga in på virtuella Windows-skrivbordet. Se till att logga in med ett konto som har behörighet att skapa rolltilldelningen.
 
@@ -112,4 +112,4 @@ Här följer tre autentiseringsuppgifterna som du bör anteckna de cmdletar som 
 I den här självstudien lärde du dig att skapa tjänstens huvudnamn och logga in på virtuella Windows-skrivbordet med den. Om du vill veta mer om hur du loggar in till virtuella Windows-skrivbordet kan fortsätta att ansluta till virtuella skrivbord instruktioner för Windows.
 
 - [Ansluta till fjärrskrivbord-klienten på Windows 7 och Windows 10](connect-windows-7-and-10.md)
-- [Ansluta till virtuella Windows-skrivbordet webbklienten](connect-web.md)
+- [Ansluta till webbklienten förhandsversion för virtuella skrivbord i Windows](connect-web.md)

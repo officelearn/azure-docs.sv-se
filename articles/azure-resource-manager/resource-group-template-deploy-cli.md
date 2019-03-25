@@ -1,6 +1,6 @@
 ---
 title: Distribuera resurser med Azure CLI och en mall | Microsoft Docs
-description: Använda Azure Resource Manager och Azure CLI för att distribuera en resurser till Azure. Resurserna definieras i en Resource Manager-mall.
+description: Använda Azure Resource Manager och Azure CLI för att distribuera resurser till Azure. Resurserna definieras i en Resource Manager-mall.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -10,24 +10,40 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0c298ba2074a57bd182b23e5fd9bc6b68ee496ad
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: f64a76fa6063ebc5681b546b53fe9d6ca7bc5037
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300457"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400399"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuera resurser med Resource Manager-mallar och Azure CLI
 
 Den här artikeln förklarar hur du använder Azure CLI med Resource Manager-mallar för att distribuera dina resurser till Azure. Om du inte är bekant med principerna för att distribuera och hantera dina Azure-lösningar finns i [översikt över Azure Resource Manager](resource-group-overview.md).  
 
-Resource Manager-mallen som du distribuerar kan antingen vara en lokal fil på din dator eller en extern fil som finns i en databas som GitHub. Mallen som du distribuerar i den här artikeln är tillgänglig som en [storage-konto mallen i GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
-
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
 Om du inte har Azure CLI installerat kan du använda den [Cloud Shell](#deploy-template-from-cloud-shell).
+
+## <a name="deployment-scope"></a>Distributionsomfattningen
+
+Du kan begränsa distributionen till en Azure-prenumeration eller resursgrupp inom en prenumeration. I de flesta fall kommer du rikta distribution till en resursgrupp. Använda prenumerationsdistributioner för att tillämpa principer och rolltilldelningar i prenumerationen. Du kan också använda prenumerationsdistributioner för att skapa en resursgrupp och distribuera resurser till den. Beroende på omfattningen av distributionen, kan du använda olika kommandon.
+
+Distribuera till en **resursgrupp**, använda [az group deployment skapa](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+
+```azurecli
+az group deployment create --resource-group <resource-group-name> --template-file <path-to-template>
+```
+
+Distribuera till en **prenumeration**, använda [az distributionen skapa](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
+
+```azurecli
+az deployment create --location <location> --template-file <path-to-template>
+```
+
+I exemplen i den här artikeln används distribution av resursgrupper. Mer information om prenumerationsdistributioner finns i [skapa resursgrupper och resurser på prenumerationsnivå](deploy-to-subscription.md).
 
 ## <a name="deploy-local-template"></a>Distribuera lokala mall
 
@@ -56,7 +72,7 @@ Det kan ta några minuter att slutföra distributionen. När den är klar visas 
 "provisioningState": "Succeeded",
 ```
 
-## <a name="deploy-external-template"></a>Distribuera externa mall
+## <a name="deploy-remote-template"></a>Distribuera fjärråtkomst mall
 
 Istället för att lagra Resource Manager-mallar på den lokala datorn, kanske du föredrar att lagra dem i en extern plats. Du kan lagra mallar i ett källkontrollscentrallager (till exempel GitHub). Eller du kan lagra dem i ett Azure storage-konto för delad åtkomst i din organisation.
 
@@ -83,10 +99,6 @@ az group deployment create --resource-group examplegroup \
   --template-uri <copied URL> \
   --parameters storageAccountType=Standard_GRS
 ```
-
-## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Distribuera till fler än en resursgrupp eller prenumeration
-
-Normalt kan distribuera du alla resurser i mallen till en enda resursgrupp. Det finns dock scenarier där du vill distribuera en uppsättning resurser tillsammans, men placera dem i olika resursgrupper eller prenumerationer. Du kan distribuera till endast fem resursgrupper i samma distribution. Mer information finns i [distribuera Azure-resurser till mer än en prenumeration eller resursgrupp](resource-manager-cross-resource-group-deployment.md).
 
 ## <a name="redeploy-when-deployment-fails"></a>Distribuera om när distributionen misslyckas
 
@@ -196,7 +208,6 @@ az group deployment create \
   --parameters @demotemplate.parameters.json \
   --parameters exampleArray=@arrtest.json
 ```
-
 
 ## <a name="test-a-template-deployment"></a>Testa en för malldistribution
 

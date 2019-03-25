@@ -1,22 +1,22 @@
 ---
-title: Skapa en värd-pool med Azure Marketplace (förhandsversion), Azure
-description: Hur du skapar en pool med virtuella Windows-skrivbordet värden med Azure Marketplace.
+title: Skapa en förhandsversion för virtuella skrivbord i Windows-värd-pool med Azure Marketplace – Azure
+description: Så här skapar du en förhandsversion för virtuella skrivbord i Windows-värd-pool med Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: a1d172f219580b390ba4855928d6f6a68c8269b9
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: cc404c84bf855ab6e49d13207f40b9faa32cdbb2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318115"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399873"
 ---
-# <a name="tutorial-create-a-host-pool-with-azure-marketplace-preview"></a>Självstudier: Skapa en värd-pool med Azure Marketplace (förhandsversion)
+# <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Självstudier: Skapa en värd-pool med Azure Marketplace
 
-Värd-pooler är en samling av en eller flera identiska virtuella datorer i miljöer med virtuella skrivbord i Windows-klient (förhandsversion). Varje värd-pool kan innehålla en appgrupp som användare kan interagera med precis som på en fysisk dator.
+Värd-pooler är en samling av en eller flera identiska virtuella datorer i förhandsversion för virtuella skrivbord i Windows klient-miljöer. Varje värd-pool kan innehålla en appgrupp som användare kan interagera med precis som på en fysisk dator.
 
 Den här artikeln beskriver hur du skapar en pool för värden inom ett virtuellt skrivbord i Windows-klient med hjälp av ett Microsoft Azure Marketplace-erbjudande. Detta innefattar att skapa en pool med värden i Windows virtuellt skrivbord, skapa en resursgrupp med virtuella datorer i en Azure-prenumeration, ansluter dessa virtuella datorer till Active Directory-domän och registrera de virtuella datorerna med virtuella Windows-skrivbordet.
 
@@ -64,7 +64,7 @@ För det virtuella datorn inställningar-bladet:
 3. Välj det virtuella nätverk som är ansluten till Active Directory-servern och välj ett undernät som värd för de virtuella datorerna.
 4. Välj **OK**.
 
-### <a name="windows-virtual-desktop-tenant-information"></a>Virtuella Windows-skrivbordet klientinformation
+### <a name="windows-virtual-desktop-preview-tenant-information"></a>Förhandsversion av virtuella Windows Desktop-klientinformation
 
 För virtuella Windows-skrivbordet klient information bladet:
 

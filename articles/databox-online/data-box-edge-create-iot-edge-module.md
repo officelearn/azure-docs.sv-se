@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 81407a298ccfe1b9884fc5d5b815ac8c18ffee6a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 522dddde4994bb019e6547fcd18465b201f048d8
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094685"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401734"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>Utveckla en C# IoT Edge-modul för att flytta filer på Data Box Edge (förhandsversion)
+# <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Utveckla en C# IoT Edge-modul för flytt av filer på Data Box Edge
 
 Den här artikeln vägleder dig genom hur du skapar en IoT Edge-modul för distribution med din Data Box Edge-enhet. Azure Data Box Edge är en lagringslösning som gör det möjligt att bearbeta data och skicka dem via nätverk till Azure.
 
@@ -27,19 +27,13 @@ I den här artikeln kan du se hur du:
 > * Skapa ett behållarregister för att lagra och hantera dina moduler (Docker-avbildningar).
 > * Skapa en IoT Edge-modul ska distribueras i din Data Box Edge-enhet.
 
-> [!IMPORTANT]
-> Data Box Edge är i förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen. 
 
 ## <a name="about-the-iot-edge-module"></a>Om IoT Edge-modul
 
 Din Data Box Edge-enhet kan distribuera och köra IoT Edge-moduler. Edge-moduler är i stort sett Docker-behållare som utför en viss uppgift, till exempel mata in ett meddelande från en enhet, omvandla ett meddelande eller skicka ett meddelande till en IoT-hubb. I den här artikeln skapar du en modul som kopierar filer från en lokal resurs till en cloud-resurs på din Data Box Edge-enhet.
 
 1. Filer skrivs till den lokala resursen på din Data Box Edge-enhet.
-2. Filen händelse generatorn skapar en fil händelse för varje fil som skrivs till den lokala resursen. Filhändelser skickas sedan till IoT Edge Hub (i IoT Edge-körningen).
-
-   > [!IMPORTANT]
-   > Filhändelser genereras bara för de nyligen skapade filerna. Befintliga filer genererar inte några filhändelser.
-
+2. Filen händelse generatorn skapar en fil händelse för varje fil som skrivs till den lokala resursen. Filhändelser skapas också när en fil ändras. Filhändelser skickas sedan till IoT Edge Hub (i IoT Edge-körningen).
 3. Anpassad IoT Edge-modul bearbetar händelsen filen om du vill skapa en fil-händelseobjekt som också innehåller en relativ sökväg för filen. Modulen genererar en absolut sökväg med hjälp av den relativa filsökvägen och kopierar filen från den lokala resursen till molnet-resursen. Modulen tar sedan bort filen från den lokala resursen.
 
 ![Hur Azure IoT Edge-modul fungerar på Data Box Edge](./media/data-box-edge-create-iot-edge-module/how-module-works.png)
@@ -52,8 +46,9 @@ Innan du börjar ska du kontrollera att du har:
 
 - En Data Box Edge-enhet som kör.
 
-    - Enheten har även en associerad IoT Hub-resurs. Mer information går du till [skapar en IoT Hub-resurs](data-box-edge-deploy-configure-compute.md#create-an-iot-hub-resource) för din Data Box-Edge.
-    - Enheten har Edge compute konfigurerad roll. Mer information går du till [konfigurera beräkningsrollen](data-box-edge-deploy-configure-compute.md#set-up-compute-role) på din Data Box-Edge.
+    - Enheten har även en associerad IoT Hub-resurs.
+    - Enheten har Edge compute konfigurerad roll.
+    Mer information går du till [konfigurera beräkna](data-box-edge-deploy-configure-compute.md#configure-compute) för din Data Box-Edge.
 
 - I följande Utvecklingsresurser:
 
@@ -128,7 +123,7 @@ Skapa en C#-lösningsmall som du kan anpassa med din egen kod.
 
 ### <a name="update-the-module-with-custom-code"></a>Uppdatera modulen med anpassad kod
 
-1. Öppna i VS Code-Utforskaren **moduler > CSharpModule > Program.cs**.
+1. Öppna i VS Code-Utforskaren **moduler > FileCopyModule > Program.cs**.
 2. Överst på den **FileCopyModule namnområde**, Lägg till följande using-satser för typer som används senare. **Microsoft.Azure.Devices.Client.Transport.Mqtt** är ett protokoll för att skicka meddelanden till IoT Edge Hub.
 
     ```
@@ -141,12 +136,9 @@ Skapa en C#-lösningsmall som du kan anpassa med din egen kod.
     class Program
         {
             static int counter;
-            private const string InputFolderPath = "/home/LocalShare";
-            private const string OutputFolderPath = "/home/CloudShare";
+            private const string InputFolderPath = "/home/input";
+            private const string OutputFolderPath = "/home/output";
     ```
-
-    > [!IMPORTANT]
-    > Anteckna den `InputFolderPath` och `OutputFolderPath`. Du måste ange dessa sökvägar när du distribuerar den här modulen.
 
 4. Lägg till den **MessageBody** klass i programklassen. Dessa klasser definierar det förväntade schemat för brödtexten i inkommande meddelanden.
 
@@ -189,7 +181,7 @@ Skapa en C#-lösningsmall som du kan anpassa med din egen kod.
 6. Infoga kod för **FileCopy**.
 
     ```
-            /// <summary>
+        /// <summary>
         /// This method is called whenever the module is sent a message from the IoT Edge Hub. 
         /// This method deserializes the file event, extracts the corresponding relative file path, and creates the absolute input file path using the relative file path and the InputFolderPath.
         /// This method also forms the absolute output file path using the relative file path and the OutputFolderPath. It then copies the input file to output file and deletes the input file after the copy is complete.
@@ -241,8 +233,6 @@ Skapa en C#-lösningsmall som du kan anpassa med din egen kod.
             Console.WriteLine($"Processed event.");
             return MessageResponse.Completed;
         }
-
-    }
     ```
 
 7. Spara filen.
@@ -251,7 +241,8 @@ Skapa en C#-lösningsmall som du kan anpassa med din egen kod.
 
 I det föregående avsnittet du skapade en IoT Edge-lösning och lagt till kod till FileCopyModule att kopiera filer från lokala resurser till molnet-resursen. Nu behöver du skapa lösningen som en containeravbildning och push-överföra den till ditt containerregister.
 
-1. Logga in på Docker genom att ange följande kommando i den integrerade Visual Studio Code-terminalen:
+1. I VSCode, går du till terminalen > Ny Terminal för att öppna en ny integrerade Visual Studio Code-terminalen.
+2. Logga in på Docker genom att ange följande kommando i den integrerade terminalen.
 
     `docker login <ACR login server> -u <ACR username>`
 
@@ -282,4 +273,4 @@ I det föregående avsnittet du skapade en IoT Edge-lösning och lagt till kod t
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att distribuera och köra den här modulen på Data Box Edge, hittar du i [lägga till en anpassad modul](data-box-edge-deploy-configure-compute.md#add-a-custom-module).
+För att distribuera och köra den här modulen på Data Box Edge, hittar du i [lägger till en modul](data-box-edge-deploy-configure-compute.md#add-a-module).

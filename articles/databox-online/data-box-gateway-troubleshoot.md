@@ -6,23 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 02/26/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: c07293971c4cadd8b7bccc608f69faa3baa19ba7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 86cd4190647586ec47519ca481f78267f8999cef
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100861"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402209"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Felsöka problem med din Azure Data Box Gateway 
 
-Den här artikeln beskriver hur du felsöker problem i din Azure Data Box Gateway. 
-
-> [!IMPORTANT]
-> - Data Box Gateway är en förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen.
-
-I den här artikeln kan du se hur du:
+Den här artikeln beskriver hur du felsöker problem i din Azure Data Box Gateway. I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Kör diagnostik
@@ -53,7 +48,7 @@ Utför följande steg för att hämta ett supportpaket.
 
     ![Klicka på Lägg till användare](media/data-box-gateway-troubleshoot/collect-logs-1.png)
  
-2. När du har skapat supportpaketet klickar du på **Ladda ned supportpaket**. Ett komprimerat paket har laddats ned till den sökväg som du har valt. Du kan extrahera paketet och visa systemloggfilerna.
+2. När du har skapat supportpaketet klickar du på **Ladda ned supportpaket**. Ett komprimerat paket har laddats ned till den sökväg som du har valt. Du kan packa upp paketet.
 
     ![Klicka på Lägg till användare](media/data-box-gateway-troubleshoot/collect-logs-2.png)
 

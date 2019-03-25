@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 02e03868f5a48088b78d5d9b0221387212f248cf
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 5e5a186be19c0ecc9730bc79bddff41fb6bbb571
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958719"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401666"
 ---
 # <a name="quickstart-get-intent-using-java"></a>Snabbstart: Hämta avsikt med Java
 
@@ -26,12 +26,11 @@ I den här snabbstarten överför du yttranden till en LUIS-slutpunkt och få av
 
 <a name="create-luis-subscription-key"></a>
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/) eller din favorit-IDE
 * Offentligt app-ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
-
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
@@ -43,9 +42,9 @@ I den här snabbstarten överför du yttranden till en LUIS-slutpunkt och få av
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="get-intent-programmatically"></a>Hämta avsikter programmatiskt 
+## <a name="get-intent-programmatically"></a>Hämta avsikter programmatiskt
 
-Du kan använda Java för att komma åt samma resultat som du såg i webbläsarfönstret i föregående steg. 
+Du kan använda Java för att komma åt samma resultat som du såg i webbläsarfönstret i föregående steg. Glöm inte att lägga till de Apache-biblioteken i projektet.
 
 1. Kopiera följande kod för att skapa en klass i en fil som heter `LuisGetRequest.java`:
 
@@ -53,9 +52,9 @@ Du kan använda Java för att komma åt samma resultat som du såg i webbläsarf
 
 2. Ersätt värdet för variabeln `YOUR-KEY` med din LUIS-nyckel.
 
-3. Kompilera Java-programmet med `javac -cp ":lib/*" LuisGetRequest.java`. 
+3. Ersätt med din sökväg och kompilera java-program från en kommandorad: `javac -cp .;<FILE_PATH>\* LuisGetRequest.java`.
 
-4. Kör programmet med `java -cp ":lib/*" LuisGetRequest.java`. Det visar samma JSON som du såg tidigare i webbläsarfönstret.
+4. Ersätt med din sökväg till filen och kör programmet från en kommandorad: `java -cp .;<FILE_PATH>\* LuisGetRequest.java`. Det visar samma JSON som du såg tidigare i webbläsarfönstret.
 
     ![Konsolfönstret visar JSON-resultat från LUIS](./media/luis-get-started-java-get-intent/console-turn-on.png)
     
@@ -65,7 +64,7 @@ Du kan använda Java för att komma åt samma resultat som du såg i webbläsarf
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort Java-filen. 
+Ta bort fil/projektmapp med Java.
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

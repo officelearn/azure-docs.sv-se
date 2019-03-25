@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: 8e583ac1c8ac4b6f32c2fa9f8b7ed07c2e7033e8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9cfe5f490ef4063e02d9407f23130c1a216961ed
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890006"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402464"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>Självstudier: Skicka push-meddelanden till specifika Windows-enheter som kör Universal Windows Platform-program
 
@@ -222,30 +222,28 @@ I det här avsnittet registrerar du med meddelandehubben vid start med hjälp av
 
 Appen är nu klar. Den kan lagra en uppsättning kategorier i enhetens lokala lagring som används för att registrera med meddelandehubben när användaren ändrar kategoriurvalet. I nästa avsnitt definierar du en serverdel som kan skicka kategorimeddelanden till den här appen.
 
-## <a name="send-tagged-notifications"></a>Skicka taggade meddelanden
-
-[!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
-
-## <a name="run-the-app-and-generate-notifications"></a>Kör appen och generera meddelanden
-
+## <a name="run-the-uwp-app"></a>Kör UWP-appen 
 1. Kompilera och starta appen genom att trycka på **F5** i Visual Studio. Appens användargränssnitt innehåller en uppsättning växlar med vilka du kan välja vilka kategorier du vill prenumerera på.
 
-    ![Senaste nytt-app][1]
+    ![Senaste nytt-app](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png)
 
 2. Aktivera en eller flera kategoriväxlar och klicka sedan på **Prenumerera**.
 
     Appen konverterar de valda kategorierna till taggar och begär en ny enhetsregistrering för de valda taggarna från meddelandehubben. De registrerade kategorierna returneras och visas i en dialogruta.
 
-    ![Kategoriväxlingsknapparna och prenumerationsknappen][19]
+    ![Kategoriväxlingsknapparna och prenumerationsknappen](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png)
 
-3. Skicka ett nytt meddelande från serverdelen på något av följande sätt:
+## <a name="create-a-console-app-to-send-tagged-notifications"></a>Skapa en konsolapp för att skicka taggade meddelanden
 
-   * **Konsolapp**: Starta konsolappen.
-   * **Java/PHP**: Kör appen eller skriptet.
+[!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-     Meddelanden för de valda kategorierna visas som popup-meddelanden.
+## <a name="run-the-console-app-to-send-tagged-notifications"></a>Kör konsolappen för att skicka taggade meddelanden
 
-     ![Popup-meddelanden][14]
+1. Kör appen skapades i föregående avsnitt.
+2. Meddelanden för de valda kategorierna visas som popup-meddelanden. Om du väljer meddelandet kan se du det första fönstret för UWP-app. 
+
+     ![Popup-meddelanden](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png)
+
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -260,11 +258,6 @@ I den här artikeln beskrivs hur du skickar senaste nytt efter kategori. Serverd
 [Send notifications from your back-end]: #send
 [Run the app and generate notifications]: #test-app
 [Next Steps]: #next-steps
-
-<!-- Images. -->
-[1]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
-[14]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png
-[19]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
 
 <!-- URLs.-->
 [get-started]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md

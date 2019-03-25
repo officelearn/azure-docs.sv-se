@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 3e11c4dc8aa082723223fb998e599aa514febd3b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: d2ecebf47c77baa81193939b64c27348541f7686
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369977"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403416"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Ansluta Operations Manager till Azure Monitor
 
@@ -43,9 +43,10 @@ Om din IT-säkerhetsprinciper inte tillåter att datorer i nätverket för att a
 ## <a name="prerequisites"></a>Förutsättningar 
 Granska följande krav innan du börjar.
 
-* Azure Monitor stöder endast System Center Operations Manager 1807, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 eller senare, och Operations Manager 2012 R2 UR2 eller senare. Stöd för proxy har lagts till i Operations Manager 2012 SP1 UR7 och Operations Manager 2012 R2 UR3.
+* Azure Monitor har endast stöd för System Center Operations Manager 2016 eller senare, Operations Manager 2012 SP1 UR6 eller senare, och Operations Manager 2012 R2 UR2 eller senare. Stöd för proxy har lagts till i Operations Manager 2012 SP1 UR7 och Operations Manager 2012 R2 UR3.
+* Integrera System Center Operations Manager 2016 med molnet för amerikanska myndigheter kräver ett uppdaterat Advisor management pack som ingår med Samlad uppdatering 2 eller senare. System Center Operations Manager 2012 R2 kräver ett uppdaterat Advisor management pack som ingår med Samlad uppdatering 3 eller senare.
 * Alla Operations Manager-agenter måste uppfylla minimikraven. Kontrollera att agenterna är på den lägsta uppdateringen, annars Windows agentkommunikationen kan misslyckas och genererar fel i händelseloggen för Operations Manager.
-* En Log Analytics-arbetsyta. Mer information, [Log Analytics arbetsyta-översikt](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).
+* En Log Analytics-arbetsyta. Mer information, [Log Analytics arbetsyta-översikt](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).   
 * Du kan autentisera till Azure med ett konto som är medlem i den [Log Analytics Contributor rollen](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users).  
 
 >[!NOTE]

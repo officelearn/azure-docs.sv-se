@@ -10,17 +10,19 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 29b86d430fb5d65e7f089c616651da5f488b675c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ee97f7e5cda8b954fb697f73746e416d88d38c2d
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455991"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401696"
 ---
 # <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Tilldela variabler i Azure SQL Data Warehouse
+
 Tips för att tilldela T-SQL-variabler i Azure SQL Data Warehouse för utveckling av lösningar.
 
 ## <a name="setting-variables-with-declare"></a>Ange variabler med DECLARE
+
 Variabler i SQL Data Warehouse är inställda med hjälp av den `DECLARE` instruktionen eller `SET` instruktionen. Initiera variabler med DECLARE är ett av de mest flexibla sätten att ange ett variabelvärde i SQL Data Warehouse.
 
 ```sql
@@ -45,6 +47,7 @@ DECLARE @p1 int = 0
 ```
 
 ## <a name="setting-values-with-set"></a>Ange värden med SET
+
 Är en vanlig metod för att ange en variabel.
 
 Följande instruktioner är alla giltiga sätt att ange en variabel med:
@@ -59,8 +62,9 @@ SET     @v +=1;
 Du kan bara ange en variabel i taget med. Dock är sammansatt operatorer tillåtna.
 
 ## <a name="limitations"></a>Begränsningar
-Du kan inte använda SELECT- eller UPDATE för variabeltilldelning.
+
+Du kan inte använda UPPDATERINGEN för variabeltilldelning.
 
 ## <a name="next-steps"></a>Nästa steg
-Fler utvecklingstips, se [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
 
+Fler utvecklingstips, se [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).

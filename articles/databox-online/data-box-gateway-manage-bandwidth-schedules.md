@@ -1,28 +1,25 @@
 ---
-title: Hantera användare för Azure Data Box Gateway | Microsoft Docs
+title: Hantera scheman för bandbredd på Azure Data Box Gateway | Microsoft Docs
 description: Beskriver hur du använder Azure-portalen för att hantera bandbreddsscheman på din Azure Data Box Gateway.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: aefbe4265cb97a003b908c5631e1f9ed4e0192cc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a50091ec8878cbc8c1167c03acddaf269d697f31
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102136"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400423"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Använda Azure-portalen för att hantera bandbreddsscheman på din Azure Data Box Gateway  
 
 Den här artikeln beskriver hur du hanterar användare i din Azure Data Box Gateway. Med bandbreddsscheman kan du konfigurera användningen av nätverksbandbredd mellan scheman under olika tider på dagen. Schemana kan användas för upp- och nedladdningar mellan din enhet och molnet. 
 
 Du kan lägga till, ändra och ta bort bandbreddsscheman för din Data Box Gateway via Azure-portalen.
-
-> [!IMPORTANT]
-> - Data Box Gateway är en förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen.
 
 I den här artikeln kan du se hur du:
 

@@ -16,12 +16,12 @@ ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: b358609526c61b5acab83c02bdedd8cc06721425
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a61820dc05752d43774b13399d071c5a2be98483
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536494"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400536"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack som hanteringsprincip
 
@@ -35,7 +35,7 @@ Månatliga uppdateringspaket finns i en säker Azure-slutpunkt. Du kan hämta de
 
 Snabbkorrigeringen uppdateringspaket finns i samma säkra Azure-slutpunkten. Du kan ladda ned dem manuellt med hjälp av den inbäddade länken i var och en i respektive snabbkorrigering KB-artiklar. till exempel [Azure Stack-snabbkorrigeringen 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Liknar de fullständiga, månatliga uppdateringspaket, Azure Stack-operatörer kan hämta XML-, .bin- och .exe-filer och importera dem med hjälp av proceduren i [tillämpa uppdateringar i Azure Stack](azure-stack-apply-updates.md). Azure Stack-operatörer med anslutna skalningsenheter visas snabbkorrigeringar visas automatiskt i administratörsportalen med meddelandet **uppdatering**.
 
-Om skalningsenheten inte är ansluten och du vill bli meddelad om varje snabbkorrigering version, prenumerera på den [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … ) eller [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …) feed som anges i varje version.  
+Om skalningsenheten inte är ansluten och du vill bli meddelad om varje snabbkorrigering version, prenumerera på den [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) eller [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) feed som anges i varje version.  
 
 ## <a name="update-package-types"></a>Uppdatera pakettyper
 

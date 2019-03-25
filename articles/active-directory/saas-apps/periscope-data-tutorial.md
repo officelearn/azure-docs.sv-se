@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 94686d62e8019bfc5dba1ccd4a00142512930c0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d8fd6a0422ee26610f58f872cba4487d4e01e6b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862224"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403637"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Självstudier: Azure Active Directory-integrering med Periscope Data
 
@@ -138,7 +138,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Peris
 
     e. Kopiera värdet för **Identifierare** för din instans och klistra in det i textrutan  **Identifierare (entitets-ID)** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    f. I den första taggen i XML-filen kopierar du värdet för **entityID** och klistrar in det i textrutan **Utfärdare**.
+    f. Hitta den första taggen på XML-fil, Kopiera värdet för **entityID** och klistra in den i den **utfärdare** textrutan.
 
     g. Leta upp taggen **IDPSSODescriptor** med SAML-protokoll. I det avsnittet letar du upp taggen **KeyDescriptor** med **use=signing**. Kopiera värdet för **X509Certificate** och klistra in det i textrutan **Certifikat**.
 

@@ -8,19 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 8ef35709e90c0a58cc0ff8df1afb6e864adc0a23
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: ab3d3a13f8bfa69bd9e13dae344cfbcc3731cc77
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57994705"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402600"
 ---
-# <a name="azure-data-box-edge-technical-specifications-preview"></a>Azure Data Box Edge, tekniska specifikationer (förhandsversion)
+# <a name="azure-data-box-edge-technical-specifications"></a>Azure Data Box Edge tekniska specifikationer
 
 Maskinvarukomponenter för Microsoft Azure Data Box Edge-enheten följa de tekniska specifikationerna och regelverk som beskrivs i den här artikeln. De tekniska specifikationerna beskrivs Power anger enheter (PSUs), lagringskapacitet, bilagor och standarder för miljön. 
-
-> [!IMPORTANT]
-> Data Box Edge är i förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen. 
 
 ## <a name="power-supply-unit-specifications"></a>Power-strömförsörjning enhet specifikationer
 
@@ -28,7 +25,7 @@ Data Box Edge-enhet har två 100-240 V Power anger enheter (PSUs) med höga pres
 
 | Specifikationen           | 750 W PSU                  |
 |-------------------------|----------------------------|
-| Högsta uteffekt    |  750 W                     |
+| Högsta uteffekt    | 750 W                     |
 | Frekvens               | 50/60 Hz                   |
 | Val av tidsintervall spänning | Automatisk sträcker sig: 100-240 V AC |
 | Hot plug           | Ja                        |

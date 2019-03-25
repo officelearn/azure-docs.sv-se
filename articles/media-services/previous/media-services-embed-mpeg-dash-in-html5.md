@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ff14afc9e438c2b493219e9fa207b2e8793b3c87
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 1390d68a93dd3d80b5977bab6665553ea3f8b398
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189214"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403082"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Bädda in en MPEG-DASH-anpassad direktuppspelad Video i ett HTML5-program med DASH.js  
 
@@ -55,7 +55,7 @@ Det första steget är att skapa en standard HTML-sida som innehåller den **vid
 ```
 
 ## <a name="adding-the-dashjs-player"></a>Att lägga till spelaren DASH.js
-Om du vill lägga till referensimplementering dash.js till programmet, måste du hämta filen dash.all.js från version 1.0 av dash.js projekt. Detta ska sparas i mappen JavaScript för ditt program. Den här filen är en bekvämlighet-fil som sammanställer alla nödvändiga dash.js koden i en enda fil. Om du har en titt runt dash.js databasen kan du hitta enskilda filer, testa koden och mycket mer, men om du vill göra är använda dash.js, och sedan filen dash.all.js är vad du behöver.
+Om du vill lägga till referensimplementering dash.js till programmet, måste du hämta filen dash.all.js från den senaste versionen av dash.js projekt. Detta ska sparas i mappen JavaScript för ditt program. Den här filen är en bekvämlighet-fil som sammanställer alla nödvändiga dash.js koden i en enda fil. Om du har en titt runt dash.js databasen kan du hitta enskilda filer, testa koden och mycket mer, men om du vill göra är använda dash.js, och sedan filen dash.all.js är vad du behöver.
 
 Om du vill lägga till dash.js spelaren i dina program, lägger du till ett skripttagg basicPlayer.html head-avsnitt:
 

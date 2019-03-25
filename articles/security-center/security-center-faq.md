@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: 7e4a4572a53338dc0c7b5d7d11dca7130c8979be
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 276b2815b36f05aa49183681b6c9e622155938e9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226903"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401139"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Security Center
 Den här vanliga frågor och svar innehåller frågor och svar om Azure Security Center, en tjänst som hjälper dig att förhindra, upptäcka och svara på hot med ökad insyn i och kontroll över säkerheten hos dina Microsoft Azure-resurser.
@@ -291,11 +291,14 @@ Security Center är en Azure-tjänst som ständigt övervakar kundens Azure-milj
 Azure Security Center övervakar följande Azure-resurser:
 
 * Virtuella datorer (VM) (inklusive [molntjänster](../cloud-services/cloud-services-choose-me.md))
-*  Azure Virtual Networks
+* Skalningsuppsättningar för virtuella datorer (VMSSs)
+* Azure Virtual Networks
 * Azure SQL-tjänst
 * Azure-lagringskonto
 * Azure Web Apps (i [Apptjänstmiljö](../app-service/environment/intro.md))
 * Partnerlösningar integreras med din Azure-prenumeration, till exempel en brandvägg för webbaserade program på virtuella datorer och på App Service Environment
+
+(Inklusive lokala) icke Azure-datorer kan dessutom också övervakas av Azure Security Center (både [Windows-datorer](./quick-onboard-windows-computer.md) och [Linux-datorer](./quick-onboard-linux-computer.md) stöds)
 
 ## <a name="virtual-machines"></a>Virtuella datorer
 ### <a name="what-types-of-virtual-machines-are-supported"></a>Vilka typer av virtuella datorer stöds?

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 7c4a73c86245067a07dc253041c43ae6c17f7172
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8e20f612bc54433091036377d51a7e59e3abec51
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096987"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402158"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Få åtkomst till ett klassrumslabb i Azure Lab Services
 Artikeln beskriver hur du får åtkomst till ett klassrumslabb, ansluter till den virtuella datorn i labbet och stoppar den virtuella datorn. 
@@ -49,7 +49,8 @@ När du registrerat dig till labben kan du visa alla klassrumslabb genom att utf
 3. Gör något av följande steg: 
    1. För **Windows** virtuella datorer, spara den **RDP** filen till hårddisken. Öppna RDP-filen för att ansluta till den virtuella datorn. Använd den **användarnamn** och **lösenord** du får från educator/professor att logga in på datorn. 
    3. För **Linux** virtuella datorer, kopiera och spara anslutningssträngen SSH på den **Anslut till den virtuella datorn** dialogrutan. Använd den här anslutningssträngen från en SSH-terminalen (t.ex. [Putty](https://www.putty.org/)) att ansluta till den virtuella datorn.
-      ## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>Stoppa den virtuella datorn i ett klassrumslabb
+
+## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>Stoppa den virtuella datorn i ett klassrumslabb
 
 Om du vill stoppa den virtuella datorn väljer du **Stoppa** på panelen. När den virtuella datorn har stoppats aktiveras knappen **Starta** i panelen. 
 

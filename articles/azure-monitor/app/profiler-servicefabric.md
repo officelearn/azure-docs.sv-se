@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 73e453385a6916b6999691afbacd1f102ce7270d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0b1a06d181fc4d2a44d389d47d1f9480c2fdcb40
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865751"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401092"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Profilera live Azure Service Fabric-program med Application Insights
 
@@ -55,7 +55,7 @@ Om du vill konfigurera din miljö måste du vidta följande åtgärder:
   Om inställningarna är korrekta, Application Insights Profiler installeras och aktiveras när Azure Diagnostics-tillägget installeras. 
 
 1. Lägg till Application Insights till ditt Service Fabric-program.  
-  För Profiler att samla in profiler för dina begäranden måste ditt program skicka data för begäran till Application Insights. Mer information går du till den [Application Insights SDK för Service Fabric-projekt](https://github.com/Microsoft/ApplicationInsights-ServiceFabric) sidan.
+  För Profiler att samla in profiler för dina begäranden spåra programmets åtgärder med Application Insights. För tillståndslösa API: er som du kan referera till anvisningar om hur [spåra begäranden Profileringen](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json). Mer information om att spåra anpassade åtgärder i andra typer av appar i [spåra anpassade åtgärder med Application Insights SDK för .NET](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json).
 
 1. Distribuera programmet igen.
 

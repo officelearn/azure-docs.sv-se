@@ -1,22 +1,22 @@
 ---
-title: Skapa en värd-pool med PowerShell (förhandsversion), Azure
-description: Hur du skapar en pool för värden i virtuella Windows-skrivbordet med PowerShell-cmdletar.
+title: Skapa en förhandsversion för virtuella skrivbord i Windows-värd-pool med PowerShell – Azure
+description: Så här skapar du en värd-pool i förhandsversion för virtuella skrivbord i Windows med PowerShell-cmdletar.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 4b65d7614db94a9cc3fdca3f4b784c2c84ebaef8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 7b9b7ffbb034a7fb1256d9cc44048cfa55b02245
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318546"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402736"
 ---
-# <a name="create-a-host-pool-with-powershell-preview"></a>Skapa en värd-pool med PowerShell (förhandsversion)
+# <a name="create-a-host-pool-with-powershell"></a>Skapa en värd-pool med PowerShell
 
-Värd-pooler är en samling av en eller flera identiska virtuella datorer i miljöer med virtuella skrivbord i Windows-klient (förhandsversion). Varje värd-pool kan innehålla en appgrupp som användare kan interagera med precis som på en fysisk dator.
+Värd-pooler är en samling av en eller flera identiska virtuella datorer i förhandsversion för virtuella skrivbord i Windows klient-miljöer. Varje värd-pool kan innehålla en appgrupp som användare kan interagera med precis som på en fysisk dator.
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Använd PowerShell-klienten för att skapa en värd-pool
 
@@ -70,12 +70,12 @@ Du kan skapa en virtuell dator på flera olika sätt:
 - [Skapa en virtuell dator från en hanterad avbildning](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Skapa en virtuell dator från en ohanterad avbildning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
-## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>Förbereda virtuella datorer för virtuella Windows-skrivbordet agentinstallationer
+## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-preview-agent-installations"></a>Förbereda virtuella datorer för Windows Virtual Desktop förhandsversion agentinstallationer
 
 Måste du göra följande för att förbereda dina virtuella datorer innan du kan installera agenter för virtuella Windows-skrivbordet och registrera virtuella datorer till din virtuella Windows-skrivbordet värd pool:
 
 - Du måste domänanslutning datorn. På så sätt kan inkommande virtuella Windows-skrivbordet användare mappas från deras Azure Active Directory-konto till deras Active Directory-konto och att få har tillgång till den virtuella datorn.
-- Om den virtuella datorn kör ett Windows Server-Operativsystemet måste du installera den fjärranslutna värd för fjärrskrivbordssession (RDSH)-rollen (förhandsversion). RDSH-rollen kan virtuella Windows-skrivbordet agenterna ska installeras.
+- Om den virtuella datorn kör ett Windows Server-Operativsystemet måste du installera rollen fjärråtkomst värd för fjärrskrivbordssession (RDSH). RDSH-rollen kan virtuella Windows-skrivbordet agenterna ska installeras.
 
 Du har domänanslutning, gör du följande på varje virtuell dator:
 
@@ -85,7 +85,7 @@ Du har domänanslutning, gör du följande på varje virtuell dator:
 4. Välj **domän** och ange sedan Active Directory-domänen i det virtuella nätverket.
 5. Autentisera med ett domänkonto som har behörighet att domänanslutning datorer.
 
-## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Registrera virtuella datorer till poolen värden för virtuella Windows-skrivbordet
+## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Registrera virtuella datorer till poolen förhandsversion för virtuella skrivbord i Windows-värd
 
 Registrerar de virtuella datorerna till en pool med virtuella Windows-skrivbordet värden är lika enkelt som att installera agenter för virtuella Windows-skrivbordet.
 
@@ -114,7 +114,7 @@ Gör följande på varje virtuell dator för att registrera virtuellt skrivbord 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har gjort poolen värd är det dags att fylla det med RemoteApps (förhandsversion). Mer information om hur du hanterar appar i virtuella Windows-skrivbordet finns i Hantera app grupper självstudien.
+Nu när du har gjort poolen värden, kan du fylla i den med RemoteApps. Mer information om hur du hanterar appar i virtuella Windows-skrivbordet finns i Hantera app grupper självstudien.
 
 > [!div class="nextstepaction"]
 > [Hantera grupper självstudier](./manage-app-groups.md)

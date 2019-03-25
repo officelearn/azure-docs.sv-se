@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb21ddc36141dfee1be6f0e42811e6ccbeb44143
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2750de16c71e7d678810316f281e28ca8c40553d
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217504"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403161"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-appmanifestet
 
@@ -77,6 +77,14 @@ Konfigurera applikationsmanifestet:
 | `signInUrl` | sträng | Anger Webbadressen till appens startsida. | `https://MyRegisteredApp` |
 | `signInAudience` | sträng | Anger vilka Microsoft-konton stöds för det aktuella programmet. Värden som stöds är:<ul><li>**AzureADMyOrg** -användare med ett Microsoft arbets- eller skolkonto i min organisation är Azure AD-klient (d.v.s. enskild klient)</li><li>**AzureADMultipleOrgs** -användare med ett Microsoft arbets- eller skolkonto i alla organisationer Azure AD-klient (t.ex. flera innehavare)</li> <li>**AzureADandPersonalMicrosoftAccount** -användare med ett personligt microsoftkonto eller ett arbets- eller skolkonto konto i alla organisationer Azure AD-klient</li></ul> | `AzureADandPersonalMicrosoftAccount` |
 | `tags` | Strängmatris | Anpassade strängar som kan användas för att kategorisera och identifiera programmet. | <code>[<br>&nbsp;&nbsp;"ProductionApp"<br>]</code> |
+
+
+## <a name="manifest-limits"></a>Manifest gränser
+Ett programmanifest har flera attribut som kallas samlingar till exempel approles, keycredentials, knownClientApplications, identifieruris finns, rediretUris, requiredResourceAccess, oauth2Permissions osv. I hela appen manifestet för alla program, har det totala antalet poster i alla samlingar som kombineras har högst 1200. Om du redan har 100 omdirigerings-URI anges i applikationsmanifestet så är du bara vänster med 1100 återstående kombineras poster som ska användas för alla samlingar som utgör manifestet.
+
+> [!NOTE]
+> Om du försöker lägga till fler än 1200 poster i manifestet. Du kan få ett felmeddelande **”det gick inte att uppdatera programmet xxxxxx. Felinformation: Storleken på manifestet har överskridit gränsen. Minska antalet värden och försök igen med din begäran.** "
+
 
 ## <a name="next-steps"></a>Nästa steg
 

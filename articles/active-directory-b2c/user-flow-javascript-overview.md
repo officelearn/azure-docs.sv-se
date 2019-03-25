@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 997babef5860488232f0b530c90b44aba6608ac5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5102755c9e830f43fa92e8546e5125960e0a2f9a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008239"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401562"
 ---
 # <a name="about-using-javascript-and-page-contract-versions-in-a-user-flow"></a>Hur du använder JavaScript och sidan kontrakt-versioner i ett användarflöde
+
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 Azure AD B2C tillhandahåller en uppsättning paketinnehåll som innehåller HTML, CSS och JavaScript för gränssnittselement i din användarflöden. Om du tänker aktivera [JavaScript](javascript-samples.md) klientkod i din användare flöden, ska du noga de element som du baserar din JavaScript på är inte kan ändras. I annat fall kan ändringar orsaka oväntade resultat för dina användare flow sidor. Du kan framtvinga användningen av ett sida-kontrakt för ett användarflöde och ange en sidan kontrakt version för att förhindra dessa problem. Detta säkerställer att alla innehållsdefinitioner som du har utifrån din JavaScript är inte kan ändras. Även om du inte planerar att aktivera JavaScript för ett användarflöde, kan du ange en sidan kontrakt-version för användaren flow sidorna.
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 9cb3abff10482ec7e58b4b049f051e99178cb742
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2f84c48092581a313ff7bead7a862221e0fe4eee
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371994"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400928"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till Azure-nätverk från Azure Logic Apps med hjälp av en integration service-miljö (ISE)
 
@@ -49,9 +49,9 @@ Läs mer om integreringstjänstmiljöer [åtkomst till Azure Virtual Network-res
   * Det virtuella nätverket måste ha fyra *tom* undernät för att distribuera och skapa resurser i din ISE. Du kan skapa de här undernäten i förväg eller vänta tills du har skapat din ISE där du kan skapa undernät på samma gång. Läs mer om [undernät krav](#create-subnet). 
   
     > [!NOTE]
-    > Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md), som innehåller en privat anslutning till Microsofts molntjänster, måste du [Lägg till följande väg till varje undernät](../virtual-network/virtual-network-manage-subnet.md) används av din ISE. Om du använder en routningstabell med dina undernät [Lägg till följande väg till din routningstabellen](../virtual-network/manage-route-table.md):
+    > Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md), som innehåller en privat anslutning till Microsofts molntjänster, måste du [skapar en routningstabell](../virtual-network/manage-route-table.md) som har följande dirigera och länka tabellen med varje undernät som används av din ISE:
     > 
-    > **Namn**: D3655BASE-route<br>
+    > **Namnet**: <*route-name*><br>
     > **Adressprefixet**: 0.0.0.0/0<br>
     > **Nästa hopp**: Internet
 
@@ -146,9 +146,9 @@ Listan med resultat väljer **Integreringstjänstmiljön (förhandsversion)**, o
 
      Mer information om hur du beräknar adresser finns [IPv4 CIDR-block som](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
-   * Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md), Kom ihåg att [Lägg till följande väg till varje undernät](../virtual-network/virtual-network-manage-subnet.md) används av din ISE. Om du använder en routningstabell med dina undernät [Lägg till följande väg till vägen tabellen](../virtual-network/manage-route-table.md):
+   * Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md), Kom ihåg att [skapar en routningstabell](../virtual-network/manage-route-table.md) som har följande dirigera och länka tabellen med varje undernät som används av din ISE:
 
-     **Namn**: D3655BASE-route<br>
+     **Namnet**: <*route-name*><br>
      **Adressprefixet**: 0.0.0.0/0<br>
      **Nästa hopp**: Internet
 

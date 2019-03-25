@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/14/2018
+ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: d91e4d33bdecc23bc79e2cf975789bcaeb7ca69a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 093528dff09c71b999d58f0285044340fa0ec360
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837635"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403212"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till Universal Windows Platform-appar med hjälp av Azure Notification Hubs
 
@@ -52,7 +52,7 @@ Du måste slutföra den här självstudiekursen innan du börjar någon annan ku
 
 Om du vill skicka push-meddelanden till UWP-appar, associerar du din app med Windows Store. Konfigurera sedan meddelandehubben för att integrera den med WNS.
 
-1. Navigera till [Windows Dev Center](https://dev.windows.com/overview), logga in med ditt Microsoft-konto och välj sedan **Skapa en ny app**.
+1. Navigera till [Windows Dev Center](https://partner.microsoft.com/en-us/dashboard/windows/first-run-experience), logga in med ditt Microsoft-konto och välj sedan **Skapa en ny app**.
 
     ![Knappen Ny app](./media/notification-hubs-windows-store-dotnet-get-started/windows-store-new-app-button.png)
 2. Ange ett namn på appen och markera sedan **Reservera produktnamn**. På så sätt skapas en ny Windows Store-registrering för din app.

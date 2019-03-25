@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 52d2061262fd04e68ed13aac8932c23b7074f83e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 125ad28f049662ae6d91c61bb5ee79c1c1428af5
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113778"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401761"
 ---
-# <a name="azure-data-box-edge-system-requirements-preview"></a>Systemkrav för Azure Data Box Edge (förhandsversion)
+# <a name="azure-data-box-edge-system-requirements"></a>Azure Data Box Edge-systemkrav
 
 Den här artikeln beskriver viktiga systemkraven för din Microsoft Azure Data Box Edge-lösning och för klienter som ansluter till Azure Data Box Edge. Vi rekommenderar att du läser informationen noggrant innan du distribuerar din Data Box-Edge. Du kan referera tillbaka till den här informationen som behövs under distributionen och efterföljande driften.
 
@@ -23,9 +23,6 @@ Systemkraven för Data Box Edge är:
 
 - **Programvarukrav för värdar** -beskriver plattformarna som stöds, webbläsare för den lokala konfigurationen Användargränssnittet, SMB-klienter och eventuella ytterligare krav för klienter som har åtkomst till enheten.
 - **Nätverkskrav för enheten** – innehåller information om alla nätverkskrav för driften av den fysiska enheten.
-
-> [!IMPORTANT]
-> Data Box Edge är i förhandsversion. Läs [användningsvillkoren för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du distribuerar den här lösningen.
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>Operativsystem som stöds för klienter som är anslutna till enhet
 
@@ -63,10 +60,7 @@ Använd följande tabell för portkonfiguration för de servrar som är värd f�
 
 | Porten Nej. | In eller ut | Port omfång | Krävs | Riktlinjer |
 |----------|-----------|------------|----------|----------|
-| TCP 5671 (AMQP)| Utdata       | WAN        | Ja      | Standard kommunikationsprotokoll för IoT Edge. Måste vara öppna om Azure IoT Edge inte är konfigurerad för andra protokoll som stöds eller AMQP är det önskade kommunikationsprotokollet. <br>5672 för AMQP stöds inte av IoT Edge. <br>Blockera den här porten när protokoll som stöds av Azure IoT Edge använder en annan IoT-hubb. |
-| TCP 443 (HTTPS)| Utdata       | WAN        | Ja      | Utgående öppen för IoT Edge etablering. Om du har en transparent gateway med lövenheter som kan skicka metodbegäranden. I det här fallet behöver inte port 443 är öppen för externa nätverk att ansluta till IoT Hub eller tillhandahåller tjänster för IoT Hub via Azure IoT Edge. Därför kan den inkommande regeln begränsas till endast öppna inkommande från det interna nätverket. |
-| TCP 5671 (AMQP) | I        |            | Nej       | Inkommande anslutningar ska blockeras.|
-| TCP 443 (HTTPS) | I        |            | I vissa fall kan du se kommentarer | Inkommande anslutningar bör öppnas bara för specifika scenarier. Om icke-HTTP-protokoll som AMQP, MQTT inte kan konfigureras, kan meddelanden skickas via WebSockets via port 443. |
+| TCP 443 (HTTPS)| Utdata       | WAN        | Ja      | Utgående öppen för IoT Edge etablering. Den här konfigurationen krävs när du använder manuella skript eller Azure IoT Device Provisioning-tjänsten (DPS).|
 
 Fullständig information går du till [brandvägg och port konfigurationsregler för IoT Edge-distribution](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 

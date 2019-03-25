@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: fa48d3825b5b942497b1eabd19a1eeb7e0141058
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 39198c0093f018b64a1292f023914651b51b4faf
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003150"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403790"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>Välj en sida kontrakt i Azure Active Directory B2C med anpassade principer
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 Du kan aktivera JavaScript-kod på klientsidan i din Azure Active Directory (Azure AD) B2C-principer, oavsett om du använder användarflöden eller anpassade principer. Den här artikeln beskrivs hur du väljer ett sida-kontrakt i Azure AD B2C genom att konfigurera det i en [anpassad princip](active-directory-b2c-overview-custom.md). Ett sida-kontrakt är ett nätverk med element som tillhandahåller Azure AD B2C och det innehåll som du anger. Om du tänker använda [Javascript](javascript-samples.md), måste du definiera en sida kontrakt-version för alla dina innehållsdefinitioner i en egen princip.
 

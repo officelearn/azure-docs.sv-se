@@ -1,22 +1,22 @@
 ---
-title: Skala automatiskt session-värdar – Azure
-description: Beskriver hur du ställer in skriptet för automatisk skalning för värdar för virtuella Windows-skrivbordet (förhandsversion)-session.
+title: Skala automatiskt Windows Virtual Desktop förhandsversion session-värdar – Azure
+description: Beskriver hur du ställer in skriptet för automatisk skalning för Windows Virtual Desktop Preview session-värdar.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: d800b45310ae476ec0c54460d9719c17e35dfe5a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: bee02549d68b1dbdba3f0e62477b28bbd475ea32
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318366"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402498"
 ---
 # <a name="automatically-scale-session-hosts"></a>Skala automatiskt session värdar
 
-För många virtuella Windows-skrivbordet distributioner i Azure representerar VM-kostnader stor del av den totala kostnaden för distribution av virtuella Windows-skrivbordet. Det är bäst att stänga av och frigör session virtuella datorer (VM) under perioder med låg användningstimmar och sedan starta om dem under belastning för användning för att minska kostnaderna.
+För många förhandsversion för virtuella skrivbord i Windows-distributioner i Azure representerar VM-kostnader stor del av den totala kostnaden för distribution av virtuella Windows-skrivbordet. Det är bäst att stänga av och frigör session virtuella datorer (VM) under perioder med låg användningstimmar och sedan starta om dem under belastning för användning för att minska kostnaderna.
 
 Den här artikeln används ett enkelt skala skript för automatisk skalning session virtuella datorer i din miljö för virtuella Windows-skrivbordet. Mer information om hur skalning skriptet fungerar finns i [hur skalning skriptet fungerar](#how-the-scaling-script-works) avsnittet.
 

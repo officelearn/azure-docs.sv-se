@@ -6,23 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 02/21/2019
+ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: f36e13ccf91c983c54897dcff7e1c02689fb055c
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: HT
+ms.openlocfilehash: d930b1db48e3a5c4bda96f0b7d80a9c9f24d53d9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592663"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400647"
 ---
-# <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Självstudier: Överföra data med Azure Data Box Gateway (förhandsversion)
+# <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Självstudier: Överföra data med Azure Data Box-Gateway
 
 
 ## <a name="introduction"></a>Introduktion
 
-Den här artikeln beskriver hur du lägger till och ansluter till resurser på Data Box Gateway. När resurserna har lagts till kan Data Box Gateway-enheten överföra data till Azure.
+Den här artikeln beskriver hur du lägger till och ansluta till resurser på din Data Box-Gateway. När du har lagt till filresurser kan gatewayenhet för Data Box överföra data till Azure.
 
-Den här proceduren kan ta upp till 10 minuter att slutföra. 
+Den här proceduren kan ta upp till 10 minuter att slutföra.
 
 I den här guiden får du lära dig att:
 
@@ -30,62 +30,63 @@ I den här guiden får du lära dig att:
 > * Lägga till en resurs
 > * Ansluta till resurs
 
-> [!IMPORTANT]
-> - Data Box Gateway är en förhandsversion. Granska [Azures användningsvillkor för förhandsversionen](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) innan du beställer och distribuerar den här lösningen. 
- 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrollera följande innan du lägger till resurser till din Data Box Gateway:
 
-* Du har etablerat en virtuell enhet och anslutit till den enligt beskrivningen i [Etablera en Data Box Gateway i Hyper-V](data-box-gateway-deploy-provision-hyperv.md) eller [Etablera en Data Box Gateway i VMware](data-box-gateway-deploy-provision-vmware.md). 
+- Du har etablerat en virtuell enhet och är anslutna till den som beskrivs i den [etablera en Data Box-Gateway i Hyper-V](data-box-gateway-deploy-provision-hyperv.md) eller [etablera en Data Box-Gateway i VMware](data-box-gateway-deploy-provision-vmware.md).
 
-    Den virtuella enheten aktiveras enligt beskrivningen i [Ansluta och aktivera din Azure Data Box Gateway](data-box-gateway-deploy-connect-setup-activate.md) och nu kan du skapa resurser och överföra data.
+- Du har aktiverat den virtuella enheten som beskrivs i [Connect och aktivera din Azure Data Box-Gateway](data-box-gateway-deploy-connect-setup-activate.md).
 
+- Enheten är redo för att du ska skapa resurser och överföra data.
 
 ## <a name="add-a-share"></a>Lägga till en resurs
 
-Skapa en resurs genom att utföra stegen nedan på [Azure-portalen](https://portal.azure.com/).
+Skapa en resurs gör följande:
 
-1. Gå tillbaka till Azure-portalen. Gå till **Alla resurser** och sök efter din Data Box Gateway-resurs.
-    
-2. Välj din Data Box Gateway-resurs i den filtrerade listan över resurser och gå sedan till **Översikt**. Klicka på **+ Lägg till resurs** i enhetens kommandofält.
+1. I den [Azure-portalen](https://portal.azure.com/), Välj din Data Box Gateway-resurs och gå sedan till **översikt**. Din enhet ska vara online. Välj **+ Lägg till resurs** i kommandofältet för enheten.
    
    ![Lägga till en resurs](./media/data-box-gateway-deploy-add-shares/click-add-share.png)
 
-4. I **Lägg till resurs** anger du inställningar för resursen. Ange ett unikt namn på resursen. 
+4. I **Lägg till resurs**, utför följande procedur:
 
-   Resursnamn får bara innehålla siffror, gemener och bindestreck. Resursnamnet måste vara mellan 3 och 63 tecken långt och börja med en bokstav eller en siffra. Varje bindestreck måste föregås och följas av ett tecken som inte är ett bindestreck.
+    1. Ange ett unikt namn på resursen. Resursnamnen kan bara ha gemena bokstäver, siffror och bindestreck. Resursnamnet måste ha mellan 3 och 63 tecken långt och börja med en bokstav eller en siffra. Varje bindestreck måste föregås och följas av ett tecken som inte är ett bindestreck.
     
-5. Välj en **typ** för resursen. Typen kan vara SMB eller NFS, där SMB är standardvärdet. SMB är standard för Windows-klienter och NFS används för Linux-klienter. Beroende på om du väljer SMB- eller NFS-resurser visas alternativen lite olika. 
+    2. Välj en **typ** för resursen. Typen kan vara SMB eller NFS, där SMB är standardvärdet. SMB är standard för Windows-klienter och NFS används för Linux-klienter. Beroende på om du väljer SMB- eller NFS-resurser visas alternativen lite olika.
 
-6. Du måste ange ett lagringskonto där resursen ska placeras. En container skapas på lagringskontot med resursnamnet om containern inte redan finns. Om containern redan finns används den befintliga containern. 
+    3. Ange ett lagringskonto där resursen ska placeras. En container skapas på lagringskontot med det nyligen skapade resursnamnet om det inte redan finns en. Om containern redan finns används den befintliga containern.
     
-7. Välj **lagringstjänst** – blockblob, sidblob eller filer. Vilken typ av tjänst som väljs beror på vilket format du vill använda för data som lagras i Azure. I det här fallet vill vi till exempel att data ska lagras som blob-block i Azure, därför väljer vi Blockblob. Om du väljer Sidblob måste du kontrollera att dina data är justerade för 512 byte. Observera att VHDX alltid är justerad för 512 byte.
+    4. Välj **lagringstjänst** – blockblob, sidblob eller filer. Vilken typ av tjänst som väljs beror på vilket format du vill använda för data som lagras i Azure. I det här fallet vill vi till exempel att data ska lagras som blob-block i Azure, därför väljer vi Blockblob. Om du väljer Sidblob måste du kontrollera att dina data är justerade för 512 byte. Till exempel är en VHDX alltid justerad för 512 byte.
    
-8. Det här steget beror på om du skapar en SMB- eller en NFS-resurs. 
+    5. Det här steget beror på om du skapar en SMB- eller en NFS-resurs.
      
-    - **Om du skapar en SMB-resurs** – I fältet för lokal användare med fullständig behörighet väljer du mellan **Skapa ny** eller **Använd befintlig**. Om du skapar en ny lokal användare anger du **användarnamn**, **lösenord** och sedan **bekräfta lösenord**. Detta tilldelar behörigheter till den lokala användaren. När du har tilldelat behörigheterna här kan du sedan använda Utforskaren till att ändra dessa behörigheter.
+    - **SMB-resurs** – Under **alla lokala användare med privilegier**väljer **Skapa nytt** eller **Använd befintlig**. Om du skapar en ny lokal användare måste ange en **användarnamn** och **lösenord**, och sedan **Bekräfta lösenord**. Den här åtgärden tilldelar behörigheter till den lokala användaren. När du har tilldelat behörigheter här använder du Utforskaren för att ändra dessa behörigheter.
     
         ![Lägga till SMB-resurs](./media/data-box-gateway-deploy-add-shares/add-share-smb-1.png)
         
-        Om du markerar att **endast tillåta läsåtgärder** för dessa resursdata har du sedan alternativet att ange skrivskyddade användare.
+        Om du väljer **Tillåt endast läsåtgärder** markerar du kryssrutan för den här resursdata, kan du ange skrivskyddade användare.
         
-    - **Om du skapar en NFS-resurs** – Du måste ange IP-adresserna för de tillåtna klienter som har åtkomst till resursen.
+    - **NFS-resursens** – ange IP-adresserna för de tillåtna klienter som har åtkomst till resursen.
 
         ![Lägga till NFS-resurs](./media/data-box-gateway-deploy-add-shares/add-share-nfs-1.png)
    
-9. Klicka på **Skapa** för att skapa resursen. 
+9. Klicka på **Skapa** för att skapa resursen.
     
-    Du får ett meddelande om att resursen skapas. När resursen har skapats med de angivna inställningarna uppdateras bladet **Resurser** med den nya resursen. 
+    Du får ett meddelande om att resursen skapas. När resursen har skapats med de angivna inställningarna i **resurser** panelen uppdateringar för att återspegla den nya resursen.
     
-    ![Uppdaterad lista över resurser](./media/data-box-gateway-deploy-add-shares/updated-list-of-shares.png) 
+    ![Uppdaterade resurser sida vid sida](./media/data-box-gateway-deploy-add-shares/updated-list-of-shares.png) 
 
 ## <a name="connect-to-the-share"></a>Ansluta till resursen
 
-Utföra dessa steg på din Windows Server-klient som är ansluten till Data Box Gateway för att ansluta till resurser.
+Du kan nu ansluta till en eller flera av de resurser som du skapade i det sista steget. Beroende på om du har en SMB- eller en NFS-resurs kan stegen variera.
+
+### <a name="connect-to-an-smb-share"></a>Ansluta till en SMB-resurs
+
+Anslut till en SMB-resurs genom att ange kommandon från Windows Server klienten är ansluten till din Data Box-Gateway:
 
 
-1. Öppna ett kommandofönster. Skriv följande i kommandotolken:
+1. I ett kommandofönster skriver du:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -93,17 +94,18 @@ Utföra dessa steg på din Windows Server-klient som är ansluten till Data Box 
 
     ```powershell
     Microsoft Windows [Version 18.8.16299.192) 
-    (c) 2817 microsoft Corporation. All rights reserved . 
+    (c) 2017 microsoft Corporation. All rights reserved . 
     
     C: \Users\GatewayUser>net use \\10.10.10.60\newtestuser /u:Tota11yNewUser 
-    Enter the password for 'TotallyNewUser' to connect to '10.10.10.60' • 
+    Enter the password for 'TotallyNewUser' to connect to '10.10.10.60'  
     The command completed successfully. 
     
     C: \Users\GatewayUser>
     ```   
 
 
-2. Tryck på Windows + R. I fönstret **Kör** anger du `\\<device IP address>`. Klicka på **OK**. Utforskaren öppnas. Du bör nu kunna se de resurser du har skapat som mappar. Välj och dubbelklicka på en resurs (mapp) för att visa innehållet.
+2. Välj Windows + r på tangentbordet 
+3. I den **kör** fönstret, ange den `\\<device IP address>` och välj sedan **OK**. Utforskaren öppnas. Du bör nu kunna se de resurser du har skapat som mappar. Dubbelklicka på en resurs (mapp) i Utforskaren för att visa innehållet.
  
     ![Ansluta till SMB-resurs](./media/data-box-gateway-deploy-add-shares/connect-to-share2.png)-->
 
@@ -111,7 +113,7 @@ Utföra dessa steg på din Windows Server-klient som är ansluten till Data Box 
 
 ### <a name="connect-to-an-nfs-share"></a>Ansluta till en NFS-resurs
 
-Utföra dessa steg på din Linux-klient som är ansluten till Data Box Edge.
+Utför följande procedur på en Linux-klient som är ansluten till en Data Box Edge-enhet:
 
 1. Kontrollera att klienten har NFSv4-klienten installerad. Om du vill installera NFS-klienten använder du följande kommando:
 
@@ -130,8 +132,8 @@ Utföra dessa steg på din Linux-klient som är ansluten till Data Box Edge.
     `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
 
 > [!NOTE] 
-> Följande villkor gäller för förhandsversionen:
-> - När en fil skapas i resurser går det inte att byta namn på filen. 
+> Följande villkor kan tillämpas på den här versionen:
+> - När en fil skapas i resurser går det inte att byta namn på filen.
 > - När en fil tas bort från en resurs försvinner inte posten i lagringskontot.
 > - Om du använder `rsync` för att kopiera data stöds inte alternativet `rsync -a`.
 

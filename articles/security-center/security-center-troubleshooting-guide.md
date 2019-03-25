@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/26/2018
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 658f38e32c2680e7c538147154a004359e431027
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 63275db36bdb64985625c3789d558bd09e2d47bc
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246754"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401450"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Felsökningsguide för Azure Security Center
 Den här guiden riktar sig till de som arbetar med IT, informationssäkerhetsanalytiker och molnadministratörer i organisationer som använder Azure Security Center och behöver felsöka Security Center-relaterade problem.
@@ -29,7 +29,7 @@ Den här guiden riktar sig till de som arbetar med IT, informationssäkerhetsana
 >
 
 ## <a name="troubleshooting-guide"></a>Felsökningsguide
-I den här guiden förklaras hur du felsöker Security Center-relaterade problem. Den mesta felsökningen i Security Center kommer att ske genom att först granska [Granskningslogg](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/)-posterna för den felaktiga komponenten. Via granskningsloggarna kan du fastställa:
+I den här guiden förklaras hur du felsöker Security Center-relaterade problem. Den mesta felsökningen i Security Center kommer att ske genom att först granska [Granskningslogg](../azure-monitor/platform/activity-logs-overview.md)-posterna för den felaktiga komponenten. Via granskningsloggarna kan du fastställa:
 
 * Vilka åtgärder som har vidtagits
 * Vem som initierade åtgärden
@@ -74,7 +74,7 @@ Det finns två installationsscenarier som kan ge olika resultat när du installe
 | Azure VM-agent saknas eller är ogiltig | Microsoft Monitoring Agent är inte installerat ännu.  En giltig agent för virtuella Azure-datorer krävs för att Security Center ska installera tillägget. | Installera, installera om eller uppgradera agenten för virtuella Azure-datorer på den virtuella datorn. |
 | VM-status inte är redo för installation  | Microsoft Monitoring Agent har inte installerats ännu eftersom den virtuella datorn inte är redo för installation. Den virtuella datorn är inte redo för installation på grund av ett problem med VM-agenten eller VM-etableringen. | Kontrollera den virtuella datorns status. Återgå till **Virtual Machines** i portalen och välj den virtuella datorn för att få statusinformation. |
 |Installationen misslyckades – allmänt fel | Microsoft Monitoring Agent installerades men misslyckades på grund av ett fel. | [Installera tillägget manuellt](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) eller avinstallera tillägget så försöker Security Center att installera det igen. |
-| Installationen misslyckades – den lokala agenten är redan installerad | Installationen av Microsoft Monitoring Agent misslyckades. Security Center identifierade en lokal agent (Log Analytics eller SCOM) redan är installerad på den virtuella datorn. För att undvika konfiguration av flera värdar, där den virtuella datorn rapporterar till två separata arbetsytor, stoppades installationen av Microsoft Monitoring Agent. | Det finns två sätt att lösa detta: [att installera tillägget manuellt](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) och ansluta det till önskad arbetsyta. Du kan även ange den önskade arbetsytan som standardarbetsyta och aktivera automatisk etablering av agenten.  Se [aktivera automatisk etablering](security-center-enable-data-collection.md). |
+| Installationen misslyckades – den lokala agenten är redan installerad | Installationen av Microsoft Monitoring Agent misslyckades. Security Center identifierade en lokal agent (Log Analytics eller System Center Operations Manager) redan är installerad på den virtuella datorn. För att undvika konfiguration av flera värdar, där den virtuella datorn rapporterar till två separata arbetsytor, stoppades installationen av Microsoft Monitoring Agent. | Det finns två sätt att lösa detta: [att installera tillägget manuellt](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) och ansluta det till önskad arbetsyta. Du kan även ange den önskade arbetsytan som standardarbetsyta och aktivera automatisk etablering av agenten.  Se [aktivera automatisk etablering](security-center-enable-data-collection.md). |
 | Agenten kan inte ansluta till arbetsytan | Microsoft Monitoring Agent installerades men misslyckades på grund av ett fel med nätverksanslutningen.  Kontrollera att du har internetåtkomst eller att en giltig HTTP-proxy har konfigurerats för agenten. | Se övervakningen nätverkskrav. |
 | Agenten ansluten till arbetsyta som saknas eller är okänd | Security Center identifierade att Microsoft Monitoring Agent som är installerat på den virtuella datorn är anslutet till en arbetsyta som det inte har åtkomst till. | Det kan hända i två fall. Arbetsytan togs bort eller finns inte längre. Installera om agenten med rätt arbetsyta eller avinstallera agenten och tillåt att Security Center slutför sin automatiska etableringsinstallation. Det andra fallet är när arbetsytan är en del av en prenumeration som Security Center inte har behörighet till. Security Center kräver att prenumerationer tillåter att Microsoft Security Resource Provider får åtkomst till dem. Aktivera genom att registrera prenumerationen på Microsoft Security Resource Provider. Du kan göra det via API, PowerShell, portalen eller helt enkelt genom att filtrera prenumerationen i Security Centers **översiktsinstrumentpanel**. Mer information finns i [Resursproviders och resurstyper](../azure-resource-manager/resource-manager-supported-services.md#azure-portal). |
 | Agenten svarar inte eller saknar ID | Security Center kan inte hämta säkerhetsdata som genomsökts från den virtuella datorn, trots att agenten är installerad. | Agenten rapporterar inga data, inte heller pulsslag. Agenten kan vara skadad eller så är det något som blockerar trafiken. Eller så rapporterar agenten data men saknar Azure-resurs-ID så att det är omöjligt att matcha data till den virtuella Azure-datorn. Felsökning av Linux beskrivs [felsökningsguide för Log Analytics-agenten för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). Om du vill felsöka i Windows läser du [Felsökning av virtuella Windows-datorer](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines). |

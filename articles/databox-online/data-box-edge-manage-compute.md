@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/13/2019
+ms.date: 03/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 8128afa7078c396156d2cbffb47effeb7de68a0b
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: de8ddd0d2886cd7798160e830094b295c62e17e9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58002090"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400684"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Hantera beräkning på Azure Data Box-Edge
 
@@ -132,6 +132,23 @@ Vidta följande steg i Azure portal för att synkronisera åtkomstnycklarna för
      ![Välj Ja om du uppmanas att göra](media/data-box-edge-manage-compute/refresh-configuration-2.png)
 
 3. Avsluta dialogrutan när synkroniseringen är klar.
+
+## <a name="enable-a-network-interface-for-compute"></a>Aktivera ett nätverksgränssnitt för beräkning
+
+Du kan behöva åtkomst till en modul som körs på din Data Box Edge-enhet. För att komma åt modulen externt, behöver du tilldela en IP-adress till ett nätverksgränssnitt på din enhet. Du kan hantera dessa compute inställningar från din lokala webbgränssnittet.
+
+Gör följande i din lokala webbgränssnitt att konfigurera inställningarna för beräkning.
+
+1. I det lokala webbgränssnittet går du till **Configuration > Compute inställningar**.  
+
+2. **Aktivera** nätverksgränssnittet som du vill använda för att ansluta till compute-moduler på enheten. 
+
+    - Om du använder statiska IP-adresser anger du en IP-adress för nätverksgränssnittet.
+    - Om du använder DHCP, ska sedan IP-adresser tilldelas automatiskt.
+
+3. Välj **tillämpa** att tillämpa inställningarna.
+
+    ![Aktivera inställningarna för beräkning](media/data-box-edge-manage-compute/compute-settings-1.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
